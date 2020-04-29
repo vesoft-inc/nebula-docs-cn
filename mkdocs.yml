@@ -1,0 +1,224 @@
+# Project information
+site_name: Nebula Graph 手册
+site_description: Documentation for Nebula Graph
+site_author: Nebula Graph
+site_url: https://docs.nebula-graph.io
+edit_uri: ''
+
+# repository
+repo_name: 'vesoft-inc/nebula'
+repo_url: 'https://github.com/vesoft-inc/nebula'
+
+# Copyright
+copyright: Copyright &copy; 2020 Nebula Graph
+
+# Configuration
+theme:
+  name: 'material'
+  logo:
+    icon: library_books
+  favicon: 'assets/images/favicon.ico'
+  palette:
+    primary: 'indigo'
+    accent: 'indigo'
+  feature:
+    tabs: true
+  language: 'zh'
+
+# extra_css:
+#     - 'theme/structor-menu.css'
+#     - 'theme/extra.css'
+
+# Customization
+extra:
+  social:
+    - type: 'github'
+      link: 'https://github.com/vesoft-inc/nebula'
+    - type: 'weibo'
+      link: 'https://www.weibo.com/u/7122684542?is_hot=1'
+    - type: 'twitter'
+      link: 'https://twitter.com/NebulaGraph'
+    - type: 'linkedin'
+      link: 'https://www.linkedin.com/company/vesoft-nebula-graph/'
+    - type: 'facebook'
+      link: 'https://www.facebook.com/NebulaGraph/'
+    - type: 'slack'
+      link: 'https://app.slack.com/client/TJB3N2BPD/CJNFUM7AR'
+
+nav:
+    # - Version: '../'
+    - English: https://docs.nebula-graph.io/
+
+    - 简介:
+      - 关于本手册: manual-CN/0.about-this-manual.md
+      - 基本概念:
+        - 数据模型: manual-CN/1.overview/1.concepts/1.data-model.md
+        - 查询语言概览: manual-CN/1.overview/1.concepts/2.nGQL-overview.md
+      - 快速开始和常用链接:
+        - 开始试用: manual-CN/1.overview/2.quick-start/1.get-started.md
+        - 常见问题 FAQ: manual-CN/1.overview/2.quick-start/2.FAQ.md
+        - Nebula Graph SDK: manual-CN/1.overview/2.quick-start/3.supported-clients.md
+        - 编译源代码: manual-CN/3.build-develop-and-administration/1.build/1.build-source-code.md
+        - 导入 .csv 文件: manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-import/import-csv-file.md
+        # - Ingest .sst File: manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-import/download-and-ingest-sst-file.md
+      - 系统设计与架构:
+        - 设计总览: manual-CN/1.overview/3.design-and-architecture/1.design-and-architecture.md
+        - 存储层架构: manual-CN/1.overview/3.design-and-architecture/2.storage-design.md
+        - 查询引擎架构: manual-CN/1.overview/3.design-and-architecture/3.query-engine.md
+
+
+    - 查询语言:
+      - 查询语言简介: manual-CN/2.query-language/0.README.md
+      - 数据类型:
+        - 基本数据类型: manual-CN/2.query-language/1.data-types/data-types.md
+        - 类型转换: manual-CN/2.query-language/1.data-types/type-conversion.md
+      - 函数与操作符:
+        - 位运算: manual-CN/2.query-language/2.functions-and-operators/bitwise-operators.md
+        - 内置函数: manual-CN/2.query-language/2.functions-and-operators/built-in-functions.md
+        - 比较运算: manual-CN/2.query-language/2.functions-and-operators/comparison-functions-and-operators.md
+        - 聚合运算 GROUP BY: manual-CN/2.query-language/2.functions-and-operators/group-by-function.md
+        - LIMIT 语法: manual-CN/2.query-language/2.functions-and-operators/limit-syntax.md
+        - 逻辑运算: manual-CN/2.query-language/2.functions-and-operators/logical-operators.md
+        - 运算符优先级: manual-CN/2.query-language/2.functions-and-operators/operator-precedence.md
+        - ORDER BY 函数: manual-CN/2.query-language/2.functions-and-operators/order-by-function.md
+        - SET 运算符: manual-CN/2.query-language/2.functions-and-operators/set-operations.md
+        - 字符比较函数和运算符: manual-CN/2.query-language/2.functions-and-operators/string-comparison-functions-and-operators.md
+        - UUID 函数: manual-CN/2.query-language/2.functions-and-operators/uuid.md
+      - 语言结构:
+        - 字面值常量:
+          - 布尔类型: manual-CN/2.query-language/3.language-structure/literal-values/boolean-literals.md
+          - 数值类型: manual-CN/2.query-language/3.language-structure/literal-values/numeric-literals.md
+          - 字符串类型: manual-CN/2.query-language/3.language-structure/literal-values/string-literals.md
+
+        - 注释语法: manual-CN/2.query-language/3.language-structure/comment-syntax.md
+        - 标识符大小写: manual-CN/2.query-language/3.language-structure/identifier-case-sensitivity.md
+        - 关键字和保留字: manual-CN/2.query-language/3.language-structure/keywords-and-reserved-words.md
+        - 管道: manual-CN/2.query-language/3.language-structure/pipe-syntax.md
+        - 属性引用: manual-CN/2.query-language/3.language-structure/property-reference.md
+        - 标识符命名规则: manual-CN/2.query-language/3.language-structure/schema-object-names.md
+        - 语句组合: manual-CN/2.query-language/3.language-structure/statement-composition.md
+        - 用户自定义变量: manual-CN/2.query-language/3.language-structure/user-defined-variables.md
+      - 语句语法:
+        - 数据定义语句 (DDL):
+            - ALTER TAG EDGE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/alter-tag-edge-syntax.md
+            - CREATE SPACE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/create-space-syntax.md
+            - CREATE TAG EDGE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/create-tag-edge-syntax.md
+            - DROP EDGE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/drop-edge-syntax.md
+            - DROP SPACE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/drop-space-syntax.md
+            - DROP TAG: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/drop-tag-syntax.md
+            - INDEX: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/index.md
+            - TTL: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/TTL.md
+        - 数据查询与操作语句 (DQL 和 DML):
+            - DELETE EDGE: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/delete-edge-syntax.md
+            - DELETE VERTEX: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/delete-vertex-syntax.md
+            - FETCH: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/fetch-syntax.md
+            - GO: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/go-syntax.md
+            - INSERT EDGE: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/insert-edge-syntax.md
+            - INSERT VERTEX: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/insert-vertex-syntax.md
+            - LOOK UP: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/lookup-syntax.md
+            - RETURN: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/return-syntax.md
+            - UPDATE VERTEX EDGE: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/update-vertex-edge-syntax.md
+            - UPSERT: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/upsert-syntax.md
+            - WHERE: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/where-syntax.md
+            - YIELD: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/yield-syntax.md
+        - 辅助功能语句:
+            - SHOW 语句:
+              - SHOW CHARSET: manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-charset-syntax.md
+              - SHOW COLLATION: manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-collation-syntax.md
+              - SHOW CONFIGS: manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-configs-syntax.md
+              - SHOW CREATE SPACE: manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-create-space-syntax.md
+              - SHOW CREATE TAG EDGE: manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-create-tag-edge-syntax.md
+              - SHOW HOSTS: manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-hosts-syntax.md
+              - SHOW INDEXES: manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-indexes-syntax.md
+              - SHOW PARTS: manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-parts-syntax.md
+              - SHOW ROLES: manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-roles-syntax.md
+              - SHOW SNAPSHOTS: manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-snapshots-syntax.md
+              - SHOW SPACES: manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-spaces-syntax.md
+              - SHOW TAGS EDGES: manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-tags-edges-syntax.md
+              - SHOW USERS: manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-users-syntax.md
+
+            - DESCRIBE: manual-CN/2.query-language/4.statement-syntax/3.utility-statements/describe-syntax.md
+            - USE: manual-CN/2.query-language/4.statement-syntax/3.utility-statements/use-syntax.md
+        - 图算法:
+            - FIND PATH: manual-CN/2.query-language/4.statement-syntax/4.graph-algorithms/find-path-syntax.md
+
+    - 编译、部署与运维:
+      - 编译:
+        - 编译源代码: manual-CN/3.build-develop-and-administration/1.build/1.build-source-code.md
+        - 使用 Docker 编译: manual-CN/3.build-develop-and-administration/1.build/2.build-by-docker.md
+      - 安装:
+        - prm 安装: manual-CN/3.build-develop-and-administration/2.install/1.install-with-rpm-deb.md
+        - 启停服务: manual-CN/3.build-develop-and-administration/2.install/2.start-stop-service.md
+      - 配置:
+          - 系统要求: manual-CN/3.build-develop-and-administration/3.configurations/0.system-requirement.md
+          - 配置持久化与优先级: manual-CN/3.build-develop-and-administration/3.configurations/1.config-persistency-and-priority.md
+          - CONFIG 语法: manual-CN/3.build-develop-and-administration/3.configurations/2.configs-syntax.md
+          - Metad 配置: manual-CN/3.build-develop-and-administration/3.configurations/3.meta-config.md
+          - Graphd 配置: manual-CN/3.build-develop-and-administration/3.configurations/4.graph-config.md
+          - Storaged 配置: manual-CN/3.build-develop-and-administration/3.configurations/5.storage-config.md
+          - Console 配置: manual-CN/3.build-develop-and-administration/3.configurations/6.console-config.md
+      - 账号权限管理:
+          - Alter User: manual-CN/3.build-develop-and-administration/4.account-management-statements/alter-user-syntax.md
+          - Built-in Roles: manual-CN/3.build-develop-and-administration/4.account-management-statements/built-in-roles.md
+          - Change Password: manual-CN/3.build-develop-and-administration/4.account-management-statements/change-password.md
+          - Create User: manual-CN/3.build-develop-and-administration/4.account-management-statements/create-user-syntax.md
+          - Drop User: manual-CN/3.build-develop-and-administration/4.account-management-statements/drop-user-syntax.md
+          - Grant Role: manual-CN/3.build-develop-and-administration/4.account-management-statements/grant-role-syntax.md
+          - Revoke: manual-CN/3.build-develop-and-administration/4.account-management-statements/revoke-syntax.md
+
+      - 批量数据管理:
+          - 离线数据导入:
+            # - Download And Ingest .sst File: manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-import/download-and-ingest-sst-file.md
+            - 读取 .csv 文件: manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-import/import-csv-file.md
+            - Spark 导入工具: manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-import/spark-writer.md
+          - 离线数据转储:
+            - Dump Tool: manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-export/dump-tool.md
+          - 负载均衡和数据迁移: manual-CN/3.build-develop-and-administration/5.storage-service-administration/storage-balance.md
+          - 集群快照: manual-CN/3.build-develop-and-administration/5.storage-service-administration/cluster-snapshot.md
+          - 长耗时任务管理: manual-CN/3.build-develop-and-administration/5.storage-service-administration/job-manager.md
+
+      - 监控与统计:
+        - 接入 Prometheus: manual-CN/3.build-develop-and-administration/7.monitor/0.connect-prometheus.md
+        - Metrics: manual-CN/3.build-develop-and-administration/7.monitor/1.metrics-exposer.md
+        - Meta Metrics: manual-CN/3.build-develop-and-administration/7.monitor/2.meta-metrics.md
+        - Storage Metrics: manual-CN/3.build-develop-and-administration/7.monitor/3.storage-metrics.md
+        - Graph Metrics: manual-CN/3.build-develop-and-administration/7.monitor/4.graph-metrics.md
+
+      - 源码开发和 API:
+        - Key Value API: manual-CN/3.build-develop-and-administration/6.develop-and-interface/kv-interfaces.md
+        - Nebula Graph 客户端: manual-CN/1.overview/2.quick-start/3.supported-clients.md
+
+    - 社区贡献:
+      - 贡献文档: manual-CN/4.contributions/contribute-to-documentation.md
+      - C++ 编程风格: manual-CN/4.contributions/cpp-coding-style.md
+      # - Developer Documentation Style Guide: manual-CN/4.contributions/developer-documentation-style-guide.md
+      - 如何贡献: manual-CN/4.contributions/how-to-contribute.md
+      - PR and Commit 信息指南: manual-CN/4.contributions/pull-request-commit-message-guidelines.md
+    - 附录:
+      - Cypher & nGQL: manual-CN/5.appendix/cypher-ngql.md
+      - Gremlin & nGQL: manual-CN/5.appendix/gremlin-ngql.md
+      - 升级 Nebula Graph: manual-CN/5.appendix/upgrade-guide.md
+
+
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+      separator: "_"
+  - mdx_truly_sane_lists
+
+# Plugins
+plugins:
+  - search
+  # - mkdocs-versioning:
+  #     version: RC4
+
+
+
+
+
+
