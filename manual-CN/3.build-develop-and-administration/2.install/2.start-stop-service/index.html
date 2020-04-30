@@ -1652,8 +1652,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2480,7 +2480,7 @@
                 
                 <h1 id="nebula_graph">启动和停止 Nebula Graph 服务<a class="headerlink" href="#nebula_graph" title="Permanent link">&para;</a></h1>
 <h2 id="nebula_graph_1">输入以下命令启动 Nebula Graph 服务<a class="headerlink" href="#nebula_graph_1" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>sudo /usr/local/nebula/scripts/nebula.service start all
+<div class="highlight"><pre><span></span><code>sudo /usr/local/nebula/scripts/nebula.service start all
 <span class="o">[</span>INFO<span class="o">]</span> Starting nebula-metad...
 <span class="o">[</span>INFO<span class="o">]</span> Done
 <span class="o">[</span>INFO<span class="o">]</span> Starting nebula-graphd...
@@ -2489,25 +2489,22 @@
 <span class="o">[</span>INFO<span class="o">]</span> Done
 </code></pre></div>
 
-
 <h2 id="nebula_graph_2">查看 Nebula Graph 服务<a class="headerlink" href="#nebula_graph_2" title="Permanent link">&para;</a></h2>
 <p>输入以下命令查看 <strong>Nebula Graph</strong> 服务：</p>
-<div class="codehilite"><pre><span></span><code>sudo /usr/local/nebula/scripts/nebula.service status all
+<div class="highlight"><pre><span></span><code>sudo /usr/local/nebula/scripts/nebula.service status all
 <span class="o">[</span>INFO<span class="o">]</span> nebula-metad: Running as <span class="m">9576</span>, Listening on <span class="m">45500</span>
 <span class="o">[</span>INFO<span class="o">]</span> nebula-graphd: Running as <span class="m">9679</span>, Listening on <span class="m">3699</span>
 <span class="o">[</span>INFO<span class="o">]</span> nebula-storaged: Running as <span class="m">9812</span>, Listening on <span class="m">44500</span>
 </code></pre></div>
 
-
 <h2 id="nebula_graph_3">连接 Nebula Graph 服务<a class="headerlink" href="#nebula_graph_3" title="Permanent link">&para;</a></h2>
 <p>输入以下命令连接 <strong>Nebula Graph</strong> 服务：</p>
-<div class="codehilite"><pre><span></span><code>sudo /usr/local/nebula/bin/nebula -u &lt;user&gt; -p &lt;password&gt; <span class="o">[</span>--addr<span class="o">=</span>&lt;graphd IP&gt; --port<span class="o">=</span>&lt;graphd port&gt;<span class="o">]</span>
+<div class="highlight"><pre><span></span><code>sudo /usr/local/nebula/bin/nebula -u &lt;user&gt; -p &lt;password&gt; <span class="o">[</span>--addr<span class="o">=</span>&lt;graphd IP&gt; --port<span class="o">=</span>&lt;graphd port&gt;<span class="o">]</span>
 
 Welcome to Nebula Graph <span class="o">(</span>Version RC4<span class="o">)</span>
 
 nebula&gt; SHOW HOSTS<span class="p">;</span>
 </code></pre></div>
-
 
 <ul>
 <li>-u 用户名称，默认值为 <code>user</code></li>
@@ -2518,7 +2515,7 @@ nebula&gt; SHOW HOSTS<span class="p">;</span>
 </ul>
 <h2 id="nebula_graph_4">停止 Nebula Graph 服务<a class="headerlink" href="#nebula_graph_4" title="Permanent link">&para;</a></h2>
 <p>输入以下命令停止 <strong>Nebula Graph</strong> 服务：</p>
-<div class="codehilite"><pre><span></span><code>sudo /usr/local/nebula/scripts/nebula.service stop all
+<div class="highlight"><pre><span></span><code>sudo /usr/local/nebula/scripts/nebula.service stop all
 <span class="o">[</span>INFO<span class="o">]</span> Stopping nebula-metad...
 <span class="o">[</span>INFO<span class="o">]</span> Done
 <span class="o">[</span>INFO<span class="o">]</span> Stopping nebula-graphd...
@@ -2527,13 +2524,11 @@ nebula&gt; SHOW HOSTS<span class="p">;</span>
 <span class="o">[</span>INFO<span class="o">]</span> Done
 </code></pre></div>
 
-
 <h2 id="nebula_graph_5">启停单个 Nebula Graph 模块<a class="headerlink" href="#nebula_graph_5" title="Permanent link">&para;</a></h2>
 <p>可以使用脚本 nebula.service 来控制对单个模块的启停。</p>
-<div class="codehilite"><pre><span></span><code>sudo /usr/local/nebula/scripts/nebula.service
+<div class="highlight"><pre><span></span><code>sudo /usr/local/nebula/scripts/nebula.service
 Usage: ./nebula.service <span class="o">[</span>-v<span class="o">]</span> <span class="o">[</span>-c /path/to/config<span class="o">]</span> &lt;start<span class="p">|</span>stop<span class="p">|</span>restart<span class="p">|</span>status<span class="p">|</span>kill&gt; &lt;metad<span class="p">|</span>graphd<span class="p">|</span>storaged<span class="p">|</span>all&gt;
 </code></pre></div>
-
 
 <ul>
 <li>-v 本脚本的详细调试信息</li>
@@ -2560,7 +2555,7 @@ Usage: ./nebula.service <span class="o">[</span>-v<span class="o">]</span> <span
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../1.install-with-rpm-deb/" title="prm 安装" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../1.install-with-rpm-deb/" title="rpm 安装" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -2569,7 +2564,7 @@ Usage: ./nebula.service <span class="o">[</span>-v<span class="o">]</span> <span
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                prm 安装
+                rpm 安装
               </span>
             </div>
           </a>

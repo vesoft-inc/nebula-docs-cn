@@ -1650,8 +1650,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2445,7 +2445,7 @@
 <p><strong>注意：</strong> Dump Tool 位于 rpm 包中，目录是 <code>nebula/bin/</code>。该工具通过直接打开 RocksDB 转储数据，因此需要离线使用，关闭该 storaged 进程，并同时保持 meta_server 已启动。具体用法请参考下方说明。</p>
 <h2 id="_2">如何使用<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>具体用法如下所示，用户可以通过执行不带参数的 <code>db_dump</code> 命令获得帮助。其中 <code>space</code> 参数是必须的，而 <code>db_path</code> 以及 <code>meta_server</code> 具有默认值，用户可以按照实际配置。<code>vids</code>、<code>parts</code>、<code>tags</code>、<code>edges</code> 可以任意组合，导出你需要的数据。</p>
-<div class="codehilite"><pre><span></span><code>  ./db_dump --space<span class="o">=</span>&lt;space name&gt;
+<div class="highlight"><pre><span></span><code>  ./db_dump --space<span class="o">=</span>&lt;space name&gt;
 
 required:
        --space<span class="o">=</span>&lt;space name&gt;
@@ -2486,9 +2486,8 @@ optional:
          <span class="c1"># Default: 1000</span>
 </code></pre></div>
 
-
 <p>下面是一些示例：</p>
-<div class="codehilite"><pre><span></span><code>// 指定 space 导出数据
+<div class="highlight"><pre><span></span><code>// 指定 space 导出数据
 ./db_dump --space<span class="o">=</span>space_name
 
 // 指定space, db_path, meta_server
@@ -2504,9 +2503,8 @@ optional:
 ./db_dump --space<span class="o">=</span>space_name --mode<span class="o">=</span>stat --db_path<span class="o">=</span>/usr/local/nebula/data/storage/nebula/ --meta_server<span class="o">=</span><span class="m">127</span>.0.0.1:45513 --tags<span class="o">=</span>tag1,tag2
 </code></pre></div>
 
-
 <p>返回的数据格式：</p>
-<div class="codehilite"><pre><span></span><code>// 点，key: part_id, vertex_id, tag_name, value: &lt;prop_list&gt;
+<div class="highlight"><pre><span></span><code>// 点，key: part_id, vertex_id, tag_name, value: &lt;prop_list&gt;
 <span class="o">[</span>vertex<span class="o">]</span> key: <span class="m">1</span>, <span class="m">0</span>, poi value:mid:0,8191765721868409651,8025713627522363385,1993089399535188613,3926276052777355165,5123607763506443893,2990089379644866415,poi_name_0,上海,华东,30.2824,120.016,poi_stat_0,poi_fc_0,poi_sc_0,0,poi_star_0,
 
 // 边, key: part_id, src_id, edge_name, ranking, dst_id, value: &lt;prop_list&gt;

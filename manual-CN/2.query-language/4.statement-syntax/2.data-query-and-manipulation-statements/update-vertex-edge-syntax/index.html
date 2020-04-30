@@ -1699,8 +1699,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2441,9 +2441,8 @@
                 <h1 id="update">UPDATE 语法<a class="headerlink" href="#update" title="Permanent link">&para;</a></h1>
 <p><strong>Nebula Graph</strong> 支持 <code>UPDATE</code> 一个点或者一条边的属性，支持 CAS 操作，支持返回相关的属性。</p>
 <h2 id="_1">更新点<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>UPDATE VERTEX &lt;vid&gt; SET &lt;update_columns&gt; [WHEN &lt;condition&gt;] [YIELD &lt;columns&gt;]
+<div class="highlight"><pre><span></span><code>UPDATE VERTEX &lt;vid&gt; SET &lt;update_columns&gt; [WHEN &lt;condition&gt;] [YIELD &lt;columns&gt;]
 </code></pre></div>
-
 
 <p><strong>注意：</strong><code>WHEN</code> 和 <code>YIELD</code> 是可选的。</p>
 <ul>
@@ -2456,17 +2455,15 @@
 <li><code>columns</code> 表示需要返回的 columns，此处 <code>YIELD</code> 可返回 update 以后最新的 columns 值。</li>
 </ul>
 <p>举例如下：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; UPDATE VERTEX 101 SET player.age = $^.player.age + 1 \
+<div class="highlight"><pre><span></span><code>nebula&gt; UPDATE VERTEX 101 SET player.age = $^.player.age + 1 \
 WHEN $^.player.name == &quot;Tony Parker&quot; \
 YIELD $^.player.name AS name, $^.player.age AS age;
 </code></pre></div>
 
-
 <p>这个例子里面，101 有一个 tag，即 player。</p>
 <h2 id="_2">更新边<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>UPDATE EDGE &lt;edge&gt; SET &lt;update_columns&gt; [WHEN &lt;condition&gt;] [YIELD &lt;columns&gt;]
+<div class="highlight"><pre><span></span><code>UPDATE EDGE &lt;edge&gt; SET &lt;update_columns&gt; [WHEN &lt;condition&gt;] [YIELD &lt;columns&gt;]
 </code></pre></div>
-
 
 <p><strong>注意：</strong><code>WHEN</code> 和 <code>YIELD</code> 是可选的。</p>
 <ul>
@@ -2476,7 +2473,7 @@ YIELD $^.player.name AS name, $^.player.age AS age;
 <li><code>columns</code> 表示需要返回的 columns，此处 YIELD 可返回 update 以后最新的 columns 值。</li>
 </ul>
 <p>举例如下：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; UPDATE EDGE 100 -&gt; 200@0 OF serve SET start_year = serve.start_year + 1 \
+<div class="highlight"><pre><span></span><code>nebula&gt; UPDATE EDGE 100 -&gt; 200@0 OF serve SET start_year = serve.start_year + 1 \
 YIELD $^.player.name AS name, serve.start_year AS start;
 </code></pre></div>
                 

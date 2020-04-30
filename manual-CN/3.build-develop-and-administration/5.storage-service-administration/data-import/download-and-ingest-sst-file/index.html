@@ -1646,8 +1646,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2368,7 +2368,7 @@
 <p><code>Spark-SSTFile-Generator</code> 通过映射文件，从 hive 表生成 SST 文件。</p>
 <p>具体用法详见 <a href="https://github.com/vesoft-inc/nebula/blob/master/src/tools/spark-sstfile-generator/README.md">Spark application command line reference</a>。</p>
 <p>执行后会在 <code>HDFS</code> 上生成 SST 文件，目录结构如下：</p>
-<div class="codehilite"><pre><span></span><code>|---1 (this is partition number)
+<div class="highlight"><pre><span></span><code>|---1 (this is partition number)
 |        | ---- vertex-${FIRST_KEY_IN_THIS_FILE}.sst
 |        | ---- edge-${FIRST_KEY_IN_THIS_FILE}.sst
 |---2
@@ -2377,14 +2377,12 @@
 ....
 </code></pre></div>
 
-
 <p>其中各个目录为 partition 编号。</p>
 <p>SST 文件名格式为 <code>{TYPE}-${FIRST_KEY_IN_THIS_FILE}.sst</code>，其中 <code>TYPE</code> 表示数据类型，<code>FIRST_KEY_IN_THIS_FILE</code> 为文件中的起始 key。（如果你想自己写工具生成 SST 文件，需要保证每个 <code>SST</code>  文件中的 key 是有序的。)</p>
 <p>请确认所有 server 已安装 <code>Hadoop</code>，并且 <code>HADOOP_HOME</code> 已设置。</p>
 <p>运行 <strong>Nebula Graph</strong> console，执行 Download 命令：</p>
-<div class="codehilite"><pre><span></span><code>nebula &gt; DOWNLOAD HDFS &quot;hdfs://${HADOOP_HOST}:${HADOOP_PORT}/${HADOOP_PATH}&quot;
+<div class="highlight"><pre><span></span><code>nebula &gt; DOWNLOAD HDFS &quot;hdfs://${HADOOP_HOST}:${HADOOP_PORT}/${HADOOP_PATH}&quot;
 </code></pre></div>
-
 
 <p>通过 <code>download</code> 命令以及各个 <code>Storage Server</code> 的 <code>meta</code> 信息，分别下载各自的 <code>SST</code> 文件到 <code>data/download</code> 目录中。其中：</p>
 <ul>
@@ -2396,9 +2394,8 @@
 <p>数据下载完毕后，重新执行该命令不会发生任何操作。</p>
 <p>SST 数据离线下载完成后，通过 <code>INGEST</code> 命令在线<strong>加载</strong>到存储服务中。</p>
 <p>Ingest 命令如下：</p>
-<div class="codehilite"><pre><span></span><code>nebula &gt; INGEST;
+<div class="highlight"><pre><span></span><code>nebula &gt; INGEST;
 </code></pre></div>
-
 
 <p>该命令将加载 <code>download</code> 目录中的 <code>SST</code> 文件。</p>
 <p><strong>注意：</strong> 数据量较大时 <code>ingest</code> 会阻塞 <code>RocksDB</code>，请避免在请求高峰执行该命令。</p>

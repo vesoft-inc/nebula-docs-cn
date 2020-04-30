@@ -1744,8 +1744,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2534,34 +2534,29 @@
 <p><code>WHERE</code> 和 <code>YIELD</code> 可引用节点或边的属性。</p>
 <h2 id="_2">引用点的属性<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="_3">引用起点的属性<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>$^.tag_name.prop_name
+<div class="highlight"><pre><span></span><code>$^.tag_name.prop_name
 </code></pre></div>
-
 
 <p>其中符号 <code>$^</code> 用于获取起点属性，<code>tag_name</code> 表示起点的 <code>tag</code>，<code>prop_name</code> 为指定属性的名称。</p>
 <h3 id="_4">引用终点的属性<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>$$.tag_name.prop_name
+<div class="highlight"><pre><span></span><code>$$.tag_name.prop_name
 </code></pre></div>
-
 
 <p>其中符号 <code>$$</code> 用于获取终点属性，<code>tag_name</code> 表示终点的 <code>tag</code>，<code>prop_name</code> 为指定属性的名称。</p>
 <h3 id="_5">示例<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 100 OVER follow YIELD $^.player.name AS startName, $$.player.age AS endAge;
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 100 OVER follow YIELD $^.player.name AS startName, $$.player.age AS endAge;
 </code></pre></div>
-
 
 <p>该语句用于获取起点的属性名称和终点的属性年龄。</p>
 <h2 id="_6">引用边<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <h3 id="_7">引用边的属性<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>使用如下方式获取边属性：</p>
-<div class="codehilite"><pre><span></span><code>edge_type.edge_prop
+<div class="highlight"><pre><span></span><code>edge_type.edge_prop
 </code></pre></div>
-
 
 <p>此处，<code>edge_type</code>为边的类型，<code>edge_prop</code>为属性，例如：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 100 OVER follow YIELD follow.degree;
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 100 OVER follow YIELD follow.degree;
 </code></pre></div>
-
 
 <h3 id="_8">引用边的内置属性<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p>一条边有四个内置属性：</p>
@@ -2573,9 +2568,8 @@
 </ul>
 <p>获取起点和终点 ID 可通过 <code>_src</code> 和 <code>_dst</code> 获取，这在显示图路径时经常会用到。</p>
 <p>例如：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 100 OVER follow YIELD follow._src AS startVID /* 起点为100 */, follow._dst AS endVID;
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 100 OVER follow YIELD follow._src AS startVID /* 起点为100 */, follow._dst AS endVID;
 </code></pre></div>
-
 
 <p>该语句通过引用 <code>follow._src</code> 作为起点 ID 和 <code>follow._dst</code> 作为终点 ID，返回起点 100 <code>follow</code> 的所有邻居节点。其中 <code>follow._src</code> 返回起点 ID，<code>follow._dst</code> 返回终点 ID。</p>
                 

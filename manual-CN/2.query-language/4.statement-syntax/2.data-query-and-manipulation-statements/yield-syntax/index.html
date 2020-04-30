@@ -1719,8 +1719,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2481,15 +2481,14 @@
                 <h1 id="yield">YIELD 子句、语句<a class="headerlink" href="#yield" title="Permanent link">&para;</a></h1>
 <p><code>YIELD</code> 关键词可以在 <code>FETCH</code>、<code>GO</code> 语句中作为子句使用，也可以在 <code>PIPE</code>(<code>|</code>) 中作为独立的语句使用，同时可以作为用于计算的单句使用。</p>
 <h2 id="_1">作为子句<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>YIELD
+<div class="highlight"><pre><span></span><code>YIELD
     [DISTINCT]
     &lt;col_name&gt; [AS &lt;col_alias&gt;]
     [, &lt;col_name&gt; [AS &lt;col_alias&gt;] ...]
 </code></pre></div>
 
-
 <p>常用于返回由 <code>GO</code>（详情请参阅 <a href="../go-syntax/">GO</a> 用法）语句生成的结果。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 100 OVER follow YIELD $$.player.name AS Friend, $$.player.age AS Age;
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 100 OVER follow YIELD $$.player.name AS Friend, $$.player.age AS Age;
 ===========================
 | Friend            | Age |
 ===========================
@@ -2501,7 +2500,6 @@
 ---------------------------
 </code></pre></div>
 
-
 <p>例如， <code>$$.player.name</code> 用来获取目标点（$$）的属性。</p>
 <h2 id="_2">作为语句<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="_3">引用输入或者变量<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
@@ -2510,15 +2508,14 @@
 <li>可以用于引用变量。</li>
 <li>对于那些不支持 <code>YIELD</code> 子句的语句，可以使用 <code>YIELD</code> 语句作为一个工具，控制输出。</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>YIELD
+<div class="highlight"><pre><span></span><code>YIELD
     [DISTINCT]
     &lt;col_name&gt; [AS &lt;col_alias&gt;]
     [, &lt;col_name&gt; [AS &lt;col_alias&gt;] ...]
     [WHERE &lt;conditions&gt;]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 100 OVER follow YIELD follow._dst AS id | YIELD $-.* WHERE $-.id == 106;
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 100 OVER follow YIELD follow._dst AS id | YIELD $-.* WHERE $-.id == 106;
 
 =========
 | $-.id |
@@ -2541,12 +2538,11 @@ nebula&gt; $var1 = GO FROM 101 OVER follow; $var2 = GO FROM 105 OVER follow; YIE
 ---------------------
 </code></pre></div>
 
-
 <h3 id="_4">作为独立的语句<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <ul>
 <li>YIELD 语句可以独立使用，用于一些简单的计算。您可以使用 <code>AS</code> 重命名返回的列。</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>nebula&gt; YIELD 1 + 1;
+<div class="highlight"><pre><span></span><code>nebula&gt; YIELD 1 + 1;
 =========
 | (1+1) |
 =========
@@ -2568,9 +2564,8 @@ nebula&gt; YIELD hash(&quot;Tim&quot;) % 100;
 ---------------------
 </code></pre></div>
 
-
 <p><strong>注意：</strong> 不支持 <code>YIELD DISTINCT</code> 在单句中使用。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; YIELD DISTINCT 1;     --- 语法错误
+<div class="highlight"><pre><span></span><code>nebula&gt; YIELD DISTINCT 1;     --- 语法错误
 </code></pre></div>
                 
                   

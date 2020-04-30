@@ -1710,8 +1710,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2475,17 +2475,15 @@
 </blockquote>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="_3">分号复合语句<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>nebula&gt; SHOW TAGS; SHOW EDGES;          -- 仅列出边
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW TAGS; SHOW EDGES;          -- 仅列出边
 nebula&gt; INSERT VERTEX player(name, age) VALUES 100:(&quot;Tim Duncan&quot;, 42); \
   INSERT VERTEX player(name, age) VALUES 101:(&quot;Tony Parker&quot;, 36); \
   INSERT VERTEX player(name, age) VALUES 102:(&quot;LaMarcus Aldridge&quot;, 33);  /* 通过复合语句插入多个点*/
 </code></pre></div>
 
-
 <h3 id="_4">管道复合语句<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 201 OVER edge_serve | GO FROM $-.id OVER edge_fans | GO FROM $-.id ...
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 201 OVER edge_serve | GO FROM $-.id OVER edge_fans | GO FROM $-.id ...
 </code></pre></div>
-
 
 <p>占位符 <code>$-.id</code> 获取第一个语句 <code>GO FROM 201 OVER edge_serve YIELD edge_serve._dst AS id</code> 返回的结果。</p>
                 

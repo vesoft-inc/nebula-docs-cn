@@ -1646,8 +1646,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../manual-CN/3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../manual-CN/3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2398,33 +2398,28 @@
 <p>Use the provided script <code>merge-all.py</code> to merge all the markdown doc files into one.</p>
 <h2 id="step_two_generate_toc">Step Two: Generate TOC<a class="headerlink" href="#step_two_generate_toc" title="Permanent link">&para;</a></h2>
 <p>Use pandoc to generated TOC (table of content) for the file you just merged. Firstly, you should make sure that pandoc has been installed on your machine. Open your terminal and run the command:</p>
-<div class="codehilite"><pre><span></span><code>pandoc -v
+<div class="highlight"><pre><span></span><code>pandoc -v
 </code></pre></div>
-
 
 <p>If pandoc is not installed, please install it first.</p>
 <p><strong>Windows</strong></p>
-<div class="codehilite"><pre><span></span><code>choco install pandoc
+<div class="highlight"><pre><span></span><code>choco install pandoc
 </code></pre></div>
-
 
 <p><strong>macOS</strong></p>
-<div class="codehilite"><pre><span></span><code>brew install pandoc
+<div class="highlight"><pre><span></span><code>brew install pandoc
 </code></pre></div>
-
 
 <p>If you have any questions on pandoc installation, please check its document <a href="https://pandoc.org/installing.html">here</a>.</p>
 <p>To generate TOC, you should first change directory to the merged file and type the following command:</p>
-<div class="codehilite"><pre><span></span><code>pandoc -s --toc merged.md -o merged.md
+<div class="highlight"><pre><span></span><code>pandoc -s --toc merged.md -o merged.md
 </code></pre></div>
-
 
 <p><strong>Note</strong>: The default number of section levels is 3 in the table of contents (which means that level-1, 2, and 3 headings will be listed in the contents), use <code>--toc-depth=NUMBER</code> to specify that number.</p>
 <h2 id="step_three_generate_pdf">Step Three: Generate PDF<a class="headerlink" href="#step_three_generate_pdf" title="Permanent link">&para;</a></h2>
 <p>You can convert the merged markdown file into PDF and print it out for easy-reading. Use the following command to generate PDF:</p>
-<div class="codehilite"><pre><span></span><code>pandoc merged.md  -o merged.pdf
+<div class="highlight"><pre><span></span><code>pandoc merged.md  -o merged.pdf
 </code></pre></div>
-
 
 <p><strong>Note:</strong> Make sure <a href="https://miktex.org/howto/install-miktex">MiKTeX</a> is installed.</p>
 <p>Now you've got your PDF documentation and have fun with <strong>Nebula Graph</strong>.</p>

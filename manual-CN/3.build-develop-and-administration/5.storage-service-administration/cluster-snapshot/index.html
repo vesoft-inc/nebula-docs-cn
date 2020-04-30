@@ -1650,8 +1650,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2468,14 +2468,13 @@
 <h2 id="_2">创建快照<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><code>CREATE SNAPSHOT</code> 命令可对整个集群创建当前时间点的快照，快照名称由 meta server 的时间戳组成。当前版本如果快照创建失败，必须通过 <code>DROP SNAPSHOT</code> 命令清除无效的快照。</p>
 <p>当前版本不支持对指定的图空间创建快照，当执行 <code>CREATE SNAPSHOT</code> 后，将对集群中的所有图空间创建快照。例如：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE SNAPSHOT;
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE SNAPSHOT;
 Execution succeeded (Time spent: 22892/23923 us)
 </code></pre></div>
 
-
 <h2 id="_3">查看快照<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p><code>SHOW SNAPSHOT</code> 命令可查看集群中所有快照状态（VALID 或 INVALID）、名称和创建快照时所有 storage server 的 IP 地址。例如：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; SHOW SNAPSHOTS;
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW SNAPSHOTS;
 ===========================================================
 | Name                         | Status | Hosts           |
 ===========================================================
@@ -2487,15 +2486,13 @@ Execution succeeded (Time spent: 22892/23923 us)
 -----------------------------------------------------------
 </code></pre></div>
 
-
 <h2 id="_4">删除快照<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p><code>DROP SNAPSHOT</code> 命令可删除指定名称的快照，语法为：</p>
-<div class="codehilite"><pre><span></span><code>DROP SNAPSHOT &lt;snapshot-name&gt;
+<div class="highlight"><pre><span></span><code>DROP SNAPSHOT &lt;snapshot-name&gt;
 </code></pre></div>
 
-
 <p>可以通过 <code>SHOW SNAPSHOTS</code> 命令获取快照名称，<code>DROP SNAPSHOT</code> 既可以删除有效的快照，也可以删除创建失败的快照。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; DROP SNAPSHOT SNAPSHOT_2019_12_04_10_54_36;
+<div class="highlight"><pre><span></span><code>nebula&gt; DROP SNAPSHOT SNAPSHOT_2019_12_04_10_54_36;
 nebula&gt; SHOW SNAPSHOTS;
 ===========================================================
 | Name                         | Status | Hosts           |
@@ -2505,7 +2502,6 @@ nebula&gt; SHOW SNAPSHOTS;
 | SNAPSHOT_2019_12_04_10_54_44 | VALID  | 127.0.0.1:77833 |
 -----------------------------------------------------------
 </code></pre></div>
-
 
 <p>此时删除的快照已不在快照列表中。</p>
 <h2 id="_5">注意事项<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>

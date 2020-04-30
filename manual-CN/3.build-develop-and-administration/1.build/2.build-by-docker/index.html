@@ -1711,8 +1711,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2467,12 +2467,11 @@
                 <h1 id="docker">通过 Docker 构建<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h1>
 <p><strong>Nebula Graph</strong> 提供整个编译环境的 docker 镜像 <a href="https://hub.docker.com/r/vesoft/nebula-dev">vesoft/nebula-dev</a>，支持在本地更改源代码，构建并在容器中调试。执行以下步骤以开始快速开发：</p>
 <h2 id="docker_hub">从 Docker Hub 获取镜像<a class="headerlink" href="#docker_hub" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>bash&gt; docker pull vesoft/nebula-dev
+<div class="highlight"><pre><span></span><code>bash&gt; docker pull vesoft/nebula-dev
 </code></pre></div>
 
-
 <h2 id="docker_homenebula">运行 docker 容器并将本地源码目录挂载到容器工作目录 <code>/home/nebula</code> 中<a class="headerlink" href="#docker_homenebula" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>bash&gt; docker run --rm -ti <span class="se">\</span>
+<div class="highlight"><pre><span></span><code>bash&gt; docker run --rm -ti <span class="se">\</span>
   --security-opt <span class="nv">seccomp</span><span class="o">=</span>unconfined <span class="se">\</span>
   -v /path/to/nebula/directory:/home/nebula <span class="se">\</span>
   -w /home/nebula <span class="se">\</span>
@@ -2480,31 +2479,27 @@
   bash
 </code></pre></div>
 
-
 <p>将 <code>/path/to/nebula/directory</code> 替换成你个人的 <strong>源码路径</strong>。</p>
 <h2 id="_1">在容器内编译<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>docker&gt; mkdir _build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> _build
+<div class="highlight"><pre><span></span><code>docker&gt; mkdir _build <span class="o">&amp;&amp;</span> <span class="nb">cd</span> _build
 docker&gt; cmake ..
 docker&gt; make
 docker&gt; make install
 </code></pre></div>
 
-
 <h2 id="nebula_graph">启动 Nebula Graph 服务<a class="headerlink" href="#nebula_graph" title="Permanent link">&para;</a></h2>
 <p>上述步骤完成后即可在容器内启动服务，默认安装目录为 <code>/usr/local/nebula/</code>。</p>
-<div class="codehilite"><pre><span></span><code>docker&gt; <span class="nb">cd</span> /usr/local/nebula
+<div class="highlight"><pre><span></span><code>docker&gt; <span class="nb">cd</span> /usr/local/nebula
 </code></pre></div>
 
-
 <p>重命名 <strong>Nebula Graph</strong> 服务的配置文件</p>
-<div class="codehilite"><pre><span></span><code>docker&gt; cp etc/nebula-graphd.conf.default etc/nebula-graphd.conf
+<div class="highlight"><pre><span></span><code>docker&gt; cp etc/nebula-graphd.conf.default etc/nebula-graphd.conf
 docker&gt; cp etc/nebula-metad.conf.default etc/nebula-metad.conf
 docker&gt; cp etc/nebula-storaged.conf.default etc/nebula-storaged.conf
 </code></pre></div>
 
-
 <p>启动服务</p>
-<div class="codehilite"><pre><span></span><code>docker&gt; ./scripts/nebula.service start all
+<div class="highlight"><pre><span></span><code>docker&gt; ./scripts/nebula.service start all
 docker&gt; ./bin/nebula -u user -p password --port <span class="m">3699</span> --addr<span class="o">=</span><span class="s2">&quot;127.0.0.1&quot;</span>
 nebula&gt; SHOW HOSTS<span class="p">;</span>
 </code></pre></div>
@@ -2544,13 +2539,13 @@ nebula&gt; SHOW HOSTS<span class="p">;</span>
           </a>
         
         
-          <a href="../../2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                prm 安装
+                rpm 安装
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

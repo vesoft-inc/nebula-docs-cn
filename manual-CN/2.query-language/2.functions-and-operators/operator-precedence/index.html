@@ -1661,8 +1661,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2379,7 +2379,7 @@
                 
                 <h1 id="_1">运算符优先级<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>下面的列表展示了 nGQL 运算符的优先级（降序）。同一行的运算符拥有一致的优先级。</p>
-<div class="codehilite"><pre><span></span><code><span class="o">!</span>
+<div class="highlight"><pre><span></span><code><span class="o">!</span>
 <span class="o">-</span> <span class="p">(</span><span class="err">减法</span><span class="p">)</span>
 <span class="o">*</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="o">%</span>
 <span class="o">-</span><span class="p">,</span> <span class="o">+</span>
@@ -2389,10 +2389,9 @@
 <span class="o">=</span> <span class="p">(</span><span class="err">赋值</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>在一个表达式中，同等优先级的运算符将按照从左到右的顺序执行，唯一例外是赋值按照从右往左的顺序执行。但是，可以使用括号来修改执行顺序。</p>
 <p>示例:</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; YIELD 2+3*5;
+<div class="highlight"><pre><span></span><code>nebula&gt; YIELD 2+3*5;
 nebula&gt; YIELD (2+3)*5;
 </code></pre></div>
                 

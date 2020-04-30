@@ -1699,8 +1699,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2441,12 +2441,11 @@
                 <h1 id="lookup">LOOKUP 语法<a class="headerlink" href="#lookup" title="Permanent link">&para;</a></h1>
 <p><code>LOOKUP</code> 语句指定过滤条件对数据进行查询。<code>LOOKUP</code> 语句之后通常跟着 <code>WHERE</code> 子句。<code>WHERE</code> 子句用于向条件中添加过滤性的谓词，从而对数据进行过滤。</p>
 <p><strong>注意：</strong> 在使用 <code>LOOKUP</code> 语句之前，请确保已创建索引。查看<a href="../../1.data-definition-statements/">索引文档</a>了解有关索引的更多信息。</p>
-<div class="codehilite"><pre><span></span><code>LOOKUP ON {&lt;vertex_tag&gt; | &lt;edge_type&gt;} WHERE &lt;expression&gt; [ AND | OR expression ...]) ] [YIELD &lt;return_list&gt;]
+<div class="highlight"><pre><span></span><code>LOOKUP ON {&lt;vertex_tag&gt; | &lt;edge_type&gt;} WHERE &lt;expression&gt; [ AND | OR expression ...]) ] [YIELD &lt;return_list&gt;]
 
 &lt;return_list&gt;
     &lt;col_name&gt; [AS &lt;col_alias&gt;] [, &lt;col_name&gt; [AS &lt;col_alias&gt;] ...]
 </code></pre></div>
-
 
 <ul>
 <li><code>LOOKUP</code> 语句用于寻找点或边的集合。</li>
@@ -2461,7 +2460,7 @@
 </ul>
 <h2 id="_1">点查询<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>如下示例返回名称为 <code>Tony Parker</code>，标签为 <em>player</em> 的顶点。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE TAG INDEX index_player ON player(name, age);
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG INDEX index_player ON player(name, age);
 
 nebula&gt; LOOKUP ON player WHERE player.name == &quot;Tony Parker&quot;;
 ============
@@ -2487,10 +2486,9 @@ GO FROM $-.VertexID OVER serve YIELD $-.name, serve.start_year, serve.end_year, 
 ------------------------------------------------------------------
 </code></pre></div>
 
-
 <h2 id="_2">边查询<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>如下示例返回 <code>degree</code> 为 90，边类型为 <em>follow</em> 的边。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE EDGE INDEX index_follow ON follow(degree);
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE EDGE INDEX index_follow ON follow(degree);
 
 nebula&gt; LOOKUP ON follow WHERE follow.degree == 90;
 =============================

@@ -1717,8 +1717,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2480,28 +2480,25 @@
 <h2 id="unionunion_distinctunion_all">UNION，UNION DISTINCT，UNION ALL<a class="headerlink" href="#unionunion_distinctunion_all" title="Permanent link">&para;</a></h2>
 <p><code>UNION DISTINCT</code> (简称 <code>UNION</code>)返回数据集 A 和 B 的并集（不包含重复元素）。</p>
 <p><code>UNION ALL</code> 返回数据集 A 和 B 的并集（包含重复元素）。<code>UNION</code> 语法为</p>
-<div class="codehilite"><pre><span></span><code>&lt;left&gt; UNION [DISTINCT | ALL] &lt;right&gt; [ UNION [DISTINCT | ALL] &lt;right&gt; ...]
+<div class="highlight"><pre><span></span><code>&lt;left&gt; UNION [DISTINCT | ALL] &lt;right&gt; [ UNION [DISTINCT | ALL] &lt;right&gt; ...]
 </code></pre></div>
-
 
 <p><code>&lt;left&gt;</code> 和 <code>&lt;right&gt;</code> 必须列数相同，且数据类型相同。如果数据类型不同，将按照<a href="../../1.data-types/type-conversion/">类型转换</a>进行转换。</p>
 <h3 id="_1">示例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 1 OVER e1 \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 1 OVER e1 \
         UNION \
         GO FROM 2 OVER e1;
 </code></pre></div>
 
-
 <p>以上语句返回点 <code>1</code> 和 <code>2</code> (沿边 <code>e1</code>) 关联的唯一的点。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 1 OVER e1 \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 1 OVER e1 \
         UNION ALL\
         GO FROM 2 OVER e1;
 </code></pre></div>
 
-
 <p>以上语句返回点 <code>1</code> 和 <code>2</code> 关联的所有点，其中存在重复点。</p>
 <p><code>UNION</code> 亦可与 <code>YIELD</code> 同时使用，例如以下语句：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS left_1, $$.tag.prop2 AS left_2 -- query 1
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS left_1, $$.tag.prop2 AS left_2 -- query 1
 ==========================
 | id  | left_1 | left_2  |
 ==========================
@@ -2520,15 +2517,13 @@ nebula&gt; GO FROM 2,3 OVER e1 YIELD e1._dst AS id, e1.prop1 AS right_1, $$.tag.
 ---------------------------
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS left_1, $$.tag.prop2 AS left_2   \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS left_1, $$.tag.prop2 AS left_2   \
         UNION /* DISTINCT */     \
         GO FROM 2,3 OVER e1 YIELD e1._dst AS id, e1.prop1 AS right_1, $$.tag.prop2 AS right_2;
 </code></pre></div>
 
-
 <p>以上语句返回</p>
-<div class="codehilite"><pre><span></span><code>=========================
+<div class="highlight"><pre><span></span><code>=========================
 | id  | left_1 | left_2 |    -- UNION or UNION DISTINCT. The column names come from query 1
 =========================
 | 104 |    1   |    2   |    -- line 1
@@ -2539,10 +2534,9 @@ nebula&gt; GO FROM 2,3 OVER e1 YIELD e1._dst AS id, e1.prop1 AS right_1, $$.tag.
 -------------------------
 </code></pre></div>
 
-
 <p>请注意第一行与第二行返回相同 id 的点，但是返回的值不同。<code>DISTINCT</code> 检查返回结果中的重复值。所以第一行与第二行的返回结果不同。
 <code>UNION ALL</code> 返回结果为</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS left_1, $$.tag.prop2 AS left_2   \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS left_1, $$.tag.prop2 AS left_2   \
         UNION ALL   \
         GO FROM 2,3 OVER e1 YIELD e1._dst AS id, e1.prop1 AS right_1, $$.tag.prop2 AS right_2;
 
@@ -2559,56 +2553,49 @@ nebula&gt; GO FROM 2,3 OVER e1 YIELD e1._dst AS id, e1.prop1 AS right_1, $$.tag.
 -------------------------
 </code></pre></div>
 
-
 <h2 id="intersect">INTERSECT<a class="headerlink" href="#intersect" title="Permanent link">&para;</a></h2>
 <p><code>INTERSECT</code> 返回集合 A 和 B ( A ⋂ B)的交集。</p>
-<div class="codehilite"><pre><span></span><code>&lt;left&gt; INTERSECT &lt;right&gt;
+<div class="highlight"><pre><span></span><code>&lt;left&gt; INTERSECT &lt;right&gt;
 </code></pre></div>
-
 
 <p>与 <code>UNION</code> 类似， <code>&lt;left&gt;</code> 和 <code>&lt;right&gt;</code> 必须列数相同，且数据类型相同。
 此外，只返回 <code>&lt;left&gt;</code> 右 <code>&lt;right&gt;</code> 相同的行。例如：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS left_1, $$.tag.prop2 AS left_2
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS left_1, $$.tag.prop2 AS left_2
 INTERSECT
 GO FROM 2,3 OVER e1 YIELD e1._dst AS id, e1.prop1 AS right_1, $$.tag.prop2 AS right_2;
 </code></pre></div>
 
-
 <p>返回</p>
-<div class="codehilite"><pre><span></span><code>=========================
+<div class="highlight"><pre><span></span><code>=========================
 | id  | left_1 | left_2 |
 =========================
 | 104 |    1   |    2   |    -- line 1
 -------------------------
 </code></pre></div>
 
-
 <h2 id="minus">MINUS<a class="headerlink" href="#minus" title="Permanent link">&para;</a></h2>
 <p>返回 A - B 数据的差集，此处请注意运算顺序。例如：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS left_1, $$.tag.prop2 AS left_2
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS left_1, $$.tag.prop2 AS left_2
 MINUS
 GO FROM 2,3 OVER e1 YIELD e1._dst AS id, e1.prop1 AS right_1, $$.tag.prop2 AS right_2;
 </code></pre></div>
 
-
 <p>返回</p>
-<div class="codehilite"><pre><span></span><code>==========================
+<div class="highlight"><pre><span></span><code>==========================
 | id  | left_1 | left_2  |
 ==========================
 | 215 |    4   |    3    |     -- line 3
 --------------------------
 </code></pre></div>
 
-
 <p>如果更改 <code>MINUS</code> 顺序</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 2,3 OVER e1 YIELD e1._dst AS id, e1.prop1 AS right_1, $$.tag.prop2 AS right_2
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 2,3 OVER e1 YIELD e1._dst AS id, e1.prop1 AS right_1, $$.tag.prop2 AS right_2
 MINUS
 GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS left_1, $$.tag.prop2 AS left_2;
 </code></pre></div>
 
-
 <p>则返回</p>
-<div class="codehilite"><pre><span></span><code>===========================
+<div class="highlight"><pre><span></span><code>===========================
 | id  | right_1 | right_2 |    -- column named from query 2
 ===========================
 | 104 |    2    |    2    |    -- line 2

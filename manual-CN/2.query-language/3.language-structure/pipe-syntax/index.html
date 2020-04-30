@@ -1690,8 +1690,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2426,10 +2426,9 @@
 <p>nGQL 和 SQL 的主要区别之一是子查询的组合方式。</p>
 <p>SQL 中的查询语句通常由子查询嵌套组成，而 nGQL 则使用类似于 shell 的管道方式 <code>PIPE(|)</code> 来组合子查询。</p>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 100 OVER follow YIELD follow._dst AS dstid, $$.player.name AS Name  | \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 100 OVER follow YIELD follow._dst AS dstid, $$.player.name AS Name  | \
 GO FROM $-.dstid OVER follow YIELD follow._dst, follow.degree, $-.Name;
 </code></pre></div>
-
 
 <p>如未使用 <code>YIELD</code>，则默认返回终点 <code>id</code>。</p>
 <p>如果使用 <code>YIELD</code> 明确声明返回结果，则不会返回默认值 <code>id</code>。</p>

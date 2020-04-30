@@ -1692,8 +1692,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2426,15 +2426,14 @@
                 
                 <h1 id="return">Return 语法<a class="headerlink" href="#return" title="Permanent link">&para;</a></h1>
 <p>Return 语句用于返回条件成立时的结果。如果条件不成立，则无返回结果。</p>
-<div class="codehilite"><pre><span></span><code>    RETURN &lt;var_ref&gt; IF &lt;var_ref&gt; IS NOT NULL
+<div class="highlight"><pre><span></span><code>    RETURN &lt;var_ref&gt; IF &lt;var_ref&gt; IS NOT NULL
 </code></pre></div>
-
 
 <ul>
 <li><var_ref> 为变量名称，示例：$var</li>
 </ul>
 <h2 id="_1">示例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>nebula&gt; $A = GO FROM 100 OVER follow YIELD follow._dst AS dst; \
+<div class="highlight"><pre><span></span><code>nebula&gt; $A = GO FROM 100 OVER follow YIELD follow._dst AS dst; \
         $rA = YIELD $A.* WHERE $A.dst == 101; \
         RETURN $rA IF $rA is NOT NULL; \ /* $rA 为非空，返回 $rA */
         GO FROM $A.dst OVER follow; /* 因为 RETURN 语句返回了结果，所以GO FROM 语句不执行 */

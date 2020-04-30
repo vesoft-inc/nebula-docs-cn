@@ -1663,8 +1663,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2381,9 +2381,8 @@
                 
                 <h1 id="delete_vertex">Delete Vertex 语法<a class="headerlink" href="#delete_vertex" title="Permanent link">&para;</a></h1>
 <p><strong>Nebula Graph</strong> 支持给定点 ID（或 hash ID、UUID），删除这些顶点和与其相关联的入边和出边，语法如下：</p>
-<div class="codehilite"><pre><span></span><code>DELETE VERTEX &lt;vid_list&gt;
+<div class="highlight"><pre><span></span><code>DELETE VERTEX &lt;vid_list&gt;
 </code></pre></div>
-
 
 <p>系统内部会找出与这些顶点相关联的出边和入边，并将其全部删除，然后再删除点相关的信息。整个过程当前还无法保证原子性，因此若操作失败请重试。</p>
                 

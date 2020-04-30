@@ -1726,8 +1726,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2493,7 +2493,7 @@
                 
                 
                 <h1 id="create_tag_edge">CREATE TAG / EDGE 语法<a class="headerlink" href="#create_tag_edge" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><code>CREATE {TAG | EDGE} [IF NOT EXISTS] {&lt;tag_name&gt; | &lt;edge_name&gt;}
+<div class="highlight"><pre><span></span><code>CREATE {TAG | EDGE} [IF NOT EXISTS] {&lt;tag_name&gt; | &lt;edge_name&gt;}
     ([&lt;create_definition&gt;, ...])
     [tag_edge_options]
 
@@ -2508,7 +2508,6 @@
     | TTL_COL [=] &lt;prop_name&gt;
     | DEFAULT &lt;default_value&gt;
 </code></pre></div>
-
 
 <p><strong>Nebula Graph</strong> 的图结构由带有属性的 tags 和 edges 组成。<code>CREATE TAG</code> 使用一个给定的名称创建一个新的 tag。<code>CREATE EDGE</code> 则创建一个新的 edge type。</p>
 <p><code>CREATE TAG/EDGE</code> 语法有一些特点，在如下分块中将对这些特点进行讨论：</p>
@@ -2559,7 +2558,7 @@
 </ul>
 <p>TTL 详细用法参见 <a href="../TTL/">TTL 文档</a>。</p>
 <h3 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE TAG course(name string, credits int);
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG course(name string, credits int);
 nebula&gt; CREATE TAG notag();  -- 属性为空
 
 nebula&gt; CREATE EDGE follow(start_time timestamp, grade double);
@@ -2569,8 +2568,7 @@ nebula&gt; CREATE TAG player_with_default(name string, age int DEFAULT 20);  -- 
 nebula&gt; CREATE EDGE follow_with_default(start_time timestamp DEFAULT 0, grade double DEFAULT 0.0);  -- 默认 start_time 设置为 0，默认 grade 设置为 0.0
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE TAG woman(name string, age int,
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG woman(name string, age int,
    married bool, salary double, create_time timestamp)
    TTL_DURATION = 100, TTL_COL = &quot;create_time&quot;; -- 时间间隔是 100s，从 create_time 字段的值开始
 

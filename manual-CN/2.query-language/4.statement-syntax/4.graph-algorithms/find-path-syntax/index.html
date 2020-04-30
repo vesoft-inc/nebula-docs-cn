@@ -1699,8 +1699,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2440,10 +2440,9 @@
                 
                 <h1 id="find_path">FIND PATH 语法<a class="headerlink" href="#find_path" title="Permanent link">&para;</a></h1>
 <p><code>FIND PATH</code> 语法用于获取最短路径及全路径。</p>
-<div class="codehilite"><pre><span></span><code>FIND SHORTEST | ALL PATH FROM &lt;vertex_id_list&gt; TO &lt;vertex_id_list&gt;
+<div class="highlight"><pre><span></span><code>FIND SHORTEST | ALL PATH FROM &lt;vertex_id_list&gt; TO &lt;vertex_id_list&gt;
 OVER &lt;edge_type_list&gt; [UPTO &lt;N&gt; STEPS]
 </code></pre></div>
-
 
 <p><code>SHORTEST</code> 寻找最短路径关键词。</p>
 <p><code>ALL</code> 寻找全路径关键词。</p>
@@ -2457,7 +2456,7 @@ OVER &lt;edge_type_list&gt; [UPTO &lt;N&gt; STEPS]
 </ul>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>在 console 中，路径显示方式为 <code>id &lt;edge_name, ranking&gt; id</code>。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; FIND SHORTEST PATH FROM 100 to 200 OVER *;
+<div class="highlight"><pre><span></span><code>nebula&gt; FIND SHORTEST PATH FROM 100 to 200 OVER *;
 =============================
 | _path_ |
 =============================
@@ -2465,8 +2464,7 @@ OVER &lt;edge_type_list&gt; [UPTO &lt;N&gt; STEPS]
 -----------------------------
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code>nebula&gt; FIND ALL PATH FROM 100 to 200 OVER *;
+<div class="highlight"><pre><span></span><code>nebula&gt; FIND ALL PATH FROM 100 to 200 OVER *;
 =============================================================================================================
 | _path_ |
 =============================================================================================================

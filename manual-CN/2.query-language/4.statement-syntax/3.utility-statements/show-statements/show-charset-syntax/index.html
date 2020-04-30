@@ -1665,8 +1665,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2382,19 +2382,17 @@
                 
                 
                 <h1 id="show_charset">SHOW CHARSET 语法<a class="headerlink" href="#show_charset" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><code>SHOW CHARSET
+<div class="highlight"><pre><span></span><code>SHOW CHARSET
 </code></pre></div>
 
-
 <p><code>SHOW CHARSET</code> 返回所有可用的字符集。目前支持两种类型：utf8、utf8mb4。其中默认字符集为 utf8。<strong>Nebula Graph</strong> 将 utf8 进行了扩展，utf8 同时支持 4 个字节的字符，因此，utf8 和 utf8mb4 是等价的。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; SHOW CHARSET;
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW CHARSET;
 ========================================================
 | Charset | Description   | Default collation | Maxlen |
 ========================================================
 | utf8    | UTF-8 Unicode | utf8_bin          | 4      |
 --------------------------------------------------------
 </code></pre></div>
-
 
 <p><code>SHOW CHARSET</code> 输出以下列：</p>
 <ul>

@@ -1731,8 +1731,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2541,17 +2541,15 @@
 </ul>
 <h2 id="_7">示例<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>先创建一个名为 school 的 tag</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE TAG school(name string , create_time timestamp);
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG school(name string , create_time timestamp);
 </code></pre></div>
-
 
 <p>插入一个点，名为 "xiwang"，建校时间为 "2010-09-01 08:00:00"</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; INSERT VERTEX school(name, create_time) VALUES hash(&quot;xiwang&quot;):(&quot;xiwang&quot;, &quot;2010-09-01 08:00:00&quot;);
+<div class="highlight"><pre><span></span><code>nebula&gt; INSERT VERTEX school(name, create_time) VALUES hash(&quot;xiwang&quot;):(&quot;xiwang&quot;, &quot;2010-09-01 08:00:00&quot;);
 </code></pre></div>
 
-
 <p>插入一个点，名为 "guangming"，建校时间为现在</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; INSERT VERTEX school(name, create_time) VALUES hash(&quot;guangming&quot;):(&quot;guangming&quot;, now());
+<div class="highlight"><pre><span></span><code>nebula&gt; INSERT VERTEX school(name, create_time) VALUES hash(&quot;guangming&quot;):(&quot;guangming&quot;, now());
 </code></pre></div>
                 
                   

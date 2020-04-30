@@ -1661,8 +1661,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2441,7 +2441,7 @@
 <li>==</li>
 </ul>
 <p>等于。String的比较大小写敏感。不同类的值不相同：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; YIELD &#39;A&#39; == &#39;a&#39;;
+<div class="highlight"><pre><span></span><code>nebula&gt; YIELD &#39;A&#39; == &#39;a&#39;;
 ==============
 | (&quot;A&quot;==&quot;a&quot;) |
 ==============
@@ -2452,12 +2452,11 @@ nebula&gt; YIELD &#39;2&#39; == 2;
 [ERROR (-8)]: A string type can not be compared with a non-string type.
 </code></pre></div>
 
-
 <ul>
 <li>&gt;</li>
 </ul>
 <p>大于：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; YIELD 3 &gt; 2;
+<div class="highlight"><pre><span></span><code>nebula&gt; YIELD 3 &gt; 2;
 =========
 | (3&gt;2) |
 =========
@@ -2465,12 +2464,11 @@ nebula&gt; YIELD &#39;2&#39; == 2;
 ---------
 </code></pre></div>
 
-
 <ul>
 <li>&ge;</li>
 </ul>
 <p>大于或等于：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; YIELD 2 &gt;= 2;
+<div class="highlight"><pre><span></span><code>nebula&gt; YIELD 2 &gt;= 2;
 ==========
 | (2&gt;=2) |
 ==========
@@ -2478,12 +2476,11 @@ nebula&gt; YIELD &#39;2&#39; == 2;
 ----------
 </code></pre></div>
 
-
 <ul>
 <li>&lt;</li>
 </ul>
 <p>小于：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; YIELD 2.0 &lt; 1.9;
+<div class="highlight"><pre><span></span><code>nebula&gt; YIELD 2.0 &lt; 1.9;
 =======================
 | (2.000000&lt;1.900000) |
 =======================
@@ -2491,12 +2488,11 @@ nebula&gt; YIELD &#39;2&#39; == 2;
 -----------------------
 </code></pre></div>
 
-
 <ul>
 <li>&le;</li>
 </ul>
 <p>小于或等于：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; YIELD 0.11 &lt;= 0.11;
+<div class="highlight"><pre><span></span><code>nebula&gt; YIELD 0.11 &lt;= 0.11;
 ========================
 | (0.110000&lt;=0.110000) |
 ========================
@@ -2504,21 +2500,19 @@ nebula&gt; YIELD &#39;2&#39; == 2;
 ------------------------
 </code></pre></div>
 
-
 <ul>
 <li>!=</li>
 </ul>
 <p>不等于：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; YIELD 1 != &#39;1&#39;;
+<div class="highlight"><pre><span></span><code>nebula&gt; YIELD 1 != &#39;1&#39;;
 [ERROR (-8)]: A string type can not be compared with a non-string type.
 </code></pre></div>
-
 
 <ul>
 <li>udf_is_in()</li>
 </ul>
 <p>第一个参数为要比较的值。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; YIELD udf_is_in(1,0,1,2);
+<div class="highlight"><pre><span></span><code>nebula&gt; YIELD udf_is_in(1,0,1,2);
 ======================
 | udf_is_in(1,0,1,2) |
 ======================

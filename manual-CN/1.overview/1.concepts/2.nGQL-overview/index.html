@@ -1856,8 +1856,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2802,9 +2802,8 @@
 </ul>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><code> &lt;vid, &lt;edge_type, rank&gt;, vid, ...&gt;
+<div class="highlight"><pre><span></span><code> &lt;vid, &lt;edge_type, rank&gt;, vid, ...&gt;
 </code></pre></div>
-
 
 <h2 id="_4">查询语言规则概览<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <blockquote>
@@ -2925,17 +2924,14 @@
 <p>跳过 <span style="color:blue"><strong>STEP[S]</strong></span> 表示 <strong>一步</strong></p>
 <p>从起始点出发一跳，遍历所有满足<span style="color:blue"><strong>WHERE</strong></span> 语句的关联点，只返回满足 <span style="color:blue"><strong>WHERE</strong></span> 语句的结果。</p>
 <p>多跳查询时，<span style="color:blue"><strong>WHERE</strong></span> 语句只适用于最终结果，对中间结果不适用。例如：</p>
-<div class="codehilite"><pre><span></span><code>GO 2 STEPS FROM me OVER friend WHERE birthday &gt; &quot;1988/1/1&quot;
+<div class="highlight"><pre><span></span><code>GO 2 STEPS FROM me OVER friend WHERE birthday &gt; &quot;1988/1/1&quot;
 </code></pre></div>
-
 
 <p>以上语句查询所有生日在 1988/1/1 之后的二度好友。</p>
 <!-- 又例如：
 
-<div class="codehilite"><pre><span></span><code>GO UPTO 3 STEPS FROM me OVER friend WHERE birthday &gt; &quot;1988/1/1/&quot;
+<div class="highlight"><pre><span></span><code>GO UPTO 3 STEPS FROM me OVER friend WHERE birthday &gt; &quot;1988/1/1/&quot;
 </code></pre></div>
-
-
 
 以上语句查询所有生日在 1988/1/1 之后的好友，最多查询为 3 度。如果只查询到一条，则会全部返回。如果没有满足条件的数据，则查询 2 度好友，如果还是没有则查询 3 度。
 

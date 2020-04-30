@@ -1661,8 +1661,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2382,15 +2382,14 @@
 <p>当顶点数量到达十亿级别时，用 <code>hash</code> 函数生成 vid 有一定的冲突概率。因此 <strong>Nebula Graph</strong> 提供 <code>UUID</code> 函数来避免大量顶点时的 vid 冲突。 <code>UUID</code> 函数由 <code>Murmurhash</code> 与当前时间戳（单位为秒）组合而成。</p>
 <p><code>UUID</code> 产生的值会以 key-value 方式存储在 <strong>Nebula Graph</strong> 的 Storage 服务中，调用时会检查这个 key 是否存在或冲突。因此相比 hash，性能可能会更慢。</p>
 <p>插入 <code>UUID</code>：</p>
-<div class="codehilite"><pre><span></span><code>-- 使用 UUID 函数插入一个点。
+<div class="highlight"><pre><span></span><code>-- 使用 UUID 函数插入一个点。
 nebula&gt; INSERT VERTEX player (name, age) VALUES uuid(&quot;n0&quot;):(&quot;n0&quot;, 21);
 -- 使用 UUID 函数插入一条边。
 nebula&gt; INSERT EDGE follow(degree) VALUES uuid(&quot;n0&quot;) -&gt; uuid(&quot;n1&quot;): (90);
 </code></pre></div>
 
-
 <p>获取 <code>UUID</code>：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; FETCH PROP ON player uuid(&quot;n0&quot;) YIELD player.name, player.age;
+<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player uuid(&quot;n0&quot;) YIELD player.name, player.age;
 -- 返回以下值：
 ===================================================
 | VertexID             | player.name | player.age |
@@ -2406,9 +2405,8 @@ nebula&gt; FETCH PROP ON follow uuid(&quot;n0&quot;) -&gt; uuid(&quot;n1&quot;);
 -----------------------------------------------------------------------------
 </code></pre></div>
 
-
 <p>结合 <code>Go</code> 使用 <code>UUID</code>:</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM uuid(&quot;n0&quot;) OVER follow;
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM uuid(&quot;n0&quot;) OVER follow;
 -- 返回以下值：
 =======================
 | follow._dst         |

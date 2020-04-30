@@ -1720,8 +1720,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2481,10 +2481,9 @@
                 
                 
                 <h1 id="create_space">CREATE SPACE 语法<a class="headerlink" href="#create_space" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><code>CREATE SPACE [IF NOT EXISTS] &lt;space_name&gt;
+<div class="highlight"><pre><span></span><code>CREATE SPACE [IF NOT EXISTS] &lt;space_name&gt;
    [(partition_num = &lt;part_num&gt;, replica_factor = &lt;raft_copy&gt;, charset = &lt;charset&gt;, collate = &lt;collate&gt;)]
 </code></pre></div>
-
 
 <p>以上语句用于创建一个新的图空间。不同的图空间是物理隔离的。</p>
 <h2 id="if_not_exists">IF NOT EXISTS<a class="headerlink" href="#if_not_exists" title="Permanent link">&para;</a></h2>
@@ -2515,16 +2514,15 @@
 </ul>
 <p>如果没有自定义选项，<strong>Nebula Graph</strong> 会使用默认的值（partition_number、replica_factor、charset 和 collate）来创建图空间。</p>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE SPACE my_space_1; -- 使用默认选项创建图空间
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE SPACE my_space_1; -- 使用默认选项创建图空间
 nebula&gt; CREATE SPACE my_space_2(partition_num=10); -- 使用默认 replica_factor 创建图空间
 nebula&gt; CREATE SPACE my_space_3(replica_factor=1);  -- 使用默认 partition_number 创建图空间
 nebula&gt; CREATE SPACE my_space_4(partition_num=10, replica_factor=1);
 </code></pre></div>
 
-
 <h2 id="partition">检查 partition 分布正常<a class="headerlink" href="#partition" title="Permanent link">&para;</a></h2>
 <p>在某些大集群上，由于启动时间先后不一，可能会导致 partition 分布不均，可以通过如下命令（SHOW HOSTS）检查机器和分布。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; SHOW HOSTS;
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW HOSTS;
 ================================================================================================
 | Ip            | Port  | Status | Leader count | Leader distribution | Partition distribution |
 ================================================================================================
@@ -2533,11 +2531,9 @@ nebula&gt; CREATE SPACE my_space_4(partition_num=10, replica_factor=1);
 | 192.168.8.210 | 34900 | online | 12           | test: 12            | test: 38               |
 </code></pre></div>
 
-
 <p>若发现机器都已在线，但 partition 分布不均，可以通过如下命令 （BALANCE LEADER）来命令 partition 重分布。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; BALANCE LEADER;
+<div class="highlight"><pre><span></span><code>nebula&gt; BALANCE LEADER;
 </code></pre></div>
-
 
 <p>具体见 <a href="../../3.utility-statements/show-statements/show-hosts-syntax/">SHOW HOSTS</a> 和 <a href="../../../../3.build-develop-and-administration/5.storage-service-administration/storage-balance/">BALANCE</a>。</p>
                 

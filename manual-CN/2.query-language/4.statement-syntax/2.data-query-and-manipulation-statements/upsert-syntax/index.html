@@ -1663,8 +1663,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2386,9 +2386,8 @@
 <li>如果该顶点或者边存在，并且 WHEN 条件满足，则会更新；</li>
 <li>如果该顶点或者边存在, 并且 WHEN 条件不满足，则不会有任何操作。</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>UPSERT {VERTEX &lt;vid&gt; | EDGE &lt;edge&gt;} SET &lt;update_columns&gt; [WHEN &lt;condition&gt;] [YIELD &lt;columns&gt;]
+<div class="highlight"><pre><span></span><code>UPSERT {VERTEX &lt;vid&gt; | EDGE &lt;edge&gt;} SET &lt;update_columns&gt; [WHEN &lt;condition&gt;] [YIELD &lt;columns&gt;]
 </code></pre></div>
-
 
 <ul>
 <li><code>vid</code> 表示需要更新的 vertex ID。</li>
@@ -2401,7 +2400,7 @@
 <li><code>columns</code> 表示需要返回的 columns，此处 <code>YIELD</code> 可返回 update 以后最新的 columns 值。</li>
 </ul>
 <p>例如：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; INSERT VERTEX player(name, age) VALUES 111:(&quot;Ben Simmons&quot;, 22); -- 插入一个新点。
+<div class="highlight"><pre><span></span><code>nebula&gt; INSERT VERTEX player(name, age) VALUES 111:(&quot;Ben Simmons&quot;, 22); -- 插入一个新点。
 nebula&gt; UPSERT VERTEX 111 SET player.name = &quot;Dwight Howard&quot;, player.age = $^.player.age + 11 WHEN $^.player.name == &quot;Ben Simmons&quot; &amp;&amp; $^.player.age &gt; 20 YIELD $^.player.name AS Name, $^.player.age AS Age; -- 对该点进行 UPSERT 操作。
 =======================
 | Name          | Age |

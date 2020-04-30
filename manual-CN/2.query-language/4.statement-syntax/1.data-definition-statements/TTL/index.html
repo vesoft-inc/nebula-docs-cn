@@ -1713,8 +1713,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2486,32 +2486,29 @@
 <ul>
 <li>对已经创建的 tag，设置 TTL。</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE TAG t1(a timestamp);
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG t1(a timestamp);
 nebula&gt; ALTER TAG t1 ttl_col = &quot;a&quot;, ttl_duration = 5; -- 创建 ttl
 nebula&gt; INSERT VERTEX t1(a) values 101:(now());
 </code></pre></div>
-
 
 <p>点 101 的 TAG t1 属性会在 now() 之后，经过 5s 后过期。</p>
 <ul>
 <li>在创建 tag 时设置 TTL。</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE TAG t2(a int, b int, c string) ttl_duration= 100, ttl_col = &quot;a&quot;;
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG t2(a int, b int, c string) ttl_duration= 100, ttl_col = &quot;a&quot;;
 nebula&gt; INSERT VERTEX t2(a, b, c) values 102:(1584441231, 30, &quot;Word&quot;);
 </code></pre></div>
-
 
 <p>点 102 的 TAG t2 属性会在 2020年3月17日 18时33分51秒 CST （即时间戳为 1584441231），经过 100s 后过期。</p>
 <ul>
 <li>当点有多个 TAG 时，各 TAG 的 TTL 相互独立。</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE TAG t3(a string);
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG t3(a string);
 nebula&gt; INSERT VERTEX t1(a),t3(a) values 200:(now(), &quot;hello&quot;);
 </code></pre></div>
 
-
 <p>5s 后, 点 Vertex 200 的 t1 属性过期。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; FETCH PROP ON t1 200;
+<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON t1 200;
 Execution succeeded (Time spent: 5.945/7.492 ms)
 
 nebula&gt; FETCH PROP ON t3 200;
@@ -2529,50 +2526,42 @@ nebula&gt; FETCH PROP ON * 200;
 ----------------------
 </code></pre></div>
 
-
 <h2 id="ttl_2">删除 TTL<a class="headerlink" href="#ttl_2" title="Permanent link">&para;</a></h2>
 <p>如果想要删除 TTL，可以设置 <code>ttl_col</code> 字段为空，或删除配置的 <code>ttl_col</code> 字段，或者设置 <code>ttl_duration</code> 为 0。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; ALTER TAG t1 ttl_col = &quot;&quot;; -- drop ttl attribute;
+<div class="highlight"><pre><span></span><code>nebula&gt; ALTER TAG t1 ttl_col = &quot;&quot;; -- drop ttl attribute;
 </code></pre></div>
-
 
 <p>删除配置的 <code>ttl_col</code> 字段：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; ALTER TAG t1 DROP (a); -- drop ttl_col
+<div class="highlight"><pre><span></span><code>nebula&gt; ALTER TAG t1 DROP (a); -- drop ttl_col
 </code></pre></div>
-
 
 <p>设置 ttl_duration 为 0：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; ALTER TAG t1 ttl_duration = 0; -- keep the ttl but the data never expires
+<div class="highlight"><pre><span></span><code>nebula&gt; ALTER TAG t1 ttl_duration = 0; -- keep the ttl but the data never expires
 </code></pre></div>
-
 
 <h2 id="ttl_3">TTL 使用注意事项<a class="headerlink" href="#ttl_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li>如果 <code>ttl_col</code> 值为非空，则不支持对 <code>ttl_col</code> 值指定的列进行更改操作。</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE TAG t1(a int, b int, c string) ttl_duration = 100, ttl_col = &quot;a&quot;;
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG t1(a int, b int, c string) ttl_duration = 100, ttl_col = &quot;a&quot;;
 nebula&gt; ALTER TAG t1 CHANGE (a string); -- failed
 </code></pre></div>
-
 
 <ul>
 <li>注意一个 tag 或 edge 不能同时拥有 TTL 和索引，只能二者择其一，即使 <code>ttl_col</code> 配置的字段与要创建索引的字段不同。</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE TAG t1(a int, b int, c string) ttl_duration = 100, ttl_col = &quot;a&quot;;
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG t1(a int, b int, c string) ttl_duration = 100, ttl_col = &quot;a&quot;;
 nebula&gt; CREATE TAG INDEX id1 ON t1(a); -- failed
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE TAG t1(a int, b int, c string) ttl_duration = 100, ttl_col = &quot;a&quot;;
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG t1(a int, b int, c string) ttl_duration = 100, ttl_col = &quot;a&quot;;
 nebula&gt; CREATE TAG INDEX id1 ON t1(b); -- failed
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE TAG t1(a int, b int, c string);
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG t1(a int, b int, c string);
 nebula&gt; CREATE TAG INDEX id1 ON t1(a);
 nebula&gt; ALTER TAG t1 ttl_col = &quot;a&quot;, ttl_duration = 100; -- failed
 </code></pre></div>
-
 
 <ul>
 <li>对 edge 配置 TTL 与 tag 类似。</li>

@@ -1650,8 +1650,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2454,12 +2454,11 @@
 <p>CONFIGS 语法用于显示和修改可以动态更改的配置参数，这些配置参数大多数可以立刻生效，少部分需要重启后生效。
 具体见 meta, graph, storage 配置文件说明。</p>
 <h2 id="_1">显示配置<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>SHOW CONFIGS [graph|storage]
+<div class="highlight"><pre><span></span><code>SHOW CONFIGS [graph|storage]
 </code></pre></div>
 
-
 <p>例如</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; SHOW CONFIGS;
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW CONFIGS;
 =========================================================================
 | module  | name                              | type   | mode    | value
 =========================================================================
@@ -2470,14 +2469,12 @@
 ...
 </code></pre></div>
 
-
 <h2 id="_2">获取变量<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>GET CONFIGS [graph|storage :] &lt;var&gt;
+<div class="highlight"><pre><span></span><code>GET CONFIGS [graph|storage :] &lt;var&gt;
 </code></pre></div>
 
-
 <p>例如</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GET CONFIGS storage:v;
+<div class="highlight"><pre><span></span><code>nebula&gt; GET CONFIGS storage:v;
 ============================================
 | module  | name | type  | mode    | value |
 ============================================
@@ -2485,18 +2482,16 @@
 --------------------------------------------
 </code></pre></div>
 
-
 <h2 id="_3">更新变量<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>UPDATE CONFIGS [graph|storage :] &lt;var&gt; = &lt;value&gt;
+<div class="highlight"><pre><span></span><code>UPDATE CONFIGS [graph|storage :] &lt;var&gt; = &lt;value&gt;
 </code></pre></div>
-
 
 <blockquote>
 <p>更新的变量将持久化在 meta-service 中。</p>
 <p>支持在 UPDATE CONFIGS 中使用算术计算。</p>
 </blockquote>
 <p>例如</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; UPDATE CONFIGS storage:heartbeat_interval_secs=1;
+<div class="highlight"><pre><span></span><code>nebula&gt; UPDATE CONFIGS storage:heartbeat_interval_secs=1;
 nebula&gt; GET CONFIGS storage:heartbeat_interval_secs;
 ===============================================================
 | module  | name                    | type  | mode    | value |

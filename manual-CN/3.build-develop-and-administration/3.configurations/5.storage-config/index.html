@@ -1650,8 +1650,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2672,9 +2672,8 @@
 </tbody>
 </table>
 <p>例如，下面命令可以增加 storage 的日志详细程度 v=1.</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; UPDATE CONFIGS storage:v=1;
+<div class="highlight"><pre><span></span><code>nebula&gt; UPDATE CONFIGS storage:v=1;
 </code></pre></div>
-
 
 <h2 id="networking">networking 网络通信相关<a class="headerlink" href="#networking" title="Permanent link">&para;</a></h2>
 <table>
@@ -2763,9 +2762,8 @@
 <blockquote>
 <p>多块硬盘时可以逗号分隔多个目录，每个目录对应一个 Rocksdb 实例，以有更好的并发能力。例如</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code>--data_path=/disk1/storage/,/disk2/storage/,/disk3/storage/
+<div class="highlight"><pre><span></span><code>--data_path=/disk1/storage/,/disk2/storage/,/disk3/storage/
 </code></pre></div>
-
 
 <h2 id="rocksdb_options">RocksDB Options<a class="headerlink" href="#rocksdb_options" title="Permanent link">&para;</a></h2>
 <table>
@@ -2823,7 +2821,7 @@
 </tbody>
 </table>
 <h3 id="rocksdb_db_options"><code>rocksdb_db_options</code><a class="headerlink" href="#rocksdb_db_options" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>max_total_wal_size
+<div class="highlight"><pre><span></span><code>max_total_wal_size
 delete_obsolete_files_period_micros
 max_background_jobs
 stats_dump_period_sec
@@ -2839,12 +2837,11 @@ max_subcompactions              -- level0 到 level1 的 compact 启用多线程
 max_background_jobs             -- 使用多线程进行 compact。默认为 1，动态修改重启后生效
 </code></pre></div>
 
-
 <blockquote>
 <p>以上参数都可通过 UPDATE CONFIGS 语法进行动态修改，也可以写在本地配置文件中。具体作用和修改是否需要重启请参考 RocksDB 手册。</p>
 </blockquote>
 <h3 id="rocksdb_column_family_options"><code>rocksdb_column_family_options</code><a class="headerlink" href="#rocksdb_column_family_options" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>write_buffer_size
+<div class="highlight"><pre><span></span><code>write_buffer_size
 max_write_buffer_number
 level0_file_num_compaction_trigger
 level0_slowdown_writes_trigger
@@ -2856,12 +2853,11 @@ max_bytes_for_level_multiplier
 disable_auto_compactions       -- 停止写入数据时候的自动 compact，默认 false。动态修改立刻生效。
 </code></pre></div>
 
-
 <blockquote>
 <p>以上参数都可通过 UPDATE CONFIGS 语法进行动态修改，也可以写在本地配置文件中。具体作用和修改是否需要重启请参考RocksDB手册。</p>
 </blockquote>
 <h3 id="_1">以上参数可通过命令行如下设置<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>nebula&gt; UPDATE CONFIGS storage:rocksdb_column_family_options = \
+<div class="highlight"><pre><span></span><code>nebula&gt; UPDATE CONFIGS storage:rocksdb_column_family_options = \
         { disable_auto_compactions = false, level0_file_num_compaction_trigger = 10 };
         -- 该命令会整个覆盖 rocksdb_column_family_options，请注意是否会覆盖其他子项
 nebula&gt; UPDATE CONFIGS storage:rocksdb_db_options  = \
@@ -2869,13 +2865,11 @@ nebula&gt; UPDATE CONFIGS storage:rocksdb_db_options  = \
 nebula&gt; UPDATE CONFIGS storage:max_edge_returned_per_vertex = 10; -- 该参数解释见下文
 </code></pre></div>
 
-
 <h3 id="_2">可在配置文件中如下设置<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>    rocksdb_db_options = {&quot;stats_dump_period_sec&quot;:&quot;200&quot;, &quot;&quot;:&quot;false&quot;, &quot;write_thread_max_yield_usec&quot;:&quot;600&quot;}
+<div class="highlight"><pre><span></span><code>    rocksdb_db_options = {&quot;stats_dump_period_sec&quot;:&quot;200&quot;, &quot;&quot;:&quot;false&quot;, &quot;write_thread_max_yield_usec&quot;:&quot;600&quot;}
     rocksdb_column_family_options = {&quot;max_write_buffer_number&quot;:&quot;4&quot;, &quot;min_write_buffer_number_to_merge&quot;:&quot;2&quot;, &quot;max_write_buffer_number_to_maintain&quot;:&quot;1&quot;}
     rocksdb_block_based_table_options = {&quot;block_restart_interval&quot;:&quot;2&quot;}
 </code></pre></div>
-
 
 <h2 id="_3">说明：稠密点处理（出入边数量极多的点）<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>针对图遍历过程中，遇到稠密点的情况，目前有两种截断策略：</p>

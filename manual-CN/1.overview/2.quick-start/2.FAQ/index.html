@@ -1814,8 +1814,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2702,9 +2702,8 @@
 <p>Trouble Shooting 部分列出了 <strong>Nebula Graph</strong> 操作中的常见错误。</p>
 <h3 id="_2">服务器参数配置<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>在 Nebula console 中运行</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; SHOW CONFIGS;
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW CONFIGS;
 </code></pre></div>
-
 
 <p>详细参考<a href="../../../3.build-develop-and-administration/3.configurations/0.system-requirement/">本节</a>及之后几节。</p>
 <p><a href="#常见问题">[↑] 回到顶部</a></p>
@@ -2720,9 +2719,8 @@
 <p><a href="#常见问题">[↑] 回到顶部</a></p>
 <h3 id="_5">使用多块硬盘<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>修改 <code>/usr/local/nebula/etc/nebula-storage.conf</code>。例如</p>
-<div class="codehilite"><pre><span></span><code>--data_path=/disk1/storage/,/disk2/storage/,/disk3/storage/
+<div class="highlight"><pre><span></span><code>--data_path=/disk1/storage/,/disk2/storage/,/disk3/storage/
 </code></pre></div>
-
 
 <p>多块硬盘时可以逗号分隔多个目录，每个目录对应一个 RocksDB 实例，以有更好的并发能力。参考<a href="../../../3.build-develop-and-administration/3.configurations/5.storage-config/">这里</a>。</p>
 <p><a href="#常见问题">[↑] 回到顶部</a></p>
@@ -2746,16 +2744,14 @@
 <p>同一台主机先后用于单机测试和集群测试，storaged 服务无法正常启动（终端上显示的 storaged 服务的监听端口是红色的）。查看 storged 服务的日志(/usr/local/nebula/nebula-storaged.ERROR)，若发现 "wrong cluster" 的报错信息，则可能的出错原因是单机测试和集群测试时的 Nebula Graph 生成的 cluster id 不一致，需要删除 Nebula Graph 安装目录(/usr/local/nebula)下的 cluster.id 文件和 data 目录后，重启服务。</p>
 <p><a href="#常见问题">[↑] 回到顶部</a></p>
 <h3 id="_7">连接失败<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>E1121 04:49:34.563858   256 GraphClient.cpp:54] Thrift rpc call failed: AsyncSocketException: connect failed, type = Socket not open, errno = 111 (Connection refused): Connection refused
+<div class="highlight"><pre><span></span><code>E1121 04:49:34.563858   256 GraphClient.cpp:54] Thrift rpc call failed: AsyncSocketException: connect failed, type = Socket not open, errno = 111 (Connection refused): Connection refused
 </code></pre></div>
 
-
 <p>检查服务是否存在</p>
-<div class="codehilite"><pre><span></span><code>$ /usr/local/nebula/scripts/nebula.service status all
+<div class="highlight"><pre><span></span><code>$ /usr/local/nebula/scripts/nebula.service status all
 或者
 nebula&gt; SHOW HOSTS；
 </code></pre></div>
-
 
 <p><a href="#常见问题">[↑] 回到顶部</a></p>
 <h3 id="could_not_create_logging_file_too_many_open_files">Could not create logging file:... Too many open files<a class="headerlink" href="#could_not_create_logging_file_too_many_open_files" title="Permanent link">&para;</a></h3>
@@ -2778,19 +2774,18 @@ nebula&gt; SHOW HOSTS；
 <p><a href="#常见问题">[↑] 回到顶部</a></p>
 <h3 id="rocksdb_block_cache">修改  RocksDB block cache<a class="headerlink" href="#rocksdb_block_cache" title="Permanent link">&para;</a></h3>
 <p>更改 storage 的配置文件 <code>storaged.conf</code>（默认路径为 <code>/usr/local/nebula/etc/</code>）并重启，例如：</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Change rocksdb_block_cache to 1024 MB</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Change rocksdb_block_cache to 1024 MB</span>
 --rocksdb_block_cache <span class="o">=</span> <span class="m">1024</span>
 <span class="c1"># Stop storaged and restart</span>
 /usr/local/nebula/scripts/nebula.service stop storaged
 /usr/local/nebula/scripts/nebula.service start storaged
 </code></pre></div>
 
-
 <p>参见<a href="../../../3.build-develop-and-administration/3.configurations/5.storage-config/">这里</a></p>
 <p><a href="#常见问题">[↑] 回到顶部</a></p>
 <h3 id="centos_65_nebula">使用 CentOS 6.5 Nebula 服务失败<a class="headerlink" href="#centos_65_nebula" title="Permanent link">&para;</a></h3>
 <p>在 CentOS 6.5 部署 Nebula Graph 失败，报错信息如下：</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># storage 日志</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># storage 日志</span>
 Heartbeat failed, status:RPC failure in MetaClient: N6apache6thrift9transport19TTransportExceptionE: AsyncSocketException: connect failed, <span class="nb">type</span> <span class="o">=</span> Socket not open, <span class="nv">errno</span> <span class="o">=</span> <span class="m">111</span> <span class="o">(</span>Connection refused<span class="o">)</span>: Connection refused
 
 <span class="c1"># meta 日志</span>
@@ -2803,22 +2798,20 @@ E0415 <span class="m">22</span>:32:38.949597 <span class="m">15463</span> MetaDa
 E0415 <span class="m">22</span>:32:38.949796 <span class="m">15463</span> MetaDaemon.cpp:215<span class="o">]</span> Init kv failed!
 </code></pre></div>
 
-
 <p>此时服务状态为：</p>
-<div class="codehilite"><pre><span></span><code><span class="o">[</span>root@redhat6 scripts<span class="o">]</span><span class="c1"># ./nebula.service status  all</span>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>root@redhat6 scripts<span class="o">]</span><span class="c1"># ./nebula.service status  all</span>
 <span class="o">[</span>WARN<span class="o">]</span> The maximum files allowed to open might be too few: <span class="m">1024</span>
 <span class="o">[</span>INFO<span class="o">]</span> nebula-metad: Exited
 <span class="o">[</span>INFO<span class="o">]</span> nebula-graphd: Exited
 <span class="o">[</span>INFO<span class="o">]</span> nebula-storaged: Running as <span class="m">15547</span>, Listening on <span class="m">44500</span>
 </code></pre></div>
 
-
 <p>出错原因：CentOS 6.5 系统内核版本为 2.6.32，<code>SO_REUSEPORT</code> 仅支持 <code>Linux 3.9</code> 及以上版本。</p>
 <p>将系统升级到 CentOS 7.5 问题可自行解决。</p>
 <h2 id="general_information">General Information<a class="headerlink" href="#general_information" title="Permanent link">&para;</a></h2>
 <p>General Information 部分列出了关于 <strong>Nebula Graph</strong> 的概念性问题。</p>
 <h3 id="_9">查询返回时间解释<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 101 OVER follow;
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 101 OVER follow;
 ===============
 | follow._dst |
 ===============
@@ -2830,7 +2823,6 @@ E0415 <span class="m">22</span>:32:38.949796 <span class="m">15463</span> MetaDa
 ---------------
 Got 3 rows (Time spent: 7431/10406 us)
 </code></pre></div>
-
 
 <p>以上述查询为例，Time spent 中前一个数字 <code>7431</code> 为数据库本身所花费的时间，即 query engine 从 console 收到这条查询语句，到存储拿到数据，并进行一系列计算所花的时间；后一个数字 <code>10406</code> 是从客户端角度看花费的时间，即 console 从发送请求，到收到响应，并将结果输出到屏幕的时间。</p>
 <p><a href="#常见问题">[↑] 回到顶部</a></p>

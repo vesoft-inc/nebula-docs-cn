@@ -1697,8 +1697,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2439,7 +2439,7 @@
                 <h1 id="_1">关键字和保留字<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>关键字是在 nGQL 中具有重要意义的单词。保留关键字需引用方可使用。</p>
 <p>非保留关键字无需引用可直接使用，且所有非保留字都会自动转换成小写，所以非保留字不区分大小写。保留关键字需使用反引号标注方可使用，例如 `AND`。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE TAG TAG(name string);
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG TAG(name string);
 [ERROR (-7)]: SyntaxError: syntax error near `TAG&#39;
 
 nebula&gt; CREATE TAG SPACE(name string); -- SPACE 为非保留关键字
@@ -2453,16 +2453,14 @@ nebula&gt; SHOW TAGS; -- 所有非保留字都会自动转换成小写
 -------------
 </code></pre></div>
 
-
 <p><code>TAG</code> 为保留字使用时必须使用反引号。 <code>SPACE</code> 为非保留字使用时无需加反引号。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE TAG `TAG` (name string); -- 此处 TAG 为保留字
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG `TAG` (name string); -- 此处 TAG 为保留字
 Execution succeeded
 </code></pre></div>
 
-
 <h2 id="_2">保留字<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>以下列表为 nGQL 中的保留字。</p>
-<div class="codehilite"><pre><span></span><code>ADD
+<div class="highlight"><pre><span></span><code>ADD
 ALTER
 AND
 AS
@@ -2544,9 +2542,8 @@ XOR
 YIELD
 </code></pre></div>
 
-
 <h2 id="_3">非保留关键字<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>ACCOUNT
+<div class="highlight"><pre><span></span><code>ACCOUNT
 ADMIN
 ALL
 AVG

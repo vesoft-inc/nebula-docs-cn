@@ -1697,8 +1697,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2439,14 +2439,13 @@
                 <h1 id="_1">标识符大小写<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <h2 id="_2">用户自定义的标识符为大小写敏感<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>下方示例语句有错，因为<code>my_space</code> 和<code>MY_SPACE</code> 为两个不同的变量名。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE SPACE my_space;
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE SPACE my_space;
 nebula&gt; USE MY_SPACE;   ---- my_space 和 MY_SPACE 是两个不同的 space
 </code></pre></div>
 
-
 <h2 id="_3">关键词和保留关键词为大小写不敏感<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>下面四条语句是等价的（因为 show 和 spaces 都是保留字）</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; show spaces;
+<div class="highlight"><pre><span></span><code>nebula&gt; show spaces;
 nebula&gt; SHOW SPACES;
 nebula&gt; SHOW spaces;
 nebula&gt; show SPACES;

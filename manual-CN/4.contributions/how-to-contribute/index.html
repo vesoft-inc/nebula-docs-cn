@@ -1648,8 +1648,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2658,18 +2658,16 @@
 </ol>
 <h2 id="step_2">Step 2: 将分支克隆到本地<a class="headerlink" href="#step_2" title="Permanent link">&para;</a></h2>
 <p>定义本地工作目录：</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 定义工作目录</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 定义工作目录</span>
 <span class="nv">working_dir</span><span class="o">=</span><span class="nv">$HOME</span>/Workspace
 </code></pre></div>
 
-
 <p>将 <code>user</code> 设置为 GitHub 账户名：</p>
-<div class="codehilite"><pre><span></span><code><span class="nv">user</span><span class="o">={</span>GitHub账户名<span class="o">}</span>
+<div class="highlight"><pre><span></span><code><span class="nv">user</span><span class="o">={</span>GitHub账户名<span class="o">}</span>
 </code></pre></div>
 
-
 <p>clone 代码：</p>
-<div class="codehilite"><pre><span></span><code>mkdir -p <span class="nv">$working_dir</span>
+<div class="highlight"><pre><span></span><code>mkdir -p <span class="nv">$working_dir</span>
 <span class="nb">cd</span> <span class="nv">$working_dir</span>
 git clone https://github.com/<span class="nv">$user</span>/nebula.git
 <span class="c1"># 推荐如下方式</span>
@@ -2691,43 +2689,37 @@ git remote set-url --push upstream no_push
 git remote -v
 </code></pre></div>
 
-
 <h3 id="hook">定义预提交 hook<a class="headerlink" href="#hook" title="Permanent link">&para;</a></h3>
 <p>请将 <strong>Nebula Graph</strong> 预提交挂钩链接到 <code>.git</code> 目录。</p>
 <p>此挂钩检查提交格式，构建，文档生成等。</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$working_dir</span>/nebula/.git/hooks
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$working_dir</span>/nebula/.git/hooks
 ln -s ../../cpplint/bin/pre-commit.sh .
 </code></pre></div>
 
-
 <p>有时，预提交挂钩不能执行，在这种情况下，需要手动执行。</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$working_dir</span>/nebula/.git/hooks
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$working_dir</span>/nebula/.git/hooks
 chmod +x pre-commit
 </code></pre></div>
 
-
 <h2 id="step_3">Step 3: 分支<a class="headerlink" href="#step_3" title="Permanent link">&para;</a></h2>
 <p>更新本地主分支：</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$working_dir</span>/nebula
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$working_dir</span>/nebula
 git fetch upstream
 git checkout master
 git rebase upstream/master
 </code></pre></div>
 
-
 <p>从主分支创建并切换分支：</p>
-<div class="codehilite"><pre><span></span><code>git checkout -b myfeature
+<div class="highlight"><pre><span></span><code>git checkout -b myfeature
 </code></pre></div>
-
 
 <p><strong>注意</strong>
 由于一个 PR 通常包含多个 commit，在合并至 master 时容易被挤压 ( squash )，因此建议创建一个独立的分支进行更改。合并后，这个分支已无用处，因此可以使用上述 rebase 命令将本地 master 与 upstream 同步。此外，如果直接将 commit 提交至 master，则需要 hard reset 主分支，例如：</p>
-<div class="codehilite"><pre><span></span><code>git fetch upstream
+<div class="highlight"><pre><span></span><code>git fetch upstream
 git checkout master
 git reset --hard upstream/master
 git push --force origin master
 </code></pre></div>
-
 
 <h2 id="step_4">Step 4: 开发<a class="headerlink" href="#step_4" title="Permanent link">&para;</a></h2>
 <h3 id="_2">编辑代码<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
@@ -2745,29 +2737,25 @@ git push --force origin master
 </ul>
 <p>在修改的模块代码目录下面会有个test目录，可以在里面添加单元测试，然后编译运行单元测试，提交的代码必须确保所有单元测试顺利通过。</p>
 <p>运行所有单元测试</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">cd</span> nebula/build
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> nebula/build
 ctest -j<span class="k">$(</span>nproc<span class="k">)</span>
 </code></pre></div>
 
-
 <h2 id="step_5">Step 5: 保持分支同步<a class="headerlink" href="#step_5" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 当处于 myfeature 分支时：</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 当处于 myfeature 分支时：</span>
 git fetch upstream
 git rebase upstream/master
 </code></pre></div>
 
-
 <h3 id="step_6_commit">Step 6: Commit<a class="headerlink" href="#step_6_commit" title="Permanent link">&para;</a></h3>
 <p>提交代码更改</p>
-<div class="codehilite"><pre><span></span><code>git commit
+<div class="highlight"><pre><span></span><code>git commit
 </code></pre></div>
-
 
 <h3 id="step_7_push">Step 7: Push<a class="headerlink" href="#step_7_push" title="Permanent link">&para;</a></h3>
 <p>代码更改完成或需要备份代码时，将本地仓库创建的分支 push 到 GitHub 端的远程仓库：</p>
-<div class="codehilite"><pre><span></span><code>git push -f origin myfeature
+<div class="highlight"><pre><span></span><code>git push -f origin myfeature
 </code></pre></div>
-
 
 <h3 id="step_8_pull_request">Step 8: 创建 pull request<a class="headerlink" href="#step_8_pull_request" title="Permanent link">&para;</a></h3>
 <ol>

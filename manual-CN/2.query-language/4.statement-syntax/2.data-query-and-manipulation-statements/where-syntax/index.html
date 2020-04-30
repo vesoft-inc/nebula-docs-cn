@@ -1692,8 +1692,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2426,16 +2426,15 @@
                 
                 <h1 id="where">WHERE 语法<a class="headerlink" href="#where" title="Permanent link">&para;</a></h1>
 <p>目前，<code>WHERE</code> 语句仅适用于 <code>GO</code> 语句。</p>
-<div class="codehilite"><pre><span></span><code>WHERE &lt;expression&gt; [ AND | OR &lt;expression&gt; ...])
+<div class="highlight"><pre><span></span><code>WHERE &lt;expression&gt; [ AND | OR &lt;expression&gt; ...])
 </code></pre></div>
-
 
 <p>通常，筛选条件是关于节点、边的表达式的逻辑组合。</p>
 <blockquote>
 <p>作为语法糖，逻辑与可用 <code>AND</code> 或 <code>&amp;&amp;</code>，同理，逻辑或可用 <code>OR</code> 或 <code>||</code> 表示。</p>
 </blockquote>
 <h2 id="_1">示例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>-- 边 follow 的 degree 属性大于 90。
+<div class="highlight"><pre><span></span><code>-- 边 follow 的 degree 属性大于 90。
 nebula&gt; GO FROM 100 OVER follow WHERE follow.degree &gt; 90;
 -- 返回以下值：
 ===============

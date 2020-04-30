@@ -1661,8 +1661,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2396,7 +2396,7 @@
 <li>CONTAINS</li>
 </ul>
 <p><code>CONTAINS</code> 运算符用来搜索包含指定字段的字符串，且大小写敏感。<code>CONTAINS</code> 运算符左右两侧必须为字符串类型。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 107 OVER serve WHERE $$.team.name CONTAINS &quot;riors&quot; \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 107 OVER serve WHERE $$.team.name CONTAINS &quot;riors&quot; \
         YIELD $^.player.name, serve.start_year, serve.end_year, $$.team.name;
 =====================================================================
 | $^.player.name | serve.start_year | serve.end_year | $$.team.name |
@@ -2408,8 +2408,7 @@ nebula&gt; GO FROM 107 OVER serve WHERE $$.team.name CONTAINS &quot;Riors&quot; 
         YIELD $^.player.name, serve.start_year, serve.end_year, $$.team.name; -- 以下语句返回为空。
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 107 OVER serve WHERE (STRING)serve.start_year CONTAINS &quot;07&quot; &amp;&amp; \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 107 OVER serve WHERE (STRING)serve.start_year CONTAINS &quot;07&quot; &amp;&amp; \
         $^.player.name CONTAINS &quot;Aron&quot; \
         YIELD $^.player.name, serve.start_year, serve.end_year, $$.team.name;
 =====================================================================
@@ -2419,8 +2418,7 @@ nebula&gt; GO FROM 107 OVER serve WHERE $$.team.name CONTAINS &quot;Riors&quot; 
 ---------------------------------------------------------------------
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 107 OVER serve WHERE !($$.team.name CONTAINS &quot;riors&quot;) \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 107 OVER serve WHERE !($$.team.name CONTAINS &quot;riors&quot;) \
         YIELD $^.player.name, serve.start_year, serve.end_year, $$.team.name;
 =====================================================================
 | $^.player.name | serve.start_year | serve.end_year | $$.team.name |

@@ -1650,8 +1650,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2455,7 +2455,7 @@
 <p>Prometheus 支持 push/pull 两种 metrics 获取方式，<strong>Nebula Graph</strong> 支持pull 方式，在 pull 方式下，需要 Prometheus 周期性地通过 HTTP 请求到特定的端口拉取 metrics 数据。</p>
 <h2 id="prometheus_1">配置启动 Prometheus<a class="headerlink" href="#prometheus_1" title="Permanent link">&para;</a></h2>
 <p>本节介绍 Prometheus 配置，让 Prometheus 到配置好的端口拉取 metrics 数据。Prometheus 安装配置详情请参考 Prometheus <a href="https://prometheus.io/docs/prometheus/latest/getting_started/">官方文档</a>。本节只修改拉取 metrics 数据的端口。示例配置文件 <code>prometheus.yml</code> 如下。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># my global config</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># my global config</span>
 <span class="nt">global</span><span class="p">:</span>
   <span class="nt">scrape_interval</span><span class="p">:</span>     <span class="l l-Scalar l-Scalar-Plain">15s</span> <span class="c1"># Set the scrape interval to every 15 seconds. Default is every 1 minute.</span>
   <span class="nt">evaluation_interval</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">15s</span> <span class="c1"># Evaluate rules every 15 seconds. The default is every 1 minute.</span>
@@ -2485,7 +2485,6 @@
     <span class="nt">static_configs</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="nt">targets</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="s">&#39;localhost:11000&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;localhost:12000&#39;</span><span class="p p-Indicator">,</span> <span class="s">&#39;localhost:13000&#39;</span><span class="p p-Indicator">]</span>
 </code></pre></div>
-
 
 <p>如上所示，对于默认配置单机启动的 <strong>Nebula Graph</strong> 来说，只需要拉取 11000、12000、13000 三个端口的数据即可。如果是集群或者非默认配置启动，需要将所有服务的 HTTP 端口暴露给 Prometheus。</p>
 <h2 id="prometheus_metrics">通过 Prometheus 查看 metrics<a class="headerlink" href="#prometheus_metrics" title="Permanent link">&para;</a></h2>

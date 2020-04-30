@@ -1692,8 +1692,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2425,7 +2425,7 @@
                 
                 
                 <h1 id="insert_edge">INSERT EDGE 语法<a class="headerlink" href="#insert_edge" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><code>INSERT EDGE &lt;edge_name&gt; ( &lt;prop_name_list&gt; ) VALUES | VALUE
+<div class="highlight"><pre><span></span><code>INSERT EDGE &lt;edge_name&gt; ( &lt;prop_name_list&gt; ) VALUES | VALUE
 &lt;src_vid&gt; -&gt; &lt;dst_vid&gt;[@&lt;ranking&gt;] : ( &lt;prop_value_list&gt; )
 [, &lt;src_vid&gt; -&gt; &lt;dst_vid&gt; : ( &lt;prop_value_list&gt; ), ...]
 
@@ -2436,7 +2436,6 @@
   [ &lt;prop_value&gt; [, &lt;prop_value&gt; ] ...]
 </code></pre></div>
 
-
 <p>INSERT EDGE 用于插入从起点（ src_vid ）到终点（ dst_vid ）的一条边。</p>
 <ul>
 <li><code>&lt;edge_name&gt;</code> 表示边类型，在进行 <code>INSERT EDGE</code> 操作前需创建好。</li>
@@ -2445,22 +2444,20 @@
 <li><code>ranking</code> 指定边 ranking，可在插入同一类型的多条边时使用，可选，不指定时默认为 0。</li>
 </ul>
 <h2 id="_1">示例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE EDGE e1();                   -- 创建空属性边 t1
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE EDGE e1();                   -- 创建空属性边 t1
 nebula&gt; INSERT EDGE e1 () VALUES 10-&gt;11:();    -- 插入一条从点 10 到点 11 的空属性边
 nebula&gt; INSERT EDGE e1 () VALUES 10-&gt;11@1:();  -- 插入一条从点 10 到点 11 的空属性边，ranking 值为 1
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE EDGE e2 (name string, age int);                    -- 创建有两种属性的边 e2
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE EDGE e2 (name string, age int);                    -- 创建有两种属性的边 e2
 nebula&gt; INSERT EDGE e2 (name, age) VALUES 11-&gt;13:(&quot;n1&quot;, 1);          -- 插入一条从点 11 到点 13 的有两条属性的边
 nebula&gt; INSERT EDGE e2 (name, age) VALUES \
 12-&gt;13:(&quot;n1&quot;, 1), 13-&gt;14:(&quot;n2&quot;, 2);                          -- 插入两条边
 nebula&gt; INSERT EDGE e2 (name, age) VALUES 11-&gt;13:(&quot;n1&quot;, &quot;a13&quot;);      -- 错误操作，&quot;a13&quot; 不是 int 类型
 </code></pre></div>
 
-
 <p>同一条边可被多次插入或写入，读取时以最后一次插入为准。</p>
-<div class="codehilite"><pre><span></span><code>-- 为插入边赋新值
+<div class="highlight"><pre><span></span><code>-- 为插入边赋新值
 insert edge with new version of values.
 nebula&gt; INSERT EDGE e2 (name, age) VALUES 11-&gt;13:(&quot;n1&quot;, 12);
 nebula&gt; INSERT EDGE e2 (name, age) VALUES 11-&gt;13:(&quot;n1&quot;, 13);

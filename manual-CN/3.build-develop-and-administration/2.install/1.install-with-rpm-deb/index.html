@@ -42,7 +42,7 @@
     
     
       
-        <title>prm 安装 - Nebula Graph 手册</title>
+        <title>rpm 安装 - Nebula Graph 手册</title>
       
     
     
@@ -117,7 +117,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                prm 安装
+                rpm 安装
               
             </span>
           
@@ -1661,11 +1661,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        prm 安装
+        rpm 安装
       </label>
     
-    <a href="./" title="prm 安装" class="md-nav__link md-nav__link--active">
-      prm 安装
+    <a href="./" title="rpm 安装" class="md-nav__link md-nav__link--active">
+      rpm 安装
     </a>
     
       
@@ -2470,43 +2470,35 @@
 <ol>
 <li>获取 release 版本，URL 格式如下：</li>
 </ol>
-<ul>
-<li><a href="https://oss-cdn.nebula-graph.com.cn/package/${release_version}/nebula-${release_version}.el6-5.x86_64.rpm">Centos 6</a></li>
-</ul>
-<ul>
-<li><a href="https://oss-cdn.nebula-graph.com.cn/package/${release_version}/nebula-${release_version}.el7-5.x86_64.rpm">Centos 7</a></li>
-</ul>
-<ul>
-<li><a href="https://oss-cdn.nebula-graph.com.cn/package/${release_version}/nebula-${release_version}.ubuntu1604.amd64.deb">Ubuntu 1604</a></li>
-</ul>
-<ul>
-<li><a href="https://oss-cdn.nebula-graph.com.cn/package/${release_version}/nebula-${release_version}.ubuntu1804.amd64.deb">Ubuntu 1804</a></li>
-</ul>
-<ul>
-<li>链接中 <code>${release_version}</code> 为具体的发布版本号，例如要下载 <code>1.0.0-rc4</code> <code>Centos 7.5</code> 的安装包，那么可以直接通过命令下载。</li>
-</ul>
-<p><code>bash
- $ wget https://oss-cdn.nebula-graph.com.cn/package/1.0.0-rc4/nebula-1.0.0-rc4.el7-5.x86_64.rpm</code></p>
+<div class="highlight"><pre><span></span><code> * Centos 6: https://oss-cdn.nebula-graph.com.cn/package/${release_version}/nebula-${release_version}.el6-5.x86_64.rpm
+
+ * Centos 7: https://oss-cdn.nebula-graph.com.cn/package/${release_version}/nebula-${release_version}.el7-5.x86_64.rpm
+
+ * Ubuntu 1604: https://oss-cdn.nebula-graph.com.cn/package/${release_version}/nebula-${release_version}.ubuntu1604.amd64.deb
+
+ * Ubuntu 1804: https://oss-cdn.nebula-graph.com.cn/package/${release_version}/nebula-${release_version}.ubuntu1804.amd64.deb
+</code></pre></div>
+
+<p>链接中 <code>${release_version}</code> 为具体的发布版本号，例如要下载 <code>1.0.0-rc4</code> <code>Centos 7.5</code> 的安装包，那么可以直接通过命令下载。</p>
+<div class="highlight"><pre><span></span><code>$ wget https://oss-cdn.nebula-graph.com.cn/package/1.0.0-rc4/nebula-1.0.0-rc4.el7-5.x86_64.rpm
+</code></pre></div>
+
 <p>b. 获取 nightly (最新测试)版本，URL 格式如下：</p>
-<ul>
-<li><a href="https://oss-cdn.nebula-graph.com.cn/package/nightly/${date}/nebula-${date}-nightly.el6-5.x86_64.rpm">Centos 6</a></li>
-</ul>
-<ul>
-<li><a href="https://oss-cdn.nebula-graph.com.cn/package/nightly/${date}/nebula-${date}-nightly.el7-5.x86_64.rpm">Centos 7</a></li>
-</ul>
-<ul>
-<li><a href="https://oss-cdn.nebula-graph.com.cn/package/nightly/${date}/nebula-${date}-nightly.ubuntu1604.amd64.deb">Ubuntu 1604</a></li>
-</ul>
-<ul>
-<li><a href="https://oss-cdn.nebula-graph.com.cn/package/nightly/${date}/nebula-${date}-nightly.ubuntu1804.amd64.deb">Ubuntu 1804</a></li>
-</ul>
-<ul>
-<li>链接中 <code>${date}</code> 为具体的日期，例如要下载 <code>2020年4月1日</code>的 <code>Centos 7.5</code> 的安装包，那么可以直接通过命令下载</li>
-</ul>
+<div class="highlight"><pre><span></span><code>* Centos 6: https://oss-cdn.nebula-graph.com.cn/package/nightly/${date}/nebula-${date}-nightly.el6-5.x86_64.rpm
+
+* Centos 7: https://oss-cdn.nebula-graph.com.cn/package/nightly/${date}/nebula-${date}-nightly.el7-5.x86_64.rpm
+
+* Ubuntu 1604: https://oss-cdn.nebula-graph.com.cn/package/nightly/${date}/nebula-${date}-nightly.ubuntu1604.amd64.deb
+
+* Ubuntu 1804: https://oss-cdn.nebula-graph.com.cn/package/nightly/${date}/nebula-${date}-nightly.ubuntu1804.amd64.deb
+</code></pre></div>
+
+<p>链接中 <code>${date}</code> 为具体的日期，例如要下载 <code>2020年4月1日</code>的 <code>Centos 7.5</code> 的安装包，那么可以直接通过命令下载</p>
+<div class="highlight"><pre><span></span><code>$ wget https://oss-cdn.nebula-graph.com.cn/package/nightly/2020.04.01/nebula-2020.04.01-nightly.el7-5.x86_64.rpm
+</code></pre></div>
+
 </li>
 </ul>
-<p><code>bash
- $ wget https://oss-cdn.nebula-graph.com.cn/package/nightly/2020.04.01/nebula-2020.04.01-nightly.el7-5.x86_64.rpm</code></p>
 <ul>
 <li>
 <p>方式二：通过 GitHub 获取安装包</p>
@@ -2536,39 +2528,34 @@
 <ul>
 <li>如果是 <code>rpm</code> 文件，使用以下命令安装 <strong>Nebula Graph</strong>：</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>sudo rpm -ivh nebula-2019.12.23-nightly.el6-5.x86_64.rpm
+<div class="highlight"><pre><span></span><code>sudo rpm -ivh nebula-2019.12.23-nightly.el6-5.x86_64.rpm
 </code></pre></div>
-
 
 <ul>
 <li>如果是 <code>deb</code> 文件，使用以下命令安装 <strong>Nebula Graph</strong>：</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>sudo dpkg -i nebula-2019.12.23-nightly.ubuntu1604.amd64.deb
+<div class="highlight"><pre><span></span><code>sudo dpkg -i nebula-2019.12.23-nightly.ubuntu1604.amd64.deb
 </code></pre></div>
-
 
 <ul>
 <li>如需安装至自定义目录，请使用以下命令：</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>rpm -ivh --prefix<span class="o">=</span><span class="si">${</span><span class="nv">your_dir</span><span class="si">}</span> nebula-graph-<span class="si">${</span><span class="nv">version</span><span class="si">}</span>.rpm
+<div class="highlight"><pre><span></span><code>rpm -ivh --prefix<span class="o">=</span><span class="si">${</span><span class="nv">your_dir</span><span class="si">}</span> nebula-graph-<span class="si">${</span><span class="nv">version</span><span class="si">}</span>.rpm
 </code></pre></div>
-
 
 <ul>
 <li>如需将 <strong>Nebula Graph</strong> 打包至一个包，请使用以下命令：</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="nb">cd</span> nebula/package
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> nebula/package
 ./package.sh -v &lt;version&gt;
 </code></pre></div>
-
 
 <ul>
 <li>如需将 <strong>Nebula Graph</strong> 打包至多个包，请使用以下命令：</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="nb">cd</span> nebula/package
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> nebula/package
 ./package.sh -v &lt;version&gt; -n OFF
 </code></pre></div>
-
 
 <p><strong>注意</strong>：</p>
 <ol>

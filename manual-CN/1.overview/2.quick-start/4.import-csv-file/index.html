@@ -1646,8 +1646,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2441,29 +2441,26 @@
 <li>在命令行界面上，进入 <code>nebula-docker-compose</code> 目录。</li>
 <li>执行以下命令以启动 <strong>Nebula Graph</strong> 服务：</li>
 </ol>
-<div class="codehilite"><pre><span></span><code>$ sudo docker-compose up -d
+<div class="highlight"><pre><span></span><code>$ sudo docker-compose up -d
 </code></pre></div>
-
 
 <ol>
 <li>执行以下命令把 <strong>Nebula Graph</strong> 镜像文件下拉到本地：</li>
 </ol>
-<div class="codehilite"><pre><span></span><code>$ sudo docker pull vesoft/nebula-console:nightly
+<div class="highlight"><pre><span></span><code>$ sudo docker pull vesoft/nebula-console:nightly
 </code></pre></div>
-
 
 <ol>
 <li>执行以下命令以连接 <strong>Nebula Graph</strong> 服务器：</li>
 </ol>
-<div class="codehilite"><pre><span></span><code>$ sudo docker run --rm -ti --network<span class="o">=</span>host vesoft/nebula-console:nightly --addr<span class="o">=</span><span class="m">127</span>.0.0.1 --port<span class="o">=</span><span class="m">3699</span>
+<div class="highlight"><pre><span></span><code>$ sudo docker run --rm -ti --network<span class="o">=</span>host vesoft/nebula-console:nightly --addr<span class="o">=</span><span class="m">127</span>.0.0.1 --port<span class="o">=</span><span class="m">3699</span>
 </code></pre></div>
-
 
 <p><strong>注意</strong>：您必须确保 IP 地址和端口号配置正确。</p>
 <h2 id="schema">创建点和边的 Schema<a class="headerlink" href="#schema" title="Permanent link">&para;</a></h2>
 <p>在输入 schema 之前，必须创建一个空间并使用它。在此示例中，我们创建一个 <strong>nba</strong> 空间并使用它。</p>
 <p>我们使用以下命令创建两个标签和两个边类型：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE TAG player (name string, age int);
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG player (name string, age int);
 
 nebula&gt; CREATE TAG team (name string);
 
@@ -2472,11 +2469,10 @@ nebula&gt; CREATE EDGE serve (start_year int, end_year int);
 nebula&gt; CREATE EDGE follow (degree, int);
 </code></pre></div>
 
-
 <h2 id="_1">准备配置文件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>您必须配置 <code>.yaml</code> 配置文件，该文件规定了 CSV 文件中数据的格式。在本例中，我们创建一个名为 <code>config.yaml</code> 的配置文件。</p>
 <p>在此示例中，我们按以下方式配置 <code>config.yaml</code> 文件：</p>
-<div class="codehilite"><pre><span></span><code>version: v1rc1
+<div class="highlight"><pre><span></span><code>version: v1rc1
 description: example
 clientSettings:
   concurrency: 2 # number of graph clients
@@ -2554,7 +2550,6 @@ files:
                 type: string
 </code></pre></div>
 
-
 <p><strong>注意</strong>：</p>
 <ul>
 <li>在上面的配置文件中，您必须将 IP 地址和端口号更改为您自己的 IP 地址和端口号。</li>
@@ -2565,7 +2560,7 @@ files:
 <h2 id="csv_1">准备 CSV 数据<a class="headerlink" href="#csv_1" title="Permanent link">&para;</a></h2>
 <p>在此示例中，我们准备了四个 CSV 数据文件：<code>player.csv</code>、<code>team.csv</code>、<code>serve.csv</code> 以及 <code>follow.csv</code>。</p>
 <p><code>serve.csv</code> 文件中的数据如下：</p>
-<div class="codehilite"><pre><span></span><code>100,200,1997,2016
+<div class="highlight"><pre><span></span><code>100,200,1997,2016
 101,201,1999,2018
 102,203,2006,2015
 102,204,2015,2019
@@ -2573,9 +2568,8 @@ files:
 104,200,2007,2009
 </code></pre></div>
 
-
 <p><code>follow.csv</code> 文件中的数据如下：</p>
-<div class="codehilite"><pre><span></span><code>100,101,95
+<div class="highlight"><pre><span></span><code>100,101,95
 100,102,90
 101,100,95
 102,101,75
@@ -2586,9 +2580,8 @@ files:
 105,104,83
 </code></pre></div>
 
-
 <p><code>player.csv</code> 文件中的数据如下：</p>
-<div class="codehilite"><pre><span></span><code>100,Tim Duncan,42
+<div class="highlight"><pre><span></span><code>100,Tim Duncan,42
 101,Tony Parker,36
 102,LaMarcus Aldridge,33
 103,Rudy Gay,32
@@ -2599,9 +2592,8 @@ files:
 108,Boris Diaw,36
 </code></pre></div>
 
-
 <p><code>team.csv</code> 文件中的数据如下：</p>
-<div class="codehilite"><pre><span></span><code>200,Warriors
+<div class="highlight"><pre><span></span><code>200,Warriors
 201,Nuggets
 202,Rockets
 203,Trail
@@ -2611,7 +2603,6 @@ files:
 207,Clippers
 208,Kings
 </code></pre></div>
-
 
 <p><strong>注意</strong>：</p>
 <ul>
@@ -2628,27 +2619,24 @@ files:
 <ol>
 <li>通过以下命令将当前目录更改为 <code>import.go</code> 文件所在的目录：</li>
 </ol>
-<div class="codehilite"><pre><span></span><code>$ <span class="nb">cd</span> /home/nebula/nebula-importer/cmd
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> /home/nebula/nebula-importer/cmd
 </code></pre></div>
-
 
 <ol>
 <li>执行以下命令导入 CSV 数据：</li>
 </ol>
-<div class="codehilite"><pre><span></span><code>$ go run importer.go --config /home/nebula/config.yaml
+<div class="highlight"><pre><span></span><code>$ go run importer.go --config /home/nebula/config.yaml
 </code></pre></div>
-
 
 <p><strong>注意</strong>：您必须将 <code>import.go</code> 文件的目录和 <code>config.yaml</code> 文件的目录更改为您自己的目录，否则，导入操作可能会失败。</p>
 <h3 id="docker_csv">使用 Docker 导入 CSV 数据<a class="headerlink" href="#docker_csv" title="Permanent link">&para;</a></h3>
 <p>在使用 <code>Docker</code> 导入CSV数据之前，必须确保 <code>Docker</code> 已启动并运行正常。</p>
 <p>您可以通过以下命令使用 <code>Docker</code> 导入 CSV 数据：</p>
-<div class="codehilite"><pre><span></span><code>$ sudo docker run --rm -ti --network<span class="o">=</span>host <span class="se">\</span>
+<div class="highlight"><pre><span></span><code>$ sudo docker run --rm -ti --network<span class="o">=</span>host <span class="se">\</span>
 -v /home/nebula/config.yaml:/home/nebula/config.yaml <span class="se">\</span>
 -v /home/nebula/:/home/nebula/ vesoft/nebula-importer <span class="se">\</span>
 --config /home/nebula/config.yaml
 </code></pre></div>
-
 
 <p><strong>注意</strong>：您必须将 <code>config.yaml</code> 文件的目录更改为您自己的目录，否则导入操作可能会失败。</p>
                 

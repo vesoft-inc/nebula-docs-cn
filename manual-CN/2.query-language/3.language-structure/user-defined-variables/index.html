@@ -1661,8 +1661,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2383,7 +2383,7 @@
 <p>请注意，自定义的变量仅在当前会话的当前查询有效。在一个语句中定义的自定义变量不能在其他客户端和其他执行中使用，也就是说定义语句和使用它的语句应该一起提交。当客户端发送执行时，变量会自动释放。</p>
 <p>用户变量名称区分大小写。</p>
 <p>示例：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; $var = GO FROM hash(&#39;curry&#39;) OVER follow YIELD follow._dst AS id; \
+<div class="highlight"><pre><span></span><code>nebula&gt; $var = GO FROM hash(&#39;curry&#39;) OVER follow YIELD follow._dst AS id; \
 GO FROM $var.id OVER serve;
 </code></pre></div>
                 

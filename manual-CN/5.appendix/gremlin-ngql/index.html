@@ -1648,8 +1648,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2938,7 +2938,7 @@
 <ul>
 <li>插入数据</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 插入点</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 插入点</span>
 nebula&gt; INSERT VERTEX character<span class="o">(</span>name, age, <span class="nb">type</span><span class="o">)</span> VALUES hash<span class="o">(</span><span class="s2">&quot;saturn&quot;</span><span class="o">)</span>:<span class="o">(</span><span class="s2">&quot;saturn&quot;</span>, <span class="m">10000</span>, <span class="s2">&quot;titan&quot;</span><span class="o">)</span>, hash<span class="o">(</span><span class="s2">&quot;jupiter&quot;</span><span class="o">)</span>:<span class="o">(</span><span class="s2">&quot;jupiter&quot;</span>, <span class="m">5000</span>, <span class="s2">&quot;god&quot;</span><span class="o">)</span><span class="p">;</span>
 
 gremlin&gt; <span class="nv">saturn</span> <span class="o">=</span> g.addV<span class="o">(</span><span class="s2">&quot;character&quot;</span><span class="o">)</span>.property<span class="o">(</span>T.id, <span class="m">1</span><span class="o">)</span>.property<span class="o">(</span><span class="s1">&#39;name&#39;</span>, <span class="s1">&#39;saturn&#39;</span><span class="o">)</span>.property<span class="o">(</span><span class="s1">&#39;age&#39;</span>, <span class="m">10000</span><span class="o">)</span>.property<span class="o">(</span><span class="s1">&#39;type&#39;</span>, <span class="s1">&#39;titan&#39;</span><span class="o">)</span>.next<span class="o">()</span><span class="p">;</span>
@@ -2956,27 +2956,24 @@ gremlin&gt; g.addE<span class="o">(</span><span class="s2">&quot;father&quot;</s
 <span class="o">==</span>&gt;e<span class="o">[</span><span class="m">13</span><span class="o">][</span><span class="m">2</span>-father-&gt;1<span class="o">]</span>
 </code></pre></div>
 
-
 <ul>
 <li>删除数据</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>nebula&gt; DELETE VERTEX hash<span class="o">(</span><span class="s2">&quot;prometheus&quot;</span><span class="o">)</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code>nebula&gt; DELETE VERTEX hash<span class="o">(</span><span class="s2">&quot;prometheus&quot;</span><span class="o">)</span><span class="p">;</span>
 gremlin&gt; g.V<span class="o">(</span>prometheus<span class="o">)</span>.drop<span class="o">()</span><span class="p">;</span>
 </code></pre></div>
-
 
 <ul>
 <li>更新数据</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>nebula&gt; UPDATE VERTEX hash<span class="o">(</span><span class="s2">&quot;jesus&quot;</span><span class="o">)</span> SET character.type <span class="o">=</span> <span class="s1">&#39;titan&#39;</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code>nebula&gt; UPDATE VERTEX hash<span class="o">(</span><span class="s2">&quot;jesus&quot;</span><span class="o">)</span> SET character.type <span class="o">=</span> <span class="s1">&#39;titan&#39;</span><span class="p">;</span>
 gremlin&gt; g.V<span class="o">(</span>jesus<span class="o">)</span>.property<span class="o">(</span><span class="s1">&#39;age&#39;</span>, <span class="m">6000</span><span class="o">)</span><span class="p">;</span>
 </code></pre></div>
-
 
 <ul>
 <li>查看数据</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>nebula&gt; FETCH PROP ON character hash<span class="o">(</span><span class="s2">&quot;saturn&quot;</span><span class="o">)</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON character hash<span class="o">(</span><span class="s2">&quot;saturn&quot;</span><span class="o">)</span><span class="p">;</span>
 <span class="o">===================================================</span>
 <span class="p">|</span> character.name <span class="p">|</span> character.age <span class="p">|</span> character.type <span class="p">|</span>
 <span class="o">===================================================</span>
@@ -2987,11 +2984,10 @@ gremlin&gt; g.V<span class="o">(</span>saturn<span class="o">)</span>.valueMap<s
 <span class="o">==</span>&gt;<span class="o">[</span>name:<span class="o">[</span>saturn<span class="o">]</span>,type:<span class="o">[</span>titan<span class="o">]</span>,age:<span class="o">[</span><span class="m">10000</span><span class="o">]]</span>
 </code></pre></div>
 
-
 <ul>
 <li>查询 hercules 的祖父</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>nebula&gt; LOOKUP ON character WHERE character.name <span class="o">==</span> <span class="s1">&#39;hercules&#39;</span> <span class="p">|</span> <span class="se">\</span>
+<div class="highlight"><pre><span></span><code>nebula&gt; LOOKUP ON character WHERE character.name <span class="o">==</span> <span class="s1">&#39;hercules&#39;</span> <span class="p">|</span> <span class="se">\</span>
      -&gt; GO <span class="m">2</span> STEPS FROM <span class="nv">$-</span>.VertexID OVER father YIELD <span class="nv">$$</span>.character.name<span class="p">;</span>
 <span class="o">=====================</span>
 <span class="p">|</span> <span class="nv">$$</span>.character.name <span class="p">|</span>
@@ -3003,11 +2999,10 @@ gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span c
 <span class="o">==</span>&gt;saturn
 </code></pre></div>
 
-
 <ul>
 <li>查询 hercules 的父亲</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>nebula&gt; LOOKUP ON character WHERE character.name <span class="o">==</span> <span class="s1">&#39;hercules&#39;</span> <span class="p">|</span> <span class="se">\</span>
+<div class="highlight"><pre><span></span><code>nebula&gt; LOOKUP ON character WHERE character.name <span class="o">==</span> <span class="s1">&#39;hercules&#39;</span> <span class="p">|</span> <span class="se">\</span>
      -&gt; GO FROM <span class="nv">$-</span>.VertexID OVER father YIELD <span class="nv">$$</span>.character.name<span class="p">;</span>
 <span class="o">=====================</span>
 <span class="p">|</span> <span class="nv">$$</span>.character.name <span class="p">|</span>
@@ -3019,11 +3014,10 @@ gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span c
 <span class="o">==</span>&gt;jupiter
 </code></pre></div>
 
-
 <ul>
 <li>查询年龄大于 100 的人物</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>nebula&gt; LOOKUP ON character WHERE character.age &gt; <span class="m">100</span> YIELD character.name, character.age<span class="p">;</span>
+<div class="highlight"><pre><span></span><code>nebula&gt; LOOKUP ON character WHERE character.age &gt; <span class="m">100</span> YIELD character.name, character.age<span class="p">;</span>
 <span class="o">=========================================================</span>
 <span class="p">|</span> VertexID             <span class="p">|</span> character.name <span class="p">|</span> character.age <span class="p">|</span>
 <span class="o">=========================================================</span>
@@ -3043,11 +3037,10 @@ gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span c
 <span class="o">==</span>&gt;pluto
 </code></pre></div>
 
-
 <ul>
 <li>查询和 pluto 一起居住的人物</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM hash<span class="o">(</span><span class="s2">&quot;pluto&quot;</span><span class="o">)</span> OVER lives YIELD lives._dst AS place <span class="p">|</span> <span class="se">\</span>
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM hash<span class="o">(</span><span class="s2">&quot;pluto&quot;</span><span class="o">)</span> OVER lives YIELD lives._dst AS place <span class="p">|</span> <span class="se">\</span>
 GO FROM <span class="nv">$-</span>.place OVER lives REVERSELY YIELD <span class="nv">$$</span>.character.name AS cohabitants<span class="p">;</span>
 <span class="o">===============</span>
 <span class="p">|</span> cohabitants <span class="p">|</span>
@@ -3062,11 +3055,10 @@ gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.out<span cl
 <span class="o">==</span>&gt;cerberus
 </code></pre></div>
 
-
 <ul>
 <li>从一起居住的人物中排除 pluto 本人</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM hash<span class="o">(</span><span class="s2">&quot;pluto&quot;</span><span class="o">)</span> OVER lives YIELD lives._dst AS place <span class="p">|</span> GO FROM <span class="nv">$-</span>.place OVER lives REVERSELY WHERE <span class="se">\</span>
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM hash<span class="o">(</span><span class="s2">&quot;pluto&quot;</span><span class="o">)</span> OVER lives YIELD lives._dst AS place <span class="p">|</span> GO FROM <span class="nv">$-</span>.place OVER lives REVERSELY WHERE <span class="se">\</span>
 <span class="nv">$$</span>.character.name !<span class="o">=</span> <span class="s2">&quot;pluto&quot;</span> YIELD <span class="nv">$$</span>.character.name AS cohabitants<span class="p">;</span>
 <span class="o">===============</span>
 <span class="p">|</span> cohabitants <span class="p">|</span>
@@ -3078,11 +3070,10 @@ gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.out<span cl
 <span class="o">==</span>&gt;cerberus
 </code></pre></div>
 
-
 <ul>
 <li>Pluto 的兄弟们</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="c1"># where do pluto&#39;s brothers live?</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># where do pluto&#39;s brothers live?</span>
 
 nebula&gt; GO FROM hash<span class="o">(</span><span class="s2">&quot;pluto&quot;</span><span class="o">)</span> OVER brother YIELD brother._dst AS brother <span class="p">|</span> <span class="se">\</span>
 GO FROM <span class="nv">$-</span>.brother OVER lives YIELD <span class="nv">$$</span>.location.name<span class="p">;</span>
@@ -3115,10 +3106,9 @@ gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.out<span cl
 <span class="o">==</span>&gt;<span class="o">[</span>god:neptune, place:sea<span class="o">]</span>
 </code></pre></div>
 
-
 <h2 id="_4">高级查询<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <h3 id="_5">图探索<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># gremlin 版本</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># gremlin 版本</span>
 gremlin&gt; Gremlin.version<span class="o">()</span><span class="p">;</span>
 <span class="o">==</span>&gt;3.3.5
 
@@ -3191,7 +3181,6 @@ gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span c
 ...
 </code></pre></div>
 
-
 <h3 id="_6">边的遍历<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -3219,7 +3208,7 @@ gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span c
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 访问某个顶点沿某条边的 OUT 方向邻接点</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 访问某个顶点沿某条边的 OUT 方向邻接点</span>
 gremlin&gt; g.V<span class="o">(</span>jupiter<span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;brother&#39;</span><span class="o">)</span><span class="p">;</span>
 <span class="o">==</span>&gt;v<span class="o">[</span><span class="m">8</span><span class="o">]</span>
 <span class="o">==</span>&gt;v<span class="o">[</span><span class="m">5</span><span class="o">]</span>
@@ -3275,7 +3264,6 @@ GO FROM <span class="nv">$-</span>.id OVER lives<span class="p">;</span>
 ------------------------
 </code></pre></div>
 
-
 <h3 id="has">has 条件过滤<a class="headerlink" href="#has" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -3298,7 +3286,7 @@ GO FROM <span class="nv">$-</span>.id OVER lives<span class="p">;</span>
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 查询 ID 为 saturn 的顶点</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查询 ID 为 saturn 的顶点</span>
 gremlin&gt; g.V<span class="o">()</span>.hasId<span class="o">(</span>saturn<span class="o">)</span><span class="p">;</span>
 <span class="o">==</span>&gt;v<span class="o">[</span><span class="m">1</span><span class="o">]</span>
 nebula&gt; FETCH PROP ON * hash<span class="o">(</span><span class="s2">&quot;saturn&quot;</span><span class="o">)</span><span class="p">;</span>
@@ -3319,7 +3307,6 @@ nebula&gt; LOOKUP ON character WHERE character.name <span class="o">==</span> <s
 <span class="p">|</span> <span class="m">5976696804486077889</span> <span class="p">|</span> hercules       <span class="p">|</span> <span class="m">30</span>            <span class="p">|</span> demigod        <span class="p">|</span>
 -------------------------------------------------------------------------
 </code></pre></div>
-
 
 <h3 id="_7">返回结果限制<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <table>
@@ -3348,7 +3335,7 @@ nebula&gt; LOOKUP ON character WHERE character.name <span class="o">==</span> <s
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 查询前两个顶点</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查询前两个顶点</span>
 gremlin&gt; g.V<span class="o">()</span>.has<span class="o">(</span><span class="s1">&#39;character&#39;</span>,<span class="s1">&#39;name&#39;</span>,<span class="s1">&#39;hercules&#39;</span><span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;battled&#39;</span><span class="o">)</span>.limit<span class="o">(</span><span class="m">2</span><span class="o">)</span><span class="p">;</span>
 <span class="o">==</span>&gt;v<span class="o">[</span><span class="m">9</span><span class="o">]</span>
 <span class="o">==</span>&gt;v<span class="o">[</span><span class="m">10</span><span class="o">]</span>
@@ -3381,7 +3368,6 @@ nebula&gt; GO FROM hash<span class="o">(</span><span class="s1">&#39;hercules&#3
 <span class="p">|</span> hydra <span class="p">|</span>
 ---------
 </code></pre></div>
-
 
 <h3 id="_8">路径查询<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <table>
@@ -3416,7 +3402,7 @@ nebula&gt; GO FROM hash<span class="o">(</span><span class="s1">&#39;hercules&#3
 </tbody>
 </table>
 <p><strong>注意：</strong>  <strong>Nebula Graph</strong> 需要起始点和终点方可返回路径， Gremlin 仅需要起始点。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># pluto 顶点到与其有直接关联的出边顶点的路径</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># pluto 顶点到与其有直接关联的出边顶点的路径</span>
 gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.has<span class="o">(</span><span class="s1">&#39;name&#39;</span>,<span class="s1">&#39;pluto&#39;</span><span class="o">)</span>.out<span class="o">()</span>.path<span class="o">()</span><span class="p">;</span>
 <span class="o">==</span>&gt;<span class="o">[</span>v<span class="o">[</span><span class="m">8</span><span class="o">]</span>,v<span class="o">[</span><span class="m">12</span><span class="o">]]</span>
 <span class="o">==</span>&gt;<span class="o">[</span>v<span class="o">[</span><span class="m">8</span><span class="o">]</span>,v<span class="o">[</span><span class="m">2</span><span class="o">]]</span>
@@ -3432,7 +3418,6 @@ nebula&gt; LOOKUP ON character WHERE character.name<span class="o">==</span> <sp
 <span class="p">|</span> <span class="m">6761447489613431910</span> &lt;brother,0&gt; <span class="m">4863977009196259577</span>
 ------------------------------------------------------------
 </code></pre></div>
-
 
 <h3 id="_9">多度查询<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <table>
@@ -3466,7 +3451,7 @@ nebula&gt; LOOKUP ON character WHERE character.name<span class="o">==</span> <sp
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 查询点 pluto 出边邻点</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查询点 pluto 出边邻点</span>
 gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.has<span class="o">(</span><span class="s1">&#39;name&#39;</span>,<span class="s1">&#39;pluto&#39;</span><span class="o">)</span>.repeat<span class="o">(</span>out<span class="o">())</span>.times<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="p">;</span>
 <span class="o">==</span>&gt;v<span class="o">[</span><span class="m">12</span><span class="o">]</span>
 <span class="o">==</span>&gt;v<span class="o">[</span><span class="m">2</span><span class="o">]</span>
@@ -3516,7 +3501,6 @@ nebula&gt; FIND SHORTEST PATH FROM hash<span class="o">(</span><span class="s1">
 -------------------------------------------------------------------------------------------------
 </code></pre></div>
 
-
 <h3 id="_10">查询结果排序<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -3544,7 +3528,7 @@ nebula&gt; FIND SHORTEST PATH FROM hash<span class="o">(</span><span class="s1">
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 查询 pluto 的兄弟并按照年龄降序排列</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查询 pluto 的兄弟并按照年龄降序排列</span>
 gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;brother&#39;</span><span class="o">)</span>.order<span class="o">()</span>.by<span class="o">(</span><span class="s1">&#39;age&#39;</span>, decr<span class="o">)</span>.valueMap<span class="o">()</span><span class="p">;</span>
 <span class="o">==</span>&gt;<span class="o">[</span>name:<span class="o">[</span>jupiter<span class="o">]</span>,type:<span class="o">[</span>god<span class="o">]</span>,age:<span class="o">[</span><span class="m">5000</span><span class="o">]]</span>
 <span class="o">==</span>&gt;<span class="o">[</span>name:<span class="o">[</span>neptune<span class="o">]</span>,type:<span class="o">[</span>god<span class="o">]</span>,age:<span class="o">[</span><span class="m">4500</span><span class="o">]]</span>
@@ -3557,7 +3541,6 @@ nebula&gt; GO FROM hash<span class="o">(</span><span class="s1">&#39;pluto&#39;<
 <span class="p">|</span> neptune <span class="p">|</span> <span class="m">4500</span> <span class="p">|</span>
 ------------------
 </code></pre></div>
-
 
 <h3 id="group_by">Group By<a class="headerlink" href="#group_by" title="Permanent link">&para;</a></h3>
 <table>
@@ -3587,7 +3570,7 @@ nebula&gt; GO FROM hash<span class="o">(</span><span class="s1">&#39;pluto&#39;<
 </tbody>
 </table>
 <p><strong>注意：</strong> GROUP BY 函数只能与 YIELD 语句一起使用。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 根据顶点类别进行分组并统计各个类别的数量</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 根据顶点类别进行分组并统计各个类别的数量</span>
 gremlin&gt; g.V<span class="o">()</span>.group<span class="o">()</span>.by<span class="o">(</span>label<span class="o">)</span>.by<span class="o">(</span>count<span class="o">())</span><span class="p">;</span>
 <span class="o">==</span>&gt;<span class="o">[</span>character:9,location:3<span class="o">]</span>
 nebula&gt; <span class="c1"># Coming soon</span>
@@ -3627,7 +3610,6 @@ nebula&gt; GO FROM hash<span class="o">(</span><span class="s1">&#39;jupiter&#39
 <span class="p">|</span>                   <span class="p">|</span> <span class="m">0</span>                <span class="p">|</span> sky              <span class="p">|</span>
 -----------------------------------------------------------
 </code></pre></div>
-
 
 <h3 id="where">where 条件过滤<a class="headerlink" href="#where" title="Permanent link">&para;</a></h3>
 <table>
@@ -3693,7 +3675,7 @@ nebula&gt; GO FROM hash<span class="o">(</span><span class="s1">&#39;jupiter&#39
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><code>gremlin&gt; eq<span class="o">(</span><span class="m">2</span><span class="o">)</span>.test<span class="o">(</span><span class="m">3</span><span class="o">)</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code>gremlin&gt; eq<span class="o">(</span><span class="m">2</span><span class="o">)</span>.test<span class="o">(</span><span class="m">3</span><span class="o">)</span><span class="p">;</span>
 <span class="o">==</span>&gt;false
 nebula&gt; YIELD <span class="nv">3</span> <span class="o">==</span> <span class="m">2</span><span class="p">;</span>
 <span class="o">==========</span>
@@ -3712,8 +3694,7 @@ nebula&gt; YIELD udf_is_in<span class="o">(</span><span class="s1">&#39;d&#39;</
 ----------------------
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># 找出 pluto 和谁住并排队他本人</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 找出 pluto 和谁住并排队他本人</span>
 gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;lives&#39;</span><span class="o">)</span>.in<span class="o">(</span><span class="s1">&#39;lives&#39;</span><span class="o">)</span>.where<span class="o">(</span>is<span class="o">(</span>neq<span class="o">(</span>pluto<span class="o">)))</span>.values<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">;</span>
  <span class="o">==</span>&gt;cerberus
 nebula&gt; GO FROM hash<span class="o">(</span><span class="s2">&quot;pluto&quot;</span><span class="o">)</span> OVER lives YIELD lives._dst AS place <span class="p">|</span> GO FROM <span class="nv">$-</span>.place OVER lives REVERSELY WHERE <span class="se">\</span>
@@ -3724,7 +3705,6 @@ nebula&gt; GO FROM hash<span class="o">(</span><span class="s2">&quot;pluto&quot
 <span class="p">|</span> cerberus    <span class="p">|</span>
 ---------------
 </code></pre></div>
-
 
 <h3 id="_11">逻辑运算<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <table>
@@ -3758,7 +3738,7 @@ nebula&gt; GO FROM hash<span class="o">(</span><span class="s2">&quot;pluto&quot
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 查询年龄大于 30 的人物</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查询年龄大于 30 的人物</span>
 gremlin&gt; g.V<span class="o">()</span>.values<span class="o">(</span><span class="s1">&#39;age&#39;</span><span class="o">)</span>.is<span class="o">(</span>gte<span class="o">(</span><span class="m">30</span><span class="o">))</span><span class="p">;</span>
 <span class="o">==</span>&gt;10000
 <span class="o">==</span>&gt;5000
@@ -3805,7 +3785,6 @@ GO FROM <span class="nv">$-</span>.VertexID OVER brother WHERE <span class="nv">
 ---------------------
 </code></pre></div>
 
-
 <h3 id="_12">统计运算<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -3841,7 +3820,7 @@ GO FROM <span class="nv">$-</span>.VertexID OVER brother WHERE <span class="nv">
 <blockquote>
 <p><strong>Nebula Graph</strong> 统计运算必须同 <code>GROUP BY</code> 一起使用。</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 计算所有 character 的年龄的总和</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 计算所有 character 的年龄的总和</span>
 gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.values<span class="o">(</span><span class="s1">&#39;age&#39;</span><span class="o">)</span>.sum<span class="o">()</span><span class="p">;</span>
 <span class="o">==</span>&gt;23595
 nebula&gt; <span class="c1"># Coming soon</span>
@@ -3857,9 +3836,8 @@ gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span c
 nebula&gt; <span class="c1"># Coming soon</span>
 </code></pre></div>
 
-
 <h3 id="_13">路径选取与过滤<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 从路径中选取第 1 步和第 3 步的结果作为最终结果</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 从路径中选取第 1 步和第 3 步的结果作为最终结果</span>
 gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.as<span class="o">(</span><span class="s1">&#39;a&#39;</span><span class="o">)</span>.out<span class="o">()</span>.as<span class="o">(</span><span class="s1">&#39;b&#39;</span><span class="o">)</span>.out<span class="o">()</span>.as<span class="o">(</span><span class="s1">&#39;c&#39;</span><span class="o">)</span>.select<span class="o">(</span><span class="s1">&#39;a&#39;</span>,<span class="s1">&#39;c&#39;</span><span class="o">)</span><span class="p">;</span>
 <span class="o">==</span>&gt;<span class="o">[</span>a:v<span class="o">[</span><span class="m">8</span><span class="o">]</span>,c:v<span class="o">[</span><span class="m">3</span><span class="o">]]</span>
 <span class="o">==</span>&gt;<span class="o">[</span>a:v<span class="o">[</span><span class="m">8</span><span class="o">]</span>,c:v<span class="o">[</span><span class="m">1</span><span class="o">]]</span>
@@ -3881,9 +3859,8 @@ gremlin&gt; g.V<span class="o">()</span>.valueMap<span class="o">()</span>.selec
 nebula&gt; <span class="c1"># Coming soon</span>
 </code></pre></div>
 
-
 <h3 id="_14">分支<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 查找所有类型为 &#39;character&#39; 的顶点</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查找所有类型为 &#39;character&#39; 的顶点</span>
 <span class="c1"># name 属性为 &#39;jupiter&#39; 的顶点输出其 age 属性</span>
 <span class="c1"># 否则输出顶点的 name 属性</span>
 gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.choose<span class="o">(</span>values<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">))</span>.option<span class="o">(</span><span class="s1">&#39;jupiter&#39;</span>, values<span class="o">(</span><span class="s1">&#39;age&#39;</span><span class="o">))</span>.option<span class="o">(</span>none, values<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">))</span><span class="p">;</span>
@@ -3917,7 +3894,6 @@ gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span c
 <span class="o">==</span>&gt;<span class="o">[</span>young:4,old:2,very old:3<span class="o">]</span>
 </code></pre></div>
 
-
 <blockquote>
 <p><strong>Nebula Graph</strong> 尚无类似功能。</p>
 </blockquote>
@@ -3925,7 +3901,7 @@ gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span c
 <p><code>coalesce()</code> 可以接受任意数量的遍历器（traversal），按顺序执行，并返回第一个能产生输出的遍历器的结果。</p>
 <p><code>optional()</code> 只能接受一个遍历器（traversal），如果该遍历器能产生一个结果，则返回该结果，否则返回调用 optionalStep 的元素本身。</p>
 <p><code>union()</code> 可以接受任意数量的遍历器，并能够将各个遍历器的输出合并到一起。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 如果类型为 monster 则返回类型否则返回 &#39;Not a monster&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 如果类型为 monster 则返回类型否则返回 &#39;Not a monster&#39;</span>
 gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.coalesce<span class="o">(</span>has<span class="o">(</span><span class="s1">&#39;type&#39;</span>,<span class="s1">&#39;monster&#39;</span><span class="o">)</span>.values<span class="o">(</span><span class="s1">&#39;type&#39;</span><span class="o">)</span>,constant<span class="o">(</span><span class="s2">&quot;Not a monster&quot;</span><span class="o">))</span><span class="p">;</span>
 <span class="o">==</span>&gt;Not a monster
 
@@ -3947,12 +3923,11 @@ gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.union<span 
 <span class="o">==</span>&gt;<span class="o">[</span>v<span class="o">[</span><span class="m">8</span><span class="o">]</span>,v<span class="o">[</span><span class="m">5</span><span class="o">]]</span>
 </code></pre></div>
 
-
 <blockquote>
 <p><strong>Nebula Graph</strong> 尚无类似功能。</p>
 </blockquote>
 <h3 id="_16">结果聚集与展开<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 收集第 1 步的结果到集合 x 中</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 收集第 1 步的结果到集合 x 中</span>
 <span class="c1"># 注意：不影响后续结果</span>
 gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.out<span class="o">()</span>.aggregate<span class="o">(</span><span class="s1">&#39;x&#39;</span><span class="o">)</span><span class="p">;</span>
 <span class="o">==</span>&gt;v<span class="o">[</span><span class="m">12</span><span class="o">]</span>
@@ -3972,13 +3947,12 @@ gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.out<span cl
 ...
 </code></pre></div>
 
-
 <blockquote>
 <p><strong>Nebula Graph</strong> 尚无类似功能。</p>
 </blockquote>
 <h3 id="_17">模式匹配<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
 <p><code>match()</code> 语句为图查询提供了一种基于模式匹配的方式，以便用更具描述性的方式进行图查询。match()语句通过多个模式片段 traversal fragments 来进行模式匹配。这些 traversal fragments 中会定义一些变量，只有满足所有用变量表示的约束的对象才能够通过。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 对每一个顶点，用以下模式去匹配，满足则生成一个 map&lt;String, Object&gt;，不满足则过滤掉</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 对每一个顶点，用以下模式去匹配，满足则生成一个 map&lt;String, Object&gt;，不满足则过滤掉</span>
 <span class="c1"># 模式1：a 为沿 father 出边指向 jupiter 的顶点</span>
 <span class="c1"># 模式2：b 对应当前顶点 jupiter</span>
 <span class="c1"># 模式3：c 对应创建 jupiter 的 brother 年龄为 4000 的 顶点</span>
@@ -3994,11 +3968,10 @@ gremlin&gt; g.V<span class="o">()</span>.match<span class="o">(</span>__.as<span
 <span class="o">==</span>&gt;<span class="o">[</span>a:hercules,c:pluto<span class="o">]</span>
 </code></pre></div>
 
-
 <h3 id="_18">随机过滤<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
 <p><code>sample()</code> 接受一个整数值，从前一步的遍历器中采样（随机）出最多指定数目的结果。</p>
 <p><code>coin()</code> 字面意思是抛硬币过滤，接受一个浮点值，该浮点值表示硬币出现正面的概率。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 从所有顶点的出边中随机选择 2 条</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 从所有顶点的出边中随机选择 2 条</span>
 gremlin&gt; g.V<span class="o">()</span>.outE<span class="o">()</span>.sample<span class="o">(</span><span class="m">2</span><span class="o">)</span><span class="p">;</span>
 <span class="o">==</span>&gt;e<span class="o">[</span><span class="m">15</span><span class="o">][</span><span class="m">2</span>-brother-&gt;5<span class="o">]</span>
 <span class="o">==</span>&gt;e<span class="o">[</span><span class="m">18</span><span class="o">][</span><span class="m">5</span>-brother-&gt;2<span class="o">]</span>
@@ -4034,28 +4007,25 @@ gremlin&gt; g.V<span class="o">()</span>.choose<span class="o">(</span>hasLabel<
 ...
 </code></pre></div>
 
-
 <h3 id="sack">结果存取口袋 Sack<a class="headerlink" href="#sack" title="Permanent link">&para;</a></h3>
 <p>包含本地数据结构的遍历器称为口袋。<code>sack()</code> 将数据放入口袋，或者从口袋取出数据。每个遍历器的每个口袋都是通过 <code>withSack（）</code> 创建的。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 创建一个包含常数 1 的口袋，并且在最终取出口袋中的值</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 创建一个包含常数 1 的口袋，并且在最终取出口袋中的值</span>
 gremlin&gt; g.withSack<span class="o">(</span><span class="m">1</span><span class="o">)</span>.V<span class="o">()</span>.sack<span class="o">()</span><span class="p">;</span>
 <span class="o">==</span>&gt;1
 <span class="o">==</span>&gt;1
 ...
 </code></pre></div>
 
-
 <h3 id="barrier">遍历栅栏 barrier<a class="headerlink" href="#barrier" title="Permanent link">&para;</a></h3>
 <p><code>barrier()</code> 在某个位置插入一个栅栏，以强制该位置之前的步骤必须都执行完成才可以继续往后执行。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 利用隐式 barrier 计算特征向量中心性</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 利用隐式 barrier 计算特征向量中心性</span>
 <span class="c1"># 包括 groupCount、cap，按照降序排序</span>
 gremlin&gt; g.V<span class="o">()</span>.repeat<span class="o">(</span>both<span class="o">()</span>.groupCount<span class="o">(</span><span class="s1">&#39;m&#39;</span><span class="o">))</span>.times<span class="o">(</span><span class="m">5</span><span class="o">)</span>.cap<span class="o">(</span><span class="s1">&#39;m&#39;</span><span class="o">)</span>.order<span class="o">(</span><span class="nb">local</span><span class="o">)</span>.by<span class="o">(</span>values, decr<span class="o">)</span><span class="p">;</span>
 </code></pre></div>
 
-
 <h3 id="local">局部操作 local<a class="headerlink" href="#local" title="Permanent link">&para;</a></h3>
 <p>通过 Gremlin 进行图遍历通常是当前 step 处理前一 step 传递过来的对象流。很多操作是针对传递过来的对象流中的全部对象进行操作，但也有很多时候需要针对对象流中的单个对象而非对象流中的全部对象进行操作。这种对单个对象的局部操作，可以使用 <code>local()</code> 语句实现。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 不使用 local()</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 不使用 local()</span>
 gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.as<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.properties<span class="o">(</span><span class="s1">&#39;age&#39;</span><span class="o">)</span>.order<span class="o">()</span>.by<span class="o">(</span>value,decr<span class="o">)</span>.limit<span class="o">(</span><span class="m">2</span><span class="o">)</span>.value<span class="o">()</span>.as<span class="o">(</span><span class="s1">&#39;age&#39;</span><span class="o">)</span>.select<span class="o">(</span><span class="s1">&#39;character&#39;</span>, <span class="s1">&#39;age&#39;</span><span class="o">)</span>.by<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span>.by<span class="o">()</span><span class="p">;</span>
 <span class="o">==</span>&gt;<span class="o">[</span>character:saturn,age:10000<span class="o">]</span>
 <span class="o">==</span>&gt;<span class="o">[</span>character:jupiter,age:5000<span class="o">]</span>
@@ -4100,14 +4070,13 @@ gremlin&gt; g.V<span class="o">()</span>.fold<span class="o">()</span>.sample<sp
 <span class="o">==</span>&gt;<span class="o">[</span>v<span class="o">[</span><span class="m">8</span><span class="o">]</span>,v<span class="o">[</span><span class="m">1</span><span class="o">]]</span>
 </code></pre></div>
 
-
 <h3 id="_19">执行统计和分析<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
 <p>Gremlin 提供两种语句对执行的查询语句进行统计和分析：</p>
 <ul>
 <li><code>explain()</code>，详细描述原始的 Gremlin 语句在编译期是如何转变为最终要执行的 step 集合的</li>
 <li><code>profile()</code>，统计 Gremlin 语句执行过程中的每个 step 消耗的时间和通过的对象等统计信息</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="c1"># explain()</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># explain()</span>
 gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.explain<span class="o">()</span><span class="p">;</span>
 <span class="o">==</span>&gt;Traversal <span class="nv">Explanation</span>
 <span class="o">==========================================================================================</span>
@@ -4131,36 +4100,26 @@ NoOpBarrierStep<span class="o">(</span><span class="m">2500</span><span class="o
                                             &gt;TOTAL                     -           -           <span class="m">1</span>.411        -
 </code></pre></div>
 
-
 <!-- ## References
 
 Multiple properties (multi-properties): a vertex property key can have multiple values. For example, a vertex can have multiple "name" properties.
 
 create this Graph and establish a TraversalSource with
 
-
-<div class="codehilite"><pre><span></span><code><span class="nv">graph</span> <span class="o">=</span> TinkerFactory.createTheCrew<span class="o">()</span>
+<div class="highlight"><pre><span></span><code><span class="nv">graph</span> <span class="o">=</span> TinkerFactory.createTheCrew<span class="o">()</span>
 <span class="nv">g</span> <span class="o">=</span> graph.traversal<span class="o">()</span>
 g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;person&#39;</span><span class="o">)</span>.valueMap<span class="o">()</span>    //get a basic feeling <span class="k">for</span> the data of the <span class="s2">&quot;person&quot;</span> vertices in the graph
 g.V<span class="o">()</span>.group<span class="o">()</span>.by<span class="o">(</span>label<span class="o">)</span>
 </code></pre></div>
 
-
-
-
-<div class="codehilite"><pre><span></span><code><span class="c1">#用内置的TinkerGraph-db创建一个空的图对象</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#用内置的TinkerGraph-db创建一个空的图对象</span>
 $ gremlin&gt; <span class="nv">g</span> <span class="o">=</span> TinkerGraph.open<span class="o">()</span>.traversal<span class="o">()</span>
 </code></pre></div>
 
-
-
 When running in the Gremlin Console, support for TinkerGraph should be on by default. Create a new TinkerGraph instance from the console as follows.
 
-
-<div class="codehilite"><pre><span></span><code><span class="nv">graph</span> <span class="o">=</span> TinkerGraph.open<span class="o">()</span>
+<div class="highlight"><pre><span></span><code><span class="nv">graph</span> <span class="o">=</span> TinkerGraph.open<span class="o">()</span>
 </code></pre></div>
-
-
 
 Before you can start to issue Gremlin queries against the graph you also need to establish a graph traversal source object by calling the new graph’s traversal method as follows.
 

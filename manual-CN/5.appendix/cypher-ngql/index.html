@@ -1648,8 +1648,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2569,7 +2569,7 @@
 <ul>
 <li>插入数据</li>
 </ul>
-<div class="codehilite"><pre><span></span><code># 插入点
+<div class="highlight"><pre><span></span><code># 插入点
 nebula&gt; INSERT VERTEX character(name, age, type) VALUES hash(&quot;saturn&quot;):(&quot;saturn&quot;, 10000, &quot;titan&quot;), hash(&quot;jupiter&quot;):(&quot;jupiter&quot;, 5000, &quot;god&quot;);
 
 # 插入边
@@ -2590,21 +2590,19 @@ cypher&gt; MATCH (n:character {name:&quot;prometheus&quot;})
         &gt; DETACH DELETE n
 </code></pre></div>
 
-
 <ul>
 <li>更新点的属性</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>nebula&gt; UPDATE VERTEX hash(&quot;jesus&quot;) SET character.type = &#39;titan&#39;;
+<div class="highlight"><pre><span></span><code>nebula&gt; UPDATE VERTEX hash(&quot;jesus&quot;) SET character.type = &#39;titan&#39;;
 
 cypher&gt; MATCH (n:character {name:&quot;jesus&quot;})
       &gt; SET n.type = &#39;titan&#39;
 </code></pre></div>
 
-
 <ul>
 <li>查看点的属性</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>nebula&gt; FETCH PROP ON character hash(&quot;saturn&quot;);
+<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON character hash(&quot;saturn&quot;);
   ===================================================
   | character.name | character.age | character.type |
   ===================================================
@@ -2620,11 +2618,10 @@ cypher&gt; MATCH (n:character {name:&quot;saturn&quot;})
   └────────────────────────────────────────────┘
 </code></pre></div>
 
-
 <ul>
 <li>查询 hercules 祖父的姓名</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO 2 STEPS FROM hash(&quot;hercules&quot;) OVER father YIELD  $$.character.name;
+<div class="highlight"><pre><span></span><code>nebula&gt; GO 2 STEPS FROM hash(&quot;hercules&quot;) OVER father YIELD  $$.character.name;
     =====================
     | $$.character.name |
     =====================
@@ -2640,11 +2637,10 @@ cypher&gt; MATCH (src:character{name:&quot;hercules&quot;})-[r:father*2]-&gt;(ds
       └──────────┘
 </code></pre></div>
 
-
 <ul>
 <li>查询 hercules 父亲的姓名</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM hash(&quot;hercules&quot;) OVER father YIELD $$.character.name;
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM hash(&quot;hercules&quot;) OVER father YIELD $$.character.name;
     =====================
     | $$.character.name |
     =====================
@@ -2660,11 +2656,10 @@ cypher&gt; MATCH (src:character{name:&quot;hercules&quot;})-[r:father]-&gt;(dst:
       └──────────┘
 </code></pre></div>
 
-
 <ul>
 <li>查询百岁老人的姓名</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>nebula&gt; # coming soon
+<div class="highlight"><pre><span></span><code>nebula&gt; # coming soon
 
 cypher&gt; MATCH (src:character)
       &gt; WHERE src.age &gt; 100
@@ -2682,11 +2677,10 @@ cypher&gt; MATCH (src:character)
       └───────────┘
 </code></pre></div>
 
-
 <ul>
 <li>找出 pluto 和谁住</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM hash(&quot;pluto&quot;) OVER lives YIELD lives._dst AS place | GO FROM $-.place OVER lives REVERSELY WHERE \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM hash(&quot;pluto&quot;) OVER lives YIELD lives._dst AS place | GO FROM $-.place OVER lives REVERSELY WHERE \
       &gt; $$.character.name != &quot;pluto&quot; YIELD $$.character.name AS cohabitants;
     ===============
     | cohabitants |
@@ -2703,11 +2697,10 @@ cypher&gt; MATCH (src:character{name:&quot;pluto&quot;})-[r1:lives]-&gt;()&lt;-[
       └──────────┘
 </code></pre></div>
 
-
 <ul>
 <li>查询 Pluto 的兄弟们以及他们的居住地</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM hash(&quot;pluto&quot;) OVER brother YIELD brother._dst AS god | \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM hash(&quot;pluto&quot;) OVER brother YIELD brother._dst AS god | \
       &gt; GO FROM $-.god OVER lives YIELD $^.character.name AS Brother, $$.location.name AS Habitations;
     =========================
     | Brother | Habitations |

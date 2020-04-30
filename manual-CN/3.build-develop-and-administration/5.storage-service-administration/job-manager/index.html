@@ -1650,8 +1650,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2563,7 +2563,7 @@
 <h2 id="_1">命令列表<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <h3 id="submit_job_compact">SUBMIT JOB COMPACT<a class="headerlink" href="#submit_job_compact" title="Permanent link">&para;</a></h3>
 <p><code>SUBMIT JOB COMPACT</code> 命令触发长耗时的 <code>RocksDB compact</code> 操作。示例返回结果如下：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; SUBMIT JOB COMPACT;
+<div class="highlight"><pre><span></span><code>nebula&gt; SUBMIT JOB COMPACT;
 ==============
 | New Job Id |
 ==============
@@ -2571,11 +2571,10 @@
 --------------
 </code></pre></div>
 
-
 <p>修改默认 compact 线程数量请参考<a href="../../3.configurations/5.storage-config/">这里</a>。</p>
 <h3 id="submit_job_flush">SUBMIT JOB FLUSH<a class="headerlink" href="#submit_job_flush" title="Permanent link">&para;</a></h3>
 <p><code>SUBMIT JOB FLUSH</code> 命令将内存中的 RocksDB memfile 写入到硬盘中。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; SUBMIT JOB FLUSH;
+<div class="highlight"><pre><span></span><code>nebula&gt; SUBMIT JOB FLUSH;
 ==============
 | New Job Id |
 ==============
@@ -2583,11 +2582,10 @@
 --------------
 </code></pre></div>
 
-
 <h3 id="show_job">SHOW JOB<a class="headerlink" href="#show_job" title="Permanent link">&para;</a></h3>
 <h4 id="_2">返回单个作业信息<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
 <p>命令 <code>SHOW JOB &lt;job_id&gt;</code> 用于返回对应 ID 作业及其所有任务。作业到达 Meta 层后，Meta 会将作业分成多个任务并发送至 storage 层。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; SHOW JOB 40;
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW JOB 40;
 =====================================================================================
 | Job Id(TaskId) | Command(Dest) | Status   | Start Time        | Stop Time         |
 =====================================================================================
@@ -2596,7 +2594,6 @@
 | 40-0           | 192.168.8.5   | finished | 12/17/19 17:21:30 | 12/17/19 17:21:30 |
 -------------------------------------------------------------------------------------
 </code></pre></div>
-
 
 <p>执行上述命令将返回 1 到多行结果，取决于 space 所在的 storaged 个数。</p>
 <p>返回结果说明：</p>
@@ -2613,17 +2610,16 @@
 <li><code>12/17/19 17:21:30</code> 表示结束时间，如果为 running 状态，这里会为空，当状态变为 finished、failed、stopped 时会设置此值</li>
 </ul>
 <p><strong>注意：</strong> 作业状态有五种，分为是 QUEUE、RUNNING、FINISHED、FAILED、STOPPED。状态机转换见以下说明：</p>
-<div class="codehilite"><pre><span></span><code>Queue -- running -- finished -- removed
+<div class="highlight"><pre><span></span><code>Queue -- running -- finished -- removed
      \          \                /
       \          \ -- failed -- /
        \          \            /
         \ ---------- stopped -/
 </code></pre></div>
 
-
 <h4 id="_3">返回所有作业信息<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
 <p>命令 <code>SHOW JOBS</code> 用于列出所有未过期的作业信息。默认作业过期时长为一周。用户可通过 <code>job_expired_secs</code> 参数更改过期时长。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; SHOW JOBS;
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW JOBS;
 =============================================================================
 | Job Id | Command       | Status   | Start Time        | Stop Time         |
 =============================================================================
@@ -2637,11 +2633,10 @@
 -----------------------------------------------------------------------------
 </code></pre></div>
 
-
 <p>返回结果说明见上节<a href="#返回单个作业信息">返回单个作业信息</a>。</p>
 <h3 id="stop_job">STOP JOB<a class="headerlink" href="#stop_job" title="Permanent link">&para;</a></h3>
 <p>命令 <code>STOP JOB</code> 用于在停止未完成的作业。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; STOP JOB 22;
+<div class="highlight"><pre><span></span><code>nebula&gt; STOP JOB 22;
 =========================
 | STOP Result         |
 =========================
@@ -2649,10 +2644,9 @@
 -------------------------
 </code></pre></div>
 
-
 <h3 id="recover_job">RECOVER JOB<a class="headerlink" href="#recover_job" title="Permanent link">&para;</a></h3>
 <p>命令 <code>RECOVER JOB</code> 用于重新失败执行作业，并返回 recover 的作业数目。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; RECOVER JOB;
+<div class="highlight"><pre><span></span><code>nebula&gt; RECOVER JOB;
 =====================
 | Recovered job num |
 =====================
@@ -2660,10 +2654,9 @@
 ---------------------
 </code></pre></div>
 
-
 <h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h2>
 <p><code>SUBMIT JOB</code> 使用 HTTP 端口。请检查 Storage 之间的 HTTP 端口是否正常。你可以使用如下命令调试。</p>
-<div class="codehilite"><pre><span></span><code>curl <span class="s2">&quot;http://{storaged-ip}:12000/admin?space={test}&amp;op=compact&quot;</span>
+<div class="highlight"><pre><span></span><code>curl <span class="s2">&quot;http://{storaged-ip}:12000/admin?space={test}&amp;op=compact&quot;</span>
 </code></pre></div>
                 
                   

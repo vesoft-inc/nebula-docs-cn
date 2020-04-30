@@ -1650,8 +1650,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2781,17 +2781,15 @@
 </ul>
 <h2 id="spark_writer_1">获取 Spark Writer<a class="headerlink" href="#spark_writer_1" title="Permanent link">&para;</a></h2>
 <h3 id="_3">编译源码<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>git clone https://github.com/vesoft-inc/nebula.git
+<div class="highlight"><pre><span></span><code>git clone https://github.com/vesoft-inc/nebula.git
 <span class="nb">cd</span> nebula/src/tools/spark-sstfile-generator
 mvn compile package
 </code></pre></div>
 
-
 <p>或者直接下载</p>
 <h3 id="oss">从云存储 OSS 下载<a class="headerlink" href="#oss" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>wget https://oss-cdn.nebula-graph.com.cn/jar-packages/sst.generator-1.0.0-beta.jar
+<div class="highlight"><pre><span></span><code>wget https://oss-cdn.nebula-graph.com.cn/jar-packages/sst.generator-1.0.0-beta.jar
 </code></pre></div>
-
 
 <h2 id="_4">使用流程<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>基本流程分为以下几步：</p>
@@ -2810,11 +2808,10 @@ mvn compile package
 <ul>
 <li><strong>player</strong> 顶点数据</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>{&quot;id&quot;:100,&quot;name&quot;:&quot;Tim Duncan&quot;,&quot;age&quot;:42}
+<div class="highlight"><pre><span></span><code>{&quot;id&quot;:100,&quot;name&quot;:&quot;Tim Duncan&quot;,&quot;age&quot;:42}
 {&quot;id&quot;:101,&quot;name&quot;:&quot;Tony Parker&quot;,&quot;age&quot;:36}
 {&quot;id&quot;:102,&quot;name&quot;:&quot;LaMarcus Aldridge&quot;,&quot;age&quot;:33}
 </code></pre></div>
-
 
 <h4 id="_8">边<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
 <p>边数据文件由一行一行的数据组成，文件中每一行表示一条边和它的属性。一般来说，第一列为起点 ID，第二列为终点 ID，起点 ID 列及终点 ID 列会在映射文件中指定。其他列为边属性。下面以 JSON 格式为例进行说明。</p>
@@ -2822,29 +2819,26 @@ mvn compile package
 <ul>
 <li>无 rank 的边</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>{&quot;source&quot;:100,&quot;target&quot;:101,&quot;likeness&quot;:95}
+<div class="highlight"><pre><span></span><code>{&quot;source&quot;:100,&quot;target&quot;:101,&quot;likeness&quot;:95}
 {&quot;source&quot;:101,&quot;target&quot;:100,&quot;likeness&quot;:95}
 {&quot;source&quot;:101,&quot;target&quot;:102,&quot;likeness&quot;:90}
 </code></pre></div>
 
-
 <ul>
 <li>有 rank 的边</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>{&quot;source&quot;:100,&quot;target&quot;:101,&quot;likeness&quot;:95,&quot;ranking&quot;:2}
+<div class="highlight"><pre><span></span><code>{&quot;source&quot;:100,&quot;target&quot;:101,&quot;likeness&quot;:95,&quot;ranking&quot;:2}
 {&quot;source&quot;:101,&quot;target&quot;:100,&quot;likeness&quot;:95,&quot;ranking&quot;:1}
 {&quot;source&quot;:101,&quot;target&quot;:102,&quot;likeness&quot;:90,&quot;ranking&quot;:3}
 </code></pre></div>
 
-
 <h4 id="geo">含有地理位置 Geo 的数据<a class="headerlink" href="#geo" title="Permanent link">&para;</a></h4>
 <p>Spark Writer 支持 Geo 数据导入，Geo 数据用 <strong>latitude</strong> 与 <strong>longitude</strong> 字段描述经纬度，数据类型为 double。</p>
-<div class="codehilite"><pre><span></span><code>{&quot;latitude&quot;:30.2822095,&quot;longitude&quot;:120.0298785,&quot;target&quot;:0,&quot;dp_poi_name&quot;:&quot;0&quot;}
+<div class="highlight"><pre><span></span><code>{&quot;latitude&quot;:30.2822095,&quot;longitude&quot;:120.0298785,&quot;target&quot;:0,&quot;dp_poi_name&quot;:&quot;0&quot;}
 {&quot;latitude&quot;:30.2813834,&quot;longitude&quot;:120.0208692,&quot;target&quot;:1,&quot;dp_poi_name&quot;:&quot;1&quot;}
 {&quot;latitude&quot;:30.2807347,&quot;longitude&quot;:120.0181162,&quot;target&quot;:2,&quot;dp_poi_name&quot;:&quot;2&quot;}
 {&quot;latitude&quot;:30.2812694,&quot;longitude&quot;:120.0164896,&quot;target&quot;:3,&quot;dp_poi_name&quot;:&quot;3&quot;}
 </code></pre></div>
-
 
 <h4 id="_9">数据源文件<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
 <p>目前 Spark Writer 支持的数据源有：</p>
@@ -2861,7 +2855,7 @@ mvn compile package
 <li>ORC</li>
 </ul>
 <p>Player 的 Parquet 示例如下：</p>
-<div class="codehilite"><pre><span></span><code>+---+---+------------+
+<div class="highlight"><pre><span></span><code>+---+---+------------+
 |age| id|        name|
 +---+---+------------+
 | 42|100| Tim Duncan |
@@ -2869,19 +2863,16 @@ mvn compile package
 +---+---+------------+
 </code></pre></div>
 
-
 <p>JSON 示例如下：</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Tim Duncan&quot;</span><span class="p">,</span><span class="nt">&quot;age&quot;</span><span class="p">:</span><span class="mi">42</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">100</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Tim Duncan&quot;</span><span class="p">,</span><span class="nt">&quot;age&quot;</span><span class="p">:</span><span class="mi">42</span><span class="p">}</span>
 <span class="p">{</span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">101</span><span class="p">,</span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Tony Parker&quot;</span><span class="p">,</span><span class="nt">&quot;age&quot;</span><span class="p">:</span><span class="mi">36</span><span class="p">}</span>
 </code></pre></div>
 
-
 <p>CSV 示例如下：</p>
-<div class="codehilite"><pre><span></span><code>age,id,name
+<div class="highlight"><pre><span></span><code>age,id,name
 42,100,Tim Duncan
 36,101,Tony Parker
 </code></pre></div>
-
 
 <h5 id="_10">数据库<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h5>
 <p>Spark Writer 支持以数据库作为数据源，目前支持 HIVE。</p>
@@ -2915,7 +2906,7 @@ mvn compile package
 <h3 id="_11">编写配置文件<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <p>配置文件由 Spark 相关信息，Nebula 相关信息，以及 tags 映射 和 edges 映射块组成。Spark 信息配置了 Spark 运行的相关参数，Nebula 相关信息配置了连接 Nebula Graph 的用户名和密码等信息。 tags 映射和 edges 映射分别对应多个 tag/edge 的输入源映射，描述每个 tag/edge 的数据源等基本信息，不同 tag/edge 可以来自不同数据源。</p>
 <p>输入源的映射文件示例：</p>
-<div class="codehilite"><pre><span></span><code>{
+<div class="highlight"><pre><span></span><code>{
   # Spark 相关信息配置
   # 参见： http://spark.apache.org/docs/latest/configuration.html
   spark: {
@@ -3031,7 +3022,6 @@ mvn compile package
   ]
 }
 </code></pre></div>
-
 
 <h4 id="spark">Spark 配置信息<a class="headerlink" href="#spark" title="Permanent link">&para;</a></h4>
 <p>下表给出了一些示例，所有可配置项请见 <a href="http://spark.apache.org/docs/latest/configuration.html#available-properties">Spark Available Properties</a>。</p>
@@ -3181,12 +3171,11 @@ mvn compile package
 </ul>
 <h3 id="_13">执行命令导入数据<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
 <p>导入数据命令：</p>
-<div class="codehilite"><pre><span></span><code>bin/spark-submit <span class="se">\</span>
+<div class="highlight"><pre><span></span><code>bin/spark-submit <span class="se">\</span>
  --class com.vesoft.nebula.tools.generator.v2.SparkClientGenerator <span class="se">\</span>
  --master <span class="si">${</span><span class="nv">MASTER</span><span class="p">-URL</span><span class="si">}</span> <span class="se">\</span>
  <span class="si">${</span><span class="nv">SPARK_WRITER_JAR_PACKAGE</span><span class="si">}</span> -c conf/test.conf -h -d
 </code></pre></div>
-
 
 <p>参数说明：</p>
 <table>

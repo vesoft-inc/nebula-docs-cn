@@ -1839,8 +1839,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2743,9 +2743,8 @@
 <ol>
 <li>输入以下语句创建图空间：</li>
 </ol>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE SPACE nba(partition_num=10, replica_factor=1);
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE SPACE nba(partition_num=10, replica_factor=1);
 </code></pre></div>
-
 
 <p><strong>注意</strong>：</p>
 <ul>
@@ -2753,31 +2752,27 @@
 <li><code>replica_factor</code>：指定集群中副本的数量，通常生产环境为 3，测试环境为 1。</li>
 </ul>
 <p>之后, 你也可以通过下面这个命令检查机器和 partition 分布：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; SHOW HOSTS；
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW HOSTS；
 </code></pre></div>
-
 
 <p>具体可以见<a href="../../../2.query-language/4.statement-syntax/1.data-definition-statements/create-space-syntax/">这里</a></p>
 <ol>
 <li>输入以下语句使用图空间：</li>
 </ol>
-<div class="codehilite"><pre><span></span><code>nebula&gt; USE nba;
+<div class="highlight"><pre><span></span><code>nebula&gt; USE nba;
 </code></pre></div>
-
 
 <p>现在，您可以通过以下语句查看刚创建的空间：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; SHOW SPACES;
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW SPACES;
 </code></pre></div>
 
-
 <p>返回以下信息：</p>
-<div class="codehilite"><pre><span></span><code>========
+<div class="highlight"><pre><span></span><code>========
 | Name |
 ========
 | nba  |
 --------
 </code></pre></div>
-
 
 <h3 id="schema">定义数据的 Schema<a class="headerlink" href="#schema" title="Permanent link">&para;</a></h3>
 <p>在 <strong>Nebula Graph</strong> 中，我们将具有相同属性的点分为一组，该组即为一个标签。<code>CREATE TAG</code> 语句定义了一个标签，标签名称后面的括号中是标签的属性和属性类型。<code>CREATE EDGE</code> 语句定义边类型，类型名称后面的括号中是边的属性和属性类型。</p>
@@ -2785,39 +2780,34 @@
 <ol>
 <li>输入以下语句创建 <strong>player</strong> 标签：</li>
 </ol>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE TAG player(name string, age int);
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG player(name string, age int);
 </code></pre></div>
-
 
 <ol>
 <li>输入以下语句创建 <strong>team</strong> 标签：</li>
 </ol>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE TAG team(name string);
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG team(name string);
 </code></pre></div>
-
 
 <ol>
 <li>输入以下语句创建 <strong>follow</strong> 边类型：</li>
 </ol>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE EDGE follow(degree int);
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE EDGE follow(degree int);
 </code></pre></div>
-
 
 <ol>
 <li>输入以下语句创建 <strong>serve</strong> 边类型：</li>
 </ol>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE EDGE serve(start_year int, end_year int);
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE EDGE serve(start_year int, end_year int);
 </code></pre></div>
-
 
 <p>现在，您可以查看刚刚创建的标签和边类型。</p>
 <p>要获取刚创建的标签，请输入以下语句：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; SHOW TAGS;
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW TAGS;
 </code></pre></div>
 
-
 <p>返回以下信息：</p>
-<div class="codehilite"><pre><span></span><code>============
+<div class="highlight"><pre><span></span><code>============
 | Name     |
 ============
 | player   |
@@ -2826,14 +2816,12 @@
 ------------
 </code></pre></div>
 
-
 <p>要显示刚创建的边类型，请输入以下语句：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; SHOW EDGES;
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW EDGES;
 </code></pre></div>
 
-
 <p>返回以下信息：</p>
-<div class="codehilite"><pre><span></span><code>==========
+<div class="highlight"><pre><span></span><code>==========
 | Name   |
 ==========
 | serve  |
@@ -2842,14 +2830,12 @@
 ----------
 </code></pre></div>
 
-
 <p>要显示 <strong>player</strong> 标签的属性，请输入以下语句：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; DESCRIBE TAG player;
+<div class="highlight"><pre><span></span><code>nebula&gt; DESCRIBE TAG player;
 </code></pre></div>
 
-
 <p>返回以下信息：</p>
-<div class="codehilite"><pre><span></span><code>===================
+<div class="highlight"><pre><span></span><code>===================
 | Field  | Type   |
 ===================
 | name   | string |
@@ -2858,20 +2844,17 @@
 -------------------
 </code></pre></div>
 
-
 <p>要获取 <strong>follow</strong> 边类型的属性，请输入以下语句：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; DESCRIBE EDGE follow;
+<div class="highlight"><pre><span></span><code>nebula&gt; DESCRIBE EDGE follow;
 </code></pre></div>
 
-
 <p>返回以下信息：</p>
-<div class="codehilite"><pre><span></span><code>=====================
+<div class="highlight"><pre><span></span><code>=====================
 | Field    | Type   |
 =====================
 | degree   | int    |
 ---------------------
 </code></pre></div>
-
 
 <h2 id="crud">CRUD 操作<a class="headerlink" href="#crud" title="Permanent link">&para;</a></h2>
 <h3 id="_5">插入数据<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
@@ -2879,14 +2862,13 @@
 <h4 id="_6">插入点<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
 <p><code>INSERT VERTEX</code> 语句通过指定点的标签、属性、点 ID 和属性值来插入一个点。</p>
 <p>您可以通过以下语句插入点：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; INSERT VERTEX player(name, age) VALUES 100:(&quot;Tim Duncan&quot;, 42);
+<div class="highlight"><pre><span></span><code>nebula&gt; INSERT VERTEX player(name, age) VALUES 100:(&quot;Tim Duncan&quot;, 42);
 nebula&gt; INSERT VERTEX player(name, age) VALUES 101:(&quot;Tony Parker&quot;, 36);
 nebula&gt; INSERT VERTEX player(name, age) VALUES 102:(&quot;LaMarcus Aldridge&quot;, 33);
 nebula&gt; INSERT VERTEX team(name) VALUES 200:(&quot;Warriors&quot;);
 nebula&gt; INSERT VERTEX team(name) VALUES 201:(&quot;Nuggets&quot;);
 nebula&gt; INSERT VERTEX player(name, age) VALUES 121:(&quot;Useless&quot;, 60);
 </code></pre></div>
-
 
 <p><strong>注意</strong>：</p>
 <ol>
@@ -2900,57 +2882,50 @@ nebula&gt; INSERT VERTEX player(name, age) VALUES 121:(&quot;Useless&quot;, 60);
 <p>如果您想一次插入多个同类型的点，可以执行以下语句：</p>
 </li>
 </ol>
-<div class="codehilite"><pre><span></span><code>nebula&gt; INSERT VERTEX player(name, age) VALUES 100:(&quot;Tim Duncan&quot;, 42), \
+<div class="highlight"><pre><span></span><code>nebula&gt; INSERT VERTEX player(name, age) VALUES 100:(&quot;Tim Duncan&quot;, 42), \
 101:(&quot;Tony Parker&quot;, 36), 102:(&quot;LaMarcus Aldridge&quot;, 33);
 </code></pre></div>
-
 
 <h4 id="_7">插入边<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
 <p><code>INSERT EDGE</code> 语句通过指定边类型名称、属性、起始点ID和目标点ID以及属性值来插入边。</p>
 <p>您可以通过以下语句插入边：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; INSERT EDGE follow(degree) VALUES 100 -&gt; 101:(95);
+<div class="highlight"><pre><span></span><code>nebula&gt; INSERT EDGE follow(degree) VALUES 100 -&gt; 101:(95);
 nebula&gt; INSERT EDGE follow(degree) VALUES 100 -&gt; 102:(90);
 nebula&gt; INSERT EDGE follow(degree) VALUES 102 -&gt; 101:(75);
 nebula&gt; INSERT EDGE serve(start_year, end_year) VALUES 100 -&gt; 200:(1997, 2016);
 nebula&gt; INSERT EDGE serve(start_year, end_year) VALUES 101 -&gt; 201:(1999, 2018);
 </code></pre></div>
 
-
 <p><strong>注意</strong>：如果您想一次插入多条同类型的边，可以执行以下语句：</p>
-<div class="codehilite"><pre><span></span><code>INSERT EDGE follow(degree) VALUES 100 -&gt; 101:(95),100 -&gt; 102:(90),102 -&gt; 101:(75);
+<div class="highlight"><pre><span></span><code>INSERT EDGE follow(degree) VALUES 100 -&gt; 101:(95),100 -&gt; 102:(90),102 -&gt; 101:(75);
 </code></pre></div>
-
 
 <h3 id="_8">获取数据<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p>在 <strong>Nebula Graph</strong> 中插入数据后，您可以从图空间中检索到插入的数据。</p>
 <p><code>FETCH PROP ON</code> 语句从图空间检索数据。如果要获取点数据，则必须指定点标签和点 ID；如果要获取边数据，则必须指定边类型名称、起始点 ID 和目标点 ID。</p>
 <p>要获取 <code>VID</code> 为 <code>100</code> 的选手的数据，请输入以下语句：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; FETCH PROP ON player 100;
+<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player 100;
 </code></pre></div>
 
-
 <p>返回以下信息：</p>
-<div class="codehilite"><pre><span></span><code>=======================================
+<div class="highlight"><pre><span></span><code>=======================================
 | VertexID | player.name | player.age |
 =======================================
 | 100      | Tim Duncan  | 42         |
 ---------------------------------------
 </code></pre></div>
 
-
 <p>要获取 <code>VID</code> <code>100</code> 和 <code>VID</code> <code>200</code>之间的 <code>serve</code> 边的数据，请输入以下语句：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; FETCH PROP ON serve 100 -&gt; 200;
+<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON serve 100 -&gt; 200;
 </code></pre></div>
 
-
 <p>返回以下信息：</p>
-<div class="codehilite"><pre><span></span><code>=============================================================================
+<div class="highlight"><pre><span></span><code>=============================================================================
 | serve._src | serve._dst | serve._rank | serve.start_year | serve.end_year |
 =============================================================================
 | 100        | 200        | 0           | 1997             | 2016           |
 -----------------------------------------------------------------------------
 </code></pre></div>
-
 
 <h3 id="_9">更新数据<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p>您可以更新刚插入的点和边数据。</p>
@@ -2958,84 +2933,73 @@ nebula&gt; INSERT EDGE serve(start_year, end_year) VALUES 101 -&gt; 201:(1999, 2
 <p><code>UPDATE VERTEX</code> 语句首先选择要更新的点，然后通过在等号右侧为其分配新值来更新点的数据。</p>
 <p>以下示例说明如何将 <code>VID</code> <code>100</code> 的 <code>name</code> 值从 <code>Tim Duncan</code> 更改为 <code>Tim</code>。</p>
 <p>输入以下语句更新 <code>name</code> 值：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; UPDATE VERTEX 100 SET player.name = &quot;Tim&quot;;
+<div class="highlight"><pre><span></span><code>nebula&gt; UPDATE VERTEX 100 SET player.name = &quot;Tim&quot;;
 </code></pre></div>
-
 
 <p>要检查 <code>name</code> 值是否已更新，请输入以下语句：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; FETCH PROP ON player 100;
+<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player 100;
 </code></pre></div>
 
-
 <p>返回以下信息：</p>
-<div class="codehilite"><pre><span></span><code>=======================================
+<div class="highlight"><pre><span></span><code>=======================================
 | VertexID | player.name | player.age |
 =======================================
 | 100      | Tim         | 42         |
 ---------------------------------------
 </code></pre></div>
 
-
 <h4 id="_11">更新边数据<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
 <p><code>UPDATE EDGE</code> 语句通过指定边的起始点ID和目标点ID，然后在等号右侧为其分配新值来更新边的数据。</p>
 <p>以下示例展示了如何更改 <code>VID</code> <code>100</code> 和 <code>VID</code> <code>101</code> 之间 <code>follow</code> 边的值。现在，我们将 <code>degree</code> 的值从 <code>95</code> 更改为 <code>96</code>。</p>
 <p>输入以下语句更新 <code>degree</code> 的值：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; UPDATE EDGE 100 -&gt; 101 OF follow SET degree = follow.degree + 1;
+<div class="highlight"><pre><span></span><code>nebula&gt; UPDATE EDGE 100 -&gt; 101 OF follow SET degree = follow.degree + 1;
 </code></pre></div>
-
 
 <p>要检查 <code>degree</code> 的值是否已更新，请输入以下语句：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; FETCH PROP ON follow 100 -&gt; 101;
+<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON follow 100 -&gt; 101;
 </code></pre></div>
 
-
 <p>返回以下信息：</p>
-<div class="codehilite"><pre><span></span><code>============================================================
+<div class="highlight"><pre><span></span><code>============================================================
 | follow._src | follow._dst | follow._rank | follow.degree |
 ============================================================
 | 100         | 101         | 0            | 96            |
 ------------------------------------------------------------
 </code></pre></div>
 
-
 <h3 id="_12">删除数据<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <p>如果您有不需要的点或边数据，则可以从图空间中将其删除。</p>
 <h4 id="_13">删除点<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
 <p>您可以从图空间中删除任何点。<code>DELETE VERTEX</code> 语句通过指定点ID来删除点。</p>
 <p>要删除 <code>VID</code> 为 <code>121</code> 的点，请输入以下语句：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; DELETE VERTEX 121;
+<div class="highlight"><pre><span></span><code>nebula&gt; DELETE VERTEX 121;
 </code></pre></div>
-
 
 <p>要检查是否删除了该点，请输入以下语句；</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; FETCH PROP ON player 121;
+<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player 121;
 </code></pre></div>
-
 
 <p>返回以下信息：</p>
-<div class="codehilite"><pre><span></span><code>Execution succeeded (Time spent: 1571/1910 us)
+<div class="highlight"><pre><span></span><code>Execution succeeded (Time spent: 1571/1910 us)
 </code></pre></div>
-
 
 <p><strong>注意</strong>：上面返回结果为空的信息表示查询操作成功，但是由于数据已被删除，因此未能从图空间中查询到任何数据。</p>
 <h4 id="_14">删除边<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h4>
 <p>您可以从图空间中删除任何边。<code>DELETE EDGE</code> 语句通过指定边类型名称以及起始点ID和目标点ID来删除边。</p>
 <p>要删除 <code>VID</code> <code>100</code> 和 <code>VID</code> <code>200</code> 之间的 <code>follow</code> 边，请输入以下语句：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; DELETE EDGE follow 100 -&gt; 200;
+<div class="highlight"><pre><span></span><code>nebula&gt; DELETE EDGE follow 100 -&gt; 200;
 </code></pre></div>
-
 
 <p><strong>注意</strong>：如果您删除了一个点，则该点所有的入边和出边都将被删除。</p>
 <h3 id="_15">查询示例<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
 <p>本节提供了更多查询示例供您参考。</p>
 <p><strong>示例一</strong>: 查询 <code>VID</code> <code>100</code> 关注的点。</p>
 <p>输入以下语句：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 100 OVER follow;
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 100 OVER follow;
 </code></pre></div>
 
-
 <p>返回以下信息：</p>
-<div class="codehilite"><pre><span></span><code>===============
+<div class="highlight"><pre><span></span><code>===============
 | follow._dst |
 ===============
 | 101         |
@@ -3044,23 +3008,20 @@ nebula&gt; INSERT EDGE serve(start_year, end_year) VALUES 101 -&gt; 201:(1999, 2
 ---------------
 </code></pre></div>
 
-
 <p><strong>示例二</strong>: 查询 <code>VID</code> <code>100</code> 关注的点且该点年龄大于 <code>35</code> 岁。
 返回其姓名和年龄并分别把列的名称设置为 <strong>Teammate</strong> 和 <strong>Age</strong>。</p>
 <p>输入以下语句：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 100 OVER follow WHERE $$.player.age &gt;= 35 \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 100 OVER follow WHERE $$.player.age &gt;= 35 \
 YIELD $$.player.name AS Teammate, $$.player.age AS Age;
 </code></pre></div>
 
-
 <p>返回以下信息：</p>
-<div class="codehilite"><pre><span></span><code>=====================
+<div class="highlight"><pre><span></span><code>=====================
 | Teammate    | Age |
 =====================
 | Tony Parker | 36  |
 ---------------------
 </code></pre></div>
-
 
 <p><strong>注意</strong>：</p>
 <ul>
@@ -3071,36 +3032,32 @@ YIELD $$.player.name AS Teammate, $$.player.age AS Age;
 <p><strong>示例三</strong>: 查询球员 <code>100</code> 关注的球员所效力的球队。</p>
 <p>有两种方法可获得相同的结果。首先，我们可以使用<code>管道</code>来检索球队。然后，我们使用<code>临时变量</code>来检索同一支球队。</p>
 <p>输入带<code>管道</code>的语句：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 100 OVER follow YIELD follow._dst AS id | \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 100 OVER follow YIELD follow._dst AS id | \
 GO FROM $-.id OVER serve YIELD $$.team.name \
 AS Team, $^.player.name AS Player;
 </code></pre></div>
 
-
 <p>返回如下信息：</p>
-<div class="codehilite"><pre><span></span><code>===============================
+<div class="highlight"><pre><span></span><code>===============================
 | Team    | Player            |
 ===============================
 | Nuggets | Tony Parker       |
 -------------------------------
 </code></pre></div>
 
-
 <p>输入带<code>临时变量</code>的语句：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; $var=GO FROM 100 OVER follow YIELD follow._dst AS id; \
+<div class="highlight"><pre><span></span><code>nebula&gt; $var=GO FROM 100 OVER follow YIELD follow._dst AS id; \
 GO FROM $var.id OVER serve YIELD $$.team.name \
 AS Team, $^.player.name AS Player;
 </code></pre></div>
 
-
 <p>返回以下信息：</p>
-<div class="codehilite"><pre><span></span><code>===============================
+<div class="highlight"><pre><span></span><code>===============================
 | Team    | Player            |
 ===============================
 | Nuggets | Tony Parker       |
 -------------------------------
 </code></pre></div>
-
 
 <p><strong>注意</strong>：</p>
 <ul>
@@ -3111,7 +3068,7 @@ AS Team, $^.player.name AS Player;
 </ul>
 <h2 id="_16">批量插入<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
 <p>要插入多条数据，可以将所有 DDL（数据定义语言）语句放入 <code>.ngql</code> 文件中，如下所示。</p>
-<div class="codehilite"><pre><span></span><code>CREATE SPACE nba(partition_num=10, replica_factor=1);
+<div class="highlight"><pre><span></span><code>CREATE SPACE nba(partition_num=10, replica_factor=1);
 USE nba;
 CREATE TAG player(name string, age int);
 CREATE TAG team(name string);
@@ -3119,21 +3076,18 @@ CREATE EDGE follow(degree int);
 CREATE EDGE serve(start_year int, end_year int);
 </code></pre></div>
 
-
 <ul>
 <li>如果您是通过编译源代码来安装 <strong>Nebula Graph</strong>，则可以通过以下命令批量写入console：</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>$ cat schema.ngql <span class="p">|</span> ./bin/nebula -u user -p password
+<div class="highlight"><pre><span></span><code>$ cat schema.ngql <span class="p">|</span> ./bin/nebula -u user -p password
 </code></pre></div>
-
 
 <ul>
 <li>如果您通过 <code>docker-compose</code> 来使用 <strong>Nebula Graph</strong>，则可以通过以下命令批量写入console：</li>
 </ul>
-<div class="codehilite"><pre><span></span><code>$ cat nba.ngql <span class="p">|</span> sudo docker run --rm -i --network<span class="o">=</span>host <span class="se">\</span>
+<div class="highlight"><pre><span></span><code>$ cat nba.ngql <span class="p">|</span> sudo docker run --rm -i --network<span class="o">=</span>host <span class="se">\</span>
 vesoft/nebula-console:nightly --addr<span class="o">=</span><span class="m">127</span>.0.0.1 --port<span class="o">=</span><span class="m">3699</span>
 </code></pre></div>
-
 
 <p><strong>注意</strong>：</p>
 <ul>

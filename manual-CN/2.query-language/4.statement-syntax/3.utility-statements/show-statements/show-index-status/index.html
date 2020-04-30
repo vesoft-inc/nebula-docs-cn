@@ -1646,8 +1646,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2363,19 +2363,17 @@
                 
                 
                 <h1 id="show_index_status">SHOW INDEX STATUS 语法<a class="headerlink" href="#show_index_status" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><code>SHOW {TAG | EDGE} INDEX STATUS
+<div class="highlight"><pre><span></span><code>SHOW {TAG | EDGE} INDEX STATUS
 </code></pre></div>
 
-
 <p><code>SHOW INDEX STATUS</code> 用于列出已创建完成的 Tag/Edge-type 的索引状态信息。使用以下命令列出 tag 索引的状态信息：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; SHOW TAG INDEX STATUS;
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW TAG INDEX STATUS;
 ==========================================
 | Name                | Tag Index Status |
 ==========================================
 | single_person_index | SUCCEEDED        |
 ------------------------------------------
 </code></pre></div>
-
 
 <p>如何创建索引请参考<a href="../../../1.data-definition-statements/">索引</a>文档。</p>
                 

@@ -2068,8 +2068,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2991,7 +2991,7 @@
 <h3 id="_5">安装系统依赖<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>请注意，安装系统依赖需要 root 权限。</p>
 <p>CentOS，RedHat 和 Fedora 用户可以运行以下命令安装：</p>
-<div class="codehilite"><pre><span></span><code>$ yum update
+<div class="highlight"><pre><span></span><code>$ yum update
 $ yum install -y make <span class="se">\</span>
                  m4 <span class="se">\</span>
                  git <span class="se">\</span>
@@ -3012,9 +3012,8 @@ $ yum install -y make <span class="se">\</span>
 $ yum install -y libstdc++-static libasan
 </code></pre></div>
 
-
 <p>Debian 及 Ubuntu 用户，执行以下命令安装：</p>
-<div class="codehilite"><pre><span></span><code>$ apt-get update
+<div class="highlight"><pre><span></span><code>$ apt-get update
 $ apt-get install -y make <span class="se">\</span>
                      m4 <span class="se">\</span>
                      git <span class="se">\</span>
@@ -3030,27 +3029,23 @@ $ apt-get install -y make <span class="se">\</span>
                      gettext
 </code></pre></div>
 
-
 <p>ArchLinux、Gentoo 或者 LFS 用户请自行安装。</p>
 <p>在开始编译之前，请确保编译器和 CMake 版本满足要求：</p>
-<div class="codehilite"><pre><span></span><code>$ g++ --version
+<div class="highlight"><pre><span></span><code>$ g++ --version
 $ cmake --version
 </code></pre></div>
 
-
 <p>否则，请分别参考 <a href="#安装可用的-gcc">安装 GCC</a> 或 <a href="#安装可用的-cmake">安装 CMake</a> 进行操作。</p>
 <h3 id="_6">克隆源码<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>$ git clone https://github.com/vesoft-inc/nebula.git
+<div class="highlight"><pre><span></span><code>$ git clone https://github.com/vesoft-inc/nebula.git
 </code></pre></div>
-
 
 <p>如果不关心代码仓库的历史提交信息，您可进行_浅克隆_（Shallow clone）以加快下载速度：</p>
-<div class="codehilite"><pre><span></span><code>$ git clone --depth<span class="o">=</span><span class="m">1</span> https://github.com/vesoft-inc/nebula.git
+<div class="highlight"><pre><span></span><code>$ git clone --depth<span class="o">=</span><span class="m">1</span> https://github.com/vesoft-inc/nebula.git
 </code></pre></div>
 
-
 <h3 id="_7">执行编译<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>$ <span class="nb">cd</span> nebula
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> nebula
 $ mkdir build
 $ <span class="nb">cd</span> build
 $ cmake -DENABLE_TESTING<span class="o">=</span>OFF -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="nv">$PWD</span>/install ..
@@ -3061,7 +3056,6 @@ $ make install
 $ ls install/
 etc/ bin/ share/ scripts/
 </code></pre></div>
-
 
 <p>由于 <strong>Nebula Graph</strong> 使用了大量的 C++ 模板，尤其是 Folly，fbthrift 和 boost，因此编译会非常耗时。比如，如果使用 Intel E5-2697 v3 处理器，在 16 个任务并发运行的情况下，需要花费大约 4 分钟完成编译，总的 CPU 时间大约 35 分钟。</p>
 <h2 id="_8">编译选项<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
@@ -3086,10 +3080,9 @@ etc/ bin/ share/ scripts/
 <p>该选项用于指定执行 <code>make install</code> 命令时，<strong>Nebula Graph</strong> 的服务模块、配置文件以及工具集的安装路径，默认为 <code>/usr/local/nebula</code>。</p>
 <h4 id="cmake_cxx_compiler">CMAKE_CXX_COMPILER<a class="headerlink" href="#cmake_cxx_compiler" title="Permanent link">&para;</a></h4>
 <p>通常情况下，CMake 会自动选择合适的编译器。但是，如果目标编译器不在默认的标准路径下，或者你想使用其他种类或路径下的编译器，请使用如下方式指定：</p>
-<div class="codehilite"><pre><span></span><code>$ cmake -DCMAKE_C_COMPILER<span class="o">=</span>/path/to/gcc/bin/gcc -DCMAKE_CXX_COMPILER<span class="o">=</span>/path/to/gcc/bin/g++ ..
+<div class="highlight"><pre><span></span><code>$ cmake -DCMAKE_C_COMPILER<span class="o">=</span>/path/to/gcc/bin/gcc -DCMAKE_CXX_COMPILER<span class="o">=</span>/path/to/gcc/bin/g++ ..
 $ cmake -DCMAKE_C_COMPILER<span class="o">=</span>/path/to/clang/bin/clang -DCMAKE_CXX_COMPILER<span class="o">=</span>/path/to/clang/bin/clang++ ..
 </code></pre></div>
-
 
 <h4 id="enable_ccache">ENABLE_CCACHE<a class="headerlink" href="#enable_ccache" title="Permanent link">&para;</a></h4>
 <p><code>ccache</code> 可以加快编译过程，主要用于开发过程。如果系统中安装了 <code>ccache</code>，<strong>Nebula Graph</strong> 默认会自动启用该选项。</p>
@@ -3101,10 +3094,9 @@ $ cmake -DCMAKE_C_COMPILER<span class="o">=</span>/path/to/clang/bin/clang -DCMA
 <p>该选项用于显式指定 third party 所在路径。</p>
 <h3 id="third_party">手动安装 Third Party<a class="headerlink" href="#third_party" title="Permanent link">&para;</a></h3>
 <p>在 configure/cmake 阶段，<strong>Nebula Graph</strong> 默认将预先编译好的 third party 下载到当前 build 目录。但是如果你想将其安装到其他路径（比如，安装到某个公共目录），你可以：</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 安装 third party 至 /opt 需要 root 权限，可使用 --prefix 改变安装路径</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 安装 third party 至 /opt 需要 root 权限，可使用 --prefix 改变安装路径</span>
 $ ../third-party/install-third-party.sh --prefix<span class="o">=</span>/opt/vesoft/third-party
 </code></pre></div>
-
 
 <p>如果不指定 <code>--prefix</code>，third party 的默认安装路径为 <code>/opt/vesoft/third-party</code>，且可为 <strong>Nebula Graph</strong> 的编译系统自动找到。否则，需使用上文所述的 <code>NEBULA_THIRDPARTY_ROOT</code> CMake 参数指定路径，或为该路径设置环境变量并导出。 <strong>Nebula Graph</strong> 查找并选择 third party 的优先级如下：</p>
 <ol>
@@ -3115,7 +3107,7 @@ $ ../third-party/install-third-party.sh --prefix<span class="o">=</span>/opt/ves
 </ol>
 <h2 id="cmake_1">安装可用的 CMake<a class="headerlink" href="#cmake_1" title="Permanent link">&para;</a></h2>
 <p>对于没有可用 CMake 安装的用户， 我们提供了可自动下载安装的脚本。在 build 目录下，运行：</p>
-<div class="codehilite"><pre><span></span><code>$ ../third-party/install-cmake.sh cmake-install
+<div class="highlight"><pre><span></span><code>$ ../third-party/install-cmake.sh cmake-install
 CMake has been installed to <span class="nv">prefix</span><span class="o">=</span>cmake-install
 Run <span class="s1">&#39;source cmake-install/bin/enable-cmake.sh&#39;</span> to make it ready to use.
 Run <span class="s1">&#39;source cmake-install/bin/disable-cmake.sh&#39;</span> to disable it.
@@ -3125,11 +3117,10 @@ $ cmake --version
 cmake version <span class="m">3</span>.15.5
 </code></pre></div>
 
-
 <p>此时可用的 CMake 已安装完成。你可以在任何时候使用 <code>source cmake-install/bin/disable-cmake.sh</code> 命令将其禁用。</p>
 <h2 id="gcc">安装可用的 GCC<a class="headerlink" href="#gcc" title="Permanent link">&para;</a></h2>
 <p>对于没有可用 GCC 安装的用户， 我们提供了 GCC 和可自动下载安装的脚本。在 build 目录下，运行：</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 将 GCC 安装至 /opt 需要 root 权限，支持更改安装路径</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 将 GCC 安装至 /opt 需要 root 权限，支持更改安装路径</span>
 $ ../third-party/install-gcc.sh --prefix<span class="o">=</span>/opt
 GCC-7.5.0 has been installed to /opt/vesoft/toolset/gcc/7.5.0
 Performing usability tests
@@ -3148,12 +3139,11 @@ g++ <span class="o">(</span>Nebula Graph Build<span class="o">)</span> <span cla
 Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">2017</span> Free Software Foundation, Inc.
 </code></pre></div>
 
-
 <p>此时可用的 GCC 编译器已安装完成。你可以在任何时候使用 <code>source /opt/vesoft/toolset/gcc/7.5.0/disable</code> 命令将其禁用。</p>
 <h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h2>
 <h3 id="error_invalid_argument_type_auto_to_unary_expression"><code>error: invalid argument type 'auto' to unary expression</code><a class="headerlink" href="#error_invalid_argument_type_auto_to_unary_expression" title="Permanent link">&para;</a></h3>
 <p>当使用 Clang 9.0 编译 <strong>Nebula Graph</strong> 时，会发生该错误：</p>
-<div class="codehilite"><pre><span></span><code><span class="o">[</span>  <span class="m">5</span>%<span class="o">]</span> Building CXX object src/common/fs/CMakeFiles/fs_obj.dir/FileUtils.cpp.o
+<div class="highlight"><pre><span></span><code><span class="o">[</span>  <span class="m">5</span>%<span class="o">]</span> Building CXX object src/common/fs/CMakeFiles/fs_obj.dir/FileUtils.cpp.o
 In file included from src/common/fs/FileUtils.cpp:8:
 In file included from src/common/fs/FileUtils.h:12:
 src/common/base/StatusOr.h:57:19: error: invalid argument <span class="nb">type</span> <span class="s1">&#39;auto&#39;</span> to unary expression
@@ -3163,7 +3153,6 @@ src/common/fs/FileUtils.cpp:90:34: note: in instantiation of template class <spa
 StatusOr&lt;std::string&gt; FileUtils::readLink<span class="o">(</span>const char *path<span class="o">)</span> <span class="o">{</span>
 ...
 </code></pre></div>
-
 
 <p>这是 Clang 9.0 引入的一个已知的 Bug，目前（2020-01-20）尚未修复。</p>
                 

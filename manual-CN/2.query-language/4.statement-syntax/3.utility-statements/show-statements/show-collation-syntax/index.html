@@ -1665,8 +1665,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2382,19 +2382,17 @@
                 
                 
                 <h1 id="show_collation">SHOW COLLATION 语法<a class="headerlink" href="#show_collation" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><code>SHOW COLLATION
+<div class="highlight"><pre><span></span><code>SHOW COLLATION
 </code></pre></div>
 
-
 <p><code>SHOW COLLATION</code> 语句列出 <strong>Nebula Graph</strong> 目前支持的所有排序规则。目前支持四种排序规则：utf8_bin、utf8_general_ci、utf8mb4_bin、utf8mb4_general_ci。字符集为 utf8 时，默认 collate 为 utf8_bin；字符集为 utf8mb4 时，默认 collate 为 utf8mb4_bin。utf8_general_ci 和 utf8mb4_general_ci 都是忽略大小写的比较，行为同 MySQL 一致。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; SHOW COLLATION;
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW COLLATION;
 =======================
 | Collation | Charset |
 =======================
 | utf8_bin  | utf8    |
 -----------------------
 </code></pre></div>
-
 
 <p><code>SHOW COLLATION</code> 输出有以下列：</p>
 <ul>

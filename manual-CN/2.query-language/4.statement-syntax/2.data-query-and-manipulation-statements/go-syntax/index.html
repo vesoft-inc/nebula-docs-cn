@@ -1713,8 +1713,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2471,7 +2471,7 @@
 <blockquote>
 <p><code>GO</code> 的用法与 SQL 中的 <code>SELECT</code> 类似，重要区别是 <code>GO</code> 必须从遍历一系列的节点开始。</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code>  GO [ &lt;N&gt; STEPS ] FROM &lt;node_list&gt;
+<div class="highlight"><pre><span></span><code>  GO [ &lt;N&gt; STEPS ] FROM &lt;node_list&gt;
   OVER &lt;edge_type_list&gt; [REVERSELY] [BIDIRECT]
   [ WHERE &lt;expression&gt; [ AND | OR expression ...]) ]
   YIELD [DISTINCT] &lt;return_list&gt;
@@ -2487,7 +2487,6 @@
     &lt;col_name&gt; [AS &lt;col_alias&gt;] [, &lt;col_name&gt; [AS &lt;col_alias&gt;] ...]
 </code></pre></div>
 
-
 <ul>
 <li>[ \<N> STEPS ] 指定查询 N 跳。</li>
 <li><node_list> 为逗号隔开的节点 ID，或特殊占位符 <code>$-.id</code> (参看 <code>PIPE</code> 用法)。</li>
@@ -2496,7 +2495,7 @@
 <li>YIELD [DISTINCT] <return_list> 以列的形式返回结果，并可对列进行重命名。详情参看 <code>YIELD</code> 用法。<code>DISTINCT</code> 的用法与 SQL 相同。</li>
 </ul>
 <h2 id="_1">示例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 107 OVER serve;  \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 107 OVER serve;  \
    /* 从点 107 出发，沿边 serve，找到点 200，201 */
 ==============
 | serve._dst |
@@ -2507,8 +2506,7 @@
 --------------
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO 2 STEPS FROM 103 OVER follow; \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO 2 STEPS FROM 103 OVER follow; \
   /* 返回点 103 的 2 度的好友 */
 ===============
 | follow._dst |
@@ -2517,8 +2515,7 @@
 ---------------
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 109 OVER serve  \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 109 OVER serve  \
    WHERE serve.start_year &gt; 1990       /* 筛选边 serve 的 start_year 属性  */ \
    YIELD $$.team.name AS team_name, serve.start_year as start_year;    /* 目标点 team 的 serve.start_year 属性 serve.start_year */
 ==========================
@@ -2530,8 +2527,7 @@
 --------------------------
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 100,102 OVER serve           \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 100,102 OVER serve           \
         WHERE serve.start_year &gt; 1995             /* 筛选边属性*/ \
         YIELD DISTINCT $$.team.name AS team_name, /* DISTINCT 与 SQL 用法相同 */ \
         serve.start_year as start_year,           /* 边属性 */ \
@@ -2545,29 +2541,25 @@
 ----------------------------------------------
 </code></pre></div>
 
-
 <h2 id="_2">沿着多种类型的边进行遍历<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>目前 <strong>Nebula Graph</strong> 还支持 <code>GO</code> 沿着多条边遍历，语法为：</p>
-<div class="codehilite"><pre><span></span><code>GO FROM &lt;node_list&gt; OVER &lt;edge_type_list | *&gt; YIELD [DISTINCT] &lt;return_list&gt;
+<div class="highlight"><pre><span></span><code>GO FROM &lt;node_list&gt; OVER &lt;edge_type_list | *&gt; YIELD [DISTINCT] &lt;return_list&gt;
 </code></pre></div>
-
 
 <p>例如：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM &lt;node_list&gt; OVER edge1, edge2....  //沿着 edge1 和 edge2 遍历，或者
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM &lt;node_list&gt; OVER edge1, edge2....  //沿着 edge1 和 edge2 遍历，或者
 nebula&gt; GO FROM &lt;node_list&gt; OVER *    //这里 * 意味着沿着任意类型的边遍历
 </code></pre></div>
-
 
 <blockquote>
 <p>请注意，当沿着多种类型边遍历时，对于使用过滤条件有特别限制(也即 <code>WHERE</code> 语句），比如 <code>WHERE edge1.prop1 &gt; edge2.prop2</code> 这种过滤条件是不支持的。</p>
 </blockquote>
 <p>对于返回的结果，如果存在多条边的属性需要返回，会把他们放在不同的行。比如：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 100 OVER follow, serve YIELD follow.degree, serve.start_year;
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 100 OVER follow, serve YIELD follow.degree, serve.start_year;
 </code></pre></div>
 
-
 <p>返回如下结果：</p>
-<div class="codehilite"><pre><span></span><code>====================================
+<div class="highlight"><pre><span></span><code>====================================
 | follow.degree | serve.start_year |
 ====================================
 | 0             | 1997             |
@@ -2580,10 +2572,9 @@ nebula&gt; GO FROM &lt;node_list&gt; OVER *    //这里 * 意味着沿着任意�
 ------------------------------------
 </code></pre></div>
 
-
 <p>没有的属性当前会填充默认值， 数值型的默认值为 0， 字符型的默认值为空字符串。bool 类型默认值为 false，timestamp 类型默认值为 0 (即 "1970-01-01 00:00:00")，double 类型默认值为 0.0。</p>
 <p>当然也可以不指定 <code>YIELD</code>， 这时会返回每条边目标点的 vid。如果目标点不存在，同样用默认值(此处为 0)填充。比如 <code>GO FROM 100 OVER follow, serve;</code>，返回结果如下：</p>
-<div class="codehilite"><pre><span></span><code>============================
+<div class="highlight"><pre><span></span><code>============================
 | follow._dst | serve._dst |
 ============================
 | 0           | 200        |
@@ -2596,24 +2587,21 @@ nebula&gt; GO FROM &lt;node_list&gt; OVER *    //这里 * 意味着沿着任意�
 ----------------------------
 </code></pre></div>
 
-
 <p>对于 <code>GO FROM 100 OVER *</code> 这样的例子来说，返回结果也和上面例子类似：不存在的属性或者 vid 使用默认值来填充。
 请注意从结果中无法分辨每一行属于哪条边，未来版本会在结果中把 edge type 表示出来。</p>
 <h2 id="_3">反向遍历<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>目前 <strong>Nebula Graph</strong> 支持使用关键词 <code>REVERSELY</code> 进行反向遍历，语法为：</p>
-<div class="codehilite"><pre><span></span><code>  GO FROM &lt;node_list&gt;
+<div class="highlight"><pre><span></span><code>  GO FROM &lt;node_list&gt;
   OVER &lt;edge_type_list&gt; REVERSELY
   WHERE (expression [ AND | OR expression ...])  
   YIELD [DISTINCT] &lt;return_list&gt;
 </code></pre></div>
 
-
 <p>例如：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 100 OVER follow REVERSELY YIELD follow._src; -- 返回 100
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 100 OVER follow REVERSELY YIELD follow._src; -- 返回 100
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 100 OVER follow REVERSELY YIELD follow._dst AS id | \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 100 OVER follow REVERSELY YIELD follow._dst AS id | \
         GO FROM $-.id OVER serve WHERE $^.player.age &gt; 20 YIELD $^.player.name AS FriendOf, $$.team.name AS Team;
 
 ============================
@@ -2625,19 +2613,17 @@ nebula&gt; GO FROM &lt;node_list&gt; OVER *    //这里 * 意味着沿着任意�
 ----------------------------
 </code></pre></div>
 
-
 <p>遍历所有关注 100 号球员的球员，找出这些球员服役的球队，筛选年龄大于 20 岁的球员并返回这些球员姓名和其服役的球队名称。如果此处不指定 <code>YIELD</code>，则默认返回每条边目标点的 <code>vid</code>。</p>
 <h2 id="_4">双向遍历<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>目前 <strong>Nebula Graph</strong> 支持使用关键词 <code>BIDIRECT</code> 进行双向遍历，语法为：</p>
-<div class="codehilite"><pre><span></span><code>  GO FROM &lt;node_list&gt;
+<div class="highlight"><pre><span></span><code>  GO FROM &lt;node_list&gt;
   OVER &lt;edge_type_list&gt; BIDIRECT
   WHERE (expression [ AND | OR expression ...])  
   YIELD [DISTINCT] &lt;return_list&gt;
 </code></pre></div>
 
-
 <p>例如：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; GO FROM 102 OVER follow BIDIRECT;
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM 102 OVER follow BIDIRECT;
 ===============
 | follow._dst |
 ===============
@@ -2648,7 +2634,6 @@ nebula&gt; GO FROM &lt;node_list&gt; OVER *    //这里 * 意味着沿着任意�
 | 135         |
 ---------------
 </code></pre></div>
-
 
 <p>上述语句同时返回 102 关注的球员及关注 102 的球员。</p>
                 

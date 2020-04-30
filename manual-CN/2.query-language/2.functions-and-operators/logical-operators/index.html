@@ -1661,8 +1661,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2409,7 +2409,7 @@
 <li>&amp;&amp;</li>
 </ul>
 <p>逻辑与 AND:</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; YIELD -1 &amp;&amp; true;
+<div class="highlight"><pre><span></span><code>nebula&gt; YIELD -1 &amp;&amp; true;
 ================
 | (-(1)&amp;&amp;true) |
 ================
@@ -2417,12 +2417,11 @@
 ----------------
 </code></pre></div>
 
-
 <ul>
 <li>!</li>
 </ul>
 <p>逻辑非 NOT:</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; YIELD !(-1);
+<div class="highlight"><pre><span></span><code>nebula&gt; YIELD !(-1);
 ===========
 | !(-(1)) |
 ===========
@@ -2430,24 +2429,22 @@
 -----------
 </code></pre></div>
 
-
 <ul>
 <li>||</li>
 </ul>
 <p>逻辑或 OR:</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; YIELD 1 || !1;
+<div class="highlight"><pre><span></span><code>nebula&gt; YIELD 1 || !1;
 =============
 | (1||!(1)) |
 =============
 | true      |
 </code></pre></div>
 
-
 <ul>
 <li>XOR</li>
 </ul>
 <p>逻辑异或 XOR:</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; YIELD (NOT 0 || 0) AND 0 XOR 1 AS ret;
+<div class="highlight"><pre><span></span><code>nebula&gt; YIELD (NOT 0 || 0) AND 0 XOR 1 AS ret;
 =========
 | ret   |
 =========

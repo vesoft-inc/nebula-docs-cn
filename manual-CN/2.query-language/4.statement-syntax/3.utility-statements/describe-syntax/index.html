@@ -1692,8 +1692,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2425,18 +2425,17 @@
                 
                 
                 <h1 id="describe">DESCRIBE 语法<a class="headerlink" href="#describe" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><code>DESCRIBE SPACE &lt;space_name&gt;
+<div class="highlight"><pre><span></span><code>DESCRIBE SPACE &lt;space_name&gt;
 DESCRIBE TAG &lt;tag_name&gt;
 DESCRIBE EDGE &lt;edge_name&gt;
 DESCRIBE {TAG | EDGE} INDEX &lt;index_name&gt;
 </code></pre></div>
 
-
 <p>DESCRIBE 关键词的作用是获取关于 space, tag, edge 结构的信息。</p>
 <p>同时需要注意的是，DESCRIBE 和 SHOW 也是不同的。 详细参见 <a href="../show-statements/show-charset-syntax/">SHOW</a> 文档。</p>
 <h2 id="_1">示例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>获取指定 space 的信息，对应 <code>DESCRIBE SPACE</code>。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; DESCRIBE SPACE nba;
+<div class="highlight"><pre><span></span><code>nebula&gt; DESCRIBE SPACE nba;
 ========================================================
 | ID |     Name    | Partition number | Replica Factor |
 ========================================================
@@ -2444,9 +2443,8 @@ DESCRIBE {TAG | EDGE} INDEX &lt;index_name&gt;
 --------------------------------------------------------
 </code></pre></div>
 
-
 <p>获取指定 tag 的信息，对应 <code>DESCRIBE TAG</code>。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; DESCRIBE TAG player;
+<div class="highlight"><pre><span></span><code>nebula&gt; DESCRIBE TAG player;
 ==================================================
 | Field | Type   |  Null | Key | Default | Extra |
 ==================================================
@@ -2456,9 +2454,8 @@ DESCRIBE {TAG | EDGE} INDEX &lt;index_name&gt;
 --------------------------------------------------
 </code></pre></div>
 
-
 <p>获取指定 EDGE 的信息，对应 <code>DESCRIBE EDGE</code>。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; DESCRIBE EDGE serve;
+<div class="highlight"><pre><span></span><code>nebula&gt; DESCRIBE EDGE serve;
 ======================================================
 |      Field | Type |   Null | Key | Default | Extra |
 ======================================================
@@ -2468,9 +2465,8 @@ DESCRIBE {TAG | EDGE} INDEX &lt;index_name&gt;
 ------------------------------------------------------
 </code></pre></div>
 
-
 <p>返回指定索引信息，对应 <code>DESCRIBE INDEX</code>。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; DESCRIBE TAG INDEX player_index_0;
+<div class="highlight"><pre><span></span><code>nebula&gt; DESCRIBE TAG INDEX player_index_0;
 ==================
 | Field | Type   |
 ==================

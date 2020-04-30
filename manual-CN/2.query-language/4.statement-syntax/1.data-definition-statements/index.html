@@ -1747,8 +1747,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="prm 安装" class="md-nav__link">
-      prm 安装
+    <a href="../../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" title="rpm 安装" class="md-nav__link">
+      rpm 安装
     </a>
   </li>
 
@@ -2535,9 +2535,8 @@
                 
                 
                 <h1 id="schema">Schema 索引<a class="headerlink" href="#schema" title="Permanent link">&para;</a></h1>
-<div class="codehilite"><pre><span></span><code>CREATE {TAG | EDGE} INDEX [IF NOT EXISTS] &lt;index_name&gt; ON {&lt;tag_name&gt; | &lt;edge_name&gt;} (prop_name_list)
+<div class="highlight"><pre><span></span><code>CREATE {TAG | EDGE} INDEX [IF NOT EXISTS] &lt;index_name&gt; ON {&lt;tag_name&gt; | &lt;edge_name&gt;} (prop_name_list)
 </code></pre></div>
-
 
 <p>schema 索引可用于快速处理图查询。<strong>Nebula Graph</strong> 支持两种类型的索引：<strong>Tag 索引</strong>和 <strong>Edge Type 索引</strong>。</p>
 <p>多数图查询都从拥有共同属性的同一类型的点或边开始遍历。schema 索引使得这些全局检索操作在大型图上更为高效。</p>
@@ -2545,31 +2544,27 @@
 <h2 id="_1">创建索引<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><code>CREATE INDEX</code> 用于为已有 Tag/Edge-type 创建索引。</p>
 <h3 id="_2">创建单属性索引<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE TAG INDEX player_index_0 on player(name);
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG INDEX player_index_0 on player(name);
 </code></pre></div>
-
 
 <p>上述语句在所有标签为 <em>player</em> 的顶点上为属性 <em>name</em> 创建了一个索引。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE EDGE INDEX follow_index_0 on follow(degree);
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE EDGE INDEX follow_index_0 on follow(degree);
 </code></pre></div>
-
 
 <p>上述语句在 <em>follow</em> 边类型的所有边上为属性 <em>degree</em> 创建了一个索引。</p>
 <h3 id="_3">创建组合索引<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>schema 索引还支持为相同 tag 或 edge 中的多个属性同时创建索引。这种包含多种属性的索引在 <strong>Nebula Graph</strong> 中称为组合索引。</p>
 <p><strong>注意：</strong> 目前尚不支持跨多个 tag 创建复合索引。</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE TAG INDEX player_index_1 on player(name,age);
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG INDEX player_index_1 on player(name,age);
 </code></pre></div>
-
 
 <p>上述语句在所有标签为 <em>player</em> 的顶点上为属性 <em>name</em> 和 <em>age</em> 创建了一个复合索引。</p>
 <h2 id="_4">列出索引<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>SHOW {TAG | EDGE} INDEXES
+<div class="highlight"><pre><span></span><code>SHOW {TAG | EDGE} INDEXES
 </code></pre></div>
 
-
 <p><code>SHOW INDEXES</code> 用于列出已创建完成的 Tag/Edge-type 的索引信息。使用以下命令列出索引：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; SHOW TAG INDEXES;
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW TAG INDEXES;
 =============================
 | Index ID | Index Name     |
 =============================
@@ -2586,14 +2581,12 @@ nebula&gt; SHOW EDGE INDEXES;
 -----------------------------
 </code></pre></div>
 
-
 <h2 id="_5">返回索引信息<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>DESCRIBE {TAG | EDGE} INDEX &lt;index_name&gt;
+<div class="highlight"><pre><span></span><code>DESCRIBE {TAG | EDGE} INDEX &lt;index_name&gt;
 </code></pre></div>
 
-
 <p><code>DESCRIBE INDEX</code> 用于返回指定索引信息。例如，使用以下命令返回索引信息：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; DESCRIBE TAG INDEX player_index_0;
+<div class="highlight"><pre><span></span><code>nebula&gt; DESCRIBE TAG INDEX player_index_0;
 ==================
 | Field | Type   |
 ==================
@@ -2610,27 +2603,23 @@ nebula&gt; DESCRIBE TAG INDEX player_index_1;
 ------------------
 </code></pre></div>
 
-
 <h2 id="_6">删除索引<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>DROP {TAG | EDGE} INDEX [IF EXISTS] &lt;index_name&gt;
+<div class="highlight"><pre><span></span><code>DROP {TAG | EDGE} INDEX [IF EXISTS] &lt;index_name&gt;
 </code></pre></div>
-
 
 <p><code>DROP INDEX</code> 用于删除指定名称的 Tag/Edge-type 索引。例如，使用以下命令删除名为 <em>player_index_0</em> 的索引：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; DROP TAG INDEX player_index_0;
+<div class="highlight"><pre><span></span><code>nebula&gt; DROP TAG INDEX player_index_0;
 </code></pre></div>
-
 
 <h2 id="_7">重构索引<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code>REBUILD {TAG | EDGE} INDEX &lt;index_name&gt; [OFFLINE]
+<div class="highlight"><pre><span></span><code>REBUILD {TAG | EDGE} INDEX &lt;index_name&gt; [OFFLINE]
 </code></pre></div>
-
 
 <p><a href="#%e5%88%9b%e5%bb%ba%e7%b4%a2%e5%bc%95">创建索引</a>部分介绍了如何创建索引以提高查询性能。如果索引在插入数据之前创建，此时无需执行索引重构操作；如果创建索引时，数据库里已经存有数据，则不会自动对旧的数据进行索引，此时需要对整个图中与索引相关的数据执行索引重构操作以保证索引包含了之前的数据。若当前数据库没有对外提供服务，则可在索引重构时使用 <code>OFFLINE</code> 关键字加快重构速度。</p>
 <!-- > 索引重构期间，对索引进行的所有幂等查询都会跳过索引并执行顺序扫描。这意味着在此操作期间查询运行速度较慢。非幂等命令（例如 INSERT、UPDATE 和 DELETE）将被阻止，直到重建索引为止。 -->
 
 <p>重构完成后，可使用 <code>SHOW {TAG | EDGE} INDEX STATUS</code> 命令查看索引是否重构成功。例如：</p>
-<div class="codehilite"><pre><span></span><code>nebula&gt; CREATE TAG person(name string, age int, gender string, email string);
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG person(name string, age int, gender string, email string);
 Execution succeeded (Time spent: 10.051/11.397 ms)
 
 nebula&gt; CREATE TAG INDEX single_person_index ON person(name);
@@ -2646,7 +2635,6 @@ nebula&gt; SHOW TAG INDEX STATUS;
 | single_person_index | SUCCEEDED        |
 ------------------------------------------
 </code></pre></div>
-
 
 <h2 id="_8">使用索引<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>索引创建完成并插入相关数据后，即可使用 <a href="../2.data-query-and-manipulation-statements/lookup-syntax/">LOOKUP</a> 语句进行数据查询。</p>
