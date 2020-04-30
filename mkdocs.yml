@@ -147,7 +147,7 @@ nav:
         - 编译源代码: manual-CN/3.build-develop-and-administration/1.build/1.build-source-code.md
         - 使用 Docker 编译: manual-CN/3.build-develop-and-administration/1.build/2.build-by-docker.md
       - 安装:
-        - prm 安装: manual-CN/3.build-develop-and-administration/2.install/1.install-with-rpm-deb.md
+        - rpm 安装: manual-CN/3.build-develop-and-administration/2.install/1.install-with-rpm-deb.md
         - 启停服务: manual-CN/3.build-develop-and-administration/2.install/2.start-stop-service.md
       - 配置:
           - 系统要求: manual-CN/3.build-develop-and-administration/3.configurations/0.system-requirement.md
@@ -212,6 +212,8 @@ markdown_extensions:
       permalink: true
       separator: "_"
   - mdx_truly_sane_lists
+  - pymdownx.superfences
+
 
 # Plugins
 plugins:
