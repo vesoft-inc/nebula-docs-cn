@@ -1,27 +1,26 @@
-# Contribute to Documentation
+# Nebula Graph 中文文档贡献指南
 
-Contributing to the **Nebula Graph** documentation can be a rewarding experience. We welcome your participation to help make the documentation better!
+**Nebula Graph** 欢迎您帮助我们改善文档。
 
-## What to Contribute
+## 可贡献的内容
 
-You can start from any of the documents in this repository:
+您可以从以下方面进行贡献：
 
-- Fix typos or format (punctuation, space, indentation, code block, etc.)
-- Fix or update inappropriate or outdated descriptions
-- Add new document
-- Raise or resolve [docs issues](https://github.com/vesoft-inc/nebula-docs/issues)
-- Review Pull Requests created by others
+- 修正拼写错误或格式（标点，空格，缩进，代码块等）
+- 修正或更新不适当或过时的描述
+- 提交新文档
+- 提交或解决文档[issues](https://github.com/vesoft-inc/nebula-docs-cn/issues)
+- 审阅他人提交的 PR
 
-## Before Contributing
+## 必须遵循的 Markdown 规范
 
-Before contributing, please take a quick look at some general information about **Nebula Graph** documentation maintenance.
+在贡献之前，请您知悉有关 **Nebula Graph** 文档维护的 Markdown 规范。
 
-- [Markdown Rules](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md)
-- [Developer Documentation Style Guide](docs/manual-EN/4.contributions/developer-documentation-style-guide.md)
+- [Markdown 规范](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md)
 
-## How to Contribute
+## 如何贡献
 
-There are many ways to contribute:
+您可以选择以下方式进行贡献：
 
-- Raise a documentation issue on [GitHub](https://github.com/vesoft-inc/nebula/issues).
-- Fork the documentation, make changes or add new content on your local branch, and submit a pull request (PR) to the master branch for the docs.
+- 在 [GitHub](https://github.com/vesoft-inc/nebula-docs-cn/issues) 提交 issue。
+- Fork 文档，在您的本地分支上更改或添加新内容，然后向主分支提交 PR。

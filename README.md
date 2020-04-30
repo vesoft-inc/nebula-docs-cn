@@ -1,13 +1,12 @@
-# Nebula Graph Documentation
+# Nebula Graph 文档
 
-This repository holds all the source files of **Nebula Graph** Documentations at [Official Documentation Site](https://docs.nebula-graph.io/).
+欢迎来到 **Nebula Graph** 中文文档库！英文文档位于 [nebula-docs](https://github.com/vesoft-inc/nebula-docs)。如果你发现或遇到了文档问题，可随时提 Issue 来反馈，或者直接提交 Pull Request 来进行修改。
 
-## Documentation Structure
+## 文档结构
 
-The general **Nebula Graph** documentation structure is as follows:
+**Nebula Graph** 文档结构如下：
 
 ```bash
-├── Language
 ├── Overview
     ├── Introduction
     ├── Concepts
@@ -30,12 +29,11 @@ The general **Nebula Graph** documentation structure is as follows:
 ...
 ```
 
-Detail TOC (table of content) please refer to the following links.
+详细目录索引请参考以下链接：
 
-- [Documentation Index](docs/manual-EN/README.md)
 - [文档索引](docs/manual-CN/README.md)
-- [Official Documentation Site](https://docs.nebula-graph.io/)
+- [中文文档官网](https://docs.nebula-graph.io/)
 
-## Contributing
+## 贡献文档
 
-If you find documentation issues, feel free to create an [Issue](https://github.com/vesoft-inc/nebula-docs/issues) to let us know or directly create a [Pull Request](https://github.com/vesoft-inc/nebula-docs/pulls) to help fix or update it. See **Nebula Graph** [CONTRIBUTING](CONTRIBUTING.md) guide to get started. :)
+如果您发现文档问题，请随时创建一个 [Issue](https://github.com/vesoft-inc/nebula-docs/issues) 告知我们或直接创建一个 [PR](https://github.com/vesoft-inc/nebula-docs/pulls) 修复或更新。请参阅**Nebula Graph** [中文文档贡献指南](CONTRIBUTING.md)开始贡献。:)
