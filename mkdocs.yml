@@ -47,7 +47,6 @@ extra:
 
 nav:
     # - Version: '../'
-    - English: https://docs.nebula-graph.io/
 
     - 简介:
       - 关于本手册: manual-CN/0.about-this-manual.md
@@ -198,7 +197,7 @@ nav:
       - Cypher & nGQL: manual-CN/5.appendix/cypher-ngql.md
       - Gremlin & nGQL: manual-CN/5.appendix/gremlin-ngql.md
       - 升级 Nebula Graph: manual-CN/5.appendix/upgrade-guide.md
-    - English: 
+    - English:
       - https://docs.nebula-graph.io/
 
 
