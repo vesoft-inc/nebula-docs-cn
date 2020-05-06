@@ -33,6 +33,7 @@
 
 - [文档索引](docs/manual-CN/README.md)
 - [中文文档官网](https://docs.nebula-graph.com.cn/)
+- [English Documentation](https://docs.nebula-graph.io/)
 
 ## 贡献文档
 
