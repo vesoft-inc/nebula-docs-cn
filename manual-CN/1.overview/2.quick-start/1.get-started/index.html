@@ -2727,24 +2727,26 @@
 <p><strong>Nebula Graph</strong> 中的图空间类似于传统数据库中创建的独立数据库，例如在 MySQL 中创建的数据库。首先，您需要创建一个图空间并使用它，然后才能执行其他操作。</p>
 <p>您可以通过以下步骤创建并使用图空间：</p>
 <ol>
-<li>输入以下语句创建图空间：</li>
-</ol>
-<div class="highlight"><pre><span></span><code>nebula&gt; CREATE SPACE nba(partition_num=10, replica_factor=1);
+<li>
+<p>输入以下语句创建图空间：</p>
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE SPACE nba;    (partition_num=10, replica_factor=1);
 </code></pre></div>
 
 <p><strong>注意</strong>：</p>
 <ul>
 <li><code>partition_num</code>：指定一个副本中的分区数。通常为集群硬盘数量的 5 倍。</li>
-<li><code>replica_factor</code>：指定集群中副本的数量，通常生产环境为 3，测试环境为 1。</li>
-</ul>
+<li>
+<p><code>replica_factor</code>：指定集群中副本的数量，通常生产环境为 3，测试环境为 1。</p>
 <p>之后, 你也可以通过下面这个命令检查机器和 partition 分布：</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; SHOW HOSTS；
 </code></pre></div>
 
 <p>具体可以见<a href="../../../2.query-language/4.statement-syntax/1.data-definition-statements/create-space-syntax/">这里</a></p>
-<ol>
-<li>输入以下语句使用图空间：</li>
-</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>输入以下语句使用图空间：</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; USE nba;
 </code></pre></div>
 
@@ -2760,33 +2762,37 @@
 --------
 </code></pre></div>
 
+</li>
+</ol>
 <h3 id="schema">定义数据的 Schema<a class="headerlink" href="#schema" title="Permanent link">&para;</a></h3>
 <p>在 <strong>Nebula Graph</strong> 中，我们将具有相同属性的点分为一组，该组即为一个标签。<code>CREATE TAG</code> 语句定义了一个标签，标签名称后面的括号中是标签的属性和属性类型。<code>CREATE EDGE</code> 语句定义边类型，类型名称后面的括号中是边的属性和属性类型。</p>
 <p>您可以通过以下步骤创建标签和边类型：</p>
 <ol>
-<li>输入以下语句创建 <strong>player</strong> 标签：</li>
-</ol>
+<li>
+<p>输入以下语句创建 <strong>player</strong> 标签：</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG player(name string, age int);
 </code></pre></div>
 
-<ol>
-<li>输入以下语句创建 <strong>team</strong> 标签：</li>
-</ol>
+</li>
+<li>
+<p>输入以下语句创建 <strong>team</strong> 标签：</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG team(name string);
 </code></pre></div>
 
-<ol>
-<li>输入以下语句创建 <strong>follow</strong> 边类型：</li>
-</ol>
+</li>
+<li>
+<p>输入以下语句创建 <strong>follow</strong> 边类型：</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE EDGE follow(degree int);
 </code></pre></div>
 
-<ol>
-<li>输入以下语句创建 <strong>serve</strong> 边类型：</li>
-</ol>
+</li>
+<li>
+<p>输入以下语句创建 <strong>serve</strong> 边类型：</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE EDGE serve(start_year int, end_year int);
 </code></pre></div>
 
+</li>
+</ol>
 <p>现在，您可以查看刚刚创建的标签和边类型。</p>
 <p>要获取刚创建的标签，请输入以下语句：</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; SHOW TAGS;
