@@ -56,7 +56,7 @@ nav:
       - 快速开始和常用链接:
         - 开始试用: manual-CN/1.overview/2.quick-start/1.get-started.md
         - 常见问题 FAQ: manual-CN/1.overview/2.quick-start/2.FAQ.md
-        - Nebula Graph SDK: manual-CN/1.overview/2.quick-start/3.supported-clients.md
+        - Nebula Graph 客户端: manual-CN/1.overview/2.quick-start/3.supported-clients.md
         - 编译源代码: manual-CN/3.build-develop-and-administration/1.build/1.build-source-code.md
         - 导入 .csv 文件: manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-import/import-csv-file.md
         # - Ingest .sst File: manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-import/download-and-ingest-sst-file.md
