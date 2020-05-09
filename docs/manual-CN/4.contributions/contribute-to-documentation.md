@@ -6,5 +6,5 @@
 
 贡献文档有多种方式：
 
-- 在 GitHub 上提 [issue](https://github.com/vesoft-inc/nebula/issues)。
+- 在 GitHub 上提 [issue](https://github.com/vesoft-inc/nebula-docs-cn/issues)。
 - Fork 仓库，在本地分支上做更改，然后提交 PR。
