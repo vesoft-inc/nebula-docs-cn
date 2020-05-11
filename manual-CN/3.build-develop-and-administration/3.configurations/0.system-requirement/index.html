@@ -2566,7 +2566,7 @@ metad 每个进程都会创建一份元数据存储副本，因此通常只需 3
 </ul>
 <h2 id="_7">资源估算<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <ul>
-<li>存储空间（全集群）：边数量 平均边属性的字节数 * 2.5</li>
+<li>存储空间（全集群）：边数量 * 平均边属性的字节数 * 2.5</li>
 <li>内存（全集群）：边数量 * 4 字节 + RocksDB 实例数量 * (write_buffer_size * max_write_buffer_number + rocksdb_block_cache), 其中 <code>etc/nebula-storaged.conf</code> 文件中 <code>--data_path</code> 项中的每个目录对应一个 RocksDB 实例</li>
 <li>图空间 partition 数量：全集群硬盘数量 * （2 至 10 —— 硬盘越好该值越大）</li>
 </ul>
