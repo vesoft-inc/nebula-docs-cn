@@ -11,6 +11,6 @@ nebula> SHOW CREATE SPACE NBA;
 =========================================================================================================
 | Space | Create Space                                                                                  |
 =========================================================================================================
-| gods  | CREATE SPACE gods (partition_num = 1, replica_factor = 1, charset = utf8, collate = utf8_bin) |
+| NBA  | CREATE SPACE gods (partition_num = 1, replica_factor = 1, charset = utf8, collate = utf8_bin) |
 ---------------------------------------------------------------------------------------------------------
 ```

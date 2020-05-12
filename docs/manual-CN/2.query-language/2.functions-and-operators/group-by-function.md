@@ -1,4 +1,4 @@
-# 聚合函数 (Group By)
+# 分组函数 (Group By)
 
  `GROUP BY` 函数类似于 SQL。 只能与 `YIELD` 语句一起使用。
 

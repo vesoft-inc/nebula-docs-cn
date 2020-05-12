@@ -21,7 +21,7 @@ CREATE SPACE [IF NOT EXISTS] <space_name>
 
 ## 自定义图空间选项
 
-在创建图空间的时候，可以传入如下两个自定义选项：
+在创建图空间的时候，可以传入如下四个自定义选项：
 
 * _partition_num_
 
