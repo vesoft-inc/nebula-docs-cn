@@ -75,7 +75,7 @@ nav:
         - 位运算: manual-CN/2.query-language/2.functions-and-operators/bitwise-operators.md
         - 内置函数: manual-CN/2.query-language/2.functions-and-operators/built-in-functions.md
         - 比较运算: manual-CN/2.query-language/2.functions-and-operators/comparison-functions-and-operators.md
-        - 聚合运算 GROUP BY: manual-CN/2.query-language/2.functions-and-operators/group-by-function.md
+        - 分组 GROUP BY: manual-CN/2.query-language/2.functions-and-operators/group-by-function.md
         - LIMIT 语法: manual-CN/2.query-language/2.functions-and-operators/limit-syntax.md
         - 逻辑运算: manual-CN/2.query-language/2.functions-and-operators/logical-operators.md
         - 运算符优先级: manual-CN/2.query-language/2.functions-and-operators/operator-precedence.md
