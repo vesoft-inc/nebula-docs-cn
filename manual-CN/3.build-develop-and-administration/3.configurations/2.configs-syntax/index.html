@@ -1738,20 +1738,34 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    显示配置
+    配置介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gflag" class="md-nav__link">
+    gflag 参数
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    获取变量
+    显示配置
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    获取变量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     更新变量
   </a>
   
@@ -2400,20 +2414,34 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    显示配置
+    配置介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gflag" class="md-nav__link">
+    gflag 参数
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    获取变量
+    显示配置
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    获取变量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     更新变量
   </a>
   
@@ -2437,9 +2465,118 @@
                 
                 
                 <h1 id="configs">CONFIGS 语法<a class="headerlink" href="#configs" title="Permanent link">&para;</a></h1>
-<p>CONFIGS 语法用于显示和修改可以动态更改的配置参数，这些配置参数大多数可以立刻生效，少部分需要重启后生效。
-具体见 meta, graph, storage 配置文件说明。</p>
-<h2 id="_1">显示配置<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">配置介绍<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p><strong>Nebula Graph</strong> 默认从 meta 获取配置。如果您希望从本地获取配置，请分别在配置文件 <code>metad.conf</code>、<code>storaged.conf</code>、<code>graphd.conf</code> 添加 <code>--local_config=true</code> 选项。</p>
+<p><strong>注意：</strong></p>
+<ul>
+<li>默认的配置寻找优先级：meta service &gt; 命令行 <code>UPDATE CONFIG</code> 语法 &gt; 本地环境变量 &gt; 本地配置文件。</li>
+<li>如果将 <code>--local_config</code> 设置为 true，则先到本地配置文件中寻找；然后依次 meta service, 和环境变量。</li>
+<li>更改配置文件后需重启服务方可生效。</li>
+<li>命令行中的配置更改实时生效。</li>
+</ul>
+<h2 id="gflag">gflag 参数<a class="headerlink" href="#gflag" title="Permanent link">&para;</a></h2>
+<p><strong>Nebula Graph</strong> 使用 <code>gflags</code> 参数进行运行时配置。<code>gflags</code> 参数见下表。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>max_edge_returned_per_vertex</td>
+<td>MUTABLE</td>
+<td>控制某个顶点返回的最大边数</td>
+</tr>
+<tr>
+<td>minloglevel</td>
+<td>MUTABLE</td>
+<td>最小日志级别</td>
+</tr>
+<tr>
+<td>v</td>
+<td>MUTABLE</td>
+<td>调试日志级别</td>
+</tr>
+<tr>
+<td>heartbeat_interval_secs</td>
+<td>MUTABLE</td>
+<td>心跳间隔</td>
+</tr>
+<tr>
+<td>meta_client_retry_times</td>
+<td>MUTABLE</td>
+<td>Meta 客户端重试次数。</td>
+</tr>
+<tr>
+<td>slow_op_threshhold_ms</td>
+<td>MUTABLE</td>
+<td>慢速运行的默认阈值，以毫秒为单位</td>
+</tr>
+<tr>
+<td>wal_ttl</td>
+<td>MUTABLE</td>
+<td>磁盘预写日志的生存时间。默认值为 <code>14400</code> 秒。最小值为 <code>3600</code> 秒，当设置小于最小值时，nebual 将忽略设置，此时值为 <code>3600</code> 秒。</td>
+</tr>
+<tr>
+<td>rocksdb_db_options</td>
+<td>NESTED</td>
+<td>参数为json格式，其键和值均为字符串格式。</td>
+</tr>
+<tr>
+<td>rocksdb_column_family_options</td>
+<td>NESTED</td>
+<td>参数为json格式，其键和值均为字符串格式。</td>
+</tr>
+<tr>
+<td>rocksdb_block_based_table_options</td>
+<td>NESTED</td>
+<td>参数为json格式，其键和值均为字符串格式。</td>
+</tr>
+</tbody>
+</table>
+<p>例如，您可以在 storage 的配置文件中进行如下设置：</p>
+<div class="highlight"><pre><span></span><code>    rocksdb_db_options = {&quot;stats_dump_period_sec&quot;:&quot;200&quot;, &quot;enable_write_thread_adaptive_yield&quot;:&quot;false&quot;, &quot;write_thread_max_yield_usec&quot;:&quot;600&quot;}
+    rocksdb_column_family_options = {&quot;max_write_buffer_number&quot;:&quot;4&quot;, &quot;min_write_buffer_number_to_merge&quot;:&quot;2&quot;, &quot;max_write_buffer_number_to_maintain&quot;:&quot;1&quot;}
+    rocksdb_block_based_table_options = {&quot;block_restart_interval&quot;:&quot;2&quot;}
+    &quot;max_edge_returned_per_vertex&quot;:&quot;INT_MAX&quot;
+</code></pre></div>
+
+<p><strong>Nebula Graph</strong> 支持更改 storage 服务的如下 RocksDB 参数：</p>
+<div class="highlight"><pre><span></span><code>    // rocksdb_column_family_options
+    disable_auto_compactions
+    write_buffer_size
+    max_write_buffer_number
+    level0_file_num_compaction_trigger
+    level0_slowdown_writes_trigger
+    level0_stop_writes_trigger
+    target_file_size_base
+    target_file_size_multiplier
+    max_bytes_for_level_base
+    max_bytes_for_level_multiplier
+
+    // rocksdb_db_options
+    max_total_wal_size
+    delete_obsolete_files_period_micros
+    max_background_jobs
+    stats_dump_period_sec
+    compaction_readahead_size
+    writable_file_max_buffer_size
+    bytes_per_sync
+    wal_bytes_per_sync
+    delayed_write_rate
+    avoid_flush_during_shutdown
+    max_open_files
+</code></pre></div>
+
+<p>例如：</p>
+<div class="highlight"><pre><span></span><code>nebula&gt; UPDATE CONFIGS storage:rocksdb_column_family_options = \
+        { disable_auto_compactions = false, level0_file_num_compaction_trigger = 10 }
+</code></pre></div>
+
+<h2 id="_2">显示配置<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>SHOW CONFIGS [graph|storage]
 </code></pre></div>
 
@@ -2455,7 +2592,7 @@
 ...
 </code></pre></div>
 
-<h2 id="_2">获取变量<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_3">获取变量<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>GET CONFIGS [graph|storage :] &lt;var&gt;
 </code></pre></div>
 
@@ -2468,13 +2605,14 @@
 --------------------------------------------
 </code></pre></div>
 
-<h2 id="_3">更新变量<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_4">更新变量<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>UPDATE CONFIGS [graph|storage :] &lt;var&gt; = &lt;value&gt;
 </code></pre></div>
 
 <blockquote>
-<p>更新的变量将持久化在 meta-service 中。</p>
-<p>支持在 UPDATE CONFIGS 中使用算术计算。</p>
+<p>更新的变量将持久化在 meta-service 中。
+如果配置模式为 <code>MUTABLE</code>，则更改将立即生效。如果模式为 <code>REBOOT</code>，则更改将在服务器重新启动后生效。
+支持在 UPDATE CONFIGS 中使用算术计算。</p>
 </blockquote>
 <p>例如</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; UPDATE CONFIGS storage:heartbeat_interval_secs=1;
