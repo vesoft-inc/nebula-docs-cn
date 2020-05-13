@@ -4,7 +4,7 @@
 SHOW PARTS <part_id>
 ```
 
-`SHOW PARTS` 列出指定 partition 的信息。
+`SHOW PARTS` 列出指定 partition 的信息。`<part_id>` 为可选，如果不指定则返回所有 part 信息。
 
 ```ngql
 nebula> SHOW PARTS 1;
