@@ -14,11 +14,11 @@
 
 双浮点数上限和下限分为别 `-1.79769e+308` 和 `1.79769e+308`。
 
-**科学计数法**
+### 科学计数法
 
-Nebula Graph 中，支持科学计数法表示 Double 类型。例如：
+Nebula Graph 中，支持用科学计数法表示 Double 类型。例如：
 
 ```ngql
-> CREATE TAG test1(price DOUBLE)
-> INSERT VERTEX test1(price) VALUES 100:(1.2E3)
+nebula> CREATE TAG test1(price DOUBLE)
+nebula> INSERT VERTEX test1(price) VALUES 100:(1.2E3)
 ```
