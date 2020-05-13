@@ -688,8 +688,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../2.functions-and-operators/group-by-function/" title="聚合运算 GROUP BY" class="md-nav__link">
-      聚合运算 GROUP BY
+    <a href="../../../../2.functions-and-operators/group-by-function/" title="分组 GROUP BY" class="md-nav__link">
+      分组 GROUP BY
     </a>
   </li>
 
@@ -2371,7 +2371,7 @@
 <div class="highlight"><pre><span></span><code>SHOW PARTS &lt;part_id&gt;
 </code></pre></div>
 
-<p><code>SHOW PARTS</code> 列出指定 partition 的信息。</p>
+<p><code>SHOW PARTS</code> 列出指定 partition 的信息。<code>&lt;part_id&gt;</code> 为可选，如果不指定则返回所有 part 信息。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; SHOW PARTS 1;
 ==============================================================
 | Partition ID | Leader           | Peers            | Losts |

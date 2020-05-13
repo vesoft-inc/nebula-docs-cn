@@ -647,34 +647,41 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    双浮点型
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     布尔型
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     字符型
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     时间戳类型
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     示例
   </a>
   
@@ -769,8 +776,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../2.functions-and-operators/group-by-function/" title="聚合运算 GROUP BY" class="md-nav__link">
-      聚合运算 GROUP BY
+    <a href="../../2.functions-and-operators/group-by-function/" title="分组 GROUP BY" class="md-nav__link">
+      分组 GROUP BY
     </a>
   </li>
 
@@ -2440,34 +2447,41 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    双浮点型
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     布尔型
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     字符型
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     时间戳类型
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     示例
   </a>
   
@@ -2494,25 +2508,23 @@
 <p><strong>Nebula Graph</strong> 支持的内建数据类型如下：</p>
 <h2 id="_2">数值型<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="_3">整型<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>整型的关键字为 <code>int</code>，为 64 位<em>有符号</em>整型，范围是 <code>[-9223372036854775808, 9223372036854775807]</code>，且在基于 int64 的计算中不存在溢出。整型常量支持多种格式：</p>
+<p>整型的关键字为 <code>int</code>，为 64 位<strong>有符号</strong>整型，范围是 <code>[-9223372036854775808, 9223372036854775807]</code>。整型常量支持多种格式：</p>
 <p>1. 十进制，例如 <code>123456</code>
-  1. 十六进制，例如 <code>0xdeadbeaf</code>
-  1. 八进制，例如 <code>01234567</code></p>
+  2. 十六进制，例如 <code>0xdeadbeaf</code>
+  3. 八进制，例如 <code>01234567</code></p>
 <!-- ### 浮点型
 
-单精度浮点数的关键字为 `float`，且 `float` 仅对 Schema 定义及存储字节数有意义，浮点型字面常量在语法解析以及运算过程中，均被当做双精度浮点数看待。
+单精度浮点数的关键字为 `float`，且 `float` 仅对 Schema 定义及存储字节数有意义，浮点型字面常量在语法解析以及运算过程中，均被当做双精度浮点数看待。 -->
 
-### 双浮点型
-
-双精度浮点数的关键字为 `double`，且没有上限和下限。 -->
-
-<h2 id="_4">布尔型<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_4">双浮点型<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>双精度浮点数的关键字为 <code>double</code>，且没有上限和下限。</p>
+<h2 id="_5">布尔型<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>布尔型关键字为 <code>bool</code>，字面常量为 <code>true</code> 和 <code>false</code>。</p>
-<h2 id="_5">字符型<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_6">字符型<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>字符型关键字为 <code>string</code>，字面常量为双引号或单引号包围的任意长度的字符序列，字符串中间不允许换行。例如<code>"Shaquile O'Neal"</code>，<code>'"This is a double-quoted literal string"'</code>。字符串内支持嵌入转义序列，例如：</p>
 <p>1. <code>"\n\t\r\b\f"</code>
   1. <code>"\110ello world"</code></p>
-<h2 id="_6">时间戳类型<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_7">时间戳类型<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <ul>
 <li>时间戳类型的取值范围为 <code>1970-01-01 00:00:01 UTC</code> 到 <code>2262-04-11 23:47:16 UTC</code></li>
 <li>时间戳单位为秒</li>
@@ -2522,10 +2534,10 @@
 <li>直接输入时间戳，即从 1970-01-01 00:00:00 开始的秒数</li>
 </ul>
 </li>
-<li>做数据存储的时候，会先将时间转化为 <strong>UTC 时间</strong>，读取的时候会将存储的 <strong>UTC 时间</strong>转换为<strong>本地时间</strong>给用户</li>
+<li>做数据存储的时候，会先将时间转化为 <strong>UTC 时间</strong>，读取的时候 console 会将存储的 <strong>UTC 时间</strong>转换为<strong>本地时间</strong>给用户</li>
 <li>底层存储数据类型为: <strong>int64</strong></li>
 </ul>
-<h2 id="_7">示例<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<h2 id="_8">示例<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>先创建一个名为 school 的 tag</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG school(name string , create_time timestamp);
 </code></pre></div>

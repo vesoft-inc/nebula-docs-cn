@@ -688,8 +688,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../2.functions-and-operators/group-by-function/" title="聚合运算 GROUP BY" class="md-nav__link">
-      聚合运算 GROUP BY
+    <a href="../../../../2.functions-and-operators/group-by-function/" title="分组 GROUP BY" class="md-nav__link">
+      分组 GROUP BY
     </a>
   </li>
 
@@ -2372,6 +2372,18 @@
 </code></pre></div>
 
 <p><code>SHOW INDEXES</code> 用于列出已创建完成的标签或边类型的索引信息。<code>SHOW INDEXES</code> 返回以下字段：索引 ID 和 索引名称。</p>
+<p>例如：</p>
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW TAG INDEXES;
+=============================
+| Index ID | Index Name     |
+=============================
+| 6        | player_index_1 |
+-----------------------------
+| 7        | player_index_0 |
+-----------------------------
+</code></pre></div>
+
+<p>如何创建索引请参考 <a href="../../../1.data-definition-statements/">索引</a> 文档。</p>
                 
                   
                 

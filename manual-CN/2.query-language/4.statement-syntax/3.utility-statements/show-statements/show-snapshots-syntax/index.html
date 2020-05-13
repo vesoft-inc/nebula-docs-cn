@@ -688,8 +688,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../2.functions-and-operators/group-by-function/" title="聚合运算 GROUP BY" class="md-nav__link">
-      聚合运算 GROUP BY
+    <a href="../../../../2.functions-and-operators/group-by-function/" title="分组 GROUP BY" class="md-nav__link">
+      分组 GROUP BY
     </a>
   </li>
 
@@ -2372,6 +2372,20 @@
 </code></pre></div>
 
 <p><code>SHOW SNAPSHOTS</code> 语句返回所有快照。</p>
+<p>例如：</p>
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW SNAPSHOTS;
+===========================================================
+| Name                         | Status | Hosts           |
+===========================================================
+| SNAPSHOT_2019_12_04_10_54_36 | VALID  | 127.0.0.1:77833 |
+-----------------------------------------------------------
+| SNAPSHOT_2019_12_04_10_54_42 | VALID  | 127.0.0.1:77833 |
+-----------------------------------------------------------
+| SNAPSHOT_2019_12_04_10_54_44 | VALID  | 127.0.0.1:77833 |
+-----------------------------------------------------------
+</code></pre></div>
+
+<p>参考 <a href="../../../../../3.build-develop-and-administration/5.storage-service-administration/cluster-snapshot/">这里</a> 创建集群快照。</p>
                 
                   
                 

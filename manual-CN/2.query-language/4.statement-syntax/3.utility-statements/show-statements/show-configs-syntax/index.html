@@ -688,8 +688,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../2.functions-and-operators/group-by-function/" title="聚合运算 GROUP BY" class="md-nav__link">
-      聚合运算 GROUP BY
+    <a href="../../../../2.functions-and-operators/group-by-function/" title="分组 GROUP BY" class="md-nav__link">
+      分组 GROUP BY
     </a>
   </li>
 
@@ -2373,16 +2373,20 @@
 
 <p><code>SHOW CONFIGS</code> 语句显示参数信息。 <code>SHOW CONFIGS</code> 输出以下列：module（模块信息）、name（参数名称）、type（参数类型）、mode（参数模式）和 value（参数值）。</p>
 <p>例如：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; SHOW CONFIGS meta;
-============================================================================================================================
-| module | name                                        | type   | mode      | value                                        |
-============================================================================================================================
-| META   | v                                           | INT64  | IMMUTABLE | 4                                            |
-----------------------------------------------------------------------------------------------------------------------------
-| META   | help                                        | BOOL   | IMMUTABLE | False                                        |
-----------------------------------------------------------------------------------------------------------------------------
-| META   | port                                        | INT64  | IMMUTABLE | 45500                                        |
-----------------------------------------------------------------------------------------------------------------------------
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW CONFIGS graph;
+==============================================================
+| module | name                    | type  | mode    | value |
+==============================================================
+| GRAPH  | v                       | INT64 | MUTABLE | 0     |
+--------------------------------------------------------------
+| GRAPH  | minloglevel             | INT64 | MUTABLE | 2     |
+--------------------------------------------------------------
+| GRAPH  | slow_op_threshhold_ms   | INT64 | MUTABLE | 50    |
+--------------------------------------------------------------
+| GRAPH  | heartbeat_interval_secs | INT64 | MUTABLE | 3     |
+--------------------------------------------------------------
+| GRAPH  | meta_client_retry_times | INT64 | MUTABLE | 3     |
+--------------------------------------------------------------
 </code></pre></div>
 
 <p>更多关于 <code>SHOW CONFIGS [graph|meta|storage]</code> 的信息，参见 <a href="../../../../../3.build-develop-and-administration/3.configurations/2.configs-syntax/">configs syntax</a>。</p>

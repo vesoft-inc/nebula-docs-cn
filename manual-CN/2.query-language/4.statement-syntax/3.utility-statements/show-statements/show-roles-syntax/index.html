@@ -688,8 +688,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../2.functions-and-operators/group-by-function/" title="聚合运算 GROUP BY" class="md-nav__link">
-      聚合运算 GROUP BY
+    <a href="../../../../2.functions-and-operators/group-by-function/" title="分组 GROUP BY" class="md-nav__link">
+      分组 GROUP BY
     </a>
   </li>
 
@@ -2368,10 +2368,22 @@
                 
                 
                 <h1 id="show_roles">SHOW ROLES 语法<a class="headerlink" href="#show_roles" title="Permanent link">&para;</a></h1>
-<div class="highlight"><pre><span></span><code>SHOW ROLES IN &lt;space_name&gt;&gt;
+<div class="highlight"><pre><span></span><code>SHOW ROLES IN &lt;space_name&gt;
 </code></pre></div>
 
 <p><code>SHOW ROLES</code> 语句显示分配给用户账户的角色。<code>SHOW ROLES</code> 输出以下列：用户账户和角色类型。</p>
+<p>如果是 <code>GOD</code> 或 <code>ADMIN</code> 类型的用户, <strong>Nebula Graph</strong> 返回其权限内的所有用户角色。
+如果是 <code>DBA</code>、 <code>USER</code> 或 <code>GUEST</code> 类型的用户, <strong>Nebula Graph</strong> 仅返回其自身角色。</p>
+<p>例如：</p>
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW ROLES in NBA;
+=======================
+| Account | Role Type |
+=======================
+| userA   | ADMIN     |
+-----------------------
+</code></pre></div>
+
+<p>参考 <a href="../../../../../3.build-develop-and-administration/4.account-management-statements/create-user-syntax/">Create User</a> 创建用户，参考 <a href="../../../../../3.build-develop-and-administration/4.account-management-statements/grant-role-syntax/">Grant Role</a> 为用户授予角色。</p>
                 
                   
                 
