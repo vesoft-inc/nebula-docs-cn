@@ -19,6 +19,6 @@
 Nebula Graph 中，支持用科学计数法表示 Double 类型。例如：
 
 ```ngql
-nebula> CREATE TAG test1(price DOUBLE)
-nebula> INSERT VERTEX test1(price) VALUES 100:(1.2E3)
+nebula> CREATE TAG test1(price DOUBLE);
+nebula> INSERT VERTEX test1(price) VALUES 100:(1.2E3);
 ```
