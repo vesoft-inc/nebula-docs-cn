@@ -10,7 +10,7 @@ repo_name: 'vesoft-inc/nebula'
 repo_url: 'https://github.com/vesoft-inc/nebula'
 
 # Copyright
-copyright: Copyright &copy; 2020 Nebula Graph
+copyright: Copyright &copy; 2020 Nebula Graph - 浙ICP备20010487号
 
 # Configuration
 theme:
