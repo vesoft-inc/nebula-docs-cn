@@ -4,7 +4,7 @@
 
 下图为 **Nebula Graph** 产品架构图：
 
-![image](https://github.com/vesoft-inc/nebula-docs/raw/master/images/Nebula%20Arch.png)
+![image](https://docs-cdn.nebula-graph.com.cn/README/Nebula-Arch.png)
 
 与其他图数据库产品相比，**Nebula Graph** 具有如下优势：
 
