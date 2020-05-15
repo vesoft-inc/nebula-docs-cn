@@ -66,6 +66,6 @@
 * [![Sina Weibo](https://img.shields.io/badge/Weibo-%E5%BE%AE%E5%8D%9A-red)](https://weibo.com/p/1006067122684542/home?from=page_100606&mod=TAB#place)
 * email: info@vesoft.com
 
-如果喜欢 **Nebula Graph**，请为我们点 star。<a href="http://githubbadges.com/star.svg?user=vesoft-inc&repo=nebula&style=default">
-    <img src="http://githubbadges.com/star.svg?user=vesoft-inc&repo=nebula&style=default" alt="nebula star"/>
+如果喜欢 **Nebula Graph**，请为我们点 star。<a href="https://githubbadges.com/star.svg?user=vesoft-inc&repo=nebula&style=default">
+    <img src="https://githubbadges.com/star.svg?user=vesoft-inc&repo=nebula&style=default" alt="nebula star"/>
   </a>
