@@ -53,7 +53,7 @@ Gremlin 和 nGQL 均使用唯一标识符标记顶点和边。在 **Nebula Graph
 
 本节中的示例使用了 [Janus Graph](https://janusgraph.org/) 的示例图 [_The Graphs of Gods_](https://docs.janusgraph.org/#getting-started)。该图结构如下图所示。此处使用[属性图模型](../1.overview/1.concepts/1.data-model.md)描述罗马万神话中诸神关系。
 
-![image](https://user-images.githubusercontent.com/42762957/71503167-0e264b80-28af-11ea-87c5-76f4fd1275cd.png)
+![image](https://docs-cdn.nebula-graph.com.cn/5.appendix/cypher-ngql.png)
 
 - 插入数据
 

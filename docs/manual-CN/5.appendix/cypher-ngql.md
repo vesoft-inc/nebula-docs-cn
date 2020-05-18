@@ -32,7 +32,7 @@
 
 示例使用以下数据:
 
-![image](https://user-images.githubusercontent.com/42762957/71503167-0e264b80-28af-11ea-87c5-76f4fd1275cd.png)
+![image](https://docs-cdn.nebula-graph.com.cn/5.appendix/cypher-ngql.png)
 
 - 插入数据
 

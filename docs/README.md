@@ -4,7 +4,7 @@
 
 下图为 **Nebula Graph** 产品架构图：
 
-![image](https://github.com/vesoft-inc/nebula-docs/raw/master/images/Nebula%20Arch.png)
+![image](https://docs-cdn.nebula-graph.com.cn/README/Nebula-Arch.png)
 
 与其他图数据库产品相比，**Nebula Graph** 具有如下优势：
 
@@ -66,6 +66,6 @@
 * [![Sina Weibo](https://img.shields.io/badge/Weibo-%E5%BE%AE%E5%8D%9A-red)](https://weibo.com/p/1006067122684542/home?from=page_100606&mod=TAB#place)
 * email: info@vesoft.com
 
-如果喜欢 **Nebula Graph**，请为我们点 star。<a href="http://githubbadges.com/star.svg?user=vesoft-inc&repo=nebula&style=default">
-    <img src="http://githubbadges.com/star.svg?user=vesoft-inc&repo=nebula&style=default" alt="nebula star"/>
+如果喜欢 **Nebula Graph**，请为我们点 star。<a href="https://githubbadges.com/star.svg?user=vesoft-inc&repo=nebula&style=default">
+    <img src="https://githubbadges.com/star.svg?user=vesoft-inc&repo=nebula&style=default" alt="nebula star"/>
   </a>
