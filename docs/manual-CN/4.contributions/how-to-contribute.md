@@ -92,32 +92,34 @@ git push --force origin master
 
 ## Step 4: 开发
 
-### 编辑代码
+### 代码风格
 
-此时可在 `myfeature` 分支编辑代码， 编辑时请遵循 [Google C++ Style Guide](https://google.github.io/styleguide/cppguide.html)。
+**Nebula Graph** 采用 `cpplint` 来确保其代码符合 Google 的代码风格指南。此检查器将在提交代码之前实现。
 
-### 对修改的代码进行验证
+### 添加单元测试
 
-#### 编译源码
+请为你的新功能或 bugfix 添加单元测试。在修改的模块代码目录下面有个 test 目录，可以在里面添加单元测试，然后编译运行单元测试，提交的代码必须确保所有单元测试顺利通过。
 
-请参考文档 [build source code](../3.build-develop-and-administration/1.build/1.build-source-code.md)
+### 请开启单元测试进行源码编译
 
-#### 验证
+详情请参考[源码编译](../3.build-develop-and-administration/1.build/1.build-source-code.md)。
 
-- 替换二进制文件
+> 请确保已设置 `-DENABLE_TESTING = ON` 启用了单元测试的构建。
 
-编译好的三个服务的二进制文件在 `nebula/build/src/daemon/_build/` 目录下面，编译好的 console 在 `nebula/build/src/console/_build` 目录下面。可以把二进制替换到安装目录 `bin` 下面，重启服务并做验证。
+### 运行所有单元测试
 
-- 添加单元测试
-
-在修改的模块代码目录下面会有个test目录，可以在里面添加单元测试，然后编译运行单元测试，提交的代码必须确保所有单元测试顺利通过。
-
-运行所有单元测试
+在 `nebula` 根目录运行以下命令：
 
 ```bash
 cd nebula/build
 ctest -j$(nproc)
 ```
+
+### 验证
+
+- 替换二进制文件
+
+编译好的三个服务的二进制文件在 `nebula/build/src/daemon/_build/` 目录下面，编译好的 console 在 `nebula/build/src/console/_build` 目录下面。可以把二进制替换到安装目录 `bin` 下面，重启服务并做验证。
 
 ## Step 5: 保持分支同步
 
@@ -126,6 +128,8 @@ ctest -j$(nproc)
 git fetch upstream
 git rebase upstream/master
 ```
+
+在其他协作者将 PR 合并到基础分支之后，您需要更新 head 分支。
 
 ### Step 6: Commit
 
@@ -140,7 +144,7 @@ git commit
 代码更改完成或需要备份代码时，将本地仓库创建的分支 push 到 GitHub 端的远程仓库：
 
 ```bash
-git push -f origin myfeature
+git push origin myfeature
 ```
 
 ### Step 8: 创建 pull request
