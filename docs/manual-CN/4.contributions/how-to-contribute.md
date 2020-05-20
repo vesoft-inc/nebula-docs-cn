@@ -25,13 +25,12 @@ clone 代码：
 ```bash
 mkdir -p $working_dir
 cd $working_dir
-git clone https://github.com/$user/nebula.git
-# 推荐如下方式
-# 或: git clone git@github.com:$user/nebula.git
+git clone git@github.com:$user/nebula.git
+# 或: git clone https://github.com/$user/nebula.git
 
 cd $working_dir/nebula
-git remote add upstream https://github.com/vesoft-inc/nebula.git
-# 或: git remote add upstream git@github.com:vesoft-inc/nebula.git
+git remote add upstream git@github.com:vesoft-inc/nebula.git
+# 或: git remote add upstream https://github.com/vesoft-inc/nebula.git
 
 # 由于没有写访问权限，请勿推送至上游主分支
 git remote set-url --push upstream no_push
@@ -94,7 +93,7 @@ git push --force origin master
 
 ### 代码风格
 
-**Nebula Graph** 采用 `cpplint` 来确保其代码符合 Google 的代码风格指南。此检查器将在提交代码之前实现。
+**Nebula Graph** 采用 `cpplint` 来确保其代码符合 Google 的代码风格指南。此[检查器](https://github.com/vesoft-inc/nebula/blob/master/.linters/cpp/cpplint.py)将在提交代码之前实现。
 
 ### 添加单元测试
 
