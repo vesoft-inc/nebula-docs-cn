@@ -6,4 +6,12 @@
 DELETE EDGE <edge_type> <vid> -> <vid>[@<ranking>] [, <vid> -> <vid> ...]
 ```
 
+例如，
+
+```ngql
+nebula> DELETE EDGE follow 100 -> 200;
+```
+
+以上示例删除一条起点为 `100`， 终点为 `200`， 边类型为 `follow` 的边。
+
 系统内部会找出与这条边相关联的属性，并将其全部删除。整个过程当前还无法保证原子性，因此当遇到失败时请重试。

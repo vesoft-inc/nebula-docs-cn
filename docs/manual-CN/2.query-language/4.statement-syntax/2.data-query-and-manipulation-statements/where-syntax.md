@@ -21,6 +21,7 @@ nebula> GO FROM 100 OVER follow WHERE follow.degree > 90;
 ===============
 | 101         |
 ---------------
+
 -- 找到与起点 player 104 的 age 值相等的点。
 nebula> GO FROM 104 OVER follow WHERE $^.player.age == $$.player.age;
 -- 返回以下值：
@@ -29,6 +30,7 @@ nebula> GO FROM 104 OVER follow WHERE $^.player.age == $$.player.age;
 ===============
 | 103         |
 ---------------
+
 -- 多种逻辑组合。
 nebula> GO FROM 100 OVER follow WHERE follow.degree > 90 OR $$.player.age != 33 AND $$.player.name != "Tony Parker";
 -- 返回以下值：
@@ -39,6 +41,7 @@ nebula> GO FROM 100 OVER follow WHERE follow.degree > 90 OR $$.player.age != 33 
 ---------------
 | 106         |
 ---------------
+
 --下面 WHERE 语句中的条件总是为 TRUE。
 nebula> GO FROM 101 OVER follow WHERE 1 == 1 OR TRUE;
 -- 返回以下值：
