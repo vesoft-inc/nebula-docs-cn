@@ -177,7 +177,7 @@ nav:
           - 长耗时任务管理: manual-CN/3.build-develop-and-administration/5.storage-service-administration/job-manager.md
 
       - 监控与统计:
-        - 接入 Prometheus: manual-CN/3.build-develop-and-administration/7.monitor/0.connect-prometheus.md
+        # - 接入 Prometheus: manual-CN/3.build-develop-and-administration/7.monitor/0.connect-prometheus.md
         - Metrics: manual-CN/3.build-develop-and-administration/7.monitor/1.metrics-exposer.md
         - Meta Metrics: manual-CN/3.build-develop-and-administration/7.monitor/2.meta-metrics.md
         - Storage Metrics: manual-CN/3.build-develop-and-administration/7.monitor/3.storage-metrics.md
