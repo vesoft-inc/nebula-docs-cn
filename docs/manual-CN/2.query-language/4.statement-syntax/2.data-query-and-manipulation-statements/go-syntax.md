@@ -5,7 +5,7 @@
 >`GO` 的用法与 SQL 中的 `SELECT` 类似，重要区别是 `GO` 必须从遍历一系列的节点开始。
 
 ```ngql
-  GO [ <N> STEPS ] FROM <node_list>
+  GO [[<M> TO] <N> STEPS ] FROM <node_list>
   OVER <edge_type_list> [REVERSELY] [BIDIRECT]
   [ WHERE <expression> [ AND | OR expression ...]) ]
   YIELD [DISTINCT] <return_list>
@@ -22,6 +22,7 @@
 ```
 
 * `<N> STEPS` 指定查询 N 跳。
+* `M TO N STEPS` 指定查询 M 到 N 跳。
 * `<node_list>` 为逗号隔开的节点 ID，或特殊占位符 `$-.id` (参看 `PIPE` 用法)。
 * `<edge_type_list>` 为图遍历返回的边类型列表。
 * `WHERE <expression>` 指定被筛选的逻辑条件，WHERE 可用于起点，边及终点，同样支持逻辑关键词 AND、OR、NOT，详情参见 WHERE 的用法。
@@ -84,7 +85,7 @@ nebula> GO FROM 100,102 OVER serve           \
 目前 **Nebula Graph** 还支持 `GO` 沿着多条边遍历，语法为：
 
 ```ngql
-GO FROM <node_list> OVER <edge_type_list | *> YIELD [DISTINCT] <return_list>
+GO FROM <node_list> OVER <edge_type_list> YIELD [DISTINCT] <return_list>
 ```
 
 例如：
@@ -198,3 +199,61 @@ nebula> GO FROM 102 OVER follow BIDIRECT;
 ```
 
 上述语句同时返回 102 关注的球员及关注 102 的球员。
+
+## 返回 M 到 N 跳
+
+**Nebula Graph** 支持返回 M 到 N 跳，语法为：
+
+```ngql
+  GO <M> TO <N> STEPS FROM <node_list>
+  OVER <edge_type_list> [REVERSELY] [BIDIRECT]
+  [YIELD [DISTINCT] <return_list>]
+```
+
+当 M 等于 N 时，`GO M TO N STEPS` 等同 `GO N STEPS`。
+
+例如：
+
+```ngql
+nebula> GO 1 TO 2 STEPS FROM 100 OVER serve;
+==============
+| serve._dst |
+==============
+| 200        |
+--------------
+```
+
+遍历从点 100 出发沿 serve 边 1 至 2 跳的点。
+
+```ngql
+nebula> GO 1 TO 2 STEPS FROM 201 OVER serve REVERSELY;
+==============
+| serve._dst |
+==============
+| 103        |
+--------------
+| 104        |
+--------------
+...
+```
+
+反向遍历从点 201 出发沿 serve 边 1 至 2 跳的点。
+
+```ngql
+nebula> GO 1 TO 2 STEPS FROM 101 OVER follow BIDIRECT YIELD DISTINCT follow._dst;
+===============
+| follow._dst |
+===============
+| 100         |
+---------------
+| 102         |
+---------------
+| 101         |
+---------------
+| 103         |
+---------------
+| 106         |
+---------------
+```
+
+双向遍历从点 101 出发沿 follow 边 1 至 2 跳的点。
