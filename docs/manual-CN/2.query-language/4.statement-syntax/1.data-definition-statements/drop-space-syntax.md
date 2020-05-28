@@ -6,7 +6,7 @@ DROP SPACE [IF EXISTS] <space_name>
 
 仅支持有 DROP 权限的用户进行此操作。
 
-DROP SPACE 将删除指定 space 内的所有内容。重启服务后数据才会真正删除。
+DROP SPACE 将删除指定 space 内的所有内容。
 
 删除图空间可使用 `IF EXISTS` 关键字，这个关键字会自动检测对应的图空间是否存在，如果存在则删除，如果不存在则直接返回。
 
