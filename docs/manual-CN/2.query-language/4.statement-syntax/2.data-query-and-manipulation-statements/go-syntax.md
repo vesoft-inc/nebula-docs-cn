@@ -228,6 +228,21 @@ nebula> GO 2 TO 4 STEPS FROM 100 OVER follow REVERSELY YIELD DISTINCT follow._ds
 ===============
 | follow._dst |
 ===============
+| 133         |
+---------------
+| 105         |
+---------------
+| 140         |
+---------------
+```
+
+反向遍历从点 100 出发沿 follow 边 2 至 4 跳的点。
+
+```ngql
+nebula> GO 4 TO 5 STEPS FROM 101 OVER follow BIDIRECT YIELD DISTINCT follow._dst;
+===============
+| follow._dst |
+===============
 | 100         |
 ---------------
 | 102         |
