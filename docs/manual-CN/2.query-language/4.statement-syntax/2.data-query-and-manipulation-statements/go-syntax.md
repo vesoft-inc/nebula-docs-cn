@@ -200,17 +200,15 @@ nebula> GO FROM 102 OVER follow BIDIRECT;
 
 上述语句同时返回 102 关注的球员及关注 102 的球员。
 
-## 返回 M 到 N 跳
+## 遍历 M 到 N 跳
 
-**Nebula Graph** 支持返回 M 到 N 跳，语法为：
+**Nebula Graph** 支持遍历 M 到 N 跳。当 M 等于 N 时，`GO M TO N STEPS` 等同 `GO N STEPS`。语法为：
 
 ```ngql
   GO <M> TO <N> STEPS FROM <node_list>
   OVER <edge_type_list> [REVERSELY] [BIDIRECT]
   [YIELD [DISTINCT] <return_list>]
 ```
-
-当 M 等于 N 时，`GO M TO N STEPS` 等同 `GO N STEPS`。
 
 例如：
 
@@ -226,21 +224,22 @@ nebula> GO 1 TO 2 STEPS FROM 100 OVER serve;
 遍历从点 100 出发沿 serve 边 1 至 2 跳的点。
 
 ```ngql
-nebula> GO 1 TO 2 STEPS FROM 201 OVER serve REVERSELY;
-==============
-| serve._dst |
-==============
-| 103        |
---------------
-| 104        |
---------------
-...
+nebula> GO 2 TO 4 STEPS FROM 100 OVER follow REVERSELY YIELD DISTINCT follow._dst;
+===============
+| follow._dst |
+===============
+| 133         |
+---------------
+| 105         |
+---------------
+| 140         |
+---------------
 ```
 
-反向遍历从点 201 出发沿 serve 边 1 至 2 跳的点。
+反向遍历从点 100 出发沿 follow 边 2 至 4 跳的点。
 
 ```ngql
-nebula> GO 1 TO 2 STEPS FROM 101 OVER follow BIDIRECT YIELD DISTINCT follow._dst;
+nebula> GO 4 TO 5 STEPS FROM 101 OVER follow BIDIRECT YIELD DISTINCT follow._dst;
 ===============
 | follow._dst |
 ===============
@@ -248,12 +247,16 @@ nebula> GO 1 TO 2 STEPS FROM 101 OVER follow BIDIRECT YIELD DISTINCT follow._dst
 ---------------
 | 102         |
 ---------------
-| 101         |
+| 104         |
 ---------------
-| 103         |
+| 105         |
 ---------------
-| 106         |
+| 107         |
+---------------
+| 113         |
+---------------
+| 121         |
 ---------------
 ```
 
-双向遍历从点 101 出发沿 follow 边 1 至 2 跳的点。
+双向遍历从点 101 出发沿 follow 边 4 至 5 跳的点。
