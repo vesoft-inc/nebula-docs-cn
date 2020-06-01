@@ -118,7 +118,7 @@
   * [Graphd 配置](3.build-develop-and-administration/3.configurations/4.graph-config.md)
   * [Storaged 配置](3.build-develop-and-administration/3.configurations/5.storage-config.md)
   * [命令行终端配置](3.build-develop-and-administration/3.configurations/6.console-config.md)
-  * [Kernel 配置](3.build-develop-and-administration/3.configurations/7.kernel-configuration.md)
+  * [Kernel 配置](3.build-develop-and-administration/3.configurations/6.console-config.md)
 
 * 账号权限管理
   * [Alter User Syntax](3.build-develop-and-administration/4.account-management-statements/alter-user-syntax.md)
@@ -139,7 +139,7 @@
   * [集群快照](3.build-develop-and-administration/5.storage-service-administration/cluster-snapshot.md)
   * [长耗时任务管理(compact,flush)](3.build-develop-and-administration/5.storage-service-administration/job-manager.md)
 * 监控与统计
-  * [接入 prometheus](3.build-develop-and-administration/7.monitor/0.connect-prometheus.md)
+  <!-- * [接入 prometheus](3.build-develop-and-administration/7.monitor/0.connect-prometheus.md) -->
   * [metrics](3.build-develop-and-administration/7.monitor/1.metrics-exposer.md)
   * [meta 层运行统计 (metrics)](3.build-develop-and-administration/7.monitor/2.meta-metrics.md)
   * [storage 运行统计 (metrics)](3.build-develop-and-administration/7.monitor/3.storage-metrics.md)

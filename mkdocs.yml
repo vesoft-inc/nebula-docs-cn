@@ -156,7 +156,7 @@ nav:
           - Graphd 配置: manual-CN/3.build-develop-and-administration/3.configurations/4.graph-config.md
           - Storaged 配置: manual-CN/3.build-develop-and-administration/3.configurations/5.storage-config.md
           - Console 配置: manual-CN/3.build-develop-and-administration/3.configurations/6.console-config.md
-          - Kernel 配置: manual-EN/3.build-develop-and-administration/3.configurations/7.kernel-configuration.md
+          - Kernel 配置: manual-CN/3.build-develop-and-administration/3.configurations/7. kernel-configuration.md
 
 
       - 账号权限管理:
