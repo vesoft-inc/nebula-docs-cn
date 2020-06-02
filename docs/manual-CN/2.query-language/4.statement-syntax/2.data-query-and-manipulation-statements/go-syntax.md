@@ -5,7 +5,7 @@
 >`GO` 的用法与 SQL 中的 `SELECT` 类似，重要区别是 `GO` 必须从遍历一系列的节点开始。
 
 ```ngql
-  GO [ <N> STEPS ] FROM <node_list>
+  GO [[<M> TO] <N> STEPS ] FROM <node_list>
   OVER <edge_type_list> [REVERSELY] [BIDIRECT]
   [ WHERE <expression> [ AND | OR expression ...]) ]
   YIELD [DISTINCT] <return_list>
@@ -22,6 +22,7 @@
 ```
 
 * `<N> STEPS` 指定查询 N 跳。
+* `M TO N STEPS` 指定查询 M 到 N 跳。
 * `<node_list>` 为逗号隔开的节点 ID，或特殊占位符 `$-.id` (参看 `PIPE` 用法)。
 * `<edge_type_list>` 为图遍历返回的边类型列表。
 * `WHERE <expression>` 指定被筛选的逻辑条件，WHERE 可用于起点，边及终点，同样支持逻辑关键词 AND、OR、NOT，详情参见 WHERE 的用法。
@@ -84,7 +85,7 @@ nebula> GO FROM 100,102 OVER serve           \
 目前 **Nebula Graph** 还支持 `GO` 沿着多条边遍历，语法为：
 
 ```ngql
-GO FROM <node_list> OVER <edge_type_list | *> YIELD [DISTINCT] <return_list>
+GO FROM <node_list> OVER <edge_type_list> YIELD [DISTINCT] <return_list>
 ```
 
 例如：
@@ -198,3 +199,64 @@ nebula> GO FROM 102 OVER follow BIDIRECT;
 ```
 
 上述语句同时返回 102 关注的球员及关注 102 的球员。
+
+## 遍历 M 到 N 跳
+
+**Nebula Graph** 支持遍历 M 到 N 跳。当 M 等于 N 时，`GO M TO N STEPS` 等同 `GO N STEPS`。语法为：
+
+```ngql
+  GO <M> TO <N> STEPS FROM <node_list>
+  OVER <edge_type_list> [REVERSELY] [BIDIRECT]
+  [YIELD [DISTINCT] <return_list>]
+```
+
+例如：
+
+```ngql
+nebula> GO 1 TO 2 STEPS FROM 100 OVER serve;
+==============
+| serve._dst |
+==============
+| 200        |
+--------------
+```
+
+遍历从点 100 出发沿 serve 边 1 至 2 跳的点。
+
+```ngql
+nebula> GO 2 TO 4 STEPS FROM 100 OVER follow REVERSELY YIELD DISTINCT follow._dst;
+===============
+| follow._dst |
+===============
+| 133         |
+---------------
+| 105         |
+---------------
+| 140         |
+---------------
+```
+
+反向遍历从点 100 出发沿 follow 边 2 至 4 跳的点。
+
+```ngql
+nebula> GO 4 TO 5 STEPS FROM 101 OVER follow BIDIRECT YIELD DISTINCT follow._dst;
+===============
+| follow._dst |
+===============
+| 100         |
+---------------
+| 102         |
+---------------
+| 104         |
+---------------
+| 105         |
+---------------
+| 107         |
+---------------
+| 113         |
+---------------
+| 121         |
+---------------
+```
+
+双向遍历从点 101 出发沿 follow 边 4 至 5 跳的点。
