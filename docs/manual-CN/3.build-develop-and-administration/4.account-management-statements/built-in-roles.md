@@ -6,6 +6,7 @@
   - 初始 Root 用户（类似于 Linux 系统中的 Root，和 Windows 系统中的 Administrator）。
   - 拥有所有操作权限。
   - 一个集群只能有一个 God。God 可管理集群内所有 space。
+  - Meta 服务在初始化时会默认创建一个 GOD 角色的 Account，名为 root。
   - God 角色由 meta 自动初始化，且不支持用户自行授权成为 God。
 - Admin
   - 管理员用户。
@@ -53,3 +54,5 @@
 | Read data | Y | Y | Y | Y | Y |
 | Write data | Y | Y | Y | Y |  |
 | Special operation | Y | Y | Y | Y | Y |
+
+注意： Special Operation 为特殊操作，例如 `SHOW SPACE`，每个角色都可以执行，但其执行结果只显示 Account 权限内的结果。
