@@ -118,7 +118,7 @@
   * [Graphd 配置](3.build-develop-and-administration/3.configurations/4.graph-config.md)
   * [Storaged 配置](3.build-develop-and-administration/3.configurations/5.storage-config.md)
   * [命令行终端配置](3.build-develop-and-administration/3.configurations/6.console-config.md)
-  * [Kernel 配置](3.build-develop-and-administration/3.configurations/6.console-config.md)
+  * [Kernel 配置](3.build-develop-and-administration/3.configurations/7.kernel-config.md)
 
 * 账号权限管理
   * [Alter User Syntax](3.build-develop-and-administration/4.account-management-statements/alter-user-syntax.md)
