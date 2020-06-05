@@ -28,6 +28,13 @@ YIELD $^.player.name AS name, $^.player.age AS age;
 
 这个例子里面，101 有一个 tag，即 player。
 
+```ngql
+nebula> UPDATE VERTEX 200 SET player.name = 'Cory Joseph' WHEN $^.team.name == 'Rocket';
+[ERROR (-8)]: Maybe invalid tag or property in SET/YIELD clause!
+```
+
+`UPDATE` 不支持多个 tag，故此处报错。
+
 ## 更新边
 
 ```ngql

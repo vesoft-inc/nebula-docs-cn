@@ -32,3 +32,19 @@ nebula> UPSERT VERTEX 111 SET player.name = "Dwight Howard", player.age = $^.pla
 | Dwight Howard | 33  |
 -----------------------
 ```
+
+```ngql
+nebula> FETCH PROP ON * 111; -- 返回为空，点 111 不存在
+Empty set (Time spent: 3.069/4.382 ms)
+nebula> UPSERT VERTEX 111 SET player.age = $^.player.age + 1;
+```
+
+当点 111 不存在，player 的 age 有默认值时，点 111 的 player.age 为默认值 + 1；此处 player.age 未设置默认值，因此报错。
+
+```ngql
+nebula> CREATE TAG person(followers int, age int DEFAULT 0); -- 创建示例 tag person
+
+nebula> UPSERT VERTEX 300 SET person.followers = $^.course.age + 1,  person.age = 8; -- followers 为 1，age 为 8
+
+nebula> UPSERT VERTEX 300 SET person.age = 8, person.followers = $^.followers.age + 1; -- followers 为 9，age 为 8
+```
