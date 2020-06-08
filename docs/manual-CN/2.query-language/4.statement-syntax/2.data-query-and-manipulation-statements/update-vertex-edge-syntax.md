@@ -1,6 +1,6 @@
 # UPDATE 语法
 
-**Nebula Graph** 支持 `UPDATE` 一个点或者一条边的属性，支持 CAS 操作，支持返回相关的属性。
+**Nebula Graph** 支持 `UPDATE` 一个点或者一条边的属性，支持 CAS 操作，支持返回相关的属性。`UPDATE` 一次只能更新一个点/边的一个 tag/edge type 上的属性。
 
 ## 更新点
 
@@ -27,6 +27,13 @@ YIELD $^.player.name AS name, $^.player.age AS age;
 ```
 
 这个例子里面，101 有一个 tag，即 player。
+
+```ngql
+nebula> UPDATE VERTEX 200 SET player.name = 'Cory Joseph' WHEN $^.team.name == 'Rocket';
+[ERROR (-8)]: Maybe invalid tag or property in SET/YIELD clause!
+```
+
+`UPDATE` 不支持多个 tag，故此处报错。
 
 ## 更新边
 
