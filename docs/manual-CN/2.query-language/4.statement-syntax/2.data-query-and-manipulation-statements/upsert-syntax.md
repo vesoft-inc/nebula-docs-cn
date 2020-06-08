@@ -44,7 +44,7 @@ nebula> UPSERT VERTEX 111 SET player.age = $^.player.age + 1;
 ```ngql
 nebula> CREATE TAG person(followers int, age int DEFAULT 0); -- 创建示例 tag person
 
-nebula> UPSERT VERTEX 300 SET person.followers = $^.course.age + 1,  person.age = 8; -- followers 为 1，age 为 8
+nebula> UPSERT VERTEX 300 SET person.followers = $^.person.age + 1,  person.age = 8; -- followers 为 1，age 为 8
 
-nebula> UPSERT VERTEX 300 SET person.age = 8, person.followers = $^.followers.age + 1; -- followers 为 9，age 为 8
+nebula> UPSERT VERTEX 300 SET person.age = 8, person.followers = $^.person.age + 1; -- followers 为 9，age 为 8
 ```
