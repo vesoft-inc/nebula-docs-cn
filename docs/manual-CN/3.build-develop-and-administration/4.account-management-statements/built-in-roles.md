@@ -11,7 +11,7 @@
 - Admin
   - 管理员用户。
   - 对权限内的 space 拥有 schema 和 data 的读/写权限。
-  - 可对权限内的 space 进行用户受权。
+  - 可对权限内的 space 进行用户授权。
 - DBA
   - 对权限内的 space 拥有 schema 和 data 的读/写权限。
   - 没有对用户受权的权限。
