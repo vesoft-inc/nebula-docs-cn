@@ -1,5 +1,9 @@
 # 集合操作 (`UNION`，`INTERSECT`， `MINUS`)
 
+您可以使用集合运算符 `UNION`、`UNION ALL`、`INTERSECT` 和 `MINUS` 进行多个组合查询。所有集合运算符具有相同的优先级。如果 nGQL 语句包含多个集合运算符，则 **Nebula Graph** 将对其进行从左到右处理，除非使用括号明确指定了顺序。
+
+复合查询中，`GO` 语句返回的结果必须在列数相同，且数据类型相同（比如均为数字类型或字符类型）。
+
 ## UNION，UNION DISTINCT，UNION ALL
 
 `UNION DISTINCT` (简称 `UNION`)返回数据集 A 和 B 的并集（不包含重复元素）。
