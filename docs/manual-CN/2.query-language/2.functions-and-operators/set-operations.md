@@ -4,6 +4,8 @@
 
 复合查询中，`GO` 语句返回的结果必须在列数相同，且数据类型相同（比如均为数字类型或字符类型）。
 
+请注意当一条查询同时包含管道 `|` 和集合操作时，管道的优先级高于集合操作。管道用法请参考[管道文档](../3.language-structure/pipe-syntax.md)。
+
 ## UNION，UNION DISTINCT，UNION ALL
 
 `UNION DISTINCT` (简称 `UNION`)返回数据集 A 和 B 的并集（不包含重复元素）。
