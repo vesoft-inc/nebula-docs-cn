@@ -164,7 +164,7 @@ GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS left_1, $$.tag.prop2 AS left_
 
 ## 集合操作和管道的优先级
 
-请注意当一条查询同时包含管道 `|` 和集合操作时，管道的优先级高于集合操作。管道用法请参考[管道文档](../3.language-structure/pipe-syntax.md)。
+请注意当一条查询同时包含管道 `|` 和集合操作时，管道的优先级高于集合操作。管道用法请参考[管道文档](../3.language-structure/pipe-syntax.md)。语句 `GO FROM 1 UNION GO FROM 2 | GO FROM 3` 等价于语句 `GO FROM 1 UNION (GO FROM 2 | GO FROM 3)`。
 
 例如：
 
@@ -175,20 +175,9 @@ nebula> GO FROM 100 OVER follow YIELD follow._dst AS play_dst  \
         | GO FROM $-.play_dst OVER follow YIELD follow._dst AS play_dst;
 ```
 
-以上语句的执行顺序为，先执行 UNION 前的 GO 语句，
+![image](https://user-images.githubusercontent.com/42762957/84130415-d46c8a00-aa75-11ea-8a29-b8bef5e1d55f.png)
 
-```ngql
-nebula> GO FROM 100 OVER follow YIELD follow._dst AS play_dst;
-```
-
-再执行 UNION 后的PIPE，
-
-```ngql
-nebula> GO FROM 200 OVER serve REVERSELY YIELD serve._dst AS play_dst \
-        | GO FROM $-.play_dst OVER follow YIELD follow._dst AS play_dst;
-```
-
-最后执行 UNION。
+红色框内的语句先执行，然后再执行绿色框内的语句。
 
 ```ngql
 nebula> (GO FROM 100 OVER follow YIELD follow._dst AS play_dst  \
