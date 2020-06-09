@@ -5,12 +5,12 @@ ALTER TAG <tag_name>
     <alter_definition> [, alter_definition] ...]
     [ttl_definition [, ttl_definition] ... ]
 
-alter_definition:
-| ADD    (prop_name data_type)
-| DROP   (prop_name)
-| CHANGE (prop_name data_type)
+<alter_definition>::=
+    ADD (prop_name data_type)
+    | DROP (prop_name)
+    | CHANGE (prop_name data_type)
 
-ttl_definition:
+ttl_definition::=
     TTL_DURATION = ttl_duration, TTL_COL = prop_name
 ```
 
