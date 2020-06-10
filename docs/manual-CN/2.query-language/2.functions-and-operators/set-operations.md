@@ -37,64 +37,64 @@ nebula> GO FROM 1 OVER e1 \
 `UNION` 亦可与 `YIELD` 同时使用，例如以下语句：
 
 ```ngql
-nebula> GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS left_1, $$.tag.prop2 AS left_2 -- query 1
-==========================
-| id  | left_1 | left_2  |
-==========================
-| 104 |    1   |    2    |    -- line 1
---------------------------
-| 215 |    4   |    3    |    -- line 3
---------------------------
+nebula> GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS col_1, $$.tag.prop2 AS col_2; -- query 1
+=======================
+| id  | col_1| col_2  |
+=======================
+| 104 |   1  |    2   |    -- line 1
+-----------------------
+| 215 |   4  |    3   |    -- line 3
+-----------------------
 
-nebula> GO FROM 2,3 OVER e1 YIELD e1._dst AS id, e1.prop1 AS right_1, $$.tag.prop2 AS right_2;  -- query 2
-===========================
-| id  | right_1 | right_2 |
-===========================
-| 104 |    1    |    2    |    -- line 1
----------------------------
-| 104 |    2    |    2    |    -- line 2
----------------------------
+nebula> GO FROM 2,3 OVER e1 YIELD e1._dst AS id, e1.prop1 AS col_1, $$.tag.prop2 AS col_2;  -- query 2
+======================
+| id  | col_1| col_2 |
+======================
+| 104 |   1  |    2  |    -- line 1
+----------------------
+| 104 |   2  |    2  |    -- line 2
+----------------------
 ```
 
 ```ngql
-nebula> GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS left_1, $$.tag.prop2 AS left_2   \
+nebula> GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS col_1, $$.tag.prop2 AS col_2   \
         UNION /* DISTINCT */     \
-        GO FROM 2,3 OVER e1 YIELD e1._dst AS id, e1.prop1 AS right_1, $$.tag.prop2 AS right_2;
+        GO FROM 2,3 OVER e1 YIELD e1._dst AS id, e1.prop1 AS col_1, $$.tag.prop2 AS col_2;
 ```
 
 以上语句返回
 
 ```ngql
-=========================
-| id  | left_1 | left_2 |    -- UNION or UNION DISTINCT. The column names come from query 1
-=========================
-| 104 |    1   |    2   |    -- line 1
--------------------------
-| 104 |    2   |    2   |    -- line 2
--------------------------
-| 215 |    4   |    3   |    -- line 3
--------------------------
+=======================
+| id  | col_1| col_2  |    -- UNION or UNION DISTINCT. The column names come from query 1
+=======================
+| 104 |  1   |    2   |    -- line 1
+-----------------------
+| 104 |  2   |    2   |    -- line 2
+-----------------------
+| 215 |  4   |    3   |    -- line 3
+-----------------------
 ```
 
 请注意第一行与第二行返回相同 id 的点，但是返回的值不同。`DISTINCT` 检查返回结果中的重复值。所以第一行与第二行的返回结果不同。
 `UNION ALL` 返回结果为
 
 ```ngql
-nebula> GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS left_1, $$.tag.prop2 AS left_2   \
+nebula> GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS col_1, $$.tag.prop2 AS col_2   \
         UNION ALL   \
-        GO FROM 2,3 OVER e1 YIELD e1._dst AS id, e1.prop1 AS right_1, $$.tag.prop2 AS right_2;
+        GO FROM 2,3 OVER e1 YIELD e1._dst AS id, e1.prop1 AS col_1, $$.tag.prop2 AS col_2;
 
-=========================
-| id  | left_1 | left_2 |    -- UNION ALL
-=========================
-| 104 |    1   |    2   |    -- line 1
--------------------------
-| 104 |    1   |    2   |    -- line 1
--------------------------
-| 104 |    2   |    2   |    -- line 2
--------------------------
-| 215 |    4   |    3   |    -- line 3
--------------------------
+======================
+| id  | col_1| col_2 |    -- UNION ALL
+======================
+| 104 |   1  |   2   |    -- line 1
+----------------------
+| 104 |   1  |   2   |    -- line 1
+----------------------
+| 104 |   2  |   2   |    -- line 2
+----------------------
+| 215 |   4  |   3   |    -- line 3
+----------------------
 ```
 
 ## INTERSECT
@@ -109,19 +109,19 @@ nebula> GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS left_1, $$.tag.prop2 
 此外，只返回 `<left>` 右 `<right>` 相同的行。例如：
 
 ```ngql
-nebula> GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS left_1, $$.tag.prop2 AS left_2
+nebula> GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS col_1, $$.tag.prop2 AS col_2
 INTERSECT
-GO FROM 2,3 OVER e1 YIELD e1._dst AS id, e1.prop1 AS right_1, $$.tag.prop2 AS right_2;
+GO FROM 2,3 OVER e1 YIELD e1._dst AS id, e1.prop1 AS col_1, $$.tag.prop2 AS col_2;
 ```
 
 返回
 
 ```ngql
-=========================
-| id  | left_1 | left_2 |
-=========================
-| 104 |    1   |    2   |    -- line 1
--------------------------
+=======================
+| id  | col_1 | col_2 |
+=======================
+| 104 |   1   |    2  |    -- line 1
+-----------------------
 ```
 
 ## MINUS
@@ -129,37 +129,37 @@ GO FROM 2,3 OVER e1 YIELD e1._dst AS id, e1.prop1 AS right_1, $$.tag.prop2 AS ri
 返回 A - B 数据的差集，此处请注意运算顺序。例如：
 
 ```ngql
-nebula> GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS left_1, $$.tag.prop2 AS left_2
+nebula> GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS col_1, $$.tag.prop2 AS col_2
 MINUS
-GO FROM 2,3 OVER e1 YIELD e1._dst AS id, e1.prop1 AS right_1, $$.tag.prop2 AS right_2;
+GO FROM 2,3 OVER e1 YIELD e1._dst AS id, e1.prop1 AS col_1, $$.tag.prop2 AS col_2;
 ```
 
 返回
 
 ```ngql
-==========================
-| id  | left_1 | left_2  |
-==========================
-| 215 |    4   |    3    |     -- line 3
---------------------------
+========================
+| id  | col_1 | col_2  |
+========================
+| 215 |   4   |    3   |     -- line 3
+------------------------
 ```
 
 如果更改 `MINUS` 顺序
 
 ```ngql
-nebula> GO FROM 2,3 OVER e1 YIELD e1._dst AS id, e1.prop1 AS right_1, $$.tag.prop2 AS right_2
+nebula> GO FROM 2,3 OVER e1 YIELD e1._dst AS id, e1.prop1 AS col_1, $$.tag.prop2 AS col_2
 MINUS
-GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS left_1, $$.tag.prop2 AS left_2;
+GO FROM 1 OVER e1 YIELD e1._dst AS id, e1.prop1 AS col_1, $$.tag.prop2 AS col_2;
 ```
 
 则返回
 
 ```ngql
-===========================
-| id  | right_1 | right_2 |    -- column named from query 2
-===========================
-| 104 |    2    |    2    |    -- line 2
----------------------------
+=======================
+| id  | col_1 | col_2 |    -- column named from query 2
+=======================
+| 104 |    2  |    2  |    -- line 2
+-----------------------
 ```
 
 ## 集合操作和管道的优先级
