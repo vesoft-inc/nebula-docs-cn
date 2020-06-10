@@ -99,12 +99,14 @@ nav:
         - 用户自定义变量: manual-CN/2.query-language/3.language-structure/user-defined-variables.md
       - 语句语法:
         - 数据定义语句 (DDL):
-            - ALTER TAG EDGE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/alter-tag-edge-syntax.md
+            - ALTER EDGE EDGE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/alter-edge-syntax.md
+            - ALTER TAG EDGE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/alter-tag-syntax.md
             - CREATE SPACE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/create-space-syntax.md
-            - CREATE TAG EDGE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/create-tag-edge-syntax.md
+            - CREATE EDGE EDGE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/create-edge-syntax.md
+            - CREATE TAG EDGE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/create-tag-syntax.md
             - DROP EDGE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/drop-edge-syntax.md
-            - DROP SPACE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/drop-space-syntax.md
             - DROP TAG: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/drop-tag-syntax.md
+            - DROP SPACE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/drop-space-syntax.md
             - INDEX: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/index.md
             - TTL: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/TTL.md
         - 数据查询与操作语句 (DQL 和 DML):
@@ -116,7 +118,8 @@ nav:
             - INSERT VERTEX: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/insert-vertex-syntax.md
             - LOOK UP: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/lookup-syntax.md
             - RETURN: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/return-syntax.md
-            - UPDATE VERTEX EDGE: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/update-vertex-edge-syntax.md
+            - UPDATE EDGE: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/update-edge-syntax.md
+            - UPDATE VERTEX: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/update-vertex-syntax.md
             - UPSERT: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/upsert-syntax.md
             - WHERE: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/where-syntax.md
             - YIELD: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/yield-syntax.md
