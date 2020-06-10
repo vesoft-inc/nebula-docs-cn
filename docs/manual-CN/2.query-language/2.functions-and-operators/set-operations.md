@@ -1,4 +1,4 @@
-# 集合操作 (`UNION`，`INTERSECT`， `MINUS`)
+# 集合操作（`UNION`，`INTERSECT`， `MINUS`）
 
 您可以使用集合运算符 `UNION`、`UNION ALL`、`INTERSECT` 和 `MINUS` 进行多个组合查询。所有集合运算符具有相同的优先级。如果 nGQL 语句包含多个集合运算符，则 **Nebula Graph** 将对其进行从左到右处理，除非使用括号明确指定了顺序。
 
@@ -24,7 +24,7 @@ nebula> GO FROM 1 OVER e1 \
         GO FROM 2 OVER e1;
 ```
 
-以上语句返回点 `1` 和 `2` (沿边 `e1`) 关联的唯一的点。
+以上语句返回点 `1` 和 `2`（沿边 `e1`）关联的唯一的点。
 
 ```ngql
 nebula> GO FROM 1 OVER e1 \
