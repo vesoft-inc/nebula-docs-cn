@@ -50,6 +50,7 @@ nav:
 
     - 简介:
       - 关于本手册: manual-CN/0.about-this-manual.md
+      - 目录索引: manual-CN/README.md
       - 基本概念:
         - 数据模型: manual-CN/1.overview/1.concepts/1.data-model.md
         - 查询语言概览: manual-CN/1.overview/1.concepts/2.nGQL-overview.md
@@ -204,6 +205,8 @@ nav:
       - Cypher & nGQL: manual-CN/5.appendix/cypher-ngql.md
       - Gremlin & nGQL: manual-CN/5.appendix/gremlin-ngql.md
       #- 升级 Nebula Graph: manual-CN/5.appendix/upgrade-guide.md
+    - 下载 PDF:
+      - https://oss-cdn.nebula-graph.com.cn/doc/v1.0.0-cn.pdf
     - English:
       - https://docs.nebula-graph.io/
 
