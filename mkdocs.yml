@@ -205,8 +205,8 @@ nav:
       - Cypher & nGQL: manual-CN/5.appendix/cypher-ngql.md
       - Gremlin & nGQL: manual-CN/5.appendix/gremlin-ngql.md
       #- 升级 Nebula Graph: manual-CN/5.appendix/upgrade-guide.md
-    - 下载 PDF:
-      - https://oss-cdn.nebula-graph.com.cn/doc/v1.0.0-cn.pdf
+    # - 下载 PDF:
+    #   - https://oss-cdn.nebula-graph.com.cn/doc/v1.0.0-cn.pdf
     - English:
       - https://docs.nebula-graph.io/
 
