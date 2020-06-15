@@ -100,11 +100,11 @@ nav:
         - 用户自定义变量: manual-CN/2.query-language/3.language-structure/user-defined-variables.md
       - 语句语法:
         - 数据定义语句 (DDL):
-            - ALTER EDGE EDGE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/alter-edge-syntax.md
-            - ALTER TAG EDGE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/alter-tag-syntax.md
+            - ALTER EDGE : manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/alter-edge-syntax.md
+            - ALTER TAG : manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/alter-tag-syntax.md
             - CREATE SPACE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/create-space-syntax.md
-            - CREATE EDGE EDGE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/create-edge-syntax.md
-            - CREATE TAG EDGE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/create-tag-syntax.md
+            - CREATE EDGE : manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/create-edge-syntax.md
+            - CREATE TAG : manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/create-tag-syntax.md
             - DROP EDGE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/drop-edge-syntax.md
             - DROP TAG: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/drop-tag-syntax.md
             - DROP SPACE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/drop-space-syntax.md
