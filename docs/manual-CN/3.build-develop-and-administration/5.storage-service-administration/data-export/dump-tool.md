@@ -80,7 +80,7 @@ optional:
 // 点，key: part_id, vertex_id, tag_name, value: <prop_list>
 [vertex] key: 1, 0, poi value:mid:0,8191765721868409651,8025713627522363385,1993089399535188613,3926276052777355165,5123607763506443893,2990089379644866415,poi_name_0,上海,华东,30.2824,120.016,poi_stat_0,poi_fc_0,poi_sc_0,0,poi_star_0,
 
-// 边, key: part_id, src_id, edge_name, ranking, dst_id, value: <prop_list>
+// 边, key: part_id, src_id, edge_name, rank, dst_id, value: <prop_list>
 [edge] key: 1, 0, consume_poi_reverse, 0, 656384 value:mid:656384,mid:0,7.19312,mid:656384,3897457441682646732,mun:656384,4038264117233984707,dun:656384,empe:656384,mobile:656384,gender:656384,age:656384,rs:656384,fpd:656384,0.75313,1.34433,fpd:656384,0.03567,7.56212,
 
 // 统计

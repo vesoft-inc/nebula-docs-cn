@@ -17,12 +17,12 @@
 | --- | ------------ | ------------ |
 | 列出所有 labels/tags   | MATCH (n) RETURN distinct labels(n);  <br/> call db.labels(); | SHOW TAGS |
 | 插入指定类型的点 | CREATE (:Person {age: 16}) | INSERT VERTEX `<tag_name>` (prop_name_list) VALUES `<vid>`:(prop_value_list) |
-| 插入指定类型的边| CREATE (src)-[:LIKES]->(dst) <br/> SET rel.prop = V | INSERT EDGE `<edge_type>` ( prop_name_list ) VALUES `<src_vid>` -> `<dst_vid>`[`@<ranking>`]: ( prop_value_list ) |
+| 插入指定类型的边| CREATE (src)-[:LIKES]->(dst) <br/> SET rel.prop = V | INSERT EDGE `<edge_type>` ( prop_name_list ) VALUES `<src_vid>` -> `<dst_vid>`[`@<rank>`]: ( prop_value_list ) |
 | 删除点 | MATCH (n) WHERE ID(n) = vid <br/> DETACH DELETE n | DELETE VERTEX `<vid>` |
-| 删除边  | MATCH ()-[r]->() WHERE ID(r)=edgeID <br/> DELETE r |  DELETE EDGE `<edge_type>` `<src_vid>` -> `<dst_vid>`[`@<ranking>`] |
+| 删除边  | MATCH ()-[r]->() WHERE ID(r)=edgeID <br/> DELETE r |  DELETE EDGE `<edge_type>` `<src_vid>` -> `<dst_vid>`[`@<rank>`] |
 | 更新点属性 |SET n.name = V | UPDATE VERTEX `<vid>` SET `<update_columns>` |
 | 查询指定点的属性| MATCH (n) <br/> WHERE ID(n) = vid  <br/> RETURN properties(n) | FETCH PROP ON `<tag_name>` `<vid>`|
-| 查询指定边的属性  | MATCH (n)-[r]->() <br/> WHERE ID(r)=edgeID <br/> return properties(r)| FETCH PROP ON `<edge_type>` `<src_vid>` -> `<dst_vid>`[`@<ranking>`] |
+| 查询指定边的属性  | MATCH (n)-[r]->() <br/> WHERE ID(r)=edgeID <br/> return properties(r)| FETCH PROP ON `<edge_type>` `<src_vid>` -> `<dst_vid>`[`@<rank>`] |
 | 查询指定点的某一类关系 |MATCH (n)-[r:edge_type]->() WHERE ID(n) = vid| GO FROM `<vid>` OVER  `<edge_type>` |
 | 指定点的某一类反向关系 | MATCH (n)<-[r:edge_type]-() WHERE ID(n) = vid| GO FROM `<vid>` OVER `<edge_type>` REVERSELY |
 | 指定点某一类关系第 N-Hop 查询  |MATCH (n)-[r:edge_type*N]->() <br/> WHERE ID(n) = vid <br/> return r | GO N STEPS FROM `<vid>` OVER `<edge_type>` |

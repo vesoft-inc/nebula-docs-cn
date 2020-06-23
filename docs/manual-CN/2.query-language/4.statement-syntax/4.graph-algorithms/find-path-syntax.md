@@ -24,7 +24,7 @@ OVER <edge_type_list> [UPTO <N> STEPS]
 
 ## 示例
 
-在 console 中，路径显示方式为 `id <edge_name, ranking> id`。
+在 console 中，路径显示方式为 `id <edge_name, rank> id`。
 
 ```ngql
 nebula> FIND SHORTEST PATH FROM 100 to 200 OVER *;
