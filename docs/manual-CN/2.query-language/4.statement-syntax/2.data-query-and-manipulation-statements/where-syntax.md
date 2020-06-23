@@ -1,6 +1,6 @@
 # WHERE 语法
 
-目前，`WHERE` 语句仅适用于 `GO` 语句。
+目前，`WHERE` 语句适用于 `GO` 和 `LOOKUP` 语句。注意部分 `WHERE` 过滤条件尚未在 `LOOKUP` 语句中支持。详情参考 [LOOKUP 文档](lookup-syntax.md)。
 
 ```ngql
 WHERE <expression> [ AND | OR <expression> ...])
