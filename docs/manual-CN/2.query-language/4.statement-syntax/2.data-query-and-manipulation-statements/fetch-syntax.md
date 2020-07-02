@@ -56,7 +56,7 @@ FETCH PROP ON <edge_type> <vid> -> <vid>[@<rank>] [, <vid> -> <vid> ...] [YIELD 
 
 `<vid> -> <vid>` 从起始节点到终止节点，多条边需使用逗号隔开。
 
-`<rank>` 指定相同类型边 rank，可选。
+`<rank>` 指定相同类型边 rank，可选。如未指定，则默认返回 rank 为 0 的边。
 
 `[YIELD [DISTINCT] <return_list>]` 为返回的属性列表。
 
