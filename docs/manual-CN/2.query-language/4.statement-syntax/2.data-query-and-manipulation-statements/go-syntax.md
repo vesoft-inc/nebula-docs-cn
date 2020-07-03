@@ -21,7 +21,7 @@
     <col_name> [AS <col_alias>] [, <col_name> [AS <col_alias>] ...]
 ```
 
-* `<N> STEPS` 指定查询 N 跳。
+* `<N> STEPS` 指定查询 N 跳。当 `N` 为零时，**Nebula Graph** 不会获取任何边，因此返回结果为空。
 * `M TO N STEPS` 指定查询 M 到 N 跳。
 * `<node_list>` 为逗号隔开的节点 ID，或特殊占位符 `$-.id` (参看 `PIPE` 用法)。
 * `<edge_type_list>` 为图遍历返回的边类型列表。
