@@ -67,13 +67,13 @@ nebula> CREATE EDGE e1(p1 int);
 nebula> CREATE TAG person(p1 int);
 nebula> INSERT VERTEX person(p1) VALUES 1:(1);
 nebula> INSERT VERTEX person(p1) VALUES 2:(2);
-nebula> INSERT EDGE e1(p1) VALUES 1->2@0(10);
-nebula> INSERT EDGE e1(p1) VALUES 1->2@1(11);
-nebula> INSERT EDGE e1(p1) VALUES 1->2@2(12);
-nebula> INSERT EDGE e1(p1) VALUES 1->2@3(13);
-nebula> INSERT EDGE e1(p1) VALUES 1->2@4(14);
-nebula> INSERT EDGE e1(p1) VALUES 1->2@5(15);
-nebula> INSERT EDGE e1(p1) VALUES 1->2@6(16);
+nebula> INSERT EDGE e1(p1) VALUES 1->2@0:(10);
+nebula> INSERT EDGE e1(p1) VALUES 1->2@1:(11);
+nebula> INSERT EDGE e1(p1) VALUES 1->2@2:(12);
+nebula> INSERT EDGE e1(p1) VALUES 1->2@3:(13);
+nebula> INSERT EDGE e1(p1) VALUES 1->2@4:(14);
+nebula> INSERT EDGE e1(p1) VALUES 1->2@5:(15);
+nebula> INSERT EDGE e1(p1) VALUES 1->2@6:(16);
 nebula> GO FROM 1 OVER e1 WHERE e1._rank>2 YIELD e1._src, e1._dst, e1._rank AS Rank, e1.p1 | ORDER BY Rank DESC;
 ====================================
 | e1._src | e1._dst | Rank | e1.p1 |
