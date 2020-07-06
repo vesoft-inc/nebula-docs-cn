@@ -15,7 +15,7 @@
 * 类 SQL 查询语言
 * 用户鉴权
 
-## 快速使用
+## [快速使用](manual-CN/1.overview/2.quick-start/1.get-started.md)
 
 请查看[快速使用手册](manual-CN/1.overview/2.quick-start/1.get-started.md)，开始使用 **Nebula Graph**。
 
