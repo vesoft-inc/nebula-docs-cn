@@ -113,6 +113,8 @@
 * 安装
   * [rpm 安装](3.build-develop-and-administration/2.install/1.install-with-rpm-deb.md)
   * [起停服务](3.build-develop-and-administration/2.install/2.start-stop-service.md)
+  * [使用 Docker 安装](3.build-develop-and-administration/2.install/3.install-with-docker.md)
+  * [集群部署](3.build-develop-and-administration/2.install/4.cluster-deploy.md)
 * 配置
   * [系统要求](3.build-develop-and-administration/3.configurations/0.system-requirement.md)
   * [配置持久化与优先级](3.build-develop-and-administration/3.configurations/1.config-persistency-and-priority.md)
