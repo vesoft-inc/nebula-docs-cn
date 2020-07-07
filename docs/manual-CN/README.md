@@ -141,6 +141,7 @@
   * [负载均衡和数据迁移](3.build-develop-and-administration/5.storage-service-administration/storage-balance.md)
   * [集群快照](3.build-develop-and-administration/5.storage-service-administration/cluster-snapshot.md)
   * [长耗时任务管理(compact,flush)](3.build-develop-and-administration/5.storage-service-administration/job-manager.md)
+  * [Compact](3.build-develop-and-administration/5.storage-service-administration/compact.md)
 * 监控与统计
   <!-- * [接入 prometheus](3.build-develop-and-administration/7.monitor/0.connect-prometheus.md) -->
   * [metrics](3.build-develop-and-administration/7.monitor/1.metrics-exposer.md)
