@@ -23,6 +23,11 @@
 
 如果您遇到任何问题，请前往 Nebula Graph [官方论坛](https://discuss.nebula-graph.com.cn) 提问。
 
+## 常见问题
+
+* [查询返回时间解释](manual-CN/1.overview/2.quick-start/2.FAQ.md)
+* [关于机械硬盘和千兆网络](https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/3.configurations/0.system-requirement/#_7)
+
 ## 文档
 
 * [简体中文](https://docs.nebula-graph.com.cn/)
