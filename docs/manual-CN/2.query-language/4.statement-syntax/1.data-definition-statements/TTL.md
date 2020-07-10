@@ -86,7 +86,7 @@ nebula> ALTER TAG t1 ttl_duration = 0; -- keep the ttl but the data never expire
 
 ## TTL 使用注意事项
 
-- 如果 `ttl_col` 值为非空，则不支持对 `ttl_col` 值指定的列进行更改操作。
+- 如果某个属性被 `ttl_col` 引用，则不支持对其进行更改操作。
 
 ``` ngql
 nebula> CREATE TAG t1(a int, b int, c string) ttl_duration = 100, ttl_col = "a";
