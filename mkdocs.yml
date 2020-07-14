@@ -167,6 +167,7 @@ nav:
 
       - 账号权限管理:
           - Alter User: manual-CN/3.build-develop-and-administration/4.account-management-statements/alter-user-syntax.md
+          - 身份验证: manual-CN/3.build-develop-and-administration/4.account-management-statements/authentication.md
           - Built-in Roles: manual-CN/3.build-develop-and-administration/4.account-management-statements/built-in-roles.md
           - Change Password: manual-CN/3.build-develop-and-administration/4.account-management-statements/change-password.md
           - Create User: manual-CN/3.build-develop-and-administration/4.account-management-statements/create-user-syntax.md
@@ -184,7 +185,7 @@ nav:
           - 负载均衡和数据迁移: manual-CN/3.build-develop-and-administration/5.storage-service-administration/storage-balance.md
           - 集群快照: manual-CN/3.build-develop-and-administration/5.storage-service-administration/cluster-snapshot.md
           - 长耗时任务管理: manual-CN/3.build-develop-and-administration/5.storage-service-administration/job-manager.md
-          - Compact: manual-EN/3.build-develop-and-administration/5.storage-service-administration/compact.md
+          - Compact: manual-CN/3.build-develop-and-administration/5.storage-service-administration/compact.md
 
       - 监控与统计:
         # - 接入 Prometheus: manual-CN/3.build-develop-and-administration/7.monitor/0.connect-prometheus.md

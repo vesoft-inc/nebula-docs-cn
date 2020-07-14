@@ -127,6 +127,7 @@
 
 * 账号权限管理
   * [Alter User Syntax](3.build-develop-and-administration/4.account-management-statements/alter-user-syntax.md)
+  * [身份验证](3.build-develop-and-administration/4.account-management-statements/authentication.md)
   * [Built-in Roles](3.build-develop-and-administration/4.account-management-statements/built-in-roles.md)
   * [Change Password](3.build-develop-and-administration/4.account-management-statements/change-password.md)
   * [Create User](3.build-develop-and-administration/4.account-management-statements/create-user-syntax.md)
