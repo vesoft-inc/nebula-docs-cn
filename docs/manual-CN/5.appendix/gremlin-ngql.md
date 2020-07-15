@@ -37,17 +37,17 @@ Gremlin 和 nGQL 均使用唯一标识符标记顶点和边。在 **Nebula Graph
 -----                  |---------        |   -----       |
 新建图空间     | g = TinkerGraph.open().traversal() | CREATE SPACE gods |
 查看点类型   | g.V().label()   | SHOW TAGS |
-插入指定类型点 | g.addV(String vertexLabel).property() | INSERT VERTEX <tag_name> (prop_name_list) VALUES \<vid>:(prop_value_list) |
-插入指定类型边 | g.addE(String edgeLabel).from(v1).to(v2).property()| INSERT EDGE <edge_name> ( <prop_name_list> ) VALUES <src_vid> -> <dst_vid>: ( <prop_value_list> ) |
-删除点 | g.V(\<vid>).drop() | DELETE VERTEX \<vid> |
-删除边  | g.E(\<vid>).outE(\<type>).where(otherV().is(\<vid>))drop() | DELETE EDGE <edge_type> \<src_vid> -> \<dst_vid> |
-更新点属性 | g.V(\<vid>).property() | UPDATE VERTEX \<vid> SET <update_columns> |
-查看指定点 | g.V(\<vid>) | FETCH PROP ON <tag_name> \<vid>|
-查看指定边 | g.E(<src_vid> >> <dst_vid>) | FETCH PROP ON <edge_name> <src_vid> -> <dst_vid> |
-沿指定点查询指定边 | g.V(\<vid>).outE( \<edge>) | GO FROM \<vid> OVER  \<edge> |
-沿指定点反向查询指定边 | g.V(\<vid>).in( \<edge>) | GO FROM \<vid>  OVER \<edge> REVERSELY |
-沿指定点查询指定边 N 跳 | g.V(\<vid>).repeat(out(\<edge>)).times(N) | GO N STEPS FROM \<vid> OVER \<edge> |
-返回指定两点路径 | g.V(\<vid>).repeat(out()).until(\<vid>).path() | FIND ALL PATH FROM \<vid> TO \<vid> OVER * |
+插入指定类型点 | g.addV(String vertexLabel).property() | INSERT VERTEX `<tag_name>` (prop_name_list) VALUES `<vid>`:(prop_value_list) |
+插入指定类型边 | g.addE(String edgeLabel).from(v1).to(v2).property()| INSERT EDGE `<edge_name>` ( `<prop_name_list>` ) VALUES `<src_vid>` -> `<dst_vid>`: ( `<prop_value_list>` ) |
+删除点 | g.V(`<vid>`).drop() | DELETE VERTEX `<vid>`|
+删除边  | g.E(`<vid>`).outE(`<type>`).where(otherV().is(`<vid>`))drop() | DELETE EDGE `<edge_type>` `<src_vid>` -> `<dst_vid>` |
+更新点属性 | g.V(`<vid>`).property() | UPDATE VERTEX `<vid>` SET `<update_columns>` |
+查看指定点 | g.V(`<vid>`) | FETCH PROP ON `<tag_name>` `<vid>`|
+查看指定边 | g.E(`<src_vid>` >> `<dst_vid>`) | FETCH PROP ON `<edge_name>` `<src_vid>` -> `<dst_vid>` |
+沿指定点查询指定边 | g.V(`<vid>`).outE( `<edge>`) | GO FROM `<vid>` OVER  `<edge>` |
+沿指定点反向查询指定边 | g.V(`<vid>`).in( `<edge>`) | GO FROM `<vid>`  OVER `<edge>` REVERSELY |
+沿指定点查询指定边 N 跳 | g.V(`<vid>`).repeat(out(`<edge>`)).times(N) | GO N STEPS FROM `<vid>` OVER `<edge>` |
+返回指定两点路径 | g.V(`<vid>`).repeat(out()).until(`<vid>`).path() | FIND ALL PATH FROM `<vid>` TO `<vid>` OVER * |
 
 ## 示例查询
 
