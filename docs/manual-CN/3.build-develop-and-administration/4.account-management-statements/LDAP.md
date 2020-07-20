@@ -1,12 +1,12 @@
 # 集成 LDAP
 
-本文档介绍如何将 **Nebula Graph** 连接到 LDAP 服务器以进行身份​​验证和授权（仅企业版可用）。
+本文档介绍如何将 **Nebula Graph** 连接到 LDAP 服务器以进行身份​​验证（仅企业版可用）。
 
 ## LDAP 介绍
 
-集成 LDAP 后， **Nebula Graph** 即可共享在 LDAP 中定义的用户身份信息和密码。您还可以为 LDAP 用户或整个 LDAP 组分配角色，而无需单独配置 **Nebula Graph** 用户。
+集成 LDAP 后， **Nebula Graph** 即可共享在 LDAP 中定义的用户身份信息和密码。
 
-## 安装 LDAP
+## 安装 LDAP 插件
 
 1. 构建 LDAP 服务器并插入相应的记录。
 
@@ -28,6 +28,7 @@
     创建影子账户：
 
     ```ngql
+    # 此处需要为影子账户 test2 赋权
     nebula> CREATE USER test2 WITH PASSWORD "";
     ```
 
@@ -43,7 +44,7 @@
     nebula> SHOW PLUGINS;
     ```
 
-## 卸载 LDAP
+## 卸载 LDAP 插件
 
 1. 以 root 身份登录 **Nebula Graph**， 密码为 `nebula`，身份验证 `auth_type` 类型为 `password`：
 
