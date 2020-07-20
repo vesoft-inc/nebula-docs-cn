@@ -132,6 +132,7 @@
   * [Create User](3.build-develop-and-administration/4.account-management-statements/create-user-syntax.md)
   * [Drop User](3.build-develop-and-administration/4.account-management-statements/drop-user-syntax.md)
   * [Grant Role](3.build-develop-and-administration/4.account-management-statements/grant-role-syntax.md)
+  * [LDAP](3.build-develop-and-administration/4.account-management-statements/LDAP.md)
   * [Revoke](3.build-develop-and-administration/4.account-management-statements/revoke-syntax.md)
 * 批量数据管理
   * 离线数据导入
