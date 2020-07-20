@@ -30,7 +30,7 @@
 | groupOfNames | 分组的类型，标记一个 group 节点 |
 | olcModuleList | 配置模块的对象 |
 
-### LDAP 关键字
+<!-- ### LDAP 关键字
 
 | 关键字 | 英文全称 | 含义 |
 | --- | --- | --- |
@@ -42,4 +42,4 @@
 | dn | Distinguished Name | 惟一辨别名，类似于 Linux 文件系统中的绝对路径，每个对象都有一个惟一的名称，如 “uid= tom,ou=market,dc=example,dc=com”，在一个目录树中 DN 总是惟一的 |
 | rdn | Relative dn | 相对辨别名，类似于文件系统中的相对路径，它是与目录树结构无关的部分，如 “uid=tom” 或 “cn= Thomas Johnson” |
 | c | Country | 国家，如 “CN” 或 “US” 等。 |
-| o | Organization | 组织名，如 “Example, Inc.” |
+| o | Organization | 组织名，如 “Example, Inc.” | -->
