@@ -110,7 +110,7 @@ nebula> STOP JOB 22;
 
 ### RECOVER JOB
 
-命令 `RECOVER JOB` 用于重新失败执行作业，并返回 recover 的作业数目。
+命令 `RECOVER JOB` 用于重新执行失败的作业，并返回 recover 的作业数目。
 
 ```ngql
 nebula> RECOVER JOB;
