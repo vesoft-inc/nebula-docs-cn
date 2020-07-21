@@ -96,11 +96,11 @@ GO [[<M> TO] <N> STEPS ] FROM <node_list>
 
 对比项                    | SQL                   | nGQL
 -------------------------| ------------------------ | -----------
-Create user | CREATE USER | CREATE USER
-Drop user | DROP USER | DROP USER
-Change password | SET PASSWORD | CHANGE PASSWORD
-Grant privilege | GRANT `<priv_type>` ON [object_type] TO `<user>`| GRANT ROLE `<role_type>` ON `<space>` TO `<user>`
-Revoke privilege | REVOKE `<priv_type>` ON [object_type] TO `<user>` | REVOKE ROLE `<role_type>` ON `<space>` FROM `<user>`
+创建用户 | CREATE USER | CREATE USER
+删除用户 | DROP USER | DROP USER
+更改密码 | SET PASSWORD | CHANGE PASSWORD
+授予权限 | GRANT `<priv_type>` ON [object_type] TO `<user>`| GRANT ROLE `<role_type>` ON `<space>` TO `<user>`
+删除权限 | REVOKE `<priv_type>` ON [object_type] TO `<user>` | REVOKE ROLE `<role_type>` ON `<space>` FROM `<user>`
 
 ## 数据模型
 
