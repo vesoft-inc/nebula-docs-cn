@@ -172,7 +172,7 @@ nav:
           - Create User: manual-CN/3.build-develop-and-administration/4.account-management-statements/create-user-syntax.md
           - Drop User: manual-CN/3.build-develop-and-administration/4.account-management-statements/drop-user-syntax.md
           - Grant Role: manual-CN/3.build-develop-and-administration/4.account-management-statements/grant-role-syntax.md
-          - LDAP: manual-EN/3.build-develop-and-administration/4.account-management-statements/LDAP.md
+          - LDAP: manual-CN/3.build-develop-and-administration/4.account-management-statements/LDAP.md
           - Revoke: manual-CN/3.build-develop-and-administration/4.account-management-statements/revoke-syntax.md
 
       - 批量数据管理:
@@ -185,7 +185,7 @@ nav:
           - 负载均衡和数据迁移: manual-CN/3.build-develop-and-administration/5.storage-service-administration/storage-balance.md
           - 集群快照: manual-CN/3.build-develop-and-administration/5.storage-service-administration/cluster-snapshot.md
           - 长耗时任务管理: manual-CN/3.build-develop-and-administration/5.storage-service-administration/job-manager.md
-          - Compact: manual-EN/3.build-develop-and-administration/5.storage-service-administration/compact.md
+          - Compact: manual-CN/3.build-develop-and-administration/5.storage-service-administration/compact.md
 
       - 监控与统计:
         # - 接入 Prometheus: manual-CN/3.build-develop-and-administration/7.monitor/0.connect-prometheus.md
@@ -209,8 +209,7 @@ nav:
       - Gremlin & nGQL: manual-CN/5.appendix/gremlin-ngql.md
       - SQL & nGQL: manual-CN/5.appendix/sql-ngql.md
       #- 升级 Nebula Graph: manual-CN/5.appendix/upgrade-guide.md
-    # - 下载 PDF:
-    #   - https://oss-cdn.nebula-graph.com.cn/doc/v1.0.0-cn.pdf
+
     - English:
       - https://docs.nebula-graph.io/
 
