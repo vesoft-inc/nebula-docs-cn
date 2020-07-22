@@ -163,6 +163,7 @@ nav:
           - Storaged 配置: manual-CN/3.build-develop-and-administration/3.configurations/5.storage-config.md
           - Console 配置: manual-CN/3.build-develop-and-administration/3.configurations/6.console-config.md
           - Kernel 配置: manual-CN/3.build-develop-and-administration/3.configurations/7.kernel-config.md
+          - 单机日志: manual-CN/3.build-develop-and-administration/3.configurations/8.single-node-log.md
 
 
       - 账号权限管理:
