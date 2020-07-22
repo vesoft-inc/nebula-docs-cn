@@ -29,7 +29,7 @@ CREATE SPACE [IF NOT EXISTS] <space_name>
 
 * _replica_factor_
 
-    _replica_factor_ 表示副本数量。默认值是 1，生产集群建议为 3。
+    _replica_factor_ 表示副本数量。默认值是 1，生产集群建议为 3。由于采用多数表决原理，因此需为奇数。
 
 * _charset_
 
