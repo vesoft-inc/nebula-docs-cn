@@ -4,16 +4,16 @@
 
 ## 获取点属性
 
-`FETCH PROP ON` 可返回节点的一系列属性，目前已支持一条语句返回多个节点属性。
+`FETCH PROP ON` 可返回节点的一系列属性，目前已支持一条语句返回多个节点属性。`FETCH` 获取点属性支持与[管道](../../3.language-structure/pipe-syntax.md) 及[用户自定义变量](../../3.language-structure/user-defined-variables.md)一起使用。
 
 ```ngql
-FETCH PROP ON <tag_name> <vertex_id_list> [YIELD [DISTINCT] <return_list>]
-FETCH PROP ON * <vertex_id>
+FETCH PROP ON <tag_name_list> <vertex_id_list> [YIELD [DISTINCT] <return_list>]
+FETCH PROP ON * <vertex_id_list>
 ```
 
 `*` 返回指定 ID 点的所有属性。
 
-`<tag_name>` 为标签名称，与 return_list 中的标签相同。
+`<tag_name>::=[tag_name [, tag_name]]` 为标签名称，与 return_list 中的标签相同。
 
 `<vertex_id_list>::=[vertex_id [, vertex_id]]` 是一组用 "," 分隔开的顶点 ID 列表。
 
@@ -25,6 +25,12 @@ FETCH PROP ON * <vertex_id>
 -- 返回节点 100 的所有属性。
 nebula> FETCH PROP ON * 100;
 
+-- 返回节点 100、102 的所有属性。
+nebula> FETCH PROP ON * 100, 102;
+
+-- 返回节点 100、201 的所有属性。
+nebula> FETCH PROP ON player, team 100, 201;
+
 -- 如未指定 YIELD 字段，则返回节点 100, tag 为 player 的所有属性。
 nebula> FETCH PROP ON player 100;
 
@@ -34,6 +40,9 @@ nebula> FETCH PROP ON player 100 YIELD player.name, player.age;
 -- 通过 hash 生成 int64 节点 ID，返回其姓名和年龄属性。
 nebula> FETCH PROP ON player hash("nebula")  YIELD player.name, player.age;
 
+-- 支持与管道一起使用
+nebula> YIELD 100 AS id | FETCH PROP ON player $-.id;
+
 -- 沿边 follow 寻找节点 100 的所有近邻，返回其姓名和年龄属性。
 nebula> GO FROM 100 OVER follow YIELD follow._dst AS id | FETCH PROP ON player $-.id YIELD player.name, player.age;
 
@@ -42,6 +51,7 @@ nebula> $var = GO FROM 100 OVER follow YIELD follow._dst AS id; FETCH PROP ON pl
 
 -- 获取 100、101、102 三个节点，返回姓名和年龄都不相同的记录。
 nebula> FETCH PROP ON player 100,101,102 YIELD DISTINCT player.name, player.age;
+
 ```
 
 ## 获取边属性
