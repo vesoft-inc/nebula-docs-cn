@@ -10,7 +10,7 @@ Nebula Graph KV 基于 RocksDB 的默认 compact 做了定制。**Nebula Graph**
 nebula> UPDATE CONFIG storage:disable_auto_compactions=false/true;
 ```
 
-- 调用 **Nebula Graph** 自定义的 compact：。主要目的是完成大规模的 sst 文件合并、TTL 等大规模后台操作。通常建议在凌晨业务低谷时进行。通过 `SUBMIT JOB COMPACT` 来主动触发。
+- 调用 **Nebula Graph** 自定义的 compact：主要目的是完成大规模的 sst 文件合并、TTL 等大规模后台操作。通常建议在凌晨业务低谷时进行。通过 `SUBMIT JOB COMPACT` 来主动触发。
 
 另外，两种方法的线程数均可通过如下命令调整。日间可以将调整线程数调低，夜间可以增加线程数。
 
