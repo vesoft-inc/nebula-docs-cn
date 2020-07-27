@@ -25,7 +25,7 @@ FETCH PROP ON * <vertex_id_list>
 -- 返回节点 100 的所有属性。
 nebula> FETCH PROP ON * 100;
 
--- 返回节点 100、102 的所有属性。
+-- 返回点100，201 的 player、team tag 上的所有属性。
 nebula> FETCH PROP ON * 100, 102;
 
 -- 返回节点 100、201 的所有属性。
