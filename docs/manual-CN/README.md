@@ -119,11 +119,12 @@
   * [系统要求](3.build-develop-and-administration/3.configurations/0.system-requirement.md)
   * [配置持久化与优先级](3.build-develop-and-administration/3.configurations/1.config-persistency-and-priority.md)
   * [CONFIG 语法](3.build-develop-and-administration/3.configurations/2.configs-syntax.md)
-  * [Metad 配置](3.build-develop-and-administration/3.configurations/3.meta-config.md)
+  <!-- * [Metad 配置](3.build-develop-and-administration/3.configurations/3.meta-config.md) -->
   * [Graphd 配置](3.build-develop-and-administration/3.configurations/4.graph-config.md)
   * [Storaged 配置](3.build-develop-and-administration/3.configurations/5.storage-config.md)
   * [命令行终端配置](3.build-develop-and-administration/3.configurations/6.console-config.md)
   * [Kernel 配置](3.build-develop-and-administration/3.configurations/7.kernel-config.md)
+  * [单机日志](3.build-develop-and-administration/3.configurations/8.single-node-log.md)
 
 * 账号权限管理
   * [Alter User Syntax](3.build-develop-and-administration/4.account-management-statements/alter-user-syntax.md)
