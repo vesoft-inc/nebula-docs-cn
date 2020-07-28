@@ -25,7 +25,7 @@ ttl_definition::=
 ```ngql
 nebula> CREATE TAG t1 (name string, age int);
 nebula> ALTER TAG t1 ADD (id int, address string);
-nebula> ALTER TAG t1 TTL_DURATION = 2, TTL_COL = age;
+nebula> ALTER TAG t1 TTL_DURATION = 2, TTL_COL = "age";
 ```
 
-注意 TTL_COL 仅支持 INT 和 TIMESTAMP 类型。
+**注意：** `TTL_COL` 仅支持 `INT` 和 `TIMESTAMP` 类型的属性。

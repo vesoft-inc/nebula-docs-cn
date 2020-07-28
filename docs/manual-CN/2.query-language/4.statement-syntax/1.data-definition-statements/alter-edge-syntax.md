@@ -28,7 +28,7 @@ nebula> ALTER EDGE e1 ADD (prop1 int, prop2 string),    /* 添加 prop1 */
               CHANGE (prop3 string),            /* 将 prop3 类型更改为字符 */
               DROP (prop4, prop5);               /* 删除 prop4 和 prop5 */
 
-nebula> ALTER EDGE e1 TTL_DURATION = 2, TTL_COL = prop1;
+nebula> ALTER EDGE e1 TTL_DURATION = 2, TTL_COL = "prop1";
 ```
 
-注意 TTL_COL 仅支持 INT 和 TIMESTAMP 类型。
+**注意：** `TTL_COL` 仅支持 `INT` 和 `TIMESTAMP` 类型的属性。
