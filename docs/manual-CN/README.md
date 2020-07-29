@@ -169,7 +169,7 @@
 * [Gremlin V.S. nGQL](5.appendix/gremlin-ngql.md)
 * [Cypher V.S. nGQL](5.appendix/cypher-ngql.md)
 * [SQL V.S. nGQL](5.appendix/sql-ngql.md)
-<!-- * [升级 Nebula Graph](5.appendix/upgrade-guide.md) -->
+* [点 ID 和分区](5.appendix/vid-partition.md)
 
 ## 其他
 
