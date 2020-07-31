@@ -169,7 +169,7 @@
 * [Gremlin V.S. nGQL](5.appendix/gremlin-ngql.md)
 * [Cypher V.S. nGQL](5.appendix/cypher-ngql.md)
 * [SQL V.S. nGQL](5.appendix/sql-ngql.md)
-* [点 ID 和分区](5.appendix/vid-partition.md)
+* [节点标识符和分区](5.appendix/vid-partition.md)
 
 ## 其他
 
