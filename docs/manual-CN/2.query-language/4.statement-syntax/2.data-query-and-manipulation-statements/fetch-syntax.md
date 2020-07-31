@@ -7,8 +7,7 @@
 `FETCH PROP ON` 可返回节点的一系列属性，目前已支持一条语句返回多个节点属性。`FETCH` 获取点属性支持与[管道](../../3.language-structure/pipe-syntax.md) 及[用户自定义变量](../../3.language-structure/user-defined-variables.md)一起使用。
 
 ```ngql
-FETCH PROP ON <tag_name_list> <vertex_id_list> [YIELD [DISTINCT] <return_list>]
-FETCH PROP ON * <vertex_id_list>
+FETCH PROP ON {<tag_name_list> | *} <vertex_id_list> [YIELD [DISTINCT] <return_list>]
 ```
 
 `*` 返回指定 ID 点的所有属性。

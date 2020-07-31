@@ -260,3 +260,20 @@ nebula> GO 4 TO 5 STEPS FROM 101 OVER follow BIDIRECT YIELD DISTINCT follow._dst
 ```
 
 双向遍历从点 101 出发沿 follow 边 4 至 5 跳的点。
+
+## 支持 INT 类型传入查询
+
+```ngql
+... | GO FROM $-.id OVER <edge_type_list>
+```
+
+例如：
+
+```ngql
+nebula> YIELD 100 AS id | GO FROM $-.id OVER serve;
+==============
+| serve._dst |
+==============
+| 200        |
+--------------
+```
