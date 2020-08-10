@@ -14,7 +14,7 @@ nebula> UPDATE CONFIGS storage:rocksdb_column_family_options = {disable_auto_com
 
 - 调用 **Nebula Graph** 自定义的 compact：主要目的是完成大规模的 sst 文件合并、TTL 等大规模后台操作。通常建议在凌晨业务低谷时进行。通过 `SUBMIT JOB COMPACT` 来主动触发。
 
-另外，两种方法的线程数均可通过如下命令调整。日间可以将调整线程数调低，夜间可以增加线程数。
+另外，两种方法的线程数均可通过如下命令调整。
 
 ```ngql
 nebula> UPDATE CONFIGS storage:rocksdb_db_options  = \
