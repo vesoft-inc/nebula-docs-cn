@@ -10,11 +10,11 @@
 FETCH PROP ON {<tag_name_list> | *} <vertex_id_list> [YIELD [DISTINCT] <return_list>]
 ```
 
-`*` 返回指定 ID 点的所有属性。
+`*` 返回指定 `VID` 点的所有属性。
 
-`<tag_name>::=[tag_name [, tag_name]]` 为标签名称，与 return_list 中的标签相同。
+`<tag_name_list>::=[tag_name [, tag_name]]` 为标签名称，与 return_list 中的标签相同。
 
-`<vertex_id_list>::=[vertex_id [, vertex_id]]` 是一组用 "," 分隔开的顶点 ID 列表。
+`<vertex_id_list>::=[vertex_id [, vertex_id]]` 是一组用 "," 分隔开的顶点 `VID` 列表。
 
 `[YIELD [DISTINCT] <return_list>]` 为返回的属性列表，`YIELD` 语法参看 [YIELD Syntax](yield-syntax.md) 。
 

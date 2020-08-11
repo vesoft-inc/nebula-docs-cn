@@ -2,7 +2,7 @@
 
 **Nebula Graph** 是一个分布式的可扩展的高性能的图数据库。
 
-**Nebula Graph** 可以容纳百亿节点和万亿条边，并达到毫秒级的时延。
+**Nebula Graph** 可以容纳百亿点和万亿条边，并达到毫秒级的时延。
 
 ## 前言
 
@@ -169,7 +169,7 @@
 * [Gremlin V.S. nGQL](5.appendix/gremlin-ngql.md)
 * [Cypher V.S. nGQL](5.appendix/cypher-ngql.md)
 * [SQL V.S. nGQL](5.appendix/sql-ngql.md)
-<!-- * [升级 Nebula Graph](5.appendix/upgrade-guide.md) -->
+* [点标识符和分区](5.appendix/vid-partition.md)
 
 ## 其他
 
