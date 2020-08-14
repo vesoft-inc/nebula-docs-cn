@@ -8,7 +8,7 @@ WHERE <expression> [ AND | OR <expression> ...])
 
 目前，`WHERE` 语句适用于 `GO` 和 `LOOKUP` 语句。注意部分 `WHERE` 过滤条件尚未在 `LOOKUP` 语句中支持。详情参考 [LOOKUP 文档](lookup-syntax.md)。
 
-通常，筛选条件是关于节点、边的表达式的逻辑组合。
+通常，筛选条件是关于点、边的表达式的逻辑组合。
 
 > 作为语法糖，逻辑与可用 `AND` 或 `&&`，同理，逻辑或可用 `OR` 或 `||` 表示。
 
