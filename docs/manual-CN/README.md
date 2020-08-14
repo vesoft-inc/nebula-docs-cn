@@ -72,11 +72,11 @@
 
   * 数据查询与操作语句 (DQL 和 DML)
     * [删除边](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/delete-edge-syntax.md)
-    * [删除顶点](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/delete-vertex-syntax.md)
+    * [删除点](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/delete-vertex-syntax.md)
     * [获取点和边属性 (Fetch)](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/fetch-syntax.md)
     * [图遍历 (Go)](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/go-syntax.md)
     * [插入边](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/insert-edge-syntax.md)
-    * [插入顶点](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/insert-vertex-syntax.md)
+    * [插入点](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/insert-vertex-syntax.md)
     * [查找数据 (Lookup)](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/lookup-syntax.md)
     * [返回满足条件的语句 (Return)](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/return-syntax.md)
     * [更新点](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/update-vertex-syntax.md)

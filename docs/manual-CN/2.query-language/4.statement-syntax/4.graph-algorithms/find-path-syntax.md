@@ -11,7 +11,7 @@ OVER <edge_type_list> [UPTO <N> STEPS]
 
 `ALL` 寻找全路径关键词。
 
-`<vertex_id_list>::=[vertex_id [, vertex_id]]` 为节点列表，用逗号隔开。支持输入 ```$-``` 及变量 ```$var```。
+`<vertex_id_list>::=[vertex_id [, vertex_id]]` 为点列表，用逗号隔开。支持输入 ```$-``` 及变量 ```$var```。
 
 `<edge_type_list>` 指定边的类型，多种边类型用 ```,``` 隔开，用 ```*``` 表示所有边类型。
 
