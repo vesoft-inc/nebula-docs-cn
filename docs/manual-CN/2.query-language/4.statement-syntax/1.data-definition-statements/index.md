@@ -40,7 +40,7 @@ schema 索引还支持为相同 tag 或 edge 中的多个属性同时创建索�
 nebula> CREATE TAG INDEX player_index_1 on player(name,age);
 ```
 
-上述语句在所有标签为 _player_ 的顶点上为属性 _name_ 和 _age_ 创建了一个复合索引。
+上述语句在所有标签为 _player_ 的顶点上为属性 _name_ 和 _age_ 创建了一个组合索引。
 
 ## 列出索引
 
