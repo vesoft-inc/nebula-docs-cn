@@ -195,6 +195,8 @@ nav:
         - Meta Metrics: manual-CN/3.build-develop-and-administration/7.monitor/2.meta-metrics.md
         - Storage Metrics: manual-CN/3.build-develop-and-administration/7.monitor/3.storage-metrics.md
         - Graph Metrics: manual-CN/3.build-develop-and-administration/7.monitor/4.graph-metrics.md
+        - RocksDB Statistics: manual-CN/3.build-develop-and-administration/7.monitor/5.rocksdb-statistics.md
+
 
       - 源码开发和 API:
         - Key Value API: manual-CN/3.build-develop-and-administration/6.develop-and-interface/kv-interfaces.md
