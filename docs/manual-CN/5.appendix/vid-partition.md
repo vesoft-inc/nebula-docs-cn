@@ -20,6 +20,6 @@ VID mod partition_number = partition ID + 1
 - `partition_number` 是 `VID` 所处图空间的的分区数量，即 [CREATE SPACE](../2.query-language/4.statement-syntax/1.data-definition-statements/create-space-syntax.md) 语句中 `partition_num` 的值。
 - `partition ID` 即该 `VID` 所在分区的 ID。
 
-例如，如果有 100 个分区，那 `VID` 为 1、11、101、1001 的点将存储在同一个分区上。
+例如，如果有 100 个分区，那 `VID` 为 1、101、1001 的点将存储在同一个分区上。
 
 此外，`partition ID` 和机器之间的对应关系是随机的。因此不可以假设任何两个分区分布在同一台机器上。
