@@ -153,6 +153,7 @@
   * [meta 层运行统计 (metrics)](3.build-develop-and-administration/7.monitor/2.meta-metrics.md)
   * [storage 运行统计 (metrics)](3.build-develop-and-administration/7.monitor/3.storage-metrics.md)
   * [graph 层运行统计 (metrics)](3.build-develop-and-administration/7.monitor/4.graph-metrics.md)
+  * [RocksDB 统计数据](3.build-develop-and-administration/7.monitor/5.rocksdb-statistics.md)
 * 源码开发和 API
   * [Key Value 接口](3.build-develop-and-administration/6.develop-and-interface/kv-interfaces.md)
   * [Nebula Graph 客户端](1.overview/2.quick-start/3.supported-clients.md)
