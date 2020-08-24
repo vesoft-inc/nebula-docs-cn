@@ -1,6 +1,6 @@
 # 属性引用
 
-`WHERE` 和 `YIELD` 可引用节点或边的属性。
+`WHERE` 和 `YIELD` 可引用点或边的属性。
 
 ## 引用点的属性
 
@@ -70,4 +70,4 @@ nebula> GO FROM 100 OVER follow YIELD follow._src, follow._dst, follow._type, fo
 -----------------------------------------------------------
 ```
 
-该语句通过引用 `follow._src` 作为起点 ID 和 `follow._dst` 作为终点 ID，返回起点 100 `follow` 的所有邻居节点。其中 `follow._src` 返回起点 ID，`follow._dst` 返回终点 ID。
+该语句通过引用 `follow._src` 作为起点 ID 和 `follow._dst` 作为终点 ID，返回起点 100 `follow` 的所有邻居点。其中 `follow._src` 返回起点 ID，`follow._dst` 返回终点 ID。

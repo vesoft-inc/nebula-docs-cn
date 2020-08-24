@@ -54,9 +54,9 @@ wget https://oss-cdn.nebula-graph.com.cn/jar-packages/sst.generator-1.0.0-beta.j
 
 #### 点
 
-顶点数据文件由一行一行的数据组成，文件中每一行表示一个点和它的属性。一般来说，第一列为点的 ID ——此列的名称将在后文的映射文件中指定，其他列为点的属性。
+点数据文件由一行一行的数据组成，文件中每一行表示一个点和它的属性。一般来说，第一列为点的 ID ——此列的名称将在后文的映射文件中指定，其他列为点的属性。
 
-* **player** 顶点数据
+* **player** 点数据
 
 ```text
 {"id":100,"name":"Tim Duncan","age":42}
@@ -208,7 +208,7 @@ Player 表结构如下：
     # 从 HDFS 文件加载数据， 此处数据类型为 Parquet
     # tag 名称为 tag name 0
     #  HDFS Parquet 文件的中的 field_0、field_1、field_2 将写入 tag_name_0
-    # 节点列为 vertex_key_field
+    # 点列为 vertex_key_field
     {
       name: tag_name_0
       type: parquet
