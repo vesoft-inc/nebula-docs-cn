@@ -6,7 +6,7 @@
 
 ## 本地身份验证
 
-本地数据库存储用户名，加密密码，本地用户设置和远程 LDAP 用户设置。当用户尝试访问数据库时，将接受安全验证。
+本地数据库存储用户名、加密密码，本地用户设置和远程 LDAP 用户设置。当用户尝试访问数据库时，将接受安全验证。
 
 将 `nebula-graphd.conf` （默认目录 `/usr/local/nebula/etc/`）文件中的 `--enable_authorize` 属性设置为 `true` 即可启用本地认证。
 
@@ -57,4 +57,4 @@
 | dn     | Distinguished Name | 惟一辨别名，类似于 Linux 文件系统中的绝对路径，每个对象都有一个惟一的名称，如 “uid= tom,ou=market,dc=example,dc=com”，在一个目录树中 DN 总是惟一的 |
 | rdn    | Relative dn        | 相对辨别名，类似于文件系统中的相对路径，它是与目录树结构无关的部分，如 “uid=tom” 或 “cn= Thomas Johnson”                                           |
 | c      | Country            | 国家，如 “CN” 或 “US” 等。                                                                                                                         |
-| o      | Organization       | 组织名，如 “Example, Inc.”                                                                                                                         | --> |
+| o      | Organization       | 组织名，如 “Example, Inc.”                                                                                                                         | -->
