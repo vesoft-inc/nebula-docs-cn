@@ -4,6 +4,11 @@
 
 **Nebula Graph** 可以容纳百亿点和万亿条边，并达到毫秒级的时延。
 
+## 教学视频
+
+* [YouTube](https://www.youtube.com/channel/UC73V8q795eSEMxDX4Pvdwmw/)
+* [Bilibili](https://space.bilibili.com/472621355)
+
 ## 前言
 
 * [关于本手册](0.about-this-manual.md)
@@ -171,10 +176,3 @@
 * [Cypher V.S. nGQL](5.appendix/cypher-ngql.md)
 * [SQL V.S. nGQL](5.appendix/sql-ngql.md)
 * [点标识符和分区](5.appendix/vid-partition.md)
-
-## 其他
-
-### 视频
-
-* [YouTube](https://www.youtube.com/channel/UC73V8q795eSEMxDX4Pvdwmw/)
-* [Bilibili](https://space.bilibili.com/472621355)
