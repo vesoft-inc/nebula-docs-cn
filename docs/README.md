@@ -15,6 +15,13 @@
 * 类 SQL 查询语言
 * 用户鉴权
 
+## [视频教程](https://space.bilibili.com/472621355)
+
+如果你想通过观看视频的方式学习 Nebula Graph，请访问我们的 [B 站频道](https://space.bilibili.com/472621355)。目前有两个教程系列：
+
+* [Nebula Graph 快速入门](https://space.bilibili.com/472621355/channel/detail?cid=86880)
+* [Nebula Graph studio](https://space.bilibili.com/472621355/channel/detail?cid=121139)
+
 ## [快速使用](manual-CN/1.overview/2.quick-start/1.get-started.md)
 
 请查看[快速使用手册](manual-CN/1.overview/2.quick-start/1.get-started.md)，开始使用 **Nebula Graph**。
