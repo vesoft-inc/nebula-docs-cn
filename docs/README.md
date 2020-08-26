@@ -42,7 +42,7 @@
 
 ## 产品路线图
 
-**Nebula Graph** 产品规划路线图请参见 [roadmap](https://github.com/vesoft-inc/nebula/wiki/Nebula-Graph-Roadmap)。
+**Nebula Graph** 产品规划路线图请参见 [roadmap](https://github.com/vesoft-inc/nebula/wiki/Nebula-Graph-Roadmap-2020)。
 
 ## 可视化工具：Nebula Graph Studio
 
