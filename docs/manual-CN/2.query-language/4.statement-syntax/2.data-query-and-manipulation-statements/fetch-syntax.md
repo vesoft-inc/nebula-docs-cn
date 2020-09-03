@@ -10,6 +10,8 @@
 FETCH PROP ON {<tag_name_list> | *} <vertex_id_list> [YIELD [DISTINCT] <return_list>]
 ```
 
+`FETCH <tag_name_list>` 操作仅适用于 1.0.1 版本或更高版本。如果您使用的 **Nebula Graph** 版本早于 1.0.1，则在一次 FETCH 查询中只能获取一种类型点的属性。
+
 `*` 返回指定 `VID` 点的所有属性。
 
 `<tag_name_list>::=[tag_name [, tag_name]]` 为标签名称，与 return_list 中的标签相同。
