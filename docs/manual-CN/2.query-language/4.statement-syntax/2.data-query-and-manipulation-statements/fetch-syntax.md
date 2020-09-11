@@ -7,7 +7,7 @@
 `FETCH PROP ON` 可返回点的一系列属性，目前已支持一条语句返回多个点属性。`FETCH` 获取点属性支持与[管道](../../3.language-structure/pipe-syntax.md) 及[用户自定义变量](../../3.language-structure/user-defined-variables.md)一起使用。
 
 ```ngql
-FETCH PROP ON {<tag_name_list> | *} <vertex_id_list> [YIELD [DISTINCT] <return_list>]
+FETCH PROP ON {<tag_name> | <tag_name_list> | *} <vertex_id_list> [YIELD [DISTINCT] <return_list>]
 ```
 
 `FETCH <tag_name_list>` 操作仅适用于 1.0.1 版本或更高版本。如果您使用的 **Nebula Graph** 版本早于 1.0.1，则在一次 FETCH 查询中只能获取一种类型点的属性。
