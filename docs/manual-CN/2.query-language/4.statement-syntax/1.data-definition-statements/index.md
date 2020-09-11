@@ -110,7 +110,7 @@ nebula> DROP TAG INDEX player_index_0;
 ## 重构索引
 
 ```ngql
-REBUILD {TAG | EDGE} INDEX <index_name> [OFFLINE]
+REBUILD {TAG | EDGE} INDEX <index_name> OFFLINE
 ```
 
 [创建索引](#%e5%88%9b%e5%bb%ba%e7%b4%a2%e5%bc%95)部分介绍了如何创建索引以提高查询性能。如果索引在插入数据之前创建，此时无需执行索引重构操作；如果创建索引时，数据库里已经存有数据，则不会自动对旧的数据进行索引，此时需要对整个图中与索引相关的数据执行索引重构操作以保证索引包含了之前的数据。若当前数据库没有对外提供服务，则可在索引重构时使用 `OFFLINE` 关键字加快重构速度。
