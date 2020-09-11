@@ -21,6 +21,9 @@ OVER <edge_type_list> [UPTO <N> STEPS]
 
 - 当起点及终点是 ID 列表时，表示寻找从任意起点开始到终点的最短路径。
 - 全路径会有环。
+- `FIND PATH` 不支持带属性过滤的搜索。
+- `FIND PATH` 不支持指定方向搜索。
+- `FIND PATH` 为单进程处理，因此比较消耗内存资源。
 
 ## 示例
 
