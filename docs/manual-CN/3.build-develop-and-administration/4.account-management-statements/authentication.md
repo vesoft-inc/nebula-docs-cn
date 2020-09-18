@@ -8,7 +8,11 @@
 
 本地数据库存储用户名、加密密码，本地用户设置和远程 LDAP 用户设置。当用户尝试访问数据库时，将接受安全验证。
 
-将 `nebula-graphd.conf` （默认目录 `/usr/local/nebula/etc/`）文件中的 `--enable_authorize` 属性设置为 `true` 即可启用本地认证。
+按照以下步骤启用本地认证：
+
+1. 将配置文件 `nebula-graphd.conf`（默认目录 `/usr/local/nebula/etc/`）中的 `--enable_authorize` 属性设置为 `true`。
+2. 保存第一步的设置并关闭配置文件 `nebula-graphd.conf`。
+3. 重启 Nebula Graph 服务。
 
 ## LDAP
 
@@ -32,6 +36,12 @@
 | ldap_searchattribute | string   | ""                                            | 一系列必填属性。                               |
 |                      |
 | ldap_searchfilter    | string   | ""                                            | 定义搜索过滤规则。较 searchattribut 更为灵活。 |
+
+## FAQ
+
+### 报错信息：Authentication fails, Invalid data length
+
+身份验证失败，请按照上述步骤开启身份验证。
 
 <!-- ### ObjectClass
 
