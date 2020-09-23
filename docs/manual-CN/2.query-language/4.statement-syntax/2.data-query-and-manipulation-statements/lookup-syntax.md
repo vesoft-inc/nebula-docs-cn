@@ -88,3 +88,36 @@ GO FROM $-.DstVID OVER serve YIELD $-.DstVID, serve.start_year, serve.end_year, 
 | 105       | 2018             | 2019           | Raptors      |
 ----------------------------------------------------------------
 ```
+
+## FAQ
+
+### 错误码 411
+
+```bash
+[ERROR (-8)]: Unknown error(411):
+```
+
+错误码 `411` 表明针对当前 `WHERE` 过滤条件，没有找到有效的索引。Nebula Graph 采用左匹配模式对索引进行选择，即 `WHERE` 过滤条件中的列必须在索引的前 N 列。例如：
+
+```ngql
+nebula> CREATE TAG INDEX example_index ON TAG t(p1, p2, p3);  -- 对一个标签的前 3 个属性创建索引
+nebula> LOOKUP ON t WHERE p2 == 1 and p3 == 1; -- 不支持
+nebula> LOOKUP ON t WHERE p1 == 1;  -- 支持
+nebula> LOOKUP ON t WHERE p1 == 1 and p2 == 1;  -- 支持
+nebula> LOOKUP ON t WHERE p1 == 1 and p2 == 1 and p3 == 1;  -- 支持
+```
+
+### 找不到有效索引
+
+```bash
+No valid index found
+```
+
+如果查询条件包含字符串类型的字段，那么 Nebula Graph 会选择匹配所有字段的索引。例如：
+
+```ngql
+nebula> CREATE TAG t1 (c1 string, c2 int);
+nebula> CREATE TAG INDEX i1 ON t1 (c1, c2);
+nebula> LOOKUP ON t1 WHERE t1.c1 == "a"; -- 索引 i1 无效
+nebula> LOOKUP ON t1 WHERE t1.c1 == "a" and t1.c2 == 1;  -- 索引 i1 有效
+```
