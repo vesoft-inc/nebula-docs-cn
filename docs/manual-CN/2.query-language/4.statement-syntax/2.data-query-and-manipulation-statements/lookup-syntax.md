@@ -12,7 +12,7 @@ LOOKUP ON {<vertex_tag> | <edge_type>} WHERE <expression> [ AND | OR expression 
 ```
 
 - `LOOKUP` 语句用于寻找点或边的集合。
-- `WHERE` 指定被筛选的逻辑条件。同样支持逻辑关键词 AND，详情参见 [WHERE](where-syntax.md) 的用法。
+- `WHERE` 指定被筛选的逻辑条件。只支持逻辑关键词 AND，详情参见 [WHERE](where-syntax.md) 的用法。
 - `YIELD` 指定返回结果。如未指定，则在 `LOOKUP` 标签时返回点 ID，在 `LOOKUP` 边类型时返回边的起点 ID、终点 ID 和 ranking 值。
 
 ## 索引使用限制
@@ -23,6 +23,7 @@ LOOKUP ON {<vertex_tag> | <edge_type>} WHERE <expression> [ AND | OR expression 
 - 在关系表达式中，暂不支持操作符两边都是field-name 的表达式，如 (tagName.column1 > tagName.column2)
 - 暂不支持运算表达式和 function 表达式中嵌套 AliasProp 表达式。
 - 字符串类型的索引不支持范围查询。
+- 暂不支持 `OR` 和 `XOR` 查询。
 
 ## 点查询
 
