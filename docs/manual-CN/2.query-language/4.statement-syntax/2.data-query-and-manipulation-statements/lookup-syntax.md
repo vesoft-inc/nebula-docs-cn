@@ -5,7 +5,7 @@
 > **注意：** 在使用 `LOOKUP` 语句之前，请确保已创建索引。查看[索引文档](../1.data-definition-statements/index.md)了解有关索引的更多信息。
 
 ```ngql
-LOOKUP ON {<vertex_tag> | <edge_type>} WHERE <expression> [ AND | OR expression ...]) ] [YIELD <return_list>]
+LOOKUP ON {<vertex_tag> | <edge_type>} WHERE <expression> [ AND expression ...]) ] [YIELD <return_list>]
 
 <return_list>
     <col_name> [AS <col_alias>] [, <col_name> [AS <col_alias>] ...]
