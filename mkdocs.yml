@@ -15,8 +15,7 @@ copyright: Copyright &copy; 2020 Nebula Graph - 浙ICP备20010487号
 # Configuration
 theme:
   name: 'material'
-  logo:
-    icon: library_books
+  logo: 'https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png'
   favicon: 'assets/images/favicon.ico'
   palette:
     primary: 'indigo'
@@ -25,7 +24,8 @@ theme:
     tabs: true
   language: 'zh'
 
-# extra_css:
+extra_css:
+  - 'stylesheets/logo.css'
 #     - 'theme/structor-menu.css'
 #     - 'theme/extra.css'
 
