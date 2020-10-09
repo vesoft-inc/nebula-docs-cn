@@ -4,7 +4,7 @@
 
 ## 前提条件
 
-安装 Nebula Graph 前确保所有机器已安装 Docker、Docker Compose、HAProxy 和 Keepalived。
+部署集群前，请确保所有机器已安装 Nebula Graph、Docker 和 Docker Compose。如果需要自定义负载均衡和高可用，请安装 HAProxy 和 Keepalived。
 
 机器准备：
 
@@ -86,9 +86,9 @@ USER=root
 $ docker stack deploy nebula -c docker-stack.yml
 ```
 
-## 集群负载均衡及高可用配置
+## 集群负载均衡及高可用配置（生产环境）
 
-目前，Nebula Graph 的客户端（1.X）未提供负载均衡，而是随机选一个 `graphd` 服务连接。因此生产使用时需自行配置负载均衡和高可用。
+目前，Nebula Graph 的客户端（1.X）未提供负载均衡，而是随机选一个 `graphd` 服务连接。因此生产使用时需自行配置负载均衡和高可用。文档中的负载均衡和高可用仅为示例方案，您可以根据需要添加其他的第三方方案。
 
 ### 负载均衡配置
 
@@ -171,17 +171,23 @@ $ docker-compose up -d
 
 在 `192.168.1.166`、`192.168.1.167` 和 `192.168.1.168` 进行以下操作：
 
-安装 Keepalived：
+#### 安装 Keepalived
+
+执行以下命令安装 Keepalived：
 
 ```bash
 apt-get update && apt-get upgrade && apt-get install keepalived -y
 ```
 
-**注意**：配置 Keepalived 需预先准备好虚拟 IP，在以下配置中 `192.168.1.99` 即为虚拟 IP。
+#### 配置 Keepalived
 
 更改 Keepalived 配置文件 `/etc/keepalived/keepalived.conf`（三台机器中 priority 必须设置成不同值以确定优先级）。示例配置文件参考[这里](keepalived.conf)。
 
-```text
+**注意**：配置 Keepalived 需预先准备好虚拟 IP，在以下配置中 `192.168.1.99` 即为虚拟 IP。
+
+Keepalived 常见命令：
+
+```bash
 # 启动keepalived
 systemctl start keepalived
 # 使keepalived开机自启
