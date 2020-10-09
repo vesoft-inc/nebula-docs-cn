@@ -1,7 +1,7 @@
 # INSERT VERTEX 语法
 
 ```ngql
-INSERT VERTEX <tag_name> (prop_name_list) [, <tag_name> prop_name_list], ...)
+INSERT VERTEX <tag_name> (prop_name_list) [, <tag_name> (prop_name_list), ...]
      {VALUES | VALUE} VID: (prop_value_list[, prop_value_list])
 
 prop_name_list:
