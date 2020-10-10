@@ -268,7 +268,7 @@ services:
       - logs-storaged2:/logs
     networks:
       - nebula-net
-  graphd1:
+  graphd0:
     image: vesoft/nebula-graphd:nightly
     env_file:
       - ./nebula.env
@@ -314,7 +314,7 @@ services:
     networks:
       - nebula-net
 
-  graphd2:
+  graphd1:
     image: vesoft/nebula-graphd:nightly
     env_file:
       - ./nebula.env
@@ -359,7 +359,7 @@ services:
       - logs-graphd2:/logs
     networks:
       - nebula-net
-  graphd3:
+  graphd2:
     image: vesoft/nebula-graphd:nightly
     env_file:
       - ./nebula.env
@@ -393,11 +393,11 @@ services:
         protocol: tcp
         mode: host
       - target: 13000
-        published: 13002
+        published: 13004
         protocol: tcp
 #        mode: host
       - target: 13002
-        published: 13004
+        published: 13005
         protocol: tcp
         mode: host
     volumes:

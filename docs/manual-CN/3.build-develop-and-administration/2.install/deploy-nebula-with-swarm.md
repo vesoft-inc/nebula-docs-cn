@@ -8,11 +8,11 @@
 
 机器准备：
 
-| IP | 内存（Gb） | CPU（核数） |
-| --- | --- | --- |
-| 192.168.1.166 | 16 | 4 |
-| 192.168.1.167 | 16 | 4 |
-| 192.168.1.168 | 16 | 4 |
+| IP            | 内存（Gb） | CPU（核数） | 角色    |
+| ------------- | ---------- | ----------- | ------- |
+| 192.168.1.166 | 16         | 4           | manager |
+| 192.168.1.167 | 16         | 4           | worker  |
+| 192.168.1.168 | 16         | 4           | worker  |
 
 ## 创建 Nebula Graph 集群
 
@@ -46,7 +46,15 @@ $ docker swarm join \
  192.168.1.166:2377
 ```
 
+返回以下信息：
+
+```bash
+This node joined a swarm as a worker.
+```
+
 ### 验证集群
+
+在管理节点上执行以下命令列出 Docker Swarm 节点信息：
 
 ```bash
 $ docker node ls
@@ -63,13 +71,19 @@ h1iql1uvm7123h3gon9so69dy     KF2-DATA-168        Ready               Active    
 
 ### 配置 Docker Stack
 
-运行以下命令对 Docker Stack 进行配置：
+在管理节点上执行以下命令添加 Docker Stack 配置文件：
 
 ```bash
-vi docker-stack.yml
+$ vi docker-stack.yml
 ```
 
 请根据您的 IP 地址与端口号进行配置。示例配置文件参考[这里](docker-stack.yml)。
+
+在管理节点上执行以下命令添加 `nebula.env` 配置文件：
+
+```bash
+$ vi nebula.env
+```
 
 在 `nebula.env` 文件中加入如下内容：
 
@@ -80,13 +94,13 @@ USER=root
 
 ### 启动集群
 
-运行以下命令启动 Nebula Graph 集群：
+在管理节点上执行以下命令启动 Nebula Graph 集群：
 
 ```bash
 $ docker stack deploy nebula -c docker-stack.yml
 ```
 
-## 集群负载均衡及高可用配置（生产环境）
+## 集群负载均衡及高可用配置（可选）
 
 目前，Nebula Graph 的客户端（1.X）未提供负载均衡，而是随机选一个 `graphd` 服务连接。因此生产使用时需自行配置负载均衡和高可用。文档中的负载均衡和高可用仅为示例方案，您可以根据需要添加其他的第三方方案。
 
