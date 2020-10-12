@@ -4,7 +4,7 @@
 
 ## 前提条件
 
-部署集群前，请确保所有机器已 Docker 和 Docker Compose。如果需要自定义负载均衡和高可用，请安装 HAProxy 和 Keepalived。
+部署集群前，请确保所有机器已安装 Docker 和 Docker Compose。如果需要自定义负载均衡和高可用，请安装 HAProxy 和 Keepalived。
 
 机器准备：
 
