@@ -4,7 +4,7 @@
 
 ## 前提条件
 
-部署集群前，请确保所有机器已安装 Nebula Graph、Docker 和 Docker Compose。如果需要自定义负载均衡和高可用，请安装 HAProxy 和 Keepalived。
+部署集群前，请确保所有机器已 Docker 和 Docker Compose。如果需要自定义负载均衡和高可用，请安装 HAProxy 和 Keepalived。
 
 机器准备：
 
@@ -38,7 +38,7 @@ To add a manager to this swarm, run 'docker swarm join-token manager' and follow
 
 ### 创建集群工作节点
 
-根据 `docker swarm init` 命令的提示内容，创建 Swarm 集群的工作节点，在机器 `192.168.1.167`、`192.168.1.168` 上分别执行以下命令：
+根据 `docker swarm init` 命令的提示内容，创建 Swarm 集群的工作节点，分别在机器 `192.168.1.167`、`192.168.1.168` 上执行以下命令：
 
 ```bash
 $ docker swarm join \
@@ -54,7 +54,7 @@ This node joined a swarm as a worker.
 
 ### 验证集群
 
-在管理节点上执行以下命令列出 Docker Swarm 节点信息：
+在 manager 节点上执行以下命令列出 Docker Swarm 节点信息：
 
 ```bash
 $ docker node ls
@@ -71,15 +71,15 @@ h1iql1uvm7123h3gon9so69dy     KF2-DATA-168        Ready               Active    
 
 ### 配置 Docker Stack
 
-在管理节点上执行以下命令添加 Docker Stack 配置文件：
+在 manager 节点上执行以下命令添加 Docker Stack 配置文件：
 
 ```bash
 $ vi docker-stack.yml
 ```
 
-请根据您的 IP 地址与端口号进行配置。示例配置文件参考[这里](docker-stack.yml)。
+请根据您的 IP 地址与端口号进行配置。示例配置文件参考 [docker-stack.yml](docker-stack.yml)。
 
-在管理节点上执行以下命令添加 `nebula.env` 配置文件：
+在 manager 节点上执行以下命令添加 `nebula.env` 配置文件：
 
 ```bash
 $ vi nebula.env
@@ -94,10 +94,33 @@ USER=root
 
 ### 启动集群
 
-在管理节点上执行以下命令启动 Nebula Graph 集群：
+在 manager 节点上执行以下命令启动 Nebula Graph 集群：
 
 ```bash
 $ docker stack deploy nebula -c docker-stack.yml
+```
+
+### 查看集群服务
+
+在 manager 节点上执行以下命令查看服务状态：
+
+```bash
+$ docker service ls
+```
+
+返回以下信息：
+
+```bash
+ID                  NAME                MODE                REPLICAS            IMAGE                            PORTS
+43abplqq0h2z        nebula_graphd1      replicated          1/1                 vesoft/nebula-graphd:nightly
+jkmnyzy2772s        nebula_graphd2      replicated          1/1                 vesoft/nebula-graphd:nightly
+uo79ebcp41uw        nebula_graphd3      replicated          1/1                 vesoft/nebula-graphd:nightly
+p50k0l1pvth0        nebula_metad0       replicated          1/1                 vesoft/nebula-metad:nightly
+oafq5jph8e65        nebula_metad1       replicated          1/1                 vesoft/nebula-metad:nightly
+qr4t5a8u5vjv        nebula_metad2       replicated          1/1                 vesoft/nebula-metad:nightly
+ivs5i0o69505        nebula_storaged0    replicated          1/1                 vesoft/nebula-storaged:nightly
+y1xlsym8q90s        nebula_storaged1    replicated          1/1                 vesoft/nebula-storaged:nightly
+xwgu2sfi2qso        nebula_storaged2    replicated          1/1                 vesoft/nebula-storaged:nightly
 ```
 
 ## 集群负载均衡及高可用配置（可选）
@@ -157,7 +180,7 @@ defaults
     timeout server 50000ms
     timeout http-request 20000ms
 
-# custom your own frontends && backends && listen conf
+# customize your own frontends && backends && listen conf
 #CUSTOM
 
 listen graphd-cluster
@@ -195,20 +218,9 @@ apt-get update && apt-get upgrade && apt-get install keepalived -y
 
 #### 配置 Keepalived
 
-更改 Keepalived 配置文件 `/etc/keepalived/keepalived.conf`（三台机器中 priority 必须设置成不同值以确定优先级）。示例配置文件参考[这里](keepalived.conf)。
+更改 Keepalived 配置文件 `/etc/keepalived/keepalived.conf`（三台机器中 `priority` 必须设置成不同值以确定优先级）。示例配置文件参考 [keepalived.conf](keepalived.conf)。
 
-**注意**：配置 Keepalived 需预先准备好虚拟 IP，在以下配置中 `192.168.1.99` 即为虚拟 IP。
-
-Keepalived 常见命令：
-
-```bash
-# 启动keepalived
-systemctl start keepalived
-# 使keepalived开机自启
-systemctl enable keeplived
-# 重启keepalived
-systemctl restart keepalived
-```
+> **注意**：配置 Keepalived 需预先准备好虚拟 IP，在以下配置中 `192.168.1.99` 即为虚拟 IP。
 
 ## FAQ
 
