@@ -54,7 +54,7 @@ This node joined a swarm as a worker.
 
 ### 验证集群
 
-在管理节点上执行以下命令列出 Docker Swarm 节点信息：
+在 manager 节点上执行以下命令列出 Docker Swarm 节点信息：
 
 ```bash
 $ docker node ls
@@ -71,7 +71,7 @@ h1iql1uvm7123h3gon9so69dy     KF2-DATA-168        Ready               Active    
 
 ### 配置 Docker Stack
 
-在管理节点上执行以下命令添加 Docker Stack 配置文件：
+在 manager 节点上执行以下命令添加 Docker Stack 配置文件：
 
 ```bash
 $ vi docker-stack.yml
@@ -79,7 +79,7 @@ $ vi docker-stack.yml
 
 请根据您的 IP 地址与端口号进行配置。示例配置文件参考 [docker-stack.yml](docker-stack.yml)。
 
-在管理节点上执行以下命令添加 `nebula.env` 配置文件：
+在 manager 节点上执行以下命令添加 `nebula.env` 配置文件：
 
 ```bash
 $ vi nebula.env
@@ -94,7 +94,7 @@ USER=root
 
 ### 启动集群
 
-在管理节点上执行以下命令启动 Nebula Graph 集群：
+在 manager 节点上执行以下命令启动 Nebula Graph 集群：
 
 ```bash
 $ docker stack deploy nebula -c docker-stack.yml
@@ -102,7 +102,7 @@ $ docker stack deploy nebula -c docker-stack.yml
 
 ### 查看集群服务
 
-在管理节点上执行以下命令查看服务状态：
+在 manager 节点上执行以下命令查看服务状态：
 
 ```bash
 $ docker service ls
