@@ -57,7 +57,7 @@ CREATE TAG [IF NOT EXISTS] <tag_name>
 
     TTL_DURATION 指定了 vertices 和 edges 的有效期，超过有效期的数据会失效。失效时间为 TTL_COL 设置的属性值加 TTL_DURATION 设置的秒数。
 
-    > 如果 TTL_DURATION 的值为负或 0，则该 edge 不会失效。
+    > 如果 TTL_DURATION 的值为 0，则该 edge 不会失效。
 
 * TTL_COL
 
