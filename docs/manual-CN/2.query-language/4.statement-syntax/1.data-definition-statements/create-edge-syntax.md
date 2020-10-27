@@ -25,7 +25,7 @@ CREATE EDGE [IF NOT EXISTS] <edge_name>
 
 创建 edge type 可使用 `IF NOT EXISTS` 关键字，这个关键字会自动检测对应的 edge type 是否存在，如果不存在则创建新的，如果存在则直接返回。
 
-**注意：** 这里判断 edge type 是否存在只是比较 edge type 的名字(不包括属性)。
+> **注意：** 这里判断 edge type 是否存在只是比较 edge type 的名字(不包括属性)。
 
 ## Edge Type 名称
 
@@ -48,8 +48,6 @@ CREATE EDGE [IF NOT EXISTS] <edge_name>
 * **默认值约束**
 
   您可以在创建 edge type 时使用 `DEFAULT` 约束设置属性的默认值。如果没有指定其他值，那么会将默认值插入新的边。默认值可以为 **Nebula Graph** 支持的任一数据类型，且支持表达式。如果您不想使用默认值，也可以写一个用户指定的值。
-
-  > 暂时不支持使用 `Alter` 更改默认值。
 
 ### Time-to-Live (TTL) 语法
 

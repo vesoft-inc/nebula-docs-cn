@@ -20,3 +20,12 @@ nebula> UPDATE CONFIGS storage:rocksdb_column_family_options = {disable_auto_com
 nebula> UPDATE CONFIGS storage:rocksdb_db_options  = \
         { max_subcompactions = 4, max_background_jobs = 4};
 ```
+
+## Compact rate limiter
+
+在 RocksDB 中，后台会实时运行 compact 操作，这会对磁盘进行大量的写操作。为避免大量写操作导致的读延迟，您可以使用 Rate Limiter 控制写入速度上限。
+
+您可以在配置文件 RocksEngineConfig 中调节以下 Rate Limiter 参数：
+
+- num_compaction_threads：compact 总线程数。设置为 0 时不限制线程数。
+- rate_limit：写入速度限制，单位为字节/秒。设置为 0 时不限制写入速度。
