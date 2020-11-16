@@ -19,8 +19,8 @@
 
 按以下步骤使用 **Schema** 创建 Schema：
 
-1. 创建标签。详细信息，参考 [操作标签](../use-studio/manage-schema/st-ug-crud-tag.md)。
-2. 创建边类型。详细信息，参考 [操作边类型](../use-studio/manage-schema/st-ug-crud-edge-type.md)。
+1. 创建标签。详细信息，参考 [操作标签](../manage-schema/st-ug-crud-tag.md)。
+2. 创建边类型。详细信息，参考 [操作边类型](../manage-schema/st-ug-crud-edge-type.md)。
 
 ## 使用控制台创建 Schema
 

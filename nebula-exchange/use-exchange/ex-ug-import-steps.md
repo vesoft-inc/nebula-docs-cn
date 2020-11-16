@@ -16,8 +16,8 @@
 按以下步骤将不同来源的数据导入 Nebula Graph 数据库：
 
 1. 在 Nebula Graph 中构图，包括创建图空间、创建图数据模式（Schema）。
-2. 配置源数据。
-3. 分别修改 Spark、Nebula Graph 和源数据配置文件。
+2. （可选）处理源数据。例如，在导入 Neo4j 时，为提高导出速度，在 Neo4j 数据库中为指定的标签属性创建索引。
+3. 分别修改 Spark、Nebula Graph 以及点和边数据的配置文件。
 4. 向 Nebula Graph 迁移数据。
 5. （可选）在 Nebula Graph 中重构索引。
 

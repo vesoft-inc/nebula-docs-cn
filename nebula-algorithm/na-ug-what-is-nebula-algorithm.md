@@ -1,6 +1,6 @@
 # 什么是 nebula-algorithm
 
-nebula-algorithm 是一款基于 [GraphX](https://spark.apache.org/graphx/) 的 Spark 应用程序，提供了 PageRank 和 Louvain 社区发现的图计算算法。使用 nebula-algorithm，您能以提交 Spark 任务的形式对 Nebula Graph 数据库中的数据执行图计算。
+[nebula-algorithm](https://github.com/vesoft-inc/nebula-java/tree/master/tools/nebula-algorithm) 是一款基于 [GraphX](https://spark.apache.org/graphx/) 的 Spark 应用程序，提供了 PageRank 和 Louvain 社区发现的图计算算法。使用 nebula-algorithm，您能以提交 Spark 任务的形式对 Nebula Graph 数据库中的数据执行图计算。
 
 目前 nebula-algorithm 仅提供了 PageRank 和 Louvain 社区发现算法。如果您有其他需求，可以参考本项目，编写 Spark 应用程序调用 GraphX 自带的其他图算法，如 LabelPropagation、ConnectedComponent 等。
 
@@ -12,7 +12,7 @@ nebula-algorithm 根据以下方式实现图算法：
 2. 将 DataFrame 转换为 Graphx 的图。
 3. 调用 Graphx 提供的图算法（例如 PageRank）或者您自己实现的算法（例如 Louvain 社区发现）。
 
-详细的实现方式，您可以参考 [LouvainAlgo.scala 和 PageRankAlgo.scala](../../tools/nebula-algorithm/../../../tools/nebula-algorithm/src/main/scala/com/vesoft/nebula/tools/algorithm/lib)。
+详细的实现方式，您可以参考 [LouvainAlgo.scala 和 PageRankAlgo.scala]([../../tools/nebula-algorithm/src/main/scala/com/vesoft/nebula/tools/algorithm/lib](https://github.com/vesoft-inc/nebula-java/tree/master/tools/nebula-algorithm/src/main/scala/com/vesoft/nebula/tools/algorithm/lib))。
 
 ## PageRank 和 Louvain 简介
 
