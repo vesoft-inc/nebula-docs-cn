@@ -12,7 +12,7 @@ nebula-algorithm 根据以下方式实现图算法：
 2. 将 DataFrame 转换为 Graphx 的图。
 3. 调用 Graphx 提供的图算法（例如 PageRank）或者您自己实现的算法（例如 Louvain 社区发现）。
 
-详细的实现方式，您可以参考 [LouvainAlgo.scala 和 PageRankAlgo.scala]([../../tools/nebula-algorithm/src/main/scala/com/vesoft/nebula/tools/algorithm/lib](https://github.com/vesoft-inc/nebula-java/tree/master/tools/nebula-algorithm/src/main/scala/com/vesoft/nebula/tools/algorithm/lib))。
+详细的实现方式，您可以参考 [LouvainAlgo.scala 和 PageRankAlgo.scala](https://github.com/vesoft-inc/nebula-java/tree/master/tools/nebula-algorithm/src/main/scala/com/vesoft/nebula/tools/algorithm/lib)。
 
 ## PageRank 和 Louvain 简介
 

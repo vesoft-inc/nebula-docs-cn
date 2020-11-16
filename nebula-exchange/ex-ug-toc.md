@@ -29,4 +29,4 @@
   - [导入命令参数](parameter-reference/ex-ug-para-import-command.md)
 - 错误信息[TODO]
 
-/* 上述 [TODO] 仅表示文档尚未完成。Exchange 已经具备文档所列所有功能。
+\* 本页面所列 [TODO] 仅表示文档尚未完成。Exchange 已经具备文档所列所有功能。

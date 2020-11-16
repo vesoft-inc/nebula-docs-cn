@@ -47,9 +47,12 @@ RocksDB 提供了一系列 API 用于创建及导入 SST 文件，有助于您�
     ```conf
       # Nebula Graph 相关配置
       nebula:  {
-        addresses: ["127.0.0.1:3699"]
-        # 添加 Nebula Graph 数据库 Meta 服务的 IP 地址和端口
-        meta.addresses:["127.0.0.1:45500"]
+        address: {
+          # 添加 Nebula Graph 数据库 Graph 服务的 IP 地址和端口
+          graph: ["127.0.0.1:3699"]
+          # 添加 Nebula Graph 数据库 Meta 服务的 IP 地址和端口
+          meta:["127.0.0.1:45500"]
+        }
         user: user
         pswd: password
         space: test
