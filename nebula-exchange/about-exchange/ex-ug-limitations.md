@@ -35,7 +35,6 @@ Exchange 支持将以下格式或来源的数据转换为 Nebula Graph 能识别
   - Apache ORC
   - JSON
   - CSV
-- Elasticsearch
 - Apache HBase&trade;
 - 数据仓库：HIVE
 - 图数据库：Neo4j 2.4.5-M1

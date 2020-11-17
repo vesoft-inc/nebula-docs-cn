@@ -88,7 +88,7 @@ RocksDB 提供了一系列 API 用于创建及导入 SST 文件，有助于您�
 
 - [导入 Neo4j 数据](ex-ug-import-from-neo4j.md)
 - 导入 HDFS 数据[TODO]
+- 导入 HBase 数据[TODO]
 - 导入 HIVE 数据[TODO]
-- 导入 JanusGraph 数据[TODO]
 - 导入 Kafka 数据[TODO]
 - 导入 MySQL 数据[TODO]
