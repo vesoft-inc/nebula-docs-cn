@@ -1,12 +1,12 @@
 # 版本更新
 
-Studio 处于持续开发状态中。为保证您在本地或 Nebula Graph Cloud Service 上能使用 Studio 最新的功能：
+Studio 处于持续开发状态中。为保证您能使用 Studio 最新的功能：
 
-- Nebula Graph Cloud Service 上始终部署最新版本的 Studio。
-- 本地部署时，建议您每次都运行以下命令启动 Studio：
+- Nebula Graph Cloud Service 上的 Studio：始终为最新版本，您不需要更新版本。
+- Docker 版本 Studio：建议您每次都在 `nebula-web-docker` 目录下运行以下命令启动 Studio：
 
   ```bash
-  docker-compose pull && docker-compose up
+  docker-compose pull && docker-compose up -d
   ```
 
 您可以通过 [Studio 的版本更新记录](https://github.com/vesoft-inc/nebula-web-docker/blob/master/docs/CHANGELOG-zh.md "点击前往 GitHub") 查看最新发布的功能。如果您已经在 Studio 页面上，您可以在页面右上角点击版本号，再点击 **新发布**，前往上述 Studio 的版本更新记录。
