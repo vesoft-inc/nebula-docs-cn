@@ -26,8 +26,11 @@
   - 使用控制台
     - 界面介绍 [TODO]
     - [导入图探索](use-console/st-ug-open-in-explorer.md)
+    - [查看子图](use-console/st-ug-visualize-findpath.md)
     - 导出 CSV 文件[TODO]
 - 最佳实践 [TODO]
 - 故障排查 [TODO]
   - 连接问题
   - 错误信息
+
+\* 本页面所列 [TODO] 仅表示文档尚未完成，并非表示 Studio 不具备相应的功能。

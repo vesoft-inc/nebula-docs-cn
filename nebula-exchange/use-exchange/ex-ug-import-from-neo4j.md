@@ -72,7 +72,7 @@ Neo4j 的数据集信息如下：
 
 开始迁移数据之前，您需要确保以下信息：
 
-- 已经完成 Exchange 编译。详细信息，参考 [编译 Exchange](../compile-exchange/ex-ug-compile.md)。
+- 已经完成 Exchange 编译。详细信息，参考 [编译 Exchange](../ex-ug-compile.md)。
 - 已经安装了 Spark。
 - 在 Nebula Graph 中创建图数据模式所需的所有信息，包括标签和边类型的名称、属性等。
 
@@ -101,7 +101,7 @@ Neo4j 的数据集信息如下：
     CREATE EDGE edgeAB(idInt int, idString string, tboolean bool, tdouble double); -- 创建边类型 edgeAB
     ```
 
-关于 Nebula Graph 构图的更多信息，参考《Nebula Graph Database 手册》的 [快速开始](https://docs.nebula-graph.com.cn/manual-CN/1.overview/2.quick-start/1.get-started/ "点击前往 Nebula Graph 网站") 。
+关于 Nebula Graph 构图的更多信息，参考《Nebula Graph Database 手册》的 [快速开始](https://docs.nebula-graph.com.cn/manual-CN/1.overview/2.quick-start/1.get-started/ "点击前往 Nebula Graph 网站")。
 
 ### 步骤 2. 配置源数据
 
