@@ -207,7 +207,7 @@ Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格
    }
    ranking: idInt
    partition: 1
-   # 为减轻 Nebula Graph 的排序压力，将 partition 设置为 1
+   # 为减轻 Neo4j 的排序压力，将 partition 设置为 1
    exec: "match (a:tagA)-[r:edgeAB]->(b:tagB) return a.idInt, b.idInt, r.idInt as idInt, r.idString as idString, r.tdouble as tdouble, r.tboolean as tboolean order by id(r)"
       batch: 1000
       check_point_path: /tmp/test
