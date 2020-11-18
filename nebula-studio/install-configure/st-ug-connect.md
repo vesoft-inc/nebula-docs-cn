@@ -1,6 +1,6 @@
 # 连接数据库
 
-在 Nebula Graph Cloud Service 上，创建 Nebula Graph 实例后，您可以一键直连云服务版 Studio。详细信息参考 [Nebula Graph Cloud Service 用户手册](https://cloud-docs.nebula-graph.com.cn/cn/posts/manage-instances/dbaas-ug-connect-nebulastudio/ "点击进入 Nebula Graph Cloud Service 用户手册")。但是，对于 Docker 版 Studio，在成功启动 Studio 后，您需要连接 Nebula Graph 数据库。本文主要描述 Docker 版 Studio 如何连接 Nebula Graph 数据库。
+在 Nebula Graph Cloud Service 上，创建 Nebula Graph 实例后，您可以一键直连云服务版 Studio。详细信息参考 [Nebula Graph Cloud Service 用户手册](https://cloud-docs.nebula-graph.com.cn/cn/posts/manage-instances/dbaas-ug-connect-nebulastudio/ "点击进入 Nebula Graph Cloud Service 用户手册")。但是，对于 Docker 版 Studio，在成功启动 Studio 后，您需要配置连接 Nebula Graph。本文主要描述 Docker 版 Studio 如何连接 Nebula Graph 数据库。
 
 ## 前提条件
 
@@ -38,5 +38,5 @@
 成功连接 Nebula Graph 数据库后，根据账号的权限，您可以选择执行以下操作：
 
 - 如果您以拥有 GOD 或者 ADMIN 权限的账号登录，可以使用 [**控制台**](../quick-start/st-ug-create-schema.md) 或者 [**Schema**](../use-studio/manage-schema/st-ug-crud-space.md) 页面管理 Schema。
-- 如果您以拥有 GOD、ADMIN、DBA 或者 USER 权限的账号登录，可以 [批量导入数据](../quick-start/st-ug-import-data.md) 或者在 **控制台** 页面上编辑 nGQL 语句插入数据。
-- 如果您以拥有 GOD、ADMIN、DBA、USER 或者 GUEST 权限的账号登录，可以在 **控制台** 页面上编辑 nGQL 语句读取数据或者在 **图探索** 页面上进行图探索或数据分析。
+- 如果您以拥有 GOD、ADMIN、DBA 或者 USER 权限的账号登录，可以 [批量导入数据](../quick-start/st-ug-import-data.md) 或者在 **控制台** 页面上运行 nGQL 语句插入数据。
+- 如果您以拥有 GOD、ADMIN、DBA、USER 或者 GUEST 权限的账号登录，可以在 **控制台** 页面上运行 nGQL 语句读取数据或者在 **图探索** 页面上进行图探索或数据分析。
