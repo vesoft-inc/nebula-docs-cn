@@ -1,8 +1,6 @@
 # 部署 Studio
 
-Studio 目前有两种发行版本：Docker 版和云服务版本。本文主要描述如何部署 Docker 版 Studio。
-
-云服务版本 Studio 只能在 Nebula Graph Cloud Service 上使用，不需要您手动部署。详细信息参考[《Nebula Graph Cloud Service 用户手册》](https://cloud-docs.nebula-graph.com.cn/cn/posts/manage-instances/dbaas-ug-connect-nebulastudio/ "点击前往 Nebula Graph Cloud Service 用户手册")。
+Studio 目前有两种发行版本：Docker 版本和云服务版本。云服务版 Studio 只能在 Nebula Graph Cloud Service 上使用。当您在 Nebula Graph Cloud Service 上创建 Nebula Graph 实例时即自动完成云服务版本 Studio 的部署，一键直连即可使用，不需要自己部署。详细信息参考[《Nebula Graph Cloud Service 用户手册》](https://cloud-docs.nebula-graph.com.cn/cn/posts/manage-instances/dbaas-ug-connect-nebulastudio/ "点击前往 Nebula Graph Cloud Service 用户手册")。本文主要描述如何部署 Docker 版 Studio。
 
 ## 前提条件
 
@@ -10,19 +8,26 @@ Studio 目前有两种发行版本：Docker 版和云服务版本。本文主要
 
 - Nebula Graph 服务已经部署并启动。详细信息，参考[《Nebula Graph 用户手册》](https://docs.nebula-graph.io/manual-EN/3.build-develop-and-administration/2.install/1.install-with-rpm-deb/ "点击前往 Nebula Graph 用户手册")。
   > **说明**：您可以使用多种方式部署并启动 Nebula Graph 服务。如果您刚开始使用 Nebula Graph，建议您使用 Docker Compose 部署 Nebula Graph。详细信息参考 [使用 Docker Compose 部署 Nebula Graph](https://github.com/vesoft-inc/nebula-docker-compose/blob/master/README_zh-CN.md "点击前往 GitHub 网站")。
-  >
 
 - 在即将运行 Docker 版 Studio 的机器上安装并启动 Docker Compose。详细信息参考 [Docker Compose 文档](https://docs.docker.com/compose/install/ "点击前往 Docker 文档中心")。
 
-- （可选）在中国大陆从 Docker Hub 拉取 Docker 镜像速度可能比较慢。您可以通过 `registry-mirrors` 参数配置加速镜像，例如：
-  - Docker中国区官方：`https://registry.docker-cn.com`
-  - 网易：`http://hub-mirror.c.163.com`
-  - 中国科技大学：`https://docker.mirrors.ustc.edu.cn`
-  配置方法因您的操作系统而异。详细信息参考 [Docker Daemon 配置文档](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file "点击前往 Docker 官方网站")。
+- （可选）在中国大陆从 Docker Hub 拉取 Docker 镜像的速度可能比较慢，您可以使用 `registry-mirrors` 参数配置加速镜像。例如，如果您要使用 Docker 中国区官方镜像、网易镜像和中国科技大学的镜像，则按以下格式配置 `registry-mirrors` 参数：
+
+  ```json
+  {
+  "registry-mirrors": [
+    "https://registry.docker-cn.com",
+    "http://hub-mirror.c.163.com",
+    "https://docker.mirrors.ustc.edu.cn"
+    ]
+  }
+  ```
+
+  配置文件的路径和方法因您的操作系统和/或 Docker Desktop 版本而异。详细信息参考 [Docker Daemon 配置文档](https://docs.docker.com/engine/reference/commandline/dockerd/#daemon-configuration-file "点击前往 Docker 文档中心")。
 
 ## 操作步骤
 
-按以下步骤部署并启动 Docker 版 Studio：
+在命令行工具中按以下步骤依次运行命令，部署并启动 Docker 版 Studio：
 
 1. 下载 Studio 的安装部署源码。
 
@@ -42,7 +47,7 @@ Studio 目前有两种发行版本：Docker 版和云服务版本。本文主要
     docker-compose pull
     ```
 
-4. 构建容器并启动 Studio 服务。其中，`-d` 表示在后台运行服务容器。
+4. 构建并启动 Studio 服务。其中，`-d` 表示在后台运行服务容器。
 
    ```bash
    docker-compose up -d
@@ -57,7 +62,7 @@ Studio 目前有两种发行版本：Docker 版和云服务版本。本文主要
     Creating docker_nginx_1    ... done
     ```
 
-5. 启动成功后，在浏览器地址栏输入 `http://localhost:7001`。
+5. 启动成功后，在当前机器的浏览器地址栏输入 `http://localhost:7001`。
 
     如果您在浏览器窗口中能看到以下登录界面，表示您已经成功部署并启动 Studio。
 

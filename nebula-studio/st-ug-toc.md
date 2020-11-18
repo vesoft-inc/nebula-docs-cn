@@ -7,7 +7,7 @@
   - [版本更新](about-studio/st-ug-check-updates.md)
   - [常见问题](about-studio/st-ug-faq.md)
 - 安装与登录
-  - [安装 Studio](install-configure/st-ug-install.md)
+  - [部署 Studio](install-configure/st-ug-install.md)
   - [连接数据库](install-configure/st-ug-connect.md)
   - [断开连接](install-configure/st-ug-reset-connection.md)
 - 快速开始
