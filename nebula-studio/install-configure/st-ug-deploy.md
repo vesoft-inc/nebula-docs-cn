@@ -29,7 +29,7 @@
 
 在命令行工具中按以下步骤依次运行命令，部署并启动 Docker 版 Studio：
 
-1. 下载 Studio 的安装部署源码。
+1. 下载 Studio 的部署配置文件。
 
     ```bash
     git clone https://github.com/vesoft-inc/nebula-web-docker.git
@@ -62,7 +62,8 @@
     Creating docker_nginx_1    ... done
     ```
 
-5. 启动成功后，在当前机器的浏览器地址栏输入 `http://localhost:7001`。
+5. 启动成功后，在浏览器地址栏输入 `http://ip address:7001`。
+   > **说明**：在运行 Docker 版 Studio 的机器上，您可以运行 `ifconfig` 或者 `ipconfig` 获取本机 IP 地址。如果您使用这台机器访问 Studio，可以在浏览器地址栏里输入 `http://localhost:7001`。
 
     如果您在浏览器窗口中能看到以下登录界面，表示您已经成功部署并启动 Studio。
 

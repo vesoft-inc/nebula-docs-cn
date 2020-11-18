@@ -6,9 +6,9 @@
 
 在连接 Nebula Graph 数据库前，您需要确认以下信息：
 
-- Docker 版 Studio 已经启动。详细信息参考 [部署 Studio](st-ug-install.md)。
+- Docker 版 Studio 已经启动。详细信息参考 [部署 Studio](st-ug-deploy.md)。
 
-- Nebula Graph 的 Graph 服务真实 IP 地址以及服务所用端口。默认端口为 `3699`。
+- Nebula Graph 的 Graph 服务本机 IP 地址以及服务所用端口。默认端口为 `3699`。
 
 - Nebula Graph 数据库登录账号信息，包括用户名和密码。
   > **说明**：如果 Nebula Graph 已经启用了身份验证，并且已经创建了不同角色的用户，您只能使用被分配到的账号和密码登录数据库。如果未启用身份验证，您可以使用默认用户名（`user`）和默认密码（`password`）登录数据库。关于启用身份验证，参考 [Nebula Graph 用户手册](https://docs.nebula-graph.com.cn/ "点击进入 Nebula Graph 用户手册")。
@@ -18,8 +18,8 @@
 按以下步骤连接 Nebula Graph 数据库：
 
 1. 在 Studio 的 **配置数据库** 页面上，输入以下信息：
-   - **Host**：填写 Nebula Graph 的 Graph 服务的真实 IP 地址及端口。格式为 `ip:port`。如果端口未修改，则使用默认端口 `3699`。
-     > **说明**：即使 Nebula Graph 数据库与 Studio 部署在同一台服务器上，您也必须在 **Host** 字段填写这台服务器的真实 IPv4 地址。
+   - **Host**：填写 Nebula Graph 的 Graph 服务本机 IP 地址及端口。格式为 `ip:port`。如果端口未修改，则使用默认端口 `3699`。
+     > **说明**：即使 Nebula Graph 数据库与 Studio 部署在同一台机器上，您也必须在 **Host** 字段填写这台机器的本机 IP 地址，而不是 `127.0.0.1` 或者 `localhost`。
    - **用户名** 和 **密码**：根据 Nebula Graph 的身份验证设置填写登录账号和密码。
      - 如果未启用身份验证，可以填写默认用户名 `user` 和默认密码 `password`。
      - 如果已启用身份验证，但是未创建账号信息，您只能以 GOD 角色登录，必须填写 `root` 及对应的密码 `nebula`。

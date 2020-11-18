@@ -6,7 +6,7 @@ Nebula Graph Studio（简称 Studio）是一款可以通过 Web 访问的图数�
 
 Studio 目前有两个发行版本：
 
-- Docker 版本：您可以使用 Docker 服务部署 Studio，并连接到 Nebula Graph 数据库。详细信息参考 [部署 Studio](../install-configure/st-ug-install.md)。
+- Docker 版本：您可以使用 Docker 服务部署 Studio，并连接到 Nebula Graph 数据库。详细信息参考 [部署 Studio](../install-configure/st-ug-deploy.md)。
 - 云服务版本：您可以在 Nebula Graph Cloud Service 上创建 Nebula Graph 数据库实例，并一键直连云服务版 Studio。详细信息参考 [Nebula Graph Cloud Service 用户手册](https://cloud-docs.nebula-graph.com.cn/cn/posts/manage-instances/dbaas-ug-connect-nebulastudio/ "点击前往 Nebula Graph Cloud Service 用户手册")。
 
 两个发行版本功能基本相同。但是，因为部署方式不同，会有不同的使用限制。详细信息，参考 [使用限制](st-ug-limitations.md)。
@@ -17,9 +17,9 @@ Studio 提供以下功能：
 
 - 灵活的部署方式，满足您的不同需求。
 - GUI 设计，方便您管理 Nebula Graph 图数据：
-  - 借助 **Schema** 管理功能，您可以使用图形界面完成 Schema（模式）创建，快速上手 Nebula Graph 数据库。
-  - 借助 **控制台** 功能，您可以使用 nGQL 语句创建 Schema，并对数据执行增删改查操作。
-  - 借助 **导入** 功能，通过简单的配置，您即能批量导入点和边数据，并能实时查看数据导入日志。
+  - 使用 **Schema** 管理功能，您可以使用图形界面完成 Schema（模式）创建，快速上手 Nebula Graph。
+  - 使用 **控制台** 功能，您可以使用 nGQL 语句创建 Schema，并对数据执行增删改查操作。
+  - 使用 **导入** 功能，通过简单的配置，您即能批量导入点和边数据，并能实时查看数据导入日志。
 - 图探索，支持可视化展示图数据，使您更容易发现数据之间的关联性，提高数据分析和解读的效率。
 
 ## 适用场景

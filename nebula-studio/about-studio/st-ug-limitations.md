@@ -19,7 +19,7 @@ Docker 版 Studio 目前仅支持 x86_64 架构。
 - 单个实例上传文件总量不得超过 1 GB。
 - 单个文件仅能保存 1 天。
 
-使用 Docker 版 Studio 上传数据时，也仅支持上传没有表头行的 CSV 文件，但是，单个文件大小及保存时间不受限制，而且，数据总量以本地存储容量为准。
+使用 Docker 版 Studio 上传数据也仅支持上传无表头的 CSV 文件，但是，单个文件大小及保存时间不受限制，而且，数据总量以本地存储容量为准。
 
 ## 数据备份
 
@@ -32,7 +32,7 @@ Docker 版 Studio 目前仅支持 x86_64 架构。
 - `USE <space_name>`：您只能在 **Space** 下拉列表中选择图空间，不能运行这个语句选择图空间。
 - **控制台** 上使用 nGQL 语句时，您可以直接回车换行，不能使用换行符。
 
-使用云服务版 Studio 时，除以上限制外，您还不能在 **控制台** 上执行用户管理和角色管理相关的语句，包括：
+使用云服务版 Studio 时，除以上限制外，您也不能在 **控制台** 上执行用户管理和角色管理相关的语句，包括：
 
 - `CREATE USER`
 - `ALTER USER`
@@ -41,7 +41,7 @@ Docker 版 Studio 目前仅支持 x86_64 架构。
 - `GRANT ROLE`
 - `REVOKE ROLE`  
 
-关于语句的详细信息，参考 [Nebula Graph 用户手册](https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/4.account-management-statements/alter-user-syntax/ "点击前往 Nebula Graph 官网")
+关于语句的详细信息，参考 [Nebula Graph 用户手册](https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/4.account-management-statements/alter-user-syntax/ "点击前往 Nebula Graph 官网")。
 
 ## 浏览器支持
 
