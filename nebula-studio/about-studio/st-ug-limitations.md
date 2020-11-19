@@ -45,4 +45,4 @@ Docker 版 Studio 目前仅支持 x86_64 架构。
 
 ## 浏览器支持
 
-建议您使用 Chrome 访问 Studio。
+建议您使用最新版本的 Chrome 访问 Studio。

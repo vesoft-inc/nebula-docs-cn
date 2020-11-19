@@ -13,9 +13,8 @@ Studio 目前有两个发行版本：
 
 ## 产品功能
 
-Studio 提供以下功能：
+Studio 具备以下功能：
 
-- 灵活的部署方式，满足您的不同需求。
 - GUI 设计，方便您管理 Nebula Graph 图数据：
   - 使用 **Schema** 管理功能，您可以使用图形界面完成 Schema（模式）创建，快速上手 Nebula Graph。
   - 使用 **控制台** 功能，您可以使用 nGQL 语句创建 Schema，并对数据执行增删改查操作。
