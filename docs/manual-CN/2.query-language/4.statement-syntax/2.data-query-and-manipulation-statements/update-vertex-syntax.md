@@ -1,8 +1,6 @@
-# UPDATE 语法
+# UPDATE VERTEX 语法
 
-**Nebula Graph** 支持 `UPDATE` 一个点或者一条边的属性，支持 CAS 操作，支持返回相关的属性。`UPDATE` 一次只能更新一个点/边的一个 tag/edge type 上的属性。
-
-## 更新点
+**Nebula Graph** 支持 `UPDATE VERTEX` 一个点的属性，支持 CAS 操作，支持返回相关的属性。`UPDATE VERTEX` 一次只能更新一个点的一个 tag 上的属性。
 
 ```ngql
 UPDATE VERTEX <vid> SET <update_columns> [WHEN <condition>] [YIELD <columns>]
@@ -33,24 +31,4 @@ nebula> UPDATE VERTEX 200 SET player.name = 'Cory Joseph' WHEN $^.team.name == '
 [ERROR (-8)]: Maybe invalid tag or property in SET/YIELD clause!
 ```
 
-`UPDATE` 不支持多个 tag，故此处报错。
-
-## 更新边
-
-```ngql
-UPDATE EDGE <edge> SET <update_columns> [WHEN <condition>] [YIELD <columns>]
-```
-
-**注意：**`WHEN` 和 `YIELD` 是可选的。
-
-- `edge` 表示需要更新的 edge，edge 的格式为 `<src> -> <dst> [@ranking] OF <edge_type>`。
-- `update_columns` 表示需要更新的 edge 上的属性。
-- `condition` 是一些约束条件，只有满足这个条件，update 才会真正执行，支持表达式操作。
-- `columns` 表示需要返回的 columns，此处 YIELD 可返回 update 以后最新的 columns 值。
-
-举例如下：
-
-```ngql
-nebula> UPDATE EDGE 100 -> 200@0 OF serve SET start_year = serve.start_year + 1 \
-YIELD $^.player.name AS name, serve.start_year AS start;
-```
+`UPDATE VERTEX` 不支持多个 tag，故此处报错。

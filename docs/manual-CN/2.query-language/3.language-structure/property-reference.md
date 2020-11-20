@@ -1,6 +1,6 @@
 # 属性引用
 
-`WHERE` 和 `YIELD` 可引用节点或边的属性。
+`WHERE` 和 `YIELD` 可引用点或边的属性。
 
 ## 引用点的属性
 
@@ -51,14 +51,23 @@ nebula> GO FROM 100 OVER follow YIELD follow.degree;
 - _src: 边起点 ID
 - _dst: 边终点 ID
 - _type: 边类型
-- _ranking: 边的 ranking 值
+- _rank: 边的 rank 值
 
 获取起点和终点 ID 可通过 `_src` 和 `_dst` 获取，这在显示图路径时经常会用到。
 
 例如：
 
 ```ngql
-nebula> GO FROM 100 OVER follow YIELD follow._src AS startVID /* 起点为100 */, follow._dst AS endVID;
+nebula> GO FROM 100 OVER follow YIELD follow._src, follow._dst, follow._type, follow._rank;
+===========================================================
+| follow._src | follow._dst | follow._type | follow._rank |
+===========================================================
+| 100         | 101         | 26           | 0            |
+-----------------------------------------------------------
+| 100         | 102         | 26           | 0            |
+-----------------------------------------------------------
+| 100         | 106         | 26           | 0            |
+-----------------------------------------------------------
 ```
 
-该语句通过引用 `follow._src` 作为起点 ID 和 `follow._dst` 作为终点 ID，返回起点 100 `follow` 的所有邻居节点。其中 `follow._src` 返回起点 ID，`follow._dst` 返回终点 ID。
+该语句通过引用 `follow._src` 作为起点 ID 和 `follow._dst` 作为终点 ID，返回起点 100 `follow` 的所有邻居点。其中 `follow._src` 返回起点 ID，`follow._dst` 返回终点 ID。

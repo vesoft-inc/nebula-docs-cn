@@ -1,5 +1,11 @@
 # 如何提交代码和文档
 
+## 前提条件
+
+点击 **Sign in with Github to agree** 按钮签署 CLA 协议。
+
+什么是 [CLA](https://www.apache.org/licenses/contributor-agreements.html)？
+
 ## Step 1: 通过 GitHub Fork
 
 1. 访问 https://github.com/vesoft-inc/nebula

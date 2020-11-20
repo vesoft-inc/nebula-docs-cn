@@ -2,9 +2,11 @@
 
 `UUID` 用于生成全局唯一的标识符。
 
-当顶点数量到达十亿级别时，用 `hash` 函数生成 vid 有一定的冲突概率。因此 **Nebula Graph** 提供 `UUID` 函数来避免大量顶点时的 vid 冲突。 `UUID` 函数由 `Murmurhash` 与当前时间戳（单位为秒）组合而成。
+当点数量到达十亿级别时，用 `hash` 函数生成 vid 有一定的冲突概率。因此 **Nebula Graph** 提供 `UUID` 函数来避免大量点时的 vid 冲突。 `UUID` 函数由 `Murmurhash` 与当前时间戳（单位为秒）组合而成。
 
-`UUID` 产生的值会以 key-value 方式存储在 **Nebula Graph** 的 Storage 服务中，调用时会检查这个 key 是否存在或冲突。因此相比 hash，性能可能会更慢。
+## UUID 性能及兼容性问题
+
+`UUID` 产生的值会以 key-value 方式存储在 **Nebula Graph** 的 Storage 服务中，调用时会检查这个 key 是否存在或冲突。因此相比 hash，性能可能会更低。此外，`UUID` 在未来版本中可能存在兼容性问题。
 
 插入 `UUID`：
 

@@ -14,13 +14,15 @@ schema 索引可用于快速处理图查询。**Nebula Graph** 支持两种类�
 
 `CREATE INDEX` 用于为已有 Tag/Edge-type 创建索引。
 
+**注意：索引会影响写性能**，第一次批量导入的时候，建议先导入数据，再批量重建索引；不推荐带索引批量导入，这样写性能会非常差。
+
 ### 创建单属性索引
 
 ```ngql
 nebula> CREATE TAG INDEX player_index_0 on player(name);
 ```
 
-上述语句在所有标签为 _player_ 的顶点上为属性 _name_ 创建了一个索引。
+上述语句在所有标签为 _player_ 的点上为属性 _name_ 创建了一个索引。
 
 ```ngql
 nebula> CREATE EDGE INDEX follow_index_0 on follow(degree);
@@ -30,15 +32,15 @@ nebula> CREATE EDGE INDEX follow_index_0 on follow(degree);
 
 ### 创建组合索引
 
-schema 索引还支持为相同 tag 或 edge 中的多个属性同时创建索引。这种包含多种属性的索引在 **Nebula Graph** 中称为组合索引。
+schema 索引还支持为相同 tag 或 edge 中的多个属性同时创建索引，这种包含多种属性的索引在 **Nebula Graph** 中称为组合索引。
 
-**注意：** 目前尚不支持跨多个 tag 创建复合索引。
+**注意：** 在 **Nebula Graph** 中，跨多个 tag 多种属性的索引被称为复合索引。目前 **Nebula Graph** 尚不支持创建复合索引。
 
 ```ngql
 nebula> CREATE TAG INDEX player_index_1 on player(name,age);
 ```
 
-上述语句在所有标签为 _player_ 的顶点上为属性 _name_ 和 _age_ 创建了一个复合索引。
+上述语句在所有标签为 _player_ 的点上为属性 _name_ 和 _age_ 创建了一个组合索引。
 
 ## 列出索引
 
@@ -108,7 +110,7 @@ nebula> DROP TAG INDEX player_index_0;
 ## 重构索引
 
 ```ngql
-REBUILD {TAG | EDGE} INDEX <index_name> [OFFLINE]
+REBUILD {TAG | EDGE} INDEX <index_name> OFFLINE
 ```
 
 [创建索引](#%e5%88%9b%e5%bb%ba%e7%b4%a2%e5%bc%95)部分介绍了如何创建索引以提高查询性能。如果索引在插入数据之前创建，此时无需执行索引重构操作；如果创建索引时，数据库里已经存有数据，则不会自动对旧的数据进行索引，此时需要对整个图中与索引相关的数据执行索引重构操作以保证索引包含了之前的数据。若当前数据库没有对外提供服务，则可在索引重构时使用 `OFFLINE` 关键字加快重构速度。

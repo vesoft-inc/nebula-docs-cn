@@ -2,7 +2,7 @@
 
 `GO` 是 **Nebula Graph** 中最常用的关键字，可以指定过滤条件（如 `WHERE`）遍历图数据并获取点和边的属性，还能以指定顺序（`ORDER BY ASC | DESC`）返回指定数目（`LIMIT`）的结果。
 
->`GO` 的用法与 SQL 中的 `SELECT` 类似，重要区别是 `GO` 必须从遍历一系列的节点开始。
+>`GO` 的用法与 SQL 中的 `SELECT` 类似，重要区别是 `GO` 必须从遍历一系列的点开始。
 
 ```ngql
   GO [[<M> TO] <N> STEPS ] FROM <node_list>
@@ -21,9 +21,9 @@
     <col_name> [AS <col_alias>] [, <col_name> [AS <col_alias>] ...]
 ```
 
-* `<N> STEPS` 指定查询 N 跳。
-* `M TO N STEPS` 指定查询 M 到 N 跳。
-* `<node_list>` 为逗号隔开的节点 ID，或特殊占位符 `$-.id` (参看 `PIPE` 用法)。
+* `<N> STEPS` 指定查询 N 跳。当 `N` 为零时，**Nebula Graph** 不会获取任何边，因此返回结果为空。
+* `M TO N STEPS` 指定查询 M 到 N 跳。当 `M` 为零时，返回结果与 `M` 为 1 时一样，即 `GO 0 TO 2` 与 `GO 1 TO 2` 返回相同结果。
+* `<node_list>` 为逗号隔开的点 ID，或特殊占位符 `$-.id` (参看 `PIPE` 用法)。
 * `<edge_type_list>` 为图遍历返回的边类型列表。
 * `WHERE <expression>` 指定被筛选的逻辑条件，WHERE 可用于起点，边及终点，同样支持逻辑关键词 AND、OR、NOT，详情参见 WHERE 的用法。
 * `YIELD [DISTINCT] <return_list>` 以列的形式返回结果，并可对列进行重命名。详情参看 `YIELD` 用法。`DISTINCT` 的用法与 SQL 相同。
@@ -260,3 +260,20 @@ nebula> GO 4 TO 5 STEPS FROM 101 OVER follow BIDIRECT YIELD DISTINCT follow._dst
 ```
 
 双向遍历从点 101 出发沿 follow 边 4 至 5 跳的点。
+
+## 支持 INT 类型传入查询
+
+```ngql
+... | GO FROM $-.id OVER <edge_type_list>
+```
+
+例如：
+
+```ngql
+nebula> YIELD 100 AS id | GO FROM $-.id OVER serve;
+==============
+| serve._dst |
+==============
+| 200        |
+--------------
+```

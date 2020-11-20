@@ -1,6 +1,6 @@
 # Project information
-site_name: Nebula Graph 手册
-site_description: Documentation for Nebula Graph
+site_name: Nebula Graph Database 手册
+site_description: Documentation for Nebula Graph Database
 site_author: Nebula Graph
 site_url: https://docs.nebula-graph.com.cn/
 edit_uri: ''
@@ -15,8 +15,7 @@ copyright: Copyright &copy; 2020 Nebula Graph - 浙ICP备20010487号
 # Configuration
 theme:
   name: 'material'
-  logo:
-    icon: library_books
+  logo: 'https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png'
   favicon: 'assets/images/favicon.ico'
   palette:
     primary: 'indigo'
@@ -25,7 +24,8 @@ theme:
     tabs: true
   language: 'zh'
 
-# extra_css:
+extra_css:
+  - 'stylesheets/logo.css'
 #     - 'theme/structor-menu.css'
 #     - 'theme/extra.css'
 
@@ -50,6 +50,7 @@ nav:
 
     - 简介:
       - 关于本手册: manual-CN/0.about-this-manual.md
+      - 目录索引: manual-CN/README.md
       - 基本概念:
         - 数据模型: manual-CN/1.overview/1.concepts/1.data-model.md
         - 查询语言概览: manual-CN/1.overview/1.concepts/2.nGQL-overview.md
@@ -99,12 +100,14 @@ nav:
         - 用户自定义变量: manual-CN/2.query-language/3.language-structure/user-defined-variables.md
       - 语句语法:
         - 数据定义语句 (DDL):
-            - ALTER TAG EDGE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/alter-tag-edge-syntax.md
+            - ALTER EDGE : manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/alter-edge-syntax.md
+            - ALTER TAG : manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/alter-tag-syntax.md
             - CREATE SPACE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/create-space-syntax.md
-            - CREATE TAG EDGE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/create-tag-edge-syntax.md
+            - CREATE EDGE : manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/create-edge-syntax.md
+            - CREATE TAG : manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/create-tag-syntax.md
             - DROP EDGE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/drop-edge-syntax.md
-            - DROP SPACE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/drop-space-syntax.md
             - DROP TAG: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/drop-tag-syntax.md
+            - DROP SPACE: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/drop-space-syntax.md
             - INDEX: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/index.md
             - TTL: manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/TTL.md
         - 数据查询与操作语句 (DQL 和 DML):
@@ -114,9 +117,10 @@ nav:
             - GO: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/go-syntax.md
             - INSERT EDGE: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/insert-edge-syntax.md
             - INSERT VERTEX: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/insert-vertex-syntax.md
-            - LOOK UP: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/lookup-syntax.md
+            - LOOKUP: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/lookup-syntax.md
             - RETURN: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/return-syntax.md
-            - UPDATE VERTEX EDGE: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/update-vertex-edge-syntax.md
+            - UPDATE EDGE: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/update-edge-syntax.md
+            - UPDATE VERTEX: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/update-vertex-syntax.md
             - UPSERT: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/upsert-syntax.md
             - WHERE: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/where-syntax.md
             - YIELD: manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/yield-syntax.md
@@ -148,25 +152,29 @@ nav:
       - 安装:
         - rpm 安装: manual-CN/3.build-develop-and-administration/2.install/1.install-with-rpm-deb.md
         - 启停服务: manual-CN/3.build-develop-and-administration/2.install/2.start-stop-service.md
+        - 集群部署: manual-CN/3.build-develop-and-administration/2.install/deploy-nebula-with-swarm.md
         - Docker 安装: manual-CN/3.build-develop-and-administration/2.install/3.install-with-docker.md
       - 配置:
           - 系统要求: manual-CN/3.build-develop-and-administration/3.configurations/0.system-requirement.md
           - 配置持久化与优先级: manual-CN/3.build-develop-and-administration/3.configurations/1.config-persistency-and-priority.md
           - CONFIG 语法: manual-CN/3.build-develop-and-administration/3.configurations/2.configs-syntax.md
-          - Metad 配置: manual-CN/3.build-develop-and-administration/3.configurations/3.meta-config.md
+          # - Metad 配置: manual-CN/3.build-develop-and-administration/3.configurations/3.meta-config.md
           - Graphd 配置: manual-CN/3.build-develop-and-administration/3.configurations/4.graph-config.md
           - Storaged 配置: manual-CN/3.build-develop-and-administration/3.configurations/5.storage-config.md
           - Console 配置: manual-CN/3.build-develop-and-administration/3.configurations/6.console-config.md
           - Kernel 配置: manual-CN/3.build-develop-and-administration/3.configurations/7.kernel-config.md
+          - 单机日志: manual-CN/3.build-develop-and-administration/3.configurations/8.single-node-log.md
 
 
       - 账号权限管理:
           - Alter User: manual-CN/3.build-develop-and-administration/4.account-management-statements/alter-user-syntax.md
+          - 身份验证: manual-CN/3.build-develop-and-administration/4.account-management-statements/authentication.md
           - Built-in Roles: manual-CN/3.build-develop-and-administration/4.account-management-statements/built-in-roles.md
           - Change Password: manual-CN/3.build-develop-and-administration/4.account-management-statements/change-password.md
           - Create User: manual-CN/3.build-develop-and-administration/4.account-management-statements/create-user-syntax.md
           - Drop User: manual-CN/3.build-develop-and-administration/4.account-management-statements/drop-user-syntax.md
           - Grant Role: manual-CN/3.build-develop-and-administration/4.account-management-statements/grant-role-syntax.md
+          - LDAP: manual-CN/3.build-develop-and-administration/4.account-management-statements/LDAP.md
           - Revoke: manual-CN/3.build-develop-and-administration/4.account-management-statements/revoke-syntax.md
 
       - 批量数据管理:
@@ -179,6 +187,7 @@ nav:
           - 负载均衡和数据迁移: manual-CN/3.build-develop-and-administration/5.storage-service-administration/storage-balance.md
           - 集群快照: manual-CN/3.build-develop-and-administration/5.storage-service-administration/cluster-snapshot.md
           - 长耗时任务管理: manual-CN/3.build-develop-and-administration/5.storage-service-administration/job-manager.md
+          - Compact: manual-CN/3.build-develop-and-administration/5.storage-service-administration/compact.md
 
       - 监控与统计:
         # - 接入 Prometheus: manual-CN/3.build-develop-and-administration/7.monitor/0.connect-prometheus.md
@@ -186,6 +195,8 @@ nav:
         - Meta Metrics: manual-CN/3.build-develop-and-administration/7.monitor/2.meta-metrics.md
         - Storage Metrics: manual-CN/3.build-develop-and-administration/7.monitor/3.storage-metrics.md
         - Graph Metrics: manual-CN/3.build-develop-and-administration/7.monitor/4.graph-metrics.md
+        - RocksDB Statistics: manual-CN/3.build-develop-and-administration/7.monitor/5.rocksdb-statistics.md
+
 
       - 源码开发和 API:
         - Key Value API: manual-CN/3.build-develop-and-administration/6.develop-and-interface/kv-interfaces.md
@@ -200,7 +211,12 @@ nav:
     - 附录:
       - Cypher & nGQL: manual-CN/5.appendix/cypher-ngql.md
       - Gremlin & nGQL: manual-CN/5.appendix/gremlin-ngql.md
-      - 升级 Nebula Graph: manual-CN/5.appendix/upgrade-guide.md
+      - SQL & nGQL: manual-CN/5.appendix/sql-ngql.md
+      - 点标识符和分区: manual-CN/5.appendix/vid-partition.md
+      - 文档工程师 Visual Studio Code 推荐配置: manual-CN/5.appendix/vscode-config.md
+
+
+
     - English:
       - https://docs.nebula-graph.io/
 

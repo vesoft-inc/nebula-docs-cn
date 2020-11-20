@@ -2,7 +2,12 @@
 
 **Nebula Graph** 是一个分布式的可扩展的高性能的图数据库。
 
-**Nebula Graph** 可以容纳百亿节点和万亿条边，并达到毫秒级的时延。
+**Nebula Graph** 可以容纳百亿点和万亿条边，并达到毫秒级的时延。
+
+## 教学视频
+
+* [YouTube](https://www.youtube.com/channel/UC73V8q795eSEMxDX4Pvdwmw/)
+* [Bilibili](https://space.bilibili.com/472621355)
 
 ## 前言
 
@@ -60,8 +65,10 @@
 * 语句语法
   * 数据定义语句 (DDL)
     * [新建图空间](2.query-language/4.statement-syntax/1.data-definition-statements/create-space-syntax.md)
-    * [新建 Tag 和 Edge](2.query-language/4.statement-syntax/1.data-definition-statements/create-tag-edge-syntax.md)
-    * [更改 Tag 和 Edge](2.query-language/4.statement-syntax/1.data-definition-statements/alter-tag-edge-syntax.md)
+    * [新建 Edge](2.query-language/4.statement-syntax/1.data-definition-statements/create-edge-syntax.md)
+    * [新建 Tag](2.query-language/4.statement-syntax/1.data-definition-statements/create-tag-syntax.md)
+    * [修改 Edge](2.query-language/4.statement-syntax/1.data-definition-statements/alter-edge-syntax.md)
+    * [修改 Tag](2.query-language/4.statement-syntax/1.data-definition-statements/alter-tag-syntax.md)
     * [删除 Tag](2.query-language/4.statement-syntax/1.data-definition-statements/drop-tag-syntax.md)
     * [删除 Edge](2.query-language/4.statement-syntax/1.data-definition-statements/drop-edge-syntax.md)
     * [删除 Space](2.query-language/4.statement-syntax/1.data-definition-statements/drop-space-syntax.md)
@@ -70,14 +77,15 @@
 
   * 数据查询与操作语句 (DQL 和 DML)
     * [删除边](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/delete-edge-syntax.md)
-    * [删除顶点](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/delete-vertex-syntax.md)
+    * [删除点](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/delete-vertex-syntax.md)
     * [获取点和边属性 (Fetch)](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/fetch-syntax.md)
     * [图遍历 (Go)](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/go-syntax.md)
     * [插入边](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/insert-edge-syntax.md)
-    * [插入顶点](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/insert-vertex-syntax.md)
+    * [插入点](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/insert-vertex-syntax.md)
     * [查找数据 (Lookup)](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/lookup-syntax.md)
     * [返回满足条件的语句 (Return)](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/return-syntax.md)
-    * [更新点和边](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/update-vertex-edge-syntax.md)
+    * [更新点](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/update-vertex-syntax.md)
+    * [更新边](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/update-edge-syntax.md)
     * [Upsert 语法](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/upsert-syntax.md)
     * [条件语句 (Where)](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/where-syntax.md)
     * [返回结果语句 (Yield)](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/yield-syntax.md)
@@ -110,23 +118,28 @@
 * 安装
   * [rpm 安装](3.build-develop-and-administration/2.install/1.install-with-rpm-deb.md)
   * [起停服务](3.build-develop-and-administration/2.install/2.start-stop-service.md)
+  * [使用 Docker 安装](3.build-develop-and-administration/2.install/3.install-with-docker.md)
+  * [集群部署](3.build-develop-and-administration/2.install/deploy-nebula-with-swarm.md)
 * 配置
   * [系统要求](3.build-develop-and-administration/3.configurations/0.system-requirement.md)
   * [配置持久化与优先级](3.build-develop-and-administration/3.configurations/1.config-persistency-and-priority.md)
   * [CONFIG 语法](3.build-develop-and-administration/3.configurations/2.configs-syntax.md)
-  * [Metad 配置](3.build-develop-and-administration/3.configurations/3.meta-config.md)
+  <!-- * [Metad 配置](3.build-develop-and-administration/3.configurations/3.meta-config.md) -->
   * [Graphd 配置](3.build-develop-and-administration/3.configurations/4.graph-config.md)
   * [Storaged 配置](3.build-develop-and-administration/3.configurations/5.storage-config.md)
   * [命令行终端配置](3.build-develop-and-administration/3.configurations/6.console-config.md)
   * [Kernel 配置](3.build-develop-and-administration/3.configurations/7.kernel-config.md)
+  * [单机日志](3.build-develop-and-administration/3.configurations/8.single-node-log.md)
 
 * 账号权限管理
   * [Alter User Syntax](3.build-develop-and-administration/4.account-management-statements/alter-user-syntax.md)
+  * [身份验证](3.build-develop-and-administration/4.account-management-statements/authentication.md)
   * [Built-in Roles](3.build-develop-and-administration/4.account-management-statements/built-in-roles.md)
   * [Change Password](3.build-develop-and-administration/4.account-management-statements/change-password.md)
   * [Create User](3.build-develop-and-administration/4.account-management-statements/create-user-syntax.md)
   * [Drop User](3.build-develop-and-administration/4.account-management-statements/drop-user-syntax.md)
   * [Grant Role](3.build-develop-and-administration/4.account-management-statements/grant-role-syntax.md)
+  * [LDAP](3.build-develop-and-administration/4.account-management-statements/LDAP.md)
   * [Revoke](3.build-develop-and-administration/4.account-management-statements/revoke-syntax.md)
 * 批量数据管理
   * 离线数据导入
@@ -138,12 +151,14 @@
   * [负载均衡和数据迁移](3.build-develop-and-administration/5.storage-service-administration/storage-balance.md)
   * [集群快照](3.build-develop-and-administration/5.storage-service-administration/cluster-snapshot.md)
   * [长耗时任务管理(compact,flush)](3.build-develop-and-administration/5.storage-service-administration/job-manager.md)
+  * [Compact](3.build-develop-and-administration/5.storage-service-administration/compact.md)
 * 监控与统计
   <!-- * [接入 prometheus](3.build-develop-and-administration/7.monitor/0.connect-prometheus.md) -->
   * [metrics](3.build-develop-and-administration/7.monitor/1.metrics-exposer.md)
   * [meta 层运行统计 (metrics)](3.build-develop-and-administration/7.monitor/2.meta-metrics.md)
   * [storage 运行统计 (metrics)](3.build-develop-and-administration/7.monitor/3.storage-metrics.md)
   * [graph 层运行统计 (metrics)](3.build-develop-and-administration/7.monitor/4.graph-metrics.md)
+  * [RocksDB 统计数据](3.build-develop-and-administration/7.monitor/5.rocksdb-statistics.md)
 * 源码开发和 API
   * [Key Value 接口](3.build-develop-and-administration/6.develop-and-interface/kv-interfaces.md)
   * [Nebula Graph 客户端](1.overview/2.quick-start/3.supported-clients.md)
@@ -159,11 +174,5 @@
 
 * [Gremlin V.S. nGQL](5.appendix/gremlin-ngql.md)
 * [Cypher V.S. nGQL](5.appendix/cypher-ngql.md)
-* [升级 Nebula Graph](5.appendix/upgrade-guide.md)
-
-## 其他
-
-### 视频
-
-* [YouTube](https://www.youtube.com/channel/UC73V8q795eSEMxDX4Pvdwmw/)
-* [Bilibili](https://space.bilibili.com/472621355)
+* [SQL V.S. nGQL](5.appendix/sql-ngql.md)
+* [点标识符和分区](5.appendix/vid-partition.md)

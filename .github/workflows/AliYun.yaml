@@ -42,7 +42,7 @@ jobs:
             username: ${{ secrets.USER_NAME }}
             password: ${{ secrets.PASSWORD }}
             port: ${{ secrets.port }}
-            source: nebula-docs.tar.gz 
+            source: nebula-docs.tar.gz
             target: /usr/web
 
       - name: UnCompress

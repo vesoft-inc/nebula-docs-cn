@@ -1,8 +1,8 @@
 # INSERT VERTEX 语法
 
 ```ngql
-INSERT VERTEX <tag_name> [, <tag_name>, ...] (prop_name_list[, prop_name_list])
-     {VALUES | VALUE} vid: (prop_value_list[, prop_value_list])
+INSERT VERTEX <tag_name> (prop_name_list) [, <tag_name> (prop_name_list), ...]
+     {VALUES | VALUE} VID: (prop_value_list[, prop_value_list])
 
 prop_name_list:
   [prop_name [, prop_name] ...]
@@ -11,11 +11,12 @@ prop_value_list:
   [prop_value [, prop_value] ...]
 ```
 
-INSERT VERTEX 可向 **Nebula Graph** 插入节点。
+INSERT VERTEX 可向 **Nebula Graph** 插入点。
 
-- `tag_name` 表示标签（节点类型），在进行 `INSERT VERTEX` 操作前需创建好。
+- `tag_name` 表示标签（点类型），在进行 `INSERT VERTEX` 操作前需创建好。
 - `prop_name_list` 指定标签的属性列表。
-- `prop_value_list` 须根据 <prop_name_list> 列出属性，如无匹配类型，则返回错误。
+- `VID` 表示点 ID。每个图空间中的 `VID` 必须唯一。目前的排序依据为“二进制编码顺序“：即 0, 1, 2, ... 9223372036854775807, -9223372036854775808, -9223372036854775807, ..., -1。`VID` 支持手动指定 ID 或使用 `hash()` 函数生成。
+- `prop_value_list` 须根据 `prop_name_list` 列出属性值，如无匹配类型，则返回错误。
 
 ## 示例
 
@@ -37,7 +38,7 @@ nebula> CREATE TAG t2(s2 string);
 nebula> INSERT VERTEX  t1 (i1), t2(s2) VALUES 21: (321, "hello");   -- 插入有两个标签的点 21
 ```
 
-同一节点可被多次插入或写入，读取时以最后一次插入为准。
+同一点可被多次插入或写入，读取时以最后一次插入为准。
 
 ```ngql
 -- 为点 11 多次插入新值

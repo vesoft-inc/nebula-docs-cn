@@ -1,6 +1,6 @@
 # Nebula Graph 是什么
 
-**Nebula Graph** 是一款开源的图数据库，擅长处理千亿个顶点和万亿条边的超大规模数据集。
+**Nebula Graph** 是一款开源的图数据库，擅长处理千亿个点和万亿条边的超大规模数据集。
 
 下图为 **Nebula Graph** 产品架构图：
 
@@ -15,13 +15,25 @@
 * 类 SQL 查询语言
 * 用户鉴权
 
-## 快速使用
+## [视频教程](https://space.bilibili.com/472621355)
+
+如果你想通过观看视频的方式学习 Nebula Graph，请访问我们的 [B 站频道](https://space.bilibili.com/472621355)。目前有两个教程系列：
+
+* [Nebula Graph 快速入门](https://space.bilibili.com/472621355/channel/detail?cid=86880)
+* [Nebula Graph studio](https://space.bilibili.com/472621355/channel/detail?cid=121139)
+
+## [快速使用](manual-CN/1.overview/2.quick-start/1.get-started.md)
 
 请查看[快速使用手册](manual-CN/1.overview/2.quick-start/1.get-started.md)，开始使用 **Nebula Graph**。
 
 在开始使用 **Nebula Graph** 之前，必须通过[编译源码](manual-CN/3.build-develop-and-administration/1.build/1.build-source-code.md)，[rpm/deb 包](manual-CN/3.build-develop-and-administration/2.install/1.install-with-rpm-deb.md) 或者 [docker compose](https://github.com/vesoft-inc/nebula-docker-compose/blob/master/README_zh-CN.md) 方式安装 **Nebula Graph**。您也可以观看[视频](https://space.bilibili.com/472621355)学习如何安装 **Nebula Graph**。
 
 如果您遇到任何问题，请前往 Nebula Graph [官方论坛](https://discuss.nebula-graph.com.cn) 提问。
+
+## 常见问题
+
+* [查询返回时间解释](manual-CN/1.overview/2.quick-start/2.FAQ.md)
+* [关于机械硬盘和千兆网络](https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/3.configurations/0.system-requirement/#_7)
 
 ## 文档
 
@@ -30,7 +42,7 @@
 
 ## 产品路线图
 
-**Nebula Graph** 产品规划路线图请参见 [roadmap](https://github.com/vesoft-inc/nebula/wiki/Nebula-Graph-Roadmap)。
+**Nebula Graph** 产品规划路线图请参见 [roadmap](https://github.com/vesoft-inc/nebula/wiki/Nebula-Graph-Roadmap-2020)。
 
 ## 可视化工具：Nebula Graph Studio
 

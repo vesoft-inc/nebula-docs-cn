@@ -29,7 +29,7 @@ edge type          | label   | edge type     |
 vertex id          | vid     | vid           |
 edge id            | eid     | 无            |
 
-Gremlin 和 nGQL 均使用唯一标识符标记顶点和边。在 **Nebula Graph** 中，用户可以使用指定标识符、哈希或 uuid 函数自动生成标识符。
+Gremlin 和 nGQL 均使用唯一标识符标记点和边。在 **Nebula Graph** 中，用户可以使用指定标识符、哈希或 uuid 函数自动生成标识符。
 
 ## 图基本操作
 
@@ -37,17 +37,17 @@ Gremlin 和 nGQL 均使用唯一标识符标记顶点和边。在 **Nebula Graph
 -----                  |---------        |   -----       |
 新建图空间     | g = TinkerGraph.open().traversal() | CREATE SPACE gods |
 查看点类型   | g.V().label()   | SHOW TAGS |
-插入指定类型点 | g.addV(String vertexLabel).property() | INSERT VERTEX <tag_name> (prop_name_list) VALUES \<vid>:(prop_value_list) |
-插入指定类型边 | g.addE(String edgeLabel).from(v1).to(v2).property()| INSERT EDGE <edge_name> ( <prop_name_list> ) VALUES <src_vid> -> <dst_vid>: ( <prop_value_list> ) |
-删除点 | g.V(\<vid>).drop() | DELETE VERTEX \<vid> |
-删除边  | g.E(\<vid>).outE(\<type>).where(otherV().is(\<vid>))drop() | DELETE EDGE <edge_type> \<src_vid> -> \<dst_vid> |
-更新点属性 | g.V(\<vid>).property() | UPDATE VERTEX \<vid> SET <update_columns> |
-查看指定点 | g.V(\<vid>) | FETCH PROP ON <tag_name> \<vid>|
-查看指定边 | g.E(<src_vid> >> <dst_vid>) | FETCH PROP ON <edge_name> <src_vid> -> <dst_vid> |
-沿指定点查询指定边 | g.V(\<vid>).outE( \<edge>) | GO FROM \<vid> OVER  \<edge> |
-沿指定点反向查询指定边 | g.V(\<vid>).in( \<edge>) | GO FROM \<vid>  OVER \<edge> REVERSELY |
-沿指定点查询指定边 N 跳 | g.V(\<vid>).repeat(out(\<edge>)).times(N) | GO N STEPS FROM \<vid> OVER \<edge> |
-返回指定两点路径 | g.V(\<vid>).repeat(out()).until(\<vid>).path() | FIND ALL PATH FROM \<vid> TO \<vid> OVER * |
+插入指定类型点 | g.addV(String vertexLabel).property() | INSERT VERTEX `<tag_name>` (prop_name_list) VALUES `<vid>`:(prop_value_list) |
+插入指定类型边 | g.addE(String edgeLabel).from(v1).to(v2).property()| INSERT EDGE `<edge_name>` ( `<prop_name_list>` ) VALUES `<src_vid>` -> `<dst_vid>`: ( `<prop_value_list>` ) |
+删除点 | g.V(`<vid>`).drop() | DELETE VERTEX `<vid>`|
+删除边  | g.E(`<vid>`).outE(`<type>`).where(otherV().is(`<vid>`))drop() | DELETE EDGE `<edge_type>` `<src_vid>` -> `<dst_vid>` |
+更新点属性 | g.V(`<vid>`).property() | UPDATE VERTEX `<vid>` SET `<update_columns>` |
+查看指定点 | g.V(`<vid>`) | FETCH PROP ON `<tag_name>` `<vid>`|
+查看指定边 | g.E(`<src_vid>` >> `<dst_vid>`) | FETCH PROP ON `<edge_name>` `<src_vid>` -> `<dst_vid>` |
+沿指定点查询指定边 | g.V(`<vid>`).outE( `<edge>`) | GO FROM `<vid>` OVER  `<edge>` |
+沿指定点反向查询指定边 | g.V(`<vid>`).in( `<edge>`) | GO FROM `<vid>`  OVER `<edge>` REVERSELY |
+沿指定点查询指定边 N 跳 | g.V(`<vid>`).repeat(out(`<edge>`)).times(N) | GO N STEPS FROM `<vid>` OVER `<edge>` |
+返回指定两点路径 | g.V(`<vid>`).repeat(out()).until(`<vid>`).path() | FIND ALL PATH FROM `<vid>` TO `<vid>` OVER * |
 
 ## 示例查询
 
@@ -290,14 +290,14 @@ nebula> SHOW EDGES;
 ----------------
 ...
 
-# 查询所有顶点的属性
+# 查询所有点的属性
 gremlin> g.V().valueMap();
 ==>[name:[saturn],type:[titan],age:[10000]]
 ==>[name:[jupiter],type:[god],age:[5000]]
 ...
 nebula> # Coming soon
 
-# 查询 character 顶点属性
+# 查询 character 点属性
 gremlin> g.V().hasLabel('character').valueMap();
 ==>[name:[saturn],type:[titan],age:[10000]]
 ==>[name:[jupiter],type:[god],age:[5000]]
@@ -308,12 +308,12 @@ gremlin> g.V().hasLabel('character').valueMap();
 
 名称               | Gremlin | nGQL           |
 -----              |---------|   -----       |
-指定点沿指定边的出顶点 | out(\<label>)       | GO FROM \<vertex_id> OVER \<edge_type>  |
-指定点沿指定边的入顶点 | in(\<label>)    | GO FROM \<vertex_id> OVER \<edge_type> REVERSELY          |
-指定点沿指定边的双向顶点      | both(\<label>)   | GO FROM \<vertex_id> OVER \<edge_type> BIDIRECT           |
+指定点沿指定边的出点 | out(\<label>)       | GO FROM \<vertex_id> OVER \<edge_type>  |
+指定点沿指定边的入点 | in(\<label>)    | GO FROM \<vertex_id> OVER \<edge_type> REVERSELY          |
+指定点沿指定边的双向点      | both(\<label>)   | GO FROM \<vertex_id> OVER \<edge_type> BIDIRECT           |
 
 ```bash
-# 访问某个顶点沿某条边的 OUT 方向邻接点
+# 访问某个点沿某条边的 OUT 方向邻接点
 gremlin> g.V(jupiter).out('brother');
 ==>v[8]
 ==>v[5]
@@ -326,7 +326,7 @@ nebula> GO FROM hash("jupiter") OVER brother;
 | -5860788569139907963 |
 ------------------------
 
-# 访问某个顶点沿某条边的 IN 方向邻接点
+# 访问某个点沿某条边的 IN 方向邻接点
 gremlin> g.V(jupiter).in('brother');
 ==>v[5]
 ==>v[8]
@@ -339,7 +339,7 @@ nebula> GO FROM hash("jupiter") OVER brother REVERSELY;
 | 4863977009196259577 |
 -----------------------
 
-# 访问某个顶点沿某条边的双向邻接点
+# 访问某个点沿某条边的双向邻接点
 gremlin> g.V(jupiter).both('brother');
 ==>v[8]
 ==>v[5]
@@ -373,11 +373,11 @@ GO FROM $-.id OVER lives;
 
 名称               | Gremlin | nGQL           |
 -----              |---------|   -----       |
-通过 ID 来过滤顶点 | hasId(\<vertex_id>)       | FETCH PROP ON \<vertex_id> |
-通过 label 和属性的名字和值过滤顶点和边  | has(\<label>, \<key>, \<value>)    | LOOKUP \<tag> \| \<edge_type> WHERE \<expression>        |
+通过 ID 来过滤点 | hasId(\<vertex_id>)       | FETCH PROP ON \<vertex_id> |
+通过 label 和属性的名字和值过滤点和边  | has(\<label>, \<key>, \<value>)    | LOOKUP \<tag> \| \<edge_type> WHERE \<expression>        |
 
 ```bash
-# 查询 ID 为 saturn 的顶点
+# 查询 ID 为 saturn 的点
 gremlin> g.V().hasId(saturn);
 ==>v[1]
 nebula> FETCH PROP ON * hash("saturn");
@@ -387,7 +387,7 @@ nebula> FETCH PROP ON * hash("saturn");
 | -4316810810681305233 | saturn         | 10000         | titan          |
 --------------------------------------------------------------------------
 
-# 查询 tag 为 character 且 name 属性值为 hercules 的顶点
+# 查询 tag 为 character 且 name 属性值为 hercules 的点
 
 gremlin> g.V().has('character','name','hercules').valueMap();
 ==>[name:[hercules],type:[demigod],age:[30]]
@@ -408,7 +408,7 @@ nebula> LOOKUP ON character WHERE character.name == 'hercules' YIELD character.n
 跳过前 n 个元素 | skip() | LIMIT \<offset_value> |
 
 ```bash
-# 查询前两个顶点
+# 查询前两个点
 gremlin> g.V().has('character','name','hercules').out('battled').limit(2);
 ==>v[9]
 ==>v[10]
@@ -421,7 +421,7 @@ nebula> GO FROM hash('hercules') OVER battled | LIMIT 2;
 | -695163537569412701 |
 -----------------------
 
-# 查询最后一个顶点
+# 查询最后一个点
 gremlin> g.V().has('character','name','hercules').out('battled').values('name').tail(1);
 ==>cerberus
 nebula> GO FROM hash('hercules') OVER battled YIELD $$.character.name AS name | ORDER BY name | LIMIT 1;
@@ -454,7 +454,7 @@ nebula> GO FROM hash('hercules') OVER battled YIELD $$.character.name AS name | 
 **注意：**  **Nebula Graph** 需要起始点和终点方可返回路径， Gremlin 仅需要起始点。
 
 ```bash
-# pluto 顶点到与其有直接关联的出边顶点的路径
+# pluto 点到与其有直接关联的出边点的路径
 gremlin> g.V().hasLabel('character').has('name','pluto').out().path();
 ==>[v[8],v[12]]
 ==>[v[8],v[2]]
@@ -501,8 +501,8 @@ nebula> LOOKUP ON character WHERE character.name== "pluto" YIELD character.name 
 | 0           | 0                    | 0                    | 0           | 4594048193862126013 | 0            |
 ----------------------------------------------------------------------------------------------------------------
 
-# 查询顶点 hercules 到顶点 cerberus 之间的路径
-# 循环的终止条件是遇到名称是 cerberus 的顶点
+# 查询点 hercules 到点 cerberus 之间的路径
+# 循环的终止条件是遇到名称是 cerberus 的点
 gremlin> g.V().hasLabel('character').has('name','hercules').repeat(out()).until(has('name', 'cerberus')).path();
 ==>[v[6],v[11]]
 ==>[v[6],v[2],v[8],v[11]]
@@ -520,7 +520,7 @@ gremlin> g.V().hasLabel('character').has('name','hercules').repeat(out()).emit(h
 ...
 nebula> # Coming soon
 
-# 查询两顶点 pluto 和 saturn 之间的最短路径
+# 查询两点 pluto 和 saturn 之间的最短路径
 # 且最大深度为 3
 gremlin> g.V('pluto').repeat(out().simplePath()).until(hasId('saturn').and().loops().is(lte(3))).hasId('saturn').path();
 nebula> FIND SHORTEST PATH FROM hash('pluto') TO hash('saturn') OVER * UPTO 3 STEPS;
@@ -565,7 +565,7 @@ nebula> GO FROM hash('pluto') OVER brother YIELD $$.character.name AS Name, $$.c
 **注意：** GROUP BY 函数只能与 YIELD 语句一起使用。
 
 ```bash
-# 根据顶点类别进行分组并统计各个类别的数量
+# 根据点类别进行分组并统计各个类别的数量
 gremlin> g.V().group().by(label).by(count());
 ==>[character:9,location:3]
 nebula> # Coming soon
@@ -770,9 +770,9 @@ nebula> # Coming soon
 ### 分支
 
 ```bash
-# 查找所有类型为 'character' 的顶点
-# name 属性为 'jupiter' 的顶点输出其 age 属性
-# 否则输出顶点的 name 属性
+# 查找所有类型为 'character' 的点
+# name 属性为 'jupiter' 的点输出其 age 属性
+# 否则输出点的 name 属性
 gremlin> g.V().hasLabel('character').choose(values('name')).option('jupiter', values('age')).option(none, values('name'));
 ==>saturn
 ==>5000
@@ -819,7 +819,7 @@ gremlin> g.V().hasLabel("character").groupCount().by(values("age").choose(
 gremlin> g.V(pluto).coalesce(has('type','monster').values('type'),constant("Not a monster"));
 ==>Not a monster
 
-# 按优先级寻找到顶点 jupiter 的以下边和邻接点，找到一个就停止
+# 按优先级寻找到点 jupiter 的以下边和邻接点，找到一个就停止
 # 1、brother 出边和邻接点
 # 2、father 出边和邻接点
 # 3、father 入边和邻接点
@@ -827,11 +827,11 @@ gremlin> g.V(jupiter).coalesce(outE('brother'), outE('father'), inE('father')).i
 ==>[jupiter,brother,pluto]
 ==>[jupiter,brother,neptune]
 
-# 查找顶点 pluto 的 father 出顶点，如果没有就返回 pluto 自己
+# 查找点 pluto 的 father 出点，如果没有就返回 pluto 自己
 gremlin> g.V(pluto).optional(out('father')).valueMap();
 ==>[name:[pluto],type:[god],age:[4000]]
 
-# 寻找顶点 pluto 的出 father 顶点，邻接 brother 顶点，并将结果合并，最后打印出路径
+# 寻找点 pluto 的出 father 点，邻接 brother 点，并将结果合并，最后打印出路径
 gremlin> g.V(pluto).union(out('father'),both('brother')).path();
 ==>[v[8],v[2]]
 ==>[v[8],v[5]]
@@ -869,10 +869,10 @@ gremlin> g.V(pluto).out().aggregate('x').out().aggregate('x').cap('x').unfold().
 `match()` 语句为图查询提供了一种基于模式匹配的方式，以便用更具描述性的方式进行图查询。match()语句通过多个模式片段 traversal fragments 来进行模式匹配。这些 traversal fragments 中会定义一些变量，只有满足所有用变量表示的约束的对象才能够通过。
 
 ```bash
-# 对每一个顶点，用以下模式去匹配，满足则生成一个 map<String, Object>，不满足则过滤掉
-# 模式1：a 为沿 father 出边指向 jupiter 的顶点
-# 模式2：b 对应当前顶点 jupiter
-# 模式3：c 对应创建 jupiter 的 brother 年龄为 4000 的 顶点
+# 对每一个点，用以下模式去匹配，满足则生成一个 map<String, Object>，不满足则过滤掉
+# 模式1：a 为沿 father 出边指向 jupiter 的点
+# 模式2：b 对应当前点 jupiter
+# 模式3：c 对应创建 jupiter 的 brother 年龄为 4000 的 点
 gremlin> g.V().match(__.as('a').out('father').has('name', 'jupiter').as('b'), __.as('b').in('brother').has('age', 4000).as('c'));
 ==>[a:v[6],b:v[2],c:v[8]]
 
@@ -892,12 +892,12 @@ gremlin> g.V().match(__.as('a').out('father').has('name', 'jupiter').as('b'), __
 `coin()` 字面意思是抛硬币过滤，接受一个浮点值，该浮点值表示硬币出现正面的概率。
 
 ```bash
-# 从所有顶点的出边中随机选择 2 条
+# 从所有点的出边中随机选择 2 条
 gremlin> g.V().outE().sample(2);
 ==>e[15][2-brother->5]
 ==>e[18][5-brother->2]
 
-# 从所顶点的 name 属性中随机选取 3 个
+# 从所点的 name 属性中随机选取 3 个
 gremlin> g.V().values('name').sample(3);
 ==>hercules
 ==>sea
@@ -910,17 +910,17 @@ gremlin> g.V().hasLabel('character').sample(3).by('age');
 ==>v[6]
 
 # 与 local 联合使用做随机漫游
-# 从顶点 pluto 出发做 3 次随机漫游
+# 从点 pluto 出发做 3 次随机漫游
 gremlin> g.V(pluto).repeat(local(bothE().sample(1).otherV())).times(3).path();
 ==>[v[8],e[26][8-brother->5],v[5],e[18][5-brother->2],v[2],e[13][2-father->1],v[1]]
 
-# 每个顶点按 0.5 的概率过滤
+# 每个点按 0.5 的概率过滤
 gremlin> g.V().coin(0.5);
 ==>v[1]
 ==>v[2]
 ...
 
-# 输出所有 location 类顶点的 name 属性，否则输出 not a location
+# 输出所有 location 类点的 name 属性，否则输出 not a location
 gremlin> g.V().choose(hasLabel('location'), values('name'), constant('not a location'));
 ==>not a location
 ==>not a location
@@ -980,11 +980,11 @@ gremlin> g.V()hasLabel('character').has('type', 'monster').propertyMap().count(l
 ==>3
 ==>3
 
-# 数目最多的顶点类型的顶点数目
+# 数目最多的点类型的点数目
 gremlin> g.V().groupCount().by(label).select(values).max(local);
 ==>9
 
-# 所有顶点的属性列表中的第一个属性
+# 所有点的属性列表中的第一个属性
 gremlin> g.V().valueMap().limit(local, 1);
 ==>[name:[saturn]]
 ==>[name:[jupiter]]
@@ -995,7 +995,7 @@ gremlin> g.V().valueMap().limit(local, 1);
 gremlin> g.V().valueMap().limit(1);
 ==>[name:[saturn],type:[titan],age:[10000]]
 
-# 所有顶点作为一个集合，从中采样 2 个
+# 所有点作为一个集合，从中采样 2 个
 gremlin> g.V().fold().sample(local,2);
 ==>[v[8],v[1]]
 ```

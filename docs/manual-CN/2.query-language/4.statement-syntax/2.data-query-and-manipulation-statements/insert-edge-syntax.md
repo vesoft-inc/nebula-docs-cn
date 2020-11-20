@@ -2,7 +2,7 @@
 
 ```ngql
 INSERT EDGE <edge_name> ( <prop_name_list> ) VALUES | VALUE
-<src_vid> -> <dst_vid>[@<ranking>] : ( <prop_value_list> )
+<src_vid> -> <dst_vid>[@<rank>] : ( <prop_value_list> )
 [, <src_vid> -> <dst_vid> : ( <prop_value_list> ), ...]
 
 <prop_name_list>:
@@ -17,14 +17,14 @@ INSERT EDGE 用于插入从起点（ src_vid ）到终点（ dst_vid ）的一�
 * `<edge_name>` 表示边类型，在进行 `INSERT EDGE` 操作前需创建好。
 * `<prop_name_list>` 为指定边的属性列表。
 * `<prop_value_list>` 须根据 <prop_name_list> 列出属性，如无匹配类型，则返回错误。
-* `ranking` 指定边 ranking，可在插入同一类型的多条边时使用，可选，不指定时默认为 0。
+* `rank` 指定边 rank，可在插入同一类型的多条边时使用，可选，不指定时默认为 0。
 
 ## 示例
 
 ```ngql
 nebula> CREATE EDGE e1();                   -- 创建空属性边 t1
 nebula> INSERT EDGE e1 () VALUES 10->11:();    -- 插入一条从点 10 到点 11 的空属性边
-nebula> INSERT EDGE e1 () VALUES 10->11@1:();  -- 插入一条从点 10 到点 11 的空属性边，ranking 值为 1
+nebula> INSERT EDGE e1 () VALUES 10->11@1:();  -- 插入一条从点 10 到点 11 的空属性边，rank 值为 1
 ```
 
 ```ngql

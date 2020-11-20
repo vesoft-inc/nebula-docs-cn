@@ -1,19 +1,19 @@
 # UPSERT 语法
 
-`UPSERT` 用于插入新的顶点或边或更新现有的顶点或边。如果顶点或边不存在，则会新建该顶点或边。`UPSERT` 是 `INSERT` 和 `UPDATE` 的组合。
+`UPSERT` 用于插入新的点或边或更新现有的点或边。如果点或边不存在，则会新建该点或边。`UPSERT` 是 `INSERT` 和 `UPDATE` 的组合。
 
 `UPSERT` 操作相比于 `INSERT` 操作性能会低很多，因为 `UPSERT` 是在 partition 级别的 read-modify-write 串行化操作，因此不适用于大并发更改写入的场景。
 
-- 如果顶点或边不存在，则会新建该顶点或边，无论 WHEN 条件是否满足，且未经 SET 指定的属性字段使用该字段的默认值，如果默认值不存在则报错；
-- 如果该顶点或者边存在，并且 WHEN 条件满足，则会更新；
-- 如果该顶点或者边存在, 并且 WHEN 条件不满足，则不会有任何操作。
+- 如果点或边不存在，则会新建该点或边，无论 WHEN 条件是否满足，且未经 SET 指定的属性字段使用该字段的默认值，如果默认值不存在则报错；
+- 如果该点或者边存在，并且 WHEN 条件满足，则会更新；
+- 如果该点或者边存在, 并且 WHEN 条件不满足，则不会有任何操作。
 
 ```ngql
 UPSERT {VERTEX <vid> | EDGE <edge>} SET <update_columns> [WHEN <condition>] [YIELD <columns>]
 ```
 
 - `vid` 表示需要更新的 vertex ID。
-- `edge` 表示需要更新的 edge，edge 的格式为 `<src> -> <dst> [@ranking] OF <edge_type>`。
+- `edge` 表示需要更新的 edge，edge 的格式为 `<src> -> <dst> [@rank] OF <edge_type>`。
 - `update_columns` 表示需要更新的 tag 或 edge 上的 columns，比如 `tag1.col1 = $^.tag2.col2 + 1` 表示把这个点的 `tag1.col1` 更新成 `tag2.col2 + 1`。
 
     **注意：**  `$^`表示 `UPDATE` 中需要更新的点。
