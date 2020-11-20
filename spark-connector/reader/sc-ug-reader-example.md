@@ -1,26 +1,26 @@
-# 应用示例
+# Nebula Spark Connector Reader 应用示例
 
-本文以一个示例说明如何使用 Spark-connector Reader 读取 Nebula Graph 的点和边数据。
+本文以一个示例说明如何使用 Nebula Spark Connector Reader 读取 Nebula Graph 的点和边数据。
 
 ## 前提条件
 
-使用 Spark-connector Reader 前，您需要确认以下信息：
+使用 Nebula Spark Connector Reader 前，您需要确认以下信息：
 
 - 您的机器上已经安装了以下软件：
-  - Apache Spark&trade; 2.3.0 及以上版本
+  - Apache Spark&trade; 2.3.0 及以后版本
   - Scala
   - Java：1.8
 
-- 已经成功编译 Spark-connector Reader，并已经将 `nebula-spark-1.0.1.jar` 复制到本地 Maven 库。详细信息参考 [编译 Spark-connector Reader](screader-ug-compile.md)
+- 已经成功编译 Nebula Spark Connector Reader，并已经将 `nebula-spark-1.0.1.jar` 复制到本地 Maven 库。详细信息参考 [编译 Nebula Spark Connector Reader](screader-ug-compile.md)
 
 - 已经获取 Nebula Graph 数据库的以下信息：
   - 图空间名称和分区数量（如果创建图空间时未设置分区数量，则默认使用 100）
   - 标签和边类型的名称以及属性
-  - metad 服务所在机器的 IP 地址及端口号
+  - Meta 服务所在机器的 IP 地址及端口号
 
 ## 操作步骤
 
-参考以下步骤使用 Spark-connector Reader：
+参考以下步骤使用 Nebula Spark Connector Reader：
 
 1. 在 Maven 项目的 `pom.xml` 文件中加入 `nebula-spark` 依赖。
 
@@ -32,7 +32,7 @@
     </dependency>
     ```
 
-2. 构建 `SparkSession` 类，这是 Spark SQL 的编码入口。
+2. 构建 `SparkSession` 类。这是 Spark SQL 的编码入口。
 
     ```
     val sparkConf = new SparkConf
