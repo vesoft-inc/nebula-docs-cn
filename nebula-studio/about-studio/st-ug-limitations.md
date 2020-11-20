@@ -4,21 +4,22 @@
 
 ## Nebula Graph 版本支持
 
-目前 Studio 仅支持 Nebula Graph V1.1.0 及以下版本，不支持 Nebula Graph V2.0 pre-release。
+目前 Studio 仅支持 Nebula Graph v1.1.0 及以下版本，不支持 Nebula Graph v2.0.0-alpha。
+
+## 系统架构
+
+Docker 版 Studio 目前仅支持 x86_64 架构。
 
 ## 数据上传
 
-如果您在 Nebula Graph Cloud Service 上使用 Studio，上传数据会有以下限制：
+使用云服务版 Studio 上传数据有以下限制：
 
 - 目前仅支持上传没有表头行的 CSV 文件。
 - 单个文件不得超过 100 MB。
 - 单个实例上传文件总量不得超过 1 GB。
 - 单个文件仅能保存 1 天。
 
-如果您在本地使用 Studio，上传数据会有以下限制：
-
-- 目前仅支持上传没有表头行的 CSV 文件。
-- 单个文件大小及保存时间不受限制，数据总量以本地存储容量为准。
+使用 Docker 版 Studio 上传数据也仅支持上传无表头的 CSV 文件，但是，单个文件大小及保存时间不受限制，而且，数据总量以本地存储容量为准。
 
 ## 数据备份
 
@@ -26,11 +27,22 @@
 
 ## nGQL 支持
 
-除以下内容外，您可以在 Studio 的 **控制台** 上执行所有 nGQL 语句语法：
+使用 Docker 版 Studio 时，除以下内容外，您可以在 **控制台** 上执行所有 nGQL 语句语法：
 
 - `USE <space_name>`：您只能在 **Space** 下拉列表中选择图空间，不能运行这个语句选择图空间。
 - **控制台** 上使用 nGQL 语句时，您可以直接回车换行，不能使用换行符。
 
+使用云服务版 Studio 时，除以上限制外，您也不能在 **控制台** 上执行用户管理和角色管理相关的语句，包括：
+
+- `CREATE USER`
+- `ALTER USER`
+- `CHANGE PASSWORD`
+- `DROP USER`
+- `GRANT ROLE`
+- `REVOKE ROLE`  
+
+关于语句的详细信息，参考 [Nebula Graph 用户手册](https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/4.account-management-statements/alter-user-syntax/ "点击前往 Nebula Graph 官网")。
+
 ## 浏览器支持
 
-建议您使用 Chrome 访问 Studio。
+建议您使用最新版本的 Chrome 访问 Studio。
