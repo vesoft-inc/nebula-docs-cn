@@ -184,7 +184,7 @@ Flink 将处理完成的数据 sink 到 Nebula Graph 数据库时，需要将 Fl
 以下为自定义 NebulaSink 的代码示例。
 
 ```xml
-/// 构造 Nebula Graph 的 Graph 服务客户端连接需要的参数
+// 构造 Nebula Graph 的 Graph 服务客户端连接需要的参数
 NebulaClientOptions nebulaClientOptions = new NebulaClientOptions
                 .NebulaClientOptionsBuilder()
                 .setAddress("127.0.0.1:3699")

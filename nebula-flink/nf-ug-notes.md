@@ -14,6 +14,7 @@ Flink 1.11.0 版本后，用户使用 Flink SQL 时可以自动获取表的  Sch
 具体使用方式如下：
 
 ```java
+// 其中 address 可以配置为多个 IP 地址，格式为 "ip1:port,ip2:port"
 String catalogName  = "testCatalog";
 String defaultSpace = "flinkSink";
 String username     = "root";
@@ -34,7 +35,7 @@ tEnv.useCatalog(catalogName);
 // show graph spaces of nebula
 String[] spaces = tEnv.listDatabases();
 
-// show tags and edges of <!--没写完？-->
+// // show tags and edges of Nebula Graph
 tEnv.useDatabase(defaultSpace);
 String[] tables = tEnv.listTables();
 

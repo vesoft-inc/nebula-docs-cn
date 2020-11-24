@@ -36,7 +36,7 @@ NebulaSource 的实现类图如下所示。
 在构造的 `NebulaSourceFunction` 和 `NebulaOutputFormat` 中，对客户端参数和执行参数作如下配置：
 
 - `NebulaClientOptions` 需要配置：
-  - Nebula Graph Meta 服务的 IP 地址及端口号。如果有多个服务，使用逗号分隔，例如 `“ip1:port1,ip2:port2"`。
+  - Nebula Graph 图数据库 Meta 服务的 IP 地址及端口号。如果有多个服务，使用逗号分隔，例如 `“ip1:port1,ip2:port2"`。
   - Nebula Graph 图数据库的账号及其密码。
 - `VertexExecutionOptions` 需要配置：
   - 需要读取点数据的 Nebula Graph 图数据库中的图空间名称。

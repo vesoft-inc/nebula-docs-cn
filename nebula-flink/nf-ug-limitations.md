@@ -4,7 +4,7 @@
 
 ## Nebula Graph 版本
 
-Nebula Flink Connector 目前仅支持 v1.1.0，不支持 Nebula Graph v2.0.0-alpha。
+Nebula Flink Connector 目前仅支持 v1.1，不支持 Nebula Graph v2.0.0。
 
 ## 软件依赖
 
