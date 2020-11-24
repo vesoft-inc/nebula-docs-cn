@@ -13,7 +13,7 @@
 
 - 已经成功编译 Nebula Spark Connector，并已经将 `nebula-spark-1.0.1.jar` 复制到本地 Maven 库。详细信息参考 [编译 Nebula Spark Connector](../sc-ug-compile.md)。
 
-- 待写入的点和边数据源。在本示例中所用的数据源为 JSON 文件，存储路径为 `nebula-java/examples/src/main/resources`。
+- 待写入的点和边数据源。在本示例中所用的数据源为 JSON 文件，您可以从 [nebula-java 库](https://github.com/vesoft-inc/nebula-java/tree/master/examples/src/main/resources "点击前往 GitHub 网站") 中下载。
 
 - Nebula Graph 的 Graph 服务 IP 地址及端口号。在本示例中，对应的信息为 `127.0.0.1:3699`。
 
@@ -22,7 +22,7 @@
   - 点的信息，包括标签和 VID 映射策略（`hash` 或者 `uuid`）。
   - 边的信息，包括起点和终点对应的标签，以及 VID 映射策略（`hash` 或者 `uuid`）。
 
-- （可选）如果是批量写入，需要确认单次写入的最大数据量，默认为 2,000。
+- （可选）如果是批量写入，需要确认单次写入的最大数据量，默认为 2000。详见本文 `batchInsert` 配置项说明。
 
 ## 操作步骤
 
@@ -50,8 +50,8 @@
 
 ```shell
 // 构造点和边数据的 DataFrame，
-// 这里使用 nebula-java 库里 nebula-java/examples/src/main/resources 目录下的示例数据
-// 示例数据应已经被下载到本地
+// 这里使用 nebula-java 库里 nebula-java/examples/src/main/resources 目录下的示例数据，
+// 示例数据在本地的存储路径为 examples/src/main/resources
   val vertexDF = spark.read.json("examples/src/main/resources/vertex")
       vertexDF.show()
   val edgeDF = spark.read.json("examples/src/main/resources/edge")
@@ -73,11 +73,11 @@
 - `nebula(address: String, space: String, partitionNum: String)`
   - `address`：Nebula Graph 的 Graph 服务地址及端口，可以配置多个地址，以英文逗号分隔，如 `“ip1:port,ip2:port”`，端口默认为 `3699`。
   - `space`：Nebula Graph 中即将写入数据的图空间名称。
-  - `partitionNum`：在 Nebula Graph 中创建图空间时指定的 `partitionNum` 的值。如果未指定，这里填入 `100`。
+  - `partitionNum`：在 Nebula Graph 中创建图空间时指定的 `partitionNum` 的值。如果未指定，这里填写 `100`。
 
 - `writeVertices(tag: String, vertexField: String, policy: String = "")`
   - `tag`：点对应的 Nebula Graph 图空间中的标签名称。
-  - `vertexField`：DataFrame 中可作为 Nebula Graph 点 VID 的列。例如，如果 DataFrame 有三列，分别为 a、b、c，其中a 列作为点 VID 列，则该参数设置为 `"a"`。
+  - `vertexField`：DataFrame 中可作为 Nebula Graph 点 VID 的列。例如，如果 DataFrame 有三列，分别为 a、b、c，其中 a 列作为点 VID 列，则该参数设置为 `"a"`。
   - `policy`：如果 DataFrame 中 `vertexField` 列的数据类型非数值型，则需要配置 Nebula Graph 中 VID 的映射策略，即该参数设置为 `"hash"` 或者 `"uuid"`。如果 `vertexField` 列的数据类型为整数型，则不需要配置。
 
 - `writeEdges(edge: String, srcVertexField: String, dstVertexField: String, policy: String = "")`
@@ -91,8 +91,8 @@
 
 ```shell
 // 构造点和边数据的 DataFrame，
-// 这里使用 nebula-java 库里 nebula-java/examples/src/main/resources 目录下的示例数据
-// 示例数据应已经被下载到本地
+// 这里使用 nebula-java 库里 nebula-java/examples/src/main/resources 目录下的示例数据，
+// 示例数据在本地的存储路径为 examples/src/main/resources
 val vertexDF = spark.read.json("examples/src/main/resources/vertex")
   vertexDF.show()
 val edgeDF = spark.read.json("examples/src/main/resources/edge")
