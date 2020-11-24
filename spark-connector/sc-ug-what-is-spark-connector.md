@@ -5,3 +5,9 @@
 - Reader：为您提供了一个 Spark SQL 接口，您可以使用 Spark SQL 接口编程读取 Nebula Graph 图数据，单次读取一个点或边类型的数据，并将读取的结果组装成 Spark 的 DataFrame。参考 [Nebula Spark Connector Reader](reader/screader-ug-what-is-sparkconnector-reader.md)。
 
 - Writer：为您提供了一个 Spark SQL 接口，您可以使用 Spark SQL 接口编程将 DataFrame 格式的数据写入 Nebula Graph。参考 [Nebula Spark Connector Writer](writer/scwriter-ug-what-is-sparkconnector-writer.md)。
+
+您可以将 Nebula Spark Connector 应用于以下场景：
+
+- 在不同的 Nebula Graph 集群之间迁移数据。
+- 在同一个 Nebula Graph 集群内不同图空间之间迁移数据。
+- Nebula Graph 与其他数据源之间迁移数据。
