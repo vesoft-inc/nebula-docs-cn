@@ -34,8 +34,8 @@ NebulaSink 的实现类图如下所示。
 
 - `open`：准备 Nebula Graph 数据库的 Graph 服务的连接，并初始化数据写入执行器 `nebulaBatchExecutor`。
 - `close`：提交最后批次的数据，等待最后提交的回调结果并关闭服务连接等资源。
-- `writeRecord`：核心方法，将数据写入 bufferRow 中，并在达到配置的批量写入上限时提交写入。NebulaSink 的写入操作是异步的，所以需要执行回调来获取执行结果。
-- `flush`：当 bufferRow 存在数据时，将数据提交到 Nebula Graph 中。
+- `writeRecord`：核心方法，将数据写入 bufferedRow 中，并在达到配置的批量写入上限时提交写入。NebulaSink 的写入操作是异步的，所以需要执行回调来获取执行结果。
+- `flush`：当 bufferedRow 存在数据时，将数据提交到 Nebula Graph 中。
 
 在 `AbstractNebulaOutputFormat` 中调用了 `NebulaBatchExecutor`，用于数据的批量管理和批量提交，并通过定义回调函数接收批量提交的结果，代码如下：
 
