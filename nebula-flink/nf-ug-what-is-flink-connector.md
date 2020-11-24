@@ -11,6 +11,6 @@
 您可以参考以下文档使用 Nebula Flink Connector：
 
 - [使用限制](nf-ug-limitations.md)
-- [特殊说明](nf-ug-notes.md)
 - [自定义 source (NebulaSource)](nf-ug-customize-source.md)
 - [自定义 sink (NebulaSink)](nf-ug-customize-sink.md)
+- [特殊说明](nf-ug-notes.md)
