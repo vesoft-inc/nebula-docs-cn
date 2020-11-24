@@ -1,11 +1,10 @@
 # Nebula Graph Studio 用户手册
 
-- 认识 Nebula Graph Studio
+- 认识 Nebula Graph Studio 
   - [什么是 Nebula Graph Studio](about-studio/st-ug-what-is-graph-studio.md)
   - [名词解释](about-studio/st-ug-terms.md)
   - [使用限制](about-studio/st-ug-limitations.md)
   - [版本更新](about-studio/st-ug-check-updates.md)
-  - [常见问题](about-studio/st-ug-faq.md)
 - 安装与登录
   - [部署 Studio](install-configure/st-ug-deploy.md)
   - [连接数据库](install-configure/st-ug-connect.md)
@@ -30,6 +29,7 @@
     - 导出 CSV 文件[TODO]
 - 最佳实践 [TODO]
 - 故障排查 [TODO]
+  - [常见问题](troubleshooting/st-ug-faq.md)
   - 连接问题
   - 错误信息
 

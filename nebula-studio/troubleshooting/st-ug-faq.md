@@ -12,3 +12,7 @@
 **Studio 支持 Nebula Graph v2.0.0-alpha 吗？**
 
 不支持。目前 Studio 仅支持 Nebula Graph v1.1.0 及以下版本。
+
+**Studio 是否会开源？**
+
+目前还未开源。
