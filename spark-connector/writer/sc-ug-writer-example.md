@@ -22,7 +22,7 @@
   - 点的信息，包括标签和 VID 映射策略（`hash` 或者 `uuid`）。
   - 边的信息，包括起点和终点对应的标签，以及 VID 映射策略（`hash` 或者 `uuid`）。
 
-- （可选）如果是批量写入，需要确认单次写入的最大数据量，默认 2,000。
+- （可选）如果是批量写入，需要确认单次写入的最大数据量，默认为 2,000。
 
 ## 操作步骤
 
@@ -32,13 +32,13 @@
 
 在 Maven 项目的 POM 文件中加入 `nebula-spark` 依赖。
 
-    ```pom
-    <dependency>
-      <groupId>com.vesoft</groupId>
-      <artifactId>nebula-spark</artifactId>
-      <version>1.0.1</version>
-    </dependency>
-    ```
+```pom
+<dependency>
+  <groupId>com.vesoft</groupId>
+  <artifactId>nebula-spark</artifactId>
+  <version>1.0.1</version>
+</dependency>
+```
 
 ### 第 2 步
 
@@ -49,7 +49,9 @@
 示例代码如下：
 
 ```shell
-// 构造点和边数据的 DataFrame，示例数据为 JSON 文件，在 nebula-java/examples/src/main/resources 目录下
+// 构造点和边数据的 DataFrame，
+// 这里使用 nebula-java 库里 nebula-java/examples/src/main/resources 目录下的示例数据
+// 示例数据应已经被下载到本地
   val vertexDF = spark.read.json("examples/src/main/resources/vertex")
       vertexDF.show()
   val edgeDF = spark.read.json("examples/src/main/resources/edge")
@@ -69,7 +71,7 @@
 示例代码中的配置说明如下：
 
 - `nebula(address: String, space: String, partitionNum: String)`
-  - `address`：Nebula Graph 的 Graph 服务地址及端口，可以配置多个地址，以英文逗号分隔，如 `“ip1:3699,ip2:3699”`。
+  - `address`：Nebula Graph 的 Graph 服务地址及端口，可以配置多个地址，以英文逗号分隔，如 `“ip1:port,ip2:port”`，端口默认为 `3699`。
   - `space`：Nebula Graph 中即将写入数据的图空间名称。
   - `partitionNum`：在 Nebula Graph 中创建图空间时指定的 `partitionNum` 的值。如果未指定，这里填入 `100`。
 
@@ -88,7 +90,9 @@
 示例代码如下：
 
 ```shell
-// 构造点和边数据的 DataFrame，示例数据在 nebula-java/examples/src/main/resources 目录下
+// 构造点和边数据的 DataFrame，
+// 这里使用 nebula-java 库里 nebula-java/examples/src/main/resources 目录下的示例数据
+// 示例数据应已经被下载到本地
 val vertexDF = spark.read.json("examples/src/main/resources/vertex")
   vertexDF.show()
 val edgeDF = spark.read.json("examples/src/main/resources/edge")
@@ -108,7 +112,7 @@ new NebulaBatchWriterUtils()
 示例代码中的配置说明如下：
 
 - `batchInsert(address: String, space: String, batch: Int = 2000)`：
-  - `address`：Nebula Graph 的 Graph 服务地址及端口，可以配置多个地址，以英文逗号分隔，如 `“ip1:3699,ip2:3699”`。
+  - `address`：Nebula Graph 的 Graph 服务地址及端口，可以配置多个地址，以英文逗号分隔，如 `“ip1:port,ip2:port”`，端口默认为 `3699`。
   - `space`：Nebula Graph 中即将写入数据的图空间名称。
   - `batch`：批量写入时一批次的最大数据量，可不配置，默认为 2000。
 
