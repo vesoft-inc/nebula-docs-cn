@@ -1,6 +1,6 @@
 # 什么是 Nebula Spark Connector Writer
 
-Nebula Spark Connector Writer 是 Nebula Spark Connector 的组成部分，为您提供了 Spark SQL 接口，您可以使用 Spark SQL 接口编程以 DataFrame 向 Nebula Graph 逐条或批量写入数据。
+Nebula Spark Connector Writer 是 Nebula Spark Connector 的组成部分，为您提供了 Spark SQL 接口，您可以使用 Spark SQL 接口编程将 DataFrame 数据逐条或批量写入 Nebula Graph。
 
 ## Nebula Spark Connector Writer 实现原理
 

@@ -10,7 +10,7 @@ Nebula Spark Connector 目前仅支持 Nebula Graph v1.0.1 和 v1.1.0，不支�
 
 Nebula Spark Connector 默认依赖以下软件：
 
-- Apache Spark&trade; 2.3.0 及以后版本
+- Apache Spark&trade; 2.3.0 及更高版本
 - Scala
 - Java：1.8
 

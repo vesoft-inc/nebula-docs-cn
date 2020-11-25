@@ -7,7 +7,7 @@
 使用 Nebula Spark Connector Reader 前，您需要确认以下信息：
 
 - 您的机器上已经安装了以下软件：
-  - Apache Spark&trade; 2.3.0 及以后版本
+  - Apache Spark&trade; 2.3.0 及更高版本
   - Scala
   - Java：1.8
 
@@ -72,7 +72,7 @@
 
       - `<address: String>`：配置为 Nebula Graph 数据库 metad 服务所在的服务器地址及端口，如果有多个 metad 服务复本，则配置为多个地址，以英文逗号分隔，例如 `"ip1:45500,ip2:45500"`。默认端口号为 45500。
       - `<space: String>`: 配置为 Nebula Graph 的图空间名称。
-      - `<partitionNum: String>`：配置为 Nebula Graph 里创建图空间时指定的分区数量。如果您在创建 Nebula Graph 图空间时未指定分区数量，这里设置为默认分区数量 100。
+      - `<partitionNum: String>`：设置 Spark 的分区数量。建议设置为 Nebula Graph 中创建图空间时指定的 `partitionNum`，以确保一个 Spark 分区对应 Nebula Graph 图空间中一个分区的数据。如果您在创建 Nebula Graph 图空间时未指定分区数量，则使用默认值 100。
 
     - `loadVerticesToDF(<tag: String>, <fields: String>)`，所有参数均为必需参数。
 

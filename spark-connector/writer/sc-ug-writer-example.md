@@ -7,7 +7,7 @@
 使用 Nebula Spark Connector Writer 前，您需要确认以下信息：
 
 - 您的机器上已经安装了以下软件：
-  - Apache Spark&trade; 2.3.0 及以后版本
+  - Apache Spark&trade; 2.3.0 及更高版本
   - Scala
   - Java：1.8
 
