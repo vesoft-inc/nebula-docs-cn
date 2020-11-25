@@ -19,4 +19,4 @@ Nebula Spark Connector 默认依赖以下软件：
 目前 Nebula Spark Connector 在使用时有以下功能限制：
 
 - Reader：目前无法用于读取 Nebula Graph 中属性为空的点和边数据。
-- Writer：向 Nebula Graph 写入边数据时，起点与终点 VID 的列必须同时为整数型或非数值型。
+- Writer：用于向 Nebula Graph 写入边数据时，作为起点与终点 VID 的数据必须同时为整数型或非数值型。
