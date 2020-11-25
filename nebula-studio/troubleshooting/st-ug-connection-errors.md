@@ -6,42 +6,40 @@
 
 ## 可能的原因及解决方法
 
-- Studio 与浏览器是否在同一台机器上？  
+您可以按以下顺序排查问题。
+
+### 第 1 步. 检查 Studio 服务是否正常启动
   
-  如果 Studio 与浏览器在同一台机器上，在浏览器里使用 `127.0.0.1:7001` 或者 `0.0.0.0:7001` 访问 Studio。如果两者不在同一台机器上，则在浏览器里输入 `<Studio 机器 IP:7001>`。
+运行 `docker-compose ps` 查看服务是否已经正常启动。  
 
-- 部署 Studio 的机器是否为 x86-64 架构？
+如果服务正常，返回结果如下。其中，`State` 列应全部显示为 `Up`。
+
+```bash
+     Name                          Command               State               Ports
+------------------------------------------------------------------------------------------------------
+nebula-web-docker_client_1     ./nebula-go-api                  Up      0.0.0.0:32782->8080/tcp
+nebula-web-docker_importer_1   nebula-importer --port=569 ...   Up      0.0.0.0:32783->5699/tcp
+nebula-web-docker_nginx_1      /docker-entrypoint.sh ngin ...   Up      0.0.0.0:7001->7001/tcp, 80/tcp
+nebula-web-docker_web_1        docker-entrypoint.sh npm r ...   Up      0.0.0.0:32784->7001/tcp
+```
+
+如果没有返回以上结果，则重新启动 Studio。详细信息，参考 [部署 Studio](../deploy-connect/st-ug-deploy.md)。
+
+### 第 2 步. 确认系统架构
+
+需要确认部署 Studio 服务的机器是否为 x86_64 架构。目前 Studio 仅支持 x86_64 系统架构。
+
+### 第 3 步. 确认访问地址
+
+如果 Studio 与浏览器在同一台机器上，您可以在浏览器里使用 `localhost:7001`、`127.0.0.1:7001` 或者 `0.0.0.0:7001` 访问 Studio。
   
-  目前 Studio 仅支持 x86-64 系统架构。
+如果两者不在同一台机器上，必须在浏览器里输入 `<Studio 服务的 IP:7001>`。
 
-- 服务是否已经正常启动？
-  
-  在命令行工具里，运行 `docker-compose ps` 查看服务是否正常。  
-  如果服务正常，返回结果如下：
+### 第 4 步. 确认 Studio 服务连接是否正常
 
-  ```bash
-                Name                          Command               State               Ports
-  ------------------------------------------------------------------------------------------------------
-  nebula-web-docker_client_1     ./nebula-go-api                  Up      0.0.0.0:32782->8080/tcp
-  nebula-web-docker_importer_1   nebula-importer --port=569 ...   Up      0.0.0.0:32783->5699/tcp
-  nebula-web-docker_nginx_1      /docker-entrypoint.sh ngin ...   Up      0.0.0.0:7001->7001/tcp, 80/tcp
-  nebula-web-docker_web_1        docker-entrypoint.sh npm r ...   Up      0.0.0.0:32784->7001/tcp
-  ```
+运行 `curl <Studio 服务的 IP:7001>` 确认连接是否正常。如果连接失败，则按以下要求检查：
 
-- `127.0.0.1:7001` 是否能正常访问？
+- 如果浏览器与 Studio 在同一台机器上，检查端口是否已暴露。
+- 如果两者不在同一台机器上，检查 Studio 服务器的网络配置，例如，防火墙、网关以及端口。
 
-  按以下步骤排查：
-
-  1. 在部署 Studio 的机器上使用 Docker 启动其他任意一个 Web Server 服务，确认是否能通过 `127.0.0.1` 访问该服务。如果不能访问，说明是当前机器的网络访问问题，与 Studio 无关。如果能访问，再进行下一步操作。
-  
-  2. 按 [部署 Studio](../deploy-connect/st-ug-deploy.md) 的描述启动 Studio 服务后，在命令行工具里，运行 `docker-compose exec -it nebula-web-docker_web_1` 进入 `nebula-web-docker_web_1` 容器内部，运行 `curl 127.0.0.1:7001` 查看连接是否正常。
-
-  3. 如果连接不正常，您可以在 `nebula-web-docker_web_1` 容器的 `/etc/host` 文件中添加一行：`127.0.0.1 localhost`，如下图所示。
-
-  ![在 etc/host 文件中修改 localhost](../figs/st-ug-054.png "修改 etc/host 文件")
-
-## 相关文档
-
-- [部署 Studio](../deploy-connect/st-ug-deploy.md)
-
-- [连接 Studio](../deploy-connect/st-ug-connect.md)
+如果按上述步骤排查后仍无法访问 Studio，您可以前往 [Nebula Graph 官方论坛](https://discuss.nebula-graph.com.cn/ "点击前往 Nebula Graph 官方论坛") 咨询。
