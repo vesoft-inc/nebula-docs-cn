@@ -20,21 +20,17 @@
 
 ### 第 3 步. 确认 Nebula Graph 服务是否正常
 
-使用 [nebula-console](https://github.com/vesoft-inc/nebula-console "点击前往 GitHub") 连接 Nebula Graph，确认 Nebula Graph 服务是否正常。
+检查 Nebula Graph 服务状态。关于查看服务的操作：
 
-- 如果连接失败，可能是 Nebula Graph 服务未正常启动。请检查 Nebula Graph 服务状态。关于查看服务的操作：
-
-  - 如果在 Linux 服务器上通过编译部署的 Nebula Graph，参考 [查看 Nebula Graph 服务](https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/2.install/2.start-stop-service/#nebula_graph_2 "点击前往 Nebula Graph 网站")。
-  - 如果使用 Docker Compose 部署的 Nebula Graph，参考 [查看 Nebula Graph 服务状态和端口](https://github.com/vesoft-inc/nebula-docker-compose/blob/master/README_zh-CN.md "点击前往 GitHub 网站")。
+- 如果在 Linux 服务器上通过编译部署的 Nebula Graph，参考 [查看 Nebula Graph 服务](https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/2.install/2.start-stop-service/#nebula_graph_2 "点击前往 Nebula Graph 网站")。
+- 如果使用 Docker Compose 部署的 Nebula Graph，参考 [查看 Nebula Graph 服务状态和端口](https://github.com/vesoft-inc/nebula-docker-compose/blob/master/README_zh-CN.md "点击前往 GitHub 网站")。
   
-  如果 Nebula Graph 服务正常，进入第 4 步继续排查问题。否则，请重启 Nebula Graph 服务。
-  > **说明**：如果您之前使用 `docker-compose up -d` 启动 Nebula Graph，必须运行 `docker-compose down` 命令停止 Nebula Graph。
-
-- 如果连接成功，说明 Nebula Graph 服务正常，进入第 4 步继续排查问题。
+如果 Nebula Graph 服务正常，进入第 4 步继续排查问题。否则，请重启 Nebula Graph 服务。
+> **说明**：如果您之前使用 `docker-compose up -d` 启动 Nebula Graph，必须运行 `docker-compose down` 命令停止 Nebula Graph。
 
 ### 第 4 步. 确认 Graph 服务的网络连接是否正常
 
-在 Studio 机器上运行命令（例如 `netstat <graph_server_ip>:port` 或者 `telnet <graph_server_ip> port`）确认 Nebula Graph 的 Graph 服务网络连接是否正常。
+在 Studio 机器上运行命令（例如 `telnet <graph_server_ip> 3699`）确认 Nebula Graph 的 Graph 服务网络连接是否正常。
 
 如果连接失败，则按以下要求检查：
 
