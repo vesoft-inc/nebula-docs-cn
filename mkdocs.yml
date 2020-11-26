@@ -252,7 +252,6 @@ nav:
         - 名词解释: nebula-studio/about-studio/st-ug-terms.md
         - 使用限制: nebula-studio/about-studio/st-ug-limitations.md
         - 版本更新: nebula-studio/about-studio/st-ug-check-updates.md
-        - 常见问题: nebula-studio/about-studio/st-ug-faq.md
       - 安装与登录:
         - 部署 Studio: nebula-studio/deploy-connect/st-ug-deploy.md
         - 连接数据库: nebula-studio/deploy-connect/st-ug-connect.md
@@ -272,6 +271,10 @@ nav:
         - 使用控制台:
           - 导入图探索: nebula-studio/use-console/st-ug-open-in-explorer.md
           - 查看子图: nebula-studio/use-console/st-ug-visualize-findpath.md
+      - 故障排查:
+        - 连接数据库错误: nebula-studio/troubleshooting/st-ug-connection-errors.md
+        - 无法访问 Studio: nebula-studio/troubleshooting/st-ug-connection-errors.md
+        - 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
 
     - 社区贡献:
       - 贡献文档: manual-CN/4.contributions/contribute-to-documentation.md
