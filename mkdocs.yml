@@ -215,6 +215,7 @@ nav:
           - 什么是 Nebula Graph Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
           - 使用限制: nebula-exchange/about-exchange/ex-ug-limitations.md
           - 名词解释: nebula-exchange/about-exchange/ex-ug-terms.md
+          - 常见问题: nebula-exchange/about-exchange/ex-ug-faq.md
         - 编译 Exchange: nebula-exchange/ex-ug-compile.md
         - 操作指南:
           - 导入数据步骤: nebula-exchange/use-exchange/ex-ug-import-steps.md
@@ -240,7 +241,7 @@ nav:
         - 编译 Nebula Spark Connector: spark-connector/sc-ug-compile.md
         - 使用限制: spark-connector/sc-ug-limitations.md
         - Nebula Spark Connector Reader:
-          - 什么是 Nebula Spark Connector Reader:spark-connector/reader/sc-ug-what-is-reader.md
+          - 什么是 Nebula Spark Connector Reader: spark-connector/reader/sc-ug-what-is-reader.md
           - 使用示例: spark-connector/reader/sc-ug-reader-example.md
         - Nebula Spark Connector Writer:
           - 什么是 Nebula Spark Connector Writer: spark-connector/writer/sc-ug-what-is-writer.md
