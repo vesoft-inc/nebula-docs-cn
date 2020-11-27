@@ -4,7 +4,7 @@
   - [什么是 Nebula Graph Exchange](about-exchange/ex-ug-what-is-exchange.md)
   - [使用限制](about-exchange/ex-ug-limitations.md)
   - [名词解释](about-exchange/ex-ug-terms.md)
-  - 常见问题[TODO]
+  - [常见问题](about-exchange/ex-ug-faq.md)
 - [编译 Exchange](ex-ug-compile.md)
 - 操作指南
   - [导入数据步骤](use-exchange/ex-ug-import-steps.md)
