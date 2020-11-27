@@ -5,7 +5,6 @@
   - [名词解释](about-studio/st-ug-terms.md)
   - [使用限制](about-studio/st-ug-limitations.md)
   - [版本更新](about-studio/st-ug-check-updates.md)
-  - [常见问题](about-studio/st-ug-faq.md)
 - 安装与登录
   - [部署 Studio](install-configure/st-ug-deploy.md)
   - [连接数据库](install-configure/st-ug-connect.md)
@@ -29,8 +28,10 @@
     - [查看子图](use-console/st-ug-visualize-findpath.md)
     - 导出 CSV 文件[TODO]
 - 最佳实践 [TODO]
-- 故障排查 [TODO]
-  - 连接问题
-  - 错误信息
+- 故障排查
+  - [连接数据库错误](troubleshooting/st-ug-connection-errors.md)
+  - [无法访问 Studio](troubleshooting/st-ug-connection-errors.md)
+  - [常见问题](troubleshooting/st-ug-faq.md)
+  - 错误信息 [TODO]
 
 \* 本页面所列 [TODO] 仅表示文档尚未完成，并非表示 Studio 不具备相应的功能。

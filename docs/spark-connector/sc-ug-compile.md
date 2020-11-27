@@ -1,11 +1,11 @@
-# 编译 Spark-connector Reader
+# 编译 Nebula Spark Connector
 
-逐行运行以下命令编译 Spark-connector Reader。
+逐行运行以下命令编译 Nebula Spark Connector。
 
 ```bash
-git clone git@github.com:vesoft-inc/nebula-java.git
-cd nebula-java/tools/nebula-spark
-mvn clean compile package install -Dgpg.skip -Dmaven.javadoc.skip=true
+$ git clone git@github.com:vesoft-inc/nebula-java.git
+$ cd nebula-java/tools/nebula-spark
+$ mvn clean compile package install -Dgpg.skip -Dmaven.javadoc.skip=true
 ```
 
 编译成功后，您可以在 `nebula-spark/target/` 目录下看到 `nebula-spark-1.0.1.jar` 文件，如下图所示。将这个文件复制到本地 Maven 库以下路径 `com/vesoft/nebula-spark/`。
@@ -17,7 +17,7 @@ mvn clean compile package install -Dgpg.skip -Dmaven.javadoc.skip=true
 │   │   └── services
 │   └── com
 │       └── vesoft
-├── classes.1697742720.timestamp
+├── classes.-1151735588.timestamp
 ├── generated-sources
 │   └── annotations
 ├── maven-archiver
