@@ -111,7 +111,7 @@ Neo4j 的数据集信息如下：
 
 Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格式，具有面向对象风格，便于理解和操作。
 
-完成 Exchange 编译后，进入 `nebula-java/tools/exchange` 目录，您可以在 `target/classes/server_application.conf` 文件上修改配置文件。在本示例中，文件被重命名为 `neo4j_application.conf`。详细的配置参数，参考 [Spark 参考](../parameter-reference/ex-ug-paras-spark.md)、[Nebula Graph 参数](../parameter-reference/ex-ug-paras-nebulagraph.md) 和 [Neo4j 参数](../parameter-reference/ex-ug-paras-neo4j.md)。
+完成 Exchange 编译后，进入 `nebula-java/tools/exchange` 目录，您可以在 `target/classes/server_application.conf` 文件上修改配置文件。在本示例中，文件被重命名为 `neo4j_application.conf`。详细的配置参数，参考 [Spark 参考](../parameter-reference/ex-ug-paras-spark.md)、[Nebula Graph 参数](../parameter-reference/ex-ug-paras-nebulagraph.md) 和 [Neo4j 数据源相关参数](../parameter-reference/ex-ug-paras-neo4j.md)。
 
 以下为本示例中的配置文件 `neo4j_application.conf`。
 
@@ -182,6 +182,7 @@ Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格
     partition: 10
     batch: 2000
     check_point_path: "file:///tmp/test"
+    # 以下 MATCH 语句不能以 ; 结尾
     exec: "match (n:tagA) return n.idInt as idInt, n.idString as idString, n.tdouble as tdouble, n.tboolean as tboolean order by n.idInt"
 }
   ]
@@ -208,6 +209,7 @@ Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格
    ranking: idInt
    partition: 1
    # 为减轻 Neo4j 的排序压力，将 partition 设置为 1
+   # 以下 MATCH 语句不能以 ; 结尾
    exec: "match (a:tagA)-[r:edgeAB]->(b:tagB) return a.idInt, b.idInt, r.idInt as idInt, r.idString as idString, r.tdouble as tdouble, r.tboolean as tboolean order by id(r)"
       batch: 1000
       check_point_path: /tmp/test

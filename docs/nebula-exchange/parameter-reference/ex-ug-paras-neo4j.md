@@ -1,4 +1,4 @@
-# Neo4j 数据源参数
+# Neo4j 数据源相关参数
 
 如果要导入的数据来源为 Neo4j，您可能需要配置以下参数。
 
@@ -12,7 +12,7 @@
 | `tags.password` | 无 | `string` | 是 | Neo4j 数据库账号登录密码。 |
 | `tags.encription` | `false` | `string` | 否 | 传输是否加密，默认值为 `false`，表示不加密。设置为 `true` 时，表示加密。 |
 | `tags.database` | 无 | `string` | 否 | 设置源数据所在 Neo4j 数据库的名称。如果您使用 Community Edition Neo4j，不支持这个参数。 |
-| `tags.exec` | 无 | `string` | 是 | 写入 Cypher 语句，从 Neo4j 数据库中检索打了某种标签的点的属性，并指定别名。<br />例如，写入 Cypher 语句 `match (n:label) return n.neo4j-field-0 as neo4j-field-0, n.neo4j-field-1 as neo4j-field-1 order by (n.neo4j-field-0)`。|
+| `tags.exec` | 无 | `string` | 是 | 写入 Cypher 语句，从 Neo4j 数据库中检索打了某种标签的点的属性，并指定别名。Cypher 语句不能以 `;` 结尾。<br />例如，写入 Cypher 语句 `match (n:label) return n.neo4j-field-0 as neo4j-field-0, n.neo4j-field-1 as neo4j-field-1 order by (n.neo4j-field-0)`。|
 | `tags.fields` | 无 | `list[string]` | 是 | 指定源数据中与 Nebula Graph 标签对应的属性名称。以列表形式列出，多个属性名称之间以英文逗号隔开。列出的属性名称必须与 `tags.exec` 中列出的属性名称保持一致。 |
 | `tags.nebula.fields` | 无 | `list[string]` | 是 | 指定 Nebula Graph Schema 中标签对应的属性名称。以列表形式列出。与 `tags.fields` 列表中的属性名称一一对应，形成映射关系。多个属性名称之间以英文逗号隔开。 |
 | `tags.vertex` <br />或者<br /><code>tags {<br />    vertex {<br />         field: [name]<br />         policy: ["hash" OR "uuid"]<br />    }<br />}</code> | 无 | `string` | 是 | 将源数据中某个属性的值用作 Nebula Graph 点 VID。必须为 int 或 long 类型的属性。<br />如果是上述类型的属性，使用 `tags.vertex = field` 设置 VID 列。<br />如果不是上述类型的属性，您可以通过 `tags.vertex.field` 和 `tags.vertex.policy`  对 VID 进行预处理，即使用 `hash()` 或者 `uuid()` 函数处理属性名称，生成的数值用作 VID。其中，`tags.vertex.policy` 可以设置为：<br />- `"hash"`<br />- `"uuid"` |
@@ -25,7 +25,7 @@
 | `edges.server` | 无 | `string` | 是 | 指定 Neo4j 数据库服务器地址，格式必须为 `bolt://<IP地址>:7687` 。 |
 | `edges.user` | 无 | `string` | 是 | 指定 Neo4j 数据库登录账号。 |
 | `edges.password` | 无 | `string` | 是 | 指定 Neo4j 数据库账号登录密码。 |
-| `edges.exec` | 无 | `string` | 是 | 写入 Cypher 语句，表示从 Neo4j 数据库中查询关系属性。<br />例如，写入 Cypher 语句 `match (a:vertex_label)-[r:edge_label]->(b:vertex_label) return a.neo4j-source-field, b.neo4j-target-field, r.neo4j-field-0 as neo4j-field-0, r.neo4j-field-1 as neo4j-field-1 order by id(r)`。 |
+| `edges.exec` | 无 | `string` | 是 | 写入 Cypher 语句，表示从 Neo4j 数据库中查询关系属性。Cypher 语句不能以 `;` 结尾。<br />例如，写入 Cypher 语句 `match (a:vertex_label)-[r:edge_label]->(b:vertex_label) return a.neo4j-source-field, b.neo4j-target-field, r.neo4j-field-0 as neo4j-field-0, r.neo4j-field-1 as neo4j-field-1 order by id(r)`。 |
 | `edges.fields` | 无 | `list[string]` | 是 | 指定源数据中与 Nebula Graph 边类型对应的属性名称。以列表形式列出，多个属性名称之间以英文逗号隔开。列出的属性名称必须与 `edges.exec` 中列出的属性名称保持一致。 |
 | `edges.nebula.fields` | 无 | `list[string]` | 是 | Nebula Graph Schema 中边类型对应的属性名称。以列表形式列出，与 `edges.fields` 列表中的属性名称一一对应，形成映射关系。多个属性名称之间以英文逗号隔开。 |
 | `edges.source`<br />或者 <br /><code>edges: {<br />    source: {<br />        field: [name]<br />        policy:   ["hash" OR "uuid"] <br />    }<br />}</code> | 无 | `string` | 否 | 指定源数据中某个属性，将它的值用作 Nebula Graph 边的起始点 VID。必须为 `int` 或 `long` 类型的属性。<br />如果是上述类型的属性，使用 `edges.source = field` 设置起始点 VID 列。<br />如果不是上述类型的属性，您可以通过 `edges.source.field` 和 `edges.source.policy`  对 VID 进行预处理，即使用 `hash()` 或者 `uuid()` 函数处理属性名称，生成的数值用作 VID。其中，`edges.source.policy` 可以设置为：<br />- `"hash"`<br />- `"uuid"`<br /> |
