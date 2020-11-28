@@ -28,25 +28,10 @@
     - [查看子图](use-console/st-ug-visualize-findpath.md)
     - 导出 CSV 文件[TODO]
 - 最佳实践 [TODO]
-<<<<<<< HEAD:docs/nebula-studio/st-ug-toc.md
-<<<<<<< HEAD:docs/nebula-studio/st-ug-toc.md
 - 故障排查
   - [连接数据库错误](troubleshooting/st-ug-connection-errors.md)
   - [无法访问 Studio](troubleshooting/st-ug-connection-errors.md)
   - [常见问题](troubleshooting/st-ug-faq.md)
   - 错误信息 [TODO]
-=======
-- 故障排查 [TODO]
-  - [常见问题](troubleshooting/st-ug-faq.md)
-  - 连接问题
-  - 错误信息
->>>>>>> updated:nebula-studio/st-ug-toc.md
-=======
-- 故障排查
-  - [连接数据库错误](troubleshooting/st-ug-connection-errors.md)
-  - [无法访问 Studio](troubleshooting/st-ug-connection-errors.md)
-  - [常见问题](troubleshooting/st-ug-faq.md)
-  - 错误信息 [TODO]
->>>>>>> added troubleshooting:nebula-studio/st-ug-toc.md
 
 \* 本页面所列 [TODO] 仅表示文档尚未完成，并非表示 Studio 不具备相应的功能。
