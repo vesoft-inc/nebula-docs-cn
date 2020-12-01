@@ -182,7 +182,7 @@ Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格
     partition: 10
     batch: 2000
     check_point_path: "file:///tmp/test"
-    # 以下 MATCH 语句不能以 ; 结尾
+    # 以下 MATCH 语句不能以英文分号 (;) 结尾
     exec: "match (n:tagA) return n.idInt as idInt, n.idString as idString, n.tdouble as tdouble, n.tboolean as tboolean order by n.idInt"
 }
   ]
@@ -209,7 +209,7 @@ Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格
    ranking: idInt
    partition: 1
    # 为减轻 Neo4j 的排序压力，将 partition 设置为 1
-   # 以下 MATCH 语句不能以 ; 结尾
+   # 以下 MATCH 语句不能以英文分号 (;) 结尾
    exec: "match (a:tagA)-[r:edgeAB]->(b:tagB) return a.idInt, b.idInt, r.idInt as idInt, r.idString as idString, r.tdouble as tdouble, r.tboolean as tboolean order by id(r)"
       batch: 1000
       check_point_path: /tmp/test
