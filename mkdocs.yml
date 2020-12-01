@@ -288,6 +288,7 @@ nav:
       - Gremlin & nGQL: manual-CN/5.appendix/gremlin-ngql.md
       - SQL & nGQL: manual-CN/5.appendix/sql-ngql.md
       - 点标识符和分区: manual-CN/5.appendix/vid-partition.md
+      - 超级顶点（稠密点）处理：manual-CN/5.appendix/super-node.md
       - 文档工程师 Visual Studio Code 推荐配置: manual-CN/5.appendix/vscode-config.md
 
 
