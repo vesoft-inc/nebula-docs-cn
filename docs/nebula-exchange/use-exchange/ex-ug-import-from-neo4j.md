@@ -204,7 +204,7 @@ Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格
    }
    target: {
      field: b.idInt
-     policy: "uuid"
+     policy: "hash"
    }
    ranking: idInt
    partition: 1
