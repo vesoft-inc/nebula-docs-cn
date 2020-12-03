@@ -3,7 +3,7 @@
 依次运行以下命令下载并编译打包 Exchange。
 
 ```bash
-git clone https://github.com/vesoft-inc/nebula-java.git
+git clone -b v1.0 https://github.com/vesoft-inc/nebula-java.git
 cd nebula-java/tools/exchange
 mvn package -DskipTests
 ```
@@ -49,4 +49,4 @@ mvn package -DskipTests
     `-- test-classes.timestamp
 ```
 
-在 `target` 目录下，您可以 `exchange-1.0.1.jar` 文件。另外，在迁移数据时，您可以参考 `target/classes/application.conf`、`target/classes/server_application.conf`、`target/classes/stream_application.conf` 根据实际情况修改配置文件。
+在 `target` 目录下，您可以 `exchange-1.0.1.jar` 文件。其中，JAR 包版本号可能因 Nebula Java Client 的发布版本而异。另外，在迁移数据时，您可以参考 `target/classes/application.conf`、`target/classes/server_application.conf`、`target/classes/stream_application.conf` 根据实际情况修改配置文件。

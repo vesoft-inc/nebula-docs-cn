@@ -3,7 +3,7 @@
 依次运行以下命令下载并编译打包 nebula-algorithm。
 
 ```shell
-$ git clone git@github.com:vesoft-inc/nebula-java.git
+$ git clone -b v1.0 https://github.com/vesoft-inc/nebula-java.git
 $ cd nebula-java/tools/nebula-algorithm
 $ mvn package -DskipTests
 ```
@@ -28,4 +28,4 @@ nebula-java
         └── test-classes.1846592514.timestamp
 ```
 
-在 `target` 目录下，您可以看到 `nebula-algorithm-1.0.1.jar` 文件。另外，在使用 nebula-algorithm 时，您可以参考 `target/classes/application.conf` 根据实际情况修改配置文件。详细信息请参考 [使用示例](na-ug-example.md)。
+在 `target` 目录下，您可以看到 `nebula-algorithm-1.0.1.jar` 文件。其中，JAR 包版本号可能因 Nebula Java Client 的发布版本而异。另外，在使用 nebula-algorithm 时，您可以参考 `target/classes/application.conf` 根据实际情况修改配置文件。详细信息请参考 [使用示例](na-ug-example.md)。

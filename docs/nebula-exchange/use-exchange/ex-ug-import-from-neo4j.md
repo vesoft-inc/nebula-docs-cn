@@ -93,12 +93,17 @@ Neo4j 的数据集信息如下：
 3. 确认 Nebula Graph 需要的副本数量。本示例中假设为 1。
 4. 在 Nebula Graph 里创建一个图空间 **test**，并创建一个图数据模式，如下所示。
 
-    ```sql
-    CREATE SPACE test(partition_num=10, replica_factor=1); --创建图空间，本示例中假设只需要一个副本
-    USE test; --选择图空间 test
-    CREATE TAG tagA(idInt int, idString string, tboolean bool, tdouble double); -- 创建标签 tagA
-    CREATE TAG tagB(idInt int, idString string, tboolean bool, tdouble double); -- 创建标签 tagB
-    CREATE EDGE edgeAB(idInt int, idString string, tboolean bool, tdouble double); -- 创建边类型 edgeAB
+    ```ngql
+    -- 创建图空间，本示例中假设只需要一个副本
+    CREATE SPACE test(partition_num=10, replica_factor=1);
+    -- 选择图空间 test
+    USE test;
+    -- 创建标签 tagA
+    CREATE TAG tagA(idInt int, idString string, tboolean bool, tdouble double);
+    -- 创建标签 tagB
+    CREATE TAG tagB(idInt int, idString string, tboolean bool, tdouble double);
+    -- 创建边类型 edgeAB
+    CREATE EDGE edgeAB(idInt int, idString string, tboolean bool, tdouble double);
     ```
 
 关于 Nebula Graph 构图的更多信息，参考《Nebula Graph Database 手册》的 [快速开始](https://docs.nebula-graph.com.cn/manual-CN/1.overview/2.quick-start/1.get-started/ "点击前往 Nebula Graph 网站")。

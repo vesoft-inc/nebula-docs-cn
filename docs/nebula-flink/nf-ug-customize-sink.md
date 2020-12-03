@@ -208,6 +208,6 @@ dataSource.addSink(nebulaSinkFunction);
 
 ### NebulaSink 示例程序
 
-您可以参考 GitHub 上的示例程序 [testSourceSink](https://github.com/vesoft-inc/nebula-java/blob/master/examples/src/main/java/org/apache/flink/FlinkDemo.java) 编写您自己的 Flink 应用程序。
+您可以参考 GitHub 上的示例程序 [testSourceSink](https://github.com/vesoft-inc/nebula-java/tree/v1.0/examples/src/main/java/org/apache/flink/FlinkDemo.java) 编写您自己的 Flink 应用程序。
 
 以 testSourceSink 为例：该程序以 Nebula Graph 的图空间 `flinkSource` 作为 source，通过 Flink 读取进行 `map` 类型转换后的数据，再写入 Nebula Graph 另一个图空间 `flinkSink`，即 Nebula Graph 一个图空间 `flinkSource` 的数据流入另一个图空间 `flinkSink` 中。

@@ -13,7 +13,7 @@
 
 - 已经成功编译 Nebula Spark Connector，并已经将 `nebula-spark-1.0.1.jar` 复制到本地 Maven 库。详细信息参考 [编译 Nebula Spark Connector](../sc-ug-compile.md)。
 
-- 待写入的点和边数据源。在本示例中所用的数据源为 JSON 文件，您可以从 [nebula-java 库](https://github.com/vesoft-inc/nebula-java/tree/master/examples/src/main/resources "点击前往 GitHub 网站") 中下载。
+- 待写入的点和边数据源。在本示例中所用的数据源为 JSON 文件，您可以从 [nebula-java 库](https://github.com/vesoft-inc/nebula-java/tree/v1.0/examples/src/main/resources "点击前往 GitHub 网站") 中下载。
 
 - Nebula Graph 的 Graph 服务 IP 地址及端口号。在本示例中，对应的信息为 `127.0.0.1:3699`。
 
@@ -50,7 +50,7 @@
 
 ```shell
 // 构造点和边数据的 DataFrame，
-// 这里使用 nebula-java 库里 nebula-java/examples/src/main/resources 目录下的示例数据，
+// 这里使用 nebula-java 库 v1.0 分支里 nebula-java/examples/src/main/resources 目录下的示例数据，
 // 示例数据在本地的存储路径为 examples/src/main/resources
   val vertexDF = spark.read.json("examples/src/main/resources/vertex")
       vertexDF.show()
@@ -91,7 +91,7 @@
 
 ```shell
 // 构造点和边数据的 DataFrame，
-// 这里使用 nebula-java 库里 nebula-java/examples/src/main/resources 目录下的示例数据，
+// 这里使用 nebula-java 库 v1.0 分支里 nebula-java/examples/src/main/resources 目录下的示例数据，
 // 示例数据在本地的存储路径为 examples/src/main/resources
 val vertexDF = spark.read.json("examples/src/main/resources/vertex")
   vertexDF.show()
