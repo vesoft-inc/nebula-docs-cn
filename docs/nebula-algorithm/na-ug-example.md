@@ -108,13 +108,14 @@
 运行以下命令，提交 nebula-algorithm 应用程序。
 
 ```shell
-spark-submit --master "local" --class com.vesoft.nebula.tools.algorithm.Main /your-jar-path/nebula-algorithm-1.0.1.jar -p /your-application.conf-path/application.conf
+spark-submit --master "local" --class com.vesoft.nebula.tools.algorithm.Main /your-jar-path/nebula-algorithm-1.x.y.jar -p /your-application.conf-path/application.conf
 ```
 
 其中，
 
 - `--master`：指定 Spark 集群中Master 进程的 URL。详细信息，参考 [master-urls](https://spark.apache.org/docs/latest/submitting-applications.html#master-urls "点击前往 Apache Spark 文档")。
 - `--class`：指定 Driver 主类。
+- 指定 nebula-algorithm JAR 文件的路径，JAR 文件版本号会因 Nebula Java Client 的发布版本而异。您可以在 [nebula-java 仓库的 Releases 页面](https://github.com/vesoft-inc/nebula-java/releases "点击前往 GitHub 网站") 查看最新的 v1.x 版本。
 - `-p`：Spark 配置文件文件路径。
 - 其他：如果您未在配置文件中设置 Spark 的任务资源分配（`conf`）信息，您可以在这个命令中指定。例如，本示例中，`--driver-memory=20G  --executor-memory=100G --executor-cores=3`。
 
