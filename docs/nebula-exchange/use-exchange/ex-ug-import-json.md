@@ -28,7 +28,7 @@ Exchange 迁移 JSON 文件时，不支持断点续传。
 - 硬件规格：
   - CPU：1.7 GHz Quad-Core Intel Core i7
   - 内存：16 GB
-- Spark：2.3.0，Standalone 模式部署
+- Spark：2.3.0，Local 模式
 - Hadoop：2.9.2，伪分布式部署
 - Nebula Graph：V1.1.0，使用 Docker Compose 部署。详细信息，参考 [使用 Docker Compose 部署 Nebula Graph](https://github.com/vesoft-inc/nebula-docker-compose/blob/master/README_zh-CN.md)
 
@@ -77,7 +77,7 @@ Exchange 迁移 JSON 文件时，不支持断点续传。
 
 ### 步骤 2. 处理 JSON 文件
 
-分别创建点和边数据 JSON 文件。同时，JSON 文件必须存储在 Hadoop 里，并获取文件存储路径。
+分别创建点和边数据 JSON 文件。同时，JSON 文件必须存储在 HDFS 里，并获取文件存储路径。
 
 > **说明**：本示例中仅使用一个 JSON 文件同时写入点和边数据，其中，表示 source 和 target 的部分点数据是重复的，所以，在写入数据时，这些点会被重复写入。向 Nebula Graph 插入点或边时，允许重复插入，但是最后读取时以最后一次写入的数据为准，所以，并不影响使用。在实际使用时，最好分别创建点和边数据文件，提高数据写入速度。
 
