@@ -4,7 +4,7 @@
 
 ## 使用限制
 
-Exchange 迁移 CSV 文件时，不支持断点续传。
+Exchange 导入 CSV 文件时，不支持断点续传。
 
 ## 数据集
 
@@ -28,7 +28,7 @@ Exchange 迁移 CSV 文件时，不支持断点续传。
 
 ## 前提条件
 
-开始迁移数据之前，您需要确认以下信息：
+开始导入数据之前，您需要确认以下信息：
 
 - 已经完成 Exchange 编译。详细信息，参考 [编译 Exchange](../ex-ug-compile.md)。
 - 已经安装 Spark。
@@ -263,9 +263,9 @@ Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格
 }
 ```
 
-### 步骤 4. 向 Nebula Graph 迁移数据
+### 步骤 4. 向 Nebula Graph 导入数据
 
-完成配置后，运行以下命令使用 Exchange 将 CSV 文件数据迁移到 Nebula Graph 中。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
+完成配置后，运行以下命令使用 Exchange 将 CSV 文件数据导入到 Nebula Graph 中。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
 $SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange --master "local" /path/to/exchange-1.0.1.jar -c /path/to/conf/csv_application.conf
