@@ -22,7 +22,7 @@ Exchange 迁移 CSV 文件时，不支持断点续传。
 - 硬件规格：
   - CPU：1.7 GHz Quad-Core Intel Core i7
   - 内存：16 GB
-- Spark：2.3.0，Standalone 模式部署
+- Spark：2.3.0，Local 模式
 - Hadoop：2.9.2，伪分布式部署
 - Nebula Graph：V1.1.0，使用 Docker Compose 部署。详细信息，参考 [使用 Docker Compose 部署 Nebula Graph](https://github.com/vesoft-inc/nebula-docker-compose/blob/master/README_zh-CN.md)
 
@@ -75,7 +75,7 @@ Exchange 迁移 CSV 文件时，不支持断点续传。
 
 1. CSV 文件已经根据 Schema 作了处理。详细操作请参考 [Nebula Graph Studio 快速开始](../../nebula-studio/quick-start/st-ug-prepare-csv.md)。
    > **说明**：与 Studio 不同，Exchange 支持上传有表头或者无表头的 CSV 文件。
-2. CSV 文件必须存储在 Hadoop 里，并已获取文件存储路径。
+2. CSV 文件必须存储在 HDFS 中，并已获取文件存储路径。
 
 ## 步骤 3. 修改配置文件
 
