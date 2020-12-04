@@ -226,8 +226,8 @@ nav:
           - Spark 参数: nebula-exchange/parameter-reference/ex-ug-paras-spark.md
           - Nebula Graph 参数: nebula-exchange/parameter-reference/ex-ug-paras-nebulagraph.md
           - 数据源参数:
-            - Neo4j 参数: nebula-exchange/parameter-reference/ex-ug-paras-neo4j.md
-            - 导入命令参数: nebula-exchange/parameter-reference/ex-ug-para-import-command.md
+            - Neo4j 数据源相关参数: nebula-exchange/parameter-reference/ex-ug-paras-neo4j.md
+          - 导入命令参数: nebula-exchange/parameter-reference/ex-ug-para-import-command.md
 
       - Nebula Flink Connector:
         - 什么是 Nebula Flink Connector: nebula-flink/nf-ug-what-is-flink-connector.md
@@ -273,7 +273,7 @@ nav:
           - 导入图探索: nebula-studio/use-console/st-ug-open-in-explorer.md
           - 查看子图: nebula-studio/use-console/st-ug-visualize-findpath.md
       - 故障排查:
-        - 连接数据库错误: nebula-studio/troubleshooting/st-ug-connection-errors.md
+        - 连接数据库错误: nebula-studio/troubleshooting/st-ug-config-server-errors.md
         - 无法访问 Studio: nebula-studio/troubleshooting/st-ug-connection-errors.md
         - 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
 
