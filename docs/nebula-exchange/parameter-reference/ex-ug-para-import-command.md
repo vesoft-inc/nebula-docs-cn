@@ -6,7 +6,7 @@
 $SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange --master "local[10]" target/exchange-1.x.y.jar -c /path/to/conf/application.conf
 ```
 
-> **说明**：JAR 文件版本号会因 Nebula Java Client 的发布版本而异。您可以在 [nebula-java 仓库的 Releases 页面](https://github.com/vesoft-inc/nebula-java/releases "点击前往 GitHub 网站") 查看最新的 v1.x 版本。
+> **说明**：JAR 文件版本号以您实际编译得到的 JAR 文件名称为准。
 
 下表列出了命令的相关参数。
 

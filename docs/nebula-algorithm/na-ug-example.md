@@ -10,14 +10,14 @@
 ## 示例环境
 
 - 三台虚拟机，配置如下：
-   - CPU：Intel(R) Xeon(R) Platinum 8260M CPU @ 2.30GHz
-   - Processors：32
-   - CPU Cores：16
-   - 内存：128 GB
+  - CPU：Intel(R) Xeon(R) Platinum 8260M CPU @ 2.30GHz
+  - Processors：32
+  - CPU Cores：16
+  - 内存：128 GB
 - 软件环境：
-   - Spark：spark-2.4.6-bin-hadoop2.7 三个节点集群
-   - yarn V2.10.0：三个节点集群
-   - Nebula Graph V1.1.0：分布式部署，默认配置
+  - Spark：spark-2.4.6-bin-hadoop2.7 三个节点集群
+  - yarn V2.10.0：三个节点集群
+  - Nebula Graph V1.1.0：分布式部署，默认配置
   
 ## 示例数据
 
@@ -115,7 +115,7 @@ spark-submit --master "local" --class com.vesoft.nebula.tools.algorithm.Main /yo
 
 - `--master`：指定 Spark 集群中Master 进程的 URL。详细信息，参考 [master-urls](https://spark.apache.org/docs/latest/submitting-applications.html#master-urls "点击前往 Apache Spark 文档")。
 - `--class`：指定 Driver 主类。
-- 指定 nebula-algorithm JAR 文件的路径，JAR 文件版本号会因 Nebula Java Client 的发布版本而异。您可以在 [nebula-java 仓库的 Releases 页面](https://github.com/vesoft-inc/nebula-java/releases "点击前往 GitHub 网站") 查看最新的 v1.x 版本。
+- 指定 nebula-algorithm JAR 文件的路径，JAR 文件版本号以您实际编译得到的 JAR 文件名称为准。
 - `-p`：Spark 配置文件文件路径。
 - 其他：如果您未在配置文件中设置 Spark 的任务资源分配（`conf`）信息，您可以在这个命令中指定。例如，本示例中，`--driver-memory=20G  --executor-memory=100G --executor-cores=3`。
 
