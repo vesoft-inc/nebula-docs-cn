@@ -11,7 +11,7 @@
   - Scala
   - Java：1.8
 
-- 已经成功编译 Nebula Spark Connector，并已经将 `nebula-spark-1.0.1.jar` 复制到本地 Maven 库。详细信息参考 [编译 Nebula Spark Connector](../sc-ug-compile.md)。
+- 已经成功编译 Nebula Spark Connector，并已经将 `nebula-spark-1.x.y.jar` 复制到本地 Maven 库。详细信息参考 [编译 Nebula Spark Connector](../sc-ug-compile.md)。
 
 - 待写入的点和边数据源。在本示例中所用的数据源为 JSON 文件，您可以从 [nebula-java 库](https://github.com/vesoft-inc/nebula-java/tree/v1.0/examples/src/main/resources "点击前往 GitHub 网站") 中下载。
 
@@ -36,9 +36,11 @@
 <dependency>
   <groupId>com.vesoft</groupId>
   <artifactId>nebula-spark</artifactId>
-  <version>1.0.1</version>
+  <version>1.x.y</version>
 </dependency>
 ```
+
+> **说明**：`<version>` 建议配置为最新发布的 Nebula Java Client 版本号。您可以在 [nebula-java 仓库的 Releases 页面](https://github.com/vesoft-inc/nebula-java/releases "点击前往 GitHub 网站") 查看最新的 v1.x 版本。
 
 ### 第 2 步
 

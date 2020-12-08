@@ -3,8 +3,10 @@
 完成配置文件修改后，运行以下命令将指定来源的数据导入 Nebula Graph 数据库。
 
 ```bash
-$SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange --master "local[10]" target/exchange-1.0.1.jar -c /path/to/conf/application.conf
+$SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange --master "local[10]" target/exchange-1.x.y.jar -c /path/to/conf/application.conf
 ```
+
+> **说明**：JAR 文件版本号以您实际编译得到的 JAR 文件名称为准。
 
 下表列出了命令的相关参数。
 
