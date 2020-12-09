@@ -2,6 +2,8 @@
 
 本文以一个示例说明如何使用 Exchange 将存储在 HDFS 上的 CSV 文件数据导入 Nebula Graph。
 
+如果您要将本地 CSV 文件导入 Nebula Graph，参考 [CSV 文件导入示例](../../manual-CN/1.overview/2.quick-start/4.import-csv-file.md)。
+
 ## 使用限制
 
 Exchange 导入 CSV 文件时，不支持断点续传。
@@ -67,17 +69,17 @@ Exchange 导入 CSV 文件时，不支持断点续传。
     CREATE EDGE action (actionId int, duration double, label bool, feature0 double, feature1 double, feature2 double, feature3 double);
     ```
 
-关于 Nebula Graph 构图的更多信息，参考《Nebula Graph Database 手册》的 [快速开始](https://docs.nebula-graph.com.cn/manual-CN/1.overview/2.quick-start/1.get-started/ "点击前往 Nebula Graph 网站")。
+关于 Nebula Graph 构图的更多信息，参考《Nebula Graph Database 手册》的 [快速开始](../../manual-CN/1.overview/2.quick-start/1.get-started/ "点击前往 Nebula Graph 网站")。
 
 ### 步骤 2. 处理 CSV 文件
 
 确认以下信息：
 
 1. CSV 文件已经根据 Schema 作了处理。详细操作请参考 [Nebula Graph Studio 快速开始](../../nebula-studio/quick-start/st-ug-prepare-csv.md)。
-   > **说明**：与 Studio 不同，Exchange 支持上传有表头或者无表头的 CSV 文件。
+   > **说明**：Exchange 支持上传有表头或者无表头的 CSV 文件。
 2. CSV 文件必须存储在 HDFS 中，并已获取文件存储路径。
 
-## 步骤 3. 修改配置文件
+### 步骤 3. 修改配置文件
 
 Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格式，具有面向对象风格，便于理解和操作。
 
@@ -146,42 +148,49 @@ Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格
       }
       # CSV 文件所在的 HDFS 路径，String 类型，必须以 hdfs:// 开头。
       path: "hdfs://path/to/course.csv"
-      # 如果 CSV 文件里不带表头，而且没有配置 csv.fields，
+      
+      # 如果 CSV 文件里不带表头，
       # 则写入 [_c0, _c1, _c2, ... _cn]，
       # 依次表示 CSV 文件中从左到右各数据列，作为 course 各属性值来源。
-      # 如果 CSV 文件里不带表头，但是在本文件中配置了 csv.fields，
-      # 则 fields 的配置必须与 csv.fields 保持一致。
-      # Exchange 会将 csv.fields 里的设置作为表头。
       # 如果 CSV 文件里有表头，则按从左到右顺序写入各列名。
       fields: [_c0, _c1]
+
       # 设置 Nebula Graph 中与 CSV 文件各列对应的属性名称，
-      # 必须与 fields 或者 csv.fields 的顺序一一对应。
+      # 必须与 fields 的顺序一一对应。
       nebula.fields: [courseId, courseName]
+
+      # Exchange 1.1.0 添加了 csv.fields 参数：
       # 如果配置了 csv.fields，无论 CSV 文件是否有表头，
-      # 均以这个参数指定的名称作为 CSV 文件中各列名称。
+      # 均以这个参数指定的名称作为 CSV 文件中各列名称，
+      # 如果无表头，fields 的配置必须与 csv.fields 的配置保持一致。
       # csv.fields: [courseId, courseName]
-      # 将 CSV 中的某一列数据指定为 Nebula Graph 中点 VID 的来源。
+
+      # 指定 CSV 中的某一列数据为 Nebula Graph 中点 VID 的来源。
       # vertex.field 的值必须与上述 fields 或者 csv.fields 中的列名保持一致。
       # 如果数据不是 int 类型，则添加 vertex.policy 指定 VID 映射策略，建议设置为 "hash"。
       vertex: {
         field: _c1,
         policy: "hash"
       }
+
       # 标明数据源中数据分隔方式，默认为英文逗号（;）。
       separator: ","
+
       # 如果 CSV 文件中有表头，header 设置为 true。
       # 如果 CSV 文件中没有表头，header 设置为 false（默认值）。
       header: false
+
       # 单次写入 Nebula Graph 的最大点数据量。
       batch: 256
+
       # Spark 分区数量
       partition: 32
+
+      # isImplicit 的设置说明参考：https://github.com/vesoft-inc/nebula-java/
+      # blob/v1.0/tools/exchange/src/main/resources/application.conf
       isImplicit: true
-      # 如果设置了 check_point_path，则启动断点续传。
-      # 为避免数据丢失，在断点和续传之间，数据库不应该改变状态，例如不能添加数据或删除数据，
-      # 同时，不能更改 `partition` 数量配置。
-      # check_point_path: "path/for/checkpoint"
     }
+
     # 设置另一个标签 user
     {
       name: user
@@ -190,24 +199,31 @@ Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格
         sink: client
       }
       path: "hdfs://path/to/user.csv"
+
+      # Exchange 1.1.0 添加了 csv.fields 参数
       # 如果 CSV 文件里不带表头，但是配置了 csv.fields，
       # 则 fields 的配置必须与 csv.fields 保持一致，
       # Exchange 会将 csv.fields 里的设置作为表头。
       # 如果 CSV 文件里有表头，则按从左到右顺序写入各列名。
       fields: [userId]
+
       # 设置 Nebula Graph 中与 CSV 文件各列对应的属性名称，
       # 必须与 fields 或者 csv.fields 的顺序一一对应。
       nebula.fields: [userId]
+
       # 如果配置了 csv.fields，无论 CSV 文件是否有表头，
       # 均以这个参数指定的名称作为表头。同时，vertex 的设置必须对 csv.fields 的设置相同。
       csv.fields: [userId]
+
       # vertex 的值必须与 fields 或者 csv.fields 中相应的列名保持一致。
       vertex: userId
       separator: ","
       header: false
       batch: 256
       partition: 32
-      # isImplicit 设置说明，详见 https://github.com/vesoft-inc/nebula-java/blob/v1.0/tools/exchange/src/main/resources/application.conf
+
+      # isImplicit 设置说明，详见 https://github.com/vesoft-inc/nebula-java/blob
+      # /v1.0/tools/exchange/src/main/resources/application.conf
       isImplicit: true
     }
   ]
@@ -220,26 +236,31 @@ Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格
       type: {
         # 指定数据源文件格式，设置为 csv。
         source: csv
+
         # 指定边数据导入 Nebula Graph 的方式，
         # 可以设置为：client（以客户端形式导入）和 sst（以 SST 文件格式导入）。
         # 关于 SST 文件导入配置，参考文档：导入 SST 文件。
         sink: client
       }
+
       # 指定 CSV 文件所在的 HDFS 路径，String 类型，必须以 hdfs:// 开头。
       path: "hdfs://path/to/actions.csv"
-      # 如果 CSV 文件里不带表头，而且没有配置 csv.fields，
+
+      # 如果 CSV 文件里不带表头，
       # 则写入 [_c0, _c1, _c2, ... _cn]，
       # 依次表示 CSV 文件中从左到右各数据列，作为 action 各属性值来源。
-      # 如果 CSV 文件里不带表头，但是在本文件中配置了 csv.fields，
-      # 则 fields 的配置必须与 csv.fields 保持一致，
-      # Exchange 会将 csv.fields 里的设置作为表头。
       # 如果 CSV 文件里有表头，则按从左到右顺序写入各列名。
       fields: [_c0, _c3, _c4, _c5, _c6, _c7, _c8]
-      # Nebula Graph 中 action 的属性名称，必须与 fields 或者 csv.fileds 里的列顺序一一对应。
+
+      # Nebula Graph 中 action 的属性名称，必须与 fields 里的列顺序一一对应。
       nebula.fields: [actionId, duration, feature0, feature1, feature2, feature3, label]
+
+      # Exchange 1.1.0 添加了 csv.fields 参数：
       # 如果配置了 csv.fields，无论 CSV 文件是否有表头，
-      # 均以这个参数指定的名称作为表头。
+      # 均以这个参数指定的名称作为表头，
+      # 如果无表头，fields 的配置必须与 csv.fields 的配置保持一致。
       # csv.fields: [actionId, duration, feature0, feature1, feature2, feature3, label]
+
       # 边起点和边终点 VID 数据来源，
       # 如果不是 int 类型数据，则添加 policy 指定 VID 映射策略，建议设置为 "hash"。
       source: _c1
@@ -247,13 +268,17 @@ Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格
         field: _c2
         policy: "hash"
       }
+
       # 标明数据源中数据分隔方式，默认为英文逗号（;）。
       separator: ","
+
       # 如果 CSV 文件中有表头，header 设置为 true。
       # 如果 CSV 文件中没有表头，header 设置为 false（默认）。
       header: false
+
       # 单次向 Nebula Graph 写入的最大边数据量。
       batch: 256
+
       # 设置 Spark 分区数量。
       partition: 32
       isImplicit: true
@@ -265,15 +290,15 @@ Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格
 
 ### 步骤 4. 向 Nebula Graph 导入数据
 
-完成配置后，运行以下命令使用 Exchange 将 CSV 文件数据导入到 Nebula Graph 中。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
+完成配置后，运行以下命令将 CSV 文件数据导入到 Nebula Graph 中。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-$SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange --master "local" /path/to/exchange-1.0.1.jar -c /path/to/conf/csv_application.conf
+$SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange --master "local" /path/to/exchange-1.1.0.jar -c /path/to/conf/csv_application.conf
 ```
 
-## 步骤 5. 验证数据
+### 步骤 5. 验证数据
 
-您可以在 Nebula Graph 客户端（例如 Nebula Graph Studio）里执行语句查询数据是否已导入，例如：
+您可以在 Nebula Graph 客户端（例如 Nebula Graph Studio）里执行语句，确认数据是否已导入，例如：
 
 ```ngql
 GO FROM 1 OVER action;
@@ -283,6 +308,6 @@ GO FROM 1 OVER action;
 
 您也可以使用 db_dump 工具统计数据是否已经全部导入。详细的使用信息参考 [Dump Tool](https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-export/dump-tool/)。
 
-## 步骤 6. （可选）在 Nebula Graph 中重构索引
+### 步骤 6. （可选）在 Nebula Graph 中重构索引
 
 导入数据后，您可以在 Nebula Graph 中重新创建并重构索引。详细信息，参考[《Nebula Graph Database 手册》](https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/ "点击前往 Nebula Graph 网站")。
