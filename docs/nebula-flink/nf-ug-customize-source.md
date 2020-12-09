@@ -96,7 +96,7 @@ NebulaSourceFunction sourceFunction = new NebulaSourceFunction(metaConnectionPro
 
 ## 示例程序
 
-您可以参考 GitHub 上的示例程序 [testNebulaSource](https://github.com/vesoft-inc/nebula-java/blob/master/examples/src/main/java/org/apache/flink/FlinkDemo.java) 编写您自己的 Flink 应用程序。
+您可以参考 GitHub 上的示例程序 [testNebulaSource](https://github.com/vesoft-inc/nebula-java/tree/v1.0/examples/src/main/java/org/apache/flink/FlinkDemo.java) 编写您自己的 Flink 应用程序。
 
 以 testNebulaSource 为例：该程序以 Nebula Graph 图数据库为 source，以 Print 为 sink，从 Nebula Graph 图数据库中读取 59,671,064 条点数据后再打印。将该程序打包提交到 Flink 集群执行，结果如下图所示。
 

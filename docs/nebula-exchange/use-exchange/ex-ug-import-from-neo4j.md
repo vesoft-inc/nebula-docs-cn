@@ -93,12 +93,17 @@ Neo4j 的数据集信息如下：
 3. 确认 Nebula Graph 需要的副本数量。本示例中假设为 1。
 4. 在 Nebula Graph 里创建一个图空间 **test**，并创建一个图数据模式，如下所示。
 
-    ```sql
-    CREATE SPACE test(partition_num=10, replica_factor=1); --创建图空间，本示例中假设只需要一个副本
-    USE test; --选择图空间 test
-    CREATE TAG tagA(idInt int, idString string, tboolean bool, tdouble double); -- 创建标签 tagA
-    CREATE TAG tagB(idInt int, idString string, tboolean bool, tdouble double); -- 创建标签 tagB
-    CREATE EDGE edgeAB(idInt int, idString string, tboolean bool, tdouble double); -- 创建边类型 edgeAB
+    ```ngql
+    -- 创建图空间，本示例中假设只需要一个副本
+    nebula> CREATE SPACE test(partition_num=10, replica_factor=1);
+    -- 选择图空间 test
+    nebula> USE test;
+    -- 创建标签 tagA
+    nebula> CREATE TAG tagA(idInt int, idString string, tboolean bool, tdouble double);
+    -- 创建标签 tagB
+    nebula> CREATE TAG tagB(idInt int, idString string, tboolean bool, tdouble double);
+    -- 创建边类型 edgeAB
+    nebula> CREATE EDGE edgeAB(idInt int, idString string, tboolean bool, tdouble double);
     ```
 
 关于 Nebula Graph 构图的更多信息，参考《Nebula Graph Database 手册》的 [快速开始](https://docs.nebula-graph.com.cn/manual-CN/1.overview/2.quick-start/1.get-started/ "点击前往 Nebula Graph 网站")。
@@ -239,8 +244,10 @@ Nebula Graph 在创建点和边时会将 ID 作为唯一主键，如果主键已
 完成配置后，运行以下命令使用 Exchange 将 Neo4j 的数据迁移到 Nebula Graph 中。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-$SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange --master "local[10]" target/exchange-1.0.1.jar -c /path/to/conf/neo4j_application.conf
+$SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange --master "local[10]" target/exchange-1.x.y.jar -c /path/to/conf/neo4j_application.conf
 ```
+
+> **说明**：JAR 文件版本号以您实际编译得到的 JAR 文件名称为准。
 
 ### 步骤 5. （可选）在 Nebula Graph 中重构索引
 

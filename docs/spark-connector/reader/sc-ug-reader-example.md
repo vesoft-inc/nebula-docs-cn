@@ -11,7 +11,7 @@
   - Scala
   - Java：1.8
 
-- 已经成功编译 Nebula Spark Connector Reader，并已经将 `nebula-spark-1.0.1.jar` 复制到本地 Maven 库。详细信息参考 [编译 Nebula Spark Connector Reader](screader-ug-compile.md)
+- 已经成功编译 Nebula Spark Connector Reader，并已经将 `nebula-spark-1.x.y.jar` 复制到本地 Maven 库。详细信息参考 [编译 Nebula Spark Connector](screader-ug-compile.md)
 
 - 已经获取 Nebula Graph 数据库的以下信息：
   - 图空间名称和分区数量（如果创建图空间时未设置分区数量，则默认使用 100）
@@ -28,11 +28,13 @@
     <dependency>
       <groupId>com.vesoft</groupId>
       <artifactId>nebula-spark</artifactId>
-      <version>1.0.1</version>
+      <version>1.x.y</version>
     </dependency>
     ```
 
-2. 构建 `SparkSession` 类。这是 Spark SQL 的编码入口。
+> **说明**：`<version>` 建议配置为最新发布的 Nebula Java Client 版本号。您可以在 [nebula-java 仓库的 Releases 页面](https://github.com/vesoft-inc/nebula-java/releases "点击前往 GitHub 网站") 查看最新的 v1.x 版本。
+
+1. 构建 `SparkSession` 类。这是 Spark SQL 的编码入口。
 
     ```
     val sparkConf = new SparkConf
@@ -48,7 +50,7 @@
 
     其中，关于 `.master()` 的设置，参考 [Spark 配置的 Master URLs](https://spark.apache.org/docs/latest/submitting-applications.html#master-urls "点击前往 Spark 文档中心")。
 
-3. 按以下说明修改配置，利用 Spark 读取 Nebula Graph 的点或者边数据，得到 DataFrame。
+2. 按以下说明修改配置，利用 Spark 读取 Nebula Graph 的点或者边数据，得到 DataFrame。
 
     ```shell
     // 读取 Nebula Graph 的点数据

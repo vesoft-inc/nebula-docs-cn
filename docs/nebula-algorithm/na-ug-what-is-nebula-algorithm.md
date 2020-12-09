@@ -1,6 +1,6 @@
 # 什么是 nebula-algorithm
 
-[nebula-algorithm](https://github.com/vesoft-inc/nebula-java/tree/master/tools/nebula-algorithm) 是一款基于 [GraphX](https://spark.apache.org/graphx/) 的 Spark 应用程序，提供了 PageRank 和 Louvain 社区发现的图计算算法。使用 nebula-algorithm，您能以提交 Spark 任务的形式对 Nebula Graph 数据库中的数据执行图计算。
+[nebula-algorithm](https://github.com/vesoft-inc/nebula-java/tree/v1.0/tools "点击前往 GitHub") 是一款基于 [GraphX](https://spark.apache.org/graphx/) 的 Spark 应用程序，提供了 PageRank 和 Louvain 社区发现的图计算算法。使用 nebula-algorithm，您能以提交 Spark 任务的形式对 Nebula Graph 数据库中的数据执行图计算。
 
 目前 nebula-algorithm 仅提供了 PageRank 和 Louvain 社区发现算法。如果您有其他需求，可以参考本项目，编写 Spark 应用程序调用 GraphX 自带的其他图算法，如 LabelPropagation、ConnectedComponent 等。
 
@@ -9,10 +9,10 @@
 nebula-algorithm 根据以下方式实现图算法：
 
 1. 从 Nebula Graph 数据库中读取图数据并处理成 DataFrame。
-2. 将 DataFrame 转换为 Graphx 的图。
-3. 调用 Graphx 提供的图算法（例如 PageRank）或者您自己实现的算法（例如 Louvain 社区发现）。
+2. 将 DataFrame 转换为 GraphX 的图。
+3. 调用 GraphX 提供的图算法（例如 PageRank）或者您自己实现的算法（例如 Louvain 社区发现）。
 
-详细的实现方式，您可以参考 [LouvainAlgo.scala 和 PageRankAlgo.scala](https://github.com/vesoft-inc/nebula-java/tree/master/tools/nebula-algorithm/src/main/scala/com/vesoft/nebula/tools/algorithm/lib)。
+详细的实现方式，您可以参考 [LouvainAlgo.scala 和 PageRankAlgo.scala](https://github.com/vesoft-inc/nebula-java/tree/v1.0/tools/nebula-algorithm/src/main/scala/com/vesoft/nebula/tools/algorithm/lib)。
 
 ## PageRank 和 Louvain 简介
 
@@ -28,7 +28,7 @@ GraphX 的 PageRank 算法基于 Pregel 计算模型，该算法流程包括 3 �
 
 ### Louvain
 
-Louvain 是基于模块度（Modularity）的社区发现算法，通过模块度来衡量一个社区的紧密程度，属于图的聚类算法。如果一个顶点加入到某一社区中会使得该社区的模块度相比其他社区有最大程度的增加，则该顶点就应当属于该社区。如果加入其它社区后没有使其模块度增加，则留在自己当前社区中。详细信息，您可以参考论文《Fast unfolding of communities in large networks》。
+Louvain 是基于模块度（Modularity）的社区发现算法，通过模块度来衡量一个社区的紧密程度，属于图的聚类算法。如果一个顶点加入到某一社区中使该社区的模块度相比其他社区有最大程度的增加，则该顶点就应当属于该社区。如果加入其它社区后没有使其模块度增加，则留在自己当前社区中。详细信息，您可以参考论文[《Fast unfolding of communities in large networks》](https://arxiv.org/pdf/0803.0476.pdf)。
 
 Louvain 算法包括两个阶段，其流程就是这两个阶段的迭代过程。
 
