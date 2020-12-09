@@ -2,7 +2,7 @@
 
 本文以一个示例说明如何使用 Exchange 将存储在 HDFS 上的 CSV 文件数据导入 Nebula Graph。
 
-如果您要将本地 CSV 文件导入 Nebula Graph，参考 [CSV 文件导入示例](../../manual-CN/1.overview/2.quick-start/4.import-csv-file.md)。
+如果您要向 Nebula Graph 导入本地 CSV 文件，参考 [CSV 文件导入示例](../../manual-CN/1.overview/2.quick-start/4.import-csv-file.md)。
 
 ## 使用限制
 
@@ -134,35 +134,36 @@ Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格
   }
   # 处理标签
   tags: [
-    # 设置一个标签 course
+    # 设置标签 course 相关信息
     {
       # Nebula Graph 中对应的标签名称。
       name: course
       type: {
         # 指定数据源文件格式，设置为 csv。
         source: csv
-        # 指定标签数据导入 Nebula Graph 的方式，
+        # 指定点数据导入 Nebula Graph 的方式，
         # 可以设置为：client（以客户端形式导入）和 sst（以 SST 文件格式导入）。
-        # 关于 SST 文件导入配置，参考文档：导入 SST 文件。
+        # 关于 SST 文件导入配置，参考文档：导入 SST 文件（https://
+        # docs.nebula-graph.com.cn/nebula-exchange/
+        # use-exchange/ex-ug-import-sst/）。
         sink: client
       }
       # CSV 文件所在的 HDFS 路径，String 类型，必须以 hdfs:// 开头。
-      path: "hdfs://path/to/course.csv"
+      path: "hdfs://namenode_ip:port/path/to/course.csv"
       
-      # 如果 CSV 文件里不带表头，
-      # 则写入 [_c0, _c1, _c2, ... _cn]，
-      # 依次表示 CSV 文件中从左到右各数据列，作为 course 各属性值来源。
-      # 如果 CSV 文件里有表头，则按从左到右顺序写入各列名。
+      # 如果 CSV 文件里不带表头，则写入 [_c0, _c1, _c2, ... _cn]，
+      # 表示 CSV 文件中的数据列名，作为 course 各属性值来源。
+      # 如果 CSV 文件里有表头，则写入各列名。
+      # fields 与 nebula.fields 的顺序必须一一对应。
       fields: [_c0, _c1]
 
       # 设置 Nebula Graph 中与 CSV 文件各列对应的属性名称，
-      # 必须与 fields 的顺序一一对应。
+      # fields 与 nebula.fields 的顺序必须一一对应。
       nebula.fields: [courseId, courseName]
 
       # Exchange 1.1.0 添加了 csv.fields 参数：
       # 如果配置了 csv.fields，无论 CSV 文件是否有表头，
-      # 均以这个参数指定的名称作为 CSV 文件中各列名称，
-      # 如果无表头，fields 的配置必须与 csv.fields 的配置保持一致。
+      # fields 的配置必须与 csv.fields 的配置保持一致。
       # csv.fields: [courseId, courseName]
 
       # 指定 CSV 中的某一列数据为 Nebula Graph 中点 VID 的来源。
@@ -191,20 +192,20 @@ Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格
       isImplicit: true
     }
 
-    # 设置另一个标签 user
+    # 设置标签 user 相关信息
     {
       name: user
       type: {
         source: csv
         sink: client
       }
-      path: "hdfs://path/to/user.csv"
+      path: "hdfs://namenode_ip:port/path/to/user.csv"
 
       # Exchange 1.1.0 添加了 csv.fields 参数
       # 如果 CSV 文件里不带表头，但是配置了 csv.fields，
       # 则 fields 的配置必须与 csv.fields 保持一致，
       # Exchange 会将 csv.fields 里的设置作为表头。
-      # 如果 CSV 文件里有表头，则按从左到右顺序写入各列名。
+      # fields 与 nebula.fields 的顺序必须一一对应。
       fields: [userId]
 
       # 设置 Nebula Graph 中与 CSV 文件各列对应的属性名称，
@@ -212,7 +213,9 @@ Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格
       nebula.fields: [userId]
 
       # 如果配置了 csv.fields，无论 CSV 文件是否有表头，
-      # 均以这个参数指定的名称作为表头。同时，vertex 的设置必须对 csv.fields 的设置相同。
+      # 均以这个参数指定的名称作为表头，
+      # fields 的配置必须与 csv.fields 的配置保持一致，
+      # 同时，vertex 的设置必须与 csv.fields 的设置相同。
       csv.fields: [userId]
 
       # vertex 的值必须与 fields 或者 csv.fields 中相应的列名保持一致。
@@ -229,7 +232,7 @@ Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格
   ]
   # 处理边数据
   edges: [
-    # 设置一种边类型 action
+    # 设置边类型 action 相关信息
     {
       # Nebula Graph 中对应的边类型名称。
       name: action
@@ -239,17 +242,20 @@ Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格
 
         # 指定边数据导入 Nebula Graph 的方式，
         # 可以设置为：client（以客户端形式导入）和 sst（以 SST 文件格式导入）。
-        # 关于 SST 文件导入配置，参考文档：导入 SST 文件。
+        # 关于 SST 文件导入配置，参考文档：导入 SST 文件（https://
+        # docs.nebula-graph.com.cn/nebula-exchange/
+        # use-exchange/ex-ug-import-sst/）。
         sink: client
       }
 
       # 指定 CSV 文件所在的 HDFS 路径，String 类型，必须以 hdfs:// 开头。
-      path: "hdfs://path/to/actions.csv"
+      path: "hdfs://namenode_ip:port/path/to/actions.csv"
 
       # 如果 CSV 文件里不带表头，
       # 则写入 [_c0, _c1, _c2, ... _cn]，
-      # 依次表示 CSV 文件中从左到右各数据列，作为 action 各属性值来源。
-      # 如果 CSV 文件里有表头，则按从左到右顺序写入各列名。
+      # 依次表示 CSV 文件中各数据列，作为 action 各属性值来源。
+      # 如果 CSV 文件里有表头，则写入各列名。
+      # fields 与 nebula.fields 的顺序必须一一对应。
       fields: [_c0, _c3, _c4, _c5, _c6, _c7, _c8]
 
       # Nebula Graph 中 action 的属性名称，必须与 fields 里的列顺序一一对应。
@@ -258,7 +264,7 @@ Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格
       # Exchange 1.1.0 添加了 csv.fields 参数：
       # 如果配置了 csv.fields，无论 CSV 文件是否有表头，
       # 均以这个参数指定的名称作为表头，
-      # 如果无表头，fields 的配置必须与 csv.fields 的配置保持一致。
+      # fields 的配置必须与 csv.fields 的配置保持一致。
       # csv.fields: [actionId, duration, feature0, feature1, feature2, feature3, label]
 
       # 边起点和边终点 VID 数据来源，
@@ -284,7 +290,7 @@ Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格
       isImplicit: true
     }
   ]
-  # 如果还有其他边，再添加其他边类型的设置。
+  # 如果还有其他边，再添加其他边类型相关的设置。
 }
 ```
 
