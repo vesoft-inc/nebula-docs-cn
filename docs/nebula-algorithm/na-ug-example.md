@@ -2,7 +2,7 @@
 
 一般，您可以按以下步骤使用 nebula-algorithm：
 
-1. 参考配置文件，修改 nebula-algorithm 的配置。
+1. 参考配置文件修改 nebula-algorithm 的配置。
 2. 运行 nebula-algorithm。
 
 本文以一个示例说明如何使用 nebula-algorithm。
