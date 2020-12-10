@@ -21,8 +21,8 @@ nebula-algorithm 根据以下方式实现图算法：
 GraphX 的 PageRank 算法基于 Pregel 计算模型，该算法流程包括 3 个步骤：
 
 1. 为图中每个顶点（如网页）设置一个相同的初始 PageRank 值。
-2. 第一次迭代：沿边发送消息，每个顶点收到所有关联边上对点（两端顶点）的信息，得到一个新的 PageRank 值；
-3. 第二次迭代：用这组新的 PageRank 按不同算法模式对应的公式形成顶点自己新的 PageRank。
+2. 第一次迭代：沿边发送消息，每个顶点收到所有关联边上邻接点（Adjacent Node）的信息，得到一个新的 PageRank 值；
+3. 第二次迭代：用这组新的 PageRank 按不同算法模式对应的公式形成该顶点新的 PageRank。
 
 关于 PageRank 的详细信息，参考 [Wikipedia PageRank 页面](https://zh.wikipedia.org/wiki/PageRank "点击前往 Wikipedia 页面")。
 
