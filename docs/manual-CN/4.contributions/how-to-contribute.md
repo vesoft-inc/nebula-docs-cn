@@ -1,5 +1,7 @@
 # 如何提交代码和文档
 
+本文以 `vesoft-inc/nebula` 项目为例说明如何提交代码和文档。如果您要提交文档或其他项目的 Pull Request（PR），请参考本文档完成设置。所有项目仓库请前往 [vesoft-inc](https://github.com/vesoft-inc "点击前往 GitHub 网站") GitHub 页面查看。
+
 ## 前提条件
 
 点击 **Sign in with Github to agree** 按钮签署 CLA 协议。
@@ -8,8 +10,8 @@
 
 ## Step 1: 通过 GitHub Fork
 
-1. 访问 https://github.com/vesoft-inc/nebula
-1. 点击右上角 `Fork` 按钮创建远程分支
+1. 访问 [https://github.com/vesoft-inc/nebula](https://github.com/vesoft-inc/nebula)
+2. 点击右上角 `Fork` 按钮创建远程分支
 
 ## Step 2: 将分支克隆到本地
 
@@ -50,24 +52,6 @@ git remote set-url --push upstream no_push
 git remote -v
 ```
 
-### 定义预提交 hook
-
-请将 **Nebula Graph** 预提交挂钩链接到 `.git` 目录。
-
-此挂钩检查提交格式，构建，文档生成等。
-
-```bash
-cd $working_dir/nebula/.git/hooks
-ln -s ../../cpplint/bin/pre-commit.sh .
-```
-
-有时，预提交挂钩不能执行，在这种情况下，需要手动执行。
-
-```bash
-cd $working_dir/nebula/.git/hooks
-chmod +x pre-commit
-```
-
 ## Step 3: 分支
 
 更新本地主分支：
@@ -86,7 +70,7 @@ git checkout -b myfeature
 ```
 
 **注意**
-由于一个 PR 通常包含多个 commit，在合并至 master 时容易被挤压 ( squash )，因此建议创建一个独立的分支进行更改。合并后，这个分支已无用处，因此可以使用上述 rebase 命令将本地 master 与 upstream 同步。此外，如果直接将 commit 提交至 master，则需要 hard reset 主分支，例如：
+由于一个 PR 通常包含多个 commit，在合并至 master 时容易被挤压 (squash)，因此建议创建一个独立的分支进行更改。合并后，这个分支已无用处，因此可以使用上述 rebase 命令将本地 master 与 upstream 同步。此外，如果直接将 commit 提交至 master，则需要 hard reset 主分支，例如：
 
 ```bash
 git fetch upstream
@@ -103,7 +87,7 @@ git push --force origin master
 
 ### 添加单元测试
 
-请为你的新功能或 bugfix 添加单元测试。在修改的模块代码目录下面有个 test 目录，可以在里面添加单元测试，然后编译运行单元测试，提交的代码必须确保所有单元测试顺利通过。
+请为您的新功能或 bugfix 添加单元测试。在修改的模块代码目录下面有个 test 目录，可以在里面添加单元测试，然后编译运行单元测试，提交的代码必须确保所有单元测试顺利通过。
 
 ### 请开启单元测试进行源码编译
 
@@ -154,7 +138,7 @@ git push origin myfeature
 
 ### Step 8: 创建 pull request
 
-1. 点击此处访问 fork 仓库https://github.com/$user/nebula (替换此处的 `$user` 用户名)。
+1. 点击此处访问 fork 仓库<https://github.com/>$user/nebula (替换此处的 `$user` 用户名)。
 1. 点击 `myfeature` 分支旁的 `Compare & pull request` 按钮。
 
 ### Step 9: 代码审查
