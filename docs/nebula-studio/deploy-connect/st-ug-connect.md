@@ -26,6 +26,7 @@
      - 如果已启用身份验证，同时又创建了不同的用户并分配了角色，不同角色的用户使用自己的账号和密码登录。
 
       ![Nebula Graph Studio 的登录页面](https://docs-cdn.nebula-graph.com.cn/nebula-studio-docs/st-ug-002.png "配置数据库")
+
 2. 完成设置后，点击 **连接** 按钮。  
    如果您能看到如下图所示的界面，表示您已经成功连接到 Nebula Graph 数据库。
 

@@ -9,7 +9,7 @@
 - [English Document](https://docs.nebula-graph.io/)
 - 客户端 (TODO)
 - [Nebula Graph Cloud Service](https://cloud-docs.nebula-graph.com.cn/cn/posts/toc/dbaas-ug-toc/)
-- [Nebula Graph Studio](https://github.com/vesoft-inc/nebula-docs-cn/tree/master/nebula-studio)
+- [Nebula Graph Studio](https://docs.nebula-graph.com.cn/nebula-studio/about-studio/st-ug-what-is-graph-studio/)
 
 ## 贡献文档
 
