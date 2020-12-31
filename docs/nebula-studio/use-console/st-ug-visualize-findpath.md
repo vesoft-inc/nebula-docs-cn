@@ -21,22 +21,29 @@ Studio v1.2.1-beta 及以后版本。请更新版本，详细操作参考 [版�
 按以下步骤在 **控制台** 运行 `FIND PATH` 语句并将结果导入 **图探索**：
 
 1. 在工具栏里，点击 **控制台** 页签。
+
 2. 在 **当前Space** 中选择一个图空间。在本示例中，选择 **mooc_actions**。
+
 3. 在命令行中，输入 `FIND SHORTEST PATH` 或者 `FIND ALL PATH` 语句，并点击 ![表示运行的图标](https://docs-cdn.nebula-graph.com.cn/nebula-studio-docs/st-ug-008.png "Run 图标") 图标。
 
    查询语句示例如下：
 
-    ```nGQL
-    nebula> FIND ALL PATH FROM 1,2,4,6,42 to hash("History of Ecology"),hash("Neurobiology") OVER action; -- 对于本手册中所用数据集，course 类点的 VID 由 courseName 经 Hash() 函数处理得到
-    ```
+   ```nGQL
+   -- 对于本手册中所用数据集，
+   -- course 类点的 VID 由 courseName 经 Hash() 函数处理得到
+   nebula> FIND ALL PATH FROM 1,2,4,6,42 to hash("History of Ecology"),hash("Neurobiology") OVER action;
+   ```
 
-    查询得到如下图所示路径信息。
+   查询得到如下图所示路径信息。
 
-    ![结果窗口显示返回的路径信息](https://docs-cdn.nebula-graph.com.cn/nebula-studio-docs/st-ug-045.png "返回的路径结果")
+   ![结果窗口显示返回的路径信息](https://docs-cdn.nebula-graph.com.cn/nebula-studio-docs/st-ug-045.png "返回的路径结果")
 
 4. 点击 **查看子图** 按钮。
+
 5. （可选）如果 **图探索** 上画板上已有数据，则选择一种数据插入方式：
+
    - **增量插入**：在画图板原来的数据基础上插入新的数据。
+
    - **清除插入**：清除画图板上原来的数据后，再插入新的数据。
 
 数据插入成功后，您可以看到查询结果的可视化表现。
