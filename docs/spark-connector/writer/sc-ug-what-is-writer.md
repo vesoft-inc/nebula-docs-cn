@@ -31,7 +31,7 @@ Nebula Spark Connector Writer 的实现类图如下：
 
 ### 批量数据写入
 
-Nebula Spark Connector Writer 批量写入数据的实现与 [Nebula Graph Exchange](../../nebula-exchange/about-exchange/ex-ug-what-is-exchange.md) 类似，即通过对 DataFrame 进行 `map` 操作批量数据的累计提交。
+Nebula Spark Connector Writer 批量写入数据的实现与 [Nebula Exchange](../../nebula-exchange/about-exchange/ex-ug-what-is-exchange.md) 类似，即通过对 DataFrame 进行 `map` 操作批量数据的累计提交。
 
 ## 应用示例
 

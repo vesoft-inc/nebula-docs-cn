@@ -1,6 +1,6 @@
 # 导入 SST 文件
 
-Nebula Graph Exchange 能将不同来源的数据转换成 SST 文件后再导入 Nebula Graph 数据库中。本文描述 Exchange 将源数据转换为 SST 文件并导入 Nebula Graph 的实现原理，并提供示例说明如何修改配置文件完成 SST 文件导入操作。
+Nebula Exchange 能将不同来源的数据转换成 SST 文件后再导入 Nebula Graph 数据库中。本文描述 Exchange 将源数据转换为 SST 文件并导入 Nebula Graph 的实现原理，并提供示例说明如何修改配置文件完成 SST 文件导入操作。
 
 ## 实现方法
 

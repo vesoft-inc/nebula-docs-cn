@@ -1,7 +1,7 @@
-# Nebula Graph Exchange 用户手册
+# Nebula Exchange 用户手册
 
-- 认识 Nebula Graph Exchange
-  - [什么是 Nebula Graph Exchange](about-exchange/ex-ug-what-is-exchange.md)
+- 认识 Nebula Exchange
+  - [什么是 Nebula Exchange](about-exchange/ex-ug-what-is-exchange.md)
   - [使用限制](about-exchange/ex-ug-limitations.md)
   - [名词解释](about-exchange/ex-ug-terms.md)
   - [常见问题](about-exchange/ex-ug-faq.md)
