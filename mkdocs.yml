@@ -210,7 +210,7 @@ nav:
         - 使用示例: nebula-algorithm/na-ug-example.md
 
     - 数据传输:
-      - Nebula Graph Exchange:
+      - Nebula Exchange:
         - 认识 Nebula Exchange:
           - 什么是 Nebula Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
           - 使用限制: nebula-exchange/about-exchange/ex-ug-limitations.md
@@ -291,7 +291,7 @@ nav:
       - Gremlin & nGQL: manual-CN/5.appendix/gremlin-ngql.md
       - SQL & nGQL: manual-CN/5.appendix/sql-ngql.md
       - 点标识符和分区: manual-CN/5.appendix/vid-partition.md
-      - 超级顶点（稠密点）处理：manual-CN/5.appendix/super-node.md
+      - 超级顶点（稠密点）处理: manual-CN/5.appendix/super-node.md
       - 文档工程师 Visual Studio Code 推荐配置: manual-CN/5.appendix/vscode-config.md
 
 
