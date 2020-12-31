@@ -210,7 +210,7 @@ nav:
         - 使用示例: nebula-algorithm/na-ug-example.md
 
     - 数据传输:
-      - Nebula Graph Exchange:
+      - Nebula Exchange:
         - 认识 Nebula Exchange:
           - 什么是 Nebula Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
           - 使用限制: nebula-exchange/about-exchange/ex-ug-limitations.md
