@@ -22,7 +22,7 @@ Studio v1.2.0-beta 及以后版本。请更新版本，详细操作参考 [版�
 
 1. 在工具栏中，点击 **Schema** 页签。
 
-2. 在 **图空间列表** 中，找到图空间，点击图空间名称或者在 **操作** 列中点击 ![表示设置的图标](https://docs-cdn.nebula-graph.com.cn/nebula-studio-docs/st-ug-018.png "设置") 图标。
+2. 在 **图空间列表** 中，找到图空间，点击图空间名称或者在 **操作** 列中点击 ![表示设置的图标](../figs/st-ug-018.png "设置") 图标。
 
 3. 在 **当前图空间** 里确认图空间名称。您也可以通过选择图空间名称切换图空间。
 
@@ -40,7 +40,7 @@ Studio v1.2.0-beta 及以后版本。请更新版本，详细操作参考 [版�
    > **说明**：索引属性的顺序会影响 `LOOKUP` 语句的查询结果。详细信息，参考 [《nGQL 用户手册》](https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/lookup-syntax/#faq "点击前往 Nebula Graph 网站")。
 
 6. 完成设置后，在 **对应的 nGQL**面板，您能看到与上述配置等价的 nGQL 语句。  
-![为边类型 action 创建索引](https://docs-cdn.nebula-graph.com.cn/nebula-studio-docs/st-ug-023.png "创建索引")
+![为边类型 action 创建索引](../figs/st-ug-023.png "创建索引")
 
 7. 确认无误后，点击 **+ 创建** 按钮。
    如果索引创建成功，**定义属性**面板会显示这个索引的属性列表。
@@ -51,7 +51,7 @@ Studio v1.2.0-beta 及以后版本。请更新版本，详细操作参考 [版�
 
 1. 在工具栏中，点击 **Schema** 页签。
 
-2. 在 **图空间列表** 中，找到图空间，点击图空间名称或者在 **操作** 列中点击 ![表示设置的图标](https://docs-cdn.nebula-graph.com.cn/nebula-studio-docs/st-ug-018.png "设置") 图标。
+2. 在 **图空间列表** 中，找到图空间，点击图空间名称或者在 **操作** 列中点击 ![表示设置的图标](../figs/st-ug-018.png "设置") 图标。
 
 3. 在 **当前图空间** 里确认图空间名称。您也可以通过选择图空间名称切换图空间。
 
@@ -65,8 +65,8 @@ Studio v1.2.0-beta 及以后版本。请更新版本，详细操作参考 [版�
 
 1. 在工具栏中，点击 **Schema** 页签。
 
-2. 在 **图空间列表** 中，找到图空间，点击图空间名称或者在 **操作** 列中点击 ![表示设置的图标](https://docs-cdn.nebula-graph.com.cn/nebula-studio-docs/st-ug-018.png "设置") 图标。
+2. 在 **图空间列表** 中，找到图空间，点击图空间名称或者在 **操作** 列中点击 ![表示设置的图标](../figs/st-ug-018.png "设置") 图标。
 
 3. 在 **当前图空间** 里确认图空间名称。您也可以通过选择图空间名称切换图空间。
 
-4. 点击 **索引** 页签，找到需要修改的索引，并在 **操作** 列中，点击 ![表示删除的图标](https://docs-cdn.nebula-graph.com.cn/nebula-studio-docs/st-ug-017.png "删除") 图标。
+4. 点击 **索引** 页签，找到需要修改的索引，并在 **操作** 列中，点击 ![表示删除的图标](../figs/st-ug-017.png "删除") 图标。
