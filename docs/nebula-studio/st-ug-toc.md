@@ -5,6 +5,7 @@
   - [名词解释](about-studio/st-ug-terms.md)
   - [使用限制](about-studio/st-ug-limitations.md)
   - [版本更新](about-studio/st-ug-check-updates.md)
+  - [快捷键](about-studio/st-ug-shortcuts.md)
 - 安装与登录
   - [部署 Studio](install-configure/st-ug-deploy.md)
   - [连接数据库](install-configure/st-ug-connect.md)
@@ -23,10 +24,9 @@
     - [操作索引](manage-schema/st-ug-crud-index.md)
   - 使用图探索[TODO]
   - 使用控制台
-    - 界面介绍 [TODO]
+    - [界面介绍](use-console/st-ug-console.md)
     - [导入图探索](use-console/st-ug-open-in-explorer.md)
     - [查看子图](use-console/st-ug-visualize-findpath.md)
-    - 导出 CSV 文件[TODO]
 - 最佳实践 [TODO]
 - 故障排查
   - [连接数据库错误](troubleshooting/st-ug-connection-errors.md)
