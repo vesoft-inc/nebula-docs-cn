@@ -175,8 +175,7 @@ nebula> GO FROM 100 OVER follow YIELD follow._dst AS play_dst  \
         | GO FROM $-.play_dst OVER follow YIELD follow._dst AS play_dst;
 ```
 
-![image](https://user-images.githubusercontent.com/42762957/84130415-d46c8a00-aa75-11ea-8a29-b8bef5e1d55f.png)
-
+![image](../../../figs/ng-ug-014.png)
 红色框内的语句先执行，然后再执行绿色框内的语句。
 
 ```ngql
