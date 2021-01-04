@@ -16,4 +16,4 @@ Studio 处于持续开发状态中。您可以通过 [Studio 的版本更新记�
 
 成功连接 Docker 版 Studio 后，您可以在页面右上角点击版本号，再点击 **新发布**，前往查看 Studio 的版本更新记录。
 
-![在页面右上角点击版本号，并在弹出菜单里点击“新发布”](https://docs-cdn.nebula-graph.com.cn/nebula-studio-docs/st-ug-014.png "查看 Studio 版本更新记录")
+![在页面右上角点击版本号，并在弹出菜单里点击“新发布”](../figs/st-ug-014.png "查看 Studio 版本更新记录")

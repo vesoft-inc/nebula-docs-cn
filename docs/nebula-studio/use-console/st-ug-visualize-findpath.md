@@ -24,7 +24,7 @@ Studio v1.2.1-beta 及以后版本。请更新版本，详细操作参考 [版�
 
 2. 在 **当前Space** 中选择一个图空间。在本示例中，选择 **mooc_actions**。
 
-3. 在命令行中，输入 `FIND SHORTEST PATH` 或者 `FIND ALL PATH` 语句，并点击 ![表示运行的图标](https://docs-cdn.nebula-graph.com.cn/nebula-studio-docs/st-ug-008.png "Run 图标") 图标。
+3. 在命令行中，输入 `FIND SHORTEST PATH` 或者 `FIND ALL PATH` 语句，并点击 ![表示运行的图标](../figs/st-ug-008.png "Run 图标") 图标。
 
    查询语句示例如下：
 
@@ -36,7 +36,7 @@ Studio v1.2.1-beta 及以后版本。请更新版本，详细操作参考 [版�
 
    查询得到如下图所示路径信息。
 
-   ![结果窗口显示返回的路径信息](https://docs-cdn.nebula-graph.com.cn/nebula-studio-docs/st-ug-045.png "返回的路径结果")
+   ![结果窗口显示返回的路径信息](../figs/st-ug-045.png "返回的路径结果")
 
 4. 点击 **查看子图** 按钮。
 
@@ -48,7 +48,7 @@ Studio v1.2.1-beta 及以后版本。请更新版本，详细操作参考 [版�
 
 数据插入成功后，您可以看到查询结果的可视化表现。
 
-![在画板上显示返回的路径结果](https://docs-cdn.nebula-graph.com.cn/nebula-studio-docs/st-ug-046.png "路径结果的可视化表现")
+![在画板上显示返回的路径结果](../figs/st-ug-046.png "路径结果的可视化表现")
 
 ## 后续操作
 
