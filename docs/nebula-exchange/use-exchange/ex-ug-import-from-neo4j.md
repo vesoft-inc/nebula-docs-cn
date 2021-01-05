@@ -57,12 +57,13 @@ Neo4j 的数据集信息如下：
 
 ### 数据库信息
 
-完成数据导出，您还需要知道 Neo4j 数据库所在服务器地址、数据库的用户名和密码。在本示例中 Neo4j 数据库和 Nebula Graph 数据库的信息如下：
+在本示例中 Neo4j 数据库和 Nebula Graph 数据库的信息如下：
 
 - Neo4j 数据库：
   - 服务器地址及端口为：`bolt://127.0.0.1:7687`
   - 用户名：_neo4j_
   - 密码：_neo4j_
+
 - Nebula Graph 数据库：
   - 服务器地址及端口为：`127.0.0.1:3699`
   - 用户名：本示例中 Nebula Graph 数据库没有启用身份认证，所以，用户名为 _user_
@@ -73,7 +74,9 @@ Neo4j 的数据集信息如下：
 开始迁移数据之前，您需要确保以下信息：
 
 - 已经完成 Exchange 编译。详细信息，参考 [编译 Exchange](../ex-ug-compile.md)。
+
 - 已经安装了 Spark。
+
 - 在 Nebula Graph 中创建图数据模式所需的所有信息，包括标签和边类型的名称、属性等。
 
 ## 操作步骤
@@ -90,18 +93,24 @@ Neo4j 的数据集信息如下：
     | Relationship Type | Edge Type | edgAB |
 
 2. 确认 Nebula Graph 需要的分区数量：全集群硬盘数量 * （2 至 10）。本示例中假设为 10。
+
 3. 确认 Nebula Graph 需要的副本数量。本示例中假设为 1。
+
 4. 在 Nebula Graph 里创建一个图空间 **test**，并创建一个图数据模式，如下所示。
 
     ```ngql
     -- 创建图空间，本示例中假设只需要一个副本
     nebula> CREATE SPACE test(partition_num=10, replica_factor=1);
+    
     -- 选择图空间 test
     nebula> USE test;
+    
     -- 创建标签 tagA
     nebula> CREATE TAG tagA(idInt int, idString string, tboolean bool, tdouble double);
+    
     -- 创建标签 tagB
     nebula> CREATE TAG tagB(idInt int, idString string, tboolean bool, tdouble double);
+    
     -- 创建边类型 edgeAB
     nebula> CREATE EDGE edgeAB(idInt int, idString string, tboolean bool, tdouble double);
     ```
@@ -114,11 +123,7 @@ Neo4j 的数据集信息如下：
 
 ### 步骤 3. 修改配置文件
 
-Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格式，具有面向对象风格，便于理解和操作。
-
-完成 Exchange 编译后，进入 `nebula-java/tools/exchange` 目录，您可以在 `target/classes/server_application.conf` 文件上修改配置文件。在本示例中，文件被重命名为 `neo4j_application.conf`。详细的配置参数，参考 [Spark 参考](../parameter-reference/ex-ug-paras-spark.md)、[Nebula Graph 参数](../parameter-reference/ex-ug-paras-nebulagraph.md) 和 [Neo4j 数据源相关参数](../parameter-reference/ex-ug-paras-neo4j.md)。
-
-以下为本示例中的配置文件 `neo4j_application.conf`。
+完成 Exchange 编译后，进入 `nebula-java/tools/exchange` 目录，您可以参考 `target/classes/server_application.conf` 修改配置文件。在本示例中，文件被重命名为 `neo4j_application.conf`。以下仅详细说明点和边数据的配置信息，本次示例中未使用的配置项已被注释，但是提供了配置说明。Spark 和 Nebula Graph 相关配置，参考 [Spark 参数](../parameter-reference/ex-ug-paras-spark.md)、[Nebula Graph 参数](../parameter-reference/ex-ug-paras-nebulagraph.md)。
 
 ```conf
 {
@@ -140,83 +145,155 @@ Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格
 
   # Nebula Graph 相关配置
   nebula: {
-    address: {
-      graph: ["127.0.0.1:3699"]
-      meta: ["127.0.0.1:45500"]
+    address:{
+      # 以下为 Nebula Graph 的 Graph 服务和 Meta 服务所在机器的 IP 地址及端口。
+      # 如果有多个地址，格式为 "ip1:port,ip2:port,ip3:port"。
+      # 不同地址之间以英文逗号 (,) 隔开。
+      graph:["127.0.0.1:3699"]
+      meta:["127.0.0.1:45500"]
     }
+    # 填写的账号必须拥有 Nebula Graph 相应图空间的写数据权限。
     user: user
     pswd: password
-    space: test
-
+    # 填写 Nebula Graph 中需要写入数据的图空间名称。
+    space: csv
     connection {
       timeout: 3000
       retry: 3
     }
-
     execution {
       retry: 3
     }
-
     error: {
       max: 32
       output: /tmp/errors
     }
-
     rate: {
-      limit: 64M
+      limit: 1024
       timeout: 1000
     }
   }
 
-  # 处理标签（点类型）
+  # 处理点数据
   tags: [
- {
+    # 设置标签相关信息
+    {
     name: tagA
+    # 设置 Neo4j 数据库服务器地址，格式必须为 bolt://<IP地址>:7687。
     server: "bolt://127.0.0.1:7687"
+
+    # Neo4j 数据库登录账号和密码。
     user: neo4j
     password: neo4j
+
+    # 传输是否加密，默认值为 false，表示不加密；设置为 true 时，表示加密。
     encryption: false
-    database: graph.db
+
+    # 设置源数据所在 Neo4j 数据库的名称。如果您使用 Community Edition Neo4j，不支持这个参数。
+    # database: graph.db
+
     type: {
+        # 指定标签源数据的格式。设置为 neo4j。
         source: neo4j
+        # 指定点数据导入 Nebula Graph 的方式，
+        # 可以设置为：client（以客户端形式导入）和 sst（以 SST 文件格式导入）。
+        # 关于 SST 文件导入配置，参考文档：导入 SST 文件（https://
+        # docs.nebula-graph.com.cn/nebula-exchange/
+        # use-exchange/ex-ug-import-sst/）。
         sink: client
     }
+
+    # 指定 Nebula Graph Schema 中标签对应的属性名称，以列表形式列出，
+    # 与 tags.fields 列表中的属性名称一一对应，形成映射关系，
+    # 多个属性名称之间以英文逗号（,）隔开。
     nebula.fields: [idInt, idString, tdouble, tboolean]
+
+    # 指定源数据中与 Nebula Graph 标签对应的属性名称，
+    # 以列表形式列出，多个属性名称之间以英文逗号（,）隔开，
+    # 列出的属性名称必须与 exec 中列出的属性名称保持一致。
     fields       : [idInt, idString, tdouble, tboolean]
+    
+    # 将源数据中某个属性的值作为 Nebula Graph 点 VID 的来源，
+    # 如果属性为 int 或者 long 类型，使用 vertex 设置 VID 列。
     vertex: idInt
+    # 如果数据不是 int 类型，则添加 vertex.policy 指定 VID 映射策略，建议设置为 "hash"。
+    # vertex {
+    #     field: [name]
+    #     policy: "hash"
+    #}
+
+    # Spark 的分区数量，默认值为 32。
     partition: 10
+
+    # 单次写入 Nebula Graph 的点数据量，默认值为 256。
     batch: 2000
+
+    # 设置保存导入进度信息的目录，用于断点续传，
+    # 如果未设置，表示不启用断点续传。
     check_point_path: "file:///tmp/test"
-    # 以下 MATCH 语句不能以英文分号 (;) 结尾
+    
+    # 写入 Cypher 语句，从 Neo4j 数据库中检索打了某种标签的点的属性，并指定别名
+    # Cypher 语句不能以英文分号（`;`）结尾。
     exec: "match (n:tagA) return n.idInt as idInt, n.idString as idString, n.tdouble as tdouble, n.tboolean as tboolean order by n.idInt"
-}
+    }
+    # 如果有多个标签，则参考以上说明添加更多的标签相关信息。
   ]
 
-  # 处理边类型
+  # 处理边数据
   edges: [
     {
+      # 指定 Nebula Graph 中的边类型名称。
       name: edgeAB
       type: {
+        # 指定源数据格式，设置为 neo4j。
         source: neo4j
+
+        # 指定边数据导入 Nebula Graph 的方式，
+        # 可以设置为：client（以客户端形式导入）和 sst（以 SST 文件格式导入）。
+        # 关于 SST 文件导入配置，参考文档：导入 SST 文件（https://
+        # docs.nebula-graph.com.cn/nebula-exchange/
+        # use-exchange/ex-ug-import-sst/）。
         sink: client
       }
+
+      # 设置 Neo4j 数据库的信息，包括 IP 地址、端口、用户名和密码。
       server: "bolt://127.0.0.1:7687"
       user: neo4j
       password: neo4j
-   source: {
-     field: a.idInt
-     policy: "hash"
-   }
-   target: {
-     field: b.idInt
-     policy: "hash"
-   }
-   ranking: idInt
-   partition: 1
-   # 为减轻 Neo4j 的排序压力，将 partition 设置为 1
-   # 以下 MATCH 语句不能以英文分号 (;) 结尾
-   exec: "match (a:tagA)-[r:edgeAB]->(b:tagB) return a.idInt, b.idInt, r.idInt as idInt, r.idString as idString, r.tdouble as tdouble, r.tboolean as tboolean order by id(r)"
+      
+      # 指定源数据中某个属性的值作为 Nebula Graph 边的起始点 VID。
+      # 如果属性为 `int` 或者 `long` 类型，使用 source.field 设置起始点 VID 列
+      # source.field: [field_name]
+      # 如果不是上述类型的属性，则添加 source.policy 指定 VID 映射策略，建议设置为 "hash"。
+      source: {
+        field: a.idInt
+        policy: "hash"
+      }
+
+      # 指定源数据中某个属性的值作为 Nebula Graph 边的终点 VID。
+      # 如果属性为 `int` 或者 `long` 类型，使用 target.field 设置终点 VID 列
+      # target.field: [field_name]
+      # 如果不是上述类型的属性，则添加 target.policy 指定 VID 映射策略，建议设置为 "hash"。
+      target: {
+        field: b.idInt
+        policy: "hash"
+      }
+
+      # 将源数据中某一列数据作为 Nebula Graph 中边的 Rank 值来源。
+      ranking: idInt
+
+      # Spark 的分区数量，默认值为 32。
+      # 为减轻 Neo4j 的排序压力，将 partition 设置为 1
+      partition: 1
+   
+      # 写入 Cypher 语句，表示从 Neo4j 数据库中查询关系属性。
+      # Cypher 语句不能以英文分号（`;`）结尾。
+      exec: "match (a:tagA)-[r:edgeAB]->(b:tagB) return a.idInt, b.idInt, r.idInt as idInt, r.idString as idString, r.tdouble as tdouble, r.tboolean as tboolean order by id(r)"
+   
+      # 单次写入 Nebula Graph 的点数据量，默认值为 256
       batch: 1000
+      
+      # 设置保存导入进度信息的目录，用于断点续传。如果未设置，表示不启用断点续传。
       check_point_path: /tmp/test
     }
   ]
@@ -239,9 +316,17 @@ Nebula Graph 在创建点和边时会将 ID 作为唯一主键，如果主键已
 
 如果启用了断点续传功能，为避免数据丢失，在断点和续传之间，数据库不应该改变状态，例如不能添加数据或删除数据，同时，不能更改 `partition` 数量配置。
 
-### 步骤 4. 向 Nebula Graph 迁移数据
+### 步骤 4. （可选）检查配置文件是否正确
 
-完成配置后，运行以下命令使用 Exchange 将 Neo4j 的数据迁移到 Nebula Graph 中。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
+完成配置后，运行以下命令检查配置文件，确认 Spark 是否能成功访问。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
+
+```bash
+$SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange --master "local[10]" target/exchange-1.x.y.jar -c /path/to/conf/neo4j_application.conf -D
+```
+
+### 步骤 5. 向 Nebula Graph 导入数据
+
+运行以下命令使用 Exchange 将 Neo4j 的数据迁移到 Nebula Graph 中。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
 $SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange --master "local[10]" target/exchange-1.x.y.jar -c /path/to/conf/neo4j_application.conf
@@ -249,7 +334,19 @@ $SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange 
 
 > **说明**：JAR 文件版本号以您实际编译得到的 JAR 文件名称为准。
 
-### 步骤 5. （可选）在 Nebula Graph 中重构索引
+### 步骤 6. （可选）验证数据
+
+您可以在 Nebula Graph 客户端（例如 Nebula Graph Studio）里执行语句，确认数据是否已导入，例如：
+
+```ngql
+GO FROM <tagA_VID> OVER edgeAB;
+```
+
+如果返回边终点（`edgeAB._dst`）即表明数据已导入。
+
+您也可以使用 db_dump 工具统计数据是否已经全部导入。详细的使用信息参考 [Dump Tool](https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-export/dump-tool/)。
+
+### 步骤 7. （可选）在 Nebula Graph 中重构索引
 
 Exchange 导入数据时，并不会导入 Neo4j 数据库中的索引，所以，导入数据后，您可以在 Nebula Graph 中重新创建并重构索引。详细信息，参考[《Nebula Graph Database 手册》](https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/ "点击前往 Nebula Graph 网站")。
 

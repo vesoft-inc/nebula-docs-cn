@@ -28,8 +28,11 @@ Exchange 迁移 JSON 文件时，不支持断点续传。
 - 硬件规格：
   - CPU：1.7 GHz Quad-Core Intel Core i7
   - 内存：16 GB
+
 - Spark：2.3.0，Local 模式
+
 - Hadoop：2.9.2，伪分布式部署
+
 - Nebula Graph：V1.1.0，使用 Docker Compose 部署。详细信息，参考 [使用 Docker Compose 部署 Nebula Graph](https://github.com/vesoft-inc/nebula-docker-compose/blob/master/README_zh-CN.md)
 
 ## 前提条件
@@ -37,11 +40,15 @@ Exchange 迁移 JSON 文件时，不支持断点续传。
 开始迁移数据之前，您需要确认以下信息：
 
 - 已经完成 Exchange 编译。详细信息，参考 [编译 Exchange](../ex-ug-compile.md)。
+
 - 已经安装 Spark。
+
 - 已经安装并开启 Hadoop 服务。
+
 - 已经部署并启动 Nebula Graph，并获取：
   - Graph 服务、Meta 服务所在机器的 IP 地址和端口信息。
   - Nebula Graph 数据库的拥有写权限的用户名及其密码。
+
 - 在 Nebula Graph 中创建图数据模式（Schema）所需的所有信息，包括标签和边类型的名称、属性等。
 
 ## 操作步骤
@@ -63,12 +70,16 @@ Exchange 迁移 JSON 文件时，不支持断点续传。
     ```ngql
     -- 创建图空间
     CREATE SPACE json (partition_num=10, replica_factor=1);
+    
     -- 选择图空间 json
     USE json;
+    
     -- 创建标签 source
     CREATE TAG source (srcId int);
+    
     -- 创建标签 target
     CREATE TAG target (dstId int);
+    
     -- 创建边类型 like
     CREATE EDGE like (likeness double);
     ```
@@ -83,13 +94,7 @@ Exchange 迁移 JSON 文件时，不支持断点续传。
 
 ### 步骤 3. 修改配置文件
 
-Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格式，具有面向对象风格，便于理解和操作。
-
-克隆 `nebula-java` 库后，进入 `nebula-java/tools/exchange` 目录，根据 `target/classes/application.conf` 文件修改 JSON 数据源相关的配置文件。在本示例中，文件被重命名为 `json_application.conf`。以下配置文件中提供了 JSON 源数据所有配置项。本次示例中未使用的配置项已被注释，但是提供了配置说明。
-
-Spark 和 Nebula Graph 的配置参数，请参考 [Spark 参数](../parameter-reference/ex-ug-paras-spark.md)和 [Nebula Graph 参数](../parameter-reference/ex-ug-paras-nebulagraph.md)。
-
-以下为本示例中的配置文件 `json_application.conf`。
+完成 Exchange 编译后，进入 `nebula-java/tools/exchange` 目录，根据 `target/classes/application.conf` 文件修改 果断 数据源相关的配置文件。在本示例中，文件被重命名为 `json_application.conf`。以下配置文件中提供了 JSON 源数据所有配置项。本次示例中未使用的配置项已被注释，但是提供了配置说明。Spark 和 Nebula Graph 相关配置，参考 [Spark 参数](../parameter-reference/ex-ug-paras-spark.md)和 [Nebula Graph 参数](../parameter-reference/ex-ug-paras-nebulagraph.md)。
 
 ```conf
 {
@@ -166,7 +171,7 @@ Spark 和 Nebula Graph 的配置参数，请参考 [Spark 参数](../parameter-r
 
       # 在 fields 里指定 JSON 文件中 key 名称，其对应的 value
       # 会作为 Nebula Graph 中指定属性 srcId 的数据源
-      # 如果需要指定多个值，用英文逗号（;）隔开
+      # 如果需要指定多个值，用英文逗号（,）隔开
       fields: ["source"]
       nebula.fields: ["srcId"]
 
@@ -227,7 +232,7 @@ Spark 和 Nebula Graph 的配置参数，请参考 [Spark 参数](../parameter-r
 
       # 在 fields 里指定 JSON 文件中 key 名称，其对应的 value
       # 会作为 Nebula Graph 中指定属性 likeness 的数据源
-      # 如果需要指定多个值，用英文逗号（;）隔开
+      # 如果需要指定多个值，用英文逗号（,）隔开
       fields: ["likeness"]
       nebula.fields: ["likeness"]
 
@@ -254,15 +259,23 @@ Spark 和 Nebula Graph 的配置参数，请参考 [Spark 参数](../parameter-r
 }
 ```
 
-### 步骤 4. 向 Nebula Graph 迁移数据
+### 步骤 4. （可选）检查配置文件是否正确
 
-完成配置后，运行以下命令将 JSON 文件数据导入 Nebula Graph 中。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
+完成配置后，运行以下命令检查配置文件，确认 Spark 是否能成功访问。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
+
+```bash
+$SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange --master "local" /path/to/exchange-1.0.1.jar -c /path/to/conf/json_application.conf -D
+```
+
+### 步骤 5. 向 Nebula Graph 导入数据
+
+运行以下命令将 JSON 文件数据导入 Nebula Graph 中。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
 $SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange --master "local" /path/to/exchange-1.0.1.jar -c /path/to/conf/json_application.conf
 ```
 
-### 步骤 5. 验证数据
+### 步骤 6. （可选）验证数据
 
 您可以在 Nebula Graph 客户端（例如 Nebula Graph Studio）里执行语句，确认数据是否已导入，例如：
 
@@ -274,6 +287,6 @@ GO FROM 53802643 OVER like;
 
 您也可以使用 db_dump 工具统计数据是否已经全部导入。详细的使用信息参考 [Dump Tool](https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-export/dump-tool/)。
 
-### 步骤 6. （可选）在 Nebula Graph 中重构索引
+### 步骤 7. （可选）在 Nebula Graph 中重构索引
 
 导入数据后，您可以在 Nebula Graph 中重新创建并重构索引。详细信息，参考[《Nebula Graph Database 手册》](https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/ "点击前往 Nebula Graph 网站")。
