@@ -303,7 +303,7 @@
 完成配置后，运行以下命令检查配置文件格式是否正确。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-$SPARK_HOME/bin/spark-submit --class com.vesoft.nebula.tools.importer.Exchange --master "local" /path/to/exchange-1.1.0.jar -c /path/to/conf/csv_application.conf -D
+$SPARK_HOME/bin/spark-submit --master "local" --class com.vesoft.nebula.tools.importer.Exchange /path/to/exchange-1.1.0.jar -c /path/to/conf/csv_application.conf -D
 ```
 
 ### 步骤 5. 向 Nebula Graph 导入数据
@@ -311,7 +311,7 @@ $SPARK_HOME/bin/spark-submit --class com.vesoft.nebula.tools.importer.Exchange -
 运行以下命令将 CSV 文件数据导入到 Nebula Graph 中。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-$SPARK_HOME/bin/spark-submit --class com.vesoft.nebula.tools.importer.Exchange --master "local" /path/to/exchange-1.1.0.jar -c /path/to/conf/csv_application.conf 
+$SPARK_HOME/bin/spark-submit --master "local" --class com.vesoft.nebula.tools.importer.Exchange /path/to/exchange-1.1.0.jar -c /path/to/conf/csv_application.conf 
 ```
 
 ### 步骤 6. （可选）验证数据
