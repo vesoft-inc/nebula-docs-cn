@@ -156,7 +156,7 @@ Neo4j 的数据集信息如下：
     user: user
     pswd: password
     # 填写 Nebula Graph 中需要写入数据的图空间名称。
-    space: csv
+    space: test
     connection {
       timeout: 3000
       retry: 3
@@ -169,7 +169,7 @@ Neo4j 的数据集信息如下：
       output: /tmp/errors
     }
     rate: {
-      limit: 1024
+      limit: 64M
       timeout: 1000
     }
   }
@@ -179,7 +179,7 @@ Neo4j 的数据集信息如下：
     # 设置标签相关信息
     {
     name: tagA
-    # 设置 Neo4j 数据库服务器地址，格式必须为 bolt://<IP地址>:7687。
+    # 设置 Neo4j 数据库服务器地址，Sting 类型，格式必须为 "bolt://ip:port"。
     server: "bolt://127.0.0.1:7687"
 
     # Neo4j 数据库登录账号和密码。
@@ -193,7 +193,7 @@ Neo4j 的数据集信息如下：
     # database: graph.db
 
     type: {
-        # 指定标签源数据的格式。设置为 neo4j。
+        # 指定数据来源，设置为 neo4j。
         source: neo4j
         # 指定点数据导入 Nebula Graph 的方式，
         # 可以设置为：client（以客户端形式导入）和 sst（以 SST 文件格式导入）。
@@ -218,7 +218,7 @@ Neo4j 的数据集信息如下：
     vertex: idInt
     # 如果数据不是 int 类型，则添加 vertex.policy 指定 VID 映射策略，建议设置为 "hash"。
     # vertex {
-    #     field: [name]
+    #     field: name
     #     policy: "hash"
     #}
 
@@ -245,7 +245,7 @@ Neo4j 的数据集信息如下：
       # 指定 Nebula Graph 中的边类型名称。
       name: edgeAB
       type: {
-        # 指定源数据格式，设置为 neo4j。
+        # 指定数据来源，设置为 neo4j。
         source: neo4j
 
         # 指定边数据导入 Nebula Graph 的方式，
@@ -260,10 +260,21 @@ Neo4j 的数据集信息如下：
       server: "bolt://127.0.0.1:7687"
       user: neo4j
       password: neo4j
+
+      # 写入 Cypher 语句，表示从 Neo4j 数据库中查询关系属性。
+      # Cypher 语句不能以英文分号（`;`）结尾。
+      exec: "match (a:tagA)-[r:edgeAB]->(b:tagB) return a.idInt, b.idInt, r.idInt as idInt, r.idString as idString, r.tdouble as tdouble, r.tboolean as tboolean order by id(r)"
+      
+      # 在 fields 里指定 Neo4j 中关系的属性名称，其对应的 value
+      # 会作为 Nebula Graph 中 edgeAB 的属性（nebula.fields）值来源
+      # fields 和 nebula.fields 里的配置必须一一对应
+      # 如果需要指定多个列名称，用英文逗号（,）隔开
+      fields: [r.idInt, r.idString, r.tdouble, r.tboolean]
+      nebula.fields: [idInt, idString, tdboule, tboolean]      
       
       # 指定源数据中某个属性的值作为 Nebula Graph 边的起始点 VID。
       # 如果属性为 `int` 或者 `long` 类型，使用 source.field 设置起始点 VID 列
-      # source.field: [field_name]
+      # source.field: field_name
       # 如果不是上述类型的属性，则添加 source.policy 指定 VID 映射策略，建议设置为 "hash"。
       source: {
         field: a.idInt
@@ -272,7 +283,7 @@ Neo4j 的数据集信息如下：
 
       # 指定源数据中某个属性的值作为 Nebula Graph 边的终点 VID。
       # 如果属性为 `int` 或者 `long` 类型，使用 target.field 设置终点 VID 列
-      # target.field: [field_name]
+      # target.field: field_name
       # 如果不是上述类型的属性，则添加 target.policy 指定 VID 映射策略，建议设置为 "hash"。
       target: {
         field: b.idInt
@@ -286,9 +297,7 @@ Neo4j 的数据集信息如下：
       # 为减轻 Neo4j 的排序压力，将 partition 设置为 1
       partition: 1
    
-      # 写入 Cypher 语句，表示从 Neo4j 数据库中查询关系属性。
-      # Cypher 语句不能以英文分号（`;`）结尾。
-      exec: "match (a:tagA)-[r:edgeAB]->(b:tagB) return a.idInt, b.idInt, r.idInt as idInt, r.idString as idString, r.tdouble as tdouble, r.tboolean as tboolean order by id(r)"
+
    
       # 单次写入 Nebula Graph 的点数据量，默认值为 256
       batch: 1000
@@ -318,10 +327,10 @@ Nebula Graph 在创建点和边时会将 ID 作为唯一主键，如果主键已
 
 ### 步骤 4. （可选）检查配置文件是否正确
 
-完成配置后，运行以下命令检查配置文件，确认 Spark 是否能成功访问。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
+完成配置后，运行以下命令检查配置文件格式是否正确。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-$SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange --master "local[10]" target/exchange-1.x.y.jar -c /path/to/conf/neo4j_application.conf -D
+$SPARK_HOME/bin/spark-submit --master "local[10]" --class com.vesoft.nebula.tools.importer.Exchange  -c /path/to/conf/neo4j_application.conf target/exchange-1.x.y.jar -D
 ```
 
 ### 步骤 5. 向 Nebula Graph 导入数据
@@ -329,7 +338,7 @@ $SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange 
 运行以下命令使用 Exchange 将 Neo4j 的数据迁移到 Nebula Graph 中。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-$SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange --master "local[10]" target/exchange-1.x.y.jar -c /path/to/conf/neo4j_application.conf
+$SPARK_HOME/bin/spark-submit --class com.vesoft.nebula.tools.importer.Exchange  --master "local[10]" -c /path/to/conf/neo4j_application.conf target/exchange-1.x.y.jar
 ```
 
 > **说明**：JAR 文件版本号以您实际编译得到的 JAR 文件名称为准。

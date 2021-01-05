@@ -2,10 +2,6 @@
 
 本文以一个示例说明如何使用 Exchange 将存储在 HDFS 上的 JSON 文件数据导入 Nebula Graph。
 
-## 使用限制
-
-Exchange 迁移 JSON 文件时，不支持断点续传。
-
 ## 数据集
 
 本示例所用 JSON 文件（test.json）结构为：`{"source":int, "target":int, "likeness":double}`，表示 `source` 与 `target` 之间一种 `like` 关系。共计 21,645 条数据。
@@ -29,7 +25,7 @@ Exchange 迁移 JSON 文件时，不支持断点续传。
   - CPU：1.7 GHz Quad-Core Intel Core i7
   - 内存：16 GB
 
-- Spark：2.3.0，Local 模式
+- Spark：2.3.0，单机版
 
 - Hadoop：2.9.2，伪分布式部署
 
@@ -39,7 +35,7 @@ Exchange 迁移 JSON 文件时，不支持断点续传。
 
 开始迁移数据之前，您需要确认以下信息：
 
-- 已经完成 Exchange 编译。详细信息，参考 [编译 Exchange](../ex-ug-compile.md)。
+- 已经完成 Exchange 编译。详细信息，参考 [编译 Exchange](../ex-ug-compile.md)。本示例中使用 Exchange v1.0.1。
 
 - 已经安装 Spark。
 
@@ -261,10 +257,10 @@ Exchange 迁移 JSON 文件时，不支持断点续传。
 
 ### 步骤 4. （可选）检查配置文件是否正确
 
-完成配置后，运行以下命令检查配置文件，确认 Spark 是否能成功访问。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
+完成配置后，运行以下命令检查配置文件格式是否正确。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-$SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange --master "local" /path/to/exchange-1.0.1.jar -c /path/to/conf/json_application.conf -D
+$SPARK_HOME/bin/spark-submit --class com.vesoft.nebula.tools.importer.Exchange --master "local" /path/to/exchange-1.0.1.jar -c /path/to/conf/json_application.conf -D
 ```
 
 ### 步骤 5. 向 Nebula Graph 导入数据

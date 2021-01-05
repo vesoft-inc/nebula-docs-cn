@@ -4,10 +4,6 @@
 
 如果您要向 Nebula Graph 导入本地 CSV 文件，参考 [CSV 文件导入示例](../../manual-CN/1.overview/2.quick-start/4.import-csv-file.md)。
 
-## 使用限制
-
-Exchange 导入 CSV 文件时，不支持断点续传。
-
 ## 数据集
 
 本文以美国 Stanford Network Analysis Platform (SNAP) 提供的 [Social Network: MOOC User Action Dataset](https://snap.stanford.edu/data/act-mooc.html "点击前往 Stanford Network Analysis Platform (SNAP) 网站") 以及由公开网络上获取的不重复的 97 个课程名称作为示例数据集，包括：
@@ -25,7 +21,7 @@ Exchange 导入 CSV 文件时，不支持断点续传。
   - CPU：1.7 GHz Quad-Core Intel Core i7
   - 内存：16 GB
 
-- Spark：2.3.0，Local 模式
+- Spark：2.3.0，单机版
 
 - Hadoop：2.9.2，伪分布式部署
 
@@ -35,7 +31,7 @@ Exchange 导入 CSV 文件时，不支持断点续传。
 
 开始导入数据之前，您需要确认以下信息：
 
-- 已经完成 Exchange 编译。详细信息，参考 [编译 Exchange](../ex-ug-compile.md)。
+- 已经完成 Exchange 编译。详细信息，参考 [编译 Exchange](../ex-ug-compile.md)。本示例中使用 Exchange v1.1.0。
 
 - 已经安装 Spark。
 
@@ -304,10 +300,10 @@ Exchange 导入 CSV 文件时，不支持断点续传。
 
 ### 步骤 4. （可选）检查配置文件是否正确
 
-完成配置后，运行以下命令检查配置文件，确认 Spark 是否能成功访问。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
+完成配置后，运行以下命令检查配置文件格式是否正确。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-$SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange --master "local" /path/to/exchange-1.1.0.jar -c /path/to/conf/csv_application.conf -D
+$SPARK_HOME/bin/spark-submit --class com.vesoft.nebula.tools.importer.Exchange --master "local" /path/to/exchange-1.1.0.jar -c /path/to/conf/csv_application.conf -D
 ```
 
 ### 步骤 5. 向 Nebula Graph 导入数据
@@ -315,7 +311,7 @@ $SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange 
 运行以下命令将 CSV 文件数据导入到 Nebula Graph 中。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-$SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange --master "local" /path/to/exchange-1.1.0.jar -c /path/to/conf/csv_application.conf
+$SPARK_HOME/bin/spark-submit --class com.vesoft.nebula.tools.importer.Exchange --master "local" /path/to/exchange-1.1.0.jar -c /path/to/conf/csv_application.conf 
 ```
 
 ### 步骤 6. （可选）验证数据

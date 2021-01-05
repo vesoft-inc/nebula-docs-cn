@@ -2,10 +2,6 @@
 
 本文以一个示例说明如何使用 Exchange 将存储在 HIVE 的数据导入 Nebula Graph。
 
-## 使用限制
-
-Exchange 导入 HIVE 数据时，不支持断点续传。
-
 ## 数据集
 
 本文以美国 Stanford Network Analysis Platform (SNAP) 提供的 [Social Network: MOOC User Action Dataset](https://snap.stanford.edu/data/act-mooc.html "点击前往 Stanford Network Analysis Platform (SNAP) 网站") 以及由公开网络上获取的不重复的 97 个课程名称作为示例数据集，包括：
@@ -59,13 +55,11 @@ scala> sql("describe mooc.actions").show
   - CPU：1.7 GHz Quad-Core Intel Core i7
   - 内存：16 GB
 
-- Spark：2.4.7，Local 模式
+- Spark：2.4.7，单机版
 
 - Hadoop：2.9.2，伪分布式部署
 
-- HIVE：2.3.7
-  
-- MySQL：8.0.22
+- HIVE：2.3.7，Hive Metastore 数据库为 MySQL 8.0.22
 
 - Nebula Graph：V1.2.0，使用 Docker Compose 部署。详细信息，参考 [使用 Docker Compose 部署 Nebula Graph](https://github.com/vesoft-inc/nebula-docker-compose/blob/master/README_zh-CN.md)
 
@@ -73,11 +67,11 @@ scala> sql("describe mooc.actions").show
 
 开始导入数据之前，您需要确认以下信息：
 
-- 已经完成 Exchange 编译。详细信息，参考 [编译 Exchange](../ex-ug-compile.md)。
+- 已经完成 Exchange 编译。详细信息，参考 [编译 Exchange](../ex-ug-compile.md)。本示例中使用 Exchange v1.1.0。
 
 - 已经安装 Spark。
 
-- 已经安装并开启 Hadoop 服务，并已启动 HIVE 连接的数据库应用程序（本示例中为 MySQL）。
+- 已经安装并开启 Hadoop 服务，并已启动 Hive Metastore 数据库（本示例中为 MySQL）。
 
 - 已经部署并启动 Nebula Graph，并获取：
   - Graph 服务、Meta 服务所在机器的 IP 地址和端口信息。
@@ -326,10 +320,10 @@ only showing top 20 rows
 
 ### 步骤 4. （可选）检查配置文件是否正确
 
-完成配置后，运行以下命令检查配置文件，确认 Spark 是否能成功访问。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
+完成配置后，运行以下命令检查配置文件格式是否正确。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-$SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange --master "local" /path/to/exchange-1.1.0.jar -c /path/to/conf/hive_application.conf -D
+$SPARK_HOME/bin/spark-submit --class com.vesoft.nebula.tools.importer.Exchange --master "local" /path/to/exchange-1.1.0.jar -c /path/to/conf/hive_application.conf -D
 ```
 
 ### 步骤 5. 向 Nebula Graph 导入数据
@@ -337,7 +331,7 @@ $SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange 
 运行以下命令将 HIVE 中的数据导入到 Nebula Graph 中。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-$SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange --master "local" /path/to/exchange-1.1.0.jar -c /path/to/conf/csv_application.conf -h
+$SPARK_HOME/bin/spark-submit --class com.vesoft.nebula.tools.importer.Exchange --master "local" /path/to/exchange-1.1.0.jar -c /path/to/conf/hive_application.conf  -h
 ```
 
 ### 步骤 6. （可选）验证数据

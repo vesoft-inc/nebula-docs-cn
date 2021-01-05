@@ -15,5 +15,5 @@ $SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange 
 | `--class`  | 是 | 无 | 指定 Driver 主类。 |
 | `--master`  | 是 | 无 | 指定 Spark 集群中 Master 进程的 URL。详细信息参考 [master-urls](https://spark.apache.org/docs/latest/submitting-applications.html#master-urls "点击前往 Apache Spark 文档")。 |
 | `-c`  / `--config`  | 是 | 无 | 指定配置文件的路径。 |
-| `-h`  / `--hive`  | 否 | 无 | 添加这个参数表示支持从 HIVE 中导入数据。 |
-| `-D`  / `--dry`  | 否 | 无 | 添加这个参数表示检查配置文件是否正确。正式导入数据时不能添加这个参数。您可以使用这个参数确认 Spark 是否能正确读取数据源。 |
+| `-h`  / `--hive`  | 否 | `false` | 添加这个参数表示支持从 HIVE 中导入数据。 |
+| `-D`  / `--dry`  | 否 | `false` | 添加这个参数表示检查配置文件的格式是否符合要求，但不会校验 `tags` 和 `edges` 的配置项是否正确。正式导入数据时不能添加这个参数。 |
