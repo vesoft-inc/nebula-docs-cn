@@ -179,7 +179,7 @@ Neo4j 的数据集信息如下：
     # 设置标签相关信息
     {
     name: tagA
-    # 设置 Neo4j 数据库服务器地址，Sting 类型，格式必须为 "bolt://ip:port"。
+    # 设置 Neo4j 数据库服务器地址，String 类型，格式必须为 "bolt://ip:port"。
     server: "bolt://127.0.0.1:7687"
 
     # Neo4j 数据库登录账号和密码。
@@ -330,7 +330,7 @@ Nebula Graph 在创建点和边时会将 ID 作为唯一主键，如果主键已
 完成配置后，运行以下命令检查配置文件格式是否正确。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-$SPARK_HOME/bin/spark-submit --master "local[10]" --class com.vesoft.nebula.tools.importer.Exchange  -c /path/to/conf/neo4j_application.conf target/exchange-1.x.y.jar -D
+$SPARK_HOME/bin/spark-submit --class com.vesoft.nebula.tools.importer.Exchange --master "local[10]" target/exchange-1.x.y.jar -c /path/to/conf/neo4j_application.conf -D
 ```
 
 ### 步骤 5. 向 Nebula Graph 导入数据
@@ -338,7 +338,7 @@ $SPARK_HOME/bin/spark-submit --master "local[10]" --class com.vesoft.nebula.tool
 运行以下命令使用 Exchange 将 Neo4j 的数据迁移到 Nebula Graph 中。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-$SPARK_HOME/bin/spark-submit --class com.vesoft.nebula.tools.importer.Exchange  --master "local[10]" -c /path/to/conf/neo4j_application.conf target/exchange-1.x.y.jar
+$SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange --master "local[10]" target/exchange-1.x.y.jar -c /path/to/conf/neo4j_application.conf
 ```
 
 > **说明**：JAR 文件版本号以您实际编译得到的 JAR 文件名称为准。
