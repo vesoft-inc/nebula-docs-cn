@@ -4,17 +4,22 @@
 CREATE {TAG | EDGE} INDEX [IF NOT EXISTS] <index_name> ON {<tag_name> | <edge_name>} (prop_name_list)
 ```
 
-schema 索引可用于快速处理图查询。**Nebula Graph** 支持两种类型的索引：**Tag 索引**和 **Edge Type 索引**。
+**Nebula Graph** 支持两种类型的索引：**Tag 索引**和 **Edge Type 索引**。
 
-多数图查询都从拥有共同属性的同一类型的点或边开始遍历。schema 索引使得这些全局检索操作在大型图上更为高效。
+## 使用限制
 
-一般地，在使用 `CREATE TAG/EDGE` 语句将 Tag/Edge-type 创建好之后，即可为其创建索引。
+1. 对应 Tag 或者 Edge Type 已经存在。
+2. 索引只用于 [LOOKUP 语句](../2.data-query-and-manipulation-statements/lookup-syntax.md)，目的为查找点 VID；
+3. 索引**并没有**查询加速功能。[GO 语句](../2.data-query-and-manipulation-statements/go-syntax.md)等所有图遍历语句**都不使用**索引；
+4. 只对于需要“通过属性查找点 VID”的**属性**建立索引，不要对其他属性增加索引。
+5. 不支持多个 Tag 的属性之间建立组合索引。只允许在同一个 Tag/Edge Type 的多个属性上建立索引。
+6. 索引会**显著降低**在线写入性能，经验值是 2-10 倍。
+
+对于索引的原理和优化见[附录](docs/manual-CN/5.appendix/index.md).
 
 ## 创建索引
 
 `CREATE INDEX` 用于为已有 Tag/Edge-type 创建索引。
-
-**注意：索引会影响写性能**，第一次批量导入的时候，建议先导入数据，再批量重建索引；不推荐带索引批量导入，这样写性能会非常差。
 
 ### 创建单属性索引
 
@@ -34,13 +39,12 @@ nebula> CREATE EDGE INDEX follow_index_0 on follow(degree);
 
 schema 索引还支持为相同 tag 或 edge 中的多个属性同时创建索引，这种包含多种属性的索引在 **Nebula Graph** 中称为组合索引。
 
-**注意：** 在 **Nebula Graph** 中，跨多个 tag 多种属性的索引被称为复合索引。目前 **Nebula Graph** 尚不支持创建复合索引。
-
 ```ngql
 nebula> CREATE TAG INDEX player_index_1 on player(name,age);
 ```
 
 上述语句在所有标签为 _player_ 的点上为属性 _name_ 和 _age_ 创建了一个组合索引。
+
 
 ## 列出索引
 
@@ -113,9 +117,8 @@ nebula> DROP TAG INDEX player_index_0;
 REBUILD {TAG | EDGE} INDEX <index_name> OFFLINE
 ```
 
-[创建索引](#%e5%88%9b%e5%bb%ba%e7%b4%a2%e5%bc%95)部分介绍了如何创建索引以提高查询性能。如果索引在插入数据之前创建，此时无需执行索引重构操作；如果创建索引时，数据库里已经存有数据，则不会自动对旧的数据进行索引，此时需要对整个图中与索引相关的数据执行索引重构操作以保证索引包含了之前的数据。若当前数据库没有对外提供服务，则可在索引重构时使用 `OFFLINE` 关键字加快重构速度。
-
-<!-- > 索引重构期间，对索引进行的所有幂等查询都会跳过索引并执行顺序扫描。这意味着在此操作期间查询运行速度较慢。非幂等命令（例如 INSERT、UPDATE 和 DELETE）将被阻止，直到重建索引为止。 -->
+如果索引在插入数据之前创建，此时无需执行索引重构操作；
+如果创建索引时，数据库里已经存有数据（但没有索引），则不会自动对旧的数据进行索引。此时需要执行索引重构操作，否则会造成索引与数据不一致。
 
 重构完成后，可使用 `SHOW {TAG | EDGE} INDEX STATUS` 命令查看索引是否重构成功。例如：
 
@@ -140,5 +143,3 @@ nebula> SHOW TAG INDEX STATUS;
 ## 使用索引
 
 索引创建完成并插入相关数据后，即可使用 [LOOKUP](../2.data-query-and-manipulation-statements/lookup-syntax.md) 语句进行数据查询。
-
-通常无需指定在查询中具体使用的索引，**Nebula Graph** 会自行选择。
