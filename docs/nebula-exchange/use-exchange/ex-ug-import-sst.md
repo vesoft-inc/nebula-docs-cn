@@ -1,6 +1,6 @@
 # 导入 SST 文件
 
-Nebula Graph Exchange 能将不同来源的数据转换成 SST 文件后再导入 Nebula Graph 数据库中。本文描述 Exchange 将源数据转换为 SST 文件并导入 Nebula Graph 的实现原理，并提供示例说明如何修改配置文件完成 SST 文件导入操作。
+Nebula Exchange 能将不同来源的数据转换成 SST 文件后再导入 Nebula Graph 数据库中。本文描述 Exchange 将源数据转换为 SST 文件并导入 Nebula Graph 的实现原理，并提供示例说明如何修改配置文件完成 SST 文件导入操作。
 
 ## 实现方法
 
@@ -58,7 +58,7 @@ RocksDB 提供了一系列 API 用于创建及导入 SST 文件，有助于您�
         space: test
         path:{
           # 指定 SST 文件保存到本地的路径
-          local:/Users/example/Documents/tmp
+          local:/Users/example/path
           # 指定上传 SST 文件的 HDFS 路径
           remote:/example/
         }
@@ -87,8 +87,10 @@ RocksDB 提供了一系列 API 用于创建及导入 SST 文件，有助于您�
 详细描述请参考不同数据源的操作示例：
 
 - [导入 Neo4j 数据](ex-ug-import-from-neo4j.md)
-- 导入 HDFS 数据[TODO]
-- 导入 HBase 数据[TODO]
-- 导入 HIVE 数据[TODO]
-- 导入 Kafka 数据[TODO]
-- 导入 MySQL 数据[TODO]
+- [导入 HIVE 数据](ex-ug-import-hive.md)
+- [导入 CSV 文件数据](ex-ug-import-from-csv.md)
+- [导入 JSON 文件数据](ex-ug-import-json.md)
+- 导入 HBase 数据[doc_TODO]
+- 导入 HIVE 数据[doc_TODO]
+- 导入 Kafka 数据[doc_TODO]
+- 导入 MySQL 数据[doc_TODO]

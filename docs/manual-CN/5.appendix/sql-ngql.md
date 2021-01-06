@@ -108,11 +108,11 @@ GO [[<M> TO] <N> STEPS ] FROM <node_list>
 
 ### MySQL
 
-![image](https://user-images.githubusercontent.com/42762957/87523043-f7afd800-c6b8-11ea-9e68-2ff4ef009ed0.png)
+![image](../../figs/ng-ug-018.png)
 
 ### Nebula Graph
 
-![image](https://user-images.githubusercontent.com/42762957/87893980-03621c80-ca74-11ea-923f-c66ee74b9e96.png)
+![image](../../figs/ng-ug-019.png)
 
 ## 增删改查（CRUD）
 

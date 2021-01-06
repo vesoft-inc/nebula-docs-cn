@@ -4,7 +4,7 @@
 
 ## Nebula Graph 版本支持
 
-目前 Studio 仅支持 Nebula Graph v1.1.0 及以下版本，不支持 Nebula Graph v2.0.0-alpha。
+目前 Studio v1.x 仅支持 Nebula Graph v1.x，不支持 Nebula Graph v2.x。
 
 ## 系统架构
 
@@ -14,7 +14,7 @@ Docker 版 Studio 目前仅支持 x86_64 架构。
 
 使用云服务版 Studio 上传数据有以下限制：
 
-- 目前仅支持上传没有表头行的 CSV 文件。
+- 目前仅支持上传没有表头行的 CSV 文件，而且仅支持英文逗号（,）作为分隔符。
 - 单个文件不得超过 100 MB。
 - 单个实例上传文件总量不得超过 1 GB。
 - 单个文件仅能保存 1 天。
