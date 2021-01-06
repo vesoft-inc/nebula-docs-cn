@@ -20,14 +20,6 @@
 - 参数说明
   - [Spark 参数](parameter-reference/ex-ug-paras-spark.md)
   - [Nebula Graph 参数](parameter-reference/ex-ug-paras-nebulagraph.md)
-  - 数据源参数
-    - [Neo4j 参数](parameter-reference/ex-ug-paras-neo4j.md)
-    - HDFS 参数[DOC_TO_DO]
-    - HBase 参数[DOC_TO_DO]
-    - HIVE 参数[DOC_TO_DO]
-    - Kafka 参数[DOC_TO_DO]
-    - MySQL 参数[DOC_TO_DO]
-    - Pulsar 参数[DOC_TO_DO]
   - [导入命令参数](parameter-reference/ex-ug-para-import-command.md)
 - 错误信息[DOC_TO_DO]
 

@@ -4,10 +4,6 @@
 
 如果您要向 Nebula Graph 导入本地 CSV 文件，参考 [CSV 文件导入示例](../../manual-CN/1.overview/2.quick-start/4.import-csv-file.md)。
 
-## 使用限制
-
-Exchange 导入 CSV 文件时，不支持断点续传。
-
 ## 数据集
 
 本文以美国 Stanford Network Analysis Platform (SNAP) 提供的 [Social Network: MOOC User Action Dataset](https://snap.stanford.edu/data/act-mooc.html "点击前往 Stanford Network Analysis Platform (SNAP) 网站") 以及由公开网络上获取的不重复的 97 个课程名称作为示例数据集，包括：
@@ -24,20 +20,27 @@ Exchange 导入 CSV 文件时，不支持断点续传。
 - 硬件规格：
   - CPU：1.7 GHz Quad-Core Intel Core i7
   - 内存：16 GB
-- Spark：2.3.0，Local 模式
+
+- Spark：2.3.0，单机版
+
 - Hadoop：2.9.2，伪分布式部署
+
 - Nebula Graph：V1.1.0，使用 Docker Compose 部署。详细信息，参考 [使用 Docker Compose 部署 Nebula Graph](https://github.com/vesoft-inc/nebula-docker-compose/blob/master/README_zh-CN.md)
 
 ## 前提条件
 
 开始导入数据之前，您需要确认以下信息：
 
-- 已经完成 Exchange 编译。详细信息，参考 [编译 Exchange](../ex-ug-compile.md)。
+- 已经完成 Exchange 编译。详细信息，参考 [编译 Exchange](../ex-ug-compile.md)。本示例中使用 Exchange v1.1.0。
+
 - 已经安装 Spark。
+
 - 已经安装并开启 Hadoop 服务。
+
 - 已经部署并启动 Nebula Graph，并获取：
   - Graph 服务、Meta 服务所在机器的 IP 地址和端口信息。
   - Nebula Graph 数据库的拥有写权限的用户名及其密码。
+
 - 在 Nebula Graph 中创建图数据模式（Schema）所需的所有信息，包括标签和边类型的名称、属性等。
 
 ## 操作步骤
@@ -59,12 +62,16 @@ Exchange 导入 CSV 文件时，不支持断点续传。
     ```ngql
     -- 创建图空间
     CREATE SPACE csv(partition_num=10, replica_factor=1);
+    
     -- 选择图空间 csv
     USE csv;
+    
     -- 创建标签 user
     CREATE TAG user(userId int);
+    
     -- 创建标签 course
     CREATE TAG course(courseId int, courseName string);
+    
     -- 创建边类型 action
     CREATE EDGE action (actionId int, duration double, label bool, feature0 double, feature1 double, feature2 double, feature3 double);
     ```
@@ -77,15 +84,12 @@ Exchange 导入 CSV 文件时，不支持断点续传。
 
 1. CSV 文件已经根据 Schema 作了处理。详细操作请参考 [Nebula Graph Studio 快速开始](../../nebula-studio/quick-start/st-ug-prepare-csv.md)。
    > **说明**：Exchange 支持上传有表头或者无表头的 CSV 文件。
+
 2. CSV 文件必须存储在 HDFS 中，并已获取文件存储路径。
 
 ### 步骤 3. 修改配置文件
 
-Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格式，具有面向对象风格，便于理解和操作。
-
-克隆 `nebula-java` 库后，进入 `nebula-java/tools/exchange` 目录，根据 `target/classes/application.conf` 文件修改 CSV 数据源相关的配置文件。在本示例中，文件被重命名为 `csv_application.conf`。详细的配置参数，参考 [Spark 参数](../parameter-reference/ex-ug-paras-spark.md)和 [Nebula Graph 参数](../parameter-reference/ex-ug-paras-nebulagraph.md)。
-
-以下为本示例中的配置文件 `csv_application.conf`。
+完成 Exchange 编译后，进入 `nebula-java/tools/exchange` 目录，根据 `target/classes/application.conf` 文件修改 CSV 数据源相关的配置文件。在本示例中，文件被重命名为 `csv_application.conf`。以下仅详细说明点和边数据的配置信息，本次示例中未使用的配置项已被注释，但是提供了配置说明。Spark 和 Nebula Graph 相关配置，参考 [Spark 参数](../parameter-reference/ex-ug-paras-spark.md)和 [Nebula Graph 参数](../parameter-reference/ex-ug-paras-nebulagraph.md)。
 
 ```conf
 {
@@ -174,7 +178,7 @@ Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格
         policy: "hash"
       }
 
-      # 标明数据源中数据分隔方式，默认为英文逗号（;）。
+      # 标明数据源中数据分隔方式，默认为英文逗号（,）。
       separator: ","
 
       # 如果 CSV 文件中有表头，header 设置为 true。
@@ -275,7 +279,7 @@ Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格
         policy: "hash"
       }
 
-      # 标明数据源中数据分隔方式，默认为英文逗号（;）。
+      # 标明数据源中数据分隔方式，默认为英文逗号（,）。
       separator: ","
 
       # 如果 CSV 文件中有表头，header 设置为 true。
@@ -294,15 +298,23 @@ Exchange 采用 HOCON（Human-Optimized Config Object Notation）配置文件格
 }
 ```
 
-### 步骤 4. 向 Nebula Graph 导入数据
+### 步骤 4. （可选）检查配置文件是否正确
 
-完成配置后，运行以下命令将 CSV 文件数据导入到 Nebula Graph 中。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
+完成配置后，运行以下命令检查配置文件格式是否正确。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-$SPARK_HOME/bin/spark-submit  --class com.vesoft.nebula.tools.importer.Exchange --master "local" /path/to/exchange-1.1.0.jar -c /path/to/conf/csv_application.conf
+$SPARK_HOME/bin/spark-submit --master "local" --class com.vesoft.nebula.tools.importer.Exchange /path/to/exchange-1.1.0.jar -c /path/to/conf/csv_application.conf -D
 ```
 
-### 步骤 5. 验证数据
+### 步骤 5. 向 Nebula Graph 导入数据
+
+运行以下命令将 CSV 文件数据导入到 Nebula Graph 中。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
+
+```bash
+$SPARK_HOME/bin/spark-submit --master "local" --class com.vesoft.nebula.tools.importer.Exchange /path/to/exchange-1.1.0.jar -c /path/to/conf/csv_application.conf 
+```
+
+### 步骤 6. （可选）验证数据
 
 您可以在 Nebula Graph 客户端（例如 Nebula Graph Studio）里执行语句，确认数据是否已导入，例如：
 
@@ -314,6 +326,6 @@ GO FROM 1 OVER action;
 
 您也可以使用 db_dump 工具统计数据是否已经全部导入。详细的使用信息参考 [Dump Tool](https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-export/dump-tool/)。
 
-### 步骤 6. （可选）在 Nebula Graph 中重构索引
+### 步骤 7. （可选）在 Nebula Graph 中重构索引
 
 导入数据后，您可以在 Nebula Graph 中重新创建并重构索引。详细信息，参考[《Nebula Graph Database 手册》](https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/ "点击前往 Nebula Graph 网站")。
