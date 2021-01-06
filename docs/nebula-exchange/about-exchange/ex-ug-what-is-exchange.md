@@ -34,3 +34,25 @@ Exchange 具有以下优点：
 - 统计功能：使用 Apache Spark&trade; 中的累加器统计插入操作的成功和失败次数。
 
 - 易于使用，对用户友好：采用 HOCON（Human-Optimized Config Object Notation）配置文件格式，具有面向对象风格，便于理解和操作。
+
+## 数据格式和来源
+
+Exchange v1.x 支持将以下格式或来源的数据转换为 Nebula Graph v1.x 能识别的点和边数据：
+
+- 存储在 HDFS 的数据，包括：
+  - Apache Parquet
+  - Apache ORC
+  - JSON
+  - CSV
+
+- Apache HBase&trade;
+
+- 数据仓库：HIVE
+
+- 图数据库：Neo4j 2.4.5-M1。仅 Neo4j 支持断点续传
+
+- 关系型数据库：MySQL
+
+- 流处理软件平台：Apache Kafka&reg;
+
+- 发布/订阅消息系统：Apache Pulsar 2.4.5
