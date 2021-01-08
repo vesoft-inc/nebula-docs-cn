@@ -2,6 +2,8 @@
 
 Nebula Exchange 能将不同来源的数据转换成 SST 文件后再导入 Nebula Graph 数据库中。本文描述 Exchange 将源数据转换为 SST 文件并导入 Nebula Graph 的实现原理，并提供示例说明如何修改配置文件完成 SST 文件导入操作。
 
+> **说明**：仅 Linux 系统支持导入 SST 文件。
+
 ## 实现方法
 
 Nebula Graph 底层使用 RocksDB 作为键值型存储引擎。RocksDB 是基于磁盘的存储引擎，数据以 Sorted String Table（SSTable）格式存放。SSTable 是一个内部包含了任意长度、排好序的键值对 &lt;key,value&gt; 集合的文件，用于高效地存储大量的键值型数据。
