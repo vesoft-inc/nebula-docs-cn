@@ -147,7 +147,7 @@ Neo4j 的数据集信息如下：
   nebula: {
     address:{
       # 以下为 Nebula Graph 的 Graph 服务和 Meta 服务所在机器的 IP 地址及端口。
-      # 如果有多个地址，格式为 "ip1:port,ip2:port,ip3:port"。
+      # 如果有多个地址，格式为 "ip1:port","ip2:port","ip3:port"。
       # 不同地址之间以英文逗号 (,) 隔开。
       graph:["127.0.0.1:3699"]
       meta:["127.0.0.1:45500"]

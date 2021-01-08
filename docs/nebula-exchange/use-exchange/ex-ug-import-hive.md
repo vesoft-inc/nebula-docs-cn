@@ -177,7 +177,7 @@ only showing top 20 rows
   nebula: {
     address:{
       # 以下为 Nebula Graph 的 Graph 服务和 Meta 服务所在机器的 IP 地址及端口
-      # 如果有多个地址，格式为 "ip1:port,ip2:port,ip3:port"
+      # 如果有多个地址，格式为 "ip1:port","ip2:port","ip3:port"
       # 不同地址之间以英文逗号 (,) 隔开
       graph:["127.0.0.1:3699"]
       meta:["127.0.0.1:45500"]
@@ -323,7 +323,7 @@ only showing top 20 rows
 完成配置后，运行以下命令检查配置文件格式是否正确。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-$SPARK_HOME/bin/spark-submit --master "local" --class com.vesoft.nebula.tools.importer.Exchange /path/to/exchange-1.1.0.jar -c /path/to/conf/hive_application.conf -D
+$SPARK_HOME/bin/spark-submit --master "local" --class com.vesoft.nebula.tools.importer.Exchange /path/to/exchange-1.1.0.jar -c /path/to/conf/hive_application.conf -h -D
 ```
 
 ### 步骤 5. 向 Nebula Graph 导入数据
