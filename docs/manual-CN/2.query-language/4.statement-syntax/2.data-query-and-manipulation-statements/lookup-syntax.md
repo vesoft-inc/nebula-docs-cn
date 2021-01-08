@@ -20,10 +20,10 @@ LOOKUP ON {<vertex_tag> | <edge_type>} WHERE <expression> [ AND expression ...])
 `WHERE` 子句在 `LOOKUP` 中暂不支持如下操作：
 
 - `$-` 和 `$^`
-- 在关系表达式中，暂不支持操作符两边都是field-name 的表达式，如 (tagName.column1 > tagName.column2)
-- 暂不支持运算表达式和 function 表达式中嵌套 AliasProp 表达式。
+- 在关系表达式中，暂不支持操作符两边都是 field-name 的表达式，如 (tagName.column1 > tagName.column2)
+- 不支持运算表达式和 function 表达式中嵌套 AliasProp 表达式。
 - 字符串类型的索引不支持范围查询。
-- 暂不支持 `OR` 和 `XOR` 查询。
+- 不支持 `OR` 和 `XOR` 查询。
 
 ## 点查询
 
@@ -47,7 +47,7 @@ YIELD player.name, player.age;
 | 101      | Tony Parker | 36         |
 ---------------------------------------
 
-nebula> LOOKUP ON player WHERE player.name== "Kobe Bryant" YIELD player.name AS name | \
+nebula> LOOKUP ON player WHERE player.name == "Kobe Bryant" YIELD player.name AS name | \
 GO FROM $-.VertexID OVER serve YIELD $-.name, serve.start_year, serve.end_year, $$.team.name;
 ==================================================================
 | $-.name     | serve.start_year | serve.end_year | $$.team.name |
