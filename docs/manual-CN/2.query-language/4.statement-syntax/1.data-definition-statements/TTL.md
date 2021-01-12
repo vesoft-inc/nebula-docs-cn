@@ -93,7 +93,7 @@ nebula> CREATE TAG t1(a int, b int, c string) ttl_duration = 100, ttl_col = "a";
 nebula> ALTER TAG t1 CHANGE (a string); -- failed
 ```
 
-- 注意一个 tag 或 edge 不能同时拥有 TTL 和索引，只能二者择其一，即使 `ttl_col` 配置的字段与要创建索引的字段不同。
+- 注意一个 tag 或 edge 不能同时拥有 TTL 和索引，只能二者择其一。
 
 ``` ngql
 nebula> CREATE TAG t1(a int, b int, c string) ttl_duration = 100, ttl_col = "a";
