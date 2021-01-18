@@ -53,6 +53,7 @@
 | Write role | Y | Y |  |  |  |
 | Read data | Y | Y | Y | Y | Y |
 | Write data | Y | Y | Y | Y |  |
-| Special operation | Y | Y | Y | Y | Y |
+| Show operation | Y | Y | Y | Y | Y |
 
-注意： Special Operation 为特殊操作，例如 `SHOW SPACE`，每个角色都可以执行，但其执行结果只显示 Account 权限内的结果。只有 `GOD` 用户有权限执行 `SHOW USERS` 和 `SHOW SNAPSHOTS` 语句。
+注意：Show Operation 为特殊操作，例如 `SHOW SPACE`，每个角色都可以执行，但其执行结果只显示 Account 权限内的结果。只有 `GOD` 用户有权限执行 `SHOW USERS` 和 `SHOW SNAPSHOTS` 语句。
+<!-- 注意： Special Operation 为特殊操作，例如 `SHOW SPACE`，每个角色都可以执行，但其执行结果只显示 Account 权限内的结果。只有 `GOD` 用户有权限执行 `SHOW USERS` 和 `SHOW SNAPSHOTS` 语句。 -->
