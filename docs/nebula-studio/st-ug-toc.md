@@ -7,9 +7,9 @@
   - [版本更新](about-studio/st-ug-check-updates.md)
   - [快捷键](about-studio/st-ug-shortcuts.md)
 - 安装与登录
-  - [部署 Studio](install-configure/st-ug-deploy.md)
-  - [连接数据库](install-configure/st-ug-connect.md)
-  - [清除连接](install-configure/st-ug-reset-connection.md)
+  - [部署 Studio](deploy-connect/st-ug-deploy.md)
+  - [连接数据库](deploy-connect/st-ug-connect.md)
+  - [清除连接](deploy-connect/st-ug-reset-connection.md)
 - 快速开始
   - [规划 Schema](quick-start/st-ug-plan-schema.md)
   - [准备 CSV 文件](quick-start/st-ug-prepare-csv.md)
