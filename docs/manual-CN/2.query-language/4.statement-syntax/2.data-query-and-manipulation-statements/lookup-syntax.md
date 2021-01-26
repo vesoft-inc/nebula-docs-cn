@@ -30,7 +30,7 @@ LOOKUP ON {<vertex_tag> | <edge_type>} WHERE <expression> [ AND expression ...])
 如下示例返回名称为 `Tony Parker`，标签为 _player_ 的点。
 
 ```ngql
-nebula> CREATE TAG INDEX index_player ON player(name, age);
+nebula> CREATE TAG INDEX index_player ON player(name);
 
 nebula> LOOKUP ON player WHERE player.name == "Tony Parker";
 ============
