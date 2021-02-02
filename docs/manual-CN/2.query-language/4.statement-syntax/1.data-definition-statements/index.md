@@ -15,7 +15,7 @@ CREATE {TAG | EDGE} INDEX [IF NOT EXISTS] <index_name> ON {<tag_name> | <edge_na
 5. 不支持多个 Tag 的属性之间建立组合索引。只允许在同一个 Tag/Edge Type 的多个属性上建立索引。
 6. 索引会**显著降低**在线写入性能，经验值是 2-10 倍。
 
-对于索引的原理和优化见[附录](docs/manual-CN/5.appendix/index.md).
+对于索引的原理和优化见[附录](../../../5.appendix/index.md)。
 
 ## 创建索引
 
