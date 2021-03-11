@@ -11,7 +11,7 @@ ttl 功能需要 `ttl_col` 和 `ttl_duration` 一起使用。自从 `ttl_col` �
 
 - `ttl_duration` 单位为秒，范围为 0 ~ max(int64)，当 `ttl_duration` 被设置为 0，则点的此 tag 属性不会过期。
 
-- 当 `ttl_col` 指定的字段的值 + `ttl_duration` 值 > 当前时间时，该条数据此 tag 属性值过期。
+- 当 `ttl_col` 指定的字段的值 + `ttl_duration` 值 ＜ 当前时间时，该条数据此 tag 属性值过期。
 
 - 当该条数据有多个 tag，每个 tag 的 ttl 单独处理。
 
