@@ -27,7 +27,7 @@ $ curl <ws_ip>:<ws_port>/flags
 |参数|说明|
 |:---|:---|
 |`ws_ip`|HTTP服务的IP地址，可以在配置文件中查看。默认值为`127.0.0.1`。|
-|`ws_port`|HTTP服务的端口，可以在配置文件中查看。默认值分别为`19559`（metad）、`19669`（graphd）`19779`（storaged）。|
+|`ws_port`|HTTP服务的端口，可以在配置文件中查看。默认值分别为`19559`（Meta）、`19669`（Graph）`19779`（Storage）。|
 
 示例如下：
 
@@ -48,7 +48,7 @@ $ curl <ws_ip>:<ws_port>/flags
 使用如下命令修改日志级别：
 
 ```bash
-curl -X PUT -H "Content-Type: application/json" -d '{"<key>":<value>[,"<key>":<value>]}' "<ws_ip>:<ws_port>/flags"
+$ curl -X PUT -H "Content-Type: application/json" -d '{"<key>":<value>[,"<key>":<value>]}' "<ws_ip>:<ws_port>/flags"
 ```
 
 |参数|说明|
@@ -56,12 +56,12 @@ curl -X PUT -H "Content-Type: application/json" -d '{"<key>":<value>[,"<key>":<v
 |`key`|待修改的日志类型，可选值请参见[配置说明](#配置说明)。|
 |`value`|日志级别，可选值请参见[配置说明](#配置说明)。|
 |`ws_ip`|HTTP服务的IP地址，可以在配置文件中查看。默认值为`127.0.0.1`。|
-|`ws_port`|HTTP服务的端口，可以在配置文件中查看。默认值分别为`19559`（metad）、`19669`（graphd）`19779`（storaged）。|
-
->**说明**：如果您在Nebula Graph运行时修改了日志级别，重启服务后会恢复为配置文件中设置的级别，如果需要永久修改，请修改配置文件。
+|`ws_port`|HTTP服务的端口，可以在配置文件中查看。默认值分别为`19559`（Meta）、`19669`（Graph）`19779`（Storage）。|
 
 示例如下：
 
 ```bash
-curl -X PUT -H "Content-Type: application/json" -d '{"minloglevel":1,"v":3}' "127.0.0.1:19779/flags"
+$ curl -X PUT -H "Content-Type: application/json" -d '{"minloglevel":1,"v":3}' "127.0.0.1:19779/flags"
 ```
+
+如果您在Nebula Graph运行时修改了日志级别，重启服务后会恢复为配置文件中设置的级别，如果需要永久修改，请修改[配置文件](../1.configurations/1.configurations.md)。
