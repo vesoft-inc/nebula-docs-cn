@@ -21,7 +21,7 @@ Meta服务、Graph服务和Storage服务的日志级别可以在各自的配置�
 使用如下命令查看当前所有的gflags参数（包括日志参数）：
 
 ```bash
-$ curl <ws_ip>:<ws_port>/flags 
+$ curl <ws_ip>:<ws_port>/flags
 ```
 
 |参数|说明|
@@ -40,7 +40,7 @@ $ curl <ws_ip>:<ws_port>/flags
 - 查看Storage服务当前的日志详细级别：
   
     ```bash
-    $ curl 127.0.0.1:19779/flags |grep -w 'v'
+    $ curl 127.0.0.1:19779/flags | grep -w 'v'
     ```
 
 ## 修改日志级别
@@ -61,7 +61,10 @@ $ curl -X PUT -H "Content-Type: application/json" -d '{"<key>":<value>[,"<key>":
 示例如下：
 
 ```bash
-$ curl -X PUT -H "Content-Type: application/json" -d '{"minloglevel":1,"v":3}' "127.0.0.1:19779/flags"
+$ curl -X PUT -H "Content-Type: application/json" -d '{"minloglevel":0,"v":3}' "127.0.0.1:19779/flags" # storaged
+$ curl -X PUT -H "Content-Type: application/json" -d '{"minloglevel":0,"v":3}' "127.0.0.1:19669/flags" # graphd
+$ curl -X PUT -H "Content-Type: application/json" -d '{"minloglevel":0,"v":3}' "127.0.0.1:19559/flags" # metad
+
 ```
 
 如果您在Nebula Graph运行时修改了日志级别，重启服务后会恢复为配置文件中设置的级别，如果需要永久修改，请修改[配置文件](../1.configurations/1.configurations.md)。
