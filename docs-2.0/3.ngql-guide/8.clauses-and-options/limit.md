@@ -2,11 +2,9 @@
 
 `LIMIT`子句限制输出结果的行数。
 
-## openCypher兼容性
-
 - 在nGQL扩展中，必须使用管道符（|），可以忽略偏移量。
 
-- 在openCypher方式中，不允许使用管道符，可以使用`Skip`指明偏移量。
+- 在openCypher方式中，不允许使用管道符，可以使用`SKIP`指明偏移量。
 
 >**说明**：在nGQL扩展或openCypher方式中使用`LIMIT`时，使用`ORDER BY`子句限制输出顺序非常重要，否则会输出一个不可预知的子集。
 
