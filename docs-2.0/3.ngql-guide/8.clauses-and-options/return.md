@@ -14,21 +14,21 @@
 
 `RETURN`暂不支持如下openCypher功能：
 
-- 返回`uncommon`字符串。例如：
+- 使用不在英文字母表中的字符作为变量名。例如：
   
   ```ngql
-  MATCH (`non-english_characters`:player) \
-  RETURN `non-english_characters`;
+  MATCH (`点1`:player) \
+  RETURN `点1`;
   ```
 
-- 在`RETURN`子句中设置一个模式，并返回该模式匹配的所有元素。例如：
+- 设置一个模式，并返回该模式匹配的所有元素。例如：
 
   ```ngql
   MATCH (v:player) \
   RETURN (v)-[e]->(v2);
   ```
 
-## nGQL兼容性
+## 历史版本兼容性
 
 - 在nGQL 1.x中，`RETURN`适用于nGQL扩展，语法为`RETURN <var_ref> IF <var_ref> IS NOT NULL`。
 
@@ -162,7 +162,7 @@ nebula> MATCH (v:player{name:"Tim Duncan"})-[e]->(v2) \
 
 ## 返回表达式结果
 
-`return`语句可以返回文字、函数或谓词等表达式的结果。
+`RETURN`语句可以返回文字、函数或谓词等表达式的结果。
 
 ```ngql
 nebula> MATCH (v:player{name:"Tony Parker"})-->(v2:player) \
