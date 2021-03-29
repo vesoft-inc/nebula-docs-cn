@@ -72,9 +72,9 @@ nebula> CREATE TAG t2(a int, b int, c string) ttl_duration= 100, ttl_col = "a";
 nebula> INSERT VERTEX t2(a, b, c) values "102":(1612778164674, 30, "Hello");
 ```
 
-## 关闭TTL选项
+## 删除存活时间
 
-关闭TTL选项可以使用如下几种方法：
+删除存活时间可以使用如下几种方法：
 
 - 删除设置存活时间的属性。
 
