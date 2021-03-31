@@ -4,7 +4,7 @@ site_description: Documentation for Nebula Graph Database
 site_author: Nebula Graph
 site_url: https://docs.nebula-graph.com.cn
 edit_uri: ''
-docs_dir: docs-2.0
+docs_dir: docs
 
 # repository
 repo_name: 'vesoft-inc/nebula'
