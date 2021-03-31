@@ -1,6 +1,6 @@
 # LIMIT 语法
 
-`LIMIT` 用法与 `SQL` 中的相同，且只能与 `|` 结合使用。 `LIMIT` 子句接受一个或两个参数,两个参数的值都必须是零或正整数。
+`LIMIT` 用法与 `SQL` 中的相同，且只能与 `|` 结合使用。 `LIMIT` 子句接受一个或两个参数,两个参数的值都必须是大于等于零的正整数。
 
 ```ngql
 ORDER BY <expressions> [ASC | DESC]
