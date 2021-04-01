@@ -1,16 +1,16 @@
 # Storage负载均衡
 
-如果需要调整Nebula Graph的Storage服务规模，请使用`BALANCE`语句。
+您可以使用`BALANCE`语句平衡分片和Raft leader的分布，或者删除冗余的Storage服务器。
 
 ## 均衡分片分布
 
-`BALANCE DATA`语句会开始一个任务，将Nebula Graph集群中的分片平均分配到所有Storage主机。通过创建和执行一组子任务来迁移数据和均衡分片分布。
+`BALANCE DATA`语句会开始一个任务，将Nebula Graph集群中的分片平均分配到所有Storage服务器。通过创建和执行一组子任务来迁移数据和均衡分片分布。
 
 >**禁止**：不要停止集群中的任何机器或改变机器的IP地址，直到所有子任务完成，否则后续子任务会失败。
 
 ### 示例
 
-以横向扩容Nebula Graph为例，集群中增加新的Storage主机后，新主机上没有分片。
+以横向扩容Nebula Graph为例，集群中增加新的Storage服务器后，新服务器上没有分片。
 
 1. 执行命令[`SHOW HOSTS`](../3.ngql-guide/7.general-query-statements/6.show/6.show-hosts.md)检查分片的分布。
 
@@ -104,15 +104,15 @@
 
 - 如果前一个负载均衡任务的任何一个子任务都没有失败，Nebula Graph会启动一个新的的负载均衡任务。
 
-## 移除Storage主机
+## 移除Storage服务器
 
-移除指定的Storage主机来缩小集群规模，可以使用命令`BALANCE DATA REMOVE <host_list>`。
+移除指定的Storage服务器来缩小集群规模，可以使用命令`BALANCE DATA REMOVE <host_list>`。
 
 ### 示例
 
-如果需要移除以下两台Storage主机。
+如果需要移除以下两台Storage服务器。
 
-|主机名称|IP地址|端口|
+|服务器名称|IP地址|端口|
 |:---|:---|:---|
 |storage3|192.168.0.8|19779|
 |storage4|192.168.0.9|19779|
@@ -123,7 +123,7 @@
 BALANCE DATA REMOVE 192.168.0.8:19779,192.168.0.9:19779;
 ```
 
-Nebula Graph将启动一个负载均衡任务，迁移storage3和storage4中的分片，然后将主机从集群中移除。
+Nebula Graph将启动一个负载均衡任务，迁移storage3和storage4中的分片，然后将服务器从集群中移除。
 
 ## 均衡leader分布
 
