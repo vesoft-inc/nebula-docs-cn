@@ -14,13 +14,6 @@
 
 - [过滤rank](#过滤rank)是原生nGQL功能。只支持在nGQL扩展的语句（例如`GO`和`LOOKUP`）中使用，因为openCypher中没有rank的概念。
 
-
-## 语法
-
-```ngql
-WHERE <expression> [ AND|OR|XOR <expression> ...]);
-```
-
 ## 基础用法
 
 ### 用布尔运算符定义条件
