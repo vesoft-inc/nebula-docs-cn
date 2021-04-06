@@ -47,7 +47,7 @@ CREATE TAG [IF NOT EXISTS] <tag_name>
 
 * **默认值约束**
 
-  您可以在创建标签/边时使用 `DEFAULT` 约束设置属性的默认值。如果没有指定其他值，那么会将默认值插入新的顶点。默认值可以为 **Nebula Graph** 支持的任一数据类型，且支持表达式。如果您不想使用默认值，也可以写一个用户指定的值。
+  您可以在创建标签/边时使用 `DEFAULT` 约束设置属性的默认值。如果没有指定其他值，那么会将默认值插入新的点。默认值可以为 **Nebula Graph** 支持的任一数据类型，且支持表达式。如果您不想使用默认值，也可以写一个用户指定的值。
 
   > 暂时不支持使用 `Alter` 更改默认值。
 
@@ -57,7 +57,7 @@ CREATE TAG [IF NOT EXISTS] <tag_name>
 
     TTL_DURATION 指定了 vertices 和 edges 的有效期，超过有效期的数据会失效。失效时间为 TTL_COL 设置的属性值加 TTL_DURATION 设置的秒数。
 
-    > 如果 TTL_DURATION 的值为负或 0，则该 edge 不会失效。
+    > 如果 TTL_DURATION 的值为 0，则该 edge 不会失效。
 
 * TTL_COL
 

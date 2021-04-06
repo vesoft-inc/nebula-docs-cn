@@ -1,6 +1,6 @@
 # Project information
-site_name: Nebula Graph 手册
-site_description: Documentation for Nebula Graph
+site_name: Nebula Graph Database 手册
+site_description: Documentation for Nebula Graph Database
 site_author: Nebula Graph
 site_url: https://docs.nebula-graph.com.cn/
 edit_uri: ''
@@ -15,8 +15,7 @@ copyright: Copyright &copy; 2020 Nebula Graph - 浙ICP备20010487号
 # Configuration
 theme:
   name: 'material'
-  logo:
-    icon: library_books
+  logo: 'https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png'
   favicon: 'assets/images/favicon.ico'
   palette:
     primary: 'indigo'
@@ -25,7 +24,8 @@ theme:
     tabs: true
   language: 'zh'
 
-# extra_css:
+extra_css:
+  - 'stylesheets/logo.css'
 #     - 'theme/structor-menu.css'
 #     - 'theme/extra.css'
 
@@ -57,9 +57,10 @@ nav:
       - 快速开始和常用链接:
         - 开始试用: manual-CN/1.overview/2.quick-start/1.get-started.md
         - 常见问题 FAQ: manual-CN/1.overview/2.quick-start/2.FAQ.md
+        - 系统要求: manual-CN/3.build-develop-and-administration/3.configurations/0.system-requirement.md
         - Nebula Graph 客户端: manual-CN/1.overview/2.quick-start/3.supported-clients.md
         - 编译源代码: manual-CN/3.build-develop-and-administration/1.build/1.build-source-code.md
-        - 导入 .csv 文件: manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-import/import-csv-file.md
+        - 导入 .csv 文件: manual-CN/1.overview/2.quick-start/4.import-csv-file.md
         # - Ingest .sst File: manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-import/download-and-ingest-sst-file.md
       - 系统设计与架构:
         - 设计总览: manual-CN/1.overview/3.design-and-architecture/1.design-and-architecture.md
@@ -152,7 +153,7 @@ nav:
       - 安装:
         - rpm 安装: manual-CN/3.build-develop-and-administration/2.install/1.install-with-rpm-deb.md
         - 启停服务: manual-CN/3.build-develop-and-administration/2.install/2.start-stop-service.md
-        - 集群部署: manual-CN/3.build-develop-and-administration/2.install/4.cluster-deploy.md
+        - 集群部署: manual-CN/3.build-develop-and-administration/2.install/deploy-nebula-with-swarm.md
         - Docker 安装: manual-CN/3.build-develop-and-administration/2.install/3.install-with-docker.md
       - 配置:
           - 系统要求: manual-CN/3.build-develop-and-administration/3.configurations/0.system-requirement.md
@@ -195,10 +196,92 @@ nav:
         - Meta Metrics: manual-CN/3.build-develop-and-administration/7.monitor/2.meta-metrics.md
         - Storage Metrics: manual-CN/3.build-develop-and-administration/7.monitor/3.storage-metrics.md
         - Graph Metrics: manual-CN/3.build-develop-and-administration/7.monitor/4.graph-metrics.md
+        - RocksDB Statistics: manual-CN/3.build-develop-and-administration/7.monitor/5.rocksdb-statistics.md
+
 
       - 源码开发和 API:
         - Key Value API: manual-CN/3.build-develop-and-administration/6.develop-and-interface/kv-interfaces.md
         - Nebula Graph 客户端: manual-CN/1.overview/2.quick-start/3.supported-clients.md
+
+    - 图算法:
+      - nebula-algorithm:
+        - 什么是 nebula-algorithm: nebula-algorithm/na-ug-what-is-nebula-algorithm.md
+        - 使用限制: nebula-algorithm/na-ug-limitations.md
+        - 编译 nebula-algorithm: nebula-algorithm/na-ug-compile.md
+        - 使用示例: nebula-algorithm/na-ug-example.md
+
+    - 数据传输:
+      - Nebula Exchange:
+        - 认识 Nebula Exchange:
+          - 什么是 Nebula Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
+          - 使用限制: nebula-exchange/about-exchange/ex-ug-limitations.md
+          - 名词解释: nebula-exchange/about-exchange/ex-ug-terms.md
+          - 常见问题: nebula-exchange/about-exchange/ex-ug-faq.md
+        - 编译 Exchange: nebula-exchange/ex-ug-compile.md
+        - 操作指南:
+          - 导入数据步骤: nebula-exchange/use-exchange/ex-ug-import-steps.md
+          - 导入 Neo4j 数据: nebula-exchange/use-exchange/ex-ug-import-from-neo4j.md
+          - 导入 SST 文件: nebula-exchange/use-exchange/ex-ug-import-sst.md
+          - 导入 HIVE 数据: nebula-exchange/use-exchange/ex-ug-import-hive.md
+          - 导入 CSV 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-csv.md
+          - 导入 JSON 文件数据: nebula-exchange/use-exchange/ex-ug-import-json.md
+        - 参数说明:
+          - Spark 参数: nebula-exchange/parameter-reference/ex-ug-paras-spark.md
+          - Nebula Graph 参数: nebula-exchange/parameter-reference/ex-ug-paras-nebulagraph.md
+          #- 数据源参数:
+            #- Neo4j 数据源相关参数: nebula-exchange/parameter-reference/ex-ug-paras-neo4j.md
+          - 导入命令参数: nebula-exchange/parameter-reference/ex-ug-para-import-command.md
+
+      - Nebula Flink Connector:
+        - 什么是 Nebula Flink Connector: nebula-flink/nf-ug-what-is-flink-connector.md
+        - 编译 Nebula Flink Connector: nebula-flink/nf-ug-compile.md
+        - 使用限制: nebula-flink/nf-ug-limitations.md
+        - 自定义 source (NebulaSource): nebula-flink/nf-ug-customize-source.md
+        - 自定义 sink (NebulaSink): nebula-flink/nf-ug-customize-sink.md
+        - 特殊说明: nebula-flink/nf-ug-notes.md
+
+      - Nebula Spark Connector:
+        - 什么是 Nebula Spark Connector: spark-connector/sc-ug-what-is-spark-connector.md
+        - 编译 Nebula Spark Connector: spark-connector/sc-ug-compile.md
+        - 使用限制: spark-connector/sc-ug-limitations.md
+        - Nebula Spark Connector Reader:
+          - 什么是 Nebula Spark Connector Reader: spark-connector/reader/sc-ug-what-is-reader.md
+          - 使用示例: spark-connector/reader/sc-ug-reader-example.md
+        - Nebula Spark Connector Writer:
+          - 什么是 Nebula Spark Connector Writer: spark-connector/writer/sc-ug-what-is-writer.md
+          - 使用示例: spark-connector/writer/sc-ug-writer-example.md
+
+    - Nebula Graph Studio:
+      - 认识 Nebula Graph Studio:
+        - 什么是 Nebula Graph Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
+        - 名词解释: nebula-studio/about-studio/st-ug-terms.md
+        - 使用限制: nebula-studio/about-studio/st-ug-limitations.md
+        - 版本更新: nebula-studio/about-studio/st-ug-check-updates.md
+        - 快捷键: nebula-studio/about-studio/st-ug-shortcuts.md
+      - 安装与登录:
+        - 部署 Studio: nebula-studio/deploy-connect/st-ug-deploy.md
+        - 连接数据库: nebula-studio/deploy-connect/st-ug-connect.md
+        - 清除连接: nebula-studio/deploy-connect/st-ug-reset-connection.md
+      - 快速开始:
+        - 规划 Schema: nebula-studio/quick-start/st-ug-plan-schema.md
+        - 准备 CSV 文件: nebula-studio/quick-start/st-ug-prepare-csv.md
+        - 创建 Schema: nebula-studio/quick-start/st-ug-create-schema.md
+        - 导入数据: nebula-studio/quick-start/st-ug-import-data.md
+        - 查询图数据: nebula-studio/quick-start/st-ug-explore.md
+      - 操作指南:
+        - 管理 Schema:
+          - 操作图空间: nebula-studio/manage-schema/st-ug-crud-space.md
+          - 操作标签: nebula-studio/manage-schema/st-ug-crud-tag.md
+          - 操作边类型: nebula-studio/manage-schema/st-ug-crud-edge-type.md
+          - 操作索引: nebula-studio/manage-schema/st-ug-crud-index.md
+        - 使用控制台:
+          - 控制台界面: nebula-studio/use-console/st-ug-console.md
+          - 导入图探索: nebula-studio/use-console/st-ug-open-in-explorer.md
+          - 查看子图: nebula-studio/use-console/st-ug-visualize-findpath.md
+      - 故障排查:
+        - 连接数据库错误: nebula-studio/troubleshooting/st-ug-config-server-errors.md
+        - 无法访问 Studio: nebula-studio/troubleshooting/st-ug-connection-errors.md
+        - 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
 
     - 社区贡献:
       - 贡献文档: manual-CN/4.contributions/contribute-to-documentation.md
@@ -206,11 +289,14 @@ nav:
       # - Developer Documentation Style Guide: manual-CN/4.contributions/developer-documentation-style-guide.md
       - 如何贡献: manual-CN/4.contributions/how-to-contribute.md
       - PR and Commit 信息指南: manual-CN/4.contributions/pull-request-commit-message-guidelines.md
+      - 文档工程师 Visual Studio Code 推荐配置: manual-CN/4.contributions/vscode-config.md
     - 附录:
       - Cypher & nGQL: manual-CN/5.appendix/cypher-ngql.md
       - Gremlin & nGQL: manual-CN/5.appendix/gremlin-ngql.md
       - SQL & nGQL: manual-CN/5.appendix/sql-ngql.md
       - 点标识符和分区: manual-CN/5.appendix/vid-partition.md
+      - 超级顶点（稠密点）处理: manual-CN/5.appendix/super-node.md
+
 
 
     - English:
@@ -235,7 +321,6 @@ plugins:
   - search
   # - mkdocs-versioning:
   #     version: 1.0
-
 
 
 

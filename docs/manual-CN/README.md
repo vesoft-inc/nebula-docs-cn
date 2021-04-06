@@ -4,6 +4,11 @@
 
 **Nebula Graph** 可以容纳百亿点和万亿条边，并达到毫秒级的时延。
 
+## 教学视频
+
+* [YouTube](https://www.youtube.com/channel/UC73V8q795eSEMxDX4Pvdwmw/)
+* [Bilibili](https://space.bilibili.com/472621355)
+
 ## 前言
 
 * [关于本手册](0.about-this-manual.md)
@@ -72,11 +77,11 @@
 
   * 数据查询与操作语句 (DQL 和 DML)
     * [删除边](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/delete-edge-syntax.md)
-    * [删除顶点](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/delete-vertex-syntax.md)
+    * [删除点](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/delete-vertex-syntax.md)
     * [获取点和边属性 (Fetch)](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/fetch-syntax.md)
     * [图遍历 (Go)](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/go-syntax.md)
     * [插入边](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/insert-edge-syntax.md)
-    * [插入顶点](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/insert-vertex-syntax.md)
+    * [插入点](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/insert-vertex-syntax.md)
     * [查找数据 (Lookup)](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/lookup-syntax.md)
     * [返回满足条件的语句 (Return)](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/return-syntax.md)
     * [更新点](2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/update-vertex-syntax.md)
@@ -114,7 +119,7 @@
   * [rpm 安装](3.build-develop-and-administration/2.install/1.install-with-rpm-deb.md)
   * [起停服务](3.build-develop-and-administration/2.install/2.start-stop-service.md)
   * [使用 Docker 安装](3.build-develop-and-administration/2.install/3.install-with-docker.md)
-  * [集群部署](3.build-develop-and-administration/2.install/4.cluster-deploy.md)
+  * [集群部署](3.build-develop-and-administration/2.install/deploy-nebula-with-swarm.md)
 * 配置
   * [系统要求](3.build-develop-and-administration/3.configurations/0.system-requirement.md)
   * [配置持久化与优先级](3.build-develop-and-administration/3.configurations/1.config-persistency-and-priority.md)
@@ -153,6 +158,7 @@
   * [meta 层运行统计 (metrics)](3.build-develop-and-administration/7.monitor/2.meta-metrics.md)
   * [storage 运行统计 (metrics)](3.build-develop-and-administration/7.monitor/3.storage-metrics.md)
   * [graph 层运行统计 (metrics)](3.build-develop-and-administration/7.monitor/4.graph-metrics.md)
+  * [RocksDB 统计数据](3.build-develop-and-administration/7.monitor/5.rocksdb-statistics.md)
 * 源码开发和 API
   * [Key Value 接口](3.build-develop-and-administration/6.develop-and-interface/kv-interfaces.md)
   * [Nebula Graph 客户端](1.overview/2.quick-start/3.supported-clients.md)
@@ -170,10 +176,3 @@
 * [Cypher V.S. nGQL](5.appendix/cypher-ngql.md)
 * [SQL V.S. nGQL](5.appendix/sql-ngql.md)
 * [点标识符和分区](5.appendix/vid-partition.md)
-
-## 其他
-
-### 视频
-
-* [YouTube](https://www.youtube.com/channel/UC73V8q795eSEMxDX4Pvdwmw/)
-* [Bilibili](https://space.bilibili.com/472621355)

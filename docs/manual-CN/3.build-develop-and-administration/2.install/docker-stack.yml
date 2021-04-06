@@ -1,0 +1,427 @@
+version: '3.6'
+services:
+  metad0:
+    image: vesoft/nebula-metad:nightly
+    env_file:
+      - ./nebula.env
+    command:
+      - --meta_server_addrs=192.168.1.166:45500,192.168.1.167:45500,192.168.1.168:45500
+      - --local_ip=192.168.1.166
+      - --ws_ip=192.168.1.166
+      - --port=45500
+      - --data_path=/data/meta
+      - --log_dir=/logs
+      - --v=0
+      - --minloglevel=2
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints:
+          - node.hostname == KF2-DATA-166
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://192.168.1.166:11000/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    ports:
+      - target: 11000
+        published: 11000
+        protocol: tcp
+        mode: host
+      - target: 11002
+        published: 11002
+        protocol: tcp
+        mode: host
+      - target: 45500
+        published: 45500
+        protocol: tcp
+        mode: host
+    volumes:
+      - data-metad0:/data/meta
+      - logs-metad0:/logs
+    networks:
+      - nebula-net
+
+  metad1:
+    image: vesoft/nebula-metad:nightly
+    env_file:
+      - ./nebula.env
+    command:
+      - --meta_server_addrs=192.168.1.166:45500,192.168.1.167:45500,192.168.1.168:45500
+      - --local_ip=192.168.1.167
+      - --ws_ip=192.168.1.167
+      - --port=45500
+      - --data_path=/data/meta
+      - --log_dir=/logs
+      - --v=0
+      - --minloglevel=2
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints:
+          - node.hostname == KF2-DATA-167
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://192.168.1.167:11000/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    ports:
+      - target: 11000
+        published: 11000
+        protocol: tcp
+        mode: host
+      - target: 11002
+        published: 11002
+        protocol: tcp
+        mode: host
+      - target: 45500
+        published: 45500
+        protocol: tcp
+        mode: host
+    volumes:
+      - data-metad1:/data/meta
+      - logs-metad1:/logs
+    networks:
+      - nebula-net
+
+  metad2:
+    image: vesoft/nebula-metad:nightly
+    env_file:
+      - ./nebula.env
+    command:
+      - --meta_server_addrs=192.168.1.166:45500,192.168.1.167:45500,192.168.1.168:45500
+      - --local_ip=192.168.1.168
+      - --ws_ip=192.168.1.168
+      - --port=45500
+      - --data_path=/data/meta
+      - --log_dir=/logs
+      - --v=0
+      - --minloglevel=2
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints:
+          - node.hostname == KF2-DATA-168
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://192.168.1.168:11000/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    ports:
+      - target: 11000
+        published: 11000
+        protocol: tcp
+        mode: host
+      - target: 11002
+        published: 11002
+        protocol: tcp
+        mode: host
+      - target: 45500
+        published: 45500
+        protocol: tcp
+        mode: host
+    volumes:
+      - data-metad2:/data/meta
+      - logs-metad2:/logs
+    networks:
+      - nebula-net
+
+  storaged0:
+    image: vesoft/nebula-storaged:nightly
+    env_file:
+      - ./nebula.env
+    command:
+      - --meta_server_addrs=192.168.1.166:45500,192.168.1.167:45500,192.168.1.168:45500
+      - --local_ip=192.168.1.166
+      - --ws_ip=192.168.1.166
+      - --port=44500
+      - --data_path=/data/storage
+      - --log_dir=/logs
+      - --v=0
+      - --minloglevel=2
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints:
+          - node.hostname == KF2-DATA-166
+    depends_on:
+      - metad0
+      - metad1
+      - metad2
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://192.168.1.166:12000/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    ports:
+      - target: 12000
+        published: 12000
+        protocol: tcp
+        mode: host
+      - target: 12002
+        published: 12002
+        protocol: tcp
+        mode: host
+    volumes:
+      - data-storaged0:/data/storage
+      - logs-storaged0:/logs
+    networks:
+      - nebula-net
+  storaged1:
+    image: vesoft/nebula-storaged:nightly
+    env_file:
+      - ./nebula.env
+    command:
+      - --meta_server_addrs=192.168.1.166:45500,192.168.1.167:45500,192.168.1.168:45500
+      - --local_ip=192.168.1.167
+      - --ws_ip=192.168.1.167
+      - --port=44500
+      - --data_path=/data/storage
+      - --log_dir=/logs
+      - --v=0
+      - --minloglevel=2
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints:
+          - node.hostname == KF2-DATA-167
+    depends_on:
+      - metad0
+      - metad1
+      - metad2
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://192.168.1.167:12000/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    ports:
+      - target: 12000
+        published: 12000
+        protocol: tcp
+        mode: host
+      - target: 12002
+        published: 12004
+        protocol: tcp
+        mode: host
+    volumes:
+      - data-storaged1:/data/storage
+      - logs-storaged1:/logs
+    networks:
+      - nebula-net
+
+  storaged2:
+    image: vesoft/nebula-storaged:nightly
+    env_file:
+      - ./nebula.env
+    command:
+      - --meta_server_addrs=192.168.1.166:45500,192.168.1.167:45500,192.168.1.168:45500
+      - --local_ip=192.168.1.168
+      - --ws_ip=192.168.1.168
+      - --port=44500
+      - --data_path=/data/storage
+      - --log_dir=/logs
+      - --v=0
+      - --minloglevel=2
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints:
+          - node.hostname == KF2-DATA-168
+    depends_on:
+      - metad0
+      - metad1
+      - metad2
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://192.168.1.168:12000/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    ports:
+      - target: 12000
+        published: 12000
+        protocol: tcp
+        mode: host
+      - target: 12002
+        published: 12006
+        protocol: tcp
+        mode: host
+    volumes:
+      - data-storaged2:/data/storage
+      - logs-storaged2:/logs
+    networks:
+      - nebula-net
+  graphd0:
+    image: vesoft/nebula-graphd:nightly
+    env_file:
+      - ./nebula.env
+    command:
+      - --meta_server_addrs=192.168.1.166:45500,192.168.1.167:45500,192.168.1.168:45500
+      - --port=3699
+      - --ws_ip=192.168.1.166
+      - --log_dir=/logs
+      - --v=0
+      - --minloglevel=2
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints:
+          - node.hostname == KF2-DATA-166
+    depends_on:
+      - metad0
+      - metad1
+      - metad2
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://192.168.1.166:13000/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    ports:
+      - target: 3699
+        published: 3699
+        protocol: tcp
+        mode: host
+      - target: 13000
+        published: 13000
+        protocol: tcp
+#        mode: host
+      - target: 13002
+        published: 13002
+        protocol: tcp
+        mode: host
+    volumes:
+      - logs-graphd:/logs
+    networks:
+      - nebula-net
+
+  graphd1:
+    image: vesoft/nebula-graphd:nightly
+    env_file:
+      - ./nebula.env
+    command:
+      - --meta_server_addrs=192.168.1.166:45500,192.168.1.167:45500,192.168.1.168:45500
+      - --port=3699
+      - --ws_ip=192.168.1.167
+      - --log_dir=/logs
+      - --v=2
+      - --minloglevel=2
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints:
+          - node.hostname == KF2-DATA-167
+    depends_on:
+      - metad0
+      - metad1
+      - metad2
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://192.168.1.167:13001/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    ports:
+      - target: 3699
+        published: 3640
+        protocol: tcp
+        mode: host
+      - target: 13000
+        published: 13001
+        protocol: tcp
+        mode: host
+      - target: 13002
+        published: 13003
+        protocol: tcp
+#        mode: host
+    volumes:
+      - logs-graphd2:/logs
+    networks:
+      - nebula-net
+  graphd2:
+    image: vesoft/nebula-graphd:nightly
+    env_file:
+      - ./nebula.env
+    command:
+      - --meta_server_addrs=192.168.1.166:45500,192.168.1.167:45500,192.168.1.168:45500
+      - --port=3699
+      - --ws_ip=192.168.1.168
+      - --log_dir=/logs
+      - --v=0
+      - --minloglevel=2
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints:
+          - node.hostname == KF2-DATA-168
+    depends_on:
+      - metad0
+      - metad1
+      - metad2
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://192.168.1.168:13002/status"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 20s
+    ports:
+      - target: 3699
+        published: 3641
+        protocol: tcp
+        mode: host
+      - target: 13000
+        published: 13004
+        protocol: tcp
+#        mode: host
+      - target: 13002
+        published: 13005
+        protocol: tcp
+        mode: host
+    volumes:
+      - logs-graphd3:/logs
+    networks:
+      - nebula-net
+networks:
+  nebula-net:
+    external: true
+    attachable: true
+    name: host
+volumes:
+  data-metad0:
+  logs-metad0:
+  data-metad1:
+  logs-metad1:
+  data-metad2:
+  logs-metad2:
+  data-storaged0:
+  logs-storaged0:
+  data-storaged1:
+  logs-storaged1:
+  data-storaged2:
+  logs-storaged2:
+  logs-graphd:
+  logs-graphd2:
+  logs-graphd3:
