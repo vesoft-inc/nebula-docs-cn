@@ -35,7 +35,9 @@ jobs:
       - name: Mike Deploy 1.2
         run: mike deploy 1.2 -p
       - name: Compress
-        run: tar -czf nebula-docs.tar.gz site
+        run: |
+           mv site nebula-docs
+           tar -czf nebula-docs.tar.gz site
 
       - name: Transfer
         # uses: garygrossgarten/github-action-scp@release
