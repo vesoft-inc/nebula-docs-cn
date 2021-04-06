@@ -34,31 +34,37 @@ jobs:
 
       - name: Mike Deploy 1.2
         run: mike deploy 1.2 -p
-      - name: Compress
-        run: |
-           mv site nebula-docs
-           tar -czf nebula-docs.tar.gz site
 
-      - name: Transfer
-        # uses: garygrossgarten/github-action-scp@release
-        uses: appleboy/scp-action@master
-        with:
-            host: ${{ secrets.HOST }}
-            username: ${{ secrets.USER_NAME }}
-            password: ${{ secrets.PASSWORD }}
-            port: ${{ secrets.port }}
-            source: nebula-docs.tar.gz
-            target: /usr/web
+      - name: show git branch
+        run: git branch
 
-      - name: UnCompress
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USER_NAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          script: tar -xzvf /usr/web/nebula-docs.tar.gz -C /usr/web
-      # - name: Deploy
+      - name: show mike 
+        run: mike list  
+#      - name: Compress
+#        run: |
+#           mv site nebula-docs
+#           tar -czf nebula-docs.tar.gz nebula-docs
+
+#      - name: Transfer
+#        # uses: garygrossgarten/github-action-scp@release
+#        uses: appleboy/scp-action@master
+#        with:
+#            host: ${{ secrets.HOST }}
+#            username: ${{ secrets.USER_NAME }}
+#            password: ${{ secrets.PASSWORD }}
+#            port: ${{ secrets.port }}
+#            source: nebula-docs.tar.gz
+#            target: /usr/web
+#
+#      - name: UnCompress
+#        uses: appleboy/ssh-action@master
+#        with:
+#          host: ${{ secrets.HOST }}
+#          username: ${{ secrets.USER_NAME }}
+#          password: ${{ secrets.PASSWORD }}
+#          port: ${{ secrets.PORT }}
+#          script: tar -xzvf /usr/web/nebula-docs.tar.gz -C /usr/web
+#      # - name: Deploy
       #   uses: peaceiris/actions-gh-pages@v3
       #   with:
       #     github_token: ${{ secrets.DEPLOY_TOKEN }}
