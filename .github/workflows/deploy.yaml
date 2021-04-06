@@ -59,7 +59,7 @@ jobs:
           username: ${{ secrets.USER_NAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: tar -xzvf /usr/web/nebula-docs.tar.gz -C /usr/web
+          script: mkdir -p /usr/web/nebula-docs/ && tar -xzvf /usr/web/nebula-docs.tar.gz -C /usr/web/nebula-docs/
       # - name: Deploy
       #   uses: peaceiris/actions-gh-pages@v3
       #   with:
