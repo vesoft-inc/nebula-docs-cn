@@ -12,7 +12,7 @@ nebula> use MY_SPACE;
 
 ## 关键字和保留字不区分大小写
 
-以下语句是等价的，因为`show`和`paces`是关键字。
+以下语句是等价的，因为`show`和`spaces`是关键字。
 
 ```ngql
 nebula> show spaces;  
