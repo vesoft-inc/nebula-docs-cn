@@ -22,8 +22,15 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install -r ./requirements.txt
+
       - name: Git Config
-        run: git config user.name jerry.liang && git config user.email ${{secrets.GIT_EMAIL}}
+        run: git config user.name whitewum && git config user.email min.wu@vesoft.com
+
+      - name: Mike Deploy 1.2
+        run: mike deploy 1.2 -p
+
+      - name: Mike default 1.2
+        run: mike set-default 1.2 -p --rebase
 
       - name: Mike Deploy 1.2
         run: mike deploy 1.2 -p
