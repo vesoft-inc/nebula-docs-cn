@@ -2,7 +2,7 @@
 
 本文介绍Compaction的相关信息。
 
-Nebula Graph中，`Compaction`是最重要的后台进程，对性能有极其重要的影响。
+Nebula Graph中，`Compaction`是最重要的后台操作，对性能有极其重要的影响。
 
 `Compaction`操作会读取硬盘上的数据，然后重组数据结构和索引，然后再写回硬盘，可以成倍提升读取性能。将大量数据写入Nebula Graph后，为了提高读取性能，需要手动触发`Compaction`操作（全量`Compaction`）。
 
@@ -60,7 +60,7 @@ nebula> USE <your_graph_space>;
 nebula> SUBMIT JOB COMPACT;
 ```
 
-上述命令会返回作业的ID，您可以使用如下命令查看`Compaction`进程状态：
+上述命令会返回作业的ID，您可以使用如下命令查看`Compaction`状态：
 
 ```ngql
 nebula> SHOW JOB <job_id>;
@@ -103,4 +103,4 @@ nebula> SHOW JOB <job_id>;
 
 ### 全量`Compaction`操作开始后可以停止吗？
 
-不可以停止，必须等待操作完成。这是RockDB的限制。
+不可以停止，必须等待操作完成。这是RocksDB的限制。
