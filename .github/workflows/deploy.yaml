@@ -39,7 +39,7 @@ jobs:
 
       - name: Compress
         run: |
-           tar -czf nebula-docs.tar.gz ./
+           tar -czf nebula-docs.tar.gz * --exclude=*.tar.gz
 
       - name: Transfer
         # uses: garygrossgarten/github-action-scp@release
