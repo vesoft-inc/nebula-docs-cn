@@ -4,6 +4,7 @@ site_description: Documentation for Nebula Graph
 site_author: Nebula Graph
 site_url: https://docs.nebula-graph.com.cn/
 edit_uri: ''
+docs_dir: docs
 
 # repository
 repo_name: 'vesoft-inc/nebula'
@@ -30,6 +31,7 @@ theme:
 #     - 'theme/extra.css'
 
 # Customization
+  - css/version-select.css
 extra:
   social:
     - type: 'github'
@@ -236,7 +238,8 @@ plugins:
   # - mkdocs-versioning:
   #     version: 1.0
 
-
+extra_javascript:
+  - js/version-select.js
 
 
 

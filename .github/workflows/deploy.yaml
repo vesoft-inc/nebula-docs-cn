@@ -1,0 +1,35 @@
+name: Publish docs via GitHub Pages
+on:
+  push:
+    branches:
+      - v1.0.0
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # fetch all commits/branches
+
+      - name: Setup Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
+          architecture: 'x64'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r ./requirements.txt
+      - name: Git Config
+        run: git config user.name jerry.liang && git config user.email ${{secrets.GIT_EMAIL}}
+
+      - name: Mike Deploy 1.2
+        run: mike deploy 1.2 -p
+
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.DEPLOY_TOKEN }}
+      #     publish_dir: ./site
