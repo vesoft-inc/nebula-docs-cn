@@ -26,8 +26,8 @@ theme:
     tabs: true
   language: 'zh'
 
-# extra_css:
-#     - 'theme/structor-menu.css'
+extra_css:
+  - 'stylesheets/logo.css'
 #     - 'theme/extra.css'
 
 # Customization
