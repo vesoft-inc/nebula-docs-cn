@@ -34,7 +34,28 @@ jobs:
 
       - name: Mike Deploy 1.2
         run: mike deploy 1.2 -p
+      - name: Compress
+        run: tar -czf nebula-docs.tar.gz site
 
+      - name: Transfer
+        # uses: garygrossgarten/github-action-scp@release
+        uses: appleboy/scp-action@master
+        with:
+            host: ${{ secrets.HOST }}
+            username: ${{ secrets.USER_NAME }}
+            password: ${{ secrets.PASSWORD }}
+            port: ${{ secrets.port }}
+            source: nebula-docs.tar.gz
+            target: /usr/web
+
+      - name: UnCompress
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER_NAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: tar -xzvf /usr/web/nebula-docs.tar.gz -C /usr/web
       # - name: Deploy
       #   uses: peaceiris/actions-gh-pages@v3
       #   with:
