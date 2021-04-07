@@ -68,7 +68,6 @@ nav:
       - 常用链接: 2.quick-start/6.useful-links.md
 
   - nGQL指南:
-#      - Search guide: 3.ngql-guide/1.nGQL-overview/4.search-guide.md
       - nGQL概述:
         - Nebula Graph查询语言（nGQL）: 3.ngql-guide/1.nGQL-overview/1.overview.md
         - 图建模: 3.ngql-guide/1.nGQL-overview/2.graph-modeling.md
@@ -122,7 +121,6 @@ nav:
           - SHOW:
             - SHOW CHARSET: 3.ngql-guide/7.general-query-statements/6.show/1.show-charset.md
             - SHOW COLLATION: 3.ngql-guide/7.general-query-statements/6.show/2.show-collation.md
-#            - SHOW CONFIGS: 3.ngql-guide/7.general-query-statements/6.show/3.show-configs.md
             - SHOW CREATE SPACE: 3.ngql-guide/7.general-query-statements/6.show/4.show-create-space.md
             - SHOW CREATE TAGS/EDGES: 3.ngql-guide/7.general-query-statements/6.show/5.show-create-tags-edges.md
             - SHOW HOSTS: 3.ngql-guide/7.general-query-statements/6.show/6.show-hosts.md
@@ -250,50 +248,89 @@ nav:
   - 调整服务:
       - Compaction: 8.service-tuning/compaction.md
       - Storage负载均衡: 8.service-tuning/load-balance.md
+      
+  - 图算法:
+    - nebula-algorithm:
+      - 什么是 nebula-algorithm: nebula-algorithm/na-ug-what-is-nebula-algorithm.md
+      - 使用限制: nebula-algorithm/na-ug-limitations.md
+      - 编译 nebula-algorithm: nebula-algorithm/na-ug-compile.md
+      - 使用示例: nebula-algorithm/na-ug-example.md
 
-#  - Data migration:
-#      - Nebula Exchange:
-#        - About Nebula Exchange:
-#         - What is Nebula Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
-#          - Limitations: nebula-exchange/about-exchange/ex-ug-limitations.md
-#          - Glossary: nebula-exchange/about-exchange/ex-ug-terms.md
-#          - FAQ: nebula-exchange/about-exchange/ex-ug-faq.md
-#        - Compile Exchange: nebula-exchange/ex-ug-compile.md
-#        - Examples:
-#          - Use Exchange: nebula-exchange/use-exchange/ex-ug-import-steps.md
-#          - Import data from CSV files: nebula-exchange/use-exchange/ex-ug-import-from-csv.md
-#          - Import data from JSON files: nebula-exchange/use-exchange/ex-ug-import-json.md
-#          - Import data from HIVE: nebula-exchange/use-exchange/ex-ug-import-hive.md
-#        - Parameter reference:
-#          - Spark related parameters: nebula-exchange/parameter-reference/ex-ug-paras-spark.md
-#          - Nebula Graph related parameters: nebula-exchange/parameter-reference/#ex-ug-paras-nebulagraph.md
-#          - Import command parameters: nebula-exchange/parameter-reference/ex-ug-para-import-command.md
+  - 数据传输:
+    - Nebula Exchange:
+      - 认识 Nebula Exchange:
+        - 什么是 Nebula Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
+        - 使用限制: nebula-exchange/about-exchange/ex-ug-limitations.md
+        - 名词解释: nebula-exchange/about-exchange/ex-ug-terms.md
+        - 常见问题: nebula-exchange/about-exchange/ex-ug-faq.md
+      - 编译 Exchange: nebula-exchange/ex-ug-compile.md
+      - 操作指南:
+        - 导入数据步骤: nebula-exchange/use-exchange/ex-ug-import-steps.md
+        - 导入 Neo4j 数据: nebula-exchange/use-exchange/ex-ug-import-from-neo4j.md
+        - 导入 SST 文件: nebula-exchange/use-exchange/ex-ug-import-sst.md
+        - 导入 HIVE 数据: nebula-exchange/use-exchange/ex-ug-import-hive.md
+        - 导入 CSV 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-csv.md
+        - 导入 JSON 文件数据: nebula-exchange/use-exchange/ex-ug-import-json.md
+      - 参数说明:
+        - Spark 参数: nebula-exchange/parameter-reference/ex-ug-paras-spark.md
+        - Nebula Graph 参数: nebula-exchange/parameter-reference/ex-ug-paras-nebulagraph.md
+        #- 数据源参数:
+          #- Neo4j 数据源相关参数: nebula-exchange/parameter-reference/ex-ug-paras-neo4j.md
+        - 导入命令参数: nebula-exchange/parameter-reference/ex-ug-para-import-command.md
 
-#  - Nebula Graph Studio:
-#      - About Nebula Graph Studio:
-#          - What is Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
-#          - Limitations: nebula-studio/about-studio/st-ug-limitations.md
-#          - Check updates: nebula-studio/about-studio/st-ug-check-updates.md
-#
-#      - Deploy and connect:
-#          - Deploy Studio: nebula-studio/install-configure/st-ug-deploy.md
-#          - Connect to Nebula Graph: nebula-studio/install-configure/st-ug-connect.md
-#
-#      - Quick start:
-#          - Design a schema: nebula-studio/quick-start/st-ug-plan-schema.md
-#          - Prepare CSV files: nebula-studio/quick-start/st-ug-prepare-csv.md
-#          - Create a schema: nebula-studio/quick-start/st-ug-create-schema.md
-#          - Import data: nebula-studio/quick-start/st-ug-import-data.md
-#          - Query graph data: nebula-studio/quick-start/st-ug-explore.md
-#
-#      - Operation guide:
-#          - Use Console:
-#              - Open in Explore: nebula-studio/use-console/st-ug-open-in-explore.md
-#              - View subgraphs: nebula-studio/use-console/st-ug-visualize-subgraph.md
+  - Nebula Flink Connector:
+    - 什么是 Nebula Flink Connector: nebula-flink/nf-ug-what-is-flink-connector.md
+    - 编译 Nebula Flink Connector: nebula-flink/nf-ug-compile.md
+    - 使用限制: nebula-flink/nf-ug-limitations.md
+    - 自定义 source (NebulaSource): nebula-flink/nf-ug-customize-source.md
+    - 自定义 sink (NebulaSink): nebula-flink/nf-ug-customize-sink.md
+    - 特殊说明: nebula-flink/nf-ug-notes.md
+
+  - Nebula Spark Connector:
+    - 什么是 Nebula Spark Connector: spark-connector/sc-ug-what-is-spark-connector.md
+    - 编译 Nebula Spark Connector: spark-connector/sc-ug-compile.md
+    - 使用限制: spark-connector/sc-ug-limitations.md
+    - Nebula Spark Connector Reader:
+      - 什么是 Nebula Spark Connector Reader: spark-connector/reader/sc-ug-what-is-reader.md
+      - 使用示例: spark-connector/reader/sc-ug-reader-example.md
+    - Nebula Spark Connector Writer:
+      - 什么是 Nebula Spark Connector Writer: spark-connector/writer/sc-ug-what-is-writer.md
+      - 使用示例: spark-connector/writer/sc-ug-writer-example.md
+
+  - Nebula Graph Studio:
+    - 认识 Nebula Graph Studio:
+      - 什么是 Nebula Graph Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
+      - 名词解释: nebula-studio/about-studio/st-ug-terms.md
+      - 使用限制: nebula-studio/about-studio/st-ug-limitations.md
+      - 版本更新: nebula-studio/about-studio/st-ug-check-updates.md
+      - 快捷键: nebula-studio/about-studio/st-ug-shortcuts.md
+    - 安装与登录:
+      - 部署 Studio: nebula-studio/deploy-connect/st-ug-deploy.md
+      - 连接数据库: nebula-studio/deploy-connect/st-ug-connect.md
+      - 清除连接: nebula-studio/deploy-connect/st-ug-reset-connection.md
+    - 快速开始:
+      - 规划 Schema: nebula-studio/quick-start/st-ug-plan-schema.md
+      - 准备 CSV 文件: nebula-studio/quick-start/st-ug-prepare-csv.md
+      - 创建 Schema: nebula-studio/quick-start/st-ug-create-schema.md
+      - 导入数据: nebula-studio/quick-start/st-ug-import-data.md
+      - 查询图数据: nebula-studio/quick-start/st-ug-explore.md
+    - 操作指南:
+      - 管理 Schema:
+        - 操作图空间: nebula-studio/manage-schema/st-ug-crud-space.md
+        - 操作标签: nebula-studio/manage-schema/st-ug-crud-tag.md
+        - 操作边类型: nebula-studio/manage-schema/st-ug-crud-edge-type.md
+        - 操作索引: nebula-studio/manage-schema/st-ug-crud-index.md
+      - 使用控制台:
+        - 控制台界面: nebula-studio/use-console/st-ug-console.md
+        - 导入图探索: nebula-studio/use-console/st-ug-open-in-explorer.md
+        - 查看子图: nebula-studio/use-console/st-ug-visualize-findpath.md
+    - 故障排查:
+      - 连接数据库错误: nebula-studio/troubleshooting/st-ug-config-server-errors.md
+      - 无法访问 Studio: nebula-studio/troubleshooting/st-ug-connection-errors.md
+      - 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
 
   - 社区贡献:
       - 如何贡献: 15.contribution/how-to-contribute.md
-
   - English:
       - https://docs.nebula-graph.io/
 
