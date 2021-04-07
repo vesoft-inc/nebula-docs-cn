@@ -22,7 +22,7 @@ theme:
     primary: 'indigo'
     accent: 'indigo'
   feature:
-    tabs: true
+    tabs: false
   language: 'zh'
 
 extra_css:
