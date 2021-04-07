@@ -27,7 +27,7 @@ jobs:
 
       - name: mike list delete
         run: |
-          mike delete 2.0.0 -p
+          #mike delete 2.0.0 -p
           mike list
 
       - name: Mike Deploy 2.0
