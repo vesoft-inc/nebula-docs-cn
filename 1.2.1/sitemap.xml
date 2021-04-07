@@ -24,6 +24,10 @@
      <lastmod>2021-04-07</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/3.configurations/0.system-requirement/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/1.overview/2.quick-start/3.supported-clients/</loc>
      <lastmod>2021-04-07</lastmod>
      <changefreq>daily</changefreq>
@@ -32,7 +36,7 @@
      <lastmod>2021-04-07</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-import/import-csv-file/</loc>
+     <loc>https://docs.nebula-graph.com.cn/manual-CN/1.overview/2.quick-start/4.import-csv-file/</loc>
      <lastmod>2021-04-07</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -320,10 +324,6 @@
      <lastmod>2021-04-07</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/2.install/4.cluster-deploy/</loc>
-     <lastmod>2021-04-07</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/2.install/3.install-with-docker/</loc>
      <lastmod>2021-04-07</lastmod>
      <changefreq>daily</changefreq>
@@ -445,6 +445,222 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/1.overview/2.quick-start/3.supported-clients/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-algorithm/na-ug-what-is-nebula-algorithm/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-algorithm/na-ug-limitations/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-algorithm/na-ug-compile/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-algorithm/na-ug-example/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-exchange/about-exchange/ex-ug-what-is-exchange/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-exchange/about-exchange/ex-ug-limitations/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-exchange/about-exchange/ex-ug-terms/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-exchange/about-exchange/ex-ug-faq/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-exchange/ex-ug-compile/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-exchange/use-exchange/ex-ug-import-steps/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-exchange/use-exchange/ex-ug-import-from-neo4j/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-exchange/use-exchange/ex-ug-import-sst/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-exchange/use-exchange/ex-ug-import-hive/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-exchange/use-exchange/ex-ug-import-from-csv/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-exchange/use-exchange/ex-ug-import-json/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-exchange/parameter-reference/ex-ug-paras-spark/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-exchange/parameter-reference/ex-ug-paras-nebulagraph/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-exchange/parameter-reference/ex-ug-para-import-command/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-flink/nf-ug-what-is-flink-connector/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-flink/nf-ug-compile/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-flink/nf-ug-limitations/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-flink/nf-ug-customize-source/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-flink/nf-ug-customize-sink/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-flink/nf-ug-notes/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/spark-connector/sc-ug-what-is-spark-connector/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/spark-connector/sc-ug-compile/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/spark-connector/sc-ug-limitations/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/spark-connector/reader/sc-ug-what-is-reader/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/spark-connector/reader/sc-ug-reader-example/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/spark-connector/writer/sc-ug-what-is-writer/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/spark-connector/writer/sc-ug-writer-example/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-studio/about-studio/st-ug-what-is-graph-studio/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-studio/about-studio/st-ug-terms/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-studio/about-studio/st-ug-limitations/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-studio/about-studio/st-ug-check-updates/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-studio/about-studio/st-ug-shortcuts/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-studio/deploy-connect/st-ug-deploy/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-studio/deploy-connect/st-ug-connect/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-studio/deploy-connect/st-ug-reset-connection/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-studio/quick-start/st-ug-plan-schema/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-studio/quick-start/st-ug-prepare-csv/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-studio/quick-start/st-ug-create-schema/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-studio/quick-start/st-ug-import-data/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-studio/quick-start/st-ug-explore/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-studio/manage-schema/st-ug-crud-space/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-studio/manage-schema/st-ug-crud-tag/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-studio/manage-schema/st-ug-crud-edge-type/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-studio/manage-schema/st-ug-crud-index/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-studio/use-console/st-ug-console/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-studio/use-console/st-ug-open-in-explorer/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-studio/use-console/st-ug-visualize-findpath/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-studio/troubleshooting/st-ug-config-server-errors/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-studio/troubleshooting/st-ug-connection-errors/</loc>
+     <lastmod>2021-04-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/nebula-studio/troubleshooting/st-ug-faq/</loc>
      <lastmod>2021-04-07</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
