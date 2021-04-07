@@ -1,0 +1,3694 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Documentation for Nebula Graph Database">
+      
+      
+        <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.ngql-guide/5.operators/7.string/">
+      
+      
+        <meta name="author" content="Nebula Graph">
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>String - Nebula Graph Database 手册</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.adb8469c.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/logo.css">
+    
+      <link rel="stylesheet" href="../../../css/version-select.css">
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="0" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://docs.nebula-graph.com.cn/" title="Nebula Graph Database 手册" aria-label="Nebula Graph Database 手册" class="md-header-nav__button md-logo">
+          
+            <img alt="logo" src="https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Nebula Graph Database 手册
+            </span>
+            <span class="md-header-nav__topic">
+              
+                String
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/vesoft-inc/nebula" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    vesoft-inc/nebula
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://docs.nebula-graph.com.cn/" title="Nebula Graph Database 手册" class="md-nav__button md-logo">
+      
+        <img alt="logo" src="https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png" width="48" height="48">
+      
+    </a>
+    Nebula Graph Database 手册
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/vesoft-inc/nebula" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    vesoft-inc/nebula
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      Introduction
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        Introduction
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../1.introduction/1.what-is-nebula-graph/" title="What is Nebula Graph" class="md-nav__link">
+      What is Nebula Graph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../1.introduction/2.data-model/" title="Date model" class="md-nav__link">
+      Date model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1-3" type="checkbox" id="nav-1-3">
+    
+    <label class="md-nav__link" for="nav-1-3">
+      Nebula Graph architecture
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-1-3">
+        Nebula Graph architecture
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../1.introduction/3.nebula-graph-architecture/1.architecture-overview/" title="Architecture overview" class="md-nav__link">
+      Architecture overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../1.introduction/3.nebula-graph-architecture/2.meta-service/" title="Meta Service" class="md-nav__link">
+      Meta Service
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../1.introduction/3.nebula-graph-architecture/3.graph-service/" title="Graph Service" class="md-nav__link">
+      Graph Service
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../1.introduction/3.nebula-graph-architecture/4.storage-service/" title="Storage Service" class="md-nav__link">
+      Storage Service
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Quick start
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Quick start
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../2.quick-start/0.FAQ/" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../2.quick-start/1.quick-start-workflow/" title="Quick start workflow" class="md-nav__link">
+      Quick start workflow
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../2.quick-start/2.deploy-nebula-graph-with-docker-compose/" title="Deploy Nebula Graph with Docker Compose" class="md-nav__link">
+      Deploy Nebula Graph with Docker Compose
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../2.quick-start/5.start-stop-service/" title="Manage Nebula Graph services" class="md-nav__link">
+      Manage Nebula Graph services
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../2.quick-start/3.connect-to-nebula-graph/" title="Connect to Nebula Graph" class="md-nav__link">
+      Connect to Nebula Graph
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../2.quick-start/4.nebula-graph-crud/" title="Nebula Graph CRUD" class="md-nav__link">
+      Nebula Graph CRUD
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../2.quick-start/6.useful-links/" title="Useful Links" class="md-nav__link">
+      Useful Links
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      nGQL guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        nGQL guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      nGQL overview
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        nGQL overview
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../1.nGQL-overview/1.overview/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../1.nGQL-overview/3.graph-patterns/" title="Graph patterns" class="md-nav__link">
+      Graph patterns
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Data types
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Data types
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../3.data-types/1.numeric/" title="Numeric" class="md-nav__link">
+      Numeric
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../3.data-types/2.boolean/" title="Boolean" class="md-nav__link">
+      Boolean
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../3.data-types/3.string/" title="String" class="md-nav__link">
+      String
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../3.data-types/4.date-and-time/" title="Date and time" class="md-nav__link">
+      Date and time
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../3.data-types/5.null/" title="NULL" class="md-nav__link">
+      NULL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../3.data-types/6.list/" title="List" class="md-nav__link">
+      List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../3.data-types/7.set/" title="Set" class="md-nav__link">
+      Set
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../3.data-types/8.map/" title="Map" class="md-nav__link">
+      Map
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../3.data-types/9.type-conversion/" title="Type conversion" class="md-nav__link">
+      Type conversion
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      Variables and composite queries
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        Variables and composite queries
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../4.variable-and-composite-queries/1.composite-queries/" title="Composite queries" class="md-nav__link">
+      Composite queries
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../4.variable-and-composite-queries/2.user-defined-variables/" title="User-defined variables" class="md-nav__link">
+      User-defined variables
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../4.variable-and-composite-queries/3.property-reference/" title="Property reference" class="md-nav__link">
+      Property reference
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" checked>
+    
+    <label class="md-nav__link" for="nav-3-4">
+      Operators
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        Operators
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../1.comparison/" title="Comparison" class="md-nav__link">
+      Comparison
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../2.boolean/" title="Boolean" class="md-nav__link">
+      Boolean
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../4.pipe/" title="Pipe" class="md-nav__link">
+      Pipe
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../5.property-reference/" title="Property reference" class="md-nav__link">
+      Property reference
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../6.set/" title="Set" class="md-nav__link">
+      Set
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        String
+      </label>
+    
+    <a href="./" title="String" class="md-nav__link md-nav__link--active">
+      String
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    示例
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    +
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contains" class="md-nav__link">
+    CONTAINS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not_in" class="md-nav__link">
+    (NOT) IN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not_starts_with" class="md-nav__link">
+    (NOT) STARTS WITH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not_ends_with" class="md-nav__link">
+    (NOT) ENDS WITH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    正则表达式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../8.list/" title="List" class="md-nav__link">
+      List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../9.precedence/" title="Precedence" class="md-nav__link">
+      Precedence
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
+    
+    <label class="md-nav__link" for="nav-3-5">
+      Functions and expressions
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-5">
+        Functions and expressions
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../6.functions-and-expressions/1.math/" title="Math functions" class="md-nav__link">
+      Math functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../6.functions-and-expressions/2.string/" title="String functions" class="md-nav__link">
+      String functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../6.functions-and-expressions/3.date-and-time/" title="Date and time functions" class="md-nav__link">
+      Date and time functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../6.functions-and-expressions/4.schema/" title="Schema functions" class="md-nav__link">
+      Schema functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../6.functions-and-expressions/5.case-expressions/" title="Case expressions" class="md-nav__link">
+      Case expressions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../6.functions-and-expressions/6.list/" title="List functions" class="md-nav__link">
+      List functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../6.functions-and-expressions/7.count/" title="count()" class="md-nav__link">
+      count()
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../6.functions-and-expressions/10.collect/" title="collect()" class="md-nav__link">
+      collect()
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../6.functions-and-expressions/11.reduce/" title="reduce()" class="md-nav__link">
+      reduce()
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../6.functions-and-expressions/12.hash/" title="hash()" class="md-nav__link">
+      hash()
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../6.functions-and-expressions/8.predicate/" title="Predicate functions" class="md-nav__link">
+      Predicate functions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../6.functions-and-expressions/9.user-defined-functions/" title="User-defined functions" class="md-nav__link">
+      User-defined functions
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-6" type="checkbox" id="nav-3-6">
+    
+    <label class="md-nav__link" for="nav-3-6">
+      General queries statements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-6">
+        General queries statements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../7.general-query-statements/2.match/" title="Match" class="md-nav__link">
+      Match
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../7.general-query-statements/5.lookup/" title="LOOKUP" class="md-nav__link">
+      LOOKUP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../7.general-query-statements/3.go/" title="GO" class="md-nav__link">
+      GO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../7.general-query-statements/4.fetch/" title="FETCH" class="md-nav__link">
+      FETCH
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-6-5" type="checkbox" id="nav-3-6-5">
+    
+    <label class="md-nav__link" for="nav-3-6-5">
+      SHOW
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-6-5">
+        SHOW
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../7.general-query-statements/6.show/1.show-charset/" title="SHOW CHARSET" class="md-nav__link">
+      SHOW CHARSET
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../7.general-query-statements/6.show/2.show-collation/" title="SHOW COLLATION" class="md-nav__link">
+      SHOW COLLATION
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../7.general-query-statements/6.show/4.show-create-space/" title="SHOW CREATE SPACE" class="md-nav__link">
+      SHOW CREATE SPACE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../7.general-query-statements/6.show/5.show-create-tags-edges/" title="SHOW CREATE TAGS/EDGES" class="md-nav__link">
+      SHOW CREATE TAGS/EDGES
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../7.general-query-statements/6.show/6.show-hosts/" title="SHOW HOSTS" class="md-nav__link">
+      SHOW HOSTS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../7.general-query-statements/6.show/7.show-index-status/" title="SHOW INDEX STATUS" class="md-nav__link">
+      SHOW INDEX STATUS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../7.general-query-statements/6.show/8.show-indexes/" title="SHOW INDEXES" class="md-nav__link">
+      SHOW INDEXES
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../7.general-query-statements/6.show/9.show-parts/" title="SHOW PARTS" class="md-nav__link">
+      SHOW PARTS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../7.general-query-statements/6.show/10.show-roles/" title="SHOW ROLES" class="md-nav__link">
+      SHOW ROLES
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../7.general-query-statements/6.show/11.show-snapshots/" title="SHOW SNAPSHOTS" class="md-nav__link">
+      SHOW SNAPSHOTS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../7.general-query-statements/6.show/12.show-spaces/" title="SHOW SPACES" class="md-nav__link">
+      SHOW SPACES
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../7.general-query-statements/6.show/14.show-stats/" title="SHOW STATS" class="md-nav__link">
+      SHOW STATS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../7.general-query-statements/6.show/15.show-tags-edges/" title="SHOW TAGS/EDGES" class="md-nav__link">
+      SHOW TAGS/EDGES
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../7.general-query-statements/6.show/16.show-users/" title="SHOW USERS" class="md-nav__link">
+      SHOW USERS
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-7" type="checkbox" id="nav-3-7">
+    
+    <label class="md-nav__link" for="nav-3-7">
+      Clauses and options
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-7">
+        Clauses and options
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../8.clauses-and-options/group-by/" title="GROUP BY" class="md-nav__link">
+      GROUP BY
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../8.clauses-and-options/limit/" title="LIMIT and SKIP" class="md-nav__link">
+      LIMIT and SKIP
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../8.clauses-and-options/order-by/" title="ORDER BY" class="md-nav__link">
+      ORDER BY
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../8.clauses-and-options/return/" title="RETURN" class="md-nav__link">
+      RETURN
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../8.clauses-and-options/ttl-options/" title="TTL" class="md-nav__link">
+      TTL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../8.clauses-and-options/where/" title="WHERE" class="md-nav__link">
+      WHERE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../8.clauses-and-options/yield/" title="YIELD" class="md-nav__link">
+      YIELD
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8" type="checkbox" id="nav-3-8">
+    
+    <label class="md-nav__link" for="nav-3-8">
+      Space statements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-8">
+        Space statements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../9.space-statements/1.create-space/" title="CREATE SPACE" class="md-nav__link">
+      CREATE SPACE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../9.space-statements/2.use-space/" title="USE SPACE" class="md-nav__link">
+      USE SPACE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../9.space-statements/3.show-spaces/" title="SHOW SPACES" class="md-nav__link">
+      SHOW SPACES
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../9.space-statements/4.describe-space/" title="DESCRIBE SPACE" class="md-nav__link">
+      DESCRIBE SPACE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../9.space-statements/5.drop-space/" title="DROP SPACE" class="md-nav__link">
+      DROP SPACE
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-9" type="checkbox" id="nav-3-9">
+    
+    <label class="md-nav__link" for="nav-3-9">
+      Tag statements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-9">
+        Tag statements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../10.tag-statements/1.create-tag/" title="CREATE TAG" class="md-nav__link">
+      CREATE TAG
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../10.tag-statements/2.drop-tag/" title="DROP TAGS" class="md-nav__link">
+      DROP TAGS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../10.tag-statements/3.alter-tag/" title="ALTER TAG" class="md-nav__link">
+      ALTER TAG
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../10.tag-statements/4.show-tags/" title="SHOW TAGS" class="md-nav__link">
+      SHOW TAGS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../10.tag-statements/5.describe-tag/" title="DESCRIBE TAG" class="md-nav__link">
+      DESCRIBE TAG
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-10" type="checkbox" id="nav-3-10">
+    
+    <label class="md-nav__link" for="nav-3-10">
+      Edge type statements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-10">
+        Edge type statements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../11.edge-type-statements/1.create-edge/" title="CREATE EDGE" class="md-nav__link">
+      CREATE EDGE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../11.edge-type-statements/2.drop-edge/" title="DROP EDGE" class="md-nav__link">
+      DROP EDGE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../11.edge-type-statements/3.alter-edge/" title="ALTER EDGE" class="md-nav__link">
+      ALTER EDGE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../11.edge-type-statements/4.show-edges/" title="SHOW EDGES" class="md-nav__link">
+      SHOW EDGES
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../11.edge-type-statements/5.describe-edge/" title="DESCRIBE EDGE" class="md-nav__link">
+      DESCRIBE EDGE
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-11" type="checkbox" id="nav-3-11">
+    
+    <label class="md-nav__link" for="nav-3-11">
+      Vertex statements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-11">
+        Vertex statements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../12.vertex-statements/1.insert-vertex/" title="INSERT VERTEX" class="md-nav__link">
+      INSERT VERTEX
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../12.vertex-statements/4.delete-vertex/" title="DELETE VERTEX" class="md-nav__link">
+      DELETE VERTEX
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../12.vertex-statements/2.update-vertex/" title="UPDATE VERTEX" class="md-nav__link">
+      UPDATE VERTEX
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../12.vertex-statements/3.upsert-vertex/" title="UPSERT VERTEX" class="md-nav__link">
+      UPSERT VERTEX
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-12" type="checkbox" id="nav-3-12">
+    
+    <label class="md-nav__link" for="nav-3-12">
+      Edge statements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-12">
+        Edge statements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../13.edge-statements/1.insert-edge/" title="INSERT EDGE" class="md-nav__link">
+      INSERT EDGE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../13.edge-statements/4.delete-edge/" title="DELETE EDGE" class="md-nav__link">
+      DELETE EDGE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../13.edge-statements/2.update-edge/" title="UPDATE EDGE" class="md-nav__link">
+      UPDATE EDGE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../13.edge-statements/3.upsert-edge/" title="UPSERT EDGE" class="md-nav__link">
+      UPSERT EDGE
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-13" type="checkbox" id="nav-3-13">
+    
+    <label class="md-nav__link" for="nav-3-13">
+      Native index statements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-13">
+        Native index statements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../14.native-index-statements/" title="Index overview" class="md-nav__link">
+      Index overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../14.native-index-statements/1.create-native-index/" title="CREATE INDEX" class="md-nav__link">
+      CREATE INDEX
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../14.native-index-statements/2.show-native-indexes/" title="SHOW INDEX" class="md-nav__link">
+      SHOW INDEX
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../14.native-index-statements/2.1.show-create-index/" title="SHOW CREATE INDEX" class="md-nav__link">
+      SHOW CREATE INDEX
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../14.native-index-statements/3.describe-native-index/" title="DESCRIBE INDEX" class="md-nav__link">
+      DESCRIBE INDEX
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../14.native-index-statements/4.rebuild-native-index/" title="REBUILD INDEX" class="md-nav__link">
+      REBUILD INDEX
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../14.native-index-statements/5.show-native-index-status/" title="SHOW INDEX STATUS" class="md-nav__link">
+      SHOW INDEX STATUS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../14.native-index-statements/6.drop-native-index/" title="DROP INDEX" class="md-nav__link">
+      DROP INDEX
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-14" type="checkbox" id="nav-3-14">
+    
+    <label class="md-nav__link" for="nav-3-14">
+      Full-text index statements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-14">
+        Full-text index statements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../14.native-index-statements/" title="Index overview" class="md-nav__link">
+      Index overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../4.deployment-and-installation/6.deploy-text-based-index/1.text-based-index-restrictions/" title="Full-text restrictions" class="md-nav__link">
+      Full-text restrictions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../4.deployment-and-installation/6.deploy-text-based-index/2.deploy-es/" title="Deploy Elasticsearch cluster" class="md-nav__link">
+      Deploy Elasticsearch cluster
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../4.deployment-and-installation/6.deploy-text-based-index/3.deploy-listener/" title="Deploy Raft Listener cluster" class="md-nav__link">
+      Deploy Raft Listener cluster
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../15.full-text-index-statements/1.search-with-text-based-index/" title="Search with full-text index" class="md-nav__link">
+      Search with full-text index
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-15" type="checkbox" id="nav-3-15">
+    
+    <label class="md-nav__link" for="nav-3-15">
+      Subgraph and path
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-15">
+        Subgraph and path
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../16.subgraph-and-path/1.get-subgraph/" title="GET SUBGRAPH" class="md-nav__link">
+      GET SUBGRAPH
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../16.subgraph-and-path/2.find-path/" title="FIND PATH" class="md-nav__link">
+      FIND PATH
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-16" type="checkbox" id="nav-3-16">
+    
+    <label class="md-nav__link" for="nav-3-16">
+      Query tuning statements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-16">
+        Query tuning statements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../17.query-tuning-statements/1.explain-and-profile/" title="EXPLAIN and PROFILE" class="md-nav__link">
+      EXPLAIN and PROFILE
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-17" type="checkbox" id="nav-3-17">
+    
+    <label class="md-nav__link" for="nav-3-17">
+      Operation and maintenance statements
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-17">
+        Operation and maintenance statements
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../18.operation-and-maintenance-statements/4.job-statements/" title="Job statements" class="md-nav__link">
+      Job statements
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-18" type="checkbox" id="nav-3-18">
+    
+    <label class="md-nav__link" for="nav-3-18">
+      Appendix
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-18">
+        Appendix
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../20.appendix/comments/" title="Comments" class="md-nav__link">
+      Comments
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../20.appendix/identifier-case-sensitivity/" title="Identifier Case Sensitivity" class="md-nav__link">
+      Identifier Case Sensitivity
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../20.appendix/keywords-and-reserved-words/" title="Keywords and reserved words" class="md-nav__link">
+      Keywords and reserved words
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../20.appendix/vid-partition/" title="VID and Partition" class="md-nav__link">
+      VID and Partition
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Deployment and installation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Deployment and installation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../4.deployment-and-installation/1.resource-preparations/" title="Resource preparations" class="md-nav__link">
+      Resource preparations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+    
+    <label class="md-nav__link" for="nav-4-2">
+      Compile and install Nebula Graph
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        Compile and install Nebula Graph
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code/" title="Install Nebula Graph by compiling the source code" class="md-nav__link">
+      Install Nebula Graph by compiling the source code
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb/" title="Install Nebula Graph with RPM or DEB package" class="md-nav__link">
+      Install Nebula Graph with RPM or DEB package
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../4.deployment-and-installation/deploy-nebula-graph-cluster/" title="Deploy Nebula Graph cluster" class="md-nav__link">
+      Deploy Nebula Graph cluster
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../4.deployment-and-installation/3.upgrade-nebula-graph/" title="Upgrade Nebula Graph" class="md-nav__link">
+      Upgrade Nebula Graph
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Configurations and logs
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Configurations and logs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-1" type="checkbox" id="nav-5-1">
+    
+    <label class="md-nav__link" for="nav-5-1">
+      Configurations
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-1">
+        Configurations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../5.configurations-and-logs/1.configurations/1.configurations/" title="Configurations" class="md-nav__link">
+      Configurations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../5.configurations-and-logs/1.configurations/2.meta-config/" title="Meta Service configurations" class="md-nav__link">
+      Meta Service configurations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../5.configurations-and-logs/1.configurations/3.graph-config/" title="Graph Service configurations" class="md-nav__link">
+      Graph Service configurations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../5.configurations-and-logs/1.configurations/4.storage-config/" title="Storage Service configurations" class="md-nav__link">
+      Storage Service configurations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../5.configurations-and-logs/1.configurations/6.kernel-config/" title="Kernel configurations" class="md-nav__link">
+      Kernel configurations
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
+    
+    <label class="md-nav__link" for="nav-5-2">
+      Log management
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-5-2">
+        Log management
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../5.configurations-and-logs/2.log-management/logs/" title="Logs" class="md-nav__link">
+      Logs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Monitor and metrics
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Monitor and metrics
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../6.monitor-and-metrics/1.query-performance-metrics/" title="Query Nebula Graph metrics" class="md-nav__link">
+      Query Nebula Graph metrics
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Data security
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Data security
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-1" type="checkbox" id="nav-7-1">
+    
+    <label class="md-nav__link" for="nav-7-1">
+      Authentication and authorization
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-1">
+        Authentication and authorization
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../7.data-security/1.authentication/1.authentication/" title="Authentication" class="md-nav__link">
+      Authentication
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../7.data-security/1.authentication/2.management-user/" title="User management" class="md-nav__link">
+      User management
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../7.data-security/1.authentication/3.role-list/" title="Roles and privileges" class="md-nav__link">
+      Roles and privileges
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+    
+    <label class="md-nav__link" for="nav-7-2">
+      Backup & Restore
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        Backup & Restore
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../7.data-security/2.backup-restore/1.what-is-br/" title="What is Backup & Restore" class="md-nav__link">
+      What is Backup & Restore
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../7.data-security/2.backup-restore/2.compile-br.md" title="Compile BR" class="md-nav__link">
+      Compile BR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../7.data-security/2.backup-restore/3.br-backup-data/" title="Use BR to back up data" class="md-nav__link">
+      Use BR to back up data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../7.data-security/2.backup-restore/4.br-restore-data/" title="Use BR to restore data" class="md-nav__link">
+      Use BR to restore data
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../7.data-security/3.manage-snapshot/" title="Manage snapshots" class="md-nav__link">
+      Manage snapshots
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Service Tuning
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Service Tuning
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../8.service-tuning/compaction/" title="Compaction" class="md-nav__link">
+      Compaction
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../8.service-tuning/load-balance/" title="Storage load balance" class="md-nav__link">
+      Storage load balance
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      Data migration
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Data migration
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-1" type="checkbox" id="nav-9-1">
+    
+    <label class="md-nav__link" for="nav-9-1">
+      Nebula Exchange
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-9-1">
+        Nebula Exchange
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-1-1" type="checkbox" id="nav-9-1-1">
+    
+    <label class="md-nav__link" for="nav-9-1-1">
+      About Nebula Exchange
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-9-1-1">
+        About Nebula Exchange
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nebula-exchange/about-exchange/ex-ug-what-is-exchange.md" title="What is Nebula Exchange" class="md-nav__link">
+      What is Nebula Exchange
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nebula-exchange/about-exchange/ex-ug-limitations.md" title="Limitations" class="md-nav__link">
+      Limitations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nebula-exchange/about-exchange/ex-ug-terms.md" title="Glossary" class="md-nav__link">
+      Glossary
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nebula-exchange/about-exchange/ex-ug-faq.md" title="FAQ" class="md-nav__link">
+      FAQ
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nebula-exchange/ex-ug-compile.md" title="Compile Exchange" class="md-nav__link">
+      Compile Exchange
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-1-3" type="checkbox" id="nav-9-1-3">
+    
+    <label class="md-nav__link" for="nav-9-1-3">
+      Examples
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-9-1-3">
+        Examples
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nebula-exchange/use-exchange/ex-ug-import-steps.md" title="Use Exchange" class="md-nav__link">
+      Use Exchange
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nebula-exchange/use-exchange/ex-ug-import-from-csv.md" title="Import data from CSV files" class="md-nav__link">
+      Import data from CSV files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nebula-exchange/use-exchange/ex-ug-import-json.md" title="Import data from JSON files" class="md-nav__link">
+      Import data from JSON files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nebula-exchange/use-exchange/ex-ug-import-hive.md" title="Import data from HIVE" class="md-nav__link">
+      Import data from HIVE
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-1-4" type="checkbox" id="nav-9-1-4">
+    
+    <label class="md-nav__link" for="nav-9-1-4">
+      Parameter reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-9-1-4">
+        Parameter reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nebula-exchange/parameter-reference/ex-ug-paras-spark.md" title="Spark related parameters" class="md-nav__link">
+      Spark related parameters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nebula-exchange/parameter-reference/ex-ug-paras-nebulagraph.md" title="Nebula Graph related parameters" class="md-nav__link">
+      Nebula Graph related parameters
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nebula-exchange/parameter-reference/ex-ug-para-import-command.md" title="Import command parameters" class="md-nav__link">
+      Import command parameters
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      Nebula Graph Studio
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        Nebula Graph Studio
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-1" type="checkbox" id="nav-10-1">
+    
+    <label class="md-nav__link" for="nav-10-1">
+      About Nebula Graph Studio
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-10-1">
+        About Nebula Graph Studio
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nebula-studio/about-studio/st-ug-what-is-graph-studio.md" title="What is Studio" class="md-nav__link">
+      What is Studio
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nebula-studio/about-studio/st-ug-limitations.md" title="Limitations" class="md-nav__link">
+      Limitations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nebula-studio/about-studio/st-ug-check-updates.md" title="Check updates" class="md-nav__link">
+      Check updates
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-2" type="checkbox" id="nav-10-2">
+    
+    <label class="md-nav__link" for="nav-10-2">
+      Deploy and connect
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-10-2">
+        Deploy and connect
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nebula-studio/install-configure/st-ug-deploy.md" title="Deploy Studio" class="md-nav__link">
+      Deploy Studio
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nebula-studio/install-configure/st-ug-connect.md" title="Connect to Nebula Graph" class="md-nav__link">
+      Connect to Nebula Graph
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-3" type="checkbox" id="nav-10-3">
+    
+    <label class="md-nav__link" for="nav-10-3">
+      Quick start
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-10-3">
+        Quick start
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nebula-studio/quick-start/st-ug-plan-schema.md" title="Design a schema" class="md-nav__link">
+      Design a schema
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nebula-studio/quick-start/st-ug-prepare-csv.md" title="Prepare CSV files" class="md-nav__link">
+      Prepare CSV files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nebula-studio/quick-start/st-ug-create-schema.md" title="Create a schema" class="md-nav__link">
+      Create a schema
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nebula-studio/quick-start/st-ug-import-data.md" title="Import data" class="md-nav__link">
+      Import data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nebula-studio/quick-start/st-ug-explore.md" title="Query graph data" class="md-nav__link">
+      Query graph data
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-4" type="checkbox" id="nav-10-4">
+    
+    <label class="md-nav__link" for="nav-10-4">
+      Operation guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-10-4">
+        Operation guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10-4-1" type="checkbox" id="nav-10-4-1">
+    
+    <label class="md-nav__link" for="nav-10-4-1">
+      Use Console
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-10-4-1">
+        Use Console
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nebula-studio/use-console/st-ug-open-in-explore.md" title="Open in Explore" class="md-nav__link">
+      Open in Explore
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../nebula-studio/use-console/st-ug-visualize-subgraph.md" title="View subgraphs" class="md-nav__link">
+      View subgraphs
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+    
+    <label class="md-nav__link" for="nav-11">
+      English
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-11">
+        English
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://docs.nebula-graph.io/" title="None" class="md-nav__link">
+      None
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    示例
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    +
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#contains" class="md-nav__link">
+    CONTAINS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not_in" class="md-nav__link">
+    (NOT) IN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not_starts_with" class="md-nav__link">
+    (NOT) STARTS WITH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#not_ends_with" class="md-nav__link">
+    (NOT) ENDS WITH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    正则表达式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="_1">字符串运算符<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Nebula Graph支持使用字符串运算符进行连接、搜索、匹配运算。支持的运算符如下。</p>
+<table>
+<thead>
+<tr>
+<th align="left">名称</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">+</td>
+<td align="left">连接字符串。</td>
+</tr>
+<tr>
+<td align="left">CONTAINS</td>
+<td align="left">在字符串中执行搜索。</td>
+</tr>
+<tr>
+<td align="left">(NOT) IN</td>
+<td align="left">字符串是否匹配某个值。</td>
+</tr>
+<tr>
+<td align="left">(NOT) STARTS WITH</td>
+<td align="left">在字符串的开头执行匹配。</td>
+</tr>
+<tr>
+<td align="left">(NOT) ENDS WITH</td>
+<td align="left">在字符串的结尾执行匹配。</td>
+</tr>
+<tr>
+<td align="left">正则表达式</td>
+<td align="left">通过正则表达式匹配字符串。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>说明</strong>：所有搜索或匹配都区分大小写。</p>
+</blockquote>
+<h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3"><code>+</code><a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN &#39;a&#39; + &#39;b&#39;;
++-------+
+| (a+b) |
++-------+
+| &quot;ab&quot;  |
++-------+
+nebula&gt; UNWIND &#39;a&#39; AS a UNWIND &#39;b&#39; AS b RETURN a + b;
++-------+
+| (a+b) |
++-------+
+| &quot;ab&quot;  |
++-------+
+</code></pre></div>
+<h3 id="contains"><code>CONTAINS</code><a class="headerlink" href="#contains" title="Permanent link">&para;</a></h3>
+<p><code>CONTAINS</code>要求待运算的左右两边都是字符串类型。</p>
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (s:player)-[e:serve]-&gt;(t:team) WHERE id(s) == &quot;player101&quot; \
+    AND t.name CONTAINS &quot;ets&quot; RETURN s.name, e.start_year, e.end_year, t.name;
++---------------+--------------+------------+-----------+
+| s.name        | e.start_year | e.end_year | t.name    |
++---------------+--------------+------------+-----------+
+| &quot;Tony Parker&quot; | 2018         | 2019       | &quot;Hornets&quot; |
++---------------+--------------+------------+-----------+
+
+nebula&gt; GO FROM &quot;player101&quot; OVER serve WHERE (STRING)serve.start_year CONTAINS &quot;19&quot; AND \
+    $^.player.name CONTAINS &quot;ny&quot; \
+    YIELD $^.player.name, serve.start_year, serve.end_year, $$.team.name;
++----------------+------------------+----------------+--------------+
+| $^.player.name | serve.start_year | serve.end_year | $$.team.name |
++----------------+------------------+----------------+--------------+
+| &quot;Tony Parker&quot;  | 1999             | 2018           | &quot;Spurs&quot;      |
++----------------+------------------+----------------+--------------+
+
+nebula&gt; GO FROM &quot;player101&quot; OVER serve WHERE !($$.team.name CONTAINS &quot;ets&quot;) \
+    YIELD $^.player.name, serve.start_year, serve.end_year, $$.team.name;
++----------------+------------------+----------------+--------------+
+| $^.player.name | serve.start_year | serve.end_year | $$.team.name |
++----------------+------------------+----------------+--------------+
+| &quot;Tony Parker&quot;  | 1999             | 2018           | &quot;Spurs&quot;      |
++----------------+------------------+----------------+--------------+
+</code></pre></div>
+<h3 id="not_in"><code>(NOT) IN</code><a class="headerlink" href="#not_in" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN  1 IN [1,2,3], &quot;Yao&quot; NOT IN [&quot;Yi&quot;, &quot;Tim&quot;, &quot;Kobe&quot;], NULL in [&quot;Yi&quot;, &quot;Tim&quot;, &quot;Kobe&quot;]
++----------------+------------------------------------+-------------------------------+
+| (1 IN [1,2,3]) | (&quot;Yao&quot; NOT IN [&quot;Yi&quot;,&quot;Tim&quot;,&quot;Kobe&quot;]) | (NULL IN [&quot;Yi&quot;,&quot;Tim&quot;,&quot;Kobe&quot;]) |
++----------------+------------------------------------+-------------------------------+
+| true           | true                               | false                         |
++----------------+------------------------------------+-------------------------------+
+</code></pre></div>
+<h3 id="not_starts_with"><code>(NOT) STARTS WITH</code><a class="headerlink" href="#not_starts_with" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN &#39;apple&#39; STARTS WITH &#39;app&#39;, &#39;apple&#39; STARTS WITH &#39;a&#39;, &#39;apple&#39; STARTS WITH toUpper(&#39;a&#39;)
++-----------------------------+---------------------------+------------------------------------+
+| (&quot;apple&quot; STARTS WITH &quot;app&quot;) | (&quot;apple&quot; STARTS WITH &quot;a&quot;) | (&quot;apple&quot; STARTS WITH toUpper(&quot;a&quot;)) |
++-----------------------------+---------------------------+------------------------------------+
+| true                        | true                      | false                              |
++-----------------------------+---------------------------+------------------------------------+
+
+nebula&gt; RETURN &#39;apple&#39; STARTS WITH &#39;b&#39;,&#39;apple&#39; NOT STARTS WITH &#39;app&#39;
++---------------------------+---------------------------------+
+| (&quot;apple&quot; STARTS WITH &quot;b&quot;) | (&quot;apple&quot; NOT STARTS WITH &quot;app&quot;) |
++---------------------------+---------------------------------+
+| false                     | false                           |
++---------------------------+---------------------------------+
+</code></pre></div>
+<h3 id="not_ends_with"><code>(NOT) ENDS WITH</code><a class="headerlink" href="#not_ends_with" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN &#39;apple&#39; ENDS WITH &#39;app&#39;, &#39;apple&#39; ENDS WITH &#39;e&#39;, &#39;apple&#39; ENDS WITH &#39;E&#39;, &#39;apple&#39; ENDS WITH &#39;b&#39;
++---------------------------+-------------------------+-------------------------+-------------------------+
+| (&quot;apple&quot; ENDS WITH &quot;app&quot;) | (&quot;apple&quot; ENDS WITH &quot;e&quot;) | (&quot;apple&quot; ENDS WITH &quot;E&quot;) | (&quot;apple&quot; ENDS WITH &quot;b&quot;) |
++---------------------------+-------------------------+-------------------------+-------------------------+
+| false                     | true                    | false                   | false                   |
++---------------------------+-------------------------+-------------------------+-------------------------+
+</code></pre></div>
+<h3 id="_4">正则表达式<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><strong>说明</strong>：当前仅openCypher语句（<code>MATCH</code>、<code>WITH</code>等）支持正则表达式，nGQL扩展语句（<code>FETCH</code>、<code>GO</code>、<code>LOOKUP</code>等）暂不支持正则表达式。</p>
+</blockquote>
+<p>Nebula Graph支持使用正则表达式进行过滤，正则表达式的语法是继承自<code>std::regex</code>，您可以使用语法<code>=~ '&lt;regexp&gt;'</code>进行正则表达式匹配配。例如：</p>
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN &quot;384748.39&quot; =~ &quot;\\d+(\\.\\d{2})?&quot;;
++----------------------------+
+| (384748.39=~\d+(\.\d{2})?) |
++----------------------------+
+| true                       |
++----------------------------+
+
+nebula&gt; MATCH (v:player) WHERE v.name =~ &#39;Tony.*&#39; RETURN v.name;
++---------------+
+| v.name        |
++---------------+
+| &quot;Tony Parker&quot; |
++---------------+
+</code></pre></div>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../6.set/" title="Set" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                Set
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../8.list/" title="List" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                List
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2020 Nebula Graph - 浙ICP备20010487号
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/vesoft-inc/nebula" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://www.weibo.com/u/7122684542?is_hot=1" target="_blank" rel="noopener" title="weibo" class="md-footer-social__link fa fa-weibo"></a>
+    
+      <a href="https://twitter.com/NebulaGraph" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://www.linkedin.com/company/vesoft-nebula-graph/" target="_blank" rel="noopener" title="linkedin" class="md-footer-social__link fa fa-linkedin"></a>
+    
+      <a href="https://www.facebook.com/NebulaGraph/" target="_blank" rel="noopener" title="facebook" class="md-footer-social__link fa fa-facebook"></a>
+    
+      <a href="https://app.slack.com/client/TJB3N2BPD/CJNFUM7AR" target="_blank" rel="noopener" title="slack" class="md-footer-social__link fa fa-slack"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.c33a9706.js"></script>
+      
+        
+        
+          
+          <script src="../../../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../../../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../../../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.1.2",url:{base:"../../.."}})</script>
+      
+        <script src="../../../js/version-select.js"></script>
+      
+    
+  </body>
+</html>
