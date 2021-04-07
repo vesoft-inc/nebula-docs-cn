@@ -29,7 +29,7 @@ jobs:
       - name: mike list
         run: |
           mike list
-          mike delete 1.2 -p
+          #mike delete 1.2 -p
 
       - name: Mike Deploy 1.2.0
         run: |
