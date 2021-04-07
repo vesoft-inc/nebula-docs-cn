@@ -31,7 +31,8 @@ jobs:
 
       - name: Mike Deploy 1.2.0
         run: |
-          mike deploy 1.2 -p
+          mike delete 1.2
+          mike deploy 1.2.0 -p --rebase
           mike list  
 
       - name: show git branch
