@@ -2,7 +2,7 @@ name: Publish docs via GitHub Pages
 on:
   push:
     branches:
-      - v1.0.0
+      - v1.2.1
 
 jobs:
   deploy:
@@ -31,9 +31,9 @@ jobs:
           mike list
           #mike delete 1.2 -p
 
-      - name: Mike Deploy 1.2.0
+      - name: Mike Deploy 1.2.1
         run: |
-          mike deploy 1.2.0 -p --rebase
+          mike deploy 1.2.1 -p --rebase
           mike list  
 
       - name: show git branch
