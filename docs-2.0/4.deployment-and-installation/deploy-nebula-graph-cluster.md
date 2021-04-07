@@ -35,7 +35,7 @@ Nebula Graph的所有配置文件均位于安装目录的`etc`目录内，包括
 sudo /usr/local/nebula/scripts/nebula.service start <metad|graphd|storaged|all>
 ```
 
-`/usr/local/nebula`是Nebula Graph的默认安装路径，如果修改过安装路径，请使用实际路径。更多启停服务的内容，请参见[启动和停止Nebula Graph服务](../2.quickstart/5.start-stop-service.md)。
+`/usr/local/nebula`是Nebula Graph的默认安装路径，如果修改过安装路径，请使用实际路径。更多启停服务的内容，请参见[管理Nebula Graph服务](../2.quick-start/5.start-stop-service.md)。
 
 ### 检查集群
 

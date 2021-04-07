@@ -49,74 +49,76 @@ extra:
 
 nav:
     # - Version: '../'
-  - Introduction:
-      - What is Nebula Graph: 1.introduction/1.what-is-nebula-graph.md
-      - Date model: 1.introduction/2.data-model.md
-      - Nebula Graph architecture:
-        - Architecture overview: 1.introduction/3.nebula-graph-architecture/1.architecture-overview.md
-        - Meta Service: 1.introduction/3.nebula-graph-architecture/2.meta-service.md
-        - Graph Service: 1.introduction/3.nebula-graph-architecture/3.graph-service.md
-        - Storage Service:  1.introduction/3.nebula-graph-architecture/4.storage-service.md
+  - 简介:
+      - 什么是Nebula Graph: 1.introduction/1.what-is-nebula-graph.md
+      - 数据结构: 1.introduction/2.data-model.md
+      - Nebula Graph架构:
+        - 架构总览: 1.introduction/3.nebula-graph-architecture/1.architecture-overview.md
+        - Meta服务: 1.introduction/3.nebula-graph-architecture/2.meta-service.md
+        - Graph服务: 1.introduction/3.nebula-graph-architecture/3.graph-service.md
+        - Storage服务: 1.introduction/3.nebula-graph-architecture/4.storage-service.md
 
-  - Quick start:
+  - 快速入门:
       - FAQ: 2.quick-start/0.FAQ.md
-      - Quick start workflow: 2.quick-start/1.quick-start-workflow.md
-      - Deploy Nebula Graph with Docker Compose: 2.quick-start/2.deploy-nebula-graph-with-docker-compose.md
-      - Manage Nebula Graph services: 2.quick-start/5.start-stop-service.md
-      - Connect to Nebula Graph: 2.quick-start/3.connect-to-nebula-graph.md
-      - Nebula Graph CRUD: 2.quick-start/4.nebula-graph-crud.md
-      - Useful Links: 2.quick-start/6.useful-links.md
+      - 快速入门流程: 2.quick-start/1.quick-start-workflow.md
+      - Docker Compose部署Nebula Graph: 2.quick-start/2.deploy-nebula-graph-with-docker-compose.md
+      - 管理Nebula Graph服务: 2.quick-start/5.start-stop-service.md
+      - 连接Nebula Graph: 2.quick-start/3.connect-to-nebula-graph.md
+      - Nebula Graph常用语法（CRUD）: 2.quick-start/4.nebula-graph-crud.md
+      - 常用链接: 2.quick-start/6.useful-links.md
 
-  - nGQL guide:
+  - nGQL指南:
 #      - Search guide: 3.ngql-guide/1.nGQL-overview/4.search-guide.md
-      - nGQL overview:
-        - Overview: 3.ngql-guide/1.nGQL-overview/1.overview.md
-        - Graph patterns: 3.ngql-guide/1.nGQL-overview/3.graph-patterns.md
-      - Data types:
-        - Numeric: 3.ngql-guide/3.data-types/1.numeric.md
-        - Boolean: 3.ngql-guide/3.data-types/2.boolean.md
-        - String: 3.ngql-guide/3.data-types/3.string.md
-        - Date and time: 3.ngql-guide/3.data-types/4.date-and-time.md
-        - Null: 3.ngql-guide/3.data-types/5.null.md
-        - List: 3.ngql-guide/3.data-types/6.list.md
-        - Set: 3.ngql-guide/3.data-types/7.set.md
-        - Map: 3.ngql-guide/3.data-types/8.map.md
-        - Type conversion: 3.ngql-guide/3.data-types/9.type-conversion.md
+      - nGQL概述:
+        - Nebula Graph查询语言（nGQL）: 3.ngql-guide/1.nGQL-overview/1.overview.md
+        - 图建模: 3.ngql-guide/1.nGQL-overview/2.graph-modeling.md
+        - 模式: 3.ngql-guide/1.nGQL-overview/3.graph-patterns.md
+      - 数据类型:
+        - 数值: 3.ngql-guide/3.data-types/1.numeric.md
+        - 布尔: 3.ngql-guide/3.data-types/2.boolean.md
+        - 字符串: 3.ngql-guide/3.data-types/3.string.md
+        - 日期时间: 3.ngql-guide/3.data-types/4.date-and-time.md
+        - NULL: 3.ngql-guide/3.data-types/5.null.md
+        - 列表: 3.ngql-guide/3.data-types/6.list.md
+        - 集合: 3.ngql-guide/3.data-types/7.set.md
+        - 映射: 3.ngql-guide/3.data-types/8.map.md
+        - 类型转换: 3.ngql-guide/3.data-types/9.type-conversion.md
 
-      - Variables and composite queries:
-        - Composite queries: 3.ngql-guide/4.variable-and-composite-queries/1.composite-queries.md
-        - User-defined variables: 3.ngql-guide/4.variable-and-composite-queries/2.user-defined-variables.md
-        - Property reference: 3.ngql-guide/4.variable-and-composite-queries/3.property-reference.md
+      - 变量和复合查询:
+        - 复合查询: 3.ngql-guide/4.variable-and-composite-queries/1.composite-queries.md
+        - 自定义变量: 3.ngql-guide/4.variable-and-composite-queries/2.user-defined-variables.md
+        - 引用属性: 3.ngql-guide/4.variable-and-composite-queries/3.property-reference.md
 
-      - Operators:
-          - Comparison: 3.ngql-guide/5.operators/1.comparison.md
-          - Boolean: 3.ngql-guide/5.operators/2.boolean.md
-          - Pipe: 3.ngql-guide/5.operators/4.pipe.md
-          - Property reference: 3.ngql-guide/5.operators/5.property-reference.md
-          - Set: 3.ngql-guide/5.operators/6.set.md
-          - String: 3.ngql-guide/5.operators/7.string.md
-          - List: 3.ngql-guide/5.operators/8.list.md
-          - Precedence: 3.ngql-guide/5.operators/9.precedence.md
+      - 运算符:
+          - 比较符: 3.ngql-guide/5.operators/1.comparison.md
+          - 布尔符: 3.ngql-guide/5.operators/2.boolean.md
+          - 管道符: 3.ngql-guide/5.operators/4.pipe.md
+          - 属性引用符: 3.ngql-guide/5.operators/5.property-reference.md
+          - 集合运算符: 3.ngql-guide/5.operators/6.set.md
+          - 字符串运算符: 3.ngql-guide/5.operators/7.string.md
+          - 列表运算符: 3.ngql-guide/5.operators/8.list.md
+          - 运算符优先级: 3.ngql-guide/5.operators/9.precedence.md
 
-      - Functions and expressions:
-          - Math functions: 3.ngql-guide/6.functions-and-expressions/1.math.md
-          - String functions: 3.ngql-guide/6.functions-and-expressions/2.string.md
-          - Date and time functions: 3.ngql-guide/6.functions-and-expressions/3.date-and-time.md
-          - Schema functions: 3.ngql-guide/6.functions-and-expressions/4.schema.md
-          - Case expressions: 3.ngql-guide/6.functions-and-expressions/5.case-expressions.md
-          - List functions: 3.ngql-guide/6.functions-and-expressions/6.list.md
-          - count(): 3.ngql-guide/6.functions-and-expressions/7.count.md
-          - collect(): 3.ngql-guide/6.functions-and-expressions/10.collect.md
-          - reduce(): 3.ngql-guide/6.functions-and-expressions/11.reduce.md
-          - hash(): 3.ngql-guide/6.functions-and-expressions/12.hash.md
-          - Predicate functions: 3.ngql-guide/6.functions-and-expressions/8.predicate.md
-          - User-defined functions: 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
+      - 函数和表达式:
+          - 数学函数: 3.ngql-guide/6.functions-and-expressions/1.math.md
+          - 字符串函数: 3.ngql-guide/6.functions-and-expressions/2.string.md
+          - 日期时间函数: 3.ngql-guide/6.functions-and-expressions/3.date-and-time.md
+          - Schema函数: 3.ngql-guide/6.functions-and-expressions/4.schema.md
+          - CASE表达式: 3.ngql-guide/6.functions-and-expressions/5.case-expressions.md
+          - 列表函数: 3.ngql-guide/6.functions-and-expressions/6.list.md
+          - count函数: 3.ngql-guide/6.functions-and-expressions/7.count.md
+          - collect函数: 3.ngql-guide/6.functions-and-expressions/10.collect.md
+          - reduce函数: 3.ngql-guide/6.functions-and-expressions/11.reduce.md
+          - hash函数: 3.ngql-guide/6.functions-and-expressions/12.hash.md
+          - 谓词函数: 3.ngql-guide/6.functions-and-expressions/8.predicate.md
+          - 自定义函数: 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
 
-      - General queries statements:
+      - 通用查询语句:
           - Match: 3.ngql-guide/7.general-query-statements/2.match.md
           - LOOKUP: 3.ngql-guide/7.general-query-statements/5.lookup.md
           - GO: 3.ngql-guide/7.general-query-statements/3.go.md
           - FETCH: 3.ngql-guide/7.general-query-statements/4.fetch.md
+          - UNWIND: 3.ngql-guide/7.general-query-statements/7.unwind.md
           - SHOW:
             - SHOW CHARSET: 3.ngql-guide/7.general-query-statements/6.show/1.show-charset.md
             - SHOW COLLATION: 3.ngql-guide/7.general-query-statements/6.show/2.show-collation.md
@@ -134,7 +136,7 @@ nav:
             - SHOW TAGS/EDGES: 3.ngql-guide/7.general-query-statements/6.show/15.show-tags-edges.md
             - SHOW USERS: 3.ngql-guide/7.general-query-statements/6.show/16.show-users.md
 
-      - Clauses and options:
+      - 子句和选项:
           - GROUP BY: 3.ngql-guide/8.clauses-and-options/group-by.md
           - LIMIT and SKIP: 3.ngql-guide/8.clauses-and-options/limit.md
           - ORDER BY: 3.ngql-guide/8.clauses-and-options/order-by.md
@@ -142,41 +144,42 @@ nav:
           - TTL: 3.ngql-guide/8.clauses-and-options/ttl-options.md
           - WHERE: 3.ngql-guide/8.clauses-and-options/where.md
           - YIELD: 3.ngql-guide/8.clauses-and-options/yield.md
+          - WITH: 3.ngql-guide/8.clauses-and-options/with.md
 
-      - Space statements:
+      - 图空间语句:
           - CREATE SPACE: 3.ngql-guide/9.space-statements/1.create-space.md
           - USE SPACE: 3.ngql-guide/9.space-statements/2.use-space.md
           - SHOW SPACES: 3.ngql-guide/9.space-statements/3.show-spaces.md
           - DESCRIBE SPACE: 3.ngql-guide/9.space-statements/4.describe-space.md
           - DROP SPACE: 3.ngql-guide/9.space-statements/5.drop-space.md
 
-      - Tag statements:
+      - 标签语句:
           - CREATE TAG: 3.ngql-guide/10.tag-statements/1.create-tag.md
           - DROP TAGS: 3.ngql-guide/10.tag-statements/2.drop-tag.md
           - ALTER TAG: 3.ngql-guide/10.tag-statements/3.alter-tag.md
           - SHOW TAGS: 3.ngql-guide/10.tag-statements/4.show-tags.md
           - DESCRIBE TAG: 3.ngql-guide/10.tag-statements/5.describe-tag.md
-      - Edge type statements:
+      - 边类型语句:
           - CREATE EDGE: 3.ngql-guide/11.edge-type-statements/1.create-edge.md
           - DROP EDGE: 3.ngql-guide/11.edge-type-statements/2.drop-edge.md
           - ALTER EDGE: 3.ngql-guide/11.edge-type-statements/3.alter-edge.md
           - SHOW EDGES: 3.ngql-guide/11.edge-type-statements/4.show-edges.md
           - DESCRIBE EDGE: 3.ngql-guide/11.edge-type-statements/5.describe-edge.md
 
-      - Vertex statements:
+      - 点语句:
           - INSERT VERTEX: 3.ngql-guide/12.vertex-statements/1.insert-vertex.md
           - DELETE VERTEX: 3.ngql-guide/12.vertex-statements/4.delete-vertex.md
           - UPDATE VERTEX: 3.ngql-guide/12.vertex-statements/2.update-vertex.md
           - UPSERT VERTEX: 3.ngql-guide/12.vertex-statements/3.upsert-vertex.md
 
-      - Edge statements:
+      - 边语句:
         - INSERT EDGE: 3.ngql-guide/13.edge-statements/1.insert-edge.md
         - DELETE EDGE: 3.ngql-guide/13.edge-statements/4.delete-edge.md
         - UPDATE EDGE: 3.ngql-guide/13.edge-statements/2.update-edge.md
         - UPSERT EDGE: 3.ngql-guide/13.edge-statements/3.upsert-edge.md
 
-      - Native index statements:
-        - Index overview: 3.ngql-guide/14.native-index-statements/README.md
+      - 原生索引:
+        - 索引介绍: 3.ngql-guide/14.native-index-statements/README.md
         - CREATE INDEX: 3.ngql-guide/14.native-index-statements/1.create-native-index.md
         - SHOW INDEX: 3.ngql-guide/14.native-index-statements/2.show-native-indexes.md
         - SHOW CREATE INDEX: 3.ngql-guide/14.native-index-statements/2.1.show-create-index.md
@@ -185,108 +188,111 @@ nav:
         - SHOW INDEX STATUS: 3.ngql-guide/14.native-index-statements/5.show-native-index-status.md
         - DROP INDEX: 3.ngql-guide/14.native-index-statements/6.drop-native-index.md
 
-      - Full-text index statements:
-        - Index overview: 3.ngql-guide/14.native-index-statements/README.md
-        - Full-text restrictions: 4.deployment-and-installation/6.deploy-text-based-index/1.text-based-index-restrictions.md
-        - Deploy Elasticsearch cluster: 4.deployment-and-installation/6.deploy-text-based-index/2.deploy-es.md
-        - Deploy Raft Listener cluster: 4.deployment-and-installation/6.deploy-text-based-index/3.deploy-listener.md
-        - Search with full-text index: 3.ngql-guide/15.full-text-index-statements/1.search-with-text-based-index.md
+      - 全文索引:
+        - 索引介绍: 3.ngql-guide/14.native-index-statements/README.md
+        - 全文索引限制: 4.deployment-and-installation/6.deploy-text-based-index/1.text-based-index-restrictions.md
+        - 部署全文索引: 4.deployment-and-installation/6.deploy-text-based-index/2.deploy-es.md
+        - 部署Raft listener: 4.deployment-and-installation/6.deploy-text-based-index/3.deploy-listener.md
+        - 全文搜索: 3.ngql-guide/15.full-text-index-statements/1.search-with-text-based-index.md
 
-      - Subgraph and path:
+      - 子图和路径:
           - GET SUBGRAPH: 3.ngql-guide/16.subgraph-and-path/1.get-subgraph.md
           - FIND PATH: 3.ngql-guide/16.subgraph-and-path/2.find-path.md
 
-      - Query tuning statements:
-          - EXPLAIN and PROFILE: 3.ngql-guide/17.query-tuning-statements/1.explain-and-profile.md
+      - 查询调优:
+          - EXPLAIN和PROFILE: 3.ngql-guide/17.query-tuning-statements/1.explain-and-profile.md
 
-      - Operation and maintenance statements:
+      - 运维:
 
         # - CONFIG syntax: 3.ngql-guide/18.operation-and-maintenance-statements/1.configs-syntax.md
+        - BALANCE syntax: 3.ngql-guide/18.operation-and-maintenance-statements/2.balance-syntax.md
         - Job statements: 3.ngql-guide/18.operation-and-maintenance-statements/4.job-statements.md
 
-      - Appendix:
-          - Comments: 3.ngql-guide/20.appendix/comments.md
-          - Identifier Case Sensitivity: 3.ngql-guide/20.appendix/identifier-case-sensitivity.md
-          - Keywords and reserved words: 3.ngql-guide/20.appendix/keywords-and-reserved-words.md
-          - VID and Partition: 3.ngql-guide/20.appendix/vid-partition.md
+      - 附录:
+          - 注释: 3.ngql-guide/20.appendix/comments.md
+          - 大小写区分: 3.ngql-guide/20.appendix/identifier-case-sensitivity.md
+          - 关键字: 3.ngql-guide/20.appendix/keywords-and-reserved-words.md
+          - 点ID和分片ID: 3.ngql-guide/20.appendix/vid-partition.md
 
-  - Deployment and installation:
-      - Resource preparations: 4.deployment-and-installation/1.resource-preparations.md
-      - Compile and install Nebula Graph:
-          - Install Nebula Graph by compiling the source code: 4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md
-          - Install Nebula Graph with RPM or DEB package: 4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md
-      - Deploy Nebula Graph cluster: 4.deployment-and-installation/deploy-nebula-graph-cluster.md
-      - Upgrade Nebula Graph: 4.deployment-and-installation/3.upgrade-nebula-graph.md
+  - 安装部署:
+      - 准备资源: 4.deployment-and-installation/1.resource-preparations.md
+      - 编译安装Nebula Graph:
+          - 源码编译安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md
+          - RPM/DEB包安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md
+      - 部署Nebula Graph集群: 4.deployment-and-installation/deploy-nebula-graph-cluster.md
+      - 升级Nebula Graph: 4.deployment-and-installation/3.upgrade-nebula-graph.md
 
-  - Configurations and logs:
-      - Configurations:
-          - Configurations: 5.configurations-and-logs/1.configurations/1.configurations.md
-          - Meta Service configurations: 5.configurations-and-logs/1.configurations/2.meta-config.md
-          - Graph Service configurations: 5.configurations-and-logs/1.configurations/3.graph-config.md
-          - Storage Service configurations: 5.configurations-and-logs/1.configurations/4.storage-config.md
-          - Kernel configurations: 5.configurations-and-logs/1.configurations/6.kernel-config.md
-      - Log management:
-          - Logs: 5.configurations-and-logs/2.log-management/logs.md
+  - 配置和日志:
+      - 配置:
+          - 配置简介: 5.configurations-and-logs/1.configurations/1.configurations.md
+          - Meta服务配置: 5.configurations-and-logs/1.configurations/2.meta-config.md
+          - Graph服务配置: 5.configurations-and-logs/1.configurations/3.graph-config.md
+          - Storage服务配置: 5.configurations-and-logs/1.configurations/4.storage-config.md
+          - 内核配置: 5.configurations-and-logs/1.configurations/6.kernel-config.md
+      - 日志:
+          - 日志配置: 5.configurations-and-logs/2.log-management/logs.md
 
-  - Monitor and metrics:
-      - Query Nebula Graph metrics: 6.monitor-and-metrics/1.query-performance-metrics.md
+  - 监控:
+      - 查询Nebula Graph监控指标: 6.monitor-and-metrics/1.query-performance-metrics.md
 
-  - Data security:
-      - Authentication and authorization:
-          - Authentication: 7.data-security/1.authentication/1.authentication.md
-          - User management: 7.data-security/1.authentication/2.management-user.md
-          - Roles and privileges: 7.data-security/1.authentication/3.role-list.md
-      - Backup & Restore:
-          - What is Backup & Restore: 7.data-security/2.backup-restore/1.what-is-br.md
-          - Compile BR: 7.data-security/2.backup-restore/2.compile-br.md
-          - Use BR to back up data: 7.data-security/2.backup-restore/3.br-backup-data.md
-          - Use BR to restore data: 7.data-security/2.backup-restore/4.br-restore-data.md
-      - Manage snapshots: 7.data-security/3.manage-snapshot.md
+  - 数据安全:
+      - 验证和授权:
+          - 身份验证: 7.data-security/1.authentication/1.authentication.md
+          - 用户管理: 7.data-security/1.authentication/2.management-user.md
+          - 内置角色权限: 7.data-security/1.authentication/3.role-list.md
+      - 备份恢复:
+          - 什么是BR: 7.data-security/2.backup-restore/1.what-is-br.md
+          - 编译BR: 7.data-security/2.backup-restore/2.compile-br.md
+          - 使用BR备份数据: 7.data-security/2.backup-restore/3.br-backup-data.md
+          - 使用BR恢复数据: 7.data-security/2.backup-restore/4.br-restore-data.md
+      - 管理快照: 7.data-security/3.manage-snapshot.md
 
-  - Service Tuning:
+  - 调整服务:
       - Compaction: 8.service-tuning/compaction.md
-      - Storage load balance: 8.service-tuning/load-balance.md
+      - Storage负载均衡: 8.service-tuning/load-balance.md
 
-  - Data migration:
-      - Nebula Exchange:
-        - About Nebula Exchange:
-          - What is Nebula Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
-          - Limitations: nebula-exchange/about-exchange/ex-ug-limitations.md
-          - Glossary: nebula-exchange/about-exchange/ex-ug-terms.md
-          - FAQ: nebula-exchange/about-exchange/ex-ug-faq.md
-        - Compile Exchange: nebula-exchange/ex-ug-compile.md
-        - Examples:
-          - Use Exchange: nebula-exchange/use-exchange/ex-ug-import-steps.md
-          - Import data from CSV files: nebula-exchange/use-exchange/ex-ug-import-from-csv.md
-          - Import data from JSON files: nebula-exchange/use-exchange/ex-ug-import-json.md
-          - Import data from HIVE: nebula-exchange/use-exchange/ex-ug-import-hive.md
-        - Parameter reference:
-          - Spark related parameters: nebula-exchange/parameter-reference/ex-ug-paras-spark.md
-          - Nebula Graph related parameters: nebula-exchange/parameter-reference/ex-ug-paras-nebulagraph.md
-          - Import command parameters: nebula-exchange/parameter-reference/ex-ug-para-import-command.md
+#  - Data migration:
+#      - Nebula Exchange:
+#        - About Nebula Exchange:
+#         - What is Nebula Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
+#          - Limitations: nebula-exchange/about-exchange/ex-ug-limitations.md
+#          - Glossary: nebula-exchange/about-exchange/ex-ug-terms.md
+#          - FAQ: nebula-exchange/about-exchange/ex-ug-faq.md
+#        - Compile Exchange: nebula-exchange/ex-ug-compile.md
+#        - Examples:
+#          - Use Exchange: nebula-exchange/use-exchange/ex-ug-import-steps.md
+#          - Import data from CSV files: nebula-exchange/use-exchange/ex-ug-import-from-csv.md
+#          - Import data from JSON files: nebula-exchange/use-exchange/ex-ug-import-json.md
+#          - Import data from HIVE: nebula-exchange/use-exchange/ex-ug-import-hive.md
+#        - Parameter reference:
+#          - Spark related parameters: nebula-exchange/parameter-reference/ex-ug-paras-spark.md
+#          - Nebula Graph related parameters: nebula-exchange/parameter-reference/#ex-ug-paras-nebulagraph.md
+#          - Import command parameters: nebula-exchange/parameter-reference/ex-ug-para-import-command.md
 
-  - Nebula Graph Studio:
-      - About Nebula Graph Studio:
-          - What is Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
-          - Limitations: nebula-studio/about-studio/st-ug-limitations.md
-          - Check updates: nebula-studio/about-studio/st-ug-check-updates.md
+#  - Nebula Graph Studio:
+#      - About Nebula Graph Studio:
+#          - What is Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
+#          - Limitations: nebula-studio/about-studio/st-ug-limitations.md
+#          - Check updates: nebula-studio/about-studio/st-ug-check-updates.md
+#
+#      - Deploy and connect:
+#          - Deploy Studio: nebula-studio/install-configure/st-ug-deploy.md
+#          - Connect to Nebula Graph: nebula-studio/install-configure/st-ug-connect.md
+#
+#      - Quick start:
+#          - Design a schema: nebula-studio/quick-start/st-ug-plan-schema.md
+#          - Prepare CSV files: nebula-studio/quick-start/st-ug-prepare-csv.md
+#          - Create a schema: nebula-studio/quick-start/st-ug-create-schema.md
+#          - Import data: nebula-studio/quick-start/st-ug-import-data.md
+#          - Query graph data: nebula-studio/quick-start/st-ug-explore.md
+#
+#      - Operation guide:
+#          - Use Console:
+#              - Open in Explore: nebula-studio/use-console/st-ug-open-in-explore.md
+#              - View subgraphs: nebula-studio/use-console/st-ug-visualize-subgraph.md
 
-      - Deploy and connect:
-          - Deploy Studio: nebula-studio/install-configure/st-ug-deploy.md
-          - Connect to Nebula Graph: nebula-studio/install-configure/st-ug-connect.md
-
-      - Quick start:
-          - Design a schema: nebula-studio/quick-start/st-ug-plan-schema.md
-          - Prepare CSV files: nebula-studio/quick-start/st-ug-prepare-csv.md
-          - Create a schema: nebula-studio/quick-start/st-ug-create-schema.md
-          - Import data: nebula-studio/quick-start/st-ug-import-data.md
-          - Query graph data: nebula-studio/quick-start/st-ug-explore.md
-
-      - Operation guide:
-          - Use Console:
-              - Open in Explore: nebula-studio/use-console/st-ug-open-in-explore.md
-              - View subgraphs: nebula-studio/use-console/st-ug-visualize-subgraph.md
-
+  - 社区贡献:
+      - 如何贡献: 15.contribution/how-to-contribute.md
 
   - English:
       - https://docs.nebula-graph.io/
