@@ -2741,6 +2741,13 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    前提条件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     均衡分片分布
   </a>
   
@@ -2748,7 +2755,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     示例
   </a>
   
@@ -2760,7 +2767,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     停止负载均衡
   </a>
   
@@ -2775,7 +2782,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     示例
   </a>
   
@@ -2795,7 +2802,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     示例
   </a>
   
@@ -4020,6 +4027,13 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
+    前提条件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
     均衡分片分布
   </a>
   
@@ -4027,7 +4041,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     示例
   </a>
   
@@ -4039,7 +4053,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     停止负载均衡
   </a>
   
@@ -4054,7 +4068,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     示例
   </a>
   
@@ -4074,7 +4088,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     示例
   </a>
   
@@ -4104,12 +4118,14 @@
                 
                 <h1 id="storage">Storage负载均衡<a class="headerlink" href="#storage" title="Permanent link">&para;</a></h1>
 <p>您可以使用<code>BALANCE</code>语句平衡分片和Raft leader的分布，或者删除冗余的Storage服务器。</p>
-<h2 id="_1">均衡分片分布<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>为了平衡分片和Raft leader的分布，Nebula Graph中图空间的副本数都必须大于1。</p>
+<h2 id="_2">均衡分片分布<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><code>BALANCE DATA</code>语句会开始一个任务，将Nebula Graph集群中的分片平均分配到所有Storage服务器。通过创建和执行一组子任务来迁移数据和均衡分片分布。</p>
 <blockquote>
 <p><strong>禁止</strong>：不要停止集群中的任何机器或改变机器的IP地址，直到所有子任务完成，否则后续子任务会失败。</p>
 </blockquote>
-<h3 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<h3 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>以横向扩容Nebula Graph为例，集群中增加新的Storage服务器后，新服务器上没有分片。</p>
 <ol>
 <li>
@@ -4185,7 +4201,7 @@
 </li>
 </ol>
 <p>如果有子任务失败，请重新执行<code>BALANCE DATA</code>。如果重做负载均衡仍然不能解决问题，请到<a href="https://discuss.nebula-graph.io/">Nebula Graph社区</a>寻求帮助。</p>
-<h2 id="_3">停止负载均衡<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_4">停止负载均衡<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>停止负载均衡，请执行命令<code>BALANCE DATA STOP</code>。</p>
 <ul>
 <li>如果没有正在执行的负载均衡任务，会返回错误。</li>
@@ -4203,7 +4219,7 @@
 </ul>
 <h2 id="storage_1">移除Storage服务器<a class="headerlink" href="#storage_1" title="Permanent link">&para;</a></h2>
 <p>移除指定的Storage服务器来缩小集群规模，可以使用命令<code>BALANCE DATA REMOVE &lt;host_list&gt;</code>。</p>
-<h3 id="_4">示例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="_5">示例<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>如果需要移除以下两台Storage服务器。</p>
 <table>
 <thead>
@@ -4232,7 +4248,7 @@
 <p>Nebula Graph将启动一个负载均衡任务，迁移storage3和storage4中的分片，然后将服务器从集群中移除。</p>
 <h2 id="leader">均衡leader分布<a class="headerlink" href="#leader" title="Permanent link">&para;</a></h2>
 <p><code>BALANCE DATA</code>只能均衡分片分布，不能均衡Raft leader分布。您可以使用命令<code>BALANCE LEADER</code>均衡leader分布。</p>
-<h3 id="_5">示例<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<h3 id="_6">示例<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>nebula&gt; BALANCE LEADER;
 </code></pre></div>
 <p>您可以执行<code>SHOW HOSTS</code>检查结果。</p>
