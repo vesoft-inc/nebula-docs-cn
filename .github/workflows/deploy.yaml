@@ -25,10 +25,15 @@ jobs:
       - name: Git Config
         run: git config user.name whitewum && git config user.email min.wu@vesoft.com
 
-      - name: Mike Deploy 2.0.0
+      - name: mike list delete
         run: |
-          mike deploy 2.0.0 -p
-          mike set-default 2.0.0 -p --rebase
+          mike delete 2.0.0 -p
+          mike list
+
+      - name: Mike Deploy 2.0
+        run: |
+          mike deploy 2.0 -p
+          mike set-default 2.0 -p --rebase
           mike list  
       - name: show git branch
         run: | 
