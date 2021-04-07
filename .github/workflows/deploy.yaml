@@ -26,11 +26,8 @@ jobs:
       - name: Git Config
         run: git config user.name whitewum && git config user.email min.wu@vesoft.com
 
-      - name: mike delete
-        run: |
-          mike delete 2.0 -p
-          mike delete 1.2 -p
-          mike delete 1.1 -p
+      - name: mike list
+        run: mike list
 
       - name: Mike Deploy 1.2.0
         run: |
