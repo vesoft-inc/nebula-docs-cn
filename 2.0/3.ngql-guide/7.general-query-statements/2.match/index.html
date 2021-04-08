@@ -4730,24 +4730,22 @@ nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;})--&gt;(v2) \
 +-----------------------------------------------------------+
 </code></pre></div>
 <p>您可以使用<code>DISTINCT</code>关键字聚合重复结果。</p>
-<p>```ngql
-nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*1..3]-&gt;(v2:player) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})-[e:follow*1..3]-&gt;(v2:player) \
         RETURN DISTINCT v2 AS Friends, count(v2);
 +-----------------------------------------------------------+-----------+
 | Friends                                                   | COUNT(v2) |
 +-----------------------------------------------------------+-----------+
-| ("player125" :player{age: 41, name: "Manu Ginobili"})     | 3         |
+| (&quot;player125&quot; :player{age: 41, name: &quot;Manu Ginobili&quot;})     | 3         |
 +-----------------------------------------------------------+-----------+
-| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) | 1         |
+| (&quot;player102&quot; :player{age: 33, name: &quot;LaMarcus Aldridge&quot;}) | 1         |
 +-----------------------------------------------------------+-----------+
-| ("player100" :player{age: 42, name: "Tim Duncan"})        | 4         |
+| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})        | 4         |
 +-----------------------------------------------------------+-----------+
-| ("player101" :player{age: 36, name: "Tony Parker"})       | 3         |
+| (&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})       | 3         |
 +-----------------------------------------------------------+-----------+
-<div class="highlight"><pre><span></span><code>如果`minHop`为`0`，模式会匹配路径上的起始点。与上个示例相比，下面的示例设置`minHop`为`0`，因为它是起始点，所以结果集中`&quot;Tim Duncan&quot;`比上个示例多计算一次。
-
-```ngql
-nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})-[e:follow*0..3]-&gt;(v2:player) \
+</code></pre></div>
+<p>如果<code>minHop</code>为<code>0</code>，模式会匹配路径上的起始点。与上个示例相比，下面的示例设置<code>minHop</code>为<code>0</code>，因为它是起始点，所以结果集中<code>"Tim Duncan"</code>比上个示例多计算一次。</p>
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})-[e:follow*0..3]-&gt;(v2:player) \
         RETURN DISTINCT v2 AS Friends, count(v2);
 +-----------------------------------------------------------+-----------+
 | Friends                                                   | COUNT(v2) |
@@ -4760,7 +4758,7 @@ nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})-[e:follow*0..3]-&gt;(
 +-----------------------------------------------------------+-----------+
 | (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})        | 5         |
 +-----------------------------------------------------------+-----------+
-</code></pre></div></p>
+</code></pre></div>
 <h3 id="_14">匹配多个边类型的变长路径<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
 <p>您可以在变长或定长模式中指定多个边类型。<code>hop</code>、<code>minHop</code>和<code>maxHop</code>对所有边类型都生效。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})-[e:follow|serve*2]-&gt;(v2) \
