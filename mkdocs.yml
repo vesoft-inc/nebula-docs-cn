@@ -203,8 +203,8 @@ nav:
       - 运维:
 
         # - CONFIG syntax: 3.ngql-guide/18.operation-and-maintenance-statements/1.configs-syntax.md
-        - BALANCE syntax: 3.ngql-guide/18.operation-and-maintenance-statements/2.balance-syntax.md
-        - Job statements: 3.ngql-guide/18.operation-and-maintenance-statements/4.job-statements.md
+        - BALANCE: 3.ngql-guide/18.operation-and-maintenance-statements/2.balance-syntax.md
+        - 作业管理: 3.ngql-guide/18.operation-and-maintenance-statements/4.job-statements.md
 
       - 附录:
           - 注释: 3.ngql-guide/20.appendix/comments.md
