@@ -18,6 +18,14 @@ jobs:
           python-version: '3.7'
           architecture: 'x64'
 
+      - name: apt install
+        run: |
+          sudo apt update -y
+          sudo apt install -y $(cat pkglist.txt)
+
+      - name: set LANG
+        run: sh lang-zh.sh
+
       - name: Install dependencies
         run: |
           pip install --upgrade pip
@@ -65,7 +73,9 @@ jobs:
           script: |
             mkdir -p /usr/web/nebula-docs/
             tar -xzf /usr/web/nebula-docs.tar.gz -C /usr/web/nebula-docs/
-            pip3 install --upgrade pip
-            pip3 install -r /usr/web/nebula-docs/requirement.txt
+            #pip3 install --upgrade pip
+            #pip3 install -r /usr/web/nebula-docs/requirements.txt
+            #sudo apt install -y $(cat /usr/web/nebula-docs/pkglist.txt)
+            #sh /usr/web/nebula-docs/lang-zh.sh
       #     github_token: ${{ secrets.DEPLOY_TOKEN }}
       #     publish_dir: ./site

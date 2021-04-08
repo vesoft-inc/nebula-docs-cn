@@ -28,10 +28,9 @@ theme:
 
 extra_css:
   - 'stylesheets/logo.css'
-#     - 'theme/extra.css'
+#@  - 'stylesheets/extra.css'
+  - 'css/version-select.css'
 
-# Customization
-  - css/version-select.css
 extra:
   social:
     - type: 'github'
@@ -302,6 +301,9 @@ nav:
     - English:
       - https://docs.nebula-graph.io/
 
+    - PDF:
+      - 下载PDF: ./pdf/NebulaGraph-cn.pdf
+
 
 
 # Extensions
@@ -319,8 +321,18 @@ markdown_extensions:
 # Plugins
 plugins:
   - search
-  # - mkdocs-versioning:
-  #     version: 1.0
+#  - pdf-export:
+#      verbose: false
+#      media_type: print
+  - with-pdf:
+      copyright: 2021 Vesoft Inc.
+      cover_subtitle: v1.2.1
+      author: 吴敏,张莹
+      show_anchors: true
+      cover: true
+      back_cover: true
+      cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png'
+      output_path: pdf/NebulaGraph-cn.pdf
 
 extra_javascript:
   - js/version-select.js

@@ -3,3 +3,6 @@ mkdocs-material==4.6.3
 mike==0.5.5
 mdx_truly_sane_lists
 mkdocs_latest_release_plugin
+weasyprint
+mkdocs-with-pdf
+qrcode
