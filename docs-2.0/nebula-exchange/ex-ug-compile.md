@@ -46,9 +46,9 @@
    mvn clean package -Dmaven.test.skip=true -Dgpg.skip -Dmaven.javadoc.skip=true
    ```
 
-   >**说明**：如果报错`Could not resolve dependencies for project xxx`，请修改Maven配置，修改Maven安装目录下 `libexec/conf/settings.xml`文件的`mirror`部分：
+   >**说明**：如果报错`Could not resolve dependencies for project xxx`，请修改Maven配置，修改Maven安装目录下`libexec/conf/settings.xml`文件的`mirror`部分：
    >
-   >```bash
+   >```text
    ><mirror>
    ><id>alimaven</id>
    ><mirrorOf>central</mirrorOf>
