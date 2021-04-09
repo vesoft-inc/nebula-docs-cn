@@ -333,6 +333,11 @@
     如何测试端口是否已开放
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nebula_graph">
+    如何查看Nebula Graph版本
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1593,6 +1598,11 @@
     如何测试端口是否已开放
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nebula_graph">
+    如何查看Nebula Graph版本
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1834,6 +1844,23 @@ $ telnet <span class="m">192</span>.168.1.10 <span class="m">9777</span>
 Trying <span class="m">192</span>.168.1.10...
 telnet: connect to address <span class="m">192</span>.168.1.10: Connection refused
 </code></pre></div>
+<h3 id="nebula_graph">如何查看Nebula Graph版本<a class="headerlink" href="#nebula_graph" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p>使用<code>&lt;binary_path&gt; --version</code>命令查看相应服务二进制文件的Git Commit ID。</p>
+<p>例如，要查看Graph服务的版本，进入Graph服务对应的二进制文件<code>nebula-graphd</code>所在目录，运行<code>./nebula-graphd --version</code>。</p>
+<div class="highlight"><pre><span></span><code>./nebula-graphd --version
+nebula-graphd version Git: ab4f683, Build Time: Mar <span class="m">24</span> <span class="m">2021</span> <span class="m">02</span>:17:30
+This <span class="nb">source</span> code is licensed under Apache <span class="m">2</span>.0 License, attached with Common Clause Condition <span class="m">1</span>.0.
+</code></pre></div>
+</li>
+<li>
+<p>在<a href="https://github.com/vesoft-inc/nebula-graph/commits/master">GitHub Commits</a>页搜索该Commit ID，获取Commit的提交时间。</p>
+</li>
+<li>
+<p>对比Commit提交时间和<a href="https://github.com/vesoft-inc/nebula-graph/releases">GitHub Releases</a>页的版本发布时间，即可确定Nebula Graph的版本。</p>
+</li>
+</ol>
 </article>
 </div>
 </div>
