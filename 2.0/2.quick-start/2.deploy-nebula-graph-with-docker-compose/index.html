@@ -259,6 +259,11 @@
 <nav class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#docker">
+    如何固定Docker映射到外部的端口？
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#nebula_graphdocker">
     如何更新Nebula Graph服务的Docker镜像？
   </a>
@@ -1464,6 +1469,11 @@
 <nav class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#docker">
+    如何固定Docker映射到外部的端口？
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#nebula_graphdocker">
     如何更新Nebula Graph服务的Docker镜像？
   </a>
@@ -1518,22 +1528,22 @@
 <h2 id="_1">阅读指南<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <p>如果您是带着如下问题阅读本文，可以直接单击问题跳转查看对应的说明。</p>
 <ul>
-<li><a href="#前提条件">部署Nebula Graph之前需要做什么准备工作？</a></li>
+<li><a href="#_2">部署Nebula Graph之前需要做什么准备工作？</a></li>
 </ul>
 <ul>
-<li><a href="#部署和连接Nebula_Graph">如何通过Docker Compose快速部署Nebula Graph？</a></li>
+<li><a href="#nebula_graph">如何通过Docker Compose快速部署Nebula Graph？</a></li>
 </ul>
 <ul>
-<li><a href="#查看Nebula_Graph服务的状态和端口">如何检查Nebula Graph服务的状态和端口？</a></li>
+<li><a href="#nebula_graph_1">如何检查Nebula Graph服务的状态和端口？</a></li>
 </ul>
 <ul>
-<li><a href="#查看Nebula_Graph服务的数据和日志">如何检查Nebula Graph服务的数据和日志？</a></li>
+<li><a href="#nebula_graph_2">如何检查Nebula Graph服务的数据和日志？</a></li>
 </ul>
 <ul>
-<li><a href="#停止Nebula_Graph服务">如何停止Nebula Graph服务？</a></li>
+<li><a href="#nebula_graph_3">如何停止Nebula Graph服务？</a></li>
 </ul>
 <ul>
-<li><a href="#相关文档">如何通过其他方式部署Nebula Graph？</a></li>
+<li><a href="#_3">如何通过其他方式部署Nebula Graph？</a></li>
 </ul>
 <h2 id="_2">前提条件<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <ul>
@@ -1595,7 +1605,7 @@
 <li>
 <p>执行如下命令启动Nebula Graph服务。</p>
 <blockquote>
-<p><strong>说明</strong>: 如果长期未更新镜像，请先更新<a href="#如何升级nebula-graph">Nebula Graph镜像</a>和<a href="#如何更新nebula-console">Nebula Console镜像</a>。</p>
+<p><strong>说明</strong>: 如果长期未更新镜像，请先更新<a href="#nebula_graphdocker">Nebula Graph镜像</a>和<a href="#nebula_console">Nebula Console镜像</a>。</p>
 </blockquote>
 <div class="highlight"><pre><span></span><code>nebula-docker-compose<span class="o">]</span>$ docker-compose up -d
 Creating nebula-docker-compose_metad0_1 ... <span class="k">done</span>
@@ -1729,6 +1739,17 @@ Removing network nebula-docker-compose_nebula-net
 <p><strong>说明</strong>：命令<code>docker-compose down -v</code>将会<strong>删除</strong>所有本地Nebula Graph的数据。如果您使用的是developing或nightly版本，并且有一些兼容性问题，请尝试这个命令。</p>
 </blockquote>
 <h2 id="_3">常见问题<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<h3 id="docker">如何固定Docker映射到外部的端口？<a class="headerlink" href="#docker" title="Permanent link">¶</a></h3>
+<p>在目录<code>nebula-docker-compose</code>内修改文件<code>docker-compose.yaml</code>，将对应服务的<code>ports</code>设置为固定映射，例如：</p>
+<div class="highlight"><pre><span></span><code>graphd:
+    image: vesoft/nebula-graphd:v2-nightly
+    ...
+    ports:
+      - <span class="m">9669</span>:9669
+      - <span class="m">19669</span>
+      - <span class="m">19670</span>
+</code></pre></div>
+<p><code>9669:9669</code>表示内部的9669映射到外部的端口也是9669，下方的<code>19669</code>表示内部的19669映射到外部的端口是随机的。</p>
 <h3 id="nebula_graphdocker">如何更新Nebula Graph服务的Docker镜像？<a class="headerlink" href="#nebula_graphdocker" title="Permanent link">¶</a></h3>
 <p>在目录<code>nebula-docker-compose</code>内执行命令<code>docker-compose pull</code>，可以更新Graph服务、Storage服务和Meta服务的镜像。</p>
 <h3 id="docker-compose_pullerror_toomanyrequests">执行命令<code>docker-compose pull</code>报错<code>ERROR: toomanyrequests</code><a class="headerlink" href="#docker-compose_pullerror_toomanyrequests" title="Permanent link">¶</a></h3>
