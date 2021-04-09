@@ -69,7 +69,7 @@
 
 4. 等待所有子任务完成，负载均衡进程结束，执行命令`SHOW HOSTS`确认分片已经均衡分布。
 
-    >**说明**：`BALANCE DATA`不会均衡leader的分布。均衡leader请参见[均衡leader分布](#均衡leader分布)。
+    >**说明**：`BALANCE DATA`不会均衡leader的分布。均衡leader请参见[均衡leader分布](#leader)。
 
     ```ngql
     nebula> SHOW HOSTS;

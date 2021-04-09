@@ -12,7 +12,7 @@
 
 - 支持创建同一个标签或边类型的多个属性的索引（复合索引），但是不能跨标签或边类型。
 
-- 复合索引可以实现部分匹配检索，遵循最左匹配原则。详情请参见[LOOKUP FAQ](../7.general-query-statements/5.lookup.md#FAQ)。
+- 复合索引可以实现部分匹配检索，遵循最左匹配原则。详情请参见[LOOKUP FAQ](../7.general-query-statements/5.lookup.md#faq)。
 
 - 不支持`CONTAINS`和`STARTS WITH`等字符串操作符。
 
