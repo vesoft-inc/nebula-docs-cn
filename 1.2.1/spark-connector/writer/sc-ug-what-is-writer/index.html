@@ -6,7 +6,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="ie=edge" http-equiv="x-ua-compatible"/>
-<meta content="Documentation for Nebula Graph" name="description"/>
+<meta content="Documentation for Nebula Graph Database" name="description"/>
 <link href="https://docs.nebula-graph.com.cn/spark-connector/writer/sc-ug-what-is-writer/" rel="canonical"/>
 <meta content="Nebula Graph" name="author"/>
 <meta content="复制" name="lang:clipboard.copy"/>
@@ -1743,12 +1743,12 @@
 <ol>
 <li>继承 <code>WriteSupport</code> 接口并重写 <code>createWriter</code> 方法，并使用这个方法创建自定义的 <code>DataSourceWriter</code> 接口。</li>
 <li>继承 <code>DataSourceWriter</code> 接口，创建 <code>NebulaDataSourceVertexWriter</code> 类和 <code>NebulaDataSourceEdgeWriter</code> 类。重写 <code>createWriterFactory</code> 方法并返回自定义的 <code>DataWriterFactory</code>。重写 <code>commit</code> 方法，用于提交整个事务。重写 <code>abort</code> 方法，用于做事务回滚。<blockquote>
-<p><strong>说明</strong>：Nebula Graph v1.1.0 不支持事务操作，所以，在这个实现中，<code>commit</code> 和 <code>abort</code> 无实质性操作。</p>
+<p><strong>说明</strong>：Nebula Graph v1.2.1 不支持事务操作，所以，在这个实现中，<code>commit</code> 和 <code>abort</code> 无实质性操作。</p>
 </blockquote>
 </li>
 <li>继承 <code>DataWriterFactory</code>，创建 <code>NebulaVertexWriterFactory</code> 类和 <code>NebulaEdgeWriterFactory</code> 类，重写 <code>createWriter</code> 方法返回自定义的 <code>DataWriter</code>。</li>
 <li>继承 <code>DataWriter</code>，创建 <code>NebulaVertexWriter</code> 类和 <code>NebulaEdgeWriter</code> 类。重写 <code>write</code> 方法，用于写出数据。重写 <code>commit</code> 方法，用于提交事务。重写 <code>abort</code> 方法，用于做事务回滚。<blockquote>
-<p><strong>说明</strong>：Nebula Graph v1.1.0 不支持事务操作，所以在 <code>DataWriter</code> 中，<code>commit</code> 和 <code>abort</code> 无实质性操作。</p>
+<p><strong>说明</strong>：Nebula Graph v1.2.1 不支持事务操作，所以在 <code>DataWriter</code> 中，<code>commit</code> 和 <code>abort</code> 无实质性操作。</p>
 </blockquote>
 </li>
 </ol>

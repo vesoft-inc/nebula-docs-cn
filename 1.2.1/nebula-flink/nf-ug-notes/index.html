@@ -6,7 +6,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="ie=edge" http-equiv="x-ua-compatible"/>
-<meta content="Documentation for Nebula Graph" name="description"/>
+<meta content="Documentation for Nebula Graph Database" name="description"/>
 <link href="https://docs.nebula-graph.com.cn/nebula-flink/nf-ug-notes/" rel="canonical"/>
 <meta content="Nebula Graph" name="author"/>
 <meta content="复制" name="lang:clipboard.copy"/>
@@ -1764,7 +1764,7 @@
 <li><code>abort</code>：终止阶段。在这个阶段，删除临时文件。</li>
 </ul>
 <p>由以上函数可看出，Flink 的二阶段提交对外部数据源有要求，即 source 数据源必须具备重发功能，sink 数据池必须支持事务提交和幂等写。</p>
-<p>Nebula Graph v1.1.0 虽然不支持事务，但其写入操作是幂等的，即同一条数据的多次写入结果是一致的。因此可以通过 checkpoint 机制实现 Nebula Flink Connector 的 At-least-Once 机制，根据多次写入的幂等性可以间接实现 sink 的 Exactly-once。</p>
+<p>Nebula Graph v1.2.1 不支持事务，但其写入操作是幂等的，即同一条数据的多次写入结果是一致的。因此可以通过 checkpoint 机制实现 Nebula Flink Connector 的 At-least-Once 机制，根据多次写入的幂等性可以间接实现 sink 的 Exactly-once。</p>
 <p>要使用 NebulaSink 的容错性，请确保在 Flink 的执行环境中开启了 checkpoint 配置，代码如下所示。</p>
 <div class="highlight"><pre><span></span><code><span class="n">StreamExecutionEnvironment</span> <span class="n">env</span> <span class="o">=</span> <span class="n">StreamExecutionEnvironment</span><span class="p">.</span><span class="na">getExecutionEnvironment</span><span class="p">();</span>
 <span class="n">env</span><span class="p">.</span><span class="na">enableCheckpointing</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span> <span class="c1">// checkpoint every 10000 msecs</span>
