@@ -1,58 +1,85 @@
-# 编译 Exchange
+# 编译Exchange
 
-按以下步骤编译 Exchange v1.x：
+本文介绍如何编译Nebula Exchange。您也可以直接[下载](https://repo1.maven.org/maven2/com/vesoft/nebula-exchange/2.0.0/)编译完成的`.jar`文件。
 
-1. 克隆 `nebula-java` 源代码。
+## 前提条件
+
+安装[Maven](https://maven.apache.org/download.cgi)。
+
+## 编译流程
+
+1. 克隆仓库`nebula-java`。
 
    ```bash
-   git clone -b v1.0 https://github.com/vesoft-inc/nebula-java.git
+   git clone -b v2.0.0-ga https://github.com/vesoft-inc/nebula-java.git
    ```
 
-2. 切换到 `nebula-java` 目录，并打包 Nebula Java 1.x。
+2. 切换到目录`nebula-java`。
 
    ```bash
    cd nebula-java
-   mvn clean install -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
    ```
 
-3. 进入 `tools/exchange` 目录，并编译 Exchange v1.x。
+3. 安装Nebula Java Client 2.0.0。
 
    ```bash
-   cd nebula-java/tools/exchange
-   mvn clean package -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
+   mvn clean install -Dmaven.test.skip=true -Dgpg.skip -Dmaven.javadoc.skip=true
    ```
 
-编译成功后，您可以在当前目录里看到如下目录结构。
+   >**说明**：安装后在本地Maven仓库会生成`.jar`文件，例如`com/vesoft/client/2.0.0/client-2.0.0.jar`。
 
-```
+4. 返回根目录克隆仓库`nebula-spark-utils`。
+
+   ```bash
+   cd ~ && git clone -b v2.0.0 https://github.com/vesoft-inc/nebula-spark-utils.git
+   ```
+
+5. 切换到目录`nebula-exchange`。
+
+   ```bash
+   cd nebula-spark-utils/nebula-exchange
+   ```
+
+6. 打包Nebula Exchange 2.0.0。
+
+   ```bash
+   mvn clean package -Dmaven.test.skip=true -Dgpg.skip -Dmaven.javadoc.skip=true
+   ```
+
+   >**说明**：如果报错`Could not resolve dependencies for project xxx`，请修改Maven安装目录下`libexec/conf/settings.xml`文件的`mirror`部分：
+   >
+   >```text
+   ><mirror>
+   ><id>alimaven</id>
+   ><mirrorOf>central</mirrorOf>
+   ><name>aliyun maven</name>
+   ><url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
+   ></mirror>
+   >```
+
+编译成功后，您可以在当前目录里查看到类似如下目录结构。
+
+```text
+.
+├── README-CN.md
 ├── README.md
-├── dependency-reduced-pom.xml
 ├── pom.xml
-├── scripts
-│   ├── README.md
-│   ├── mock_data.py
-│   ├── pulsar_producer.py
-│   ├── requirements.txt
-│   └── verify_nebula.py
 ├── src
-│   └── main
+│   ├── main
+│   └── test
 └── target
     ├── classes
     ├── classes.timestamp
-    ├── exchange-1.x.y-javadoc.jar
-    ├── exchange-1.x.y-sources.jar
-    ├── exchange-1.x.y.jar
-    ├── generated-test-sources
     ├── maven-archiver
-    ├── maven-status
-    ├── original-exchange-1.x.y.jar
-    ├── site
-    ├── test-classes
-    └── test-classes.timestamp
+    ├── nebula-exchange-2.x.y-javadoc.jar
+    ├── nebula-exchange-2.x.y-sources.jar
+    ├── nebula-exchange-2.x.y.jar
+    ├── original-nebula-exchange-2.x.y.jar
+    └── site
 ```
 
-在 `target` 目录下，您可以看到 `exchange-1.x.y.jar` 文件。
+在`target`目录下，您可以找到`exchange-2.x.y.jar`文件。
 
-> **说明**：JAR 文件版本号会因 Nebula Java Client 的发布版本而异。您可以在 [nebula-java 仓库的 Releases 页面](https://github.com/vesoft-inc/nebula-java/releases "点击前往 GitHub 网站") 查看最新的 v1.x 版本。
+> **说明**：`.jar`文件版本号会因Nebula Java Client的发布版本而变化。您可以在[Releases页面](https://github.com/vesoft-inc/nebula-java/releases)查看最新版本。
 
-在迁移数据时，您可以参考 `target/classes/application.conf`、`target/classes/server_application.conf`、`target/classes/stream_application.conf` 根据实际情况修改配置文件。
+迁移数据时，您可以参考配置文件`target/classes/application.conf`、`target/classes/server_application.conf`和`target/classes/stream_application.conf`。

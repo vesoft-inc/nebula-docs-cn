@@ -18,10 +18,19 @@ jobs:
           python-version: '3.7'
           architecture: 'x64'
 
+      - name: apt install
+        run: |
+          sudo apt update -y
+          sudo apt install -y $(cat pkglist.txt)
+
       - name: Install dependencies
         run: |
           pip install --upgrade pip
           pip install -r ./requirements.txt
+
+      - name: set LANG
+        run: sh lang-zh.sh	  
+
       - name: Git Config
         run: git config user.name whitewum && git config user.email min.wu@vesoft.com
 
@@ -35,10 +44,12 @@ jobs:
           mike deploy 2.0 -p
           mike set-default 2.0 -p --rebase
           mike list  
+
       - name: show git branch
         run: | 
           git branch
           git checkout gh-pages
+
       - name: Compress
         run: |
            tar -czf nebula-docs.tar.gz * --exclude=*.tar.gz
@@ -46,12 +57,12 @@ jobs:
         # uses: garygrossgarten/github-action-scp@release
         uses: appleboy/scp-action@master
         with:
-            host: ${{ secrets.HOST }}
-            username: ${{ secrets.USER_NAME }}
-            password: ${{ secrets.PASSWORD }}
-            port: ${{ secrets.port }}
-            source: nebula-docs.tar.gz
-            target: /usr/web
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER_NAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.port }}
+          source: nebula-docs.tar.gz
+          target: /usr/web
 
       - name: UnCompress
         uses: appleboy/ssh-action@master
@@ -63,8 +74,8 @@ jobs:
           script: |
             mkdir -p /usr/web/nebula-docs/
             tar -xzf /usr/web/nebula-docs.tar.gz -C /usr/web/nebula-docs/
-            pip3 install --upgrade pip
-            pip3 install -r /usr/web/nebula-docs/requirement.txt
+#            pip3 install --upgrade pip
+#            pip3 install -r /usr/web/nebula-docs/requirement.txt
       # - name: Deploy
       #   uses: peaceiris/actions-gh-pages@v3
       #   with:
