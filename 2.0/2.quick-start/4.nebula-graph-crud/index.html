@@ -1982,10 +1982,10 @@ Wed, 24 Feb 2021 03:58:01 EST
 <li><a href="../../3.ngql-guide/7.general-query-statements/4.fetch/">FETCH</a>语句可以获得点或边的属性。</li>
 </ul>
 <ul>
-<li><a href="../../3.ngql-guide/7.general-query-statements/5.lookup/">LOOKUP</a>语句是基于<a href="#索引">索引</a>的，和<code>WHERE</code>子句一起使用，查找符合特定条件的数据。</li>
+<li><a href="../../3.ngql-guide/7.general-query-statements/5.lookup/">LOOKUP</a>语句是基于<a href="#_14">索引</a>的，和<code>WHERE</code>子句一起使用，查找符合特定条件的数据。</li>
 </ul>
 <ul>
-<li><a href="../../3.ngql-guide/7.general-query-statements/2.match/">MATCH</a>语句是查询图数据最常用的，但是它依赖<a href="#索引">索引</a>去匹配Nebula Graph中的数据模型。</li>
+<li><a href="../../3.ngql-guide/7.general-query-statements/2.match/">MATCH</a>语句是查询图数据最常用的，但是它依赖<a href="#_14">索引</a>去匹配Nebula Graph中的数据模型。</li>
 </ul>
 <h3 id="ngql_3">nGQL语法<a class="headerlink" href="#ngql_3" title="Permanent link">¶</a></h3>
 <ul>
@@ -2145,7 +2145,7 @@ Got 1 rows (time spent 5055/8203 us)
 Got 1 rows (time spent 2006/2406 us)
 </code></pre></div>
 <blockquote>
-<p><strong>说明</strong>：<code>LOOKUP</code>和<code>MATCH</code>的示例在下文的<a href="#索引">索引</a>部分查看。</p>
+<p><strong>说明</strong>：<code>LOOKUP</code>和<code>MATCH</code>的示例在下文的<a href="#_14">索引</a>部分查看。</p>
 </blockquote>
 <h2 id="_10">修改点和边<a class="headerlink" href="#_10" title="Permanent link">¶</a></h2>
 <p>您可以使用<code>UPDATE</code>语句或<code>UPSERT</code>语句修改现有数据。</p>
@@ -2275,7 +2275,7 @@ ON {&lt;tag_name&gt; | &lt;edge_name&gt;} (prop_name_list);
 nebula&gt; REBUILD TAG INDEX player_index_0;
 </code></pre></div>
 <blockquote>
-<p><strong>说明</strong>：为没有指定长度的变量属性创建索引时，需要指定索引长度。在utf-8编码中，一个中文字符占3字节，请根据变量属性长度设置合适的索引长度。例如10个中文字符，索引长度需要为30。详情请参见<a href="../../3.ngql-guide/14.native-index-statements/1.create-native-index/">创建索引</a>。</p>
+<p><strong>说明</strong>：为没有指定长度的变量属性创建索引时，需要指定索引长度。在utf-8编码中，一个中文字符占3字节，请根据变量属性长度设置合适的索引长度。例如10个中文字符，索引长度需要为30。详情请参见<a href="../../3.ngql-guide/14.native-index-statements/1.create-native-index/#_6">创建索引</a>。</p>
 </blockquote>
 <h3 id="lookupmatch">基于索引的<code>LOOKUP</code>和<code>MATCH</code>示例<a class="headerlink" href="#lookupmatch" title="Permanent link">¶</a></h3>
 <p>确保<code>LOOKUP</code>或<code>MATCH</code>有一个索引可用。如果没有，请先创建索引。</p>
