@@ -1,5 +1,5 @@
 # Manual Changes
-
+<!-- TODO
 * 0.1.9 - 1.0
 * 0.1.8 - 1.0 RC4
 * 0.1.7 - 1.0 RC3
@@ -9,3 +9,4 @@
 * 0.1.3 - Add files in manual-CN
 * 0.1.2 - Add files in manual-EN
 * 0.1.1 - Initial release
+-->

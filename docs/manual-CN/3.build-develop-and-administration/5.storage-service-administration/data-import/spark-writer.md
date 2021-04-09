@@ -32,7 +32,7 @@ mvn compile package
 ### 从云存储 OSS 下载
 
 ```bash
-wget https://oss-cdn.nebula-graph.com.cn/jar-packages/sst.generator-1.0.0-beta.jar
+wget https://oss-cdn.nebula-graph.com.cn/jar-packages/sst.generator-1.0.0.jar
 ```
 
 ## 使用流程

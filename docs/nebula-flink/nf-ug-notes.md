@@ -68,7 +68,7 @@ Flink Connector 的 Exactly-once 是指 Flink 借助 checkpoint 机制保证每�
 
 由以上函数可看出，Flink 的二阶段提交对外部数据源有要求，即 source 数据源必须具备重发功能，sink 数据池必须支持事务提交和幂等写。
 
-Nebula Graph v1.1.0 虽然不支持事务，但其写入操作是幂等的，即同一条数据的多次写入结果是一致的。因此可以通过 checkpoint 机制实现 Nebula Flink Connector 的 At-least-Once 机制，根据多次写入的幂等性可以间接实现 sink 的 Exactly-once。
+Nebula Graph v1.2.1 不支持事务，但其写入操作是幂等的，即同一条数据的多次写入结果是一致的。因此可以通过 checkpoint 机制实现 Nebula Flink Connector 的 At-least-Once 机制，根据多次写入的幂等性可以间接实现 sink 的 Exactly-once。
 
 要使用 NebulaSink 的容错性，请确保在 Flink 的执行环境中开启了 checkpoint 配置，代码如下所示。
 

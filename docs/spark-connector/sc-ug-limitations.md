@@ -4,7 +4,7 @@
 
 ## Nebula Graph 版本
 
-Nebula Spark Connector 目前仅支持 Nebula Graph v1.0.1 和 v1.1.0，不支持 Nebula Graph v2.0。
+Nebula Spark Connector 对于 Nebula Graph v1.x，和 Nebula Graph v2.x 为不同版本。
 
 ## 软件依赖
 
