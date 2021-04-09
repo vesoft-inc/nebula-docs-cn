@@ -5008,7 +5008,7 @@ Execution succeeded (time spent 3700/4101 us)
 <li><code>MATCH</code>和<code>LOOKUP</code>语句的执行都依赖索引，但是索引会导致写性能大幅降低（降低90%甚至更多）。请<strong>不要随意</strong>在生产环境中使用索引，除非您很清楚使用索引对业务的影响。</li>
 </ul>
 <ul>
-<li>您<strong>必须</strong>为已存在的数据重建索引，否则不能索引已存在的数据，导致无法在<code>MATCH</code>和<code>LOOKUP</code>语句中返回这些数据。更多信息，请参见<a href="../../3.ngql-guide/14.native-index-statements/4.rebuild-native-index/">重建索引</a>。</li>
+<li>您<strong>必须</strong>为已存在的数据重建索引，否则不能索引已存在的数据，导致无法在<code>MATCH</code>和<code>LOOKUP</code>语句中返回这些数据。更多信息，请参见<a href="../../3.ngql-guide/14.native-index-statements/1.create-native-index/">重建索引</a>。</li>
 </ul>
 <h3 id="ngql_6">nGQL语法<a class="headerlink" href="#ngql_6" title="Permanent link">&para;</a></h3>
 <ul>
@@ -5028,7 +5028,7 @@ ON {&lt;tag_name&gt; | &lt;edge_name&gt;} (prop_name_list);
 nebula&gt; REBUILD TAG INDEX player_index_0;
 </code></pre></div>
 <blockquote>
-<p><strong>说明</strong>：为没有指定长度的变量属性创建索引时，需要指定索引长度。在utf-8编码中，一个中文字符占3字节，请根据变量属性长度设置合适的索引长度。例如10个中文字符，索引长度需要为30。详情请参见<a href="../3.ngql-guide/14.native-index-statements/1.create-native-index/#create_single-property_indexes">创建索引</a>。</p>
+<p><strong>说明</strong>：为没有指定长度的变量属性创建索引时，需要指定索引长度。在utf-8编码中，一个中文字符占3字节，请根据变量属性长度设置合适的索引长度。例如10个中文字符，索引长度需要为30。详情请参见<a href="../../3.ngql-guide/14.native-index-statements/1.create-native-index/">创建索引</a>。</p>
 </blockquote>
 <h3 id="lookupmatch">基于索引的<code>LOOKUP</code>和<code>MATCH</code>示例<a class="headerlink" href="#lookupmatch" title="Permanent link">&para;</a></h3>
 <p>确保<code>LOOKUP</code>或<code>MATCH</code>有一个索引可用。如果没有，请先创建索引。</p>
