@@ -2118,8 +2118,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../3.ngql-guide/18.operation-and-maintenance-statements/2.balance-syntax/" title="BALANCE syntax" class="md-nav__link">
-      BALANCE syntax
+    <a href="../../3.ngql-guide/18.operation-and-maintenance-statements/2.balance-syntax/" title="BALANCE" class="md-nav__link">
+      BALANCE
     </a>
   </li>
 
@@ -2130,8 +2130,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../3.ngql-guide/18.operation-and-maintenance-statements/4.job-statements/" title="Job statements" class="md-nav__link">
-      Job statements
+    <a href="../../3.ngql-guide/18.operation-and-maintenance-statements/4.job-statements/" title="作业管理" class="md-nav__link">
+      作业管理
     </a>
   </li>
 
@@ -2946,9 +2946,45 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        编译 Exchange
+      </label>
+    
     <a href="./" title="编译 Exchange" class="md-nav__link md-nav__link--active">
       编译 Exchange
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前提条件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    编译流程
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -3928,6 +3964,29 @@
     
   
   
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    前提条件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    编译流程
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3939,58 +3998,79 @@
               
                 
                 
-                <h1 id="exchange">编译 Exchange<a class="headerlink" href="#exchange" title="Permanent link">&para;</a></h1>
-<p>按以下步骤编译 Exchange v1.x：</p>
+                <h1 id="exchange">编译Exchange<a class="headerlink" href="#exchange" title="Permanent link">&para;</a></h1>
+<p>本文介绍如何编译Nebula Exchange。您也可以直接<a href="https://repo1.maven.org/maven2/com/vesoft/nebula-exchange/2.0.0/">下载</a>编译完成的<code>.jar</code>文件。</p>
+<h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>安装<a href="https://maven.apache.org/download.cgi">Maven</a>。</p>
+<h2 id="_2">编译流程<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ol>
 <li>
-<p>克隆 <code>nebula-java</code> 源代码。</p>
-<div class="highlight"><pre><span></span><code>git clone -b v1.0 https://github.com/vesoft-inc/nebula-java.git
+<p>克隆仓库<code>nebula-java</code>。</p>
+<div class="highlight"><pre><span></span><code>git clone -b v2.0.0-ga https://github.com/vesoft-inc/nebula-java.git
 </code></pre></div>
 </li>
 <li>
-<p>切换到 <code>nebula-java</code> 目录，并打包 Nebula Java 1.x。</p>
+<p>切换到目录<code>nebula-java</code>。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> nebula-java
-mvn clean install -Dgpg.skip -Dmaven.javadoc.skip<span class="o">=</span><span class="nb">true</span> -Dmaven.test.skip<span class="o">=</span><span class="nb">true</span>
 </code></pre></div>
 </li>
 <li>
-<p>进入 <code>tools/exchange</code> 目录，并编译 Exchange v1.x。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> nebula-java/tools/exchange
-mvn clean package -Dgpg.skip -Dmaven.javadoc.skip<span class="o">=</span><span class="nb">true</span> -Dmaven.test.skip<span class="o">=</span><span class="nb">true</span>
+<p>安装Nebula Java Client 2.0.0。</p>
+<div class="highlight"><pre><span></span><code>mvn clean install -Dmaven.test.skip<span class="o">=</span><span class="nb">true</span> -Dgpg.skip -Dmaven.javadoc.skip<span class="o">=</span><span class="nb">true</span>
 </code></pre></div>
+<blockquote>
+<p><strong>说明</strong>：安装后在本地Maven仓库会生成<code>.jar</code>文件，例如<code>com/vesoft/client/2.0.0/client-2.0.0.jar</code>。</p>
+</blockquote>
+</li>
+<li>
+<p>返回根目录克隆仓库<code>nebula-spark-utils</code>。</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~ <span class="o">&amp;&amp;</span> git clone -b v2.0.0 https://github.com/vesoft-inc/nebula-spark-utils.git
+</code></pre></div>
+</li>
+<li>
+<p>切换到目录<code>nebula-exchange</code>。</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> nebula-spark-utils/nebula-exchange
+</code></pre></div>
+</li>
+<li>
+<p>打包Nebula Exchange 2.0.0。</p>
+<div class="highlight"><pre><span></span><code>mvn clean package -Dmaven.test.skip<span class="o">=</span><span class="nb">true</span> -Dgpg.skip -Dmaven.javadoc.skip<span class="o">=</span><span class="nb">true</span>
+</code></pre></div>
+<blockquote>
+<p><strong>说明</strong>：如果报错<code>Could not resolve dependencies for project xxx</code>，请修改Maven安装目录下<code>libexec/conf/settings.xml</code>文件的<code>mirror</code>部分：</p>
+<div class="highlight"><pre><span></span><code>&lt;mirror&gt;
+&lt;id&gt;alimaven&lt;/id&gt;
+&lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
+&lt;name&gt;aliyun maven&lt;/name&gt;
+&lt;url&gt;http://maven.aliyun.com/nexus/content/repositories/central/&lt;/url&gt;
+&lt;/mirror&gt;
+</code></pre></div>
+</blockquote>
 </li>
 </ol>
-<p>编译成功后，您可以在当前目录里看到如下目录结构。</p>
-<div class="highlight"><pre><span></span><code>├── README.md
-├── dependency-reduced-pom.xml
+<p>编译成功后，您可以在当前目录里查看到类似如下目录结构。</p>
+<div class="highlight"><pre><span></span><code>.
+├── README-CN.md
+├── README.md
 ├── pom.xml
-├── scripts
-│   ├── README.md
-│   ├── mock_data.py
-│   ├── pulsar_producer.py
-│   ├── requirements.txt
-│   └── verify_nebula.py
 ├── src
-│   └── main
+│   ├── main
+│   └── test
 └── target
     ├── classes
     ├── classes.timestamp
-    ├── exchange-1.x.y-javadoc.jar
-    ├── exchange-1.x.y-sources.jar
-    ├── exchange-1.x.y.jar
-    ├── generated-test-sources
     ├── maven-archiver
-    ├── maven-status
-    ├── original-exchange-1.x.y.jar
-    ├── site
-    ├── test-classes
-    └── test-classes.timestamp
+    ├── nebula-exchange-2.x.y-javadoc.jar
+    ├── nebula-exchange-2.x.y-sources.jar
+    ├── nebula-exchange-2.x.y.jar
+    ├── original-nebula-exchange-2.x.y.jar
+    └── site
 </code></pre></div>
-<p>在 <code>target</code> 目录下，您可以看到 <code>exchange-1.x.y.jar</code> 文件。</p>
+<p>在<code>target</code>目录下，您可以找到<code>exchange-2.x.y.jar</code>文件。</p>
 <blockquote>
-<p><strong>说明</strong>：JAR 文件版本号会因 Nebula Java Client 的发布版本而异。您可以在 <a href="https://github.com/vesoft-inc/nebula-java/releases" title="点击前往 GitHub 网站">nebula-java 仓库的 Releases 页面</a> 查看最新的 v1.x 版本。</p>
+<p><strong>说明</strong>：<code>.jar</code>文件版本号会因Nebula Java Client的发布版本而变化。您可以在<a href="https://github.com/vesoft-inc/nebula-java/releases">Releases页面</a>查看最新版本。</p>
 </blockquote>
-<p>在迁移数据时，您可以参考 <code>target/classes/application.conf</code>、<code>target/classes/server_application.conf</code>、<code>target/classes/stream_application.conf</code> 根据实际情况修改配置文件。</p>
+<p>迁移数据时，您可以参考配置文件<code>target/classes/application.conf</code>、<code>target/classes/server_application.conf</code>和<code>target/classes/stream_application.conf</code>。</p>
                 
                   
                 
