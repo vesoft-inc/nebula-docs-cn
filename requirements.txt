@@ -4,6 +4,7 @@ mike==0.5.5
 mkdocs-material
 mdx_truly_sane_lists
 mkdocs_latest_release_plugin
+mkdocs-git-revision-date-localized-plugin
 weasyprint
 mkdocs-with-pdf
 qrcode

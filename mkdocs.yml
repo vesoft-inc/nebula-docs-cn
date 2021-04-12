@@ -340,6 +340,7 @@ markdown_extensions:
 plugins:
   - search
   - macros
+  - git-revision-date-localized
   - with-pdf:
       copyright: 2021 Vesoft Inc.
       cover_subtitle: v2.0.0
