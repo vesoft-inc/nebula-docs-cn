@@ -33,22 +33,17 @@ extra_css:
 # Customization
   - css/version-select.css
 extra:
+  nebula:
+    release: 2.0.0
+    nightly: nightly
+  version:
+    method: mike
   social:
-    - type: 'github'
-      link: 'https://github.com/vesoft-inc/nebula'
-    - type: 'weibo'
-      link: 'https://www.weibo.com/u/7122684542?is_hot=1'
-    - type: 'twitter'
-      link: 'https://twitter.com/NebulaGraph'
-    - type: 'linkedin'
-      link: 'https://www.linkedin.com/company/vesoft-nebula-graph/'
-    - type: 'facebook'
-      link: 'https://www.facebook.com/NebulaGraph/'
-    - type: 'slack'
-      link: 'https://app.slack.com/client/TJB3N2BPD/CJNFUM7AR'
-
+    - icon: 'fontawesome/brands/github'
+      link: 'https://github.com/vesoft-inc/nebula-docs-cn'
+  
 nav:
-    # - Version: '../'
+  - 前言: README.md
   - 简介:
       - 什么是Nebula Graph: 1.introduction/1.what-is-nebula-graph.md
       - 数据结构: 1.introduction/2.data-model.md
@@ -334,7 +329,7 @@ nav:
   - English:
       - https://docs.nebula-graph.io/
   - PDF:
-      - 下载PDF : ./pdf/NebulaGraph-zh.pdf
+      - 下载PDF : ./pdf/NebulaGraph-CN.pdf
 
 # Extensions
 markdown_extensions:
@@ -350,14 +345,15 @@ markdown_extensions:
 # Plugins
 plugins:
   - search
+  - macros
   - with-pdf:
       copyright: 2021 Vesoft Inc.
       cover_subtitle: v2.0.0
       author: 吴敏,周瑶,张莹,梁振亚
       cover: true
       back_cover: true
-      cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png'
-      output_path: pdf/NebulaGraph-zh.pdf
+      cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
+      output_path: pdf/NebulaGraph-CN.pdf
       show_anchors: true
 
 extra_javascript:
