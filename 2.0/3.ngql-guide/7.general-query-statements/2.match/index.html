@@ -1703,7 +1703,7 @@
 <h1 id="match">MATCH<a class="headerlink" href="#match" title="Permanent link">¶</a></h1>
 <p><code>MATCH</code>语句提供基于模式（pattern）匹配的搜索功能。</p>
 <p>一个<code>MATCH</code>语句定义了一个<a href="../../1.nGQL-overview/3.graph-patterns/">搜索模式</a>，用该模式匹配存储在Nebula Graph中的数据，然后用<code>RETURN</code>子句检索数据。</p>
-<p>本文示例使用测试数据库<code>nba</code>进行演示。</p>
+<p>本文示例使用测试数据库<code>basketballplayer</code>进行演示。</p>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <p>与<code>GO</code>或<code>LOOKUP</code>等其他查询语句相比，<code>MATCH</code>的语法更灵活。<code>MATCH</code>语法可以概括如下：</p>
 <div class="highlight"><pre><span></span><code>MATCH &lt;pattern&gt; [&lt;WHERE clause&gt;] RETURN &lt;output&gt;
@@ -2247,7 +2247,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;(v2) \
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月13日</span>
 </small>
 </div>
 </article>

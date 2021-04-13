@@ -1703,7 +1703,7 @@
 <div class="highlight"><pre><span></span><code>Feature: Match seek by tag
 
   Background: Prepare space
-    Given a graph with space named "nba"
+    Given a graph with space named "basketballplayer"
 
   Scenario: seek by empty tag index
     When executing query:
@@ -1778,11 +1778,11 @@
 <h3 id="time_spent">返回消息中<code>time spent</code>的含义是什么？<a class="headerlink" href="#time_spent" title="Permanent link">¶</a></h3>
 <p>将命令<code>SHOW SPACES</code>返回的消息作为示例：</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; SHOW SPACES;
-+------+
-| Name |
-+------+
-| nba  |
-+------+
++-------------------+
+| Name              |
++-------------------+
+| basketballplayer  |
++-------------------+
 Got 1 rows (time spent 1235/1934 us)
 </code></pre></div>
 <ul>

@@ -1850,41 +1850,41 @@ Got 4 rows (time spent 1061/2251 us)
 <h3 id="_4">示例<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
 <ol>
 <li>
-<p>执行如下语句创建名为<code>nba</code>的图空间。</p>
+<p>执行如下语句创建名为<code>basketballplayer</code>的图空间。</p>
 <p><code>ngql
- nebula&gt; CREATE SPACE nba(partition_num=15, replica_factor=1, vid_type=fixed_string(30));
+ nebula&gt; CREATE SPACE basketballplayer(partition_num=15, replica_factor=1, vid_type=fixed_string(30));
   Execution succeeded (time spent 2817/3280 us)</code></p>
 </li>
 <li>
 <p>执行命令<code>SHOW HOSTS</code>检查分片的分布情况，确保平衡分布。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; SHOW HOSTS;
-+-------------+-----------+-----------+--------------+---------------------+------------------------+
-| Host        | Port      | Status    | Leader count | Leader distribution | Partition distribution |
-+-------------+-----------+-----------+--------------+---------------------+------------------------+
-| "storaged0" | 9779      | "ONLINE"  | 5            | "nba:5"             | "nba:5"                |
-+-------------+-----------+-----------+--------------+---------------------+------------------------+
-| "storaged1" | 9779      | "ONLINE"  | 5            | "nba:5"             | "nba:5"                |
-+-------------+-----------+-----------+--------------+---------------------+------------------------+
-| "storaged2" | 9779      | "ONLINE"  | 5            | "nba:5"             | "nba:5"                |
-+-------------+-----------+-----------+--------------+---------------------+------------------------+
-| "Total"     | __EMPTY__ | __EMPTY__ | 15           | "nba:15"            | "nba:15"               |
-+-------------+-----------+-----------+--------------+---------------------+------------------------+
++-------------+-----------+-----------+--------------+----------------------------------+------------------------+
+| Host        | Port      | Status    | Leader count | Leader distribution              | Partition distribution |
++-------------+-----------+-----------+--------------+----------------------------------+------------------------+
+| "storaged0" | 9779      | "ONLINE"  | 5            | "basketballplayer:5"             | "basketballplayer:5"   |
++-------------+-----------+-----------+--------------+----------------------------------+------------------------+
+| "storaged1" | 9779      | "ONLINE"  | 5            | "basketballplayer:5"             | "basketballplayer:5"   |
++-------------+-----------+-----------+--------------+----------------------------------+------------------------+
+| "storaged2" | 9779      | "ONLINE"  | 5            | "basketballplayer:5"             | "basketballplayer:5"   |
++-------------+-----------+-----------+--------------+----------------------------------+------------------------+
+| "Total"     | __EMPTY__ | __EMPTY__ | 15           | "basketballplayer:15"            | "basketballplayer:15"  |
++-------------+-----------+-----------+--------------+----------------------------------+------------------------+
 Got 4 rows (time spent 1633/2867 us)
 </code></pre></div>
 <p>如果<strong>Leader distribution</strong>分布不均匀，请执行命令<code>BALANCE LEADER</code>重新分配。更多信息，请参见<a href="../../8.service-tuning/load-balance/">Storage负载均衡</a>。</p>
 </li>
 <li>
-<p>选择图空间<code>nba</code>。</p>
-<div class="highlight"><pre><span></span><code>nebula[(none)]&gt; USE nba;
+<p>选择图空间<code>basketballplayer</code>。</p>
+<div class="highlight"><pre><span></span><code>nebula[(none)]&gt; USE basketballplayer;
 Execution succeeded (time spent 1229/2318 us)
 </code></pre></div>
 <p>您可以执行命令<code>SHOW SPACES</code>查看创建的图空间。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; SHOW SPACES;
-+-------+
-| Name  |
-+-------+
-| "nba" |
-+-------+
++--------------------+
+| Name               |
++--------------------+
+| "basketballplayer" |
++--------------------+
 Got 1 rows (time spent 977/2000 us)
 </code></pre></div>
 </li>
@@ -1968,7 +1968,7 @@ Wed, 24 Feb 2021 03:48:16 EST
 </ul>
 <h3 id="_8">示例<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
 <ul>
-<li>插入代表NBA球员和球队的点。<div class="highlight"><pre><span></span><code>nebula&gt; INSERT VERTEX player(name, age) VALUES "player100":("Tim Duncan", 42);
+<li>插入代表球员和球队的点。<div class="highlight"><pre><span></span><code>nebula&gt; INSERT VERTEX player(name, age) VALUES "player100":("Tim Duncan", 42);
 Execution succeeded (time spent 28196/30896 us)
 
 Wed, 24 Feb 2021 03:55:08 EST
@@ -1991,7 +1991,7 @@ Wed, 24 Feb 2021 03:55:47 EST
 </li>
 </ul>
 <ul>
-<li>插入代表NBA球员和球队之间关系的边。<div class="highlight"><pre><span></span><code>nebula&gt; INSERT EDGE follow(degree) VALUES "player100" -&gt; "player101":(95);
+<li>插入代表球员和球队之间关系的边。<div class="highlight"><pre><span></span><code>nebula&gt; INSERT EDGE follow(degree) VALUES "player100" -&gt; "player101":(95);
 Execution succeeded (time spent 3362/4542 us)
 
 Wed, 24 Feb 2021 03:57:36 EST
@@ -2354,7 +2354,7 @@ Got 1 rows (time spent 5132/6246 us)
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月9日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月13日</span>
 </small>
 </div>
 </article>

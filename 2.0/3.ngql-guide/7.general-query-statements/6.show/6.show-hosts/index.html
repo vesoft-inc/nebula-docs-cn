@@ -1421,15 +1421,15 @@
 </code></pre></div>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code>nebula&gt; SHOW HOSTS;
-+-------------+-------+----------+--------------+---------------------+------------------------+
-| Host        | Port  | Status   | Leader count | Leader distribution | Partition distribution |
-+-------------+-------+----------+--------------+---------------------+------------------------+
-| "storaged0" | 9779  | "ONLINE" | 8            | "docs:5, nba:3"     | "docs:5, nba:3"        |
-+-------------+-------+----------+--------------+---------------------+------------------------+
-| "storaged1" | 9779  | "ONLINE" | 9            | "nba:4, docs:5"     | "docs:5, nba:4"        |
-+-------------+-------+----------+--------------+---------------------+------------------------+
-| "storaged2" | 9779  | "ONLINE" | 8            | "nba:3, docs:5"     | "docs:5, nba:3"        |
-+-------------+-------+----------+--------------+---------------------+------------------------+
++-------------+-------+----------+--------------+----------------------------------+-----------------------------+
+| Host        | Port  | Status   | Leader count | Leader distribution              | Partition distribution      |
++-------------+-------+----------+--------------+----------------------------------+-----------------------------+
+| "storaged0" | 9779  | "ONLINE" | 8            | "docs:5, basketballplayer:3"     | "docs:5, basketballplayer:3"|
++-------------+-------+----------+--------------+----------------------------------+-----------------------------+
+| "storaged1" | 9779  | "ONLINE" | 9            | "basketballplayer:4, docs:5"     | "docs:5, basketballplayer:4"|
++-------------+-------+----------+--------------+----------------------------------+-----------------------------+
+| "storaged2" | 9779  | "ONLINE" | 8            | "basketballplayer:3, docs:5"     | "docs:5, basketballplayer:3"|
++-------------+-------+----------+--------------+----------------------------------+-----------------------------+
 Got 3 rows (time spent 866/1411 us)
 
 nebula&gt; SHOW HOSTS GRAPH;
@@ -1454,7 +1454,7 @@ nebula&gt; SHOW HOSTS META;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年3月29日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月13日</span>
 </small>
 </div>
 </article>

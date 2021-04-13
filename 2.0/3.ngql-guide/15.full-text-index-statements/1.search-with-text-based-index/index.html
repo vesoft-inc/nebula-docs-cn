@@ -1489,9 +1489,9 @@
 <li><code>timeout</code>：可选项。指定超时时间。单位：毫秒（ms）。默认值为<code>200</code>。</li>
 </ul>
 <h2 id="_6">示例<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span></span><code>nebula&gt; CREATE SPACE nba (partition_num=3,replica_factor=1, vid_type=fixed_string(30));
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE SPACE basketballplayer (partition_num=3,replica_factor=1, vid_type=fixed_string(30));
 nebula&gt; SIGN IN TEXT SERVICE (127.0.0.1:9200);
-nebula&gt; USE nba;
+nebula&gt; USE basketballplayer;
 nebula&gt; ADD LISTENER ELASTICSEARCH 192.168.8.5:46780;
 nebula&gt; CREATE TAG player(name string, age int);
 nebula&gt; CREATE TAG INDEX name ON player(name(20));
@@ -1568,7 +1568,7 @@ nebula&gt; LOOKUP ON player WHERE FUZZY(player.name, "Tim Dunncan", AUTO, OR) YI
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月1日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月13日</span>
 </small>
 </div>
 </article>
