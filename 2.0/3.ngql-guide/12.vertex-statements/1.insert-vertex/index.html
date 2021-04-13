@@ -1429,6 +1429,7 @@
 </a>
 <h1 id="insert_vertex">INSERT VERTEX<a class="headerlink" href="#insert_vertex" title="Permanent link">¶</a></h1>
 <p><code>INSERT VERTEX</code>语句可以在Nebula Graph实例的指定图空间中插入一个或多个点。</p>
+<p>插入一个VID已存在的点时，<code>INSERT VERTEX</code>将覆盖原有的点。</p>
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <p>执行<code>INSERT VERTEX</code>语句需要当前登录的用户拥有指定图空间的<a href="../../../7.data-security/1.authentication/3.role-list/">插入点权限</a>，否则会报错。</p>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
@@ -1514,7 +1515,7 @@ nebula&gt; FETCH PROP on t5 "004";
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年3月31日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月13日</span>
 </small>
 </div>
 </article>

@@ -1419,6 +1419,7 @@
 </a>
 <h1 id="insert_edge">INSERT EDGE<a class="headerlink" href="#insert_edge" title="Permanent link">¶</a></h1>
 <p><code>INSERT EDGE</code>语句可以在Nebula Graph实例的指定图空间中插入一条或多条边。边是有方向的，从起始点（src_vid）到目的点（dst_vid）。</p>
+<p><code>INSERT EDGE</code>的执行方式为覆盖式插入。如果已有边类型、起点、终点、rank都相同的边，则<strong>覆盖</strong>原边。</p>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code>INSERT EDGE &lt;edge_type&gt; ( &lt;prop_name_list&gt; ) {VALUES | VALUE}
 &lt;src_vid&gt; -&gt; &lt;dst_vid&gt;[@&lt;rank&gt;] : ( &lt;prop_value_list&gt; )
@@ -1485,7 +1486,7 @@ nebula&gt; FETCH PROP ON e2 "11"-&gt;"13";
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年3月31日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月13日</span>
 </small>
 </div>
 </article>

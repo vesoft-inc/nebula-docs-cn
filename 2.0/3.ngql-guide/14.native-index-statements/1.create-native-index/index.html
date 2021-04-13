@@ -1505,6 +1505,9 @@
 <div class="highlight"><pre><span></span><code>CREATE {TAG | EDGE} INDEX [IF NOT EXISTS] &lt;index_name&gt; ON {&lt;tag_name&gt; | &lt;edge_name&gt;} ([prop_name_list]);
 </code></pre></div>
 <ul>
+<li><code>index_name</code>：索引名。索引名在一个图空间中必须是唯一的。推荐的命名方式为<code>i_tagName_propName</code>。</li>
+</ul>
+<ul>
 <li><code>IF NOT EXISTS</code>：检测待创建的索引是否存在，只有不存在时，才会创建索引。</li>
 </ul>
 <ul>
@@ -1572,7 +1575,7 @@ nebula&gt; CREATE TAG INDEX fix ON fix_string(p1);
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月7日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月13日</span>
 </small>
 </div>
 </article>
