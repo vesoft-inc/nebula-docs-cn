@@ -1488,8 +1488,8 @@
 <p><img alt="The architecture of the Meta Service" src="https://docs-cdn.nebula-graph.com.cn/docs-2.0/1.introduction/2.nebula-graph-architecture/meta-architecture1.png"/></p>
 <p>Meta服务是由nebula-metad进程提供的，您可以根据场景配置nebula-metad进程数量：</p>
 <ul>
-<li>测试环境中，您可以在每个机器上配置1个或3个nebula-metad进程。</li>
-<li>生产环境中，建议您在每个机器上都配置3个nebula-metad进程以保证高可用。</li>
+<li>测试环境中，您可以在Nebula Graph集群中部署1个或3个nebula-metad进程。如果要部署3个，您可以将它们部署在1台机器上，或者分别部署在不同的机器上。</li>
+<li>生产环境中，建议您在Nebula Graph集群中部署3个nebula-metad进程。请将这些进程部署在不同的机器上以保证高可用。</li>
 </ul>
 <p>所有nebula-metad进程构成了基于Raft协议的集群，其中一个进程是leader，其他进程都是follower。</p>
 <p>leader是由多数派选举出来，只有leader能够对客户端或其他组件提供服务，其他follower作为候补，如果leader出现故障，会在所有follower中选举出新的leader。</p>
@@ -1516,7 +1516,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月6日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月13日</span>
 </small>
 </div>
 </article>
