@@ -322,7 +322,9 @@ nav:
 
   - 社区贡献:
       - 如何贡献: 15.contribution/how-to-contribute.md
+
   - English:  https://docs.nebula-graph.io/
+
   - PDF: ./pdf/NebulaGraph-CN.pdf
 
 # Extensions
