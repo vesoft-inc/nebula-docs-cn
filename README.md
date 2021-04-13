@@ -1,15 +1,7 @@
 # Nebula Graph 文档
 
-欢迎来到 Nebula Graph 中文文档库！英文文档位于 [nebula-docs](https://github.com/vesoft-inc/nebula-docs) 仓库。如果你发现或遇到了文档问题，可随时提 Issue 反馈，或者直接提交 Pull Request 进行修改。
-
-## 文档索引
-
-- Nebula Graph 1.1 [文档索引](docs/manual-CN/README.md)
-- Nebula Graph 2.0 [文档索引](TODO)(TODO)
-- [English Document](https://docs.nebula-graph.io/)
-- 客户端 (TODO)
-- [Nebula Graph Cloud Service](https://cloud-docs.nebula-graph.com.cn/cn/posts/toc/dbaas-ug-toc/)
-- [Nebula Graph Studio](https://docs.nebula-graph.com.cn/nebula-studio/about-studio/st-ug-what-is-graph-studio/)
+- [中文](https://docs.nebula-graph.com.cn/)
+- [English](https://docs.nebula-graph.io)
 
 ## 贡献文档
 
