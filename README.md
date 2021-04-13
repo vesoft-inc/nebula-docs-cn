@@ -1,7 +1,7 @@
 # Nebula Graph 文档
 
 - [中文](https://docs.nebula-graph.com.cn/)
-- [Englist](https://docs.nebula-graph.io)
+- [English](https://docs.nebula-graph.io)
 
 ## 贡献文档
 
