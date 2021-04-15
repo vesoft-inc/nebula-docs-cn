@@ -147,7 +147,7 @@ nav:
       - 安装:
         - rpm 安装: manual-CN/3.build-develop-and-administration/2.install/1.install-with-rpm-deb.md
         - 启停服务: manual-CN/3.build-develop-and-administration/2.install/2.start-stop-service.md
-        - 集群部署: manual-CN/3.build-develop-and-administration/2.install/deploy-nebula-with-swarm.md
+        - 集群部署: manual-CN/3.build-develop-and-administration/2.install/4.cluster-deploy.md
         - Docker 安装: manual-CN/3.build-develop-and-administration/2.install/3.install-with-docker.md
       - 配置:
           - 系统要求: manual-CN/3.build-develop-and-administration/3.configurations/0.system-requirement.md

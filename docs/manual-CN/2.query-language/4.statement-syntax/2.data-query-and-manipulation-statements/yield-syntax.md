@@ -53,7 +53,7 @@ nebula> GO FROM 100 OVER follow YIELD follow._dst AS id | YIELD $-.* WHERE $-.id
 | 106   |
 ---------
 
-nebula> $var1 = GO FROM 101 OVER follow; $var2 = GO FROM 105 OVER follow; YIELD $var1.* UNION YIELD $var2.*;
+nebula> $var1 = GO FROM 101 OVER follow; $var2 = GO FROM 105 OVER follow; YIELD DISTINCT $var1.* UNION YIELD $var2.*;
 
 =====================
 | $var1.follow._dst |
@@ -64,8 +64,22 @@ nebula> $var1 = GO FROM 101 OVER follow; $var2 = GO FROM 105 OVER follow; YIELD 
 ---------------------
 | 104               |
 ---------------------
-| 110               |
+| 116               |
 ---------------------
+| 125               |
+---------------------
+
+nebula> GO 2 STEPS FROM 100 OVER follow YIELD follow._dst AS dst | YIELD DISTINCT $-.dst AS dst
+
+=======
+| dst |
+=======
+| 100 |
+-------
+| 102 |
+-------
+| 125 |
+-------
 ```
 
 ### 作为独立的语句
@@ -94,10 +108,4 @@ nebula> YIELD hash("Tim") % 100;
 | 42                |
 ---------------------
 
-```
-
-**注意：** 不支持 `YIELD DISTINCT` 在单句中使用。
-
-```ngql
-nebula> YIELD DISTINCT 1;     --- 语法错误
 ```
