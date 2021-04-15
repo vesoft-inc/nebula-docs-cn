@@ -3,12 +3,12 @@ site_name: Nebula Graph 手册
 site_description: Documentation for Nebula Graph Database
 site_author: Nebula Graph
 site_url: https://docs.nebula-graph.com.cn/
-edit_uri: ''
+edit_uri: 'edit/v1.2.1/docs/'
 docs_dir: docs
 
 # repository
-repo_name: 'vesoft-inc/nebula'
-repo_url: 'https://github.com/vesoft-inc/nebula'
+repo_name: 'vesoft-inc/nebula-docs-cn'
+repo_url: 'https://github.com/vesoft-inc/nebula-docs-cn'
 
 # Copyright
 copyright: Copyright &copy; 2020 Nebula Graph - 浙ICP备20010487号
@@ -20,10 +20,12 @@ theme:
     icon: library_books
   favicon: 'assets/images/favicon.ico'
   palette:
-    primary: 'indigo'
-    accent: 'indigo'
+    primary: 'amber'
+    accent: 'amber'
   feature:
-    tabs: false
+    - tabs: false
+    - navigation.expand
+    - navigation.top
   language: 'zh'
 
 extra_css:
@@ -317,6 +319,8 @@ markdown_extensions:
 # Plugins
 plugins:
   - search
+  - macros
+  - git-revision-date-localized
   - with-pdf:
       copyright: 2021 Vesoft Inc.
       cover_subtitle: v1.2.1
@@ -330,6 +334,8 @@ plugins:
 extra_javascript:
   - js/version-select.js
 
-
+google_analytics:
+  - UA-60523578-15
+  - auto
 
 
