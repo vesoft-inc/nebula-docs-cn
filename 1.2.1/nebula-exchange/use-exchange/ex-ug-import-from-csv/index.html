@@ -1893,12 +1893,12 @@
 <li>Hadoop：2.9.2，伪分布式部署</li>
 </ul>
 <ul>
-<li>Nebula Graph：V1.1.0，使用 Docker Compose 部署。详细信息，参考 <a href="https://github.com/vesoft-inc/nebula-docker-compose/blob/master/README_zh-CN.md">使用 Docker Compose 部署 Nebula Graph</a></li>
+<li>Nebula Graph：V1.2.1，使用 Docker Compose 部署。详细信息，参考 <a href="https://github.com/vesoft-inc/nebula-docker-compose/blob/master/README_zh-CN.md">使用 Docker Compose 部署 Nebula Graph</a></li>
 </ul>
 <h2 id="_3">前提条件<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <p>开始导入数据之前，您需要确认以下信息：</p>
 <ul>
-<li>已经完成 Exchange 编译。详细信息，参考 <a href="../../ex-ug-compile/">编译 Exchange</a>。本示例中使用 Exchange v1.1.0。</li>
+<li>已经完成 Exchange 编译。详细信息，参考 <a href="../../ex-ug-compile/">编译 Exchange</a>。本示例中使用 Exchange v1.2.1。</li>
 </ul>
 <ul>
 <li>已经安装 Spark。</li>
@@ -2057,7 +2057,7 @@ CREATE EDGE action (actionId int, duration double, label bool, feature0 double, 
       # fields 与 nebula.fields 的顺序必须一一对应。
       nebula.fields: [courseId, courseName]
 
-      # Exchange 1.1.0 添加了 csv.fields 参数：
+      # Exchange 1.2.1 添加了 csv.fields 参数：
       # 如果配置了 csv.fields，无论 CSV 文件是否有表头，
       # fields 的配置必须与 csv.fields 的配置保持一致。
       # csv.fields: [courseId, courseName]
@@ -2097,7 +2097,7 @@ CREATE EDGE action (actionId int, duration double, label bool, feature0 double, 
       }
       path: "hdfs://namenode_ip:port/path/to/user.csv"
 
-      # Exchange 1.1.0 添加了 csv.fields 参数
+      # Exchange 1.2.1 添加了 csv.fields 参数
       # 如果 CSV 文件里不带表头，但是配置了 csv.fields，
       # 则 fields 的配置必须与 csv.fields 保持一致，
       # Exchange 会将 csv.fields 里的设置作为表头。
@@ -2157,7 +2157,7 @@ CREATE EDGE action (actionId int, duration double, label bool, feature0 double, 
       # Nebula Graph 中 action 的属性名称，必须与 fields 里的列顺序一一对应。
       nebula.fields: [actionId, duration, feature0, feature1, feature2, feature3, label]
 
-      # Exchange 1.1.0 添加了 csv.fields 参数：
+      # Exchange 1.2.1 添加了 csv.fields 参数：
       # 如果配置了 csv.fields，无论 CSV 文件是否有表头，
       # 均以这个参数指定的名称作为表头，
       # fields 的配置必须与 csv.fields 的配置保持一致。
@@ -2191,11 +2191,11 @@ CREATE EDGE action (actionId int, duration double, label bool, feature0 double, 
 </code></pre></div>
 <h3 id="4">步骤 4. （可选）检查配置文件是否正确<a class="headerlink" href="#4" title="Permanent link">¶</a></h3>
 <p>完成配置后，运行以下命令检查配置文件格式是否正确。关于参数的说明，参考 <a href="../../parameter-reference/ex-ug-para-import-command/">导入命令参数</a>。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$SPARK_HOME</span>/bin/spark-submit --master <span class="s2">"local"</span> --class com.vesoft.nebula.tools.importer.Exchange /path/to/exchange-1.1.0.jar -c /path/to/conf/csv_application.conf -D
+<div class="highlight"><pre><span></span><code><span class="nv">$SPARK_HOME</span>/bin/spark-submit --master <span class="s2">"local"</span> --class com.vesoft.nebula.tools.importer.Exchange /path/to/exchange-1.2.1.jar -c /path/to/conf/csv_application.conf -D
 </code></pre></div>
 <h3 id="5_nebula_graph">步骤 5. 向 Nebula Graph 导入数据<a class="headerlink" href="#5_nebula_graph" title="Permanent link">¶</a></h3>
 <p>运行以下命令将 CSV 文件数据导入到 Nebula Graph 中。关于参数的说明，参考 <a href="../../parameter-reference/ex-ug-para-import-command/">导入命令参数</a>。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$SPARK_HOME</span>/bin/spark-submit --master <span class="s2">"local"</span> --class com.vesoft.nebula.tools.importer.Exchange /path/to/exchange-1.1.0.jar -c /path/to/conf/csv_application.conf 
+<div class="highlight"><pre><span></span><code><span class="nv">$SPARK_HOME</span>/bin/spark-submit --master <span class="s2">"local"</span> --class com.vesoft.nebula.tools.importer.Exchange /path/to/exchange-1.2.1.jar -c /path/to/conf/csv_application.conf 
 </code></pre></div>
 <h3 id="6">步骤 6. （可选）验证数据<a class="headerlink" href="#6" title="Permanent link">¶</a></h3>
 <p>您可以在 Nebula Graph 客户端（例如 Nebula Graph Studio）里执行语句，确认数据是否已导入，例如：</p>
@@ -2209,7 +2209,7 @@ CREATE EDGE action (actionId int, duration double, label bool, feature0 double, 
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月7日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月15日</span>
 </small>
 </div>
 </article>
