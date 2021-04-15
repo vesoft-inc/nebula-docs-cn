@@ -36,13 +36,12 @@ jobs:
 
       - name: mike list delete
         run: |
-          #mike delete 2.0.0 -p
           mike list
 
-      - name: Mike Deploy 2.0
+      - name: Mike Deploy 2.0.1
         run: |
-          mike deploy 2.0 -p
-          mike set-default 2.0 -p --rebase
+          mike deploy 2.0.1 -p
+          mike set-default 2.0.1 -p --rebase
           mike list  
 
       - name: show git branch

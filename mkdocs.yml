@@ -19,8 +19,8 @@ theme:
   logo: 'https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png'
   favicon: 'assets/images/favicon.ico'
   palette:
-    primary: 'indigo'
-    accent: 'indigo'
+    primary: 'white'
+    accent: 'white'
   feature:
     - tabs: false
 #    - navigation.expand
@@ -32,8 +32,10 @@ extra_css:
   - css/version-select.css
 extra:
   nebula:
-    release: 2.0.0
-    nightly: nightly
+    base20: 2.0
+    base200: 2.0.0
+    release: 2.0.1
+    nightly: v2-nightly
   version:
     method: mike
   social:
@@ -348,8 +350,8 @@ plugins:
   - git-revision-date-localized
   - with-pdf:
       copyright: 2021 Vesoft Inc.
-      cover_subtitle: v2.0.0
-      author: 吴敏,周瑶,张莹,梁振亚
+      cover_subtitle: v2.0.1
+      author: 吴敏,周瑶,梁振亚
       cover: true
       back_cover: true
       cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
