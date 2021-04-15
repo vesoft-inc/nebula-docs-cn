@@ -1,9 +1,9 @@
 # Project information
-site_name: Nebula Graph 手册
+site_name: Nebula Graph Database 内核手册
 site_description: Documentation for Nebula Graph Database
 site_author: Nebula Graph
-site_url: 'https://docs.nebula-graph.com.cn/'
-edit_uri: 'edit/v1.2.1/docs/'
+site_url: https://docs.nebula-graph.com.cn/
+edit_uri: 'edit/v1.2.1/docs'
 docs_dir: docs
 
 # repository
@@ -11,40 +11,34 @@ repo_name: 'vesoft-inc/nebula-docs-cn'
 repo_url: 'https://github.com/vesoft-inc/nebula-docs-cn'
 
 # Copyright
-copyright: Copyright &copy; 2020 Nebula Graph - 浙ICP备20010487号
+copyright: Copyright &copy; 2021 Nebula Graph - 浙ICP备20010487号
 
 # Configuration
 theme:
   name: 'material'
-  logo:
-    icon: library_books
+  logo: 'https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png'
   favicon: 'assets/images/favicon.ico'
   palette:
-    primary: 'indigo'
-    accent: 'ndigo'
+    primary: 'amber'
+    accent: 'amber'
   feature:
     - tabs: false
+#    - navigation.expand
     - navigation.top
   language: 'zh'
 
 extra_css:
   - 'stylesheets/logo.css'
-  - 'css/version-select.css'
-
+  - css/version-select.css
 extra:
+  nebula:
+    release: v1.2.1
+    nightly: nightly
+  version:
+    method: mike
   social:
-    - type: 'github'
-      link: 'https://github.com/vesoft-inc/nebula'
-    - type: 'weibo'
-      link: 'https://www.weibo.com/u/7122684542?is_hot=1'
-    - type: 'twitter'
-      link: 'https://twitter.com/NebulaGraph'
-    - type: 'linkedin'
-      link: 'https://www.linkedin.com/company/vesoft-nebula-graph/'
-    - type: 'facebook'
-      link: 'https://www.facebook.com/NebulaGraph/'
-    - type: 'slack'
-      link: 'https://app.slack.com/client/TJB3N2BPD/CJNFUM7AR'
+    - icon: 'fontawesome/brands/github'
+      link: 'https://github.com/vesoft-inc/nebula-docs-cn'
 
 nav:
     # - Version: '../'
