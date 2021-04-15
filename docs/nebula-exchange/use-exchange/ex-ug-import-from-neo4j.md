@@ -38,7 +38,7 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
   - 内存：251 GB
 - Spark：单机版，2.4.6 pre-build for Hadoop 2.7
 - Neo4j：3.5.20 Community Edition
-- Nebula Graph：V1.0.1，使用 Docker Compose 部署。详细信息，参考 [使用 Docker Compose 部署 Nebula Graph](https://github.com/vesoft-inc/nebula-docker-compose/blob/master/README_zh-CN.md)
+- Nebula Graph {{ nebula.release }}，使用 Docker Compose 部署。详细信息，参考 [使用 Docker Compose 部署 Nebula Graph](https://github.com/vesoft-inc/nebula-docker-compose/blob/master/README_zh-CN.md)
 
 ### 数据集信息
 
@@ -367,7 +367,7 @@ Exchange 导入数据时，并不会导入 Neo4j 数据库中的索引，所以�
 - 导入 1,000 万条边，耗时 43 s
 - 总耗时：52 s
 
-## 附录：Neo4j 3.5 Community 和 Nebula Graph 1.0.1 对比
+## 附录：Neo4j 3.5 Community 和 Nebula Graph  {{ nebula.release }} 对比
 
 Neo4j 和 Nebula Graph 在系统架构、数据模型和访问方式上都有一些差异，部分差异可能会对您使用 Exchange 迁移数据产生影响。下表列出了常见的异同。
 
@@ -375,7 +375,7 @@ Neo4j 和 Nebula Graph 在系统架构、数据模型和访问方式上都有一
  <tr>
   <th colspan=2>对比项</th>
   <th>Neo4j 3.5 Conmunity</th>
-  <th>Nebula Graph 1.0.1</th>
+  <th>Nebula Graph {{ nebula.release }}</th>
   <th>对使用 Exchange 的影响</th>
  </tr>
  <tr>

@@ -25,13 +25,13 @@
 
 - Hadoop：2.9.2，伪分布式部署
 
-- Nebula Graph：V1.1.0，使用 Docker Compose 部署。详细信息，参考 [使用 Docker Compose 部署 Nebula Graph](https://github.com/vesoft-inc/nebula-docker-compose/blob/master/README_zh-CN.md)
+- Nebula Graph：V{{ nebula.release }}，使用 Docker Compose 部署。详细信息，参考 [使用 Docker Compose 部署 Nebula Graph](https://github.com/vesoft-inc/nebula-docker-compose/blob/master/README_zh-CN.md)
 
 ## 前提条件
 
 开始导入数据之前，您需要确认以下信息：
 
-- 已经完成 Exchange 编译。详细信息，参考 [编译 Exchange](../ex-ug-compile.md)。本示例中使用 Exchange v1.1.0。
+- 已经完成 Exchange 编译。详细信息，参考 [编译 Exchange](../ex-ug-compile.md)。本示例中使用 Exchange v{{ nebula.release }}。
 
 - 已经安装 Spark。
 
@@ -165,7 +165,7 @@
       # fields 与 nebula.fields 的顺序必须一一对应。
       nebula.fields: [courseId, courseName]
 
-      # Exchange 1.1.0 添加了 csv.fields 参数：
+      # Exchange {{ nebula.release }} 添加了 csv.fields 参数：
       # 如果配置了 csv.fields，无论 CSV 文件是否有表头，
       # fields 的配置必须与 csv.fields 的配置保持一致。
       # csv.fields: [courseId, courseName]
@@ -205,7 +205,7 @@
       }
       path: "hdfs://namenode_ip:port/path/to/user.csv"
 
-      # Exchange 1.1.0 添加了 csv.fields 参数
+      # Exchange {{ nebula.release }} 添加了 csv.fields 参数
       # 如果 CSV 文件里不带表头，但是配置了 csv.fields，
       # 则 fields 的配置必须与 csv.fields 保持一致，
       # Exchange 会将 csv.fields 里的设置作为表头。
@@ -265,7 +265,7 @@
       # Nebula Graph 中 action 的属性名称，必须与 fields 里的列顺序一一对应。
       nebula.fields: [actionId, duration, feature0, feature1, feature2, feature3, label]
 
-      # Exchange 1.1.0 添加了 csv.fields 参数：
+      # Exchange {{ nebula.release }} 添加了 csv.fields 参数：
       # 如果配置了 csv.fields，无论 CSV 文件是否有表头，
       # 均以这个参数指定的名称作为表头，
       # fields 的配置必须与 csv.fields 的配置保持一致。
@@ -303,7 +303,7 @@
 完成配置后，运行以下命令检查配置文件格式是否正确。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-$SPARK_HOME/bin/spark-submit --master "local" --class com.vesoft.nebula.tools.importer.Exchange /path/to/exchange-1.1.0.jar -c /path/to/conf/csv_application.conf -D
+$SPARK_HOME/bin/spark-submit --master "local" --class com.vesoft.nebula.tools.importer.Exchange /path/to/exchange-{{ nebula.release }}.jar -c /path/to/conf/csv_application.conf -D
 ```
 
 ### 步骤 5. 向 Nebula Graph 导入数据
@@ -311,7 +311,7 @@ $SPARK_HOME/bin/spark-submit --master "local" --class com.vesoft.nebula.tools.im
 运行以下命令将 CSV 文件数据导入到 Nebula Graph 中。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-$SPARK_HOME/bin/spark-submit --master "local" --class com.vesoft.nebula.tools.importer.Exchange /path/to/exchange-1.1.0.jar -c /path/to/conf/csv_application.conf 
+$SPARK_HOME/bin/spark-submit --master "local" --class com.vesoft.nebula.tools.importer.Exchange /path/to/exchange-{{ nebula.release }}.jar -c /path/to/conf/csv_application.conf 
 ```
 
 ### 步骤 6. （可选）验证数据

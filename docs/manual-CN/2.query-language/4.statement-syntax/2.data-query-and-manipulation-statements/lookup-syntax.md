@@ -71,7 +71,7 @@ nebula> LOOKUP ON follow WHERE follow.degree == 90 YIELD follow.degree;
 | 100    | 106    | 0       | 90            |
 ---------------------------------------------
 
-LOOKUP ON follow WHERE follow.degree == 90 YIELD DISTINCT follow._src;
+nebula> LOOKUP ON follow WHERE follow.degree == 90 YIELD DISTINCT follow._src;
 ===========================================
 | SrcVID | DstVID | Ranking | follow._src |
 ===========================================
@@ -102,7 +102,7 @@ LOOKUP ON follow WHERE follow.degree == 90 YIELD DISTINCT follow._src;
 | 129    | 116    | 0       | 129         |
 -------------------------------------------
 
-LOOKUP ON follow WHERE follow.degree == 90 YIELD DISTINCT follow._dst;
+nebula> LOOKUP ON follow WHERE follow.degree == 90 YIELD DISTINCT follow._dst;
 ===========================================
 | SrcVID | DstVID | Ranking | follow._dst |
 ===========================================
