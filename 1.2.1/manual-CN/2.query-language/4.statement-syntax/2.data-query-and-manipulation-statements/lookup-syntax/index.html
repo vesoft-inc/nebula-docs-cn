@@ -588,6 +588,20 @@
     边查询
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+    FAQ
+  </a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#411">
+    错误码411
+  </a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </li>
@@ -815,7 +829,7 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../../3.build-develop-and-administration/2.install/deploy-nebula-with-swarm.md">
+<a class="md-nav__link" href="../../../../3.build-develop-and-administration/2.install/4.cluster-deploy/">
         集群部署
       </a>
 </li>
@@ -1759,6 +1773,20 @@
     边查询
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+    FAQ
+  </a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#411">
+    错误码411
+  </a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </div>
@@ -1833,6 +1861,58 @@ nebula&gt; LOOKUP ON follow WHERE follow.degree == 90 YIELD follow.degree;
 | 100    | 106    | 0       | 90            |
 ---------------------------------------------
 
+nebula&gt; LOOKUP ON follow WHERE follow.degree == 90 YIELD DISTINCT follow._src;
+===========================================
+| SrcVID | DstVID | Ranking | follow._src |
+===========================================
+| 121    | 116    | 0       | 121         |
+-------------------------------------------
+| 140    | 114    | 0       | 140         |
+-------------------------------------------
+| 142    | 117    | 0       | 142         |
+-------------------------------------------
+| 133    | 114    | 0       | 133         |
+-------------------------------------------
+| 143    | 150    | 0       | 143         |
+-------------------------------------------
+| 114    | 103    | 0       | 114         |
+-------------------------------------------
+| 136    | 117    | 0       | 136         |
+-------------------------------------------
+| 127    | 114    | 0       | 127         |
+-------------------------------------------
+| 147    | 136    | 0       | 147         |
+-------------------------------------------
+| 118    | 120    | 0       | 118         |
+-------------------------------------------
+| 128    | 116    | 0       | 128         |
+-------------------------------------------
+| 138    | 115    | 0       | 138         |
+-------------------------------------------
+| 129    | 116    | 0       | 129         |
+-------------------------------------------
+
+nebula&gt; LOOKUP ON follow WHERE follow.degree == 90 YIELD DISTINCT follow._dst;
+===========================================
+| SrcVID | DstVID | Ranking | follow._dst |
+===========================================
+| 121    | 116    | 0       | 116         |
+-------------------------------------------
+| 140    | 114    | 0       | 114         |
+-------------------------------------------
+| 142    | 117    | 0       | 117         |
+-------------------------------------------
+| 133    | 114    | 0       | 114         |
+-------------------------------------------
+| 114    | 103    | 0       | 103         |
+-------------------------------------------
+| 136    | 117    | 0       | 117         |
+-------------------------------------------
+| 118    | 120    | 0       | 120         |
+-------------------------------------------
+| 128    | 116    | 0       | 116         |
+-------------------------------------------
+
 nebula&gt; LOOKUP ON follow WHERE follow.degree == 60 YIELD follow.degree AS Degree | \
 GO FROM $-.DstVID OVER serve YIELD $-.DstVID, serve.start_year, serve.end_year, $$.team.name;
 ================================================================
@@ -1845,11 +1925,31 @@ GO FROM $-.DstVID OVER serve YIELD $-.DstVID, serve.start_year, serve.end_year, 
 | 105       | 2018             | 2019           | Raptors      |
 ----------------------------------------------------------------
 </code></pre></div>
+<h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">¶</a></h2>
+<h3 id="411">错误码<code>411</code><a class="headerlink" href="#411" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>ERROR <span class="o">(</span>-8<span class="o">)]</span>: Unknown error<span class="o">(</span><span class="m">411</span><span class="o">)</span>:
+</code></pre></div>
+<p>错误码<code>411</code>表示<code>WHERE</code>过滤时没有有效的索引。Nebula Graph的索引使用的是最左匹配原则，即从最左边的为起点任何连续的索引都能匹配上。例如：</p>
+<div class="highlight"><pre><span></span><code># 为标签t的前三个属性创建索引。
+nebula&gt; CREATE TAG INDEX example_index ON TAG t(p1, p2, p3);
+
+# 无法匹配索引，因为不是从p1开始。
+nebula&gt; LOOKUP ON t WHERE p2 == 1 and p3 == 1; 
+
+# 可以匹配索引。
+nebula&gt; LOOKUP ON t WHERE p1 == 1;  
+
+# 可以匹配索引，因为p1和p2是连续的。
+nebula&gt; LOOKUP ON t WHERE p1 == 1 and p2 == 1;  
+
+# 可以匹配索引，因为p1、p2、p3是连续的。
+nebula&gt; LOOKUP ON t WHERE p1 == 1 and p2 == 1 and p3 == 1; 
+</code></pre></div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2020年4月29日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月15日</span>
 </small>
 </div>
 </article>
