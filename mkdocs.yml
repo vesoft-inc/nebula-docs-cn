@@ -22,7 +22,9 @@ theme:
     primary: 'indigo'
     accent: 'indigo'
   feature:
-    tabs: false
+    - tabs: false
+#    - navigation.expand
+    - navigation.top
   language: 'zh'
 
 extra_css:
@@ -333,6 +335,7 @@ markdown_extensions:
   - codehilite:
       guess_lang: false
   - toc:
+#      toc_depth: 3
       permalink: true
       separator: "_"
   - mdx_truly_sane_lists
@@ -356,3 +359,6 @@ plugins:
 extra_javascript:
   - js/version-select.js
 
+google_analytics:
+  - UA-60523578-15
+  - auto
