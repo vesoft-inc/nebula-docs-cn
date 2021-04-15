@@ -2,7 +2,7 @@
 site_name: Nebula Graph 手册
 site_description: Documentation for Nebula Graph Database
 site_author: Nebula Graph
-site_url: https://docs.nebula-graph.com.cn/
+site_url: 'https://docs.nebula-graph.com.cn/'
 edit_uri: 'edit/v1.2.1/docs/'
 docs_dir: docs
 
@@ -20,11 +20,10 @@ theme:
     icon: library_books
   favicon: 'assets/images/favicon.ico'
   palette:
-    primary: 'amber'
-    accent: 'amber'
+    primary: 'indigo'
+    accent: 'ndigo'
   feature:
     - tabs: false
-    - navigation.expand
     - navigation.top
   language: 'zh'
 
