@@ -32,7 +32,7 @@ extra_css:
   - css/version-select.css
 extra:
   nebula:
-    release: v1.2.1
+    release: 1.2.1
     nightly: nightly
   version:
     method: mike
@@ -308,7 +308,6 @@ markdown_extensions:
   - mdx_truly_sane_lists
   - pymdownx.superfences
 
-
 # Plugins
 plugins:
   - search
@@ -330,5 +329,3 @@ extra_javascript:
 google_analytics:
   - UA-60523578-15
   - auto
-
-
