@@ -67,7 +67,7 @@ scala> sql("describe mooc.actions").show
 
 开始导入数据之前，您需要确认以下信息：
 
-- 已经完成 Exchange 编译。详细信息，参考 [编译 Exchange](../ex-ug-compile.md)。本示例中使用 Exchange v1.1.0。
+- 已经完成 Exchange 编译。详细信息，参考 [编译 Exchange](../ex-ug-compile.md)。本示例中使用 Exchange v{{ nebula.release }}。
 
 - 已经安装 Spark。
 
@@ -323,7 +323,7 @@ only showing top 20 rows
 完成配置后，运行以下命令检查配置文件格式是否正确。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-$SPARK_HOME/bin/spark-submit --master "local" --class com.vesoft.nebula.tools.importer.Exchange /path/to/exchange-1.1.0.jar -c /path/to/conf/hive_application.conf -h -D
+$SPARK_HOME/bin/spark-submit --master "local" --class com.vesoft.nebula.tools.importer.Exchange /path/to/exchange-{{ nebula.release }}.jar -c /path/to/conf/hive_application.conf -h -D
 ```
 
 ### 步骤 5. 向 Nebula Graph 导入数据
@@ -331,7 +331,7 @@ $SPARK_HOME/bin/spark-submit --master "local" --class com.vesoft.nebula.tools.im
 运行以下命令将 HIVE 中的数据导入到 Nebula Graph 中。关于参数的说明，参考 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-$SPARK_HOME/bin/spark-submit --master "local" --class com.vesoft.nebula.tools.importer.Exchange /path/to/exchange-1.1.0.jar -c /path/to/conf/hive_application.conf -h
+$SPARK_HOME/bin/spark-submit --master "local" --class com.vesoft.nebula.tools.importer.Exchange /path/to/exchange-{{ nebula.release }}.jar -c /path/to/conf/hive_application.conf -h
 ```
 
 ### 步骤 6. （可选）验证数据
