@@ -32,7 +32,7 @@ extra_css:
   - css/version-select.css
 extra:
   nebula:
-    release: v1.2.1
+    release: 1.2.1
     nightly: nightly
   version:
     method: mike
@@ -291,11 +291,9 @@ nav:
       - 点标识符和分区: manual-CN/5.appendix/vid-partition.md
       - 超级顶点（稠密点）处理: manual-CN/5.appendix/super-node.md
 
-    - English:
-      - https://docs.nebula-graph.io/
+    - English: https://docs.nebula-graph.io/
 
-    - PDF:
-      - 下载PDF: ./pdf/NebulaGraph-cn.pdf
+    - PDF: ./pdf/NebulaGraph-CN.pdf
 
 # Extensions
 markdown_extensions:
@@ -307,7 +305,6 @@ markdown_extensions:
       separator: "_"
   - mdx_truly_sane_lists
   - pymdownx.superfences
-
 
 # Plugins
 plugins:
@@ -321,8 +318,8 @@ plugins:
       show_anchors: true
       cover: true
       back_cover: true
-      cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-4-pdf.png'
-      output_path: pdf/NebulaGraph-cn.pdf
+      cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
+      output_path: pdf/NebulaGraph-CN.pdf
 
 extra_javascript:
   - js/version-select.js
@@ -330,5 +327,3 @@ extra_javascript:
 google_analytics:
   - UA-60523578-15
   - auto
-
-
