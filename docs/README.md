@@ -1,5 +1,7 @@
 # Nebula Graph 是什么
 
+!!! note "本文档更新时间{{ now().year }}-{{ now().month }}-{{ now().day }}, GitHub commit {{ git.short_commit }}."
+
 **Nebula Graph** 是一款开源的图数据库，擅长处理千亿个顶点和万亿条边的超大规模数据集。
 
 下图为 **Nebula Graph** 产品架构图：

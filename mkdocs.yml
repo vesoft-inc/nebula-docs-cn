@@ -324,7 +324,7 @@ plugins:
       show_anchors: true
       cover: true
       back_cover: true
-      cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png'
+      cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-4-pdf.png'
       output_path: pdf/NebulaGraph-cn.pdf
 
 extra_javascript:
