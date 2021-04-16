@@ -1466,7 +1466,7 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/vesoft-inc/nebula-docs-cn/edit/v2.0.0/docs-2.0/3.ngql-guide/14.native-index-statements/1.create-native-index.md" title="编辑此页">
+<a class="md-content__button md-icon" href="https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/3.ngql-guide/14.native-index-statements/1.create-native-index.md" title="编辑此页">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="create_index">CREATE INDEX<a class="headerlink" href="#create_index" title="Permanent link">¶</a></h1>
@@ -1573,11 +1573,23 @@ nebula&gt; CREATE TAG INDEX fix ON fix_string(p1);
 </blockquote>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG INDEX player_index_1 on player(name(10), age);
 </code></pre></div>
+<p>Nebula Graph的复合索引遵循最左匹配原则，需从组合索引的最左侧开始匹配，详情请参见下方示例。</p>
+<div class="highlight"><pre><span></span><code># 为标签t的前三个属性创建索引。
+nebula&gt; CREATE TAG INDEX example_index ON TAG t(p1, p2, p3);
+# 无法匹配索引，因为不是从p1开始。
+nebula&gt; LOOKUP ON t WHERE p2 == 1 and p3 == 1; 
+# 可以匹配索引。
+nebula&gt; LOOKUP ON t WHERE p1 == 1;  
+# 可以匹配索引，因为p1和p2是连续的。
+nebula&gt; LOOKUP ON t WHERE p1 == 1 and p2 == 1;  
+# 可以匹配索引，因为p1、p2、p3是连续的。
+nebula&gt; LOOKUP ON t WHERE p1 == 1 and p2 == 1 and p3 == 1; 
+</code></pre></div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月13日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月16日</span>
 </small>
 </div>
 </article>
