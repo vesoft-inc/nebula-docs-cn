@@ -1769,12 +1769,12 @@ DESCRIBE {TAG | EDGE} INDEX &lt;index_name&gt;
 <p>同时需要注意的是，DESCRIBE 和 SHOW 也是不同的。 详细参见 <a href="../show-statements/show-charset-syntax/">SHOW</a> 文档。</p>
 <h2 id="_1">示例<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <p>获取指定 space 的信息，对应 <code>DESCRIBE SPACE</code>。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; DESCRIBE SPACE nba;
-========================================================
-| ID |     Name    | Partition number | Replica Factor |
-========================================================
-|  1 |     nba     |             100  |              1 |
---------------------------------------------------------
+<div class="highlight"><pre><span></span><code>nebula&gt; DESCRIBE SPACE basketballplayer;
+=====================================================================
+| ID |     Name                 | Partition number | Replica Factor |
+=====================================================================
+|  1 |     basketballplayer     |             100  |              1 |
+---------------------------------------------------------------------
 </code></pre></div>
 <p>获取指定 tag 的信息，对应 <code>DESCRIBE TAG</code>。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; DESCRIBE TAG player;
@@ -1808,7 +1808,7 @@ DESCRIBE {TAG | EDGE} INDEX &lt;index_name&gt;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2020年5月26日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月16日</span>
 </small>
 </div>
 </article>

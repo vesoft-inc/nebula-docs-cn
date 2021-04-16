@@ -1736,23 +1736,23 @@
 </code></pre></div>
 <p><code>SHOW HOSTS</code> 列出元服务器注册的所有存储主机。<code>SHOW HOSTS</code> 输出以下列：IP 地址、端口号、状态（online/offline）、leader 数量、leader 分布、partition 分布。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; SHOW HOSTS;
-=============================================================================================
-| Ip         | Port  | Status | Leader count | Leader distribution | Partition distribution |
-=============================================================================================
-| 172.28.2.1 | 44500 | online | 0            | No valid partition  | No valid partition     |
----------------------------------------------------------------------------------------------
-| 172.28.2.2 | 44500 | online | 2            | NBA: 1, gods: 1     | NBA: 1, gods: 1        |
----------------------------------------------------------------------------------------------
-| 172.28.2.3 | 44500 | online | 0            | No valid partition  | No valid partition     |
----------------------------------------------------------------------------------------------
-| Total      |       |        | 2            | gods: 1, NBA: 1     | gods: 1, NBA: 1        |
----------------------------------------------------------------------------------------------
+==============================================================================================
+| Ip         | Port  | Status | Leader count | Leader distribution  | Partition distribution |
+==============================================================================================
+| 172.28.2.1 | 44500 | online | 9            | basketballplayer: 9  | basketballplayer: 10   |
+----------------------------------------------------------------------------------------------
+| 172.28.2.2 | 44500 | online | 0            |                      | basketballplayer: 10   |
+----------------------------------------------------------------------------------------------
+| 172.28.2.3 | 44500 | online | 1            | basketballplayer: 1  | basketballplayer: 10   |
+----------------------------------------------------------------------------------------------
+| Total      |       |        | 10           | basketballplayer: 10 | basketballplayer: 30   |
+----------------------------------------------------------------------------------------------
 </code></pre></div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2020年4月29日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月16日</span>
 </small>
 </div>
 </article>

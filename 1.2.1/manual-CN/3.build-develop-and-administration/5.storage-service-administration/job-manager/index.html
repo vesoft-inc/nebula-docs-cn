@@ -1881,19 +1881,19 @@
 <h4 id="_2">返回单个作业信息<a class="headerlink" href="#_2" title="Permanent link">¶</a></h4>
 <p>命令 <code>SHOW JOB &lt;job_id&gt;</code> 用于返回对应 ID 作业及其所有任务。作业到达 Meta 层后，Meta 会将作业分成多个任务并发送至 storage 层。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; SHOW JOB 40;
-=====================================================================================
-| Job Id(TaskId) | Command(Dest) | Status   | Start Time        | Stop Time         |
-=====================================================================================
-| 40             | flush nba     | finished | 12/17/19 17:21:30 | 12/17/19 17:21:30 |
--------------------------------------------------------------------------------------
-| 40-0           | 192.168.8.5   | finished | 12/17/19 17:21:30 | 12/17/19 17:21:30 |
--------------------------------------------------------------------------------------
+==================================================================================================
+| Job Id(TaskId) | Command(Dest)              | Status   | Start Time        | Stop Time         |
+==================================================================================================
+| 40             | flush basketballplayer     | finished | 12/17/19 17:21:30 | 12/17/19 17:21:30 |
+--------------------------------------------------------------------------------------------------
+| 40-0           | 192.168.8.5                | finished | 12/17/19 17:21:30 | 12/17/19 17:21:30 |
+--------------------------------------------------------------------------------------------------
 </code></pre></div>
 <p>执行上述命令将返回 1 到多行结果，取决于 space 所在的 storaged 个数。</p>
 <p>返回结果说明：</p>
 <ul>
 <li><code>40</code> 为当前作业 ID</li>
-<li><code>flush nba</code> 表示在 nba 图空间上执行了 flush 操作</li>
+<li><code>flush basketballplayer</code> 表示在 <code>basketballplayer</code> 图空间上执行了 flush 操作</li>
 <li><code>finished</code> 表示运行已结束，且成功。其他可能的状态有 Queue、running、failed、stopped</li>
 <li><code>12/17/19 17:21:30</code> 表示开始时间，初始为空(Queue)，当且仅当状态变为 running 时，才会设这个值</li>
 <li><code>12/17/19 17:21:30</code> 表示结束时间，如果为 Queue 或者 running 状态，这里会为空，当状态变为 finished、failed、stopped 时会设置此值</li>
@@ -1952,7 +1952,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2020年7月21日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月16日</span>
 </small>
 </div>
 </article>
