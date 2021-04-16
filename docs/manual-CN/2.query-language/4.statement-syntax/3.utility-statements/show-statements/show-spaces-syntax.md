@@ -10,11 +10,11 @@ SHOW SPACES
 
 ```ngql
 nebula> SHOW SPACES;
-========
-| Name |
-========
-| NBA  |
---------
+====================
+| Name             |
+====================
+| basketballplayer |
+--------------------
 ```
 
 参考[这里](../../1.data-definition-statements/create-space-syntax.md)创建图空间。
