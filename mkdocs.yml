@@ -21,9 +21,7 @@ theme:
   palette:
     primary: 'white'
     accent: 'white'
-  feature:
-    - tabs: false
-#    - navigation.expand
+  features:
     - navigation.top
   language: 'zh'
 
