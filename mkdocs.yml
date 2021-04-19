@@ -291,7 +291,6 @@ nav:
       # - Developer Documentation Style Guide: manual-CN/4.contributions/developer-documentation-style-guide.md
       - 如何贡献: manual-CN/4.contributions/how-to-contribute.md
       - PR and Commit 信息指南: manual-CN/4.contributions/pull-request-commit-message-guidelines.md
-      - 文档工程师 Visual Studio Code 推荐配置: manual-CN/4.contributions/vscode-config.md
     - 附录:
       - Cypher & nGQL: manual-CN/5.appendix/cypher-ngql.md
       - Gremlin & nGQL: manual-CN/5.appendix/gremlin-ngql.md
