@@ -21,9 +21,7 @@ theme:
   palette:
     primary: 'indigo'
     accent: 'indigo'
-  feature:
-    - tabs: false
-#    - navigation.expand
+  features:
     - navigation.top
   language: 'zh'
 
