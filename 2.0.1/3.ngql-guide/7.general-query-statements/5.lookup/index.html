@@ -9,9 +9,9 @@
 <meta content="Nebula Graph" name="author"/>
 <link href="https://docs.nebula-graph.com.cn/3.ngql-guide/7.general-query-statements/5.lookup/" rel="canonical"/>
 <link href="../../../assets/images/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.1" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.2" name="generator"/>
 <title>LOOKUP - Nebula Graph Database 内核手册</title>
-<link href="../../../assets/stylesheets/main.9299cb39.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.6f955dcd.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.ef6f36e2.min.css" rel="stylesheet"/>
 <meta content="#ffffff" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -570,20 +570,6 @@
 <a class="md-nav__link" href="#_6">
     计数点或边
   </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#faq">
-    FAQ
-  </a>
-<nav aria-label="FAQ" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
-    没有找到有效索引
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -1483,20 +1469,6 @@
     计数点或边
   </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#faq">
-    FAQ
-  </a>
-<nav aria-label="FAQ" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
-    没有找到有效索引
-  </a>
-</li>
-</ul>
-</nav>
-</li>
 </ul>
 </nav>
 </div>
@@ -1696,26 +1668,11 @@ nebula&gt; LOOKUP ON like | YIELD COUNT(*) AS Like_Number;
 | 1           |
 +-------------+
 </code></pre></div>
-<h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">¶</a></h2>
-<h3 id="_7">没有找到有效索引<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code>No valid index found
-</code></pre></div>
-<p>如果您的查询过滤器包含字符串类型的字段，Nebula Graph会选择匹配所有字段的索引。例如：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG t1 (c1 string, c2 int);
-
-nebula&gt; CREATE TAG INDEX i1 ON t1 (c1, c2);
-
-# 索引i1无效。
-nebula&gt; LOOKUP ON t1 WHERE t1.c1 == "a"; 
-
-# 索引i1有效。
-nebula&gt; LOOKUP ON t1 WHERE t1.c1 == "a" and t1.c2 == 1;
-</code></pre></div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月16日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月19日</span>
 </small>
 </div>
 </article>
@@ -1776,7 +1733,7 @@ nebula&gt; LOOKUP ON t1 WHERE t1.c1 == "a" and t1.c2 == 1;
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.fe42c31b.min.js", "version": {"method": "mike"}}</script>
-<script src="../../../assets/javascripts/bundle.7353b375.min.js"></script>
+<script src="../../../assets/javascripts/bundle.4ea5477f.min.js"></script>
 <script src="../../../js/version-select.js"></script>
 </body>
 </html>
