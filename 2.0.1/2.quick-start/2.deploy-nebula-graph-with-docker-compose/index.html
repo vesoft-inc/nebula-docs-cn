@@ -1681,13 +1681,13 @@ dbfa82505f0e        host                               host                <span
 ed55ccf356ae        nebula-docker-compose_nebula-net   bridge              <span class="nb">local</span>
 93ba48b4b288        none                               null                <span class="nb">local</span>
 </code></pre></div>
-<p>1. 通过Nebula Console连接Nebula Graph。</p>
+<p>2. 通过Nebula Console连接Nebula Graph。</p>
 <div class="highlight"><pre><span></span><code>docker&gt; nebula-console -u user -p password --address<span class="o">=</span>graphd --port<span class="o">=</span><span class="m">9669</span>
 </code></pre></div>
 <blockquote>
 <p><strong>说明</strong>：默认情况下，身份认证功能是关闭的，可以使用任意用户名和密码登录。如果想使用身份认证，请参见<a href="../../7.data-security/1.authentication/1.authentication/">身份认证</a>。</p>
 </blockquote>
-<p>1. 执行如下命令检查<code>nebula-storaged</code>进程状态。</p>
+<p>3. 执行如下命令检查<code>nebula-storaged</code>进程状态。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; SHOW HOSTS<span class="p">;</span>
 +-------------+------+----------+--------------+----------------------+------------------------+
 <span class="p">|</span> Host        <span class="p">|</span> Port <span class="p">|</span> Status   <span class="p">|</span> Leader count <span class="p">|</span> Leader distribution  <span class="p">|</span> Partition distribution <span class="p">|</span>
@@ -1833,7 +1833,7 @@ Removing network nebula-docker-compose_nebula-net
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月16日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月20日</span>
 </small>
 </div>
 </article>
