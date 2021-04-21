@@ -1,703 +1,703 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/0.about-this-manual/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/1.overview/1.concepts/1.data-model/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/1.overview/1.concepts/2.nGQL-overview/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/1.overview/2.quick-start/1.get-started/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/1.overview/2.quick-start/2.FAQ/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/3.configurations/0.system-requirement/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/1.overview/2.quick-start/3.supported-clients/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/1.build/1.build-source-code/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/1.overview/2.quick-start/4.import-csv-file/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/1.overview/3.design-and-architecture/1.design-and-architecture/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/1.overview/3.design-and-architecture/2.storage-design/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/1.overview/3.design-and-architecture/3.query-engine/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/0.README/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/1.data-types/data-types/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/1.data-types/type-conversion/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/2.functions-and-operators/bitwise-operators/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/2.functions-and-operators/built-in-functions/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/2.functions-and-operators/comparison-functions-and-operators/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/2.functions-and-operators/group-by-function/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/2.functions-and-operators/limit-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/2.functions-and-operators/logical-operators/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/2.functions-and-operators/operator-precedence/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/2.functions-and-operators/order-by-function/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/2.functions-and-operators/set-operations/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/2.functions-and-operators/string-comparison-functions-and-operators/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/2.functions-and-operators/uuid/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/3.language-structure/literal-values/boolean-literals/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/3.language-structure/literal-values/numeric-literals/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/3.language-structure/literal-values/string-literals/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/3.language-structure/comment-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/3.language-structure/identifier-case-sensitivity/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/3.language-structure/keywords-and-reserved-words/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/3.language-structure/pipe-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/3.language-structure/property-reference/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/3.language-structure/schema-object-names/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/3.language-structure/statement-composition/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/3.language-structure/user-defined-variables/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/alter-edge-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/alter-tag-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/create-space-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/create-edge-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/create-tag-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/drop-edge-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/drop-tag-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/drop-space-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/TTL/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/delete-edge-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/delete-vertex-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/fetch-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/go-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/insert-edge-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/insert-vertex-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/lookup-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/return-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/update-edge-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/update-vertex-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/upsert-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/where-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/yield-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-charset-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-collation-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-configs-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-create-space-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-create-tag-edge-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-hosts-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-indexes-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-parts-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-roles-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-snapshots-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-spaces-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-tags-edges-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-users-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/3.utility-statements/describe-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/3.utility-statements/use-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/4.graph-algorithms/find-path-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/1.build/1.build-source-code/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/1.build/2.build-by-docker/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/2.install/1.install-with-rpm-deb/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/2.install/2.start-stop-service/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/2.install/4.cluster-deploy/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/2.install/3.install-with-docker/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/3.configurations/0.system-requirement/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/3.configurations/1.config-persistency-and-priority/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/3.configurations/2.configs-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/3.configurations/4.graph-config/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/3.configurations/5.storage-config/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/3.configurations/6.console-config/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/3.configurations/7.kernel-config/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/3.configurations/8.single-node-log/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/4.account-management-statements/alter-user-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/4.account-management-statements/authentication/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/4.account-management-statements/built-in-roles/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/4.account-management-statements/change-password/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/4.account-management-statements/create-user-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/4.account-management-statements/drop-user-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/4.account-management-statements/grant-role-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/4.account-management-statements/LDAP/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/4.account-management-statements/revoke-syntax/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-import/import-csv-file/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-import/spark-writer/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-export/dump-tool/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/5.storage-service-administration/storage-balance/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/5.storage-service-administration/cluster-snapshot/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/5.storage-service-administration/job-manager/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/5.storage-service-administration/compact/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/7.monitor/1.metrics-exposer/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/7.monitor/2.meta-metrics/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/7.monitor/3.storage-metrics/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/7.monitor/4.graph-metrics/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/6.develop-and-interface/kv-interfaces/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/1.overview/2.quick-start/3.supported-clients/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-algorithm/na-ug-what-is-nebula-algorithm/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-algorithm/na-ug-limitations/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-algorithm/na-ug-compile/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-algorithm/na-ug-example/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-exchange/about-exchange/ex-ug-what-is-exchange/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-exchange/about-exchange/ex-ug-limitations/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-exchange/about-exchange/ex-ug-terms/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-exchange/about-exchange/ex-ug-faq/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-exchange/ex-ug-compile/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-exchange/use-exchange/ex-ug-import-steps/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-exchange/use-exchange/ex-ug-import-from-neo4j/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-exchange/use-exchange/ex-ug-import-sst/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-exchange/use-exchange/ex-ug-import-hive/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-exchange/use-exchange/ex-ug-import-from-csv/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-exchange/use-exchange/ex-ug-import-json/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-exchange/parameter-reference/ex-ug-paras-spark/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-exchange/parameter-reference/ex-ug-paras-nebulagraph/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-exchange/parameter-reference/ex-ug-para-import-command/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-flink/nf-ug-what-is-flink-connector/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-flink/nf-ug-compile/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-flink/nf-ug-limitations/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-flink/nf-ug-customize-source/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-flink/nf-ug-customize-sink/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-flink/nf-ug-notes/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/spark-connector/sc-ug-what-is-spark-connector/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/spark-connector/sc-ug-compile/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/spark-connector/sc-ug-limitations/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/spark-connector/reader/sc-ug-what-is-reader/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/spark-connector/reader/sc-ug-reader-example/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/spark-connector/writer/sc-ug-what-is-writer/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/spark-connector/writer/sc-ug-writer-example/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-studio/about-studio/st-ug-what-is-graph-studio/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-studio/about-studio/st-ug-terms/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-studio/about-studio/st-ug-limitations/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-studio/about-studio/st-ug-check-updates/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-studio/about-studio/st-ug-shortcuts/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-studio/deploy-connect/st-ug-deploy/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-studio/deploy-connect/st-ug-connect/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-studio/deploy-connect/st-ug-reset-connection/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-studio/quick-start/st-ug-plan-schema/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-studio/quick-start/st-ug-prepare-csv/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-studio/quick-start/st-ug-create-schema/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-studio/quick-start/st-ug-import-data/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-studio/quick-start/st-ug-explore/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-studio/manage-schema/st-ug-crud-space/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-studio/manage-schema/st-ug-crud-tag/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-studio/manage-schema/st-ug-crud-edge-type/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-studio/manage-schema/st-ug-crud-index/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-studio/use-console/st-ug-console/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-studio/use-console/st-ug-open-in-explorer/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-studio/use-console/st-ug-visualize-findpath/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-studio/troubleshooting/st-ug-config-server-errors/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-studio/troubleshooting/st-ug-connection-errors/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/nebula-studio/troubleshooting/st-ug-faq/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/4.contributions/contribute-to-documentation/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/4.contributions/cpp-coding-style/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/4.contributions/how-to-contribute/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/4.contributions/pull-request-commit-message-guidelines/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/5.appendix/cypher-ngql/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/5.appendix/gremlin-ngql/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/5.appendix/sql-ngql/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/manual-CN/5.appendix/vid-partition/</loc>
-     <lastmod>2021-04-16</lastmod>
+     <lastmod>2021-04-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

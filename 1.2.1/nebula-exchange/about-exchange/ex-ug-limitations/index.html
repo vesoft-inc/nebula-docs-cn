@@ -9,9 +9,9 @@
 <meta content="Nebula Graph" name="author"/>
 <link href="https://docs.nebula-graph.com.cn/nebula-exchange/about-exchange/ex-ug-limitations/" rel="canonical"/>
 <link href="../../../assets/images/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.1" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.2" name="generator"/>
 <title>使用限制 - Nebula Graph Database 内核手册</title>
-<link href="../../../assets/stylesheets/main.9299cb39.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.6f955dcd.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.ef6f36e2.min.css" rel="stylesheet"/>
 <meta content="#ffc105" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -1782,7 +1782,8 @@
 <h1 id="_1">使用限制<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
 <p>本文描述 Exchange v1.x 的一些使用限制。</p>
 <h2 id="nebula_graph">Nebula Graph 版本<a class="headerlink" href="#nebula_graph" title="Permanent link">¶</a></h2>
-<p>Exchange v1.x 仅支持 Nebula Graph v1.x。如果您正在使用 Nebula Graph v2.x，请使用 <a href="https://github.com/vesoft-inc/nebula-spark-utils" title="点击前往 GitHub">Nebula Exchange v2.x</a>。</p>
+<p>Exchange v1.x 仅支持 Nebula Graph v1.x。请勿使用低版本的Exchange导入数据至高版本Nebula Graph中，例如使用Exchange v1.1导入数据至Nebula Graph v1.2.0。</p>
+<p>如果您正在使用 Nebula Graph v2.x，请使用 <a href="https://github.com/vesoft-inc/nebula-spark-utils" title="点击前往 GitHub">Nebula Exchange v2.x</a>。</p>
 <h2 id="_2">使用环境<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <p>Exchange v1.x 支持以下操作系统：</p>
 <ul>
@@ -1808,7 +1809,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月7日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月21日</span>
 </small>
 </div>
 </article>
@@ -1869,7 +1870,7 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.fe42c31b.min.js", "version": {"method": "mike"}}</script>
-<script src="../../../assets/javascripts/bundle.7353b375.min.js"></script>
+<script src="../../../assets/javascripts/bundle.4ea5477f.min.js"></script>
 <script src="../../../js/version-select.js"></script>
 </body>
 </html>
