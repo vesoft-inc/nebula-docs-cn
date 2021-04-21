@@ -4,7 +4,9 @@
 
 ## Nebula Graph 版本
 
-Exchange v1.x 仅支持 Nebula Graph v1.x。如果您正在使用 Nebula Graph v2.x，请使用 [Nebula Exchange v2.x](https://github.com/vesoft-inc/nebula-spark-utils "点击前往 GitHub")。
+Exchange v1.x 仅支持 Nebula Graph v1.x。请勿使用低版本的Exchange导入数据至高版本Nebula Graph中，例如使用Exchange v1.1导入数据至Nebula Graph v1.2.0。
+
+如果您正在使用 Nebula Graph v2.x，请使用 [Nebula Exchange v2.x](https://github.com/vesoft-inc/nebula-spark-utils "点击前往 GitHub")。
 
 ## 使用环境
 
