@@ -1571,7 +1571,7 @@
 <li>在 <code>${nebula-old}/etc/nebula-metad.conf</code> 中找到 <code>--data_path</code> 项，其默认值为 <code>data/meta</code>; 为 <strong>metad 数据目录</strong>位置。</li>
 </ul>
 <blockquote>
-<p><strong>说明</strong>: Nebula Graph的实际安装路径可能和本文示意不同，请使用实际路径。您也可以用 <code>ps -ef | grep nebula</code> 中的参数来找到实际使用的配置文件地址。</p>
+<p><strong>说明：</strong> Nebula Graph的实际安装路径可能和本文示意不同，请使用实际路径。您也可以用 <code>ps -ef | grep nebula</code> 中的参数来找到实际使用的配置文件地址。</p>
 </blockquote>
 <h3 id="_4">新版本安装目录<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
 <p>本文中新版本安装目录记为 <code>${nebula-new}</code> (例如 <code>/usr/local/nebula-new/</code>).</p>
@@ -1579,15 +1579,15 @@
 </code></pre></div>
 <h2 id="_5">升级步骤<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
 <ol>
-<li><strong>停止所有客户端访问</strong>。也可以通过在每台服务器上关闭 graphd 服务避免脏写。在每台服务器上运行如下命令。</li>
-</ol>
+<li>
+<p><strong>停止所有客户端访问</strong>。也可以通过在每台服务器上关闭 graphd 服务避免脏写。在每台服务器上运行如下命令。</p>
 <div class="highlight"><pre><span></span><code>&gt; <span class="si">${</span><span class="nv">nebula</span><span class="p">-old</span><span class="si">}</span>/scripts/nebula.service stop graphd
 <span class="o">[</span>INFO<span class="o">]</span> Stopping nebula-graphd...
 <span class="o">[</span>INFO<span class="o">]</span> Done
 </code></pre></div>
-<ol>
-<li>停止旧版本服务。在每台服务器上运行如下命令。</li>
-</ol>
+</li>
+<li>
+<p>停止旧版本服务。在每台服务器上运行如下命令。</p>
 <div class="highlight"><pre><span></span><code>&gt; <span class="si">${</span><span class="nv">nebula</span><span class="p">-old</span><span class="si">}</span>/scripts/nebula.service stop all
 <span class="o">[</span>INFO<span class="o">]</span> Stopping nebula-metad...
 <span class="o">[</span>INFO<span class="o">]</span> Done
@@ -1598,112 +1598,120 @@
 </code></pre></div>
 <p>运行 <code>ps -ef | grep nebula</code> 检查所有 nebula 服务都已停止。<code>storaged</code> 进程 flush 数据可能要等待 1 分钟。</p>
 <blockquote>
-<p>如果超过 20 分钟不能停止服务，<strong>放弃本次升级</strong>，并在论坛提交问题。</p>
+<p><strong>说明：</strong> 如果超过 20 分钟不能停止服务，<strong>放弃本次升级</strong>，并在论坛提交问题。</p>
 </blockquote>
-<ol>
-<li>在每台服务器上运行如下命令。<p>3.1 安装新的二进制文件</p>
 </li>
-</ol>
-<ul>
-<li>如果从 rpm/deb 安装,从<a href="https://github.com/vesoft-inc/nebula-graph/releases">release page</a>下载对应操作系统的安装包。</li>
-</ul>
-<div class="highlight"><pre><span></span><code>&gt; sudo rpm --force -i --prefix<span class="o">=</span><span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>  <span class="si">${</span><span class="nv">nebula</span><span class="p">-package-name.rpm</span><span class="si">}</span> <span class="c1"># for centos/redhat</span>
-&gt; sudo dpkg -i --instdir<span class="o">==</span><span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span> <span class="si">${</span><span class="nv">nebula</span><span class="p">-package-name.deb</span><span class="si">}</span> <span class="c1"># for ubuntu</span>
-</code></pre></div>
-<p>具体步骤可以见<a href="https://docs.nebula-graph.io/2.0/4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb/">从RPM/DEB安装</a>。</p>
-<ul>
-<li>如果从源代码安装。具体步骤见<a href="https://docs.nebula-graph.io/2.0/4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code/">从源代码安装</a>。这里列出几个关键命令：<p>+ clone 源代码</p>
-<div class="highlight"><pre><span></span><code>&gt; git clone --branch v2.0.0 https://github.com/vesoft-inc/nebula-graph.git
-</code></pre></div>
-<p>+ 设置 CMake</p>
-<div class="highlight"><pre><span></span><code>&gt; cmake -DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span> -DENABLE_BUILD_STORAGE<span class="o">=</span>on -DENABLE_TESTING<span class="o">=</span>OFF -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -DNEBULA_COMMON_REPO_TAG<span class="o">=</span>v2.0.0  -DNEBULA_STORAGE_REPO_TAG<span class="o">=</span>v2.0.0 .. 
+<li>
+<p>在每台服务器上运行如下命令。</p>
+<p>3.1 安装新的二进制文件</p>
+<div class="codehilite"><pre><span></span><code>- 如果从 rpm/deb 安装,从[release page](https://github.com/vesoft-inc/nebula-graph/releases)下载对应操作系统的安装包。
+
+   ```bash
+   &gt; sudo rpm --force -i --prefix=${nebula-new}  ${nebula-package-name.rpm} # for centos/redhat
+   &gt; sudo dpkg -i --instdir==${nebula-new} ${nebula-package-name.deb} # for ubuntu
+   ```
+
+   具体步骤可以见[从RPM/DEB安装](https://docs.nebula-graph.io/2.0/4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb/)。
+
+- 如果从源代码安装。具体步骤见[从源代码安装](https://docs.nebula-graph.io/2.0/4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code/)。这里列出几个关键命令：
+
+   + clone 源代码
+
+      ```bash
+      &gt; git clone --branch v2.0.0 https://github.com/vesoft-inc/nebula-graph.git
+      ```
+
+   + 设置 CMake
+
+      ```bash
+      &gt; cmake -DCMAKE_INSTALL_PREFIX=${nebula-new} -DENABLE_BUILD_STORAGE=on -DENABLE_TESTING=OFF -DCMAKE_BUILD_TYPE=Release -DNEBULA_COMMON_REPO_TAG=v2.0.0  -DNEBULA_STORAGE_REPO_TAG=v2.0.0 .. 
+      ```
 </code></pre></div>
 <p>3.2 拷贝配置文件</p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><code>&gt; cp -rf <span class="si">${</span><span class="nv">nebula</span><span class="p">-old</span><span class="si">}</span>/etc <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/
+<div class="codehilite"><pre><span></span><code>```bash
+&gt; cp -rf ${nebula-old}/etc ${nebula-new}/
+```
 </code></pre></div>
-<ol>
-<li>在曾经运行 metad 的服务器上（通常为3台），拷贝 metad 数据、配置文件到新目录。</li>
-</ol>
+</li>
+<li>
+<p>在曾经运行 metad 的服务器上（通常为3台），拷贝 metad 数据、配置文件到新目录。</p>
 <!--
-- 拷贝storaged数据(如有)
+   - 拷贝storaged数据(如有)
 
-    在 `${nebula-old}/etc/nebula-storaged.conf` 中找到 `--data_path` 项（其默认值为 `data/storage`）
+       在 `${nebula-old}/etc/nebula-storaged.conf` 中找到 `--data_path` 项（其默认值为 `data/storage`）
 
-    + 如果旧版本配置**未更改** `--data_path` 项，则可以运行如下命令，将服务端storaged数据拷贝到新目录。
+       + 如果旧版本配置**未更改** `--data_path` 项，则可以运行如下命令，将服务端storaged数据拷贝到新目录。
 
-    <div class="highlight"><pre><span></span><code>&gt; mkdir -p <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/data/storage/
+       <div class="highlight"><pre><span></span><code>&gt; mkdir -p <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/data/storage/
 &gt; cp -r <span class="si">${</span><span class="nv">nebula</span><span class="p">-old</span><span class="si">}</span>/data/storage/* <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/data/storage/
 </code></pre></div>
 
-    + 如果旧版本配置更改了默认的服务端数据目录，请根据实际目录拷贝。
--->
+       + 如果旧版本配置更改了默认的服务端数据目录，请根据实际目录拷贝。
+   -->
 <ul>
 <li>拷贝 metad 数据<p>在 <code>${nebula-old}/etc/nebula-metad.conf</code> 中找到 <code>--data_path</code> 项（其默认值为 <code>data/meta</code>）</p>
 <p>+ 如果旧版本配置<strong>未更改</strong> <code>--data_path</code> 项，则可以运行如下命令，将metad数据拷贝到新目录。</p>
-<div class="highlight"><pre><span></span><code>&gt; mkdir -p <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/data/meta/
-&gt; cp -r <span class="si">${</span><span class="nv">nebula</span><span class="p">-old</span><span class="si">}</span>/data/meta/* <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/data/meta/
+<div class="codehilite"><pre><span></span><code> ```bash
+ &gt; mkdir -p ${nebula-new}/data/meta/
+ &gt; cp -r ${nebula-old}/data/meta/* ${nebula-new}/data/meta/
+ &gt; ```
 </code></pre></div>
 <p>+ 如果旧版本配置更改了默认的 metad 目录，请根据实际目录拷贝。</p>
 </li>
 </ul>
 <ul>
 <li>拷贝并修改配置文件<p>+ 编辑新的 metad 配置文件：</p>
-<div class="codehilite"><pre><span></span><code>  ```bash
-  &gt; vim ${nebula-new}/nebula-metad.conf
-  ```
+<div class="codehilite"><pre><span></span><code> ```bash
+ &gt; vim ${nebula-new}/nebula-metad.conf
+ ```
+</code></pre></div>
+<p>+ [可选]增加配置项：</p>
+<div class="codehilite"><pre><span></span><code> `--null_type=false`: 升级后的schema的属性是否要支持 [`NULL`](https://docs.nebula-graph.io/2.0/3.ngql-guide/3.data-types/5.null/)，**默认为 true**。不希望支持 NULL 的话，设置为 false。此时，升级后的 schema 如果要增加属性（alter tag/edge)必须指定 [default 值](https://docs.nebula-graph.io/2.0/3.ngql-guide/10.tag-statements/1.create-tag/)，否则会读不出数据。
 
-  * [可选]增加配置项：
-
-  `--null_type=false`: 升级后的schema的属性是否要支持 [`NULL`](https://docs.nebula-graph.io/2.0/3.ngql-guide/3.data-types/5.null/)，**默认为 true**。不希望支持 NULL 的话，设置为 false。此时，升级后的 schema 如果要增加属性（alter tag/edge)必须指定 [default 值](https://docs.nebula-graph.io/2.0/3.ngql-guide/10.tag-statements/1.create-tag/)，否则会读不出数据。
-
-   `--string_index_limit=32`: 升级后 string 对应的[索引的长度](https://docs.nebula-graph.io/2.0/3.ngql-guide/14.native-index-statements/1.create-native-index/)，不加的话系统默认为 64。
+ `--string_index_limit=32`: 升级后 string 对应的[索引的长度](https://docs.nebula-graph.io/2.0/3.ngql-guide/14.native-index-statements/1.create-native-index/)，不加的话系统默认为 64。
 </code></pre></div>
 </li>
 </ul>
 <blockquote>
-<p><strong>检查</strong>：每个 metad 都完成操作。</p>
+<p><strong>说明：</strong> 请确保在每个metad服务器都完成了以上操作。</p>
 </blockquote>
-<ol>
+</li>
 <li>
 <p>在每个 storaged 服务器上, 修改 storaged 配置文件。</p>
-<p>+ [可选]如果旧版本 storaged 数据目录 <code>--data_path=data/storage</code> 不是默认值，有更改。</p>
-<p><div class="highlight"><pre><span></span><code>&gt; vim <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/nebula-storaged.conf
+<ul>
+<li>[可选]如果旧版本 storaged 数据目录 <code>--data_path=data/storage</code> 不是默认值，有更改。<p><div class="highlight"><pre><span></span><code>&gt; vim <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/nebula-storaged.conf
 </code></pre></div>
 <code>--data_path</code>设置为新的 storaged 数据目录地址。</p>
-<p>+ 创建新版本 storaged 数据目录。</p>
-<div class="highlight"><pre><span></span><code>&gt; mkdir -p <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/data/storage/
+</li>
+</ul>
+<ul>
+<li>创建新版本 storaged 数据目录。<div class="highlight"><pre><span></span><code>&gt; mkdir -p <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/data/storage/
 </code></pre></div>
+</li>
+</ul>
 <p>如果<code>${nebula-new}/etc/nebula-storaged.conf</code> 中的 <code>--data_path</code> 有改动，请按实际路径创建。</p>
 </li>
 <li>
 <p>启动新版本的 metad 进程。</p>
-</li>
-</ol>
 <ul>
-<li>
-<p>在每个 metad 的服务器上运行如下命令。</p>
-<div class="highlight"><pre><span></span><code>$ sudo <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/scripts/nebula.service start metad
+<li>在每个 metad 的服务器上运行如下命令。<div class="highlight"><pre><span></span><code>$ sudo <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/scripts/nebula.service start metad
 <span class="o">[</span>INFO<span class="o">]</span> Starting nebula-metad...
 <span class="o">[</span>INFO<span class="o">]</span> Done
 </code></pre></div>
 </li>
 </ul>
 <ul>
-<li>
-<p>检查每个 metad 进程是否正常。</p>
-<p><div class="highlight"><pre><span></span><code>$ ps -ef <span class="p">|</span>grep nebula-metad
+<li>检查每个 metad 进程是否正常。<p><div class="highlight"><pre><span></span><code>$ ps -ef <span class="p">|</span>grep nebula-metad
 </code></pre></div>
-- 检查 metad 日志<code>${nebula-new}/logs/</code> 下的 ERROR 日志。</p>
+   - 检查 metad 日志<code>${nebula-new}/logs/</code> 下的 ERROR 日志。</p>
 </li>
 </ul>
 <blockquote>
-<p>如果服务异常：请查看目录<code>${nebula-new}/logs</code>内的 metad 相关日志，并在论坛提交问题。<strong>放弃本次升级，在原目录正常启动 nebula 服务。</strong></p>
+<p><strong>说明：</strong> 如果服务异常：请查看目录<code>${nebula-new}/logs</code>内的 metad 相关日志，并在论坛提交问题。<strong>放弃本次升级，在原目录正常启动 nebula 服务。</strong></p>
 </blockquote>
-<ol>
-<li>升级 storaged 数据格式。</li>
-</ol>
+</li>
+<li>
+<p>升级 storaged 数据格式。</p>
 <ul>
 <li>在每个 storaged 服务器运行如下命令。<div class="highlight"><pre><span></span><code>$ sudo <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/bin/db_upgrader  <span class="se">\</span>
 --src_db_path<span class="o">=</span>&lt;old_storage_directory_path&gt; <span class="se">\</span>
@@ -1712,13 +1720,13 @@
 --upgrade_version<span class="o">=</span>&lt;old_nebula_version&gt; <span class="se">\</span>
 </code></pre></div>
 <p>参数说明：</p>
-<p><code>--src_db_path</code>为<strong>老版本</strong>storaged的数据目录的绝对路径，多个目录用逗号分隔，不加空格。</p>
-<p><code>--dst_db_path</code>为<strong>新版本</strong>storaged的数据目录的绝对路径，多个目录用逗号分隔。逗号分隔的目录必须和<code>--src_db_path</code>中一一对应。</p>
+<p>+ <code>--src_db_path</code>为<strong>老版本</strong>storaged的数据目录的绝对路径，多个目录用逗号分隔，不加空格。</p>
+<p>+ <code>--dst_db_path</code>为<strong>新版本</strong>storaged的数据目录的绝对路径，多个目录用逗号分隔。逗号分隔的目录必须和<code>--src_db_path</code>中一一对应。</p>
 <blockquote>
-<p><strong>警告</strong>: 两者顺序不要搞反了，否则会写坏旧版本的数据。</p>
+<p><strong>禁止</strong>: 请勿颠倒以上两个参数的顺序，否则会升级失败且破坏老版本的数据。</p>
 </blockquote>
-<p><code>--upgrade_meta_server</code> 为步骤6中启动的所有新 metad 的地址.</p>
-<p><code>--upgrade_version</code>如果老版本为v1.2.0，则填写1；如果老版本为v2.0.0-RC，则填写2.不可填写其他数字。</p>
+<p>+ <code>--upgrade_meta_server</code> 为步骤6中启动的所有新 metad 的地址.</p>
+<p>+ <code>--upgrade_version</code>如果老版本为v1.2.0，则填写1；如果老版本为v2.0.0-RC，则填写2.不可填写其他数字。</p>
 <p>例如，从 v1.2.0 升级：</p>
 <div class="highlight"><pre><span></span><code>$ sudo /usr/local/nebula_new/bin/db_upgrader <span class="se">\</span>
 --src_db_path<span class="o">=</span>/usr/local/nebula/data/storage/data1/,/usr/local/nebula/data/storage/data2/ <span class="se">\</span>
@@ -1733,20 +1741,23 @@
 --upgrade_meta_server<span class="o">=</span><span class="m">192</span>.168.8.14:9559,192.168.8.15:9559,192.168.8.16:9559 <span class="se">\</span>
 --upgrade_version<span class="o">=</span><span class="m">2</span>
 </code></pre></div>
-<blockquote>
-<p>如果工具抛出异常请在论坛提交问题。<strong>放弃本次升级，关闭所有已经启动的 metad，在原目录正常启动 nebula 服务。</strong></p>
-<p><strong>检查</strong>：每个 storaged 服务器都完成数据升级。</p>
-</blockquote>
 </li>
 </ul>
-<ol>
+<blockquote>
+<p><strong>说明：</strong> </p>
+<ul>
+<li>如果工具抛出异常请在论坛提交问题。<strong>放弃本次升级，关闭所有已经启动的 metad，在原目录正常启动 nebula 服务。</strong></li>
+<li>请确保在每个storaged服务器都完成了以上操作。</li>
+</ul>
+</blockquote>
+</li>
 <li>
-<p>在每个 storaged 服务器启动新版本的 storaged 服务。</p>
+<p>在每个storaged服务器启动新版本的storaged服务。</p>
 <div class="highlight"><pre><span></span><code>$ sudo <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/scripts/nebula.service start storaged
 $ sudo <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/scripts/nebula.service status storaged
 </code></pre></div>
 <blockquote>
-<p>说明：如果有 storaged 未正常启动，请将日志<code>${nebula-new}/logs/</code>在论坛提交问题。<strong>放弃本次升级，关闭所有已经启动的 metad和storaged，在原目录正常启动 nebula 服务。</strong></p>
+<p><strong>说明：</strong> 如果有 storaged 未正常启动，请将日志<code>${nebula-new}/logs/</code>在论坛提交问题。<strong>放弃本次升级，关闭所有已经启动的 metad和storaged，在原目录正常启动 nebula 服务。</strong></p>
 </blockquote>
 </li>
 <li>
@@ -1755,7 +1766,7 @@ $ sudo <span class="si">${</span><span class="nv">nebula</span><span class="p">-
 $ sudo <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/scripts/nebula.service status graphd
 </code></pre></div>
 <blockquote>
-<p>说明：如果有graphd未正常启动，请将日志<code>${nebula-new}/logs/</code>在论坛提交问题。<strong>放弃本次升级，关闭所有已经启动的 metad,storaged,graphd. 在原目录正常启动 nebula 服务。</strong></p>
+<p><strong>说明：</strong> 如果有graphd未正常启动，请将日志<code>${nebula-new}/logs/</code>在论坛提交问题。<strong>放弃本次升级，关闭所有已经启动的 metad,storaged,graphd. 在原目录正常启动 nebula 服务。</strong></p>
 </blockquote>
 </li>
 <li>
@@ -1768,18 +1779,18 @@ nebula&gt; SUBMIT JOB STATS;
 nebula&gt; SHOW STATS;
 </code></pre></div>
 <blockquote>
-<p><strong>禁止</strong>：不可使用v2.0.0之前的 nebula console。</p>
+<p><strong>禁止：</strong> 不可使用v2.0.0之前的 nebula console。</p>
 </blockquote>
 </li>
 <li>
-<p>升级其他客户端</p>
-</li>
-</ol>
+<p>升级其他客户端。</p>
 <p>所有的客户端都必须升级到对应 v2.0.0 版本。包括但不限于<a href="https://github.com/vesoft-inc/nebula-docker-compose">studio</a>, <a href="https://github.com/vesoft-inc/nebula-python">python</a>, <a href="https://github.com/vesoft-inc/nebula-java">java</a>, <a href="https://github.com/vesoft-inc/nebula-go">go</a>, <a href="https://github.com/vesoft-inc/nebula-cpp">c++</a>, <a href="https://github.com/vesoft-inc/nebula-flink-connector">flink-connector</a>, <a href="https://github.com/vesoft-inc/nebula-spark-utils">spark-util</a>, <a href="https://github.com/vesoft-inc/nebula-bench">benchmark</a>。请找到各 repo 对应的 v2.0.0 branch。</p>
 <blockquote>
-<p>不兼容旧版本的通信协议。需重新源代码编译或者下载二进制包。</p>
+<p><strong>说明：</strong> 不兼容旧版本的通信协议。需重新源代码编译或者下载二进制包。</p>
 <p>(运维)提醒：升级后的数据目录为<code>${nebula-new}/</code>。如有硬盘容量监控、日志 ELK 等，相应改动。</p>
 </blockquote>
+</li>
+</ol>
 <h2 id="_6">升级失败回滚<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
 <p>如果升级失败，请停止新版本的所有服务，启动旧版的所有服务。</p>
 <p>所有周边客户端切换为<strong>旧版</strong>。</p>
@@ -1861,7 +1872,7 @@ nebula&gt; SHOW STATS;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年3月23日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月22日</span>
 </small>
 </div>
 </article>
