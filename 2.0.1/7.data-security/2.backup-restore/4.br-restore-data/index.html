@@ -1471,55 +1471,57 @@
 <ol>
 <li>
 <p>在<code>nebula-storage/util/br/config</code>目录内修改配置文件<code>backup.yaml</code>。您可以参考如下配置，目录内也有示例文件<code>restore_example.yaml</code>。</p>
-<p>```yaml
- meta_nodes:
-   - # 配置一个Meta服务器的IP和端口
-    addrs: "192.168.8.161:9559"
-    # 配置Nebula Graph的绝对安装路径
-    root: "/usr/local/nebula/"
-    # 配置metad进程数据目录的绝对路径
-    data: "/usr/local/nebula/data/meta"
-    # 配置可以免密登录服务器的账号名称，需要对备份存储目录有读写权限
-    user: "nebula"
-   #- # 如果存在多个metad进程，请参考上述配置继续添加
-   #  addrs: "192.168.8.161:9559"
-   #  root: "/usr/local/nebula/"
-   #  data: "/usr/local/nebula/data/meta"
-   #  user: "nebula"
-   #- addrs: "192.168.8.161:9559"
-   #  root: "/usr/local/nebula/"
-   #  data: "/usr/local/nebula/data/meta"
-   #  user: "nebula"</p>
-<p>storage_nodes:
-   - # 配置一个Storage服务器的IP和端口
-    addrs: "192.168.8.161:9779"
-    # 配置Nebula Graph的绝对安装路径
-    root: "/usr/local/nebula/"
-    # 配置storaged进程数据目录的绝对路径
-    data: "/usr/local/nebula/data/storage"
-    # 配置可以免密登录服务器的账号名称，需要对备份存储目录有读写权限
-    user: "nebula"
-   #- # 如果存在多个storaged进程，请参考上述配置继续添加
-   #  addrs: "192.168.8.161:9779"
-   #  root: "/usr/local/nebula/"
-   #  data: "/usr/local/nebula/data/storage"
-   #  user: "nebula"
-   #- addrs: "192.168.8.161:9779"
-   #  root: "/usr/local/nebula/"
-   #  data: "/usr/local/nebula/data/storage"
-   #  user: "nebula"</p>
-<p># 设置备份文件的存储路径
-   # 如果是本地存储备份文件，请设置： 
- backend: "local:///home/user/backup/"
-   # 如果使用HDFS存储备份文件，请设置：
-   # hdfs://namenode:port/nebulabackup
-   # 如果使用Alibaba Cloud OSS存储备份文件，请设置：
-   # backend: "oss://nebulabackup"
-   # 如果使用Amazon S3存储备份文件，请设置：
-   # backend: "s3://nebulabackup"</p>
-<p># 设置要恢复的备份文件夹
- backup_name: "BACKUP_2020_12_21_01_17_53"
-  ```</p>
+<div class="highlight"><pre><span></span><code><span class="nt">meta_nodes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="c1"># 配置一个Meta服务器的IP和端口</span>
+   <span class="nt">addrs</span><span class="p">:</span> <span class="s">"192.168.8.161:9559"</span>
+   <span class="c1"># 配置Nebula Graph的绝对安装路径</span>
+   <span class="nt">root</span><span class="p">:</span> <span class="s">"/usr/local/nebula/"</span>
+   <span class="c1"># 配置metad进程数据目录的绝对路径</span>
+   <span class="nt">data</span><span class="p">:</span> <span class="s">"/usr/local/nebula/data/meta"</span>
+   <span class="c1"># 配置可以免密登录服务器的账号名称，需要对备份存储目录有读写权限</span>
+   <span class="nt">user</span><span class="p">:</span> <span class="s">"nebula"</span>
+  <span class="c1">#- # 如果存在多个metad进程，请参考上述配置继续添加</span>
+  <span class="c1">#  addrs: "192.168.8.161:9559"</span>
+  <span class="c1">#  root: "/usr/local/nebula/"</span>
+  <span class="c1">#  data: "/usr/local/nebula/data/meta"</span>
+  <span class="c1">#  user: "nebula"</span>
+  <span class="c1">#- addrs: "192.168.8.161:9559"</span>
+  <span class="c1">#  root: "/usr/local/nebula/"</span>
+  <span class="c1">#  data: "/usr/local/nebula/data/meta"</span>
+  <span class="c1">#  user: "nebula"</span>
+
+<span class="nt">storage_nodes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="c1"># 配置一个Storage服务器的IP和端口</span>
+   <span class="nt">addrs</span><span class="p">:</span> <span class="s">"192.168.8.161:9779"</span>
+   <span class="c1"># 配置Nebula Graph的绝对安装路径</span>
+   <span class="nt">root</span><span class="p">:</span> <span class="s">"/usr/local/nebula/"</span>
+   <span class="c1"># 配置storaged进程数据目录的绝对路径</span>
+   <span class="nt">data</span><span class="p">:</span> <span class="s">"/usr/local/nebula/data/storage"</span>
+   <span class="c1"># 配置可以免密登录服务器的账号名称，需要对备份存储目录有读写权限</span>
+   <span class="nt">user</span><span class="p">:</span> <span class="s">"nebula"</span>
+  <span class="c1">#- # 如果存在多个storaged进程，请参考上述配置继续添加</span>
+  <span class="c1">#  addrs: "192.168.8.161:9779"</span>
+  <span class="c1">#  root: "/usr/local/nebula/"</span>
+  <span class="c1">#  data: "/usr/local/nebula/data/storage"</span>
+  <span class="c1">#  user: "nebula"</span>
+  <span class="c1">#- addrs: "192.168.8.161:9779"</span>
+  <span class="c1">#  root: "/usr/local/nebula/"</span>
+  <span class="c1">#  data: "/usr/local/nebula/data/storage"</span>
+  <span class="c1">#  user: "nebula"</span>
+
+  <span class="c1"># 设置备份文件的存储路径</span>
+  <span class="c1"># 如果是本地存储备份文件，请设置： </span>
+<span class="nt">backend</span><span class="p">:</span> <span class="s">"local:///home/user/backup/"</span>
+  <span class="c1"># 如果使用HDFS存储备份文件，请设置：</span>
+  <span class="c1"># hdfs://namenode:port/nebulabackup</span>
+  <span class="c1"># 如果使用Alibaba Cloud OSS存储备份文件，请设置：</span>
+  <span class="c1"># backend: "oss://nebulabackup"</span>
+  <span class="c1"># 如果使用Amazon S3存储备份文件，请设置：</span>
+  <span class="c1"># backend: "s3://nebulabackup"</span>
+
+  <span class="c1"># 设置要恢复的备份文件夹</span>
+<span class="nt">backup_name</span><span class="p">:</span> <span class="s">"BACKUP_2020_12_21_01_17_53"</span>
+</code></pre></div>
 </li>
 <li>
 <p>切换到<code>nebula-storage/util/br/bin/</code>目录。</p>
@@ -1554,7 +1556,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年3月23日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月22日</span>
 </small>
 </div>
 </article>

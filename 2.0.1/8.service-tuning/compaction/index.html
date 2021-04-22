@@ -1533,7 +1533,7 @@ nebula&gt; SHOW CONFIGS STORAGE;
 ...
 
 # 修改rocksdb_column_family_options设置，在复制的value内容中添加disable_auto_compactions: true
-nebula&gt; UPDATE CONFIGS storage:rocksdb_column_family_options = {disable_auto_compactions: true, max_bytes_for_level_base: "268435456", max_write_buffer_number: "4", write_buffer_size: "67108864"};
+nebula&gt; UPDATE CONFIGS storage:rocksdb_column_family_options = {disable_auto_compactions: true, max_bytes_for_level_base: 268435456, max_write_buffer_number: 4, write_buffer_size: 67108864};
 
 # 查看是否修改成功。
 nebula&gt; SHOW CONFIGS STORAGE;
@@ -1594,7 +1594,7 @@ nebula&gt; SUBMIT JOB COMPACT;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月9日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月22日</span>
 </small>
 </div>
 </article>
