@@ -242,6 +242,9 @@ nav:
       - Compaction: 8.service-tuning/compaction.md
       - Storage负载均衡: 8.service-tuning/load-balance.md
       
+  - 生态工具:
+      - Nebula Exchange: 16.eco-tools/1.nebula-exchange.md
+
 #  - 图算法:
 #    - nebula-algorithm:
 #      - 什么是 nebula-algorithm: nebula-algorithm/na-ug-what-is-nebula-algorithm.md
