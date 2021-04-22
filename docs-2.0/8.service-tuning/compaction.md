@@ -33,7 +33,7 @@ nebula> SHOW CONFIGS STORAGE;
 ...
 
 # 修改rocksdb_column_family_options设置，在复制的value内容中添加disable_auto_compactions: true
-nebula> UPDATE CONFIGS storage:rocksdb_column_family_options = {disable_auto_compactions: true, max_bytes_for_level_base: "268435456", max_write_buffer_number: "4", write_buffer_size: "67108864"};
+nebula> UPDATE CONFIGS storage:rocksdb_column_family_options = {disable_auto_compactions: true, max_bytes_for_level_base: 268435456, max_write_buffer_number: 4, write_buffer_size: 67108864};
 
 # 查看是否修改成功。
 nebula> SHOW CONFIGS STORAGE;
