@@ -245,6 +245,7 @@ nav:
   - 生态工具:
       - Nebula Exchange: 16.eco-tools/1.nebula-exchange.md
       - Nebula Importer: 16.eco-tools/2.nebula-importer.md
+      - Nebula Spark Connector: 16.eco-tools/3.nebula-connector.md
 #  - 图算法:
 #    - nebula-algorithm:
 #      - 什么是 nebula-algorithm: nebula-algorithm/na-ug-what-is-nebula-algorithm.md
