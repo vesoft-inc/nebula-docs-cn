@@ -4,7 +4,7 @@
 
 ## Nebula Graph 版本支持
 
-目前 Studio v1.x 仅支持 Nebula Graph v1.x，不支持 Nebula Graph v2.x。
+目前 Studio v1.x 仅支持 Nebula Graph v1.x，Studio v2.x 仅支持 Nebula Graph v2.x。
 
 ## 系统架构
 
