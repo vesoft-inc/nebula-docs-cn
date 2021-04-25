@@ -1,3 +1,5 @@
+!!! danger "Nebula Graph 2.x 已发布。 Nebula Graph [1.x](https://github.com/vesoft-inc/nebula) 与 [2.x](https://github.com/vesoft-inc/nebula-graph)数据格式、通信协议、客户端等均**双向不兼容**，代码仓库不相同。2.x 请参考[新版本文档](https://docs.nebula-graph.com.cn/2.0.1/)。"
+
 # Nebula Graph 是什么
 
 !!! note "本文档更新时间{{ now().year }}-{{ now().month }}-{{ now().day }}, [GitHub commit](https://github.com/vesoft-inc/nebula-docs-cn/tree/v{{ nebula.release }}) {{ git.short_commit }}."
