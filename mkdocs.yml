@@ -231,11 +231,11 @@ nav:
           - 身份验证: 7.data-security/1.authentication/1.authentication.md
           - 用户管理: 7.data-security/1.authentication/2.management-user.md
           - 内置角色权限: 7.data-security/1.authentication/3.role-list.md
-      - 备份恢复:
-          - 什么是BR: 7.data-security/2.backup-restore/1.what-is-br.md
-          - 编译BR: 7.data-security/2.backup-restore/2.compile-br.md
-          - 使用BR备份数据: 7.data-security/2.backup-restore/3.br-backup-data.md
-          - 使用BR恢复数据: 7.data-security/2.backup-restore/4.br-restore-data.md
+#      - 备份恢复:
+#          - 什么是BR: 7.data-security/2.backup-restore/1.what-is-br.md
+#          - 编译BR: 7.data-security/2.backup-restore/2.compile-br.md
+#          - 使用BR备份数据: 7.data-security/2.backup-restore/3.br-backup-data.md
+#          - 使用BR恢复数据: 7.data-security/2.backup-restore/4.br-restore-data.md
       - 管理快照: 7.data-security/3.manage-snapshot.md
 
   - 调整服务:
