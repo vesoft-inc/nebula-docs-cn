@@ -226,6 +226,9 @@ nav:
             #- Neo4j 数据源相关参数: nebula-exchange/parameter-reference/ex-ug-paras-neo4j.md
           - 导入命令参数: nebula-exchange/parameter-reference/ex-ug-para-import-command.md
 
+      - Nebula Importer:
+        - 导入CSV文件: manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-import/import-csv-file.md  
+
       - Nebula Flink Connector:
         - 什么是 Nebula Flink Connector: nebula-flink/nf-ug-what-is-flink-connector.md
         - 编译 Nebula Flink Connector: nebula-flink/nf-ug-compile.md
