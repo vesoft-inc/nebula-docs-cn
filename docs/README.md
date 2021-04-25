@@ -1,6 +1,6 @@
-!!! danger "Nebula Graph 2.x 已发布。 Nebula Graph 1.x 与 2.x数据格式、通信协议、客户端等均双向不兼容，代码仓库不相同。2.x 请参考[新版本文档](https://docs.nebula-graph.com.cn/)。"
+!!! danger "Nebula Graph 内核 2.x 已发布。 Nebula Graph 内核 1.x 与 2.x数据格式、通信协议、客户端等均双向不兼容，代码仓库不相同。2.x 请参考[新版本文档](https://docs.nebula-graph.com.cn/)。"
 
-!!! note "Nebula Graph 1.2.1 已发布，修复多处bug，通信协议、数据格式与 {{nebula.release}} 双向兼容。参考[新版本文档](https://docs.nebula-graph.com.cn/1.2.1/)"
+!!! note "Nebula Graph 内核 1.2.1 已发布，修复多处bug，通信协议、数据格式与 {{nebula.release}} 双向兼容。参考[新版本文档](https://docs.nebula-graph.com.cn/1.2.1/)"
 
 !!! note "本文档更新时间{{ now().year }}-{{ now().month }}-{{ now().day }}, [GitHub commit](https://github.com/vesoft-inc/nebula-docs-cn/tree/v{{nebula.release}}) {{ git.short_commit }}."
 
