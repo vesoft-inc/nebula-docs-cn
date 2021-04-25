@@ -3,7 +3,7 @@ site_name: Nebula Graph 手册
 site_description: Documentation for Nebula Graph
 site_author: Nebula Graph
 site_url: https://docs.nebula-graph.com.cn/
-edit_uri: ''
+edit_uri: 'edit/v1.2.0/docs'
 docs_dir: docs
 
 # repository
@@ -28,28 +28,18 @@ theme:
 
 extra_css:
   - 'stylesheets/logo.css'
-#     - 'theme/extra.css'
-
-# Customization
   - css/version-select.css
 extra:
+  nebula:
+    release: 1.2.1
+    nightly: nightly
+  version:
+    method: mike
   social:
-    - type: 'github'
-      link: 'https://github.com/vesoft-inc/nebula'
-    - type: 'weibo'
-      link: 'https://www.weibo.com/u/7122684542?is_hot=1'
-    - type: 'twitter'
-      link: 'https://twitter.com/NebulaGraph'
-    - type: 'linkedin'
-      link: 'https://www.linkedin.com/company/vesoft-nebula-graph/'
-    - type: 'facebook'
-      link: 'https://www.facebook.com/NebulaGraph/'
-    - type: 'slack'
-      link: 'https://app.slack.com/client/TJB3N2BPD/CJNFUM7AR'
+    - icon: 'fontawesome/brands/github'
+      link: 'https://github.com/vesoft-inc/nebula-docs-cn'
 
 nav:
-    # - Version: '../'
-
     - 简介:
       - 关于本手册: manual-CN/0.about-this-manual.md
       - 目录索引: manual-CN/README.md
@@ -319,12 +309,16 @@ markdown_extensions:
 # Plugins
 plugins:
   - search
+  - macros
+  - git-revision-date-localized
   # - mkdocs-versioning:
   #     version: 1.0
 
 extra_javascript:
   - js/version-select.js
 
-
+google_analytics:
+  - UA-60523578-15
+  - auto
 
 
