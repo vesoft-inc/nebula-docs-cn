@@ -1,29 +1,28 @@
 # Project information
-site_name: Nebula Graph 手册
-site_description: Documentation for Nebula Graph
+site_name: Nebula Graph Database 内核手册
+site_description: Documentation for Nebula Graph Database
 site_author: Nebula Graph
 site_url: https://docs.nebula-graph.com.cn/
 edit_uri: 'edit/v1.2.0/docs'
 docs_dir: docs
 
 # repository
-repo_name: 'vesoft-inc/nebula'
-repo_url: 'https://github.com/vesoft-inc/nebula'
+repo_name: 'vesoft-inc/nebula-docs-cn'
+repo_url: 'https://github.com/vesoft-inc/nebula-docs-cn'
 
-# Copyright
 copyright: Copyright &copy; 2020 Nebula Graph - 浙ICP备20010487号
 
 # Configuration
 theme:
   name: 'material'
-  logo:
-    icon: library_books
+  logo: 'https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png'
   favicon: 'assets/images/favicon.ico'
   palette:
     primary: 'indigo'
     accent: 'indigo'
   feature:
-    tabs: false
+    - tabs: false
+    - navigation.top
   language: 'zh'
 
 extra_css:
@@ -31,9 +30,9 @@ extra_css:
   - css/version-select.css
 extra:
   nebula:
-    release: 1.2.1
+    release: 1.2
     nightly: nightly
-  version:
+    version:
     method: mike
   social:
     - icon: 'fontawesome/brands/github'
@@ -41,6 +40,7 @@ extra:
 
 nav:
     - 简介:
+      - 关于: README.md
       - 关于本手册: manual-CN/0.about-this-manual.md
       - 目录索引: manual-CN/README.md
       - 基本概念:
@@ -311,8 +311,6 @@ plugins:
   - search
   - macros
   - git-revision-date-localized
-  # - mkdocs-versioning:
-  #     version: 1.0
 
 extra_javascript:
   - js/version-select.js

@@ -18,6 +18,13 @@ jobs:
           python-version: '3.7'
           architecture: 'x64'
 
+      - name: apt install
+        run: |
+          sudo apt update -y
+          sudo apt install -y $(cat pkglist.txt)
+      - name: set LANG
+        run: sh lang-zh.sh
+
       - name: Install dependencies
         run: |
           pip install --upgrade pip
