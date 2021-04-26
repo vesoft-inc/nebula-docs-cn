@@ -4,7 +4,7 @@ Studio 连接到 Nebula Graph 数据库后，您可以创建或删除图空间�
 
 ## 支持版本
 
-Studio v1.2.0-beta 及以后版本。请更新版本，详细操作参考 [版本更新](../about-studio/st-ug-check-updates.md)。
+Studio v2.2.0 及以后版本。请更新版本，详细操作参考 [版本更新](../about-studio/st-ug-check-updates.md)。
 
 ## 前提条件
 
@@ -25,14 +25,14 @@ Studio v1.2.0-beta 及以后版本。请更新版本，详细操作参考 [版�
 
 3. 在 **创建** 页面，完成以下配置：
 
-   a. **名称**：指定图空间名称，本示例中设置为 `mooc_actions`。不可与已有的图空间名称重复。名称命名规则，参考[《nGQL 用户手册》](https://docs.nebula-graph.com.cn/manual-CN/2.query-language/3.language-structure/schema-object-names/ "点击前往 Nebula Graph 网站")。
+   a. **名称**：指定图空间名称，本示例中设置为 `mooc_actions`。不可与已有的图空间名称重复。名称命名规则，参考[附录](https://docs.nebula-graph.com.cn/2.0.1/3.ngql-guide/20.appendix/comments/ "点击前往 附录")。
 
-   b. **选填参数**：分别设置 `partition_num`、`replica_factor`、`charset` 或者 `collate` 的值。在本示例中，四个参数分别设置为 `10`、`1`、`utf8` 和 `utf8_bin`。详细信息，参考 [`CREATE SPACE` 语法](https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/create-space-syntax/ "点击前往 Nebula Graph 网站")。
+   b. **选填参数**：分别设置 `partition_num`、`replica_factor`、`charset`、`collate` 和 `void type` 的值。在本示例中，四个参数分别设置为 `10`、`1`、`utf8`、`utf8_bin` 和 `FIXED_STRING(32)`。详细信息，参考 [`CREATE SPACE` 语法](https://docs.nebula-graph.com.cn/2.0.1/3.ngql-guide/9.space-statements/1.create-space/ "点击前往 CREATE SPACE")。
 
    在 **对应的nGQL语句** 面板上，您能看到上述设置对应的 nGQL 语句。如下所示：
 
    ```ngql
-   CREATE SPACE mooc_actions (partition_num = 10, replica_factor = 1, charset = utf8, collate = utf8_bin)
+   CREATE SPACE mooc_actions (partition_num = 10, replica_factor = 1, charset = utf8, collate = utf8_bin, vid_type = FIXED_STRING(32))
    ```
 
 4. 配置确认无误后，点击 **创建** 按钮。
