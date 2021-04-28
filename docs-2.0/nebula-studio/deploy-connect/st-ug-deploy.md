@@ -6,8 +6,8 @@
 
 在部署 Docker 版 Studio 之前，您需要确认以下信息：
 
-- Nebula Graph 服务已经部署并启动。详细信息，参考[《Nebula Graph 用户手册》](https://docs.nebula-graph.io/manual-EN/3.build-develop-and-administration/2.install/1.install-with-rpm-deb/ "点击前往 Nebula Graph 用户手册")。
-  > **说明**：您可以使用多种方式部署并启动 Nebula Graph 服务。如果您刚开始使用 Nebula Graph，建议您使用 Docker Compose 部署 Nebula Graph。详细信息参考 [使用 Docker Compose 部署 Nebula Graph](https://github.com/vesoft-inc/nebula-docker-compose/blob/master/README_zh-CN.md "点击前往 GitHub 网站")。
+- Nebula Graph 服务已经部署并启动。详细信息，参考[Nebula Graph安装部署](https://docs.nebula-graph.com.cn/2.0.1/4.deployment-and-installation/1.resource-preparations/ "点击前往 Nebula Graph 安装部署")。
+  > **说明**：您可以使用Docker Compose或RPM方式部署并启动 Nebula Graph 服务。如果您刚开始使用 Nebula Graph，建议您使用 Docker Compose 部署 Nebula Graph。详细信息参考 [使用 Docker Compose 部署 Nebula Graph](https://github.com/vesoft-inc/nebula-docker-compose/blob/master/README_zh-CN.md "点击前往 GitHub 网站")。
 
 - 在即将运行 Docker 版 Studio 的机器上安装并启动 Docker Compose。详细信息参考 [Docker Compose 文档](https://docs.docker.com/compose/install/ "点击前往 Docker 文档中心")。
 
@@ -72,3 +72,34 @@
 ## 后续操作
 
 进入 Studio 登录界面后，您需要连接 Nebula Graph。详细信息，参考 [连接数据库](st-ug-connect.md)。
+
+## FAQ
+
+Q:studio有rpm安装或者其他非docker部署方式吗？
+
+A:目前支持rpm包安装，详细信息，参考[使用RPM或DEB安装包安装Nebula Graph](https://docs.nebula-graph.com.cn/2.0.1/4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb/)。
+
+Q:前提条件搭建成功，studio启动失败。
+
+A:您可以检查7001，8080，5699的端口是否被占用。如果端口号被占用，可以考虑kill服务或修改studio服务启动端口。
+
+```bash
+//检查端口是否被占用
+losf -i:7001
+
+//修改studio服务启动端口
+$ vi config/config.default.js
+
+//修改
+...
+    config.cluster = {
+        listen: {
+            port: 7001, // 修改这个端口号，改成任意一个当前可用的即可
+            hostname: '0.0.0.0',
+        },
+    };
+...
+
+//重新启动npm
+$ npm run start
+```
