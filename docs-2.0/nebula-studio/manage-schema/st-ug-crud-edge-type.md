@@ -40,7 +40,7 @@ Studio v{{ studio.base220 }} 及以后版本。请更新版本，详细操作参
    c. （可选）边类型未设置索引时，您可以设置 TTL：在 **设置TTL**面板的左上角，点击勾选框，并在展开的列表中设置 `TTL_COL` 和 `TTL_DURATION` 参数信息。关于这两个参数的详细信息，参考 [TTL 配置](https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/TTL/ "点击前往 Nebula Graph 网站")。
 
 6. 完成设置后，在 **对应的nGQL语句** 面板上，您能看到与上述配置等价的 nGQL 语句。  
-![定义边类型 action 的属性](../figs/st-ug-022.png "定义边类型")
+![定义边类型 action 的属性](../figs/st-ug-022-1.png "定义边类型")
 
 7. 确认无误后，点击 **+ 创建** 按钮。  
    如果边类型创建成功，**定义属性**面板会显示这个边类型的属性列表。

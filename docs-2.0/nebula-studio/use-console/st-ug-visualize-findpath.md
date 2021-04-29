@@ -12,7 +12,7 @@ Studio v{{ studio.base220 }} 及以后版本。请更新版本，详细操作参
 
 在 **控制台** 上运行 `FIND PATH` 语句并查看子图之前，您需要确认以下信息：
 
-- Studio 版本为 v2.2.0 及以后版本。
+- Studio 版本为 v{{ studio.base220 }} 及以后版本。
 - Studio 已经连接到 Nebula Graph 数据库。详细信息参考 [连接数据库](../deploy-connect/st-ug-connect.md)。
 - 已经导入数据集。详细操作参考 [导入数据](../quick-start/st-ug-import-data.md)。
 

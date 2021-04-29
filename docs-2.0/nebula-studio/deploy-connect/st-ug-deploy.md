@@ -1,6 +1,6 @@
 # 部署 Studio
 
-云服务版 Studio 只能在 Nebula Graph Cloud Service 上使用。当您在 Nebula Graph Cloud Service 上创建 Nebula Graph 实例时即自动完成云服务版本 Studio 的部署，一键直连即可使用，不需要自己部署。详细信息参考[《Nebula Graph Cloud Service 用户手册》](https://cloud-docs.nebula-graph.com.cn/cn/posts/manage-instances/dbaas-ug-connect-nebulastudio/ "点击前往 Nebula Graph Cloud Service 用户手册")。但是，您需要自己部署 Studio，本文描述如何通过 Docker 和 RPM 部署 Studio。
+Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云服务版 Studio 只能在 Nebula Graph Cloud Service 上使用。当您在 Nebula Graph Cloud Service 上创建 Nebula Graph 实例时即自动完成云服务版本 Studio 的部署，一键直连即可使用，不需要自己部署。详细信息参考[《Nebula Graph Cloud Service 用户手册》](https://cloud-docs.nebula-graph.com.cn/cn/posts/manage-instances/dbaas-ug-connect-nebulastudio/ "点击前往 Nebula Graph Cloud Service 用户手册")。本文介绍如何在本地通过 Docker 和 RPM 部署 Studio。
 
 ## Docker 部署Studio
 ### 前提条件
@@ -79,44 +79,49 @@
   > **说明**：您可以使用Docker Compose或RPM方式部署并启动 Nebula Graph 服务。如果您刚开始使用 Nebula Graph，建议您使用 Docker Compose 部署 Nebula Graph。详细信息参考 [使用 Docker Compose 部署 Nebula Graph](https://docs.nebula-graph.com.cn/2.0.1/2.quick-start/2.deploy-nebula-graph-with-docker-compose/ "点击前往Nebula Graph 安装部署")。
 - 您的使用的 Linux 发行版为 CentOS ，安装有 losf 和版本为 v10.16.0 + 以上的 Node.js。
 - 确保在安装开始前，以下端口处于未被使用状态。
-
-| 端口号 | 服务 |
-| ---- | ---- |
-| 7001 | Studio的web服务 |
-| 8080 | Nebula-http-gateway，Client的http服务 |
-| 5699 | Nebula-importer，数据导入服务 |
+  
+  | 端口号 | 说明 |
+  | ---- | ---- |
+  | 7001 | Studio提供的web服务 |
+  | 8080 | Nebula-http-gateway，Client的HTTP服务 |
+  | 5699 | Nebula importer文件导入工具，数据导入服务 |
 
 ### 安装
 
-您可以根据自己的需求，选择并下载RPM包，建议您选择最新版本。
-| RPM 包 | 版本|
-| ----- | ----- |
-| [nebula-graph-studio-2.2.0-1.x86_64.rpm](https://oss-cdn.nebula-graph.io/nebula-graph-studio/nebula-graph-studio-2.2.0-1.x86_64.rpm) |  2.0.1 |
-| [nebula-graph-studio-2.1.9-1.x86_64.rpm](https://oss-cdn.nebula-graph.io/nebula-graph-studio/nebula-graph-studio-2.1.9-1.x86_64.rpm) |  2.0 GA |
-| [nebula-graph-studio-1.2.7-2.x86_64.rpm](https://oss-cdn.nebula-graph.io/nebula-graph-studio/nebula-graph-studio-1.2.7-1.x86_64.rpm) |  1.x |
+1. 根据需要选择并下载RPM包，建议您选择最新版本。常用下载链接如下：
 
-以 Nebula 2.0.1 版本为例，您可以使用以下命令进行安装。
+  | RPM 包 | Nebula 版本|
+  | ----- | ----- |
+  | [nebula-graph-studio-2.2.0-1.x86_64.rpm](https://oss-cdn.nebula-graph.io/nebula-graph-studio/nebula-graph-studio-2.2.0-1.x86_64.rpm) |  2.0.1 |
+  | [nebula-graph-studio-2.1.9-1.x86_64.rpm](https://oss-cdn.nebula-graph.io/nebula-graph-studio/nebula-graph-studio-2.1.9-1.x86_64.rpm) |  2.0 GA |
+  | [nebula-graph-studio-1.2.7-2.x86_64.rpm](https://oss-cdn.nebula-graph.io/nebula-graph-studio/nebula-graph-studio-1.2.7-1.x86_64.rpm) |  1.x |
+
+2. 使用`sudo rpm -i <rpm>`命令安装RPM包。
+
+例如，安装Studio 2.2.0 版本需要运行以下命令：
 ```bash
 $ sudo rpm -i nebula-graph-studio-2.2.0-1.x86_64.rpm
 ```
-### 删除
-您可以使用以下的命令删除安装。
+### 卸载
+您可以使用以下的命令卸载 Studio。
 ```bash
 $ sudo rpm -e nebula-graph-studio-2.2.0-1.x86_64.rpm
 ```
 
 ### 异常处理
 
-如果您在安装过程中自动启动失败或是您需要手动启动/停止服务，我们提供了以下的命令。
+如果您在安装过程中自动启动失败或是您需要手动启动或停止服务，请使用以下命令
+- 手动启动服务
 ```bash
-// 手动启动服务
 $ bash /usr/local/nebula-graph-studio/scripts/start.sh
+```
 
-// 手动停止服务
+- 手动停止服务
+```bash  
 $ bash /usr/local/nebula-graph-studio/scripts/stop.sh
 ```
 
-如果您在启动服务中，报错 ERROR: bind EADDRINUSE 0.0.0.0:7001，您可以通过以下命令查看端口7001是否被占用。
+如果启动服务时遇到报错报错 ERROR: bind EADDRINUSE 0.0.0.0:7001，您可以通过以下命令查看端口7001是否被占用。
 ```bash
 $ losf -i:7001
 ```

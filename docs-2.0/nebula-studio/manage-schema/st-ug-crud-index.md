@@ -40,7 +40,7 @@ Studio v{{ studio.base220 }} 及以后版本。请更新版本，详细操作参
    > **说明**：索引属性的顺序会影响 `LOOKUP` 语句的查询结果。详细信息，参考 [《nGQL 用户手册》](https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/lookup-syntax/#faq "点击前往 Nebula Graph 网站")。
 
 6. 完成设置后，在 **对应的 nGQL**面板，您能看到与上述配置等价的 nGQL 语句。  
-![为边类型 action 创建索引](../figs/st-ug-023.png "创建索引")
+![为边类型 action 创建索引](../figs/st-ug-023-1.png "创建索引")
 
 7. 确认无误后，点击 **+ 创建** 按钮。
    如果索引创建成功，**定义属性**面板会显示这个索引的属性列表。
