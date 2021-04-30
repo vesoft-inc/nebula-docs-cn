@@ -8,7 +8,7 @@
 
 ## 系统架构
 
-Docker 版 Studio 目前仅支持 x86_64 架构。
+Docker 版和 RPM 版 Studio 目前仅支持 x86_64 架构。
 
 ## 数据上传
 

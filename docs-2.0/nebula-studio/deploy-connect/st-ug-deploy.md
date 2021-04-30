@@ -2,7 +2,7 @@
 
 Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云服务版 Studio 只能在 Nebula Graph Cloud Service 上使用。当您在 Nebula Graph Cloud Service 上创建 Nebula Graph 实例时即自动完成云服务版本 Studio 的部署，一键直连即可使用，不需要自己部署。详细信息参考[《Nebula Graph Cloud Service 用户手册》](https://cloud-docs.nebula-graph.com.cn/cn/posts/manage-instances/dbaas-ug-connect-nebulastudio/ "点击前往 Nebula Graph Cloud Service 用户手册")。本文介绍如何在本地通过 Docker 和 RPM 部署 Studio。
 
-## Docker 部署Studio
+## Docker 部署 Studio
 ### 前提条件
 
 在部署 Docker 版 Studio 之前，您需要确认以下信息：
@@ -73,7 +73,7 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 ## RPM 部署Studio
 ### 前提条件
 
-在部署 Docker 版 Studio 之前，您需要确认以下信息：
+在部署 RPM 版 Studio 之前，您需要确认以下信息：
 
 - Nebula Graph 服务已经部署并启动。详细信息，参考[Nebula Graph 安装部署](https://docs.nebula-graph.com.cn/2.0.1/4.deployment-and-installation/1.resource-preparations/ "点击前往 Nebula Graph 安装部署")。
   > **说明**：您可以使用Docker Compose或RPM方式部署并启动 Nebula Graph 服务。如果您刚开始使用 Nebula Graph，建议您使用 Docker Compose 部署 Nebula Graph。详细信息参考 [使用 Docker Compose 部署 Nebula Graph](https://docs.nebula-graph.com.cn/2.0.1/2.quick-start/2.deploy-nebula-graph-with-docker-compose/ "点击前往Nebula Graph 安装部署")。

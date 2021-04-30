@@ -6,9 +6,9 @@ Studio 处于持续开发状态中。您可以通过 [Studio 的版本更新记�
 
 对于云服务版 Studio，以 Nebula Graph Cloud Service 上实际部署的版本为准，您不能自行更新 Studio 版本。当前公测环境里的 Studio 版本为 v{{ studio.base111b }}。
 
-## Docker 版 Studio
+## Docker 版和 RPM 版 Studio
 
-对于 Docker 版 Studio，建议您每次都在 `nebula-web-docker` 目录下运行以下命令启动 Studio：
+对于 Docker 版和 RPM 版 Studio，建议您每次都在 `nebula-web-docker` 目录下运行以下命令启动 Studio：
 
   ```bash
   docker-compose pull && docker-compose up -d
