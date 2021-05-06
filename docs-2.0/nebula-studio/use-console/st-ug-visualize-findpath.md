@@ -29,14 +29,12 @@ Studio v{{ studio.base220 }} 及以后版本。请更新版本，详细操作参
    查询语句示例如下：
 
    ```nGQL
-   -- 对于本手册中所用数据集，
-   -- course 类点的 VID 由 courseName 经 Hash() 函数处理得到
-   nebula> FIND ALL PATH FROM 1,2,4,6,42 to hash("History of Ecology"),hash("Neurobiology") OVER action;
+   nebula> FIND ALL PATH FROM "player114" to "player100" OVER follow;
    ```
 
    查询得到如下图所示路径信息。
 
-   ![结果窗口显示返回的路径信息](../figs/st-ug-045.png "返回的路径结果")
+   ![结果窗口显示返回的路径信息](../figs/st-ug-045-1.png "返回的路径结果")
 
 4. 点击 **查看子图** 按钮。
 
@@ -48,7 +46,7 @@ Studio v{{ studio.base220 }} 及以后版本。请更新版本，详细操作参
 
 数据插入成功后，您可以看到查询结果的可视化表现。
 
-![在画板上显示返回的路径结果](../figs/st-ug-046.png "路径结果的可视化表现")
+![在画板上显示返回的路径结果](../figs/st-ug-046-1.png "路径结果的可视化表现")
 
 ## 后续操作
 

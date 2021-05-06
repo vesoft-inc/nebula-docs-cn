@@ -68,7 +68,7 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
     如果您在浏览器窗口中能看到以下登录界面，表示您已经成功部署并启动 Studio。
 
-    ![Nebula Graph Studio 登录界面](../figs/st-ug-001.png "Nebula Graph Studio 登录界面")
+    ![Nebula Graph Studio 登录界面](../figs/st-ug-001-1.png "Nebula Graph Studio 登录界面")
 
 ## RPM 部署Studio
 ### 前提条件
