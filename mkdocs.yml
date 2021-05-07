@@ -241,8 +241,11 @@ nav:
       - Storage负载均衡: 8.service-tuning/load-balance.md
       
   - 生态工具:
+      - 版本说明: 16.eco-tools/0.eco-tool-version.md
       - Nebula Exchange: 16.eco-tools/1.nebula-exchange.md
       - Nebula Importer: 16.eco-tools/2.nebula-importer.md
+      - Nebula Spark Connector: 16.eco-tools/3.nebula-spark-connector.md
+      - Nebula Flink Connector: 16.eco-tools/4.nebula-flink-connector.md
 #  - 图算法:
 #    - nebula-algorithm:
 #      - 什么是 nebula-algorithm: nebula-algorithm/na-ug-what-is-nebula-algorithm.md
