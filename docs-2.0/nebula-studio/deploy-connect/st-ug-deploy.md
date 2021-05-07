@@ -7,10 +7,17 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
 在部署 Docker 版 Studio 之前，您需要确认以下信息：
 
-- Nebula Graph 服务已经部署并启动。详细信息，参考[Nebula Graph 安装部署](https://docs.nebula-graph.com.cn/2.0.1/4.deployment-and-installation/1.resource-preparations/ "点击前往 Nebula Graph 安装部署")。
-  > **说明**：您可以使用Docker Compose或RPM方式部署并启动 Nebula Graph 服务。如果您刚开始使用 Nebula Graph，建议您使用 Docker Compose 部署 Nebula Graph。详细信息参考 [使用 Docker Compose 部署 Nebula Graph](https://docs.nebula-graph.com.cn/2.0.1/2.quick-start/2.deploy-nebula-graph-with-docker-compose/ "点击前往Nebula Graph 安装部署")。
+- Nebula Graph 服务已经部署并启动。详细信息，参考[Nebula Graph安装部署](https://docs.nebula-graph.com.cn/{{ nebula.release }}/4.deployment-and-installation/1.resource-preparations/ "点击前往 Nebula Graph 安装部署")。
+  > **说明**：您可以使用Docker Compose或RPM方式部署并启动 Nebula Graph 服务。如果您刚开始使用 Nebula Graph，建议您使用 Docker Compose 部署 Nebula Graph。详细信息参考 [使用 Docker Compose 部署 Nebula Graph](https://github.com/vesoft-inc/nebula-docker-compose/blob/master/README_zh-CN.md "点击前往 GitHub 网站")。
 
 - 在即将运行 Docker 版 Studio 的机器上安装并启动 Docker Compose。详细信息参考 [Docker Compose 文档](https://docs.docker.com/compose/install/ "点击前往 Docker 文档中心")。
+- 确保在安装开始前，以下端口处于未被使用状态。
+  
+  | 端口号 | 说明 |
+  | ---- | ---- |
+  | 7001 | Studio提供的web服务 |
+  | 8080 | Nebula-http-gateway，Client的HTTP服务 |
+  | 5699 | Nebula importer文件导入工具，数据导入服务 |
 
 - （可选）在中国大陆从 Docker Hub 拉取 Docker 镜像的速度可能比较慢，您可以使用 `registry-mirrors` 参数配置加速镜像。例如，如果您要使用 Docker 中国区官方镜像、网易镜像和中国科技大学的镜像，则按以下格式配置 `registry-mirrors` 参数：
 
@@ -90,15 +97,16 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
 1. 根据需要选择并下载RPM包，建议您选择最新版本。常用下载链接如下：
 
-  | RPM 包 | Nebula 版本|
-  | ----- | ----- |
-  | [nebula-graph-studio-2.2.0-1.x86_64.rpm](https://oss-cdn.nebula-graph.io/nebula-graph-studio/nebula-graph-studio-2.2.0-1.x86_64.rpm) |  2.0.1 |
-  | [nebula-graph-studio-2.1.9-1.x86_64.rpm](https://oss-cdn.nebula-graph.io/nebula-graph-studio/nebula-graph-studio-2.1.9-1.x86_64.rpm) |  2.0 GA |
-  | [nebula-graph-studio-1.2.7-2.x86_64.rpm](https://oss-cdn.nebula-graph.io/nebula-graph-studio/nebula-graph-studio-1.2.7-1.x86_64.rpm) |  1.x |
+| 安装包 | 检验和 | Nebula版本 |
+| ----- | ----- | ----- |
+| [nebula-graph-studio-2.2.1-1.x86_64.rpm](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-2.2.1-1.x86_64.rpm) |  [nebula-graph-studio-2.2.1-1.x86_64.rpm.sha256](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-2.2.1-1.x86_64.rpm.sha256) | 2.0.1 |
+| [nebula-graph-studio-2.2.0-1.x86_64.rpm](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-2.2.0-1.x86_64.rpm) |  [nebula-graph-studio-2.2.0-1.x86_64.rpm.sha256](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-2.2.0-1.x86_64.rpm.sha256) | 2.0.1 |
+| [nebula-graph-studio-2.1.9-1.x86_64.rpm](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-2.1.9-1.x86_64.rpm) | - |  2.0 GA |
+| [nebula-graph-studio-1.2.7-2.x86_64.rpm](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-1.2.7-2.x86_64.rpm) | [nebula-graph-studio-1.2.7-2.x86_64.rpm.sha256](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-1.2.7-2.x86_64.rpm.sha256) |  1.x |
 
 2. 使用`sudo rpm -i <rpm>`命令安装RPM包。
 
-例如，安装Studio 2.2.0 版本需要运行以下命令：
+例如，安装Studio {{ studio.base220 }} 版本需要运行以下命令：
 ```bash
 $ sudo rpm -i nebula-graph-studio-2.2.0-1.x86_64.rpm
 ```
@@ -146,4 +154,4 @@ $ losf -i:7001
 ```
 ## 后续操作
 
-进入 Studio 登录界面后，您需要连接 Nebula Graph。详细信息，参考 [连接数据库](st-ug-connect.md)。
+进入 Studio 登录界面后，您需要连接 Nebula Graph。详细信息，参考[连接数据库](st-ug-connect.md)。

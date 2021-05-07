@@ -2,7 +2,7 @@
 
 在 Studio 里，您可以在 **控制台** 上运行 `FIND SHORTEST | ALL PATH` 语句查询得到指定点之间的所有路径或最短路径，然后再通过 **查看子图** 功能将查询得到的路径导入 **图探索** 进行可视化展示。
 
-关于 `FIND SHORTEST | ALL PATH` 语句的详细信息，参考 [nGQL 用户手册](https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/4.graph-algorithms/find-path-syntax/ "点击前往 Nebula Graph 网站")。
+关于 `FIND SHORTEST | ALL PATH` 语句的详细信息，参考 [nGQL 用户手册](https://docs.nebula-graph.com.cn/2.0.1/3.ngql-guide/16.subgraph-and-path/2.find-path/ "点击前往 Nebula Graph 网站")。
 
 ## 支持版本
 

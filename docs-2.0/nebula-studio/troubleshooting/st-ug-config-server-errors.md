@@ -22,8 +22,8 @@
 
 检查 Nebula Graph 服务状态。关于查看服务的操作：
 
-- 如果在 Linux 服务器上通过编译部署的 Nebula Graph，参考 [查看 Nebula Graph 服务](https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/2.install/2.start-stop-service/#nebula_graph_2 "点击前往 Nebula Graph 网站")。
-- 如果使用 Docker Compose 部署的 Nebula Graph，参考 [查看 Nebula Graph 服务状态和端口](https://github.com/vesoft-inc/nebula-docker-compose/blob/master/README_zh-CN.md "点击前往 GitHub 网站")。
+- 如果在 Linux 服务器上通过编译部署的 Nebula Graph，参考 [查看 Nebula Graph 服务](https://docs.nebula-graph.com.cn/2.0.1/4.deployment-and-installation/deploy-nebula-graph-cluster/ "点击前往 Nebula Graph 网站")。
+- 如果使用 Docker Compose 部署和 RPM 部署的 Nebula Graph，参考 [查看 Nebula Graph 服务状态和端口](../deploy-connect/st-ug-deploy.md "点击前往 GitHub 网站")。
   
 如果 Nebula Graph 服务正常，进入第 4 步继续排查问题。否则，请重启 Nebula Graph 服务。
 > **说明**：如果您之前使用 `docker-compose up -d` 启动 Nebula Graph，必须运行 `docker-compose down` 命令停止 Nebula Graph。
