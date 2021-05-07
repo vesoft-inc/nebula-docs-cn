@@ -114,3 +114,23 @@ nebula> MATCH (v:player) \
 | ["Yao Ming", "Vince Carter", "Tracy McGrady"] |
 +-----------------------------------------------+
 ```
+
+## 结合RETURN语句使用
+
+在`WITH`子句中设置别名，并通过`RETURN`子句输出结果。
+
+```ngql
+nebula> WITH [1, 2, 3] AS list  RETURN 3 IN list AS r;
++------+
+| r    |
++------+
+| true |
++------+
+
+nebula> WITH 4 AS one, 3 AS two RETURN one > two AS result;
++--------+
+| result |
++--------+
+| true   |
++--------+
+```
