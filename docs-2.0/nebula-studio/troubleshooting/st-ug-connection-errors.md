@@ -29,7 +29,9 @@ nebula-web-docker_web_1        docker-entrypoint.sh npm r ...   Up      0.0.0.0:
 
 如果没有返回以上结果，则先停止 Studio 重新启动。详细信息，参考 [部署 Studio](../deploy-connect/st-ug-deploy.md)。
 
-> **说明**：如果您之前使用 `docker-compose up -d` 启动 Studio，必须运行 `docker-compose down` 命令停止 Studio。
+!!! Note
+
+    如果您之前使用 `docker-compose up -d` 启动 Studio，必须运行 `docker-compose down` 命令停止 Studio。
 
 ### 第 3 步. 确认访问地址
 

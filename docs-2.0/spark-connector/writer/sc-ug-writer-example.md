@@ -40,7 +40,9 @@
 </dependency>
 ```
 
-> **说明**：`<version>` 建议配置为最新发布的 Nebula Java Client 版本号。您可以在 [nebula-java 仓库的 Releases 页面](https://github.com/vesoft-inc/nebula-java/releases "点击前往 GitHub 网站") 查看最新的 v1.x 版本。
+!!! Note
+
+    `<version>` 建议配置为最新发布的 Nebula Java Client 版本号。您可以在 [nebula-java 仓库的 Releases 页面](https://github.com/vesoft-inc/nebula-java/releases "点击前往 GitHub 网站") 查看最新的 v1.x 版本。
 
 ### 第 2 步
 
