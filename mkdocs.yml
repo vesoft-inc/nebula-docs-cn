@@ -347,24 +347,29 @@ markdown_extensions:
       separator: "_"
   - mdx_truly_sane_lists
   - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
 
 # Plugins
 plugins:
   - search
   - macros
   - git-revision-date-localized
-  - with-pdf:
-      copyright: 2021 Vesoft Inc.
-      cover_subtitle: v2.0.1
-      author: 吴敏,周瑶,梁振亚
-      cover: true
-      back_cover: true
-      cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
-      output_path: pdf/NebulaGraph-CN.pdf
-      show_anchors: true
+#  - with-pdf:
+#      copyright: 2021 Vesoft Inc.
+#      cover_subtitle: v2.0.1
+#      author: 吴敏,周瑶,梁振亚
+#      cover: true
+#      back_cover: true
+#      cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
+#      output_path: pdf/NebulaGraph-CN.pdf
+#      show_anchors: true
 
 extra_javascript:
   - js/version-select.js
+  - js/config.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 google_analytics:
   - UA-60523578-15
