@@ -3,7 +3,7 @@
 在 Nebula Graph 中，您必须先有 Schema，再向其中写入点数据和边数据。本文描述如何使用 Nebula Graph 的 **控制台** 或 **Schema** 功能创建 Schema。
 
 > **说明**：您也可以使用 nebula-console 创建 Schema。详细信息，参考 [使用 Docker Compose 部署 Nebula Graph
-](https://github.com/vesoft-inc/nebula-docker-compose/blob/master/README_zh-CN.md) 和 [Nebula Graph 快速开始](https://docs.nebula-graph.com.cn/2.0.1/2.quick-start/1.quick-start-workflow/)。
+](../../README.md) 和 [Nebula Graph 快速开始](../../2.quick-start/1.quick-start-workflow.md)。
 
 ## 前提条件
 
@@ -11,7 +11,7 @@
 
 - Studio 已经连接到 Nebula Graph 数据库。
 
-- 您的账号拥有 GOD、ADMIN 或 DBA 权限。详细信息，参考 [Nebula Graph 内置角色](https://docs.nebula-graph.com.cn/2.0.1/7.data-security/1.authentication/3.role-list/)。
+- 您的账号拥有 GOD、ADMIN 或 DBA 权限。详细信息，参考 [Nebula Graph 内置角色](../../7.data-security/1.authentication/3.role-list.md)。
 
 - 您已经规划好了 Schema 的要素。
 

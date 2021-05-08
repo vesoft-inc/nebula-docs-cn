@@ -36,7 +36,7 @@
    ![在数据源中点击“选择”](../figs/st-ug-009-1.png "为 vertexId 选择数据源")  
 
    b. 在弹出对话框中，选择数据列。在本示例中，`vertex_player.csv` 中仅有一列数据用于生成代表球员的 VID，`vertex_team.csv` 中选择表示 `teamName` 信息的 **Column 0** 用于生成代表球队的 VID。  
-   > **说明**：在同一个图空间中，VID 始终唯一，不可重复。关于 VID 的信息，参考 [Nebula Graph 的点ID和分片ID](https://docs.nebula-graph.com.cn/2.0.1/3.ngql-guide/20.appendix/vid-partition/#idvid "点击进入 Nebula Graph 用户手册")。  
+   > **说明**：在同一个图空间中，VID 始终唯一，不可重复。关于 VID 的信息，参考 [Nebula Graph 的点ID和分片ID](../../3.ngql-guide/20.appendix/vid-partition.md "点击进入 Nebula Graph 用户手册")。  
 
 8. 在 **TAG 1** 部分，完成以下操作：  
    a. 在 **TAG** 下拉列表中，选择数据源对应的标签名称。在本示例中，`vertex_player.csv` 文件对应选择 **player**；`vertex_team.csv` 文件对应选择 **team**。  

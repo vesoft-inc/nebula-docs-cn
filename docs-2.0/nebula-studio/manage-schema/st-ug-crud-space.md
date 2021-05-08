@@ -25,9 +25,9 @@ Studio v{{ studio.base220 }} 及以后版本。请更新版本，详细操作参
 
 3. 在 **创建** 页面，完成以下配置：
 
-   a. **名称**：指定图空间名称，本示例中设置为 `mooc_actions`。不可与已有的图空间名称重复。不可使用关键字或保留关键字做标识符，参考[关键字](https://docs.nebula-graph.com.cn/{{ nebula.release }}/3.ngql-guide/20.appendix/keywords-and-reserved-words/ "点击前往 关键字")。
+   a. **名称**：指定图空间名称，本示例中设置为 `mooc_actions`。不可与已有的图空间名称重复。不可使用关键字或保留关键字做标识符，参考[关键字](../../3.ngql-guide/20.appendix/keywords-and-reserved-words.md "点击前往 关键字")。
 
-   b. **选填参数**：分别设置 `partition_num`、`replica_factor`、`charset`、`collate` 和 `void type` 的值。在本示例中，四个参数分别设置为 `10`、`1`、`utf8`、`utf8_bin` 和 `FIXED_STRING(32)`。详细信息，参考 [`CREATE SPACE` 语法](https://docs.nebula-graph.com.cn/2.0.1/3.ngql-guide/9.space-statements/1.create-space/ "点击前往 CREATE SPACE")。
+   b. **选填参数**：分别设置 `partition_num`、`replica_factor`、`charset`、`collate` 和 `void type` 的值。在本示例中，四个参数分别设置为 `10`、`1`、`utf8`、`utf8_bin` 和 `FIXED_STRING(32)`。详细信息，参考 [`CREATE SPACE` 语法](../../3.ngql-guide/9.space-statements/1.create-space.md "点击前往 CREATE SPACE")。
 
    在 **对应的nGQL语句** 面板上，您能看到上述设置对应的 nGQL 语句。如下所示：
 

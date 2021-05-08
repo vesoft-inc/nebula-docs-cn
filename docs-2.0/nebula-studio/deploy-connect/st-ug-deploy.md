@@ -7,8 +7,8 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
 在部署 Docker 版 Studio 之前，您需要确认以下信息：
 
-- Nebula Graph 服务已经部署并启动。详细信息，参考[Nebula Graph安装部署](https://docs.nebula-graph.com.cn/{{ nebula.release }}/4.deployment-and-installation/1.resource-preparations/ "点击前往 Nebula Graph 安装部署")。
-  > **说明**：您可以使用Docker Compose或RPM方式部署并启动 Nebula Graph 服务。如果您刚开始使用 Nebula Graph，建议您使用 Docker Compose 部署 Nebula Graph。详细信息参考 [使用 Docker Compose 部署 Nebula Graph](https://github.com/vesoft-inc/nebula-docker-compose/blob/master/README_zh-CN.md "点击前往 GitHub 网站")。
+- Nebula Graph 服务已经部署并启动。详细信息，参考[Nebula Graph安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
+  > **说明**：您可以使用Docker Compose或RPM方式部署并启动 Nebula Graph 服务。如果您刚开始使用 Nebula Graph，建议您使用 Docker Compose 部署 Nebula Graph。详细信息参考 [使用 Docker Compose 部署 Nebula Graph](../../2.quick-start/2.deploy-nebula-graph-with-docker-compose.md "点击前往 GitHub 网站")。
 
 - 在即将运行 Docker 版 Studio 的机器上安装并启动 Docker Compose。详细信息参考 [Docker Compose 文档](https://docs.docker.com/compose/install/ "点击前往 Docker 文档中心")。
 - 确保在安装开始前，以下端口处于未被使用状态。
@@ -82,8 +82,8 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
 在部署 RPM 版 Studio 之前，您需要确认以下信息：
 
-- Nebula Graph 服务已经部署并启动。详细信息，参考[Nebula Graph 安装部署](https://docs.nebula-graph.com.cn/2.0.1/4.deployment-and-installation/1.resource-preparations/ "点击前往 Nebula Graph 安装部署")。
-  > **说明**：您可以使用Docker Compose或RPM方式部署并启动 Nebula Graph 服务。如果您刚开始使用 Nebula Graph，建议您使用 Docker Compose 部署 Nebula Graph。详细信息参考 [使用 Docker Compose 部署 Nebula Graph](https://docs.nebula-graph.com.cn/2.0.1/2.quick-start/2.deploy-nebula-graph-with-docker-compose/ "点击前往Nebula Graph 安装部署")。
+- Nebula Graph 服务已经部署并启动。详细信息，参考[Nebula Graph 安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
+  > **说明**：您可以使用Docker Compose或RPM方式部署并启动 Nebula Graph 服务。如果您刚开始使用 Nebula Graph，建议您使用 Docker Compose 部署 Nebula Graph。详细信息参考 [使用 Docker Compose 部署 Nebula Graph](../../2.quick-start/2.deploy-nebula-graph-with-docker-compose.md "点击前往Nebula Graph 安装部署")。
 - 您的使用的 Linux 发行版为 CentOS ，安装有 losf 和版本为 v10.16.0 + 以上的 Node.js。
 - 确保在安装开始前，以下端口处于未被使用状态。
   

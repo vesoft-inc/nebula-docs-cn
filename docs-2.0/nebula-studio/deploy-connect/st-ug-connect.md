@@ -11,7 +11,7 @@
 - Nebula Graph 的 Graph 服务本机 IP 地址以及服务所用端口。默认端口为 `9669`。
 
 - Nebula Graph 数据库登录账号信息，包括用户名和密码。
-  > **说明**：如果 Nebula Graph 已经启用了身份验证，并且已经创建了不同角色的用户，您只能使用被分配到的账号和密码登录数据库。如果未启用身份验证，您可以使用默认用户名（`user`）和默认密码（`password`）登录数据库。关于启用身份验证，参考 [Nebula Graph 用户手册](https://docs.nebula-graph.com.cn/ "点击进入 Nebula Graph 用户手册")。
+  > **说明**：如果 Nebula Graph 已经启用了身份验证，并且已经创建了不同角色的用户，您只能使用被分配到的账号和密码登录数据库。如果未启用身份验证，您可以使用默认用户名（`user`）和默认密码（`password`）登录数据库。关于启用身份验证，参考 [Nebula Graph 用户手册](../../README.md "点击进入 Nebula Graph 用户手册")。
 
 ## 操作步骤
 
