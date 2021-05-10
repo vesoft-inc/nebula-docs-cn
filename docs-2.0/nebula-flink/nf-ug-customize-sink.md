@@ -2,14 +2,15 @@
 
 Nebula Flink Connector 支持以 `DataStream.addSink` 的方式将 Flink 数据流写入 Nebula Graph 数据库。
 
-> **说明**：Nebula Flink Connector 使用 Flink 1.11-SNAPSHOT 开发，这个版本已经不再支持使用 `writeUsingOutputFormat` 方式定义输出端的接口，源码如下。所以，在使用自定义 NebulaSink 时，请您务必使用 `DataStream.addSink` 方式。
->
->       /** @deprecated */
->       @Deprecated
->       @PublicEvolving
->       public DataStreamSink<T> writeUsingOutputFormat(OutputFormat<T> format) {
->            return this.addSink(new OutputFormatSinkFunction(format));
->            }
+!!! Note
+
+    Nebula Flink Connector 使用 Flink 1.11-SNAPSHOT 开发，这个版本已经不再支持使用 `writeUsingOutputFormat` 方式定义输出端的接口，源码如下。所以，在使用自定义 NebulaSink 时，请您务必使用 `DataStream.addSink` 方式。
+    /** @deprecated */
+    @Deprecated
+    @PublicEvolving
+    public DataStreamSink<T> writeUsingOutputFormat(OutputFormat<T> format) {
+        return this.addSink(new OutputFormatSinkFunction(format));
+    }
 
 Nebula Flink Connector 中实现了自定义的 `NebulaSinkFunction`，开发者通过调用 `dataSource.addSink` 方法并将 `NebulaSinkFunction` 对象作为参数传入即可实现将 Flink 数据流写入 Nebula Graph 数据库中。
 

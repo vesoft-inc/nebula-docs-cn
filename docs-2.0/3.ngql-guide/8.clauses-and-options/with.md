@@ -6,7 +6,9 @@
 
 本文操作仅适用于openCypher方式。
 
->**说明**：在nGQL扩展中，有与`WITH`类似的[管道符](../5.operators/4.pipe.md)，但它们的工作方式不同。不要在openCypher方式中使用管道符，也不要在nGQL扩展中使用`WITH`子句。
+!!! Note
+
+    在nGQL扩展中，有与`WITH`类似的[管道符](../5.operators/4.pipe.md)，但它们的工作方式不同。不要在openCypher方式中使用管道符，也不要在nGQL扩展中使用`WITH`子句。
 
 ## 组成复合查询
 
@@ -113,4 +115,24 @@ nebula> MATCH (v:player) \
 +-----------------------------------------------+
 | ["Yao Ming", "Vince Carter", "Tracy McGrady"] |
 +-----------------------------------------------+
+```
+
+## 结合RETURN语句使用
+
+在`WITH`子句中设置别名，并通过`RETURN`子句输出结果。
+
+```ngql
+nebula> WITH [1, 2, 3] AS list  RETURN 3 IN list AS r;
++------+
+| r    |
++------+
+| true |
++------+
+
+nebula> WITH 4 AS one, 3 AS two RETURN one > two AS result;
++--------+
+| result |
++--------+
+| true   |
++--------+
 ```
