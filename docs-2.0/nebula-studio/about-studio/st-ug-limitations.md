@@ -4,11 +4,11 @@
 
 ## Nebula Graph 版本支持
 
-目前 Studio v1.x 仅支持 Nebula Graph v1.x，不支持 Nebula Graph v2.x。
+目前 Studio v1.x 仅支持 Nebula Graph v1.x，Studio v2.x 仅支持 Nebula Graph v2.x。
 
 ## 系统架构
 
-Docker 版 Studio 目前仅支持 x86_64 架构。
+Docker 版和 RPM 版 Studio 目前仅支持 x86_64 架构。
 
 ## 数据上传
 
@@ -19,7 +19,7 @@ Docker 版 Studio 目前仅支持 x86_64 架构。
 - 单个实例上传文件总量不得超过 1 GB。
 - 单个文件仅能保存 1 天。
 
-使用 Docker 版 Studio 上传数据也仅支持上传无表头的 CSV 文件，但是，单个文件大小及保存时间不受限制，而且，数据总量以本地存储容量为准。
+使用 Docker 版和 RPM 版 Studio 上传数据也仅支持上传无表头的 CSV 文件，但是，单个文件大小及保存时间不受限制，而且，数据总量以本地存储容量为准。
 
 ## 数据备份
 
@@ -41,7 +41,7 @@ Docker 版 Studio 目前仅支持 x86_64 架构。
 - `GRANT ROLE`
 - `REVOKE ROLE`  
 
-关于语句的详细信息，参考 [Nebula Graph 用户手册](https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/4.account-management-statements/alter-user-syntax/ "点击前往 Nebula Graph 官网")。
+关于语句的详细信息，参考 [Nebula Graph 用户手册](../../7.data-security/1.authentication/2.management-user.md "点击前往 Nebula Graph 官网")。
 
 ## 浏览器支持
 

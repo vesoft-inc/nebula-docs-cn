@@ -12,10 +12,17 @@ Nebula Spark Connector Writer 基于 Spark 的 `DataSourceV2` 接口实现单条
 
 1. 继承 `WriteSupport` 接口并重写 `createWriter` 方法，并使用这个方法创建自定义的 `DataSourceWriter` 接口。
 2. 继承 `DataSourceWriter` 接口，创建 `NebulaDataSourceVertexWriter` 类和 `NebulaDataSourceEdgeWriter` 类。重写 `createWriterFactory` 方法并返回自定义的 `DataWriterFactory`。重写 `commit` 方法，用于提交整个事务。重写 `abort` 方法，用于做事务回滚。
-   > **说明**：Nebula Graph v1.1.0 不支持事务操作，所以，在这个实现中，`commit` 和 `abort` 无实质性操作。
+
+    !!! Note
+
+        Nebula Graph v1.1.0 不支持事务操作，所以，在这个实现中，`commit` 和 `abort` 无实质性操作。
+
 3. 继承 `DataWriterFactory`，创建 `NebulaVertexWriterFactory` 类和 `NebulaEdgeWriterFactory` 类，重写 `createWriter` 方法返回自定义的 `DataWriter`。
 4. 继承 `DataWriter`，创建 `NebulaVertexWriter` 类和 `NebulaEdgeWriter` 类。重写 `write` 方法，用于写出数据。重写 `commit` 方法，用于提交事务。重写 `abort` 方法，用于做事务回滚。
-   > **说明**：Nebula Graph v1.1.0 不支持事务操作，所以在 `DataWriter` 中，`commit` 和 `abort` 无实质性操作。
+
+    !!! Note
+
+        Nebula Graph v1.1.0 不支持事务操作，所以在 `DataWriter` 中，`commit` 和 `abort` 无实质性操作。
 
 Nebula Spark Connector Writer 的实现类图如下：
 
