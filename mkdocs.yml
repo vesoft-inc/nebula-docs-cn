@@ -61,7 +61,6 @@ nav:
       - 管理Nebula Graph服务: 2.quick-start/5.start-stop-service.md
       - 连接Nebula Graph: 2.quick-start/3.connect-to-nebula-graph.md
       - Nebula Graph常用语法（CRUD）: 2.quick-start/4.nebula-graph-crud.md
-      - 常用链接: 2.quick-start/6.useful-links.md
 
   - nGQL指南:
       - nGQL概述:
