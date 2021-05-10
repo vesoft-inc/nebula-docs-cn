@@ -4,7 +4,7 @@
 
 !!! Note
 
-    您也可以使用 nebula-console 创建 Schema。详细信息，参考 [使用 Docker Compose 部署 Nebula Graph](https://github.com/vesoft-inc/nebula-docker-compose/blob/master/README_zh-CN.md) 和 [Nebula Graph 快速开始](https://docs.nebula-graph.com.cn/manual-CN/1.overview/2.quick-start/1.get-started/)。
+    您也可以使用 nebula-console 创建 Schema。详细信息，参考 [使用 Docker Compose 部署 Nebula Graph](../../README.md) 和 [Nebula Graph 快速开始](../../2.quick-start/1.quick-start-workflow.md)。
 
 ## 前提条件
 
@@ -12,7 +12,7 @@
 
 - Studio 已经连接到 Nebula Graph 数据库。
 
-- 您的账号拥有 GOD、ADMIN 或 DBA 权限。详细信息，参考 [Nebula Graph 内置角色](https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/4.account-management-statements/built-in-roles/)。
+- 您的账号拥有 GOD、ADMIN 或 DBA 权限。详细信息，参考 [Nebula Graph 内置角色](../../7.data-security/1.authentication/3.role-list.md)。
 
 - 您已经规划好了 Schema 的要素。
 
@@ -36,22 +36,24 @@
 
 1. 在工具栏里，点击 **控制台** 页签。
 
-2. 在 **当前Space** 中选择一个图空间。在本示例中，选择 **mooc_actions**。
+2. 在 **当前Space** 中选择一个图空间。在本示例中，选择 **basketballplayer**。
 
-   ![在 当前Space 中选择一个图空间](../figs/st-ug-007.png "选择图空间")
+   ![在 当前Space 中选择一个图空间](../figs/st-ug-007-1.png "选择图空间")
 
 3. 在命令行中，依次输入以下语句，并点击 ![表示运行的图标](../figs/st-ug-008.png "Run 图标") 图标。
 
    ```nGQL
-   -- 创建标签 user，带有 1 个属性
-   CREATE TAG user (userId int);
+   -- 创建标签 player，带有 2 个属性
+   CREATE TAG player(name string, age int);
 
-   -- 创建标签 course，带有两个属性
-   CREATE TAG course (courseId int, courseName string);
+   -- 创建标签 team，带有 1 个属性
+   CREATE TAG team(name string);
 
-   -- 创建边类型，带有 7 个属性
-   CREATE EDGE action (actionId int, duration double, label bool, feature0 double, 
-   feature1 double, feature2 double, feature3 double); 
+   -- 创建边类型 follow，带有 1 个属性
+   CREATE EDGE follow(degree int);
+
+   -- 创建边类型 serve，带有 2 个属性
+   CREATE EDGE serve(start_year int, end_year int);
    ```
 
 至此，您已经完成了 Schema 创建。您可以运行以下语句查看标签与边类型的定义是否正确、完整。
@@ -64,9 +66,10 @@ SHOW TAGS;
 SHOW EDGES;
 
 -- 查看每种标签和边类型的结构是否正确
-DESCRIBE TAG user;
-DESCRIBE TAG course;
-DESCRIBE EDGE action;
+DESCRIBE TAG player;
+DESCRIBE TAG team;
+DESCRIBE EDGE follow;
+DESCRIBE EDGE serve;
 ```
 
 ## 后续操作
