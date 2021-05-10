@@ -24,7 +24,7 @@
 
 3. 在 **上传文件** 页面，点击 **上传文件** 按钮，并选择需要的 CSV 文件。本示例中，选择 `edge_serve.csv`、`edge_follow.csv`、`vertex_player.csv` 和 `vertex_team.csv` 文件。
 
-    !!! Note
+  !!! Note
 
         您可以一次选择多个 CSV 文件。
 
@@ -38,7 +38,7 @@
    a. 在 **对应列标** 列，点击 **选择**。  
    ![在数据源中点击“选择”](../figs/st-ug-009-1.png "为 vertexId 选择数据源")  
 
-   b. 在弹出对话框中，选择数据列。在本示例中，`vertex_player.csv` 中仅有一列数据用于生成代表球员的 VID，`vertex_team.csv` 中选择表示 `teamName` 信息的 **Column 0** 用于生成代表球队的 VID。  
+   b. 在弹出对话框中，选择数据列。在本示例中，`user.csv` 中仅有一列数据用于生成代表用户的 VID，`course.csv` 中选择表示 `courseName` 信息的 **Column 1** 用于生成代表课程的 VID。  
     
     !!! Note
 
