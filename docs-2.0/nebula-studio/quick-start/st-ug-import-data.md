@@ -23,7 +23,10 @@
 2. 在 **选择Space** 页面，选择一个图空间，再点击 **下一步** 按钮。
 
 3. 在 **上传文件** 页面，点击 **上传文件** 按钮，并选择需要的 CSV 文件。本示例中，选择 `edge_serve.csv`、`edge_follow.csv`、`vertex_player.csv` 和 `vertex_team.csv` 文件。
-   > **说明**：您可以一次选择多个 CSV 文件。
+
+    !!! Note
+
+        您可以一次选择多个 CSV 文件。
 
 4. 在文件列表的 **操作** 列，点击 **预览** 或 **删除**，保证文件信息正确，之后，再点击 **下一步** 按钮。
 
@@ -36,7 +39,12 @@
    ![在数据源中点击“选择”](../figs/st-ug-009-1.png "为 vertexId 选择数据源")  
 
    b. 在弹出对话框中，选择数据列。在本示例中，`vertex_player.csv` 中仅有一列数据用于生成代表球员的 VID，`vertex_team.csv` 中选择表示 `teamName` 信息的 **Column 0** 用于生成代表球队的 VID。  
-   > **说明**：在同一个图空间中，VID 始终唯一，不可重复。关于 VID 的信息，参考 [Nebula Graph 的点ID和分片ID](../../3.ngql-guide/20.appendix/vid-partition.md "点击进入 Nebula Graph 用户手册")。  
+    
+    !!! Note
+
+        在同一个图空间中，VID 始终唯一，不可重复。关于 VID 的信息，参考 [Nebula Graph 的点ID和分片ID](../../3.ngql-guide/20.appendix/vid-partition.md "点击进入 Nebula Graph 用户手册")。 
+
+   c. 在 **ID Hash** 列，选择 VID 预处理方式：如果源数据是 `int` 类型数据，选择 **保持原值**；如果源数据是 `string`、`double` 或者 `bool` 类型数据，选择 **Hash**。
 
 8. 在 **TAG 1** 部分，完成以下操作：  
    a. 在 **TAG** 下拉列表中，选择数据源对应的标签名称。在本示例中，`vertex_player.csv` 文件对应选择 **player**；`vertex_team.csv` 文件对应选择 **team**。  
@@ -45,7 +53,7 @@
   
    ![course类点对应的属性数据源](../figs/st-ug-010-1.png "为点属性选择数据源")  
 
-9. (可选) 如果您有多个标签数据文件，重复步骤 5 到步骤 8。
+9.  (可选) 如果您有多个标签数据文件，重复步骤 5 到步骤 8。
 
 10. 完成配置后，点击 **下一步**。  
     界面提示 **配置验证成功**，表示标签数据源绑定成功。

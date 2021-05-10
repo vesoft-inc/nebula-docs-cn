@@ -26,7 +26,10 @@
 - 如果使用 Docker Compose 部署和 RPM 部署的 Nebula Graph，参考 [查看 Nebula Graph 服务状态和端口](../deploy-connect/st-ug-deploy.md "点击前往 GitHub 网站")。
   
 如果 Nebula Graph 服务正常，进入第 4 步继续排查问题。否则，请重启 Nebula Graph 服务。
-> **说明**：如果您之前使用 `docker-compose up -d` 启动 Nebula Graph，必须运行 `docker-compose down` 命令停止 Nebula Graph。
+
+!!! Note
+
+    如果您之前使用 `docker-compose up -d` 启动 Nebula Graph，必须运行 `docker-compose down` 命令停止 Nebula Graph。
 
 ### 第 4 步. 确认 Graph 服务的网络连接是否正常
 
