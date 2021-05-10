@@ -350,6 +350,8 @@ markdown_extensions:
       separator: "_"
   - mdx_truly_sane_lists
   - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
 
 # Plugins
 plugins:
@@ -368,6 +370,9 @@ plugins:
 
 extra_javascript:
   - js/version-select.js
+  - js/config.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 google_analytics:
   - UA-60523578-15
