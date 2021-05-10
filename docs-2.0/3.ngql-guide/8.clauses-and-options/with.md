@@ -6,7 +6,9 @@
 
 本文操作仅适用于openCypher方式。
 
->**说明**：在nGQL扩展中，有与`WITH`类似的[管道符](../5.operators/4.pipe.md)，但它们的工作方式不同。不要在openCypher方式中使用管道符，也不要在nGQL扩展中使用`WITH`子句。
+!!! Note
+
+    在nGQL扩展中，有与`WITH`类似的[管道符](../5.operators/4.pipe.md)，但它们的工作方式不同。不要在openCypher方式中使用管道符，也不要在nGQL扩展中使用`WITH`子句。
 
 ## 组成复合查询
 

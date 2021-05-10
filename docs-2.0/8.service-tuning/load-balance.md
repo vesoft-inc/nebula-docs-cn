@@ -10,7 +10,9 @@
 
 `BALANCE DATA`语句会开始一个任务，将Nebula Graph集群中的分片平均分配到所有Storage服务器。通过创建和执行一组子任务来迁移数据和均衡分片分布。
 
->**禁止**：不要停止集群中的任何机器或改变机器的IP地址，直到所有子任务完成，否则后续子任务会失败。
+!!! danger
+
+    不要停止集群中的任何机器或改变机器的IP地址，直到所有子任务完成，否则后续子任务会失败。
 
 ### 示例
 
@@ -69,7 +71,9 @@
 
 4. 等待所有子任务完成，负载均衡进程结束，执行命令`SHOW HOSTS`确认分片已经均衡分布。
 
-    >**说明**：`BALANCE DATA`不会均衡leader的分布。均衡leader请参见[均衡leader分布](#leader)。
+    !!! Note
+
+        `BALANCE DATA`不会均衡leader的分布。均衡leader请参见[均衡leader分布](#leader)。
 
     ```ngql
     nebula> SHOW HOSTS;
@@ -128,6 +132,10 @@ BALANCE DATA REMOVE 192.168.0.8:19779,192.168.0.9:19779;
 ```
 
 Nebula Graph将启动一个负载均衡任务，迁移storage3和storage4中的分片，然后将服务器从集群中移除。
+
+!!! note
+
+    已下线节点状态会显示为OFFLINE.
 
 ## 均衡leader分布
 

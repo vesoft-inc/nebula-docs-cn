@@ -98,14 +98,16 @@ chmod +x pre-commit
     git checkout -b myfeature
     ```
 
->**说明**：由于一个PR通常包含多个commit，在合并至master时容易被挤压（squash），因此强烈建议您创建一个独立的分支进行更改。合并后，这个分支可以被丢弃，因此可以使用上述rebase命令将本地master与upstream同步。此外，如果直接将commit提交至 master，您可以需要在master分支使用hard reset，例如：
+    !!! Note
 
-```bash
-git fetch upstream
-git checkout master
-git reset --hard upstream/master
-git push --force origin master
-```
+        由于一个PR通常包含多个commit，在合并至master时容易被挤压（squash），因此强烈建议您创建一个独立的分支进行更改。合并后，这个分支可以被丢弃，因此可以使用上述rebase命令将本地master与upstream同步。此外，如果直接将commit提交至 master，您可以需要在master分支使用hard reset，例如：
+
+        ```bash
+        git fetch upstream
+        git checkout master
+        git reset --hard upstream/master
+        git push --force origin master
+        ```
 
 ## Step 4：开发
 
@@ -121,7 +123,9 @@ git push --force origin master
 
 详情请参见[使用源码安装Nebula Graph](../4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)。
 
->**说明**：请确保已设置`-DENABLE_TESTING = ON`启用构建单元测试。
+!!! Note
+
+    请确保已设置`-DENABLE_TESTING = ON`启用构建单元测试。
 
 ### 运行所有单元测试
 
