@@ -4,7 +4,7 @@
 
 ## 支持版本
 
-Studio v1.2.1-beta 及以后版本。请更新版本，详细操作参考 [版本更新](../about-studio/st-ug-check-updates.md)。
+Studio v{{ studio.base220 }} 及以后版本。请更新版本，详细操作参考 [版本更新](../about-studio/st-ug-check-updates.md)。
 
 ## 前提条件
 
@@ -19,7 +19,7 @@ Studio v1.2.1-beta 及以后版本。请更新版本，详细操作参考 [版�
 
 1. 在工具栏里，点击 **控制台** 页签。
 
-2. 在 **当前Space** 中选择一个图空间。在本示例中，选择 **mooc_actions**。
+2. 在 **当前Space** 中选择一个图空间。在本示例中，选择 **basketballplayer**。
 
 3. 在命令行中，输入查询语句，并点击 ![表示运行的图标](../figs/st-ug-008.png "Run 图标") 图标。
    > **说明**：查询结果中必须包括边起点和终点 VID 信息。
@@ -27,29 +27,29 @@ Studio v1.2.1-beta 及以后版本。请更新版本，详细操作参考 [版�
    查询语句示例如下：
 
    ```nGQL
-   nebula> GO FROM 56 OVER action YIELD action._src, action._dst;
+   nebula> GO FROM "player102" OVER serve YIELD serve._src,serve._dst;
    ```
 
-   查询结果可以看到 `userId` 为 56 的用户参加了哪些课程。如下图所示。
+   查询结果可以看到 `playerId` 为 `palyer102` 的球员服务球队的起始年份及终止年份。如下图所示。
 
-   ![控制台里查询语句返回的边数据，包括边的起点 VID 和终点 VID](../figs/st-ug-040.png "边数据")
+   ![控制台里查询语句返回的边数据，包括边的起点 VID 和终点 VID](../figs/st-ug-040-1.png "边数据")
 
 4. 点击 **导入图探索** 按钮。
 
 5. 在弹出对话框中，配置如下：
    a. 点击 **边类型**。  
 
-   b. 在 **Edge Type** 字段，填写边类型名称。在本示例中，填写 `action`。  
+   b. 在 **Edge Type** 字段，填写边类型名称。在本示例中，填写 `serve`。  
 
-   c. 在 **Src ID** 字段，选择查询结果中代表边起点 VID 的列名。在本示例中，选择 `action._src`。  
+   c. 在 **Src ID** 字段，选择查询结果中代表边起点 VID 的列名。在本示例中，选择 `serve._src`。  
 
-   d. 在 **Dst ID** 字段，选择查询结果中代表边终点 VID 的列名。在本示例中，选择 `action._dst`。  
+   d. 在 **Dst ID** 字段，选择查询结果中代表边终点 VID 的列名。在本示例中，选择 `serve._dst`。  
 
    e. （可选）如果返回的边数据中有边权重（`rank`）信息，则在 **Rank** 字段，选择代表边权重的列名。如果 **Rank** 字段未设置，默认为 0。  
 
    f. 完成配置后，点击 **导入** 按钮。  
 
-   ![填写边类型名称，选择代表边起点和终点 VID 的列名](../figs/st-ug-041.png "配置边类型信息")
+   ![填写边类型名称，选择代表边起点和终点 VID 的列名](../figs/st-ug-041-1.png "配置边类型信息")
 
 6. 在 **图探索** 页面的弹出窗口中，选择数据插入方式：
 
@@ -58,7 +58,7 @@ Studio v1.2.1-beta 及以后版本。请更新版本，详细操作参考 [版�
 
 数据插入成功后，您可以看到查询得到的边数据的可视化表现。
 
-![在图探索中可视化显示边数据查询结果](../figs/st-ug-044.png "可视化边数据查询结果")
+![在图探索中可视化显示边数据查询结果](../figs/st-ug-044-1.png "可视化边数据查询结果")
 
 ## 导入点数据结果
 
@@ -66,7 +66,7 @@ Studio v1.2.1-beta 及以后版本。请更新版本，详细操作参考 [版�
 
 1. 在工具栏里，点击 **控制台** 页签。
 
-2. 在 **当前Space** 中选择一个图空间。在本示例中，选择 **mooc_actions**。
+2. 在 **当前Space** 中选择一个图空间。在本示例中，选择 **basketballplayer**。
 
 3. 在命令行中，输入查询语句，并点击 ![表示运行的图标](../figs/st-ug-008.png "Run 图标") 图标。
    > **说明**：查询结果中必须包括点的 VID 信息。
@@ -74,14 +74,12 @@ Studio v1.2.1-beta 及以后版本。请更新版本，详细操作参考 [版�
    查询语句示例如下：
 
    ```nGQL
-   -- 对于本手册中所用数据集，
-   -- course 类点的 VID 由 courseName 经 hash() 函数处理得到
-   nebula> FETCH PROP ON * hash("Media History and Theory"); 
+   nebula> FETCH PROP ON player "player100" YIELD player.name;
    ```
 
-   查询得到 `courseId` 为 `8` 的课程信息。如下图所示。
+   查询得到 `playerId` 为 `player100` 的球员信息。如下图所示。
 
-   ![控制台里查询语句返回的点数据](../figs/st-ug-043.png "点数据")
+   ![控制台里查询语句返回的点数据](../figs/st-ug-043-1.png "点数据")
 
 4. 点击 **导入图探索** 按钮。
 
@@ -92,7 +90,7 @@ Studio v1.2.1-beta 及以后版本。请更新版本，详细操作参考 [版�
 
    c. 完成配置后，点击 **导入** 按钮。  
 
-   ![选择代表点 VID 的列名](../figs/st-ug-042.png "配置点信息")
+   ![选择代表点 VID 的列名](../figs/st-ug-042-1.png "配置点信息")
 
 6. 在 **图探索** 上的弹出窗口中选择数据插入方式：
 
