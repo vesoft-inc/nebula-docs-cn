@@ -18,7 +18,9 @@ Nebula Graph有两种类型的`Compaction`操作：自动`Compaction`和全量`C
 
 ### 关闭自动`Compaction`
 
->**警告**：命令`UPDATE CONFIGS`会将未设置的参数恢复为默认值，因此修改前您需要使用`SHOW CONFIGS STORAGE`查看`rocksdb_column_family_options`配置，然后一起重新传入值。
+!!! danger
+
+    命令`UPDATE CONFIGS`会将未设置的参数恢复为默认值，因此修改前您需要使用`SHOW CONFIGS STORAGE`查看`rocksdb_column_family_options`配置，然后一起重新传入值。
 
 ```ngql
 # 查看当前rocksdb_column_family_options设置，复制value列内容。
