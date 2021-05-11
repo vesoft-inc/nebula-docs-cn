@@ -98,7 +98,7 @@ chmod +x pre-commit
     git checkout -b myfeature
     ```
 
-    !!! Note
+  !!! Note
 
         由于一个PR通常包含多个commit，在合并至master时容易被挤压（squash），因此强烈建议您创建一个独立的分支进行更改。合并后，这个分支可以被丢弃，因此可以使用上述rebase命令将本地master与upstream同步。此外，如果直接将commit提交至 master，您可以需要在master分支使用hard reset，例如：
 
