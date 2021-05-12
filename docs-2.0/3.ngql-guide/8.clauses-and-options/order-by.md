@@ -6,6 +6,8 @@
 
 - 在openCypher方式中，不允许使用管道符。在`RETURN`子句之后使用`ORDER BY`子句。
 
+- 使用order by 的时候必须先定义别名才能使用，否则报错[ERROR (-12)]: SemanticError: Only column name can be used as sort item
+
 排序规则分为如下两种：
 
 - `ASC`（默认）: 升序。
