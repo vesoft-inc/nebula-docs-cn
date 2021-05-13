@@ -56,8 +56,7 @@ nav:
       - 管理Nebula Graph服务: 2.quick-start/5.start-stop-service.md
       - 连接Nebula Graph: 2.quick-start/3.connect-to-nebula-graph.md
       - Nebula Graph常用语法（CRUD）: 2.quick-start/4.nebula-graph-crud.md
-      - 常用链接: 2.quick-start/6.useful-links.md
-
+      - 生态工具概览: 2.quick-start/6.eco-tool-version.md
   - nGQL指南:
       - nGQL概述:
         - Nebula Graph查询语言（nGQL）: 3.ngql-guide/1.nGQL-overview/1.overview.md
@@ -240,13 +239,7 @@ nav:
   - 调整服务:
       - Compaction: 8.service-tuning/compaction.md
       - Storage负载均衡: 8.service-tuning/load-balance.md
-      
-  - 生态工具:
-      - 版本说明: 16.eco-tools/0.eco-tool-version.md
-      - Nebula Exchange: 16.eco-tools/1.nebula-exchange.md
-      - Nebula Importer: 16.eco-tools/2.nebula-importer.md
-      - Nebula Spark Connector: 16.eco-tools/3.nebula-spark-connector.md
-      - Nebula Flink Connector: 16.eco-tools/4.nebula-flink-connector.md
+
 #  - 图算法:
 #    - nebula-algorithm:
 #      - 什么是 nebula-algorithm: nebula-algorithm/na-ug-what-is-nebula-algorithm.md
@@ -326,6 +319,33 @@ nav:
 #      - 连接数据库错误: nebula-studio/troubleshooting/st-ug-config-server-errors.md
 #      - 无法访问 Studio: nebula-studio/troubleshooting/st-ug-connection-errors.md
 #      - 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
+
+  - Nebula Exchange:
+    - 认识Nebula Exchange:
+      - 什么是Nebula Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
+      - 使用限制: nebula-exchange/about-exchange/ex-ug-limitations.md
+    - 编译Exchange: nebula-exchange/ex-ug-compile.md
+    - 使用Nebula Exchange:
+      - 导入CSV文件数据: nebula-exchange/use-exchange/ex-ug-import-from-csv.md
+      - 导入JSON文件数据: nebula-exchange/use-exchange/ex-ug-import-from-json.md
+      - 导入ORC文件数据: nebula-exchange/use-exchange/ex-ug-import-from-orc.md
+      - 导入Parquet文件数据: nebula-exchange/use-exchange/ex-ug-import-from-parquet.md
+      - 导入HBase数据: nebula-exchange/use-exchange/ex-ug-import-from-hbase.md
+      - 导入MySQL数据: nebula-exchange/use-exchange/ex-ug-import-from-mysql.md
+      - 导入Neo4j数据: nebula-exchange/use-exchange/ex-ug-import-from-neo4j.md
+      - 导入Hive数据: nebula-exchange/use-exchange/ex-ug-import-from-hive.md
+      - 导入Pulsar数据: nebula-exchange/use-exchange/ex-ug-import-from-pulsar.md
+      - 导入Kafka数据: nebula-exchange/use-exchange/ex-ug-import-from-kafka.md
+    - 常见问题FAQ: nebula-exchange/ex-ug-FAQ.md
+
+  - Nebula Importer:
+    - 使用Nebula Importer: nebula-importer/use-importer.md
+    - 有表头配置说明: nebula-importer/config-with-header.md
+    - 无表头配置说明: nebula-importer/config-without-header.md
+  
+  - Nebula Spark Connector: nebula-spark-connector.md
+
+  - Nebula Flink Connector: nebula-flink-connector.md
 
   - 社区贡献:
       - 如何贡献: 15.contribution/how-to-contribute.md
