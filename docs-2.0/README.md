@@ -1,4 +1,4 @@
-!!! danger "Nebula Graph 内核 2.0.1 已发布，修复多处bug并显著提升性能。参考[新版本文档](https://docs.nebula-graph.com.cn/2.0.1/)"
+!!! danger "Nebula Graph 2.0.1 已发布，修复多处bug并显著提升性能。参考[新版本文档](https://docs.nebula-graph.com.cn/2.0.1/)尽快升级。"
 
 # 欢迎阅读Nebula Graph {{ nebula.release }} 文档
 
