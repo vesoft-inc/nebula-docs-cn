@@ -10,11 +10,7 @@ Nebula Graph是一款开源的、分布式的、易扩展的原生图数据库�
 * [快速开始](2.quick-start/1.quick-start-workflow.md)
 * [FAQ](2.quick-start/0.FAQ.md)
 * [生态工具](2.quick-start/6.eco-tool-version.md)
-
-- [YouTube](https://www.youtube.com/channel/UC73V8q795eSEMxDX4Pvdwmw/)
-
-- [bilibili](https://space.bilibili.com/472621355)
--->
+* [bilibili](https://space.bilibili.com/472621355)
 
 ## 快速开始
 
