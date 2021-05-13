@@ -1,16 +1,16 @@
-# 点ID和分片ID
+# 点VID和分片ID
 
-## 点ID（`VID`）
+## 点VID（`VID`）
 
-在Nebula Graph中，插入点时必须用点ID（`VID`）标识这个点。`VID`有如下特点：
+在Nebula Graph中，插入点时必须用点的ID（`VID`）标识这个点。`VID`有如下特点：
 
 - `VID`数据类型可以为定长字符串或64位整数。
 
 - `VID`在图空间中必须唯一。
 
-- 一个`VID`可以有多个标签（`TAG`）。例如一个人（`VID`）可以有两个角色（`TAG`）。
+- 一个`VID`可以有多个标签（`TAG`）。例如一个人（`VID`）可以有两个不同的角色（`TAG`）。
 
-- 不同图空间中的`VID`是完全独立的。
+- 不同图空间中的`VID`是完全独立无关的。
 
 插入点请参见[INSERT VERTEX](../12.vertex-statements/1.insert-vertex.md)。
 
