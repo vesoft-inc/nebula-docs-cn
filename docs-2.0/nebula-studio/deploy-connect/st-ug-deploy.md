@@ -93,11 +93,12 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
   !!! note "说明"
 
         您可以使用Docker Compose或RPM方式部署并启动 Nebula Graph 服务。如果您刚开始使用 Nebula Graph，建议您使用 Docker Compose 部署 Nebula Graph。详细信息参考 [使用 Docker Compose 部署 Nebula Graph](../../2.quick-start/2.deploy-nebula-graph-with-docker-compose.md "点击前往Nebula Graph 安装部署")。
+
 - 您的使用的 Linux 发行版为 CentOS ，安装有 losf 和版本为 v10.16.0 + 以上的 Node.js。
   
   !!! note "说明"
 
-        `node` 及 `npm` 命令需要安装在 `/usr/bin/`目录下，以防出现 RPM 安装时 node 命令找不到的情况.
+        `node` 及 `npm` 命令需要安装在 `/usr/bin/`目录下，以防出现 RPM 安装时 node 命令找不到的情况。
         如果依赖安装于用户个人目录下，如 `/usr/local`，您可以使用以下命令建立软连接：
 
         ```bash
