@@ -9,9 +9,9 @@
 <meta content="Nebula Graph" name="author"/>
 <link href="https://docs.nebula-graph.com.cn/1.introduction/3.nebula-graph-architecture/4.storage-service/" rel="canonical"/>
 <link href="../../../assets/images/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.3" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.4" name="generator"/>
 <title>Storage服务 - Nebula Graph Database 内核手册</title>
-<link href="../../../assets/stylesheets/main.e35208c4.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.bde7dde4.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.ef6f36e2.min.css" rel="stylesheet"/>
 <meta content="#4051b5" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -178,9 +178,99 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Storage服务
+          <span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
         Storage服务
       </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+    优势
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#storage_1">
+    Storage服务架构
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kvstore">
+    自研KVStore
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    数据存储格式
+  </a>
+<nav aria-label="数据存储格式" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    属性说明
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    数据分片
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#raft">
+    Raft
+  </a>
+<nav aria-label="Raft" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#multi_group_raft">
+    Multi Group Raft
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#batch">
+    批量（Batch）操作
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#learner">
+    learner角色
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#leadertransfer_leadership">
+    leader切换（Transfer Leadership）
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    成员变更
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#listener">
+    listener
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hdfs">
+    与HDFS的区别
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -231,8 +321,8 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../2.quick-start/6.useful-links/">
-        常用链接
+<a class="md-nav__link" href="../../../2.quick-start/6.eco-tool-version/">
+        生态工具概览
       </a>
 </li>
 </ul>
@@ -1125,6 +1215,11 @@
         升级Nebula Graph
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../4.deployment-and-installation/4.uninstall-nebula-graph/">
+        卸载Nebula Graph
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1174,7 +1269,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../5.configurations-and-logs/1.configurations/6.kernel-config/">
-        内核配置
+        操作系统内核配置
       </a>
 </li>
 </ul>
@@ -1265,41 +1360,6 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_2" id="__nav_8_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_8_2">
-        备份恢复
-        <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-label="备份恢复" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_8_2">
-<span class="md-nav__icon md-icon"></span>
-          备份恢复
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../7.data-security/2.backup-restore/1.what-is-br/">
-        什么是BR
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../7.data-security/2.backup-restore/2.compile-br/">
-        编译BR
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../7.data-security/2.backup-restore/3.br-backup-data/">
-        使用BR备份数据
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../7.data-security/2.backup-restore/4.br-restore-data/">
-        使用BR恢复数据
-      </a>
-</li>
-</ul>
-</nav>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../7.data-security/3.manage-snapshot/">
         管理快照
@@ -1336,24 +1396,234 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
 <label class="md-nav__link" for="__nav_10">
-        生态工具
+        Nebula Graph Studio
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="生态工具" class="md-nav" data-md-level="1">
+<nav aria-label="Nebula Graph Studio" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_10">
 <span class="md-nav__icon md-icon"></span>
-          生态工具
+          Nebula Graph Studio
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_1" id="__nav_10_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_1">
+        认识 Nebula Graph Studio
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="认识 Nebula Graph Studio" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_10_1">
+<span class="md-nav__icon md-icon"></span>
+          认识 Nebula Graph Studio
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../16.eco-tools/1.nebula-exchange/">
-        Nebula Exchange
+<a class="md-nav__link" href="../../../nebula-studio/about-studio/st-ug-what-is-graph-studio/">
+        什么是 Nebula Graph Studio
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../16.eco-tools/2.nebula-importer/">
-        Nebula Importer
+<a class="md-nav__link" href="../../../nebula-studio/about-studio/st-ug-terms/">
+        名词解释
       </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-studio/about-studio/st-ug-limitations/">
+        使用限制
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-studio/about-studio/st-ug-check-updates/">
+        版本更新
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-studio/about-studio/st-ug-shortcuts/">
+        快捷键
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_2" id="__nav_10_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_2">
+        安装与登录
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="安装与登录" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_10_2">
+<span class="md-nav__icon md-icon"></span>
+          安装与登录
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-studio/deploy-connect/st-ug-deploy/">
+        部署 Studio
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-studio/deploy-connect/st-ug-connect/">
+        连接数据库
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-studio/deploy-connect/st-ug-reset-connection/">
+        清除连接
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_3" id="__nav_10_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_3">
+        快速开始
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="快速开始" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_10_3">
+<span class="md-nav__icon md-icon"></span>
+          快速开始
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-studio/quick-start/st-ug-plan-schema/">
+        规划 Schema
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-studio/quick-start/st-ug-prepare-csv.md">
+        准备 CSV 文件
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-studio/quick-start/st-ug-create-schema/">
+        创建 Schema
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-studio/quick-start/st-ug-import-data/">
+        导入数据
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-studio/quick-start/st-ug-explore/">
+        查询图数据
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_4" id="__nav_10_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_4">
+        操作指南
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="操作指南" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_10_4">
+<span class="md-nav__icon md-icon"></span>
+          操作指南
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_4_1" id="__nav_10_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_4_1">
+        管理 Schema
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="管理 Schema" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_10_4_1">
+<span class="md-nav__icon md-icon"></span>
+          管理 Schema
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-space/">
+        操作图空间
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-tag/">
+        操作标签
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-edge-type/">
+        操作边类型
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-index/">
+        操作索引
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_4_2" id="__nav_10_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_4_2">
+        使用控制台
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="使用控制台" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_10_4_2">
+<span class="md-nav__icon md-icon"></span>
+          使用控制台
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-studio/use-console/st-ug-console/">
+        控制台界面
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-studio/use-console/st-ug-open-in-explorer/">
+        导入图探索
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-studio/use-console/st-ug-visualize-findpath/">
+        查看子图
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_5" id="__nav_10_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_5">
+        故障排查
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="故障排查" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_10_5">
+<span class="md-nav__icon md-icon"></span>
+          故障排查
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-studio/troubleshooting/st-ug-config-server-errors/">
+        连接数据库错误
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-studio/troubleshooting/st-ug-connection-errors/">
+        无法访问 Studio
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-studio/troubleshooting/st-ug-faq/">
+        常见问题
+      </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -1361,11 +1631,191 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" id="__nav_11" type="checkbox"/>
 <label class="md-nav__link" for="__nav_11">
+        Nebula Exchange
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Nebula Exchange" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+          Nebula Exchange
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_1" id="__nav_11_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_1">
+        认识Nebula Exchange
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="认识Nebula Exchange" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_1">
+<span class="md-nav__icon md-icon"></span>
+          认识Nebula Exchange
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-exchange/about-exchange/ex-ug-what-is-exchange/">
+        什么是Nebula Exchange
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-exchange/about-exchange/ex-ug-limitations/">
+        使用限制
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-exchange/ex-ug-compile/">
+        编译Exchange
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_3" id="__nav_11_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_3">
+        参数说明
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="参数说明" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_3">
+<span class="md-nav__icon md-icon"></span>
+          参数说明
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-exchange/parameter-reference/ex-ug-para-import-command/">
+        导入命令参数
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-exchange/parameter-reference/ex-ug-parameter/">
+        配置参数
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_4" id="__nav_11_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_4">
+        使用Nebula Exchange
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="使用Nebula Exchange" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_4">
+<span class="md-nav__icon md-icon"></span>
+          使用Nebula Exchange
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-exchange/use-exchange/ex-ug-import-from-csv/">
+        导入CSV文件数据
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-exchange/use-exchange/ex-ug-import-from-json/">
+        导入JSON文件数据
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-exchange/use-exchange/ex-ug-import-from-orc/">
+        导入ORC文件数据
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-exchange/use-exchange/ex-ug-import-from-parquet/">
+        导入Parquet文件数据
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-exchange/use-exchange/ex-ug-import-from-hbase/">
+        导入HBase数据
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-exchange/use-exchange/ex-ug-import-from-mysql/">
+        导入MySQL数据
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-exchange/use-exchange/ex-ug-import-from-neo4j/">
+        导入Neo4j数据
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-exchange/use-exchange/ex-ug-import-from-hive/">
+        导入Hive数据
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-exchange/use-exchange/ex-ug-import-from-pulsar/">
+        导入Pulsar数据
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-exchange/use-exchange/ex-ug-import-from-kafka/">
+        导入Kafka数据
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-exchange/ex-ug-FAQ/">
+        常见问题FAQ
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" id="__nav_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12">
+        Nebula Importer
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Nebula Importer" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_12">
+<span class="md-nav__icon md-icon"></span>
+          Nebula Importer
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-importer/use-importer/">
+        使用Nebula Importer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-importer/config-with-header/">
+        有表头配置说明
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-importer/config-without-header/">
+        无表头配置说明
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-spark-connector/">
+        Nebula Spark Connector
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-flink-connector/">
+        Nebula Flink Connector
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" id="__nav_15" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15">
         社区贡献
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="社区贡献" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_11">
+<label class="md-nav__title" for="__nav_15">
 <span class="md-nav__icon md-icon"></span>
           社区贡献
         </label>
@@ -1397,6 +1847,90 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+    优势
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#storage_1">
+    Storage服务架构
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#kvstore">
+    自研KVStore
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    数据存储格式
+  </a>
+<nav aria-label="数据存储格式" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    属性说明
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    数据分片
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#raft">
+    Raft
+  </a>
+<nav aria-label="Raft" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#multi_group_raft">
+    Multi Group Raft
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#batch">
+    批量（Batch）操作
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#learner">
+    learner角色
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#leadertransfer_leadership">
+    leader切换（Transfer Leadership）
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    成员变更
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#listener">
+    listener
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hdfs">
+    与HDFS的区别
+  </a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -1407,26 +1941,215 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="storage">Storage服务<a class="headerlink" href="#storage" title="Permanent link">¶</a></h1>
-<blockquote>
-<p><strong>说明</strong>：该文档正用于招聘测试中，因此官方版本将在四月底发布。如果你想加入我们的团队，请随时<a href="https://discuss.nebula-graph.io/">联系我们</a>。如果感兴趣，你也可以对这个话题<a href="https://github.com/vesoft-inc/nebula-docs/tree/master/docs-2.0">提交贡献</a>。</p>
-<p>参考文档</p>
+<p>Nebula Graph的存储包含两个部分，一个是Meta相关的存储，称为Meta服务，另一个是具体数据相关的存储，称为Storage服务。Meta服务运行在nebula-metad进程中，Storage服务运行在nebula-storaged进程中。本文仅介绍Storage服务的架构设计。</p>
+<h2 id="_1">优势<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <ul>
-<li><a href="https://nebula-graph.io/posts/nebula-graph-storage-engine-overview/">Nebula Graph's Storage Engine</a></li>
-<li><a href="../1.architecture-overview/">Architecture overview</a></li>
-<li><a href="../2.meta-service/">Meta Service</a></li>
+<li>高性能（自研KVStore）</li>
 </ul>
-</blockquote>
+<ul>
+<li>易扩展（Shared-nothing架构）</li>
+</ul>
+<ul>
+<li>强一致性（Raft）</li>
+</ul>
+<ul>
+<li>高可用性（Raft）</li>
+</ul>
+<ul>
+<li>支持向第三方系统进行同步（例如<a href="../../../4.deployment-and-installation/6.deploy-text-based-index/2.deploy-es/">全文索引</a>）</li>
+</ul>
+<h2 id="storage_1">Storage服务架构<a class="headerlink" href="#storage_1" title="Permanent link">¶</a></h2>
+<p><img alt="image" src="https://docs-cdn.nebula-graph.com.cn/1.overview/3.design-and-architecture/2.storage-design/storage-design.png"/></p>
+<p>Storage服务是由nebula-storaged进程提供的，您可以根据场景配置nebula-storaged进程数量，例如测试环境1个，生产环境3个。</p>
+<p>所有nebula-storaged进程构成了基于Raft协议的集群，整个服务架构可以分为三层，从上到下依次为：</p>
+<ul>
+<li>Storage interface层<p>Storage服务的最上层，定义了一系列和图相关的API。API请求会在这一层被翻译成一组针对<a href="#数据分片">分片</a>的KV操作，例如：</p>
+<p>- <code>getNeighbors</code>：查询一批点的出边或者入边，返回边以及对应的属性，并且支持条件过滤。</p>
+<p>- <code>insert vertex/edge</code>：插入一条点或者边及其属性。</p>
+<p>- <code>getProps</code>：获取一个点或者一条边的属性。</p>
+<p>正是这一层的存在，使得Storage服务变成了真正的图存储，否则Storage服务只是一个KV存储服务。</p>
+</li>
+</ul>
+<ul>
+<li>Consensus层<p>Storage服务的中间层，实现了<a href="#raft协议">Multi Group Raft</a>，保证强一致性和高可用性。</p>
+</li>
+</ul>
+<ul>
+<li>Store Engine层<p>Storage服务的最底层，是一个单机版本地存储引擎，提供对本地数据的<code>get</code>、<code>put</code>、<code>scan</code>等操作。相关接口存储在<code>KVStore.h</code>和<code>KVEngine.h</code>文件，您可以根据业务需求定制开发相关的本地存储插件。</p>
+</li>
+</ul>
+<p>下文将基于架构介绍Storage服务的部分特性。</p>
+<h2 id="kvstore">自研KVStore<a class="headerlink" href="#kvstore" title="Permanent link">¶</a></h2>
+<p>Nebula Graph使用自行开发的KVStore，而不是其他开源KVStore，原因如下：</p>
+<ul>
+<li>需要高性能KVStore。</li>
+</ul>
+<ul>
+<li>需要以库的形式提供，实现高效计算下推。对于强Schema的Nebula Graph来说，计算下推时如何提供Schema信息，是高效的关键。</li>
+</ul>
+<ul>
+<li>需要数据强一致性。</li>
+</ul>
+<p>基于上述原因，Nebula Graph使用RocksDB作为本地存储引擎，实现了自己的KVStore，有如下优势：</p>
+<ul>
+<li>对于多硬盘机器，Nebula Graph只需配置多个不同的数据目录即可充分利用多硬盘的并发能力。</li>
+</ul>
+<ul>
+<li>
+<p>由Meta服务统一管理所有Storage服务，可以根据所有分片的分布情况和状态，手动进行负载均衡。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>不支持自动负载均衡是为了防止自动数据搬迁影响线上业务。</p>
+</div>
+</li>
+</ul>
+<ul>
+<li>定制预写日志（WAL），每个分片都有自己的WAL。</li>
+</ul>
+<ul>
+<li>支持多个图空间，不同图空间相互隔离，每个图空间可以设置自己的分片数和副本数。</li>
+</ul>
+<h2 id="_2">数据存储格式<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p>图存储的主要数据是点和边，Nebula Graph将点和边的信息存储为key，同时将点和边的属性信息存储在value中，以便更高效地使用属性过滤。</p>
+<p>由于Nebula Graph 2.0的数据存储格式在1.x的基础上做了修改，下文将在介绍数据存储格式时同时介绍不同版本的差异。</p>
+<ul>
+<li>点数据存储格式<p><img alt="The vertex format of storage service" src="https://docs-cdn.nebula-graph.com.cn/docs-2.0/1.introduction/2.nebula-graph-architecture/storage-vertex-format.png"/></p>
+<table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>Type</code></td>
+<td align="left">key类型。长度为1个字节。</td>
+</tr>
+<tr>
+<td align="left"><code>PartID</code></td>
+<td align="left">数据分片编号。长度为3个字节。此字段主要用于Storage负载均衡（balance）时方便根据前缀扫描整个分片的数据。</td>
+</tr>
+<tr>
+<td align="left"><code>VertexID</code></td>
+<td align="left">点ID。当点ID类型为int时，长度为8个字节；当点ID类型为string时，长度为创建图空间时指定的<code>fixed_string</code>长度。</td>
+</tr>
+<tr>
+<td align="left"><code>TagID</code></td>
+<td align="left">点关联的标签ID。长度为4个字节。</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li>边数据存储格式<p><img alt="The edge format of storage service" src="https://docs-cdn.nebula-graph.com.cn/docs-2.0/1.introduction/2.nebula-graph-architecture/storage-edge-format.png"/></p>
+<table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>Type</code></td>
+<td align="left">key类型。长度为1个字节。</td>
+</tr>
+<tr>
+<td align="left"><code>PartID</code></td>
+<td align="left">数据分片编号。长度为3个字节。此字段主要用于Storage负载均衡（balance）时方便根据前缀扫描整个分片的数据。</td>
+</tr>
+<tr>
+<td align="left"><code>VertexID</code></td>
+<td align="left">点ID。前一个<code>VertexID</code>在出边里表示起始点ID，在入边里表示目的点ID；后一个<code>VertexID</code>出边里表示目的点ID，在入边里表示起始点ID。</td>
+</tr>
+<tr>
+<td align="left"><code>Edge Type</code></td>
+<td align="left">边的类型。大于0表示出边，小于0表示入边。长度为4个字节。</td>
+</tr>
+<tr>
+<td align="left"><code>Rank</code></td>
+<td align="left">用来处理两点之间有多个同类型边的情况。您可以根据自己的需求进行设置，例如存放交易时间、交易流水号等。长度为8个字节，</td>
+</tr>
+<tr>
+<td align="left"><code>PlaceHolder</code></td>
+<td align="left">占位符，预留给TOSS（Transaction On Storage Side）功能使用。长度为1个字节。</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>2.0和1.x的差异如下：</p>
+</div>
+<p>- 1.x中，点和边的<code>Type</code>值相同，而在2.0中进行了区分，即在物理上分离了点和边，方便快速查询某个点的所有标签。
+   - 1.x中，<code>VertexID</code>仅支持int类型，而在2.0中新增了string类型。
+   - 2.0中取消了1.x中的保留字段<code>Timestamp</code>。
+   - 2.0中边数据新增字段<code>PlaceHolder</code>。
+   - 2.0中修改了索引的格式，以便支持范围查询。</p>
+<h3 id="_3">属性说明<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<p>对于点或边的属性信息，Nebula Graph会将属性信息编码后按顺序存储，由于属性的长度是固定的，查询时可以根据偏移量快速查询。Nebula Graph使用强类型Schema，所以在解码之前，需要先从Meta服务中查询具体的Schema信息。同时为了支持在线变更Schema，在编码属性时，会加入对应的Schema版本信息。</p>
+<h2 id="_4">数据分片<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<p>目前Nebula Graph的分片策略采用<strong>静态 Hash</strong>的方式，即对点ID进行取模操作，同一个点的所有标签、出边和入边信息都会存储到同一个分片，这种方式极大地提升了查询效率。</p>
+<p>对于在线图查询来说，最常见的操作便是从一个点开始向外拓展（广度优先），查询一个点的出边或者入边是最基本的操作，同时可能会根据属性进行过滤，Nebula Graph通过将属性与点边存储在一起，保证了整个操作的高效。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>创建图空间时需指定分片数量，分片数量设置后无法修改，建议设置时提前满足业务将来的扩容需求。</p>
+</div>
+<h2 id="raft">Raft<a class="headerlink" href="#raft" title="Permanent link">¶</a></h2>
+<p>由于Storage服务需要支持集群分布式架构，所以基于Raft协议实现了Multi Group Raft，即每个分片的所有副本共同组成一个Raft group，其中一个副本是leader，其他副本是follower，从而实现强一致性和高可用性。Raft的部分实现如下。</p>
+<h3 id="multi_group_raft">Multi Group Raft<a class="headerlink" href="#multi_group_raft" title="Permanent link">¶</a></h3>
+<p>由于Raft日志不允许空洞，Nebula Graph使用Multi Group Raft缓解此问题，分片数量较多时，可以有效提高Nebula Graph的性能。但是分片数量太多会增加开销，例如Raft group内部存储的状态信息、WAL文件，或者负载过低时的批量操作。</p>
+<p>实现Multi Group Raft有2个关键点：</p>
+<ul>
+<li>共享Transport层<p>每一个Raft group内部都需要向对应的peer发送消息，如果不能共享Transport层，会导致连接的开销巨大。</p>
+</li>
+</ul>
+<ul>
+<li>共享线程池<p>如果不共享一组线程池，会造成系统的线程数过多，导致大量的上下文切换开销。</p>
+</li>
+</ul>
+<h3 id="batch">批量（Batch）操作<a class="headerlink" href="#batch" title="Permanent link">¶</a></h3>
+<p>Nebula Graph中，每个分片都是串行写日志，为了提高吞吐，写日志时需要做批量操作，但是由于Nebula Graph利用WAL实现一些特殊功能，需要对批量操作进行分组，这是Nebula Graph的特色。</p>
+<p>例如无锁CAS操作需要之前的WAL全部提交后才能执行，如果一个批量写入的WAL里包含了CAS类型的WAL，就需要拆分成粒度更小的几个组，还要保证这几组WAL串行提交。</p>
+<h3 id="learner">learner角色<a class="headerlink" href="#learner" title="Permanent link">¶</a></h3>
+<p>learner角色的存在主要是为了应对<strong>扩容</strong>，扩容时新增的机器需要很长时间去同步数据，如果以follower角色同步数据，会导致整个集群的高可用性下降。</p>
+<p>新增learner角色后，会写入command类型的WAL，leader在写WAL时如果发现有<code>add learner</code>的command，会将learner加入自己的peers，并将它标记为learner，在统计多数派的时候，不会算上learner，但是日志还是会照常发送给它们，learner本身也不会主动发起选举。</p>
+<h3 id="leadertransfer_leadership">leader切换（Transfer Leadership）<a class="headerlink" href="#leadertransfer_leadership" title="Permanent link">¶</a></h3>
+<p>leader切换对于负载均衡至关重要，当把某个分片从一台机器迁移到另一台机器时，首先会检查分片是不是leader，如果是的话，需要先切换leader，数据迁移完毕之后，通常还要重新<a href="../../../8.service-tuning/load-balance/">均衡leader分布</a>。</p>
+<p>对于leader来说，提交leader切换命令时，就会放弃自己的leader身份，当follower收到leader切换命令时，就会发起选举。</p>
+<h3 id="_5">成员变更<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
+<p>为了避免脑裂，当一个Raft group的成员发生变化时，需要有一个中间状态，该状态下新旧group的多数派需要有重叠的部分，这样就防止了新的group或旧的group单方面做出决定。为了更加简化，Diego Ongaro在自己的博士论文中提出每次只增减一个peer的方式，以保证新旧group的多数派总是有重叠。Nebula Graph也采用了这个方式，只不过增加成员和移除成员的实现有所区别。具体实现方式请参见Raft Part class里addPeer/removePeer的实现。</p>
+<h3 id="listener">listener<a class="headerlink" href="#listener" title="Permanent link">¶</a></h3>
+<p>Raft listener进程可以从Storage服务获取数据，然后将它们写入Elasticsearch集群，以便实现全文搜索。详情请参见<a href="../../../4.deployment-and-installation/6.deploy-text-based-index/3.deploy-listener/">部署Raft listener</a>。</p>
+<h2 id="hdfs">与HDFS的区别<a class="headerlink" href="#hdfs" title="Permanent link">¶</a></h2>
+<p>Storage服务基于Raft协议实现的分布式架构，与HDFS的分布式架构有一些区别。例如：</p>
+<ul>
+<li>Storage服务本身通过Raft协议保证一致性，所有副本必须为奇数，方便进行选举leader，而HDFS存储具体数据的Datanode需要通过Namenode保证一致性，对副本数量没有要求。</li>
+</ul>
+<ul>
+<li>Storage服务只有leader副本提供读写服务，而HDFS的所有副本都可以提供读写服务。</li>
+</ul>
+<ul>
+<li>Storage服务暂时无法修改副本数量，只能在创建图空间时指定副本数量，而HDFS可以调整副本数量。</li>
+</ul>
+<ul>
+<li>Storage服务是直接访问文件系统，而HDFS的上层（例如HBase）需要先访问HDFS，再访问到文件系统，远程过程调用（RPC）次数更多。</li>
+</ul>
+<p>总而言之，Storage服务更加轻量级，精简了一些功能，架构没有HDFS复杂，可以有效提高小文件的读写性能。</p>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年3月25日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月10日</span>
 </small>
 </div>
 </article>
 </div>
 </div>
-<a class="md-top md-icon" data-md-component="top" data-md-state="hidden" href="#">
+<a class="md-top md-icon" data-md-component="top" data-md-state="hidden" href="#" title="Back to top">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg>
 </a>
 </main>
@@ -1483,8 +2206,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.fe42c31b.min.js", "version": {"method": "mike"}}</script>
-<script src="../../../assets/javascripts/bundle.4ea5477f.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": {"method": "mike"}}</script>
+<script src="../../../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
 <script src="../../../js/version-select.js"></script>
 </body>
 </html>
