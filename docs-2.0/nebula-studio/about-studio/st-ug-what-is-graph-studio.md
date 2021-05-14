@@ -4,12 +4,13 @@ Nebula Graph Studio（简称 Studio）是一款可以通过 Web 访问的图数�
 
 ## 发行版本
 
-Studio 目前有两个发行版本：
+Studio 目前有三个发行版本：
 
-- Docker 版本：您可以使用 Docker 服务部署 Studio，并连接到 Nebula Graph 数据库。详细信息参考 [部署 Studio](../deploy-connect/st-ug-connect.md)。
+- Docker 版本：您可以使用 Docker 服务部署 Studio，并连接到 Nebula Graph 数据库。详细信息参考 [部署 Studio](../deploy-connect/st-ug-deploy.md)。
+- RPM 版本：您可以使用 RPM 服务部署 Studio，并连接到 Nebula Graph 数据库。详细信息参考 [部署 Studio](../deploy-connect/st-ug-deploy.md)。
 - 云服务版本：您可以在 Nebula Graph Cloud Service 上创建 Nebula Graph 数据库实例，并一键直连云服务版 Studio。详细信息参考 [Nebula Graph Cloud Service 用户手册](https://cloud-docs.nebula-graph.com.cn/cn/posts/manage-instances/dbaas-ug-connect-nebulastudio/ "点击前往 Nebula Graph Cloud Service 用户手册")。
 
-两个发行版本功能基本相同。但是，因为部署方式不同，会有不同的使用限制。详细信息，参考 [使用限制](st-ug-limitations.md)。
+三个发行版本功能基本相同。但是，因为部署方式不同，会有不同的使用限制。详细信息，参考 [使用限制](st-ug-limitations.md)。
 
 ## 产品功能
 
@@ -33,4 +34,4 @@ Studio 具备以下功能：
 
 对于云服务版 Studio，只有 Nebula Graph 实例的创建者以及被授予操作权限的 Nebula Graph Cloud Service 用户可以登录 Studio。详细信息参考 [Nebula Graph Cloud Service 用户手册](https://cloud-docs.nebula-graph.com.cn/cn/posts/manage-instances/dbaas-ug-connect-nebulastudio/ "点击前往 Nebula Graph Cloud Service 用户手册")。
 
-对于 Docker 版 Studio，因为 Nebula Graph 默认不启用身份验证，所以，一般情况下您可以使用默认账号和密码（`user` 和 `password`）登录 Studio。当 Nebula Graph 启用了身份验证后，您只能使用指定的账号和密码登录 Studio。关于 Nebula Graph 的身份验证功能，参考 [Nebula Graph 用户手册](https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/4.account-management-statements/authentication/ "点击前往 Nebula Graph 官网")。
+对于 Docker 版和 RPM Studio，因为 Nebula Graph 默认不启用身份验证，所以，一般情况下您可以使用默认账号和密码（`user` 和 `password`）登录 Studio。当 Nebula Graph 启用了身份验证后，您只能使用指定的账号和密码登录 Studio。关于 Nebula Graph 的身份验证功能，参考 [Nebula Graph 用户手册](../../7.data-security/1.authentication/1.authentication.md "点击前往 Nebula Graph 官网")。
