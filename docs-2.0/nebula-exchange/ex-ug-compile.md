@@ -1,6 +1,6 @@
 # 编译Exchange
 
-本文介绍如何编译Nebula Exchange。也可以直接[下载](https://repo1.maven.org/maven2/com/vesoft/nebula-exchange/2.0.0/)编译完成的`.jar`文件。
+本文介绍如何编译Nebula Exchange。用户也可以直接[下载](https://repo1.maven.org/maven2/com/vesoft/nebula-exchange/2.0.0/)编译完成的`.jar`文件。
 
 ## 前提条件
 
