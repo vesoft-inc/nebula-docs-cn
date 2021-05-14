@@ -1,8 +1,10 @@
-# Nebula Exchange
+# 什么是Nebula Exchange
 
-Nebula Exchange（简称Exchange）是一款Apache Spark&trade;应用，用于在分布式环境中将集群中的数据批量迁移到Nebula Graph中，能支持多种不同格式的批式数据和流式数据的迁移。
+[Nebula Exchange](https://github.com/vesoft-inc/nebula-spark-utils/tree/v2.0.0/nebula-exchange)（简称Exchange）是一款Apache Spark&trade;应用，用于在分布式环境中将集群中的数据批量迁移到Nebula Graph中，能支持多种不同格式的批式数据和流式数据的迁移。
 
-更多使用说明请参见[什么是Nebula Exchange](https://github.com/vesoft-inc/nebula-spark-utils/blob/v2.0.0/nebula-exchange/doc-2.0/CN/about-exchange/ex-ug-what-is-exchange.md)。
+Exchange由Reader、Processor和Writer三部分组成。Reader读取不同来源的数据返回DataFrame后，Processor遍历DataFrame的每一行，根据配置文件中`fields`的映射关系，按列名获取对应的值。在遍历指定批处理的行数后，Writer会将获取的数据一次性写入到Nebula Graph中。下图描述了Exchange完成数据转换和迁移的过程。
+
+![Nebula Graph&reg; Exchange 由 Reader、Processor、Writer 组成，可以完成多种不同格式和来源的数据向 Nebula Graph 的迁移](../figs/ex-ug-001.png "Nebula Graph&reg; Exchange 转数据转换和迁移的过程")
 
 ## 适用场景
 
@@ -41,19 +43,19 @@ Exchange具有以下优点：
 Exchange 2.0支持将以下格式或来源的数据转换为Nebula Graph能识别的点和边数据：
 
 - 存储在HDFS的数据，包括：
-  - Apache Parquet
-  - Apache ORC
-  - JSON
-  - CSV
+  - [Apache Parquet](../use-exchange/ex-ug-import-from-parquet.md)
+  - [Apache ORC](../use-exchange/ex-ug-import-from-orc.md)
+  - [JSON](../use-exchange/ex-ug-import-from-json.md)
+  - [CSV](../use-exchange/ex-ug-import-from-csv.md)
 
-- Apache HBase&trade;
+- [Apache HBase&trade;](../use-exchange/ex-ug-import-from-hbase.md)
 
-- 数据仓库：Hive
+- 数据仓库：[Hive](../use-exchange/ex-ug-import-from-hive.md)
 
-- 图数据库：Neo4j
+- 图数据库：[Neo4j](../use-exchange/ex-ug-import-from-neo4j.md)（Client版本2.4.5-M1）
 
-- 关系型数据库：MySQL
+- 关系型数据库：[MySQL](../use-exchange/ex-ug-import-from-mysql.md)
 
-- 流处理软件平台：Apache Kafka&reg;
+- 流处理软件平台：[Apache Kafka&reg;](../use-exchange/ex-ug-import-from-kafka.md)
 
-- 发布/订阅消息平台：Apache Pulsar 2.4.5
+- 发布/订阅消息平台：[Apache Pulsar 2.4.5](../use-exchange/ex-ug-import-from-pulsar.md)
