@@ -70,7 +70,7 @@ Importer适用于将本地CSV文件的内容导入至Nebula Graph中。
 
 #### 无网络编译方式
 
-如果服务器不能联网，建议在能联网的机器上将源码和各种以来打包上传到对应的服务器上编译即可，操作步骤如下：
+如果您的服务器不能联网，建议您在能联网的机器上将源码和各种以来打包上传到对应的服务器上编译即可，操作步骤如下：
 
 1. 克隆仓库。
 
@@ -113,13 +113,13 @@ $ docker run --rm -ti \
 - `<csv_data_dir>`：本地CSV数据文件的绝对路径。
 - `<version>`：Nebula Graph 2.x请填写`v2`。
 
-> **说明**：建议使用相对路径。如果使用本地绝对路径，请检查路径映射到Docker中的路径。
+> **说明**：建议您使用相对路径。如果使用本地绝对路径，请检查路径映射到Docker中的路径。
 
 
 
 ## 配置文件说明
 
-Nebula Importer通过yaml配置文件来描述待导入文件信息、Nebula Graph服务器信息等。用户可以参考示例配置文件：[无表头配置](config-without-header.md)/[有表头配置](config-with-header.md)。下文将分类介绍配置文件内的字段。
+Nebula Importer通过yaml配置文件来描述待导入文件信息、Nebula Graph服务器信息等。您可以参考示例配置文件：[无表头配置](config-without-header.md)/[有表头配置](config-with-header.md)。下文将分类介绍配置文件内的字段。
 
 ### 基本配置
 

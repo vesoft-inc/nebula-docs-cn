@@ -6,17 +6,17 @@
 
 ## 可能的原因及解决方法
 
-用户可以按以下步骤排查问题。
+您可以按以下步骤排查问题。
 
 ### 第 1 步. 确认 **Host** 字段的格式是否正确
 
-必须填写 Nebula Graph 图数据库 Graph 服务的 IP 地址（`graph_server_ip`）和端口。如果未做修改，端口默认为 `9669`。即使 Nebula Graph 与 Studio 都部署在当前机器上，用户也必须使用本机 IP 地址，而不能使用 `127.0.0.1`、`localhost` 或者 `0.0.0.0`。
+必须填写 Nebula Graph 图数据库 Graph 服务的 IP 地址（`graph_server_ip`）和端口。如果未做修改，端口默认为 `9669`。即使 Nebula Graph 与 Studio 都部署在当前机器上，您也必须使用本机 IP 地址，而不能使用 `127.0.0.1`、`localhost` 或者 `0.0.0.0`。
 
 ### 第 2 步. 确认 **用户名** 和 **密码** 是否正确
 
-如果 Nebula Graph 没有开启身份认证，用户可以填写任意字符串登录。
+如果 Nebula Graph 没有开启身份认证，您可以填写任意字符串登录。
 
-如果已经开启身份认证，用户必须使用分配的账号登录。
+如果已经开启身份认证，您必须使用分配的账号登录。
 
 ### 第 3 步. 确认 Nebula Graph 服务是否正常
 
@@ -29,7 +29,7 @@
 
 !!! Note
 
-    如果之前使用 `docker-compose up -d` 启动 Nebula Graph，必须运行 `docker-compose down` 命令停止 Nebula Graph。
+    如果您之前使用 `docker-compose up -d` 启动 Nebula Graph，必须运行 `docker-compose down` 命令停止 Nebula Graph。
 
 ### 第 4 步. 确认 Graph 服务的网络连接是否正常
 

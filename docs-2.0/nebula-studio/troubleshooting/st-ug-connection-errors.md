@@ -6,7 +6,7 @@
 
 ## 可能的原因及解决方法
 
-用户可以按以下顺序排查问题。
+您可以按以下顺序排查问题。
 
 ### 第 1 步. 确认系统架构
 
@@ -31,11 +31,11 @@ nebula-web-docker_web_1        docker-entrypoint.sh npm r ...   Up      0.0.0.0:
 
 !!! Note
 
-    如果之前使用 `docker-compose up -d` 启动 Studio，必须运行 `docker-compose down` 命令停止 Studio。
+    如果您之前使用 `docker-compose up -d` 启动 Studio，必须运行 `docker-compose down` 命令停止 Studio。
 
 ### 第 3 步. 确认访问地址
 
-如果 Studio 与浏览器在同一台机器上，用户可以在浏览器里使用 `localhost:7001`、`127.0.0.1:7001` 或者 `0.0.0.0:7001` 访问 Studio。
+如果 Studio 与浏览器在同一台机器上，您可以在浏览器里使用 `localhost:7001`、`127.0.0.1:7001` 或者 `0.0.0.0:7001` 访问 Studio。
   
 如果两者不在同一台机器上，必须在浏览器里输入 `<studio_server_ip>:7001`。其中，`studio_server_ip` 是指部署 Studio 服务的机器的 IP 地址。
 
@@ -48,4 +48,4 @@ nebula-web-docker_web_1        docker-entrypoint.sh npm r ...   Up      0.0.0.0:
 - 如果浏览器与 Studio 在同一台机器上，检查端口是否已暴露。
 - 如果两者不在同一台机器上，检查 Studio 所在机器的网络配置，例如，防火墙、网关以及端口。
 
-如果按上述步骤排查后仍无法访问 Studio，请前往 [Nebula Graph 官方论坛](https://discuss.nebula-graph.com.cn/ "点击前往 Nebula Graph 官方论坛") 咨询。
+如果按上述步骤排查后仍无法访问 Studio，请您前往 [Nebula Graph 官方论坛](https://discuss.nebula-graph.com.cn/ "点击前往 Nebula Graph 官方论坛") 咨询。

@@ -1,6 +1,6 @@
 # 编译Exchange
 
-本文介绍如何编译Nebula Exchange。用户也可以直接[下载](https://repo1.maven.org/maven2/com/vesoft/nebula-exchange/2.0.0/)编译完成的`.jar`文件。
+本文介绍如何编译Nebula Exchange。您也可以直接[下载](https://repo1.maven.org/maven2/com/vesoft/nebula-exchange/2.0.0/)编译完成的`.jar`文件。
 
 ## 前提条件
 
@@ -60,7 +60,7 @@
         </mirror>
         ```
 
-编译成功后，用户可以在当前目录里查看到类似如下目录结构。
+编译成功后，您可以在当前目录里查看到类似如下目录结构。
 
 ```text
 .
@@ -81,8 +81,8 @@
     └── site
 ```
 
-在`target`目录下，用户可以找到`exchange-2.x.y.jar`文件。
+在`target`目录下，您可以找到`exchange-2.x.y.jar`文件。
 
-> **说明**：`.jar`文件版本号会因Nebula Java Client的发布版本而变化。用户可以在[Releases页面](https://github.com/vesoft-inc/nebula-java/releases)查看最新版本。
+> **说明**：`.jar`文件版本号会因Nebula Java Client的发布版本而变化。您可以在[Releases页面](https://github.com/vesoft-inc/nebula-java/releases)查看最新版本。
 
-迁移数据时，用户可以参考配置文件[`target/classes/application.conf`](https://github.com/vesoft-inc/nebula-spark-utils/blob/master/nebula-exchange/src/main/resources/application.conf)。
+迁移数据时，您可以参考配置文件[`target/classes/application.conf`](https://github.com/vesoft-inc/nebula-spark-utils/blob/master/nebula-exchange/src/main/resources/application.conf)。

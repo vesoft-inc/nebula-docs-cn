@@ -3,7 +3,7 @@
 
 ## Catalog
 
-Flink 1.11.0 之前，如果依赖 Flink 的 source/sink 读写外部数据源时，用户必须手动读取对应数据系统的 Schema（模式）。例如，如果要读写 Nebula Graph 的数据，则必须先保证明确地知晓 Nebula Graph 中的 Schema 信息。由此带来的问题是：当 Nebula Graph 中的 Schema 发生变化时，用户需要手动更新对应的 Flink 任务以保持类型匹配，否则，任何不匹配都会造成运行时报错使作业失败，整个操作冗余且繁琐，体验极差。
+Flink 1.11.0 之前，如果依赖 Flink 的 source/sink 读写外部数据源时，用户必须手动读取对应数据系统的 Schema（模式）。例如，如果您要读写 Nebula Graph 的数据，则必须先保证明确地知晓 Nebula Graph 中的 Schema 信息。由此带来的问题是：当 Nebula Graph 中的 Schema 发生变化时，用户需要手动更新对应的 Flink 任务以保持类型匹配，否则，任何不匹配都会造成运行时报错使作业失败，整个操作冗余且繁琐，体验极差。
 
 Flink 1.11.0 版本后，用户使用 Flink SQL 时可以自动获取表的  Schema 而不再需要输入 DDL，即 Flink 在不了解外部系统数据的 Schema 时仍能完成数据匹配。
 

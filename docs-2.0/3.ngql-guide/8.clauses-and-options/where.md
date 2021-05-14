@@ -222,7 +222,7 @@ nebula> MATCH (v:player) \
 +------------------+-------+
 ```
 
-如果使用小写`t`（`STARTS WITH "t"`），会返回空集，因为数据库中没有以小写`t`开头的姓名。
+如果您使用小写`t`（`STARTS WITH "t"`），会返回空集，因为数据库中没有以小写`t`开头的姓名。
 
 ```ngql
 nebula> MATCH (v:player) \
@@ -273,7 +273,7 @@ nebula> MATCH (v:player) \
 
 ### 结合NOT使用
 
-用户可以结合布尔运算符`NOT`一起使用，否定字符串匹配条件。
+您可以结合布尔运算符`NOT`一起使用，否定字符串匹配条件。
 
 ```ngql
 nebula> MATCH (v:player) \

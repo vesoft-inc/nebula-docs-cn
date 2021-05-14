@@ -17,7 +17,7 @@
 
 检查`mirrorOf`的值是否配置为`*`，如果为`*`，请修改为`central`或`*,!SparkPackagesRepo,!bintray-streamnative-maven`。
 
-**原因**：Exchange的`pom.xml`中有两个依赖包不在Maven的central仓库中，`pom.xml`配置了这两个依赖所在的仓库地址。如果maven中配置的镜像地址对应的`mirrorOf`值为`*`，那么所有依赖都会在central仓库下载，导致下载失败。
+**原因**：Exchange的`pom.xml`中有两个依赖包不在Maven的central仓库中，`pom.xml`配置了这两个依赖所在的仓库地址。如果您的maven中配置的镜像地址对应的`mirrorOf`值为`*`，那么所有依赖都会在central仓库下载，导致下载失败。
 
 ## 执行问题
 

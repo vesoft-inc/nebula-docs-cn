@@ -100,7 +100,7 @@ nebula> MATCH (v:player) RETURN v.name AS Name, v.age AS Age \
 
 ### SKIP示例
 
-用户可以单独使用`SKIP <offset>`设置偏移量，后面不需要添加`LIMIT <number_rows>`。
+您可以单独使用`SKIP <offset>`设置偏移量，后面不需要添加`LIMIT <number_rows>`。
 
 ```ngql
 nebula> MATCH (v:player{name:"Tim Duncan"}) --> (v2) \
@@ -124,7 +124,7 @@ nebula> MATCH (v:player{name:"Tim Duncan"}) --> (v2) \
 +---------------+-----+
 ```
 
-用户也可以同时使用`SKIP <offset>`和`LIMIT <number_rows>`，返回中间的部分数据。
+您也可以同时使用`SKIP <offset>`和`LIMIT <number_rows>`，返回中间的部分数据。
 
 ```ngql
 nebula> MATCH (v:player{name:"Tim Duncan"}) --> (v2) \

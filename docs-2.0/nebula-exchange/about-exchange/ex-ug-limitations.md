@@ -12,7 +12,7 @@ Exchange client版本（即JAR包版本）和Nebula Graph的版本对应关系�
 
 JAR包有两种获取方式：[自行编译](../ex-ug-compile.md)或者从maven仓库下载。
 
-如果正在使用Nebula Graph 1.x，请使用[Nebula Exchange 1.x](https://github.com/vesoft-inc/nebula-java/tree/v1.0/tools "Click to go to GitHub")。
+如果您正在使用Nebula Graph 1.x，请使用[Nebula Exchange 1.x](https://github.com/vesoft-inc/nebula-java/tree/v1.0/tools "Click to go to GitHub")。
 
 ## 使用环境
 
@@ -25,7 +25,7 @@ Exchange 2.0 支持以下操作系统：
 
 ## 软件依赖
 
-为保证Exchange正常工作，请确认机器上已经安装如下软件：
+为保证Exchange正常工作，请确认您的机器上已经安装如下软件：
 
 - Apache Spark：2.3.0及以上版本
 

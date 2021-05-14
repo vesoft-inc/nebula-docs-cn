@@ -4,11 +4,11 @@ Nebula Spark Connector是一个Spark连接器，提供通过Spark标准形式读
 
 - Reader
   
-  提供一个Spark SQL接口，用户可以使用该接口编程读取Nebula Graph图数据，单次读取一个点或边类型的数据，并将读取的结果组装成Spark的DataFrame。
+  提供一个Spark SQL接口，您可以使用该接口编程读取Nebula Graph图数据，单次读取一个点或边类型的数据，并将读取的结果组装成Spark的DataFrame。
 
 - Writer
 
-  提供一个Spark SQL接口，用户可以使用该接口编程将DataFrame格式的数据逐条或批量写入Nebula Graph。
+  提供一个Spark SQL接口，您可以使用该接口编程将DataFrame格式的数据逐条或批量写入Nebula Graph。
 
 更多使用说明请参见[Nebula Spark Connector](https://github.com/vesoft-inc/nebula-spark-utils/blob/v2.0.0/nebula-spark-connector/README_CN.md)。
 

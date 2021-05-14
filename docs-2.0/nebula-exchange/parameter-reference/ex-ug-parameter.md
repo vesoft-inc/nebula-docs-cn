@@ -2,7 +2,7 @@
 
 本文介绍使用Nebula Exchange时如何修改配置文件[`application.conf`](https://github.com/vesoft-inc/nebula-spark-utils/blob/master/nebula-exchange/src/main/resources/application.conf)。
 
-修改配置文件之前，建议根据数据源复制并修改文件名称，便于区分。例如数据源为CSV文件，可以复制为`csv_application.conf`。
+修改配置文件之前，建议您根据数据源复制并修改文件名称，便于区分。例如数据源为CSV文件，可以复制为`csv_application.conf`。
 
 配置文件的内容主要分为如下几类：
 

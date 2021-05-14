@@ -1,6 +1,6 @@
 # 使用示例
 
-一般，用户可以按以下步骤使用 nebula-algorithm：
+一般，您可以按以下步骤使用 nebula-algorithm：
 
 1. 参考配置文件修改 nebula-algorithm 的配置。
 2. 运行 nebula-algorithm。
@@ -30,10 +30,10 @@
 
 ## 前提条件
 
-在操作之前，用户需要确认以下信息：
+在操作之前，您需要确认以下信息：
 
 - 已经完成 nebula-algorithm 编译。详细信息参考 [编译 nebula-algorithm](na-ug-compile.md)。
-- Nebula Graph 数据库中已经有图数据。用户可以使用不同的方式将其他来源的数据导入 Nebula Graph 数据库中，例如 [Spark Writer](https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-import/spark-writer/ "点击前往 Nebula Graph 网站")。
+- Nebula Graph 数据库中已经有图数据。您可以使用不同的方式将其他来源的数据导入 Nebula Graph 数据库中，例如 [Spark Writer](https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-import/spark-writer/ "点击前往 Nebula Graph 网站")。
 - 当前机器上已经安装 Spark 并已启动 Spark 服务。
 
 ## 第 1 步. 修改配置文件
@@ -45,7 +45,7 @@
   # Spark 相关设置
   spark: {
     app: {
-        # Spark 应用程序的名称，可选项。默认设置即将运行的算法名称，例如 PageRank
+        # Spark 应用程序的名称，可选项。默认设置为您即将运行的算法名称，例如 PageRank
         name: PageRank
 
         # Spark 中分区数量，可选项。
@@ -115,9 +115,9 @@ spark-submit --master "local" --class com.vesoft.nebula.tools.algorithm.Main /yo
 
 - `--master`：指定 Spark 集群中Master 进程的 URL。详细信息，参考 [master-urls](https://spark.apache.org/docs/latest/submitting-applications.html#master-urls "点击前往 Apache Spark 文档")。
 - `--class`：指定 Driver 主类。
-- 指定 nebula-algorithm JAR 文件的路径，JAR 文件版本号以实际编译得到的 JAR 文件名称为准。
+- 指定 nebula-algorithm JAR 文件的路径，JAR 文件版本号以您实际编译得到的 JAR 文件名称为准。
 - `-p`：Spark 配置文件文件路径。
-- 其他：如果未在配置文件中设置 Spark 的任务资源分配（`conf`）信息，用户可以在这个命令中指定。例如，本示例中，`--driver-memory=20G  --executor-memory=100G --executor-cores=3`。
+- 其他：如果您未在配置文件中设置 Spark 的任务资源分配（`conf`）信息，您可以在这个命令中指定。例如，本示例中，`--driver-memory=20G  --executor-memory=100G --executor-cores=3`。
 
 ## 测试结果
 

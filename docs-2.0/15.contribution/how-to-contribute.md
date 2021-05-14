@@ -4,7 +4,7 @@
 
 ### github或社区提交问题
 
-欢迎为项目贡献任何代码或文档，但是建议先在[github](https://github.com/vesoft-inc/nebula-graph)或[社区](https://discuss.nebula-graph.io/)上提交一个问题，和大家共同讨论。
+欢迎您为项目贡献任何代码或文档，但是建议您先在[github](https://github.com/vesoft-inc/nebula-graph)或[社区](https://discuss.nebula-graph.com.cn/)上提交一个问题，和大家共同讨论。
 
 ### 签署贡献者许可协议（CLA）
 
@@ -14,7 +14,7 @@
 
 单击按钮**Sign in with GitHub to agree**签署协议。
 
-如果有任何问题，请发送邮件至`info@vesoft.com`。
+如果您有任何问题，请发送邮件至`info@vesoft.com`。
 
 ## Step 1：通过GitHub fork仓库
 
@@ -65,16 +65,16 @@ Nebula Graph项目有很多[仓库](https://github.com/vesoft-inc)，以[nebula-
 
 ### 定义pre-commit hook
 
-请将Nebula Graph的pre-commit hook连接到`.git`目录。
+请将Nebula Graph的pre-commit hook连接到您的`.git`目录。
 
-hook将检查commit，包括格式、构建、文档生成等。
+hook将检查您的commit，包括格式、构建、文档生成等。
 
 ```bash
 cd $working_dir/nebula-graph/.git/hooks
 ln -s $working_dir/nebula-graph/.linters/cpp/hooks/pre-commit.sh .
 ```
 
-pre-commit hook有时候可能无法正常执行，用户必须手动执行。
+pre-commit hook有时候可能无法正常执行，您必须手动执行。
 
 ```bash
 cd $working_dir/nebula-graph/.git/hooks
@@ -100,7 +100,7 @@ chmod +x pre-commit
 
   !!! Note
 
-        由于一个PR通常包含多个commit，在合并至master时容易被挤压（squash），因此强烈建议创建一个独立的分支进行更改。合并后，这个分支可以被丢弃，因此可以使用上述rebase命令将本地master与upstream同步。此外，如果直接将commit提交至 master，用户可以需要在master分支使用hard reset，例如：
+        由于一个PR通常包含多个commit，在合并至master时容易被挤压（squash），因此强烈建议您创建一个独立的分支进行更改。合并后，这个分支可以被丢弃，因此可以使用上述rebase命令将本地master与upstream同步。此外，如果直接将commit提交至 master，您可以需要在master分支使用hard reset，例如：
 
         ```bash
         git fetch upstream
@@ -117,7 +117,7 @@ chmod +x pre-commit
 
 ### 单元测试要求
 
-请为新功能或Bug修复添加单元测试。
+请为您的新功能或Bug修复添加单元测试。
 
 ### 构建代码时开启单元测试
 
@@ -144,7 +144,7 @@ git fetch upstream
 git rebase upstream/master
 ```
 
-在其他贡献者将PR合并到基础分支之后，用户需要更新head分支。
+在其他贡献者将PR合并到基础分支之后，您需要更新head分支。
 
 ## Step 6：Commit
 
@@ -154,7 +154,7 @@ git rebase upstream/master
 git commit -a
 ```
 
-用户可以使用命令`--amend`重新编辑之前的代码。
+您可以使用命令`--amend`重新编辑之前的代码。
 
 ## Step 7：Push
 
