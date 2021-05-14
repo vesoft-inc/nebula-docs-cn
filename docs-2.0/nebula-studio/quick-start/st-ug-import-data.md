@@ -35,21 +35,21 @@
 6. 在 **数据源 X** 页签下，点击 **+ Tag** 按钮。
 
 7. 在 **vertexId** 部分，完成以下操作：  
-   a. 在 **对应列标** 列，点击 **选择**。  
+   1. 在 **对应列标** 列，点击 **选择**。  
    ![在数据源中点击“选择”](../figs/st-ug-009-1.png "为 vertexId 选择数据源")  
 
-   b. 在弹出对话框中，选择数据列。在本示例中，`user.csv` 中仅有一列数据用于生成代表用户的 VID，`course.csv` 中选择表示 `courseName` 信息的 **Column 1** 用于生成代表课程的 VID。  
+   2. 在弹出对话框中，选择数据列。在本示例中，`user.csv` 中仅有一列数据用于生成代表用户的 VID，`course.csv` 中选择表示 `courseName` 信息的 **Column 1** 用于生成代表课程的 VID。  
     
     !!! Note
 
         在同一个图空间中，VID 始终唯一，不可重复。关于 VID 的信息，参考 [Nebula Graph 的点ID和分片ID](../../3.ngql-guide/20.appendix/vid-partition.md "点击进入 Nebula Graph 用户手册")。 
 
-   c. 在 **ID Hash** 列，选择 VID 预处理方式：如果源数据是 `int` 类型数据，选择 **保持原值**；如果源数据是 `string`、`double` 或者 `bool` 类型数据，选择 **Hash**。
+   3. 在 **ID Hash** 列，选择 VID 预处理方式：如果源数据是 `int` 类型数据，选择 **保持原值**；如果源数据是 `string`、`double` 或者 `bool` 类型数据，选择 **Hash**。
 
 8. 在 **TAG 1** 部分，完成以下操作：  
-   a. 在 **TAG** 下拉列表中，选择数据源对应的标签名称。在本示例中，`vertex_player.csv` 文件对应选择 **player**；`vertex_team.csv` 文件对应选择 **team**。  
+   1. 在 **TAG** 下拉列表中，选择数据源对应的标签名称。在本示例中，`vertex_player.csv` 文件对应选择 **player**；`vertex_team.csv` 文件对应选择 **team**。  
 
-   b. 在显示的属性列表中，点击 **选择**，为标签属性绑定源数据。在本示例中，`player` 标签的 `name` 属性对应 `vertex_player.csv` 文件中的 **Column 2** 列，**类型** 为 **string**，`age` 属性对应文件中的 **Column 1** 列，**类型** 为 **int**；`team` 标签的 `name` 属性对应 `vertex_team.csv` 文件中的 **Column 1** 列，**类型** 为 **string**。
+   2. 在显示的属性列表中，点击 **选择**，为标签属性绑定源数据。在本示例中，`player` 标签的 `name` 属性对应 `vertex_player.csv` 文件中的 **Column 2** 列，**类型** 为 **string**，`age` 属性对应文件中的 **Column 1** 列，**类型** 为 **int**；`team` 标签的 `name` 属性对应 `vertex_team.csv` 文件中的 **Column 1** 列，**类型** 为 **string**。
   
    ![course类点对应的属性数据源](../figs/st-ug-010-1.png "为点属性选择数据源")  
 
