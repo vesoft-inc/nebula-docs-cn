@@ -4,7 +4,7 @@
 
 ## Nebula Graph版本
 
-仅支持Nebula Graph 2.0.0，其他2.x版本可能会有未知问题。
+仅支持Nebula Graph {{ nebula.release }}，其他2.x版本可能会有未知问题。
 
 ## 架构
 
