@@ -12,7 +12,7 @@
   - [清除连接](deploy-connect/st-ug-reset-connection.md)
 - 快速开始
   - [规划 Schema](quick-start/st-ug-plan-schema.md)
-  - [准备 CSV 文件](quick-start/st-ug-prepare-csv.md)
+<!--  - [准备 CSV 文件](quick-start/st-ug-prepare-csv.md) -->
   - [创建 Schema](quick-start/st-ug-create-schema.md)
   - [导入数据](quick-start/st-ug-import-data.md)
   - [查询图数据](quick-start/st-ug-explore.md)

@@ -41,7 +41,7 @@ Docker 版和 RPM 版 Studio 目前仅支持 x86_64 架构。
 - `GRANT ROLE`
 - `REVOKE ROLE`  
 
-关于语句的详细信息，参考 [Nebula Graph 用户手册](../../7.data-security/1.authentication/2.management-user.md "点击前往 Nebula Graph 官网")。
+关于语句的详细信息，参考 [Nebula Graph 用户手册](../../7.data-security/1.authentication/2.management-user.md "点击前往 Nebula Graph 用户手册")。
 
 ## 浏览器支持
 
