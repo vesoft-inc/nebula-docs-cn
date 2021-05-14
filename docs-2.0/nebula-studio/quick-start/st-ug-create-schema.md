@@ -1,26 +1,26 @@
 # 创建 Schema
 
-在 Nebula Graph 中，您必须先有 Schema，再向其中写入点数据和边数据。本文描述如何使用 Nebula Graph 的 **控制台** 或 **Schema** 功能创建 Schema。
+在 Nebula Graph 中，必须先有 Schema，再向其中写入点数据和边数据。本文描述如何使用 Nebula Graph 的 **控制台** 或 **Schema** 功能创建 Schema。
 
 !!! Note
 
-    您也可以使用 nebula-console 创建 Schema。详细信息，参考 [使用 Docker Compose 部署 Nebula Graph](../../README.md) 和 [Nebula Graph 快速开始](../../2.quick-start/1.quick-start-workflow.md)。
+    也可以使用 nebula-console 创建 Schema。详细信息，参考 [使用 Docker Compose 部署 Nebula Graph](../../README.md) 和 [Nebula Graph 快速开始](../../2.quick-start/1.quick-start-workflow.md)。
 
 ## 前提条件
 
-在 Studio 上创建 Schema 之前，您需要确认以下信息：
+在 Studio 上创建 Schema 之前，需要确认以下信息：
 
 - Studio 已经连接到 Nebula Graph 数据库。
 
-- 您的账号拥有 GOD、ADMIN 或 DBA 权限。详细信息，参考 [Nebula Graph 内置角色](../../7.data-security/1.authentication/3.role-list.md)。
+- 账号拥有 GOD、ADMIN 或 DBA 权限。详细信息，参考 [Nebula Graph 内置角色](../../7.data-security/1.authentication/3.role-list.md)。
 
-- 您已经规划好了 Schema 的要素。
+- 已经规划好了 Schema 的要素。
 
 - 已经创建了图空间。
 
 !!! Note
 
-    本示例假设已经创建了图空间。如果您的账号拥有 GOD 权限，也可以在 **控制台** 或 **Schema** 上创建一个图空间。
+    本示例假设已经创建了图空间。如果账号拥有 GOD 权限，也可以在 **控制台** 或 **Schema** 上创建一个图空间。
 
 ## 使用 Schema 管理功能创建 Schema
 
@@ -56,7 +56,7 @@
    CREATE EDGE serve(start_year int, end_year int);
    ```
 
-至此，您已经完成了 Schema 创建。您可以运行以下语句查看标签与边类型的定义是否正确、完整。
+至此，已经完成了 Schema 创建。用户可以运行以下语句查看标签与边类型的定义是否正确、完整。
 
 ```nGQL
 -- 列出当前图空间中所有标签
@@ -74,4 +74,4 @@ DESCRIBE EDGE serve;
 
 ## 后续操作
 
-创建 Schema 后，您可以开始 [导入数据](st-ug-import-data.md)。
+创建 Schema 后，用户可以开始 [导入数据](st-ug-import-data.md)。

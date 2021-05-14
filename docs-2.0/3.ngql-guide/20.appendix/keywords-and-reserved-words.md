@@ -19,7 +19,7 @@ nebula> CREATE TAG SPACE(name string);
 Execution succeeded
 ```
 
-- `TAG`是保留关键字，要将`TAG`作为标识符，您必须使用反引号（\`）括起来。
+- `TAG`是保留关键字，要将`TAG`作为标识符，必须使用反引号（\`）括起来。
 
 - `SPACE`是非保留关键字，可以直接作为标识符使用。
 

@@ -4,7 +4,7 @@ Nebula Flink Connector 支持以 `DataStream.addSink` 的方式将 Flink 数据
 
 !!! Note
 
-    Nebula Flink Connector 使用 Flink 1.11-SNAPSHOT 开发，这个版本已经不再支持使用 `writeUsingOutputFormat` 方式定义输出端的接口，源码如下。所以，在使用自定义 NebulaSink 时，请您务必使用 `DataStream.addSink` 方式。
+    Nebula Flink Connector 使用 Flink 1.11-SNAPSHOT 开发，这个版本已经不再支持使用 `writeUsingOutputFormat` 方式定义输出端的接口，源码如下。所以，在使用自定义 NebulaSink 时，请务必使用 `DataStream.addSink` 方式。
     /** @deprecated */
     @Deprecated
     @PublicEvolving
@@ -150,7 +150,7 @@ NebulaSink 的实现类图如下所示。
 
 Flink 将处理完成的数据 sink 到 Nebula Graph 数据库时，需要将 Flink 数据流进行 map 转换成 NebulaSink 可接收的数据格式。自定义 NebulaSink 的使用方式是通过 `addSink` 的形式，
 
-您可以按以下步骤使用 Nebula Flink Connector 的 NebulaSink 向 Nebula Graph 写入数据：
+用户可以按以下步骤使用 Nebula Flink Connector 的 NebulaSink 向 Nebula Graph 写入数据：
 
 1. 将 Flink 数据转换成 NebulaSink 可以接受的数据格式。
 2. 将 `NebulaSinkFunction` 作为参数传给 `addSink` 方法来实现 Flink 数据流的写入。
@@ -209,6 +209,6 @@ dataSource.addSink(nebulaSinkFunction);
 
 ### NebulaSink 示例程序
 
-您可以参考 GitHub 上的示例程序 [testSourceSink](https://github.com/vesoft-inc/nebula-java/tree/v1.0/examples/src/main/java/org/apache/flink/FlinkDemo.java) 编写您自己的 Flink 应用程序。
+用户可以参考 GitHub 上的示例程序 [testSourceSink](https://github.com/vesoft-inc/nebula-java/tree/v1.0/examples/src/main/java/org/apache/flink/FlinkDemo.java) 编写自己的 Flink 应用程序。
 
 以 testSourceSink 为例：该程序以 Nebula Graph 的图空间 `flinkSource` 作为 source，通过 Flink 读取进行 `map` 类型转换后的数据，再写入 Nebula Graph 另一个图空间 `flinkSink`，即 Nebula Graph 一个图空间 `flinkSource` 的数据流入另一个图空间 `flinkSink` 中。

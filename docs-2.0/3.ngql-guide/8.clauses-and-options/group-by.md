@@ -6,7 +6,7 @@
 
 本文操作仅适用于nGQL扩展。
 
-您也可以使用openCypher方式的[count()](../6.functions-and-expressions/7.count.md)函数聚合数据。
+也可以使用openCypher方式的[count()](../6.functions-and-expressions/7.count.md)函数聚合数据。
 
 ```ngql
 nebula>  MATCH (v:player)<-[:follow]-(:player) RETURN v.name AS Name, count(*) as cnt ORDER BY cnt DESC
