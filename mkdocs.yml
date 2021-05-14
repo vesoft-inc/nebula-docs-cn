@@ -206,6 +206,7 @@ nav:
           - 大小写区分: 3.ngql-guide/20.appendix/identifier-case-sensitivity.md
           - 关键字: 3.ngql-guide/20.appendix/keywords-and-reserved-words.md
           - 点VID和分片ID: 3.ngql-guide/20.appendix/vid-partition.md
+          - 关于Raft的简单介绍: 3.ngql-guide/20.appendix/raft.md
 
   - 安装部署:
       - 准备资源: 4.deployment-and-installation/1.resource-preparations.md
@@ -252,28 +253,6 @@ nav:
 #      - 使用限制: nebula-algorithm/na-ug-limitations.md
 #      - 编译 nebula-algorithm: nebula-algorithm/na-ug-compile.md
 #      - 使用示例: nebula-algorithm/na-ug-example.md
-#
-#  - 数据传输:
-#    - Nebula Exchange:
-#      - 认识 Nebula Exchange:
-#        - 什么是 Nebula Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
-#        - 使用限制: nebula-exchange/about-exchange/ex-ug-limitations.md
-#        - 名词解释: nebula-exchange/about-exchange/ex-ug-terms.md
-#        - 常见问题: nebula-exchange/about-exchange/ex-ug-faq.md
-#      - 编译 Exchange: nebula-exchange/ex-ug-compile.md
-#      - 操作指南:
-#        - 导入数据步骤: nebula-exchange/use-exchange/ex-ug-import-steps.md
-#        - 导入 Neo4j 数据: nebula-exchange/use-exchange/ex-ug-import-from-neo4j.md
-#        - 导入 SST 文件: nebula-exchange/use-exchange/ex-ug-import-sst.md
-#        - 导入 HIVE 数据: nebula-exchange/use-exchange/ex-ug-import-hive.md
-#        - 导入 CSV 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-csv.md
-#        - 导入 JSON 文件数据: nebula-exchange/use-exchange/ex-ug-import-json.md
-#      - 参数说明:
-#        - Spark 参数: nebula-exchange/parameter-reference/ex-ug-paras-spark.md
-#        - Nebula Graph 参数: nebula-exchange/parameter-reference/ex-ug-paras-nebulagraph.md
-#        #- 数据源参数:
-#          #- Neo4j 数据源相关参数: nebula-exchange/parameter-reference/ex-ug-paras-neo4j.md
-#        - 导入命令参数: nebula-exchange/parameter-reference/ex-ug-para-import-command.md
 #
 #  - Nebula Flink Connector:
 #    - 什么是 Nebula Flink Connector: nebula-flink/nf-ug-what-is-flink-connector.md
