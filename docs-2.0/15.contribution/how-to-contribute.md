@@ -4,7 +4,7 @@
 
 ### github或社区提交问题
 
-欢迎为项目贡献任何代码或文档，但是建议先在[github](https://github.com/vesoft-inc/nebula-graph)或[社区](https://discuss.nebula-graph.io/)上提交一个问题，和大家共同讨论。
+欢迎为项目贡献任何代码或文档，但是建议先在[github](https://github.com/vesoft-inc/nebula-graph)或[社区](https://discuss.nebula-graph.com.cn/)上提交一个问题，和大家共同讨论。
 
 ### 签署贡献者许可协议（CLA）
 
