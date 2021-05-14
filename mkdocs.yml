@@ -2,7 +2,7 @@
 site_name: Nebula Graph Database 手册
 site_description: Documentation for Nebula Graph Database
 site_author: Nebula Graph
-site_url: https://docs.nebula-graph.com.cn/
+site_url: https://docs.nebula-graph.com.cn/2.0.1/
 edit_uri: 'edit/master/docs-2.0/'
 docs_dir: docs-2.0
 
