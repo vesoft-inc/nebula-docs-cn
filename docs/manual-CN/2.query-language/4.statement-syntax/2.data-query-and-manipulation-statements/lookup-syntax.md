@@ -5,14 +5,14 @@
 **注意：** 在使用 `LOOKUP` 语句之前，请确保已创建索引。查看[索引文档](../1.data-definition-statements/index.md)了解有关索引的更多信息。
 
 ```ngql
-LOOKUP ON {<vertex_tag> | <edge_type>} WHERE <expression> [ AND | OR expression ...]) ] [YIELD <return_list>]
+LOOKUP ON {<vertex_tag> | <edge_type>} WHERE <expression> [ AND | UNION expression ...]) ] [YIELD <return_list>]
 
 <return_list>
     <col_name> [AS <col_alias>] [, <col_name> [AS <col_alias>] ...]
 ```
 
 - `LOOKUP` 语句用于寻找点或边的集合。
-- `WHERE` 指定被筛选的逻辑条件。同样支持逻辑关键词 AND、OR、NOT，详情参见 [WHERE](where-syntax.md) 的用法。
+- `WHERE` 指定被筛选的逻辑条件。同样支持逻辑关键词 AND、UNION、NOT，详情参见 [WHERE](where-syntax.md) 的用法。
   **注意：** `WHERE` 子句在 `LOOKUP` 中暂不支持如下操作：
   - `$-` 和 `$^`
   - 在关系表达式中，暂不支持操作符两边都是field-name 的表达式，如 (tagName.column1 > tagName.column2)
