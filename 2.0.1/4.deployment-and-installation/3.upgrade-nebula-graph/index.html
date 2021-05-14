@@ -9,9 +9,9 @@
 <meta content="Nebula Graph" name="author"/>
 <link href="https://docs.nebula-graph.com.cn/4.deployment-and-installation/3.upgrade-nebula-graph/" rel="canonical"/>
 <link href="../../assets/images/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.2" name="generator"/>
-<title>升级Nebula Graph - Nebula Graph Database 内核手册</title>
-<link href="../../assets/stylesheets/main.6f955dcd.min.css" rel="stylesheet"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.4" name="generator"/>
+<title>升级历史版本至Nebula Graph v2.0.0 - Nebula Graph Database 手册</title>
+<link href="../../assets/stylesheets/main.bde7dde4.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.ef6f36e2.min.css" rel="stylesheet"/>
 <meta content="#ffffff" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -36,7 +36,7 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Nebula Graph Database 内核手册" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Nebula Graph Database 内核手册">
+<a aria-label="Nebula Graph Database 手册" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Nebula Graph Database 手册">
 <img alt="logo" src="https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -46,13 +46,13 @@
 <div class="md-header__ellipsis">
 <div class="md-header__topic">
 <span class="md-ellipsis">
-            Nebula Graph Database 内核手册
+            Nebula Graph Database 手册
           </span>
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              升级Nebula Graph
+              升级历史版本至Nebula Graph v2.0.0
             
           </span>
 </div>
@@ -106,10 +106,10 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Nebula Graph Database 内核手册" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Nebula Graph Database 内核手册">
+<a aria-label="Nebula Graph Database 手册" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Nebula Graph Database 手册">
 <img alt="logo" src="https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png"/>
 </a>
-    Nebula Graph Database 内核手册
+    Nebula Graph Database 手册
   </label>
 <div class="md-nav__source">
 <a class="md-source" data-md-component="source" href="https://github.com/vesoft-inc/nebula-docs-cn/" title="前往 GitHub 仓库">
@@ -230,8 +230,8 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../2.quick-start/6.useful-links/">
-        常用链接
+<a class="md-nav__link" href="../../2.quick-start/6.eco-tool-version/">
+        生态工具概览
       </a>
 </li>
 </ul>
@@ -1063,7 +1063,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../3.ngql-guide/20.appendix/vid-partition/">
-        点ID和分片ID
+        点VID和分片ID
       </a>
 </li>
 </ul>
@@ -1122,11 +1122,11 @@
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          升级Nebula Graph
+          升级历史版本至Nebula Graph v2.0.0
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        升级Nebula Graph
+        升级历史版本至Nebula Graph v2.0.0
       </a>
 <nav aria-label="目录" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -1185,6 +1185,16 @@
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../5.upgrade-nebula-from-200-to-201/">
+        Nebula Graph v2.0.0升级至v2.0.1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../4.uninstall-nebula-graph/">
+        卸载Nebula Graph
+      </a>
 </li>
 </ul>
 </nav>
@@ -1326,41 +1336,6 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8_2" id="__nav_8_2" type="checkbox"/>
-<label class="md-nav__link" for="__nav_8_2">
-        备份恢复
-        <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-label="备份恢复" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_8_2">
-<span class="md-nav__icon md-icon"></span>
-          备份恢复
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../7.data-security/2.backup-restore/1.what-is-br/">
-        什么是BR
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../7.data-security/2.backup-restore/2.compile-br/">
-        编译BR
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../7.data-security/2.backup-restore/3.br-backup-data/">
-        使用BR备份数据
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../7.data-security/2.backup-restore/4.br-restore-data/">
-        使用BR恢复数据
-      </a>
-</li>
-</ul>
-</nav>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../7.data-security/3.manage-snapshot/">
         管理快照
@@ -1397,34 +1372,229 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10" id="__nav_10" type="checkbox"/>
 <label class="md-nav__link" for="__nav_10">
-        生态工具
+        Nebula Graph Studio
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="生态工具" class="md-nav" data-md-level="1">
+<nav aria-label="Nebula Graph Studio" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_10">
 <span class="md-nav__icon md-icon"></span>
-          生态工具
+          Nebula Graph Studio
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_1" id="__nav_10_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_1">
+        认识 Nebula Graph Studio
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="认识 Nebula Graph Studio" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_10_1">
+<span class="md-nav__icon md-icon"></span>
+          认识 Nebula Graph Studio
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../16.eco-tools/1.nebula-exchange/">
-        Nebula Exchange
+<a class="md-nav__link" href="../../nebula-studio/about-studio/st-ug-what-is-graph-studio/">
+        什么是 Nebula Graph Studio
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../16.eco-tools/2.nebula-importer/">
-        Nebula Importer
+<a class="md-nav__link" href="../../nebula-studio/about-studio/st-ug-terms/">
+        名词解释
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../16.eco-tools/3.nebula-spark-connector/">
-        Nebula Spark Connector
+<a class="md-nav__link" href="../../nebula-studio/about-studio/st-ug-limitations/">
+        使用限制
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../16.eco-tools/4.nebula-flink-connector/">
-        Nebula Flink Connector
+<a class="md-nav__link" href="../../nebula-studio/about-studio/st-ug-check-updates/">
+        版本更新
       </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-studio/about-studio/st-ug-shortcuts/">
+        快捷键
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_2" id="__nav_10_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_2">
+        安装与登录
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="安装与登录" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_10_2">
+<span class="md-nav__icon md-icon"></span>
+          安装与登录
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-studio/deploy-connect/st-ug-deploy/">
+        部署 Studio
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-studio/deploy-connect/st-ug-connect/">
+        连接数据库
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-studio/deploy-connect/st-ug-reset-connection/">
+        清除连接
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_3" id="__nav_10_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_3">
+        快速开始
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="快速开始" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_10_3">
+<span class="md-nav__icon md-icon"></span>
+          快速开始
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-studio/quick-start/st-ug-plan-schema/">
+        规划 Schema
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-studio/quick-start/st-ug-create-schema/">
+        创建 Schema
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-studio/quick-start/st-ug-import-data/">
+        导入数据
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-studio/quick-start/st-ug-explore/">
+        查询图数据
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_4" id="__nav_10_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_4">
+        操作指南
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="操作指南" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_10_4">
+<span class="md-nav__icon md-icon"></span>
+          操作指南
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_4_1" id="__nav_10_4_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_4_1">
+        管理 Schema
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="管理 Schema" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_10_4_1">
+<span class="md-nav__icon md-icon"></span>
+          管理 Schema
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-studio/manage-schema/st-ug-crud-space/">
+        操作图空间
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-studio/manage-schema/st-ug-crud-tag/">
+        操作标签
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-studio/manage-schema/st-ug-crud-edge-type/">
+        操作边类型
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-studio/manage-schema/st-ug-crud-index/">
+        操作索引
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_4_2" id="__nav_10_4_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_4_2">
+        使用控制台
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="使用控制台" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_10_4_2">
+<span class="md-nav__icon md-icon"></span>
+          使用控制台
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-studio/use-console/st-ug-console/">
+        控制台界面
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-studio/use-console/st-ug-open-in-explorer/">
+        导入图探索
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-studio/use-console/st-ug-visualize-findpath/">
+        查看子图
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_10_5" id="__nav_10_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_10_5">
+        故障排查
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="故障排查" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_10_5">
+<span class="md-nav__icon md-icon"></span>
+          故障排查
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-studio/troubleshooting/st-ug-config-server-errors/">
+        连接数据库错误
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-studio/troubleshooting/st-ug-connection-errors/">
+        无法访问 Studio
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-studio/troubleshooting/st-ug-faq/">
+        常见问题
+      </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -1432,11 +1602,191 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" id="__nav_11" type="checkbox"/>
 <label class="md-nav__link" for="__nav_11">
+        Nebula Exchange
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Nebula Exchange" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+          Nebula Exchange
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_1" id="__nav_11_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_1">
+        认识Nebula Exchange
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="认识Nebula Exchange" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_1">
+<span class="md-nav__icon md-icon"></span>
+          认识Nebula Exchange
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-exchange/about-exchange/ex-ug-what-is-exchange/">
+        什么是Nebula Exchange
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-exchange/about-exchange/ex-ug-limitations/">
+        使用限制
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-exchange/ex-ug-compile/">
+        编译Exchange
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_3" id="__nav_11_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_3">
+        参数说明
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="参数说明" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_3">
+<span class="md-nav__icon md-icon"></span>
+          参数说明
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-exchange/parameter-reference/ex-ug-para-import-command/">
+        导入命令参数
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-exchange/parameter-reference/ex-ug-parameter/">
+        配置参数
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11_4" id="__nav_11_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_4">
+        使用Nebula Exchange
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="使用Nebula Exchange" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_4">
+<span class="md-nav__icon md-icon"></span>
+          使用Nebula Exchange
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-exchange/use-exchange/ex-ug-import-from-csv/">
+        导入CSV文件数据
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-exchange/use-exchange/ex-ug-import-from-json/">
+        导入JSON文件数据
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-exchange/use-exchange/ex-ug-import-from-orc/">
+        导入ORC文件数据
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-exchange/use-exchange/ex-ug-import-from-parquet/">
+        导入Parquet文件数据
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-exchange/use-exchange/ex-ug-import-from-hbase/">
+        导入HBase数据
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-exchange/use-exchange/ex-ug-import-from-mysql/">
+        导入MySQL数据
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-exchange/use-exchange/ex-ug-import-from-neo4j/">
+        导入Neo4j数据
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-exchange/use-exchange/ex-ug-import-from-hive/">
+        导入Hive数据
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-exchange/use-exchange/ex-ug-import-from-pulsar/">
+        导入Pulsar数据
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-exchange/use-exchange/ex-ug-import-from-kafka/">
+        导入Kafka数据
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-exchange/ex-ug-FAQ/">
+        常见问题FAQ
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_12" id="__nav_12" type="checkbox"/>
+<label class="md-nav__link" for="__nav_12">
+        Nebula Importer
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Nebula Importer" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_12">
+<span class="md-nav__icon md-icon"></span>
+          Nebula Importer
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-importer/use-importer/">
+        使用Nebula Importer
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-importer/config-with-header/">
+        有表头配置说明
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-importer/config-without-header/">
+        无表头配置说明
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-spark-connector/">
+        Nebula Spark Connector
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-flink-connector/">
+        Nebula Flink Connector
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" id="__nav_15" type="checkbox"/>
+<label class="md-nav__link" for="__nav_15">
         社区贡献
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="社区贡献" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_11">
+<label class="md-nav__title" for="__nav_15">
 <span class="md-nav__icon md-icon"></span>
           社区贡献
         </label>
@@ -1585,9 +1935,10 @@
 <ul>
 <li>在 <code>${nebula-old}/etc/nebula-metad.conf</code> 中找到 <code>--data_path</code> 项，其默认值为 <code>data/meta</code>; 为 <strong>metad 数据目录</strong>位置。</li>
 </ul>
-<blockquote>
-<p><strong>说明：</strong> Nebula Graph的实际安装路径可能和本文示意不同，请使用实际路径。您也可以用 <code>ps -ef | grep nebula</code> 中的参数来找到实际使用的配置文件地址。</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Nebula Graph的实际安装路径可能和本文示意不同，请使用实际路径。您也可以用 <code>ps -ef | grep nebula</code> 中的参数来找到实际使用的配置文件地址。</p>
+</div>
 <h3 id="_4">新版本安装目录<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
 <p>本文中新版本安装目录记为 <code>${nebula-new}</code> (例如 <code>/usr/local/nebula-new/</code>).</p>
 <div class="highlight"><pre><span></span><code>&gt; mkdir -p <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>
@@ -1612,84 +1963,94 @@
 <span class="o">[</span>INFO<span class="o">]</span> Done
 </code></pre></div>
 <p>运行 <code>ps -ef | grep nebula</code> 检查所有 nebula 服务都已停止。<code>storaged</code> 进程 flush 数据可能要等待 1 分钟。</p>
-<blockquote>
-<p><strong>说明：</strong> 如果超过 20 分钟不能停止服务，<strong>放弃本次升级</strong>，并在论坛提交问题。</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>如果超过 20 分钟不能停止服务，<strong>放弃本次升级</strong>，并在论坛提交问题。</p>
+</div>
 </li>
 <li>
 <p>在每台服务器上运行如下命令。</p>
-<p>3.1 安装新的二进制文件</p>
-<div class="codehilite"><pre><span></span><code>- 如果从 rpm/deb 安装,从[release page](https://github.com/vesoft-inc/nebula-graph/releases)下载对应操作系统的安装包。
-
-   ```bash
-   &gt; sudo rpm --force -i --prefix=${nebula-new}  ${nebula-package-name.rpm} # for centos/redhat
-   &gt; sudo dpkg -i --instdir==${nebula-new} ${nebula-package-name.deb} # for ubuntu
-   ```
-
-   具体步骤可以见[从RPM/DEB安装](https://docs.nebula-graph.io/2.0/4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb/)。
-
-- 如果从源代码安装。具体步骤见[从源代码安装](https://docs.nebula-graph.io/2.0/4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code/)。这里列出几个关键命令：
-
-   + clone 源代码
-
-      ```bash
-      &gt; git clone --branch v2.0.0 https://github.com/vesoft-inc/nebula-graph.git
-      ```
-
-   + 设置 CMake
-
-      ```bash
-      &gt; cmake -DCMAKE_INSTALL_PREFIX=${nebula-new} -DENABLE_BUILD_STORAGE=on -DENABLE_TESTING=OFF -DCMAKE_BUILD_TYPE=Release -DNEBULA_COMMON_REPO_TAG=v2.0.0  -DNEBULA_STORAGE_REPO_TAG=v2.0.0 .. 
-      ```
+<ol>
+<li>
+<p>安装新的二进制文件。</p>
+<ul>
+<li>
+<p>如果从 rpm/deb 安装,从<a href="https://github.com/vesoft-inc/nebula-graph/releases">release page</a>下载对应操作系统的安装包。</p>
+<div class="highlight"><pre><span></span><code>&gt; sudo rpm --force -i --prefix<span class="o">=</span><span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>  <span class="si">${</span><span class="nv">nebula</span><span class="p">-package-name.rpm</span><span class="si">}</span> <span class="c1"># for centos/redhat</span>
+&gt; sudo dpkg -i --instdir<span class="o">==</span><span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span> <span class="si">${</span><span class="nv">nebula</span><span class="p">-package-name.deb</span><span class="si">}</span> <span class="c1"># for ubuntu</span>
 </code></pre></div>
-<p>3.2 拷贝配置文件</p>
-<div class="codehilite"><pre><span></span><code>```bash
-&gt; cp -rf ${nebula-old}/etc ${nebula-new}/
-```
+<p>具体步骤可以见<a href="https://docs.nebula-graph.io/2.0/4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb/">从RPM/DEB安装</a>。</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>如果从源代码安装。具体步骤见<a href="https://docs.nebula-graph.io/2.0/4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code/">从源代码安装</a>。这里列出几个关键命令：</p>
+<ul>
+<li>
+<p>clone 源代码</p>
+<div class="highlight"><pre><span></span><code>&gt; git clone --branch v2.0.0 https://github.com/vesoft-inc/nebula-graph.git
 </code></pre></div>
+</li>
+</ul>
+<ul>
+<li>
+<p>设置 CMake</p>
+<div class="highlight"><pre><span></span><code>&gt; cmake -DCMAKE_INSTALL_PREFIX<span class="o">=</span><span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span> -DENABLE_BUILD_STORAGE<span class="o">=</span>on -DENABLE_TESTING<span class="o">=</span>OFF -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -DNEBULA_COMMON_REPO_TAG<span class="o">=</span>v2.0.0  -DNEBULA_STORAGE_REPO_TAG<span class="o">=</span>v2.0.0 .. 
+</code></pre></div>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>拷贝配置文件。</p>
+<div class="highlight"><pre><span></span><code>&gt; cp -rf <span class="si">${</span><span class="nv">nebula</span><span class="p">-old</span><span class="si">}</span>/etc <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/
+</code></pre></div>
+</li>
+</ol>
 </li>
 <li>
 <p>在曾经运行 metad 的服务器上（通常为3台），拷贝 metad 数据、配置文件到新目录。</p>
-<!--
-   - 拷贝storaged数据(如有)
-
-       在 `${nebula-old}/etc/nebula-storaged.conf` 中找到 `--data_path` 项（其默认值为 `data/storage`）
-
-       + 如果旧版本配置**未更改** `--data_path` 项，则可以运行如下命令，将服务端storaged数据拷贝到新目录。
-
-       <div class="highlight"><pre><span></span><code>&gt; mkdir -p <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/data/storage/
-&gt; cp -r <span class="si">${</span><span class="nv">nebula</span><span class="p">-old</span><span class="si">}</span>/data/storage/* <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/data/storage/
-</code></pre></div>
-
-       + 如果旧版本配置更改了默认的服务端数据目录，请根据实际目录拷贝。
-   -->
 <ul>
-<li>拷贝 metad 数据<p>在 <code>${nebula-old}/etc/nebula-metad.conf</code> 中找到 <code>--data_path</code> 项（其默认值为 <code>data/meta</code>）</p>
-<p>+ 如果旧版本配置<strong>未更改</strong> <code>--data_path</code> 项，则可以运行如下命令，将metad数据拷贝到新目录。</p>
-<div class="codehilite"><pre><span></span><code> ```bash
- &gt; mkdir -p ${nebula-new}/data/meta/
- &gt; cp -r ${nebula-old}/data/meta/* ${nebula-new}/data/meta/
- &gt; ```
+<li>
+<p>拷贝 metad 数据</p>
+<p>在 <code>${nebula-old}/etc/nebula-metad.conf</code> 中找到 <code>--data_path</code> 项（其默认值为 <code>data/meta</code>）</p>
+<ul>
+<li>
+<p>如果旧版本配置<strong>未更改</strong> <code>--data_path</code> 项，则可以运行如下命令，将metad数据拷贝到新目录。</p>
+<div class="highlight"><pre><span></span><code>&gt; mkdir -p <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/data/meta/
+&gt; cp -r <span class="si">${</span><span class="nv">nebula</span><span class="p">-old</span><span class="si">}</span>/data/meta/* <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/data/meta/
 </code></pre></div>
-<p>+ 如果旧版本配置更改了默认的 metad 目录，请根据实际目录拷贝。</p>
 </li>
 </ul>
 <ul>
-<li>拷贝并修改配置文件<p>+ 编辑新的 metad 配置文件：</p>
-<div class="codehilite"><pre><span></span><code> ```bash
- &gt; vim ${nebula-new}/nebula-metad.conf
- ```
-</code></pre></div>
-<p>+ [可选]增加配置项：</p>
-<div class="codehilite"><pre><span></span><code> `--null_type=false`: 升级后的schema的属性是否要支持 [`NULL`](https://docs.nebula-graph.io/2.0/3.ngql-guide/3.data-types/5.null/)，**默认为 true**。不希望支持 NULL 的话，设置为 false。此时，升级后的 schema 如果要增加属性（alter tag/edge)必须指定 [default 值](https://docs.nebula-graph.io/2.0/3.ngql-guide/10.tag-statements/1.create-tag/)，否则会读不出数据。
-
- `--string_index_limit=32`: 升级后 string 对应的[索引的长度](https://docs.nebula-graph.io/2.0/3.ngql-guide/14.native-index-statements/1.create-native-index/)，不加的话系统默认为 64。
+<li>如果旧版本配置更改了默认的 metad 目录，请根据实际目录拷贝。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>
+<p>拷贝并修改配置文件</p>
+<ul>
+<li>
+<p>编辑新的 metad 配置文件：</p>
+<div class="highlight"><pre><span></span><code>&gt; vim <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/nebula-metad.conf
 </code></pre></div>
 </li>
 </ul>
-<blockquote>
-<p><strong>说明：</strong> 请确保在每个metad服务器都完成了以上操作。</p>
-</blockquote>
+<ul>
+<li>
+<p>[可选]增加配置项：</p>
+<p><code>--null_type=false</code>: 升级后的schema的属性是否要支持 <a href="https://docs.nebula-graph.io/2.0/3.ngql-guide/3.data-types/5.null/"><code>NULL</code></a>，<strong>默认为 true</strong>。不希望支持 NULL 的话，设置为 false。此时，升级后的 schema 如果要增加属性（alter tag/edge)必须指定 <a href="https://docs.nebula-graph.io/2.0/3.ngql-guide/10.tag-statements/1.create-tag/">default 值</a>，否则会读不出数据。</p>
+<p><code>--string_index_limit=32</code>: 升级后 string 对应的<a href="https://docs.nebula-graph.io/2.0/3.ngql-guide/14.native-index-statements/1.create-native-index/">索引的长度</a>，不加的话系统默认为 64。</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>请确保在每个metad服务器都完成了以上操作。</p>
+</div>
+</li>
+</ul>
 </li>
 <li>
 <p>在每个 storaged 服务器上, 修改 storaged 配置文件。</p>
@@ -1716,32 +2077,44 @@
 </li>
 </ul>
 <ul>
-<li>检查每个 metad 进程是否正常。<p><div class="highlight"><pre><span></span><code>$ ps -ef <span class="p">|</span>grep nebula-metad
+<li>检查每个 metad 进程是否正常。<div class="highlight"><pre><span></span><code>$ ps -ef <span class="p">|</span>grep nebula-metad
 </code></pre></div>
-   - 检查 metad 日志<code>${nebula-new}/logs/</code> 下的 ERROR 日志。</p>
 </li>
 </ul>
-<blockquote>
-<p><strong>说明：</strong> 如果服务异常：请查看目录<code>${nebula-new}/logs</code>内的 metad 相关日志，并在论坛提交问题。<strong>放弃本次升级，在原目录正常启动 nebula 服务。</strong></p>
-</blockquote>
+<ul>
+<li>检查 metad 日志<code>${nebula-new}/logs/</code> 下的 ERROR 日志。</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>如果服务异常：请查看目录<code>${nebula-new}/logs</code>内的 metad 相关日志，并在论坛提交问题。<strong>放弃本次升级，在原目录正常启动 nebula 服务。</strong></p>
+</div>
 </li>
 <li>
 <p>升级 storaged 数据格式。</p>
-<ul>
-<li>在每个 storaged 服务器运行如下命令。<div class="highlight"><pre><span></span><code>$ sudo <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/bin/db_upgrader  <span class="se">\</span>
+<p>在每个 storaged 服务器运行如下命令。</p>
+<div class="highlight"><pre><span></span><code>$ sudo <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/bin/db_upgrader  <span class="se">\</span>
 --src_db_path<span class="o">=</span>&lt;old_storage_directory_path&gt; <span class="se">\</span>
 --dst_db_path<span class="o">=</span>&lt;new_storage_directory_path&gt;  <span class="se">\</span>
 --upgrade_meta_server<span class="o">=</span>&lt;meta_server_ip1&gt;:&lt;port1&gt;<span class="o">[</span>,&lt;meta_server_ip2&gt;:&lt;port2&gt;,...<span class="o">]</span> <span class="se">\</span>
 --upgrade_version<span class="o">=</span>&lt;old_nebula_version&gt; <span class="se">\</span>
 </code></pre></div>
 <p>参数说明：</p>
-<p>+ <code>--src_db_path</code>为<strong>老版本</strong>storaged的数据目录的绝对路径，多个目录用逗号分隔，不加空格。</p>
-<p>+ <code>--dst_db_path</code>为<strong>新版本</strong>storaged的数据目录的绝对路径，多个目录用逗号分隔。逗号分隔的目录必须和<code>--src_db_path</code>中一一对应。</p>
-<blockquote>
-<p><strong>禁止</strong>: 请勿颠倒以上两个参数的顺序，否则会升级失败且破坏老版本的数据。</p>
-</blockquote>
-<p>+ <code>--upgrade_meta_server</code> 为步骤6中启动的所有新 metad 的地址.</p>
-<p>+ <code>--upgrade_version</code>如果老版本为v1.2.0，则填写1；如果老版本为v2.0.0-RC，则填写2.不可填写其他数字。</p>
+<ul>
+<li><code>--src_db_path</code>为<strong>老版本</strong>storaged的数据目录的绝对路径，多个目录用逗号分隔，不加空格。</li>
+</ul>
+<ul>
+<li><code>--dst_db_path</code>为<strong>新版本</strong>storaged的数据目录的绝对路径，多个目录用逗号分隔。逗号分隔的目录必须和<code>--src_db_path</code>中一一对应。</li>
+</ul>
+<ul>
+<li><code>--upgrade_meta_server</code> 为步骤6中启动的所有新 metad 的地址.</li>
+</ul>
+<ul>
+<li><code>--upgrade_version</code>如果老版本为v1.2.0，则填写1；如果老版本为v2.0.0-RC，则填写2.不可填写其他数字。</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>请勿颠倒<code>--src_db_path</code>和<code>--dst_db_path</code>的顺序，否则会升级失败且破坏老版本的数据。</p>
+</div>
 <p>例如，从 v1.2.0 升级：</p>
 <div class="highlight"><pre><span></span><code>$ sudo /usr/local/nebula_new/bin/db_upgrader <span class="se">\</span>
 --src_db_path<span class="o">=</span>/usr/local/nebula/data/storage/data1/,/usr/local/nebula/data/storage/data2/ <span class="se">\</span>
@@ -1756,33 +2129,33 @@
 --upgrade_meta_server<span class="o">=</span><span class="m">192</span>.168.8.14:9559,192.168.8.15:9559,192.168.8.16:9559 <span class="se">\</span>
 --upgrade_version<span class="o">=</span><span class="m">2</span>
 </code></pre></div>
-</li>
-</ul>
-<blockquote>
-<p><strong>说明：</strong> </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <ul>
 <li>如果工具抛出异常请在论坛提交问题。<strong>放弃本次升级，关闭所有已经启动的 metad，在原目录正常启动 nebula 服务。</strong></li>
 <li>请确保在每个storaged服务器都完成了以上操作。</li>
 </ul>
-</blockquote>
+</div>
 </li>
 <li>
 <p>在每个storaged服务器启动新版本的storaged服务。</p>
 <div class="highlight"><pre><span></span><code>$ sudo <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/scripts/nebula.service start storaged
 $ sudo <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/scripts/nebula.service status storaged
 </code></pre></div>
-<blockquote>
-<p><strong>说明：</strong> 如果有 storaged 未正常启动，请将日志<code>${nebula-new}/logs/</code>在论坛提交问题。<strong>放弃本次升级，关闭所有已经启动的 metad和storaged，在原目录正常启动 nebula 服务。</strong></p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>如果有 storaged 未正常启动，请将日志<code>${nebula-new}/logs/</code>在论坛提交问题。<strong>放弃本次升级，关闭所有已经启动的 metad和storaged，在原目录正常启动 nebula 服务。</strong></p>
+</div>
 </li>
 <li>
 <p>在每个 graphd 服务器启动新版本的 graphd 服务。</p>
 <div class="highlight"><pre><span></span><code>$ sudo <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/scripts/nebula.service start graphd
 $ sudo <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>/scripts/nebula.service status graphd
 </code></pre></div>
-<blockquote>
-<p><strong>说明：</strong> 如果有graphd未正常启动，请将日志<code>${nebula-new}/logs/</code>在论坛提交问题。<strong>放弃本次升级，关闭所有已经启动的 metad,storaged,graphd. 在原目录正常启动 nebula 服务。</strong></p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>如果有graphd未正常启动，请将日志<code>${nebula-new}/logs/</code>在论坛提交问题。<strong>放弃本次升级，关闭所有已经启动的 metad,storaged,graphd. 在原目录正常启动 nebula 服务。</strong></p>
+</div>
 </li>
 <li>
 <p>使用<a href="https://github.com/vesoft-inc/nebula-console">新版本Nebula Console</a> 连接新的Nebula Graph，验证服务是否可用、数据是否正常。命令行参数，如 graphd 的 IP、端口都不变。</p>
@@ -1793,17 +2166,19 @@ nebula&gt; SHOW PARTS;
 nebula&gt; SUBMIT JOB STATS;
 nebula&gt; SHOW STATS;
 </code></pre></div>
-<blockquote>
-<p><strong>禁止：</strong> 不可使用v2.0.0之前的 nebula console。</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>不可使用v2.0.0之前的 nebula console。</p>
+</div>
 </li>
 <li>
 <p>升级其他客户端。</p>
 <p>所有的客户端都必须升级到对应 v2.0.0 版本。包括但不限于<a href="https://github.com/vesoft-inc/nebula-docker-compose">studio</a>, <a href="https://github.com/vesoft-inc/nebula-python">python</a>, <a href="https://github.com/vesoft-inc/nebula-java">java</a>, <a href="https://github.com/vesoft-inc/nebula-go">go</a>, <a href="https://github.com/vesoft-inc/nebula-cpp">c++</a>, <a href="https://github.com/vesoft-inc/nebula-flink-connector">flink-connector</a>, <a href="https://github.com/vesoft-inc/nebula-spark-utils">spark-util</a>, <a href="https://github.com/vesoft-inc/nebula-bench">benchmark</a>。请找到各 repo 对应的 v2.0.0 branch。</p>
-<blockquote>
-<p><strong>说明：</strong> 不兼容旧版本的通信协议。需重新源代码编译或者下载二进制包。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>不兼容旧版本的通信协议。需重新源代码编译或者下载二进制包。</p>
 <p>(运维)提醒：升级后的数据目录为<code>${nebula-new}/</code>。如有硬盘容量监控、日志 ELK 等，相应改动。</p>
-</blockquote>
+</div>
 </li>
 </ol>
 <h2 id="_6">升级失败回滚<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
@@ -1887,13 +2262,13 @@ nebula&gt; SHOW STATS;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月22日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月13日</span>
 </small>
 </div>
 </article>
 </div>
 </div>
-<a class="md-top md-icon" data-md-component="top" data-md-state="hidden" href="#">
+<a class="md-top md-icon" data-md-component="top" data-md-state="hidden" href="#" title="Back to top">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg>
 </a>
 </main>
@@ -1912,13 +2287,13 @@ nebula&gt; SHOW STATS;
             </div>
 </div>
 </a>
-<a class="md-footer__link md-footer__link--next" href="../../5.configurations-and-logs/1.configurations/1.configurations/" rel="next">
+<a class="md-footer__link md-footer__link--next" href="../5.upgrade-nebula-from-200-to-201/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 下一页
               </span>
-              配置简介
+              Nebula Graph v2.0.0升级至v2.0.1
             </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -1950,8 +2325,11 @@ nebula&gt; SHOW STATS;
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fe42c31b.min.js", "version": {"method": "mike"}}</script>
-<script src="../../assets/javascripts/bundle.4ea5477f.min.js"></script>
+<script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": {"method": "mike"}}</script>
+<script src="../../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
 <script src="../../js/version-select.js"></script>
+<script src="../../js/config.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </body>
 </html>
