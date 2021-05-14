@@ -325,6 +325,9 @@ nav:
       - 什么是Nebula Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
       - 使用限制: nebula-exchange/about-exchange/ex-ug-limitations.md
     - 编译Exchange: nebula-exchange/ex-ug-compile.md
+    - 参数说明:
+      - 导入命令参数: nebula-exchange/parameter-reference/ex-ug-para-import-command.md
+      - 配置参数: nebula-exchange/parameter-reference/ex-ug-parameter.md
     - 使用Nebula Exchange:
       - 导入CSV文件数据: nebula-exchange/use-exchange/ex-ug-import-from-csv.md
       - 导入JSON文件数据: nebula-exchange/use-exchange/ex-ug-import-from-json.md
