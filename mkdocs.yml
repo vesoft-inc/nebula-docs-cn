@@ -275,7 +275,7 @@ nav:
 #        - 导入命令参数: nebula-exchange/parameter-reference/ex-ug-para-import-command.md
 #
 #  - Nebula Flink Connector:
-#    - 什么是 Nebula Flink Connector: nebula-flink/nf-ug-what-is-flink-connector.md
+#    - 什么是Nebula Flink Connector: nebula-flink/nf-ug-what-is-flink-connector.md
 #    - 编译 Nebula Flink Connector: nebula-flink/nf-ug-compile.md
 #    - 使用限制: nebula-flink/nf-ug-limitations.md
 #    - 自定义 source (NebulaSource): nebula-flink/nf-ug-customize-source.md
