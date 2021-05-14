@@ -4,11 +4,7 @@
 
 ## Nebula Graph版本
 
-仅支持Nebula Graph 2.0.0，其他2.x版本可能会有未知问题。
-
-<!--
-如果您使用Nebula Graph 1.x，请使用Studio 1.x。详情请参见[Studio v1.x User Guide](https://docs.nebula-graph.io/1.1/nebula-studio/about-studio/st-ug-what-is-graph-studio/)。
--->
+仅支持Nebula Graph {{ nebula.release }}，其他2.x版本可能会有未知问题。
 
 ## 架构
 
