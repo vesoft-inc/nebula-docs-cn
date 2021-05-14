@@ -205,7 +205,7 @@ nav:
           - 注释: 3.ngql-guide/20.appendix/comments.md
           - 大小写区分: 3.ngql-guide/20.appendix/identifier-case-sensitivity.md
           - 关键字: 3.ngql-guide/20.appendix/keywords-and-reserved-words.md
-          - 点ID和分片ID: 3.ngql-guide/20.appendix/vid-partition.md
+          - 点VID和分片ID: 3.ngql-guide/20.appendix/vid-partition.md
 
   - 安装部署:
       - 准备资源: 4.deployment-and-installation/1.resource-preparations.md
