@@ -1,6 +1,6 @@
 # 操作图空间
 
-Studio 连接到 Nebula Graph 数据库后，您可以创建或删除图空间。您可以使用 **控制台** 或者 **Schema** 操作图空间。本文仅说明如何使用 **Schema** 操作图空间。
+Studio 连接到 Nebula Graph 数据库后，用户可以创建或删除图空间。用户可以使用 **控制台** 或者 **Schema** 操作图空间。本文仅说明如何使用 **Schema** 操作图空间。
 
 ## 支持版本
 
@@ -8,12 +8,12 @@ Studio v{{ studio.base220 }} 及以后版本。请更新版本，详细操作参
 
 ## 前提条件
 
-操作图空间之前，您需要确保以下信息：
+操作图空间之前，用户需要确保以下信息：
 
 - Studio 已经连接到 Nebula Graph 数据库。
-- 您当前登录的账号拥有创建或删除图空间的权限，即：
-  - 如果 Nebula Graph 未开启身份验证，您以默认用户名 `user` 账号和默认密码 `password` 登录。
-  - 如果 Nebula Graph 已开启身份验证，您以 `root` 账号及其密码登录。
+- 当前登录的账号拥有创建或删除图空间的权限，即：
+  - 如果 Nebula Graph 未开启身份验证，用户以默认用户名 `user` 账号和默认密码 `password` 登录。
+  - 如果 Nebula Graph 已开启身份验证，用户以 `root` 账号及其密码登录。
 
 ## 创建图空间
 
@@ -29,7 +29,7 @@ Studio v{{ studio.base220 }} 及以后版本。请更新版本，详细操作参
 
    b. **选填参数**：分别设置 `partition_num`、`replica_factor`、`charset`、`collate` 和 `void type` 的值。在本示例中，四个参数分别设置为 `10`、`1`、`utf8`、`utf8_bin` 和 `FIXED_STRING(32)`。详细信息，参考 [`CREATE SPACE` 语法](../../3.ngql-guide/9.space-statements/1.create-space.md "点击前往 CREATE SPACE")。
 
-   在 **对应的nGQL语句** 面板上，您能看到上述设置对应的 nGQL 语句。如下所示：
+   在 **对应的nGQL语句** 面板上，用户能看到上述设置对应的 nGQL 语句。如下所示：
 
    ```ngql
    CREATE SPACE mooc_actions (partition_num = 10, replica_factor = 1, charset = utf8, collate = utf8_bin, vid_type = FIXED_STRING(32))
@@ -55,7 +55,7 @@ Studio v{{ studio.base220 }} 及以后版本。请更新版本，详细操作参
 
 ## 后续操作
 
-图空间创建成功后，您可以开始创建或修改 Schema，包括：
+图空间创建成功后，用户可以开始创建或修改 Schema，包括：
 
 - [操作标签](st-ug-crud-tag.md)
 - [操作边类型](st-ug-crud-edge-type.md)

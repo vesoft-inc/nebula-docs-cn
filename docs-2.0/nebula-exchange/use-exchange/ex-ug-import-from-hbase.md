@@ -61,7 +61,7 @@ ROW                                COLUMN+CELL
 
 ## 前提条件
 
-开始导入数据之前，您需要确认以下信息：
+开始导入数据之前，用户需要确认以下信息：
 
 - 已经[安装部署Nebula Graph](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)并获取如下信息：
 
@@ -322,18 +322,18 @@ ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchan
 ${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-spark-utils/nebula-exchange/target/nebula-exchange-2.0.0.jar  -c /root/nebula-spark-utils/nebula-exchange/target/classes/hbase_application.conf
 ```
 
-您可以在返回信息中搜索`batchSuccess.<tag_name/edge_name>`，确认成功的数量。例如例如`batchSuccess.follow: 300`。
+用户可以在返回信息中搜索`batchSuccess.<tag_name/edge_name>`，确认成功的数量。例如例如`batchSuccess.follow: 300`。
 
 ### 步骤 4：（可选）验证数据
 
-您可以在Nebula Graph客户端（例如Nebula Graph Studio）中执行查询语句，确认数据是否已导入。例如：
+用户可以在Nebula Graph客户端（例如Nebula Graph Studio）中执行查询语句，确认数据是否已导入。例如：
 
 ```ngql
 GO FROM "player100" OVER follow;
 ```
 
-您也可以使用命令[`SHOW STATS`](../../3.ngql-guide/7.general-query-statements/6.show/14.show-stats.md)查看统计数据。
+用户也可以使用命令[`SHOW STATS`](../../3.ngql-guide/7.general-query-statements/6.show/14.show-stats.md)查看统计数据。
 
 ### 步骤 5：（如有）在Nebula Graph中重建索引
 
-导入数据后，您可以在Nebula Graph中重新创建并重建索引。详情请参见[索引介绍](../../3.ngql-guide/14.native-index-statements/README.md)。
+导入数据后，用户可以在Nebula Graph中重新创建并重建索引。详情请参见[索引介绍](../../3.ngql-guide/14.native-index-statements/README.md)。
