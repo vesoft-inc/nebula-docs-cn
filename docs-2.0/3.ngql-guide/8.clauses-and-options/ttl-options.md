@@ -95,6 +95,7 @@ nebula> INSERT VERTEX t2(a, b, c) values "102":(1612778164674, 30, "Hello");
     ```ngql
     nebula> ALTER TAG t1 ttl_duration = 0;
     ```
-  !!! waring "警告"
+
+  !!! danger
 
         即使`ttl_duration`为`0`，您也不能修改对应的属性。
