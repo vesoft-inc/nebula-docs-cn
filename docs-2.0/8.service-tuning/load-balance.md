@@ -1,6 +1,6 @@
 # Storage负载均衡
 
-您可以使用`BALANCE`语句平衡分片和Raft leader的分布，或者删除冗余的Storage服务器。
+用户可以使用`BALANCE`语句平衡分片和Raft leader的分布，或者删除冗余的Storage服务器。
 
 ## 前提条件
 
@@ -104,9 +104,9 @@
 
 - 如果有正在执行的负载均衡任务，会返回停止的任务ID（`balance_id`）。
 
-`BALANCE DATA STOP`不会停止正在执行的子任务，而是取消所有后续子任务。您可以执行命令`BALANCE DATA <balance_id>`检查停止的任务状态。
+`BALANCE DATA STOP`不会停止正在执行的子任务，而是取消所有后续子任务。用户可以执行命令`BALANCE DATA <balance_id>`检查停止的任务状态。
 
-一旦所有子任务都完成或停止，您可以再次执行命令`BALANCE DATA`。
+一旦所有子任务都完成或停止，用户可以再次执行命令`BALANCE DATA`。
 
 - 如果前一个负载均衡任务的任何一个子任务失败，Nebula Graph会重新启动之前的负载均衡任务。
 
@@ -139,7 +139,7 @@ Nebula Graph将启动一个负载均衡任务，迁移storage3和storage4中的�
 
 ## 均衡leader分布
 
-`BALANCE DATA`只能均衡分片分布，不能均衡Raft leader分布。您可以使用命令`BALANCE LEADER`均衡leader分布。
+`BALANCE DATA`只能均衡分片分布，不能均衡Raft leader分布。用户可以使用命令`BALANCE LEADER`均衡leader分布。
 
 ### 示例
 
@@ -147,7 +147,7 @@ Nebula Graph将启动一个负载均衡任务，迁移storage3和storage4中的�
 nebula> BALANCE LEADER;
 ```
 
-您可以执行`SHOW HOSTS`检查结果。
+用户可以执行`SHOW HOSTS`检查结果。
 
 ```ngql
 nebula> SHOW HOSTS;

@@ -8,19 +8,19 @@ Nebula Graph中，`Compaction`是最重要的后台操作，对性能有极其�
 
 !!! Note
 
-    `Compaction`操作会长时间占用硬盘的IO，建议您在业务低峰期（例如凌晨）执行该操作。
+    `Compaction`操作会长时间占用硬盘的IO，建议在业务低峰期（例如凌晨）执行该操作。
 
 Nebula Graph有两种类型的`Compaction`操作：自动`Compaction`和全量`Compaction`。
 
 ## 自动`Compaction`
 
-自动`Compaction`是在系统读取数据、写入数据或系统重启时自动触发`Compaction`操作，提升短时间内的读取性能。默认情况下，自动`Compaction`是开启状态，可能在业务高峰期触发，导致意外抢占IO影响业务。如果需要完全手动控制`Compaction`操作，您可以关闭自动`Compaction`。
+自动`Compaction`是在系统读取数据、写入数据或系统重启时自动触发`Compaction`操作，提升短时间内的读取性能。默认情况下，自动`Compaction`是开启状态，可能在业务高峰期触发，导致意外抢占IO影响业务。如果需要完全手动控制`Compaction`操作，用户可以关闭自动`Compaction`。
 
 ### 关闭自动`Compaction`
 
 !!! danger
 
-    命令`UPDATE CONFIGS`会将未设置的参数恢复为默认值，因此修改前您需要使用`SHOW CONFIGS STORAGE`查看`rocksdb_column_family_options`配置，然后一起重新传入值。
+    命令`UPDATE CONFIGS`会将未设置的参数恢复为默认值，因此修改前需要使用`SHOW CONFIGS STORAGE`查看`rocksdb_column_family_options`配置，然后一起重新传入值。
 
 ```ngql
 # 查看当前rocksdb_column_family_options设置，复制value列内容。
@@ -55,18 +55,18 @@ nebula> SHOW CONFIGS STORAGE;
 
 ## 全量`Compaction`
 
-全量`Compaction`可以对图空间进行大规模后台操作，例如合并文件、删除TTL过期数据等，该操作需要您手动发起。使用如下语句执行全量`Compaction`操作：
+全量`Compaction`可以对图空间进行大规模后台操作，例如合并文件、删除TTL过期数据等，该操作需要手动发起。使用如下语句执行全量`Compaction`操作：
 
 !!! Note
 
-    建议您在业务低峰期（例如凌晨）执行该操作，避免大量占用硬盘IO影响业务。
+    建议在业务低峰期（例如凌晨）执行该操作，避免大量占用硬盘IO影响业务。
 
 ```ngql
 nebula> USE <your_graph_space>;
 nebula> SUBMIT JOB COMPACT;
 ```
 
-上述命令会返回作业的ID，您可以使用如下命令查看`Compaction`状态：
+上述命令会返回作业的ID，用户可以使用如下命令查看`Compaction`状态：
 
 ```ngql
 nebula> SHOW JOB <job_id>;
@@ -101,7 +101,7 @@ nebula> SHOW JOB <job_id>;
 
 ### 全量`Compaction`操作会耗费多长时间？
 
-如果您已经设置读写速率限制，例如`rate_limit`限制为20MB/S时，您可以通过`硬盘使用量/rate_limit`预估需要耗费的时间。如果您没有设置读写速率限制，根据经验，速率大约为50MB/S。
+如果已经设置读写速率限制，例如`rate_limit`限制为20MB/S时，用户可以通过`硬盘使用量/rate_limit`预估需要耗费的时间。如果没有设置读写速率限制，根据经验，速率大约为50MB/S。
 
 ### 可以动态调整`rate_limit`吗？
 

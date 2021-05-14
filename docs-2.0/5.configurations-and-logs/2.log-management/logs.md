@@ -6,11 +6,11 @@ Nebula Graph使用[glog](https://github.com/google/glog)打印日志，使用[gf
 
 日志的默认目录为`/usr/local/nebula/logs/`。
 
-如果您在Nebula Graph运行过程中删除日志目录，日志不会继续打印，但是不会影响业务。重启服务可以恢复正常。
+如果在Nebula Graph运行过程中删除日志目录，日志不会继续打印，但是不会影响业务。重启服务可以恢复正常。
 
 ## 配置说明
 
-- `minloglevel`：最小日志级别，即不会记录低于这个级别的日志。可选值为`0`（INFO）、`1`（WARNING）、`2`（ERROR）、`3`（FATAL）。建议您在调试时设置为`0`，生产环境中设置为`1`。如果设置为`4`，Nebula Graph不会记录任何日志。
+- `minloglevel`：最小日志级别，即不会记录低于这个级别的日志。可选值为`0`（INFO）、`1`（WARNING）、`2`（ERROR）、`3`（FATAL）。建议在调试时设置为`0`，生产环境中设置为`1`。如果设置为`4`，Nebula Graph不会记录任何日志。
 
 - `v`：日志详细级别，值越大，日志记录越详细。可选值为`0`、`1`、`2`、`3`。
 
@@ -67,4 +67,4 @@ $ curl -X PUT -H "Content-Type: application/json" -d '{"minloglevel":0,"v":3}' "
 
 ```
 
-如果您在Nebula Graph运行时修改了日志级别，重启服务后会恢复为配置文件中设置的级别，如果需要永久修改，请修改[配置文件](../1.configurations/1.configurations.md)。
+如果在Nebula Graph运行时修改了日志级别，重启服务后会恢复为配置文件中设置的级别，如果需要永久修改，请修改[配置文件](../1.configurations/1.configurations.md)。

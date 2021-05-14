@@ -1,6 +1,6 @@
 # 部署Nebula Graph集群
 
-Nebula Graph暂不提供官方的集群部署工具，需要您手动部署，下文将介绍手动部署的简单流程。
+Nebula Graph暂不提供官方的集群部署工具，需要手动部署，下文将介绍手动部署的简单流程。
 
 ## 前提条件
 
@@ -19,7 +19,7 @@ Nebula Graph暂不提供官方的集群部署工具，需要您手动部署，�
 ### 修改配置文件
 修改每个服务器上的Nebula Graph配置文件。
 
-Nebula Graph的所有配置文件均位于安装目录的`etc`目录内，包括`nebula-graphd.conf`、`nebula-metad.conf`和`nebula-storaged.conf`，您可以只修改对应服务的配置文件。配置文件的详细说明请参见：
+Nebula Graph的所有配置文件均位于安装目录的`etc`目录内，包括`nebula-graphd.conf`、`nebula-metad.conf`和`nebula-storaged.conf`，用户可以只修改对应服务的配置文件。配置文件的详细说明请参见：
 
 - [Meta服务配置](../5.configurations-and-logs/1.configurations/2.meta-config.md)
 
