@@ -1066,6 +1066,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1874,7 +1879,7 @@
 <li>系统结构发生变化后，建议立刻创建快照，例如在<code>add host</code>、<code>drop host</code>、<code>create space</code>、<code>drop space</code>、<code>balance</code>等操作之后。</li>
 </ul>
 <ul>
-<li>暂不支持自动回收创建失败的快照垃圾文件，需要您手动删除。</li>
+<li>暂不支持自动回收创建失败的快照垃圾文件，需要手动删除。</li>
 </ul>
 <ul>
 <li>暂不支持指定快照保存路径，默认路径为<code>/usr/local/nebula/data</code>。</li>
@@ -1928,7 +1933,7 @@ nebula&gt; SHOW SNAPSHOTS;
 +--------------------------------+---------+------------------+
 </code></pre></div>
 <h2 id="_8">恢复快照<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
-<p>当前暂未提供恢复快照命令，需要您手动拷贝快照文件到对应的文件夹内，也可以通过shell脚本进行操作。实现逻辑如下：</p>
+<p>当前暂未提供恢复快照命令，需要手动拷贝快照文件到对应的文件夹内，也可以通过shell脚本进行操作。实现逻辑如下：</p>
 <ol>
 <li>
 <p>创建快照后，会在Meta服务器和Storage服务器的安装目录内生成<code>checkpoints</code>目录，保存创建的快照。以本文为例，当存在2个图空间时，创建的快照分别保存在<code>/usr/local/nebula/data/meta/nebula/0/checkpoints</code>、<code>/usr/local/nebula/data/storage/nebula/3/checkpoints</code>和<code>/usr/local/nebula/data/storage/nebula/4/checkpoints</code>中。</p>
@@ -1941,16 +1946,16 @@ SNAPSHOT_2021_03_09_09_10_52
 </code></pre></div>
 </li>
 <li>
-<p>当数据丢失需要通过快照恢复时，您可以找到合适的时间点快照，将内部的文件夹<code>data</code>和<code>wal</code>分别拷贝到各自的上级目录（和<code>checkpoints</code>平级），覆盖之前的<code>data</code>和<code>wal</code>，然后重启集群即可。</p>
+<p>当数据丢失需要通过快照恢复时，用户可以找到合适的时间点快照，将内部的文件夹<code>data</code>和<code>wal</code>分别拷贝到各自的上级目录（和<code>checkpoints</code>平级），覆盖之前的<code>data</code>和<code>wal</code>，然后重启集群即可。</p>
 </li>
 </ol>
 <h2 id="_9">相关文档<a class="headerlink" href="#_9" title="Permanent link">¶</a></h2>
-<p>除了使用快照，您还可以使用备份恢复工具Backup&amp;Restore（BR）备份或恢复Nebula Graph数据。详情请参见<a href="../2.backup-restore/1.what-is-br/">Backup&amp;Restore</a>。</p>
+<p>除了使用快照，用户还可以使用备份恢复工具Backup&amp;Restore（BR）备份或恢复Nebula Graph数据。详情请参见<a href="../2.backup-restore/1.what-is-br/">Backup&amp;Restore</a>。</p>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

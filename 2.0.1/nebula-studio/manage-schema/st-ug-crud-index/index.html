@@ -1066,6 +1066,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1835,19 +1840,19 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="_1">操作索引<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
-<p>您可以为标签和边类型创建索引，使得图查询时可以从拥有共同属性的同一类型的点或边开始遍历，使大型图的查询更为高效。Nebula Graph 支持两种类型的索引：标签索引和边类型索引。您可以选择使用 <strong>控制台</strong> 或者 <strong>Schema</strong> 操作索引。本文仅说明如何使用 <strong>Schema</strong> 操作索引。</p>
+<p>用户可以为标签和边类型创建索引，使得图查询时可以从拥有共同属性的同一类型的点或边开始遍历，使大型图的查询更为高效。Nebula Graph 支持两种类型的索引：标签索引和边类型索引。用户可以选择使用 <strong>控制台</strong> 或者 <strong>Schema</strong> 操作索引。本文仅说明如何使用 <strong>Schema</strong> 操作索引。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>一般在创建了标签或者边类型之后即可创建索引，但是，索引会影响写性能，所以，建议您先导入数据，再批量重建索引。关于索引的详细信息，参考<a href="../../../3.ngql-guide/14.native-index-statements/" title="点击前往 Nebula Graph 网站">《nGQL 用户手册》</a>。</p>
+<p>一般在创建了标签或者边类型之后即可创建索引，但是，索引会影响写性能，所以，建议先导入数据，再批量重建索引。关于索引的详细信息，参考<a href="../../../3.ngql-guide/14.native-index-statements/" title="点击前往 Nebula Graph 网站">《nGQL 用户手册》</a>。</p>
 </div>
 <h2 id="_2">支持版本<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <p>Studio v2.2.0 及以后版本。请更新版本，详细操作参考 <a href="../../about-studio/st-ug-check-updates/">版本更新</a>。</p>
 <h2 id="_3">前提条件<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<p>在 Studio 上操作索引之前，您必须确认以下信息：</p>
+<p>在 Studio 上操作索引之前，用户必须确认以下信息：</p>
 <ul>
 <li>Studio 已经连接到 Nebula Graph 数据库。</li>
 <li>图空间、标签和边类型已经创建。</li>
-<li>您当前登录的账号拥有 GOD、ADMIN 或者 DBA 的权限。</li>
+<li>当前登录的账号拥有 GOD、ADMIN 或者 DBA 的权限。</li>
 </ul>
 <h2 id="_4">创建索引<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <p>按以下步骤使用 <strong>Schema</strong> 创建索引：</p>
@@ -1859,7 +1864,7 @@
 <p>在 <strong>图空间列表</strong> 中，找到图空间，点击图空间名称或者在 <strong>操作</strong> 列中点击 <img alt="表示设置的图标" src="../../figs/st-ug-018.png" title="设置"> 图标。</img></p>
 </li>
 <li>
-<p>在 <strong>当前图空间</strong> 里确认图空间名称。您也可以通过选择图空间名称切换图空间。</p>
+<p>在 <strong>当前图空间</strong> 里确认图空间名称。用户也可以通过选择图空间名称切换图空间。</p>
 </li>
 <li>
 <p>点击 <strong>索引</strong> 页签，再点击 <strong>创建</strong> 按钮。</p>
@@ -1877,7 +1882,7 @@
 <p><strong>索引名称</strong>：按规定指定索引名称。本示例中输入 <strong>follow_index</strong>。</p>
 </li>
 <li>
-<p><strong>索引属性</strong>：点击 <strong>添加</strong>，在 <strong>选择关联的属性</strong> 列表里选择需要索引的属性，并点击 <strong>确定</strong> 按钮。如果需要关联多个属性，重复这一步操作。您可以按界面提示重排索引属性的顺序。本示例中选择 <code>degree</code>。</p>
+<p><strong>索引属性</strong>：点击 <strong>添加</strong>，在 <strong>选择关联的属性</strong> 列表里选择需要索引的属性，并点击 <strong>确定</strong> 按钮。如果需要关联多个属性，重复这一步操作。用户可以按界面提示重排索引属性的顺序。本示例中选择 <code>degree</code>。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>索引属性的顺序会影响 <code>LOOKUP</code> 语句的查询结果。详细信息，参考 <a href="../../../3.ngql-guide/7.general-query-statements/5.lookup/" title="点击前往 Nebula Graph 网站">《nGQL 用户手册》</a>。</p>
@@ -1886,7 +1891,7 @@
 </ol>
 </li>
 <li>
-<p>完成设置后，在 <strong>对应的 nGQL</strong>面板，您能看到与上述配置等价的 nGQL 语句。<br/>
+<p>完成设置后，在 <strong>对应的 nGQL</strong>面板，用户能看到与上述配置等价的 nGQL 语句。<br/>
 <img alt="为边类型 action 创建索引" src="../../figs/st-ug-023-1.png" title="创建索引"/></p>
 </li>
 <li>
@@ -1904,7 +1909,7 @@
 <p>在 <strong>图空间列表</strong> 中，找到图空间，点击图空间名称或者在 <strong>操作</strong> 列中点击 <img alt="表示设置的图标" src="../../figs/st-ug-018.png" title="设置"/> 图标。</p>
 </li>
 <li>
-<p>在 <strong>当前图空间</strong> 里确认图空间名称。您也可以通过选择图空间名称切换图空间。</p>
+<p>在 <strong>当前图空间</strong> 里确认图空间名称。用户也可以通过选择图空间名称切换图空间。</p>
 </li>
 <li>
 <p>点击 <strong>索引</strong> 页签，在列表左上方，选择需要查看的索引类型。</p>
@@ -1923,7 +1928,7 @@
 <p>在 <strong>图空间列表</strong> 中，找到图空间，点击图空间名称或者在 <strong>操作</strong> 列中点击 <img alt="表示设置的图标" src="../../figs/st-ug-018.png" title="设置"/> 图标。</p>
 </li>
 <li>
-<p>在 <strong>当前图空间</strong> 里确认图空间名称。您也可以通过选择图空间名称切换图空间。</p>
+<p>在 <strong>当前图空间</strong> 里确认图空间名称。用户也可以通过选择图空间名称切换图空间。</p>
 </li>
 <li>
 <p>点击 <strong>索引</strong> 页签，找到需要修改的索引，并在 <strong>操作</strong> 列中，点击 <img alt="表示删除的图标" src="../../figs/st-ug-017.png" title="删除"/> 图标。</p>

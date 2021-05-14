@@ -1066,6 +1066,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1835,16 +1840,16 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="_1">操作图空间<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
-<p>Studio 连接到 Nebula Graph 数据库后，您可以创建或删除图空间。您可以使用 <strong>控制台</strong> 或者 <strong>Schema</strong> 操作图空间。本文仅说明如何使用 <strong>Schema</strong> 操作图空间。</p>
+<p>Studio 连接到 Nebula Graph 数据库后，用户可以创建或删除图空间。用户可以使用 <strong>控制台</strong> 或者 <strong>Schema</strong> 操作图空间。本文仅说明如何使用 <strong>Schema</strong> 操作图空间。</p>
 <h2 id="_2">支持版本<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <p>Studio v2.2.0 及以后版本。请更新版本，详细操作参考 <a href="../../about-studio/st-ug-check-updates/">版本更新</a>。</p>
 <h2 id="_3">前提条件<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<p>操作图空间之前，您需要确保以下信息：</p>
+<p>操作图空间之前，用户需要确保以下信息：</p>
 <ul>
 <li>Studio 已经连接到 Nebula Graph 数据库。</li>
-<li>您当前登录的账号拥有创建或删除图空间的权限，即：<ul>
-<li>如果 Nebula Graph 未开启身份验证，您以默认用户名 <code>user</code> 账号和默认密码 <code>password</code> 登录。</li>
-<li>如果 Nebula Graph 已开启身份验证，您以 <code>root</code> 账号及其密码登录。</li>
+<li>当前登录的账号拥有创建或删除图空间的权限，即：<ul>
+<li>如果 Nebula Graph 未开启身份验证，用户以默认用户名 <code>user</code> 账号和默认密码 <code>password</code> 登录。</li>
+<li>如果 Nebula Graph 已开启身份验证，用户以 <code>root</code> 账号及其密码登录。</li>
 </ul>
 </li>
 </ul>
@@ -1861,7 +1866,7 @@
 <p>在 <strong>创建</strong> 页面，完成以下配置：</p>
 <p>a. <strong>名称</strong>：指定图空间名称，本示例中设置为 <code>mooc_actions</code>。不可与已有的图空间名称重复。不可使用关键字或保留关键字做标识符，参考<a href="../../../3.ngql-guide/20.appendix/keywords-and-reserved-words/" title="点击前往 关键字">关键字</a>。</p>
 <p>b. <strong>选填参数</strong>：分别设置 <code>partition_num</code>、<code>replica_factor</code>、<code>charset</code>、<code>collate</code> 和 <code>void type</code> 的值。在本示例中，四个参数分别设置为 <code>10</code>、<code>1</code>、<code>utf8</code>、<code>utf8_bin</code> 和 <code>FIXED_STRING(32)</code>。详细信息，参考 <a href="../../../3.ngql-guide/9.space-statements/1.create-space/" title="点击前往 CREATE SPACE"><code>CREATE SPACE</code> 语法</a>。</p>
-<p>在 <strong>对应的nGQL语句</strong> 面板上，您能看到上述设置对应的 nGQL 语句。如下所示：</p>
+<p>在 <strong>对应的nGQL语句</strong> 面板上，用户能看到上述设置对应的 nGQL 语句。如下所示：</p>
 <div class="highlight"><pre><span></span><code>CREATE SPACE mooc_actions (partition_num = 10, replica_factor = 1, charset = utf8, collate = utf8_bin, vid_type = FIXED_STRING(32))
 </code></pre></div>
 </li>
@@ -1887,7 +1892,7 @@
 </li>
 </ol>
 <h2 id="_6">后续操作<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
-<p>图空间创建成功后，您可以开始创建或修改 Schema，包括：</p>
+<p>图空间创建成功后，用户可以开始创建或修改 Schema，包括：</p>
 <ul>
 <li><a href="../st-ug-crud-tag/">操作标签</a></li>
 <li><a href="../st-ug-crud-edge-type/">操作边类型</a></li>
@@ -1897,7 +1902,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月10日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

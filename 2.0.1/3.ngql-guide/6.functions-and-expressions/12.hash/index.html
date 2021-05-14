@@ -1114,6 +1114,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1856,7 +1861,7 @@
 </a>
 <h1 id="hash">hash函数<a class="headerlink" href="#hash" title="Permanent link">¶</a></h1>
 <p><code>hash()</code>函数返回参数的哈希值。其参数可以是数字、字符串、列表、布尔值、NULL等类型的值，或者计算结果为这些类型的表达式。</p>
-<p><code>hash()</code>函数采用MurmurHash2算法，种子（seed）为<code>0xc70f6907UL</code>。您可以在<a href="https://github.com/vesoft-inc/nebula-common/blob/master/src/common/base/MurmurHash2.h"><code>MurmurHahs2.h</code></a>中查看其源代码。</p>
+<p><code>hash()</code>函数采用MurmurHash2算法，种子（seed）为<code>0xc70f6907UL</code>。用户可以在<a href="https://github.com/vesoft-inc/nebula-common/blob/master/src/common/base/MurmurHash2.h"><code>MurmurHahs2.h</code></a>中查看其源代码。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>在有10亿个点的情况下，发生碰撞的概率大约是1/10。边的数量与碰撞的概率无关。</p>
@@ -1865,7 +1870,7 @@
 <div class="highlight"><pre><span></span><code><span class="n">MurmurHash2</span><span class="p">.</span><span class="na">hash64</span><span class="p">(</span><span class="s">"to_be_hashed"</span><span class="p">.</span><span class="na">getBytes</span><span class="p">(),</span><span class="s">"to_be_hashed"</span><span class="p">.</span><span class="na">getBytes</span><span class="p">().</span><span class="na">length</span><span class="p">,</span> <span class="mh">0xc70f6907</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="_1">历史版本兼容性<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>nGQL 1.0不支持字符串类型的VID，一种常用的处理方式是用hash函数获取字符串的哈希值，然后将该值设置为VID。但nGQL 2.0同时支持了字符串和整数类型的VID，所以您无需再使用这种方式设置VID。</p>
+<p>nGQL 1.0不支持字符串类型的VID，一种常用的处理方式是用hash函数获取字符串的哈希值，然后将该值设置为VID。但nGQL 2.0同时支持了字符串和整数类型的VID，所以无需再使用这种方式设置VID。</p>
 <h2 id="_2">计算数字的哈希值<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code>nebula&gt; YIELD hash(-123);
 +--------------+
@@ -1925,7 +1930,7 @@ nebula&gt; YIELD hash(false);
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

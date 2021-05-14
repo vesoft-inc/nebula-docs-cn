@@ -1157,6 +1157,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1960,7 +1965,7 @@
 </ul>
 <h2 id="storage_1">Storage服务架构<a class="headerlink" href="#storage_1" title="Permanent link">¶</a></h2>
 <p><img alt="image" src="https://docs-cdn.nebula-graph.com.cn/1.overview/3.design-and-architecture/2.storage-design/storage-design.png"/></p>
-<p>Storage服务是由nebula-storaged进程提供的，您可以根据场景配置nebula-storaged进程数量，例如测试环境1个，生产环境3个。</p>
+<p>Storage服务是由nebula-storaged进程提供的，用户可以根据场景配置nebula-storaged进程数量，例如测试环境1个，生产环境3个。</p>
 <p>所有nebula-storaged进程构成了基于Raft协议的集群，整个服务架构可以分为三层，从上到下依次为：</p>
 <ul>
 <li>Storage interface层<p>Storage服务的最上层，定义了一系列和图相关的API。API请求会在这一层被翻译成一组针对<a href="#数据分片">分片</a>的KV操作，例如：</p>
@@ -1975,7 +1980,7 @@
 </li>
 </ul>
 <ul>
-<li>Store Engine层<p>Storage服务的最底层，是一个单机版本地存储引擎，提供对本地数据的<code>get</code>、<code>put</code>、<code>scan</code>等操作。相关接口存储在<code>KVStore.h</code>和<code>KVEngine.h</code>文件，您可以根据业务需求定制开发相关的本地存储插件。</p>
+<li>Store Engine层<p>Storage服务的最底层，是一个单机版本地存储引擎，提供对本地数据的<code>get</code>、<code>put</code>、<code>scan</code>等操作。相关接口存储在<code>KVStore.h</code>和<code>KVEngine.h</code>文件，用户可以根据业务需求定制开发相关的本地存储插件。</p>
 </li>
 </ul>
 <p>下文将基于架构介绍Storage服务的部分特性。</p>
@@ -2070,7 +2075,7 @@
 </tr>
 <tr>
 <td align="left"><code>Rank</code></td>
-<td align="left">用来处理两点之间有多个同类型边的情况。您可以根据自己的需求进行设置，例如存放交易时间、交易流水号等。长度为8个字节，</td>
+<td align="left">用来处理两点之间有多个同类型边的情况。用户可以根据自己的需求进行设置，例如存放交易时间、交易流水号等。长度为8个字节，</td>
 </tr>
 <tr>
 <td align="left"><code>PlaceHolder</code></td>
@@ -2143,7 +2148,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月10日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

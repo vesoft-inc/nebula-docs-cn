@@ -1066,6 +1066,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1865,9 +1870,9 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="graph">Graph服务配置<a class="headerlink" href="#graph" title="Permanent link">¶</a></h1>
-<p>Graph服务提供了两份初始配置文件<code>nebula-graphd.conf.default</code>和<code>nebula-graphd.conf.production</code>，方便您在不同场景中使用。文件的默认路径为<code>/usr/local/nebula/etc/</code>。</p>
+<p>Graph服务提供了两份初始配置文件<code>nebula-graphd.conf.default</code>和<code>nebula-graphd.conf.production</code>，方便在不同场景中使用。文件的默认路径为<code>/usr/local/nebula/etc/</code>。</p>
 <h2 id="_1">配置文件使用方式<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>首次启动时，Graph服务会从配置文件<code>nebula-graphd.conf</code>中读取配置信息。您需要把初始配置文件的后缀<code>.default</code>或<code>.production</code>删除，Graph服务才能将其识别为配置文件。</p>
+<p>首次启动时，Graph服务会从配置文件<code>nebula-graphd.conf</code>中读取配置信息。需要把初始配置文件的后缀<code>.default</code>或<code>.production</code>删除，Graph服务才能将其识别为配置文件。</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p>如果修改了配置文件，必须在配置文件开头添加<code>--local_config=true</code>，并重启服务。否则会从缓存中读取旧的配置。</p>
@@ -1932,7 +1937,7 @@
 <tr>
 <td><code>minloglevel</code></td>
 <td><code>0</code></td>
-<td>最小日志级别，即不会记录低于这个级别的日志。可选值为<code>0</code>（INFO）、<code>1</code>（WARNING）、<code>2</code>（ERROR）、<code>3</code>（FATAL）。建议您在调试时设置为<code>0</code>，生产环境中设置为<code>1</code>。如果设置为<code>4</code>，Nebula Graph不会记录任何日志。</td>
+<td>最小日志级别，即不会记录低于这个级别的日志。可选值为<code>0</code>（INFO）、<code>1</code>（WARNING）、<code>2</code>（ERROR）、<code>3</code>（FATAL）。建议在调试时设置为<code>0</code>，生产环境中设置为<code>1</code>。如果设置为<code>4</code>，Nebula Graph不会记录任何日志。</td>
 </tr>
 <tr>
 <td><code>v</code></td>
@@ -2076,7 +2081,7 @@
 </tbody>
 </table>
 <blockquote>
-<p><strong>NOTE</strong>: 建议您在配置文件中使用真实的IP地址，因为某些情况下<code>127.0.0.1</code>无法正确解析。</p>
+<p><strong>NOTE</strong>: 建议在配置文件中使用真实的IP地址，因为某些情况下<code>127.0.0.1</code>无法正确解析。</p>
 </blockquote>
 <h2 id="charset_and_collate">charset and collate配置<a class="headerlink" href="#charset_and_collate" title="Permanent link">¶</a></h2>
 <table>

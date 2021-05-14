@@ -1104,6 +1104,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1836,7 +1841,7 @@
 </a>
 <h1 id="explainprofile">EXPLAIN和PROFILE<a class="headerlink" href="#explainprofile" title="Permanent link">¶</a></h1>
 <p><code>EXPLAIN</code>语句输出nGQL语句的执行计划，但不会执行nGQL语句。</p>
-<p><code>PROFILE</code>语句执行nGQL语句，然后输出执行计划和执行概要。您可以根据执行计划和执行概要优化查询性能。</p>
+<p><code>PROFILE</code>语句执行nGQL语句，然后输出执行计划和执行概要。用户可以根据执行计划和执行概要优化查询性能。</p>
 <h2 id="_1">执行计划<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <p>执行计划由Nebula Graph查询引擎中的执行计划器决定。</p>
 <p>执行计划器将解析后的nGQL语句处理为<code>action</code>。<code>action</code>是最小的执行单元。典型的<code>action</code>包括获取指定点的所有邻居、获取边的属性、根据条件过滤点或边等。每个<code>action</code>都被分配给一个<code>operator</code>。</p>
@@ -1853,7 +1858,7 @@
 </li>
 </ul>
 <h2 id="_3">输出格式<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<p><code>EXPLAIN</code>或<code>PROFILE</code>语句的输出有两种格式：<code>row</code>（默认）和<code>dot</code>。您可以使用<code>format</code>选项修改输出格式。</p>
+<p><code>EXPLAIN</code>或<code>PROFILE</code>语句的输出有两种格式：<code>row</code>（默认）和<code>dot</code>。用户可以使用<code>format</code>选项修改输出格式。</p>
 <h2 id="row"><code>row</code>格式<a class="headerlink" href="#row" title="Permanent link">¶</a></h2>
 <p><code>row</code>格式将返回信息输出到一个表格中。</p>
 <ul>
@@ -1928,7 +1933,7 @@ Execution Plan
 </tbody>
 </table>
 <h2 id="dot"><code>dot</code>格式<a class="headerlink" href="#dot" title="Permanent link">¶</a></h2>
-<p><code>dot</code>格式将返回DOT语言的信息，然后您可以使用Graphviz生成计划图。</p>
+<p><code>dot</code>格式将返回DOT语言的信息，然后用户可以使用Graphviz生成计划图。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Graphviz是一款开源可视化图工具，可以绘制DOT语言脚本描述的图。Graphviz提供一个在线工具，可以预览DOT语言文件，并将它们导出为SVG或JSON等其他格式。详情请参见<a href="https://dreampuf.github.io/GraphvizOnline/">Graphviz Online</a>。</p>
@@ -1953,7 +1958,7 @@ Execution Plan
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

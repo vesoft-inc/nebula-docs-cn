@@ -1066,6 +1066,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1945,7 +1950,7 @@
 <li>Nebula Graph：2.0.0。使用<a href="../../../2.quick-start/2.deploy-nebula-graph-with-docker-compose/">Docker Compose部署</a>。</li>
 </ul>
 <h2 id="_3">前提条件<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<p>开始导入数据之前，您需要确认以下信息：</p>
+<p>开始导入数据之前，用户需要确认以下信息：</p>
 <ul>
 <li>
 <p>已经<a href="../../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb/">安装部署Nebula Graph</a>并获取如下信息：</p>
@@ -2233,19 +2238,19 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
 <p>示例：</p>
 <div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit  --master <span class="s2">"local"</span> --class com.vesoft.nebula.exchange.Exchange  /root/nebula-spark-utils/nebula-exchange/target/nebula-exchange-2.0.0.jar  -c /root/nebula-spark-utils/nebula-exchange/target/classes/mysql_application.conf
 </code></pre></div>
-<p>您可以在返回信息中搜索<code>batchSuccess.&lt;tag_name/edge_name&gt;</code>，确认成功的数量。例如例如<code>batchSuccess.follow: 300</code>。</p>
+<p>用户可以在返回信息中搜索<code>batchSuccess.&lt;tag_name/edge_name&gt;</code>，确认成功的数量。例如例如<code>batchSuccess.follow: 300</code>。</p>
 <h3 id="4">步骤 4：（可选）验证数据<a class="headerlink" href="#4" title="Permanent link">¶</a></h3>
-<p>您可以在Nebula Graph客户端（例如Nebula Graph Studio）中执行查询语句，确认数据是否已导入。例如：</p>
+<p>用户可以在Nebula Graph客户端（例如Nebula Graph Studio）中执行查询语句，确认数据是否已导入。例如：</p>
 <div class="highlight"><pre><span></span><code>GO FROM "player100" OVER follow;
 </code></pre></div>
-<p>您也可以使用命令<a href="../../../3.ngql-guide/7.general-query-statements/6.show/14.show-stats/"><code>SHOW STATS</code></a>查看统计数据。</p>
+<p>用户也可以使用命令<a href="../../../3.ngql-guide/7.general-query-statements/6.show/14.show-stats/"><code>SHOW STATS</code></a>查看统计数据。</p>
 <h3 id="5nebula_graph">步骤 5：（如有）在Nebula Graph中重建索引<a class="headerlink" href="#5nebula_graph" title="Permanent link">¶</a></h3>
-<p>导入数据后，您可以在Nebula Graph中重新创建并重建索引。详情请参见<a href="../../../3.ngql-guide/14.native-index-statements/">索引介绍</a>。</p>
+<p>导入数据后，用户可以在Nebula Graph中重新创建并重建索引。详情请参见<a href="../../../3.ngql-guide/14.native-index-statements/">索引介绍</a>。</p>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月13日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

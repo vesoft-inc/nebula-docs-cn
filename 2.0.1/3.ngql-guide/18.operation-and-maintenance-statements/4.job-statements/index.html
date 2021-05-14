@@ -1196,6 +1196,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -2019,7 +2024,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="_1">作业管理<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
-<p>在Storage服务上长期运行的任务称为作业，例如<code>COMPACT</code>、<code>FLUSH</code>和<code>STATS</code>。 如果图空间的数据量很大，这些作业可能耗时很长。作业管理可以帮助您执行、查看、停止和恢复作业。</p>
+<p>在Storage服务上长期运行的任务称为作业，例如<code>COMPACT</code>、<code>FLUSH</code>和<code>STATS</code>。 如果图空间的数据量很大，这些作业可能耗时很长。作业管理可以帮助执行、查看、停止和恢复作业。</p>
 <h2 id="submit_job_compact">SUBMIT JOB COMPACT<a class="headerlink" href="#submit_job_compact" title="Permanent link">¶</a></h2>
 <p><code>SUBMIT JOB COMPACT语句</code>会触发RocksDB的长耗时<code>compact</code>操作。</p>
 <p><code>compact</code>配置详情请参见<a href="../../../5.configurations-and-logs/1.configurations/4.storage-config/">Storage服务配置</a>。</p>
@@ -2042,7 +2047,7 @@
 +------------+
 </code></pre></div>
 <h2 id="submit_job_stats">SUBMIT JOB STATS<a class="headerlink" href="#submit_job_stats" title="Permanent link">¶</a></h2>
-<p><code>SUBMIT JOB STATS</code>语句启动一个作业，该作业对当前图空间进行统计。作业完成后，您可以使用<code>SHOW STATS</code>语句列出统计结果。详情请参见<a href="../../7.general-query-statements/6.show/14.show-stats/">SHOW STATS</a>。</p>
+<p><code>SUBMIT JOB STATS</code>语句启动一个作业，该作业对当前图空间进行统计。作业完成后，用户可以使用<code>SHOW STATS</code>语句列出统计结果。详情请参见<a href="../../7.general-query-statements/6.show/14.show-stats/">SHOW STATS</a>。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>如果存储在Nebula Graph中的数据有变化，为了获取最新的统计结果，请重新执行<code>SUBMIT JOB STATS</code>。</p>
@@ -2184,14 +2189,14 @@
 </code></pre></div>
 <h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">¶</a></h2>
 <h3 id="_10">如何排查作业问题？<a class="headerlink" href="#_10" title="Permanent link">¶</a></h3>
-<p><code>SUBMIT JOB</code>操作使用的是HTTP端口，请检查Storage服务机器上的HTTP端口是否正常工作。您可以执行如下命令调试：</p>
+<p><code>SUBMIT JOB</code>操作使用的是HTTP端口，请检查Storage服务机器上的HTTP端口是否正常工作。用户可以执行如下命令调试：</p>
 <div class="highlight"><pre><span></span><code>curl <span class="s2">"http://{storaged-ip}:19779/admin?space={space_name}&amp;op=compact"</span>
 </code></pre></div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

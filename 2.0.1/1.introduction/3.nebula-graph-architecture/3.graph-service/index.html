@@ -1109,6 +1109,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1911,6 +1916,10 @@
 <p>如上图所示，探索到节点<code>Filter</code>时，发现依赖的节点是<code>GetNeighbor</code>，匹配预先定义的规则，就会将<code>Filter</code>融入到<code>GetNeighbor</code>中，然后移除节点<code>Filter</code>，继续匹配下一个规则。在执行阶段，当算子<code>GetNeighbor</code>调用Storage服务的接口获取一个点的邻边时，Storage服务内部会直接将不符合条件的边过滤掉，这样可以极大地减少传输的数据量，该优化称为过滤下推。</p>
 </li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Nebula Graph 2.0.1 默认没有打开优化。</p>
+</div>
 <h2 id="executor">Executor<a class="headerlink" href="#executor" title="Permanent link">¶</a></h2>
 <p>Executor模块包含调度器（Scheduler）和执行器（Executor），通过调度器调度执行计划，让执行器根据执行计划生成对应的执行算子，从叶子节点开始执行，直到根节点结束。如下图所示。</p>
 <p><img alt="Executor" src="https://docs-cdn.nebula-graph.com.cn/docs-2.0/1.introduction/2.nebula-graph-architecture/executor.png"/></p>
@@ -1935,7 +1944,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月10日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

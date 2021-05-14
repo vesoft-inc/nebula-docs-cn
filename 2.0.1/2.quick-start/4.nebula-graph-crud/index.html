@@ -1246,6 +1246,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -2121,7 +2126,7 @@
 <h1 id="_1">基础操作语法<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
 <p>本文介绍Nebula Graph基础操作的语法。</p>
 <h2 id="schema">图空间和Schema<a class="headerlink" href="#schema" title="Permanent link">¶</a></h2>
-<p>一个Nebula Graph实例由一个或多个图空间组成。每个图空间都是物理隔离的，您可以在同一个实例中使用不同的图空间存储不同的数据集。</p>
+<p>一个Nebula Graph实例由一个或多个图空间组成。每个图空间都是物理隔离的，用户可以在同一个实例中使用不同的图空间存储不同的数据集。</p>
 <p><img alt="Nebula Graph and graph spaces" src="https://docs-cdn.nebula-graph.com.cn/docs-2.0/2.quick-start/nebula-graph-instance-and-graph-spaces.png"/></p>
 <p>为了在图空间中插入数据，需要为图数据库定义一个Schema。Nebula Graph的Schema是由如下几部分组成。</p>
 <table>
@@ -2154,7 +2159,7 @@
 <p>本文将使用下图的数据集演示基础操作的语法。</p>
 <p><img alt="The demo dataset" src="https://docs-cdn.nebula-graph.com.cn/docs-2.0/2.quick-start/dataset-for-crud.png"/></p>
 <h2 id="nebula_graph">检查Nebula Graph集群的机器状态<a class="headerlink" href="#nebula_graph" title="Permanent link">¶</a></h2>
-<p>首先建议您检查机器状态，确保所有的Storage服务连接到了Meta服务。执行命令<code>SHOW HOSTS</code>查看机器状态。</p>
+<p>首先建议检查机器状态，确保所有的Storage服务连接到了Meta服务。执行命令<code>SHOW HOSTS</code>查看机器状态。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; SHOW HOSTS;
 +-------------+-----------+-----------+--------------+----------------------+------------------------+
 | Host        | Port      | Status    | Leader count | Leader distribution  | Partition distribution |
@@ -2269,7 +2274,7 @@ Got 4 rows (time spent 1633/2867 us)
 <div class="highlight"><pre><span></span><code>nebula[(none)]&gt; USE basketballplayer;
 Execution succeeded (time spent 1229/2318 us)
 </code></pre></div>
-<p>您可以执行命令<code>SHOW SPACES</code>查看创建的图空间。</p>
+<p>用户可以执行命令<code>SHOW SPACES</code>查看创建的图空间。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; SHOW SPACES;
 +--------------------+
 | Name               |
@@ -2339,7 +2344,7 @@ Execution succeeded (time spent 5858/6870 us)
 Wed, 24 Feb 2021 03:48:16 EST
 </code></pre></div>
 <h2 id="_7">插入点和边<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
-<p>您可以使用<code>INSERT</code>语句，基于现有的标签插入点，或者基于现有的边类型插入边。</p>
+<p>用户可以使用<code>INSERT</code>语句，基于现有的标签插入点，或者基于现有的边类型插入边。</p>
 <h3 id="ngql_2">nGQL语法<a class="headerlink" href="#ngql_2" title="Permanent link">¶</a></h3>
 <ul>
 <li>插入点<div class="highlight"><pre><span></span><code>INSERT VERTEX &lt;tag_name&gt; (&lt;property_name&gt;[, &lt;property_name&gt;...])
@@ -2584,8 +2589,8 @@ Got 1 rows (time spent 2006/2406 us)
 <p><code>LOOKUP</code>和<code>MATCH</code>的示例在下文的<a href="#_14">索引</a>部分查看。</p>
 </div>
 <h2 id="_10">修改点和边<a class="headerlink" href="#_10" title="Permanent link">¶</a></h2>
-<p>您可以使用<code>UPDATE</code>语句或<code>UPSERT</code>语句修改现有数据。</p>
-<p><code>UPSERT</code>是<code>UPDATE</code>和<code>INSERT</code>的结合体。当您使用<code>UPSERT</code>更新一个点或边，如果它不存在，数据库会自动插入一个新的点或边。</p>
+<p>用户可以使用<code>UPDATE</code>语句或<code>UPSERT</code>语句修改现有数据。</p>
+<p><code>UPSERT</code>是<code>UPDATE</code>和<code>INSERT</code>的结合体。当使用<code>UPSERT</code>更新一个点或边，如果它不存在，数据库会自动插入一个新的点或边。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><code>UPSERT</code>操作是基于Nebula Graph的分区进行串行操作，所以执行速度比单独执行<code>INSERT</code>或<code>UPDATE</code>慢。</p>
@@ -2685,13 +2690,13 @@ Execution succeeded (time spent 3700/4101 us)
 </li>
 </ul>
 <h2 id="_14">索引<a class="headerlink" href="#_14" title="Permanent link">¶</a></h2>
-<p>您可以通过<a href="../../3.ngql-guide/14.native-index-statements/1.create-native-index/">CREATE INDEX</a>语句为标签（tag）和边类型（edge type）增加索引。</p>
+<p>用户可以通过<a href="../../3.ngql-guide/14.native-index-statements/1.create-native-index/">CREATE INDEX</a>语句为标签（tag）和边类型（edge type）增加索引。</p>
 <h3 id="_15">使用索引必读<a class="headerlink" href="#_15" title="Permanent link">¶</a></h3>
 <ul>
-<li><code>MATCH</code>和<code>LOOKUP</code>语句的执行都依赖索引，但是索引会导致写性能大幅降低（降低90%甚至更多）。请<strong>不要随意</strong>在生产环境中使用索引，除非您很清楚使用索引对业务的影响。</li>
+<li><code>MATCH</code>和<code>LOOKUP</code>语句的执行都依赖索引，但是索引会导致写性能大幅降低（降低90%甚至更多）。请<strong>不要随意</strong>在生产环境中使用索引，除非很清楚使用索引对业务的影响。</li>
 </ul>
 <ul>
-<li>您<strong>必须</strong>为已存在的数据重建索引，否则不能索引已存在的数据，导致无法在<code>MATCH</code>和<code>LOOKUP</code>语句中返回这些数据。更多信息，请参见<a href="../../3.ngql-guide/14.native-index-statements/1.create-native-index/">重建索引</a>。</li>
+<li><strong>必须</strong>为已存在的数据重建索引，否则不能索引已存在的数据，导致无法在<code>MATCH</code>和<code>LOOKUP</code>语句中返回这些数据。更多信息，请参见<a href="../../3.ngql-guide/14.native-index-statements/1.create-native-index/">重建索引</a>。</li>
 </ul>
 <h3 id="ngql_6">nGQL语法<a class="headerlink" href="#ngql_6" title="Permanent link">¶</a></h3>
 <ul>
@@ -2752,7 +2757,7 @@ Got 1 rows (time spent 5132/6246 us)
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月10日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

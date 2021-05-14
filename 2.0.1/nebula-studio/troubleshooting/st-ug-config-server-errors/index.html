@@ -1066,6 +1066,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1856,12 +1861,12 @@
 <h2 id="_2">问题描述<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <p>按 <a href="../../deploy-connect/st-ug-connect/">连接 Studio</a> 文档操作，提示 <strong>配置失败</strong>。</p>
 <h2 id="_3">可能的原因及解决方法<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<p>您可以按以下步骤排查问题。</p>
+<p>用户可以按以下步骤排查问题。</p>
 <h3 id="1_host">第 1 步. 确认 <strong>Host</strong> 字段的格式是否正确<a class="headerlink" href="#1_host" title="Permanent link">¶</a></h3>
-<p>必须填写 Nebula Graph 图数据库 Graph 服务的 IP 地址（<code>graph_server_ip</code>）和端口。如果未做修改，端口默认为 <code>9669</code>。即使 Nebula Graph 与 Studio 都部署在当前机器上，您也必须使用本机 IP 地址，而不能使用 <code>127.0.0.1</code>、<code>localhost</code> 或者 <code>0.0.0.0</code>。</p>
+<p>必须填写 Nebula Graph 图数据库 Graph 服务的 IP 地址（<code>graph_server_ip</code>）和端口。如果未做修改，端口默认为 <code>9669</code>。即使 Nebula Graph 与 Studio 都部署在当前机器上，用户也必须使用本机 IP 地址，而不能使用 <code>127.0.0.1</code>、<code>localhost</code> 或者 <code>0.0.0.0</code>。</p>
 <h3 id="2">第 2 步. 确认 <strong>用户名</strong> 和 <strong>密码</strong> 是否正确<a class="headerlink" href="#2" title="Permanent link">¶</a></h3>
-<p>如果 Nebula Graph 没有开启身份认证，您可以填写任意字符串登录。</p>
-<p>如果已经开启身份认证，您必须使用分配的账号登录。</p>
+<p>如果 Nebula Graph 没有开启身份认证，用户可以填写任意字符串登录。</p>
+<p>如果已经开启身份认证，用户必须使用分配的账号登录。</p>
 <h3 id="3_nebula_graph">第 3 步. 确认 Nebula Graph 服务是否正常<a class="headerlink" href="#3_nebula_graph" title="Permanent link">¶</a></h3>
 <p>检查 Nebula Graph 服务状态。关于查看服务的操作：</p>
 <ul>
@@ -1871,7 +1876,7 @@
 <p>如果 Nebula Graph 服务正常，进入第 4 步继续排查问题。否则，请重启 Nebula Graph 服务。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>如果您之前使用 <code>docker-compose up -d</code> 启动 Nebula Graph，必须运行 <code>docker-compose down</code> 命令停止 Nebula Graph。</p>
+<p>如果之前使用 <code>docker-compose up -d</code> 启动 Nebula Graph，必须运行 <code>docker-compose down</code> 命令停止 Nebula Graph。</p>
 </div>
 <h3 id="4_graph">第 4 步. 确认 Graph 服务的网络连接是否正常<a class="headerlink" href="#4_graph" title="Permanent link">¶</a></h3>
 <p>在 Studio 机器上运行命令（例如 <code>telnet &lt;graph_server_ip&gt; 9669</code>）确认 Nebula Graph 的 Graph 服务网络连接是否正常。</p>
@@ -1885,7 +1890,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月10日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

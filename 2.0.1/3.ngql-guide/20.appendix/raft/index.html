@@ -7,10 +7,10 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Documentation for Nebula Graph Database" name="description"/>
 <meta content="Nebula Graph" name="author"/>
-<link href="https://docs.nebula-graph.com.cn/2.0.1/3.ngql-guide/13.edge-statements/2.update-edge/" rel="canonical"/>
+<link href="https://docs.nebula-graph.com.cn/2.0.1/3.ngql-guide/20.appendix/raft/" rel="canonical"/>
 <link href="../../../assets/images/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.1.2, mkdocs-material-7.1.4" name="generator"/>
-<title>UPDATE EDGE - Nebula Graph Database 手册</title>
+<title>关于Raft的简单介绍 - Nebula Graph Database 手册</title>
 <link href="../../../assets/stylesheets/main.bde7dde4.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.ef6f36e2.min.css" rel="stylesheet"/>
 <meta content="#ffffff" name="theme-color"/>
@@ -28,7 +28,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#update_edge">
+<a class="md-skip" href="#raft">
           跳转至
         </a>
 </div>
@@ -52,7 +52,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              UPDATE EDGE
+              关于Raft的简单介绍
             
           </span>
 </div>
@@ -834,8 +834,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_12" id="__nav_4_12" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_12" id="__nav_4_12" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_12">
         边语句
         <span class="md-nav__icon md-icon"></span>
@@ -847,45 +847,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../1.insert-edge/">
+<a class="md-nav__link" href="../../13.edge-statements/1.insert-edge/">
         INSERT EDGE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../4.delete-edge/">
+<a class="md-nav__link" href="../../13.edge-statements/4.delete-edge/">
         DELETE EDGE
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          UPDATE EDGE
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../13.edge-statements/2.update-edge/">
         UPDATE EDGE
       </a>
-<nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_1">
-    语法
-  </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-    示例
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../3.upsert-edge/">
+<a class="md-nav__link" href="../../13.edge-statements/3.upsert-edge/">
         UPSERT EDGE
       </a>
 </li>
@@ -1057,8 +1034,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_18" id="__nav_4_18" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_18" id="__nav_4_18" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_18">
         附录
         <span class="md-nav__icon md-icon"></span>
@@ -1070,27 +1047,28 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../20.appendix/comments/">
+<a class="md-nav__link" href="../comments/">
         注释
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../20.appendix/identifier-case-sensitivity/">
+<a class="md-nav__link" href="../identifier-case-sensitivity/">
         大小写区分
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../20.appendix/keywords-and-reserved-words/">
+<a class="md-nav__link" href="../keywords-and-reserved-words/">
         关键字
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../20.appendix/vid-partition/">
+<a class="md-nav__link" href="../vid-partition/">
         点VID和分片ID
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../20.appendix/raft/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
         关于Raft的简单介绍
       </a>
 </li>
@@ -1784,123 +1762,34 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_1">
-    语法
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-    示例
-  </a>
-</li>
-</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/3.ngql-guide/13.edge-statements/2.update-edge.md" title="编辑此页">
+<a class="md-content__button md-icon" href="https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/3.ngql-guide/20.appendix/raft.md" title="编辑此页">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
-<h1 id="update_edge">UPDATE EDGE<a class="headerlink" href="#update_edge" title="Permanent link">¶</a></h1>
-<p><code>UPDATE EDGE</code>语句可以修改边上边类型的属性。</p>
-<p>Nebula Graph支持CAS（compare and set）操作。</p>
-<h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span></span><code>UPDATE EDGE ON &lt;edge_type&gt;
-&lt;src_vid&gt; -&gt; &lt;dst_vid&gt; [@&lt;rank&gt;]
-SET &lt;update_prop&gt;
-[WHEN &lt;condition&gt;]
-[YIELD &lt;output&gt;]
-</code></pre></div>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>是否必须</th>
-<th>说明</th>
-<th>示例</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>ON &lt;edge_type&gt;</code></td>
-<td>是</td>
-<td>指定边类型。要修改的属性必须在这个边类型内。</td>
-<td><code>ON serve</code></td>
-</tr>
-<tr>
-<td><code>&lt;src_vid&gt;</code></td>
-<td>是</td>
-<td>指定边的起始点ID。</td>
-<td><code>"player100"</code></td>
-</tr>
-<tr>
-<td><code>&lt;dst_vid&gt;</code></td>
-<td>是</td>
-<td>指定边的目的点ID。</td>
-<td><code>"team204"</code></td>
-</tr>
-<tr>
-<td><code>&lt;rank&gt;</code></td>
-<td>否</td>
-<td>指定边的rank值。</td>
-<td><code>10</code></td>
-</tr>
-<tr>
-<td><code>SET &lt;update_prop&gt;</code></td>
-<td>是</td>
-<td>指定如何修改属性值。</td>
-<td><code>SET start_year = start_year +1</code></td>
-</tr>
-<tr>
-<td><code>WHEN &lt;condition&gt;</code></td>
-<td>否</td>
-<td>指定过滤条件。如果<code>&lt;condition&gt;</code>结果为<code>false</code>，<code>SET</code>子句不会生效。</td>
-<td><code>WHEN end_year &lt; 2010</code></td>
-</tr>
-<tr>
-<td><code>YIELD &lt;output&gt;</code></td>
-<td>否</td>
-<td>指定语句的输出格式。</td>
-<td><code>YIELD start_year AS Start_Year</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span></span><code>// 用GO语句查看边的属性值。
-nebula&gt; GO FROM "player100" \
-        OVER serve \
-        YIELD serve.start_year, serve.end_year;
-+------------------+----------------+
-| serve.start_year | serve.end_year |
-+------------------+----------------+
-| 1997             | 2016           |
-+------------------+----------------+
-
-// 修改属性start_year的值，并返回end_year和新的start_year。
-
-nebula&gt; UPDATE EDGE on serve "player100" -&gt; "team204"@0 \
-        SET start_year = start_year + 1 \
-        WHEN end_year &gt; 2010 \
-        YIELD start_year, end_year;
-+------------+----------+
-| start_year | end_year |
-+------------+----------+
-| 1998       | 2016     |
-+------------+----------+
-</code></pre></div>
+<h1 id="raft">关于 Raft 的简单介绍<a class="headerlink" href="#raft" title="Permanent link">¶</a></h1>
+<p>分布式系统中，同一份数据通常会有多个副本，这样即使少数副本发生故障，系统仍可正常运行。这就需要一定的技术手段来保证多个副本之间的一致性。</p>
+<p>基本原理：Raft 就是一种用于保证多副本一致性的协议。Raft 采用多个副本之间竞选的方式，赢得”超过半数”副本投票的(候选)副本成为 Leader，由 eader 代表所有副本对外提供服务；其他 Follower 作为备份。当该 Leader 出现异常后(通信故障、运维命令等)，其余 Follower 进行新一轮选举，投票出一个新的 Leader。Leader 和 Follower 之间通过心跳的方式相互探测是否存活，并以 Raft-wal 的方式写入硬盘，超过多个心跳仍无响应的副本会认为发生故障。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>因为 Raft-wal 需要定期写硬盘，如果硬盘写能力瓶颈会导致 Raft 心跳失败，导致重新发起选举。硬盘IO严重堵塞情况下，会导致长期无法选举出Leader。</p>
+</div>
+<p>读写流程：对于客户端的每个写入请求，Leader 会将该写入以 Raft-wal 的方式，将该条同步给其他 Follower，并只有在“超过半数”副本都成功收到 Raft-wal 后，才会返回客户端该写入成功。对于客户端的每个读取请求，都直接访问 Leader，而 Follower 并不参与读请求服务。</p>
+<p>故障流程：如果系统只有一个副本时，其自身就是 Leader；如果其发生故障，系统将完全不可用。如果系统有 3 个副本，其中一个副本是 Leader，其他 2 个副本是 Follower；即使原 Leader 发生故障，剩下两个副本仍可投票出一个新的Leader（以及一个Follower），此时系统仍可使用；但是当这2个副本中任一者再次发生故障后，由于投票人数不足，系统将完全不可用。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Raft 多副本的方式与 HDFS 多副本的方式是不同的，Raft 基于“多数派”投票，因此副本数量不能是偶数。</p>
+</div>
+<p>Listener：这是一种特殊的 Raft 角色，并不参与投票，也不能用于多副本的数据一致性。在Nebula Graph中，其唯一作用是从 Leader 读取 Raft-wal，并向ElasticSearch集群同步。</p>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月10日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>
@@ -1912,7 +1801,7 @@ nebula&gt; UPDATE EDGE on serve "player100" -&gt; "team204"@0 \
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a class="md-footer__link md-footer__link--prev" href="../4.delete-edge/" rel="prev">
+<a class="md-footer__link md-footer__link--prev" href="../vid-partition/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -1921,17 +1810,17 @@ nebula&gt; UPDATE EDGE on serve "player100" -&gt; "team204"@0 \
 <span class="md-footer__direction">
                 上一页
               </span>
-              DELETE EDGE
+              点VID和分片ID
             </div>
 </div>
 </a>
-<a class="md-footer__link md-footer__link--next" href="../3.upsert-edge/" rel="next">
+<a class="md-footer__link md-footer__link--next" href="../../../4.deployment-and-installation/1.resource-preparations/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 下一页
               </span>
-              UPSERT EDGE
+              准备资源
             </div>
 </div>
 <div class="md-footer__button md-icon">

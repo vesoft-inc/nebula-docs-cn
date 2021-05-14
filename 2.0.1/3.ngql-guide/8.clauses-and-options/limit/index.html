@@ -1112,6 +1112,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1971,7 +1976,7 @@ nebula&gt; MATCH (v:player) RETURN v.name AS Name, v.age AS Age \
 +-------------------------+-----+
 </code></pre></div>
 <h3 id="skip">SKIP示例<a class="headerlink" href="#skip" title="Permanent link">¶</a></h3>
-<p>您可以单独使用<code>SKIP &lt;offset&gt;</code>设置偏移量，后面不需要添加<code>LIMIT &lt;number_rows&gt;</code>。</p>
+<p>用户可以单独使用<code>SKIP &lt;offset&gt;</code>设置偏移量，后面不需要添加<code>LIMIT &lt;number_rows&gt;</code>。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"}) --&gt; (v2) \
         RETURN v2.name AS Name, v2.age AS Age \
         ORDER BY Age DESC SKIP 1;
@@ -1992,7 +1997,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"}) --&gt; (v2) \
 | "Tony Parker" | 36  |
 +---------------+-----+
 </code></pre></div>
-<p>您也可以同时使用<code>SKIP &lt;offset&gt;</code>和<code>LIMIT &lt;number_rows&gt;</code>，返回中间的部分数据。</p>
+<p>用户也可以同时使用<code>SKIP &lt;offset&gt;</code>和<code>LIMIT &lt;number_rows&gt;</code>，返回中间的部分数据。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"}) --&gt; (v2) \
         RETURN v2.name AS Name, v2.age AS Age \
         ORDER BY Age DESC SKIP 1 LIMIT 1;
@@ -2006,7 +2011,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"}) --&gt; (v2) \
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

@@ -1066,6 +1066,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1817,7 +1822,7 @@
 <h1 id="_1">配置简介<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
 <p>本文简单介绍Nebula Graph的配置，以及如何正确使用配置文件。</p>
 <h2 id="_2">获取配置<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p>大多数配置都是<a href="https://gflags.github.io/gflags/">gflags</a>。您可以通过命令获取所有的gflags和解释：</p>
+<p>大多数配置都是<a href="https://gflags.github.io/gflags/">gflags</a>。用户可以通过命令获取所有的gflags和解释：</p>
 <div class="highlight"><pre><span></span><code>binary --help
 </code></pre></div>
 <p>例如：</p>
@@ -1830,7 +1835,7 @@
 <p class="admonition-title">Note</p>
 <p>二进制文件的具体位置请根据实际情况修改，例如nebula-metad的默认路径为<code>/usr/local/nebula/bin</code>。</p>
 </div>
-<p>另外，您也可以使用<code>curl</code>获取运行中的gflags的值，例如：</p>
+<p>另外，用户也可以使用<code>curl</code>获取运行中的gflags的值，例如：</p>
 <div class="highlight"><pre><span></span><code>curl <span class="m">127</span>.0.0.1:19559/flags <span class="c1"># Meta服务</span>
 curl <span class="m">127</span>.0.0.1:19669/flags <span class="c1"># Graph服务</span>
 curl <span class="m">127</span>.0.0.1:19779/flags <span class="c1"># Storage服务</span>
@@ -1840,7 +1845,7 @@ curl <span class="m">127</span>.0.0.1:19779/flags <span class="c1"># Storage服�
 <p>具体的IP地址和端口请根据实际情况修改。</p>
 </div>
 <h2 id="_3">修改配置<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<p>虽然默认情况下，Nebula Graph会从Meta服务获取配置并启动。但是根据过往实践，建议您让Nebula Graph从本地文件获取配置。步骤如下：</p>
+<p>虽然默认情况下，Nebula Graph会从Meta服务获取配置并启动。但是根据过往实践，建议让Nebula Graph从本地文件获取配置。步骤如下：</p>
 <ol>
 <li>
 <p>在<strong>每一个</strong>配置文件的开头添加<code>--local_config=true</code>，配置文件默认路径为<code>/usr/local/nebula/etc/</code>。</p>

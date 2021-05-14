@@ -1119,6 +1119,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1865,7 +1870,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="lookup">LOOKUP<a class="headerlink" href="#lookup" title="Permanent link">¶</a></h1>
-<p><code>LOOKUP</code>根据索引遍历数据。您可以使用<code>LOOKUP</code>实现如下功能：</p>
+<p><code>LOOKUP</code>根据索引遍历数据。用户可以使用<code>LOOKUP</code>实现如下功能：</p>
 <ul>
 <li>根据<code>WHERE</code>子句搜索特定数据。</li>
 </ul>
@@ -1881,9 +1886,9 @@
 <h2 id="opencypher">openCypher兼容性<a class="headerlink" href="#opencypher" title="Permanent link">¶</a></h2>
 <p>本文操作仅适用于nGQL扩展。</p>
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>请确保<code>LOOKUP</code>语句有至少一个索引可用。如果您需要创建索引，但是已经有相关的点、边或属性，您必须在创建索引后重建索引，索引才能生效。</p>
+<p>请确保<code>LOOKUP</code>语句有至少一个索引可用。如果需要创建索引，但是已经有相关的点、边或属性，用户必须在创建索引后重建索引，索引才能生效。</p>
 <blockquote>
-<p><strong>警告</strong>：正确使用索引可以加快查询速度，但是索引会导致写性能大幅降低（降低90%甚至更多）。请不要随意在生产环境中使用索引，除非您很清楚使用索引对业务的影响。</p>
+<p><strong>警告</strong>：正确使用索引可以加快查询速度，但是索引会导致写性能大幅降低（降低90%甚至更多）。请不要随意在生产环境中使用索引，除非很清楚使用索引对业务的影响。</p>
 </blockquote>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code>LOOKUP ON {&lt;vertex_tag&gt; | &lt;edge_type&gt;} [WHERE &lt;expression&gt; [AND &lt;expression&gt; ...]] [YIELD &lt;return_list&gt;];
@@ -2058,7 +2063,7 @@ nebula&gt; LOOKUP ON like | YIELD COUNT(*) AS Like_Number;
 +-------------+
 </code></pre></div>
 <div class="admonition note">
-<p class="admonition-title">您也可以使用<a href="../6.show/14.show-stats/"><code>show-stats</code>命令</a>实现类似的功能。</p>
+<p class="admonition-title">用户也可以使用<a href="../6.show/14.show-stats/"><code>show-stats</code>命令</a>实现类似的功能。</p>
 </div>
 <hr/>
 <div class="md-source-date">

@@ -1146,6 +1146,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1919,9 +1924,9 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="_1">部署全文索引<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
-<p>Nebula Graph的全文索引是基于<a href="https://en.wikipedia.org/wiki/Elasticsearch">Elasticsearch</a>实现，这意味着您可以使用Elasticsearch全文查询语言来检索您想要的内容。全文索引由内置的进程管理，当listener集群和Elasticsearch集群部署后，内置的进程只能为数据类型为定长字符串或变长字符串的属性创建全文索引。</p>
+<p>Nebula Graph的全文索引是基于<a href="https://en.wikipedia.org/wiki/Elasticsearch">Elasticsearch</a>实现，这意味着用户可以使用Elasticsearch全文查询语言来检索想要的内容。全文索引由内置的进程管理，当listener集群和Elasticsearch集群部署后，内置的进程只能为数据类型为定长字符串或变长字符串的属性创建全文索引。</p>
 <h2 id="_2">注意事项<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p>使用全文索引前，请确认您已经了解全文索引的<a href="../1.text-based-index-restrictions/">使用限制</a>。</p>
+<p>使用全文索引前，请确认已经了解全文索引的<a href="../1.text-based-index-restrictions/">使用限制</a>。</p>
 <h2 id="elasticsearch">部署Elasticsearch集群<a class="headerlink" href="#elasticsearch" title="Permanent link">¶</a></h2>
 <p>部署Elasticsearch集群请参见<a href="https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-deploy-elasticsearch.html">Elasticsearch官方文档</a>。</p>
 <p>当Elasticsearch集群启动时，请添加Nebula Graph全文索引的模板文件。以下面的模板为例：</p>
@@ -1942,15 +1947,15 @@
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-<p>请确保您指定的以下字段严格符合上述模板格式：</p>
+<p>请确保指定的以下字段严格符合上述模板格式：</p>
 <div class="highlight"><pre><span></span><code><span class="nt">"template"</span><span class="p">:</span> <span class="nt">"nebula*"</span>
 <span class="nt">"tag_id"</span> <span class="p">:</span> <span class="p">{</span> <span class="nt">"type"</span> <span class="p">:</span> <span class="s2">"long"</span> <span class="p">},</span>
 <span class="nt">"column_id"</span> <span class="p">:</span> <span class="p">{</span> <span class="nt">"type"</span> <span class="p">:</span> <span class="s2">"text"</span> <span class="p">},</span>
 <span class="nt">"value"</span> <span class="p">:{</span> <span class="nt">"type"</span> <span class="p">:</span> <span class="s2">"keyword"</span><span class="p">}</span>
 </code></pre></div>
-<p>您可以配置Elasticsearch来满足您的业务需求，如果需要定制Elasticsearch，请参见<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/settings.html">Elasticsearch官方文档</a>。</p>
+<p>用户可以配置Elasticsearch来满足业务需求，如果需要定制Elasticsearch，请参见<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/settings.html">Elasticsearch官方文档</a>。</p>
 <h2 id="_3">登录文本搜索客户端<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<p>部署Elasticsearch集群之后，可以使用<code>SIGN IN</code>语句登录Elasticsearch客户端。您必须使用Elasticsearch配置文件中的IP地址和端口才能正常连接，同时登录多个客户端，请在多个<code>elastic_ip:port</code>之间用英文逗号（,）分隔。</p>
+<p>部署Elasticsearch集群之后，可以使用<code>SIGN IN</code>语句登录Elasticsearch客户端。必须使用Elasticsearch配置文件中的IP地址和端口才能正常连接，同时登录多个客户端，请在多个<code>elastic_ip:port</code>之间用英文逗号（,）分隔。</p>
 <h3 id="_4">语法<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code>SIGN IN TEXT SERVICE [(&lt;elastic_ip:port&gt; [,&lt;username&gt;, &lt;password&gt;]), (&lt;elastic_ip:port&gt;), ...];
 </code></pre></div>
@@ -1959,7 +1964,7 @@
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Elasticsearch默认没有用户名和密码，如果您设置了用户名和密码，请在<code>SIGN IN</code>语句中指定。</p>
+<p>Elasticsearch默认没有用户名和密码，如果设置了用户名和密码，请在<code>SIGN IN</code>语句中指定。</p>
 </div>
 <h2 id="_6">显示文本搜索客户端<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
 <p><code>SHOW TEXT SEARCH CLIENTS</code>语句可以列出文本搜索客户端。</p>
@@ -1990,7 +1995,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

@@ -1232,6 +1232,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -2115,10 +2120,10 @@
 <p>但是，建立相应Tag的索引后，可以遍历对应Tag的所有点，例如<code>MATCH (v:T1) RETURN v</code>。</p>
 <h2 id="pattern">使用模式（pattern）<a class="headerlink" href="#pattern" title="Permanent link">¶</a></h2>
 <h3 id="_2">前提条件<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
-<p>请确保<code>MATCH</code>语句有至少一个索引可用。如果您需要创建索引，但是已经有相关的点、边或属性，您必须在创建索引后重建索引，索引才能生效。</p>
+<p>请确保<code>MATCH</code>语句有至少一个索引可用。如果需要创建索引，但是已经有相关的点、边或属性，用户必须在创建索引后重建索引，索引才能生效。</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>正确使用索引可以加快查询速度，但是索引会导致写性能大幅降低（降低90%甚至更多）。请<strong>不要随意</strong>在生产环境中使用索引，除非您很清楚使用索引对业务的影响。</p>
+<p>正确使用索引可以加快查询速度，但是索引会导致写性能大幅降低（降低90%甚至更多）。请<strong>不要随意</strong>在生产环境中使用索引，除非很清楚使用索引对业务的影响。</p>
 </div>
 <div class="highlight"><pre><span></span><code># 在属性name上创建索引。
 nebula&gt; CREATE TAG INDEX name ON player(name(20)); 
@@ -2146,13 +2151,13 @@ nebula&gt; SHOW JOB 121;
 +----------------+---------------------+------------+------------+------------+
 </code></pre></div>
 <h3 id="_3">匹配点<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
-<p>您可以在一对括号中使用自定义变量来表示模式中的点。例如<code>(v)</code>。</p>
+<p>用户可以在一对括号中使用自定义变量来表示模式中的点。例如<code>(v)</code>。</p>
 <h3 id="_4">匹配标签<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>标签的索引和属性的索引不同。如果标签的某个属性有索引，但是标签本身没有索引，您无法基于该标签执行<code>MATCH</code>语句。</p>
+<p>标签的索引和属性的索引不同。如果标签的某个属性有索引，但是标签本身没有索引，用户无法基于该标签执行<code>MATCH</code>语句。</p>
 </div>
-<p>您可以在点的右侧用<code>:&lt;tag_name&gt;</code>表示模式中的标签。</p>
+<p>用户可以在点的右侧用<code>:&lt;tag_name&gt;</code>表示模式中的标签。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player) RETURN v;
 +---------------------------------------------------------------+
 | v                                                             |
@@ -2166,7 +2171,7 @@ nebula&gt; SHOW JOB 121;
 ...
 </code></pre></div>
 <h3 id="_5">匹配点的属性<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
-<p>您可以在标签的右侧用<code>{&lt;prop_name&gt;: &lt;prop_value&gt;}</code>表示模式中点的属性。</p>
+<p>用户可以在标签的右侧用<code>{&lt;prop_name&gt;: &lt;prop_value&gt;}</code>表示模式中点的属性。</p>
 <div class="highlight"><pre><span></span><code># 使用属性name搜索匹配的点。
 nebula&gt; MATCH (v:player{name:"Tim Duncan"}) RETURN v;
 +----------------------------------------------------+
@@ -2187,7 +2192,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"}) RETURN v;
 <p><strong>openCypher兼容性</strong>：在openCypher 9中，<code>=</code>是相等运算符，在nGQL中，<code>==</code>是相等运算符，<code>=</code>是赋值运算符。</p>
 </blockquote>
 <h3 id="id">匹配点ID<a class="headerlink" href="#id" title="Permanent link">¶</a></h3>
-<p>您可以使用点ID去匹配点。<code>id()</code>函数可以检索点的ID。</p>
+<p>用户可以使用点ID去匹配点。<code>id()</code>函数可以检索点的ID。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v) WHERE id(v) == 'player101' RETURN v;
 +---------------------------------------------------+
 | v                                                 |
@@ -2209,7 +2214,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"}) RETURN v;
 +-----------------------------------------------------------+
 </code></pre></div>
 <h3 id="_6">匹配连接的点<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
-<p>您可以使用<code>--</code>符号表示两个方向的边，并匹配这些边连接的点。</p>
+<p>用户可以使用<code>--</code>符号表示两个方向的边，并匹配这些边连接的点。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>在nGQL 1.x中，<code>--</code>符号用于行内注释，在nGQL 2.x中，<code>--</code>符号表示出边或入边。</p>
@@ -2231,7 +2236,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"}) RETURN v;
 +---------------------+
 ...
 </code></pre></div>
-<p>您可以在<code>--</code>符号上增加<code>&lt;</code>或<code>&gt;</code>符号指定边的方向。</p>
+<p>用户可以在<code>--</code>符号上增加<code>&lt;</code>或<code>&gt;</code>符号指定边的方向。</p>
 <div class="highlight"><pre><span></span><code># --&gt;表示边从v开始，指向v2。对于点v来说是出边，对于点v2来说是入边。
 nebula&gt; MATCH (v:player{name:"Tim Duncan"})--&gt;(v2) \
         RETURN v2.name AS Name;
@@ -2263,7 +2268,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"})--&gt;(v2) \
 +---------------------+
 ...
 </code></pre></div>
-<p>如果您不需要引用点，可以省略括号中表示点的变量。</p>
+<p>如果不需要引用点，可以省略括号中表示点的变量。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"})--&gt;()&lt;--(v3) \
         RETURN v3.name AS Name;
 +---------------------+
@@ -2282,7 +2287,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"})--&gt;(v2) \
 ...
 </code></pre></div>
 <h3 id="_7">匹配路径<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
-<p>连接起来的点和边构成了路径。您可以使用自定义变量命名路径。</p>
+<p>连接起来的点和边构成了路径。用户可以使用自定义变量命名路径。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})--&gt;(v2) \
         RETURN p;
 +-------------------------------------------+
@@ -2300,7 +2305,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"})--&gt;(v2) \
 <p>在nGQL中，<code>@</code>符号表示边的rank，在openCypher中，没有rank概念。</p>
 </div>
 <h3 id="_8">匹配边<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
-<p>除了用<code>--</code>、<code>--&gt;</code>、<code>&lt;--</code>表示未命名的边之外，您还可以在方括号中使用自定义变量命名边。例如<code>-[e]-</code>。</p>
+<p>除了用<code>--</code>、<code>--&gt;</code>、<code>&lt;--</code>表示未命名的边之外，用户还可以在方括号中使用自定义变量命名边。例如<code>-[e]-</code>。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[e]-(v2) \
         RETURN e;
 +---------------------------------------------------------------------------+
@@ -2315,7 +2320,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"})--&gt;(v2) \
 ...
 </code></pre></div>
 <h3 id="_9">匹配边类型和属性<a class="headerlink" href="#_9" title="Permanent link">¶</a></h3>
-<p>和点一样，您可以用<code>:&lt;edge_type&gt;</code>表示模式中的边类型。例如<code>-[e:serve]-</code>。</p>
+<p>和点一样，用户可以用<code>:&lt;edge_type&gt;</code>表示模式中的边类型。例如<code>-[e:serve]-</code>。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[e:serve]-(v2) \
         RETURN e;
 +---------------------------------------------------------------------------+
@@ -2324,7 +2329,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"})--&gt;(v2) \
 | [:serve "player100"-&gt;"team204" @0 {end_year: 2016, start_year: 1997}]     |
 +---------------------------------------------------------------------------+
 </code></pre></div>
-<p>您可以用<code>{&lt;prop_name&gt;: &lt;prop_value&gt;}</code>表示模式中边类型的属性。例如<code>[e:follow{likeness:95}]</code>。</p>
+<p>用户可以用<code>{&lt;prop_name&gt;: &lt;prop_value&gt;}</code>表示模式中边类型的属性。例如<code>[e:follow{likeness:95}]</code>。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[e:follow{degree:95}]-&gt;(v2) \
         RETURN e;
 +--------------------------------------------------------+
@@ -2350,7 +2355,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"})--&gt;(v2) \
 +---------------------------------------------------------------------------+
 </code></pre></div>
 <h3 id="_11">匹配多条边<a class="headerlink" href="#_11" title="Permanent link">¶</a></h3>
-<p>您可以扩展模式，匹配路径中的多条边。</p>
+<p>用户可以扩展模式，匹配路径中的多条边。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[]-&gt;(v2)&lt;-[e:serve]-(v3) \
         RETURN v2, v3;
 +------------------------------------+-----------------------------------------------------------+
@@ -2365,7 +2370,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"})--&gt;(v2) \
 ...
 </code></pre></div>
 <h3 id="_12">匹配定长路径<a class="headerlink" href="#_12" title="Permanent link">¶</a></h3>
-<p>您可以在模式中使用<code>:&lt;edge_type&gt;*&lt;hop&gt;</code>匹配定长路径。<code>hop</code>必须是一个非负整数。</p>
+<p>用户可以在模式中使用<code>:&lt;edge_type&gt;*&lt;hop&gt;</code>匹配定长路径。<code>hop</code>必须是一个非负整数。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*2]-&gt;(v2) \
         RETURN DISTINCT v2 AS Friends;
 +-----------------------------------------------------------+
@@ -2388,7 +2393,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"})--&gt;(v2) \
 +----------------------------------------------------+
 </code></pre></div>
 <h3 id="_13">匹配变长路径<a class="headerlink" href="#_13" title="Permanent link">¶</a></h3>
-<p>您可以在模式中使用<code>:&lt;edge_type&gt;*[minHop]..&lt;maxHop&gt;</code>匹配变长路径。</p>
+<p>用户可以在模式中使用<code>:&lt;edge_type&gt;*[minHop]..&lt;maxHop&gt;</code>匹配变长路径。</p>
 <table>
 <thead>
 <tr>
@@ -2424,7 +2429,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"})--&gt;(v2) \
 | ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
 +-----------------------------------------------------------+
 </code></pre></div>
-<p>您可以使用<code>DISTINCT</code>关键字聚合重复结果。</p>
+<p>用户可以使用<code>DISTINCT</code>关键字聚合重复结果。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*1..3]-&gt;(v2:player) \
         RETURN DISTINCT v2 AS Friends, count(v2);
 +-----------------------------------------------------------+-----------+
@@ -2455,7 +2460,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"})--&gt;(v2) \
 +-----------------------------------------------------------+-----------+
 </code></pre></div>
 <h3 id="_14">匹配多个边类型的变长路径<a class="headerlink" href="#_14" title="Permanent link">¶</a></h3>
-<p>您可以在变长或定长模式中指定多个边类型。<code>hop</code>、<code>minHop</code>和<code>maxHop</code>对所有边类型都生效。</p>
+<p>用户可以在变长或定长模式中指定多个边类型。<code>hop</code>、<code>minHop</code>和<code>maxHop</code>对所有边类型都生效。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[e:follow|serve*2]-&gt;(v2) \
         RETURN DISTINCT v2;
 +-----------------------------------------------------------+

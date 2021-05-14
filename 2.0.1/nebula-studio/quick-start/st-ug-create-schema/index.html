@@ -1066,6 +1066,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1825,28 +1830,28 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="schema">创建 Schema<a class="headerlink" href="#schema" title="Permanent link">¶</a></h1>
-<p>在 Nebula Graph 中，您必须先有 Schema，再向其中写入点数据和边数据。本文描述如何使用 Nebula Graph 的 <strong>控制台</strong> 或 <strong>Schema</strong> 功能创建 Schema。</p>
+<p>在 Nebula Graph 中，用户必须先有 Schema，再向其中写入点数据和边数据。本文描述如何使用 Nebula Graph 的 <strong>控制台</strong> 或 <strong>Schema</strong> 功能创建 Schema。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>您也可以使用 nebula-console 创建 Schema。详细信息，参考 <a href="../../..">使用 Docker Compose 部署 Nebula Graph</a> 和 <a href="../../../2.quick-start/1.quick-start-workflow/">Nebula Graph 快速开始</a>。</p>
+<p>用户也可以使用 nebula-console 创建 Schema。详细信息，参考 <a href="../../..">使用 Docker Compose 部署 Nebula Graph</a> 和 <a href="../../../2.quick-start/1.quick-start-workflow/">Nebula Graph 快速开始</a>。</p>
 </div>
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>在 Studio 上创建 Schema 之前，您需要确认以下信息：</p>
+<p>在 Studio 上创建 Schema 之前，用户需要确认以下信息：</p>
 <ul>
 <li>Studio 已经连接到 Nebula Graph 数据库。</li>
 </ul>
 <ul>
-<li>您的账号拥有 GOD、ADMIN 或 DBA 权限。详细信息，参考 <a href="../../../7.data-security/1.authentication/3.role-list/">Nebula Graph 内置角色</a>。</li>
+<li>账号拥有 GOD、ADMIN 或 DBA 权限。详细信息，参考 <a href="../../../7.data-security/1.authentication/3.role-list/">Nebula Graph 内置角色</a>。</li>
 </ul>
 <ul>
-<li>您已经规划好了 Schema 的要素。</li>
+<li>已经规划好了 Schema 的要素。</li>
 </ul>
 <ul>
 <li>已经创建了图空间。</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>本示例假设已经创建了图空间。如果您的账号拥有 GOD 权限，也可以在 <strong>控制台</strong> 或 <strong>Schema</strong> 上创建一个图空间。</p>
+<p>本示例假设已经创建了图空间。如果账号拥有 GOD 权限，也可以在 <strong>控制台</strong> 或 <strong>Schema</strong> 上创建一个图空间。</p>
 </div>
 <h2 id="schema_schema">使用 Schema 管理功能创建 Schema<a class="headerlink" href="#schema_schema" title="Permanent link">¶</a></h2>
 <p>按以下步骤使用 <strong>Schema</strong> 创建 Schema：</p>
@@ -1884,7 +1889,7 @@ CREATE EDGE serve(start_year int, end_year int);
 </code></pre></div>
 </li>
 </ol>
-<p>至此，您已经完成了 Schema 创建。您可以运行以下语句查看标签与边类型的定义是否正确、完整。</p>
+<p>至此，用户已经完成了 Schema 创建。用户可以运行以下语句查看标签与边类型的定义是否正确、完整。</p>
 <div class="highlight"><pre><span></span><code>-- 列出当前图空间中所有标签
 SHOW TAGS;
 
@@ -1898,12 +1903,12 @@ DESCRIBE EDGE follow;
 DESCRIBE EDGE serve;
 </code></pre></div>
 <h2 id="_2">后续操作<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p>创建 Schema 后，您可以开始 <a href="../st-ug-import-data/">导入数据</a>。</p>
+<p>创建 Schema 后，用户可以开始 <a href="../st-ug-import-data/">导入数据</a>。</p>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月10日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

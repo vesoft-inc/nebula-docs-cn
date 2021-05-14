@@ -1066,6 +1066,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1802,7 +1807,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="_1">使用示例<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
-<p>一般，您可以按以下步骤使用 nebula-algorithm：</p>
+<p>一般，用户可以按以下步骤使用 nebula-algorithm：</p>
 <ol>
 <li>参考配置文件修改 nebula-algorithm 的配置。</li>
 <li>运行 nebula-algorithm。</li>
@@ -1848,10 +1853,10 @@
 </tbody>
 </table>
 <h2 id="_4">前提条件<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
-<p>在操作之前，您需要确认以下信息：</p>
+<p>在操作之前，用户需要确认以下信息：</p>
 <ul>
 <li>已经完成 nebula-algorithm 编译。详细信息参考 <a href="../na-ug-compile/">编译 nebula-algorithm</a>。</li>
-<li>Nebula Graph 数据库中已经有图数据。您可以使用不同的方式将其他来源的数据导入 Nebula Graph 数据库中，例如 <a href="https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-import/spark-writer/" title="点击前往 Nebula Graph 网站">Spark Writer</a>。</li>
+<li>Nebula Graph 数据库中已经有图数据。用户可以使用不同的方式将其他来源的数据导入 Nebula Graph 数据库中，例如 <a href="https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-import/spark-writer/" title="点击前往 Nebula Graph 网站">Spark Writer</a>。</li>
 <li>当前机器上已经安装 Spark 并已启动 Spark 服务。</li>
 </ul>
 <h2 id="1">第 1 步. 修改配置文件<a class="headerlink" href="#1" title="Permanent link">¶</a></h2>
@@ -1860,7 +1865,7 @@
   # Spark 相关设置
   spark: {
     app: {
-        # Spark 应用程序的名称，可选项。默认设置为您即将运行的算法名称，例如 PageRank
+        # Spark 应用程序的名称，可选项。默认设置即将运行的算法名称，例如 PageRank
         name: PageRank
 
         # Spark 中分区数量，可选项。
@@ -1925,9 +1930,9 @@
 <ul>
 <li><code>--master</code>：指定 Spark 集群中Master 进程的 URL。详细信息，参考 <a href="https://spark.apache.org/docs/latest/submitting-applications.html#master-urls" title="点击前往 Apache Spark 文档">master-urls</a>。</li>
 <li><code>--class</code>：指定 Driver 主类。</li>
-<li>指定 nebula-algorithm JAR 文件的路径，JAR 文件版本号以您实际编译得到的 JAR 文件名称为准。</li>
+<li>指定 nebula-algorithm JAR 文件的路径，JAR 文件版本号以实际编译得到的 JAR 文件名称为准。</li>
 <li><code>-p</code>：Spark 配置文件文件路径。</li>
-<li>其他：如果您未在配置文件中设置 Spark 的任务资源分配（<code>conf</code>）信息，您可以在这个命令中指定。例如，本示例中，<code>--driver-memory=20G  --executor-memory=100G --executor-cores=3</code>。</li>
+<li>其他：如果未在配置文件中设置 Spark 的任务资源分配（<code>conf</code>）信息，用户可以在这个命令中指定。例如，本示例中，<code>--driver-memory=20G  --executor-memory=100G --executor-cores=3</code>。</li>
 </ul>
 <h2 id="_5">测试结果<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
 <p>按本示例设置的 Spark 任务资源分配，对于一个拥有一亿个数据的数据集：</p>
@@ -1939,7 +1944,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月7日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

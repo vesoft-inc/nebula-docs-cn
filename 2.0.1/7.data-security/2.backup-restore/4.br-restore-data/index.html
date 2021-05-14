@@ -1066,6 +1066,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1782,9 +1787,9 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="br">使用BR恢复数据<a class="headerlink" href="#br" title="Permanent link">¶</a></h1>
-<p>如果您使用BR备份了Nebula Graph的数据，可以通过备份文件进行数据恢复。本文介绍如何通过备份文件恢复数据。</p>
+<p>如果使用BR备份了Nebula Graph的数据，可以通过备份文件进行数据恢复。本文介绍如何通过备份文件恢复数据。</p>
 <blockquote>
-<p><strong>警告</strong>：恢复过程中，目标集群上已有的数据会被删除，然后替换为备份文件中的数据。建议您提前备份目标集群上的数据。</p>
+<p><strong>警告</strong>：恢复过程中，目标集群上已有的数据会被删除，然后替换为备份文件中的数据。建议提前备份目标集群上的数据。</p>
 <p><strong>注意</strong>：数据恢复需要离线进行。</p>
 </blockquote>
 <h2 id="_1">准备工作<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
@@ -1815,24 +1820,24 @@
 </li>
 </ul>
 <ul>
-<li>BR可以免密登录服务器，即您在BR机器上的账号可以通过SSH免密登录到Meta服务器和Storage服务器。详情请参见<a href="http://alexander.holbreich.org/ssh-tunnel-without-password/">SSH tunnels with keys</a>。本文示例账号名称为<code>nebula</code>。<blockquote>
+<li>BR可以免密登录服务器，即在BR机器上的账号可以通过SSH免密登录到Meta服务器和Storage服务器。详情请参见<a href="http://alexander.holbreich.org/ssh-tunnel-without-password/">SSH tunnels with keys</a>。本文示例账号名称为<code>nebula</code>。<blockquote>
 <p><strong>注意</strong>:该账号必须有Nebula Graph安装目录的写权限。</p>
 </blockquote>
 </li>
 </ul>
 <ul>
-<li>如果您使用Alibaba Cloud OSS或Amazon S3保存备份文件，请确保Meta服务器、Storage服务器和BR机器都已安装相应的客户端。详情请参见<a href="https://www.alibabacloud.com/help/zh/doc-detail/120075.htm#concept-303829">Alibaba Cloud ossutil文档</a>和<a href="https://docs.amazonaws.cn/cli/latest/userguide/cli-services-s3.html">Amazon S3 CLI文档</a>。<blockquote>
+<li>如果使用Alibaba Cloud OSS或Amazon S3保存备份文件，请确保Meta服务器、Storage服务器和BR机器都已安装相应的客户端。详情请参见<a href="https://www.alibabacloud.com/help/zh/doc-detail/120075.htm#concept-303829">Alibaba Cloud ossutil文档</a>和<a href="https://docs.amazonaws.cn/cli/latest/userguide/cli-services-s3.html">Amazon S3 CLI文档</a>。<blockquote>
 <p><strong>注意</strong>：请创建软链接方便使用ossutil命令。命令为<code>ln -s /&lt;ossutil_tool_installation_path&gt;/&lt;ossutil64 or ossutil&gt; /usr/local/bin/ossutil</code>，根据实际路径和系统替换内容。</p>
 </blockquote>
 </li>
 </ul>
 <ul>
-<li>如果您的备份文件保存在本地磁盘，需要将BR机器上备份的Meta文件手动合并到Meta服务器和Storage服务器的备份目录内（和meta、storage目录平级）。本文示例为<code>/home/user/backup/</code>。</li>
+<li>如果备份文件保存在本地磁盘，需要将BR机器上备份的Meta文件手动合并到Meta服务器和Storage服务器的备份目录内（和meta、storage目录平级）。本文示例为<code>/home/user/backup/</code>。</li>
 </ul>
 <h2 id="_2">操作步骤<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <ol>
 <li>
-<p>在<code>nebula-storage/util/br/config</code>目录内修改配置文件<code>backup.yaml</code>。您可以参考如下配置，目录内也有示例文件<code>restore_example.yaml</code>。</p>
+<p>在<code>nebula-storage/util/br/config</code>目录内修改配置文件<code>backup.yaml</code>。用户可以参考如下配置，目录内也有示例文件<code>restore_example.yaml</code>。</p>
 <div class="highlight"><pre><span></span><code><span class="nt">meta_nodes</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="c1"># 配置一个Meta服务器的IP和端口</span>
    <span class="nt">addrs</span><span class="p">:</span> <span class="s">"192.168.8.161:9559"</span>
@@ -1901,14 +1906,14 @@
 <blockquote>
 <p><strong>注意</strong>：如果恢复过程中leader发生变更，会导致数据恢复出错，为保证数据正确性，请重新执行本步骤命令。</p>
 </blockquote>
-<p>恢复成功后，您可以在Nebula Graph安装目录下的<code>data/storage</code>目录内找到数据文件，例如<code>/usr/local/nebula/data/storage/</code>。</p>
+<p>恢复成功后，用户可以在Nebula Graph安装目录下的<code>data/storage</code>目录内找到数据文件，例如<code>/usr/local/nebula/data/storage/</code>。</p>
 </li>
 <li>
-<p>等待一段时间，直至Meta数据和Schema同步，您可以登录数据库验证数据。例如运行<a href="../../3.ngql-guide/7.general-query-statements/6.show/14.show-stats/"><code>SHOW STATS</code></a> 验证图空间中点和边的数量是否正确。</p>
+<p>等待一段时间，直至Meta数据和Schema同步，用户可以登录数据库验证数据。例如运行<a href="../../3.ngql-guide/7.general-query-statements/6.show/14.show-stats/"><code>SHOW STATS</code></a> 验证图空间中点和边的数量是否正确。</p>
 <blockquote>
-<p><strong>注意</strong>：恢复完成后，您需要注意以下两点：</p>
+<p><strong>注意</strong>：恢复完成后，用户需要注意以下两点：</p>
 <ul>
-<li>如果执行<code>USE &lt;space_name&gt;</code>返回错误，建议您重启Nebula Graph服务。</li>
+<li>如果执行<code>USE &lt;space_name&gt;</code>返回错误，建议重启Nebula Graph服务。</li>
 <li>如果查询数据时报错<code>Storage Error: part: 2, error code: -3.</code>，请检查Storage服务的状态，或者重启Storage服务后再次尝试查询。</li>
 </ul>
 </blockquote>
@@ -1918,7 +1923,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月22日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

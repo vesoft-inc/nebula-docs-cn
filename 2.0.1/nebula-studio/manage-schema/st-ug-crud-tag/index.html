@@ -1066,6 +1066,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1845,15 +1850,15 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="_1">操作标签（点类型）<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
-<p>在 Nebula Graph 数据库中创建图空间后，您需要创建标签（点类型）。您可以选择使用 <strong>控制台</strong> 或者 <strong>Schema</strong> 操作标签。本文仅说明如何使用 <strong>Schema</strong> 操作标签。</p>
+<p>在 Nebula Graph 数据库中创建图空间后，用户需要创建标签（点类型）。用户可以选择使用 <strong>控制台</strong> 或者 <strong>Schema</strong> 操作标签。本文仅说明如何使用 <strong>Schema</strong> 操作标签。</p>
 <h2 id="_2">支持版本<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <p>Studio v2.2.0 及以后版本。请更新版本，详细操作参考 <a href="../../about-studio/st-ug-check-updates/">版本更新</a>。</p>
 <h2 id="_3">前提条件<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<p>在 Studio 上操作标签之前，您必须确认以下信息：</p>
+<p>在 Studio 上操作标签之前，用户必须确认以下信息：</p>
 <ul>
 <li>Studio 已经连接到 Nebula Graph 数据库。</li>
 <li>图空间已经创建。</li>
-<li>您当前登录的账号拥有 GOD、ADMIN 或者 DBA 的权限。</li>
+<li>当前登录的账号拥有 GOD、ADMIN 或者 DBA 的权限。</li>
 </ul>
 <h2 id="_4">创建标签<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <p>按以下步骤使用 <strong>Schema</strong> 创建标签：</p>
@@ -1865,7 +1870,7 @@
 <p>在 <strong>图空间列表</strong> 中，找到图空间，点击图空间名称或者在 <strong>操作</strong> 列中点击 <img alt="表示设置的图标" src="../../figs/st-ug-018.png" title="设置"> 图标。</img></p>
 </li>
 <li>
-<p>在 <strong>当前图空间</strong> 里确认图空间名称。您也可以通过选择图空间名称切换图空间。</p>
+<p>在 <strong>当前图空间</strong> 里确认图空间名称。用户也可以通过选择图空间名称切换图空间。</p>
 </li>
 <li>
 <p>点击 <strong>标签</strong> 页签，并点击 <strong>创建</strong> 按钮。</p>
@@ -1877,10 +1882,10 @@
     - 输入属性名称、数据类型和默认值。
     - 如果一个标签有多个属性，可以点击 <strong>添加属性</strong> 按钮，并定义属性。
     - 如果要删除某个属性，在该属性所在行，点击 <img alt="表示删除的图标" src="../../figs/st-ug-020.png" title="删除"> 图标。</img></p>
-<p>c. （可选）标签未设置索引时，您可以设置 TTL：在 <strong>设置TTL</strong> 模块左上角，点击勾选框，并在展开的列表中设置 <code>TTL_COL</code> 和 <code>TTL_DURATION</code> 参数信息。关于这两个参数的详细信息，参考 <a href="../../../3.ngql-guide/8.clauses-and-options/ttl-options/" title="点击前往 Nebula Graph 网站">TTL 配置</a>。</p>
+<p>c. （可选）标签未设置索引时，用户可以设置 TTL：在 <strong>设置TTL</strong> 模块左上角，点击勾选框，并在展开的列表中设置 <code>TTL_COL</code> 和 <code>TTL_DURATION</code> 参数信息。关于这两个参数的详细信息，参考 <a href="../../../3.ngql-guide/8.clauses-and-options/ttl-options/" title="点击前往 Nebula Graph 网站">TTL 配置</a>。</p>
 </li>
 <li>
-<p>完成设置后，在 <strong>对应的 nGQL</strong>面板，您能看到与上述配置等价的 nGQL 语句。</p>
+<p>完成设置后，在 <strong>对应的 nGQL</strong>面板，用户能看到与上述配置等价的 nGQL 语句。</p>
 </li>
 <li>
 <p>确认无误后，点击 <strong>+ 创建</strong> 按钮。
@@ -1897,13 +1902,13 @@
 <p>在 <strong>图空间列表</strong> 中，找到图空间，点击图空间名称或者在 <strong>操作</strong> 列中点击 <img alt="表示设置的图标" src="../../figs/st-ug-018.png" title="设置"/> 图标。</p>
 </li>
 <li>
-<p>在 <strong>当前图空间</strong> 里确认图空间名称。您也可以通过选择图空间名称切换图空间。</p>
+<p>在 <strong>当前图空间</strong> 里确认图空间名称。用户也可以通过选择图空间名称切换图空间。</p>
 </li>
 <li>
 <p>点击 <strong>标签</strong> 页签，找到需要修改的标签，并在 <strong>操作</strong> 列中，点击 <img alt="表示修改的图标" src="../../figs/st-ug-021.png" title="修改"/> 图标。</p>
 </li>
 <li>
-<p>在 <strong>编辑</strong> 页面，您可以选择以下操作：</p>
+<p>在 <strong>编辑</strong> 页面，用户可以选择以下操作：</p>
 <ul>
 <li>如果要修改属性：在 <strong>定义属性</strong> 面板上，找到需要修改的属性，在右侧点击 <strong>编辑</strong>，再修改属性的数据类型和默认值。之后，点击 <strong>确认</strong> 或者 <strong>取消</strong> 完成修改。</li>
 <li>如果要删除属性：在 <strong>定义属性</strong> 面板上，找到需要删除的属性，在右侧点击 <strong>删除</strong>，经确认后，删除属性。</li>
@@ -1914,7 +1919,7 @@
 </ul>
 </li>
 <li>
-<p>完成设置后，在 <strong>对应的 nGQL</strong> 面板上，您能看到修改后的 nGQL 语句。</p>
+<p>完成设置后，在 <strong>对应的 nGQL</strong> 面板上，用户能看到修改后的 nGQL 语句。</p>
 </li>
 </ol>
 <h2 id="_6">删除标签<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
@@ -1927,19 +1932,19 @@
 <p>在 <strong>图空间列表</strong> 中，找到图空间，点击图空间名称或者在 <strong>操作</strong> 列中点击 <img alt="表示设置的图标" src="../../figs/st-ug-018.png" title="设置"/> 图标。</p>
 </li>
 <li>
-<p>在 <strong>当前图空间</strong> 里确认图空间名称。您也可以通过选择图空间名称切换图空间。</p>
+<p>在 <strong>当前图空间</strong> 里确认图空间名称。用户也可以通过选择图空间名称切换图空间。</p>
 </li>
 <li>
 <p>点击 <strong>标签</strong> 页签，找到需要修改的标签，并在 <strong>操作</strong> 列中，点击 <img alt="表示删除的图标" src="../../figs/st-ug-017.png" title="删除"/> 图标。</p>
 </li>
 </ol>
 <h2 id="_7">后续操作<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
-<p>标签创建成功后，您可以在 <strong>控制台</strong> 上逐条插入点数据，或者使用 <strong>导入</strong> 功能批量插入点数据。</p>
+<p>标签创建成功后，用户可以在 <strong>控制台</strong> 上逐条插入点数据，或者使用 <strong>导入</strong> 功能批量插入点数据。</p>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月10日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

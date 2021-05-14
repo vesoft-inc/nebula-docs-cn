@@ -1162,6 +1162,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -2034,7 +2039,7 @@ nebula&gt; FETCH PROP ON player, t1 "player100";
 | ("player100" :t1{a: "Hello", b: 100} :player{age: 42, name: "Tim Duncan"}) |
 +----------------------------------------------------------------------------+
 </code></pre></div>
-<p>您可以在<code>FETCH</code>语句中组合多个标签和多个点。</p>
+<p>用户可以在<code>FETCH</code>语句中组合多个标签和多个点。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player, t1 "player100", "player103";
 +----------------------------------------------------------------------------+
 | vertices_                                                                  |
@@ -2164,7 +2169,7 @@ nebula&gt; GO FROM "player101" OVER follow \
 | "player101" | "player125" | 0            | 95            |
 +-------------+-------------+--------------+---------------+
 </code></pre></div>
-<p>您也可以通过自定义变量构建类似的查询。</p>
+<p>用户也可以通过自定义变量构建类似的查询。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; $var = GO FROM "player101" OVER follow \
         YIELD follow._src AS s, follow._dst AS d; \
         FETCH PROP ON follow $var.s -&gt; $var.d \
@@ -2184,7 +2189,7 @@ nebula&gt; GO FROM "player101" OVER follow \
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月10日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

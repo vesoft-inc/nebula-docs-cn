@@ -1066,6 +1066,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1981,12 +1986,12 @@
 <h1 id="_1">如何贡献代码和文档<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
 <h2 id="_2">开始之前<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <h3 id="github">github或社区提交问题<a class="headerlink" href="#github" title="Permanent link">¶</a></h3>
-<p>欢迎您为项目贡献任何代码或文档，但是建议您先在<a href="https://github.com/vesoft-inc/nebula-graph">github</a>或<a href="https://discuss.nebula-graph.com.cn/">社区</a>上提交一个问题，和大家共同讨论。</p>
+<p>欢迎为项目贡献任何代码或文档，但是建议先在<a href="https://github.com/vesoft-inc/nebula-graph">github</a>或<a href="https://discuss.nebula-graph.io/">社区</a>上提交一个问题，和大家共同讨论。</p>
 <h3 id="cla">签署贡献者许可协议（CLA）<a class="headerlink" href="#cla" title="Permanent link">¶</a></h3>
 <p>什么是<a href="https://www.apache.org/licenses/contributor-agreements.html">CLA</a>？</p>
 <p>签署协议链接：<a href="https://cla-assistant.io/vesoft-inc/">vesoft inc. Contributor License Agreement</a></p>
 <p>单击按钮<strong>Sign in with GitHub to agree</strong>签署协议。</p>
-<p>如果您有任何问题，请发送邮件至<code>info@vesoft.com</code>。</p>
+<p>如果有任何问题，请发送邮件至<code>info@vesoft.com</code>。</p>
 <h2 id="step_1github_fork">Step 1：通过GitHub fork仓库<a class="headerlink" href="#step_1github_fork" title="Permanent link">¶</a></h2>
 <p>Nebula Graph项目有很多<a href="https://github.com/vesoft-inc">仓库</a>，以<a href="https://github.com/vesoft-inc/nebula-graph">nebula-graph仓库</a>为例：</p>
 <ol>
@@ -2035,12 +2040,12 @@ git remote -v
 </li>
 </ol>
 <h3 id="pre-commit_hook">定义pre-commit hook<a class="headerlink" href="#pre-commit_hook" title="Permanent link">¶</a></h3>
-<p>请将Nebula Graph的pre-commit hook连接到您的<code>.git</code>目录。</p>
-<p>hook将检查您的commit，包括格式、构建、文档生成等。</p>
+<p>请将Nebula Graph的pre-commit hook连接到<code>.git</code>目录。</p>
+<p>hook将检查commit，包括格式、构建、文档生成等。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$working_dir</span>/nebula-graph/.git/hooks
 ln -s <span class="nv">$working_dir</span>/nebula-graph/.linters/cpp/hooks/pre-commit.sh .
 </code></pre></div>
-<p>pre-commit hook有时候可能无法正常执行，您必须手动执行。</p>
+<p>pre-commit hook有时候可能无法正常执行，用户必须手动执行。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> <span class="nv">$working_dir</span>/nebula-graph/.git/hooks
 chmod +x pre-commit
 </code></pre></div>
@@ -2060,7 +2065,7 @@ git rebase upstream/master
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>由于一个PR通常包含多个commit，在合并至master时容易被挤压（squash），因此强烈建议您创建一个独立的分支进行更改。合并后，这个分支可以被丢弃，因此可以使用上述rebase命令将本地master与upstream同步。此外，如果直接将commit提交至 master，您可以需要在master分支使用hard reset，例如：</p>
+<p>由于一个PR通常包含多个commit，在合并至master时容易被挤压（squash），因此强烈建议创建一个独立的分支进行更改。合并后，这个分支可以被丢弃，因此可以使用上述rebase命令将本地master与upstream同步。此外，如果直接将commit提交至 master，用户可以需要在master分支使用hard reset，例如：</p>
 <div class="highlight"><pre><span></span><code>git fetch upstream
 git checkout master
 git reset --hard upstream/master
@@ -2073,7 +2078,7 @@ git push --force origin master
 <h3 id="_3">代码风格<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
 <p><strong>Nebula Graph</strong>采用<code>cpplint</code>来确保代码符合Google的代码风格指南。检查器将在提交代码之前执行。</p>
 <h3 id="_4">单元测试要求<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
-<p>请为您的新功能或Bug修复添加单元测试。</p>
+<p>请为新功能或Bug修复添加单元测试。</p>
 <h3 id="_5">构建代码时开启单元测试<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
 <p>详情请参见<a href="../../4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code/">使用源码安装Nebula Graph</a>。</p>
 <div class="admonition note">
@@ -2090,12 +2095,12 @@ ctest -j<span class="k">$(</span>nproc<span class="k">)</span>
 git fetch upstream
 git rebase upstream/master
 </code></pre></div>
-<p>在其他贡献者将PR合并到基础分支之后，您需要更新head分支。</p>
+<p>在其他贡献者将PR合并到基础分支之后，用户需要更新head分支。</p>
 <h2 id="step_6commit">Step 6：Commit<a class="headerlink" href="#step_6commit" title="Permanent link">¶</a></h2>
 <p>提交代码更改：</p>
 <div class="highlight"><pre><span></span><code>git commit -a
 </code></pre></div>
-<p>您可以使用命令<code>--amend</code>重新编辑之前的代码。</p>
+<p>用户可以使用命令<code>--amend</code>重新编辑之前的代码。</p>
 <h2 id="step_7push">Step 7：Push<a class="headerlink" href="#step_7push" title="Permanent link">¶</a></h2>
 <p>需要审核或离线备份代码时，可以将本地仓库创建的分支push到GitHub的远程仓库。</p>
 <div class="highlight"><pre><span></span><code>git push origin myfeature

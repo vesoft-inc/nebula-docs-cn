@@ -1066,6 +1066,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1948,7 +1953,7 @@
 &lt;/mirror&gt;
 </code></pre></div>
 <p>检查<code>mirrorOf</code>的值是否配置为<code>*</code>，如果为<code>*</code>，请修改为<code>central</code>或<code>*,!SparkPackagesRepo,!bintray-streamnative-maven</code>。</p>
-<p><strong>原因</strong>：Exchange的<code>pom.xml</code>中有两个依赖包不在Maven的central仓库中，<code>pom.xml</code>配置了这两个依赖所在的仓库地址。如果您的maven中配置的镜像地址对应的<code>mirrorOf</code>值为<code>*</code>，那么所有依赖都会在central仓库下载，导致下载失败。</p>
+<p><strong>原因</strong>：Exchange的<code>pom.xml</code>中有两个依赖包不在Maven的central仓库中，<code>pom.xml</code>配置了这两个依赖所在的仓库地址。如果maven中配置的镜像地址对应的<code>mirrorOf</code>值为<code>*</code>，那么所有依赖都会在central仓库下载，导致下载失败。</p>
 <h2 id="_2">执行问题<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <h3 id="method_name_xxx_not_found">报错<code>method name xxx not found</code><a class="headerlink" href="#method_name_xxx_not_found" title="Permanent link">¶</a></h3>
 <p>一般是端口配置错误，需检查Meta服务、Graph服务、Storage服务的端口配置。</p>
@@ -2009,7 +2014,7 @@ nebula-docker-compose_storaged2_1   ./bin/nebula-storaged --fl ...   Up <span cl
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月13日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

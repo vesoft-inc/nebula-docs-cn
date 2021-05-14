@@ -1163,6 +1163,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1955,7 +1960,7 @@
 <h1 id="docker_composenebula_graph">Docker Compose部署Nebula Graph<a class="headerlink" href="#docker_composenebula_graph" title="Permanent link">¶</a></h1>
 <p>有多种方式可以部署Nebula Graph，但是使用Docker Compose通常是最快的方式。</p>
 <h2 id="_1">阅读指南<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>如果您是带着如下问题阅读本文，可以直接单击问题跳转查看对应的说明。</p>
+<p>如果是带着如下问题阅读本文，可以直接单击问题跳转查看对应的说明。</p>
 <ul>
 <li><a href="#_2">部署Nebula Graph之前需要做什么准备工作？</a></li>
 </ul>
@@ -2005,22 +2010,22 @@
 </li>
 </ul>
 <ul>
-<li>如果您使用非root用户部署Nebula Graph，请授权该用户Docker相关的权限。详细信息，请参见<a href="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user">Manage Docker as a non-root user</a>。</li>
+<li>如果使用非root用户部署Nebula Graph，请授权该用户Docker相关的权限。详细信息，请参见<a href="https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user">Manage Docker as a non-root user</a>。</li>
 </ul>
 <ul>
 <li>启动主机上的Docker服务。</li>
 </ul>
 <ul>
-<li>如果您已经通过Docker Compose在主机上部署了另一个版本的Nebula Graph，为避免兼容性问题，需要您删除目录<code>nebula-docker-compose/data</code>。</li>
+<li>如果已经通过Docker Compose在主机上部署了另一个版本的Nebula Graph，为避免兼容性问题，需要删除目录<code>nebula-docker-compose/data</code>。</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>如果您需要备份服务数据，请参见<a href="../6.eco-tool-version/">使用BR备份数据</a> TODO: 未和v2.0.1一起发布。</p>
+<p>如果需要备份服务数据，请参见<a href="../6.eco-tool-version/">使用BR备份数据</a> TODO: 未和v2.0.1一起发布。</p>
 </div>
 <h2 id="nebula_graph">部署和连接Nebula Graph<a class="headerlink" href="#nebula_graph" title="Permanent link">¶</a></h2>
 <ol>
 <li>
-<p>通过Git克隆<code>nebula-docker-compose</code>仓库的<code>master</code>分支到您的主机。</p>
+<p>通过Git克隆<code>nebula-docker-compose</code>仓库的<code>master</code>分支到主机。</p>
 <blockquote>
 <p><strong>禁止</strong>：<code>master</code>分支包含最新的Nebula Graph开发版本的Docker Compose解决方案。请<strong>不要</strong>在生产环境使用此版本。</p>
 </blockquote>
@@ -2063,7 +2068,7 @@ Creating nebula-docker-compose_storaged1_1 ... <span class="k">done</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>您的本地网络可能和示例中的<code>nebula-docker-compose_nebula-net</code>不同，请使用如下命令查看。</p>
+<p>本地网络可能和示例中的<code>nebula-docker-compose_nebula-net</code>不同，请使用如下命令查看。</p>
 </div>
 <div class="highlight"><pre><span></span><code>$ docker network  ls
 NETWORK ID          NAME                               DRIVER              SCOPE
@@ -2153,7 +2158,7 @@ nebula-docker-compose_storaged2_1   ./bin/nebula-storaged --fl ...   Up <span cl
       └── storage2
 </code></pre></div>
 <h2 id="nebula_graph_3">停止Nebula Graph服务<a class="headerlink" href="#nebula_graph_3" title="Permanent link">¶</a></h2>
-<p>您可以执行如下命令停止Nebula Graph服务：</p>
+<p>用户可以执行如下命令停止Nebula Graph服务：</p>
 <div class="highlight"><pre><span></span><code>$ docker-compose down
 </code></pre></div>
 <p>如果返回如下信息，表示已经成功停止服务。</p>
@@ -2179,7 +2184,7 @@ Removing network nebula-docker-compose_nebula-net
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>命令<code>docker-compose down -v</code>将会<strong>删除</strong>所有本地Nebula Graph的数据。如果您使用的是developing或nightly版本，并且有一些兼容性问题，请尝试这个命令。</p>
+<p>命令<code>docker-compose down -v</code>将会<strong>删除</strong>所有本地Nebula Graph的数据。如果使用的是developing或nightly版本，并且有一些兼容性问题，请尝试这个命令。</p>
 </div>
 <h2 id="_3">常见问题<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <h3 id="docker">如何固定Docker映射到外部的端口？<a class="headerlink" href="#docker" title="Permanent link">¶</a></h3>
@@ -2196,9 +2201,9 @@ Removing network nebula-docker-compose_nebula-net
 <h3 id="nebula_graphdocker">如何更新Nebula Graph服务的Docker镜像？<a class="headerlink" href="#nebula_graphdocker" title="Permanent link">¶</a></h3>
 <p>在目录<code>nebula-docker-compose</code>内执行命令<code>docker-compose pull</code>，可以更新Graph服务、Storage服务和Meta服务的镜像。</p>
 <h3 id="docker-compose_pullerror_toomanyrequests">执行命令<code>docker-compose pull</code>报错<code>ERROR: toomanyrequests</code><a class="headerlink" href="#docker-compose_pullerror_toomanyrequests" title="Permanent link">¶</a></h3>
-<p>您可能遇到如下错误：</p>
+<p>可能遇到如下错误：</p>
 <p><code>ERROR: toomanyrequests: You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limit</code></p>
-<p>以上错误表示您已达到Docker Hub的速率限制。解决方案请参见<a href="https://www.docker.com/increase-rate-limit">Understanding Docker Hub Rate Limiting</a>。</p>
+<p>以上错误表示已达到Docker Hub的速率限制。解决方案请参见<a href="https://www.docker.com/increase-rate-limit">Understanding Docker Hub Rate Limiting</a>。</p>
 <h3 id="nebula_console">如何更新Nebula Console？<a class="headerlink" href="#nebula_console" title="Permanent link">¶</a></h3>
 <p>执行如下命令可以更新Nebula Console客户端镜像。</p>
 <div class="highlight"><pre><span></span><code>docker pull vesoft/nebula-console:v2-nightly
@@ -2219,7 +2224,7 @@ Removing network nebula-docker-compose_nebula-net
 <h3 id="nebula-docker-composenebula_graph_200-rc3699nebula_graph">为什么更新nebula-docker-compose仓库（Nebula Graph 2.0.0-RC）后，无法通过端口<code>3699</code>连接Nebula Graph？<a class="headerlink" href="#nebula-docker-composenebula_graph_200-rc3699nebula_graph" title="Permanent link">¶</a></h3>
 <p>在Nebula Graph 2.0.1-RC版本，默认端口从<code>3699</code>改为<code>9669</code>。请使用<code>9669</code>端口连接，或修改配置文件<code>docker-compose.yaml</code>内的端口。</p>
 <h3 id="nebula-docker-compose20210104">为什么更新nebula-docker-compose仓库后，无法访问数据？（2021年01月04日）<a class="headerlink" href="#nebula-docker-compose20210104" title="Permanent link">¶</a></h3>
-<p>如果您在2021年01月04日后更新过nebula-docker-compose仓库，而且之前已经有数据，请修改文件<code>docker-compose.yaml</code>，将端口修改为之前使用的端口。详情请参见<a href="https://github.com/vesoft-inc/nebula-docker-compose/commit/2a612f1c4f0e2c31515e971b24b355b3be69420a">修改默认端口</a>。</p>
+<p>如果在2021年01月04日后更新过nebula-docker-compose仓库，而且之前已经有数据，请修改文件<code>docker-compose.yaml</code>，将端口修改为之前使用的端口。详情请参见<a href="https://github.com/vesoft-inc/nebula-docker-compose/commit/2a612f1c4f0e2c31515e971b24b355b3be69420a">修改默认端口</a>。</p>
 <h3 id="nebula-docker-compose20210127">为什么更新nebula-docker-compose仓库后，无法访问数据？（2021年01月27日）<a class="headerlink" href="#nebula-docker-compose20210127" title="Permanent link">¶</a></h3>
 <p>2021年01月27日修改了数据格式，无法兼容之前的数据，请执行命令<code>docker-compose down -v</code>删除所有本地数据。</p>
 <h2 id="_4">相关文档<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
@@ -2232,7 +2237,7 @@ Removing network nebula-docker-compose_nebula-net
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月13日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

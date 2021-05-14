@@ -1123,6 +1123,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1876,16 +1881,16 @@
 <p>本文介绍Meta服务的架构和功能。</p>
 <h2 id="meta_1">Meta服务架构<a class="headerlink" href="#meta_1" title="Permanent link">¶</a></h2>
 <p><img alt="The architecture of the Meta Service" src="https://docs-cdn.nebula-graph.com.cn/docs-2.0/1.introduction/2.nebula-graph-architecture/meta-architecture1.png"/></p>
-<p>Meta服务是由nebula-metad进程提供的，您可以根据场景配置nebula-metad进程数量：</p>
+<p>Meta服务是由nebula-metad进程提供的，用户可以根据场景配置nebula-metad进程数量：</p>
 <ul>
-<li>测试环境中，您可以在Nebula Graph集群中部署1个或3个nebula-metad进程。如果要部署3个，您可以将它们部署在1台机器上，或者分别部署在不同的机器上。</li>
-<li>生产环境中，建议您在Nebula Graph集群中部署3个nebula-metad进程。请将这些进程部署在不同的机器上以保证高可用。</li>
+<li>测试环境中，用户可以在Nebula Graph集群中部署1个或3个nebula-metad进程。如果要部署3个，用户可以将它们部署在1台机器上，或者分别部署在不同的机器上。</li>
+<li>生产环境中，建议在Nebula Graph集群中部署3个nebula-metad进程。请将这些进程部署在不同的机器上以保证高可用。</li>
 </ul>
 <p>所有nebula-metad进程构成了基于Raft协议的集群，其中一个进程是leader，其他进程都是follower。</p>
 <p>leader是由多数派选举出来，只有leader能够对客户端或其他组件提供服务，其他follower作为候补，如果leader出现故障，会在所有follower中选举出新的leader。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>leader和follower的数据通过Raft协议保持一致，因此leader故障和选举新leader不会导致数据不一致。</p>
+<p>leader和follower的数据通过Raft协议保持一致，因此leader故障和选举新leader不会导致数据不一致。更多关于Raft的介绍见附录。</p>
 </div>
 <h2 id="meta_2">Meta服务功能<a class="headerlink" href="#meta_2" title="Permanent link">¶</a></h2>
 <h3 id="_1">管理用户账号<a class="headerlink" href="#_1" title="Permanent link">¶</a></h3>
@@ -1907,7 +1912,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

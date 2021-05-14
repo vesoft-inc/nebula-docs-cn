@@ -1089,6 +1089,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1807,56 +1812,56 @@
 <h1 id="_1">数据模型<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
 <p>本文介绍Nebula Graph的数据模型。数据模型是一种组织数据并说明它们如何相互关联的模型。</p>
 <h2 id="_2">数据结构<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p>Nebula Graph数据模型使用5种数据结构来保存数据：</p>
+<p>Nebula Graph数据模型使用6种基本的数据结构：</p>
 <ul>
 <li>
-<p><strong>点（vertex）</strong></p>
+<p>图空间(space）</p>
+<p>图空间用于隔离不同团队或者项目的数据。不同图空间的数据是相互隔离的，可以指定不同的存储副本数、权限、分片等。</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>点（vertex）</p>
 <p>点用来保存实体对象，特点如下：</p>
 <ul>
-<li>点是用点标识符（<code>VID</code>）标识的。<code>VID</code>在同一图空间中唯一。</li>
-<li>点必须有至少一个标签（Tag）。</li>
+<li>点是用点标识符（<code>VID</code>）标识的。<code>VID</code>在同一图空间中唯一。VID 是一个 int64, 或者 fixed_string(N)。</li>
+<li>点必须有至少一个标签（Tag)，也可以有多个标签。</li>
 </ul>
 </li>
 </ul>
 <ul>
 <li>
-<p><strong>标签（tag）</strong></p>
-<p>标签可以用于对点进行区分。具有相同标签的点共享相同的属性定义。</p>
-</li>
-</ul>
-<ul>
-<li>
-<p><strong>边（edge）</strong></p>
+<p>边（edge）</p>
 <p>边是用来连接点的，表示两个点之间的关系或行为，特点如下：</p>
 <ul>
+<li>两点之间可以有多条边。</li>
+<li>边是有方向的，不存在无向边。</li>
+<li>四元组 <code>&lt;起点VID、边类型（edgetype）、边排序值(rank)、终点VID&gt;</code> 用于唯一标识一条边。边没有EID。</li>
 <li>一条边有且仅有一个边类型。</li>
-<li>起点、边类型（edge type）、rank、终点可以唯一表示一条边。</li>
-<li>边是有指向的。<code>-&gt;</code>表示边的指向，边可以沿任意方向遍历。</li>
-<li>边必须有rank。rank是一个不可更改的、用户分配的、64位有符号整数。通过它才能识别两个点之间具有相同边类型的边。边按它们的rank排序，值大的边排在前面。默认rank为0。</li>
+<li>一条边有且仅有一个 rank。其为int64, 默认为0。</li>
 </ul>
 </li>
 </ul>
 <ul>
 <li>
-<p><strong>边类型（edge type）</strong></p>
-<p>边类型用于对边进行区分。具有相同边类型的边共享相同的属性定义。</p>
+<p>标签（tag）</p>
+<p>标签由一组事先预定义的属性构成<a href="Tag和edgetype的作用，类似于关系型数据库中点标和边标的表结构。">^Tag</a>。</p>
 </li>
 </ul>
 <ul>
 <li>
-<p><strong>属性（properties）</strong></p>
-<p>属性是指以键值对（key-value）形式存储点或边的相关信息。</p>
+<p>边类型（edgetype）</p>
+<p>边类型由一组事先预定义的属性构成<a href="Tag和edgetype的作用，类似于关系型数据库中点标和边标的表结构。">^Tag</a>。</p>
+</li>
+</ul>
+<ul>
+<li>
+<p>属性（properties）</p>
+<p>属性是指以键值对（key-value）形式存储的信息。</p>
 </li>
 </ul>
 <h2 id="_3">有向属性图<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<p>Nebula Graph将数据存储在有向属性图中。有向属性图是指点和边构成的图，这些边是有方向的。有向属性图表示为：</p>
-<p><strong>G = &lt; V, E, P<sub>V</sub>, P<sub>E</sub> &gt;</strong></p>
-<ul>
-<li><strong>V</strong>是点的集合。</li>
-<li><strong>E</strong>是有向边的集合。</li>
-<li><strong>P<sub>V</sub></strong> 是点的属性。</li>
-<li><strong>P<sub>E</sub></strong> 是边的属性。</li>
-</ul>
+<p>Nebula Graph使用有向属性图模型，指点和边构成的图，这些边是有方向的，点和边都可以有属性。</p>
 <p>下表为篮球运动员数据集的结构示例，包括两种类型的点（<strong>player</strong>、<strong>team</strong>）和两种类型的边（<strong>serve</strong>、<strong>like</strong>）。</p>
 <table>
 <thead>
@@ -1881,13 +1886,13 @@
 <td align="left">表示球队。</td>
 </tr>
 <tr>
-<td align="left">edge type</td>
+<td align="left">edgetype</td>
 <td align="left"><strong>serve</strong></td>
 <td align="left">start_year （int） <br/> end_year （int）</td>
 <td align="left">表示球员的行为。<br/>该行为将球员和球队联系起来，方向是从球员到球队。</td>
 </tr>
 <tr>
-<td align="left">edge type</td>
+<td align="left">edgetype</td>
 <td align="left"><strong>follow</strong></td>
 <td align="left">degree（int）</td>
 <td align="left">表示球员的行为。<br/>该行为将两个球员联系起来，方向是从一个球员到另一个球员。</td>
@@ -1898,7 +1903,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月10日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

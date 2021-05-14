@@ -1094,6 +1094,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1837,7 +1842,7 @@
 <li>可以一次重建多个索引，索引名称之间用英文逗号（,）分隔。如果没有指定索引名称，将会重建所有索引。</li>
 </ul>
 <ul>
-<li>重建完成后，您可以使用命令<code>SHOW {TAG | EDGE} INDEX STATUS</code>检查索引是否重建完成。详情请参见<a href="../5.show-native-index-status/">SHOW INDEX STATUS</a>。</li>
+<li>重建完成后，用户可以使用命令<code>SHOW {TAG | EDGE} INDEX STATUS</code>检查索引是否重建完成。详情请参见<a href="../5.show-native-index-status/">SHOW INDEX STATUS</a>。</li>
 </ul>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG person(name string, age int, gender string, email string);
@@ -1874,7 +1879,7 @@ nebula&gt; SHOW JOB 66;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月19日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

@@ -1099,6 +1099,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1831,10 +1836,10 @@
 <p>本文建议是通用的，在特定领域有例外，请结合实际业务情况进行图建模。</p>
 </div>
 <h2 id="_2">以性能为目标进行建模<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p>目前Nebula Graph没有完美的建模方法，如何建模取决于您想从数据中挖掘的内容。分析数据并根据业务模型创建方便直观的数据模型，测试模型并优化，逐渐适应业务。为了更好的性能，您可以多次更改或重新设计模型。</p>
+<p>目前Nebula Graph没有完美的建模方法，如何建模取决于想从数据中挖掘的内容。分析数据并根据业务模型创建方便直观的数据模型，测试模型并优化，逐渐适应业务。为了更好的性能，用户可以多次更改或重新设计模型。</p>
 <h2 id="_3">合理设置边属性<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <ul>
-<li>深度图遍历的性能较低，为了减少遍历深度，请使用点属性代替边。例如，模型a包括姓名、年龄、眼睛颜色三种属性，建议您创建一个标签<code>person</code>，然后为它添加姓名、年龄、眼睛颜色的属性。如果创建一个包含眼睛颜色的标签和一个边类型<code>has</code>，然后创建一个边用来表示人拥有的眼睛颜色，这种建模方法会降低遍历性能。</li>
+<li>深度图遍历的性能较低，为了减少遍历深度，请使用点属性代替边。例如，模型a包括姓名、年龄、眼睛颜色三种属性，建议创建一个标签<code>person</code>，然后为它添加姓名、年龄、眼睛颜色的属性。如果创建一个包含眼睛颜色的标签和一个边类型<code>has</code>，然后创建一个边用来表示人拥有的眼睛颜色，这种建模方法会降低遍历性能。</li>
 </ul>
 <ul>
 <li>为边创建属性时请勿使用长字符串，Nebula Graph支持在边上存储长字符串属性，但是这些属性会同时保存在出边和入边，请小心写入放大（write amplification）。</li>
@@ -1845,13 +1850,13 @@
 <p>正确使用索引可以加速查询，但是索引会导致写性能下降90%甚至更多，只有在根据点或边的属性定位点或边时才使用索引。</p>
 <div class="admonition note">
 <p class="admonition-title">注意</p>
-<p>请<strong>不要随意</strong>在生产环境中使用索引，除非您很清楚使用索引对业务的影响。</p>
+<p>请<strong>不要随意</strong>在生产环境中使用索引，除非很清楚使用索引对业务的影响。</p>
 </div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

@@ -1166,6 +1166,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -2152,7 +2157,7 @@ nebula&gt; MATCH (v:player) \
 | "Tiago Splitter" | 34    |
 +------------------+-------+
 </code></pre></div>
-<p>如果您使用小写<code>t</code>（<code>STARTS WITH "t"</code>），会返回空集，因为数据库中没有以小写<code>t</code>开头的姓名。</p>
+<p>如果使用小写<code>t</code>（<code>STARTS WITH "t"</code>），会返回空集，因为数据库中没有以小写<code>t</code>开头的姓名。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player) \
         WHERE v.name STARTS WITH "t" \
         RETURN v.name, v.age;
@@ -2191,7 +2196,7 @@ Empty set (time spent 5080/6474 us)
 +---------------+-------+
 </code></pre></div>
 <h3 id="not">结合NOT使用<a class="headerlink" href="#not" title="Permanent link">¶</a></h3>
-<p>您可以结合布尔运算符<code>NOT</code>一起使用，否定字符串匹配条件。</p>
+<p>用户可以结合布尔运算符<code>NOT</code>一起使用，否定字符串匹配条件。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player) \
         WHERE NOT v.name ENDS WITH "R" \
         RETURN v.name, v.age;

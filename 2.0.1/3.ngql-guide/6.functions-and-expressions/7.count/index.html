@@ -1093,6 +1093,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1815,10 +1820,10 @@
 <h1 id="count">count函数<a class="headerlink" href="#count" title="Permanent link">¶</a></h1>
 <p><code>count()</code>函数可以计数指定的值或行数。</p>
 <ul>
-<li>（nGQL扩展）您可以同时使用<code>count()</code>和<code>GROUP BY</code>对指定的值进行分组和计数，再使用<code>YIELD</code>返回结果。</li>
+<li>（nGQL扩展）用户可以同时使用<code>count()</code>和<code>GROUP BY</code>对指定的值进行分组和计数，再使用<code>YIELD</code>返回结果。</li>
 </ul>
 <ul>
-<li>（openCypher方式）您可以使用<code>count()</code>对指定的值进行计数，再使用<code>RETURN</code>返回结果。不需要使用<code>GROUP BY</code>。</li>
+<li>（openCypher方式）用户可以使用<code>count()</code>对指定的值进行计数，再使用<code>RETURN</code>返回结果。不需要使用<code>GROUP BY</code>。</li>
 </ul>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code>count({expr | *})
@@ -1931,7 +1936,7 @@ nebula&gt; MATCH (n:player {name : "Tim Duncan"})-[]-&gt;(friend:player)-[]-&gt;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月13日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

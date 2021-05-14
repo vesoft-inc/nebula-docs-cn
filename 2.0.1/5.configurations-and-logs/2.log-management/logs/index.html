@@ -1066,6 +1066,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1828,10 +1833,10 @@
 <p>Nebula Graph使用<a href="https://github.com/google/glog">glog</a>打印日志，使用<a href="https://gflags.github.io/gflags/">gflags</a>控制日志级别，并在运行时通过HTTP接口动态修改日志级别，方便跟踪问题。</p>
 <h2 id="_2">日志目录<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <p>日志的默认目录为<code>/usr/local/nebula/logs/</code>。</p>
-<p>如果您在Nebula Graph运行过程中删除日志目录，日志不会继续打印，但是不会影响业务。重启服务可以恢复正常。</p>
+<p>如果在Nebula Graph运行过程中删除日志目录，日志不会继续打印，但是不会影响业务。重启服务可以恢复正常。</p>
 <h2 id="_3">配置说明<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <ul>
-<li><code>minloglevel</code>：最小日志级别，即不会记录低于这个级别的日志。可选值为<code>0</code>（INFO）、<code>1</code>（WARNING）、<code>2</code>（ERROR）、<code>3</code>（FATAL）。建议您在调试时设置为<code>0</code>，生产环境中设置为<code>1</code>。如果设置为<code>4</code>，Nebula Graph不会记录任何日志。</li>
+<li><code>minloglevel</code>：最小日志级别，即不会记录低于这个级别的日志。可选值为<code>0</code>（INFO）、<code>1</code>（WARNING）、<code>2</code>（ERROR）、<code>3</code>（FATAL）。建议在调试时设置为<code>0</code>，生产环境中设置为<code>1</code>。如果设置为<code>4</code>，Nebula Graph不会记录任何日志。</li>
 </ul>
 <ul>
 <li><code>v</code>：日志详细级别，值越大，日志记录越详细。可选值为<code>0</code>、<code>1</code>、<code>2</code>、<code>3</code>。</li>
@@ -1905,12 +1910,12 @@
 $ curl -X PUT -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{"minloglevel":0,"v":3}'</span> <span class="s2">"127.0.0.1:19669/flags"</span> <span class="c1"># graphd</span>
 $ curl -X PUT -H <span class="s2">"Content-Type: application/json"</span> -d <span class="s1">'{"minloglevel":0,"v":3}'</span> <span class="s2">"127.0.0.1:19559/flags"</span> <span class="c1"># metad</span>
 </code></pre></div>
-<p>如果您在Nebula Graph运行时修改了日志级别，重启服务后会恢复为配置文件中设置的级别，如果需要永久修改，请修改<a href="../../1.configurations/1.configurations/">配置文件</a>。</p>
+<p>如果在Nebula Graph运行时修改了日志级别，重启服务后会恢复为配置文件中设置的级别，如果需要永久修改，请修改<a href="../../1.configurations/1.configurations/">配置文件</a>。</p>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月9日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

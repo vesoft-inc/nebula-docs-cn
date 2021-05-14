@@ -1109,6 +1109,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1859,9 +1864,9 @@
 <h2 id="_2">使用索引必读<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>不要任意在生产环境中使用索引，除非您很清楚使用索引对业务的影响。索引会导致写性能下降90%甚至更多。索引并不用于查询加速。只用于：根据属性定位到点或边，或者统计点边数量。</p>
+<p>不要任意在生产环境中使用索引，除非很清楚使用索引对业务的影响。索引会导致写性能下降90%甚至更多。索引并不用于查询加速。只用于：根据属性定位到点或边，或者统计点边数量。</p>
 </div>
-<p>如果您必须使用索引，通常按照如下步骤：</p>
+<p>如果必须使用索引，通常按照如下步骤：</p>
 <ol>
 <li>
 <p>导入数据至Nebula Graph。</p>
@@ -1873,7 +1878,7 @@
 <p><a href="../4.rebuild-native-index/">重建索引</a>。</p>
 </li>
 <li>
-<p>使用<a href="../../7.general-query-statements/5.lookup/">LOOKUP</a>或<a href="../../7.general-query-statements/2.match/">MATCH</a>语句查询数据。您不需要指定使用哪个索引，Nebula Graph会自动计算。</p>
+<p>使用<a href="../../7.general-query-statements/5.lookup/">LOOKUP</a>或<a href="../../7.general-query-statements/2.match/">MATCH</a>语句查询数据。不需要指定使用哪个索引，Nebula Graph会自动计算。</p>
 </li>
 </ol>
 <div class="admonition caution">
@@ -1912,7 +1917,7 @@
 </ul>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>长索引会降低Storage服务的扫描性能，以及占用更多内存。建议您将索引长度设置为和要被索引的最长字符串相同。索引长度最长为255，超过部分会被截断。</p>
+<p>长索引会降低Storage服务的扫描性能，以及占用更多内存。建议将索引长度设置为和要被索引的最长字符串相同。索引长度最长为255，超过部分会被截断。</p>
 </div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
@@ -1923,7 +1928,7 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE EDGE INDEX like_index on like();
 </code></pre></div>
-<p>为标签或边类型创建索引后，您可以使用 <code>LOOKUP</code> 语句查找<code>带有该标签的</code>所有点的VID，或者<code>所有该类型的边</code>的<code>对应起始点VID、目的点VID、以及rank</code>。详情请参见<a href="../../7.general-query-statements/5.lookup/">LOOKUP</a>。</p>
+<p>为标签或边类型创建索引后，用户可以使用 <code>LOOKUP</code> 语句查找<code>带有该标签的</code>所有点的VID，或者<code>所有该类型的边</code>的<code>对应起始点VID、目的点VID、以及rank</code>。详情请参见<a href="../../7.general-query-statements/5.lookup/">LOOKUP</a>。</p>
 <h2 id="_5">创建单属性索引<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG INDEX player_index_0 on player(name(10));
 </code></pre></div>

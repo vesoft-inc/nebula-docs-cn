@@ -1066,6 +1066,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1845,7 +1850,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="_1">使用限制<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
-<p>本文描述了您在使用 Studio 时可能会受到的限制。</p>
+<p>本文描述了在使用 Studio 时可能会受到的限制。</p>
 <h2 id="nebula_graph">Nebula Graph 版本支持<a class="headerlink" href="#nebula_graph" title="Permanent link">¶</a></h2>
 <p>目前 Studio v1.x 仅支持 Nebula Graph v1.x，Studio v2.x 仅支持 Nebula Graph v2.x。</p>
 <h2 id="_2">系统架构<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
@@ -1862,12 +1867,12 @@
 <h2 id="_4">数据备份<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <p>目前仅支持在 <strong>控制台</strong> 上以 CSV 格式导出查询结果，不支持其他数据备份方式。</p>
 <h2 id="ngql">nGQL 支持<a class="headerlink" href="#ngql" title="Permanent link">¶</a></h2>
-<p>使用 Docker 版 Studio 时，除以下内容外，您可以在 <strong>控制台</strong> 上执行所有 nGQL 语句语法：</p>
+<p>使用 Docker 版 Studio 时，除以下内容外，用户可以在 <strong>控制台</strong> 上执行所有 nGQL 语句语法：</p>
 <ul>
-<li><code>USE &lt;space_name&gt;</code>：您只能在 <strong>Space</strong> 下拉列表中选择图空间，不能运行这个语句选择图空间。</li>
-<li><strong>控制台</strong> 上使用 nGQL 语句时，您可以直接回车换行，不能使用换行符。</li>
+<li><code>USE &lt;space_name&gt;</code>：只能在 <strong>Space</strong> 下拉列表中选择图空间，不能运行这个语句选择图空间。</li>
+<li><strong>控制台</strong> 上使用 nGQL 语句时，用户可以直接回车换行，不能使用换行符。</li>
 </ul>
-<p>使用云服务版 Studio 时，除以上限制外，您也不能在 <strong>控制台</strong> 上执行用户管理和角色管理相关的语句，包括：</p>
+<p>使用云服务版 Studio 时，除以上限制外，用户也不能在 <strong>控制台</strong> 上执行用户管理和角色管理相关的语句，包括：</p>
 <ul>
 <li><code>CREATE USER</code></li>
 <li><code>ALTER USER</code></li>
@@ -1878,12 +1883,12 @@
 </ul>
 <p>关于语句的详细信息，参考 <a href="../../../7.data-security/1.authentication/2.management-user/" title="点击前往 Nebula Graph 官网">Nebula Graph 用户手册</a>。</p>
 <h2 id="_5">浏览器支持<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
-<p>建议您使用最新版本的 Chrome 访问 Studio。</p>
+<p>建议使用最新版本的 Chrome 访问 Studio。</p>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月10日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

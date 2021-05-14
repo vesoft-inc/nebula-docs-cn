@@ -1094,6 +1094,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1817,7 +1822,7 @@
 <h1 id="_1">自定义变量<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
 <p>Nebula Graph允许将一条语句的结果作为自定义变量传递给另一条语句。</p>
 <h2 id="opencypher">OpenCypher兼容性<a class="headerlink" href="#opencypher" title="Permanent link">¶</a></h2>
-<p>当您引用一个变量的点、边或路径，需要先给它命名。例如：</p>
+<p>当引用一个变量的点、边或路径，需要先给它命名。例如：</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"}) RETURN v;
 +----------------------------------------------------+
 | v                                                  |
@@ -1829,7 +1834,7 @@
 <h2 id="ngql">nGQL扩展<a class="headerlink" href="#ngql" title="Permanent link">¶</a></h2>
 <p>nGQL扩展的自定义变量可以表示为<code>$&lt;var_name&gt;</code>，<code>var_name</code>由字母或数字构成，不允许使用其他字符。</p>
 <p>自定义变量仅在当前执行有效，执行结束后变量也会释放，<strong>不能</strong>在其他客户端或执行中使用之前的自定义变量。</p>
-<p>您可以在复合查询中使用自定义变量。复合查询的详细信息请参见<a href="../1.composite-queries/">复合查询</a>。</p>
+<p>用户可以在复合查询中使用自定义变量。复合查询的详细信息请参见<a href="../1.composite-queries/">复合查询</a>。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>自定义变量区分大小写。</p>
@@ -1848,7 +1853,7 @@ $^.player.name AS Player;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

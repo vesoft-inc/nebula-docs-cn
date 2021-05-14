@@ -1066,6 +1066,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -2072,46 +2077,46 @@
 <li>修改系统级别或调整硬性阈值，请编辑文件<code>/etc/security/limits.conf</code>。这种方式需要重新登录才生效。</li>
 </ul>
 <h3 id="ulimit_-c">ulimit -c<a class="headerlink" href="#ulimit_-c" title="Permanent link">¶</a></h3>
-<p><code>ulimit -c</code>用于限制core文件的大小，建议您设置为<code>unlimited</code>，命令如下：</p>
+<p><code>ulimit -c</code>用于限制core文件的大小，建议设置为<code>unlimited</code>，命令如下：</p>
 <div class="highlight"><pre><span></span><code><span class="nb">ulimit</span> -c unlimited
 </code></pre></div>
 <h3 id="ulimit_-n">ulimit -n<a class="headerlink" href="#ulimit_-n" title="Permanent link">¶</a></h3>
-<p><code>ulimit -n</code>用于限制打开文件的数量，建议您设置为超过10万，例如：</p>
+<p><code>ulimit -n</code>用于限制打开文件的数量，建议设置为超过10万，例如：</p>
 <div class="highlight"><pre><span></span><code><span class="nb">ulimit</span> -n <span class="m">130000</span>
 </code></pre></div>
 <h2 id="_2">内存<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <h3 id="vmswappiness">vm.swappiness<a class="headerlink" href="#vmswappiness" title="Permanent link">¶</a></h3>
-<p><code>vm.swappiness</code>是触发虚拟内存（swap）的空闲内存百分比。值越大，使用swap的可能性就越大，建议您设置为0，表示首先删除页缓存。需要注意的是，0表示<strong>尽量</strong>不使用swap。</p>
+<p><code>vm.swappiness</code>是触发虚拟内存（swap）的空闲内存百分比。值越大，使用swap的可能性就越大，建议设置为0，表示首先删除页缓存。需要注意的是，0表示<strong>尽量</strong>不使用swap。</p>
 <h3 id="vmmin_free_kbytes">vm.min_free_kbytes<a class="headerlink" href="#vmmin_free_kbytes" title="Permanent link">¶</a></h3>
-<p><code>vm.min_free_kbytes</code>用于设置Linux虚拟机保留的最小空闲千字节数。如果您的系统内存足够，建议您设置较大值。例如物理内存为128 GB，可以将<code>vm.min_free_kbytes</code>设置为5 GB。如果值太小，会导致系统无法申请足够的连续物理内存。</p>
+<p><code>vm.min_free_kbytes</code>用于设置Linux虚拟机保留的最小空闲千字节数。如果系统内存足够，建议设置较大值。例如物理内存为128 GB，可以将<code>vm.min_free_kbytes</code>设置为5 GB。如果值太小，会导致系统无法申请足够的连续物理内存。</p>
 <h3 id="vmmax_map_count">vm.max_map_count<a class="headerlink" href="#vmmax_map_count" title="Permanent link">¶</a></h3>
-<p><code>vm.max_map_count</code>用于限制单个进程的VMA（虚拟内存区域）数量。默认值为<code>65530</code>，对于绝大多数应用程序来说已经足够。如果您的应用程序因为内存消耗过大而报错，请增大本参数的值。</p>
+<p><code>vm.max_map_count</code>用于限制单个进程的VMA（虚拟内存区域）数量。默认值为<code>65530</code>，对于绝大多数应用程序来说已经足够。如果应用程序因为内存消耗过大而报错，请增大本参数的值。</p>
 <h3 id="vmdirty_">vm.dirty_*<a class="headerlink" href="#vmdirty_" title="Permanent link">¶</a></h3>
-<p><code>vm.dirty_*</code>是一系列控制系统脏数据缓存的参数。对于写密集型场景，您可以根据需要进行调整（吞吐量优先或延迟优先），建议您使用系统默认值。</p>
+<p><code>vm.dirty_*</code>是一系列控制系统脏数据缓存的参数。对于写密集型场景，用户可以根据需要进行调整（吞吐量优先或延迟优先），建议使用系统默认值。</p>
 <h3 id="transparent_huge_page">Transparent huge page<a class="headerlink" href="#transparent_huge_page" title="Permanent link">¶</a></h3>
-<p>为了降低延迟，您必须关闭THP（transparent huge page）。命令如下：</p>
+<p>为了降低延迟，用户必须关闭THP（transparent huge page）。命令如下：</p>
 <div class="highlight"><pre><span></span><code>root# <span class="nb">echo</span> never &gt; /sys/kernel/mm/transparent_hugepage/enabled
 root# <span class="nb">echo</span> never &gt; /sys/kernel/mm/transparent_hugepage/defrag
 root# swapoff -a <span class="o">&amp;&amp;</span> swapon -a
 </code></pre></div>
 <h2 id="_3">网络<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <h3 id="netipv4tcp_slow_start_after_idle">net.ipv4.tcp_slow_start_after_idle<a class="headerlink" href="#netipv4tcp_slow_start_after_idle" title="Permanent link">¶</a></h3>
-<p><code>net.ipv4.tcp_slow_start_after_idle</code>默认值为1，会导致闲置一段时间后拥塞窗口超时，建议您设置为<code>0</code>，尤其适合大带宽高延迟场景。</p>
+<p><code>net.ipv4.tcp_slow_start_after_idle</code>默认值为1，会导致闲置一段时间后拥塞窗口超时，建议设置为<code>0</code>，尤其适合大带宽高延迟场景。</p>
 <h3 id="netcoresomaxconn">net.core.somaxconn<a class="headerlink" href="#netcoresomaxconn" title="Permanent link">¶</a></h3>
-<p><code>net.core.somaxconn</code>用于限制socket监听的连接队列数量。默认值为<code>128</code>。对于有大量突发连接的场景，建议您设置为不低于<code>1024</code>。</p>
+<p><code>net.core.somaxconn</code>用于限制socket监听的连接队列数量。默认值为<code>128</code>。对于有大量突发连接的场景，建议设置为不低于<code>1024</code>。</p>
 <h3 id="netipv4tcp_max_syn_backlog">net.ipv4.tcp_max_syn_backlog<a class="headerlink" href="#netipv4tcp_max_syn_backlog" title="Permanent link">¶</a></h3>
-<p><code>net.ipv4.tcp_max_syn_backlog</code>用于限制处于SYN_RECV（半连接）状态的TCP连接数量。默认值为<code>128</code>。对于有大量突发连接的场景，建议您设置为不低于<code>1024</code>。</p>
+<p><code>net.ipv4.tcp_max_syn_backlog</code>用于限制处于SYN_RECV（半连接）状态的TCP连接数量。默认值为<code>128</code>。对于有大量突发连接的场景，建议设置为不低于<code>1024</code>。</p>
 <h3 id="netcorenetdev_max_backlog">net.core.netdev_max_backlog<a class="headerlink" href="#netcorenetdev_max_backlog" title="Permanent link">¶</a></h3>
-<p><code>net.core.netdev_max_backlog</code>用于限制队列中数据包的数量。默认值为<code>1000</code>，建议您设置为<code>10000</code>以上，尤其是万兆网卡。</p>
+<p><code>net.core.netdev_max_backlog</code>用于限制队列中数据包的数量。默认值为<code>1000</code>，建议设置为<code>10000</code>以上，尤其是万兆网卡。</p>
 <h3 id="netipv4tcp_keepalive_">net.ipv4.tcp_keepalive_*<a class="headerlink" href="#netipv4tcp_keepalive_" title="Permanent link">¶</a></h3>
 <p><code>net.ipv4.tcp_keepalive_*</code>是一系列保持TCP连接存活的参数。对于使用四层透明负载均衡的应用程序，如果空闲连接异常断开，请增大<code>tcp_keepalive_time</code>和<code>tcp_keepalive_intvl</code>的值。</p>
 <h3 id="netipv4tcp_wmemrmem">net.ipv4.tcp_wmem/rmem<a class="headerlink" href="#netipv4tcp_wmemrmem" title="Permanent link">¶</a></h3>
-<p>TCP套接字发送/接收缓冲池的最小、最大、默认空间。对于大连接，建议您设置为<code>带宽(GB)*往返时延(ms)</code>。</p>
+<p>TCP套接字发送/接收缓冲池的最小、最大、默认空间。对于大连接，建议设置为<code>带宽(GB)*往返时延(ms)</code>。</p>
 <h3 id="scheduler">scheduler<a class="headerlink" href="#scheduler" title="Permanent link">¶</a></h3>
-<p>对于SSD设备，建议您将<code>scheduler</code>设置为<code>noop</code>或者<code>none</code>，路径为<code>/sys/block/DEV_NAME/queue/scheduler</code>。</p>
+<p>对于SSD设备，建议将<code>scheduler</code>设置为<code>noop</code>或者<code>none</code>，路径为<code>/sys/block/DEV_NAME/queue/scheduler</code>。</p>
 <h2 id="_4">其他参数<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <h3 id="kernelcore_pattern">kernel.core_pattern<a class="headerlink" href="#kernelcore_pattern" title="Permanent link">¶</a></h3>
-<p>建议您设置为<code>core</code>，并且将<code>kernel.core_uses_pid</code>设置为<code>1</code>。</p>
+<p>建议设置为<code>core</code>，并且将<code>kernel.core_uses_pid</code>设置为<code>1</code>。</p>
 <h2 id="_5">修改参数<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
 <h3 id="sysctl">sysctl命令<a class="headerlink" href="#sysctl" title="Permanent link">¶</a></h3>
 <ul>

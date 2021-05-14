@@ -1066,6 +1066,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1896,15 +1901,15 @@
 <p><code>Compaction</code>操作会读取硬盘上的数据，然后重组数据结构和索引，然后再写回硬盘，可以成倍提升读取性能。将大量数据写入Nebula Graph后，为了提高读取性能，需要手动触发<code>Compaction</code>操作（全量<code>Compaction</code>）。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p><code>Compaction</code>操作会长时间占用硬盘的IO，建议您在业务低峰期（例如凌晨）执行该操作。</p>
+<p><code>Compaction</code>操作会长时间占用硬盘的IO，建议在业务低峰期（例如凌晨）执行该操作。</p>
 </div>
 <p>Nebula Graph有两种类型的<code>Compaction</code>操作：自动<code>Compaction</code>和全量<code>Compaction</code>。</p>
 <h2 id="compaction_1">自动<code>Compaction</code><a class="headerlink" href="#compaction_1" title="Permanent link">¶</a></h2>
-<p>自动<code>Compaction</code>是在系统读取数据、写入数据或系统重启时自动触发<code>Compaction</code>操作，提升短时间内的读取性能。默认情况下，自动<code>Compaction</code>是开启状态，可能在业务高峰期触发，导致意外抢占IO影响业务。如果需要完全手动控制<code>Compaction</code>操作，您可以关闭自动<code>Compaction</code>。</p>
+<p>自动<code>Compaction</code>是在系统读取数据、写入数据或系统重启时自动触发<code>Compaction</code>操作，提升短时间内的读取性能。默认情况下，自动<code>Compaction</code>是开启状态，可能在业务高峰期触发，导致意外抢占IO影响业务。如果需要完全手动控制<code>Compaction</code>操作，用户可以关闭自动<code>Compaction</code>。</p>
 <h3 id="compaction_2">关闭自动<code>Compaction</code><a class="headerlink" href="#compaction_2" title="Permanent link">¶</a></h3>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
-<p>命令<code>UPDATE CONFIGS</code>会将未设置的参数恢复为默认值，因此修改前您需要使用<code>SHOW CONFIGS STORAGE</code>查看<code>rocksdb_column_family_options</code>配置，然后一起重新传入值。</p>
+<p>命令<code>UPDATE CONFIGS</code>会将未设置的参数恢复为默认值，因此修改前需要使用<code>SHOW CONFIGS STORAGE</code>查看<code>rocksdb_column_family_options</code>配置，然后一起重新传入值。</p>
 </div>
 <div class="highlight"><pre><span></span><code># 查看当前rocksdb_column_family_options设置，复制value列内容。
 nebula&gt; SHOW CONFIGS STORAGE;
@@ -1936,15 +1941,15 @@ nebula&gt; SHOW CONFIGS STORAGE;
 ...
 </code></pre></div>
 <h2 id="compaction_3">全量<code>Compaction</code><a class="headerlink" href="#compaction_3" title="Permanent link">¶</a></h2>
-<p>全量<code>Compaction</code>可以对图空间进行大规模后台操作，例如合并文件、删除TTL过期数据等，该操作需要您手动发起。使用如下语句执行全量<code>Compaction</code>操作：</p>
+<p>全量<code>Compaction</code>可以对图空间进行大规模后台操作，例如合并文件、删除TTL过期数据等，该操作需要手动发起。使用如下语句执行全量<code>Compaction</code>操作：</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>建议您在业务低峰期（例如凌晨）执行该操作，避免大量占用硬盘IO影响业务。</p>
+<p>建议在业务低峰期（例如凌晨）执行该操作，避免大量占用硬盘IO影响业务。</p>
 </div>
 <div class="highlight"><pre><span></span><code>nebula&gt; USE &lt;your_graph_space&gt;;
 nebula&gt; SUBMIT JOB COMPACT;
 </code></pre></div>
-<p>上述命令会返回作业的ID，您可以使用如下命令查看<code>Compaction</code>状态：</p>
+<p>上述命令会返回作业的ID，用户可以使用如下命令查看<code>Compaction</code>状态：</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; SHOW JOB &lt;job_id&gt;;
 </code></pre></div>
 <h2 id="_1">操作建议<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
@@ -1973,7 +1978,7 @@ nebula&gt; SUBMIT JOB COMPACT;
 <h3 id="compaction_4">可以同时在多个图空间执行全量<code>Compaction</code>操作吗？<a class="headerlink" href="#compaction_4" title="Permanent link">¶</a></h3>
 <p>可以，但是此时的硬盘IO会很高，可能会影响效率。</p>
 <h3 id="compaction_5">全量<code>Compaction</code>操作会耗费多长时间？<a class="headerlink" href="#compaction_5" title="Permanent link">¶</a></h3>
-<p>如果您已经设置读写速率限制，例如<code>rate_limit</code>限制为20MB/S时，您可以通过<code>硬盘使用量/rate_limit</code>预估需要耗费的时间。如果您没有设置读写速率限制，根据经验，速率大约为50MB/S。</p>
+<p>如果已经设置读写速率限制，例如<code>rate_limit</code>限制为20MB/S时，用户可以通过<code>硬盘使用量/rate_limit</code>预估需要耗费的时间。如果没有设置读写速率限制，根据经验，速率大约为50MB/S。</p>
 <h3 id="rate_limit">可以动态调整<code>rate_limit</code>吗？<a class="headerlink" href="#rate_limit" title="Permanent link">¶</a></h3>
 <p>不可以。</p>
 <h3 id="compaction_6">全量<code>Compaction</code>操作开始后可以停止吗？<a class="headerlink" href="#compaction_6" title="Permanent link">¶</a></h3>
@@ -1982,7 +1987,7 @@ nebula&gt; SUBMIT JOB COMPACT;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月11日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

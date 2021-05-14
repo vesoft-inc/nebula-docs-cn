@@ -1066,6 +1066,11 @@
         点VID和分片ID
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3.ngql-guide/20.appendix/raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1971,7 +1976,7 @@
 <h1 id="nebula_graph">准备编译、安装和运行Nebula Graph的环境<a class="headerlink" href="#nebula_graph" title="Permanent link">¶</a></h1>
 <p>本文介绍编译、安装Nebula Graph的要求和建议，以及如何预估集群运行所需的资源。</p>
 <h2 id="_1">阅读指南<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>如果您是带着如下问题阅读本文，可以直接单击问题跳转查看对应的说明。</p>
+<p>如果是带着如下问题阅读本文，可以直接单击问题跳转查看对应的说明。</p>
 <ul>
 <li><a href="#nebula_graph_1">编译Nebula Graph源码的要求是什么？</a></li>
 </ul>
@@ -2009,9 +2014,9 @@
 </tbody>
 </table>
 <h3 id="_3">操作系统要求<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
-<p>当前仅支持在Linux系统中编译Nebula Graph，建议您使用内核版本为<code>2.6.32</code>及以上版本的Linux系统。</p>
+<p>当前仅支持在Linux系统中编译Nebula Graph，建议使用内核版本为<code>2.6.32</code>及以上版本的Linux系统。</p>
 <h3 id="_4">软件要求<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
-<p>您的软件版本需要如下表所示，如果它们不符合要求，或者您也不确定它们的版本，请按照<a href="#_5">安装编译所需软件</a>中的步骤进行操作。</p>
+<p>软件版本需要如下表所示，如果它们不符合要求，或者也不确定它们的版本，请按照<a href="#_5">安装编译所需软件</a>中的步骤进行操作。</p>
 <table>
 <thead>
 <tr>
@@ -2115,7 +2120,7 @@
 </table>
 <p>其他第三方软件将在安装（cmake）阶段自动下载并安装到<code>build</code>目录中。</p>
 <h3 id="_5">安装编译所需软件<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
-<p>本小节指导您下载和安装Nebula Graph编译时需要的软件。</p>
+<p>本小节指导下载和安装Nebula Graph编译时需要的软件。</p>
 <ol>
 <li>
 <p>安装依赖包。</p>
@@ -2165,7 +2170,7 @@ $ apt-get install -y make <span class="se">\</span>
 <div class="highlight"><pre><span></span><code>$ g++ --version
 $ cmake --version
 </code></pre></div>
-<p>如果版本正确，您可以跳过本小节。如果不正确，请根据如下步骤安装：</p>
+<p>如果版本正确，用户可以跳过本小节。如果不正确，请根据如下步骤安装：</p>
 <ol>
 <li>
 <p>克隆仓库<code>nebula-common</code>到主机。</p>
@@ -2188,7 +2193,7 @@ $ ./third-party/install-cmake.sh cmake-install
 // 启用CMake。
 $ <span class="nb">source</span> cmake-install/bin/enable-cmake.sh
 
-// 安装GCC。安装到opt目录需要root权限，您也可以修改为其他目录。
+// 安装GCC。安装到opt目录需要root权限，用户也可以修改为其他目录。
 $ sudo ./third-party/install-gcc.sh --prefix<span class="o">=</span>/opt
 
 // 启用GCC。
@@ -2227,7 +2232,7 @@ $ <span class="nb">source</span> /opt/vesoft/toolset/gcc/7.5.0/enable
 </tbody>
 </table>
 <h3 id="_7">操作系统要求<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
-<p>当前仅支持在Linux系统中安装Nebula Graph，建议您在测试环境中使用内核版本为<code>3.9</code>及以上版本的Linux系统。</p>
+<p>当前仅支持在Linux系统中安装Nebula Graph，建议在测试环境中使用内核版本为<code>3.9</code>及以上版本的Linux系统。</p>
 <h3 id="_8">服务架构建议<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
 <table>
 <thead>
@@ -2251,8 +2256,8 @@ $ <span class="nb">source</span> /opt/vesoft/toolset/gcc/7.5.0/enable
 </tr>
 </tbody>
 </table>
-<p>例如单机测试环境，您可以在机器上部署1个metad、1个storaged和1个graphd进程。</p>
-<p>对于更常见的测试环境，例如三台机器构成的集群，您可以按照如下方案部署Nebula Graph。</p>
+<p>例如单机测试环境，用户可以在机器上部署1个metad、1个storaged和1个graphd进程。</p>
+<p>对于更常见的测试环境，例如三台机器构成的集群，用户可以按照如下方案部署Nebula Graph。</p>
 <table>
 <thead>
 <tr>
@@ -2312,8 +2317,8 @@ $ <span class="nb">source</span> /opt/vesoft/toolset/gcc/7.5.0/enable
 </tbody>
 </table>
 <h3 id="_10">操作系统要求<a class="headerlink" href="#_10" title="Permanent link">¶</a></h3>
-<p>当前仅支持在Linux系统中安装Nebula Graph，建议您在生产环境中使用内核版本为<code>3.9</code>及以上版本的Linux系统。</p>
-<p>您可以通过调整一些内核参数来提高Nebula Graph性能，详情请参见<a href="../../5.configurations-and-logs/1.configurations/6.kernel-config/">内核配置</a>。</p>
+<p>当前仅支持在Linux系统中安装Nebula Graph，建议在生产环境中使用内核版本为<code>3.9</code>及以上版本的Linux系统。</p>
+<p>用户可以通过调整一些内核参数来提高Nebula Graph性能，详情请参见<a href="../../5.configurations-and-logs/1.configurations/6.kernel-config/">内核配置</a>。</p>
 <h3 id="_11">服务架构建议<a class="headerlink" href="#_11" title="Permanent link">¶</a></h3>
 <table>
 <thead>
@@ -2337,9 +2342,9 @@ $ <span class="nb">source</span> /opt/vesoft/toolset/gcc/7.5.0/enable
 </tr>
 </tbody>
 </table>
-<p>通常您只需要3个metad进程，每个metad进程会自动创建并维护meta数据的一个副本。</p>
+<p>通常只需要3个metad进程，每个metad进程会自动创建并维护meta数据的一个副本。</p>
 <p>storaged进程的数量不会影响图空间副本的数量。</p>
-<p>您可以在一台机器上部署多个进程，例如五台机器构成的集群，您可以按照如下方案部署Nebula Graph。</p>
+<p>用户可以在一台机器上部署多个进程，例如五台机器构成的集群，用户可以按照如下方案部署Nebula Graph。</p>
 <blockquote>
 <p><strong>警告</strong>：请<strong>不要</strong>跨机房部署集群。</p>
 </blockquote>
@@ -2386,7 +2391,7 @@ $ <span class="nb">source</span> /opt/vesoft/toolset/gcc/7.5.0/enable
 </tbody>
 </table>
 <h2 id="nebula_graph_4">Nebula Graph资源要求<a class="headerlink" href="#nebula_graph_4" title="Permanent link">¶</a></h2>
-<p>您可以预估一个3副本Nebula Graph集群所需的内存、硬盘空间和分区数量。</p>
+<p>用户可以预估一个3副本Nebula Graph集群所需的内存、硬盘空间和分区数量。</p>
 <table>
 <thead>
 <tr>
@@ -2431,7 +2436,7 @@ $ <span class="nb">source</span> /opt/vesoft/toolset/gcc/7.5.0/enable
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>您可以在配置文件<code>nebula-storaged.conf</code>中添加<code>--enable_partitioned_index_filter=true</code>来降低bloom过滤器占用的内存大小，但是在某些随机寻道（random-seek）的情况下，可能会降低读取性能。</p>
+<p>用户可以在配置文件<code>nebula-storaged.conf</code>中添加<code>--enable_partitioned_index_filter=true</code>来降低bloom过滤器占用的内存大小，但是在某些随机寻道（random-seek）的情况下，可能会降低读取性能。</p>
 </div>
 <h2 id="_12">关于存储设备<a class="headerlink" href="#_12" title="Permanent link">¶</a></h2>
 <p>Nebula Graph是针对NVMe SSD进行设计和实现的，所有默认参数都是基于SSD设备进行调优。</p>
@@ -2441,7 +2446,7 @@ $ <span class="nb">source</span> /opt/vesoft/toolset/gcc/7.5.0/enable
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月10日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>
@@ -2453,7 +2458,7 @@ $ <span class="nb">source</span> /opt/vesoft/toolset/gcc/7.5.0/enable
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a class="md-footer__link md-footer__link--prev" href="../../3.ngql-guide/20.appendix/vid-partition/" rel="prev">
+<a class="md-footer__link md-footer__link--prev" href="../../3.ngql-guide/20.appendix/raft/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -2462,7 +2467,7 @@ $ <span class="nb">source</span> /opt/vesoft/toolset/gcc/7.5.0/enable
 <span class="md-footer__direction">
                 上一页
               </span>
-              点VID和分片ID
+              关于Raft的简单介绍
             </div>
 </div>
 </a>
