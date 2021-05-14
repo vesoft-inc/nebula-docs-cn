@@ -1963,7 +1963,7 @@
 <h1 id="nebula_graph">什么是Nebula Graph<a class="headerlink" href="#nebula_graph" title="Permanent link">¶</a></h1>
 <p>Nebula Graph是一款开源的、分布式的、易扩展的原生图数据库，能够承载数千亿个点和数万亿条边的超大规模数据集，并且提供毫秒级查询。</p>
 <h2 id="_1">什么是图数据库<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>图数据库是专门存储庞大的图形网络并从中检索信息的数据库。它可以将图形中的数据高效存储为点（vertex）和边（edge），还可以将属性（property）附加到点和边上。</p>
+<p>图数据库是专门存储庞大的图形网络并从中检索信息的数据库。它可以将图中的数据高效存储为点（vertex）和边（edge），还可以将属性（property）附加到点和边上。</p>
 <p><img alt="What is a graph database" src="https://docs-cdn.nebula-graph.com.cn/docs-2.0/1.introduction/what-is-a-graph-database.png" title="What is a graph database"/></p>
 <p>图数据库适合存储大多数从现实抽象出的数据类型。世界上几乎所有领域的事物都有内在联系，像关系型数据库这样的建模系统会提取实体之间的关系，并将关系单独存储到表和列中，而实体的类型和属性存储在其他列甚至其他表中，这使得数据管理费时费力。</p>
 <p>Nebula Graph作为一个典型的原生图数据库，允许将丰富的关系存储为边，边的类型和属性可以直接附加到边上。</p>
@@ -1971,7 +1971,7 @@
 <h3 id="_2">开源<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
 <p>Nebula Graph是在Apache 2.0和Commons Clause 1.0条款下开发的。越来越多的人，如数据库开发人员、数据科学家、安全专家、算法工程师，都参与到Nebula Graph的设计和开发中来，欢迎访问<a href="https://github.com/vesoft-inc/nebula-graph">Nebula Graph GitHub主页</a>参与开源项目。</p>
 <h3 id="_3">高性能<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
-<p>基于图数据库的特性使用C++编写的Nebula Graph，可以提供毫秒级查询。众多数据库中，Nebula Graph在图数据服务领域展现了卓越的性能，数据规模越大，Nebula Graph优势就越大。详情请参见<a href="https://discuss.nebula-graph.io/t/nebula-graph-1-0-benchmark-report/581">Nebula Graph benchmarking</a>。</p>
+<p>基于图数据库的特性使用C++编写的Nebula Graph，可以提供毫秒级查询。众多数据库中，Nebula Graph在图数据服务领域展现了卓越的性能，数据规模越大，Nebula Graph优势就越大。详情请参见<a href="https://discuss.nebula-graph.com.cn/t/topic/782">Nebula Graph benchmarking页面</a>。</p>
 <h3 id="_4">易扩展<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
 <p>Nebula Graph采用shared-nothing架构，支持在不停止数据库服务的情况下扩缩容。</p>
 <h3 id="_5">易开发<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
@@ -1984,24 +1984,24 @@
 <h3 id="opencypher">兼容openCypher查询语言<a class="headerlink" href="#opencypher" title="Permanent link">¶</a></h3>
 <p>Nebula Graph查询语言，也称为nGQL，是一种声明性的、兼容openCypher的文本查询语言，易于理解和使用。详细语法请参见<a href="../../3.ngql-guide/1.nGQL-overview/1.overview/">nGQL指南</a>。</p>
 <h3 id="_8">灵活数据建模<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
-<p>您可以轻松地在Nebula Graph中建立数据模型，不必将数据强制转换为关系表之类的结构，而且可以自由增加、更新和删除属性。详情请参见<a href="../2.data-model/">数据模型</a>。</p>
+<p>您可以轻松地在Nebula Graph中建立数据模型，不必将数据强制转换为关系表。而且可以自由增加、更新和删除属性。详情请参见<a href="../2.data-model/">数据模型</a>。</p>
 <h3 id="_9">广受欢迎<a class="headerlink" href="#_9" title="Permanent link">¶</a></h3>
-<p>腾讯、vivo、美团和京东数科等科技巨头都在使用Nebula Graph。详情请参见<a href="https://nebula-graph.com.cn/">Nebula Graph官网</a>。</p>
+<p>腾讯、美团、京东、快手、360等科技巨头都在使用Nebula Graph。详情请参见<a href="https://nebula-graph.com.cn/">Nebula Graph官网</a>。</p>
 <h2 id="_10">适用场景<a class="headerlink" href="#_10" title="Permanent link">¶</a></h2>
 <p>Nebula Graph可用于各种基于图的业务场景。为节约转换各类数据到关系型数据库的时间，以及避免复杂查询，建议您使用Nebula Graph。</p>
 <h3 id="_11">欺诈检测<a class="headerlink" href="#_11" title="Permanent link">¶</a></h3>
-<p>金融机构必须仔细研究大量的交易信息，才能检测出潜在的金融欺诈行为，并了解某个欺诈行为和设备的内在关联。这种场景可以通过图形建模，然后借助Nebula Graph，可以很容易地检测出诈骗团伙或其他复杂诈骗行为。</p>
+<p>金融机构必须仔细研究大量的交易信息，才能检测出潜在的金融欺诈行为，并了解某个欺诈行为和设备的内在关联。这种场景可以通过图来建模，然后借助Nebula Graph，可以很容易地检测出诈骗团伙或其他复杂诈骗行为。</p>
 <h3 id="_12">实时推荐<a class="headerlink" href="#_12" title="Permanent link">¶</a></h3>
 <p>Nebula Graph能够及时处理访问者产生的实时信息，并且精准推送文章、视频、产品和服务。</p>
 <h3 id="_13">知识图谱<a class="headerlink" href="#_13" title="Permanent link">¶</a></h3>
 <p>自然语言可以转化为知识图谱，存储在Nebula Graph中。用自然语言组织的问题可以通过智能问答系统中的语义解析器进行解析并重新组织，然后从知识图谱中检索出问题的可能答案，提供给提问人。</p>
 <h3 id="_14">社交网络<a class="headerlink" href="#_14" title="Permanent link">¶</a></h3>
-<p>人际关系信息是典型的图形数据，Nebula Graph可以轻松处理数十亿人和数万亿人际关系的社交网络信息，并在海量并发的情况下，提供快速的好友推荐和工作岗位查询。</p>
+<p>人际关系信息是典型的图数据，Nebula Graph可以轻松处理数十亿人和数万亿人际关系的社交网络信息，并在海量并发的情况下，提供快速的好友推荐和工作岗位查询。</p>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月13日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>
