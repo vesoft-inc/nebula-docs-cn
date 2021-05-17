@@ -55,17 +55,15 @@ nav:
         - Storage服务: 1.introduction/3.nebula-graph-architecture/4.storage-service.md
 
   - 快速入门:
-      - FAQ: 2.quick-start/0.FAQ.md
       - 快速入门流程: 2.quick-start/1.quick-start-workflow.md
       - Docker Compose部署Nebula Graph: 2.quick-start/2.deploy-nebula-graph-with-docker-compose.md
       - 管理Nebula Graph服务: 2.quick-start/5.start-stop-service.md
       - 连接Nebula Graph: 2.quick-start/3.connect-to-nebula-graph.md
       - Nebula Graph常用语法（CRUD）: 2.quick-start/4.nebula-graph-crud.md
-      - 生态工具概览: 2.quick-start/6.eco-tool-version.md
+
   - nGQL指南:
       - nGQL概述:
         - Nebula Graph查询语言（nGQL）: 3.ngql-guide/1.nGQL-overview/1.overview.md
-        - 图建模: 3.ngql-guide/1.nGQL-overview/2.graph-modeling.md
         - 模式: 3.ngql-guide/1.nGQL-overview/3.graph-patterns.md
       - 数据类型:
         - 数值: 3.ngql-guide/3.data-types/1.numeric.md
@@ -201,12 +199,9 @@ nav:
         - BALANCE: 3.ngql-guide/18.operation-and-maintenance-statements/2.balance-syntax.md
         - 作业管理: 3.ngql-guide/18.operation-and-maintenance-statements/4.job-statements.md
 
-      - 附录:
-          - 注释: 3.ngql-guide/20.appendix/comments.md
-          - 大小写区分: 3.ngql-guide/20.appendix/identifier-case-sensitivity.md
-          - 关键字: 3.ngql-guide/20.appendix/keywords-and-reserved-words.md
-          - 点VID和分片ID: 3.ngql-guide/20.appendix/vid-partition.md
-          - 关于Raft的简单介绍: 3.ngql-guide/20.appendix/raft.md
+
+
+
 
   - 安装部署:
       - 准备资源: 4.deployment-and-installation/1.resource-preparations.md
@@ -247,32 +242,6 @@ nav:
       - Compaction: 8.service-tuning/compaction.md
       - Storage负载均衡: 8.service-tuning/load-balance.md
 
-#  - 图算法:
-#    - nebula-algorithm:
-#      - 什么是 nebula-algorithm: nebula-algorithm/na-ug-what-is-nebula-algorithm.md
-#      - 使用限制: nebula-algorithm/na-ug-limitations.md
-#      - 编译 nebula-algorithm: nebula-algorithm/na-ug-compile.md
-#      - 使用示例: nebula-algorithm/na-ug-example.md
-#
-#  - Nebula Flink Connector:
-#    - 什么是 Nebula Flink Connector: nebula-flink/nf-ug-what-is-flink-connector.md
-#    - 编译 Nebula Flink Connector: nebula-flink/nf-ug-compile.md
-#    - 使用限制: nebula-flink/nf-ug-limitations.md
-#    - 自定义 source (NebulaSource): nebula-flink/nf-ug-customize-source.md
-#    - 自定义 sink (NebulaSink): nebula-flink/nf-ug-customize-sink.md
-#    - 特殊说明: nebula-flink/nf-ug-notes.md
-#
-#  - Nebula Spark Connector:
-#    - 什么是 Nebula Spark Connector: spark-connector/sc-ug-what-is-spark-connector.md
-#    - 编译 Nebula Spark Connector: spark-connector/sc-ug-compile.md
-#    - 使用限制: spark-connector/sc-ug-limitations.md
-#    - Nebula Spark Connector Reader:
-#      - 什么是 Nebula Spark Connector Reader: spark-connector/reader/sc-ug-what-is-reader.md
-#      - 使用示例: spark-connector/reader/sc-ug-reader-example.md
-#    - Nebula Spark Connector Writer:
-#      - 什么是 Nebula Spark Connector Writer: spark-connector/writer/sc-ug-what-is-writer.md
-#      - 使用示例: spark-connector/writer/sc-ug-writer-example.md
-#
   - Nebula Graph Studio:
     - 认识 Nebula Graph Studio:
       - 什么是 Nebula Graph Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
@@ -339,10 +308,51 @@ nav:
   - 社区贡献:
       - 如何贡献: 15.contribution/how-to-contribute.md
 
+  - FAQ:
+      - FAQ: 19.FAQ/0.FAQ.md
+
+  - 附录:
+      - VID: 20.appendix/0.vid.md
+      - 图建模: 20.appendix/2.graph-modeling.md
+      - 系统建模: 20.appendix/3.system-design.md
+      - 关于Raft的简单介绍: 20.appendix/4.raft.md
+      - 分片ID: 20.appendix/5.partition.md
+      - 生态工具概览: 20.appendix/6.eco-tool-version.md
+      - 注释: 20.appendix/comments.md
+      - 大小写区分: 20.appendix/identifier-case-sensitivity.md
+      - 关键字: 20.appendix/keywords-and-reserved-words.md
+
+
   - English:  https://docs.nebula-graph.io/
 
   - PDF: ./pdf/NebulaGraph-CN.pdf
 
+
+#  - 图算法:
+#    - nebula-algorithm:
+#      - 什么是 nebula-algorithm: nebula-algorithm/na-ug-what-is-nebula-algorithm.md
+#      - 使用限制: nebula-algorithm/na-ug-limitations.md
+#      - 编译 nebula-algorithm: nebula-algorithm/na-ug-compile.md
+#      - 使用示例: nebula-algorithm/na-ug-example.md
+#
+#  - Nebula Flink Connector:
+#    - 什么是 Nebula Flink Connector: nebula-flink/nf-ug-what-is-flink-connector.md
+#    - 编译 Nebula Flink Connector: nebula-flink/nf-ug-compile.md
+#    - 使用限制: nebula-flink/nf-ug-limitations.md
+#    - 自定义 source (NebulaSource): nebula-flink/nf-ug-customize-source.md
+#    - 自定义 sink (NebulaSink): nebula-flink/nf-ug-customize-sink.md
+#    - 特殊说明: nebula-flink/nf-ug-notes.md
+#
+#  - Nebula Spark Connector:
+#    - 什么是 Nebula Spark Connector: spark-connector/sc-ug-what-is-spark-connector.md
+#    - 编译 Nebula Spark Connector: spark-connector/sc-ug-compile.md
+#    - 使用限制: spark-connector/sc-ug-limitations.md
+#    - Nebula Spark Connector Reader:
+#      - 什么是 Nebula Spark Connector Reader: spark-connector/reader/sc-ug-what-is-reader.md
+#      - 使用示例: spark-connector/reader/sc-ug-reader-example.md
+#    - Nebula Spark Connector Writer:
+#      - 什么是 Nebula Spark Connector Writer: spark-connector/writer/sc-ug-what-is-writer.md
+#      - 使用示例: spark-connector/writer/sc-ug-writer-example.md
 # Extensions
 markdown_extensions:
   - admonition
