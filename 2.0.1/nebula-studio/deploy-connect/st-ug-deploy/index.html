@@ -1956,12 +1956,12 @@
 <ol>
 <li>
 <p>下载 Studio 的部署配置文件。</p>
-<div class="highlight"><pre><span></span><code>git clone https://github.com/vesoft-inc/nebula-web-docker.git
+<div class="highlight"><pre><span></span><code>git clone https://github.com/vesoft-inc/nebula-graph-studio.git
 </code></pre></div>
 </li>
 <li>
-<p>切换到 <code>nebula-web-docker</code> 目录。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> nebula-web-docker
+<p>切换到 <code>nebula-graph-studio</code> 目录。</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> nebula-graph-studio
 </code></pre></div>
 </li>
 <li>
@@ -1997,7 +1997,7 @@ Creating docker_nginx_1    ... <span class="k">done</span>
 <li>
 <p>Nebula Graph 服务已经部署并启动。详细信息，参考<a href="../../../4.deployment-and-installation/1.resource-preparations/" title="点击前往 Nebula Graph 安装部署">Nebula Graph 安装部署</a>。</p>
 <div class="admonition note">
-<p class="admonition-title">说明</p>
+<p class="admonition-title">Note</p>
 <p>用户可以使用Docker Compose或RPM方式部署并启动 Nebula Graph 服务。如果刚开始使用 Nebula Graph，建议使用 Docker Compose 部署 Nebula Graph。详细信息参考 <a href="../../../2.quick-start/2.deploy-nebula-graph-with-docker-compose/" title="点击前往Nebula Graph 安装部署">使用 Docker Compose 部署 Nebula Graph</a>。</p>
 </div>
 </li>
@@ -2006,7 +2006,7 @@ Creating docker_nginx_1    ... <span class="k">done</span>
 <li>
 <p>使用的 Linux 发行版为 CentOS ，安装有 losf 和版本为 v10.16.0 + 以上的 Node.js。</p>
 <div class="admonition note">
-<p class="admonition-title">说明</p>
+<p class="admonition-title">Note</p>
 <p><code>node</code> 及 <code>npm</code> 命令需要安装在 <code>/usr/bin/</code>目录下，以防出现 RPM 安装时 node 命令找不到的情况。
   如果依赖安装于用户个人目录下，如 <code>/usr/local</code>，用户可以使用以下命令建立软连接：</p>
 <div class="highlight"><pre><span></span><code>$ sudo ln -s /usr/local/bin/node /usr/bin/node
@@ -2028,15 +2028,15 @@ $ sudo ln -s /usr/local/bin/npm /usr/bin/npm
 <tbody>
 <tr>
 <td>7001</td>
-<td>Studio提供的web服务</td>
+<td>Studio提供web服务使用。</td>
 </tr>
 <tr>
 <td>8080</td>
-<td>Nebula-http-gateway，Client的HTTP服务</td>
+<td>Nebula HTTP Gateway Client进行HTTP通信使用。</td>
 </tr>
 <tr>
 <td>5699</td>
-<td>Nebula importer文件导入工具，数据导入服务</td>
+<td>Nebula Importer导入数据导入使用。</td>
 </tr>
 </tbody>
 </table>
@@ -2080,15 +2080,15 @@ $ sudo ln -s /usr/local/bin/npm /usr/bin/npm
 </li>
 <li>
 <p>使用<code>sudo rpm -i &lt;rpm&gt;</code>命令安装RPM包。</p>
-<p>例如，安装Studio 2.2.0 版本需要运行以下命令：
- <div class="highlight"><pre><span></span><code>$ sudo rpm -i nebula-graph-studio-2.2.0-1.x86_64.rpm
-</code></pre></div></p>
+<p>例如，安装Studio 2.2.0 版本需要运行以下命令：</p>
+<div class="highlight"><pre><span></span><code>$ sudo rpm -i nebula-graph-studio-2.2.0-1.x86_64.rpm
+</code></pre></div>
 </li>
 </ol>
 <h3 id="_5">卸载<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
-<p>用户可以使用以下的命令卸载 Studio。
+<p>用户可以使用以下的命令卸载 Studio。</p>
 <div class="highlight"><pre><span></span><code>$ sudo rpm -e nebula-graph-studio-2.2.0-1.x86_64.rpm
-</code></pre></div></p>
+</code></pre></div>
 <h3 id="_6">异常处理<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
 <p>如果在安装过程中自动启动失败或是需要手动启动或停止服务，请使用以下命令</p>
 <ul>
@@ -2127,7 +2127,7 @@ $ sudo ln -s /usr/local/bin/npm /usr/bin/npm
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月17日</span>
 </small>
 </div>
 </article>

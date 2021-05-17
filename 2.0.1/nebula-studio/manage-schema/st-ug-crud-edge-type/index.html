@@ -1881,20 +1881,30 @@
 </li>
 <li>
 <p>在 <strong>创建</strong> 页面上，完成以下设置：</p>
-<p>a. <strong>名称</strong>：按提示信息输入合规的边类型名称。本示例中，输入 <code>serve</code>。</p>
-<p>b. （可选）如果边类型需要属性，在 <strong>定义属性</strong>面板的左上角，点击勾选框，并在展开的列表中，完成以下操作：<br/>
-    - 输入属性名称、数据类型和默认值。
-    - 如果一个边类型有多个属性，可以点击 <strong>添加属性</strong> 按钮，并定义属性。
-    - 如果要删除某个属性，在该属性所在行，点击 <img alt="表示删除的图标" src="../../figs/st-ug-020.png" title="删除"> 图标。</img></p>
-<p>c. （可选）边类型未设置索引时，用户可以设置 TTL：在 <strong>设置TTL</strong>面板的左上角，点击勾选框，并在展开的列表中设置 <code>TTL_COL</code> 和 <code>TTL_DURATION</code> 参数信息。关于这两个参数的详细信息，参考 <a href="../../../3.ngql-guide/8.clauses-and-options/ttl-options/" title="点击前往 Nebula Graph 网站">TTL 配置</a>。</p>
+<ol>
+<li>
+<p><strong>名称</strong>：按提示信息输入合规的边类型名称。本示例中，输入 <code>serve</code>。</p>
+</li>
+<li>
+<p>（可选）如果边类型需要属性，在 <strong>定义属性</strong>面板的左上角，点击勾选框，并在展开的列表中，完成以下操作：  </p>
+<ul>
+<li>输入属性名称、数据类型和默认值。</li>
+<li>如果一个边类型有多个属性，可以点击 <strong>添加属性</strong> 按钮，并定义属性。</li>
+<li>如果要删除某个属性，在该属性所在行，点击 <img alt="表示删除的图标" src="../../figs/st-ug-020.png" title="删除"> 图标。</img></li>
+</ul>
+</li>
+<li>
+<p>（可选）边类型未设置索引时，用户可以设置 TTL：在 <strong>设置TTL</strong>面板的左上角，点击勾选框，并在展开的列表中设置 <code>TTL_COL</code> 和 <code>TTL_DURATION</code> 参数信息。关于这两个参数的详细信息，参考 <a href="../../../3.ngql-guide/8.clauses-and-options/ttl-options/" title="点击前往 Nebula Graph 网站">TTL 配置</a>。</p>
+</li>
+</ol>
 </li>
 <li>
 <p>完成设置后，在 <strong>对应的nGQL语句</strong> 面板上，用户能看到与上述配置等价的 nGQL 语句。<br/>
 <img alt="定义边类型 action 的属性" src="../../figs/st-ug-022-1.png" title="定义边类型"/></p>
 </li>
 <li>
-<p>确认无误后，点击 <strong>+ 创建</strong> 按钮。<br/>
-   如果边类型创建成功，<strong>定义属性</strong>面板会显示这个边类型的属性列表。</p>
+<p>确认无误后，点击 <strong>+ 创建</strong> 按钮。
+  如果边类型创建成功，<strong>定义属性</strong>面板会显示这个边类型的属性列表。</p>
 </li>
 </ol>
 <h2 id="_5">修改边类型<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
@@ -1928,6 +1938,10 @@
 </li>
 </ol>
 <h2 id="_6">删除边类型<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>删除标签前先确认<a href="../../../3.ngql-guide/10.tag-statements/2.drop-tag/">影响</a>，已删除的数据如未<a href="../../../7.data-security/3.manage-snapshot/">备份</a>无法恢复。</p>
+</div>
 <p>按以下步骤使用 <strong>Schema</strong> 删除边类型：</p>
 <ol>
 <li>
@@ -1942,6 +1956,9 @@
 <li>
 <p>点击 <strong>边类型</strong> 页签，找到需要修改的边类型，并在 <strong>操作</strong> 列中，点击 <img alt="表示删除的图标" src="../../figs/st-ug-017.png" title="删除"/> 图标。</p>
 </li>
+<li>
+<p>在弹出的对话框中点击 <strong>确认</strong>。</p>
+</li>
 </ol>
 <h2 id="_7">后续操作<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
 <p>边类型创建成功后，用户可以在 <strong>控制台</strong> 上逐条插入边数据，或者使用 <strong>导入</strong> 功能批量插入边数据。</p>
@@ -1949,7 +1966,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月17日</span>
 </small>
 </div>
 </article>

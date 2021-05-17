@@ -1848,7 +1848,7 @@
 <p>在 <strong>上传文件</strong> 页面，点击 <strong>上传文件</strong> 按钮，并选择需要的 CSV 文件。本示例中，选择 <code>edge_serve.csv</code>、<code>edge_follow.csv</code>、<code>vertex_player.csv</code> 和 <code>vertex_team.csv</code> 文件。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>用户可以一次选择多个 CSV 文件。</p>
+<p>一次可以选择多个 CSV 文件，本文使用的 CSV 文件可以在<a href="../st-ug-plan-schema/">规划 Schema </a>中下载。</p>
 </div>
 </li>
 <li>
@@ -1868,7 +1868,7 @@
 <img alt="在数据源中点击“选择”" src="../../figs/st-ug-009-1.png" title="为 vertexId 选择数据源"> </img></p>
 </li>
 <li>
-<p>在弹出对话框中，选择数据列。在本示例中，<code>user.csv</code> 中仅有一列数据用于生成代表用户的 VID，<code>course.csv</code> 中选择表示 <code>courseName</code> 信息的 <strong>Column 1</strong> 用于生成代表课程的 VID。  </p>
+<p>在弹出对话框中，选择数据列。在本示例中，<code>user.csv</code> 中仅有一列数据用于生成代表用户的 VID，<code>course.csv</code> 中选择表示 <code>courseName</code> 信息的 <strong>Column 1</strong> 用于生成代表课程的 VID。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>在同一个图空间中，VID 始终唯一，不可重复。关于 VID 的信息，参考 <a href="../../../3.ngql-guide/20.appendix/vid-partition/" title="点击进入 Nebula Graph 用户手册">Nebula Graph 的点ID和分片ID</a>。 </p>
@@ -1892,11 +1892,11 @@
 <p><img alt="course类点对应的属性数据源" src="../../figs/st-ug-010-1.png" title="为点属性选择数据源"> </img></p>
 </li>
 <li>
-<p>(可选) 如果有多个标签数据文件，重复步骤 5 到步骤 8。</p>
+<p>（可选）如果有多个标签数据文件，重复步骤 5 到步骤 8。</p>
 </li>
 <li>
 <p>完成配置后，点击 <strong>下一步</strong>。<br/>
-    界面提示 <strong>配置验证成功</strong>，表示标签数据源绑定成功。</p>
+  界面提示 <strong>配置验证成功</strong>，表示标签数据源绑定成功。</p>
 </li>
 <li>
 <p>在 <strong>关联边</strong> 页面，点击 <strong>+ 绑定数据源</strong> 按钮，在对话框中选择边数据文件，并点击 <strong>确认</strong> 按钮。如本示例中的 <code>edge_follow.csv</code> 文件。</p>
@@ -1912,7 +1912,8 @@
 <p>完成设置后，点击 <strong>下一步</strong> 按钮。</p>
 </li>
 <li>
-<p>在 <strong>导入</strong> 页面，点击 <strong>导入</strong> 按钮开始导入数据。在 <strong>log</strong> 页面上，用户可以看到数据导入进度。导入所需时间因数据量而异。导入过程中，用户可以点击 <strong>终止导入</strong> 停止数据导入。当 <strong>log</strong> 页面显示如图所示信息时，表示数据导入完成。  </p>
+<p>在 <strong>导入</strong> 页面，点击 <strong>导入</strong> 按钮开始导入数据。
+  在 <strong>log</strong> 页面上可以看到数据导入进度。导入所需时间因数据量而异。导入过程中可以点击 <strong>终止导入</strong> 停止数据导入。当 <strong>log</strong> 页面显示如图所示信息时，表示数据导入完成。  </p>
 <p><img alt="log 里最后显示导入操作完成的时间、导入的行数以及操作的行数" src="../../figs/st-ug-005-1.png" title="导入结束时的 log 信息"/></p>
 </li>
 </ol>
@@ -1922,7 +1923,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月17日</span>
 </small>
 </div>
 </article>
