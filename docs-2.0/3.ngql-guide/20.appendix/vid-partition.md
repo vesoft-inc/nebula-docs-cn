@@ -2,7 +2,7 @@
 
 ## 点VID（`VID`）
 
-在Nebula Graph中，插入点时必须用点的ID（`VID`）标识这个点。`VID`有如下特点：
+在Nebula Graph中，插入点时必须用点的ID（`VID`，也有些地方称为`VertexID`）标识这个点。`VID`有如下特点：
 
 - `VID`数据类型可以为定长字符串或64位整数。
 
