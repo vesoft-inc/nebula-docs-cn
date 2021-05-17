@@ -2005,17 +2005,17 @@
 <tr>
 <td align="left">storage3</td>
 <td align="left">192.168.0.8</td>
-<td align="left">29779</td>
+<td align="left">9779</td>
 </tr>
 <tr>
 <td align="left">storage4</td>
 <td align="left">192.168.0.9</td>
-<td align="left">29779</td>
+<td align="left">9779</td>
 </tr>
 </tbody>
 </table>
 <p>请执行如下命令：</p>
-<div class="highlight"><pre><span></span><code>BALANCE DATA REMOVE 192.168.0.8:29779,192.168.0.9:29779;
+<div class="highlight"><pre><span></span><code>BALANCE DATA REMOVE 192.168.0.8:9779,192.168.0.9:9779;
 </code></pre></div>
 <p>Nebula Graph将启动一个负载均衡任务，迁移storage3和storage4中的分片，然后将服务器从集群中移除。</p>
 <h2 id="leader">均衡leader分布<a class="headerlink" href="#leader" title="Permanent link">¶</a></h2>
