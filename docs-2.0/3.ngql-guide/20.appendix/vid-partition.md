@@ -16,7 +16,7 @@
 
 ## 分片ID
 
-点和边分布在不同的分片，分片分布在不同的机器。如果您需要将某些点放置在相同的分片（例如在一台机器上），可以参考[公式或代码](https://github.com/vesoft-inc/nebula-common/blob/master/src/common/clients/meta/MetaClient.cpp)。
+点和边分布在不同的分片，分片分布在不同的机器。如果需要将某些点放置在相同的分片（例如在一台机器上），可以参考[公式或代码](https://github.com/vesoft-inc/nebula-common/blob/master/src/common/clients/meta/MetaClient.cpp)。
 
 下文用简单代码说明VID和分片的关系。
 
@@ -46,4 +46,4 @@ pId = vid % numParts + 1;
 |`numParts`|`VID`所在图空间的分片数，即[CREATE SPACE](../9.space-statements/1.create-space.md)语句中的`partition_num`值。|
 |`pId`|`VID`所在分片的ID。|
 
-例如有100个分片，`VID`为1、101和1001的三个点将会存储在相同的分片。分片ID和机器地址之间的映射是随机的，所以您不能假定任何两个分片位于同一台机器上。
+例如有100个分片，`VID`为1、101和1001的三个点将会存储在相同的分片。分片ID和机器地址之间的映射是随机的，所以不能假定任何两个分片位于同一台机器上。
