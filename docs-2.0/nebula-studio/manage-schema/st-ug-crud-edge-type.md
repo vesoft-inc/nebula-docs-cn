@@ -70,7 +70,7 @@ Studio v{{ studio.base220 }} 及以后版本。请更新版本，详细操作参
 ## 删除边类型
 
 !!! danger
-    删除标签前先确认[影响](../../3.ngql-guide/10.tag-statements/2.drop-tag.md，已删除的数据如未[备份](../../7.data-security/3.manage-snapshot.md)无法恢复。
+    删除标签前先确认[影响](../../3.ngql-guide/10.tag-statements/2.drop-tag.md)，已删除的数据如未[备份](../../7.data-security/3.manage-snapshot.md)无法恢复。
 
 按以下步骤使用 **Schema** 删除边类型：
 
