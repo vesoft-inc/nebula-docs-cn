@@ -20,6 +20,6 @@
 - 参数说明
   - [配置说明](parameter-reference/ex-ug-parameter.md)
   - [导入命令参数](parameter-reference/ex-ug-para-import-command.md)
-- [常见问题](ex-ug-faq.md)
+- [常见问题](ex-ug-FAQ.md)
 - 错误信息(TODO:doc)
 
