@@ -9,9 +9,9 @@
 <meta content="Nebula Graph" name="author"/>
 <link href="https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-import/import-csv-file/" rel="canonical"/>
 <link href="../../../../../assets/images/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.3" name="generator"/>
-<title>读取 .csv 文件 - Nebula Graph Database 内核手册</title>
-<link href="../../../../../assets/stylesheets/main.e35208c4.min.css" rel="stylesheet"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.4" name="generator"/>
+<title>导入CSV文件 - Nebula Graph Database 内核手册</title>
+<link href="../../../../../assets/stylesheets/main.bde7dde4.min.css" rel="stylesheet"/>
 <link href="../../../../../assets/stylesheets/palette.ef6f36e2.min.css" rel="stylesheet"/>
 <meta content="#ffc105" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -28,7 +28,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#csv">
+<a class="md-skip" href="#nebula_importercsv">
           跳转至
         </a>
 </div>
@@ -52,7 +52,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              读取 .csv 文件
+              导入CSV文件
             
           </span>
 </div>
@@ -732,8 +732,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
 <label class="md-nav__link" for="__nav_3">
         编译、部署与运维
         <span class="md-nav__icon md-icon"></span>
@@ -919,8 +919,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" id="__nav_3_5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" id="__nav_3_5" type="checkbox"/>
 <label class="md-nav__link" for="__nav_3_5">
         批量数据管理
         <span class="md-nav__icon md-icon"></span>
@@ -931,8 +931,8 @@
           批量数据管理
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_1" id="__nav_3_5_1" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_1" id="__nav_3_5_1" type="checkbox"/>
 <label class="md-nav__link" for="__nav_3_5_1">
         离线数据导入
         <span class="md-nav__icon md-icon"></span>
@@ -943,9 +943,8 @@
           离线数据导入
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="./">
         读取 .csv 文件
       </a>
 </li>
@@ -1118,8 +1117,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" id="__nav_5" type="checkbox"/>
 <label class="md-nav__link" for="__nav_5">
         数据传输
         <span class="md-nav__icon md-icon"></span>
@@ -1260,14 +1259,35 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" id="__nav_5_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" id="__nav_5_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_5_2">
+        Nebula Importer
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Nebula Importer" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+          Nebula Importer
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<a class="md-nav__link md-nav__link--active" href="./">
+        导入CSV文件
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" id="__nav_5_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_3">
         Nebula Flink Connector
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Nebula Flink Connector" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_5_2">
+<label class="md-nav__title" for="__nav_5_3">
 <span class="md-nav__icon md-icon"></span>
           Nebula Flink Connector
         </label>
@@ -1306,13 +1326,13 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" id="__nav_5_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5_3">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" id="__nav_5_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4">
         Nebula Spark Connector
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Nebula Spark Connector" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_5_3">
+<label class="md-nav__title" for="__nav_5_4">
 <span class="md-nav__icon md-icon"></span>
           Nebula Spark Connector
         </label>
@@ -1333,13 +1353,13 @@
       </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3_4" id="__nav_5_3_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5_3_4">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4_4" id="__nav_5_4_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4_4">
         Nebula Spark Connector Reader
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Nebula Spark Connector Reader" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_5_3_4">
+<label class="md-nav__title" for="__nav_5_4_4">
 <span class="md-nav__icon md-icon"></span>
           Nebula Spark Connector Reader
         </label>
@@ -1358,13 +1378,13 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3_5" id="__nav_5_3_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5_3_5">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4_5" id="__nav_5_4_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4_5">
         Nebula Spark Connector Writer
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Nebula Spark Connector Writer" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_5_3_5">
+<label class="md-nav__title" for="__nav_5_4_5">
 <span class="md-nav__icon md-icon"></span>
           Nebula Spark Connector Writer
         </label>
@@ -1731,13 +1751,13 @@
 <a class="md-content__button md-icon" href="https://github.com/vesoft-inc/nebula-docs-cn/edit/v1.2.1/docs/manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-import/import-csv-file.md" title="编辑此页">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
-<h1 id="csv">csv 导入工具<a class="headerlink" href="#csv" title="Permanent link">¶</a></h1>
-<p>见 <a href="https://github.com/vesoft-inc/nebula-importer">vesoft-inc/nebula-importer</a>。</p>
+<h1 id="nebula_importercsv">Nebula Importer导入CSV文件<a class="headerlink" href="#nebula_importercsv" title="Permanent link">¶</a></h1>
+<p>请参见<a href="https://github.com/vesoft-inc/nebula-importer/blob/v1/README_zh-CN.md">vesoft-inc/nebula-importer</a>。</p>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2020年4月29日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月25日</span>
 </small>
 </div>
 </article>
@@ -1746,7 +1766,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a class="md-footer__link md-footer__link--prev" href="../../../4.account-management-statements/revoke-syntax/" rel="prev">
+<a class="md-footer__link md-footer__link--prev" href="../../../../../nebula-exchange/parameter-reference/ex-ug-para-import-command/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -1755,17 +1775,17 @@
 <span class="md-footer__direction">
                 上一页
               </span>
-              Revoke
+              导入命令参数
             </div>
 </div>
 </a>
-<a class="md-footer__link md-footer__link--next" href="../spark-writer/" rel="next">
+<a class="md-footer__link md-footer__link--next" href="../../../../../nebula-flink/nf-ug-what-is-flink-connector/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 下一页
               </span>
-              Spark 导入工具
+              什么是 Nebula Flink Connector
             </div>
 </div>
 <div class="md-footer__button md-icon">
@@ -1797,8 +1817,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../../../../..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../../../assets/javascripts/workers/search.fe42c31b.min.js", "version": {"method": "mike"}}</script>
-<script src="../../../../../assets/javascripts/bundle.4ea5477f.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../../../..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../../../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": {"method": "mike"}}</script>
+<script src="../../../../../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
 <script src="../../../../../js/version-select.js"></script>
 </body>
 </html>

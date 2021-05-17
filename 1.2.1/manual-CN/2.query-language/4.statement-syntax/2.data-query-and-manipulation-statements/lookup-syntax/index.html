@@ -9,9 +9,9 @@
 <meta content="Nebula Graph" name="author"/>
 <link href="https://docs.nebula-graph.com.cn/manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/lookup-syntax/" rel="canonical"/>
 <link href="../../../../../assets/images/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.3" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.4" name="generator"/>
 <title>LOOKUP - Nebula Graph Database 内核手册</title>
-<link href="../../../../../assets/stylesheets/main.e35208c4.min.css" rel="stylesheet"/>
+<link href="../../../../../assets/stylesheets/main.bde7dde4.min.css" rel="stylesheet"/>
 <link href="../../../../../assets/stylesheets/palette.ef6f36e2.min.css" rel="stylesheet"/>
 <meta content="#ffc105" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -1299,11 +1299,31 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" id="__nav_5_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_5_2">
+        Nebula Importer
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Nebula Importer" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+          Nebula Importer
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../3.build-develop-and-administration/5.storage-service-administration/data-import/import-csv-file/">
+        导入CSV文件
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" id="__nav_5_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_3">
         Nebula Flink Connector
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Nebula Flink Connector" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_5_2">
+<label class="md-nav__title" for="__nav_5_3">
 <span class="md-nav__icon md-icon"></span>
           Nebula Flink Connector
         </label>
@@ -1342,13 +1362,13 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" id="__nav_5_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5_3">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" id="__nav_5_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4">
         Nebula Spark Connector
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Nebula Spark Connector" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_5_3">
+<label class="md-nav__title" for="__nav_5_4">
 <span class="md-nav__icon md-icon"></span>
           Nebula Spark Connector
         </label>
@@ -1369,13 +1389,13 @@
       </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3_4" id="__nav_5_3_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5_3_4">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4_4" id="__nav_5_4_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4_4">
         Nebula Spark Connector Reader
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Nebula Spark Connector Reader" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_5_3_4">
+<label class="md-nav__title" for="__nav_5_4_4">
 <span class="md-nav__icon md-icon"></span>
           Nebula Spark Connector Reader
         </label>
@@ -1394,13 +1414,13 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3_5" id="__nav_5_3_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5_3_5">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4_5" id="__nav_5_4_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4_5">
         Nebula Spark Connector Writer
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Nebula Spark Connector Writer" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_5_3_5">
+<label class="md-nav__title" for="__nav_5_4_5">
 <span class="md-nav__icon md-icon"></span>
           Nebula Spark Connector Writer
         </label>
@@ -1800,14 +1820,14 @@
 <h1 id="lookup">LOOKUP 语法<a class="headerlink" href="#lookup" title="Permanent link">¶</a></h1>
 <p><code>LOOKUP</code> 语句指定过滤条件对数据进行查询。<code>LOOKUP</code> 语句之后通常跟着 <code>WHERE</code> 子句。<code>WHERE</code> 子句用于向条件中添加过滤性的谓词，从而对数据进行过滤。</p>
 <p><strong>注意：</strong> 在使用 <code>LOOKUP</code> 语句之前，请确保已创建索引。查看<a href="../../1.data-definition-statements/">索引文档</a>了解有关索引的更多信息。</p>
-<div class="highlight"><pre><span></span><code>LOOKUP ON {&lt;vertex_tag&gt; | &lt;edge_type&gt;} WHERE &lt;expression&gt; [ AND | OR expression ...]) ] [YIELD &lt;return_list&gt;]
+<div class="highlight"><pre><span></span><code>LOOKUP ON {&lt;vertex_tag&gt; | &lt;edge_type&gt;} WHERE &lt;expression&gt; [ AND | UNION expression ...]) ] [YIELD &lt;return_list&gt;]
 
 &lt;return_list&gt;
     &lt;col_name&gt; [AS &lt;col_alias&gt;] [, &lt;col_name&gt; [AS &lt;col_alias&gt;] ...]
 </code></pre></div>
 <ul>
 <li><code>LOOKUP</code> 语句用于寻找点或边的集合。</li>
-<li><code>WHERE</code> 指定被筛选的逻辑条件。同样支持逻辑关键词 AND、OR、NOT，详情参见 <a href="../where-syntax/">WHERE</a> 的用法。
+<li><code>WHERE</code> 指定被筛选的逻辑条件。同样支持逻辑关键词 AND、UNION、NOT，详情参见 <a href="../where-syntax/">WHERE</a> 的用法。
   <strong>注意：</strong> <code>WHERE</code> 子句在 <code>LOOKUP</code> 中暂不支持如下操作：<ul>
 <li><code>$-</code> 和 <code>$^</code></li>
 <li>在关系表达式中，暂不支持操作符两边都是field-name 的表达式，如 (tagName.column1 &gt; tagName.column2)</li>
@@ -1949,7 +1969,7 @@ nebula&gt; LOOKUP ON t WHERE p1 == 1 and p2 == 1 and p3 == 1;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月15日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>
@@ -2009,8 +2029,8 @@ nebula&gt; LOOKUP ON t WHERE p1 == 1 and p2 == 1 and p3 == 1;
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../../../../..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../../../assets/javascripts/workers/search.fe42c31b.min.js", "version": {"method": "mike"}}</script>
-<script src="../../../../../assets/javascripts/bundle.4ea5477f.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../../../..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../../../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": {"method": "mike"}}</script>
+<script src="../../../../../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
 <script src="../../../../../js/version-select.js"></script>
 </body>
 </html>

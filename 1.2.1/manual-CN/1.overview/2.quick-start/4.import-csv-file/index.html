@@ -9,9 +9,9 @@
 <meta content="Nebula Graph" name="author"/>
 <link href="https://docs.nebula-graph.com.cn/manual-CN/1.overview/2.quick-start/4.import-csv-file/" rel="canonical"/>
 <link href="../../../../assets/images/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.3" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.4" name="generator"/>
 <title>导入 .csv 文件 - Nebula Graph Database 内核手册</title>
-<link href="../../../../assets/stylesheets/main.e35208c4.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/main.bde7dde4.min.css" rel="stylesheet"/>
 <link href="../../../../assets/stylesheets/palette.ef6f36e2.min.css" rel="stylesheet"/>
 <meta content="#ffc105" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -250,11 +250,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#go-importer_csv">
     使用 Go-importer 导入 CSV 数据
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#docker_csv">
-    使用 Docker 导入 CSV 数据
   </a>
 </li>
 </ul>
@@ -1314,11 +1309,31 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" id="__nav_5_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_5_2">
+        Nebula Importer
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Nebula Importer" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+          Nebula Importer
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../3.build-develop-and-administration/5.storage-service-administration/data-import/import-csv-file/">
+        导入CSV文件
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" id="__nav_5_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_3">
         Nebula Flink Connector
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Nebula Flink Connector" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_5_2">
+<label class="md-nav__title" for="__nav_5_3">
 <span class="md-nav__icon md-icon"></span>
           Nebula Flink Connector
         </label>
@@ -1357,13 +1372,13 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" id="__nav_5_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5_3">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" id="__nav_5_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4">
         Nebula Spark Connector
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Nebula Spark Connector" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_5_3">
+<label class="md-nav__title" for="__nav_5_4">
 <span class="md-nav__icon md-icon"></span>
           Nebula Spark Connector
         </label>
@@ -1384,13 +1399,13 @@
       </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3_4" id="__nav_5_3_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5_3_4">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4_4" id="__nav_5_4_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4_4">
         Nebula Spark Connector Reader
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Nebula Spark Connector Reader" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_5_3_4">
+<label class="md-nav__title" for="__nav_5_4_4">
 <span class="md-nav__icon md-icon"></span>
           Nebula Spark Connector Reader
         </label>
@@ -1409,13 +1424,13 @@
 </nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3_5" id="__nav_5_3_5" type="checkbox"/>
-<label class="md-nav__link" for="__nav_5_3_5">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4_5" id="__nav_5_4_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_5_4_5">
         Nebula Spark Connector Writer
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Nebula Spark Connector Writer" class="md-nav" data-md-level="3">
-<label class="md-nav__title" for="__nav_5_3_5">
+<label class="md-nav__title" for="__nav_5_4_5">
 <span class="md-nav__icon md-icon"></span>
           Nebula Spark Connector Writer
         </label>
@@ -1809,11 +1824,6 @@
     使用 Go-importer 导入 CSV 数据
   </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#docker_csv">
-    使用 Docker 导入 CSV 数据
-  </a>
-</li>
 </ul>
 </nav>
 </li>
@@ -1829,13 +1839,19 @@
 </a>
 <h1 id="csv">CSV文件导入示例<a class="headerlink" href="#csv" title="Permanent link">¶</a></h1>
 <p>以下示例将指导您如何使用 <a href="https://github.com/vesoft-inc/nebula-importer"><strong>Nebula Importer</strong></a> 将 CSV 数据导入到 <strong>Nebula Graph</strong> 中。在此示例中，<strong>Nebula Graph</strong> 通过 <code>Docker</code> 和 <code>Docker Compose</code> 安装。我们将通过以下步骤引导您完成该示例：</p>
-<ol>
-<li><a href="#启动-Nebula-Graph-服务">启动 Nebula Graph 服务</a></li>
-<li><a href="#创建点和边的-Schema">创建点和边的 Schema</a></li>
+<ul>
+<li><a href="#csv文件导入示例">CSV文件导入示例</a><ul>
+<li><a href="#启动-nebula-graph-服务">启动 <strong>Nebula Graph</strong> 服务</a></li>
+<li><a href="#创建点和边的-schema">创建点和边的 Schema</a></li>
 <li><a href="#准备配置文件">准备配置文件</a></li>
-<li><a href="#准备-CSV-数据">准备 CSV 数据</a></li>
-<li><a href="#导入-CSV-数据">导入 CSV 数据</a></li>
-</ol>
+<li><a href="#准备-csv-数据">准备 CSV 数据</a></li>
+<li><a href="#导入-csv-数据">导入 CSV 数据</a><ul>
+<li><a href="#使用-go-importer-导入-csv-数据">使用 Go-importer 导入 CSV 数据</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="nebula_graph">启动 <strong>Nebula Graph</strong> 服务<a class="headerlink" href="#nebula_graph" title="Permanent link">¶</a></h2>
 <p>您可以按照以下步骤启动 <strong>Nebula Graph</strong> 服务：</p>
 <ol>
@@ -2006,33 +2022,12 @@ files:
 <h2 id="csv_2">导入 CSV 数据<a class="headerlink" href="#csv_2" title="Permanent link">¶</a></h2>
 <p>完成上述所有四个步骤后，您可以使用 <code>Docker</code> 或 <code>Go</code> 导入 CSV 数据。</p>
 <h3 id="go-importer_csv">使用 Go-importer 导入 CSV 数据<a class="headerlink" href="#go-importer_csv" title="Permanent link">¶</a></h3>
-<p>在使用 <code>Go-importer</code> 导入 CSV 数据之前，必须确保已安装 <code>Go</code> 并配置了 <code>Go</code> 的环境变量。</p>
-<p>您可以通过以下步骤导入 CSV 数据：</p>
-<ol>
-<li>通过以下命令将当前目录更改为 <code>import.go</code> 文件所在的目录：</li>
-</ol>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> /home/nebula/nebula-importer/cmd
-</code></pre></div>
-<ol>
-<li>执行以下命令导入 CSV 数据：</li>
-</ol>
-<div class="highlight"><pre><span></span><code>$ go run importer.go --config /home/nebula/config.yaml
-</code></pre></div>
-<p><strong>注意</strong>：您必须将 <code>import.go</code> 文件的目录和 <code>config.yaml</code> 文件的目录更改为您自己的目录，否则，导入操作可能会失败。</p>
-<h3 id="docker_csv">使用 Docker 导入 CSV 数据<a class="headerlink" href="#docker_csv" title="Permanent link">¶</a></h3>
-<p>在使用 <code>Docker</code> 导入CSV数据之前，必须确保 <code>Docker</code> 已启动并运行正常。</p>
-<p>您可以通过以下命令使用 <code>Docker</code> 导入 CSV 数据：</p>
-<div class="highlight"><pre><span></span><code>$ sudo docker run --rm -ti --network<span class="o">=</span>host <span class="se">\</span>
--v /home/nebula/config.yaml:/home/nebula/config.yaml <span class="se">\</span>
--v /home/nebula/:/home/nebula/ vesoft/nebula-importer <span class="se">\</span>
---config /home/nebula/config.yaml
-</code></pre></div>
-<p><strong>注意</strong>：您必须将 <code>config.yaml</code> 文件的目录更改为您自己的目录，否则导入操作可能会失败。</p>
+<p>请参见<a href="https://github.com/vesoft-inc/nebula-importer/blob/v1/README_zh-CN.md">Nebula Importer</a>。</p>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2020年4月29日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月25日</span>
 </small>
 </div>
 </article>
@@ -2092,8 +2087,8 @@ files:
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../../../..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../../assets/javascripts/workers/search.fe42c31b.min.js", "version": {"method": "mike"}}</script>
-<script src="../../../../assets/javascripts/bundle.4ea5477f.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../../..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": {"method": "mike"}}</script>
+<script src="../../../../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
 <script src="../../../../js/version-select.js"></script>
 </body>
 </html>
