@@ -355,6 +355,7 @@ nav:
 #      - 使用示例: spark-connector/writer/sc-ug-writer-example.md
 # Extensions
 markdown_extensions:
+  - footnotes
   - admonition
   - codehilite:
       guess_lang: false
