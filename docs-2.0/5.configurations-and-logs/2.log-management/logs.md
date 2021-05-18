@@ -68,3 +68,7 @@ $ curl -X PUT -H "Content-Type: application/json" -d '{"minloglevel":0,"v":3}' "
 ```
 
 如果在Nebula Graph运行时修改了日志级别，重启服务后会恢复为配置文件中设置的级别，如果需要永久修改，请修改[配置文件](../1.configurations/1.configurations.md)。
+
+## RocksDB 日志
+
+RocksDB 的日志通常在 `/usr/local/nebula/data/storage/nebula/$id/data/LOG`, 其中 `$id` 为实例号。该日志通常用于调试 RocksDB 参数。

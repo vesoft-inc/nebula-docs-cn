@@ -42,7 +42,7 @@
 
     !!! Note
 
-        在同一个图空间中，VID 始终唯一，不可重复。关于 VID 的信息，参考 [Nebula Graph 的点ID和分片ID](../../3.ngql-guide/20.appendix/vid-partition.md "点击进入 Nebula Graph 用户手册")。 
+        在同一个图空间中，VID 始终唯一，不可重复。关于 VID 的信息，参考 [Nebula Graph 的点ID](../../20.appendix/0.vid.md) "点击进入 Nebula Graph 用户手册")。 
 
   3. 在 **ID Hash** 列，选择 VID 预处理方式：如果源数据是 `int` 类型数据，选择 **保持原值**；如果源数据是 `string`、`double` 或者 `bool` 类型数据，选择 **Hash**。
 
