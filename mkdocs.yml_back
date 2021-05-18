@@ -1,20 +1,12 @@
 # Project information
-site_name: 分布式图数据库 Nebula Graph
+site_name: 开源分布式图数据库 Nebula Graph
 site_description: Nebula Graph Database
 site_author: 吴敏,周瑶,梁振亚
 docs_dir: docs-2.0
 
-# repository
-repo_name: 'vesoft-inc/nebula-docs-cn'
-repo_url: 'https://github.com/vesoft-inc/nebula-docs-cn'
-
-# Copyright
-copyright: Copyright &copy; 2021 Nebula Graph - 浙ICP备20010487号
-
 # Configuration
 theme:
   name: 'material'
-  custom_dir: overrides
   logo: 'https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png'
   favicon: 'assets/images/favicon.ico'
   palette:
@@ -31,7 +23,7 @@ extra:
   nebula:
     base20: 2.0
     base200: 2.0.0
-    release: master
+    release: 2.0.2
     nightly: v2-nightly
   version:
     method: mike
@@ -43,6 +35,9 @@ extra:
     base220: 2.2.0
   
 nav:
+
+  - 本书更新版本: git-version.md
+
   - 前言: 
       - 图: 0.foreground/0-graph.md
       - 图数据库: 0.foreground/1-graph-database.md
@@ -206,8 +201,6 @@ nav:
           - 源码编译安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md
           - RPM/DEB包安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md
       - 部署Nebula Graph集群: 4.deployment-and-installation/deploy-nebula-graph-cluster.md
-      - 升级历史版本至Nebula Graph v2.0.0: 4.deployment-and-installation/3.upgrade-nebula-graph.md
-      - Nebula Graph v2.0.0升级至v2.0.1: 4.deployment-and-installation/5.upgrade-nebula-from-200-to-201.md
       - 卸载Nebula Graph: 4.deployment-and-installation/4.uninstall-nebula-graph.md
 
   - 配置和日志:
@@ -240,7 +233,6 @@ nav:
       - Storage负载均衡: 8.service-tuning/load-balance.md
 
   - Nebula Graph Studio:
-    - Studio版本更新说明: nebula-studio/about-studio/st-ug-release-note.md
     - 认识 Nebula Graph Studio:
       - 什么是 Nebula Graph Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
       - 名词解释: nebula-studio/about-studio/st-ug-terms.md
@@ -304,17 +296,18 @@ nav:
   - Nebula Algorithm: nebula-algorithm.md
 
   - 附录:
+      - 常见问题: 20.appendix/0.FAQ.md
       - 相关技术: 20.appendix/0.relates.md
-      - VID: 20.appendix/0.vid.md
+      - 生态工具概览: 20.appendix/6.eco-tool-version.md
       - 图建模: 20.appendix/2.graph-modeling.md
       - 系统建模: 20.appendix/3.system-design.md
       - 关于Raft的简单介绍: 20.appendix/4.raft.md
+      - VID: 20.appendix/7.vid.md
       - 分片ID: 20.appendix/5.partition.md
-      - 生态工具概览: 20.appendix/6.eco-tool-version.md
       - 注释: 20.appendix/comments.md
-      - 大小写区分: 20.appendix/identifier-case-sensitivity.md
+      - 区分大小写: 20.appendix/identifier-case-sensitivity.md
       - 关键字: 20.appendix/keywords-and-reserved-words.md
-      - 社区贡献: 15.contribution/how-to-contribute.md
+      - 产品年表: 20.appendix/20.history.md
 
   - PDF: ./pdf/NebulaGraph-CN.pdf
 
@@ -364,12 +357,11 @@ static_templates:
 
 # Plugins
 plugins:
-#  - search
   - macros
   - git-revision-date-localized
   - with-pdf:
       copyright: 2021 Vesoft Inc.
-      cover_subtitle: master
+      cover_subtitle: 2.0.2
       author: 吴敏,周瑶,梁振亚
       cover: true
       back_cover: true
