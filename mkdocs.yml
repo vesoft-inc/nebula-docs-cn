@@ -332,6 +332,8 @@ nav:
   
   - Nebula Spark Connector: nebula-spark-connector.md
 
+  - Nebula Algorithm: nebula-algorithm.md
+
   - Nebula Flink Connector: nebula-flink-connector.md
 
   - 社区贡献:
