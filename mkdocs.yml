@@ -303,6 +303,7 @@ nav:
   - Nebula Algorithm: nebula-algorithm.md
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 附录:
       - 常见问题: 20.appendix/0.FAQ.md
       - 相关技术: 20.appendix/1.relates.md
@@ -310,6 +311,8 @@ nav:
   - FAQ:
       - FAQ: 19.FAQ/0.FAQ.md
 
+=======
+>>>>>>> 4ce05ecf (pdf format)
   - 附录:
       - 相关技术: 20.appendix/0.relates.md
       - VID: 20.appendix/0.vid.md
@@ -395,7 +398,11 @@ plugins:
       cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
       output_path: pdf/NebulaGraph-book.pdf
       show_anchors: true
+<<<<<<< HEAD
       toc_level: 2
+=======
+      toc_level: 3
+>>>>>>> 4ce05ecf (pdf format)
 
 extra_javascript:
   - js/version-select.js
