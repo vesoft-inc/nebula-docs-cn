@@ -1,8 +1,8 @@
 # 图数据库的市场概况
 
-既然已经讨论了什么是图，接下来让我们进一步认识基于图论发展起来的图数据库。
+既然已经讨论了什么是图，接下来让我们进一步认识基于图论和属性图模型发展起来的图数据库。
 
-不同的图数据库在术语方面可能会略有不同，但是归根结底都是在讲点、边和属性。至于更多的功能，例如标签、索引、TTL、长任务、存储过程和UDF等这些高级功能，在不同图数据库中，会存在明显的差异。
+不同的图数据库在术语方面可能会略有不同，但是归根结底都是在讲点、边和属性。至于更多的功能，例如标签、索引、约束、TTL、长任务、存储过程和UDF等这些高级功能，在不同图数据库中，会存在明显的差异。
 
 图数据库用图来存储数据，而图是最接近高度灵活、高性能的数据结构之一。图数据库是一种专门用于存储和检索庞大信息网的存储引擎，它能够高效地将数据存储为点和边，并允许对这些点边结构进行高性能的检索和查询。我们也可以为这些点和边添加属性。
 
@@ -14,7 +14,7 @@
 
 根据世界知名的数据库排名网站DB-Engines.com的统计，图数据库至2013年以来，一直是“增速最快”的数据库类别[^dbe]。
 
-该网站根据一些指标来统计每种类型的数据库的流行度变化趋势，这些指标包括基于Google等搜索引擎的收录和趋势情况、主要IT技术论坛和社交网站上讨论的技术话题、招聘网站的职位变化等。该网站共收录了371种数据库产品，并分为12个类别。这12个类别中，图数据库这种类别的增速远远快于其他任何的类别。
+该网站根据一些指标来统计每种类别的数据库的流行度变化趋势，这些指标包括基于Google等搜索引擎的收录和趋势情况、主要IT技术论坛和社交网站上讨论的技术话题、招聘网站的职位变化等。该网站共收录了371种数据库产品，并分为12个类别。这12个类别中，图数据库这种类别的增速远远快于其他任何的类别。
 
 ![Image](https://docs-cdn.nebula-graph.com.cn/books/images/db-rankings.png)
 
@@ -59,19 +59,22 @@ https://www.marketsandmarkets.com/Market-Reports/graph-database-market-126230231
 
 ## 市场参与者
 
-### Neo4j 和 Cypher
+### （第一代）图数据库的先行者 Neo4j
 
-虽然在1970年代，人们已经提出了一些类似于"图”的数据模型和产品原型（例如 CODASYL[^DDIA])。但真正能够让“图数据库”这个概念流行起来，不得不说到这个市场最主要的先行者Neo4j Inc.，甚至术语属性图（Property Graph）和图数据库就是 Neo4j 最早提出并实践的。 
+虽然在1970年代，人们已经提出了一些类似于"图”的数据模型和产品原型（例如 CODASYL[^DDIA])。但真正能够让“图数据库”这个概念流行起来，不得不说到这个市场最主要的先行者 Neo4j，甚至属性图和图数据库这两个主要术语就是 Neo4j 最早提出并实践的。 
 
 [^DDIA]: https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321
 
-本小节关于Neo4j和其创造的图查询语言Cypher的历史内容主要摘录自 ISO WG3 的工作论文"An overview of the recent history of Graph Query Languages"[^Tobias2018]，本书作者根据最新两年的进展有删减和更新。
+!!! Info "本小节关于Neo4j和其创造的图查询语言Cypher的历史内容主要摘录自 ISO WG3 的工作论文"An overview of the recent history of Graph Query Languages"[^Tobias2018]，本书作者根据最新两年的进展有删减和更新。"
 
-!!! Info "关于图查询查询(Graph Query Language，GQL) 和国际标准的制定"
+!!! Note "关于图查询查询(Graph Query Language，GQL) 和国际标准的制定"
 
     熟悉数据库的读者可能都知道结构化查询语言SQL。通过使用SQL，人们以接近自然语言的方式访问数据库。在 SQL 被广泛采用和标准化之前，关系型数据库的市场是非常碎片和割裂的——各家厂商的产品都有完全不同的接入访问方式，数据库产品自身的开发人员、数据库产品周边工具的开发人员、数据库最终的使用人员，都不得不学习各个厂商的完全不同的产品，在不同产品之间迁移极其困难。当1989年SQL-89标准被制定后，整个关系型数据库的市场快速收敛到SQL-89上。这大大降低了上述各种人员的学习曲线。
 
-    类似的，在图数据库领域，图语言(GQL)承担了类似于SQL的作用，是一种用户与图数据库主要的交互方式。但不同于SQL-89这种国际标准，GQL还没有任何国际标准。目前有两种主流的图语言：Neo4j的Cypher (及其后续——ISO正在制定过程中的GQL-standard 草案)和Apache TinkerPop的Gremlin。前者通常被称为声明式语言(Declarative query language)——也即用户只需要告诉系统“要什么”，而不管“怎么做”；后者通常被称为命令式语言(Imperative query language)，用户会显式地指定系统的操作。GQL国际标准正在制定过程中。
+    类似的，在图数据库领域，图语言(GQL)承担了类似于SQL的作用，是一种用户与图数据库主要的交互方式。但不同于SQL-89这种国际标准，GQL还没有任何国际标准。目前有两种主流的图语言：
+    Neo4j的Cypher (及其后续——ISO正在制定过程中的GQL-standard 草案)和Apache TinkerPop的Gremlin。前者通常被称为声明式语言(Declarative query language)——也即用户只需要告诉系统“要什么”，而不管“怎么做”；后者通常被称为命令式语言(Imperative query language)，用户会显式地指定系统的操作。
+    
+    GQL国际标准正在制定过程中。
 
 [^Tobias2018]: "An overview of the recent history of Graph Query Languages". Authors: Tobias Lindaaker, U.S. National Expert.Date: 2018-05-14 
 
@@ -155,15 +158,15 @@ Cypher 启发了一系列后续的图查询语言，包括
 
 2. 开源方式使得更多的人（包括代码开发者、数据科学家、产品经理等）以更加低成本和有效的方式参与新兴的技术，并反馈给社区。
 
-!!! note 说明
+!!! note "说明"
 
-     严格说，Neo4j 也提供了不少的分布式的能力，但都和业界的分布式系统有较大的不同。
+     严格说，Neo4j 也提供了不少的分布式的能力，但都和业界意义上的分布式系统有较大的不同。
 
-     Neo4j 3.X 要求全量数据必须存放在单机中，虽然其也提供多机之间(Master-slave/slave)做全量复制和高可用。（数据不可分片存放）
+     Neo4j 3.X 要求全量数据必须存放在单机中。虽然其也提供多机之间(Master-slave/slave)做全量复制和高可用，但数据不可切分为不同子图存放。
 
      Neo4j 4.X 允许在不同机器上各存放一部分数据（子图），然后在应用层需通过一定方式拼装后(其称为编织Fabric)，将读写分发到各个机器上。这种做法需要应用层代码有大量的参与和工作。例如，设计如何把不同子图应该放置在哪些机器上，如何将从各机器获取的部分结果重新编织为最终的结果。
 
-#### Titan 和其后继 JanusGraph
+#### 第二代（分布式）图数据库：Titan 和其后继者 JanusGraph
 
 2011 年，Aurelius 公司成立，致力于开发一个开源的分布式图数据库 Titan[^titan]。到 2015 年 Titan 的第一个正式版发布，Titan 后端可以支持多种主流的分布式存储架构（例如 Cassandra, HBase, Elasticsearch, BerkeleyDB)，并可以复用 Hadoop 生态的诸多便利，前端以 Gremlin 为统一的查询语言。对于程序员使用、开发和社区参与都很方便。大规模的图，可以分片后存放在 HBase 或者 Cassarndar上(这些当时都已经是相对成熟的分布式存储方案)，Gremlin 语言虽然略微冗长但相对功能完备。整个方案在当时(2011-2015)体现了不错的竞争力。
 
@@ -173,23 +176,24 @@ Cypher 启发了一系列后续的图查询语言，包括
 
 ![Image](https://docs-cdn.nebula-graph.com.cn/books/images/titan-2015-neo4j.png)
 
-2015 年 Aurelius 被 DataStax 收购，这之后 Titan 逐渐转变为一个闭源的商业产品 (DataStax Enterprise Graph)。
+2015 年 Aurelius(Titan) 被 DataStax 收购，这之后 Titan 逐渐转变为一个闭源的商业产品 (DataStax Enterprise Graph)。
 
-在 Aurelius(Titan) 被收购后，市场对于开源分布式的图数据库一直仍有比较强烈的需求(大数据时代，数据仍在远快于摩尔定律的速度，源源不断的产生)。Linux 基金会以及一些技术巨头(Expero, Google, GRAKN.AI, Hortonworks, IBM and Amazon) 在2017年，复制并分叉(fork)了原有的Titan项目，并启动为一个新项目 JanusGraph[^Janus]。之后大多数的社区工作，包括开发、测试、发布和推广都逐步转移到了新的 JanusGraph。
+在 Aurelius(Titan) 被收购后，市场对于开源分布式的图数据库一直仍有比较强烈的需求，而当时市场上成熟和活跃的产品并不多。大数据时代，数据仍在远快于摩尔定律的速度，源源不断的产生。Linux 基金会以及一些技术巨头(Expero, Google, GRAKN.AI, Hortonworks, IBM and Amazon) 在2017年，复制并分叉(fork)了原有的Titan项目，并启动为一个新项目 JanusGraph[^Janus]。之后大多数的社区工作，包括开发、测试、发布和推广都逐步转移到了新的 JanusGraph。
 
 [^Janus]: https://github.com/JanusGraph/janusgraph
 
 下图显示了两个项目2012-2021年日常代码提交(pull request)的变化情况，可以观察到几点：
 
-1. 即使 Aurelius(Titan) 2015 年被收购后，其开源代码仍有一定的活跃度(体现了社区的力量)，但增速已经明显放缓；
+1. 即使 Aurelius(Titan) 2015 年被收购后，其开源代码仍有一定的活跃度(左侧)，但增速已经明显放缓。这体现了社区的力量。
 
-2. JanusGraph 项目在 2017 年 1 月启动后，其社区迅速活跃起来，短短一年时间就超越了 Titan 过去 5 年累计的 pull request 数量。而与此同时，Titan 开源项目就此停滞。
+2. 新项目 JanusGraph 项目在 2017 年 1 月启动后，其社区迅速活跃起来，短短一年时间就超越了 Titan 过去 5 年累计的 pull request 数量。而与此同时，Titan 开源项目就此停滞。
 
 ![Image](https://docs-cdn.nebula-graph.com.cn/books/images/titan-janus-dev.png)
 
-#### OrientDB, TigerGraph, ArangoDB, 和 DGraph
+#### 同期知名产品 OrientDB, TigerGraph, ArangoDB, 和 DGraph
 
 此后更多的厂商加入整个市场，除了由Linux基金会托管的 JanusGraph，还有一些由商业公司主导开发的分布式图数据，各方采用的数据模型和访问方式也有明显的不同。
+本文不做一一介绍，仅简单列出主要区别。
 
 | 厂商名 | 创立时间 | 核心产品名 | 开源协议 | 数据模型 | 查询语言 | 
 | ----- | ----- | ----- | ----- | ----- | ----- |
@@ -198,9 +202,13 @@ Cypher 启发了一系列后续的图查询语言，包括
 | ArangoDB GmbH | 2014 | ArangoDB | Apache License 2.0 | 文档 + KV +  图 | AQL (同时操作文档, KV 和图) |
 | DGraph Labs | 2016 | DGraph | Apache Public License 2.0 + Dgraph Community License | 原 RDF，后改为 GraphQL | GraphQL+- |
 
-#### 传统巨头微软、亚马逊和甲骨文
+#### 传统巨头微软、亚马逊和甲骨文纷纷入场
 
-除了聚焦于图产品的厂商外，传统巨头也纷纷进入这个领域。Microsoft Azure Cosmos DB[^cosmos] 是一个在微软云上的多模数据库云服务，可以提供SQL、文档、图、key-value等多种能力；Amazon AWS Neptune[^neptune] 是一种由 AWS 提供图数据库云服务, 可以提供属性图和 RDF 两种数据模型；Oracle graph[^Oracle] 是关系型数据库巨头 Oracle 在图技术与图数据库方向的产品。
+除了聚焦于图产品的厂商外，传统巨头也纷纷进入这个领域。
+
+Microsoft Azure Cosmos DB[^cosmos] 是一个在微软云上的多模数据库云服务，可以提供SQL、文档、图、key-value等多种能力；
+Amazon AWS Neptune[^neptune] 是一种由 AWS 提供图数据库云服务, 可以提供属性图和 RDF 两种数据模型；
+Oracle graph[^Oracle] 是关系型数据库巨头 Oracle 在图技术与图数据库方向的产品。
 
 [^cosmos]: https://azure.microsoft.com/en-us/free/cosmos-db/
 
@@ -208,5 +216,6 @@ Cypher 启发了一系列后续的图查询语言，包括
 
 [^Oracle]: https://www.oracle.com/database/graph/
 
+#### 新一代开源分布式图数据库 Nebula Graph
 
-
+下一节，我们将正式介绍新一代开源分布式图数据库 Nebula Graph。
