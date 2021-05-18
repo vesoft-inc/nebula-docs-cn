@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 716d7a73 (fix links)
 # Nebula Graph 文档
 
 - [中文](https://docs.nebula-graph.com.cn/)
@@ -65,6 +68,7 @@ mkdocs serve
 
 - `[^2]` 或者 `[^gar]`是footer
 
+<<<<<<< HEAD
 =======
 # Nebula Graph 文档
 
@@ -136,4 +140,6 @@ mkdocs serve
 - `[^2]` 或者 `[^gar]`是footer
 
 >>>>>>> 0f583de1 (fix readme)
+=======
+>>>>>>> 716d7a73 (fix links)
 - `!!! quote` 是引用
