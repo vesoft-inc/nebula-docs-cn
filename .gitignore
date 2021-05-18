@@ -1,4 +1,5 @@
 site/
 *.DS_Store
 docs-2.0/19.FAQ/
+.github/workflows/test.yml
 
