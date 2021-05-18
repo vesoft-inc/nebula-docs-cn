@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 name: Publish docs via GitHub Pages
 on:
   push:
@@ -68,3 +69,49 @@ jobs:
       #   uses: peaceiris/actions-gh-pages@v3
       #   with:
       #     github_token: ${{ secrets.DEPLOY_TOKEN }}
+=======
+name: Publish docs via GitHub Pages
+on:
+  push:
+    branches:
+      - book
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # fetch all commits/branches
+
+      - name: Setup Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
+          architecture: 'x64'
+
+      - name: apt install
+        run: |
+          sudo apt update -y
+          sudo apt install -y $(cat pkglist.txt)
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r ./requirements.txt
+
+      - name: set LANG
+        run: sh lang-zh.sh	  
+
+      - name: Git Config
+        run: git config user.name whitewum && git config user.email min.wu@vesoft.com
+
+      - name: show git branch
+        run: | 
+          git branch
+          git checkout gh-pages
+
+      - name: mkdocs build
+        run: |
+          mkdocs build
+>>>>>>> 3e3af95f (Update deploy.yaml)
