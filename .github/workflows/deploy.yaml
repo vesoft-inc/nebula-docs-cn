@@ -1,58 +1,58 @@
-#name: Publish docs via GitHub Pages
-#on:
-#  push:
-#    branches:
-#      - master
-#
-#jobs:
-#  deploy:
-#    runs-on: ubuntu-18.04
-#    steps:
-#      - uses: actions/checkout@v2
-#        with:
-#          fetch-depth: 0 # fetch all commits/branches
-#
-#      - name: Setup Python
-#        uses: actions/setup-python@v1
-#        with:
-#          python-version: '3.7'
-#          architecture: 'x64'
-#
-#      - name: Git Config
-#        run: git config user.name whitewum && git config user.email min.wu@vesoft.com
-#
-#      - name: show git branch
-#        run: | 
-#          git branch
-#          git rebase master
-#      - name: Compress
-#        run: |
-#           tar -czf nebula-docs.tar.gz * --exclude=*.tar.gz
-#      - name: Transfer
-#        # uses: garygrossgarten/github-action-scp@release
-#        uses: appleboy/scp-action@master
-#        with:
-#          host: ${{ secrets.HOST }}
-#          username: ${{ secrets.USER_NAME }}
-#          password: ${{ secrets.PASSWORD }}
-#          port: ${{ secrets.port }}
-#          source: nebula-docs.tar.gz
-#          target: /usr/web
-#
-#      - name: UnCompress
-#        uses: appleboy/ssh-action@master
-#        with:
-#          host: ${{ secrets.HOST }}
-#          username: ${{ secrets.USER_NAME }}
-#          password: ${{ secrets.PASSWORD }}
-#          port: ${{ secrets.PORT }}
-#          script: |
-#            mkdir -p /usr/web/nebula-docs/
-#            tar -xzf /usr/web/nebula-docs.tar.gz -C /usr/web/nebula-docs/
-##            pip3 install --upgrade pip
-##            pip3 install -r /usr/web/nebula-docs/requirement.txt
-#      # - name: Deploy
-#      #   uses: peaceiris/actions-gh-pages@v3
-#      #   with:
-#      #     github_token: ${{ secrets.DEPLOY_TOKEN }}
-#      #     publish_dir: ./site
+name: Publish docs via GitHub Pages
+on:
+  push:
+    branches:
+      - book
+
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # fetch all commits/branches
+
+      - name: Setup Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.7'
+          architecture: 'x64'
+
+      - name: Git Config
+        run: git config user.name whitewum && git config user.email min.wu@vesoft.com
+
+      - name: gh-pages
+        run: | 
+          git branch
+          git rebase master
+          mkdocs gh-deploy
+
+      - name: Compress
+        run: |
+           tar -czf nebula-docs.tar.gz * --exclude=*.tar.gz
+      - name: Transfer
+        # uses: garygrossgarten/github-action-scp@release
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER_NAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.port }}
+          source: nebula-docs.tar.gz
+          target: /usr/web
+
+      - name: UnCompress
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER_NAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: |
+            mkdir -p /usr/web/nebula-docs/
+            tar -xzf /usr/web/nebula-docs.tar.gz -C /usr/web/nebula-docs/
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.DEPLOY_TOKEN }}
+      #     publish_dir: ./site
