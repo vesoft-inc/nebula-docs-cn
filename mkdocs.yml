@@ -402,7 +402,13 @@ plugins:
       toc_level: 2
 =======
       toc_level: 3
+<<<<<<< HEAD
 >>>>>>> 4ce05ecf (pdf format)
+=======
+      exclude_pages: 
+        - '15.contribution/'
+
+>>>>>>> e0e7b80c (fix readme)
 
 extra_javascript:
   - js/version-select.js
