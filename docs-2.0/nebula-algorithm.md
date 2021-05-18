@@ -2,6 +2,10 @@
 
 [Nebula Algorithm](https://github.com/vesoft-inc/nebula-spark-utils/tree/master/nebula-algorithm) （简称Algorithm）是一款基于[GraphX](https://spark.apache.org/graphx/)的Spark应用程序，通过提交Spark任务的形式使用完整的算法工具对Nebula Graph数据库中的数据执行图计算，也可以通过编程形式调用lib库下的算法针对DataFrame执行图计算。
 
+## 使用限制
+
+点ID的数据必须为整数，即点ID可以是INT类型，或者是String类型但数据本身为整数。
+
 ## 支持算法
 
 Nebula Algorithm支持的图计算算法如下。
@@ -58,10 +62,6 @@ Nebula Algorithm实现图计算的流程如下：
 ### Maven远程仓库下载
 
 [下载地址](https://repo1.maven.org/maven2/com/vesoft/nebula-algorithm/2.0.0/)
-
-## 使用限制
-
-点ID的数据必须为整数。因为Nebula Algorithm未自动对字符串类型的点ID进行编码，所以点ID可以是INT类型，或者是String类型但数据本身为整数。
 
 ## 使用方法
 
@@ -122,7 +122,7 @@ Nebula Algorithm实现图计算的流程如下：
       # 数据源。Nebula Graph作为图计算的数据源时，nebula.read的配置才生效。
       read: {
           # 所有Meta服务的IP地址和端口，多个地址用英文逗号（,）分隔。格式: "ip1:port1,ip2:port2"。
-          metaAddress: "127.0.0.1:9559"
+          metaAddress: "192.168.*.10:9559"
           # Nebula Graph图空间名称
           space: basketballplayer
           # Nebula Graph边类型, 多个labels时，多个边的数据将合并。
@@ -134,9 +134,9 @@ Nebula Algorithm实现图计算的流程如下：
       # 数据落库。图计算结果落库到Nebula Graph时，nebula.write的配置才生效。
       write:{
           # Graph服务的IP地址和端口, 多个地址用英文逗号（,）分隔。格式: "ip1:port1,ip2:port2"。
-          graphAddress: "127.0.0.1:9669"
+          graphAddress: "192.168.*.11:9669"
           # 所有Meta服务的IP地址和端口，多个地址用英文逗号（,）分隔。格式: "ip1:port1,ip2:port2"。
-          metaAddress: "127.0.0.1:9559,127.0.0.1:9560"
+          metaAddress: "192.168.*.12:9559"
           user:root
           pswd:nebula
           # Nebula Graph图空间名称
@@ -246,13 +246,3 @@ Nebula Algorithm实现图计算的流程如下：
   ```bash
   ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.algorithm.Main /root/nebula-spark-utils/nebula-algorithm/target/nebula-algorithm-2.0.0.jar -p /root/nebula-spark-utils/nebula-algorithm/src/main/resources/application.conf
   ```
-
-## 贡献
-
-Nebula Algorithm是一个完全开源的项目，欢迎开源爱好者通过以下方式参与：
-
-- 前往[Nebula Graph论坛](https://discuss.nebula-graph.com.cn)参与issue讨论，如答疑、提供想法或者报告无法解决的问题。
-
-- 撰写或改进文档。
-
-- 提交优化代码。
