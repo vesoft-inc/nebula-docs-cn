@@ -9,6 +9,7 @@ site_description: Nebula Graph Database
 site_author: 吴敏,周瑶,梁振亚
 docs_dir: docs-2.0
 
+<<<<<<< HEAD
 # Copyright
 copyright: Copyright &copy; 2021 Nebula Graph - 浙ICP备20010487号
 
@@ -1921,6 +1922,8 @@ site_description: Nebula Graph Database
 site_author: 吴敏,周瑶,梁振亚
 docs_dir: docs-2.0
 
+=======
+>>>>>>> ca88a2e6 (rename native ngql)
 # Copyright
 copyright: Copyright &copy; 2021 Nebula Graph - 浙ICP备20010487号
 
@@ -2219,6 +2222,7 @@ nav:
   - Nebula Algorithm: nebula-algorithm.md
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   - 附录:
       - 常见问题: 20.appendix/0.FAQ.md
       - 相关技术: 20.appendix/0.relates.md
@@ -2235,15 +2239,28 @@ nav:
       - 系统建模: 20.appendix/3.system-design.md
       - 关于Raft的简单介绍: 20.appendix/4.raft.md
       - VID: 20.appendix/7.vid.md
+=======
+  - 附录:
+      - 相关技术: 20.appendix/0.relates.md
+      - 生态工具概览: 20.appendix/6.eco-tool-version.md
+      - 图建模: 20.appendix/2.graph-modeling.md
+      - 系统建模: 20.appendix/3.system-design.md
+      - 关于Raft的简单介绍: 20.appendix/4.raft.md
+      - VID: 20.appendix/0.vid.md
+>>>>>>> ca88a2e6 (rename native ngql)
       - 分片ID: 20.appendix/5.partition.md
       - 注释: 20.appendix/comments.md
       - 区分大小写: 20.appendix/identifier-case-sensitivity.md
       - 关键字: 20.appendix/keywords-and-reserved-words.md
 <<<<<<< HEAD
+<<<<<<< HEAD
       - 年表: 20.appendix/20.history.md
 =======
       - 社区贡献: 15.contribution/how-to-contribute.md
 >>>>>>> 90cf5220 (mv relates to appendix)
+=======
+      - 常见问题: 20.appendix/0.FAQ.md
+>>>>>>> ca88a2e6 (rename native ngql)
 
   - PDF: ./pdf/NebulaGraph-CN.pdf
 
@@ -2309,9 +2326,6 @@ plugins:
       output_path: pdf/NebulaGraph-CN.pdf
       show_anchors: true
       toc_level: 3
-      exclude_pages: 
-        - '15.contribution/'
-
 
 extra_javascript:
   - js/version-select.js
