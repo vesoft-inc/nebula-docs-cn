@@ -1,9 +1,7 @@
 # Project information
-site_name: Nebula Graph Database 手册
-site_description: Documentation for Nebula Graph Database
-site_author: Nebula Graph
-site_url: https://docs.nebula-graph.com.cn/master/
-edit_uri: 'edit/master/docs-2.0/'
+site_name: 分布式图数据库 Nebula Graph
+site_description: Nebula Graph Database
+site_author: 吴敏,周瑶,梁振亚
 docs_dir: docs-2.0
 
 # repository
@@ -45,7 +43,10 @@ extra:
     base220: 2.2.0
   
 nav:
-  - 前言: README.md
+  - 前言: 
+      - 图: 0.foreground/0-graph.md
+      - 图数据库: 0.foreground/1-graph-database.md
+
   - 简介:
       - 什么是Nebula Graph: 1.introduction/1.what-is-nebula-graph.md
       - 数据结构: 1.introduction/2.data-model.md
@@ -302,13 +303,11 @@ nav:
 
   - Nebula Algorithm: nebula-algorithm.md
 
-  - 社区贡献:
-      - 如何贡献: 15.contribution/how-to-contribute.md
-
   - FAQ:
       - FAQ: 19.FAQ/0.FAQ.md
 
   - 附录:
+      - 相关技术: 20.appendix/0.relates.md
       - VID: 20.appendix/0.vid.md
       - 图建模: 20.appendix/2.graph-modeling.md
       - 系统建模: 20.appendix/3.system-design.md
@@ -318,9 +317,7 @@ nav:
       - 注释: 20.appendix/comments.md
       - 大小写区分: 20.appendix/identifier-case-sensitivity.md
       - 关键字: 20.appendix/keywords-and-reserved-words.md
-
-
-  - English:  https://docs.nebula-graph.io/
+      - 社区贡献: 15.contribution/how-to-contribute.md
 
   - PDF: ./pdf/NebulaGraph-CN.pdf
 
@@ -367,7 +364,7 @@ markdown_extensions:
 
 # Plugins
 plugins:
-  - search
+#  - search
   - macros
   - git-revision-date-localized
   - with-pdf:
@@ -386,6 +383,6 @@ extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
-google_analytics:
-  - UA-60523578-15
-  - auto
+#google_analytics:
+#  - UA-60523578-15
+#  - auto
