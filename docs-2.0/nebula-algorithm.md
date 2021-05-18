@@ -23,7 +23,7 @@ Nebula Algorithm支持的图计算算法如下。
 
 Nebula Algorithm实现图计算的流程如下：
 
-1. 从Nebula Graph数据库中读取图数据并处理为DataFrame。
+1. 利用Nebula Spark Connector从Nebula Graph数据库中读取图数据为DataFrame。
 
 2. 将DataFrame转换为GraphX的图。
 
@@ -53,7 +53,7 @@ Nebula Algorithm实现图计算的流程如下：
   $ mvn clean package -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
   ```
 
-编译完成后，在目录`nebula-algorithm/target`下会生驱动文件`nebula-algorithm-2.0.0.jar`。
+编译完成后，在目录`nebula-algorithm/target`下生成文件`nebula-algorithm-2.0.0.jar`。
 
 ### Maven远程仓库下载
 
@@ -82,7 +82,7 @@ Nebula Algorithm实现图计算的流程如下：
 2. 传入参数调用算法（以PageRank为例）。更多算法请参见[测试用例](https://github.com/vesoft-inc/nebula-spark-utils/tree/master/nebula-algorithm/src/test/scala/com/vesoft/nebula/algorithm/lib)。
 
   !!! note
-        执行算法的DataFrame默认第一列是起始点，第二列是目的点，第三列是rank。
+        执行算法的DataFrame默认第一列是起始点，第二列是目的点，第三列是边权重（非Nebula Graph中的rank）。
 
   ```bash
   val prConfig = new PRConfig(5, 1.0)
@@ -92,7 +92,7 @@ Nebula Algorithm实现图计算的流程如下：
 ### 直接提交算法包
   
 !!! note
-    使用封装好的算法包有一定的局限性，例如标签内的属性名称必须和代码内预设的名称保持一致。如果用户有开发能力，推荐使用第一种方法。
+    使用封装好的算法包有一定的局限性，例如落库到Nebula Graph时，落库的图空间中创建的标签的属性名称必须和代码内预设的名称保持一致。如果用户有开发能力，推荐使用第一种方法。
 
 1. 设置[配置文件](https://github.com/vesoft-inc/nebula-spark-utils/blob/master/nebula-algorithm/src/main/resources/application.conf)。
 
@@ -144,7 +144,8 @@ Nebula Algorithm实现图计算的流程如下：
           # Nebula Graph标签名称，图计算结果会写入该标签。标签中的属性名称固定如下：
           # PageRank：pagerank
           # Louvain：louvain
-          # ConnectedComponent/StronglyConnectedComponent：cc、
+          # ConnectedComponent：cc
+          # StronglyConnectedComponent：scc
           # LabelPropagation：lpa
           # ShortestPath：shortestpath
           # DegreeStatic：degree、inDegree、outDegree
