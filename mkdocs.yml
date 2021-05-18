@@ -2309,6 +2309,9 @@ plugins:
       output_path: pdf/NebulaGraph-CN.pdf
       show_anchors: true
       toc_level: 3
+      exclude_pages: 
+        - '15.contribution/'
+
 
 extra_javascript:
   - js/version-select.js
