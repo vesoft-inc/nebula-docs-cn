@@ -2014,9 +2014,12 @@ extra:
     base220: 2.2.0
   
 nav:
+<<<<<<< HEAD
 
   - 本书更新版本: git-version.md
 
+=======
+>>>>>>> 90cf5220 (mv relates to appendix)
   - 前言: 
       - 图: 0.foreground/0-graph.md
       - 图数据库: 0.foreground/1-graph-database.md
@@ -2274,10 +2277,19 @@ nav:
 
   - Nebula Algorithm: nebula-algorithm.md
 
+<<<<<<< HEAD
   - 附录:
       - 常见问题: 20.appendix/0.FAQ.md
       - 相关技术: 20.appendix/0.relates.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
+=======
+  - FAQ:
+      - FAQ: 19.FAQ/0.FAQ.md
+
+  - 附录:
+      - 相关技术: 20.appendix/0.relates.md
+      - VID: 20.appendix/0.vid.md
+>>>>>>> 90cf5220 (mv relates to appendix)
       - 图建模: 20.appendix/2.graph-modeling.md
       - 系统建模: 20.appendix/3.system-design.md
       - 关于Raft的简单介绍: 20.appendix/4.raft.md
@@ -2286,7 +2298,11 @@ nav:
       - 注释: 20.appendix/comments.md
       - 区分大小写: 20.appendix/identifier-case-sensitivity.md
       - 关键字: 20.appendix/keywords-and-reserved-words.md
+<<<<<<< HEAD
       - 年表: 20.appendix/20.history.md
+=======
+      - 社区贡献: 15.contribution/how-to-contribute.md
+>>>>>>> 90cf5220 (mv relates to appendix)
 
   - PDF: ./pdf/NebulaGraph-CN.pdf
 
@@ -2336,6 +2352,10 @@ static_templates:
 
 # Plugins
 plugins:
+<<<<<<< HEAD
+=======
+#  - search
+>>>>>>> 90cf5220 (mv relates to appendix)
   - macros
   - git-revision-date-localized
   - with-pdf:
@@ -2358,4 +2378,7 @@ extra_javascript:
 #google_analytics:
 #  - UA-60523578-15
 #  - auto
+<<<<<<< HEAD
 >>>>>>> 06ad3304 (add git version)
+=======
+>>>>>>> 90cf5220 (mv relates to appendix)

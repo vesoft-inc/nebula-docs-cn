@@ -221,4 +221,3 @@ Oracle graph[^Oracle] 是关系型数据库巨头 Oracle 在图技术与图数�
 #### 新一代开源分布式图数据库 Nebula Graph
 
 下一节，我们将正式介绍新一代开源分布式图数据库 Nebula Graph。
-
