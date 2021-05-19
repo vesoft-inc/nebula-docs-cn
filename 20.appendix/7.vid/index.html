@@ -9,7 +9,7 @@
 <meta content="吴敏,周瑶,梁振亚" name="author"/>
 <link href="../../assets/images/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.1.2, mkdocs-material-7.1.4" name="generator"/>
-<title>相关技术 - 分布式图数据库 Nebula Graph</title>
+<title>VID - 分布式图数据库 Nebula Graph</title>
 <link href="../../assets/stylesheets/main.bde7dde4.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.ef6f36e2.min.css" rel="stylesheet"/>
 <meta content="#009485" name="theme-color"/>
@@ -25,7 +25,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#_1">
+<a class="md-skip" href="#vid">
           跳转至
         </a>
 </div>
@@ -49,7 +49,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              相关技术
+              VID
             
           </span>
 </div>
@@ -1643,85 +1643,15 @@
           附录
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          相关技术
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../0.FAQ/">
+        常见问题
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../0.relates.md">
         相关技术
       </a>
-<nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-    数据库方面
-  </a>
-<nav aria-label="数据库方面" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-    关系型数据库
-  </a>
-<nav aria-label="关系型数据库" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    关系型数据库中的关系
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
-    关系型数据库起源
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#nosql">
-    NoSQL 数据库
-  </a>
-<nav aria-label="NoSQL 数据库" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
-    键值存储
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
-    列式存储
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
-    文档存储
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_9">
-    图存储
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_10">
-    图技术方面
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../6.eco-tool-version/">
@@ -1743,14 +1673,47 @@
         关于Raft的简单介绍
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../0.vid/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          VID
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         VID
       </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vid_1">
+    VID 的特点
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vid_2">
+    VID 使用建议
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vid_3">
+    VID 生成建议
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../5.partition/">
         分片ID
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../9.history/">
+        年表
       </a>
 </li>
 <li class="md-nav__item">
@@ -1766,11 +1729,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../keywords-and-reserved-words/">
         关键字
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../0.FAQ/">
-        常见问题
       </a>
 </li>
 </ul>
@@ -1796,65 +1754,18 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-    数据库方面
-  </a>
-<nav aria-label="数据库方面" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-    关系型数据库
-  </a>
-<nav aria-label="关系型数据库" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    关系型数据库中的关系
+<a class="md-nav__link" href="#vid_1">
+    VID 的特点
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
-    关系型数据库起源
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#nosql">
-    NoSQL 数据库
-  </a>
-<nav aria-label="NoSQL 数据库" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
-    键值存储
+<a class="md-nav__link" href="#vid_2">
+    VID 使用建议
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
-    列式存储
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
-    文档存储
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_9">
-    图存储
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_10">
-    图技术方面
+<a class="md-nav__link" href="#vid_3">
+    VID 生成建议
   </a>
 </li>
 </ul>
@@ -1864,50 +1775,57 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="_1">相关技术<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
-<p>本节主要介绍两个和分布式图数据库关系密切的领域，数据库方面和图技术方面。</p>
-<h2 id="_2">数据库方面<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<h3 id="_3">关系型数据库<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
-<p>关系型数据库，是指采用了关系模型来组织数据的数据库。关系模型为二维表格模型，一个关系型数据库就是由二维表及其之间的联系所组成的一个数据组织。说到关系型数据库，大多数人都会想到 MySQL。MySQL 是目前最流行的数据库管理系统之一，支持使用最常见的结构化查询语言（SQL）进行数据库操作，并以表格、行、列的形式存储数据。这种存储数据的方法源自埃德加·科德（Edgar Frank Codd）于 1970 年提出的关系型数据模型。</p>
-<p>在关系型数据库中，可以为待存储的每种类型的数据创建一个表。例如，球员表用来存储所有的球员信息，球队表用来存储球队信息等。SQL 表中的每行数据都必须包含一个主键（primary key）。主键是该行数据的唯一标识符。一般地，主键作为字段 ID 都是随行数自增的。关系型数据库自问世以来一直为计算机行业提供着非常好的服务，并将未来很长的时间内继续服务下去。</p>
-<p>如果你用过 Excel、WPS 或其他类似的应用，你就会大概了解到关系数据库是如何工作的。首先设置好列，然后在对应的列下添加行数据。你可以对某一列数据进行求平均值或其他聚合操作，这与在关系型数据库 MySQL 中求平均值的操作类似。而 EXcel 中的数据透视表则相当于在关系型数据库 MySQL 中使用聚合函数和 CASE 语句对数据进行查询。一个 EXcel 文件可以有多张表，一张表就相当于 MySQL 的一张表。一个 EXcel 文件则类似于一个 MySQL 数据库。</p>
-<h4 id="_4">关系型数据库中的关系<a class="headerlink" href="#_4" title="Permanent link">¶</a></h4>
-<p>与图数据库不同，关系型数据库（或 SQL 型的数据库）中的边也是作为实体存储在专门的边表中的。先创建两个表，球员（player）和球队（team），然后再创建表 player_team 作为边表。边表通常由相关的表 join 而成。例如，此处的边表 player_team 就由球员表和球队表 join 而成。</p>
-<p><img alt="image" src="https://user-images.githubusercontent.com/42762957/91702816-dc872200-ebab-11ea-8b36-577c29a3fe7a.png"/></p>
-<p>这种存储边的方式在关联小型数据集时问题并不大，但是当关系型数据库中的关系太多时，问题就出现了。事实上，关系型数据库是非常“反关系的”。具体来说，当你只想查询一个球员的队友时，你必须对表中的所有数据进行 join 操作，然后再过滤掉你不需要的所有数据，当你的数据集达到一定规模时，这将给关系型数据库带来巨大压力。如果你想关联多张不同的表，可能在 join 爆炸（join bombs）前系统就已经无法响应了。</p>
-<h4 id="_5">关系型数据库起源<a class="headerlink" href="#_5" title="Permanent link">¶</a></h4>
-<p>上文提到，关系型数据模型最早是由 IBM 的工程师埃德加·科德（Edgar Frank Codd）于 1970 年提出的。科德写了几篇数据库管理系统方面的论文，论述了关系型数据模型的潜力。关系型数据模型不依赖于数据链接列表（网状数据或层级数据），而是更多依赖于数据集。他使用元组演算（tuple calculus）的数学方法论证了这些数据集能够完成与导航数据库管理系统相同的任务。唯一的要求是，关系型数据模型需要一种合适的查询语言，以保证数据库的一致性要求。这就为后来声明型的结构化查询语言（SQL）提供了灵感来源。IBM 的 R 系统是关系型数据模型的最早使用者之一。然而，由前 IBM 员工拉里·埃里森创办的名叫软件开发实验室的小公司在市场上击败了 IBM。该公司的产品就是后来为我们熟知的 Oracle。</p>
-<p>由于“关系数据库”在当时是一个比较时髦的词汇，因此许多数据库供应商都喜欢在其产品名称中使用这个词汇，尽管他们的产品实际上并不是关系型的。为了防止这种情况并减少关系型数据模型的错误使用，科德提出了著名科德 12 定律（Codd's 12 rules）。所有关系型数据系统都必须遵循科德 12 定律。</p>
-<h3 id="nosql">NoSQL 数据库<a class="headerlink" href="#nosql" title="Permanent link">¶</a></h3>
-<p>图数据库并不是可以克服关系型数据库缺点的唯一替代方案。现在市面上还有很多非关系型数据库的产品，这些产品都可以叫做 NoSQL。NoSQL 一词最早于上世纪 90 年代末提出，可以解释为“非 SQL” 或“不仅是 SQL”，具体解释要根据语境判断。为便于理解，这里 NoSQL 可以解释成 “非关系型数据库”。不同于关系型数据库，NoSQL 数据库提供的数据存储、检索机制并不是基于表关系建模的。 NoSQL 数据库可以分为四类：</p>
+<h1 id="vid">点VID<a class="headerlink" href="#vid" title="Permanent link">¶</a></h1>
+<p>在Nebula Graph中，一个点是由点的ID唯一标识 (称为<code>VID</code>，也有些语句也会称为<code>VertexID</code>)。</p>
+<h2 id="vid_1">VID 的特点<a class="headerlink" href="#vid_1" title="Permanent link">¶</a></h2>
 <ul>
-<li>键值存储（key-value stores）</li>
-<li>列式存储（column-family stores）</li>
-<li>文件存储（document stores）</li>
-<li>图数据库（graph databases）</li>
+<li><code>VID</code>数据类型只可以为定长字符串<code>FIX_STRING(N)</code>或64位整数；一个图空间只能选用其中一种 VID 类型。</li>
 </ul>
-<p>下面将分别介绍这四类数据库。</p>
-<h4 id="_6">键值存储<a class="headerlink" href="#_6" title="Permanent link">¶</a></h4>
-<p>键值存储，顾名思义，就是使用键值对存储数据的数据库。不同于关系型数据库，键值存储是没有表和列的。如果一定要做类比，键值数据库本身就像一张有很多列（也就是键）的大表。在键值存储数据库中，数据（即键值对中的值）都是通过键来存储和查询的，通常用哈希列表来实现。这比传统的 SQL 数据库要简单得多，而且对于某些 web 应用来说，这就足够了。</p>
-<p>键值模型对于 IT 系统来说优势在于简单、易部署。多数情况下，这种存储方式对非关联的数据很适用。如是只是存储数据而无需查询的话，使用这种存储方法就没有问题。但是如果 DBA 只对部分值进行查询或更新的时候，键值模型就显得效率低下了。常见的键值存储数据库有：Redis、Voldemort、Oracle BDB。</p>
-<h4 id="_7">列式存储<a class="headerlink" href="#_7" title="Permanent link">¶</a></h4>
-<p>NoSQL 数据库的列式存储与 NoSQL 数据库的键值存储有许多相似之处，因为列式存储仍然在使用键进行存储和检索。区别在于列式存储数据库中，列是最小的存储单元，每一列均由键、值以及用于版本控制和冲突解决的时间戳组成。这在分布式扩展时特别有用，因为在数据库更新时，可以使用时间戳定位过期数据。由于列式存储良好的扩展性，因此适用于非常大的数据集。常见的列式存储数据库有：HBase、Cassandra、HadoopDB 等。</p>
-<h4 id="_8">文档存储<a class="headerlink" href="#_8" title="Permanent link">¶</a></h4>
-<p>准确来说，NoSQL 数据库文档存储实际上也是基于键值的数据库，只不过对功能做了增强。数据仍然以键值的形式存储，但是文档存储中的值是结构化的文档，而不仅仅是一个字符串或单个值。也就是说，由于信息结构的增加，文档存储能够执行更优化的查询，并且使数据检索更加容易。因此，文档存储特别适合存储、索引并管理面向文档的数据或者类似的半结构化数据。</p>
-<p>从技术上讲，作为一个半结构化的信息单元，文档存储中的文档可以是任何形式可用的文档，包括 XML、JOSN、YAML 等，这取决于数据库供应商的设计。 比如，JSON 就是一种常见的选择。虽然 JSON 不是结构化数据的最佳选择，但是 JSON 型的数据在前端和后端应用中都可以使用。常见的文档存储数据库有：MongoDB、CouchDB、Terrastore 等。</p>
-<h4 id="_9">图存储<a class="headerlink" href="#_9" title="Permanent link">¶</a></h4>
-<p>最后一类 NoSQL 数据库是图数据库。本书重点讨论的 Nebula Graph 也是一种图数据库。虽然同为 NoSQL 型数据库，但是图数据库与上述 NoSQL 数据库有本质上的差异。图数据库以点、边、属性的形式存储数据。其优点在于灵活性高，支持复杂的图形算法，可用于构建复杂的关系图谱。我们将在随后的章节中详细讨论图数据库。不过在本章中，你只要知道图数据库是一种 NoSQL 类型的数据库就可以了。常见的图数据库有：Nebula Graph、Neo4j、OrientDB 等。</p>
-<h2 id="_10">图技术方面<a class="headerlink" href="#_10" title="Permanent link">¶</a></h2>
-<p>首先来看一张 2020 年的图技术全景<sup id="fnref:lan"><a class="footnote-ref" href="#fn:lan">1</a></sup></p>
-<p><img alt="Image" src="https://raw.githubusercontent.com/GraphCoding/graph-technology-landscape/master/GraphTechnologyLandscape.jpg"/></p>
-<div class="footnote">
-<hr/>
-<ol>
-<li id="fn:lan">
-<p>https://graphaware.com/graphaware/2020/02/17/graph-technology-landscape-2020.html <a class="footnote-backref" href="#fnref:lan" title="Jump back to footnote 1 in the text">↩</a></p>
-</li>
-</ol>
-</div>
+<ul>
+<li><code>VID</code>在一个图空间中必须唯一，其作用大体类似于关系型数据库中的“主键(索引+唯一约束)”。但不同图空间中的 <code>VID</code> 是完全独立无关的。</li>
+</ul>
+<ul>
+<li><code>VID</code> 相同的点，会被认为是同一个点。操作相同<code>VID</code>的两条 <code>INSERT</code>语句，晚写入的点会“覆盖”先写入的的点。</li>
+</ul>
+<ul>
+<li>点<code>VID</code>的生成方式必须由用户自行指定，系统不提供<code>自增ID</code>或者<code>UUID</code>。</li>
+</ul>
+<ul>
+<li>一个<code>VID</code>可以有多个标签（<code>TAG</code>）。例如一个人（<code>VID</code>）可以有两个不同的角色（<code>TAG</code>），不同的 Tag 又相应决定了几组不同的 schema。</li>
+</ul>
+<ul>
+<li><code>VID</code> 通常会被索引(LSM-tree方式)并缓存在内存中，因此直接访问<code>VID</code>的性能最高。(属性本身则基本不会)</li>
+</ul>
+<h2 id="vid_2">VID 使用建议<a class="headerlink" href="#vid_2" title="Permanent link">¶</a></h2>
+<ul>
+<li>Nebula Graph 1.x 只支持 VID 为 int64。2.x 默认使用 <code>FIXED_STRING(&lt;N&gt;)</code> 为 <code>VID</code> 类型；但在 <code>CREATE SPACE</code> 中通过参数 <code>vid_type = int64</code>，也可设置为64位整数。</li>
+</ul>
+<ul>
+<li>可以使用 <code>id()</code> 函数，指定或引用该点的 <code>VID</code>；</li>
+</ul>
+<ul>
+<li>可以使用 <code>LOOKUP</code> 或者 <code>MATCH</code> 语句，来通过“属性索引”查找对应的 <code>VID</code>;</li>
+</ul>
+<ul>
+<li>性能上，“直接通过<code>VID</code>找到点”的语句性能最高：例如 <code>DELETE ... WHERE id(xxx) == "player100"</code>, 或者 <code>GO FROM "player100"</code> 等语句。“通过属性先查找VID，再进行图操作”的性能会变差：例如 "LOOKUP | GO FROM $-.ids" 等语句，相比前者多了一次内存/硬盘的随机读(<code>LOOKUP</code>)以及一次序列化(<code>|</code>)。</li>
+</ul>
+<h2 id="vid_3">VID 生成建议<a class="headerlink" href="#vid_3" title="Permanent link">¶</a></h2>
+<p>VID 的生成工作完全交给应用端，有一些通用的建议：</p>
+<ul>
+<li>(最优)通过有唯一性的主键或者属性来直接作为 <code>VID</code>；属性访问依赖于<code>VID</code>;</li>
+</ul>
+<ul>
+<li>通过有唯一性的属性组合来生成 <code>VID</code>，属性访问依赖于属性索引。</li>
+</ul>
+<ul>
+<li>通过 <code>snowflake</code> 等算法生成 <code>VID</code>，属性访问依赖于属性索引;</li>
+</ul>
+<ul>
+<li>如果“个别记录的主键特别长，但绝大多数记录的主键都很短”的情况，不要将<code>FIXED_STRING(&lt;N&gt;)</code>的<code>N</code>设置成超大；这会浪费大量内存和硬盘，也会降低性能。此时可通过 BASE64, MD5, hash 编码 + 拼接的方式来生成。</li>
+</ul>
+<ul>
+<li>如果用 hash 方式生成 int64 VID：在有 10 亿个点的情况下，发生碰撞的概率大约是 1/10。边的数量与碰撞的概率无关。</li>
+</ul>
 </article>
 </div>
 </div>
@@ -1917,7 +1835,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a class="md-footer__link md-footer__link--prev" href="../../nebula-algorithm/" rel="prev">
+<a class="md-footer__link md-footer__link--prev" href="../4.raft/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -1926,17 +1844,17 @@
 <span class="md-footer__direction">
                 上一页
               </span>
-              Nebula Algorithm
+              关于Raft的简单介绍
             </div>
 </div>
 </a>
-<a class="md-footer__link md-footer__link--next" href="../6.eco-tool-version/" rel="next">
+<a class="md-footer__link md-footer__link--next" href="../5.partition/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 下一页
               </span>
-              生态工具概览
+              分片ID
             </div>
 </div>
 <div class="md-footer__button md-icon">
