@@ -4,7 +4,7 @@
 
 !!! Note
 
-    用户也可以使用 nebula-console 创建 Schema。详细信息，参考 [使用 Docker Compose 部署 Nebula Graph](../../README.md) 和 [Nebula Graph 快速开始](../../2.quick-start/1.quick-start-workflow.md)。
+    用户也可以使用 nebula-console 创建 Schema。详细信息，参考 [使用 Docker Compose 部署 Nebula Graph] 和 [Nebula Graph 快速开始](../../2.quick-start/1.quick-start-workflow.md)。
 
 ## 前提条件
 
