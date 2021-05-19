@@ -1908,8 +1908,6 @@
 <h1 id="case">CASE表达式<a class="headerlink" href="#case" title="Permanent link">¶</a></h1>
 <p><code>CASE</code>表达式使用条件来过滤nGQL查询语句的结果，常用于<code>YIELD</code>和<code>RETURN</code>子句中。和openCypher一样，nGQL提供两种形式的<code>CASE</code>表达式：简单形式和通用形式。</p>
 <p><code>CASE</code>表达式会遍历所有条件，并在满足第一个条件时停止读取后续条件，然后返回结果。如果不满足任何条件，将通过<code>ELSE</code>子句返回结果。如果没有<code>ELSE</code>子句且不满足任何条件，则返回<code>NULL</code>。</p>
-<p>下图为本文的示例图。</p>
-<p><img alt="Example graph for CASE expressions" src="https://docs-cdn.nebula-graph.com.cn/docs-2.0/3.ngql-guide/6.funtions-and-expressions/case-example.png"/></p>
 <h2 id="_1">简单形式<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <h3 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code>CASE &lt;comparer&gt;
@@ -1918,9 +1916,10 @@ WHEN &lt;value&gt; THEN &lt;result&gt;
 [ELSE &lt;default&gt;]
 END
 </code></pre></div>
-<p>!!! caution</p>
-<div class="codehilite"><pre><span></span><code>`CASE`表达式一定要用`END`结尾。
-</code></pre></div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p><code>CASE</code>表达式一定要用<code>END</code>结尾。</p>
+</div>
 <table>
 <thead>
 <tr>
@@ -2067,7 +2066,7 @@ END
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月19日</span>
 </small>
 </div>
 </article>
