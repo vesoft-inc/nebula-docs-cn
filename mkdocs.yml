@@ -16,6 +16,7 @@ copyright: Copyright &copy; 2021 Nebula Graph - 浙ICP备20010487号
 # Configuration
 theme:
   name: 'material'
+  custom_dir: overrides
   logo: 'https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png'
   favicon: 'assets/images/favicon.ico'
   palette:
