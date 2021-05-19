@@ -8,6 +8,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Project information
 site_name: 分布式图数据库 Nebula Graph
 site_description: Nebula Graph Database
@@ -3874,14 +3875,13 @@ extra_javascript:
 #  - auto
 >>>>>>> cd02a9e3 (minor fix)
 =======
+=======
+>>>>>>> 86b47a80 (rebase master)
 # Project information
 site_name: 开源分布式图数据库 Nebula Graph
 site_description: Nebula Graph Database
 site_author: 吴敏,周瑶,梁振亚
 docs_dir: docs-2.0
-
-# Copyright
-copyright: Copyright &copy; 2021 Nebula Graph - 浙ICP备20010487号
 
 # Configuration
 theme:
@@ -4186,10 +4186,7 @@ nav:
       - 注释: 20.appendix/comments.md
       - 区分大小写: 20.appendix/identifier-case-sensitivity.md
       - 关键字: 20.appendix/keywords-and-reserved-words.md
-      - 年表: 20.appendix/9.history.md
-  
-
-
+      - 产品年表: 20.appendix/20.history.md
 
   - PDF: ./pdf/NebulaGraph-CN.pdf
 
@@ -4261,4 +4258,7 @@ extra_javascript:
 #google_analytics:
 #  - UA-60523578-15
 #  - auto
+<<<<<<< HEAD
 >>>>>>> b21ae077 (add git version)
+=======
+>>>>>>> 86b47a80 (rebase master)

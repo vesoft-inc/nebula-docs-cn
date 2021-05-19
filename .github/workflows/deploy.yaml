@@ -34,14 +34,15 @@ jobs:
       - name: Git Config
         run: git config user.name whitewum && git config user.email min.wu@vesoft.com
 
-      - name: gh-pages
+      - name: show git branch
         run: | 
           git branch
-          mkdocs gh-deploy
-
-      - name: Compress
+      - name: mk and Compress
         run: |
-           tar -czf nebula-docs.tar.gz * --exclude=*.tar.gz
+           mkdocs build
+           ls -altr
+           tar -czf book.tar.gz site/pdf/NebulaGraph-CN.pdf
+           
       - name: Transfer
         # uses: garygrossgarten/github-action-scp@release
         uses: appleboy/scp-action@master
@@ -50,7 +51,7 @@ jobs:
           username: ${{ secrets.USER_NAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.port }}
-          source: nebula-docs.tar.gz
+          source: book.tar.gz
           target: /usr/web
 
       - name: UnCompress
@@ -62,13 +63,17 @@ jobs:
           port: ${{ secrets.PORT }}
           script: |
             mkdir -p /usr/web/nebula-docs/
-            tar -xzf /usr/web/nebula-docs.tar.gz -C /usr/web/nebula-docs/
+            tar -xzf /usr/web/book.tar.gz -C /usr/web/nebula-docs/
       # - name: Deploy
       #   uses: peaceiris/actions-gh-pages@v3
       #   with:
       #     github_token: ${{ secrets.DEPLOY_TOKEN }}
+<<<<<<< HEAD
       #     publish_dir: ./site
 <<<<<<< HEAD
 >>>>>>> 3bc82431 (Update deploy.yaml)
 =======
 >>>>>>> d49fbb9c (fix deploy.yaml)
+=======
+      #     publish_dir: ./site
+>>>>>>> 86b47a80 (rebase master)
