@@ -35,6 +35,11 @@
 <div data-md-component="announce">
 </div>
 <header class="md-header" data-md-component="header">
+<div id="banner" style="width: 100%;display:flex;height: 35px;justify-content:center;align-items:center;background-color:#FFE45E;font-size:15px;font-weight: 400;color: #000000;">
+    该版本文档对应尚未发布的Nebula Graph开发版本。如需了解最新的已发布版本，请查看
+    <a href="https://docs.nebula-graph.com.cn/2.0.1/" style="font-weight: 500;text-decoration:underline;">v2.0.1文档</a>。
+    <a id="delete" style="margin-left: 20px;cursor: pointer;">✖</a>
+</div>
 <nav aria-label="Header" class="md-header__inner md-grid">
 <a aria-label="Nebula Graph Database 手册" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Nebula Graph Database 手册">
 <img alt="logo" src="https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png"/>
@@ -98,6 +103,13 @@
 </div>
 </nav>
 </header>
+<script>
+  var symbol = document.getElementById("delete");
+  var banner = document.getElementById("banner");
+  symbol.addEventListener("click",function(){
+    banner.style.display = "none";
+  })
+</script>
 <div class="md-container" data-md-component="container">
 <main class="md-main" data-md-component="main">
 <div class="md-main__inner md-grid">
@@ -1875,13 +1887,13 @@
 <ul>
 <li>
 <p>标签（tag）</p>
-<p>标签由一组事先预定义的属性构成。</p>
+<p>标签由一组事先预定义的属性构成<sup id="fnref2:Tag"><a class="footnote-ref" href="#fn:Tag">1</a></sup>。</p>
 </li>
 </ul>
 <ul>
 <li>
 <p>边类型（edgetype）</p>
-<p>边类型由一组事先预定义的属性构成。</p>
+<p>边类型由一组事先预定义的属性构成<sup id="fnref:Tag"><a class="footnote-ref" href="#fn:Tag">1</a></sup>。</p>
 </li>
 </ul>
 <ul>
@@ -1890,10 +1902,6 @@
 <p>属性是指以键值对（key-value）形式存储的信息。</p>
 </li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Tag和edgetype的作用，类似于关系型数据库中点表和边表的表结构。</p>
-</div>
 <h2 id="_3">有向属性图<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <p>Nebula Graph使用有向属性图模型，指点和边构成的图，这些边是有方向的，点和边都可以有属性。</p>
 <p>下表为篮球运动员数据集的结构示例，包括两种类型的点（<strong>player</strong>、<strong>team</strong>）和两种类型的边（<strong>serve</strong>、<strong>like</strong>）。</p>
@@ -1933,11 +1941,19 @@
 </tr>
 </tbody>
 </table>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:Tag">
+<p>Tag和edgetype的作用，类似于关系型数据库中点标和边标的表结构。 <a class="footnote-backref" href="#fnref:Tag" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref2:Tag" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+</ol>
+</div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月19日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

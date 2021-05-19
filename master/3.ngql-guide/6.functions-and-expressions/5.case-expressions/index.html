@@ -35,6 +35,11 @@
 <div data-md-component="announce">
 </div>
 <header class="md-header" data-md-component="header">
+<div id="banner" style="width: 100%;display:flex;height: 35px;justify-content:center;align-items:center;background-color:#FFE45E;font-size:15px;font-weight: 400;color: #000000;">
+    该版本文档对应尚未发布的Nebula Graph开发版本。如需了解最新的已发布版本，请查看
+    <a href="https://docs.nebula-graph.com.cn/2.0.1/" style="font-weight: 500;text-decoration:underline;">v2.0.1文档</a>。
+    <a id="delete" style="margin-left: 20px;cursor: pointer;">✖</a>
+</div>
 <nav aria-label="Header" class="md-header__inner md-grid">
 <a aria-label="Nebula Graph Database 手册" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Nebula Graph Database 手册">
 <img alt="logo" src="https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png"/>
@@ -98,6 +103,13 @@
 </div>
 </nav>
 </header>
+<script>
+  var symbol = document.getElementById("delete");
+  var banner = document.getElementById("banner");
+  symbol.addEventListener("click",function(){
+    banner.style.display = "none";
+  })
+</script>
 <div class="md-container" data-md-component="container">
 <main class="md-main" data-md-component="main">
 <div class="md-main__inner md-grid">
@@ -1908,6 +1920,8 @@
 <h1 id="case">CASE表达式<a class="headerlink" href="#case" title="Permanent link">¶</a></h1>
 <p><code>CASE</code>表达式使用条件来过滤nGQL查询语句的结果，常用于<code>YIELD</code>和<code>RETURN</code>子句中。和openCypher一样，nGQL提供两种形式的<code>CASE</code>表达式：简单形式和通用形式。</p>
 <p><code>CASE</code>表达式会遍历所有条件，并在满足第一个条件时停止读取后续条件，然后返回结果。如果不满足任何条件，将通过<code>ELSE</code>子句返回结果。如果没有<code>ELSE</code>子句且不满足任何条件，则返回<code>NULL</code>。</p>
+<p>下图为本文的示例图。</p>
+<p><img alt="Example graph for CASE expressions" src="https://docs-cdn.nebula-graph.com.cn/docs-2.0/3.ngql-guide/6.funtions-and-expressions/case-example.png"/></p>
 <h2 id="_1">简单形式<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <h3 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code>CASE &lt;comparer&gt;
@@ -1916,10 +1930,9 @@ WHEN &lt;value&gt; THEN &lt;result&gt;
 [ELSE &lt;default&gt;]
 END
 </code></pre></div>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p><code>CASE</code>表达式一定要用<code>END</code>结尾。</p>
-</div>
+<p>!!! caution</p>
+<div class="codehilite"><pre><span></span><code>`CASE`表达式一定要用`END`结尾。
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -2066,7 +2079,7 @@ END
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月19日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>
