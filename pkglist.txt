@@ -2,5 +2,3 @@ libpango-1.0-0
 font-manager
 fonts-noto-cjk
 language-pack-zh*
-chinese*
-
