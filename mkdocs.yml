@@ -368,15 +368,15 @@ plugins:
   - search
   - macros
   - git-revision-date-localized
-  - with-pdf:
-      copyright: 2021 Vesoft Inc.
-      cover_subtitle: master
-      author: 吴敏,周瑶,梁振亚
-      cover: true
-      back_cover: true
-      cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
-      output_path: pdf/NebulaGraph-CN.pdf
-      show_anchors: true
+#  - with-pdf:
+#      copyright: 2021 Vesoft Inc.
+#      cover_subtitle: master
+#      author: 吴敏,周瑶,梁振亚
+#      cover: true
+#      back_cover: true
+#      cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
+#      output_path: pdf/NebulaGraph-CN.pdf
+#      show_anchors: true
 
 extra_javascript:
   - js/version-select.js

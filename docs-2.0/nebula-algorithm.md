@@ -48,7 +48,7 @@ Nebula Algorithm实现图计算的流程如下：
 2. 进入目录`nebula-algorithm`。
 
   ```bash
-  $ cd nebula-algorithm
+  $ cd nebula-spark-utils/nebula-spark-connector
   ```
 
 3. 编译打包。
