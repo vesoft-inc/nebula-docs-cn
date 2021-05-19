@@ -35,11 +35,6 @@
 <div data-md-component="announce">
 </div>
 <header class="md-header" data-md-component="header">
-<div id="banner" style="width: 100%;display:flex;height: 35px;justify-content:center;align-items:center;background-color:#FFE45E;font-size:15px;font-weight: 400;color: #000000;">
-    该版本文档对应尚未发布的Nebula Graph开发版本。如需了解最新的已发布版本，请查看
-    <a href="https://docs.nebula-graph.com.cn/2.0.1/" style="font-weight: 500;text-decoration:underline;">v2.0.1文档</a>。
-    <a id="delete" style="margin-left: 20px;cursor: pointer;">✖</a>
-</div>
 <nav aria-label="Header" class="md-header__inner md-grid">
 <a aria-label="Nebula Graph Database 手册" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Nebula Graph Database 手册">
 <img alt="logo" src="https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png"/>
@@ -103,13 +98,6 @@
 </div>
 </nav>
 </header>
-<script>
-  var symbol = document.getElementById("delete");
-  var banner = document.getElementById("banner");
-  symbol.addEventListener("click",function(){
-    banner.style.display = "none";
-  })
-</script>
 <div class="md-container" data-md-component="container">
 <main class="md-main" data-md-component="main">
 <div class="md-main__inner md-grid">
@@ -2011,19 +1999,31 @@
 <p>Storage服务是由nebula-storaged进程提供的，用户可以根据场景配置nebula-storaged进程数量，例如测试环境1个，生产环境3个。</p>
 <p>所有nebula-storaged进程构成了基于Raft协议的集群，整个服务架构可以分为三层，从上到下依次为：</p>
 <ul>
-<li>Storage interface层<p>Storage服务的最上层，定义了一系列和图相关的API。API请求会在这一层被翻译成一组针对<a href="#数据分片">分片</a>的KV操作，例如：</p>
-<p>- <code>getNeighbors</code>：查询一批点的出边或者入边，返回边以及对应的属性，并且支持条件过滤。</p>
-<p>- <code>insert vertex/edge</code>：插入一条点或者边及其属性。</p>
-<p>- <code>getProps</code>：获取一个点或者一条边的属性。</p>
+<li>
+<p>Storage interface层</p>
+<p>Storage服务的最上层，定义了一系列和图相关的API。API请求会在这一层被翻译成一组针对<a href="#数据分片">分片</a>的KV操作，例如：</p>
+<ul>
+<li><code>getNeighbors</code>：查询一批点的出边或者入边，返回边以及对应的属性，并且支持条件过滤。</li>
+</ul>
+<ul>
+<li><code>insert vertex/edge</code>：插入一条点或者边及其属性。</li>
+</ul>
+<ul>
+<li><code>getProps</code>：获取一个点或者一条边的属性。</li>
+</ul>
 <p>正是这一层的存在，使得Storage服务变成了真正的图存储，否则Storage服务只是一个KV存储服务。</p>
 </li>
 </ul>
 <ul>
-<li>Consensus层<p>Storage服务的中间层，实现了<a href="#raft协议">Multi Group Raft</a>，保证强一致性和高可用性。</p>
+<li>
+<p>Consensus层</p>
+<p>Storage服务的中间层，实现了<a href="#raft协议">Multi Group Raft</a>，保证强一致性和高可用性。</p>
 </li>
 </ul>
 <ul>
-<li>Store Engine层<p>Storage服务的最底层，是一个单机版本地存储引擎，提供对本地数据的<code>get</code>、<code>put</code>、<code>scan</code>等操作。相关接口存储在<code>KVStore.h</code>和<code>KVEngine.h</code>文件，用户可以根据业务需求定制开发相关的本地存储插件。</p>
+<li>
+<p>Store Engine层</p>
+<p>Storage服务的最底层，是一个单机版本地存储引擎，提供对本地数据的<code>get</code>、<code>put</code>、<code>scan</code>等操作。相关接口存储在<code>KVStore.h</code>和<code>KVEngine.h</code>文件，用户可以根据业务需求定制开发相关的本地存储插件。</p>
 </li>
 </ul>
 <p>下文将基于架构介绍Storage服务的部分特性。</p>
@@ -2129,14 +2129,16 @@
 </li>
 </ul>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
+<p class="admonition-title">历史版本兼容性</p>
 <p>2.0和1.x的差异如下：</p>
+<ul>
+<li>1.x中，点和边的<code>Type</code>值相同，而在2.0中进行了区分，即在物理上分离了点和边，方便快速查询某个点的所有标签。</li>
+<li>1.x中，<code>VertexID</code>仅支持int类型，而在2.0中新增了string类型。</li>
+<li>2.0中取消了1.x中的保留字段<code>Timestamp</code>。</li>
+<li>2.0中边数据新增字段<code>PlaceHolder</code>。</li>
+<li>2.0中修改了索引的格式，以便支持范围查询。</li>
+</ul>
 </div>
-<p>- 1.x中，点和边的<code>Type</code>值相同，而在2.0中进行了区分，即在物理上分离了点和边，方便快速查询某个点的所有标签。
-   - 1.x中，<code>VertexID</code>仅支持int类型，而在2.0中新增了string类型。
-   - 2.0中取消了1.x中的保留字段<code>Timestamp</code>。
-   - 2.0中边数据新增字段<code>PlaceHolder</code>。
-   - 2.0中修改了索引的格式，以便支持范围查询。</p>
 <h3 id="_3">属性说明<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
 <p>对于点或边的属性信息，Nebula Graph会将属性信息编码后按顺序存储，由于属性的长度是固定的，查询时可以根据偏移量快速查询。Nebula Graph使用强类型Schema，所以在解码之前，需要先从Meta服务中查询具体的Schema信息。同时为了支持在线变更Schema，在编码属性时，会加入对应的Schema版本信息。</p>
 <h2 id="_4">数据分片<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
@@ -2152,11 +2154,15 @@
 <p>由于Raft日志不允许空洞，Nebula Graph使用Multi Group Raft缓解此问题，分片数量较多时，可以有效提高Nebula Graph的性能。但是分片数量太多会增加开销，例如Raft group内部存储的状态信息、WAL文件，或者负载过低时的批量操作。</p>
 <p>实现Multi Group Raft有2个关键点：</p>
 <ul>
-<li>共享Transport层<p>每一个Raft group内部都需要向对应的peer发送消息，如果不能共享Transport层，会导致连接的开销巨大。</p>
+<li>
+<p>共享Transport层</p>
+<p>每一个Raft group内部都需要向对应的peer发送消息，如果不能共享Transport层，会导致连接的开销巨大。</p>
 </li>
 </ul>
 <ul>
-<li>共享线程池<p>如果不共享一组线程池，会造成系统的线程数过多，导致大量的上下文切换开销。</p>
+<li>
+<p>共享线程池</p>
+<p>如果不共享一组线程池，会造成系统的线程数过多，导致大量的上下文切换开销。</p>
 </li>
 </ul>
 <h3 id="batch">批量（Batch）操作<a class="headerlink" href="#batch" title="Permanent link">¶</a></h3>
@@ -2191,7 +2197,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月18日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月19日</span>
 </small>
 </div>
 </article>
