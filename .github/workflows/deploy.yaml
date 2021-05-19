@@ -48,7 +48,8 @@ jobs:
       - name: Compress
         run: |
            ls -altr
-           tar -vczf nebula-docs.tar.gz 1.2.0/ versions.json index.html --exclude=*.tar.gz
+           tar -vczf nebula-docs.tar.gz 1.2.0/ versions.json index.html 
+           
       - name: Transfer
         # uses: garygrossgarten/github-action-scp@release
         uses: appleboy/scp-action@master
