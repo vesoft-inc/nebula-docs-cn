@@ -1,0 +1,5564 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for Nebula Graph Database">
+      
+      
+      
+        <meta name="author" content="Nebula Graph">
+      
+      
+        <link rel="canonical" href="https://docs.nebula-graph.com.cn/manual-CN/5.appendix/gremlin-ngql/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.4">
+    
+    
+      
+        <title>Gremlin & nGQL - Nebula Graph Database 内核手册</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bde7dde4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/logo.css">
+    
+      <link rel="stylesheet" href="../../../css/version-select.css">
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-60523578-15","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gremlin_ngql" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="Nebula Graph Database 内核手册" class="md-header__button md-logo" aria-label="Nebula Graph Database 内核手册" data-md-component="logo">
+      
+  <img src="https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nebula Graph Database 内核手册
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Gremlin & nGQL
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/vesoft-inc/nebula-docs-cn/" title="前往 GitHub 仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    vesoft-inc/nebula-docs-cn
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Nebula Graph Database 内核手册" class="md-nav__button md-logo" aria-label="Nebula Graph Database 内核手册" data-md-component="logo">
+      
+  <img src="https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png" alt="logo">
+
+    </a>
+    Nebula Graph Database 内核手册
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/vesoft-inc/nebula-docs-cn/" title="前往 GitHub 仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    vesoft-inc/nebula-docs-cn
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      <label class="md-nav__link" for="__nav_1">
+        简介
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="简介" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          简介
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        关于
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../0.about-this-manual/" class="md-nav__link">
+        关于本手册
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../" class="md-nav__link">
+        目录索引
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      <label class="md-nav__link" for="__nav_1_4">
+        基本概念
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="基本概念" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          基本概念
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.overview/1.concepts/1.data-model/" class="md-nav__link">
+        数据模型
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.overview/1.concepts/2.nGQL-overview/" class="md-nav__link">
+        查询语言概览
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5" type="checkbox" id="__nav_1_5" >
+      
+      <label class="md-nav__link" for="__nav_1_5">
+        快速开始和常用链接
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="快速开始和常用链接" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          快速开始和常用链接
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.overview/2.quick-start/1.get-started/" class="md-nav__link">
+        开始试用
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.overview/2.quick-start/2.FAQ/" class="md-nav__link">
+        常见问题 FAQ
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/3.configurations/0.system-requirement/" class="md-nav__link">
+        系统要求
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.overview/2.quick-start/3.supported-clients/" class="md-nav__link">
+        Nebula Graph 客户端
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/1.build/1.build-source-code/" class="md-nav__link">
+        编译源代码
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.overview/2.quick-start/4.import-csv-file/" class="md-nav__link">
+        导入 .csv 文件
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6" type="checkbox" id="__nav_1_6" >
+      
+      <label class="md-nav__link" for="__nav_1_6">
+        系统设计与架构
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="系统设计与架构" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          系统设计与架构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.overview/3.design-and-architecture/1.design-and-architecture/" class="md-nav__link">
+        设计总览
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.overview/3.design-and-architecture/2.storage-design/" class="md-nav__link">
+        存储层架构
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.overview/3.design-and-architecture/3.query-engine/" class="md-nav__link">
+        查询引擎架构
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        查询语言
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="查询语言" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          查询语言
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/0.README/" class="md-nav__link">
+        查询语言简介
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      <label class="md-nav__link" for="__nav_2_2">
+        数据类型
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数据类型" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          数据类型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/1.data-types/data-types/" class="md-nav__link">
+        基本数据类型
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/1.data-types/type-conversion/" class="md-nav__link">
+        类型转换
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      <label class="md-nav__link" for="__nav_2_3">
+        函数与操作符
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="函数与操作符" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          函数与操作符
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/2.functions-and-operators/bitwise-operators/" class="md-nav__link">
+        位运算
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/2.functions-and-operators/built-in-functions/" class="md-nav__link">
+        内置函数
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/2.functions-and-operators/comparison-functions-and-operators/" class="md-nav__link">
+        比较运算
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/2.functions-and-operators/group-by-function/" class="md-nav__link">
+        分组 GROUP BY
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/2.functions-and-operators/limit-syntax/" class="md-nav__link">
+        LIMIT 语法
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/2.functions-and-operators/logical-operators/" class="md-nav__link">
+        逻辑运算
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/2.functions-and-operators/operator-precedence/" class="md-nav__link">
+        运算符优先级
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/2.functions-and-operators/order-by-function/" class="md-nav__link">
+        ORDER BY 函数
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/2.functions-and-operators/set-operations/" class="md-nav__link">
+        SET 运算符
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/2.functions-and-operators/string-comparison-functions-and-operators/" class="md-nav__link">
+        字符比较函数和运算符
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/2.functions-and-operators/uuid/" class="md-nav__link">
+        UUID 函数
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      <label class="md-nav__link" for="__nav_2_4">
+        语言结构
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="语言结构" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          语言结构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_1" type="checkbox" id="__nav_2_4_1" >
+      
+      <label class="md-nav__link" for="__nav_2_4_1">
+        字面值常量
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="字面值常量" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          字面值常量
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/3.language-structure/literal-values/boolean-literals/" class="md-nav__link">
+        布尔类型
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/3.language-structure/literal-values/numeric-literals/" class="md-nav__link">
+        数值类型
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/3.language-structure/literal-values/string-literals/" class="md-nav__link">
+        字符串类型
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/3.language-structure/comment-syntax/" class="md-nav__link">
+        注释语法
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/3.language-structure/identifier-case-sensitivity/" class="md-nav__link">
+        标识符大小写
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/3.language-structure/keywords-and-reserved-words/" class="md-nav__link">
+        关键字和保留字
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/3.language-structure/pipe-syntax/" class="md-nav__link">
+        管道
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/3.language-structure/property-reference/" class="md-nav__link">
+        属性引用
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/3.language-structure/schema-object-names/" class="md-nav__link">
+        标识符命名规则
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/3.language-structure/statement-composition/" class="md-nav__link">
+        语句组合
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/3.language-structure/user-defined-variables/" class="md-nav__link">
+        用户自定义变量
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      <label class="md-nav__link" for="__nav_2_5">
+        语句语法
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="语句语法" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          语句语法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_1" type="checkbox" id="__nav_2_5_1" >
+      
+      <label class="md-nav__link" for="__nav_2_5_1">
+        数据定义语句 (DDL)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数据定义语句 (DDL)" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          数据定义语句 (DDL)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/1.data-definition-statements/alter-edge-syntax/" class="md-nav__link">
+        ALTER EDGE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/1.data-definition-statements/alter-tag-syntax/" class="md-nav__link">
+        ALTER TAG
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/1.data-definition-statements/create-space-syntax/" class="md-nav__link">
+        CREATE SPACE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/1.data-definition-statements/create-edge-syntax/" class="md-nav__link">
+        CREATE EDGE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/1.data-definition-statements/create-tag-syntax/" class="md-nav__link">
+        CREATE TAG
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/1.data-definition-statements/drop-edge-syntax/" class="md-nav__link">
+        DROP EDGE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/1.data-definition-statements/drop-tag-syntax/" class="md-nav__link">
+        DROP TAG
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/1.data-definition-statements/drop-space-syntax/" class="md-nav__link">
+        DROP SPACE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/1.data-definition-statements/" class="md-nav__link">
+        INDEX
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/1.data-definition-statements/TTL/" class="md-nav__link">
+        TTL
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_2" type="checkbox" id="__nav_2_5_2" >
+      
+      <label class="md-nav__link" for="__nav_2_5_2">
+        数据查询与操作语句 (DQL 和 DML)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数据查询与操作语句 (DQL 和 DML)" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          数据查询与操作语句 (DQL 和 DML)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/delete-edge-syntax/" class="md-nav__link">
+        DELETE EDGE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/delete-vertex-syntax/" class="md-nav__link">
+        DELETE VERTEX
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/fetch-syntax/" class="md-nav__link">
+        FETCH
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/go-syntax/" class="md-nav__link">
+        GO
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/insert-edge-syntax/" class="md-nav__link">
+        INSERT EDGE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/insert-vertex-syntax/" class="md-nav__link">
+        INSERT VERTEX
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/lookup-syntax/" class="md-nav__link">
+        LOOKUP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/return-syntax/" class="md-nav__link">
+        RETURN
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/update-edge-syntax/" class="md-nav__link">
+        UPDATE EDGE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/update-vertex-syntax/" class="md-nav__link">
+        UPDATE VERTEX
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/upsert-syntax/" class="md-nav__link">
+        UPSERT
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/where-syntax/" class="md-nav__link">
+        WHERE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/yield-syntax/" class="md-nav__link">
+        YIELD
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_3" type="checkbox" id="__nav_2_5_3" >
+      
+      <label class="md-nav__link" for="__nav_2_5_3">
+        辅助功能语句
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="辅助功能语句" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          辅助功能语句
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_3_1" type="checkbox" id="__nav_2_5_3_1" >
+      
+      <label class="md-nav__link" for="__nav_2_5_3_1">
+        SHOW 语句
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="SHOW 语句" data-md-level="4">
+        <label class="md-nav__title" for="__nav_2_5_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          SHOW 语句
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-charset-syntax/" class="md-nav__link">
+        SHOW CHARSET
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-collation-syntax/" class="md-nav__link">
+        SHOW COLLATION
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-configs-syntax/" class="md-nav__link">
+        SHOW CONFIGS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-create-space-syntax/" class="md-nav__link">
+        SHOW CREATE SPACE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-create-tag-edge-syntax/" class="md-nav__link">
+        SHOW CREATE TAG EDGE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-hosts-syntax/" class="md-nav__link">
+        SHOW HOSTS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-indexes-syntax/" class="md-nav__link">
+        SHOW INDEXES
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-parts-syntax/" class="md-nav__link">
+        SHOW PARTS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-roles-syntax/" class="md-nav__link">
+        SHOW ROLES
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-snapshots-syntax/" class="md-nav__link">
+        SHOW SNAPSHOTS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-spaces-syntax/" class="md-nav__link">
+        SHOW SPACES
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-tags-edges-syntax/" class="md-nav__link">
+        SHOW TAGS EDGES
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-users-syntax/" class="md-nav__link">
+        SHOW USERS
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/describe-syntax/" class="md-nav__link">
+        DESCRIBE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/use-syntax/" class="md-nav__link">
+        USE
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_4" type="checkbox" id="__nav_2_5_4" >
+      
+      <label class="md-nav__link" for="__nav_2_5_4">
+        图算法
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="图算法" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          图算法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.query-language/4.statement-syntax/4.graph-algorithms/find-path-syntax/" class="md-nav__link">
+        FIND PATH
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        编译、部署与运维
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="编译、部署与运维" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          编译、部署与运维
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" >
+      
+      <label class="md-nav__link" for="__nav_3_1">
+        编译
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="编译" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          编译
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/1.build/1.build-source-code/" class="md-nav__link">
+        编译源代码
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/1.build/2.build-by-docker/" class="md-nav__link">
+        使用 Docker 编译
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      <label class="md-nav__link" for="__nav_3_2">
+        安装
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="安装" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          安装
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" class="md-nav__link">
+        rpm 安装
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/2.install/2.start-stop-service/" class="md-nav__link">
+        启停服务
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/2.install/deploy-nebula-with-swarm.md" class="md-nav__link">
+        集群部署
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/2.install/3.install-with-docker/" class="md-nav__link">
+        Docker 安装
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      <label class="md-nav__link" for="__nav_3_3">
+        配置
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="配置" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          配置
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/3.configurations/0.system-requirement/" class="md-nav__link">
+        系统要求
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/3.configurations/1.config-persistency-and-priority/" class="md-nav__link">
+        配置持久化与优先级
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/3.configurations/2.configs-syntax/" class="md-nav__link">
+        CONFIG 语法
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/3.configurations/4.graph-config/" class="md-nav__link">
+        Graphd 配置
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/3.configurations/5.storage-config/" class="md-nav__link">
+        Storaged 配置
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/3.configurations/6.console-config/" class="md-nav__link">
+        Console 配置
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/3.configurations/7.kernel-config/" class="md-nav__link">
+        Kernel 配置
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/3.configurations/8.single-node-log/" class="md-nav__link">
+        单机日志
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      <label class="md-nav__link" for="__nav_3_4">
+        账号权限管理
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="账号权限管理" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          账号权限管理
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/4.account-management-statements/alter-user-syntax/" class="md-nav__link">
+        Alter User
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/4.account-management-statements/authentication/" class="md-nav__link">
+        身份验证
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/4.account-management-statements/built-in-roles/" class="md-nav__link">
+        Built-in Roles
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/4.account-management-statements/change-password/" class="md-nav__link">
+        Change Password
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/4.account-management-statements/create-user-syntax/" class="md-nav__link">
+        Create User
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/4.account-management-statements/drop-user-syntax/" class="md-nav__link">
+        Drop User
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/4.account-management-statements/grant-role-syntax/" class="md-nav__link">
+        Grant Role
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/4.account-management-statements/LDAP/" class="md-nav__link">
+        LDAP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/4.account-management-statements/revoke-syntax/" class="md-nav__link">
+        Revoke
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      <label class="md-nav__link" for="__nav_3_5">
+        批量数据管理
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="批量数据管理" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          批量数据管理
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_1" type="checkbox" id="__nav_3_5_1" >
+      
+      <label class="md-nav__link" for="__nav_3_5_1">
+        离线数据导入
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="离线数据导入" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          离线数据导入
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/5.storage-service-administration/data-import/import-csv-file/" class="md-nav__link">
+        读取 .csv 文件
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/5.storage-service-administration/data-import/spark-writer/" class="md-nav__link">
+        Spark 导入工具
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_2" type="checkbox" id="__nav_3_5_2" >
+      
+      <label class="md-nav__link" for="__nav_3_5_2">
+        离线数据转储
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="离线数据转储" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          离线数据转储
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/5.storage-service-administration/data-export/dump-tool/" class="md-nav__link">
+        Dump Tool
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/5.storage-service-administration/storage-balance/" class="md-nav__link">
+        负载均衡和数据迁移
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/5.storage-service-administration/cluster-snapshot/" class="md-nav__link">
+        集群快照
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/5.storage-service-administration/job-manager/" class="md-nav__link">
+        长耗时任务管理
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/5.storage-service-administration/compact/" class="md-nav__link">
+        Compact
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      <label class="md-nav__link" for="__nav_3_6">
+        监控与统计
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="监控与统计" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          监控与统计
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/7.monitor/1.metrics-exposer/" class="md-nav__link">
+        Metrics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/7.monitor/2.meta-metrics/" class="md-nav__link">
+        Meta Metrics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/7.monitor/3.storage-metrics/" class="md-nav__link">
+        Storage Metrics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/7.monitor/4.graph-metrics/" class="md-nav__link">
+        Graph Metrics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/7.monitor/5.rocksdb-statistics.md" class="md-nav__link">
+        RocksDB Statistics
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" >
+      
+      <label class="md-nav__link" for="__nav_3_7">
+        源码开发和 API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="源码开发和 API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          源码开发和 API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/6.develop-and-interface/kv-interfaces/" class="md-nav__link">
+        Key Value API
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1.overview/2.quick-start/3.supported-clients/" class="md-nav__link">
+        Nebula Graph 客户端
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        图算法
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="图算法" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          图算法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      <label class="md-nav__link" for="__nav_4_1">
+        nebula-algorithm
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="nebula-algorithm" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          nebula-algorithm
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-algorithm/na-ug-what-is-nebula-algorithm/" class="md-nav__link">
+        什么是 nebula-algorithm
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-algorithm/na-ug-limitations/" class="md-nav__link">
+        使用限制
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-algorithm/na-ug-compile/" class="md-nav__link">
+        编译 nebula-algorithm
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-algorithm/na-ug-example/" class="md-nav__link">
+        使用示例
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        数据传输
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数据传输" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          数据传输
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+      
+      <label class="md-nav__link" for="__nav_5_1">
+        Nebula Exchange
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Nebula Exchange" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Nebula Exchange
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_1" type="checkbox" id="__nav_5_1_1" >
+      
+      <label class="md-nav__link" for="__nav_5_1_1">
+        认识 Nebula Exchange
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="认识 Nebula Exchange" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          认识 Nebula Exchange
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-exchange/about-exchange/ex-ug-what-is-exchange/" class="md-nav__link">
+        什么是 Nebula Exchange
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-exchange/about-exchange/ex-ug-limitations/" class="md-nav__link">
+        使用限制
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-exchange/about-exchange/ex-ug-terms/" class="md-nav__link">
+        名词解释
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-exchange/about-exchange/ex-ug-faq/" class="md-nav__link">
+        常见问题
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-exchange/ex-ug-compile/" class="md-nav__link">
+        编译 Exchange
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_3" type="checkbox" id="__nav_5_1_3" >
+      
+      <label class="md-nav__link" for="__nav_5_1_3">
+        操作指南
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="操作指南" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          操作指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-exchange/use-exchange/ex-ug-import-steps/" class="md-nav__link">
+        导入数据步骤
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-exchange/use-exchange/ex-ug-import-from-neo4j/" class="md-nav__link">
+        导入 Neo4j 数据
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-exchange/use-exchange/ex-ug-import-sst/" class="md-nav__link">
+        导入 SST 文件
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-exchange/use-exchange/ex-ug-import-hive/" class="md-nav__link">
+        导入 HIVE 数据
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-exchange/use-exchange/ex-ug-import-from-csv/" class="md-nav__link">
+        导入 CSV 文件数据
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-exchange/use-exchange/ex-ug-import-json/" class="md-nav__link">
+        导入 JSON 文件数据
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_4" type="checkbox" id="__nav_5_1_4" >
+      
+      <label class="md-nav__link" for="__nav_5_1_4">
+        参数说明
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="参数说明" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          参数说明
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-exchange/parameter-reference/ex-ug-paras-spark/" class="md-nav__link">
+        Spark 参数
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-exchange/parameter-reference/ex-ug-paras-nebulagraph/" class="md-nav__link">
+        Nebula Graph 参数
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-exchange/parameter-reference/ex-ug-para-import-command/" class="md-nav__link">
+        导入命令参数
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      <label class="md-nav__link" for="__nav_5_2">
+        Nebula Importer
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Nebula Importer" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Nebula Importer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.build-develop-and-administration/5.storage-service-administration/data-import/import-csv-file/" class="md-nav__link">
+        导入CSV文件
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      <label class="md-nav__link" for="__nav_5_3">
+        Nebula Flink Connector
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Nebula Flink Connector" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Nebula Flink Connector
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-flink/nf-ug-what-is-flink-connector/" class="md-nav__link">
+        什么是 Nebula Flink Connector
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-flink/nf-ug-compile/" class="md-nav__link">
+        编译 Nebula Flink Connector
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-flink/nf-ug-limitations/" class="md-nav__link">
+        使用限制
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-flink/nf-ug-customize-source/" class="md-nav__link">
+        自定义 source (NebulaSource)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-flink/nf-ug-customize-sink/" class="md-nav__link">
+        自定义 sink (NebulaSink)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-flink/nf-ug-notes/" class="md-nav__link">
+        特殊说明
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" >
+      
+      <label class="md-nav__link" for="__nav_5_4">
+        Nebula Spark Connector
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Nebula Spark Connector" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Nebula Spark Connector
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spark-connector/sc-ug-what-is-spark-connector/" class="md-nav__link">
+        什么是 Nebula Spark Connector
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spark-connector/sc-ug-compile/" class="md-nav__link">
+        编译 Nebula Spark Connector
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spark-connector/sc-ug-limitations/" class="md-nav__link">
+        使用限制
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4_4" type="checkbox" id="__nav_5_4_4" >
+      
+      <label class="md-nav__link" for="__nav_5_4_4">
+        Nebula Spark Connector Reader
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Nebula Spark Connector Reader" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Nebula Spark Connector Reader
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spark-connector/reader/sc-ug-what-is-reader/" class="md-nav__link">
+        什么是 Nebula Spark Connector Reader
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spark-connector/reader/sc-ug-reader-example/" class="md-nav__link">
+        使用示例
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4_5" type="checkbox" id="__nav_5_4_5" >
+      
+      <label class="md-nav__link" for="__nav_5_4_5">
+        Nebula Spark Connector Writer
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Nebula Spark Connector Writer" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_4_5">
+          <span class="md-nav__icon md-icon"></span>
+          Nebula Spark Connector Writer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spark-connector/writer/sc-ug-what-is-writer/" class="md-nav__link">
+        什么是 Nebula Spark Connector Writer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../spark-connector/writer/sc-ug-writer-example/" class="md-nav__link">
+        使用示例
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Nebula Graph Studio
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Nebula Graph Studio" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Nebula Graph Studio
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" >
+      
+      <label class="md-nav__link" for="__nav_6_1">
+        认识 Nebula Graph Studio
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="认识 Nebula Graph Studio" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          认识 Nebula Graph Studio
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-studio/about-studio/st-ug-what-is-graph-studio/" class="md-nav__link">
+        什么是 Nebula Graph Studio
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-studio/about-studio/st-ug-terms/" class="md-nav__link">
+        名词解释
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-studio/about-studio/st-ug-limitations/" class="md-nav__link">
+        使用限制
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-studio/about-studio/st-ug-check-updates/" class="md-nav__link">
+        版本更新
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-studio/about-studio/st-ug-shortcuts/" class="md-nav__link">
+        快捷键
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      <label class="md-nav__link" for="__nav_6_2">
+        安装与登录
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="安装与登录" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          安装与登录
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-studio/deploy-connect/st-ug-deploy/" class="md-nav__link">
+        部署 Studio
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-studio/deploy-connect/st-ug-connect/" class="md-nav__link">
+        连接数据库
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-studio/deploy-connect/st-ug-reset-connection/" class="md-nav__link">
+        清除连接
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" >
+      
+      <label class="md-nav__link" for="__nav_6_3">
+        快速开始
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="快速开始" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          快速开始
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-studio/quick-start/st-ug-plan-schema/" class="md-nav__link">
+        规划 Schema
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-studio/quick-start/st-ug-prepare-csv/" class="md-nav__link">
+        准备 CSV 文件
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-studio/quick-start/st-ug-create-schema/" class="md-nav__link">
+        创建 Schema
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-studio/quick-start/st-ug-import-data/" class="md-nav__link">
+        导入数据
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-studio/quick-start/st-ug-explore/" class="md-nav__link">
+        查询图数据
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" >
+      
+      <label class="md-nav__link" for="__nav_6_4">
+        操作指南
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="操作指南" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          操作指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4_1" type="checkbox" id="__nav_6_4_1" >
+      
+      <label class="md-nav__link" for="__nav_6_4_1">
+        管理 Schema
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="管理 Schema" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          管理 Schema
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-studio/manage-schema/st-ug-crud-space/" class="md-nav__link">
+        操作图空间
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-studio/manage-schema/st-ug-crud-tag/" class="md-nav__link">
+        操作标签
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-studio/manage-schema/st-ug-crud-edge-type/" class="md-nav__link">
+        操作边类型
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-studio/manage-schema/st-ug-crud-index/" class="md-nav__link">
+        操作索引
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4_2" type="checkbox" id="__nav_6_4_2" >
+      
+      <label class="md-nav__link" for="__nav_6_4_2">
+        使用控制台
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="使用控制台" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          使用控制台
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-studio/use-console/st-ug-console/" class="md-nav__link">
+        控制台界面
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-studio/use-console/st-ug-open-in-explorer/" class="md-nav__link">
+        导入图探索
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-studio/use-console/st-ug-visualize-findpath/" class="md-nav__link">
+        查看子图
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" type="checkbox" id="__nav_6_5" >
+      
+      <label class="md-nav__link" for="__nav_6_5">
+        故障排查
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="故障排查" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_5">
+          <span class="md-nav__icon md-icon"></span>
+          故障排查
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-studio/troubleshooting/st-ug-config-server-errors/" class="md-nav__link">
+        连接数据库错误
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-studio/troubleshooting/st-ug-connection-errors/" class="md-nav__link">
+        无法访问 Studio
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../nebula-studio/troubleshooting/st-ug-faq/" class="md-nav__link">
+        常见问题
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        社区贡献
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="社区贡献" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          社区贡献
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.contributions/contribute-to-documentation/" class="md-nav__link">
+        贡献文档
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.contributions/cpp-coding-style/" class="md-nav__link">
+        C++ 编程风格
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.contributions/how-to-contribute/" class="md-nav__link">
+        如何贡献
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.contributions/pull-request-commit-message-guidelines/" class="md-nav__link">
+        PR and Commit 信息指南
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
+      
+      <label class="md-nav__link" for="__nav_8">
+        附录
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="附录" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          附录
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cypher-ngql/" class="md-nav__link">
+        Cypher & nGQL
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Gremlin & nGQL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Gremlin & nGQL
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gremlin" class="md-nav__link">
+    Gremlin 介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ngql" class="md-nav__link">
+    nGQL 介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    基本概念对比
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    图基本操作
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    示例查询
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    高级查询
+  </a>
+  
+    <nav class="md-nav" aria-label="高级查询">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    图探索
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    边的遍历
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#has" class="md-nav__link">
+    has 条件过滤
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    返回结果限制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    路径查询
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    多度查询
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    查询结果排序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group_by" class="md-nav__link">
+    Group By
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where" class="md-nav__link">
+    where 条件过滤
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    逻辑运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    统计运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    路径选取与过滤
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    分支
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    合并
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    结果聚集与展开
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    模式匹配
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    随机过滤
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sack" class="md-nav__link">
+    结果存取口袋 Sack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#barrier" class="md-nav__link">
+    遍历栅栏 barrier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local" class="md-nav__link">
+    局部操作 local
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    执行统计和分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sql-ngql/" class="md-nav__link">
+        SQL & nGQL
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vid-partition/" class="md-nav__link">
+        点标识符和分区
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../super-node.md" class="md-nav__link">
+        超级顶点（稠密点）处理
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        English
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="English" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          English
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.nebula-graph.io/" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#gremlin" class="md-nav__link">
+    Gremlin 介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ngql" class="md-nav__link">
+    nGQL 介绍
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    基本概念对比
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    图基本操作
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    示例查询
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    高级查询
+  </a>
+  
+    <nav class="md-nav" aria-label="高级查询">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    图探索
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    边的遍历
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#has" class="md-nav__link">
+    has 条件过滤
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    返回结果限制
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    路径查询
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    多度查询
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    查询结果排序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#group_by" class="md-nav__link">
+    Group By
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#where" class="md-nav__link">
+    where 条件过滤
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    逻辑运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    统计运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    路径选取与过滤
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    分支
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    合并
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    结果聚集与展开
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    模式匹配
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    随机过滤
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sack" class="md-nav__link">
+    结果存取口袋 Sack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#barrier" class="md-nav__link">
+    遍历栅栏 barrier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#local" class="md-nav__link">
+    局部操作 local
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    执行统计和分析
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/vesoft-inc/nebula-docs-cn/edit/v1.2.0/docs/manual-CN/5.appendix/gremlin-ngql.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="gremlin_ngql">Gremlin 和 nGQL 对比<a class="headerlink" href="#gremlin_ngql" title="Permanent link">&para;</a></h1>
+<h2 id="gremlin">Gremlin 介绍<a class="headerlink" href="#gremlin" title="Permanent link">&para;</a></h2>
+<p><a href="https://tinkerpop.apache.org/gremlin.html">Gremlin</a> 是 Apache ThinkerPop 框架下的图遍历语言。Gremlin 可以是声明性的也可以是命令性的。虽然 Gremlin 是基于 Groovy 的，但具有许多语言变体，允许开发人员以 Java、JavaScript、Python、Scala、Clojure 和 Groovy 等许多现代编程语言原生编写 Gremlin 查询。</p>
+<h2 id="ngql">nGQL 介绍<a class="headerlink" href="#ngql" title="Permanent link">&para;</a></h2>
+<p><strong>Nebula Graph</strong> 的查询语言为 <a href="../../1.overview/1.concepts/2.nGQL-overview/">nGQL</a>， 是一种类 SQL 的声明型的文本查询语言。相比 SQL，<code>nGQL</code> 具有如下特点：</p>
+<ul>
+<li>类 SQL，易学易用</li>
+<li>可扩展</li>
+<li>关键词大小写不敏感</li>
+<li>支持图遍历</li>
+<li>支持模式匹配</li>
+<li>支持聚合运算</li>
+<li>支持图计算</li>
+<li>支持分布式事务（开发中）</li>
+<li>无嵌入支持组合语句，易于阅读</li>
+</ul>
+<h2 id="_1">基本概念对比<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>Gremlin</th>
+<th>nGQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>vertex, node</td>
+<td>vertex</td>
+<td>vertex</td>
+</tr>
+<tr>
+<td>edge, relationship</td>
+<td>edge</td>
+<td>edge</td>
+</tr>
+<tr>
+<td>vertex type</td>
+<td>label</td>
+<td>tag</td>
+</tr>
+<tr>
+<td>edge type</td>
+<td>label</td>
+<td>edge type</td>
+</tr>
+<tr>
+<td>vertex id</td>
+<td>vid</td>
+<td>vid</td>
+</tr>
+<tr>
+<td>edge id</td>
+<td>eid</td>
+<td>无</td>
+</tr>
+</tbody>
+</table>
+<p>Gremlin 和 nGQL 均使用唯一标识符标记顶点和边。在 <strong>Nebula Graph</strong> 中，用户可以使用指定标识符、哈希或 uuid 函数自动生成标识符。</p>
+<h2 id="_2">图基本操作<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>Gremlin</th>
+<th>nGQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>新建图空间</td>
+<td>g = TinkerGraph.open().traversal()</td>
+<td>CREATE SPACE gods</td>
+</tr>
+<tr>
+<td>查看点类型</td>
+<td>g.V().label()</td>
+<td>SHOW TAGS</td>
+</tr>
+<tr>
+<td>插入指定类型点</td>
+<td>g.addV(String vertexLabel).property()</td>
+<td>INSERT VERTEX <code>&lt;tag_name&gt;</code> (prop_name_list) VALUES <code>&lt;vid&gt;</code>:(prop_value_list)</td>
+</tr>
+<tr>
+<td>插入指定类型边</td>
+<td>g.addE(String edgeLabel).from(v1).to(v2).property()</td>
+<td>INSERT EDGE <code>&lt;edge_name&gt;</code> ( <code>&lt;prop_name_list&gt;</code> ) VALUES <code>&lt;src_vid&gt;</code> -&gt; <code>&lt;dst_vid&gt;</code>: ( <code>&lt;prop_value_list&gt;</code> )</td>
+</tr>
+<tr>
+<td>删除点</td>
+<td>g.V(<code>&lt;vid&gt;</code>).drop()</td>
+<td>DELETE VERTEX <code>&lt;vid&gt;</code></td>
+</tr>
+<tr>
+<td>删除边</td>
+<td>g.E(<code>&lt;vid&gt;</code>).outE(<code>&lt;type&gt;</code>).where(otherV().is(<code>&lt;vid&gt;</code>))drop()</td>
+<td>DELETE EDGE <code>&lt;edge_type&gt;</code> <code>&lt;src_vid&gt;</code> -&gt; <code>&lt;dst_vid&gt;</code></td>
+</tr>
+<tr>
+<td>更新点属性</td>
+<td>g.V(<code>&lt;vid&gt;</code>).property()</td>
+<td>UPDATE VERTEX <code>&lt;vid&gt;</code> SET <code>&lt;update_columns&gt;</code></td>
+</tr>
+<tr>
+<td>查看指定点</td>
+<td>g.V(<code>&lt;vid&gt;</code>)</td>
+<td>FETCH PROP ON <code>&lt;tag_name&gt;</code> <code>&lt;vid&gt;</code></td>
+</tr>
+<tr>
+<td>查看指定边</td>
+<td>g.E(<code>&lt;src_vid&gt;</code> &gt;&gt; <code>&lt;dst_vid&gt;</code>)</td>
+<td>FETCH PROP ON <code>&lt;edge_name&gt;</code> <code>&lt;src_vid&gt;</code> -&gt; <code>&lt;dst_vid&gt;</code></td>
+</tr>
+<tr>
+<td>沿指定点查询指定边</td>
+<td>g.V(<code>&lt;vid&gt;</code>).outE( <code>&lt;edge&gt;</code>)</td>
+<td>GO FROM <code>&lt;vid&gt;</code> OVER  <code>&lt;edge&gt;</code></td>
+</tr>
+<tr>
+<td>沿指定点反向查询指定边</td>
+<td>g.V(<code>&lt;vid&gt;</code>).in( <code>&lt;edge&gt;</code>)</td>
+<td>GO FROM <code>&lt;vid&gt;</code>  OVER <code>&lt;edge&gt;</code> REVERSELY</td>
+</tr>
+<tr>
+<td>沿指定点查询指定边 N 跳</td>
+<td>g.V(<code>&lt;vid&gt;</code>).repeat(out(<code>&lt;edge&gt;</code>)).times(N)</td>
+<td>GO N STEPS FROM <code>&lt;vid&gt;</code> OVER <code>&lt;edge&gt;</code></td>
+</tr>
+<tr>
+<td>返回指定两点路径</td>
+<td>g.V(<code>&lt;vid&gt;</code>).repeat(out()).until(<code>&lt;vid&gt;</code>).path()</td>
+<td>FIND ALL PATH FROM <code>&lt;vid&gt;</code> TO <code>&lt;vid&gt;</code> OVER *</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3">示例查询<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>本节中的示例使用了 <a href="https://janusgraph.org/">Janus Graph</a> 的示例图 <a href="https://docs.janusgraph.org/#getting-started"><em>The Graphs of Gods</em></a>。该图结构如下图所示。此处使用<a href="../../1.overview/1.concepts/1.data-model/">属性图模型</a>描述罗马万神话中诸神关系。</p>
+<p><img alt="image" src="https://docs-cdn.nebula-graph.com.cn/5.appendix/cypher-ngql.png" /></p>
+<ul>
+<li>插入数据</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># 插入点</span>
+nebula&gt; INSERT VERTEX character<span class="o">(</span>name, age, <span class="nb">type</span><span class="o">)</span> VALUES hash<span class="o">(</span><span class="s2">&quot;saturn&quot;</span><span class="o">)</span>:<span class="o">(</span><span class="s2">&quot;saturn&quot;</span>, <span class="m">10000</span>, <span class="s2">&quot;titan&quot;</span><span class="o">)</span>, hash<span class="o">(</span><span class="s2">&quot;jupiter&quot;</span><span class="o">)</span>:<span class="o">(</span><span class="s2">&quot;jupiter&quot;</span>, <span class="m">5000</span>, <span class="s2">&quot;god&quot;</span><span class="o">)</span><span class="p">;</span>
+
+gremlin&gt; <span class="nv">saturn</span> <span class="o">=</span> g.addV<span class="o">(</span><span class="s2">&quot;character&quot;</span><span class="o">)</span>.property<span class="o">(</span>T.id, <span class="m">1</span><span class="o">)</span>.property<span class="o">(</span><span class="s1">&#39;name&#39;</span>, <span class="s1">&#39;saturn&#39;</span><span class="o">)</span>.property<span class="o">(</span><span class="s1">&#39;age&#39;</span>, <span class="m">10000</span><span class="o">)</span>.property<span class="o">(</span><span class="s1">&#39;type&#39;</span>, <span class="s1">&#39;titan&#39;</span><span class="o">)</span>.next<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">1</span><span class="o">]</span>
+gremlin&gt; <span class="nv">jupiter</span> <span class="o">=</span> g.addV<span class="o">(</span><span class="s2">&quot;character&quot;</span><span class="o">)</span>.property<span class="o">(</span>T.id, <span class="m">2</span><span class="o">)</span>.property<span class="o">(</span><span class="s1">&#39;name&#39;</span>, <span class="s1">&#39;jupiter&#39;</span><span class="o">)</span>.property<span class="o">(</span><span class="s1">&#39;age&#39;</span>, <span class="m">5000</span><span class="o">)</span>.property<span class="o">(</span><span class="s1">&#39;type&#39;</span>, <span class="s1">&#39;god&#39;</span><span class="o">)</span>.next<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">2</span><span class="o">]</span>
+gremlin&gt; <span class="nv">prometheus</span> <span class="o">=</span> g.addV<span class="o">(</span><span class="s2">&quot;character&quot;</span><span class="o">)</span>.property<span class="o">(</span>T.id, <span class="m">31</span><span class="o">)</span>.property<span class="o">(</span><span class="s1">&#39;name&#39;</span>,  <span class="s1">&#39;prometheus&#39;</span><span class="o">)</span>.property<span class="o">(</span><span class="s1">&#39;age&#39;</span>, <span class="m">1000</span><span class="o">)</span>.property<span class="o">(</span><span class="s1">&#39;type&#39;</span>, <span class="s1">&#39;god&#39;</span><span class="o">)</span>.next<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">31</span><span class="o">]</span>
+gremlin&gt; <span class="nv">jesus</span> <span class="o">=</span> g.addV<span class="o">(</span><span class="s2">&quot;character&quot;</span><span class="o">)</span>.property<span class="o">(</span>T.id, <span class="m">32</span><span class="o">)</span>.property<span class="o">(</span><span class="s1">&#39;name&#39;</span>,  <span class="s1">&#39;jesus&#39;</span><span class="o">)</span>.property<span class="o">(</span><span class="s1">&#39;age&#39;</span>, <span class="m">5000</span><span class="o">)</span>.property<span class="o">(</span><span class="s1">&#39;type&#39;</span>, <span class="s1">&#39;god&#39;</span><span class="o">)</span>.next<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">32</span><span class="o">]</span>
+
+<span class="c1"># 插入边</span>
+nebula&gt; INSERT EDGE father<span class="o">()</span> VALUES hash<span class="o">(</span><span class="s2">&quot;jupiter&quot;</span><span class="o">)</span>-&gt;hash<span class="o">(</span><span class="s2">&quot;saturn&quot;</span><span class="o">)</span>:<span class="o">()</span><span class="p">;</span>
+gremlin&gt; g.addE<span class="o">(</span><span class="s2">&quot;father&quot;</span><span class="o">)</span>.from<span class="o">(</span>jupiter<span class="o">)</span>.to<span class="o">(</span>saturn<span class="o">)</span>.property<span class="o">(</span>T.id, <span class="m">13</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;e<span class="o">[</span><span class="m">13</span><span class="o">][</span><span class="m">2</span>-father-&gt;1<span class="o">]</span>
+</code></pre></div>
+<ul>
+<li>删除数据</li>
+</ul>
+<div class="highlight"><pre><span></span><code>nebula&gt; DELETE VERTEX hash<span class="o">(</span><span class="s2">&quot;prometheus&quot;</span><span class="o">)</span><span class="p">;</span>
+gremlin&gt; g.V<span class="o">(</span>prometheus<span class="o">)</span>.drop<span class="o">()</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>更新数据</li>
+</ul>
+<div class="highlight"><pre><span></span><code>nebula&gt; UPDATE VERTEX hash<span class="o">(</span><span class="s2">&quot;jesus&quot;</span><span class="o">)</span> SET character.type <span class="o">=</span> <span class="s1">&#39;titan&#39;</span><span class="p">;</span>
+gremlin&gt; g.V<span class="o">(</span>jesus<span class="o">)</span>.property<span class="o">(</span><span class="s1">&#39;age&#39;</span>, <span class="m">6000</span><span class="o">)</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>查看数据</li>
+</ul>
+<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON character hash<span class="o">(</span><span class="s2">&quot;saturn&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">===================================================</span>
+<span class="p">|</span> character.name <span class="p">|</span> character.age <span class="p">|</span> character.type <span class="p">|</span>
+<span class="o">===================================================</span>
+<span class="p">|</span> saturn         <span class="p">|</span> <span class="m">10000</span>         <span class="p">|</span> titan          <span class="p">|</span>
+---------------------------------------------------
+
+gremlin&gt; g.V<span class="o">(</span>saturn<span class="o">)</span>.valueMap<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>name:<span class="o">[</span>saturn<span class="o">]</span>,type:<span class="o">[</span>titan<span class="o">]</span>,age:<span class="o">[</span><span class="m">10000</span><span class="o">]]</span>
+</code></pre></div>
+<ul>
+<li>查询 hercules 的祖父</li>
+</ul>
+<div class="highlight"><pre><span></span><code>nebula&gt; LOOKUP ON character WHERE character.name <span class="o">==</span> <span class="s1">&#39;hercules&#39;</span> <span class="p">|</span> <span class="se">\</span>
+     -&gt; GO <span class="m">2</span> STEPS FROM <span class="nv">$-</span>.VertexID OVER father YIELD <span class="nv">$$</span>.character.name<span class="p">;</span>
+<span class="o">=====================</span>
+<span class="p">|</span> <span class="nv">$$</span>.character.name <span class="p">|</span>
+<span class="o">=====================</span>
+<span class="p">|</span> saturn            <span class="p">|</span>
+---------------------
+
+gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.has<span class="o">(</span><span class="s1">&#39;name&#39;</span>,<span class="s1">&#39;hercules&#39;</span><span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;father&#39;</span><span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;father&#39;</span><span class="o">)</span>.values<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;saturn
+</code></pre></div>
+<ul>
+<li>查询 hercules 的父亲</li>
+</ul>
+<div class="highlight"><pre><span></span><code>nebula&gt; LOOKUP ON character WHERE character.name <span class="o">==</span> <span class="s1">&#39;hercules&#39;</span> <span class="p">|</span> <span class="se">\</span>
+     -&gt; GO FROM <span class="nv">$-</span>.VertexID OVER father YIELD <span class="nv">$$</span>.character.name<span class="p">;</span>
+<span class="o">=====================</span>
+<span class="p">|</span> <span class="nv">$$</span>.character.name <span class="p">|</span>
+<span class="o">=====================</span>
+<span class="p">|</span> jupiter           <span class="p">|</span>
+---------------------
+
+gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.has<span class="o">(</span><span class="s1">&#39;name&#39;</span>,<span class="s1">&#39;hercules&#39;</span><span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;father&#39;</span><span class="o">)</span>.values<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;jupiter
+</code></pre></div>
+<ul>
+<li>查询年龄大于 100 的人物</li>
+</ul>
+<div class="highlight"><pre><span></span><code>nebula&gt; LOOKUP ON character WHERE character.age &gt; <span class="m">100</span> YIELD character.name, character.age<span class="p">;</span>
+<span class="o">=========================================================</span>
+<span class="p">|</span> VertexID             <span class="p">|</span> character.name <span class="p">|</span> character.age <span class="p">|</span>
+<span class="o">=========================================================</span>
+<span class="p">|</span> <span class="m">6761447489613431910</span>  <span class="p">|</span> pluto          <span class="p">|</span> <span class="m">4000</span>          <span class="p">|</span>
+---------------------------------------------------------
+<span class="p">|</span> -5860788569139907963 <span class="p">|</span> neptune        <span class="p">|</span> <span class="m">4500</span>          <span class="p">|</span>
+---------------------------------------------------------
+<span class="p">|</span> <span class="m">4863977009196259577</span>  <span class="p">|</span> jupiter        <span class="p">|</span> <span class="m">5000</span>          <span class="p">|</span>
+---------------------------------------------------------
+<span class="p">|</span> -4316810810681305233 <span class="p">|</span> saturn         <span class="p">|</span> <span class="m">10000</span>         <span class="p">|</span>
+---------------------------------------------------------
+
+gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.has<span class="o">(</span><span class="s1">&#39;age&#39;</span>,gt<span class="o">(</span><span class="m">100</span><span class="o">))</span>.values<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;saturn
+<span class="o">==</span>&gt;jupiter
+<span class="o">==</span>&gt;neptune
+<span class="o">==</span>&gt;pluto
+</code></pre></div>
+<ul>
+<li>查询和 pluto 一起居住的人物</li>
+</ul>
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM hash<span class="o">(</span><span class="s2">&quot;pluto&quot;</span><span class="o">)</span> OVER lives YIELD lives._dst AS place <span class="p">|</span> <span class="se">\</span>
+GO FROM <span class="nv">$-</span>.place OVER lives REVERSELY YIELD <span class="nv">$$</span>.character.name AS cohabitants<span class="p">;</span>
+<span class="o">===============</span>
+<span class="p">|</span> cohabitants <span class="p">|</span>
+<span class="o">===============</span>
+<span class="p">|</span> pluto       <span class="p">|</span>
+---------------
+<span class="p">|</span> cerberus    <span class="p">|</span>
+---------------
+
+gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;lives&#39;</span><span class="o">)</span>.in<span class="o">(</span><span class="s1">&#39;lives&#39;</span><span class="o">)</span>.values<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;pluto
+<span class="o">==</span>&gt;cerberus
+</code></pre></div>
+<ul>
+<li>从一起居住的人物中排除 pluto 本人</li>
+</ul>
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM hash<span class="o">(</span><span class="s2">&quot;pluto&quot;</span><span class="o">)</span> OVER lives YIELD lives._dst AS place <span class="p">|</span> GO FROM <span class="nv">$-</span>.place OVER lives REVERSELY WHERE <span class="se">\</span>
+<span class="nv">$$</span>.character.name !<span class="o">=</span> <span class="s2">&quot;pluto&quot;</span> YIELD <span class="nv">$$</span>.character.name AS cohabitants<span class="p">;</span>
+<span class="o">===============</span>
+<span class="p">|</span> cohabitants <span class="p">|</span>
+<span class="o">===============</span>
+<span class="p">|</span> cerberus    <span class="p">|</span>
+---------------
+
+gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;lives&#39;</span><span class="o">)</span>.in<span class="o">(</span><span class="s1">&#39;lives&#39;</span><span class="o">)</span>.where<span class="o">(</span>is<span class="o">(</span>neq<span class="o">(</span>pluto<span class="o">)))</span>.values<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;cerberus
+</code></pre></div>
+<ul>
+<li>Pluto 的兄弟们</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># where do pluto&#39;s brothers live?</span>
+
+nebula&gt; GO FROM hash<span class="o">(</span><span class="s2">&quot;pluto&quot;</span><span class="o">)</span> OVER brother YIELD brother._dst AS brother <span class="p">|</span> <span class="se">\</span>
+GO FROM <span class="nv">$-</span>.brother OVER lives YIELD <span class="nv">$$</span>.location.name<span class="p">;</span>
+<span class="o">====================</span>
+<span class="p">|</span> <span class="nv">$$</span>.location.name <span class="p">|</span>
+<span class="o">====================</span>
+<span class="p">|</span> sky              <span class="p">|</span>
+--------------------
+<span class="p">|</span> sea              <span class="p">|</span>
+--------------------
+
+gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;brother&#39;</span><span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;lives&#39;</span><span class="o">)</span>.values<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;sky
+<span class="o">==</span>&gt;sea
+
+<span class="c1"># which brother lives in which place?</span>
+
+nebula&gt; GO FROM hash<span class="o">(</span><span class="s2">&quot;pluto&quot;</span><span class="o">)</span> OVER brother YIELD brother._dst AS god <span class="p">|</span> <span class="se">\</span>
+GO FROM <span class="nv">$-</span>.god OVER lives YIELD $^.character.name AS Brother, <span class="nv">$$</span>.location.name AS Habitations<span class="p">;</span>
+<span class="o">=========================</span>
+<span class="p">|</span> Brother <span class="p">|</span> Habitations <span class="p">|</span>
+<span class="o">=========================</span>
+<span class="p">|</span> jupiter <span class="p">|</span> sky         <span class="p">|</span>
+-------------------------
+<span class="p">|</span> neptune <span class="p">|</span> sea         <span class="p">|</span>
+-------------------------
+
+gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;brother&#39;</span><span class="o">)</span>.as<span class="o">(</span><span class="s1">&#39;god&#39;</span><span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;lives&#39;</span><span class="o">)</span>.as<span class="o">(</span><span class="s1">&#39;place&#39;</span><span class="o">)</span>.select<span class="o">(</span><span class="s1">&#39;god&#39;</span>,<span class="s1">&#39;place&#39;</span><span class="o">)</span>.by<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>god:jupiter, place:sky<span class="o">]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>god:neptune, place:sea<span class="o">]</span>
+</code></pre></div>
+<h2 id="_4">高级查询<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">图探索<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># gremlin 版本</span>
+gremlin&gt; Gremlin.version<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;3.3.5
+
+<span class="c1"># 返回所有点</span>
+gremlin&gt; g.V<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">1</span><span class="o">]</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">2</span><span class="o">]</span>
+...
+nebula&gt; <span class="c1"># Coming soon</span>
+
+<span class="c1"># 统计点数</span>
+gremlin&gt; g.V<span class="o">()</span>.count<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;12
+nebula&gt; <span class="c1"># Coming soon</span>
+
+<span class="c1"># 按照点边类型统计点边个数</span>
+gremlin&gt; g.V<span class="o">()</span>.groupCount<span class="o">()</span>.by<span class="o">(</span>label<span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>character:9,location:3<span class="o">]</span>
+gremlin&gt; g.E<span class="o">()</span>.groupCount<span class="o">()</span>.by<span class="o">(</span>label<span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>mother:1,lives:5,father:2,brother:6,battled:3,pet:1<span class="o">]</span>
+nebula&gt; <span class="c1"># Coming soon</span>
+
+<span class="c1"># 返回所有边</span>
+gremlin&gt; g.E<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;e<span class="o">[</span><span class="m">13</span><span class="o">][</span><span class="m">2</span>-father-&gt;1<span class="o">]</span>
+<span class="o">==</span>&gt;e<span class="o">[</span><span class="m">14</span><span class="o">][</span><span class="m">2</span>-lives-&gt;3<span class="o">]</span>
+...
+nebula&gt; <span class="c1"># Coming soon</span>
+
+<span class="c1"># 查询所有点类型</span>
+gremlin&gt; g.V<span class="o">()</span>.label<span class="o">()</span>.dedup<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;character
+<span class="o">==</span>&gt;location
+
+nebula&gt; SHOW TAGS<span class="p">;</span>
+<span class="o">==================</span>
+<span class="p">|</span> ID <span class="p">|</span> Name      <span class="p">|</span>
+<span class="o">==================</span>
+<span class="p">|</span> <span class="m">15</span> <span class="p">|</span> character <span class="p">|</span>
+------------------
+<span class="p">|</span> <span class="m">16</span> <span class="p">|</span> location  <span class="p">|</span>
+------------------
+
+<span class="c1"># 查询所有边类型</span>
+gremlin&gt; g.E<span class="o">()</span>.label<span class="o">()</span>.dedup<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;father
+<span class="o">==</span>&gt;lives
+...
+nebula&gt; SHOW EDGES<span class="p">;</span>
+<span class="o">================</span>
+<span class="p">|</span> ID <span class="p">|</span> Name    <span class="p">|</span>
+<span class="o">================</span>
+<span class="p">|</span> <span class="m">17</span> <span class="p">|</span> father  <span class="p">|</span>
+----------------
+<span class="p">|</span> <span class="m">18</span> <span class="p">|</span> brother <span class="p">|</span>
+----------------
+...
+
+<span class="c1"># 查询所有顶点的属性</span>
+gremlin&gt; g.V<span class="o">()</span>.valueMap<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>name:<span class="o">[</span>saturn<span class="o">]</span>,type:<span class="o">[</span>titan<span class="o">]</span>,age:<span class="o">[</span><span class="m">10000</span><span class="o">]]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>name:<span class="o">[</span>jupiter<span class="o">]</span>,type:<span class="o">[</span>god<span class="o">]</span>,age:<span class="o">[</span><span class="m">5000</span><span class="o">]]</span>
+...
+nebula&gt; <span class="c1"># Coming soon</span>
+
+<span class="c1"># 查询 character 顶点属性</span>
+gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.valueMap<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>name:<span class="o">[</span>saturn<span class="o">]</span>,type:<span class="o">[</span>titan<span class="o">]</span>,age:<span class="o">[</span><span class="m">10000</span><span class="o">]]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>name:<span class="o">[</span>jupiter<span class="o">]</span>,type:<span class="o">[</span>god<span class="o">]</span>,age:<span class="o">[</span><span class="m">5000</span><span class="o">]]</span>
+...
+</code></pre></div>
+<h3 id="_6">边的遍历<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>Gremlin</th>
+<th>nGQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>指定点沿指定边的出顶点</td>
+<td>out(\<label>)</td>
+<td>GO FROM \<vertex_id> OVER \<edge_type></td>
+</tr>
+<tr>
+<td>指定点沿指定边的入顶点</td>
+<td>in(\<label>)</td>
+<td>GO FROM \<vertex_id> OVER \<edge_type> REVERSELY</td>
+</tr>
+<tr>
+<td>指定点沿指定边的双向顶点</td>
+<td>both(\<label>)</td>
+<td>GO FROM \<vertex_id> OVER \<edge_type> BIDIRECT</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="c1"># 访问某个顶点沿某条边的 OUT 方向邻接点</span>
+gremlin&gt; g.V<span class="o">(</span>jupiter<span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;brother&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">8</span><span class="o">]</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">5</span><span class="o">]</span>
+nebula&gt; GO FROM hash<span class="o">(</span><span class="s2">&quot;jupiter&quot;</span><span class="o">)</span> OVER brother<span class="p">;</span>
+<span class="o">========================</span>
+<span class="p">|</span> brother._dst         <span class="p">|</span>
+<span class="o">========================</span>
+<span class="p">|</span> <span class="m">6761447489613431910</span>  <span class="p">|</span>
+------------------------
+<span class="p">|</span> -5860788569139907963 <span class="p">|</span>
+------------------------
+
+<span class="c1"># 访问某个顶点沿某条边的 IN 方向邻接点</span>
+gremlin&gt; g.V<span class="o">(</span>jupiter<span class="o">)</span>.in<span class="o">(</span><span class="s1">&#39;brother&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">5</span><span class="o">]</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">8</span><span class="o">]</span>
+nebula&gt; GO FROM hash<span class="o">(</span><span class="s2">&quot;jupiter&quot;</span><span class="o">)</span> OVER brother REVERSELY<span class="p">;</span>
+<span class="o">=======================</span>
+<span class="p">|</span> brother._dst        <span class="p">|</span>
+<span class="o">=======================</span>
+<span class="p">|</span> <span class="m">4863977009196259577</span> <span class="p">|</span>
+-----------------------
+<span class="p">|</span> <span class="m">4863977009196259577</span> <span class="p">|</span>
+-----------------------
+
+<span class="c1"># 访问某个顶点沿某条边的双向邻接点</span>
+gremlin&gt; g.V<span class="o">(</span>jupiter<span class="o">)</span>.both<span class="o">(</span><span class="s1">&#39;brother&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">8</span><span class="o">]</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">5</span><span class="o">]</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">5</span><span class="o">]</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">8</span><span class="o">]</span>
+nebula&gt; GO FROM hash<span class="o">(</span><span class="s2">&quot;jupiter&quot;</span><span class="o">)</span> OVER brother BIDIRECT<span class="p">;</span>
+<span class="o">=======================</span>
+<span class="p">|</span> brother._dst        <span class="p">|</span>
+<span class="o">=======================</span>
+<span class="p">|</span> <span class="m">6761447489613431910</span> <span class="p">|</span>
+------------------------
+<span class="p">|</span> -5860788569139907963<span class="p">|</span>
+<span class="p">|</span> <span class="m">4863977009196259577</span> <span class="p">|</span>
+-----------------------
+<span class="p">|</span> <span class="m">4863977009196259577</span> <span class="p">|</span>
+-----------------------
+
+<span class="c1"># 2度 out 查询</span>
+gremlin&gt; g.V<span class="o">(</span>hercules<span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;father&#39;</span><span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;lives&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">3</span><span class="o">]</span>
+nebula&gt; GO FROM hash<span class="o">(</span><span class="s2">&quot;hercules&quot;</span><span class="o">)</span> OVER father YIELD father._dst AS id <span class="p">|</span> <span class="se">\</span>
+GO FROM <span class="nv">$-</span>.id OVER lives<span class="p">;</span>
+<span class="o">========================</span>
+<span class="p">|</span> lives._dst           <span class="p">|</span>
+<span class="o">========================</span>
+<span class="p">|</span> -1121386748834253737 <span class="p">|</span>
+------------------------
+</code></pre></div>
+<h3 id="has">has 条件过滤<a class="headerlink" href="#has" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>Gremlin</th>
+<th>nGQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>通过 ID 来过滤顶点</td>
+<td>hasId(\<vertex_id>)</td>
+<td>FETCH PROP ON \<vertex_id></td>
+</tr>
+<tr>
+<td>通过 label 和属性的名字和值过滤顶点和边</td>
+<td>has(\<label>, \<key>, \<value>)</td>
+<td>LOOKUP \<tag> | \<edge_type> WHERE \<expression></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查询 ID 为 saturn 的顶点</span>
+gremlin&gt; g.V<span class="o">()</span>.hasId<span class="o">(</span>saturn<span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">1</span><span class="o">]</span>
+nebula&gt; FETCH PROP ON * hash<span class="o">(</span><span class="s2">&quot;saturn&quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==========================================================================</span>
+<span class="p">|</span> VertexID             <span class="p">|</span> character.name <span class="p">|</span> character.age <span class="p">|</span> character.type <span class="p">|</span>
+<span class="o">==========================================================================</span>
+<span class="p">|</span> -4316810810681305233 <span class="p">|</span> saturn         <span class="p">|</span> <span class="m">10000</span>         <span class="p">|</span> titan          <span class="p">|</span>
+--------------------------------------------------------------------------
+
+<span class="c1"># 查询 tag 为 character 且 name 属性值为 hercules 的顶点</span>
+
+gremlin&gt; g.V<span class="o">()</span>.has<span class="o">(</span><span class="s1">&#39;character&#39;</span>,<span class="s1">&#39;name&#39;</span>,<span class="s1">&#39;hercules&#39;</span><span class="o">)</span>.valueMap<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>name:<span class="o">[</span>hercules<span class="o">]</span>,type:<span class="o">[</span>demigod<span class="o">]</span>,age:<span class="o">[</span><span class="m">30</span><span class="o">]]</span>
+nebula&gt; LOOKUP ON character WHERE character.name <span class="o">==</span> <span class="s1">&#39;hercules&#39;</span> YIELD character.name, character.age, character.type<span class="p">;</span>
+<span class="o">=========================================================================</span>
+<span class="p">|</span> VertexID            <span class="p">|</span> character.name <span class="p">|</span> character.age <span class="p">|</span> character.type <span class="p">|</span>
+<span class="o">=========================================================================</span>
+<span class="p">|</span> <span class="m">5976696804486077889</span> <span class="p">|</span> hercules       <span class="p">|</span> <span class="m">30</span>            <span class="p">|</span> demigod        <span class="p">|</span>
+-------------------------------------------------------------------------
+</code></pre></div>
+<h3 id="_7">返回结果限制<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>Gremlin</th>
+<th>nGQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>指定返回结果行数</td>
+<td>limit()</td>
+<td>LIMIT</td>
+</tr>
+<tr>
+<td>获取后 n 个元素</td>
+<td>tail()</td>
+<td>ORDER BY \<expression> DESC LIMIT</td>
+</tr>
+<tr>
+<td>跳过前 n 个元素</td>
+<td>skip()</td>
+<td>LIMIT \<offset_value></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查询前两个顶点</span>
+gremlin&gt; g.V<span class="o">()</span>.has<span class="o">(</span><span class="s1">&#39;character&#39;</span>,<span class="s1">&#39;name&#39;</span>,<span class="s1">&#39;hercules&#39;</span><span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;battled&#39;</span><span class="o">)</span>.limit<span class="o">(</span><span class="m">2</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">9</span><span class="o">]</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">10</span><span class="o">]</span>
+nebula&gt; GO FROM hash<span class="o">(</span><span class="s1">&#39;hercules&#39;</span><span class="o">)</span> OVER battled <span class="p">|</span> LIMIT <span class="m">2</span><span class="p">;</span>
+<span class="o">=======================</span>
+<span class="p">|</span> battled._dst        <span class="p">|</span>
+<span class="o">=======================</span>
+<span class="p">|</span> <span class="m">530133512982221454</span>  <span class="p">|</span>
+-----------------------
+<span class="p">|</span> -695163537569412701 <span class="p">|</span>
+-----------------------
+
+<span class="c1"># 查询最后一个顶点</span>
+gremlin&gt; g.V<span class="o">()</span>.has<span class="o">(</span><span class="s1">&#39;character&#39;</span>,<span class="s1">&#39;name&#39;</span>,<span class="s1">&#39;hercules&#39;</span><span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;battled&#39;</span><span class="o">)</span>.values<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span>.tail<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;cerberus
+nebula&gt; GO FROM hash<span class="o">(</span><span class="s1">&#39;hercules&#39;</span><span class="o">)</span> OVER battled YIELD <span class="nv">$$</span>.character.name AS name <span class="p">|</span> ORDER BY name <span class="p">|</span> LIMIT <span class="m">1</span><span class="p">;</span>
+<span class="o">============</span>
+<span class="p">|</span> name     <span class="p">|</span>
+<span class="o">============</span>
+<span class="p">|</span> cerberus <span class="p">|</span>
+------------
+
+<span class="c1"># 跳过第 1 个元素并返回一个元素</span>
+gremlin&gt; g.V<span class="o">()</span>.has<span class="o">(</span><span class="s1">&#39;character&#39;</span>,<span class="s1">&#39;name&#39;</span>,<span class="s1">&#39;hercules&#39;</span><span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;battled&#39;</span><span class="o">)</span>.values<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span>.skip<span class="o">(</span><span class="m">1</span><span class="o">)</span>.limit<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;hydra
+nebula&gt; GO FROM hash<span class="o">(</span><span class="s1">&#39;hercules&#39;</span><span class="o">)</span> OVER battled YIELD <span class="nv">$$</span>.character.name AS name <span class="p">|</span> ORDER BY name <span class="p">|</span> LIMIT <span class="m">1</span>,1<span class="p">;</span>
+<span class="o">=========</span>
+<span class="p">|</span> name  <span class="p">|</span>
+<span class="o">=========</span>
+<span class="p">|</span> hydra <span class="p">|</span>
+---------
+</code></pre></div>
+<h3 id="_8">路径查询<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>Gremlin</th>
+<th>nGQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>所有路径</td>
+<td>path()</td>
+<td>FIND ALL PATH</td>
+</tr>
+<tr>
+<td>不包含环路</td>
+<td>simplePath()</td>
+<td>\</td>
+</tr>
+<tr>
+<td>只包含环路</td>
+<td>cyclicPath()</td>
+<td>\</td>
+</tr>
+<tr>
+<td>最短路径</td>
+<td>\</td>
+<td>FIND SHORTEST PATH</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：</strong>  <strong>Nebula Graph</strong> 需要起始点和终点方可返回路径， Gremlin 仅需要起始点。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># pluto 顶点到与其有直接关联的出边顶点的路径</span>
+gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.has<span class="o">(</span><span class="s1">&#39;name&#39;</span>,<span class="s1">&#39;pluto&#39;</span><span class="o">)</span>.out<span class="o">()</span>.path<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>v<span class="o">[</span><span class="m">8</span><span class="o">]</span>,v<span class="o">[</span><span class="m">12</span><span class="o">]]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>v<span class="o">[</span><span class="m">8</span><span class="o">]</span>,v<span class="o">[</span><span class="m">2</span><span class="o">]]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>v<span class="o">[</span><span class="m">8</span><span class="o">]</span>,v<span class="o">[</span><span class="m">5</span><span class="o">]]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>v<span class="o">[</span><span class="m">8</span><span class="o">]</span>,v<span class="o">[</span><span class="m">11</span><span class="o">]]</span>
+
+<span class="c1"># 查询点 pluto 到点 jupiter 的最短路径</span>
+nebula&gt; LOOKUP ON character WHERE character.name<span class="o">==</span> <span class="s2">&quot;pluto&quot;</span> YIELD character.name AS name <span class="p">|</span> <span class="se">\</span>
+    FIND SHORTEST PATH FROM <span class="nv">$-</span>.VertexID TO hash<span class="o">(</span><span class="s2">&quot;jupiter&quot;</span><span class="o">)</span> OVER *<span class="p">;</span>
+<span class="o">============================================================</span>
+<span class="p">|</span> _path_              <span class="p">|</span>
+<span class="o">============================================================</span>
+<span class="p">|</span> <span class="m">6761447489613431910</span> &lt;brother,0&gt; <span class="m">4863977009196259577</span>
+------------------------------------------------------------
+</code></pre></div>
+<h3 id="_9">多度查询<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>Gremlin</th>
+<th>nGQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>指定重复执行的语句</td>
+<td>repeat()</td>
+<td>N STEPS</td>
+</tr>
+<tr>
+<td>指定重复执行的次数</td>
+<td>times()</td>
+<td>N STEPS</td>
+</tr>
+<tr>
+<td>指定循环终止的条件</td>
+<td>until()</td>
+<td>\</td>
+</tr>
+<tr>
+<td>指定收集数据的条件</td>
+<td>emit()</td>
+<td>\</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查询点 pluto 出边邻点</span>
+gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.has<span class="o">(</span><span class="s1">&#39;name&#39;</span>,<span class="s1">&#39;pluto&#39;</span><span class="o">)</span>.repeat<span class="o">(</span>out<span class="o">())</span>.times<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">12</span><span class="o">]</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">2</span><span class="o">]</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">5</span><span class="o">]</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">11</span><span class="o">]</span>
+nebula&gt; LOOKUP ON character WHERE character.name<span class="o">==</span> <span class="s2">&quot;pluto&quot;</span> YIELD character.name AS name <span class="p">|</span> <span class="se">\</span>
+    GO FROM <span class="nv">$-</span>.VertexID OVER *<span class="p">;</span>
+<span class="o">================================================================================================================</span>
+<span class="p">|</span> father._dst <span class="p">|</span> brother._dst         <span class="p">|</span> lives._dst           <span class="p">|</span> mother._dst <span class="p">|</span> pet._dst            <span class="p">|</span> battled._dst <span class="p">|</span>
+<span class="o">================================================================================================================</span>
+<span class="p">|</span> <span class="m">0</span>           <span class="p">|</span> -5860788569139907963 <span class="p">|</span> <span class="m">0</span>                    <span class="p">|</span> <span class="m">0</span>           <span class="p">|</span> <span class="m">0</span>                   <span class="p">|</span> <span class="m">0</span>            <span class="p">|</span>
+----------------------------------------------------------------------------------------------------------------
+<span class="p">|</span> <span class="m">0</span>           <span class="p">|</span> <span class="m">4863977009196259577</span>  <span class="p">|</span> <span class="m">0</span>                    <span class="p">|</span> <span class="m">0</span>           <span class="p">|</span> <span class="m">0</span>                   <span class="p">|</span> <span class="m">0</span>            <span class="p">|</span>
+----------------------------------------------------------------------------------------------------------------
+<span class="p">|</span> <span class="m">0</span>           <span class="p">|</span> <span class="m">0</span>                    <span class="p">|</span> -4331657707562925133 <span class="p">|</span> <span class="m">0</span>           <span class="p">|</span> <span class="m">0</span>                   <span class="p">|</span> <span class="m">0</span>            <span class="p">|</span>
+----------------------------------------------------------------------------------------------------------------
+<span class="p">|</span> <span class="m">0</span>           <span class="p">|</span> <span class="m">0</span>                    <span class="p">|</span> <span class="m">0</span>                    <span class="p">|</span> <span class="m">0</span>           <span class="p">|</span> <span class="m">4594048193862126013</span> <span class="p">|</span> <span class="m">0</span>            <span class="p">|</span>
+----------------------------------------------------------------------------------------------------------------
+
+<span class="c1"># 查询顶点 hercules 到顶点 cerberus 之间的路径</span>
+<span class="c1"># 循环的终止条件是遇到名称是 cerberus 的顶点</span>
+gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.has<span class="o">(</span><span class="s1">&#39;name&#39;</span>,<span class="s1">&#39;hercules&#39;</span><span class="o">)</span>.repeat<span class="o">(</span>out<span class="o">())</span>.until<span class="o">(</span>has<span class="o">(</span><span class="s1">&#39;name&#39;</span>, <span class="s1">&#39;cerberus&#39;</span><span class="o">))</span>.path<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>v<span class="o">[</span><span class="m">6</span><span class="o">]</span>,v<span class="o">[</span><span class="m">11</span><span class="o">]]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>v<span class="o">[</span><span class="m">6</span><span class="o">]</span>,v<span class="o">[</span><span class="m">2</span><span class="o">]</span>,v<span class="o">[</span><span class="m">8</span><span class="o">]</span>,v<span class="o">[</span><span class="m">11</span><span class="o">]]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>v<span class="o">[</span><span class="m">6</span><span class="o">]</span>,v<span class="o">[</span><span class="m">2</span><span class="o">]</span>,v<span class="o">[</span><span class="m">5</span><span class="o">]</span>,v<span class="o">[</span><span class="m">8</span><span class="o">]</span>,v<span class="o">[</span><span class="m">11</span><span class="o">]]</span>
+...
+nebula&gt; <span class="c1"># Coming soon</span>
+
+<span class="c1"># 查询点 hercules 的所有出边可到达点的路径</span>
+<span class="c1"># 且终点必须是 character 类型的点</span>
+gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.has<span class="o">(</span><span class="s1">&#39;name&#39;</span>,<span class="s1">&#39;hercules&#39;</span><span class="o">)</span>.repeat<span class="o">(</span>out<span class="o">())</span>.emit<span class="o">(</span>hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">))</span>.path<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>v<span class="o">[</span><span class="m">6</span><span class="o">]</span>,v<span class="o">[</span><span class="m">7</span><span class="o">]]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>v<span class="o">[</span><span class="m">6</span><span class="o">]</span>,v<span class="o">[</span><span class="m">2</span><span class="o">]]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>v<span class="o">[</span><span class="m">6</span><span class="o">]</span>,v<span class="o">[</span><span class="m">9</span><span class="o">]]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>v<span class="o">[</span><span class="m">6</span><span class="o">]</span>,v<span class="o">[</span><span class="m">10</span><span class="o">]]</span>
+...
+nebula&gt; <span class="c1"># Coming soon</span>
+
+<span class="c1"># 查询两顶点 pluto 和 saturn 之间的最短路径</span>
+<span class="c1"># 且最大深度为 3</span>
+gremlin&gt; g.V<span class="o">(</span><span class="s1">&#39;pluto&#39;</span><span class="o">)</span>.repeat<span class="o">(</span>out<span class="o">()</span>.simplePath<span class="o">())</span>.until<span class="o">(</span>hasId<span class="o">(</span><span class="s1">&#39;saturn&#39;</span><span class="o">)</span>.and<span class="o">()</span>.loops<span class="o">()</span>.is<span class="o">(</span>lte<span class="o">(</span><span class="m">3</span><span class="o">)))</span>.hasId<span class="o">(</span><span class="s1">&#39;saturn&#39;</span><span class="o">)</span>.path<span class="o">()</span><span class="p">;</span>
+nebula&gt; FIND SHORTEST PATH FROM hash<span class="o">(</span><span class="s1">&#39;pluto&#39;</span><span class="o">)</span> TO hash<span class="o">(</span><span class="s1">&#39;saturn&#39;</span><span class="o">)</span> OVER * UPTO <span class="m">3</span> STEPS<span class="p">;</span>
+<span class="o">=================================================================================================</span>
+<span class="p">|</span> _path_              <span class="p">|</span>
+<span class="o">=================================================================================================</span>
+<span class="p">|</span> <span class="m">6761447489613431910</span> &lt;brother,0&gt; <span class="m">4863977009196259577</span> &lt;father,0&gt; -4316810810681305233
+-------------------------------------------------------------------------------------------------
+</code></pre></div>
+<h3 id="_10">查询结果排序<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>Gremlin</th>
+<th>nGQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>升序排列</td>
+<td>order().by()</td>
+<td>ORDER BY</td>
+</tr>
+<tr>
+<td>降序排列</td>
+<td>order().by(decr)</td>
+<td>ORDER BY DESC</td>
+</tr>
+<tr>
+<td>随机排列</td>
+<td>order().by(shuffle)</td>
+<td>\</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查询 pluto 的兄弟并按照年龄降序排列</span>
+gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;brother&#39;</span><span class="o">)</span>.order<span class="o">()</span>.by<span class="o">(</span><span class="s1">&#39;age&#39;</span>, decr<span class="o">)</span>.valueMap<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>name:<span class="o">[</span>jupiter<span class="o">]</span>,type:<span class="o">[</span>god<span class="o">]</span>,age:<span class="o">[</span><span class="m">5000</span><span class="o">]]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>name:<span class="o">[</span>neptune<span class="o">]</span>,type:<span class="o">[</span>god<span class="o">]</span>,age:<span class="o">[</span><span class="m">4500</span><span class="o">]]</span>
+nebula&gt; GO FROM hash<span class="o">(</span><span class="s1">&#39;pluto&#39;</span><span class="o">)</span> OVER brother YIELD <span class="nv">$$</span>.character.name AS Name, <span class="nv">$$</span>.character.age as Age <span class="p">|</span> ORDER BY Age DESC<span class="p">;</span>
+<span class="o">==================</span>
+<span class="p">|</span> Name    <span class="p">|</span> Age  <span class="p">|</span>
+<span class="o">==================</span>
+<span class="p">|</span> jupiter <span class="p">|</span> <span class="m">5000</span> <span class="p">|</span>
+------------------
+<span class="p">|</span> neptune <span class="p">|</span> <span class="m">4500</span> <span class="p">|</span>
+------------------
+</code></pre></div>
+<h3 id="group_by">Group By<a class="headerlink" href="#group_by" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>Gremlin</th>
+<th>nGQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>对结果集进行分组</td>
+<td>group().by()</td>
+<td>GROUP BY</td>
+</tr>
+<tr>
+<td>去除相同元素</td>
+<td>dedup()</td>
+<td>DISTINCT</td>
+</tr>
+<tr>
+<td>对结果集进行分组并统计</td>
+<td>groupCount()</td>
+<td>GROUP BY COUNT</td>
+</tr>
+</tbody>
+</table>
+<p><strong>注意：</strong> GROUP BY 函数只能与 YIELD 语句一起使用。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 根据顶点类别进行分组并统计各个类别的数量</span>
+gremlin&gt; g.V<span class="o">()</span>.group<span class="o">()</span>.by<span class="o">(</span>label<span class="o">)</span>.by<span class="o">(</span>count<span class="o">())</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>character:9,location:3<span class="o">]</span>
+nebula&gt; <span class="c1"># Coming soon</span>
+
+<span class="c1"># 查询点 jupiter 出边邻点，使用 name 分组并统计</span>
+gremlin&gt; g.V<span class="o">(</span>jupiter<span class="o">)</span>.out<span class="o">()</span>.group<span class="o">()</span>.by<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span>.by<span class="o">(</span>count<span class="o">())</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>sky:1,saturn:1,neptune:1,pluto:1<span class="o">]</span>
+nebula&gt; GO FROM hash<span class="o">(</span><span class="s1">&#39;jupiter&#39;</span><span class="o">)</span> OVER * YIELD <span class="nv">$$</span>.character.name AS Name, <span class="nv">$$</span>.character.age as Age, <span class="nv">$$</span>.location.name <span class="p">|</span> <span class="se">\</span>
+GROUP BY <span class="nv">$-</span>.Name YIELD <span class="nv">$-</span>.Name, COUNT<span class="o">(</span>*<span class="o">)</span><span class="p">;</span>
+<span class="o">======================</span>
+<span class="p">|</span> <span class="nv">$-</span>.Name <span class="p">|</span> COUNT<span class="o">(</span>*<span class="o">)</span> <span class="p">|</span>
+<span class="o">======================</span>
+<span class="p">|</span>         <span class="p">|</span> <span class="m">1</span>        <span class="p">|</span>
+----------------------
+<span class="p">|</span> pluto   <span class="p">|</span> <span class="m">1</span>        <span class="p">|</span>
+----------------------
+<span class="p">|</span> saturn  <span class="p">|</span> <span class="m">1</span>        <span class="p">|</span>
+----------------------
+<span class="p">|</span> neptune <span class="p">|</span> <span class="m">1</span>        <span class="p">|</span>
+----------------------
+
+<span class="c1"># 查找点 jupiter 出边到达的点并去重</span>
+gremlin&gt; g.V<span class="o">(</span>jupiter<span class="o">)</span>.out<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.dedup<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">1</span><span class="o">]</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">8</span><span class="o">]</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">5</span><span class="o">]</span>
+nebula&gt; GO FROM hash<span class="o">(</span><span class="s1">&#39;jupiter&#39;</span><span class="o">)</span> OVER * YIELD DISTINCT <span class="nv">$$</span>.character.name, <span class="nv">$$</span>.character.age, <span class="nv">$$</span>.location.name<span class="p">;</span>
+<span class="o">===========================================================</span>
+<span class="p">|</span> <span class="nv">$$</span>.character.name <span class="p">|</span> <span class="nv">$$</span>.character.age <span class="p">|</span> <span class="nv">$$</span>.location.name <span class="p">|</span>
+<span class="o">===========================================================</span>
+<span class="p">|</span> pluto             <span class="p">|</span> <span class="m">4000</span>             <span class="p">|</span>                  <span class="p">|</span>
+-----------------------------------------------------------
+<span class="p">|</span> neptune           <span class="p">|</span> <span class="m">4500</span>             <span class="p">|</span>                  <span class="p">|</span>
+-----------------------------------------------------------
+<span class="p">|</span> saturn            <span class="p">|</span> <span class="m">10000</span>            <span class="p">|</span>                  <span class="p">|</span>
+-----------------------------------------------------------
+<span class="p">|</span>                   <span class="p">|</span> <span class="m">0</span>                <span class="p">|</span> sky              <span class="p">|</span>
+-----------------------------------------------------------
+</code></pre></div>
+<h3 id="where">where 条件过滤<a class="headerlink" href="#where" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>Gremlin</th>
+<th>nGQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>where 条件过滤</td>
+<td>where()</td>
+<td>WHERE</td>
+</tr>
+</tbody>
+</table>
+<p>过滤条件对比：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>Gremlin</th>
+<th>nGQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>等于</td>
+<td>eq(object)</td>
+<td>==</td>
+</tr>
+<tr>
+<td>不等于</td>
+<td>neq(object)</td>
+<td>!=</td>
+</tr>
+<tr>
+<td>小于</td>
+<td>lt(number)</td>
+<td>&lt;</td>
+</tr>
+<tr>
+<td>小于等于</td>
+<td>lte(number)</td>
+<td>&lt;=</td>
+</tr>
+<tr>
+<td>大于</td>
+<td>gt(number)</td>
+<td>&gt;</td>
+</tr>
+<tr>
+<td>大于等于</td>
+<td>gte(number)</td>
+<td>&gt;=</td>
+</tr>
+<tr>
+<td>判断值是否在指定的列表中</td>
+<td>within(objects…​)</td>
+<td>udf_is_in()</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code>gremlin&gt; eq<span class="o">(</span><span class="m">2</span><span class="o">)</span>.test<span class="o">(</span><span class="m">3</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;false
+nebula&gt; YIELD <span class="nv">3</span> <span class="o">==</span> <span class="m">2</span><span class="p">;</span>
+<span class="o">==========</span>
+<span class="p">|</span> <span class="o">(</span><span class="nv">3</span><span class="o">==</span><span class="m">2</span><span class="o">)</span> <span class="p">|</span>
+<span class="o">==========</span>
+<span class="p">|</span> <span class="nb">false</span>  <span class="p">|</span>
+----------
+
+gremlin&gt; within<span class="o">(</span><span class="s1">&#39;a&#39;</span>,<span class="s1">&#39;b&#39;</span>,<span class="s1">&#39;c&#39;</span><span class="o">)</span>.test<span class="o">(</span><span class="s1">&#39;d&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;false
+nebula&gt; YIELD udf_is_in<span class="o">(</span><span class="s1">&#39;d&#39;</span>, <span class="s1">&#39;a&#39;</span>, <span class="s1">&#39;b&#39;</span>, <span class="s1">&#39;c&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">======================</span>
+<span class="p">|</span> udf_is_in<span class="o">(</span>d,a,b,c<span class="o">)</span> <span class="p">|</span>
+<span class="o">======================</span>
+<span class="p">|</span> <span class="nb">false</span>              <span class="p">|</span>
+----------------------
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># 找出 pluto 和谁住并排队他本人</span>
+gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;lives&#39;</span><span class="o">)</span>.in<span class="o">(</span><span class="s1">&#39;lives&#39;</span><span class="o">)</span>.where<span class="o">(</span>is<span class="o">(</span>neq<span class="o">(</span>pluto<span class="o">)))</span>.values<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">;</span>
+ <span class="o">==</span>&gt;cerberus
+nebula&gt; GO FROM hash<span class="o">(</span><span class="s2">&quot;pluto&quot;</span><span class="o">)</span> OVER lives YIELD lives._dst AS place <span class="p">|</span> GO FROM <span class="nv">$-</span>.place OVER lives REVERSELY WHERE <span class="se">\</span>
+<span class="nv">$$</span>.character.name !<span class="o">=</span> <span class="s2">&quot;pluto&quot;</span> YIELD <span class="nv">$$</span>.character.name AS cohabitants<span class="p">;</span>
+<span class="o">===============</span>
+<span class="p">|</span> cohabitants <span class="p">|</span>
+<span class="o">===============</span>
+<span class="p">|</span> cerberus    <span class="p">|</span>
+---------------
+</code></pre></div>
+<h3 id="_11">逻辑运算<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>Gremlin</th>
+<th>nGQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Is</td>
+<td>is()</td>
+<td>==</td>
+</tr>
+<tr>
+<td>Not</td>
+<td>not()</td>
+<td>!=</td>
+</tr>
+<tr>
+<td>And</td>
+<td>and()</td>
+<td>AND</td>
+</tr>
+<tr>
+<td>Or</td>
+<td>or()</td>
+<td>OR</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查询年龄大于 30 的人物</span>
+gremlin&gt; g.V<span class="o">()</span>.values<span class="o">(</span><span class="s1">&#39;age&#39;</span><span class="o">)</span>.is<span class="o">(</span>gte<span class="o">(</span><span class="m">30</span><span class="o">))</span><span class="p">;</span>
+<span class="o">==</span>&gt;10000
+<span class="o">==</span>&gt;5000
+<span class="o">==</span>&gt;4500
+<span class="o">==</span>&gt;30
+<span class="o">==</span>&gt;45
+<span class="o">==</span>&gt;4000
+nebula&gt; LOOKUP ON character WHERE character.age &gt;<span class="o">=</span> <span class="m">30</span> YIELD character.age<span class="p">;</span>
+<span class="o">========================================</span>
+<span class="p">|</span> VertexID             <span class="p">|</span> character.age <span class="p">|</span>
+<span class="o">========================================</span>
+<span class="p">|</span> -4316810810681305233 <span class="p">|</span> <span class="m">10000</span>         <span class="p">|</span>
+---------------------------------------–
+<span class="p">|</span> <span class="m">4863977009196259577</span>  <span class="p">|</span> <span class="m">5000</span>          <span class="p">|</span>
+---------------------------------------–
+<span class="p">|</span> -5860788569139907963 <span class="p">|</span> <span class="m">4500</span>          <span class="p">|</span>
+---------------------------------------–
+<span class="p">|</span> <span class="m">5976696804486077889</span>  <span class="p">|</span> <span class="m">30</span>            <span class="p">|</span>
+---------------------------------------–
+<span class="p">|</span> -6780323075177699500 <span class="p">|</span> <span class="m">45</span>            <span class="p">|</span>
+---------------------------------------–
+<span class="p">|</span> <span class="m">6761447489613431910</span>  <span class="p">|</span> <span class="m">4000</span>          <span class="p">|</span>
+---------------------------------------–
+
+<span class="c1"># 查询名称为 pluto 且年龄为 4000 的人物</span>
+gremlin&gt; g.V<span class="o">()</span>.has<span class="o">(</span><span class="s1">&#39;name&#39;</span>,<span class="s1">&#39;pluto&#39;</span><span class="o">)</span>.and<span class="o">()</span>.has<span class="o">(</span><span class="s1">&#39;age&#39;</span>,4000<span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">8</span><span class="o">]</span>
+nebula&gt; LOOKUP ON character WHERE character.name <span class="o">==</span> <span class="s1">&#39;pluto&#39;</span> AND character.age <span class="o">==</span> <span class="m">4000</span><span class="p">;</span>
+<span class="o">=======================</span>
+<span class="p">|</span> VertexID            <span class="p">|</span>
+<span class="o">=======================</span>
+<span class="p">|</span> <span class="m">6761447489613431910</span> <span class="p">|</span>
+-----------------------
+
+<span class="c1"># 逻辑非的用法</span>
+gremlin&gt; g.V<span class="o">()</span>.has<span class="o">(</span><span class="s1">&#39;name&#39;</span>,<span class="s1">&#39;pluto&#39;</span><span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;brother&#39;</span><span class="o">)</span>.not<span class="o">(</span>values<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span>.is<span class="o">(</span><span class="s1">&#39;neptune&#39;</span><span class="o">))</span>.values<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;jupiter
+nebula&gt; LOOKUP ON character WHERE character.name <span class="o">==</span> <span class="s1">&#39;pluto&#39;</span> YIELD character.name AS name <span class="p">|</span> <span class="se">\</span>
+GO FROM <span class="nv">$-</span>.VertexID OVER brother WHERE <span class="nv">$$</span>.character.name !<span class="o">=</span> <span class="s1">&#39;neptune&#39;</span> YIELD <span class="nv">$$</span>.character.name<span class="p">;</span>
+<span class="o">=====================</span>
+<span class="p">|</span> <span class="nv">$$</span>.character.name <span class="p">|</span>
+<span class="o">=====================</span>
+<span class="p">|</span> jupiter           <span class="p">|</span>
+---------------------
+</code></pre></div>
+<h3 id="_12">统计运算<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>Gremlin</th>
+<th>nGQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>求和</td>
+<td>sum()</td>
+<td>SUM()</td>
+</tr>
+<tr>
+<td>最大值</td>
+<td>max()</td>
+<td>MAX()</td>
+</tr>
+<tr>
+<td>最小值</td>
+<td>min()</td>
+<td>MIN()</td>
+</tr>
+<tr>
+<td>平均值</td>
+<td>mean()</td>
+<td>AVG()</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Nebula Graph</strong> 统计运算必须同 <code>GROUP BY</code> 一起使用。</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="c1"># 计算所有 character 的年龄的总和</span>
+gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.values<span class="o">(</span><span class="s1">&#39;age&#39;</span><span class="o">)</span>.sum<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;23595
+nebula&gt; <span class="c1"># Coming soon</span>
+
+<span class="c1"># 计算所有 character 的 brother 出边数的总和</span>
+gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.map<span class="o">(</span>outE<span class="o">(</span><span class="s1">&#39;brother&#39;</span><span class="o">)</span>.count<span class="o">())</span>.sum<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;6
+nebula&gt; <span class="c1"># Coming soon</span>
+
+<span class="c1"># 返回所有 character 的年龄中的最大值</span>
+gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.values<span class="o">(</span><span class="s1">&#39;age&#39;</span><span class="o">)</span>.max<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;10000
+nebula&gt; <span class="c1"># Coming soon</span>
+</code></pre></div>
+<h3 id="_13">路径选取与过滤<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 从路径中选取第 1 步和第 3 步的结果作为最终结果</span>
+gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.as<span class="o">(</span><span class="s1">&#39;a&#39;</span><span class="o">)</span>.out<span class="o">()</span>.as<span class="o">(</span><span class="s1">&#39;b&#39;</span><span class="o">)</span>.out<span class="o">()</span>.as<span class="o">(</span><span class="s1">&#39;c&#39;</span><span class="o">)</span>.select<span class="o">(</span><span class="s1">&#39;a&#39;</span>,<span class="s1">&#39;c&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>a:v<span class="o">[</span><span class="m">8</span><span class="o">]</span>,c:v<span class="o">[</span><span class="m">3</span><span class="o">]]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>a:v<span class="o">[</span><span class="m">8</span><span class="o">]</span>,c:v<span class="o">[</span><span class="m">1</span><span class="o">]]</span>
+...
+nebula&gt; <span class="c1"># Coming soon</span>
+
+<span class="c1"># 通过 by() 指定选取的维度</span>
+gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.as<span class="o">(</span><span class="s1">&#39;a&#39;</span><span class="o">)</span>.out<span class="o">()</span>.as<span class="o">(</span><span class="s1">&#39;b&#39;</span><span class="o">)</span>.out<span class="o">()</span>.as<span class="o">(</span><span class="s1">&#39;c&#39;</span><span class="o">)</span>.select<span class="o">(</span><span class="s1">&#39;a&#39;</span>,<span class="s1">&#39;c&#39;</span><span class="o">)</span>.by<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>a:pluto,c:sky<span class="o">]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>a:pluto,c:saturn<span class="o">]</span>
+...
+nebula&gt; <span class="c1"># Coming soon</span>
+
+<span class="c1"># 从 map 中选择指定 key 的值</span>
+gremlin&gt; g.V<span class="o">()</span>.valueMap<span class="o">()</span>.select<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span>.dedup<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>saturn<span class="o">]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>jupiter<span class="o">]</span>
+...
+nebula&gt; <span class="c1"># Coming soon</span>
+</code></pre></div>
+<h3 id="_14">分支<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查找所有类型为 &#39;character&#39; 的顶点</span>
+<span class="c1"># name 属性为 &#39;jupiter&#39; 的顶点输出其 age 属性</span>
+<span class="c1"># 否则输出顶点的 name 属性</span>
+gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.choose<span class="o">(</span>values<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">))</span>.option<span class="o">(</span><span class="s1">&#39;jupiter&#39;</span>, values<span class="o">(</span><span class="s1">&#39;age&#39;</span><span class="o">))</span>.option<span class="o">(</span>none, values<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">))</span><span class="p">;</span>
+<span class="o">==</span>&gt;saturn
+<span class="o">==</span>&gt;5000
+<span class="o">==</span>&gt;neptune
+...
+
+<span class="c1"># Lambda</span>
+gremlin&gt; g.V<span class="o">()</span>.branch <span class="o">{</span>it.get<span class="o">()</span>.value<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)}</span>.option<span class="o">(</span><span class="s1">&#39;jupiter&#39;</span>, values<span class="o">(</span><span class="s1">&#39;age&#39;</span><span class="o">))</span>.option<span class="o">(</span>none, values<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">))</span><span class="p">;</span>
+<span class="o">==</span>&gt;saturn
+<span class="o">==</span>&gt;5000
+...
+
+<span class="c1"># Traversal</span>
+gremlin&gt; g.V<span class="o">()</span>.branch<span class="o">(</span>values<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">))</span>.option<span class="o">(</span><span class="s1">&#39;jupiter&#39;</span>, values<span class="o">(</span><span class="s1">&#39;age&#39;</span><span class="o">))</span>.option<span class="o">(</span>none, values<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">))</span><span class="p">;</span>
+<span class="o">==</span>&gt;saturn
+<span class="o">==</span>&gt;5000
+
+<span class="c1"># Branch</span>
+gremlin&gt; g.V<span class="o">()</span>.choose<span class="o">(</span>has<span class="o">(</span><span class="s1">&#39;name&#39;</span>,<span class="s1">&#39;jupiter&#39;</span><span class="o">)</span>,values<span class="o">(</span><span class="s1">&#39;age&#39;</span><span class="o">)</span>,values<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">))</span><span class="p">;</span>
+<span class="o">==</span>&gt;saturn
+<span class="o">==</span>&gt;5000
+
+<span class="c1"># 基于 if then 进行分组</span>
+gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s2">&quot;character&quot;</span><span class="o">)</span>.groupCount<span class="o">()</span>.by<span class="o">(</span>values<span class="o">(</span><span class="s2">&quot;age&quot;</span><span class="o">)</span>.choose<span class="o">(</span>
+           is<span class="o">(</span>lt<span class="o">(</span><span class="m">40</span><span class="o">))</span>,constant<span class="o">(</span><span class="s2">&quot;young&quot;</span><span class="o">)</span>,
+            choose<span class="o">(</span>is<span class="o">(</span>lt<span class="o">(</span><span class="m">4500</span><span class="o">))</span>,
+                   constant<span class="o">(</span><span class="s2">&quot;old&quot;</span><span class="o">)</span>,
+                  constant<span class="o">(</span><span class="s2">&quot;very old&quot;</span><span class="o">))))</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>young:4,old:2,very old:3<span class="o">]</span>
+</code></pre></div>
+<blockquote>
+<p><strong>Nebula Graph</strong> 尚无类似功能。</p>
+</blockquote>
+<h3 id="_15">合并<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p><code>coalesce()</code> 可以接受任意数量的遍历器（traversal），按顺序执行，并返回第一个能产生输出的遍历器的结果。</p>
+<p><code>optional()</code> 只能接受一个遍历器（traversal），如果该遍历器能产生一个结果，则返回该结果，否则返回调用 optionalStep 的元素本身。</p>
+<p><code>union()</code> 可以接受任意数量的遍历器，并能够将各个遍历器的输出合并到一起。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 如果类型为 monster 则返回类型否则返回 &#39;Not a monster&#39;</span>
+gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.coalesce<span class="o">(</span>has<span class="o">(</span><span class="s1">&#39;type&#39;</span>,<span class="s1">&#39;monster&#39;</span><span class="o">)</span>.values<span class="o">(</span><span class="s1">&#39;type&#39;</span><span class="o">)</span>,constant<span class="o">(</span><span class="s2">&quot;Not a monster&quot;</span><span class="o">))</span><span class="p">;</span>
+<span class="o">==</span>&gt;Not a monster
+
+<span class="c1"># 按优先级寻找到顶点 jupiter 的以下边和邻接点，找到一个就停止</span>
+<span class="c1"># 1、brother 出边和邻接点</span>
+<span class="c1"># 2、father 出边和邻接点</span>
+<span class="c1"># 3、father 入边和邻接点</span>
+gremlin&gt; g.V<span class="o">(</span>jupiter<span class="o">)</span>.coalesce<span class="o">(</span>outE<span class="o">(</span><span class="s1">&#39;brother&#39;</span><span class="o">)</span>, outE<span class="o">(</span><span class="s1">&#39;father&#39;</span><span class="o">)</span>, inE<span class="o">(</span><span class="s1">&#39;father&#39;</span><span class="o">))</span>.inV<span class="o">()</span>.path<span class="o">()</span>.by<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span>.by<span class="o">(</span>label<span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>jupiter,brother,pluto<span class="o">]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>jupiter,brother,neptune<span class="o">]</span>
+
+<span class="c1"># 查找顶点 pluto 的 father 出顶点，如果没有就返回 pluto 自己</span>
+gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.optional<span class="o">(</span>out<span class="o">(</span><span class="s1">&#39;father&#39;</span><span class="o">))</span>.valueMap<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>name:<span class="o">[</span>pluto<span class="o">]</span>,type:<span class="o">[</span>god<span class="o">]</span>,age:<span class="o">[</span><span class="m">4000</span><span class="o">]]</span>
+
+<span class="c1"># 寻找顶点 pluto 的出 father 顶点，邻接 brother 顶点，并将结果合并，最后打印出路径</span>
+gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.union<span class="o">(</span>out<span class="o">(</span><span class="s1">&#39;father&#39;</span><span class="o">)</span>,both<span class="o">(</span><span class="s1">&#39;brother&#39;</span><span class="o">))</span>.path<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>v<span class="o">[</span><span class="m">8</span><span class="o">]</span>,v<span class="o">[</span><span class="m">2</span><span class="o">]]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>v<span class="o">[</span><span class="m">8</span><span class="o">]</span>,v<span class="o">[</span><span class="m">5</span><span class="o">]]</span>
+</code></pre></div>
+<blockquote>
+<p><strong>Nebula Graph</strong> 尚无类似功能。</p>
+</blockquote>
+<h3 id="_16">结果聚集与展开<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># 收集第 1 步的结果到集合 x 中</span>
+<span class="c1"># 注意：不影响后续结果</span>
+gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.out<span class="o">()</span>.aggregate<span class="o">(</span><span class="s1">&#39;x&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">12</span><span class="o">]</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">2</span><span class="o">]</span>
+...
+
+<span class="c1"># 通过 by() 指定聚集的维度</span>
+gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.out<span class="o">()</span>.aggregate<span class="o">(</span><span class="s1">&#39;x&#39;</span><span class="o">)</span>.by<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span>.cap<span class="o">(</span><span class="s1">&#39;x&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>tartarus,jupiter,neptune,cerberus<span class="o">]</span>
+
+<span class="c1"># 查询与 pluto 的两度 OUT 邻居</span>
+<span class="c1"># 并收集这些到 x 集合里面</span>
+<span class="c1"># 最终以 name 属性展示其邻居</span>
+gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.out<span class="o">()</span>.aggregate<span class="o">(</span><span class="s1">&#39;x&#39;</span><span class="o">)</span>.out<span class="o">()</span>.aggregate<span class="o">(</span><span class="s1">&#39;x&#39;</span><span class="o">)</span>.cap<span class="o">(</span><span class="s1">&#39;x&#39;</span><span class="o">)</span>.unfold<span class="o">()</span>.values<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;tartarus
+<span class="o">==</span>&gt;tartarus
+...
+</code></pre></div>
+<blockquote>
+<p><strong>Nebula Graph</strong> 尚无类似功能。</p>
+</blockquote>
+<h3 id="_17">模式匹配<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p><code>match()</code> 语句为图查询提供了一种基于模式匹配的方式，以便用更具描述性的方式进行图查询。match()语句通过多个模式片段 traversal fragments 来进行模式匹配。这些 traversal fragments 中会定义一些变量，只有满足所有用变量表示的约束的对象才能够通过。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 对每一个顶点，用以下模式去匹配，满足则生成一个 map&lt;String, Object&gt;，不满足则过滤掉</span>
+<span class="c1"># 模式1：a 为沿 father 出边指向 jupiter 的顶点</span>
+<span class="c1"># 模式2：b 对应当前顶点 jupiter</span>
+<span class="c1"># 模式3：c 对应创建 jupiter 的 brother 年龄为 4000 的 顶点</span>
+gremlin&gt; g.V<span class="o">()</span>.match<span class="o">(</span>__.as<span class="o">(</span><span class="s1">&#39;a&#39;</span><span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;father&#39;</span><span class="o">)</span>.has<span class="o">(</span><span class="s1">&#39;name&#39;</span>, <span class="s1">&#39;jupiter&#39;</span><span class="o">)</span>.as<span class="o">(</span><span class="s1">&#39;b&#39;</span><span class="o">)</span>, __.as<span class="o">(</span><span class="s1">&#39;b&#39;</span><span class="o">)</span>.in<span class="o">(</span><span class="s1">&#39;brother&#39;</span><span class="o">)</span>.has<span class="o">(</span><span class="s1">&#39;age&#39;</span>, <span class="m">4000</span><span class="o">)</span>.as<span class="o">(</span><span class="s1">&#39;c&#39;</span><span class="o">))</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>a:v<span class="o">[</span><span class="m">6</span><span class="o">]</span>,b:v<span class="o">[</span><span class="m">2</span><span class="o">]</span>,c:v<span class="o">[</span><span class="m">8</span><span class="o">]]</span>
+
+<span class="c1"># match() 语句可以与 select() 语句配合使用，从 Map&lt;String, Object&gt; 中选取部分结果</span>
+gremlin&gt; g.V<span class="o">()</span>.match<span class="o">(</span>__.as<span class="o">(</span><span class="s1">&#39;a&#39;</span><span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;father&#39;</span><span class="o">)</span>.has<span class="o">(</span><span class="s1">&#39;name&#39;</span>, <span class="s1">&#39;jupiter&#39;</span><span class="o">)</span>.as<span class="o">(</span><span class="s1">&#39;b&#39;</span><span class="o">)</span>, __.as<span class="o">(</span><span class="s1">&#39;b&#39;</span><span class="o">)</span>.in<span class="o">(</span><span class="s1">&#39;brother&#39;</span><span class="o">)</span>.has<span class="o">(</span><span class="s1">&#39;age&#39;</span>, <span class="m">4000</span><span class="o">)</span>.as<span class="o">(</span><span class="s1">&#39;c&#39;</span><span class="o">))</span>.select<span class="o">(</span><span class="s1">&#39;a&#39;</span>, <span class="s1">&#39;c&#39;</span><span class="o">)</span>.by<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>a:hercules,c:pluto<span class="o">]</span>
+
+<span class="c1"># match() 语句可以与 where() 语句配合使用，过滤结果</span>
+gremlin&gt; g.V<span class="o">()</span>.match<span class="o">(</span>__.as<span class="o">(</span><span class="s1">&#39;a&#39;</span><span class="o">)</span>.out<span class="o">(</span><span class="s1">&#39;father&#39;</span><span class="o">)</span>.has<span class="o">(</span><span class="s1">&#39;name&#39;</span>, <span class="s1">&#39;jupiter&#39;</span><span class="o">)</span>.as<span class="o">(</span><span class="s1">&#39;b&#39;</span><span class="o">)</span>, __.as<span class="o">(</span><span class="s1">&#39;b&#39;</span><span class="o">)</span>.in<span class="o">(</span><span class="s1">&#39;brother&#39;</span><span class="o">)</span>.has<span class="o">(</span><span class="s1">&#39;age&#39;</span>, <span class="m">4000</span><span class="o">)</span>.as<span class="o">(</span><span class="s1">&#39;c&#39;</span><span class="o">))</span>.where<span class="o">(</span><span class="s1">&#39;a&#39;</span>, neq<span class="o">(</span><span class="s1">&#39;c&#39;</span><span class="o">))</span>.select<span class="o">(</span><span class="s1">&#39;a&#39;</span>, <span class="s1">&#39;c&#39;</span><span class="o">)</span>.by<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>a:hercules,c:pluto<span class="o">]</span>
+</code></pre></div>
+<h3 id="_18">随机过滤<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<p><code>sample()</code> 接受一个整数值，从前一步的遍历器中采样（随机）出最多指定数目的结果。</p>
+<p><code>coin()</code> 字面意思是抛硬币过滤，接受一个浮点值，该浮点值表示硬币出现正面的概率。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 从所有顶点的出边中随机选择 2 条</span>
+gremlin&gt; g.V<span class="o">()</span>.outE<span class="o">()</span>.sample<span class="o">(</span><span class="m">2</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;e<span class="o">[</span><span class="m">15</span><span class="o">][</span><span class="m">2</span>-brother-&gt;5<span class="o">]</span>
+<span class="o">==</span>&gt;e<span class="o">[</span><span class="m">18</span><span class="o">][</span><span class="m">5</span>-brother-&gt;2<span class="o">]</span>
+
+<span class="c1"># 从所顶点的 name 属性中随机选取 3 个</span>
+gremlin&gt; g.V<span class="o">()</span>.values<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span>.sample<span class="o">(</span><span class="m">3</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;hercules
+<span class="o">==</span>&gt;sea
+<span class="o">==</span>&gt;jupiter
+
+<span class="c1"># 从所有的 character 中根据 age 随机选择 3 个</span>
+gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.sample<span class="o">(</span><span class="m">3</span><span class="o">)</span>.by<span class="o">(</span><span class="s1">&#39;age&#39;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">1</span><span class="o">]</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">2</span><span class="o">]</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">6</span><span class="o">]</span>
+
+<span class="c1"># 与 local 联合使用做随机漫游</span>
+<span class="c1"># 从顶点 pluto 出发做 3 次随机漫游</span>
+gremlin&gt; g.V<span class="o">(</span>pluto<span class="o">)</span>.repeat<span class="o">(</span>local<span class="o">(</span>bothE<span class="o">()</span>.sample<span class="o">(</span><span class="m">1</span><span class="o">)</span>.otherV<span class="o">()))</span>.times<span class="o">(</span><span class="m">3</span><span class="o">)</span>.path<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>v<span class="o">[</span><span class="m">8</span><span class="o">]</span>,e<span class="o">[</span><span class="m">26</span><span class="o">][</span><span class="m">8</span>-brother-&gt;5<span class="o">]</span>,v<span class="o">[</span><span class="m">5</span><span class="o">]</span>,e<span class="o">[</span><span class="m">18</span><span class="o">][</span><span class="m">5</span>-brother-&gt;2<span class="o">]</span>,v<span class="o">[</span><span class="m">2</span><span class="o">]</span>,e<span class="o">[</span><span class="m">13</span><span class="o">][</span><span class="m">2</span>-father-&gt;1<span class="o">]</span>,v<span class="o">[</span><span class="m">1</span><span class="o">]]</span>
+
+<span class="c1"># 每个顶点按 0.5 的概率过滤</span>
+gremlin&gt; g.V<span class="o">()</span>.coin<span class="o">(</span><span class="m">0</span>.5<span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">1</span><span class="o">]</span>
+<span class="o">==</span>&gt;v<span class="o">[</span><span class="m">2</span><span class="o">]</span>
+...
+
+<span class="c1"># 输出所有 location 类顶点的 name 属性，否则输出 not a location</span>
+gremlin&gt; g.V<span class="o">()</span>.choose<span class="o">(</span>hasLabel<span class="o">(</span><span class="s1">&#39;location&#39;</span><span class="o">)</span>, values<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span>, constant<span class="o">(</span><span class="s1">&#39;not a location&#39;</span><span class="o">))</span><span class="p">;</span>
+<span class="o">==</span>&gt;not a <span class="nv">location</span>
+<span class="o">==</span>&gt;not a <span class="nv">location</span>
+<span class="o">==</span>&gt;sky
+...
+</code></pre></div>
+<h3 id="sack">结果存取口袋 Sack<a class="headerlink" href="#sack" title="Permanent link">&para;</a></h3>
+<p>包含本地数据结构的遍历器称为口袋。<code>sack()</code> 将数据放入口袋，或者从口袋取出数据。每个遍历器的每个口袋都是通过 <code>withSack（）</code> 创建的。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 创建一个包含常数 1 的口袋，并且在最终取出口袋中的值</span>
+gremlin&gt; g.withSack<span class="o">(</span><span class="m">1</span><span class="o">)</span>.V<span class="o">()</span>.sack<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;1
+<span class="o">==</span>&gt;1
+...
+</code></pre></div>
+<h3 id="barrier">遍历栅栏 barrier<a class="headerlink" href="#barrier" title="Permanent link">&para;</a></h3>
+<p><code>barrier()</code> 在某个位置插入一个栅栏，以强制该位置之前的步骤必须都执行完成才可以继续往后执行。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 利用隐式 barrier 计算特征向量中心性</span>
+<span class="c1"># 包括 groupCount、cap，按照降序排序</span>
+gremlin&gt; g.V<span class="o">()</span>.repeat<span class="o">(</span>both<span class="o">()</span>.groupCount<span class="o">(</span><span class="s1">&#39;m&#39;</span><span class="o">))</span>.times<span class="o">(</span><span class="m">5</span><span class="o">)</span>.cap<span class="o">(</span><span class="s1">&#39;m&#39;</span><span class="o">)</span>.order<span class="o">(</span><span class="nb">local</span><span class="o">)</span>.by<span class="o">(</span>values, decr<span class="o">)</span><span class="p">;</span>
+</code></pre></div>
+<h3 id="local">局部操作 local<a class="headerlink" href="#local" title="Permanent link">&para;</a></h3>
+<p>通过 Gremlin 进行图遍历通常是当前 step 处理前一 step 传递过来的对象流。很多操作是针对传递过来的对象流中的全部对象进行操作，但也有很多时候需要针对对象流中的单个对象而非对象流中的全部对象进行操作。这种对单个对象的局部操作，可以使用 <code>local()</code> 语句实现。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 不使用 local()</span>
+gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.as<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.properties<span class="o">(</span><span class="s1">&#39;age&#39;</span><span class="o">)</span>.order<span class="o">()</span>.by<span class="o">(</span>value,decr<span class="o">)</span>.limit<span class="o">(</span><span class="m">2</span><span class="o">)</span>.value<span class="o">()</span>.as<span class="o">(</span><span class="s1">&#39;age&#39;</span><span class="o">)</span>.select<span class="o">(</span><span class="s1">&#39;character&#39;</span>, <span class="s1">&#39;age&#39;</span><span class="o">)</span>.by<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span>.by<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>character:saturn,age:10000<span class="o">]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>character:jupiter,age:5000<span class="o">]</span>
+
+<span class="c1"># 使用 local()</span>
+gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.as<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.local<span class="o">(</span>properties<span class="o">(</span><span class="s1">&#39;age&#39;</span><span class="o">)</span>.order<span class="o">()</span>.by<span class="o">(</span>value<span class="o">)</span>.limit<span class="o">(</span><span class="m">2</span><span class="o">))</span>.value<span class="o">()</span>.as<span class="o">(</span><span class="s1">&#39;age&#39;</span><span class="o">)</span>.select<span class="o">(</span><span class="s1">&#39;character&#39;</span>, <span class="s1">&#39;age&#39;</span><span class="o">)</span>.by<span class="o">(</span><span class="s1">&#39;name&#39;</span><span class="o">)</span>.by<span class="o">()</span>
+<span class="o">==</span>&gt;<span class="o">[</span>character:saturn,age:10000<span class="o">]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>character:jupiter,age:5000<span class="o">]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>character:neptune,age:4500<span class="o">]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>character:hercules,age:30<span class="o">]</span>
+...
+
+<span class="c1"># 查询 monster 的属性 map</span>
+gremlin&gt; g.V<span class="o">()</span>hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.has<span class="o">(</span><span class="s1">&#39;type&#39;</span>, <span class="s1">&#39;type&#39;</span><span class="o">)</span>.propertyMap<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>name:<span class="o">[</span>vp<span class="o">[</span>name-&gt;nemean<span class="o">]]</span>,type:<span class="o">[</span>vp<span class="o">[</span>type-&gt;monster<span class="o">]]</span>,age:<span class="o">[</span>vp<span class="o">[</span>age-&gt;20<span class="o">]]]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>name:<span class="o">[</span>vp<span class="o">[</span>name-&gt;hydra<span class="o">]]</span>,type:<span class="o">[</span>vp<span class="o">[</span>type-&gt;monster<span class="o">]]</span>,age:<span class="o">[</span>vp<span class="o">[</span>age-&gt;0<span class="o">]]]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>name:<span class="o">[</span>vp<span class="o">[</span>name-&gt;cerberus<span class="o">]]</span>,type:<span class="o">[</span>vp<span class="o">[</span>type-&gt;monster<span class="o">]]</span>,age:<span class="o">[</span>vp<span class="o">[</span>age-&gt;0<span class="o">]]]</span>
+
+<span class="c1"># 查询 monster 的属性个数</span>
+gremlin&gt; g.V<span class="o">()</span>hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.has<span class="o">(</span><span class="s1">&#39;type&#39;</span>, <span class="s1">&#39;monster&#39;</span><span class="o">)</span>.propertyMap<span class="o">()</span>.count<span class="o">(</span><span class="nb">local</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;3
+<span class="o">==</span>&gt;3
+<span class="o">==</span>&gt;3
+
+<span class="c1"># 数目最多的顶点类型的顶点数目</span>
+gremlin&gt; g.V<span class="o">()</span>.groupCount<span class="o">()</span>.by<span class="o">(</span>label<span class="o">)</span>.select<span class="o">(</span>values<span class="o">)</span>.max<span class="o">(</span><span class="nb">local</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;9
+
+<span class="c1"># 所有顶点的属性列表中的第一个属性</span>
+gremlin&gt; g.V<span class="o">()</span>.valueMap<span class="o">()</span>.limit<span class="o">(</span>local, <span class="m">1</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>name:<span class="o">[</span>saturn<span class="o">]]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>name:<span class="o">[</span>jupiter<span class="o">]]</span>
+<span class="o">==</span>&gt;<span class="o">[</span>name:<span class="o">[</span>sky<span class="o">]]</span>
+...
+
+<span class="c1"># 不加 local</span>
+gremlin&gt; g.V<span class="o">()</span>.valueMap<span class="o">()</span>.limit<span class="o">(</span><span class="m">1</span><span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>name:<span class="o">[</span>saturn<span class="o">]</span>,type:<span class="o">[</span>titan<span class="o">]</span>,age:<span class="o">[</span><span class="m">10000</span><span class="o">]]</span>
+
+<span class="c1"># 所有顶点作为一个集合，从中采样 2 个</span>
+gremlin&gt; g.V<span class="o">()</span>.fold<span class="o">()</span>.sample<span class="o">(</span>local,2<span class="o">)</span><span class="p">;</span>
+<span class="o">==</span>&gt;<span class="o">[</span>v<span class="o">[</span><span class="m">8</span><span class="o">]</span>,v<span class="o">[</span><span class="m">1</span><span class="o">]]</span>
+</code></pre></div>
+<h3 id="_19">执行统计和分析<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<p>Gremlin 提供两种语句对执行的查询语句进行统计和分析：</p>
+<ul>
+<li><code>explain()</code>，详细描述原始的 Gremlin 语句在编译期是如何转变为最终要执行的 step 集合的</li>
+<li><code>profile()</code>，统计 Gremlin 语句执行过程中的每个 step 消耗的时间和通过的对象等统计信息</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># explain()</span>
+gremlin&gt; g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;character&#39;</span><span class="o">)</span>.explain<span class="o">()</span><span class="p">;</span>
+<span class="o">==</span>&gt;Traversal <span class="nv">Explanation</span>
+<span class="o">==========================================================================================</span>
+Original Traversal                 <span class="o">[</span>GraphStep<span class="o">(</span>vertex,<span class="o">[])</span>, HasStep<span class="o">([</span>~label.eq<span class="o">(</span>character<span class="o">)])]</span>
+
+ConnectiveStrategy           <span class="o">[</span>D<span class="o">]</span>   <span class="o">[</span>GraphStep<span class="o">(</span>vertex,<span class="o">[])</span>, HasStep<span class="o">([</span>~label.eq<span class="o">(</span>character<span class="o">)])]</span>
+MatchPredicateStrategy       <span class="o">[</span>O<span class="o">]</span>   <span class="o">[</span>GraphStep<span class="o">(</span>vertex,<span class="o">[])</span>, HasStep<span class="o">([</span>~label.eq<span class="o">(</span>character<span class="o">)])]</span>
+...
+StandardVerificationStrategy <span class="o">[</span>V<span class="o">]</span>   <span class="o">[</span>TinkerGraphStep<span class="o">(</span>vertex,<span class="o">[</span>~label.eq<span class="o">(</span>character<span class="o">)])]</span>
+
+Final Traversal                    <span class="o">[</span>TinkerGraphStep<span class="o">(</span>vertex,<span class="o">[</span>~label.eq<span class="o">(</span>character<span class="o">)])]</span>
+
+<span class="c1"># profile()</span>
+gremlin&gt; g.V<span class="o">()</span>.out<span class="o">(</span><span class="s1">&#39;father&#39;</span><span class="o">)</span>.profile<span class="o">()</span>
+<span class="o">==</span>&gt;Traversal Metrics
+Step                                                               Count  Traversers       Time <span class="o">(</span>ms<span class="o">)</span>    % <span class="nv">Dur</span>
+<span class="o">=============================================================================================================</span>
+TinkerGraphStep<span class="o">(</span>vertex,<span class="o">[])</span>                                            <span class="m">12</span>          <span class="m">12</span>           <span class="m">0</span>.644    <span class="m">45</span>.66
+VertexStep<span class="o">(</span>OUT,<span class="o">[</span>father<span class="o">]</span>,vertex<span class="o">)</span>                                        <span class="m">2</span>           <span class="m">2</span>           <span class="m">0</span>.534    <span class="m">37</span>.83
+NoOpBarrierStep<span class="o">(</span><span class="m">2500</span><span class="o">)</span>                                                  <span class="m">2</span>           <span class="m">2</span>           <span class="m">0</span>.233    <span class="m">16</span>.51
+                                            &gt;TOTAL                     -           -           <span class="m">1</span>.411        -
+</code></pre></div>
+<!-- ## References
+
+Multiple properties (multi-properties): a vertex property key can have multiple values. For example, a vertex can have multiple "name" properties.
+
+create this Graph and establish a TraversalSource with
+
+<div class="highlight"><pre><span></span><code><span class="nv">graph</span> <span class="o">=</span> TinkerFactory.createTheCrew<span class="o">()</span>
+<span class="nv">g</span> <span class="o">=</span> graph.traversal<span class="o">()</span>
+g.V<span class="o">()</span>.hasLabel<span class="o">(</span><span class="s1">&#39;person&#39;</span><span class="o">)</span>.valueMap<span class="o">()</span>    //get a basic feeling <span class="k">for</span> the data of the <span class="s2">&quot;person&quot;</span> vertices <span class="k">in</span> the graph
+g.V<span class="o">()</span>.group<span class="o">()</span>.by<span class="o">(</span>label<span class="o">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1">#用内置的TinkerGraph-db创建一个空的图对象</span>
+$ gremlin&gt; <span class="nv">g</span> <span class="o">=</span> TinkerGraph.open<span class="o">()</span>.traversal<span class="o">()</span>
+</code></pre></div>
+
+When running in the Gremlin Console, support for TinkerGraph should be on by default. Create a new TinkerGraph instance from the console as follows.
+
+<div class="highlight"><pre><span></span><code><span class="nv">graph</span> <span class="o">=</span> TinkerGraph.open<span class="o">()</span>
+</code></pre></div>
+
+Before you can start to issue Gremlin queries against the graph you also need to establish a graph traversal source object by calling the new graph’s traversal method as follows.
+
+```bash
+g = graph.traversal()
+// Tell me something about my graph
+graph.toString()
+``` -->
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2020年7月15日</span>
+      
+    
+  </small>
+</div>
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../cypher-ngql/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              Cypher & nGQL
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../sql-ngql/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              SQL & nGQL
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2020 Nebula Graph - 浙ICP备20010487号
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/vesoft-inc/nebula-docs-cn" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.4fa0e4ee.min.js", "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.1d3bfcf1.min.js"></script>
+      
+        <script src="../../../js/version-select.js"></script>
+      
+    
+  </body>
+</html>
