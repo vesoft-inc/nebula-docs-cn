@@ -38,6 +38,8 @@ Nebula Spark Connector适用于以下场景：
 
 ## 获取Nebula Spark Connector
 
+### 编译打包
+
 1. 克隆仓库`nebula-spark-utils`。
 
   ```bash
@@ -56,7 +58,11 @@ Nebula Spark Connector适用于以下场景：
   $ mvn clean package -Dmaven.test.skip=true -Dgpg.skip -Dmaven.javadoc.skip=true
   ```
 
-编译完成后，在目录`nebula-spark-connector/target`下生成文件`nebula-spark-connector-2.0.0.jar`。
+编译完成后，在目录`nebula-spark-connector/target`下生成类似文件`nebula-spark-connector-2.0.0-SHANPSHOT.jar`。
+
+### Maven远程仓库下载
+
+[下载地址](https://repo1.maven.org/maven2/com/vesoft/nebula-spark-connector/)
 
 ## 使用方法
 
