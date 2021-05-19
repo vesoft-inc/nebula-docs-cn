@@ -1,6 +1,0 @@
-mkdocs==1.1.2
-mike==0.5.5
-mkdocs-material==4.6.3
-mdx_truly_sane_lists
-mkdocs_latest_release_plugin
-mkdocs-material
