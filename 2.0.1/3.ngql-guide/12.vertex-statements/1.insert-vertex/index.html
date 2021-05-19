@@ -1820,8 +1820,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="insert_vertex">INSERT VERTEX<a class="headerlink" href="#insert_vertex" title="Permanent link">¶</a></h1>
-<p><code>INSERT VERTEX</code>语句可以在Nebula Graph实例的指定图空间中插入一个或多个点。</p>
-<p>插入一个VID已存在的点时，<code>INSERT VERTEX</code>将覆盖原有的点。</p>
+<p><code>INSERT VERTEX</code>语句可以在Nebula Graph实例的指定图空间中插入(覆盖)一个或多个点。</p>
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <p>执行<code>INSERT VERTEX</code>语句需要当前登录的用户拥有指定图空间的<a href="../../../7.data-security/1.authentication/3.role-list/">插入点权限</a>，否则会报错。</p>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
@@ -1846,6 +1845,12 @@ prop_value_list:
 <ul>
 <li><code>prop_value_list</code>：根据<code>prop_name_list</code>填写属性值。如果属性值和标签中的数据类型不匹配，会返回错误。如果没有填写属性值，而标签中对应的属性设置为<code>NOT NULL</code>，也会返回错误。详情请参见<a href="../../10.tag-statements/1.create-tag/">CREATE TAG</a>。</li>
 </ul>
+<p>!!! warning “INSERT VERTEX 与 openCypher 中 CREATE 的语意不同”</p>
+<div class="codehilite"><pre><span></span><code>- `INSERT  VERTEX` 语意更接近于 NoSQL(Key-value) 方式的 INSERT 语意，或者 SQL 中的 `UPSERT (UPDATE or INSERT)`。
+- 相同 `VID` 和 `TAG` 的情况下：新写入会覆盖旧写入，不存在时会新写入。
+- 相同 `VID` 但不同 `TAG` 的情况下：不同TAG对应的记录不会相互覆盖，不存在会新写入。
+</code></pre></div>
+<p>参考以下示例。</p>
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code># 插入不包含属性的点。
 nebula&gt; CREATE TAG t1();                   
@@ -1866,7 +1871,7 @@ nebula&gt; CREATE TAG t4(p2 string);
 # 一次插入两个标签的属性到同一个点。
 nebula&gt; INSERT VERTEX  t3 (p1), t4(p2) VALUES "21": (321, "hello");
 </code></pre></div>
-<p>一个点可以多次插入属性值，以最后一次为准。</p>
+<p>一个点相同TAG可以多次插入属性值，以最后一次为准。</p>
 <div class="highlight"><pre><span></span><code># 多次插入属性值。
 nebula&gt; INSERT VERTEX t2 (name, age) VALUES "11":("n2", 13);
 nebula&gt; INSERT VERTEX t2 (name, age) VALUES "11":("n3", 14);
@@ -1907,7 +1912,7 @@ nebula&gt; FETCH PROP on t5 "004";
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月13日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月19日</span>
 </small>
 </div>
 </article>
