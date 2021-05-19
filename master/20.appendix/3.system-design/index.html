@@ -7,10 +7,10 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Documentation for Nebula Graph Database" name="description"/>
 <meta content="Nebula Graph" name="author"/>
-<link href="https://docs.nebula-graph.com.cn/2.0.1/nebula-algorithm/na-ug-what-is-nebula-algorithm/" rel="canonical"/>
+<link href="https://docs.nebula-graph.com.cn/master/20.appendix/3.system-design/" rel="canonical"/>
 <link href="../../assets/images/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.1.2, mkdocs-material-7.1.4" name="generator"/>
-<title>什么是 nebula-algorithm - Nebula Graph Database 手册</title>
+<title>系统建模 - Nebula Graph Database 手册</title>
 <link href="../../assets/stylesheets/main.bde7dde4.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.ef6f36e2.min.css" rel="stylesheet"/>
 <meta content="#009485" name="theme-color"/>
@@ -28,7 +28,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#nebula-algorithm">
+<a class="md-skip" href="#_1">
           跳转至
         </a>
 </div>
@@ -52,7 +52,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              什么是 nebula-algorithm
+              系统建模
             
           </span>
 </div>
@@ -200,11 +200,6 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../2.quick-start/0.FAQ/">
-        FAQ
-      </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="../../2.quick-start/1.quick-start-workflow/">
         快速入门流程
       </a>
@@ -227,11 +222,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../2.quick-start/4.nebula-graph-crud/">
         Nebula Graph常用语法（CRUD）
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../2.quick-start/6.eco-tool-version/">
-        生态工具概览
       </a>
 </li>
 </ul>
@@ -264,11 +254,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../3.ngql-guide/1.nGQL-overview/1.overview/">
         Nebula Graph查询语言（nGQL）
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../3.ngql-guide/1.nGQL-overview/2.graph-modeling/">
-        图建模
       </a>
 </li>
 <li class="md-nav__item">
@@ -1034,46 +1019,6 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_18" id="__nav_4_18" type="checkbox"/>
-<label class="md-nav__link" for="__nav_4_18">
-        附录
-        <span class="md-nav__icon md-icon"></span>
-</label>
-<nav aria-label="附录" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_4_18">
-<span class="md-nav__icon md-icon"></span>
-          附录
-        </label>
-<ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../3.ngql-guide/20.appendix/comments/">
-        注释
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../3.ngql-guide/20.appendix/identifier-case-sensitivity/">
-        大小写区分
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../3.ngql-guide/20.appendix/keywords-and-reserved-words/">
-        关键字
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../3.ngql-guide/20.appendix/vid-partition/">
-        点VID和分片ID
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../3.ngql-guide/20.appendix/raft/">
-        关于Raft的简单介绍
-      </a>
-</li>
-</ul>
-</nav>
-</li>
 </ul>
 </nav>
 </li>
@@ -1722,14 +1667,19 @@
         Nebula Flink Connector
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nebula-algorithm/">
+        Nebula Algorithm
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" id="__nav_15" type="checkbox"/>
-<label class="md-nav__link" for="__nav_15">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" id="__nav_16" type="checkbox"/>
+<label class="md-nav__link" for="__nav_16">
         社区贡献
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="社区贡献" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_15">
+<label class="md-nav__title" for="__nav_16">
 <span class="md-nav__icon md-icon"></span>
           社区贡献
         </label>
@@ -1737,6 +1687,119 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../15.contribution/how-to-contribute/">
         如何贡献
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_17" id="__nav_17" type="checkbox"/>
+<label class="md-nav__link" for="__nav_17">
+        FAQ
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="FAQ" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_17">
+<span class="md-nav__icon md-icon"></span>
+          FAQ
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../19.FAQ/0.FAQ/">
+        FAQ
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_18" id="__nav_18" type="checkbox"/>
+<label class="md-nav__link" for="__nav_18">
+        附录
+        <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="附录" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_18">
+<span class="md-nav__icon md-icon"></span>
+          附录
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../0.vid/">
+        VID
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../2.graph-modeling/">
+        图建模
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          系统建模
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        系统建模
+      </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    选择吞吐量优先或时延优先
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    水平扩展或垂直扩展
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    数据传输与优化
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    查询预热与数据预热
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../4.raft/">
+        关于Raft的简单介绍
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../5.partition/">
+        分片ID
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../6.eco-tool-version/">
+        生态工具概览
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../comments/">
+        注释
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../identifier-case-sensitivity/">
+        大小写区分
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../keywords-and-reserved-words/">
+        关键字
       </a>
 </li>
 </ul>
@@ -1767,32 +1830,23 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_1">
-    实现方法
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#pagerank_louvain">
-    PageRank 和 Louvain 简介
-  </a>
-<nav aria-label="PageRank 和 Louvain 简介" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#pagerank">
-    PageRank
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#louvain">
-    Louvain
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
-    使用场景
+    选择吞吐量优先或时延优先
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    水平扩展或垂直扩展
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    数据传输与优化
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    查询预热与数据预热
   </a>
 </li>
 </ul>
@@ -1802,55 +1856,51 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/nebula-algorithm/na-ug-what-is-nebula-algorithm.md" title="编辑此页">
+<a class="md-content__button md-icon" href="https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/20.appendix/3.system-design.md" title="编辑此页">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
-<h1 id="nebula-algorithm">什么是 nebula-algorithm<a class="headerlink" href="#nebula-algorithm" title="Permanent link">¶</a></h1>
-<p><a href="https://github.com/vesoft-inc/nebula-java/tree/v1.0/tools" title="点击前往 GitHub">nebula-algorithm</a> 是一款基于 <a href="https://spark.apache.org/graphx/">GraphX</a> 的 Spark 应用程序，提供了 PageRank 和 Louvain 社区发现的图计算算法。使用 nebula-algorithm，用户能以提交 Spark 任务的形式对 Nebula Graph 数据库中的数据执行图计算。</p>
-<p>目前 nebula-algorithm 仅提供了 PageRank 和 Louvain 社区发现算法。如果有其他需求，可以参考本项目，编写 Spark 应用程序调用 GraphX 自带的其他图算法，如 LabelPropagation、ConnectedComponent 等。</p>
-<h2 id="_1">实现方法<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>nebula-algorithm 根据以下方式实现图算法：</p>
-<ol>
-<li>从 Nebula Graph 数据库中读取图数据并处理成 DataFrame。</li>
-<li>将 DataFrame 转换为 GraphX 的图。</li>
-<li>调用 GraphX 提供的图算法（例如 PageRank）或者自己实现的算法（例如 Louvain 社区发现）。</li>
-</ol>
-<p>详细的实现方式，用户可以参考 <a href="https://github.com/vesoft-inc/nebula-java/tree/v1.0/tools/nebula-algorithm/src/main/scala/com/vesoft/nebula/tools/algorithm/lib">LouvainAlgo.scala 和 PageRankAlgo.scala</a>。</p>
-<h2 id="pagerank_louvain">PageRank 和 Louvain 简介<a class="headerlink" href="#pagerank_louvain" title="Permanent link">¶</a></h2>
-<h3 id="pagerank">PageRank<a class="headerlink" href="#pagerank" title="Permanent link">¶</a></h3>
-<p>GraphX 的 PageRank 算法基于 Pregel 计算模型，该算法流程包括 3 个步骤：</p>
-<ol>
-<li>为图中每个顶点（如网页）设置一个相同的初始 PageRank 值。</li>
-<li>第一次迭代：沿边发送消息，每个顶点收到所有关联边上邻接点（Adjacent Node）的信息，得到一个新的 PageRank 值；</li>
-<li>第二次迭代：用这组新的 PageRank 按不同算法模式对应的公式形成该顶点新的 PageRank。</li>
-</ol>
-<p>关于 PageRank 的详细信息，参考 <a href="https://zh.wikipedia.org/wiki/PageRank" title="点击前往 Wikipedia 页面">Wikipedia PageRank 页面</a>。</p>
-<h3 id="louvain">Louvain<a class="headerlink" href="#louvain" title="Permanent link">¶</a></h3>
-<p>Louvain 是基于模块度（Modularity）的社区发现算法，通过模块度来衡量一个社区的紧密程度，属于图的聚类算法。如果一个顶点加入到某一社区中使该社区的模块度相比其他社区有最大程度的增加，则该顶点就应当属于该社区。如果加入其它社区后没有使其模块度增加，则留在自己当前社区中。详细信息，用户可以参考论文<a href="https://arxiv.org/pdf/0803.0476.pdf">《Fast unfolding of communities in large networks》</a>。</p>
-<p>Louvain 算法包括两个阶段，其流程就是这两个阶段的迭代过程。</p>
-<ol>
-<li>阶段一：不断地遍历网络图中的顶点，通过比较顶点给每个邻居社区带来的模块度的变化，将单个顶点加入到能够使 Modulaity 模块度有最大增量的社区中。例如，顶点 v 分别加入到社区 A、B、C 中，使得三个社区的模块度增量为 -1、1、2，则顶点 v 最终应该加入到社区 C 中。</li>
-<li>阶段二：对第一阶段进行处理，将属于同一社区的顶点合并为一个大的超点重新构造网络图，即一个社区作为图的一个新的顶点。此时两个超点之间边的权重是两个超点内所有原始顶点之间相连的边权重之和，即两个社区之间的边权重之和。</li>
-</ol>
-<p>整个 Louvain 算法就是不断迭代第一阶段和第二阶段，直到算法稳定（图的模块度不再变化）或者到达最大迭代次数。</p>
-<h2 id="_2">使用场景<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p>用户可以将 PageRank 算法应用于以下场景：</p>
+<h1 id="_1">系统设计建议<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
+<h2 id="_2">选择吞吐量优先或时延优先<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <ul>
-<li>社交应用的相似度内容推荐：在对微博、微信等社交平台进行社交网络分析时，可以基于 PageRank 算法根据用户通常浏览的信息以及停留时间实现基于用户的相似度的内容推荐。</li>
-<li>分析用户社交影响力：在社交网络分析时根据用户的 PageRank 值进行用户影响力分析。</li>
-<li>文献重要性研究：根据文献的 PageRank 值评判该文献的质量，PageRank 算法就是基于评判文献质量的想法来实现设计。</li>
+<li>Nebula Graph master 更擅长处理（互联网式的）有大量并发的小请求。也即：虽然全图很大（万亿点边），但是每个请求要访问到的子图本身并不大（几百万个点边）——单个请求时延不大；但这类请求的并发数量特别多——吞吐量大。</li>
 </ul>
-<p>用户可以将 Louvain 算法应用于以下场景：</p>
 <ul>
-<li>金融风控：在金融风控场景中根据用户行为特征进行团伙识别。</li>
-<li>社交网络：基于网络关系中点对（一条边连接的两个顶点）之间关联的广度和强度进行社交网络划分；对复杂网络分析、电话网络分析人群之间的联系密切度。</li>
-<li>推荐系统：基于用户兴趣爱好的社区发现，可以根据社区并结合协同过滤等推荐算法进行更精确有效的个性化推荐。</li>
+<li>但对于一些相互分析型的场景，并发请求的数量不多，而每个请求要访问的子图本身特别大（亿以上）。为降低时延，可以在应用程序中将一个大的请求，拆分为多个小请求，并发发送给多个graphd。这样可以降低单个请求的时延和graphd的内存占用。</li>
 </ul>
+<h2 id="_3">水平扩展或垂直扩展<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<p>Nebula Graph master 支持水平扩展：</p>
+<ul>
+<li>Storaged 的水平扩展：<p>- 增加storaged的机器数量，可以大体线性增加集群的整体能力，包括增加整体吞吐量和降低时延。
+  - 但由于 partition 数量在 CREATE SPACE 时已固定，因此单个 partition 的服务能力只由单服务器决定——例如：获取单个点的属性(<code>FETCH</code>)、单个点开始的广度优先遍历(<code>GO</code>)</p>
+</li>
+</ul>
+<ul>
+<li>Graphd 的水平扩展：</li>
+</ul>
+<ul>
+<li>来自客户端的每个请求，都由且仅由一个 graphd 处理，其他 graphd 不会参与处理该请求。</li>
+<li>因此增加 graphd 机器数量，可以增加集群整体吞吐量，但不能降低单个请求时延。</li>
+</ul>
+<p>垂直扩展通常硬件成本更高，但运维操作相对简单。Nebula Graph master 也可以直接垂直扩展。</p>
+<h2 id="_4">数据传输与优化<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<ul>
+<li>读写平衡。Nebula Graph 适合读写平衡性的在线场景，也即“并发的写入与读取”；而非数仓型的“一次写入多次读取”。</li>
+<li>选择不同的写入方式。大批量的数据写入可以使用sst加载的方式；小批量的写入使用<code>INSERT</code>语句。</li>
+<li>选择合适的时间运行 COMPACTION 和 BALANCE，来分别优化数据格式和存储分布。</li>
+<li>Nebula Graph master 不支持关系型数据库意义上的事务和隔离性，更接近 NoSQL。</li>
+</ul>
+<h2 id="_5">查询预热与数据预热<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<ul>
+<li>Graphd 不支持预编译查询及相应生成查询计划，也不支持缓存之前的查询结果；</li>
+<li>storaged 不支持预热数据，只有 RocksDB 自身的 LSM-tree 和 BloomFilter 会启动时加载到内存中。</li>
+<li>点和边被访问过后，会各自缓存在 storaged 的两种 (LRU) Cache 中。</li>
+</ul>
+<p>因此只能应用端来进行预热。</p>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月18日</span>
 </small>
 </div>
 </article>
@@ -1861,6 +1911,34 @@
 </a>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a class="md-footer__link md-footer__link--prev" href="../2.graph-modeling/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                上一页
+              </span>
+              图建模
+            </div>
+</div>
+</a>
+<a class="md-footer__link md-footer__link--next" href="../4.raft/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                下一页
+              </span>
+              关于Raft的简单介绍
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">
