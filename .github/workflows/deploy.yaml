@@ -71,6 +71,6 @@ jobs:
             mkdir -p /usr/web/nebula-docs/
             tar -xzf /usr/web/nebula-docs.tar.gz -C /usr/web/nebula-docs/
             pip3 install --upgrade pip
-            pip3 install -r /usr/web/nebula-docs/requirement.txt
+            pip3 install -r /usr/web/nebula-docs/requirements.txt
       #     github_token: ${{ secrets.DEPLOY_TOKEN }}
       #     publish_dir: ./site
