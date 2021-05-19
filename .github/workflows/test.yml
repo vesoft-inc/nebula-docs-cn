@@ -35,10 +35,9 @@ jobs:
         run: |
           mike list
 
-      - name: Mike Deploy 2.0.1
+      - name: Mike Deploy master
         run: |
-          mike deploy 2.0.1 -p
-          mike set-default 2.0.1 -p --rebase
+          mike deploy master -p --rebase
           mike list  
           
       - name: show git branch
