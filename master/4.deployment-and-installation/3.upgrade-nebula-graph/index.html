@@ -1930,7 +1930,6 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="nebula_graph_v200">升级 Nebula Graph 历史版本至 v2.0.0<a class="headerlink" href="#nebula_graph_v200" title="Permanent link">¶</a></h1>
-<!-- TODO referece to Chinese version doc links -->
 <h2 id="_1">升级限制<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <ul>
 <li>不支持轮转热升级，需完全停止整个集群服务。</li>
@@ -1942,24 +1941,24 @@
 <li>
 <p><strong>支持</strong>如下版本的升级。</p>
 <ul>
-<li>Nebula Graph <a href="https://github.com/vesoft-inc/nebula/releases/tag/v1.2.0">v1.2.0</a> 升级至 <a href="https://github.com/vesoft-inc/nebula-graph/releases/tag/v2.0.0">Nebula Graph v2.0.0</a>.</li>
+<li>Nebula Graph <a href="https://github.com/vesoft-inc/nebula/releases/tag/v1.2.0">v1.2.0</a> 升级至 <a href="https://github.com/vesoft-inc/nebula-graph/releases/tag/v2.0.0">Nebula Graph v2.0.0</a>。</li>
 </ul>
 <ul>
-<li>Nebula Graph <a href="https://github.com/vesoft-inc/nebula-graph/releases/tag/v2.0.0-rc1">v2.0.0-RC1</a> 升级至 Nebula Graph 2.0.0.</li>
+<li>Nebula Graph <a href="https://github.com/vesoft-inc/nebula-graph/releases/tag/v2.0.0-rc1">v2.0.0-RC1</a> 升级至 Nebula Graph 2.0.0。</li>
 </ul>
 </li>
 </ul>
 <ul>
-<li><strong>不支持</strong>基于 docker 容器 (包括 docker swarm, docker-compose, k8s) 的升级。</li>
+<li><strong>不支持</strong>基于Docker容器（包括Docker Swarm，Docker Compose，K8s）的升级。</li>
 </ul>
 <ul>
 <li>必须在原服务器上原地升级，不能修改原机器的IP地址、配置文件，不可更改集群拓扑。</li>
 </ul>
 <ul>
-<li>硬盘空间要求：各机器"硬盘剩余空间"都需要是"原数据目录"的<strong>三倍</strong>。</li>
+<li>硬盘空间要求：各机器硬盘剩余空间都需要是原数据目录的<strong>三倍</strong>。</li>
 </ul>
 <ul>
-<li>已知会造成数据丢失的4种场景，和 alter schema 以及 default value 相关，具体见 <a href="https://github.com/vesoft-inc/nebula-graph/issues/857">github known issues</a>.</li>
+<li>已知会造成数据丢失的4种场景，和alter schema以及default value相关，具体见<a href="https://github.com/vesoft-inc/nebula-graph/issues/857">github known issues</a>。</li>
 </ul>
 <ul>
 <li>所有的客户端均需要升级，通信协议不兼容。</li>
@@ -1971,23 +1970,23 @@
 <li>数据目录不要使用软连接切换，避免失效。</li>
 </ul>
 <ul>
-<li>升级操作需要有 sudo 权限。</li>
+<li>升级操作需要有sudo权限。</li>
 </ul>
 <h2 id="_2">前置条件说明<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <h3 id="_3">旧版本安装目录<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
-<p>默认情况下，旧版本安装的根目录为<code>/usr/local/nebula/</code> (下文记为 <code>${nebula-old}</code>。默认配置文件目录为 <code>${nebula-old}/etc/</code>.</p>
+<p>默认情况下，旧版本安装的根目录为<code>/usr/local/nebula/</code>（下文记为 <code>${nebula-old}</code>）。默认配置文件目录为 <code>${nebula-old}/etc/</code>。</p>
 <ul>
-<li>在 <code>${nebula-old}/etc/nebula-storaged.conf</code> 中找到 <code>--data_path</code> 项，其默认值为 <code>data/storage</code>; 为 <strong>storaged 数据目录</strong>位置。</li>
+<li><code>${nebula-old}/etc/nebula-storaged.conf</code>文件中的<code>--data_path</code>参数指定了storaged数据目录的位置，其默认值为<code>data/storage</code>。</li>
 </ul>
 <ul>
-<li>在 <code>${nebula-old}/etc/nebula-metad.conf</code> 中找到 <code>--data_path</code> 项，其默认值为 <code>data/meta</code>; 为 <strong>metad 数据目录</strong>位置。</li>
+<li><code>${nebula-old}/etc/nebula-metad.conf</code>文件中的<code>--data_path</code>参数指定了metad数据目录位置，其默认值为<code>data/meta</code>。</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Nebula Graph的实际安装路径可能和本文示意不同，请使用实际路径。用户也可以用 <code>ps -ef | grep nebula</code> 中的参数来找到实际使用的配置文件地址。</p>
 </div>
 <h3 id="_4">新版本安装目录<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
-<p>本文中新版本安装目录记为 <code>${nebula-new}</code> (例如 <code>/usr/local/nebula-new/</code>).</p>
+<p>本文中新版本安装目录记为 <code>${nebula-new}</code> (例如 <code>/usr/local/nebula-new/</code>)。</p>
 <div class="highlight"><pre><span></span><code>&gt; mkdir -p <span class="si">${</span><span class="nv">nebula</span><span class="p">-new</span><span class="si">}</span>
 </code></pre></div>
 <h2 id="_5">升级步骤<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
@@ -2294,13 +2293,13 @@ nebula&gt; SHOW STATS;
 <p>Q: 除了 v1.2.0 和 v2.0.0-RC 外，其他版本是否支持升级？</p>
 <p>A: 未验证过。理论上 v1.0.0 - v1.2.0 都可以采用 v1.2.0 的升级版本。 v2.x 的日常研发版本(nightly)无升级方案。</p>
 <p>Q: 升级完服务端后，客户端如何升级？</p>
-<p>A：所有的客户端都必须升级到对应 v2.0.0 版本。包括但不限于 <a href="https://github.com/vesoft-inc/nebula-console">console</a>, <a href="https://github.com/vesoft-inc/nebula-docker-compose">studio</a>, <a href="https://github.com/vesoft-inc/nebula-python">python</a>, <a href="https://github.com/vesoft-inc/nebula-java">java</a>, <a href="https://github.com/vesoft-inc/nebula-go">go</a>, <a href="https://github.com/vesoft-inc/nebula-cpp">c++</a>, <a href="https://github.com/vesoft-inc/nebula-flink-connector">flink-connector</a>, <a href="https://github.com/vesoft-inc/nebula-spark-utils">spark-util</a>, <a href="https://github.com/vesoft-inc/nebula-bench">benchmark</a>。请找到各repo对应的v2.0.0 branch (TODO： 部分branch还未发布）。不兼容旧版本的通信协议。</p>
+<p>A：所有的客户端都必须升级到对应 v2.0.0 版本。包括但不限于 <a href="https://github.com/vesoft-inc/nebula-console">console</a>，<a href="https://github.com/vesoft-inc/nebula-docker-compose">studio</a>，<a href="https://github.com/vesoft-inc/nebula-python">python</a>，<a href="https://github.com/vesoft-inc/nebula-java">java</a>，<a href="https://github.com/vesoft-inc/nebula-go">go</a>，<a href="https://github.com/vesoft-inc/nebula-cpp">c++</a>，<a href="https://github.com/vesoft-inc/nebula-flink-connector">flink-connector</a>，<a href="https://github.com/vesoft-inc/nebula-spark-utils">spark-util</a>，<a href="https://github.com/vesoft-inc/nebula-bench">benchmark</a>。请找到各repo对应的v2.0.0 branch（TODO： 部分branch还未发布）。不兼容旧版本的通信协议。</p>
 <p>Q: 如果某台机器只有 graphd 服务，没有 storaged 服务，如何升级？</p>
 <p>A: 那只需要升级 graphd 对应的 binary （或者rpm包）。</p>
 <p>Q: 操作报错 <code>Permission denied</code>。</p>
 <p>A: 部分命令需要有 sudo 权限。</p>
 <p>Q: 是否有 gflags 发生改变？</p>
-<p>A: 目前已知的 gflags 改变整理在<a href="https://github.com/vesoft-inc/nebula-graph/issues/858">github issues</a>.</p>
+<p>A: 目前已知的 gflags 改变整理在<a href="https://github.com/vesoft-inc/nebula-graph/issues/858">github issues</a>。</p>
 <p>Q: 删除数据重新安装，和升级有何不同？</p>
 <p>A: v2.x 的默认配置（包括端口）与 v1.x 不同。升级方案沿用老的配置，删除重新安装沿用新的配置。</p>
 <p>Q: 是否有工具或者办法验证新旧版本数据是否一致？</p>
@@ -2309,7 +2308,7 @@ nebula&gt; SHOW STATS;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月20日</span>
 </small>
 </div>
 </article>
