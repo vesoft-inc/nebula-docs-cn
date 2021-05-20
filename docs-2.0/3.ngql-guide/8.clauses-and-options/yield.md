@@ -10,7 +10,7 @@
 
 ## openCypher兼容性
 
-本文操作仅适用于原生nGQL。关于openCypher方式如何定义输出结果，请参见[`RETURN`](return.md)。
+本文操作仅适用于原生nGQL。关于OpenCypher兼容语句如何定义输出结果，请参见[`RETURN`](return.md)。
 
 `YIELD`在nGQL和openCypher中有不同的函数：
 

@@ -69,7 +69,7 @@ nav:
         - 日期时间: 3.ngql-guide/3.data-types/4.date-and-time.md
         - NULL: 3.ngql-guide/3.data-types/5.null.md
         - 列表: 3.ngql-guide/3.data-types/6.list.md
-        - 集合: 3.ngql-guide/3.data-types/7.set.md
+        #- 集合: 3.ngql-guide/3.data-types/7.set.md
         - 映射: 3.ngql-guide/3.data-types/8.map.md
         - 类型转换: 3.ngql-guide/3.data-types/9.type-conversion.md
 
@@ -341,7 +341,7 @@ plugins:
       cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
       output_path: pdf/NebulaGraph-CN.pdf
       show_anchors: true
-      toc_level: 2
+      toc_level: 3
 
 extra_javascript:
   - js/version-select.js

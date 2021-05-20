@@ -4,11 +4,11 @@
 
 - 在原生nGQL中，必须使用管道符（|），可以忽略偏移量。
 
-- 在openCypher方式中，不允许使用管道符，可以使用`SKIP`指明偏移量。
+- 在OpenCypher兼容语句中，不允许使用管道符，可以使用`SKIP`指明偏移量。
 
   !!! Note
 
-        在原生nGQL或openCypher方式中使用`LIMIT`时，使用`ORDER BY`子句限制输出顺序非常重要，否则会输出一个不可预知的子集。
+        在原生nGQL或OpenCypher兼容语句中使用`LIMIT`时，使用`ORDER BY`子句限制输出顺序非常重要，否则会输出一个不可预知的子集。
 
 ## 原生nGQL语法
 
@@ -44,7 +44,7 @@ nebula> GO FROM "player100" OVER follow REVERSELY \
 +-------------------+-----+
 ```
 
-## openCypher方式语法
+## OpenCypher兼容语句
 
 ```ngql
 RETURN <var>

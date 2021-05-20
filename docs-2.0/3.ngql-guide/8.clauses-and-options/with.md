@@ -4,11 +4,11 @@
 
 ## openCypher兼容性
 
-本文操作仅适用于openCypher方式。
+本文操作仅适用于OpenCypher兼容语句。
 
 !!! Note
 
-    在原生nGQL中，有与`WITH`类似的[管道符](../5.operators/4.pipe.md)，但它们的工作方式不同。不要在openCypher方式中使用管道符，也不要在原生nGQL中使用`WITH`子句。
+    在原生nGQL中，有与`WITH`类似的[管道符](../5.operators/4.pipe.md)，但它们的工作方式不同。不要在OpenCypher兼容语句中使用管道符，也不要在原生nGQL中使用`WITH`子句。
 
 ## 组成复合查询
 

@@ -4,7 +4,7 @@
 
 - 在原生nGQL中，必须在`YIELD`子句之后使用管道符（|）和`ORDER BY`子句。
 
-- 在openCypher方式中，不允许使用管道符。在`RETURN`子句之后使用`ORDER BY`子句。
+- 在OpenCypher兼容语句中，不允许使用管道符。在`RETURN`子句之后使用`ORDER BY`子句。
 
 排序规则分为如下两种：
 
@@ -37,7 +37,7 @@ nebula> FETCH PROP ON player "player100", "player101", "player102", "player103" 
 +-------------+-----+---------------------+
 ```
 
-## OpenCypher方式语法
+## OpenCypher兼容语句
 
 ```ngql
 <RETURN clause>
