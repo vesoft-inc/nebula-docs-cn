@@ -1863,7 +1863,6 @@
 </a>
 <h1 id="insert_vertex">INSERT VERTEX<a class="headerlink" href="#insert_vertex" title="Permanent link">¶</a></h1>
 <p><code>INSERT VERTEX</code>语句可以在Nebula Graph实例的指定图空间中插入一个或多个点。</p>
-<p>插入一个VID已存在的点时，<code>INSERT VERTEX</code>将覆盖原有的点。</p>
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <p>执行<code>INSERT VERTEX</code>语句需要当前登录的用户拥有指定图空间的<a href="../../../7.data-security/1.authentication/3.role-list/">插入点权限</a>，否则会报错。</p>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
@@ -1888,6 +1887,16 @@ prop_value_list:
 <ul>
 <li><code>prop_value_list</code>：根据<code>prop_name_list</code>填写属性值。如果属性值和标签中的数据类型不匹配，会返回错误。如果没有填写属性值，而标签中对应的属性设置为<code>NOT NULL</code>，也会返回错误。详情请参见<a href="../../10.tag-statements/1.create-tag/">CREATE TAG</a>。</li>
 </ul>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p><code>INSERT VERTEX</code>与openCypher中<code>CREATE</code>的语意不同：</p>
+<ul>
+<li><code>INSERT VERTEX</code>语意更接近于NoSQL(key-value)方式的INSERT语意，或者SQL中的<code>UPSERT</code> (<code>UPDATE</code> or <code>INSERT</code>)。</li>
+<li>相同<code>VID</code>和<code>TAG</code>的情况下，新写入的数据会覆盖旧数据，不存在时会新写入。</li>
+<li>相同<code>VID</code>但不同<code>TAG</code>的情况下，不同TAG对应的记录不会相互覆盖，不存在会新写入。</li>
+</ul>
+</div>
+<p>参考以下示例。</p>
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code># 插入不包含属性的点。
 nebula&gt; CREATE TAG t1();                   
@@ -1949,7 +1958,7 @@ nebula&gt; FETCH PROP on t5 "004";
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月13日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月20日</span>
 </small>
 </div>
 </article>

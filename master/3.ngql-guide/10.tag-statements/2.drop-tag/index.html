@@ -1863,12 +1863,12 @@
 </a>
 <h1 id="drop_tag">DROP TAG<a class="headerlink" href="#drop_tag" title="Permanent link">¶</a></h1>
 <p><code>DROP TAG</code>语句可以删除当前工作空间内的指定标签。</p>
-<p>一个点可以有一个或多个标签。</p>
+<p>点可以有一个或多个标签。</p>
 <ul>
-<li>如果点只有一个标签，删除这个标签后，用户就<strong>无法访问</strong>这个点，下次Compaction操作时会删除该点。点上的边仍然存在。</li>
+<li>如果某个点只有一个标签，删除这个标签后，用户就<strong>无法访问</strong>这个点，下次Compaction操作时会删除该点，但点上的边仍然存在。</li>
 </ul>
 <ul>
-<li>如果点有多个标签，删除其中一个标签，仍然可以访问这个点，但是<strong>无法访问</strong>已删除标签定义的所有属性。</li>
+<li>如果某点有多个标签，删除其中一个标签，仍然可以访问这个点，但是<strong>无法访问</strong>已删除标签定义的所有属性。</li>
 </ul>
 <p>删除标签操作仅删除Schema数据，硬盘上的文件或目录不会立刻删除，而是在下一次Compaction操作时删除。</p>
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
@@ -1891,11 +1891,20 @@
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG test(p1 string, p2 int);
 nebula&gt; DROP TAG test;
 </code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>nGQL中没有移除指定点的某个标签的语句。</p>
+<ul>
+<li>在openCypher中，可以使用<code>REMOVE v:LABEL</code>语句来移除该点<code>v</code>的标签<code>LABLE</code>。</li>
+<li>在nGQL中，通过<code>CREATE TAG</code>和<code>INSERT VERTEX</code>语句后，可以为该点增加一个<code>TAG</code>；但是没有任何办法移除这个点的<code>TAG</code>。</li>
+</ul>
+<p>建议在schema中增加一个字段来标识软移除，例如为每个TAG的schema增加一个字段<code>removed</code>。</p>
+</div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月20日</span>
 </small>
 </div>
 </article>
