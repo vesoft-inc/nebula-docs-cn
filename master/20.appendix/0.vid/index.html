@@ -28,7 +28,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#vidvid">
+<a class="md-skip" href="#vid">
           跳转至
         </a>
 </div>
@@ -1752,18 +1752,18 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#vid">
+<a class="md-nav__link" href="#vid_1">
     VID有如下特点
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#vid_1">
-    VID 使用建议
+<a class="md-nav__link" href="#vid_2">
+    VID使用建议
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#vid_2">
-    VID 生成建议
+<a class="md-nav__link" href="#vid_3">
+    VID生成建议
   </a>
 </li>
 </ul>
@@ -1837,18 +1837,18 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#vid">
+<a class="md-nav__link" href="#vid_1">
     VID有如下特点
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#vid_1">
-    VID 使用建议
+<a class="md-nav__link" href="#vid_2">
+    VID使用建议
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#vid_2">
-    VID 生成建议
+<a class="md-nav__link" href="#vid_3">
+    VID生成建议
   </a>
 </li>
 </ul>
@@ -1861,62 +1861,70 @@
 <a class="md-content__button md-icon" href="https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/20.appendix/0.vid.md" title="编辑此页">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
-<h1 id="vidvid">点VID（<code>VID</code>）<a class="headerlink" href="#vidvid" title="Permanent link">¶</a></h1>
-<p>在Nebula Graph中，一个点由点的ID唯一标识 (称为<code>VID</code>，也有些语句也会称为<code>VertexID</code>)。</p>
-<h2 id="vid"><code>VID</code>有如下特点<a class="headerlink" href="#vid" title="Permanent link">¶</a></h2>
+<h1 id="vid">点VID<a class="headerlink" href="#vid" title="Permanent link">¶</a></h1>
+<p>在Nebula Graph中，一个点由点的ID唯一标识，即VID或Vertex ID。</p>
+<h2 id="vid_1">VID有如下特点<a class="headerlink" href="#vid_1" title="Permanent link">¶</a></h2>
 <ul>
-<li><code>VID</code>数据类型只可以为定长字符串<code>FIX_STRING(N)</code>或64位整数；一个图空间只能选用其中一种 VID 类型。</li>
+<li>VID数据类型只可以为定长字符串<code>FIXED_STRING(&lt;N&gt;)</code>或64位整数；一个图空间只能选用其中一种VID类型。</li>
 </ul>
 <ul>
-<li><code>VID</code>在一个图空间中必须唯一，其作用大体类似于关系型数据库中的“主键(索引+唯一约束)”。但不同图空间中的 <code>VID</code> 是完全独立无关的。</li>
+<li>VID在一个图空间中必须唯一，其作用类似于关系型数据库中的主键（索引+唯一约束）。但不同图空间中的VID是完全独立无关的。</li>
 </ul>
 <ul>
-<li><code>VID</code> 相同的点，会被认为是同一个点。操作相同<code>VID</code>的两条 <code>INSERT</code>语句，晚写入的点会“覆盖”先写入的的点。</li>
+<li>点VID的生成方式必须由用户自行指定，系统不提供自增ID或者UUID。</li>
 </ul>
 <ul>
-<li>点<code>VID</code>的生成方式必须由用户自行指定，系统不提供<code>自增ID</code>或者<code>UUID</code>。</li>
+<li>
+<p>VID相同的点，会被认为是同一个点。例如：</p>
+<ul>
+<li>VID相当于一个实体的唯一标号，例如一个人的身份证号。标签（Tag）相当于实体所拥有的类型，例如滴滴司机和老板。不同的Tag又相应定义了几组不同的属性，例如工号、薪水、商务手机号、债务额度。</li>
 </ul>
 <ul>
-<li>一个<code>VID</code>可以有多个标签（<code>TAG</code>）。例如一个人（<code>VID</code>）可以有两个不同的角色（<code>TAG</code>），不同的 Tag 又相应决定了几组不同的 schema。</li>
+<li>同时操作相同VID并且相同Tag的两条<code>INSERT</code>语句，晚写入的<code>INSERT</code>会覆盖先写入的。</li>
 </ul>
 <ul>
-<li><code>VID</code> 通常会被索引(LSM-tree方式)并缓存在内存中，因此直接访问<code>VID</code>的性能最高。(属性本身则基本不会)</li>
+<li>同时操作包含相同VID但是两个不同<code>TAG A</code>和<code>TAG B</code>的两条<code>INSERT</code>语句，对<code>TAG A</code>的操作不会影响<code>TAG B</code>。</li>
 </ul>
-<h2 id="vid_1">VID 使用建议<a class="headerlink" href="#vid_1" title="Permanent link">¶</a></h2>
-<ul>
-<li>Nebula Graph 1.x 只支持 VID 为 int64。2.x 默认使用 <code>FIXED_STRING(&lt;N&gt;)</code> 为 <code>VID</code> 类型；但在 <code>CREATE SPACE</code> 中通过参数 <code>vid_type = int64</code>，也可设置为64位整数。</li>
+</li>
 </ul>
 <ul>
-<li>可以使用 <code>id()</code> 函数，指定或引用该点的 <code>VID</code>；</li>
+<li>VID通常会被索引（LSM-tree方式）并缓存在内存中，因此直接访问VID的性能最高。（属性本身则需通过属性索引功能)</li>
+</ul>
+<h2 id="vid_2">VID使用建议<a class="headerlink" href="#vid_2" title="Permanent link">¶</a></h2>
+<ul>
+<li>Nebula Graph 1.x只支持VID为int64。2.x默认使用<code>FIXED_STRING(&lt;N&gt;)</code>为VID类型；但在<code>CREATE SPACE</code>中通过参数<code>vid_type = int64</code>，也可设置为64位整数。</li>
 </ul>
 <ul>
-<li>可以使用 <code>LOOKUP</code> 或者 <code>MATCH</code> 语句，来通过“属性索引”查找对应的 <code>VID</code>;</li>
+<li>可以使用<code>id()</code>函数，指定或引用该点的VID；</li>
 </ul>
 <ul>
-<li>性能上，“直接通过<code>VID</code>找到点”的语句性能最高：例如 <code>DELETE ... WHERE id(xxx) == "player100"</code>, 或者 <code>GO FROM "player100"</code> 等语句。“通过属性先查找VID，再进行图操作”的性能会变差：例如 "LOOKUP | GO FROM $-.ids" 等语句，相比前者多了一次内存/硬盘的随机读(<code>LOOKUP</code>)以及一次序列化(<code>|</code>)。</li>
-</ul>
-<h2 id="vid_2">VID 生成建议<a class="headerlink" href="#vid_2" title="Permanent link">¶</a></h2>
-<p>VID 的生成工作完全交给应用端，有一些通用的建议：</p>
-<ul>
-<li>(最优)通过有唯一性的主键或者属性来直接作为 <code>VID</code>；属性访问依赖于<code>VID</code>;</li>
+<li>可以使用<code>LOOKUP</code>或者<code>MATCH</code>语句，来通过属性索引查找对应的VID;</li>
 </ul>
 <ul>
-<li>通过有唯一性的属性组合来生成 <code>VID</code>，属性访问依赖于属性索引。</li>
+<li>性能上，直接通过VID找到点的语句性能最高，例如<code>DELETE xxx WHERE id(xxx) == "player100"</code>, 或者<code>GO FROM "player100"</code>等语句。通过属性先查找VID，再进行图操作的性能会变差，例如<code>LOOKUP | GO FROM $-.ids</code>等语句，相比前者多了一次内存或硬盘的随机读（<code>LOOKUP</code>）以及一次序列化（<code>|</code>）。</li>
+</ul>
+<h2 id="vid_3">VID生成建议<a class="headerlink" href="#vid_3" title="Permanent link">¶</a></h2>
+<p>VID的生成工作完全交给应用端，有一些通用的建议：</p>
+<ul>
+<li>（最优）通过有唯一性的主键或者属性来直接作为VID；属性访问依赖于VID;</li>
 </ul>
 <ul>
-<li>通过 <code>snowflake</code> 等算法生成 <code>VID</code>，属性访问依赖于属性索引;</li>
+<li>通过有唯一性的属性组合来生成VID，属性访问依赖于属性索引。</li>
 </ul>
 <ul>
-<li>如果“个别记录的主键特别长，但绝大多数记录的主键都很短”的情况，不要将<code>FIXED_STRING(&lt;N&gt;)</code>的<code>N</code>设置成超大；这会浪费大量内存和硬盘，也会降低性能。此时可通过 BASE64, MD5, hash 编码 + 拼接的方式来生成。</li>
+<li>通过snowflake等算法生成VID，属性访问依赖于属性索引;</li>
 </ul>
 <ul>
-<li>如果用 hash 方式生成 int64 VID：在有 10 亿个点的情况下，发生碰撞的概率大约是 1/10。边的数量与碰撞的概率无关。</li>
+<li>如果个别记录的主键特别长，但绝大多数记录的主键都很短的情况，不要将<code>FIXED_STRING(&lt;N&gt;)</code>的<code>N</code>设置成超大，这会浪费大量内存和硬盘，也会降低性能。此时可通过BASE64，MD5，hash编码加拼接的方式来生成。</li>
+</ul>
+<ul>
+<li>如果用hash方式生成int64 VID，在有10亿个点的情况下，发生碰撞的概率大约是1/10。边的数量与碰撞的概率无关。</li>
 </ul>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月18日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月20日</span>
 </small>
 </div>
 </article>
