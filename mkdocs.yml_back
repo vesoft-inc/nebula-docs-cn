@@ -298,6 +298,7 @@ nav:
   - 附录:
       - 常见问题: 20.appendix/0.FAQ.md
 <<<<<<< HEAD
+<<<<<<< HEAD
       - 相关技术: 20.appendix/1.relates.md
       - 图建模: 20.appendix/2.graph-modeling.md
       - 系统建模: 20.appendix/3.system-design.md
@@ -308,12 +309,19 @@ nav:
 =======
       - 相关技术: 20.appendix/0.relates.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
+=======
+      - 相关技术: 20.appendix/1.relates.md
+>>>>>>> af3a0cce (minor fix)
       - 图建模: 20.appendix/2.graph-modeling.md
       - 系统建模: 20.appendix/3.system-design.md
       - 关于Raft的简单介绍: 20.appendix/4.raft.md
-      - VID: 20.appendix/7.vid.md
       - 分片ID: 20.appendix/5.partition.md
+<<<<<<< HEAD
 >>>>>>> 4ce05ecf (pdf format)
+=======
+      - 生态工具概览: 20.appendix/6.eco-tool-version.md
+      - VID: 20.appendix/7.vid.md
+>>>>>>> af3a0cce (minor fix)
       - 注释: 20.appendix/comments.md
       - 区分大小写: 20.appendix/identifier-case-sensitivity.md
       - 关键字: 20.appendix/keywords-and-reserved-words.md
@@ -321,6 +329,7 @@ nav:
 
   - PDF: ./pdf/NebulaGraph-CN.pdf
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -351,6 +360,8 @@ nav:
 #      - 使用示例: spark-connector/writer/sc-ug-writer-example.md
 # Extensions
 >>>>>>> 4ce05ecf (pdf format)
+=======
+>>>>>>> af3a0cce (minor fix)
 markdown_extensions:
   - footnotes
   - admonition
@@ -381,7 +392,7 @@ plugins:
       cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
       output_path: pdf/NebulaGraph-CN.pdf
       show_anchors: true
-      toc_level: 3
+      toc_level: 2
 
 extra_javascript:
   - js/version-select.js
