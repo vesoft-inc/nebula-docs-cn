@@ -392,7 +392,7 @@ plugins:
       cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
       output_path: pdf/NebulaGraph-CN.pdf
       show_anchors: true
-      toc_level: 2
+      toc_level: 3
 
 extra_javascript:
   - js/version-select.js
