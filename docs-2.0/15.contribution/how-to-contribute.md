@@ -16,7 +16,15 @@
 
 如果有任何问题，请发送邮件至`info@vesoft.com`。
 
-## Step 1：通过GitHub fork仓库
+## 贡献方式
+
+### 贡献文档修改意见
+
+查看官网文档时，您可以直接在文档标题右侧单击铅笔图标提交修改意见。
+
+### 贡献代码或文档
+
+#### Step 1：通过GitHub fork仓库
 
 Nebula Graph项目有很多[仓库](https://github.com/vesoft-inc)，以[nebula-graph仓库](https://github.com/vesoft-inc/nebula-graph)为例：
 
@@ -24,7 +32,7 @@ Nebula Graph项目有很多[仓库](https://github.com/vesoft-inc)，以[nebula-
 
 2. 在右上角单击按钮`Fork`，然后单击用户名，即可fork出nebula-graph仓库。
 
-## Step 2：将分支克隆到本地
+#### Step 2：将分支克隆到本地
 
 1. 定义本地工作目录。
 
@@ -63,7 +71,7 @@ Nebula Graph项目有很多[仓库](https://github.com/vesoft-inc)，以[nebula-
     git remote -v
     ```
 
-### 定义pre-commit hook
+定义pre-commit hook
 
 请将Nebula Graph的pre-commit hook连接到`.git`目录。
 
@@ -81,7 +89,7 @@ cd $working_dir/nebula-graph/.git/hooks
 chmod +x pre-commit
 ```
 
-## Step 3：分支
+#### Step 3：分支
 
 1. 更新本地主分支。
 
@@ -109,34 +117,34 @@ chmod +x pre-commit
         git push --force origin master
         ```
 
-## Step 4：开发
+#### Step 4：开发
 
-### 代码风格
+- 代码风格
 
-**Nebula Graph**采用`cpplint`来确保代码符合Google的代码风格指南。检查器将在提交代码之前执行。
+  **Nebula Graph**采用`cpplint`来确保代码符合Google的代码风格指南。检查器将在提交代码之前执行。
 
-### 单元测试要求
+- 单元测试要求
 
-请为新功能或Bug修复添加单元测试。
+  请为新功能或Bug修复添加单元测试。
 
-### 构建代码时开启单元测试
+- 构建代码时开启单元测试
 
-详情请参见[使用源码安装Nebula Graph](../4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)。
+  详情请参见[使用源码安装Nebula Graph](../4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)。
 
-!!! Note
+  !!! Note
 
-    请确保已设置`-DENABLE_TESTING = ON`启用构建单元测试。
+        请确保已设置`-DENABLE_TESTING = ON`启用构建单元测试。
 
-### 运行所有单元测试
+- 运行所有单元测试
 
-在`nebula`根目录执行如下命令：
+  在`nebula`根目录执行如下命令：
 
-```bash
-cd nebula/build
-ctest -j$(nproc)
-```
+  ```bash
+  cd nebula/build
+  ctest -j$(nproc)
+  ```
 
-## Step 5：保持分支同步
+#### Step 5：保持分支同步
 
 ```bash
 # 当处于myfeature分支时。
@@ -146,7 +154,7 @@ git rebase upstream/master
 
 在其他贡献者将PR合并到基础分支之后，用户需要更新head分支。
 
-## Step 6：Commit
+#### Step 6：Commit
 
 提交代码更改：
 
@@ -156,7 +164,7 @@ git commit -a
 
 用户可以使用命令`--amend`重新编辑之前的代码。
 
-## Step 7：Push
+#### Step 7：Push
 
 需要审核或离线备份代码时，可以将本地仓库创建的分支push到GitHub的远程仓库。
 
@@ -164,12 +172,12 @@ git commit -a
 git push origin myfeature
 ```
 
-## Step 8：创建pull request
+#### Step 8：创建pull request
 
 1. 访问fork出的仓库`https://github.com/$user/nebula-graph` (替换此处的用户名`$user`)。
 
 2. 单击`myfeature`分支旁的按钮`Compare & pull request`。
 
-## Step 9：代码审查
+#### Step 9：代码审查
 
 pull request创建后，至少需要两人审查。审查人员将进行彻底的代码审查，以确保变更满足存储库的贡献准则和其他质量标准。
