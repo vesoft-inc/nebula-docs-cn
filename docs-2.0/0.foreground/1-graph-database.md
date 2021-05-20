@@ -1,6 +1,5 @@
 # 图数据库的市场概况
 
-
 既然已经讨论了什么是图，接下来让我们进一步认识基于图论和属性图模型发展起来的图数据库。
 
 不同的图数据库在术语方面可能会略有不同，但是归根结底都是在讲点、边和属性。至于更多的功能，例如标签、索引、约束、TTL、长任务、存储过程和UDF等这些高级功能，在不同图数据库中，会存在明显的差异。
@@ -61,7 +60,10 @@ https://www.marketsandmarkets.com/Market-Reports/graph-database-market-126230231
 
 ## 市场参与者
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> rebase master longgggg
 ### （第一代）图数据库的先行者 Neo4j
 
 虽然在1970年代，人们已经提出了一些类似于"图”的数据模型和产品原型（例如 CODASYL[^DDIA])。但真正能够让“图数据库”这个概念流行起来，不得不说到这个市场最主要的先行者 Neo4j，甚至属性图和图数据库这两个主要术语就是 Neo4j 最早提出并实践的。 
@@ -78,11 +80,14 @@ https://www.marketsandmarkets.com/Market-Reports/graph-database-market-126230231
     Neo4j的Cypher (及其后续——ISO正在制定过程中的GQL-standard 草案)和Apache TinkerPop的Gremlin。前者通常被称为声明式语言(Declarative query language)——也即用户只需要告诉系统“要什么”，而不管“怎么做”；后者通常被称为命令式语言(Imperative query language)，用户会显式地指定系统的操作。
     
     GQL国际标准正在制定过程中。
+<<<<<<< HEAD
 
     类似的，在图数据库领域，图语言(GQL)承担了类似于SQL的作用，是一种用户与图数据库主要的交互方式。但不同于SQL-89这种国际标准，GQL还没有任何国际标准。目前有两种主流的图语言：
     Neo4j的Cypher (及其后续——ISO正在制定过程中的GQL-standard 草案)和Apache TinkerPop的Gremlin。前者通常被称为声明式语言(Declarative query language)——也即用户只需要告诉系统“要什么”，而不管“怎么做”；后者通常被称为命令式语言(Imperative query language)，用户会显式地指定系统的操作。
     
     GQL国际标准正在制定过程中。
+=======
+>>>>>>> rebase master longgggg
 
 [^Tobias2018]: "An overview of the recent history of Graph Query Languages". Authors: Tobias Lindaaker, U.S. National Expert.Date: 2018-05-14 
 
@@ -161,7 +166,10 @@ Cypher 启发了一系列后续的图查询语言，包括
 ### 分布式图数据库
 
 大约 2005-2010 年，随着 Google 云计算"三驾马车"的发布，各种分布式的架构开始越来越流行，其中就包括以开源方式运作的 Hadoop 和 Cassandra 等。这里包括几个方面的影响：
+<<<<<<< HEAD
 
+=======
+>>>>>>> rebase master longgggg
 
 1. 由于数据量和计算量越来越大，相比于单机(例如 Neo4j)或者小型机这种方案，分布式系统的技术和成本优势更加明显；而同时，分布式系统使得应用程序在访问这成千上万台机器时，就如同访问本地的系统一样，不需要在代码层面进行过多改造；
 
@@ -185,7 +193,10 @@ Cypher 启发了一系列后续的图查询语言，包括
 
 ![Image](https://docs-cdn.nebula-graph.com.cn/books/images/titan-2015-neo4j.png)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> rebase master longgggg
 2015 年 Aurelius(Titan) 被 DataStax 收购，这之后 Titan 逐渐转变为一个闭源的商业产品 (DataStax Enterprise Graph)。
 
 在 Aurelius(Titan) 被收购后，市场对于开源分布式的图数据库一直仍有比较强烈的需求，而当时市场上成熟和活跃的产品并不多。大数据时代，数据仍在远快于摩尔定律的速度，源源不断的产生。Linux 基金会以及一些技术巨头(Expero, Google, GRAKN.AI, Hortonworks, IBM and Amazon) 在2017年，复制并分叉(fork)了原有的Titan项目，并启动为一个新项目 JanusGraph[^Janus]。之后大多数的社区工作，包括开发、测试、发布和推广都逐步转移到了新的 JanusGraph。
@@ -204,7 +215,10 @@ Cypher 启发了一系列后续的图查询语言，包括
 
 此后更多的厂商加入整个市场，除了由Linux基金会托管的 JanusGraph，还有一些由商业公司主导开发的分布式图数据，各方采用的数据模型和访问方式也有明显的不同。
 
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> rebase master longgggg
 本文不做一一介绍，仅简单列出主要区别。
 
 | 厂商名 | 创立时间 | 核心产品名 | 开源协议 | 数据模型 | 查询语言 | 
@@ -231,3 +245,7 @@ Oracle graph[^Oracle] 是关系型数据库巨头 Oracle 在图技术与图数�
 #### 新一代开源分布式图数据库 Nebula Graph
 
 下一节，我们将正式介绍新一代开源分布式图数据库 Nebula Graph。
+<<<<<<< HEAD
+=======
+
+>>>>>>> rebase master longgggg

@@ -63,4 +63,7 @@ mkdocs serve
 ### 特别mkdocs material语法说明
 
 - `[^2]` 或者 `[^gar]`是footer
+<<<<<<< HEAD
 - `!!! quote` 是引用
+=======
+>>>>>>> rebase master longgggg
