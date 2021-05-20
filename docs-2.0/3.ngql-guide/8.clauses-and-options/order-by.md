@@ -2,7 +2,7 @@
 
 `ORDER BY`子句指定输出结果的排序规则。
 
-- 在nGQL扩展中，必须在`YIELD`子句之后使用管道符（|）和`ORDER BY`子句。
+- 在原生nGQL中，必须在`YIELD`子句之后使用管道符（|）和`ORDER BY`子句。
 
 - 在openCypher方式中，不允许使用管道符。在`RETURN`子句之后使用`ORDER BY`子句。
 
@@ -11,7 +11,7 @@
 - `ASC`（默认）: 升序。
 - `DESC`: 降序。
 
-## nGQL扩展语法
+## 原生nGQL语法
 
 ```ngql
 <YIELD clause>

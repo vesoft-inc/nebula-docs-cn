@@ -4,13 +4,13 @@
 
 `YIELD`可以引导子句或语句：
 
-- `YIELD`子句可以用于nGQL扩展语句中，例如`GO`、`FETCH`或`LOOKUP`。
+- `YIELD`子句可以用于原生nGQL语句中，例如`GO`、`FETCH`或`LOOKUP`。
 
 - `YIELD`语句可以在独立查询或复合查询中使用。
 
 ## openCypher兼容性
 
-本文操作仅适用于nGQL扩展。关于openCypher方式如何定义输出结果，请参见[`RETURN`](return.md)。
+本文操作仅适用于原生nGQL。关于openCypher方式如何定义输出结果，请参见[`RETURN`](return.md)。
 
 `YIELD`在nGQL和openCypher中有不同的函数：
 

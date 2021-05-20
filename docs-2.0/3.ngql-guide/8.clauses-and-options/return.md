@@ -10,7 +10,7 @@
 
 ## openCypher兼容性
 
-本文操作仅适用于nGQL中的openCypher方式。关于nGQL扩展如何定义输出结果，请参见[`YIELD`](yield.md)。
+本文操作仅适用于nGQL中的openCypher方式。关于原生nGQL如何定义输出结果，请参见[`YIELD`](yield.md)。
 
 `RETURN`暂不支持如下openCypher功能：
 
@@ -30,9 +30,9 @@
 
 ## 历史版本兼容性
 
-- 在nGQL 1.x中，`RETURN`适用于nGQL扩展，语法为`RETURN <var_ref> IF <var_ref> IS NOT NULL`。
+- 在nGQL 1.x中，`RETURN`适用于原生nGQL，语法为`RETURN <var_ref> IF <var_ref> IS NOT NULL`。
 
-- 在nGQL 2.0中，`RETURN`不适用于nGQL扩展。
+- 在nGQL 2.0中，`RETURN`不适用于原生nGQL。
 
 ## 返回点
 
