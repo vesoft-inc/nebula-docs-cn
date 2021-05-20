@@ -4,7 +4,7 @@
 
 `WHERE`子句通常用于如下查询：
 
-- nGQL扩展，例如`GO`和`LOOKUP`语句。
+- 原生nGQL，例如`GO`和`LOOKUP`语句。
 
 - openCypher方式，例如`MATCH`和`WITH`语句。
 
@@ -12,7 +12,7 @@
 
 - 不支持在模式中使用`WHERE`子句（TODO: planning），例如`WHERE (v)-->(v2)`。
 
-- [过滤rank](#rank)是原生nGQL功能。只支持在nGQL扩展的语句（例如`GO`和`LOOKUP`）中使用，因为openCypher中没有rank的概念。
+- [过滤rank](#rank)是原生nGQL功能。只支持在原生nGQL的语句（例如`GO`和`LOOKUP`）中使用，因为openCypher中没有rank的概念。
 
 ## 基础用法
 
