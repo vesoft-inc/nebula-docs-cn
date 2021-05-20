@@ -68,12 +68,3 @@ jobs:
       #   uses: peaceiris/actions-gh-pages@v3
       #   with:
       #     github_token: ${{ secrets.DEPLOY_TOKEN }}
-<<<<<<< HEAD
-      #     publish_dir: ./site
-<<<<<<< HEAD
->>>>>>> 3bc82431 (Update deploy.yaml)
-=======
->>>>>>> d49fbb9c (fix deploy.yaml)
-=======
-      #     publish_dir: ./site
->>>>>>> 86b47a80 (rebase master)
