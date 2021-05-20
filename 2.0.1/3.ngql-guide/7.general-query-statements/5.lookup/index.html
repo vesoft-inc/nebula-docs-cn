@@ -1915,7 +1915,7 @@
 <li><code>$-</code>和<code>$^</code>。</li>
 <li>在关系表达式中，不支持运算符两边都有字段名，例如<code>tagName.prop1&gt; tagName.prop2</code>。</li>
 <li>不支持运算表达式和函数表达式中嵌套AliasProp表达式。</li>
-<li>字符串类型索引不支持范围扫描。</li>
+<li>不支持 <code>starts with</code> <code>ends with</code> <code>contains</code> 等字符串索引模糊查询操作</li>
 <li>不支持<code>OR</code>和<code>XOR</code>运算符。</li>
 </ul>
 <h2 id="_3">检索点<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
@@ -2069,7 +2069,7 @@ nebula&gt; LOOKUP ON like | YIELD COUNT(*) AS Like_Number;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月20日</span>
 </small>
 </div>
 </article>
