@@ -2002,7 +2002,7 @@
 <h1 id="docker_composenebula_graph">Docker Compose部署Nebula Graph<a class="headerlink" href="#docker_composenebula_graph" title="Permanent link">¶</a></h1>
 <p>有多种方式可以部署Nebula Graph，但是使用Docker Compose通常是最快的方式。</p>
 <h2 id="_1">阅读指南<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>如果是带着如下问题阅读本文，可以直接单击问题跳转查看对应的说明。</p>
+<p>本节将回答如下问题：</p>
 <ul>
 <li><a href="#_2">部署Nebula Graph之前需要做什么准备工作？</a></li>
 </ul>
@@ -2060,16 +2060,12 @@
 <ul>
 <li>如果已经通过Docker Compose在主机上部署了另一个版本的Nebula Graph，为避免兼容性问题，需要删除目录<code>nebula-docker-compose/data</code>。</li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>如果需要备份服务数据，请参见<a href="../../20.appendix/6.eco-tool-version/">使用BR备份数据</a> TODO: 未和vmaster一起发布。</p>
-</div>
 <h2 id="nebula_graph">部署和连接Nebula Graph<a class="headerlink" href="#nebula_graph" title="Permanent link">¶</a></h2>
 <ol>
 <li>
 <p>通过Git克隆<code>nebula-docker-compose</code>仓库的<code>master</code>分支到主机。</p>
 <blockquote>
-<p><strong>禁止</strong>：<code>master</code>分支包含最新的Nebula Graph开发版本的Docker Compose解决方案。请<strong>不要</strong>在生产环境使用此版本。</p>
+<p><strong>禁止</strong>：<code>master</code>分支包含最新的未测试代码。请<strong>不要</strong>在生产环境使用此版本。</p>
 </blockquote>
 <div class="highlight"><pre><span></span><code>$ git clone https://github.com/vesoft-inc/nebula-docker-compose.git
 </code></pre></div>
@@ -2279,7 +2275,7 @@ Removing network nebula-docker-compose_nebula-net
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月18日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月20日</span>
 </small>
 </div>
 </article>
