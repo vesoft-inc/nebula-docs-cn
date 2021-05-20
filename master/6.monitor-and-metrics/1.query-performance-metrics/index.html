@@ -1882,7 +1882,7 @@
 <h1 id="nebula_graph">查询Nebula Graph监控指标<a class="headerlink" href="#nebula_graph" title="Permanent link">¶</a></h1>
 <p>Nebula Graph支持多种方式查询服务的监控指标，本文将介绍最基础的方式，即通过HTTP端口查询。</p>
 <h2 id="_1">监控指标说明<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>Nebula Graph的每个监控指标都由三个部分组成，中间用英文句号（.）隔开，例如<code>num_queries.sum.600</code>。指标说明如下。</p>
+<p>Nebula Graph的每个监控指标都由三个部分组成，中间用英文句号（.）隔开，例如<code>num_queries.sum.600</code>。不同的Nebula Graph服务支持查询的监控指标也不同。指标结构的说明如下。</p>
 <table>
 <thead>
 <tr>
@@ -1909,7 +1909,6 @@
 </tr>
 </tbody>
 </table>
-<p>不同的Nebula Graph服务支持查询的监控指标也不同，详情请参见Nebula Graph服务监控指标（TODO: doc）。</p>
 <h2 id="http">通过HTTP端口查询监控指标<a class="headerlink" href="#http" title="Permanent link">¶</a></h2>
 <h3 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code>curl -G <span class="s2">"http://&lt;ip&gt;:&lt;port&gt;/stats?stats=&lt;metric_name_list&gt; [&amp;format=json]"</span>
@@ -2009,7 +2008,7 @@ num_heartbeats.sum.3600<span class="o">=</span><span class="m">2364</span>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月20日</span>
 </small>
 </div>
 </article>
