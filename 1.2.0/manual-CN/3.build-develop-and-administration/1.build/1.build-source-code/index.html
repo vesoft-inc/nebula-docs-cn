@@ -1,0 +1,4739 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for Nebula Graph Database">
+      
+      
+      
+        <meta name="author" content="Nebula Graph">
+      
+      
+        <link rel="canonical" href="https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/1.build/1.build-source-code/">
+      
+      <link rel="icon" href="../../../../assets/images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
+    
+    
+      
+        <title>编译源代码 - Nebula Graph Database 内核手册</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.bde7dde4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../../../stylesheets/logo.css">
+    
+      <link rel="stylesheet" href="../../../../css/version-select.css">
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-60523578-15","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("../../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="Nebula Graph Database 内核手册" class="md-header__button md-logo" aria-label="Nebula Graph Database 内核手册" data-md-component="logo">
+      
+  <img src="https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Nebula Graph Database 内核手册
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              编译源代码
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/vesoft-inc/nebula-docs-cn/" title="前往 GitHub 仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    vesoft-inc/nebula-docs-cn
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="Nebula Graph Database 内核手册" class="md-nav__button md-logo" aria-label="Nebula Graph Database 内核手册" data-md-component="logo">
+      
+  <img src="https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png" alt="logo">
+
+    </a>
+    Nebula Graph Database 内核手册
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/vesoft-inc/nebula-docs-cn/" title="前往 GitHub 仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    vesoft-inc/nebula-docs-cn
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      <label class="md-nav__link" for="__nav_1">
+        简介
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="简介" data-md-level="1">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          简介
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        关于
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../0.about-this-manual/" class="md-nav__link">
+        关于本手册
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../" class="md-nav__link">
+        目录索引
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_4" type="checkbox" id="__nav_1_4" >
+      
+      <label class="md-nav__link" for="__nav_1_4">
+        基本概念
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="基本概念" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          基本概念
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.overview/1.concepts/1.data-model/" class="md-nav__link">
+        数据模型
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.overview/1.concepts/2.nGQL-overview/" class="md-nav__link">
+        查询语言概览
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_5" type="checkbox" id="__nav_1_5" >
+      
+      <label class="md-nav__link" for="__nav_1_5">
+        快速开始和常用链接
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="快速开始和常用链接" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          快速开始和常用链接
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.overview/2.quick-start/1.get-started/" class="md-nav__link">
+        开始试用
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.overview/2.quick-start/2.FAQ/" class="md-nav__link">
+        常见问题 FAQ
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.configurations/0.system-requirement/" class="md-nav__link">
+        系统要求
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.overview/2.quick-start/3.supported-clients/" class="md-nav__link">
+        Nebula Graph 客户端
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          编译源代码
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        编译源代码
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    前言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    系统要求
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    快速编译步骤
+  </a>
+  
+    <nav class="md-nav" aria-label="快速编译步骤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    安装系统依赖
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    克隆源码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    执行编译
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    源码打包（可选）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    编译选项
+  </a>
+  
+    <nav class="md-nav" aria-label="编译选项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cmake" class="md-nav__link">
+    CMake 参数
+  </a>
+  
+    <nav class="md-nav" aria-label="CMake 参数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable_werror" class="md-nav__link">
+    ENABLE_WERROR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable_testing" class="md-nav__link">
+    ENABLE_TESTING
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable_asan" class="md-nav__link">
+    ENABLE_ASAN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmake_build_type" class="md-nav__link">
+    CMAKE_BUILD_TYPE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmake_install_prefix" class="md-nav__link">
+    CMAKE_INSTALL_PREFIX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmake_cxx_compiler" class="md-nav__link">
+    CMAKE_CXX_COMPILER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable_ccache" class="md-nav__link">
+    ENABLE_CCACHE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nebula_use_linker" class="md-nav__link">
+    NEBULA_USE_LINKER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nebula_thirdparty_root" class="md-nav__link">
+    NEBULA_THIRDPARTY_ROOT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#third_party" class="md-nav__link">
+    手动安装 Third Party
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmake_1" class="md-nav__link">
+    安装可用的 CMake
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gcc" class="md-nav__link">
+    安装可用的 GCC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    无网络编译
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    卸载
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    FAQ
+  </a>
+  
+    <nav class="md-nav" aria-label="FAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error_invalid_argument_type_auto_to_unary_expression" class="md-nav__link">
+    error: invalid argument type 'auto' to unary expression
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.overview/2.quick-start/4.import-csv-file/" class="md-nav__link">
+        导入 .csv 文件
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_6" type="checkbox" id="__nav_1_6" >
+      
+      <label class="md-nav__link" for="__nav_1_6">
+        系统设计与架构
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="系统设计与架构" data-md-level="2">
+        <label class="md-nav__title" for="__nav_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          系统设计与架构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.overview/3.design-and-architecture/1.design-and-architecture/" class="md-nav__link">
+        设计总览
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.overview/3.design-and-architecture/2.storage-design/" class="md-nav__link">
+        存储层架构
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.overview/3.design-and-architecture/3.query-engine/" class="md-nav__link">
+        查询引擎架构
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        查询语言
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="查询语言" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          查询语言
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/0.README/" class="md-nav__link">
+        查询语言简介
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      <label class="md-nav__link" for="__nav_2_2">
+        数据类型
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数据类型" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          数据类型
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/1.data-types/data-types/" class="md-nav__link">
+        基本数据类型
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/1.data-types/type-conversion/" class="md-nav__link">
+        类型转换
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      <label class="md-nav__link" for="__nav_2_3">
+        函数与操作符
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="函数与操作符" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          函数与操作符
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/2.functions-and-operators/bitwise-operators/" class="md-nav__link">
+        位运算
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/2.functions-and-operators/built-in-functions/" class="md-nav__link">
+        内置函数
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/2.functions-and-operators/comparison-functions-and-operators/" class="md-nav__link">
+        比较运算
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/2.functions-and-operators/group-by-function/" class="md-nav__link">
+        分组 GROUP BY
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/2.functions-and-operators/limit-syntax/" class="md-nav__link">
+        LIMIT 语法
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/2.functions-and-operators/logical-operators/" class="md-nav__link">
+        逻辑运算
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/2.functions-and-operators/operator-precedence/" class="md-nav__link">
+        运算符优先级
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/2.functions-and-operators/order-by-function/" class="md-nav__link">
+        ORDER BY 函数
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/2.functions-and-operators/set-operations/" class="md-nav__link">
+        SET 运算符
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/2.functions-and-operators/string-comparison-functions-and-operators/" class="md-nav__link">
+        字符比较函数和运算符
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/2.functions-and-operators/uuid/" class="md-nav__link">
+        UUID 函数
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      <label class="md-nav__link" for="__nav_2_4">
+        语言结构
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="语言结构" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          语言结构
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4_1" type="checkbox" id="__nav_2_4_1" >
+      
+      <label class="md-nav__link" for="__nav_2_4_1">
+        字面值常量
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="字面值常量" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          字面值常量
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/3.language-structure/literal-values/boolean-literals/" class="md-nav__link">
+        布尔类型
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/3.language-structure/literal-values/numeric-literals/" class="md-nav__link">
+        数值类型
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/3.language-structure/literal-values/string-literals/" class="md-nav__link">
+        字符串类型
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/3.language-structure/comment-syntax/" class="md-nav__link">
+        注释语法
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/3.language-structure/identifier-case-sensitivity/" class="md-nav__link">
+        标识符大小写
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/3.language-structure/keywords-and-reserved-words/" class="md-nav__link">
+        关键字和保留字
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/3.language-structure/pipe-syntax/" class="md-nav__link">
+        管道
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/3.language-structure/property-reference/" class="md-nav__link">
+        属性引用
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/3.language-structure/schema-object-names/" class="md-nav__link">
+        标识符命名规则
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/3.language-structure/statement-composition/" class="md-nav__link">
+        语句组合
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/3.language-structure/user-defined-variables/" class="md-nav__link">
+        用户自定义变量
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      <label class="md-nav__link" for="__nav_2_5">
+        语句语法
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="语句语法" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          语句语法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_1" type="checkbox" id="__nav_2_5_1" >
+      
+      <label class="md-nav__link" for="__nav_2_5_1">
+        数据定义语句 (DDL)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数据定义语句 (DDL)" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          数据定义语句 (DDL)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/1.data-definition-statements/alter-edge-syntax/" class="md-nav__link">
+        ALTER EDGE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/1.data-definition-statements/alter-tag-syntax/" class="md-nav__link">
+        ALTER TAG
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/1.data-definition-statements/create-space-syntax/" class="md-nav__link">
+        CREATE SPACE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/1.data-definition-statements/create-edge-syntax/" class="md-nav__link">
+        CREATE EDGE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/1.data-definition-statements/create-tag-syntax/" class="md-nav__link">
+        CREATE TAG
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/1.data-definition-statements/drop-edge-syntax/" class="md-nav__link">
+        DROP EDGE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/1.data-definition-statements/drop-tag-syntax/" class="md-nav__link">
+        DROP TAG
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/1.data-definition-statements/drop-space-syntax/" class="md-nav__link">
+        DROP SPACE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/1.data-definition-statements/" class="md-nav__link">
+        INDEX
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/1.data-definition-statements/TTL/" class="md-nav__link">
+        TTL
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_2" type="checkbox" id="__nav_2_5_2" >
+      
+      <label class="md-nav__link" for="__nav_2_5_2">
+        数据查询与操作语句 (DQL 和 DML)
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数据查询与操作语句 (DQL 和 DML)" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          数据查询与操作语句 (DQL 和 DML)
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/delete-edge-syntax/" class="md-nav__link">
+        DELETE EDGE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/delete-vertex-syntax/" class="md-nav__link">
+        DELETE VERTEX
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/fetch-syntax/" class="md-nav__link">
+        FETCH
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/go-syntax/" class="md-nav__link">
+        GO
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/insert-edge-syntax/" class="md-nav__link">
+        INSERT EDGE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/insert-vertex-syntax/" class="md-nav__link">
+        INSERT VERTEX
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/lookup-syntax/" class="md-nav__link">
+        LOOKUP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/return-syntax/" class="md-nav__link">
+        RETURN
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/update-edge-syntax/" class="md-nav__link">
+        UPDATE EDGE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/update-vertex-syntax/" class="md-nav__link">
+        UPDATE VERTEX
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/upsert-syntax/" class="md-nav__link">
+        UPSERT
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/where-syntax/" class="md-nav__link">
+        WHERE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/yield-syntax/" class="md-nav__link">
+        YIELD
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_3" type="checkbox" id="__nav_2_5_3" >
+      
+      <label class="md-nav__link" for="__nav_2_5_3">
+        辅助功能语句
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="辅助功能语句" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          辅助功能语句
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_3_1" type="checkbox" id="__nav_2_5_3_1" >
+      
+      <label class="md-nav__link" for="__nav_2_5_3_1">
+        SHOW 语句
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="SHOW 语句" data-md-level="4">
+        <label class="md-nav__title" for="__nav_2_5_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          SHOW 语句
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-charset-syntax/" class="md-nav__link">
+        SHOW CHARSET
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-collation-syntax/" class="md-nav__link">
+        SHOW COLLATION
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-configs-syntax/" class="md-nav__link">
+        SHOW CONFIGS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-create-space-syntax/" class="md-nav__link">
+        SHOW CREATE SPACE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-create-tag-edge-syntax/" class="md-nav__link">
+        SHOW CREATE TAG EDGE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-hosts-syntax/" class="md-nav__link">
+        SHOW HOSTS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-indexes-syntax/" class="md-nav__link">
+        SHOW INDEXES
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-parts-syntax/" class="md-nav__link">
+        SHOW PARTS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-roles-syntax/" class="md-nav__link">
+        SHOW ROLES
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-snapshots-syntax/" class="md-nav__link">
+        SHOW SNAPSHOTS
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-spaces-syntax/" class="md-nav__link">
+        SHOW SPACES
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-tags-edges-syntax/" class="md-nav__link">
+        SHOW TAGS EDGES
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-users-syntax/" class="md-nav__link">
+        SHOW USERS
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/3.utility-statements/describe-syntax/" class="md-nav__link">
+        DESCRIBE
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/3.utility-statements/use-syntax/" class="md-nav__link">
+        USE
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5_4" type="checkbox" id="__nav_2_5_4" >
+      
+      <label class="md-nav__link" for="__nav_2_5_4">
+        图算法
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="图算法" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          图算法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2.query-language/4.statement-syntax/4.graph-algorithms/find-path-syntax/" class="md-nav__link">
+        FIND PATH
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        编译、部署与运维
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="编译、部署与运维" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          编译、部署与运维
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_1" type="checkbox" id="__nav_3_1" checked>
+      
+      <label class="md-nav__link" for="__nav_3_1">
+        编译
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="编译" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          编译
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          编译源代码
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        编译源代码
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    前言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    系统要求
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    快速编译步骤
+  </a>
+  
+    <nav class="md-nav" aria-label="快速编译步骤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    安装系统依赖
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    克隆源码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    执行编译
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    源码打包（可选）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    编译选项
+  </a>
+  
+    <nav class="md-nav" aria-label="编译选项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cmake" class="md-nav__link">
+    CMake 参数
+  </a>
+  
+    <nav class="md-nav" aria-label="CMake 参数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable_werror" class="md-nav__link">
+    ENABLE_WERROR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable_testing" class="md-nav__link">
+    ENABLE_TESTING
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable_asan" class="md-nav__link">
+    ENABLE_ASAN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmake_build_type" class="md-nav__link">
+    CMAKE_BUILD_TYPE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmake_install_prefix" class="md-nav__link">
+    CMAKE_INSTALL_PREFIX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmake_cxx_compiler" class="md-nav__link">
+    CMAKE_CXX_COMPILER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable_ccache" class="md-nav__link">
+    ENABLE_CCACHE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nebula_use_linker" class="md-nav__link">
+    NEBULA_USE_LINKER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nebula_thirdparty_root" class="md-nav__link">
+    NEBULA_THIRDPARTY_ROOT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#third_party" class="md-nav__link">
+    手动安装 Third Party
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmake_1" class="md-nav__link">
+    安装可用的 CMake
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gcc" class="md-nav__link">
+    安装可用的 GCC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    无网络编译
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    卸载
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    FAQ
+  </a>
+  
+    <nav class="md-nav" aria-label="FAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error_invalid_argument_type_auto_to_unary_expression" class="md-nav__link">
+    error: invalid argument type 'auto' to unary expression
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../2.build-by-docker/" class="md-nav__link">
+        使用 Docker 编译
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" >
+      
+      <label class="md-nav__link" for="__nav_3_2">
+        安装
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="安装" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          安装
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.install/1.install-with-rpm-deb/" class="md-nav__link">
+        rpm 安装
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.install/2.start-stop-service/" class="md-nav__link">
+        启停服务
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.install/deploy-nebula-with-swarm.md" class="md-nav__link">
+        集群部署
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2.install/3.install-with-docker/" class="md-nav__link">
+        Docker 安装
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" >
+      
+      <label class="md-nav__link" for="__nav_3_3">
+        配置
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="配置" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          配置
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.configurations/0.system-requirement/" class="md-nav__link">
+        系统要求
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.configurations/1.config-persistency-and-priority/" class="md-nav__link">
+        配置持久化与优先级
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.configurations/2.configs-syntax/" class="md-nav__link">
+        CONFIG 语法
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.configurations/4.graph-config/" class="md-nav__link">
+        Graphd 配置
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.configurations/5.storage-config/" class="md-nav__link">
+        Storaged 配置
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.configurations/6.console-config/" class="md-nav__link">
+        Console 配置
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.configurations/7.kernel-config/" class="md-nav__link">
+        Kernel 配置
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../3.configurations/8.single-node-log/" class="md-nav__link">
+        单机日志
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_4" type="checkbox" id="__nav_3_4" >
+      
+      <label class="md-nav__link" for="__nav_3_4">
+        账号权限管理
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="账号权限管理" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          账号权限管理
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.account-management-statements/alter-user-syntax/" class="md-nav__link">
+        Alter User
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.account-management-statements/authentication/" class="md-nav__link">
+        身份验证
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.account-management-statements/built-in-roles/" class="md-nav__link">
+        Built-in Roles
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.account-management-statements/change-password/" class="md-nav__link">
+        Change Password
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.account-management-statements/create-user-syntax/" class="md-nav__link">
+        Create User
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.account-management-statements/drop-user-syntax/" class="md-nav__link">
+        Drop User
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.account-management-statements/grant-role-syntax/" class="md-nav__link">
+        Grant Role
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.account-management-statements/LDAP/" class="md-nav__link">
+        LDAP
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../4.account-management-statements/revoke-syntax/" class="md-nav__link">
+        Revoke
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5" type="checkbox" id="__nav_3_5" >
+      
+      <label class="md-nav__link" for="__nav_3_5">
+        批量数据管理
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="批量数据管理" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          批量数据管理
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_1" type="checkbox" id="__nav_3_5_1" >
+      
+      <label class="md-nav__link" for="__nav_3_5_1">
+        离线数据导入
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="离线数据导入" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          离线数据导入
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5.storage-service-administration/data-import/import-csv-file/" class="md-nav__link">
+        读取 .csv 文件
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5.storage-service-administration/data-import/spark-writer/" class="md-nav__link">
+        Spark 导入工具
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_5_2" type="checkbox" id="__nav_3_5_2" >
+      
+      <label class="md-nav__link" for="__nav_3_5_2">
+        离线数据转储
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="离线数据转储" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          离线数据转储
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5.storage-service-administration/data-export/dump-tool/" class="md-nav__link">
+        Dump Tool
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5.storage-service-administration/storage-balance/" class="md-nav__link">
+        负载均衡和数据迁移
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5.storage-service-administration/cluster-snapshot/" class="md-nav__link">
+        集群快照
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5.storage-service-administration/job-manager/" class="md-nav__link">
+        长耗时任务管理
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5.storage-service-administration/compact/" class="md-nav__link">
+        Compact
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_6" type="checkbox" id="__nav_3_6" >
+      
+      <label class="md-nav__link" for="__nav_3_6">
+        监控与统计
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="监控与统计" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          监控与统计
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7.monitor/1.metrics-exposer/" class="md-nav__link">
+        Metrics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7.monitor/2.meta-metrics/" class="md-nav__link">
+        Meta Metrics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7.monitor/3.storage-metrics/" class="md-nav__link">
+        Storage Metrics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7.monitor/4.graph-metrics/" class="md-nav__link">
+        Graph Metrics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7.monitor/5.rocksdb-statistics.md" class="md-nav__link">
+        RocksDB Statistics
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3_7" type="checkbox" id="__nav_3_7" >
+      
+      <label class="md-nav__link" for="__nav_3_7">
+        源码开发和 API
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="源码开发和 API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          源码开发和 API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../6.develop-and-interface/kv-interfaces/" class="md-nav__link">
+        Key Value API
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1.overview/2.quick-start/3.supported-clients/" class="md-nav__link">
+        Nebula Graph 客户端
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        图算法
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="图算法" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          图算法
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
+      
+      <label class="md-nav__link" for="__nav_4_1">
+        nebula-algorithm
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="nebula-algorithm" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          nebula-algorithm
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-algorithm/na-ug-what-is-nebula-algorithm/" class="md-nav__link">
+        什么是 nebula-algorithm
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-algorithm/na-ug-limitations/" class="md-nav__link">
+        使用限制
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-algorithm/na-ug-compile/" class="md-nav__link">
+        编译 nebula-algorithm
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-algorithm/na-ug-example/" class="md-nav__link">
+        使用示例
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        数据传输
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="数据传输" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          数据传输
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
+      
+      <label class="md-nav__link" for="__nav_5_1">
+        Nebula Exchange
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Nebula Exchange" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Nebula Exchange
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_1" type="checkbox" id="__nav_5_1_1" >
+      
+      <label class="md-nav__link" for="__nav_5_1_1">
+        认识 Nebula Exchange
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="认识 Nebula Exchange" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          认识 Nebula Exchange
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-exchange/about-exchange/ex-ug-what-is-exchange/" class="md-nav__link">
+        什么是 Nebula Exchange
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-exchange/about-exchange/ex-ug-limitations/" class="md-nav__link">
+        使用限制
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-exchange/about-exchange/ex-ug-terms/" class="md-nav__link">
+        名词解释
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-exchange/about-exchange/ex-ug-faq/" class="md-nav__link">
+        常见问题
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-exchange/ex-ug-compile/" class="md-nav__link">
+        编译 Exchange
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_3" type="checkbox" id="__nav_5_1_3" >
+      
+      <label class="md-nav__link" for="__nav_5_1_3">
+        操作指南
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="操作指南" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          操作指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-exchange/use-exchange/ex-ug-import-steps/" class="md-nav__link">
+        导入数据步骤
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-exchange/use-exchange/ex-ug-import-from-neo4j/" class="md-nav__link">
+        导入 Neo4j 数据
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-exchange/use-exchange/ex-ug-import-sst/" class="md-nav__link">
+        导入 SST 文件
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-exchange/use-exchange/ex-ug-import-hive/" class="md-nav__link">
+        导入 HIVE 数据
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-exchange/use-exchange/ex-ug-import-from-csv/" class="md-nav__link">
+        导入 CSV 文件数据
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-exchange/use-exchange/ex-ug-import-json/" class="md-nav__link">
+        导入 JSON 文件数据
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1_4" type="checkbox" id="__nav_5_1_4" >
+      
+      <label class="md-nav__link" for="__nav_5_1_4">
+        参数说明
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="参数说明" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          参数说明
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-exchange/parameter-reference/ex-ug-paras-spark/" class="md-nav__link">
+        Spark 参数
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-exchange/parameter-reference/ex-ug-paras-nebulagraph/" class="md-nav__link">
+        Nebula Graph 参数
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-exchange/parameter-reference/ex-ug-para-import-command/" class="md-nav__link">
+        导入命令参数
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
+      
+      <label class="md-nav__link" for="__nav_5_2">
+        Nebula Importer
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Nebula Importer" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Nebula Importer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5.storage-service-administration/data-import/import-csv-file/" class="md-nav__link">
+        导入CSV文件
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_3" type="checkbox" id="__nav_5_3" >
+      
+      <label class="md-nav__link" for="__nav_5_3">
+        Nebula Flink Connector
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Nebula Flink Connector" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Nebula Flink Connector
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-flink/nf-ug-what-is-flink-connector/" class="md-nav__link">
+        什么是 Nebula Flink Connector
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-flink/nf-ug-compile/" class="md-nav__link">
+        编译 Nebula Flink Connector
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-flink/nf-ug-limitations/" class="md-nav__link">
+        使用限制
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-flink/nf-ug-customize-source/" class="md-nav__link">
+        自定义 source (NebulaSource)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-flink/nf-ug-customize-sink/" class="md-nav__link">
+        自定义 sink (NebulaSink)
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-flink/nf-ug-notes/" class="md-nav__link">
+        特殊说明
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4" type="checkbox" id="__nav_5_4" >
+      
+      <label class="md-nav__link" for="__nav_5_4">
+        Nebula Spark Connector
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Nebula Spark Connector" data-md-level="2">
+        <label class="md-nav__title" for="__nav_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Nebula Spark Connector
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../spark-connector/sc-ug-what-is-spark-connector/" class="md-nav__link">
+        什么是 Nebula Spark Connector
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../spark-connector/sc-ug-compile/" class="md-nav__link">
+        编译 Nebula Spark Connector
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../spark-connector/sc-ug-limitations/" class="md-nav__link">
+        使用限制
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4_4" type="checkbox" id="__nav_5_4_4" >
+      
+      <label class="md-nav__link" for="__nav_5_4_4">
+        Nebula Spark Connector Reader
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Nebula Spark Connector Reader" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Nebula Spark Connector Reader
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../spark-connector/reader/sc-ug-what-is-reader/" class="md-nav__link">
+        什么是 Nebula Spark Connector Reader
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../spark-connector/reader/sc-ug-reader-example/" class="md-nav__link">
+        使用示例
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_4_5" type="checkbox" id="__nav_5_4_5" >
+      
+      <label class="md-nav__link" for="__nav_5_4_5">
+        Nebula Spark Connector Writer
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Nebula Spark Connector Writer" data-md-level="3">
+        <label class="md-nav__title" for="__nav_5_4_5">
+          <span class="md-nav__icon md-icon"></span>
+          Nebula Spark Connector Writer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../spark-connector/writer/sc-ug-what-is-writer/" class="md-nav__link">
+        什么是 Nebula Spark Connector Writer
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../spark-connector/writer/sc-ug-writer-example/" class="md-nav__link">
+        使用示例
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      <label class="md-nav__link" for="__nav_6">
+        Nebula Graph Studio
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Nebula Graph Studio" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Nebula Graph Studio
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_1" type="checkbox" id="__nav_6_1" >
+      
+      <label class="md-nav__link" for="__nav_6_1">
+        认识 Nebula Graph Studio
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="认识 Nebula Graph Studio" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          认识 Nebula Graph Studio
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-studio/about-studio/st-ug-what-is-graph-studio/" class="md-nav__link">
+        什么是 Nebula Graph Studio
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-studio/about-studio/st-ug-terms/" class="md-nav__link">
+        名词解释
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-studio/about-studio/st-ug-limitations/" class="md-nav__link">
+        使用限制
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-studio/about-studio/st-ug-check-updates/" class="md-nav__link">
+        版本更新
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-studio/about-studio/st-ug-shortcuts/" class="md-nav__link">
+        快捷键
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_2" type="checkbox" id="__nav_6_2" >
+      
+      <label class="md-nav__link" for="__nav_6_2">
+        安装与登录
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="安装与登录" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          安装与登录
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-studio/deploy-connect/st-ug-deploy/" class="md-nav__link">
+        部署 Studio
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-studio/deploy-connect/st-ug-connect/" class="md-nav__link">
+        连接数据库
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-studio/deploy-connect/st-ug-reset-connection/" class="md-nav__link">
+        清除连接
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_3" type="checkbox" id="__nav_6_3" >
+      
+      <label class="md-nav__link" for="__nav_6_3">
+        快速开始
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="快速开始" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          快速开始
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-studio/quick-start/st-ug-plan-schema/" class="md-nav__link">
+        规划 Schema
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-studio/quick-start/st-ug-prepare-csv/" class="md-nav__link">
+        准备 CSV 文件
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-studio/quick-start/st-ug-create-schema/" class="md-nav__link">
+        创建 Schema
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-studio/quick-start/st-ug-import-data/" class="md-nav__link">
+        导入数据
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-studio/quick-start/st-ug-explore/" class="md-nav__link">
+        查询图数据
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4" type="checkbox" id="__nav_6_4" >
+      
+      <label class="md-nav__link" for="__nav_6_4">
+        操作指南
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="操作指南" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          操作指南
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4_1" type="checkbox" id="__nav_6_4_1" >
+      
+      <label class="md-nav__link" for="__nav_6_4_1">
+        管理 Schema
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="管理 Schema" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          管理 Schema
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-studio/manage-schema/st-ug-crud-space/" class="md-nav__link">
+        操作图空间
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-studio/manage-schema/st-ug-crud-tag/" class="md-nav__link">
+        操作标签
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-studio/manage-schema/st-ug-crud-edge-type/" class="md-nav__link">
+        操作边类型
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-studio/manage-schema/st-ug-crud-index/" class="md-nav__link">
+        操作索引
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_4_2" type="checkbox" id="__nav_6_4_2" >
+      
+      <label class="md-nav__link" for="__nav_6_4_2">
+        使用控制台
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="使用控制台" data-md-level="3">
+        <label class="md-nav__title" for="__nav_6_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          使用控制台
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-studio/use-console/st-ug-console/" class="md-nav__link">
+        控制台界面
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-studio/use-console/st-ug-open-in-explorer/" class="md-nav__link">
+        导入图探索
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-studio/use-console/st-ug-visualize-findpath/" class="md-nav__link">
+        查看子图
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6_5" type="checkbox" id="__nav_6_5" >
+      
+      <label class="md-nav__link" for="__nav_6_5">
+        故障排查
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="故障排查" data-md-level="2">
+        <label class="md-nav__title" for="__nav_6_5">
+          <span class="md-nav__icon md-icon"></span>
+          故障排查
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-studio/troubleshooting/st-ug-config-server-errors/" class="md-nav__link">
+        连接数据库错误
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-studio/troubleshooting/st-ug-connection-errors/" class="md-nav__link">
+        无法访问 Studio
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../nebula-studio/troubleshooting/st-ug-faq/" class="md-nav__link">
+        常见问题
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      <label class="md-nav__link" for="__nav_7">
+        社区贡献
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="社区贡献" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          社区贡献
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4.contributions/contribute-to-documentation/" class="md-nav__link">
+        贡献文档
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4.contributions/cpp-coding-style/" class="md-nav__link">
+        C++ 编程风格
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4.contributions/how-to-contribute/" class="md-nav__link">
+        如何贡献
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../4.contributions/pull-request-commit-message-guidelines/" class="md-nav__link">
+        PR and Commit 信息指南
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+      
+      <label class="md-nav__link" for="__nav_8">
+        附录
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="附录" data-md-level="1">
+        <label class="md-nav__title" for="__nav_8">
+          <span class="md-nav__icon md-icon"></span>
+          附录
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5.appendix/cypher-ngql/" class="md-nav__link">
+        Cypher & nGQL
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5.appendix/gremlin-ngql/" class="md-nav__link">
+        Gremlin & nGQL
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5.appendix/sql-ngql/" class="md-nav__link">
+        SQL & nGQL
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5.appendix/vid-partition/" class="md-nav__link">
+        点标识符和分区
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5.appendix/super-node.md" class="md-nav__link">
+        超级顶点（稠密点）处理
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
+      
+      <label class="md-nav__link" for="__nav_9">
+        English
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="English" data-md-level="1">
+        <label class="md-nav__title" for="__nav_9">
+          <span class="md-nav__icon md-icon"></span>
+          English
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="https://docs.nebula-graph.io/" class="md-nav__link">
+        None
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    前言
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    系统要求
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    快速编译步骤
+  </a>
+  
+    <nav class="md-nav" aria-label="快速编译步骤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    安装系统依赖
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    克隆源码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    执行编译
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    源码打包（可选）
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    编译选项
+  </a>
+  
+    <nav class="md-nav" aria-label="编译选项">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cmake" class="md-nav__link">
+    CMake 参数
+  </a>
+  
+    <nav class="md-nav" aria-label="CMake 参数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable_werror" class="md-nav__link">
+    ENABLE_WERROR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable_testing" class="md-nav__link">
+    ENABLE_TESTING
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable_asan" class="md-nav__link">
+    ENABLE_ASAN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmake_build_type" class="md-nav__link">
+    CMAKE_BUILD_TYPE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmake_install_prefix" class="md-nav__link">
+    CMAKE_INSTALL_PREFIX
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmake_cxx_compiler" class="md-nav__link">
+    CMAKE_CXX_COMPILER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enable_ccache" class="md-nav__link">
+    ENABLE_CCACHE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nebula_use_linker" class="md-nav__link">
+    NEBULA_USE_LINKER
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nebula_thirdparty_root" class="md-nav__link">
+    NEBULA_THIRDPARTY_ROOT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#third_party" class="md-nav__link">
+    手动安装 Third Party
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cmake_1" class="md-nav__link">
+    安装可用的 CMake
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gcc" class="md-nav__link">
+    安装可用的 GCC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    无网络编译
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    卸载
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#faq" class="md-nav__link">
+    FAQ
+  </a>
+  
+    <nav class="md-nav" aria-label="FAQ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error_invalid_argument_type_auto_to_unary_expression" class="md-nav__link">
+    error: invalid argument type 'auto' to unary expression
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/vesoft-inc/nebula-docs-cn/edit/v1.2.0/docs/manual-CN/3.build-develop-and-administration/1.build/1.build-source-code.md" title="编辑此页" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="_1">使用源码编译<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">前言<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>我们已经针对多种不同的环境做过编译测试，包括 CentOS 6/7/8、Ubuntu 16.04/18.04/19.04、Fedora 28/29/30、GCC 7/8/9 以及较新版本的 LLVM/Clang。然而，由于编译环境及依赖的复杂性，很难保证覆盖到所有场景。如果在编译过程遇到任何问题，欢迎通过 <a href="https://github.com/vesoft-inc/nebula/issues">Issue</a> 或者 <a href="https://github.com/vesoft-inc/nebula/pulls">Pull Request</a> 联系我们。</p>
+<h2 id="_3">系统要求<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>以下为编译<strong>Nebula Graph</strong>机器所需配置要求，运行环境所需配置要求见<a href="../../3.configurations/0.system-requirement/">这里</a>。</p>
+<ul>
+<li>处理器: x86_64</li>
+<li>内存: 至少 4GB</li>
+<li>存储空间: 至少 10GB</li>
+<li>Linux 内核: 2.6.32 或更高版本，通过命令<code>uname -r</code>查看</li>
+<li>glibc: 2.12 或更高版本，通过命令<code>ldd --version</code>查看</li>
+<li>GCC: 7.1.0 或更高版本，通过命令<code>g++ --version</code>查看</li>
+<li>CMake: 3.5.0 或更高版本，通过命令<code>cmake --version</code>查看</li>
+<li>能够访问互联网</li>
+</ul>
+<p><strong>注意</strong>: <strong>Nebula Graph</strong> 目前仅支持 x86_64 架构。</p>
+<h2 id="_4">快速编译步骤<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="_5">安装系统依赖<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>请注意，安装系统依赖需要 root 权限。</p>
+<p>CentOS，RedHat 和 Fedora 用户可以运行以下命令安装：</p>
+<div class="highlight"><pre><span></span><code>$ yum update
+$ yum install -y make <span class="se">\</span>
+                 m4 <span class="se">\</span>
+                 git <span class="se">\</span>
+                 wget <span class="se">\</span>
+                 unzip <span class="se">\</span>
+                 xz <span class="se">\</span>
+                 readline-devel <span class="se">\</span>
+                 ncurses-devel <span class="se">\</span>
+                 zlib-devel <span class="se">\</span>
+                 gcc <span class="se">\</span>
+                 gcc-c++ <span class="se">\</span>
+                 cmake <span class="se">\</span>
+                 gettext <span class="se">\</span>
+                 curl <span class="se">\</span>
+                 redhat-lsb-core
+
+<span class="c1"># CentOS 8+，RedHat 8+ 以及 Fedora 用户，需要额外安装 libstdc++-static 和 libasan</span>
+$ yum install -y libstdc++-static libasan
+</code></pre></div>
+<p>Debian 及 Ubuntu 用户，执行以下命令安装：</p>
+<div class="highlight"><pre><span></span><code>$ apt-get update
+$ apt-get install -y make <span class="se">\</span>
+                     m4 <span class="se">\</span>
+                     git <span class="se">\</span>
+                     wget <span class="se">\</span>
+                     unzip <span class="se">\</span>
+                     xz-utils <span class="se">\</span>
+                     curl <span class="se">\</span>
+                     lsb-core <span class="se">\</span>
+                     build-essential <span class="se">\</span>
+                     libreadline-dev <span class="se">\</span>
+                     ncurses-dev <span class="se">\</span>
+                     cmake <span class="se">\</span>
+                     gettext
+</code></pre></div>
+<p>ArchLinux、Gentoo 或者 LFS 用户请自行安装。</p>
+<p>在开始编译之前，请确保编译器和 CMake 版本满足要求：</p>
+<div class="highlight"><pre><span></span><code>$ g++ --version
+$ cmake --version
+</code></pre></div>
+<p>否则，请分别参考 <a href="#安装可用的-gcc">安装 GCC</a> 或 <a href="#安装可用的-cmake">安装 CMake</a> 进行操作。</p>
+<h3 id="_6">克隆源码<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>$ git clone https://github.com/vesoft-inc/nebula.git
+</code></pre></div>
+<p>如果不关心代码仓库的历史提交信息，您可进行_浅克隆_（Shallow clone）以加快下载速度：</p>
+<div class="highlight"><pre><span></span><code>$ git clone --depth<span class="o">=</span><span class="m">1</span> https://github.com/vesoft-inc/nebula.git
+</code></pre></div>
+<h3 id="_7">执行编译<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> nebula
+$ mkdir build
+$ <span class="nb">cd</span> build
+$ cmake -DENABLE_TESTING<span class="o">=</span>OFF -DCMAKE_BUILD_TYPE<span class="o">=</span>Release ..
+<span class="c1"># 假设 cores 为核数，mem_gb 为内存大小（单位为 GB），N 取值建议为 cores 和 mem_gb/2 中的较小值</span>
+<span class="c1"># Build type 建议选择 release 以加快编译速度</span>
+$ make -jN
+<span class="c1"># 默认安装目录为 /usr/local/nebula</span>
+$ sudo make install
+<span class="c1"># 如需启动服务，请复制 etc/ 目录下的配置文件</span>
+<span class="c1"># 用于生产环境</span>
+$ <span class="nb">cd</span> /usr/local/nebula
+$ cp etc/nebula-storaged.conf.production etc/nebula-storaged.conf
+$ cp etc/nebula-metad.conf.production etc/nebula-metad.conf
+$ sudo cp etc/nebula-graphd.conf.production etc/nebula-graphd.conf
+<span class="c1"># 用于试用</span>
+$ <span class="nb">cd</span> /usr/local/nebula
+$ sudo cp etc/nebula-storaged.conf.default etc/nebula-storaged.conf
+$ sudo cp etc/nebula-metad.conf.default etc/nebula-metad.conf
+$ sudo cp etc/nebula-graphd.conf.default etc/nebula-graphd.conf
+</code></pre></div>
+<p>详情参考<a href="../../2.install/2.start-stop-service/">启动和停止 Nebula Graph 服务文档</a>。</p>
+<p>由于 <strong>Nebula Graph</strong> 使用了大量的 C++ 模板，尤其是 Folly，fbthrift 和 boost，因此编译会非常耗时。比如，如果使用 Intel E5-2697 v3 处理器，在 16 个任务并发运行的情况下，需要花费大约 4 分钟完成编译，总的 CPU 时间大约 35 分钟。</p>
+<h3 id="_8">源码打包（可选）<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>如需将 <strong>Nebula Graph</strong> 打包至一个包，请使用以下命令：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> nebula/package
+./package.sh -v &lt;version&gt;
+</code></pre></div>
+<ul>
+<li>如需将 <strong>Nebula Graph</strong> 打包至多个包，请使用以下命令：</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> nebula/package
+./package.sh -v &lt;version&gt; -n OFF
+</code></pre></div>
+<h2 id="_9">编译选项<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>除默认选项外，<strong>Nebula Graph</strong> 的编译系统还提供诸多选项来调整编译行为。</p>
+<h3 id="cmake">CMake 参数<a class="headerlink" href="#cmake" title="Permanent link">&para;</a></h3>
+<p>可通过 <code>cmake -DArgument=Value ..</code> 调整 CMake 参数。</p>
+<h4 id="enable_werror">ENABLE_WERROR<a class="headerlink" href="#enable_werror" title="Permanent link">&para;</a></h4>
+<p>默认情况下，<strong>Nebula Graph</strong> 使用 <code>-Werror</code> 选项将编译过程中的告警当成错误。如果在编译过程中遇到了类似情况，可以通过将 <code>ENABLE_WERROR</code> 设置为 <code>OFF</code> 来暂时忽略此类错误。</p>
+<h4 id="enable_testing">ENABLE_TESTING<a class="headerlink" href="#enable_testing" title="Permanent link">&para;</a></h4>
+<p>该选项允许用户开启或关闭单元测试的编译，默认开启。如果您只需要编译 <strong>Nebula Graph</strong> 服务模块，可以将该选项设置为 <code>OFF</code>。</p>
+<h4 id="enable_asan">ENABLE_ASAN<a class="headerlink" href="#enable_asan" title="Permanent link">&para;</a></h4>
+<p>该选项允许用户开启或关闭 AddressSanitizer（内存相关错误检测器），默认关闭。</p>
+<h4 id="cmake_build_type">CMAKE_BUILD_TYPE<a class="headerlink" href="#cmake_build_type" title="Permanent link">&para;</a></h4>
+<p><strong>Nebula Graph</strong> 支持以下几种编译类型：</p>
+<ul>
+<li><code>Debug</code>，启用调试信息，不启用优化选项，为默认编译类型</li>
+<li><code>Release</code>，启用优化选项，不启用调试信息</li>
+<li><code>RelWithDebInfo</code>，启用优化选项，且启用调试信息</li>
+<li><code>MinSizeRel</code>，启用利于减小代码体积的优化选项，不启用调试信息</li>
+</ul>
+<h4 id="cmake_install_prefix">CMAKE_INSTALL_PREFIX<a class="headerlink" href="#cmake_install_prefix" title="Permanent link">&para;</a></h4>
+<p>该选项用于指定执行 <code>make install</code> 命令时，<strong>Nebula Graph</strong> 的服务模块、配置文件以及工具集的安装路径，默认为 <code>/usr/local/nebula</code>。</p>
+<h4 id="cmake_cxx_compiler">CMAKE_CXX_COMPILER<a class="headerlink" href="#cmake_cxx_compiler" title="Permanent link">&para;</a></h4>
+<p>通常情况下，CMake 会自动选择合适的编译器。但是，如果目标编译器不在默认的标准路径下，或者你想使用其他种类或路径下的编译器，请使用如下方式指定：</p>
+<div class="highlight"><pre><span></span><code>$ cmake -DCMAKE_C_COMPILER<span class="o">=</span>/path/to/gcc/bin/gcc -DCMAKE_CXX_COMPILER<span class="o">=</span>/path/to/gcc/bin/g++ ..
+$ cmake -DCMAKE_C_COMPILER<span class="o">=</span>/path/to/clang/bin/clang -DCMAKE_CXX_COMPILER<span class="o">=</span>/path/to/clang/bin/clang++ ..
+</code></pre></div>
+<h4 id="enable_ccache">ENABLE_CCACHE<a class="headerlink" href="#enable_ccache" title="Permanent link">&para;</a></h4>
+<p><code>ccache</code> 可以加快编译过程，主要用于开发过程。如果系统中安装了 <code>ccache</code>，<strong>Nebula Graph</strong> 默认会自动启用该选项。</p>
+<p>但是，如果你想禁用 <code>ccache</code>，将该选项设置成 <code>OFF</code> <em>可能</em> 是不够的。因为，在某些系统中，<code>ccache</code> 会_代理_ 当前编译器。此时，需要通过设置环境变量 <code>export CCACHE_DISABLE=true</code>，或者在 <code>~/.ccache/ccache.conf</code> 文件中添加 <code>disable=true</code>。后续 <strong>Nebula Graph</strong> 将隐藏这些细节。</p>
+<p>另外，关于 <code>ccache</code> 的更多细节，请参考<a href="https://ccache.dev/manual/3.7.6.html">官方文档</a>。</p>
+<h4 id="nebula_use_linker">NEBULA_USE_LINKER<a class="headerlink" href="#nebula_use_linker" title="Permanent link">&para;</a></h4>
+<p>该选项允许我们使用不同的链接器。目前可用的选项是：<code>bfd</code>，<code>gold</code>，<code>lld</code>。其中，<code>bfd</code> 和 <code>gold</code> 隶属于 GNU binutils，<code>lld</code> 则需要安装 LLVM/Clang。此外，如果需要，还可以使用该参数指定链接器的绝对路径。</p>
+<h4 id="nebula_thirdparty_root">NEBULA_THIRDPARTY_ROOT<a class="headerlink" href="#nebula_thirdparty_root" title="Permanent link">&para;</a></h4>
+<p>该选项用于显式指定 third party 所在路径。</p>
+<h3 id="third_party">手动安装 Third Party<a class="headerlink" href="#third_party" title="Permanent link">&para;</a></h3>
+<p>在 configure/cmake 阶段，<strong>Nebula Graph</strong> 默认将预先编译好的 third party 下载到当前 build 目录。但是如果你想将其安装到其他路径（比如，安装到某个公共目录），你可以：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 安装 third party 至 /opt 需要 root 权限，可使用 --prefix 改变安装路径</span>
+$ ../third-party/install-third-party.sh --prefix<span class="o">=</span>/opt/vesoft/third-party
+</code></pre></div>
+<p>如果不指定 <code>--prefix</code>，third party 的默认安装路径为 <code>/opt/vesoft/third-party</code>，且可为 <strong>Nebula Graph</strong> 的编译系统自动找到。否则，需使用上文所述的 <code>NEBULA_THIRDPARTY_ROOT</code> CMake 参数指定路径，或为该路径设置环境变量并导出。 <strong>Nebula Graph</strong> 查找并选择 third party 的优先级如下：</p>
+<ol>
+<li>CMake 变量 <code>NEBULA_THIRDPARTY_ROOT</code></li>
+<li>build 路径下的 <code>third-party/install</code></li>
+<li><code>NEBULA_THIRDPARTY_ROOT</code> 环境变量</li>
+<li><code>/opt/vesoft/third-party</code></li>
+</ol>
+<h2 id="cmake_1">安装可用的 CMake<a class="headerlink" href="#cmake_1" title="Permanent link">&para;</a></h2>
+<p>对于没有可用 CMake 安装的用户， 我们提供了可自动下载安装的脚本。在 build 目录下，运行：</p>
+<div class="highlight"><pre><span></span><code>$ ../third-party/install-cmake.sh cmake-install
+CMake has been installed to <span class="nv">prefix</span><span class="o">=</span>cmake-install
+Run <span class="s1">&#39;source cmake-install/bin/enable-cmake.sh&#39;</span> to make it ready to use.
+Run <span class="s1">&#39;source cmake-install/bin/disable-cmake.sh&#39;</span> to disable it.
+
+$ <span class="nb">source</span> cmake-install/bin/enable-cmake.sh
+$ cmake --version
+cmake version <span class="m">3</span>.15.5
+</code></pre></div>
+<p>此时可用的 CMake 已安装完成。你可以在任何时候使用 <code>source cmake-install/bin/disable-cmake.sh</code> 命令将其禁用。</p>
+<h2 id="gcc">安装可用的 GCC<a class="headerlink" href="#gcc" title="Permanent link">&para;</a></h2>
+<p>对于没有可用 GCC 安装的用户， 我们提供了 GCC 和可自动下载安装的脚本。在 build 目录下，运行：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 将 GCC 安装至 /opt 需要 root 权限，支持更改安装路径</span>
+$ ../third-party/install-gcc.sh --prefix<span class="o">=</span>/opt
+GCC-7.5.0 has been installed to /opt/vesoft/toolset/gcc/7.5.0
+Performing usability tests
+Performing regular C++14 tests...OK
+Performing LeakSanitizer tests...OK
+Run <span class="s1">&#39;source /opt/vesoft/toolset/gcc/7.5.0/enable&#39;</span> to start using.
+Run <span class="s1">&#39;source /opt/vesoft/toolset/gcc/7.5.0/disable&#39;</span> to stop using.
+
+<span class="c1"># 注意路径和指定版本可能与你的环境不同</span>
+$ <span class="nb">source</span> /opt/vesoft/toolset/gcc/7.5.0/enable
+<span class="c1"># 此处仅设置了 PATH，以免污染库路径</span>
+<span class="c1"># 如果需要可运行 &#39;export LD_LIBRARY_PATH=/opt/vesoft/toolset/gcc/7.5.0/lib64:$LD_LIBRARY_PATH&#39;</span>
+
+$ g++ --version
+g++ <span class="o">(</span>Nebula Graph Build<span class="o">)</span> <span class="m">7</span>.5.0
+Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">2017</span> Free Software Foundation, Inc.
+</code></pre></div>
+<p>此时可用的 GCC 编译器已安装完成。你可以在任何时候使用 <code>source /opt/vesoft/toolset/gcc/7.5.0/disable</code> 命令将其禁用。</p>
+<h2 id="_10">无网络编译<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>如果在编译源码时无法连接网络，则必须手动下载以上工具和依赖，包括 <strong>Nebula Graph</strong> 仓库中的 GCC 编译器，第三方库和 CMake。然后，将所有内容复制到你的机器上。以下是快速指南。详细信息请参考上述步骤。</p>
+<p>首先，需要有一台可以连接外网的主机，并下载以下文件：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 下载 GCC</span>
+<span class="c1"># RedHat 或 CentOS 用户</span>
+$ wget https://oss-cdn.nebula-graph.com.cn/toolset/vesoft-gcc-7.5.0-CentOS-x86_64-glibc-2.12.sh
+<span class="c1"># Debian 或 Ubuntu 用户</span>
+$ wget https://oss-cdn.nebula-graph.com.cn/toolset/vesoft-gcc-7.5.0-Debian-x86_64-glibc-2.13.sh
+
+<span class="c1"># 下载 CMake</span>
+$ wget https://cmake.org/files/v3.15/cmake-3.15.5-Linux-x86_64.sh
+
+<span class="c1"># 下载第三方库</span>
+$ wget https://oss-cdn.nebula-graph.com.cn/third-party/vesoft-third-party-x86_64-libc-2.12-gcc-7.5.0-abi-11.sh
+</code></pre></div>
+<p>然后，将这些软件包复制到编译的机器并运行。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 安装 GCC</span>
+<span class="c1"># RedHat 或 CentOS 用户</span>
+$ sudo bash vesoft-gcc-7.5.0-CentOS-x86_64-glibc-2.12.sh
+<span class="c1"># Debian 或 Ubuntu 用户</span>
+$ sudo bash vesoft-gcc-7.5.0-Debian-x86_64-glibc-2.13.sh
+
+<span class="c1"># 启用 GCC 安装</span>
+$ <span class="nb">source</span> /opt/vesoft/toolset/gcc/7.5.0/enable
+
+<span class="c1"># 安装 CMake</span>
+$ sudo bash cmake-3.15.5-Linux-x86_64.sh --skip-license --prefix<span class="o">=</span>/opt/vesoft/toolset/cmake
+
+<span class="c1"># 将安装好的cmake的bin目录加到PATH里面</span>
+
+$ <span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/opt/vesoft/toolset/cmake:<span class="nv">$PATH</span>
+
+<span class="c1"># 安装第三方库</span>
+$ sudo bash vesoft-third-party-x86_64-libc-2.12-gcc-7.5.0-abi-11.sh
+</code></pre></div>
+<p>现在您就可以下载并编译 <strong>Nebula Graph</strong> 项目了。</p>
+<h2 id="_11">卸载<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>卸载前，请先停止服务。在 <code>make</code> 目录下使用 <code>make uninstall</code> 命令即可卸载 <strong>Nebula Graph</strong>。请注意卸载之后配置文件不会删除。</p>
+<h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h2>
+<h3 id="error_invalid_argument_type_auto_to_unary_expression"><code>error: invalid argument type 'auto' to unary expression</code><a class="headerlink" href="#error_invalid_argument_type_auto_to_unary_expression" title="Permanent link">&para;</a></h3>
+<p>当使用 Clang 9.0 编译 <strong>Nebula Graph</strong> 时，会发生该错误：</p>
+<div class="highlight"><pre><span></span><code><span class="o">[</span>  <span class="m">5</span>%<span class="o">]</span> Building CXX object src/common/fs/CMakeFiles/fs_obj.dir/FileUtils.cpp.o
+In file included from src/common/fs/FileUtils.cpp:8:
+In file included from src/common/fs/FileUtils.h:12:
+src/common/base/StatusOr.h:57:19: error: invalid argument <span class="nb">type</span> <span class="s1">&#39;auto&#39;</span> to unary expression
+    static_assert<span class="o">(</span>!is_status_v&lt;T&gt;, <span class="s2">&quot;`T&#39; must not be of type `Status&#39;&quot;</span><span class="o">)</span><span class="p">;</span>
+                  ^~~~~~~~~~~~~~~
+src/common/fs/FileUtils.cpp:90:34: note: <span class="k">in</span> instantiation of template class <span class="s1">&#39;nebula::StatusOr&lt;std::__cxx11::basic_string&lt;char&gt; &gt;&#39;</span> requested here
+StatusOr&lt;std::string&gt; FileUtils::readLink<span class="o">(</span>const char *path<span class="o">)</span> <span class="o">{</span>
+...
+</code></pre></div>
+<p>这是 Clang 9.0 引入的一个已知的 Bug，Clang 10.0（2020-05-25）尚未修复。</p>
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2020年8月11日</span>
+      
+    
+  </small>
+</div>
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../../../2.query-language/4.statement-syntax/4.graph-algorithms/find-path-syntax/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              FIND PATH
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../2.build-by-docker/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              使用 Docker 编译
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2020 Nebula Graph - 浙ICP备20010487号
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/vesoft-inc/nebula-docs-cn" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      
+        <script src="../../../../js/version-select.js"></script>
+      
+    
+  </body>
+</html>
