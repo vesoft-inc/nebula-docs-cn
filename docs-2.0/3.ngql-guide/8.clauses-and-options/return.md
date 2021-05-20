@@ -4,13 +4,13 @@
 
 `RETURN`可以引导子句或语句：
 
-- `RETURN`子句可以用于nGQL中的openCypher方式语句中，例如`MATCH`或`UNWIND`。
+- `RETURN`子句可以用于nGQL中的OpenCypher兼容语句中，例如`MATCH`或`UNWIND`。
 
 - `RETURN`可以单独使用，输出表达式的结果。
 
 ## openCypher兼容性
 
-本文操作仅适用于nGQL中的openCypher方式。关于原生nGQL如何定义输出结果，请参见[`YIELD`](yield.md)。
+本文操作仅适用于nGQL中的OpenCypher兼容语句。关于原生nGQL如何定义输出结果，请参见[`YIELD`](yield.md)。
 
 `RETURN`不支持如下openCypher功能：
 

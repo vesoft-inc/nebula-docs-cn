@@ -6,7 +6,7 @@
 
 - 原生nGQL，例如`GO`和`LOOKUP`语句。
 
-- openCypher方式，例如`MATCH`和`WITH`语句。
+- OpenCypher兼容语句，例如`MATCH`和`WITH`语句。
 
 ## openCypher兼容性
 
