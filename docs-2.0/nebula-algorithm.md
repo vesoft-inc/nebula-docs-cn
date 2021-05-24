@@ -48,7 +48,7 @@ Nebula Algorithm实现图计算的流程如下：
 2. 进入目录`nebula-algorithm`。
 
   ```bash
-  $ cd nebula-algorithm
+  $ cd nebula-spark-utils/nebula-algorithm
   ```
 
 3. 编译打包。
@@ -57,7 +57,7 @@ Nebula Algorithm实现图计算的流程如下：
   $ mvn clean package -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
   ```
 
-编译完成后，在目录`nebula-algorithm/target`下生成文件`nebula-algorithm-2.0.0.jar`。
+编译完成后，在目录`nebula-algorithm/target`下生成类似文件`nebula-algorithm-2.0.0.jar`。
 
 ### Maven远程仓库下载
 

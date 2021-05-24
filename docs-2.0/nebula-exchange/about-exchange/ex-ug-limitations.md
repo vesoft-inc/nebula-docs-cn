@@ -5,10 +5,13 @@
 ## Nebula Graph版本
 
 Exchange client版本（即JAR包版本）和Nebula Graph的版本对应关系如下。
+
 |Exchange client版本|Nebula Graph版本|
 |:---|:---|
-|2.0.0|2.0.0|
-|2.0.0|2.0.1|
+|2.0-SNAPSHOT|v2-nightly|
+|2.0.1|2.0.0、2.0.1|
+|2.0.0|2.0.0、2.0.1|
+
 
 JAR包有两种获取方式：[自行编译](../ex-ug-compile.md)或者从maven仓库下载。
 
@@ -20,8 +23,6 @@ Exchange 2.0 支持以下操作系统：
 
 - CentOS 7
 - macOS
-
-> **说明**：仅Linux系统支持导入SST文件。
 
 ## 软件依赖
 
