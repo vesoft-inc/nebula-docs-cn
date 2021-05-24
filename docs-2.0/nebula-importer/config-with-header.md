@@ -2,7 +2,8 @@
 
 对于有表头（header）的CSV文件，需要在配置文件里设置`withHeader`为`true`，表示CSV文件中第一行为表头，表头内容具有特殊含义。
 
->**警告**：如果CSV文件中含有header，Importer就会按照header来解析每行数据的Schema，并忽略yaml文件中的点或边设置。
+!!! danger
+    如果CSV文件中含有header，Importer就会按照header来解析每行数据的Schema，并忽略yaml文件中的点或边设置。
 
 ## 示例文件
 
@@ -57,7 +58,8 @@
   -,
   ```
 
->**说明**：除了`:LABEL`列之外的所有列都可以按任何顺序排序，因此针对较大的CSV文件，用户可以灵活地设置header来选择需要的列。
+!!! note
+    除了`:LABEL`列之外的所有列都可以按任何顺序排序，因此针对较大的CSV文件，用户可以灵活地设置header来选择需要的列。
 
 对于标签或边类型的属性，格式为`<tag_name/edge_name>.<prop_name>:<prop_type>`，说明如下：
 

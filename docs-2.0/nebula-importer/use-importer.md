@@ -36,37 +36,38 @@ Importer适用于将本地CSV文件的内容导入至Nebula Graph中。
 
 1. 克隆仓库。
 
-   ```bash
-   $ git clone --branch <branch> https://github.com/vesoft-inc/nebula-importer.git
-   ```
+  ```bash
+  $ git clone --branch <branch> https://github.com/vesoft-inc/nebula-importer.git
+  ```
 
-   >**说明**：请使用正确的分支。 
-   >
-   >Nebula Graph 1.x和2.x的rpc协议不同，因此：
-   >
-   >- Nebula Importer v1分支只能连接Nebula Graph 1.x。
-   >
-   >- Nebula Importer master分支和v2分支可以连接Nebula Graph 2.x。
+  !!! note
+  
+        请使用正确的分支。 
+        Nebula Graph 1.x和2.x的rpc协议不同，因此：
+
+      - Nebula Importer v1分支只能连接Nebula Graph 1.x。
+      - Nebula Importer master分支和v2分支可以连接Nebula Graph 2.x。
 
 2. 进入目录`nebula-importer`。
 
-   ```bash
-   $ cd nebula-importer
-   ```
+  ```bash
+  $ cd nebula-importer
+  ```
 
 3. 编译源码。
 
-   ```bash
-   $ make build
-   ```
+  ```bash
+  $ make build
+  ```
 
 4. 启动服务。
 
-   ```bash
-   $ ./nebula-importer --config <yaml_config_file_path>
-   ```
+  ```bash
+  $ ./nebula-importer --config <yaml_config_file_path>
+  ```
 
-   >**说明**：yaml配置文件说明请参见[配置文件](#_7)。
+  !!! note
+        yaml配置文件说明请参见[配置文件](#_7)。
 
 #### 无网络编译方式
 
@@ -113,13 +114,14 @@ $ docker run --rm -ti \
 - `<csv_data_dir>`：本地CSV数据文件的绝对路径。
 - `<version>`：Nebula Graph 2.x请填写`v2`。
 
-> **说明**：建议使用相对路径。如果使用本地绝对路径，请检查路径映射到Docker中的路径。
+!!! note
+    建议使用相对路径。如果使用本地绝对路径，请检查路径映射到Docker中的路径。
 
 
 
 ## 配置文件说明
 
-Nebula Importer通过yaml配置文件来描述待导入文件信息、Nebula Graph服务器信息等。用户可以参考示例配置文件：[无表头配置](config-without-header.md)/[有表头配置](config-with-header.md)。下文将分类介绍配置文件内的字段。
+Nebula Importer通过docker-compose.yaml配置文件来描述待导入文件信息、Nebula Graph服务器信息等。用户可以参考示例配置文件：[无表头配置](config-without-header.md)/[有表头配置](config-with-header.md)。下文将分类介绍配置文件内的字段。
 
 ### 基本配置
 
@@ -289,7 +291,8 @@ schema:
 |`files.schema.edge.props.type`|-|否|属性类型，支持`bool`、`int`、`float`、`double`、`timestamp`和`string`。|
 |`files.schema.edge.props.index`|-|否|属性对应CSV文件中列的序号。|
 
->**说明**：CSV文件中列的序号从0开始，即第一列的序号为0，第二列的序号为1。
+!!! note
+    CSV文件中列的序号从0开始，即第一列的序号为0，第二列的序号为1。
 
 ## 关于CSV文件表头（header）
 
