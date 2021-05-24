@@ -12,7 +12,7 @@
 
 本文操作仅适用于nGQL中的openCypher方式。关于原生nGQL如何定义输出结果，请参见[`YIELD`](yield.md)。
 
-`RETURN`暂不支持如下openCypher功能：
+`RETURN`不支持如下openCypher功能：
 
 - 使用不在英文字母表中的字符作为变量名。例如：
   

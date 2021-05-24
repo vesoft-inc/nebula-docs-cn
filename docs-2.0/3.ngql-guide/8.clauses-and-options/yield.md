@@ -18,7 +18,7 @@
 
   !!! Note
 
-        nGQL暂不支持`CALL[…YIELD]`。
+        nGQL不支持`CALL[…YIELD]`。
 
 - 在nGQL中，`YIELD`和openCypher中的`RETURN`类似。
 
