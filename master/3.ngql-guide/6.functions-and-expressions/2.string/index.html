@@ -1963,17 +1963,16 @@
 <ul>
 <li>使用<code>NULL</code>作为任何参数会出现<a href="https://github.com/vesoft-inc/nebula-graph/issues/878">错误</a>。</li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-</div>
-<p>* 在openCypher中，如果字符串<code>a</code>为<code>null</code>，会返回<code>null</code>。</p>
-<p>* 在openCypher中，如果<code>pos</code>为0，In openCypher, if <code>pos</code> is 0, 会返回从第一个字符开始、<code>count</code>个字符的子字符串。</p>
-<p>* 在openCypher中，如果<code>pos</code>或<code>count</code>为<code>null</code>或负整数，会出现错误。</p>
+<p>!!! note “openCypher兼容性”</p>
+<div class="codehilite"><pre><span></span><code>- 在openCypher中，如果字符串`a`为`null`，会返回`null`。
+- 在openCypher中，如果`pos`为 0，会返回从第一个字符开始 `count`个字符的子字符串。
+- 在openCypher中，如果`pos`或`count`为`null`或负整数，会出现错误。
+</code></pre></div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月11日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月24日</span>
 </small>
 </div>
 </article>
