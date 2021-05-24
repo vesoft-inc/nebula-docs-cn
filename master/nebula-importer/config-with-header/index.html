@@ -1863,9 +1863,10 @@
 </a>
 <h1 id="_1">有表头配置说明<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
 <p>对于有表头（header）的CSV文件，需要在配置文件里设置<code>withHeader</code>为<code>true</code>，表示CSV文件中第一行为表头，表头内容具有特殊含义。</p>
-<blockquote>
-<p><strong>警告</strong>：如果CSV文件中含有header，Importer就会按照header来解析每行数据的Schema，并忽略yaml文件中的点或边设置。</p>
-</blockquote>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>如果CSV文件中含有header，Importer就会按照header来解析每行数据的Schema，并忽略yaml文件中的点或边设置。</p>
+</div>
 <h2 id="_2">示例文件<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <p>有表头的CSV文件示例如下：</p>
 <ul>
@@ -1919,9 +1920,10 @@ student100,student102,1,96.2
 </code></pre></div>
 </li>
 </ul>
-<blockquote>
-<p><strong>说明</strong>：除了<code>:LABEL</code>列之外的所有列都可以按任何顺序排序，因此针对较大的CSV文件，用户可以灵活地设置header来选择需要的列。</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>除了<code>:LABEL</code>列之外的所有列都可以按任何顺序排序，因此针对较大的CSV文件，用户可以灵活地设置header来选择需要的列。</p>
+</div>
 <p>对于标签或边类型的属性，格式为<code>&lt;tag_name/edge_name&gt;.&lt;prop_name&gt;:&lt;prop_type&gt;</code>，说明如下：</p>
 <ul>
 <li><code>&lt;tag_name/edge_name&gt;</code>：标签或者边类型的名称。</li>
@@ -2042,7 +2044,7 @@ student100,student102,1,96.2
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月24日</span>
 </small>
 </div>
 </article>

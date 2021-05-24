@@ -2044,16 +2044,15 @@
 <p>克隆仓库。</p>
 <div class="highlight"><pre><span></span><code>$ git clone --branch &lt;branch&gt; https://github.com/vesoft-inc/nebula-importer.git
 </code></pre></div>
-<blockquote>
-<p><strong>说明</strong>：请使用正确的分支。 </p>
-<p>Nebula Graph 1.x和2.x的rpc协议不同，因此：</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>请使用正确的分支。 
+  Nebula Graph 1.x和2.x的rpc协议不同，因此：</p>
 <ul>
 <li>Nebula Importer v1分支只能连接Nebula Graph 1.x。</li>
-</ul>
-<ul>
 <li>Nebula Importer master分支和v2分支可以连接Nebula Graph 2.x。</li>
 </ul>
-</blockquote>
+</div>
 </li>
 <li>
 <p>进入目录<code>nebula-importer</code>。</p>
@@ -2069,9 +2068,10 @@
 <p>启动服务。</p>
 <div class="highlight"><pre><span></span><code>$ ./nebula-importer --config &lt;yaml_config_file_path&gt;
 </code></pre></div>
-<blockquote>
-<p><strong>说明</strong>：yaml配置文件说明请参见<a href="#_7">配置文件</a>。</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>yaml配置文件说明请参见<a href="#_7">配置文件</a>。</p>
+</div>
 </li>
 </ol>
 <h4 id="_6">无网络编译方式<a class="headerlink" href="#_6" title="Permanent link">¶</a></h4>
@@ -2114,9 +2114,10 @@ $ go build -mod vendor cmd/
 <li><code>&lt;csv_data_dir&gt;</code>：本地CSV数据文件的绝对路径。</li>
 <li><code>&lt;version&gt;</code>：Nebula Graph 2.x请填写<code>v2</code>。</li>
 </ul>
-<blockquote>
-<p><strong>说明</strong>：建议使用相对路径。如果使用本地绝对路径，请检查路径映射到Docker中的路径。</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>建议使用相对路径。如果使用本地绝对路径，请检查路径映射到Docker中的路径。</p>
+</div>
 <h2 id="_7">配置文件说明<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
 <p>Nebula Importer通过yaml配置文件来描述待导入文件信息、Nebula Graph服务器信息等。用户可以参考示例配置文件：<a href="../config-without-header/">无表头配置</a>/<a href="../config-with-header/">有表头配置</a>。下文将分类介绍配置文件内的字段。</p>
 <h3 id="_8">基本配置<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
@@ -2511,9 +2512,10 @@ $ go build -mod vendor cmd/
 </tr>
 </tbody>
 </table>
-<blockquote>
-<p><strong>说明</strong>：CSV文件中列的序号从0开始，即第一列的序号为0，第二列的序号为1。</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>CSV文件中列的序号从0开始，即第一列的序号为0，第二列的序号为1。</p>
+</div>
 <h2 id="csvheader">关于CSV文件表头（header）<a class="headerlink" href="#csvheader" title="Permanent link">¶</a></h2>
 <p>Importer根据CSV文件有无表头，需要对配置文件进行不同的设置，相关示例和说明请参见：</p>
 <ul>
@@ -2526,7 +2528,7 @@ $ go build -mod vendor cmd/
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月24日</span>
 </small>
 </div>
 </article>

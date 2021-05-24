@@ -1989,7 +1989,84 @@
 </ul>
 <h2 id="_3">部署流程<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <h3 id="listener">第一步：准备listener的配置文件<a class="headerlink" href="#listener" title="Permanent link">¶</a></h3>
-<p>你必须在各需要部署 listener 的机器上准备对应的配置文件。文件名称必须为<code>nebula-storaged-listener.conf</code>。用户可以参考提供的<a href="https://github.com/vesoft-inc/nebula-storage/blob/master/conf/nebula-storaged-listener.conf.production">模板</a>。注意去掉文件后缀<code>.production</code>。</p>
+<p>用户必须在需要部署listener的机器上准备对应的配置文件。文件名称必须为<code>nebula-storaged-listener.conf</code>。用户可以参考提供的<a href="https://github.com/vesoft-inc/nebula-storage/blob/master/conf/nebula-storaged-listener.conf.production">模板</a>。注意去掉文件后缀<code>.production</code>。</p>
+<p>大部分配置与<a href="../../../5.configurations-and-logs/1.configurations/4.storage-config/">Storage服务</a>的配置文件相同，本文仅介绍差异部分。</p>
+<table>
+<thead>
+<tr>
+<th align="left">名称</th>
+<th align="left">预设值</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>daemonize</code></td>
+<td align="left"><code>true</code></td>
+<td align="left">是否启动守护进程。</td>
+</tr>
+<tr>
+<td align="left"><code>pid_file</code></td>
+<td align="left"><code>pids_listener/nebula-storaged.pid</code></td>
+<td align="left">记录进程ID的文件。</td>
+</tr>
+<tr>
+<td align="left"><code>meta_server_addrs</code></td>
+<td align="left">-</td>
+<td align="left">全部Meta服务的IP地址和端口。多个Meta服务用英文逗号（,）分隔。</td>
+</tr>
+<tr>
+<td align="left"><code>local_ip</code></td>
+<td align="left">-</td>
+<td align="left">listener服务的本地IP地址。</td>
+</tr>
+<tr>
+<td align="left"><code>port</code></td>
+<td align="left">-</td>
+<td align="left">listener服务的RPC守护进程监听端口。</td>
+</tr>
+<tr>
+<td align="left"><code>heartbeat_interval_secs</code></td>
+<td align="left"><code>10</code></td>
+<td align="left">Meta服务的心跳间隔。单位：秒（s）。</td>
+</tr>
+<tr>
+<td align="left"><code>listener_path</code></td>
+<td align="left"><code>data/listener</code></td>
+<td align="left">listener的WAL目录。只允许使用一个目录。</td>
+</tr>
+<tr>
+<td align="left"><code>data_path</code></td>
+<td align="left"><code>data</code></td>
+<td align="left">出于兼容性考虑，可以忽略此参数。填充一个默认值<code>data</code>。</td>
+</tr>
+<tr>
+<td align="left"><code>part_man_type</code></td>
+<td align="left"><code>memory</code></td>
+<td align="left">部件管理器类型，可选值为<code>memory</code>和<code>meta</code>。</td>
+</tr>
+<tr>
+<td align="left"><code>rocksdb_batch_size</code></td>
+<td align="left"><code>4096</code></td>
+<td align="left">批处理操作的默认保留字节。</td>
+</tr>
+<tr>
+<td align="left"><code>rocksdb_block_cache</code></td>
+<td align="left"><code>4</code></td>
+<td align="left">BlockBasedTable的默认块缓存大小。单位：兆（MB）。</td>
+</tr>
+<tr>
+<td align="left"><code>engine_type</code></td>
+<td align="left"><code>rocksdb</code></td>
+<td align="left">存储引擎类型，例如<code>rocksdb</code>、<code>memory</code>等。</td>
+</tr>
+<tr>
+<td align="left"><code>part_type</code></td>
+<td align="left"><code>simple</code></td>
+<td align="left">部件类型，例如<code>simple</code>、<code>consensus</code>等。</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>在配置文件中请使用真实的（listener机器）IP地址替换<code>127.0.0.1</code>。</p>
@@ -2039,7 +2116,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月24日</span>
 </small>
 </div>
 </article>
