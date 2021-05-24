@@ -100,13 +100,13 @@
 
 ![image](https://docs-cdn.nebula-graph.com.cn/books/images/360-user-1.png)
 
-这些登录记录的网络构成了黑产群体网络的团伙作案特征。360数科[^360]、快手[^kuaishou]、微信[^weixin]、知乎[^zhihu]、携程金融这些公司都通过图技术实时（毫秒级）识别超过几百万的黑产社群。
+这些登录记录的网络构成了黑产群体网络的团伙作案特征。360数科[^360]、快手[^kuaishou]、微信[^weixin]、知乎[^zhihu]、携程金融这些公司都通过图技术实时（毫秒级的）识别超过百万个的黑产社群。
 
 ![image](https://docs-cdn.nebula-graph.com.cn/books/images/360-user-2.png)
 
 [^360]: https://nebula-graph.com.cn/posts/graph-database-data-connections-insight/
 
-[^kuaishou]: https://shimo.im/docs/6kvjxGdcywK9CPrH [TODO]
+[^kuaishou]: https://nebula-graph.com.cn/posts/kuaishou-security-intelligence-platform-with-nebula-graph/
 
 [^weixin]: https://nebula-graph.com.cn/posts/nebula-graph-for-social-networking/
 
