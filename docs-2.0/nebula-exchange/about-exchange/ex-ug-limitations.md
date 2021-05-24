@@ -5,6 +5,7 @@
 ## Nebula Graph版本
 
 Exchange client版本（即JAR包版本）和Nebula Graph的版本对应关系如下。
+
 |Exchange client版本|Nebula Graph版本|
 |:---|:---|
 |2.0.0|2.0.0|
