@@ -299,9 +299,38 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#opencypher">
+    关于openCypher兼容性
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#ngql_opencypher">
     原生 nGQL 和 openCypher 的关系
   </a>
+<nav aria-label="原生 nGQL 和 openCypher 的关系" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ngql_opencypher_9">
+    nGQL 完全兼容openCypher 9吗？
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ngql_2">
+    哪里可以找到更多nGQL的示例？
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tinkerpop_gremlin">
+    是否支持TinkerPop Gremlin？
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#w3c_rdfsparql_graphql">
+    是否支持 W3C 的RDF（SPARQL） 或 GraphQL 等？
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -1867,9 +1896,38 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#opencypher">
+    关于openCypher兼容性
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#ngql_opencypher">
     原生 nGQL 和 openCypher 的关系
   </a>
+<nav aria-label="原生 nGQL 和 openCypher 的关系" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ngql_opencypher_9">
+    nGQL 完全兼容openCypher 9吗？
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ngql_2">
+    哪里可以找到更多nGQL的示例？
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tinkerpop_gremlin">
+    是否支持TinkerPop Gremlin？
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#w3c_rdfsparql_graphql">
+    是否支持 W3C 的RDF（SPARQL） 或 GraphQL 等？
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -1970,14 +2028,145 @@
 <p>示例语句：</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG player(name string, age int);
 </code></pre></div>
+<h2 id="opencypher">关于openCypher兼容性<a class="headerlink" href="#opencypher" title="Permanent link">¶</a></h2>
 <h2 id="ngql_opencypher">原生 nGQL 和 openCypher 的关系<a class="headerlink" href="#ngql_opencypher" title="Permanent link">¶</a></h2>
-<p><code>原生 nGQL</code> 是由 Nebula Graph 自行创造和实现的图查询语言。OpenCypher 是由 <code>openCypher Implementers Group</code> 组织所开源和维护的图查询语言，最新版本为 openCypher 9。由于 nGQL 语言部分兼容了 openCypher，这个部分在本文中称为 <code>openCypher 兼容语句</code>。</p>
-<p><code>nGQL</code> = <code>原生 nGQL 语句</code> + <code>openCypher 兼容语句</code></p>
+<p>原生 nGQL 是由 Nebula Graph 自行创造和实现的图查询语言。OpenCypher 是由 openCypher Implementers Group 组织所开源和维护的图查询语言，
+最新版本为 openCypher 9。由于 nGQL 语言部分兼容了 openCypher，这个部分在本文中称为 OpenCypher 兼容语句。</p>
+<p><code>nGQL 语言</code> = <code>原生 nGQL 语句</code> + <code>OpenCypher 兼容语句</code></p>
+<h3 id="ngql_opencypher_9">nGQL 完全兼容openCypher 9吗？<a class="headerlink" href="#ngql_opencypher_9" title="Permanent link">¶</a></h3>
+<div class="admonition caution">
+<p class="admonition-title">nGQL部分兼容openCypher 9</p>
+<p>在<a href="https://github.com/vesoft-inc/nebula-graph/issues?q=is%3Aissue+is%3Aopen+label%3Aincompatible">Nebula Graph Issues</a>中已经列出已知的37处不兼容项。如果发现这种类型的新问题，请提交问题并附带<code>incompatible</code>标签。</p>
+</div>
+<p>下面是nGQL和openCypher 9的主要差异（由于设计原因而不兼容）。</p>
+<table>
+<thead>
+<tr>
+<th align="left">类别</th>
+<th align="left">openCypher 9</th>
+<th align="left">nGQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Schema</td>
+<td align="left">弱Schema</td>
+<td align="left">强Schema</td>
+</tr>
+<tr>
+<td align="left">相等运算符</td>
+<td align="left"><code>=</code></td>
+<td align="left"><code>==</code></td>
+</tr>
+<tr>
+<td align="left">数学求幂</td>
+<td align="left"><code>^</code></td>
+<td align="left">使用<code>pow(x, y)</code>替代<code>^</code></td>
+</tr>
+<tr>
+<td align="left">边rank</td>
+<td align="left">无此概念</td>
+<td align="left">用<code>@rank</code>设置</td>
+</tr>
+<tr>
+<td align="left">语句</td>
+<td align="left">-</td>
+<td align="left">不支持openCypher 9的所有DML语句（<code>CREATE</code>、<code>MERGE</code>等）和部分<code>MATCH</code>语句（不支持<code>OPTIONAL MATCH</code>也不支持多<code>MATCH</code>）。</td>
+</tr>
+<tr>
+<td align="left">label与tag是不同的概念</td>
+<td align="left">label用于寻找点(点的索引)</td>
+<td align="left">tag用于定义点的一种类型及相应的属性，无索引功能</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>请注意<a href="http://www.opencypher.org/">openCypher 9</a>和<a href="https://neo4j.com/developer/cypher/">Cypher</a>在语法和许可上有一些不同。例如Cypher要求所有Cypher语句必须显式地在一个事务中执行，而openCypher没有这样的要求。另外，nGQL 不支持事务。</p>
+</div>
+<h3 id="ngql_2">哪里可以找到更多nGQL的示例？<a class="headerlink" href="#ngql_2" title="Permanent link">¶</a></h3>
+<p>用户可以在Nebula Graph GitHub的<a href="https://github.com/vesoft-inc/nebula-graph/tree/master/tests/tck/features">features</a>目录内查看超过2500条nGQL示例。</p>
+<p>features目录内包含很多.features格式的文件，每个文件都记录了使用nGQL的场景和示例。例如：</p>
+<div class="highlight"><pre><span></span><code>Feature: Match seek by tag
+
+  Background: Prepare space
+    Given a graph with space named "basketballplayer"
+
+  Scenario: seek by empty tag index
+    When executing query:
+      """
+      MATCH (v:bachelor)
+      RETURN id(v) AS vid
+      """
+    Then the result should be, in any order:
+      | vid          |
+      | 'Tim Duncan' |
+    And no side effects
+    When executing query:
+      """
+      MATCH (v:bachelor)
+      RETURN id(v) AS vid, v.age AS age
+      """
+    Then the result should be, in any order:
+      | vid          | age |
+      | 'Tim Duncan' | 42  |
+    And no side effects
+</code></pre></div>
+<p>示例中的关键字说明如下。</p>
+<table>
+<thead>
+<tr>
+<th align="left">关键字</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>Feature</code></td>
+<td align="left">描述当前文档的主题。</td>
+</tr>
+<tr>
+<td align="left"><code>Background</code></td>
+<td align="left">描述当前文档的背景信息。</td>
+</tr>
+<tr>
+<td align="left"><code>Given</code></td>
+<td align="left">描述执行示例语句的前提条件。</td>
+</tr>
+<tr>
+<td align="left"><code>Scenario</code></td>
+<td align="left">描述具体场景。如果场景之前有<code>@skip</code>标识，表示这个场景下示例语句可能无法正常工作，请不要在生产环境中使用该示例语句。</td>
+</tr>
+<tr>
+<td align="left"><code>When</code></td>
+<td align="left">描述要执行的nGQL示例语句。</td>
+</tr>
+<tr>
+<td align="left"><code>Then</code></td>
+<td align="left">描述执行<code>When</code>内语句的预期返回结果。如果返回结果和文档不同，请提交<a href="https://github.com/vesoft-inc/nebula-graph/issues">issue</a>通知Nebula Graph团队。</td>
+</tr>
+<tr>
+<td align="left"><code>And</code></td>
+<td align="left">描述执行<code>When</code>内语句的副作用。</td>
+</tr>
+<tr>
+<td align="left"><code>@skip</code></td>
+<td align="left">跳过这个示例。通常表示测试代码还没有准备好。</td>
+</tr>
+</tbody>
+</table>
+<p>欢迎<a href="../15.contribution/how-to-contribute.md">增加更多实用场景示例</a>，成为Nebula Graph贡献者。</p>
+<h3 id="tinkerpop_gremlin">是否支持TinkerPop Gremlin？<a class="headerlink" href="#tinkerpop_gremlin" title="Permanent link">¶</a></h3>
+<p>不支持。也没有计划。</p>
+<h3 id="w3c_rdfsparql_graphql">是否支持 W3C 的RDF（SPARQL） 或 GraphQL 等？<a class="headerlink" href="#w3c_rdfsparql_graphql" title="Permanent link">¶</a></h3>
+<p>不支持。也没有计划。</p>
+<p>Nebula Graph的数据模型是属性图，是一个强Schema系统，不支持RDF标准。</p>
+<p>nGQL 也不支持 SPARQL 和 GraphQL。</p>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月20日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月24日</span>
 </small>
 </div>
 </article>

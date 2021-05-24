@@ -1879,6 +1879,14 @@ nebula&gt; RETURN range(1,5)[-2];
 | 4                |
 +------------------+
 
+# 返回列表[1,2,3,4,5]中下标位置从0到3（不包括3）的元素。
+nebula&gt; RETURN range(1,5)[0..3];
++------------------+
+| range(1,5)[0..3] |
++------------------+
+| [1, 2, 3]        |
++------------------+
+
 # 返回列表[1,2,3,4,5]中位置下标大于2的元素。
 nebula&gt; RETURN [n IN range(1,5) WHERE n &gt; 2] AS a;
 +-----------+
@@ -1954,12 +1962,6 @@ nebula&gt; MATCH p = (n:player{name:"Tim Duncan"})-[:follow]-&gt;(m) \
 <li>复合数据类型（例如set、map、list）<strong>不能</strong>存储为点或边的属性。</li>
 </ul>
 <ul>
-<li>不支持使用<code>range()</code>函数返回一个列表的部分元素。<div class="highlight"><pre><span></span><code>nebula&gt; RETURN range(0,5)[0..3];
-[ERROR (-7)]: SyntaxError: syntax error near `3]'
-</code></pre></div>
-</li>
-</ul>
-<ul>
 <li>在openCypher中，查询越界元素时返回<code>null</code>，而在nGQL中，查询越界元素时返回<code>OUT_OF_RANGE</code>。<div class="highlight"><pre><span></span><code>nebula&gt; RETURN range(0,5)[-12];
 +-------------------+
 | range(0,5)[-(12)] |
@@ -1973,7 +1975,7 @@ nebula&gt; MATCH p = (n:player{name:"Tim Duncan"})-[:follow]-&gt;(m) \
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年3月19日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月24日</span>
 </small>
 </div>
 </article>

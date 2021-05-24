@@ -1921,10 +1921,10 @@
 <li>系统结构发生变化后，建议立刻创建快照，例如在<code>add host</code>、<code>drop host</code>、<code>create space</code>、<code>drop space</code>、<code>balance</code>等操作之后。</li>
 </ul>
 <ul>
-<li>暂不支持自动回收创建失败的快照垃圾文件，需要手动删除。</li>
+<li>不支持自动回收创建失败的快照垃圾文件，需要手动删除。</li>
 </ul>
 <ul>
-<li>暂不支持指定快照保存路径，默认路径为<code>/usr/local/nebula/data</code>。</li>
+<li>不支持指定快照保存路径，默认路径为<code>/usr/local/nebula/data</code>。</li>
 </ul>
 <h2 id="_4">快照路径<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <p>Nebula Graph创建的快照以目录的形式存储，例如<code>SNAPSHOT_2021_03_09_08_43_12</code>，后缀<code>2021_03_09_08_43_12</code>根据创建时间（UTC）自动生成。</p>
@@ -1937,7 +1937,7 @@
 ...
 </code></pre></div>
 <h2 id="_5">创建快照<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
-<p>命令<code>CREATE SNAPSHOT</code>可以创建集群当前时间点的快照。暂时只支持创建所有图空间的快照，不支持创建指定图空间的快照。</p>
+<p>命令<code>CREATE SNAPSHOT</code>可以创建集群当前时间点的快照。只支持创建所有图空间的快照，不支持创建指定图空间的快照。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>如果快照创建失败，请<a href="#_7">删除快照</a>重新创建。</p>
@@ -1992,7 +1992,7 @@ nebula&gt; SHOW SNAPSHOTS;
 +--------------------------------+---------+------------------+
 </code></pre></div>
 <h2 id="_8">恢复快照<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
-<p>当前暂未提供恢复快照命令，需要手动拷贝快照文件到对应的文件夹内，也可以通过shell脚本进行操作。实现逻辑如下：</p>
+<p>当前未提供恢复快照命令，需要手动拷贝快照文件到对应的文件夹内，也可以通过shell脚本进行操作。实现逻辑如下：</p>
 <ol>
 <li>
 <p>创建快照后，会在Meta服务器和Storage服务器的安装目录内生成<code>checkpoints</code>目录，保存创建的快照。以本文为例，当存在2个图空间时，创建的快照分别保存在<code>/usr/local/nebula/data/meta/nebula/0/checkpoints</code>、<code>/usr/local/nebula/data/storage/nebula/3/checkpoints</code>和<code>/usr/local/nebula/data/storage/nebula/4/checkpoints</code>中。</p>

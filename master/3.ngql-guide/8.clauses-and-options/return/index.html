@@ -1941,8 +1941,8 @@
 <li><code>RETURN</code>可以单独使用，输出表达式的结果。</li>
 </ul>
 <h2 id="opencypher">openCypher兼容性<a class="headerlink" href="#opencypher" title="Permanent link">¶</a></h2>
-<p>本文操作仅适用于nGQL中的openCypher方式。关于nGQL扩展如何定义输出结果，请参见<a href="../yield/"><code>YIELD</code></a>。</p>
-<p><code>RETURN</code>暂不支持如下openCypher功能：</p>
+<p>本文操作仅适用于nGQL中的openCypher方式。关于原生nGQL如何定义输出结果，请参见<a href="../yield/"><code>YIELD</code></a>。</p>
+<p><code>RETURN</code>不支持如下openCypher功能：</p>
 <ul>
 <li>
 <p>使用不在英文字母表中的字符作为变量名。例如：</p>
@@ -1961,10 +1961,10 @@ RETURN (v)-[e]-&gt;(v2);
 </ul>
 <h2 id="_1">历史版本兼容性<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <ul>
-<li>在nGQL 1.x中，<code>RETURN</code>适用于nGQL扩展，语法为<code>RETURN &lt;var_ref&gt; IF &lt;var_ref&gt; IS NOT NULL</code>。</li>
+<li>在nGQL 1.x中，<code>RETURN</code>适用于原生nGQL，语法为<code>RETURN &lt;var_ref&gt; IF &lt;var_ref&gt; IS NOT NULL</code>。</li>
 </ul>
 <ul>
-<li>在nGQL 2.0中，<code>RETURN</code>不适用于nGQL扩展。</li>
+<li>在nGQL 2.0中，<code>RETURN</code>不适用于原生nGQL。</li>
 </ul>
 <h2 id="_2">返回点<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player) \
@@ -2154,7 +2154,7 @@ nebula&gt; MATCH (v:player{name:"Tony Parker"})--(v2:player) \
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年3月29日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月24日</span>
 </small>
 </div>
 </article>
