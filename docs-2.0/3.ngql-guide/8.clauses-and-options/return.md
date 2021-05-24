@@ -8,7 +8,7 @@
 
 - `RETURN`可以单独使用，输出表达式的结果。
 
-## openCypher兼容性
+## OpenCypher兼容性
 
 本文操作仅适用于nGQL中的OpenCypher兼容语句。关于原生nGQL如何定义输出结果，请参见[`YIELD`](yield.md)。
 

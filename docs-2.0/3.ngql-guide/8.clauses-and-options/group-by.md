@@ -2,7 +2,7 @@
 
 `GROUP BY`子句可以用于聚合数据。
 
-## openCypher兼容性
+## OpenCypher兼容性
 
 本文操作仅适用于原生nGQL。
 
