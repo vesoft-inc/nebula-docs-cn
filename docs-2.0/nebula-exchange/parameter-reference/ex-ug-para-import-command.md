@@ -6,7 +6,8 @@
 <spark_install_path>/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-2.x.y.jar_path> -c <csv_application.conf_path> 
 ```
 
-> **说明**：JAR文件版本号以实际编译得到的JAR文件名称为准。
+!!! note
+    JAR文件版本号以实际编译得到的JAR文件名称为准。
 
 下表列出了命令的相关参数。
 
