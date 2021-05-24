@@ -8,19 +8,19 @@
 
 - `YIELD`语句可以在独立查询或复合查询中使用。
 
-## openCypher兼容性
+## OpenCypher兼容性
 
 本文操作仅适用于原生nGQL。关于OpenCypher兼容语句如何定义输出结果，请参见[`RETURN`](return.md)。
 
-`YIELD`在nGQL和openCypher中有不同的函数：
+`YIELD`在nGQL和OpenCypher中有不同的函数：
 
-- 在openCypher中，`YIELD`用于在`CALL[…YIELD]`子句中指定过程调用的输出。
+- 在OpenCypher中，`YIELD`用于在`CALL[…YIELD]`子句中指定过程调用的输出。
 
   !!! Note
 
         nGQL不支持`CALL[…YIELD]`。
 
-- 在nGQL中，`YIELD`和openCypher中的`RETURN`类似。
+- 在nGQL中，`YIELD`和OpenCypher中的`RETURN`类似。
 
 !!! note
     下文示例中的`$$`、`$-`等是引用符号，详情请参见[引用符](../5.operators/5.property-reference.md)。

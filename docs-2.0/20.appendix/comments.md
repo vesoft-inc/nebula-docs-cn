@@ -24,11 +24,16 @@ nGQL语句中的反斜线（\）代表换行。
 
 ## OpenCypher兼容性
 
+<<<<<<< HEAD
 * 在nGQL中，用户必须在行末使用反斜线（\）来换行，即使是在使用`/* */`符号的多行注释内。
 * 在openCypher中不需要使用反斜线换行。
+=======
+* 在nGQL中，用户必须在行末使用反斜线（\）来换行，即使是在使用`\* *\`符号的多行注释内。
+* 在OpenCypher中不需要使用反斜线换行。
+>>>>>>> fadf2754 (openCypher -> OpenCypher)
 
-```openCypher
-/* openCypher风格：
+```OpenCypher
+/* OpenCypher风格：
 这条注释
 延续了不止
 一行 */
