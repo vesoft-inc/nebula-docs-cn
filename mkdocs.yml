@@ -309,7 +309,7 @@ nav:
       - 关键字: 20.appendix/keywords-and-reserved-words.md
       - 产品年表: 20.appendix/20.history.md
 
-  - PDF: ./pdf/NebulaGraph-CN.pdf
+  - PDF: ./pdf/NebulaGraph-book.pdf
 
 markdown_extensions:
   - footnotes
@@ -339,7 +339,7 @@ plugins:
       cover: true
       back_cover: true
       cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
-      output_path: pdf/NebulaGraph-CN.pdf
+      output_path: pdf/NebulaGraph-book.pdf
       show_anchors: true
       toc_level: 3
 

@@ -41,7 +41,7 @@ jobs:
         run: |
            mkdocs build
            ls -altr
-           tar -czf book.tar.gz site/pdf/NebulaGraph-CN.pdf
+           tar -czf book.tar.gz site/pdf/NebulaGraph-book.pdf
            
       - name: Transfer
         # uses: garygrossgarten/github-action-scp@release
