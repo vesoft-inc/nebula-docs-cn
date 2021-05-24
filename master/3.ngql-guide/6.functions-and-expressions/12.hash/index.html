@@ -1903,7 +1903,7 @@
 </a>
 <h1 id="hash">hash函数<a class="headerlink" href="#hash" title="Permanent link">¶</a></h1>
 <p><code>hash()</code>函数返回参数的哈希值。其参数可以是数字、字符串、列表、布尔值、NULL等类型的值，或者计算结果为这些类型的表达式。</p>
-<p><code>hash()</code>函数采用MurmurHash2算法，种子（seed）为<code>0xc70f6907UL</code>。用户可以在<a href="https://github.com/vesoft-inc/nebula-common/blob/master/src/common/base/MurmurHash2.h"><code>MurmurHahs2.h</code></a>中查看其源代码。</p>
+<p><code>hash()</code>函数采用MurmurHash2算法，种子（seed）为<code>0xc70f6907UL</code>。用户可以在<a href="https://github.com/vesoft-inc/nebula-common/blob/master/src/common/base/MurmurHash2.h"><code>MurmurHash2.h</code></a>中查看其源代码。</p>
 <p>在Java中的调用方式如下：</p>
 <div class="highlight"><pre><span></span><code><span class="n">MurmurHash2</span><span class="p">.</span><span class="na">hash64</span><span class="p">(</span><span class="s">"to_be_hashed"</span><span class="p">.</span><span class="na">getBytes</span><span class="p">(),</span><span class="s">"to_be_hashed"</span><span class="p">.</span><span class="na">getBytes</span><span class="p">().</span><span class="na">length</span><span class="p">,</span> <span class="mh">0xc70f6907</span><span class="p">)</span>
 </code></pre></div>
@@ -1968,7 +1968,7 @@ nebula&gt; YIELD hash(false);
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月18日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月24日</span>
 </small>
 </div>
 </article>
