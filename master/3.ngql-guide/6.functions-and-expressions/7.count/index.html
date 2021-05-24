@@ -1915,7 +1915,7 @@ nebula&gt; GO FROM "player101" OVER follow BIDIRECT \
 <ul>
 <li><code>COUNT(*)</code>：姓名出现的次数。</li>
 </ul>
-<p>因为测试数据库<code>basketballplayer</code>中没有重复的姓名，<code>COUNT(*)</code>列中数字<code>2</code>表示该行的人和<code>player101</code>是互相<code>follow</code>的关系。</p>
+<p>因为测试数据集<code>basketballplayer</code>中没有重复的姓名，<code>COUNT(*)</code>列中数字<code>2</code>表示该行的人和<code>player101</code>是互相<code>follow</code>的关系。</p>
 <div class="highlight"><pre><span></span><code># 方法一：统计数据库中的年龄分布情况。
 nebula&gt; LOOKUP ON player \
         YIELD player.age As playerage \

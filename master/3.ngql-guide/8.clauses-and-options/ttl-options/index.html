@@ -1963,7 +1963,7 @@
 <p>本文操作仅适用于原生nGQL。</p>
 <h2 id="_1">注意事项<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <ul>
-<li>不能修改带有TTL选项的属性。</li>
+<li>不能修改带有TTL选项的属性的Schema。</li>
 </ul>
 <ul>
 <li>标签或边类型上不能同时存在TTL选项和索引，即使在不同属性上分别设置也不行。</li>
@@ -2039,14 +2039,8 @@ nebula&gt; INSERT VERTEX t2(a, b, c) values "102":(1612778164674, 30, "Hello");
 </li>
 </ul>
 <ul>
-<li>
-<p>设置<code>ttl_duration</code>为<code>0</code>。本操作可以保留TTL选项，同时防止属性过期。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; ALTER TAG t1 ttl_duration = 0;
+<li>设置<code>ttl_duration</code>为<code>0</code>。本操作可以保留TTL选项，属性永不过期，且属性的Schema无法修改。<div class="highlight"><pre><span></span><code>nebula&gt; ALTER TAG t1 ttl_duration = 0;
 </code></pre></div>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
-<p>即使<code>ttl_duration</code>为<code>0</code>，用户也不能修改对应的属性。</p>
-</div>
 </li>
 </ul>
 <hr/>
