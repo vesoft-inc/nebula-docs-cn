@@ -4,7 +4,7 @@
 
 ## openCypher兼容性
 
-本文操作仅适用于nGQL扩展。
+本文操作仅适用于原生nGQL。
 
 用户也可以使用openCypher方式的[count()](../6.functions-and-expressions/7.count.md)函数聚合数据。
 

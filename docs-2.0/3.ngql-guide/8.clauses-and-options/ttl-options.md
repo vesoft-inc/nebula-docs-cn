@@ -4,7 +4,7 @@ TTL（Time To Live）指定属性的存活时间，超时后，该属性就会�
 
 ## openCypher兼容性
 
-本文操作仅适用于nGQL扩展。
+本文操作仅适用于原生nGQL。
 
 ## 注意事项
 
