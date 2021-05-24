@@ -90,12 +90,8 @@ nebula> INSERT VERTEX t2(a, b, c) values "102":(1612778164674, 30, "Hello");
     nebula> ALTER TAG t1 ttl_col = "";
     ```
 
-- 设置`ttl_duration`为`0`。本操作可以保留TTL选项，同时防止属性过期。
+- 设置`ttl_duration`为`0`。本操作可以保留TTL选项，属性永不过期，且无法修改。
 
     ```ngql
     nebula> ALTER TAG t1 ttl_duration = 0;
     ```
-
-  !!! danger
-
-        即使`ttl_duration`为`0`，用户也不能修改对应的属性。
