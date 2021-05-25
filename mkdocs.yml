@@ -239,7 +239,6 @@ nav:
       - Storage负载均衡: 8.service-tuning/load-balance.md
 
   - Nebula Graph Studio:
-    - Studio版本更新说明: nebula-studio/about-studio/st-ug-release-note.md
     - 认识 Nebula Graph Studio:
       - 什么是 Nebula Graph Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
       - 名词解释: nebula-studio/about-studio/st-ug-terms.md
