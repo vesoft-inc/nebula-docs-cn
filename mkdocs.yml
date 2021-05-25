@@ -69,7 +69,7 @@ nav:
         - 日期时间: 3.ngql-guide/3.data-types/4.date-and-time.md
         - NULL: 3.ngql-guide/3.data-types/5.null.md
         - 列表: 3.ngql-guide/3.data-types/6.list.md
-        - 集合: 3.ngql-guide/3.data-types/7.set.md
+        #- 集合: 3.ngql-guide/3.data-types/7.set.md
         - 映射: 3.ngql-guide/3.data-types/8.map.md
         - 类型转换: 3.ngql-guide/3.data-types/9.type-conversion.md
 
@@ -100,7 +100,7 @@ nav:
           - reduce函数: 3.ngql-guide/6.functions-and-expressions/11.reduce.md
           - hash函数: 3.ngql-guide/6.functions-and-expressions/12.hash.md
           - 谓词函数: 3.ngql-guide/6.functions-and-expressions/8.predicate.md
-          - 自定义函数: 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
+#          - 自定义函数: 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
 
       - 通用查询语句:
           - Match: 3.ngql-guide/7.general-query-statements/2.match.md
@@ -177,7 +177,7 @@ nav:
         - DROP INDEX: 3.ngql-guide/14.native-index-statements/6.drop-native-index.md
 
       - 全文索引:
-        - 索引介绍: 3.ngql-guide/14.native-index-statements/README.md
+#        - 索引介绍: 3.ngql-guide/14.native-index-statements/README.md
         - 全文索引限制: 4.deployment-and-installation/6.deploy-text-based-index/1.text-based-index-restrictions.md
         - 部署全文索引: 4.deployment-and-installation/6.deploy-text-based-index/2.deploy-es.md
         - 部署Raft listener: 4.deployment-and-installation/6.deploy-text-based-index/3.deploy-listener.md
@@ -297,8 +297,6 @@ nav:
 
   - 附录:
       - 常见问题: 20.appendix/0.FAQ.md
-<<<<<<< HEAD
-<<<<<<< HEAD
       - 相关技术: 20.appendix/1.relates.md
       - 图建模: 20.appendix/2.graph-modeling.md
       - 系统建模: 20.appendix/3.system-design.md
@@ -306,62 +304,13 @@ nav:
       - 分片ID: 20.appendix/5.partition.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
       - VID: 20.appendix/7.vid.md
-=======
-      - 相关技术: 20.appendix/0.relates.md
-      - 生态工具概览: 20.appendix/6.eco-tool-version.md
-=======
-      - 相关技术: 20.appendix/1.relates.md
->>>>>>> af3a0cce (minor fix)
-      - 图建模: 20.appendix/2.graph-modeling.md
-      - 系统建模: 20.appendix/3.system-design.md
-      - 关于Raft的简单介绍: 20.appendix/4.raft.md
-      - 分片ID: 20.appendix/5.partition.md
-<<<<<<< HEAD
->>>>>>> 4ce05ecf (pdf format)
-=======
-      - 生态工具概览: 20.appendix/6.eco-tool-version.md
-      - VID: 20.appendix/7.vid.md
->>>>>>> af3a0cce (minor fix)
       - 注释: 20.appendix/comments.md
       - 区分大小写: 20.appendix/identifier-case-sensitivity.md
       - 关键字: 20.appendix/keywords-and-reserved-words.md
       - 产品年表: 20.appendix/20.history.md
 
-  - PDF: ./pdf/NebulaGraph-CN.pdf
+  - PDF: ./pdf/NebulaGraph-book.pdf
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-#  - 图算法:
-#    - nebula-algorithm:
-#      - 什么是 nebula-algorithm: nebula-algorithm/na-ug-what-is-nebula-algorithm.md
-#      - 使用限制: nebula-algorithm/na-ug-limitations.md
-#      - 编译 nebula-algorithm: nebula-algorithm/na-ug-compile.md
-#      - 使用示例: nebula-algorithm/na-ug-example.md
-#
-#  - Nebula Flink Connector:
-#    - 什么是 Nebula Flink Connector: nebula-flink/nf-ug-what-is-flink-connector.md
-#    - 编译 Nebula Flink Connector: nebula-flink/nf-ug-compile.md
-#    - 使用限制: nebula-flink/nf-ug-limitations.md
-#    - 自定义 source (NebulaSource): nebula-flink/nf-ug-customize-source.md
-#    - 自定义 sink (NebulaSink): nebula-flink/nf-ug-customize-sink.md
-#    - 特殊说明: nebula-flink/nf-ug-notes.md
-#
-#  - Nebula Spark Connector:
-#    - 什么是 Nebula Spark Connector: spark-connector/sc-ug-what-is-spark-connector.md
-#    - 编译 Nebula Spark Connector: spark-connector/sc-ug-compile.md
-#    - 使用限制: spark-connector/sc-ug-limitations.md
-#    - Nebula Spark Connector Reader:
-#      - 什么是 Nebula Spark Connector Reader: spark-connector/reader/sc-ug-what-is-reader.md
-#      - 使用示例: spark-connector/reader/sc-ug-reader-example.md
-#    - Nebula Spark Connector Writer:
-#      - 什么是 Nebula Spark Connector Writer: spark-connector/writer/sc-ug-what-is-writer.md
-#      - 使用示例: spark-connector/writer/sc-ug-writer-example.md
-# Extensions
->>>>>>> 4ce05ecf (pdf format)
-=======
->>>>>>> af3a0cce (minor fix)
 markdown_extensions:
   - footnotes
   - admonition
@@ -390,9 +339,9 @@ plugins:
       cover: true
       back_cover: true
       cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
-      output_path: pdf/NebulaGraph-CN.pdf
+      output_path: pdf/NebulaGraph-book.pdf
       show_anchors: true
-      toc_level: 3
+      toc_level: 2
 
 extra_javascript:
   - js/version-select.js
