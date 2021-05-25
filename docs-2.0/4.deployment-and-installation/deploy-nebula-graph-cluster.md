@@ -40,7 +40,7 @@ Nebula Graph的所有配置文件均位于安装目录的`etc`目录内，包括
 | D      | `nebula-graphd.conf`、`nebula-storaged.conf` |
 | E      | `nebula-graphd.conf`、`nebula-storaged.conf` |
 
-您可以参考如下配置文件的内容，仅展示集群通信的设置，其他为默认设置，便于您了解集群间各个服务器的关系。
+用户可以参考如下配置文件的内容，仅展示集群通信的部分设置，未展示的内容为默认设置，便于用户了解集群间各个服务器的关系。
 
 !!! note
 
