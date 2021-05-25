@@ -42,9 +42,10 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
 1. 下载 Studio 的部署配置文件。
 
-   ```bash
-   git clone https://github.com/vesoft-inc/nebula-graph-studio.git
-   ```
+   | 安装包 | Nebula版本 |
+   | ----- | ----- |
+   | [nebula-graph-studio-v1.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-v1.gz) | 1.x |
+   | [nebula-graph-studio-v2.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-v2.gz) | 2.x |
 
 2. 切换到 `nebula-graph-studio` 目录。
 
@@ -164,20 +165,20 @@ $ losf -i:7001
 如果端口被占用，且无法结束该端口上进程，用户可以通过以下命令修改Studio服务启动端口，并重新启动服务。
 ```bash
 //修改studio服务启动端口
- $ vi config/config.default.js
+$ vi config/config.default.js
 
- //修改
- ...
-     config.cluster = {
-         listen: {
-             port: 7001, // 修改这个端口号，改成任意一个当前可用的即可
-             hostname: '0.0.0.0',
-         },
-     };
- ...
+//修改
+...
+    config.cluster = {
+        listen: {
+            port: 7001, // 修改这个端口号，改成任意一个当前可用的即可
+            hostname: '0.0.0.0',
+        },
+    };
+...
 
- //重新启动npm
- $ npm run start
+//重新启动npm
+$ npm run start
 ```
 
 ## 后续操作
