@@ -22,16 +22,13 @@
     - [操作标签](manage-schema/st-ug-crud-tag.md)
     - [操作边类型](manage-schema/st-ug-crud-edge-type.md)
     - [操作索引](manage-schema/st-ug-crud-index.md)
-  - 使用图探索[TODO]
   - 使用控制台
     - [控制台界面](use-console/st-ug-console.md)
     - [导入图探索](use-console/st-ug-open-in-explorer.md)
     - [查看子图](use-console/st-ug-visualize-findpath.md)
-- 最佳实践 [TODO]
 - 故障排查
   - [连接数据库错误](troubleshooting/st-ug-connection-errors.md)
   - [无法访问 Studio](troubleshooting/st-ug-connection-errors.md)
   - [常见问题](troubleshooting/st-ug-faq.md)
-  - 错误信息 [TODO]
 
-\* 本页面所列 [TODO] 仅表示文档尚未完成，并非表示 Studio 不具备相应的功能。
+

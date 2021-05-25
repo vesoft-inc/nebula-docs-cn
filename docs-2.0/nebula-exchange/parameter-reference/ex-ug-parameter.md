@@ -49,9 +49,6 @@
 |`nebula.user`|string|-|是|拥有Nebula Graph写权限的用户名。|
 |`nebula.pswd`|string|-|是|用户名对应的密码。|
 |`nebula.space`|string|-|是|需要导入数据的的图空间名称。|
-|`nebula.path.local`|string|`"/tmp"`|否|（TODO:coding）导入SST文件时需要设置本地SST文件路径。|
-|`nebula.path.remote`|string|`"/sst"`|否|（TODO:coding）导入SST文件时需要设置远端SST文件路径。|
-|`nebula.path.hdfs.namenode`|string|`"hdfs://name_node:9000"`|否|（TODO:coding）导入SST文件时需要设置HDFS的namenode。|
 |`nebula.connection.timeout`|int|`3000`|否|Thrift连接的超时时间，单位为 ms。|
 |`nebula.connection.retry`|int|`3`|否|Thrift连接重试次数。|
 |`nebula.execution.retry`|int|`3`|否|nGQL语句执行重试次数。|
