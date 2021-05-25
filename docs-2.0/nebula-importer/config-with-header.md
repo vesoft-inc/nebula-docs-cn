@@ -2,7 +2,8 @@
 
 对于有表头（header）的CSV文件，需要在配置文件里设置`withHeader`为`true`，表示CSV文件中第一行为表头，表头内容具有特殊含义。
 
-!!! danger
+!!! caution
+
     如果CSV文件中含有header，Importer就会按照header来解析每行数据的Schema，并忽略yaml文件中的点或边设置。
 
 ## 示例文件
@@ -102,8 +103,7 @@ clientSettings:
   connection:
     user: root
     password: nebula
-    address: 192.168.*.*:9669
-
+    address: 192.168.11.13:9669
 
   postStart:
     # 配置连接Nebula Graph服务器之后，在插入数据之前执行的一些操作。
@@ -180,4 +180,6 @@ files:
         withRanking: true
 ```
 
-点ID的数据类型需要和`clientSettings.postStart.commands`中的创建图空间语句的数据类型一致。
+!!! Note
+
+    点ID的数据类型需要和`clientSettings.postStart.commands`中的创建图空间语句的数据类型一致。
