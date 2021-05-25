@@ -16,10 +16,8 @@
   - [导入MySQL数据](use-exchange/ex-ug-import-from-mysql.md)
   - [导入Kafka数据](use-exchange/ex-ug-import-from-kafka.md)
   - [导入Pulsar数据](use-exchange/ex-ug-import-from-pulsar.md)
-  - 导入SST文件(TODO:doc)
 - 参数说明
   - [配置说明](parameter-reference/ex-ug-parameter.md)
   - [导入命令参数](parameter-reference/ex-ug-para-import-command.md)
 - [常见问题](ex-ug-FAQ.md)
-- 错误信息(TODO:doc)
 
