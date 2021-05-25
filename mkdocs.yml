@@ -181,7 +181,7 @@ nav:
         - DROP INDEX: 3.ngql-guide/14.native-index-statements/6.drop-native-index.md
 
       - 全文索引:
-        - 索引介绍: 3.ngql-guide/14.native-index-statements/README.md
+#        - 索引介绍: 3.ngql-guide/14.native-index-statements/README.md
         - 全文索引限制: 4.deployment-and-installation/6.deploy-text-based-index/1.text-based-index-restrictions.md
         - 部署全文索引: 4.deployment-and-installation/6.deploy-text-based-index/2.deploy-es.md
         - 部署Raft listener: 4.deployment-and-installation/6.deploy-text-based-index/3.deploy-listener.md
