@@ -290,7 +290,7 @@ $ ./nebula-console --addr xxx.xxx.10.111 --port 9669 -u root -p nebula
 2021/05/25 01:41:19 [INFO] connection pool is initialized successfully
 Welcome to Nebula Graph!
 
-> SHOW HOSTS
+> SHOW HOSTS;
 +------------------+------+----------+--------------+----------------------+------------------------+
 | Host             | Port | Status   | Leader count | Leader distribution  | Partition distribution |
 +------------------+------+----------+--------------+----------------------+------------------------+
