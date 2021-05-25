@@ -44,12 +44,10 @@
 
         在同一个图空间中，VID 始终唯一，不可重复。关于 VID 的信息，参考 [Nebula Graph 的点ID](../../20.appendix/0.vid.md) "点击进入 Nebula Graph 用户手册")。 
 
-  3. 在 **ID Hash** 列，选择 VID 预处理方式：如果源数据是 `int` 类型数据，选择 **保持原值**；如果源数据是 `string`、`double` 或者 `bool` 类型数据，选择 **Hash**。
-
 8. 在 **TAG 1** 部分，完成以下操作：  
-  1. 在 **TAG** 下拉列表中，选择数据源对应的标签名称。在本示例中，`vertex_player.csv` 文件对应选择 **player**；`vertex_team.csv` 文件对应选择 **team**。  
+  3. 在 **TAG** 下拉列表中，选择数据源对应的标签名称。在本示例中，`vertex_player.csv` 文件对应选择 **player**；`vertex_team.csv` 文件对应选择 **team**。  
 
-  2. 在显示的属性列表中，点击 **选择**，为标签属性绑定源数据。在本示例中，`player` 标签的 `name` 属性对应 `vertex_player.csv` 文件中的 **Column 2** 列，**类型** 为 **string**，`age` 属性对应文件中的 **Column 1** 列，**类型** 为 **int**；`team` 标签的 `name` 属性对应 `vertex_team.csv` 文件中的 **Column 1** 列，**类型** 为 **string**。
+  4. 在显示的属性列表中，点击 **选择**，为标签属性绑定源数据。在本示例中，`player` 标签的 `name` 属性对应 `vertex_player.csv` 文件中的 **Column 2** 列，**类型** 为 **string**，`age` 属性对应文件中的 **Column 1** 列，**类型** 为 **int**；`team` 标签的 `name` 属性对应 `vertex_team.csv` 文件中的 **Column 1** 列，**类型** 为 **string**。
 
   ![course类点对应的属性数据源](../figs/st-ug-010-1.png "为点属性选择数据源")  
 
