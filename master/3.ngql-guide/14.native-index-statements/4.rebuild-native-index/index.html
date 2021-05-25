@@ -1870,15 +1870,9 @@
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
 <p>索引功能不会自动对其创建之前已存在的存量数据生效————在索引重建完成之前，无法基于该索引使用<code>LOOKUP</code>和<code>MATCH</code>语句查询到存量数据。</p>
-</div>
-<div class="admonition danger">
-<p class="admonition-title">Danger</p>
 <p>重建索引期间，所有查询都会跳过索引并执行顺序扫描，返回结果可能不一致。</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
 <p>请在创建索引后，选择合适的时间为存量数据重建索引。使用索引的详情请参见<a href="../1.create-native-index/">CREATE INDEX</a>。</p>
-</div>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code>REBUILD {TAG | EDGE} INDEX [&lt;index_name_list&gt;];
 
@@ -1926,7 +1920,7 @@ nebula&gt; SHOW JOB 66;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月25日</span>
 </small>
 </div>
 </article>

@@ -2084,9 +2084,9 @@ nebula&gt; WITH 4 AS one, 3 AS two \
 
 nebula&gt; RETURN length(NULL), size(NULL), count(NULL), NULL IS NULL, NULL IS NOT NULL, sin(NULL), NULL + NULL, [1, NULL] IS NULL;
 +--------------+------------+-------------+--------------+------------------+-----------+-------------+------------------+
-| length(NULL) | size(NULL) | COUNT(NULL) | NULL IS NULL | NULL IS NOT NULL | sin(NULL) | (NULL+NULL) | [1,NULL] IS NULL |
+| length(NULL) | size(NULL) | count(NULL) | NULL IS NULL | NULL IS NOT NULL | sin(NULL) | (NULL+NULL) | [1,NULL] IS NULL |
 +--------------+------------+-------------+--------------+------------------+-----------+-------------+------------------+
-| BAD_TYPE     | __NULL__   | 0           | true         | false            | BAD_TYPE  | __NULL__    | false            |
+| __NULL__     | __NULL__   | 0           | true         | false            | __NULL__  | __NULL__    | false            |
 +--------------+------------+-------------+--------------+------------------+-----------+-------------+------------------+
 
 nebula&gt; WITH {name: null} AS map \
@@ -2123,7 +2123,7 @@ nebula&gt; MATCH (n:player) \
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月25日</span>
 </small>
 </div>
 </article>
