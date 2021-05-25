@@ -119,7 +119,7 @@ $ docker run --rm -ti \
 
 ## 配置文件说明
 
-Nebula Importer通过docker-cpmpose.yaml配置文件来描述待导入文件信息、Nebula Graph服务器信息等。用户可以参考示例配置文件：[无表头配置](config-without-header.md)/[有表头配置](config-with-header.md)。下文将分类介绍配置文件内的字段。
+Nebula Importer通过docker-compose.yaml配置文件来描述待导入文件信息、Nebula Graph服务器信息等。用户可以参考示例配置文件：[无表头配置](config-without-header.md)/[有表头配置](config-with-header.md)。下文将分类介绍配置文件内的字段。
 
 ### 基本配置
 
