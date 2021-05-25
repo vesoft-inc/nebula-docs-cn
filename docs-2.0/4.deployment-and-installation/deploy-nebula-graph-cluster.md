@@ -6,11 +6,11 @@ Nebula Graph不提供官方的集群部署工具，需要手动部署，下文�
 
 | 机器名称 |IP地址          | graphd进程数量   | storaged进程数量    |  metad进程数量   |
 | :----- |:---------------|:------------- | :----------------- | :---------------- |
-| A      | xxx.xxx.10.111 |1               | 1                  | 1                |
-| B      | xxx.xxx.10.112 |1               | 1                  | 1                |
-| C      | xxx.xxx.10.113 |1               | 1                  | 1                |
-| D      | xxx.xxx.10.114 |1               | 1                  | -                |
-| E      | xxx.xxx.10.115 |1               | 1                  | -                |
+| A      | 192.168.10.111 |1               | 1                  | 1                |
+| B      | 192.168.10.112 |1               | 1                  | 1                |
+| C      | 192.168.10.113 |1               | 1                  | 1                |
+| D      | 192.168.10.114 |1               | 1                  | -                |
+| E      | 192.168.10.115 |1               | 1                  | -                |
 
 ## 前提条件
 
@@ -59,11 +59,11 @@ Nebula Graph的所有配置文件均位于安装目录的`etc`目录内，包括
     ```bash
     ########## networking ##########
     # Comma separated Meta Server Addresses
-    --meta_server_addrs=xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+    --meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
     # Local IP used to identify the nebula-graphd process.
     # Change it to an address other than loopback if the service is distributed or
     # will be accessed remotely.
-    --local_ip=xxx.xxx.10.111
+    --local_ip=192.168.10.111
     # Network device to listen on
     --listen_netdev=any
     # Port to listen on
@@ -75,11 +75,11 @@ Nebula Graph的所有配置文件均位于安装目录的`etc`目录内，包括
     ```bash
     ########## networking ##########
     # Comma separated Meta server addresses
-    --meta_server_addrs=xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+    --meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
     # Local IP used to identify the nebula-storaged process.
     # Change it to an address other than loopback if the service is distributed or
     # will be accessed remotely.
-    --local_ip=xxx.xxx.10.111
+    --local_ip=192.168.10.111
     # Storage daemon listening port
     --port=9779
     ```
@@ -89,11 +89,11 @@ Nebula Graph的所有配置文件均位于安装目录的`etc`目录内，包括
     ```bash
     ########## networking ##########
     # Comma separated Meta Server addresses
-    --meta_server_addrs=xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+    --meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
     # Local IP used to identify the nebula-metad process.
     # Change it to an address other than loopback if the service is distributed or
     # will be accessed remotely.
-    --local_ip=xxx.xxx.10.111
+    --local_ip=192.168.10.111
     # Meta daemon listening port
     --port=9559
     ```
@@ -105,11 +105,11 @@ Nebula Graph的所有配置文件均位于安装目录的`etc`目录内，包括
     ```bash
     ########## networking ##########
     # Comma separated Meta Server Addresses
-    --meta_server_addrs=xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+    --meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
     # Local IP used to identify the nebula-graphd process.
     # Change it to an address other than loopback if the service is distributed or
     # will be accessed remotely.
-    --local_ip=xxx.xxx.10.112
+    --local_ip=192.168.10.112
     # Network device to listen on
     --listen_netdev=any
     # Port to listen on
@@ -121,11 +121,11 @@ Nebula Graph的所有配置文件均位于安装目录的`etc`目录内，包括
     ```bash
     ########## networking ##########
     # Comma separated Meta server addresses
-    --meta_server_addrs=xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+    --meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
     # Local IP used to identify the nebula-storaged process.
     # Change it to an address other than loopback if the service is distributed or
     # will be accessed remotely.
-    --local_ip=xxx.xxx.10.112
+    --local_ip=192.168.10.112
     # Storage daemon listening port
     --port=9779
     ```
@@ -135,11 +135,11 @@ Nebula Graph的所有配置文件均位于安装目录的`etc`目录内，包括
     ```bash
     ########## networking ##########
     # Comma separated Meta Server addresses
-    --meta_server_addrs=xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+    --meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
     # Local IP used to identify the nebula-metad process.
     # Change it to an address other than loopback if the service is distributed or
     # will be accessed remotely.
-    --local_ip=xxx.xxx.10.112
+    --local_ip=192.168.10.112
     # Meta daemon listening port
     --port=9559
     ```
@@ -151,11 +151,11 @@ Nebula Graph的所有配置文件均位于安装目录的`etc`目录内，包括
     ```bash
     ########## networking ##########
     # Comma separated Meta Server Addresses
-    --meta_server_addrs=xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+    --meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
     # Local IP used to identify the nebula-graphd process.
     # Change it to an address other than loopback if the service is distributed or
     # will be accessed remotely.
-    --local_ip=xxx.xxx.10.113
+    --local_ip=192.168.10.113
     # Network device to listen on
     --listen_netdev=any
     # Port to listen on
@@ -167,11 +167,11 @@ Nebula Graph的所有配置文件均位于安装目录的`etc`目录内，包括
     ```bash
     ########## networking ##########
     # Comma separated Meta server addresses
-    --meta_server_addrs=xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+    --meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
     # Local IP used to identify the nebula-storaged process.
     # Change it to an address other than loopback if the service is distributed or
     # will be accessed remotely.
-    --local_ip=xxx.xxx.10.113
+    --local_ip=192.168.10.113
     # Storage daemon listening port
     --port=9779
     ```
@@ -181,11 +181,11 @@ Nebula Graph的所有配置文件均位于安装目录的`etc`目录内，包括
     ```bash
     ########## networking ##########
     # Comma separated Meta Server addresses
-    --meta_server_addrs=xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+    --meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
     # Local IP used to identify the nebula-metad process.
     # Change it to an address other than loopback if the service is distributed or
     # will be accessed remotely.
-    --local_ip=xxx.xxx.10.113
+    --local_ip=192.168.10.113
     # Meta daemon listening port
     --port=9559
     ```
@@ -197,11 +197,11 @@ Nebula Graph的所有配置文件均位于安装目录的`etc`目录内，包括
     ```bash
     ########## networking ##########
     # Comma separated Meta Server Addresses
-    --meta_server_addrs=xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+    --meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
     # Local IP used to identify the nebula-graphd process.
     # Change it to an address other than loopback if the service is distributed or
     # will be accessed remotely.
-    --local_ip=xxx.xxx.10.114
+    --local_ip=192.168.10.114
     # Network device to listen on
     --listen_netdev=any
     # Port to listen on
@@ -213,11 +213,11 @@ Nebula Graph的所有配置文件均位于安装目录的`etc`目录内，包括
     ```bash
     ########## networking ##########
     # Comma separated Meta server addresses
-    --meta_server_addrs=xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+    --meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
     # Local IP used to identify the nebula-storaged process.
     # Change it to an address other than loopback if the service is distributed or
     # will be accessed remotely.
-    --local_ip=xxx.xxx.10.114
+    --local_ip=192.168.10.114
     # Storage daemon listening port
     --port=9779
     ```
@@ -229,11 +229,11 @@ Nebula Graph的所有配置文件均位于安装目录的`etc`目录内，包括
     ```bash
     ########## networking ##########
     # Comma separated Meta Server Addresses
-    --meta_server_addrs=xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+    --meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
     # Local IP used to identify the nebula-graphd process.
     # Change it to an address other than loopback if the service is distributed or
     # will be accessed remotely.
-    --local_ip=xxx.xxx.10.115
+    --local_ip=192.168.10.115
     # Network device to listen on
     --listen_netdev=any
     # Port to listen on
@@ -245,11 +245,11 @@ Nebula Graph的所有配置文件均位于安装目录的`etc`目录内，包括
     ```bash
     ########## networking ##########
     # Comma separated Meta server addresses
-    --meta_server_addrs=xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+    --meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
     # Local IP used to identify the nebula-storaged process.
     # Change it to an address other than loopback if the service is distributed or
     # will be accessed remotely.
-    --local_ip=xxx.xxx.10.115
+    --local_ip=192.168.10.115
     # Storage daemon listening port
     --port=9779
     ```
@@ -285,7 +285,7 @@ sudo /usr/local/nebula/scripts/nebula.service start <metad|graphd|storaged|all>
 安装原生CLI客户端[Nebula Console](../2.quick-start/3.connect-to-nebula-graph.md#_1)，然后连接任何一个已启动graphd进程的机器，执行命令`SHOW HOSTS`检查集群状态。例如：
 
 ```bash
-$ ./nebula-console --addr xxx.xxx.10.111 --port 9669 -u root -p nebula
+$ ./nebula-console --addr 192.168.10.111 --port 9669 -u root -p nebula
 
 2021/05/25 01:41:19 [INFO] connection pool is initialized successfully
 Welcome to Nebula Graph!
@@ -294,15 +294,15 @@ Welcome to Nebula Graph!
 +------------------+------+----------+--------------+----------------------+------------------------+
 | Host             | Port | Status   | Leader count | Leader distribution  | Partition distribution |
 +------------------+------+----------+--------------+----------------------+------------------------+
-| "xxx.xxx.10.111" | 9779 | "ONLINE" | 0            | "No valid partition" | "No valid partition"   |
+| "192.168.10.111" | 9779 | "ONLINE" | 0            | "No valid partition" | "No valid partition"   |
 +------------------+------+----------+--------------+----------------------+------------------------+
-| "xxx.xxx.10.112" | 9779 | "ONLINE" | 0            | "No valid partition" | "No valid partition"   |
+| "192.168.10.112" | 9779 | "ONLINE" | 0            | "No valid partition" | "No valid partition"   |
 +------------------+------+----------+--------------+----------------------+------------------------+
-| "xxx.xxx.10.113" | 9779 | "ONLINE" | 0            | "No valid partition" | "No valid partition"   |
+| "192.168.10.113" | 9779 | "ONLINE" | 0            | "No valid partition" | "No valid partition"   |
 +------------------+------+----------+--------------+----------------------+------------------------+
-| "xxx.xxx.10.114" | 9779 | "ONLINE" | 0            | "No valid partition" | "No valid partition"   |
+| "192.168.10.114" | 9779 | "ONLINE" | 0            | "No valid partition" | "No valid partition"   |
 +------------------+------+----------+--------------+----------------------+------------------------+
-| "xxx.xxx.10.115" | 9779 | "ONLINE" | 0            | "No valid partition" | "No valid partition"   |
+| "192.168.10.115" | 9779 | "ONLINE" | 0            | "No valid partition" | "No valid partition"   |
 +------------------+------+----------+--------------+----------------------+------------------------+
 | "Total"          |      |          | 0            |                      |                        |
 +------------------+------+----------+--------------+----------------------+------------------------+
