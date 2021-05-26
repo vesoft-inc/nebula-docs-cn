@@ -1297,7 +1297,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_4">
-    停止负载均衡
+    停止负载均衡任务
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    重置负载均衡任务
   </a>
 </li>
 <li class="md-nav__item">
@@ -1307,7 +1312,7 @@
 <nav aria-label="移除Storage服务器" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
+<a class="md-nav__link" href="#_6">
     示例
   </a>
 </li>
@@ -1321,7 +1326,7 @@
 <nav aria-label="均衡leader分布" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
+<a class="md-nav__link" href="#_7">
     示例
   </a>
 </li>
@@ -1899,7 +1904,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_4">
-    停止负载均衡
+    停止负载均衡任务
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    重置负载均衡任务
   </a>
 </li>
 <li class="md-nav__item">
@@ -1909,7 +1919,7 @@
 <nav aria-label="移除Storage服务器" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
+<a class="md-nav__link" href="#_6">
     示例
   </a>
 </li>
@@ -1923,7 +1933,7 @@
 <nav aria-label="均衡leader分布" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
+<a class="md-nav__link" href="#_7">
     示例
   </a>
 </li>
@@ -2027,8 +2037,8 @@
 </li>
 </ol>
 <p>如果有子任务失败，请重新执行<code>BALANCE DATA</code>。如果重做负载均衡仍然不能解决问题，请到<a href="https://discuss.nebula-graph.com.cn/">Nebula Graph社区</a>寻求帮助。</p>
-<h2 id="_4">停止负载均衡<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
-<p>停止负载均衡，请执行命令<code>BALANCE DATA STOP</code>。</p>
+<h2 id="_4">停止负载均衡任务<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<p>停止负载均衡任务，请执行命令<code>BALANCE DATA STOP</code>。</p>
 <ul>
 <li>如果没有正在执行的负载均衡任务，会返回错误。</li>
 </ul>
@@ -2043,9 +2053,11 @@
 <ul>
 <li>如果前一个负载均衡任务的任何一个子任务都没有失败，Nebula Graph会启动一个新的的负载均衡任务。</li>
 </ul>
+<h2 id="_5">重置负载均衡任务<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<p>如果停止负载均衡任务后重新执行仍然失败，可以尝试用命令<code>BALANCE DATA RESET PLAN</code>重置负载均衡任务，该操作会清空旧的任务。之后再使用<code>BALANCE DATA</code>命令，会新建负载均衡任务，而不是执行旧的任务。</p>
 <h2 id="storage_1">移除Storage服务器<a class="headerlink" href="#storage_1" title="Permanent link">¶</a></h2>
 <p>移除指定的Storage服务器来缩小集群规模，可以使用命令<code>BALANCE DATA REMOVE &lt;host_list&gt;</code>。</p>
-<h3 id="_5">示例<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
+<h3 id="_6">示例<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
 <p>如果需要移除以下两台Storage服务器。</p>
 <table>
 <thead>
@@ -2078,7 +2090,7 @@
 </div>
 <h2 id="leader">均衡leader分布<a class="headerlink" href="#leader" title="Permanent link">¶</a></h2>
 <p><code>BALANCE DATA</code>只能均衡分片分布，不能均衡Raft leader分布。用户可以使用命令<code>BALANCE LEADER</code>均衡leader分布。</p>
-<h3 id="_6">示例<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
+<h3 id="_7">示例<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code>nebula&gt; BALANCE LEADER;
 </code></pre></div>
 <p>用户可以执行<code>SHOW HOSTS</code>检查结果。</p>
@@ -2103,7 +2115,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月17日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月26日</span>
 </small>
 </div>
 </article>
