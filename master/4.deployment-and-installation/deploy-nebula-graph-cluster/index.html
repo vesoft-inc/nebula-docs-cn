@@ -1930,35 +1930,35 @@
 <tbody>
 <tr>
 <td align="left">A</td>
-<td align="left">xxx.xxx.10.111</td>
+<td align="left">192.168.10.111</td>
 <td align="left">1</td>
 <td align="left">1</td>
 <td align="left">1</td>
 </tr>
 <tr>
 <td align="left">B</td>
-<td align="left">xxx.xxx.10.112</td>
+<td align="left">192.168.10.112</td>
 <td align="left">1</td>
 <td align="left">1</td>
 <td align="left">1</td>
 </tr>
 <tr>
 <td align="left">C</td>
-<td align="left">xxx.xxx.10.113</td>
+<td align="left">192.168.10.113</td>
 <td align="left">1</td>
 <td align="left">1</td>
 <td align="left">1</td>
 </tr>
 <tr>
 <td align="left">D</td>
-<td align="left">xxx.xxx.10.114</td>
+<td align="left">192.168.10.114</td>
 <td align="left">1</td>
 <td align="left">1</td>
 <td align="left">-</td>
 </tr>
 <tr>
 <td align="left">E</td>
-<td align="left">xxx.xxx.10.115</td>
+<td align="left">192.168.10.115</td>
 <td align="left">1</td>
 <td align="left">1</td>
 <td align="left">-</td>
@@ -2009,7 +2009,7 @@
 </tr>
 </tbody>
 </table>
-<p>您可以参考如下配置文件，便于您了解集群间各个服务器的关系。</p>
+<p>用户可以参考如下配置文件的内容，仅展示集群通信的部分设置，未展示的内容为默认设置，便于用户了解集群间各个服务器的关系。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>主要修改的配置是<code>meta_server_addrs</code>，所有配置文件都需要填写所有Meta服务的IP地址和端口，同时需要修改<code>local_ip</code>为机器本身的联网IP地址。配置参数的详细说明请参见：</p>
@@ -2029,244 +2029,47 @@
 <ul>
 <li>
 <p><code>nebula-graphd.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## basics ##########</span>
-<span class="c1"># Whether to run as a daemon process</span>
---daemonize<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># The file to host the process id</span>
---pid_file<span class="o">=</span>pids/nebula-graphd.pid
-<span class="c1"># Whether to enable optimizer</span>
---enable_optimizer<span class="o">=</span><span class="nb">true</span>
-
-<span class="c1">########## logging ##########</span>
-<span class="c1"># The directory to host logging files</span>
---log_dir<span class="o">=</span>logs
-<span class="c1"># Log level, 0, 1, 2, 3 for INFO, WARNING, ERROR, FATAL respectively</span>
---minloglevel<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Verbose log level, 1, 2, 3, 4, the higher of the level, the more verbose of the logging</span>
---v<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Maximum seconds to buffer the log messages</span>
---logbufsecs<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Whether to redirect stdout and stderr to separate output files</span>
---redirect_stdout<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># Destination filename of stdout and stderr, which will also reside in log_dir.</span>
---stdout_log_file<span class="o">=</span>graphd-stdout.log
---stderr_log_file<span class="o">=</span>graphd-stderr.log
-<span class="c1"># Copy log messages at or above this level to stderr in addition to logfiles. The numbers of severity levels INFO, WARNING, ERROR, and FATAL are 0, 1, 2, and 3, respectively.</span>
---stderrthreshold<span class="o">=</span><span class="m">2</span>
-
-<span class="c1">########## query ##########</span>
-<span class="c1"># Whether to treat partial success as an error.</span>
-<span class="c1"># This flag is only used for Read-only access, and Modify access always treats partial success as an error.</span>
---accept_partial_success<span class="o">=</span><span class="nb">false</span>
-
-<span class="c1">########## networking ##########</span>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
 <span class="c1"># Comma separated Meta Server Addresses</span>
---meta_server_addrs<span class="o">=</span>xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
 <span class="c1"># Local IP used to identify the nebula-graphd process.</span>
 <span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
 <span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span>xxx.xxx.10.111
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.111
 <span class="c1"># Network device to listen on</span>
 --listen_netdev<span class="o">=</span>any
 <span class="c1"># Port to listen on</span>
 --port<span class="o">=</span><span class="m">9669</span>
-<span class="c1"># To turn on SO_REUSEPORT or not</span>
---reuse_port<span class="o">=</span><span class="nb">false</span>
-<span class="c1"># Backlog of the listen socket, adjust this together with net.core.somaxconn</span>
---listen_backlog<span class="o">=</span><span class="m">1024</span>
-<span class="c1"># Seconds before the idle connections are closed, 0 for never closed</span>
---client_idle_timeout_secs<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Seconds before the idle sessions are expired, 0 for no expiration</span>
---session_idle_timeout_secs<span class="o">=</span><span class="m">0</span>
-<span class="c1"># The number of threads to accept incoming connections</span>
---num_accept_threads<span class="o">=</span><span class="m">1</span>
-<span class="c1"># The number of networking IO threads, 0 for # of CPU cores</span>
---num_netio_threads<span class="o">=</span><span class="m">0</span>
-<span class="c1"># The number of threads to execute user queries, 0 for # of CPU cores</span>
---num_worker_threads<span class="o">=</span><span class="m">0</span>
-<span class="c1"># HTTP service ip</span>
---ws_ip<span class="o">=</span><span class="m">0</span>.0.0.0
-<span class="c1"># HTTP service port</span>
---ws_http_port<span class="o">=</span><span class="m">19669</span>
-<span class="c1"># HTTP2 service port</span>
---ws_h2_port<span class="o">=</span><span class="m">19670</span>
-
-<span class="c1"># The default charset when a space is created</span>
---default_charset<span class="o">=</span>utf8
-<span class="c1"># The defaule collate when a space is created</span>
---default_collate<span class="o">=</span>utf8_bin
-
-<span class="c1">########## authorization ##########</span>
-<span class="c1"># Enable authorization</span>
---enable_authorize<span class="o">=</span><span class="nb">false</span>
-
-<span class="c1">########## Authentication ##########</span>
-<span class="c1"># User login authentication type, password for nebula authentication, ldap for ldap authentication, cloud for cloud authentication</span>
---auth_type<span class="o">=</span>password
 </code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p><code>nebula-storaged.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## basics ##########</span>
-<span class="c1"># Whether to run as a daemon process</span>
---daemonize<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># The file to host the process id</span>
---pid_file<span class="o">=</span>pids/nebula-storaged.pid
-
-<span class="c1">########## logging ##########</span>
-<span class="c1"># The directory to host logging files</span>
---log_dir<span class="o">=</span>logs
-<span class="c1"># Log level, 0, 1, 2, 3 for INFO, WARNING, ERROR, FATAL respectively</span>
---minloglevel<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Verbose log level, 1, 2, 3, 4, the higher of the level, the more verbose of the logging</span>
---v<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Maximum seconds to buffer the log messages</span>
---logbufsecs<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Whether to redirect stdout and stderr to separate output files</span>
---redirect_stdout<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># Destination filename of stdout and stderr, which will also reside in log_dir.</span>
---stdout_log_file<span class="o">=</span>storaged-stdout.log
---stderr_log_file<span class="o">=</span>storaged-stderr.log
-<span class="c1"># Copy log messages at or above this level to stderr in addition to logfiles. The numbers of severity levels INFO, WARNING, ERROR, and FATAL are 0, 1, 2, and 3, respectively.</span>
---stderrthreshold<span class="o">=</span><span class="m">2</span>
-
-<span class="c1">########## networking ##########</span>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
 <span class="c1"># Comma separated Meta server addresses</span>
---meta_server_addrs<span class="o">=</span>xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
 <span class="c1"># Local IP used to identify the nebula-storaged process.</span>
 <span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
 <span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span>xxx.xxx.10.111
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.111
 <span class="c1"># Storage daemon listening port</span>
 --port<span class="o">=</span><span class="m">9779</span>
-<span class="c1"># HTTP service ip</span>
---ws_ip<span class="o">=</span><span class="m">0</span>.0.0.0
-<span class="c1"># HTTP service port</span>
---ws_http_port<span class="o">=</span><span class="m">19779</span>
-<span class="c1"># HTTP2 service port</span>
---ws_h2_port<span class="o">=</span><span class="m">19780</span>
-<span class="c1"># heartbeat with meta service</span>
---heartbeat_interval_secs<span class="o">=</span><span class="m">10</span>
-
-<span class="c1">######### Raft #########</span>
-<span class="c1"># Raft election timeout</span>
---raft_heartbeat_interval_secs<span class="o">=</span><span class="m">30</span>
-<span class="c1"># RPC timeout for raft client (ms)</span>
---raft_rpc_timeout_ms<span class="o">=</span><span class="m">500</span>
-<span class="c1">## recycle Raft WAL</span>
---wal_ttl<span class="o">=</span><span class="m">14400</span>
-
-<span class="c1">########## Disk ##########</span>
-<span class="c1"># Root data path. Split by comma. e.g. --data_path=/disk1/path1/,/disk2/path2/</span>
-<span class="c1"># One path per Rocksdb instance.</span>
---data_path<span class="o">=</span>data/storage
-
-<span class="c1"># The default reserved bytes for one batch operation</span>
---rocksdb_batch_size<span class="o">=</span><span class="m">4096</span>
-<span class="c1"># The default block cache size used in BlockBasedTable.</span>
-<span class="c1"># The unit is MB.</span>
---rocksdb_block_cache<span class="o">=</span><span class="m">4</span>
-<span class="c1"># The type of storage engine, `rocksdb', `memory', etc.</span>
---engine_type<span class="o">=</span>rocksdb
-
-<span class="c1"># Compression algorithm, options: no,snappy,lz4,lz4hc,zlib,bzip2,zstd</span>
-<span class="c1"># For the sake of binary compatibility, the default value is snappy.</span>
-<span class="c1"># Recommend to use:</span>
-<span class="c1">#   * lz4 to gain more CPU performance, with the same compression ratio with snappy</span>
-<span class="c1">#   * zstd to occupy less disk space</span>
-<span class="c1">#   * lz4hc for the read-heavy write-light scenario</span>
---rocksdb_compression<span class="o">=</span>lz4
-
-<span class="c1"># Set different compressions for different levels</span>
-<span class="c1"># For example, if --rocksdb_compression is snappy,</span>
-<span class="c1"># "no:no:lz4:lz4::zstd" is identical to "no:no:lz4:lz4:snappy:zstd:snappy"</span>
-<span class="c1"># In order to disable compression for level 0/1, set it to "no:no"</span>
---rocksdb_compression_per_level<span class="o">=</span>
-
-<span class="c1"># Whether or not to enable rocksdb's statistics, disabled by default</span>
---enable_rocksdb_statistics<span class="o">=</span><span class="nb">false</span>
-
-<span class="c1"># Statslevel used by rocksdb to collection statistics, optional values are</span>
-<span class="c1">#   * kExceptHistogramOrTimers, disable timer stats, and skip histogram stats</span>
-<span class="c1">#   * kExceptTimers, Skip timer stats</span>
-<span class="c1">#   * kExceptDetailedTimers, Collect all stats except time inside mutex lock AND time spent on compression.</span>
-<span class="c1">#   * kExceptTimeForMutex, Collect all stats except the counters requiring to get time inside the mutex lock.</span>
-<span class="c1">#   * kAll, Collect all stats</span>
---rocksdb_stats_level<span class="o">=</span>kExceptHistogramOrTimers
-
-<span class="c1"># Whether or not to enable rocksdb's prefix bloom filter, disabled by default.</span>
---enable_rocksdb_prefix_filtering<span class="o">=</span><span class="nb">false</span>
-<span class="c1"># Whether or not to enable the whole key filtering.</span>
---enable_rocksdb_whole_key_filtering<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># The prefix length for each key to use as the filter value.</span>
-<span class="c1"># can be 12 bytes(PartitionId + VertexID), or 16 bytes(PartitionId + VertexID + TagID/EdgeType).</span>
---rocksdb_filtering_prefix_length<span class="o">=</span><span class="m">12</span>
-
-<span class="c1">############## rocksdb Options ##############</span>
-<span class="c1"># rocksdb DBOptions in json, each name and value of option is a string, given as "option_name":"option_value" separated by comma</span>
---rocksdb_db_options<span class="o">={}</span>
-<span class="c1"># rocksdb ColumnFamilyOptions in json, each name and value of option is string, given as "option_name":"option_value" separated by comma</span>
---rocksdb_column_family_options<span class="o">={</span><span class="s2">"write_buffer_size"</span>:<span class="s2">"67108864"</span>,<span class="s2">"max_write_buffer_number"</span>:<span class="s2">"4"</span>,<span class="s2">"max_bytes_for_level_base"</span>:<span class="s2">"268435456"</span><span class="o">}</span>
-<span class="c1"># rocksdb BlockBasedTableOptions in json, each name and value of option is string, given as "option_name":"option_value" separated by comma</span>
---rocksdb_block_based_table_options<span class="o">={</span><span class="s2">"block_size"</span>:<span class="s2">"8192"</span><span class="o">}</span>
 </code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p><code>nebula-metad.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## basics ##########</span>
-<span class="c1"># Whether to run as a daemon process</span>
---daemonize<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># The file to host the process id</span>
---pid_file<span class="o">=</span>pids/nebula-metad.pid
-
-<span class="c1">########## logging ##########</span>
-<span class="c1"># The directory to host logging files</span>
---log_dir<span class="o">=</span>logs
-<span class="c1"># Log level, 0, 1, 2, 3 for INFO, WARNING, ERROR, FATAL respectively</span>
---minloglevel<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Verbose log level, 1, 2, 3, 4, the higher of the level, the more verbose of the logging</span>
---v<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Maximum seconds to buffer the log messages</span>
---logbufsecs<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Whether to redirect stdout and stderr to separate output files</span>
---redirect_stdout<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># Destination filename of stdout and stderr, which will also reside in log_dir.</span>
---stdout_log_file<span class="o">=</span>metad-stdout.log
---stderr_log_file<span class="o">=</span>metad-stderr.log
-<span class="c1"># Copy log messages at or above this level to stderr in addition to logfiles. The numbers of severity levels INFO, WARNING, ERROR, and FATAL are 0, 1, 2, and 3, respectively.</span>
---stderrthreshold<span class="o">=</span><span class="m">2</span>
-
-<span class="c1">########## networking ##########</span>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
 <span class="c1"># Comma separated Meta Server addresses</span>
---meta_server_addrs<span class="o">=</span>xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
 <span class="c1"># Local IP used to identify the nebula-metad process.</span>
 <span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
 <span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span>xxx.xxx.10.111
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.111
 <span class="c1"># Meta daemon listening port</span>
 --port<span class="o">=</span><span class="m">9559</span>
-<span class="c1"># HTTP service ip</span>
---ws_ip<span class="o">=</span><span class="m">0</span>.0.0.0
-<span class="c1"># HTTP service port</span>
---ws_http_port<span class="o">=</span><span class="m">19559</span>
-<span class="c1"># HTTP2 service port</span>
---ws_h2_port<span class="o">=</span><span class="m">19560</span>
-
-<span class="c1">########## storage ##########</span>
-<span class="c1"># Root data path, here should be only single path for metad</span>
---data_path<span class="o">=</span>data/meta
-
-<span class="c1">########## Misc #########</span>
-<span class="c1"># The default number of parts when a space is created</span>
---default_parts_num<span class="o">=</span><span class="m">100</span>
-<span class="c1"># The default replica factor when a space is created</span>
---default_replica_factor<span class="o">=</span><span class="m">1</span>
-
---heartbeat_interval_secs<span class="o">=</span><span class="m">10</span>
 </code></pre></div>
 </li>
 </ul>
@@ -2278,244 +2081,47 @@
 <ul>
 <li>
 <p><code>nebula-graphd.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## basics ##########</span>
-<span class="c1"># Whether to run as a daemon process</span>
---daemonize<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># The file to host the process id</span>
---pid_file<span class="o">=</span>pids/nebula-graphd.pid
-<span class="c1"># Whether to enable optimizer</span>
---enable_optimizer<span class="o">=</span><span class="nb">true</span>
-
-<span class="c1">########## logging ##########</span>
-<span class="c1"># The directory to host logging files</span>
---log_dir<span class="o">=</span>logs
-<span class="c1"># Log level, 0, 1, 2, 3 for INFO, WARNING, ERROR, FATAL respectively</span>
---minloglevel<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Verbose log level, 1, 2, 3, 4, the higher of the level, the more verbose of the logging</span>
---v<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Maximum seconds to buffer the log messages</span>
---logbufsecs<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Whether to redirect stdout and stderr to separate output files</span>
---redirect_stdout<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># Destination filename of stdout and stderr, which will also reside in log_dir.</span>
---stdout_log_file<span class="o">=</span>graphd-stdout.log
---stderr_log_file<span class="o">=</span>graphd-stderr.log
-<span class="c1"># Copy log messages at or above this level to stderr in addition to logfiles. The numbers of severity levels INFO, WARNING, ERROR, and FATAL are 0, 1, 2, and 3, respectively.</span>
---stderrthreshold<span class="o">=</span><span class="m">2</span>
-
-<span class="c1">########## query ##########</span>
-<span class="c1"># Whether to treat partial success as an error.</span>
-<span class="c1"># This flag is only used for Read-only access, and Modify access always treats partial success as an error.</span>
---accept_partial_success<span class="o">=</span><span class="nb">false</span>
-
-<span class="c1">########## networking ##########</span>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
 <span class="c1"># Comma separated Meta Server Addresses</span>
---meta_server_addrs<span class="o">=</span>xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
 <span class="c1"># Local IP used to identify the nebula-graphd process.</span>
 <span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
 <span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span>xxx.xxx.10.112
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.112
 <span class="c1"># Network device to listen on</span>
 --listen_netdev<span class="o">=</span>any
 <span class="c1"># Port to listen on</span>
 --port<span class="o">=</span><span class="m">9669</span>
-<span class="c1"># To turn on SO_REUSEPORT or not</span>
---reuse_port<span class="o">=</span><span class="nb">false</span>
-<span class="c1"># Backlog of the listen socket, adjust this together with net.core.somaxconn</span>
---listen_backlog<span class="o">=</span><span class="m">1024</span>
-<span class="c1"># Seconds before the idle connections are closed, 0 for never closed</span>
---client_idle_timeout_secs<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Seconds before the idle sessions are expired, 0 for no expiration</span>
---session_idle_timeout_secs<span class="o">=</span><span class="m">0</span>
-<span class="c1"># The number of threads to accept incoming connections</span>
---num_accept_threads<span class="o">=</span><span class="m">1</span>
-<span class="c1"># The number of networking IO threads, 0 for # of CPU cores</span>
---num_netio_threads<span class="o">=</span><span class="m">0</span>
-<span class="c1"># The number of threads to execute user queries, 0 for # of CPU cores</span>
---num_worker_threads<span class="o">=</span><span class="m">0</span>
-<span class="c1"># HTTP service ip</span>
---ws_ip<span class="o">=</span><span class="m">0</span>.0.0.0
-<span class="c1"># HTTP service port</span>
---ws_http_port<span class="o">=</span><span class="m">19669</span>
-<span class="c1"># HTTP2 service port</span>
---ws_h2_port<span class="o">=</span><span class="m">19670</span>
-
-<span class="c1"># The default charset when a space is created</span>
---default_charset<span class="o">=</span>utf8
-<span class="c1"># The defaule collate when a space is created</span>
---default_collate<span class="o">=</span>utf8_bin
-
-<span class="c1">########## authorization ##########</span>
-<span class="c1"># Enable authorization</span>
---enable_authorize<span class="o">=</span><span class="nb">false</span>
-
-<span class="c1">########## Authentication ##########</span>
-<span class="c1"># User login authentication type, password for nebula authentication, ldap for ldap authentication, cloud for cloud authentication</span>
---auth_type<span class="o">=</span>password
 </code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p><code>nebula-storaged.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## basics ##########</span>
-<span class="c1"># Whether to run as a daemon process</span>
---daemonize<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># The file to host the process id</span>
---pid_file<span class="o">=</span>pids/nebula-storaged.pid
-
-<span class="c1">########## logging ##########</span>
-<span class="c1"># The directory to host logging files</span>
---log_dir<span class="o">=</span>logs
-<span class="c1"># Log level, 0, 1, 2, 3 for INFO, WARNING, ERROR, FATAL respectively</span>
---minloglevel<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Verbose log level, 1, 2, 3, 4, the higher of the level, the more verbose of the logging</span>
---v<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Maximum seconds to buffer the log messages</span>
---logbufsecs<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Whether to redirect stdout and stderr to separate output files</span>
---redirect_stdout<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># Destination filename of stdout and stderr, which will also reside in log_dir.</span>
---stdout_log_file<span class="o">=</span>storaged-stdout.log
---stderr_log_file<span class="o">=</span>storaged-stderr.log
-<span class="c1"># Copy log messages at or above this level to stderr in addition to logfiles. The numbers of severity levels INFO, WARNING, ERROR, and FATAL are 0, 1, 2, and 3, respectively.</span>
---stderrthreshold<span class="o">=</span><span class="m">2</span>
-
-<span class="c1">########## networking ##########</span>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
 <span class="c1"># Comma separated Meta server addresses</span>
---meta_server_addrs<span class="o">=</span>xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
 <span class="c1"># Local IP used to identify the nebula-storaged process.</span>
 <span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
 <span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span>xxx.xxx.10.112
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.112
 <span class="c1"># Storage daemon listening port</span>
 --port<span class="o">=</span><span class="m">9779</span>
-<span class="c1"># HTTP service ip</span>
---ws_ip<span class="o">=</span><span class="m">0</span>.0.0.0
-<span class="c1"># HTTP service port</span>
---ws_http_port<span class="o">=</span><span class="m">19779</span>
-<span class="c1"># HTTP2 service port</span>
---ws_h2_port<span class="o">=</span><span class="m">19780</span>
-<span class="c1"># heartbeat with meta service</span>
---heartbeat_interval_secs<span class="o">=</span><span class="m">10</span>
-
-<span class="c1">######### Raft #########</span>
-<span class="c1"># Raft election timeout</span>
---raft_heartbeat_interval_secs<span class="o">=</span><span class="m">30</span>
-<span class="c1"># RPC timeout for raft client (ms)</span>
---raft_rpc_timeout_ms<span class="o">=</span><span class="m">500</span>
-<span class="c1">## recycle Raft WAL</span>
---wal_ttl<span class="o">=</span><span class="m">14400</span>
-
-<span class="c1">########## Disk ##########</span>
-<span class="c1"># Root data path. Split by comma. e.g. --data_path=/disk1/path1/,/disk2/path2/</span>
-<span class="c1"># One path per Rocksdb instance.</span>
---data_path<span class="o">=</span>data/storage
-
-<span class="c1"># The default reserved bytes for one batch operation</span>
---rocksdb_batch_size<span class="o">=</span><span class="m">4096</span>
-<span class="c1"># The default block cache size used in BlockBasedTable.</span>
-<span class="c1"># The unit is MB.</span>
---rocksdb_block_cache<span class="o">=</span><span class="m">4</span>
-<span class="c1"># The type of storage engine, `rocksdb', `memory', etc.</span>
---engine_type<span class="o">=</span>rocksdb
-
-<span class="c1"># Compression algorithm, options: no,snappy,lz4,lz4hc,zlib,bzip2,zstd</span>
-<span class="c1"># For the sake of binary compatibility, the default value is snappy.</span>
-<span class="c1"># Recommend to use:</span>
-<span class="c1">#   * lz4 to gain more CPU performance, with the same compression ratio with snappy</span>
-<span class="c1">#   * zstd to occupy less disk space</span>
-<span class="c1">#   * lz4hc for the read-heavy write-light scenario</span>
---rocksdb_compression<span class="o">=</span>lz4
-
-<span class="c1"># Set different compressions for different levels</span>
-<span class="c1"># For example, if --rocksdb_compression is snappy,</span>
-<span class="c1"># "no:no:lz4:lz4::zstd" is identical to "no:no:lz4:lz4:snappy:zstd:snappy"</span>
-<span class="c1"># In order to disable compression for level 0/1, set it to "no:no"</span>
---rocksdb_compression_per_level<span class="o">=</span>
-
-<span class="c1"># Whether or not to enable rocksdb's statistics, disabled by default</span>
---enable_rocksdb_statistics<span class="o">=</span><span class="nb">false</span>
-
-<span class="c1"># Statslevel used by rocksdb to collection statistics, optional values are</span>
-<span class="c1">#   * kExceptHistogramOrTimers, disable timer stats, and skip histogram stats</span>
-<span class="c1">#   * kExceptTimers, Skip timer stats</span>
-<span class="c1">#   * kExceptDetailedTimers, Collect all stats except time inside mutex lock AND time spent on compression.</span>
-<span class="c1">#   * kExceptTimeForMutex, Collect all stats except the counters requiring to get time inside the mutex lock.</span>
-<span class="c1">#   * kAll, Collect all stats</span>
---rocksdb_stats_level<span class="o">=</span>kExceptHistogramOrTimers
-
-<span class="c1"># Whether or not to enable rocksdb's prefix bloom filter, disabled by default.</span>
---enable_rocksdb_prefix_filtering<span class="o">=</span><span class="nb">false</span>
-<span class="c1"># Whether or not to enable the whole key filtering.</span>
---enable_rocksdb_whole_key_filtering<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># The prefix length for each key to use as the filter value.</span>
-<span class="c1"># can be 12 bytes(PartitionId + VertexID), or 16 bytes(PartitionId + VertexID + TagID/EdgeType).</span>
---rocksdb_filtering_prefix_length<span class="o">=</span><span class="m">12</span>
-
-<span class="c1">############## rocksdb Options ##############</span>
-<span class="c1"># rocksdb DBOptions in json, each name and value of option is a string, given as "option_name":"option_value" separated by comma</span>
---rocksdb_db_options<span class="o">={}</span>
-<span class="c1"># rocksdb ColumnFamilyOptions in json, each name and value of option is string, given as "option_name":"option_value" separated by comma</span>
---rocksdb_column_family_options<span class="o">={</span><span class="s2">"write_buffer_size"</span>:<span class="s2">"67108864"</span>,<span class="s2">"max_write_buffer_number"</span>:<span class="s2">"4"</span>,<span class="s2">"max_bytes_for_level_base"</span>:<span class="s2">"268435456"</span><span class="o">}</span>
-<span class="c1"># rocksdb BlockBasedTableOptions in json, each name and value of option is string, given as "option_name":"option_value" separated by comma</span>
---rocksdb_block_based_table_options<span class="o">={</span><span class="s2">"block_size"</span>:<span class="s2">"8192"</span><span class="o">}</span>
 </code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p><code>nebula-metad.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## basics ##########</span>
-<span class="c1"># Whether to run as a daemon process</span>
---daemonize<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># The file to host the process id</span>
---pid_file<span class="o">=</span>pids/nebula-metad.pid
-
-<span class="c1">########## logging ##########</span>
-<span class="c1"># The directory to host logging files</span>
---log_dir<span class="o">=</span>logs
-<span class="c1"># Log level, 0, 1, 2, 3 for INFO, WARNING, ERROR, FATAL respectively</span>
---minloglevel<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Verbose log level, 1, 2, 3, 4, the higher of the level, the more verbose of the logging</span>
---v<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Maximum seconds to buffer the log messages</span>
---logbufsecs<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Whether to redirect stdout and stderr to separate output files</span>
---redirect_stdout<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># Destination filename of stdout and stderr, which will also reside in log_dir.</span>
---stdout_log_file<span class="o">=</span>metad-stdout.log
---stderr_log_file<span class="o">=</span>metad-stderr.log
-<span class="c1"># Copy log messages at or above this level to stderr in addition to logfiles. The numbers of severity levels INFO, WARNING, ERROR, and FATAL are 0, 1, 2, and 3, respectively.</span>
---stderrthreshold<span class="o">=</span><span class="m">2</span>
-
-<span class="c1">########## networking ##########</span>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
 <span class="c1"># Comma separated Meta Server addresses</span>
---meta_server_addrs<span class="o">=</span>xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
 <span class="c1"># Local IP used to identify the nebula-metad process.</span>
 <span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
 <span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span>xxx.xxx.10.112
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.112
 <span class="c1"># Meta daemon listening port</span>
 --port<span class="o">=</span><span class="m">9559</span>
-<span class="c1"># HTTP service ip</span>
---ws_ip<span class="o">=</span><span class="m">0</span>.0.0.0
-<span class="c1"># HTTP service port</span>
---ws_http_port<span class="o">=</span><span class="m">19559</span>
-<span class="c1"># HTTP2 service port</span>
---ws_h2_port<span class="o">=</span><span class="m">19560</span>
-
-<span class="c1">########## storage ##########</span>
-<span class="c1"># Root data path, here should be only single path for metad</span>
---data_path<span class="o">=</span>data/meta
-
-<span class="c1">########## Misc #########</span>
-<span class="c1"># The default number of parts when a space is created</span>
---default_parts_num<span class="o">=</span><span class="m">100</span>
-<span class="c1"># The default replica factor when a space is created</span>
---default_replica_factor<span class="o">=</span><span class="m">1</span>
-
---heartbeat_interval_secs<span class="o">=</span><span class="m">10</span>
 </code></pre></div>
 </li>
 </ul>
@@ -2527,244 +2133,47 @@
 <ul>
 <li>
 <p><code>nebula-graphd.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## basics ##########</span>
-<span class="c1"># Whether to run as a daemon process</span>
---daemonize<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># The file to host the process id</span>
---pid_file<span class="o">=</span>pids/nebula-graphd.pid
-<span class="c1"># Whether to enable optimizer</span>
---enable_optimizer<span class="o">=</span><span class="nb">true</span>
-
-<span class="c1">########## logging ##########</span>
-<span class="c1"># The directory to host logging files</span>
---log_dir<span class="o">=</span>logs
-<span class="c1"># Log level, 0, 1, 2, 3 for INFO, WARNING, ERROR, FATAL respectively</span>
---minloglevel<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Verbose log level, 1, 2, 3, 4, the higher of the level, the more verbose of the logging</span>
---v<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Maximum seconds to buffer the log messages</span>
---logbufsecs<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Whether to redirect stdout and stderr to separate output files</span>
---redirect_stdout<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># Destination filename of stdout and stderr, which will also reside in log_dir.</span>
---stdout_log_file<span class="o">=</span>graphd-stdout.log
---stderr_log_file<span class="o">=</span>graphd-stderr.log
-<span class="c1"># Copy log messages at or above this level to stderr in addition to logfiles. The numbers of severity levels INFO, WARNING, ERROR, and FATAL are 0, 1, 2, and 3, respectively.</span>
---stderrthreshold<span class="o">=</span><span class="m">2</span>
-
-<span class="c1">########## query ##########</span>
-<span class="c1"># Whether to treat partial success as an error.</span>
-<span class="c1"># This flag is only used for Read-only access, and Modify access always treats partial success as an error.</span>
---accept_partial_success<span class="o">=</span><span class="nb">false</span>
-
-<span class="c1">########## networking ##########</span>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
 <span class="c1"># Comma separated Meta Server Addresses</span>
---meta_server_addrs<span class="o">=</span>xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
 <span class="c1"># Local IP used to identify the nebula-graphd process.</span>
 <span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
 <span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span>xxx.xxx.10.113
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.113
 <span class="c1"># Network device to listen on</span>
 --listen_netdev<span class="o">=</span>any
 <span class="c1"># Port to listen on</span>
 --port<span class="o">=</span><span class="m">9669</span>
-<span class="c1"># To turn on SO_REUSEPORT or not</span>
---reuse_port<span class="o">=</span><span class="nb">false</span>
-<span class="c1"># Backlog of the listen socket, adjust this together with net.core.somaxconn</span>
---listen_backlog<span class="o">=</span><span class="m">1024</span>
-<span class="c1"># Seconds before the idle connections are closed, 0 for never closed</span>
---client_idle_timeout_secs<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Seconds before the idle sessions are expired, 0 for no expiration</span>
---session_idle_timeout_secs<span class="o">=</span><span class="m">0</span>
-<span class="c1"># The number of threads to accept incoming connections</span>
---num_accept_threads<span class="o">=</span><span class="m">1</span>
-<span class="c1"># The number of networking IO threads, 0 for # of CPU cores</span>
---num_netio_threads<span class="o">=</span><span class="m">0</span>
-<span class="c1"># The number of threads to execute user queries, 0 for # of CPU cores</span>
---num_worker_threads<span class="o">=</span><span class="m">0</span>
-<span class="c1"># HTTP service ip</span>
---ws_ip<span class="o">=</span><span class="m">0</span>.0.0.0
-<span class="c1"># HTTP service port</span>
---ws_http_port<span class="o">=</span><span class="m">19669</span>
-<span class="c1"># HTTP2 service port</span>
---ws_h2_port<span class="o">=</span><span class="m">19670</span>
-
-<span class="c1"># The default charset when a space is created</span>
---default_charset<span class="o">=</span>utf8
-<span class="c1"># The defaule collate when a space is created</span>
---default_collate<span class="o">=</span>utf8_bin
-
-<span class="c1">########## authorization ##########</span>
-<span class="c1"># Enable authorization</span>
---enable_authorize<span class="o">=</span><span class="nb">false</span>
-
-<span class="c1">########## Authentication ##########</span>
-<span class="c1"># User login authentication type, password for nebula authentication, ldap for ldap authentication, cloud for cloud authentication</span>
---auth_type<span class="o">=</span>password
 </code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p><code>nebula-storaged.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## basics ##########</span>
-<span class="c1"># Whether to run as a daemon process</span>
---daemonize<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># The file to host the process id</span>
---pid_file<span class="o">=</span>pids/nebula-storaged.pid
-
-<span class="c1">########## logging ##########</span>
-<span class="c1"># The directory to host logging files</span>
---log_dir<span class="o">=</span>logs
-<span class="c1"># Log level, 0, 1, 2, 3 for INFO, WARNING, ERROR, FATAL respectively</span>
---minloglevel<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Verbose log level, 1, 2, 3, 4, the higher of the level, the more verbose of the logging</span>
---v<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Maximum seconds to buffer the log messages</span>
---logbufsecs<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Whether to redirect stdout and stderr to separate output files</span>
---redirect_stdout<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># Destination filename of stdout and stderr, which will also reside in log_dir.</span>
---stdout_log_file<span class="o">=</span>storaged-stdout.log
---stderr_log_file<span class="o">=</span>storaged-stderr.log
-<span class="c1"># Copy log messages at or above this level to stderr in addition to logfiles. The numbers of severity levels INFO, WARNING, ERROR, and FATAL are 0, 1, 2, and 3, respectively.</span>
---stderrthreshold<span class="o">=</span><span class="m">2</span>
-
-<span class="c1">########## networking ##########</span>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
 <span class="c1"># Comma separated Meta server addresses</span>
---meta_server_addrs<span class="o">=</span>xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
 <span class="c1"># Local IP used to identify the nebula-storaged process.</span>
 <span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
 <span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span>xxx.xxx.10.113
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.113
 <span class="c1"># Storage daemon listening port</span>
 --port<span class="o">=</span><span class="m">9779</span>
-<span class="c1"># HTTP service ip</span>
---ws_ip<span class="o">=</span><span class="m">0</span>.0.0.0
-<span class="c1"># HTTP service port</span>
---ws_http_port<span class="o">=</span><span class="m">19779</span>
-<span class="c1"># HTTP2 service port</span>
---ws_h2_port<span class="o">=</span><span class="m">19780</span>
-<span class="c1"># heartbeat with meta service</span>
---heartbeat_interval_secs<span class="o">=</span><span class="m">10</span>
-
-<span class="c1">######### Raft #########</span>
-<span class="c1"># Raft election timeout</span>
---raft_heartbeat_interval_secs<span class="o">=</span><span class="m">30</span>
-<span class="c1"># RPC timeout for raft client (ms)</span>
---raft_rpc_timeout_ms<span class="o">=</span><span class="m">500</span>
-<span class="c1">## recycle Raft WAL</span>
---wal_ttl<span class="o">=</span><span class="m">14400</span>
-
-<span class="c1">########## Disk ##########</span>
-<span class="c1"># Root data path. Split by comma. e.g. --data_path=/disk1/path1/,/disk2/path2/</span>
-<span class="c1"># One path per Rocksdb instance.</span>
---data_path<span class="o">=</span>data/storage
-
-<span class="c1"># The default reserved bytes for one batch operation</span>
---rocksdb_batch_size<span class="o">=</span><span class="m">4096</span>
-<span class="c1"># The default block cache size used in BlockBasedTable.</span>
-<span class="c1"># The unit is MB.</span>
---rocksdb_block_cache<span class="o">=</span><span class="m">4</span>
-<span class="c1"># The type of storage engine, `rocksdb', `memory', etc.</span>
---engine_type<span class="o">=</span>rocksdb
-
-<span class="c1"># Compression algorithm, options: no,snappy,lz4,lz4hc,zlib,bzip2,zstd</span>
-<span class="c1"># For the sake of binary compatibility, the default value is snappy.</span>
-<span class="c1"># Recommend to use:</span>
-<span class="c1">#   * lz4 to gain more CPU performance, with the same compression ratio with snappy</span>
-<span class="c1">#   * zstd to occupy less disk space</span>
-<span class="c1">#   * lz4hc for the read-heavy write-light scenario</span>
---rocksdb_compression<span class="o">=</span>lz4
-
-<span class="c1"># Set different compressions for different levels</span>
-<span class="c1"># For example, if --rocksdb_compression is snappy,</span>
-<span class="c1"># "no:no:lz4:lz4::zstd" is identical to "no:no:lz4:lz4:snappy:zstd:snappy"</span>
-<span class="c1"># In order to disable compression for level 0/1, set it to "no:no"</span>
---rocksdb_compression_per_level<span class="o">=</span>
-
-<span class="c1"># Whether or not to enable rocksdb's statistics, disabled by default</span>
---enable_rocksdb_statistics<span class="o">=</span><span class="nb">false</span>
-
-<span class="c1"># Statslevel used by rocksdb to collection statistics, optional values are</span>
-<span class="c1">#   * kExceptHistogramOrTimers, disable timer stats, and skip histogram stats</span>
-<span class="c1">#   * kExceptTimers, Skip timer stats</span>
-<span class="c1">#   * kExceptDetailedTimers, Collect all stats except time inside mutex lock AND time spent on compression.</span>
-<span class="c1">#   * kExceptTimeForMutex, Collect all stats except the counters requiring to get time inside the mutex lock.</span>
-<span class="c1">#   * kAll, Collect all stats</span>
---rocksdb_stats_level<span class="o">=</span>kExceptHistogramOrTimers
-
-<span class="c1"># Whether or not to enable rocksdb's prefix bloom filter, disabled by default.</span>
---enable_rocksdb_prefix_filtering<span class="o">=</span><span class="nb">false</span>
-<span class="c1"># Whether or not to enable the whole key filtering.</span>
---enable_rocksdb_whole_key_filtering<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># The prefix length for each key to use as the filter value.</span>
-<span class="c1"># can be 12 bytes(PartitionId + VertexID), or 16 bytes(PartitionId + VertexID + TagID/EdgeType).</span>
---rocksdb_filtering_prefix_length<span class="o">=</span><span class="m">12</span>
-
-<span class="c1">############## rocksdb Options ##############</span>
-<span class="c1"># rocksdb DBOptions in json, each name and value of option is a string, given as "option_name":"option_value" separated by comma</span>
---rocksdb_db_options<span class="o">={}</span>
-<span class="c1"># rocksdb ColumnFamilyOptions in json, each name and value of option is string, given as "option_name":"option_value" separated by comma</span>
---rocksdb_column_family_options<span class="o">={</span><span class="s2">"write_buffer_size"</span>:<span class="s2">"67108864"</span>,<span class="s2">"max_write_buffer_number"</span>:<span class="s2">"4"</span>,<span class="s2">"max_bytes_for_level_base"</span>:<span class="s2">"268435456"</span><span class="o">}</span>
-<span class="c1"># rocksdb BlockBasedTableOptions in json, each name and value of option is string, given as "option_name":"option_value" separated by comma</span>
---rocksdb_block_based_table_options<span class="o">={</span><span class="s2">"block_size"</span>:<span class="s2">"8192"</span><span class="o">}</span>
 </code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p><code>nebula-metad.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## basics ##########</span>
-<span class="c1"># Whether to run as a daemon process</span>
---daemonize<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># The file to host the process id</span>
---pid_file<span class="o">=</span>pids/nebula-metad.pid
-
-<span class="c1">########## logging ##########</span>
-<span class="c1"># The directory to host logging files</span>
---log_dir<span class="o">=</span>logs
-<span class="c1"># Log level, 0, 1, 2, 3 for INFO, WARNING, ERROR, FATAL respectively</span>
---minloglevel<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Verbose log level, 1, 2, 3, 4, the higher of the level, the more verbose of the logging</span>
---v<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Maximum seconds to buffer the log messages</span>
---logbufsecs<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Whether to redirect stdout and stderr to separate output files</span>
---redirect_stdout<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># Destination filename of stdout and stderr, which will also reside in log_dir.</span>
---stdout_log_file<span class="o">=</span>metad-stdout.log
---stderr_log_file<span class="o">=</span>metad-stderr.log
-<span class="c1"># Copy log messages at or above this level to stderr in addition to logfiles. The numbers of severity levels INFO, WARNING, ERROR, and FATAL are 0, 1, 2, and 3, respectively.</span>
---stderrthreshold<span class="o">=</span><span class="m">2</span>
-
-<span class="c1">########## networking ##########</span>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
 <span class="c1"># Comma separated Meta Server addresses</span>
---meta_server_addrs<span class="o">=</span>xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
 <span class="c1"># Local IP used to identify the nebula-metad process.</span>
 <span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
 <span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span>xxx.xxx.10.113
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.113
 <span class="c1"># Meta daemon listening port</span>
 --port<span class="o">=</span><span class="m">9559</span>
-<span class="c1"># HTTP service ip</span>
---ws_ip<span class="o">=</span><span class="m">0</span>.0.0.0
-<span class="c1"># HTTP service port</span>
---ws_http_port<span class="o">=</span><span class="m">19559</span>
-<span class="c1"># HTTP2 service port</span>
---ws_h2_port<span class="o">=</span><span class="m">19560</span>
-
-<span class="c1">########## storage ##########</span>
-<span class="c1"># Root data path, here should be only single path for metad</span>
---data_path<span class="o">=</span>data/meta
-
-<span class="c1">########## Misc #########</span>
-<span class="c1"># The default number of parts when a space is created</span>
---default_parts_num<span class="o">=</span><span class="m">100</span>
-<span class="c1"># The default replica factor when a space is created</span>
---default_replica_factor<span class="o">=</span><span class="m">1</span>
-
---heartbeat_interval_secs<span class="o">=</span><span class="m">10</span>
 </code></pre></div>
 </li>
 </ul>
@@ -2776,188 +2185,32 @@
 <ul>
 <li>
 <p><code>nebula-graphd.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## basics ##########</span>
-<span class="c1"># Whether to run as a daemon process</span>
---daemonize<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># The file to host the process id</span>
---pid_file<span class="o">=</span>pids/nebula-graphd.pid
-<span class="c1"># Whether to enable optimizer</span>
---enable_optimizer<span class="o">=</span><span class="nb">true</span>
-
-<span class="c1">########## logging ##########</span>
-<span class="c1"># The directory to host logging files</span>
---log_dir<span class="o">=</span>logs
-<span class="c1"># Log level, 0, 1, 2, 3 for INFO, WARNING, ERROR, FATAL respectively</span>
---minloglevel<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Verbose log level, 1, 2, 3, 4, the higher of the level, the more verbose of the logging</span>
---v<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Maximum seconds to buffer the log messages</span>
---logbufsecs<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Whether to redirect stdout and stderr to separate output files</span>
---redirect_stdout<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># Destination filename of stdout and stderr, which will also reside in log_dir.</span>
---stdout_log_file<span class="o">=</span>graphd-stdout.log
---stderr_log_file<span class="o">=</span>graphd-stderr.log
-<span class="c1"># Copy log messages at or above this level to stderr in addition to logfiles. The numbers of severity levels INFO, WARNING, ERROR, and FATAL are 0, 1, 2, and 3, respectively.</span>
---stderrthreshold<span class="o">=</span><span class="m">2</span>
-
-<span class="c1">########## query ##########</span>
-<span class="c1"># Whether to treat partial success as an error.</span>
-<span class="c1"># This flag is only used for Read-only access, and Modify access always treats partial success as an error.</span>
---accept_partial_success<span class="o">=</span><span class="nb">false</span>
-
-<span class="c1">########## networking ##########</span>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
 <span class="c1"># Comma separated Meta Server Addresses</span>
---meta_server_addrs<span class="o">=</span>xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
 <span class="c1"># Local IP used to identify the nebula-graphd process.</span>
 <span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
 <span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span>xxx.xxx.10.114
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.114
 <span class="c1"># Network device to listen on</span>
 --listen_netdev<span class="o">=</span>any
 <span class="c1"># Port to listen on</span>
 --port<span class="o">=</span><span class="m">9669</span>
-<span class="c1"># To turn on SO_REUSEPORT or not</span>
---reuse_port<span class="o">=</span><span class="nb">false</span>
-<span class="c1"># Backlog of the listen socket, adjust this together with net.core.somaxconn</span>
---listen_backlog<span class="o">=</span><span class="m">1024</span>
-<span class="c1"># Seconds before the idle connections are closed, 0 for never closed</span>
---client_idle_timeout_secs<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Seconds before the idle sessions are expired, 0 for no expiration</span>
---session_idle_timeout_secs<span class="o">=</span><span class="m">0</span>
-<span class="c1"># The number of threads to accept incoming connections</span>
---num_accept_threads<span class="o">=</span><span class="m">1</span>
-<span class="c1"># The number of networking IO threads, 0 for # of CPU cores</span>
---num_netio_threads<span class="o">=</span><span class="m">0</span>
-<span class="c1"># The number of threads to execute user queries, 0 for # of CPU cores</span>
---num_worker_threads<span class="o">=</span><span class="m">0</span>
-<span class="c1"># HTTP service ip</span>
---ws_ip<span class="o">=</span><span class="m">0</span>.0.0.0
-<span class="c1"># HTTP service port</span>
---ws_http_port<span class="o">=</span><span class="m">19669</span>
-<span class="c1"># HTTP2 service port</span>
---ws_h2_port<span class="o">=</span><span class="m">19670</span>
-
-<span class="c1"># The default charset when a space is created</span>
---default_charset<span class="o">=</span>utf8
-<span class="c1"># The defaule collate when a space is created</span>
---default_collate<span class="o">=</span>utf8_bin
-
-<span class="c1">########## authorization ##########</span>
-<span class="c1"># Enable authorization</span>
---enable_authorize<span class="o">=</span><span class="nb">false</span>
-
-<span class="c1">########## Authentication ##########</span>
-<span class="c1"># User login authentication type, password for nebula authentication, ldap for ldap authentication, cloud for cloud authentication</span>
---auth_type<span class="o">=</span>password
 </code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p><code>nebula-storaged.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## basics ##########</span>
-<span class="c1"># Whether to run as a daemon process</span>
---daemonize<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># The file to host the process id</span>
---pid_file<span class="o">=</span>pids/nebula-storaged.pid
-
-<span class="c1">########## logging ##########</span>
-<span class="c1"># The directory to host logging files</span>
---log_dir<span class="o">=</span>logs
-<span class="c1"># Log level, 0, 1, 2, 3 for INFO, WARNING, ERROR, FATAL respectively</span>
---minloglevel<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Verbose log level, 1, 2, 3, 4, the higher of the level, the more verbose of the logging</span>
---v<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Maximum seconds to buffer the log messages</span>
---logbufsecs<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Whether to redirect stdout and stderr to separate output files</span>
---redirect_stdout<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># Destination filename of stdout and stderr, which will also reside in log_dir.</span>
---stdout_log_file<span class="o">=</span>storaged-stdout.log
---stderr_log_file<span class="o">=</span>storaged-stderr.log
-<span class="c1"># Copy log messages at or above this level to stderr in addition to logfiles. The numbers of severity levels INFO, WARNING, ERROR, and FATAL are 0, 1, 2, and 3, respectively.</span>
---stderrthreshold<span class="o">=</span><span class="m">2</span>
-
-<span class="c1">########## networking ##########</span>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
 <span class="c1"># Comma separated Meta server addresses</span>
---meta_server_addrs<span class="o">=</span>xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
 <span class="c1"># Local IP used to identify the nebula-storaged process.</span>
 <span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
 <span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span>xxx.xxx.10.114
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.114
 <span class="c1"># Storage daemon listening port</span>
 --port<span class="o">=</span><span class="m">9779</span>
-<span class="c1"># HTTP service ip</span>
---ws_ip<span class="o">=</span><span class="m">0</span>.0.0.0
-<span class="c1"># HTTP service port</span>
---ws_http_port<span class="o">=</span><span class="m">19779</span>
-<span class="c1"># HTTP2 service port</span>
---ws_h2_port<span class="o">=</span><span class="m">19780</span>
-<span class="c1"># heartbeat with meta service</span>
---heartbeat_interval_secs<span class="o">=</span><span class="m">10</span>
-
-<span class="c1">######### Raft #########</span>
-<span class="c1"># Raft election timeout</span>
---raft_heartbeat_interval_secs<span class="o">=</span><span class="m">30</span>
-<span class="c1"># RPC timeout for raft client (ms)</span>
---raft_rpc_timeout_ms<span class="o">=</span><span class="m">500</span>
-<span class="c1">## recycle Raft WAL</span>
---wal_ttl<span class="o">=</span><span class="m">14400</span>
-
-<span class="c1">########## Disk ##########</span>
-<span class="c1"># Root data path. Split by comma. e.g. --data_path=/disk1/path1/,/disk2/path2/</span>
-<span class="c1"># One path per Rocksdb instance.</span>
---data_path<span class="o">=</span>data/storage
-
-<span class="c1"># The default reserved bytes for one batch operation</span>
---rocksdb_batch_size<span class="o">=</span><span class="m">4096</span>
-<span class="c1"># The default block cache size used in BlockBasedTable.</span>
-<span class="c1"># The unit is MB.</span>
---rocksdb_block_cache<span class="o">=</span><span class="m">4</span>
-<span class="c1"># The type of storage engine, `rocksdb', `memory', etc.</span>
---engine_type<span class="o">=</span>rocksdb
-
-<span class="c1"># Compression algorithm, options: no,snappy,lz4,lz4hc,zlib,bzip2,zstd</span>
-<span class="c1"># For the sake of binary compatibility, the default value is snappy.</span>
-<span class="c1"># Recommend to use:</span>
-<span class="c1">#   * lz4 to gain more CPU performance, with the same compression ratio with snappy</span>
-<span class="c1">#   * zstd to occupy less disk space</span>
-<span class="c1">#   * lz4hc for the read-heavy write-light scenario</span>
---rocksdb_compression<span class="o">=</span>lz4
-
-<span class="c1"># Set different compressions for different levels</span>
-<span class="c1"># For example, if --rocksdb_compression is snappy,</span>
-<span class="c1"># "no:no:lz4:lz4::zstd" is identical to "no:no:lz4:lz4:snappy:zstd:snappy"</span>
-<span class="c1"># In order to disable compression for level 0/1, set it to "no:no"</span>
---rocksdb_compression_per_level<span class="o">=</span>
-
-<span class="c1"># Whether or not to enable rocksdb's statistics, disabled by default</span>
---enable_rocksdb_statistics<span class="o">=</span><span class="nb">false</span>
-
-<span class="c1"># Statslevel used by rocksdb to collection statistics, optional values are</span>
-<span class="c1">#   * kExceptHistogramOrTimers, disable timer stats, and skip histogram stats</span>
-<span class="c1">#   * kExceptTimers, Skip timer stats</span>
-<span class="c1">#   * kExceptDetailedTimers, Collect all stats except time inside mutex lock AND time spent on compression.</span>
-<span class="c1">#   * kExceptTimeForMutex, Collect all stats except the counters requiring to get time inside the mutex lock.</span>
-<span class="c1">#   * kAll, Collect all stats</span>
---rocksdb_stats_level<span class="o">=</span>kExceptHistogramOrTimers
-
-<span class="c1"># Whether or not to enable rocksdb's prefix bloom filter, disabled by default.</span>
---enable_rocksdb_prefix_filtering<span class="o">=</span><span class="nb">false</span>
-<span class="c1"># Whether or not to enable the whole key filtering.</span>
---enable_rocksdb_whole_key_filtering<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># The prefix length for each key to use as the filter value.</span>
-<span class="c1"># can be 12 bytes(PartitionId + VertexID), or 16 bytes(PartitionId + VertexID + TagID/EdgeType).</span>
---rocksdb_filtering_prefix_length<span class="o">=</span><span class="m">12</span>
-
-<span class="c1">############## rocksdb Options ##############</span>
-<span class="c1"># rocksdb DBOptions in json, each name and value of option is a string, given as "option_name":"option_value" separated by comma</span>
---rocksdb_db_options<span class="o">={}</span>
-<span class="c1"># rocksdb ColumnFamilyOptions in json, each name and value of option is string, given as "option_name":"option_value" separated by comma</span>
---rocksdb_column_family_options<span class="o">={</span><span class="s2">"write_buffer_size"</span>:<span class="s2">"67108864"</span>,<span class="s2">"max_write_buffer_number"</span>:<span class="s2">"4"</span>,<span class="s2">"max_bytes_for_level_base"</span>:<span class="s2">"268435456"</span><span class="o">}</span>
-<span class="c1"># rocksdb BlockBasedTableOptions in json, each name and value of option is string, given as "option_name":"option_value" separated by comma</span>
---rocksdb_block_based_table_options<span class="o">={</span><span class="s2">"block_size"</span>:<span class="s2">"8192"</span><span class="o">}</span>
 </code></pre></div>
 </li>
 </ul>
@@ -2969,195 +2222,39 @@
 <ul>
 <li>
 <p><code>nebula-graphd.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## basics ##########</span>
-<span class="c1"># Whether to run as a daemon process</span>
---daemonize<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># The file to host the process id</span>
---pid_file<span class="o">=</span>pids/nebula-graphd.pid
-<span class="c1"># Whether to enable optimizer</span>
---enable_optimizer<span class="o">=</span><span class="nb">true</span>
-
-<span class="c1">########## logging ##########</span>
-<span class="c1"># The directory to host logging files</span>
---log_dir<span class="o">=</span>logs
-<span class="c1"># Log level, 0, 1, 2, 3 for INFO, WARNING, ERROR, FATAL respectively</span>
---minloglevel<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Verbose log level, 1, 2, 3, 4, the higher of the level, the more verbose of the logging</span>
---v<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Maximum seconds to buffer the log messages</span>
---logbufsecs<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Whether to redirect stdout and stderr to separate output files</span>
---redirect_stdout<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># Destination filename of stdout and stderr, which will also reside in log_dir.</span>
---stdout_log_file<span class="o">=</span>graphd-stdout.log
---stderr_log_file<span class="o">=</span>graphd-stderr.log
-<span class="c1"># Copy log messages at or above this level to stderr in addition to logfiles. The numbers of severity levels INFO, WARNING, ERROR, and FATAL are 0, 1, 2, and 3, respectively.</span>
---stderrthreshold<span class="o">=</span><span class="m">2</span>
-
-<span class="c1">########## query ##########</span>
-<span class="c1"># Whether to treat partial success as an error.</span>
-<span class="c1"># This flag is only used for Read-only access, and Modify access always treats partial success as an error.</span>
---accept_partial_success<span class="o">=</span><span class="nb">false</span>
-
-<span class="c1">########## networking ##########</span>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
 <span class="c1"># Comma separated Meta Server Addresses</span>
---meta_server_addrs<span class="o">=</span>xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
 <span class="c1"># Local IP used to identify the nebula-graphd process.</span>
 <span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
 <span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span>xxx.xxx.10.115
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.115
 <span class="c1"># Network device to listen on</span>
 --listen_netdev<span class="o">=</span>any
 <span class="c1"># Port to listen on</span>
 --port<span class="o">=</span><span class="m">9669</span>
-<span class="c1"># To turn on SO_REUSEPORT or not</span>
---reuse_port<span class="o">=</span><span class="nb">false</span>
-<span class="c1"># Backlog of the listen socket, adjust this together with net.core.somaxconn</span>
---listen_backlog<span class="o">=</span><span class="m">1024</span>
-<span class="c1"># Seconds before the idle connections are closed, 0 for never closed</span>
---client_idle_timeout_secs<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Seconds before the idle sessions are expired, 0 for no expiration</span>
---session_idle_timeout_secs<span class="o">=</span><span class="m">0</span>
-<span class="c1"># The number of threads to accept incoming connections</span>
---num_accept_threads<span class="o">=</span><span class="m">1</span>
-<span class="c1"># The number of networking IO threads, 0 for # of CPU cores</span>
---num_netio_threads<span class="o">=</span><span class="m">0</span>
-<span class="c1"># The number of threads to execute user queries, 0 for # of CPU cores</span>
---num_worker_threads<span class="o">=</span><span class="m">0</span>
-<span class="c1"># HTTP service ip</span>
---ws_ip<span class="o">=</span><span class="m">0</span>.0.0.0
-<span class="c1"># HTTP service port</span>
---ws_http_port<span class="o">=</span><span class="m">19669</span>
-<span class="c1"># HTTP2 service port</span>
---ws_h2_port<span class="o">=</span><span class="m">19670</span>
-
-<span class="c1"># The default charset when a space is created</span>
---default_charset<span class="o">=</span>utf8
-<span class="c1"># The defaule collate when a space is created</span>
---default_collate<span class="o">=</span>utf8_bin
-
-<span class="c1">########## authorization ##########</span>
-<span class="c1"># Enable authorization</span>
---enable_authorize<span class="o">=</span><span class="nb">false</span>
-
-<span class="c1">########## Authentication ##########</span>
-<span class="c1"># User login authentication type, password for nebula authentication, ldap for ldap authentication, cloud for cloud authentication</span>
---auth_type<span class="o">=</span>password
 </code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p><code>nebula-storaged.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## basics ##########</span>
-<span class="c1"># Whether to run as a daemon process</span>
---daemonize<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># The file to host the process id</span>
---pid_file<span class="o">=</span>pids/nebula-storaged.pid
-
-<span class="c1">########## logging ##########</span>
-<span class="c1"># The directory to host logging files</span>
---log_dir<span class="o">=</span>logs
-<span class="c1"># Log level, 0, 1, 2, 3 for INFO, WARNING, ERROR, FATAL respectively</span>
---minloglevel<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Verbose log level, 1, 2, 3, 4, the higher of the level, the more verbose of the logging</span>
---v<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Maximum seconds to buffer the log messages</span>
---logbufsecs<span class="o">=</span><span class="m">0</span>
-<span class="c1"># Whether to redirect stdout and stderr to separate output files</span>
---redirect_stdout<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># Destination filename of stdout and stderr, which will also reside in log_dir.</span>
---stdout_log_file<span class="o">=</span>storaged-stdout.log
---stderr_log_file<span class="o">=</span>storaged-stderr.log
-<span class="c1"># Copy log messages at or above this level to stderr in addition to logfiles. The numbers of severity levels INFO, WARNING, ERROR, and FATAL are 0, 1, 2, and 3, respectively.</span>
---stderrthreshold<span class="o">=</span><span class="m">2</span>
-
-<span class="c1">########## networking ##########</span>
+<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
 <span class="c1"># Comma separated Meta server addresses</span>
---meta_server_addrs<span class="o">=</span>xxx.xxx.10.111:9559,xxx.xxx.10.112:9559,xxx.xxx.10.113:9559
+--meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
 <span class="c1"># Local IP used to identify the nebula-storaged process.</span>
 <span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
 <span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span>xxx.xxx.10.115
+--local_ip<span class="o">=</span><span class="m">192</span>.168.10.115
 <span class="c1"># Storage daemon listening port</span>
 --port<span class="o">=</span><span class="m">9779</span>
-<span class="c1"># HTTP service ip</span>
---ws_ip<span class="o">=</span><span class="m">0</span>.0.0.0
-<span class="c1"># HTTP service port</span>
---ws_http_port<span class="o">=</span><span class="m">19779</span>
-<span class="c1"># HTTP2 service port</span>
---ws_h2_port<span class="o">=</span><span class="m">19780</span>
-<span class="c1"># heartbeat with meta service</span>
---heartbeat_interval_secs<span class="o">=</span><span class="m">10</span>
-
-<span class="c1">######### Raft #########</span>
-<span class="c1"># Raft election timeout</span>
---raft_heartbeat_interval_secs<span class="o">=</span><span class="m">30</span>
-<span class="c1"># RPC timeout for raft client (ms)</span>
---raft_rpc_timeout_ms<span class="o">=</span><span class="m">500</span>
-<span class="c1">## recycle Raft WAL</span>
---wal_ttl<span class="o">=</span><span class="m">14400</span>
-
-<span class="c1">########## Disk ##########</span>
-<span class="c1"># Root data path. Split by comma. e.g. --data_path=/disk1/path1/,/disk2/path2/</span>
-<span class="c1"># One path per Rocksdb instance.</span>
---data_path<span class="o">=</span>data/storage
-
-<span class="c1"># The default reserved bytes for one batch operation</span>
---rocksdb_batch_size<span class="o">=</span><span class="m">4096</span>
-<span class="c1"># The default block cache size used in BlockBasedTable.</span>
-<span class="c1"># The unit is MB.</span>
---rocksdb_block_cache<span class="o">=</span><span class="m">4</span>
-<span class="c1"># The type of storage engine, `rocksdb', `memory', etc.</span>
---engine_type<span class="o">=</span>rocksdb
-
-<span class="c1"># Compression algorithm, options: no,snappy,lz4,lz4hc,zlib,bzip2,zstd</span>
-<span class="c1"># For the sake of binary compatibility, the default value is snappy.</span>
-<span class="c1"># Recommend to use:</span>
-<span class="c1">#   * lz4 to gain more CPU performance, with the same compression ratio with snappy</span>
-<span class="c1">#   * zstd to occupy less disk space</span>
-<span class="c1">#   * lz4hc for the read-heavy write-light scenario</span>
---rocksdb_compression<span class="o">=</span>lz4
-
-<span class="c1"># Set different compressions for different levels</span>
-<span class="c1"># For example, if --rocksdb_compression is snappy,</span>
-<span class="c1"># "no:no:lz4:lz4::zstd" is identical to "no:no:lz4:lz4:snappy:zstd:snappy"</span>
-<span class="c1"># In order to disable compression for level 0/1, set it to "no:no"</span>
---rocksdb_compression_per_level<span class="o">=</span>
-
-<span class="c1"># Whether or not to enable rocksdb's statistics, disabled by default</span>
---enable_rocksdb_statistics<span class="o">=</span><span class="nb">false</span>
-
-<span class="c1"># Statslevel used by rocksdb to collection statistics, optional values are</span>
-<span class="c1">#   * kExceptHistogramOrTimers, disable timer stats, and skip histogram stats</span>
-<span class="c1">#   * kExceptTimers, Skip timer stats</span>
-<span class="c1">#   * kExceptDetailedTimers, Collect all stats except time inside mutex lock AND time spent on compression.</span>
-<span class="c1">#   * kExceptTimeForMutex, Collect all stats except the counters requiring to get time inside the mutex lock.</span>
-<span class="c1">#   * kAll, Collect all stats</span>
---rocksdb_stats_level<span class="o">=</span>kExceptHistogramOrTimers
-
-<span class="c1"># Whether or not to enable rocksdb's prefix bloom filter, disabled by default.</span>
---enable_rocksdb_prefix_filtering<span class="o">=</span><span class="nb">false</span>
-<span class="c1"># Whether or not to enable the whole key filtering.</span>
---enable_rocksdb_whole_key_filtering<span class="o">=</span><span class="nb">true</span>
-<span class="c1"># The prefix length for each key to use as the filter value.</span>
-<span class="c1"># can be 12 bytes(PartitionId + VertexID), or 16 bytes(PartitionId + VertexID + TagID/EdgeType).</span>
---rocksdb_filtering_prefix_length<span class="o">=</span><span class="m">12</span>
-
-<span class="c1">############## rocksdb Options ##############</span>
-<span class="c1"># rocksdb DBOptions in json, each name and value of option is a string, given as "option_name":"option_value" separated by comma</span>
---rocksdb_db_options<span class="o">={}</span>
-<span class="c1"># rocksdb ColumnFamilyOptions in json, each name and value of option is string, given as "option_name":"option_value" separated by comma</span>
---rocksdb_column_family_options<span class="o">={</span><span class="s2">"write_buffer_size"</span>:<span class="s2">"67108864"</span>,<span class="s2">"max_write_buffer_number"</span>:<span class="s2">"4"</span>,<span class="s2">"max_bytes_for_level_base"</span>:<span class="s2">"268435456"</span><span class="o">}</span>
-<span class="c1"># rocksdb BlockBasedTableOptions in json, each name and value of option is string, given as "option_name":"option_value" separated by comma</span>
---rocksdb_block_based_table_options<span class="o">={</span><span class="s2">"block_size"</span>:<span class="s2">"8192"</span><span class="o">}</span>
 </code></pre></div>
 </li>
 </ul>
 </li>
 </ul>
 <h3 id="3">3.启动集群<a class="headerlink" href="#3" title="Permanent link">¶</a></h3>
-<p>启动各个服务器上的对应进程。说明如下。</p>
+<p>依次启动各个服务器上的对应进程。说明如下。</p>
 <table>
 <thead>
 <tr>
@@ -3201,25 +2298,25 @@
 </ul>
 </div>
 <h3 id="4">4.检查集群<a class="headerlink" href="#4" title="Permanent link">¶</a></h3>
-<p>连接任何一个已启动graphd进程的机器，执行命令<code>SHOW HOSTS</code>检查集群状态。例如：</p>
-<div class="highlight"><pre><span></span><code>$ ./nebula-console --addr xxx.xxx.10.111 --port <span class="m">9669</span> -u root -p nebula
+<p>安装原生CLI客户端<a href="../../2.quick-start/3.connect-to-nebula-graph/#_1">Nebula Console</a>，然后连接任何一个已启动graphd进程的机器，执行命令<code>SHOW HOSTS</code>检查集群状态。例如：</p>
+<div class="highlight"><pre><span></span><code>$ ./nebula-console --addr <span class="m">192</span>.168.10.111 --port <span class="m">9669</span> -u root -p nebula
 
 <span class="m">2021</span>/05/25 <span class="m">01</span>:41:19 <span class="o">[</span>INFO<span class="o">]</span> connection pool is initialized successfully
 Welcome to Nebula Graph!
 
-&gt; SHOW HOSTS
+&gt; SHOW HOSTS<span class="p">;</span>
 +------------------+------+----------+--------------+----------------------+------------------------+
 <span class="p">|</span> Host             <span class="p">|</span> Port <span class="p">|</span> Status   <span class="p">|</span> Leader count <span class="p">|</span> Leader distribution  <span class="p">|</span> Partition distribution <span class="p">|</span>
 +------------------+------+----------+--------------+----------------------+------------------------+
-<span class="p">|</span> <span class="s2">"xxx.xxx.10.111"</span> <span class="p">|</span> <span class="m">9779</span> <span class="p">|</span> <span class="s2">"ONLINE"</span> <span class="p">|</span> <span class="m">0</span>            <span class="p">|</span> <span class="s2">"No valid partition"</span> <span class="p">|</span> <span class="s2">"No valid partition"</span>   <span class="p">|</span>
+<span class="p">|</span> <span class="s2">"192.168.10.111"</span> <span class="p">|</span> <span class="m">9779</span> <span class="p">|</span> <span class="s2">"ONLINE"</span> <span class="p">|</span> <span class="m">0</span>            <span class="p">|</span> <span class="s2">"No valid partition"</span> <span class="p">|</span> <span class="s2">"No valid partition"</span>   <span class="p">|</span>
 +------------------+------+----------+--------------+----------------------+------------------------+
-<span class="p">|</span> <span class="s2">"xxx.xxx.10.112"</span> <span class="p">|</span> <span class="m">9779</span> <span class="p">|</span> <span class="s2">"ONLINE"</span> <span class="p">|</span> <span class="m">0</span>            <span class="p">|</span> <span class="s2">"No valid partition"</span> <span class="p">|</span> <span class="s2">"No valid partition"</span>   <span class="p">|</span>
+<span class="p">|</span> <span class="s2">"192.168.10.112"</span> <span class="p">|</span> <span class="m">9779</span> <span class="p">|</span> <span class="s2">"ONLINE"</span> <span class="p">|</span> <span class="m">0</span>            <span class="p">|</span> <span class="s2">"No valid partition"</span> <span class="p">|</span> <span class="s2">"No valid partition"</span>   <span class="p">|</span>
 +------------------+------+----------+--------------+----------------------+------------------------+
-<span class="p">|</span> <span class="s2">"xxx.xxx.10.113"</span> <span class="p">|</span> <span class="m">9779</span> <span class="p">|</span> <span class="s2">"ONLINE"</span> <span class="p">|</span> <span class="m">0</span>            <span class="p">|</span> <span class="s2">"No valid partition"</span> <span class="p">|</span> <span class="s2">"No valid partition"</span>   <span class="p">|</span>
+<span class="p">|</span> <span class="s2">"192.168.10.113"</span> <span class="p">|</span> <span class="m">9779</span> <span class="p">|</span> <span class="s2">"ONLINE"</span> <span class="p">|</span> <span class="m">0</span>            <span class="p">|</span> <span class="s2">"No valid partition"</span> <span class="p">|</span> <span class="s2">"No valid partition"</span>   <span class="p">|</span>
 +------------------+------+----------+--------------+----------------------+------------------------+
-<span class="p">|</span> <span class="s2">"xxx.xxx.10.114"</span> <span class="p">|</span> <span class="m">9779</span> <span class="p">|</span> <span class="s2">"ONLINE"</span> <span class="p">|</span> <span class="m">0</span>            <span class="p">|</span> <span class="s2">"No valid partition"</span> <span class="p">|</span> <span class="s2">"No valid partition"</span>   <span class="p">|</span>
+<span class="p">|</span> <span class="s2">"192.168.10.114"</span> <span class="p">|</span> <span class="m">9779</span> <span class="p">|</span> <span class="s2">"ONLINE"</span> <span class="p">|</span> <span class="m">0</span>            <span class="p">|</span> <span class="s2">"No valid partition"</span> <span class="p">|</span> <span class="s2">"No valid partition"</span>   <span class="p">|</span>
 +------------------+------+----------+--------------+----------------------+------------------------+
-<span class="p">|</span> <span class="s2">"xxx.xxx.10.115"</span> <span class="p">|</span> <span class="m">9779</span> <span class="p">|</span> <span class="s2">"ONLINE"</span> <span class="p">|</span> <span class="m">0</span>            <span class="p">|</span> <span class="s2">"No valid partition"</span> <span class="p">|</span> <span class="s2">"No valid partition"</span>   <span class="p">|</span>
+<span class="p">|</span> <span class="s2">"192.168.10.115"</span> <span class="p">|</span> <span class="m">9779</span> <span class="p">|</span> <span class="s2">"ONLINE"</span> <span class="p">|</span> <span class="m">0</span>            <span class="p">|</span> <span class="s2">"No valid partition"</span> <span class="p">|</span> <span class="s2">"No valid partition"</span>   <span class="p">|</span>
 +------------------+------+----------+--------------+----------------------+------------------------+
 <span class="p">|</span> <span class="s2">"Total"</span>          <span class="p">|</span>      <span class="p">|</span>          <span class="p">|</span> <span class="m">0</span>            <span class="p">|</span>                      <span class="p">|</span>                        <span class="p">|</span>
 +------------------+------+----------+--------------+----------------------+------------------------+
@@ -3228,7 +2325,7 @@ Welcome to Nebula Graph!
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月25日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月26日</span>
 </small>
 </div>
 </article>
