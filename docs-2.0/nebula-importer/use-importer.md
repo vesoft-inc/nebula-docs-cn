@@ -1,6 +1,6 @@
 # Nebula Importer
 
-Nebula Importer（简称Importer）是一款[Nebula Graph](https://github.com/vesoft-inc/nebula)的CSV文件导入工具。Importer可以读取本地的CSV文件，然后导入数据至Nebula Graph图数据库中。
+Nebula Importer（简称Importer）是一款[Nebula Graph](https://github.com/vesoft-inc/nebula)的CSV文件单机导入工具。Importer可以读取本地的CSV文件，然后导入数据至Nebula Graph图数据库中。
 
 ## 适用场景
 
@@ -154,7 +154,7 @@ clientSettings:
   connection:
     user: user
     password: password
-    address: 192.168.*.*:9669,192.168.*.*:9669
+    address: 192.168.11.13:9669,192.168.11.14:9669
   postStart:
     commands: |
       UPDATE CONFIGS storage:wal_ttl=3600;
@@ -254,6 +254,9 @@ schema:
 |`files.schema.vertex.tags.props.type`|-|否|属性数据类型，支持`bool`、`int`、`float`、`double`、`timestamp`和`string`。|
 |`files.schema.vertex.tags.props.index`|-|否|属性对应CSV文件中列的序号。|
 
+!!! note
+    CSV文件中列的序号从0开始，即第一列的序号为0，第二列的序号为1。
+
 - 边配置
 
 示例配置如下：
@@ -290,9 +293,6 @@ schema:
 |`files.schema.edge.props.name`|-|是|边类型属性名称，必须和Nebula Graph中的边类型属性一致。|
 |`files.schema.edge.props.type`|-|否|属性类型，支持`bool`、`int`、`float`、`double`、`timestamp`和`string`。|
 |`files.schema.edge.props.index`|-|否|属性对应CSV文件中列的序号。|
-
-!!! note
-    CSV文件中列的序号从0开始，即第一列的序号为0，第二列的序号为1。
 
 ## 关于CSV文件表头（header）
 

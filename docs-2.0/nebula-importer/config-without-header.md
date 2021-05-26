@@ -60,8 +60,7 @@ clientSettings:
   connection:
     user: root
     password: nebula
-    address: 192.168.*.*:9669
-
+    address: 192.168.11.13:9669
 
   postStart:
     # 配置连接Nebula Graph服务器之后，在插入数据之前执行的一些操作。
@@ -200,12 +199,14 @@ files:
              index: 3
 ```
 
-- CSV文件中列的序号从0开始，即第一列的序号为0，第二列的序号为1。
+!!! Note
 
-- 点ID的数据类型需要和`clientSettings.postStart.commands`中的创建图空间语句的数据类型一致。
+  - CSV文件中列的序号从0开始，即第一列的序号为0，第二列的序号为1。
 
-- 如果没有设置index字段指定列的序号，CSV文件必须遵守如下规则：
+  - 点ID的数据类型需要和`clientSettings.postStart.commands`中的创建图空间语句的数据类型一致。
 
-  - 在点数据文件中，第一列必须为点ID，后面的列为属性，且需要和配置文件内的顺序一一对应。
+  - 如果没有设置index字段指定列的序号，CSV文件必须遵守如下规则：
 
-  - 在边数据文件中，第一列必须为起始点ID，第二列必须为目的点ID，如果`withRanking`为`true`，第三列必须为rank值，后面的列为属性，且需要和配置文件内的顺序一一对应。
+    + 在点数据文件中，第一列必须为点ID，后面的列为属性，且需要和配置文件内的顺序一一对应。
+
+    + 在边数据文件中，第一列必须为起始点ID，第二列必须为目的点ID，如果`withRanking`为`true`，第三列必须为rank值，后面的列为属性，且需要和配置文件内的顺序一一对应。

@@ -268,7 +268,16 @@ nav:
     - 故障排查:
       - 连接数据库错误: nebula-studio/troubleshooting/st-ug-config-server-errors.md
       - 无法访问 Studio: nebula-studio/troubleshooting/st-ug-connection-errors.md
-      - 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
+      - Studio 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
+
+  - Nebula Importer:
+    - 使用Nebula Importer: nebula-importer/use-importer.md
+    - 有表头配置说明: nebula-importer/config-with-header.md
+    - 无表头配置说明: nebula-importer/config-without-header.md
+  
+  - Nebula Spark Connector: nebula-spark-connector.md
+
+  - Nebula Flink Connector: nebula-flink-connector.md
 
   - Nebula Exchange:
     - 认识Nebula Exchange:
@@ -289,38 +298,24 @@ nav:
       - 导入Hive数据: nebula-exchange/use-exchange/ex-ug-import-from-hive.md
       - 导入Pulsar数据: nebula-exchange/use-exchange/ex-ug-import-from-pulsar.md
       - 导入Kafka数据: nebula-exchange/use-exchange/ex-ug-import-from-kafka.md
-    - 常见问题FAQ: nebula-exchange/ex-ug-FAQ.md
-
-  - Nebula Importer:
-    - 使用Nebula Importer: nebula-importer/use-importer.md
-    - 有表头配置说明: nebula-importer/config-with-header.md
-    - 无表头配置说明: nebula-importer/config-without-header.md
-  
-  - Nebula Spark Connector: nebula-spark-connector.md
-
-  - Nebula Flink Connector: nebula-flink-connector.md
+    - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
 
   - Nebula Algorithm: nebula-algorithm.md
 
-  - 社区贡献:
-      - 如何贡献: 15.contribution/how-to-contribute.md
-
-  - FAQ:
-      - FAQ: 19.FAQ/0.FAQ.md
-
   - 附录:
-      - VID: 20.appendix/0.vid.md
+      - Nebula Graph 常见问题: 20.appendix/0.FAQ.md
       - 图建模: 20.appendix/2.graph-modeling.md
       - 系统建模: 20.appendix/3.system-design.md
       - 关于Raft的简单介绍: 20.appendix/4.raft.md
       - 分片ID: 20.appendix/5.partition.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
+      - VID: 20.appendix/7.vid.md
       - 注释: 20.appendix/comments.md
       - 大小写区分: 20.appendix/identifier-case-sensitivity.md
       - 关键字: 20.appendix/keywords-and-reserved-words.md
 
+  - 如何贡献: 15.contribution/how-to-contribute.md
 
-  - English:  https://docs.nebula-graph.io/
 
   - PDF: ./pdf/NebulaGraph-CN.pdf
 

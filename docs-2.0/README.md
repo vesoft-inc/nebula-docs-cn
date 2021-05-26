@@ -8,12 +8,15 @@ Nebula Graph是一款开源的、分布式的、易扩展的原生图数据库�
 
 * [简介](1.introduction/1.what-is-nebula-graph.md)
 * [快速开始](2.quick-start/1.quick-start-workflow.md)
-* [FAQ](19.FAQ/0.FAQ.md)
+* [FAQ](20.appendix/0.FAQ.md)
 * [生态工具](20.appendix/6.eco-tool-version.md)
 
 ## 其他资料
 
-- [Nebula Graph Homepage](https://nebula-graph.com.cn/)
-- [Bilibili](https://space.bilibili.com/472621355)
+- [主页](https://nebula-graph.com.cn/)
+- [论坛](https://discuss.nebula-graph.com.cn/)
 - [Blog](https://nebula-graph.com.cn/posts/)
+- [视频](https://space.bilibili.com/472621355)
+- [English](https://docs.nebula-graph.io/)
+
 
