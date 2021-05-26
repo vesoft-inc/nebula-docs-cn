@@ -1857,10 +1857,11 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="show_hosts">SHOW HOSTS<a class="headerlink" href="#show_hosts" title="Permanent link">¶</a></h1>
-<p><code>SHOW HOSTS</code>语句显示由Meta服务注册的Graph、Storage、Meta主机。</p>
+<p><code>SHOW HOSTS</code>语句可以显示Graph、Storage、Meta服务主机信息。</p>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span></span><code>SHOW HOSTS [GRAPH/STORAGE/META];
+<div class="highlight"><pre><span></span><code>SHOW HOSTS [GRAPH | STORAGE | META];
 </code></pre></div>
+<p>不添加服务名，直接使用<code>SHOW HOSTS</code>，会显示Storage服务主机信息，以及leader总数、leader分布和分片分布。</p>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code>nebula&gt; SHOW HOSTS;
 +-------------+-------+----------+--------------+----------------------------------+-----------------------------+
@@ -1896,7 +1897,7 @@ nebula&gt; SHOW HOSTS META;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月13日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月26日</span>
 </small>
 </div>
 </article>

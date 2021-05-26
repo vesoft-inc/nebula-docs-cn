@@ -2096,10 +2096,12 @@
 <p>Nebula Graph 2.0一直在持续开发，功能或操作的行为可能会有变化，如果发现不一致，请提交<a href="https://github.com/vesoft-inc/nebula-graph/issues/new">issue</a>通知Nebula Graph团队。</p>
 <div class="admonition note">
 <p class="admonition-title">如果您发现发现本文档中的错误</p>
+<ol>
+<li>用户可以点击页面顶部右上角的"铅笔"图标进入编辑页面。</li>
+<li>使用 Markdown 修改文档。完成后点击页面底部的 "Commit changes"，这会触发一个 GitHub pull request。</li>
+<li>完成<a href="../../15.contribution/how-to-contribute/">CLA签署</a>，并且至少2位reviewer审核通过即可合并。</li>
+</ol>
 </div>
-<p>1. 用户可以点击页面顶部右上角的"铅笔"图标进入编辑页面。
-   2. 使用 Markdown 修改文档。完成后点击页面底部的 "Commit changes"，这会触发一个 GitHub pull request。
-   3. 完成<a href="../../15.contribution/how-to-contribute/">CLA签署</a>，并且至少2位reviewer审核通过即可合并。</p>
 <h2 id="_3">关于历史兼容性<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <div class="admonition caution">
 <p class="admonition-title">大版本兼容性</p>
@@ -2139,7 +2141,7 @@ Got 1 rows (time spent 1235/1934 us)
 <p>请参见<a href="../../3.ngql-guide/7.general-query-statements/6.show/14.show-stats/">show-stats</a>。</p>
 <h3 id="tag_1">如何获取每种Tag的所有点，或者每种边类型的所有边?<a class="headerlink" href="#tag_1" title="Permanent link">¶</a></h3>
 <ol>
-<li>建立并重建索引</li>
+<li>建立并重建索引。</li>
 </ol>
 <div class="highlight"><pre><span></span><code>&gt; CREATE TAG INDEX i_player ON player();
 &gt; REBUILD TAG INDEX i_player;
@@ -2167,14 +2169,14 @@ Got 1 rows (time spent 1235/1934 us)
 </code></pre></div>
 <p>否则，就会抛出这样一个异常 <code>can’t solve the start vids from the sentence</code>。</p>
 <h3 id="storage_error_the_vid_must_be_a_64-bit_integer_or_a_string">如何处理错误信息<code>Storage Error: The VID must be a 64-bit integer or a string.</code><a class="headerlink" href="#storage_error_the_vid_must_be_a_64-bit_integer_or_a_string" title="Permanent link">¶</a></h3>
-<p>检查输入的 vid 是否是 create space 设置的整型或者 <code>fix_string(N)</code>. 如果是字符串类型，检查长度是否超过<code>N</code> (默认为 <code>8</code>).
-见<a href="../../3.ngql-guide/9.space-statements/1.create-space/">create space</a>.</p>
+<p>检查输入的 vid 是否是 create space 设置的整型或者 <code>fix_string(N)</code>. 如果是字符串类型，检查长度是否超过<code>N</code> (默认为 <code>8</code>)。
+见<a href="../../3.ngql-guide/9.space-statements/1.create-space/">create space</a>。</p>
 <h3 id="edge_conflictvertex_conflict">如何处理错误信息<code>edge conflict</code>或<code>vertex conflict</code><a class="headerlink" href="#edge_conflictvertex_conflict" title="Permanent link">¶</a></h3>
 <p>Storage服务在毫秒级时间内多次收到插入或者更新同一点或边的请求时，可能返回该错误。请稍后重试。</p>
 <h3 id="storage_error_e_rpc_failure">如何处理错误信息<code>Storage Error E_RPC_FAILURE</code><a class="headerlink" href="#storage_error_e_rpc_failure" title="Permanent link">¶</a></h3>
 <p>报错原因通常为Graph服务向Storage服务请求了过多的数据，导致Storage服务超时。请尝试以下解决方案：</p>
 <ul>
-<li><a href="../../5.configurations-and-logs/1.configurations/3.graph-config/">修改配置文件</a>: 在<code>nebula-graphd.conf</code>文件中修改<code>--storage_client_timeout_ms</code>参数的值，以增加Storage client的连接超时时间。该值的单位为毫秒（ms）。例如，设置<code>--storage_client_timeout_ms=60000</code>。如果<code>nebula-graphd.conf</code>文件中未配置该参数，请手动增加。提示：请在配置文件开头添加--local_config=true再重启服务.</li>
+<li><a href="../../5.configurations-and-logs/1.configurations/3.graph-config/">修改配置文件</a>: 在<code>nebula-graphd.conf</code>文件中修改<code>--storage_client_timeout_ms</code>参数的值，以增加Storage client的连接超时时间。该值的单位为毫秒（ms）。例如，设置<code>--storage_client_timeout_ms=60000</code>。如果<code>nebula-graphd.conf</code>文件中未配置该参数，请手动增加。提示：请在配置文件开头添加--local_config=true再重启服务。</li>
 <li>优化查询语句：减少全库扫描型的查询，无论是否用<code>LIMIT</code>限制了返回结果的数量；用 GO 语句改写 MATCH 语句（前者有优化，后者无优化）。</li>
 <li>检查Storaged是否发生的 OOM。(<code>dmesg |grep nebula</code>)。</li>
 <li>为 Storage 服务器提供性能更好的SSD或者内存。</li>
@@ -2186,25 +2188,46 @@ Got 1 rows (time spent 1235/1934 us)
 <p>不支持。即使关闭了客户端，服务端仍会尽力把该查询执行完毕，无法中断。</p>
 <h2 id="_6">关于运维<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
 <h3 id="_7">日志文件过大时如何回收日志？<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
-<p>Nebula Graph 的日志默认在 <code>/usr/local/nebula/logs/</code> 下, 正常INFO级别日志文件为 <code>nebula-graphd.INFO, nebula-storaged.INFO, nebula-metad.INFO</code>，报警和错误级别后缀为 <code>.WARNING</code> 和 <code>.ERROR</code>.</p>
+<p>Nebula Graph 的日志默认在 <code>/usr/local/nebula/logs/</code> 下, 正常INFO级别日志文件为 <code>nebula-graphd.INFO, nebula-storaged.INFO, nebula-metad.INFO</code>，报警和错误级别后缀为 <code>.WARNING</code> 和 <code>.ERROR</code>。</p>
 <p>Nebula Graph使用 <a href="https://github.com/google/glog">glog</a> 打印日志。glog 没有日志回收的功能，用户可以使用 crontab 设置定期任务回收日志文件，详情请参见<a href="https://github.com/google/glog/issues/423">Glog should delete old log files automatically</a>。</p>
 <h3 id="nebula_graph">如何查看Nebula Graph版本<a class="headerlink" href="#nebula_graph" title="Permanent link">¶</a></h3>
+<p>安装方式不同，查看版本的方法也不同，说明如下：</p>
+<ul>
+<li>
+<p>编译安装</p>
 <ol>
 <li>
-<p>使用<code>&lt;binary_path&gt; --version</code>命令查看相应服务二进制文件的Git commit ID。</p>
-<p>例如，要查看Graph服务的版本，进入Graph服务对应的二进制文件<code>nebula-graphd</code>所在目录，运行<code>./nebula-graphd --version</code>。</p>
+<p>在安装路径的<code>bin</code>目录内，执行<code>./&lt;binary_name&gt; --version</code>命令，可以查看到GitHub上的commit ID，例如：</p>
 <div class="highlight"><pre><span></span><code>$ ./nebula-graphd --version
 nebula-graphd version Git: ab4f683, Build Time: Mar <span class="m">24</span> <span class="m">2021</span> <span class="m">02</span>:17:30
 This <span class="nb">source</span> code is licensed under Apache <span class="m">2</span>.0 License, attached with Common Clause Condition <span class="m">1</span>.0.
 </code></pre></div>
 </li>
 <li>
-<p>在<a href="https://github.com/vesoft-inc/nebula-graph/commits/master">GitHub commits</a>页搜索该commit ID，获取commit的提交时间。</p>
+<p>在<a href="https://github.com/vesoft-inc/nebula-graph/commits/master">GitHub commits</a>页搜索该commit ID，查看提交时间。</p>
 </li>
 <li>
-<p>对比commit提交时间和<a href="https://github.com/vesoft-inc/nebula-graph/releases">GitHub Releases</a>页的版本发布时间，即可确定Nebula Graph的版本。</p>
+<p>将提交时间和<a href="https://github.com/vesoft-inc/nebula-graph/releases">GitHub Releases</a>页的版本发布时间进行对比，即可确定Nebula Graph的版本。</p>
 </li>
 </ol>
+</li>
+</ul>
+<ul>
+<li>
+<p>Docker Compose部署</p>
+<p>查看Docker Compose部署的Nebula Graph版本，方式和编译安装类似，只是要先进入容器内部，示例命令如下：</p>
+<div class="highlight"><pre><span></span><code>docker <span class="nb">exec</span> -it nebula-docker-compose_graphd_1 bash
+<span class="nb">cd</span> bin/
+./nebula-graphd --version
+</code></pre></div>
+</li>
+</ul>
+<ul>
+<li>
+<p>RPM/DEB包安装</p>
+<p>执行<code>rpm -qa |grep nebula</code>即可查看版本。</p>
+</li>
+</ul>
 <h3 id="_8">如何扩缩容<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
 <p>Nebula Graph master 未提供运维命令以实现自动扩缩容，参考以下步骤：</p>
 <ul>
@@ -2273,7 +2296,7 @@ telnet: connect to address <span class="m">192</span>.168.1.10: Connection refus
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月24日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月26日</span>
 </small>
 </div>
 </article>

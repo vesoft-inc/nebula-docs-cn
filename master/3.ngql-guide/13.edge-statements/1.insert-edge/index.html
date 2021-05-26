@@ -1924,11 +1924,18 @@ nebula&gt; FETCH PROP ON e2 "11"-&gt;"13";
 | [:e2 "11"-&gt;"13" @0 {age: 14, name: "n1"}] |
 +-------------------------------------------+
 </code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>目前还不能保证操作的原子性，如果失败请重试，否则会发生部分写入。此时读取该数据的行为是未定义的。</li>
+<li>并发写入同一条边会报<code>edge conflict</code>错误，可稍后重试。</li>
+</ul>
+</div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月11日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月26日</span>
 </small>
 </div>
 </article>
