@@ -1879,16 +1879,19 @@
 nebula&gt; GO FROM "player100" OVER serve YIELD serve._dst AS id | DELETE VERTEX $-.id;
 </code></pre></div>
 <h2 id="_3">删除过程<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<p>Nebula Graph检索点的出边和入边并删除这些边，然后删除点的信息。</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>目前还不能保证操作的原子性，如果发生故障请重试。</p>
+<p>Nebula Graph先检索并删除目标点的所有出边和入边，然后删除目标点。</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<ul>
+<li>不支持原子性删除，如果发生错误请重试，避免出现部分删除的情况。</li>
+<li>删除超级节点耗时较多，为避免删除完成前连接超时，可以调整<code>nebula-graphd.conf</code>中的参数<code>--storage_client_timeout_ms</code>延长超时时间。</li>
+</ul>
 </div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月26日</span>
 </small>
 </div>
 </article>

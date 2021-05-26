@@ -1955,9 +1955,12 @@
 </li>
 </ul>
 <p>如果没有指定选项，Nebula Graph会使用默认值创建图空间。</p>
-<p>!!! danger “ VID 类型变更与长度限制 <code>The VID must be a 64-bit integer or a string</code>”</p>
-<p>1. 在 Nebula Graph 1.x 中 VID 的类型只能为 int64，不支持字符型; 在Nebula Graph 2.x 中, VID 的默认类型更改为 <code>FIXED_STRING(&lt;N&gt;)</code>。如果继续使用 1.x 版本的 <code>INSERT</code> 语句，通常会报错不匹配 <code>The VID must be a 64-bit integer or a string</code>。如果仍要使用 int64 作为 VID, 必须指定参数 <code>vid_type=INT64</code>。</p>
-<p>2. VID 最大长度必须为 <code>N</code>，不可任意长度，超过该长度也会报错 <code>The VID must be a 64-bit integer or a string</code>。</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>VID 类型变更与长度限制 <code>The VID must be a 64-bit integer or a string</code>
+1. 在 Nebula Graph 1.x 中 VID 的类型只能为 int64，不支持字符型; 在Nebula Graph 2.x 中, VID 的默认类型更改为 <code>FIXED_STRING(&lt;N&gt;)</code>。如果继续使用 1.x 版本的 <code>INSERT</code> 语句，通常会报错不匹配 <code>The VID must be a 64-bit integer or a string</code>。如果仍要使用 int64 作为 VID, 必须指定参数 <code>vid_type=INT64</code>。 <br/>
+2. VID 最大长度必须为 <code>N</code>，不可任意长度；超过该长度也会报错 <code>The VID must be a 64-bit integer or a string</code>。</p>
+</div>
 <h2 id="_5">示例<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code># 使用默认值。
 nebula&gt; CREATE SPACE my_space_1; 
@@ -1972,15 +1975,14 @@ nebula&gt; CREATE SPACE my_space_3(replica_factor=1);
 nebula&gt; CREATE SPACE my_space_4(vid_type = FIXED_STRING(30)); 
 </code></pre></div>
 <h2 id="_6">创建图空间说明<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
-<p>尝试使用新创建的图空间可能会失败，因为创建是异步实现的。</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>立刻尝试使用刚创建的图空间可能会失败，因为创建是异步实现的。</p>
 <p>Nebula Graph将在下一个心跳周期内完成图空间的创建，为了确保创建成功，可以使用如下方法之一：</p>
-<ul>
-<li>在<a href="../3.show-spaces/"><code>SHOW SPACES</code></a>或<a href="../4.describe-space/"><code>DESCRIBE SPACE</code></a>语句的结果中查找新的图空间，如果找不到，请等待几秒重试。</li>
-</ul>
-<ul>
-<li>等待两个心跳周期，例如20秒。</li>
-</ul>
-<p>如果需要修改心跳间隔，请为<a href="../../../5.configurations-and-logs/1.configurations/1.configurations/">所有配置文件</a>修改参数<code>heartbeat_interval_secs</code>。</p>
+<p>- 在<a href="../3.show-spaces/"><code>SHOW SPACES</code></a>或<a href="../4.describe-space/"><code>DESCRIBE SPACE</code></a>语句的结果中查找新的图空间，如果找不到，请等待几秒重试。</p>
+<p>- 等待两个心跳周期，例如20秒。</p>
+<p>如果需要修改心跳间隔，请为<a href="../../../5.configurations-and-logs/1.configurations/1.configurations/">所有配置文件</a>修改参数<code>heartbeat_interval_secs</code>。但过短的心跳周期（&lt;5秒）可能会导致分布式系统中的机器误判对端失联。</p>
+</div>
 <h2 id="_7">检查分片分布情况<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
 <p>在大型集群中，由于启动时间不同，分片的分布可能不均衡。用户可以执行如下命令检查分片的分布情况：</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; SHOW HOSTS;
@@ -2001,7 +2003,7 @@ nebula&gt; CREATE SPACE my_space_4(vid_type = FIXED_STRING(30));
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月18日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月26日</span>
 </small>
 </div>
 </article>
