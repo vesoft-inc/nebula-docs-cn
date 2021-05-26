@@ -16,11 +16,19 @@
 
 如果有任何问题，请发送邮件至`info@vesoft.com`。
 
+## 添加测试用例
+
+添加测试用例的方法参见[How to add test cases](https://github.com/vesoft-inc/nebula-graph/blob/master/tests/README.md#how-to-add-test-case)。
+
 ## 修改单篇文档
 
-查看官网文档时，您可以直接在标题右侧单击铅笔图标提交修改意见。
+Nebula Graph文档以Markdown语言编写。单击文档标题右侧的铅笔图标即可提交修改建议。
 
-## 批量修改或新增文档
+该方法仅适用于修改单篇文档。
+
+## 批量修改或新增文件
+
+该方法适用于贡献代码、批量修改多篇文档或者新增文档。
 
 ### Step 1：通过GitHub fork仓库
 
@@ -179,3 +187,4 @@ git push origin myfeature
 ### Step 9：代码审查
 
 pull request创建后，至少需要两人审查。审查人员将进行彻底的代码审查，以确保变更满足存储库的贡献准则和其他质量标准。
+
