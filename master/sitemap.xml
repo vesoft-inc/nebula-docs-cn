@@ -416,10 +416,6 @@
      <lastmod>2021-05-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.nebula-graph.com.cn/master/3.ngql-guide/14.native-index-statements/</loc>
-     <lastmod>2021-05-26</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
      <loc>https://docs.nebula-graph.com.cn/master/4.deployment-and-installation/6.deploy-text-based-index/1.text-based-index-restrictions/</loc>
      <lastmod>2021-05-26</lastmod>
      <changefreq>daily</changefreq>
@@ -628,6 +624,26 @@
      <lastmod>2021-05-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://docs.nebula-graph.com.cn/master/nebula-importer/use-importer/</loc>
+     <lastmod>2021-05-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/master/nebula-importer/config-with-header/</loc>
+     <lastmod>2021-05-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/master/nebula-importer/config-without-header/</loc>
+     <lastmod>2021-05-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/master/nebula-spark-connector/</loc>
+     <lastmod>2021-05-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/master/nebula-flink-connector/</loc>
+     <lastmod>2021-05-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://docs.nebula-graph.com.cn/master/nebula-exchange/about-exchange/ex-ug-what-is-exchange/</loc>
      <lastmod>2021-05-26</lastmod>
      <changefreq>daily</changefreq>
@@ -692,39 +708,11 @@
      <lastmod>2021-05-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.nebula-graph.com.cn/master/nebula-importer/use-importer/</loc>
-     <lastmod>2021-05-26</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://docs.nebula-graph.com.cn/master/nebula-importer/config-with-header/</loc>
-     <lastmod>2021-05-26</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://docs.nebula-graph.com.cn/master/nebula-importer/config-without-header/</loc>
-     <lastmod>2021-05-26</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://docs.nebula-graph.com.cn/master/nebula-spark-connector/</loc>
-     <lastmod>2021-05-26</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://docs.nebula-graph.com.cn/master/nebula-flink-connector/</loc>
-     <lastmod>2021-05-26</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
      <loc>https://docs.nebula-graph.com.cn/master/nebula-algorithm/</loc>
      <lastmod>2021-05-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.nebula-graph.com.cn/master/15.contribution/how-to-contribute/</loc>
-     <lastmod>2021-05-26</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://docs.nebula-graph.com.cn/master/19.FAQ/0.FAQ/</loc>
-     <lastmod>2021-05-26</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://docs.nebula-graph.com.cn/master/20.appendix/0.vid/</loc>
+     <loc>https://docs.nebula-graph.com.cn/master/20.appendix/0.FAQ/</loc>
      <lastmod>2021-05-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -748,6 +736,10 @@
      <lastmod>2021-05-26</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://docs.nebula-graph.com.cn/master/20.appendix/7.vid/</loc>
+     <lastmod>2021-05-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://docs.nebula-graph.com.cn/master/20.appendix/comments/</loc>
      <lastmod>2021-05-26</lastmod>
      <changefreq>daily</changefreq>
@@ -757,6 +749,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/master/20.appendix/keywords-and-reserved-words/</loc>
+     <lastmod>2021-05-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/master/15.contribution/how-to-contribute/</loc>
      <lastmod>2021-05-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
