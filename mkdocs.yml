@@ -313,7 +313,9 @@ nav:
       - 注释: 20.appendix/comments.md
       - 大小写区分: 20.appendix/identifier-case-sensitivity.md
       - 关键字: 20.appendix/keywords-and-reserved-words.md
-      - 如何贡献: 20.appendix/how-to-contribute.md
+
+  - 如何贡献: 15.contribution/how-to-contribute.md
+
 
   - PDF: ./pdf/NebulaGraph-CN.pdf
 
