@@ -26,6 +26,7 @@ Nebula Graph不提供官方的集群部署工具，需要手动部署，下文�
 
 - [编译安装Nebula Graph](2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)
 
+
 ### 2.修改配置文件
 
 修改每个服务器上的Nebula Graph配置文件。
@@ -253,8 +254,6 @@ Nebula Graph的所有配置文件均位于安装目录的`etc`目录内，包括
     # Storage daemon listening port
     --port=9779
     ```
-
-
 
 ### 3.启动集群
 
