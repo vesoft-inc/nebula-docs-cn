@@ -274,6 +274,7 @@ nav:
 #      - 使用示例: spark-connector/writer/sc-ug-writer-example.md
 #
   - Nebula Graph Studio:
+    - Studio版本更新说明: nebula-studio/about-studio/st-ug-release-note.md
     - 认识 Nebula Graph Studio:
       - 什么是 Nebula Graph Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
       - 名词解释: nebula-studio/about-studio/st-ug-terms.md
