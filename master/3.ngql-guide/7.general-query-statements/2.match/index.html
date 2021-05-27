@@ -2115,7 +2115,7 @@
 <h1 id="match">MATCH<a class="headerlink" href="#match" title="Permanent link">¶</a></h1>
 <p><code>MATCH</code>语句提供基于模式（pattern）匹配的搜索功能。</p>
 <p>一个<code>MATCH</code>语句定义了一个<a href="../../1.nGQL-overview/3.graph-patterns/">搜索模式</a>，用该模式匹配存储在Nebula Graph中的数据，然后用<code>RETURN</code>子句检索数据。</p>
-<p>本文示例使用测试数据库<code>basketballplayer</code>进行演示。</p>
+<p>本文示例使用测试数据集<a href="../../1.nGQL-overview/1.overview/#basketballplayer">basketballplayer</a>进行演示。</p>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <p>与<code>GO</code>或<code>LOOKUP</code>等其他查询语句相比，<code>MATCH</code>的语法更灵活。<code>MATCH</code>语法可以概括如下：</p>
 <div class="highlight"><pre><span></span><code>MATCH &lt;pattern&gt; [&lt;WHERE clause&gt;] RETURN &lt;output&gt;
@@ -2123,7 +2123,7 @@
 <h2 id="match_1">MATCH工作流程<a class="headerlink" href="#match_1" title="Permanent link">¶</a></h2>
 <ol>
 <li>
-<p><code>MATCH</code>语句使用原生索引查找起始点，起始点可以在模式的任何位置。即一个有效的<code>MATCH</code>语句，<strong>必须有一个属性、标签或者点已经创建索引</strong>。如何创建索引，请参见<a href="../../14.native-index-statements/1.create-native-index/">创建原生索引</a>。</p>
+<p><code>MATCH</code>语句使用原生索引查找起始点，起始点可以在模式的任何位置。即一个有效的<code>MATCH</code>语句，<strong>必须有一个属性、标签或者点已经创建索引，或者在<code>WHERE</code>子句中用id()函数指定了特定点的VID</strong>。如何创建索引，请参见<a href="../../14.native-index-statements/1.create-native-index/">创建原生索引</a>。</p>
 </li>
 <li>
 <p><code>MATCH</code>语句在模式中搜索，寻找匹配的边或点。</p>
@@ -2137,7 +2137,7 @@
 <p>但是，建立相应Tag的索引后，可以遍历对应Tag的所有点，例如<code>MATCH (v:T1) RETURN v</code>。</p>
 <h2 id="pattern">使用模式（pattern）<a class="headerlink" href="#pattern" title="Permanent link">¶</a></h2>
 <h3 id="_2">前提条件<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
-<p>请确保<code>MATCH</code>语句有至少一个索引可用。如果需要创建索引，但是已经有相关的点、边或属性，用户必须在创建索引后重建索引，索引才能生效。</p>
+<p>请确保<code>MATCH</code>语句有至少一个索引可用，或者其中指定了VID。如果需要创建索引，但是已经有相关的点、边或属性，用户必须在创建索引后重建索引，索引才能生效。</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p>索引会导致写性能大幅降低（降低90%甚至更多）。请<strong>不要随意</strong>在生产环境中使用索引，除非很清楚使用索引对业务的影响。</p>
@@ -2666,7 +2666,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;(v2) \
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月24日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月27日</span>
 </small>
 </div>
 </article>
