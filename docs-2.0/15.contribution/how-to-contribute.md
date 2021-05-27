@@ -16,10 +16,6 @@
 
 如果有任何问题，请发送邮件至`info@vesoft.com`。
 
-## 添加测试用例
-
-添加测试用例的方法参见[How to add test cases](https://github.com/vesoft-inc/nebula-graph/blob/master/tests/README.md#how-to-add-test-case)。
-
 ## 修改单篇文档
 
 Nebula Graph文档以Markdown语言编写。单击文档标题右侧的铅笔图标即可提交修改建议。
@@ -188,3 +184,6 @@ git push origin myfeature
 
 pull request创建后，至少需要两人审查。审查人员将进行彻底的代码审查，以确保变更满足存储库的贡献准则和其他质量标准。
 
+## 添加测试用例
+
+添加测试用例的方法参见[How to add test cases](https://github.com/vesoft-inc/nebula-graph/blob/master/tests/README.md#how-to-add-test-case)。
