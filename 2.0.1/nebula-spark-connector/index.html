@@ -1737,6 +1737,39 @@
     优势
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nebula_spark_connector_1">
+    获取Nebula Spark Connector
+  </a>
+<nav aria-label="获取Nebula Spark Connector" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    编译打包
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#maven">
+    Maven远程仓库下载
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    使用方法
+  </a>
+<nav aria-label="使用方法" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nebula_graph">
+    从Nebula Graph读取数据
+  </a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </li>
@@ -1799,6 +1832,39 @@
     优势
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nebula_spark_connector_1">
+    获取Nebula Spark Connector
+  </a>
+<nav aria-label="获取Nebula Spark Connector" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    编译打包
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#maven">
+    Maven远程仓库下载
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    使用方法
+  </a>
+<nav aria-label="使用方法" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nebula_graph">
+    从Nebula Graph读取数据
+  </a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </div>
@@ -1835,6 +1901,9 @@
 <ul>
 <li>Nebula Graph与其他数据源之间迁移数据。</li>
 </ul>
+<ul>
+<li>结合<a href="nebula-algorithm.md">Nebula Algorithm</a>进行图计算。</li>
+</ul>
 <h2 id="_2">优势<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <ul>
 <li>提供多种连接配置项，如超时时间、连接重试次数、执行重试次数等。</li>
@@ -1851,11 +1920,368 @@
 <ul>
 <li>Nebula Spark Connector 2.0统一了SparkSQL的扩展数据源，统一采用DataSourceV2进行Nebula Graph数据扩展。</li>
 </ul>
+<h2 id="nebula_spark_connector_1">获取Nebula Spark Connector<a class="headerlink" href="#nebula_spark_connector_1" title="Permanent link">¶</a></h2>
+<h3 id="_3">编译打包<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<ol>
+<li>
+<p>克隆仓库<code>nebula-spark-utils</code>。</p>
+<div class="highlight"><pre><span></span><code>$ git clone -b v2.0.0 https://github.com/vesoft-inc/nebula-spark-utils.git
+</code></pre></div>
+</li>
+<li>
+<p>进入目录<code>nebula-spark-connector</code>。</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> nebula-spark-utils/nebula-spark-connector
+</code></pre></div>
+</li>
+<li>
+<p>编译打包。</p>
+<div class="highlight"><pre><span></span><code>$ mvn clean package -Dmaven.test.skip<span class="o">=</span><span class="nb">true</span> -Dgpg.skip -Dmaven.javadoc.skip<span class="o">=</span><span class="nb">true</span>
+</code></pre></div>
+</li>
+</ol>
+<p>编译完成后，在目录<code>nebula-spark-connector/target</code>下生成类似文件<code>nebula-spark-connector-2.0.0-SHANPSHOT.jar</code>。</p>
+<h3 id="maven">Maven远程仓库下载<a class="headerlink" href="#maven" title="Permanent link">¶</a></h3>
+<p><a href="https://repo1.maven.org/maven2/com/vesoft/nebula-spark-connector/">下载地址</a></p>
+<h2 id="_4">使用方法<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<p>使用Nebula Spark Connector读写Nebula Graph数据库时，只需要编写以下代码即可实现。</p>
+<div class="highlight"><pre><span></span><code><span class="n">#</span> <span class="n">从Nebula</span> <span class="nc">Graph读取点边数据</span><span class="err">。</span>
+<span class="n">spark</span><span class="p">.</span><span class="n">read</span><span class="p">.</span><span class="n">nebula</span><span class="p">().</span><span class="n">loadVerticesToDF</span><span class="p">()</span>
+<span class="n">spark</span><span class="p">.</span><span class="n">read</span><span class="p">.</span><span class="n">nebula</span><span class="p">().</span><span class="n">loadEdgesToDF</span><span class="p">()</span>
+
+<span class="n">#</span> <span class="n">将dataframe数据作为点和边写入Nebula</span> <span class="nc">Graph中</span><span class="err">。</span>
+<span class="n">dataframe</span><span class="p">.</span><span class="n">write</span><span class="p">.</span><span class="n">nebula</span><span class="p">().</span><span class="n">writeVertices</span><span class="p">()</span>
+<span class="n">dataframe</span><span class="p">.</span><span class="n">write</span><span class="p">.</span><span class="n">nebula</span><span class="p">().</span><span class="n">writeEdges</span><span class="p">()</span>
+</code></pre></div>
+<p><code>nebula()</code>接收两个配置参数，包括连接配置和读写配置。</p>
+<h3 id="nebula_graph">从Nebula Graph读取数据<a class="headerlink" href="#nebula_graph" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kd">val</span> <span class="n">config</span> <span class="o">=</span> <span class="nc">NebulaConnectionConfig</span>
+  <span class="p">.</span><span class="n">builder</span><span class="p">()</span>
+  <span class="p">.</span><span class="n">withMetaAddress</span><span class="p">(</span><span class="s">"127.0.0.1:9559"</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withConenctionRetry</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withExecuteRetry</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withTimeout</span><span class="p">(</span><span class="mi">6000</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">build</span><span class="p">()</span>
+
+<span class="kd">val</span> <span class="n">nebulaReadVertexConfig</span><span class="p">:</span> <span class="nc">ReadNebulaConfig</span> <span class="o">=</span> <span class="nc">ReadNebulaConfig</span>
+  <span class="p">.</span><span class="n">builder</span><span class="p">()</span>
+  <span class="p">.</span><span class="n">withSpace</span><span class="p">(</span><span class="s">"test"</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withLabel</span><span class="p">(</span><span class="s">"person"</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withNoColumn</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withReturnCols</span><span class="p">(</span><span class="nc">List</span><span class="p">(</span><span class="s">"birthday"</span><span class="p">))</span>
+  <span class="p">.</span><span class="n">withLimit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withPartitionNum</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">build</span><span class="p">()</span>
+<span class="kd">val</span> <span class="n">vertex</span> <span class="o">=</span> <span class="n">spark</span><span class="p">.</span><span class="n">read</span><span class="p">.</span><span class="n">nebula</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">nebulaReadVertexConfig</span><span class="p">).</span><span class="n">loadVerticesToDF</span><span class="p">()</span>
+
+<span class="kd">val</span> <span class="n">nebulaReadEdgeConfig</span><span class="p">:</span> <span class="nc">ReadNebulaConfig</span> <span class="o">=</span> <span class="nc">ReadNebulaConfig</span>
+  <span class="p">.</span><span class="n">builder</span><span class="p">()</span>
+  <span class="p">.</span><span class="n">withSpace</span><span class="p">(</span><span class="s">"test"</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withLabel</span><span class="p">(</span><span class="s">"knows"</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withNoColumn</span><span class="p">(</span><span class="kc">false</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withReturnCols</span><span class="p">(</span><span class="nc">List</span><span class="p">(</span><span class="s">"degree"</span><span class="p">))</span>
+  <span class="p">.</span><span class="n">withLimit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withPartitionNum</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">build</span><span class="p">()</span>
+<span class="kd">val</span> <span class="n">edge</span> <span class="o">=</span> <span class="n">spark</span><span class="p">.</span><span class="n">read</span><span class="p">.</span><span class="n">nebula</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">nebulaReadEdgeConfig</span><span class="p">).</span><span class="n">loadEdgesToDF</span><span class="p">()</span>
+</code></pre></div>
+<ul>
+<li>
+<p><code>NebulaConnectionConfig</code>是连接Nebula Graph的配置，说明如下。</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">是否必须</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>withMetaAddress</code></td>
+<td align="left">是</td>
+<td align="left">所有Meta服务的地址，多个地址用英文逗号（,）隔开，格式为<code>ip1:port1,ip2:port2,...</code>。读取数据不需要配置<code>withGraphAddress</code>。</td>
+</tr>
+<tr>
+<td align="left"><code>withConnectionRetry</code></td>
+<td align="left">否</td>
+<td align="left">Nebula Java Client连接Nebula Graph的重试次数。默认值为<code>1</code>。</td>
+</tr>
+<tr>
+<td align="left"><code>withExecuteRetry</code></td>
+<td align="left">否</td>
+<td align="left">Nebula Java Client执行查询语句的重试次数。默认值为<code>1</code>。</td>
+</tr>
+<tr>
+<td align="left"><code>withTimeout</code></td>
+<td align="left">否</td>
+<td align="left">Nebula Java Client请求响应的超时时间。默认值为<code>6000</code>，单位：毫秒（ms）。</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li>
+<p><code>ReadNebulaConfig</code>是读取Nebula Graph数据的配置，说明如下。</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">是否必须</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>withSpace</code></td>
+<td align="left">是</td>
+<td align="left">Nebula Graph图空间名称。</td>
+</tr>
+<tr>
+<td align="left"><code>withLabel</code></td>
+<td align="left">是</td>
+<td align="left">Nebula Graph图空间内的标签或边类型名称。</td>
+</tr>
+<tr>
+<td align="left"><code>withNoColumn</code></td>
+<td align="left">否</td>
+<td align="left">是否不读取属性。默认值为<code>false</code>，表示读取属性。取值为<code>true</code>时，表示不读取属性，此时<code>withReturnCols</code>配置无效。</td>
+</tr>
+<tr>
+<td align="left"><code>withReturnCols</code></td>
+<td align="left">否</td>
+<td align="left">配置要读取的点或边的属性集。格式为<code>List(property1,property2,...)</code>，默认值为<code>List()</code>，表示读取全部属性。</td>
+</tr>
+<tr>
+<td align="left"><code>withLimit</code></td>
+<td align="left">否</td>
+<td align="left">配置Nebula Java Storage Client一次从服务端读取的数据行数。默认值为1000。</td>
+</tr>
+<tr>
+<td align="left"><code>withPartitionNum</code></td>
+<td align="left">否</td>
+<td align="left">配置读取Nebula Graph数据时Spark的分区数。默认值为100。该值的配置最好不超过图空间的的分片数量（partition_num）。</td>
+</tr>
+<tr>
+<td align="left">### 向Nebula Graph写入数据</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kd">val</span> <span class="n">config</span> <span class="o">=</span> <span class="nc">NebulaConnectionConfig</span>
+  <span class="p">.</span><span class="n">builder</span><span class="p">()</span>
+  <span class="p">.</span><span class="n">withMetaAddress</span><span class="p">(</span><span class="s">"127.0.0.1:9559"</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withGraphAddress</span><span class="p">(</span><span class="s">"127.0.0.1:9669"</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withConenctionRetry</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">build</span><span class="p">()</span>
+
+<span class="kd">val</span> <span class="n">nebulaWriteVertexConfig</span><span class="p">:</span> <span class="nc">WriteNebulaVertexConfig</span> <span class="o">=</span> <span class="nc">WriteNebulaVertexConfig</span>      
+  <span class="p">.</span><span class="n">builder</span><span class="p">()</span>
+  <span class="p">.</span><span class="n">withSpace</span><span class="p">(</span><span class="s">"test"</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withTag</span><span class="p">(</span><span class="s">"person"</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withVidField</span><span class="p">(</span><span class="s">"id"</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withVidPolicy</span><span class="p">(</span><span class="s">"hash"</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withVidAsProp</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withUser</span><span class="p">(</span><span class="s">"root"</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withPasswd</span><span class="p">(</span><span class="s">"nebula"</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withBatch</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">build</span><span class="p">()</span>    
+<span class="n">df</span><span class="p">.</span><span class="n">write</span><span class="p">.</span><span class="n">nebula</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">nebulaWriteVertexConfig</span><span class="p">).</span><span class="n">writeVertices</span><span class="p">()</span>
+
+<span class="kd">val</span> <span class="n">nebulaWriteEdgeConfig</span><span class="p">:</span> <span class="nc">WriteNebulaEdgeConfig</span> <span class="o">=</span> <span class="nc">WriteNebulaEdgeConfig</span>      
+  <span class="p">.</span><span class="n">builder</span><span class="p">()</span>
+  <span class="p">.</span><span class="n">withSpace</span><span class="p">(</span><span class="s">"test"</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withEdge</span><span class="p">(</span><span class="s">"friend"</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withSrcIdField</span><span class="p">(</span><span class="s">"src"</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withSrcPolicy</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withDstIdField</span><span class="p">(</span><span class="s">"dst"</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withDstPolicy</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withRankField</span><span class="p">(</span><span class="s">"degree"</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withSrcAsProperty</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withDstAsProperty</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withRankAsProperty</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withUser</span><span class="p">(</span><span class="s">"root"</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withPasswd</span><span class="p">(</span><span class="s">"nebula"</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">withBatch</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+  <span class="p">.</span><span class="n">build</span><span class="p">()</span>
+<span class="n">df</span><span class="p">.</span><span class="n">write</span><span class="p">.</span><span class="n">nebula</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">nebulaWriteEdgeConfig</span><span class="p">).</span><span class="n">writeEdges</span><span class="p">()</span>
+</code></pre></div>
+<ul>
+<li>
+<p><code>NebulaConnectionConfig</code>是连接Nebula Graph的配置，说明如下。</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">是否必须</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>withMetaAddress</code></td>
+<td align="left">是</td>
+<td align="left">所有Meta服务的地址，多个地址用英文逗号（,）隔开，格式为<code>ip1:port1,ip2:port2,...</code>。</td>
+</tr>
+<tr>
+<td align="left"><code>withGraphAddress</code></td>
+<td align="left">是</td>
+<td align="left">Graph服务的地址，多个地址用英文逗号（,）隔开，格式为<code>ip1:port1,ip2:port2,...</code>。</td>
+</tr>
+<tr>
+<td align="left"><code>withConnectionRetry</code></td>
+<td align="left">否</td>
+<td align="left">Nebula Java Client连接Nebula Graph的重试次数。默认值为<code>1</code>。</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li>
+<p><code>WriteNebulaVertexConfig</code>是写入点的配置，说明如下。</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">是否必须</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>withSpace</code></td>
+<td align="left">是</td>
+<td align="left">Nebula Graph图空间名称。</td>
+</tr>
+<tr>
+<td align="left"><code>withTag</code></td>
+<td align="left">是</td>
+<td align="left">写入点时需要关联的标签名称。</td>
+</tr>
+<tr>
+<td align="left"><code>withVidField</code></td>
+<td align="left">是</td>
+<td align="left">DataFrame中作为点ID的列。</td>
+</tr>
+<tr>
+<td align="left"><code>withVidPolicy</code></td>
+<td align="left">否</td>
+<td align="left">写入点ID时，采用的映射函数，Nebula Graph 2.0仅支持HASH。默认不做映射。</td>
+</tr>
+<tr>
+<td align="left"><code>withVidAsProp</code></td>
+<td align="left">否</td>
+<td align="left">DataFrame中作为点ID的列是否也作为属性写入。默认值为<code>false</code>。如果配置为<code>true</code>，请确保标签中有和<code>VidField</code>相同的属性名。</td>
+</tr>
+<tr>
+<td align="left"><code>withUser</code></td>
+<td align="left">否</td>
+<td align="left">Nebula Graph用户名。若未开启<a href="../7.data-security/1.authentication/1.authentication/">身份验证</a>，无需配置用户名和密码。</td>
+</tr>
+<tr>
+<td align="left"><code>withPasswd</code></td>
+<td align="left">否</td>
+<td align="left">Nebula Graph用户名对应的密码。</td>
+</tr>
+<tr>
+<td align="left"><code>withBatch</code></td>
+<td align="left">是</td>
+<td align="left">一次写入的数据行数。默认值为<code>1000</code>.</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+<ul>
+<li>
+<p><code>WriteNebulaEdgeConfig</code>是写入边的配置，说明如下。</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">是否必须</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>withSpace</code></td>
+<td align="left">是</td>
+<td align="left">Nebula Graph图空间名称。</td>
+</tr>
+<tr>
+<td align="left"><code>withEdge</code></td>
+<td align="left">是</td>
+<td align="left">写入边时需要关联的边类型名称。</td>
+</tr>
+<tr>
+<td align="left"><code>withSrcIdField</code></td>
+<td align="left">是</td>
+<td align="left">DataFrame中作为起始点的列。</td>
+</tr>
+<tr>
+<td align="left"><code>withSrcPolicy</code></td>
+<td align="left">否</td>
+<td align="left">写入起始点时，采用的映射函数，Nebula Graph 2.0仅支持HASH。默认不做映射。</td>
+</tr>
+<tr>
+<td align="left"><code>withDstIdField</code></td>
+<td align="left">是</td>
+<td align="left">DataFrame中作为目的点的列。</td>
+</tr>
+<tr>
+<td align="left"><code>withDstPolicy</code></td>
+<td align="left">否</td>
+<td align="left">写入目的点时，采用的映射函数，Nebula Graph 2.0仅支持HASH。默认不做映射。</td>
+</tr>
+<tr>
+<td align="left"><code>withRankField</code></td>
+<td align="left">否</td>
+<td align="left">DataFrame中作为rank的列。默认不写入rank。</td>
+</tr>
+<tr>
+<td align="left"><code>withSrcAsProperty</code></td>
+<td align="left">否</td>
+<td align="left">DataFrame中作为起始点的列是否也作为属性写入。默认值为<code>false</code>。如果配置为<code>true</code>，请确保边类型中有和<code>SrcIdField</code>相同的属性名。</td>
+</tr>
+<tr>
+<td align="left"><code>withDstAsProperty</code></td>
+<td align="left">否</td>
+<td align="left">DataFrame中作为目的点的列是否也作为属性写入。默认值为<code>false</code>。如果配置为<code>true</code>，请确保边类型中有和<code>DstIdField</code>相同的属性名。</td>
+</tr>
+<tr>
+<td align="left"><code>withRankAsProperty</code></td>
+<td align="left">否</td>
+<td align="left">DataFrame中作为rank的列是否也作为属性写入。默认值为<code>false</code>。如果配置为<code>true</code>，请确保边类型中有和<code>RankField</code>相同的属性名。</td>
+</tr>
+<tr>
+<td align="left"><code>withUser</code></td>
+<td align="left">否</td>
+<td align="left">Nebula Graph用户名。若未开启<a href="../7.data-security/1.authentication/1.authentication/">身份验证</a>，无需配置用户名和密码。</td>
+</tr>
+<tr>
+<td align="left"><code>withPasswd</code></td>
+<td align="left">否</td>
+<td align="left">Nebula Graph用户名对应的密码。</td>
+</tr>
+<tr>
+<td align="left"><code>withBatch</code></td>
+<td align="left">是</td>
+<td align="left">一次写入的数据行数。默认值为<code>1000</code>.</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月27日</span>
 </small>
 </div>
 </article>
