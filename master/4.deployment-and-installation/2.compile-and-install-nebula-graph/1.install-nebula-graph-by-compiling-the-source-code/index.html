@@ -18,6 +18,7 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
 <link href="../../../stylesheets/logo.css" rel="stylesheet"/>
+<link href="../../../stylesheets/note.css" rel="stylesheet"/>
 <link href="../../../css/version-select.css" rel="stylesheet"/>
 <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-60523578-15","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
 <script async="" src="https://www.google-analytics.com/analytics.js"></script>
@@ -1958,12 +1959,12 @@
 <li>
 <p>克隆Nebula Graph源码到主机。</p>
 <ul>
-<li>如果需要安装最新版本的开发代码，请执行如下命令下载<code>master</code>分支的源码：<div class="highlight"><pre><span></span><code>$ git clone https://github.com/vesoft-inc/nebula-graph.git
+<li>如果需要安装最新版本的开发代码，请执行如下命令下载<code>master</code>分支的源码：<div class="highlight"><pre><span></span><code>$ git clone -b master https://github.com/vesoft-inc/nebula-graph.git
 </code></pre></div>
 </li>
 </ul>
 <ul>
-<li>如果需要安装指定版本的Nebula Graph 2.x，请使用选项<code>--branch</code>指定分支。例如安装master 发布版本，请执行如下命令：<div class="highlight"><pre><span></span><code>$ git clone --branch vmaster https://github.com/vesoft-inc/nebula-graph.git
+<li>如果需要安装指定版本的Nebula Graph 2.x，请使用选项<code>--branch</code>指定分支。例如安装v2.0.0发布版本，请执行如下命令：<div class="highlight"><pre><span></span><code>$ git clone --branch v2.0.0 https://github.com/vesoft-inc/nebula-graph.git
 </code></pre></div>
 </li>
 </ul>
@@ -2089,7 +2090,7 @@ $ cmake -DCMAKE_C_COMPILER<span class="o">=</span>&lt;path_to_clang/bin/clang&gt
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月26日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月27日</span>
 </small>
 </div>
 </article>

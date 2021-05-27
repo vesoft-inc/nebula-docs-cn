@@ -18,6 +18,7 @@
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
 <link href="../../stylesheets/logo.css" rel="stylesheet"/>
+<link href="../../stylesheets/note.css" rel="stylesheet"/>
 <link href="../../css/version-select.css" rel="stylesheet"/>
 <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-60523578-15","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
 <script async="" src="https://www.google-analytics.com/analytics.js"></script>
@@ -1843,7 +1844,7 @@
 </li>
 <li>
 <p>返回根目录克隆仓库<code>nebula-spark-utils</code>。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~ <span class="o">&amp;&amp;</span> git clone -b v2.0.0 https://github.com/vesoft-inc/nebula-spark-utils.git
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> ~ <span class="o">&amp;&amp;</span> git clone -b master https://github.com/vesoft-inc/nebula-spark-utils.git
 </code></pre></div>
 </li>
 <li>
@@ -1852,7 +1853,7 @@
 </code></pre></div>
 </li>
 <li>
-<p>打包Nebula Exchange 2.0.0。</p>
+<p>打包Nebula Exchange master。</p>
 <div class="highlight"><pre><span></span><code>mvn clean package -Dmaven.test.skip<span class="o">=</span><span class="nb">true</span> -Dgpg.skip -Dmaven.javadoc.skip<span class="o">=</span><span class="nb">true</span>
 </code></pre></div>
 <div class="admonition note">
@@ -1896,7 +1897,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月24日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月27日</span>
 </small>
 </div>
 </article>
