@@ -43,7 +43,7 @@ Nebula Spark Connector适用于以下场景：
 1. 克隆仓库`nebula-spark-utils`。
 
   ```bash
-  $ git clone https://github.com/vesoft-inc/nebula-spark-utils.git
+  $ git clone -b {{sparkconnector.release}} https://github.com/vesoft-inc/nebula-spark-utils.git
   ```
 
 2. 进入目录`nebula-spark-connector`。

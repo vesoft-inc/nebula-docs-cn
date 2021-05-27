@@ -33,7 +33,7 @@
 4. 返回根目录克隆仓库`nebula-spark-utils`。
 
    ```bash
-   cd ~ && git clone -b v2.0.0 https://github.com/vesoft-inc/nebula-spark-utils.git
+   cd ~ && git clone -b {{exchange.release}} https://github.com/vesoft-inc/nebula-spark-utils.git
    ```
 
 5. 切换到目录`nebula-exchange`。
@@ -42,7 +42,7 @@
    cd nebula-spark-utils/nebula-exchange
    ```
 
-6. 打包Nebula Exchange 2.0.0。
+6. 打包Nebula Exchange {{exchange.release}}。
 
    ```bash
    mvn clean package -Dmaven.test.skip=true -Dgpg.skip -Dmaven.javadoc.skip=true

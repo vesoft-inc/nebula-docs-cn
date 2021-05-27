@@ -28,6 +28,7 @@ theme:
 
 extra_css:
   - 'stylesheets/logo.css'
+  - stylesheets/note.css
   - css/version-select.css
 extra:
   nebula:
@@ -43,6 +44,22 @@ extra:
   studio:
     base111b: 1.1.1-beta
     base220: 2.2.0
+  exchange:
+    release: master
+  importer:
+    release: master  
+  algorithm:
+    release: master
+  sparkconnector:
+    release: master
+  flinkconnector:
+    release: master
+  dockercompose:
+    release: master
+  common:
+    release: master
+  
+
   
 nav:
   - 前言: README.md
