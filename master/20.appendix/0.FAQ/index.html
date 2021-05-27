@@ -2112,17 +2112,19 @@ Got 1 rows (time spent 1235/1934 us)
 <p>请参见<a href="../../3.ngql-guide/7.general-query-statements/6.show/14.show-stats/">show-stats</a>。</p>
 <h3 id="tag_1">如何获取每种Tag的所有点，或者每种边类型的所有边?<a class="headerlink" href="#tag_1" title="Permanent link">¶</a></h3>
 <ol>
-<li>建立并重建索引。</li>
-</ol>
+<li>
+<p>建立并重建索引。</p>
 <div class="highlight"><pre><span></span><code>&gt; CREATE TAG INDEX i_player ON player();
 &gt; REBUILD TAG INDEX i_player;
 </code></pre></div>
-<ol>
-<li>使用<code>LOOKUP</code>或<code>MATCH</code>语句。例如：</li>
-</ol>
+</li>
+<li>
+<p>使用<code>LOOKUP</code>或<code>MATCH</code>语句。例如：</p>
 <div class="highlight"><pre><span></span><code>&gt; LOOKUP ON player;
 &gt; MATCH (n:player) RETURN n;
 </code></pre></div>
+</li>
+</ol>
 <p>更多详情请参见<a href="../../3.ngql-guide/14.native-index-statements/1.create-native-index/">INDEX</a>、<a href="../../3.ngql-guide/7.general-query-statements/5.lookup/">LOOKUP</a>和<a href="../../3.ngql-guide/7.general-query-statements/2.match/">MATCH</a>。</p>
 <h3 id="cant_solve_the_start_vids_from_the_sentence">如何处理错误信息<code>can’t solve the start vids from the sentence</code><a class="headerlink" href="#cant_solve_the_start_vids_from_the_sentence" title="Permanent link">¶</a></h3>
 <p>查询引擎需要知道从哪些VID开始图遍历。这些开始图遍历的VID，或者通过用户指定，例如：</p>
