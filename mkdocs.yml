@@ -307,9 +307,9 @@ nav:
       - 图建模: 20.appendix/2.graph-modeling.md
       - 系统建模: 20.appendix/3.system-design.md
       - 关于Raft的简单介绍: 20.appendix/4.raft.md
+      - VID: 20.appendix/7.vid.md
       - 分片ID: 20.appendix/5.partition.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
-      - VID: 20.appendix/7.vid.md
       - 注释: 20.appendix/comments.md
       - 大小写区分: 20.appendix/identifier-case-sensitivity.md
       - 关键字: 20.appendix/keywords-and-reserved-words.md
