@@ -356,6 +356,11 @@
     如何扩缩容
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hosthostoffline">
+    修改Host名称后，旧的Host一直显示OFFLINE怎么办？
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -2085,6 +2090,11 @@
     如何扩缩容
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hosthostoffline">
+    修改Host名称后，旧的Host一直显示OFFLINE怎么办？
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -2383,6 +2393,8 @@ This <span class="nb">source</span> code is licensed under Apache <span class="m
 <li>storaged 的扩容：（副本数都必须大于1） 在新机器上准备 storaged 二进制文件和配置文件，在配置文件中修改或增加已在运行的 metad 地址，启动 storaged 进程。</li>
 </ul>
 <p>storaged扩缩容之后，还需要运行<a href="../../8.service-tuning/load-balance/">Balance Data 和 Balance Leader 命令</a>。</p>
+<h3 id="hosthostoffline">修改Host名称后，旧的Host一直显示<code>OFFLINE</code>怎么办？<a class="headerlink" href="#hosthostoffline" title="Permanent link">¶</a></h3>
+<p><code>OFFLINE</code>状态的Host将在一天后自动删除。</p>
 <h2 id="_10">关于连接<a class="headerlink" href="#_10" title="Permanent link">¶</a></h2>
 <h3 id="_11">防火墙中需要开放哪些端口<a class="headerlink" href="#_11" title="Permanent link">¶</a></h3>
 <p>如果没有修改过<a href="../../5.configurations-and-logs/1.configurations/1.configurations/">配置文件</a>中预设的端口，请在防火墙中开放如下端口：</p>
@@ -2433,7 +2445,7 @@ telnet: connect to address <span class="m">192</span>.168.1.10: Connection refus
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月27日</span>
 </small>
 </div>
 </article>
