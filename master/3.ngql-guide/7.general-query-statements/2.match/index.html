@@ -2238,7 +2238,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"}) RETURN v;
 | ("player100" :player{name: "Tim Duncan", age: 42}) |
 +----------------------------------------------------+
 </code></pre></div>
-<div class="admonition note">
+<div class="admonition compatibility">
 <p class="admonition-title">openCypher兼容性</p>
 <p>在openCypher 9中，<code>=</code>是相等运算符，在nGQL中，<code>==</code>是相等运算符，<code>=</code>是赋值运算符。</p>
 </div>
@@ -2351,7 +2351,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"})--&gt;(v2) \
 | &lt;("player100" :player{age: 42, name: "Tim Duncan"})-[:serve@0 {end_year: 2016, start_year: 1997}]-&gt;("team204" :team{name: "Spurs"})&gt; |
 +-------------------------------------------+
 </code></pre></div>
-<div class="admonition note">
+<div class="admonition compatibility">
 <p class="admonition-title">openCypher兼容性</p>
 <p>在nGQL中，<code>@</code>符号表示边的rank，在openCypher中，没有rank概念。</p>
 </div>
@@ -2473,7 +2473,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"})--&gt;(v2) \
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
+<div class="admonition compatibility">
 <p class="admonition-title">openCypher兼容性</p>
 <p>在openCypher中，<code>maxHop</code>是可选项，默认为无穷大。当没有设置时，<code>..</code>可以省略。在nGQL中，<code>maxHop</code>是必选项，而且<code>..</code>不可以省略。</p>
 </div>
