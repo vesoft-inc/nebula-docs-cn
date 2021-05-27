@@ -2,10 +2,6 @@
 
 [Nebula Algorithm](https://github.com/vesoft-inc/nebula-spark-utils/tree/master/nebula-algorithm) （简称Algorithm）是一款基于[GraphX](https://spark.apache.org/graphx/)的Spark应用程序，通过提交Spark任务的形式使用完整的算法工具对Nebula Graph数据库中的数据执行图计算，也可以通过编程形式调用lib库下的算法针对DataFrame执行图计算。
 
-## 前提条件
-
-安装[Maven](https://maven.apache.org/download.cgi)。
-
 ## 使用限制
 
 点ID的数据必须为整数，即点ID可以是INT类型，或者是String类型但数据本身为整数。
