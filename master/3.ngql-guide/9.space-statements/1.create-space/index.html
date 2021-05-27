@@ -1918,9 +1918,15 @@
 <p>如果没有指定选项，Nebula Graph会使用默认值创建图空间。</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>VID 类型变更与长度限制 <code>The VID must be a 64-bit integer or a string</code>
-1. 在 Nebula Graph 1.x 中 VID 的类型只能为 int64，不支持字符型; 在Nebula Graph 2.x 中, VID 的默认类型更改为 <code>FIXED_STRING(&lt;N&gt;)</code>。如果继续使用 1.x 版本的 <code>INSERT</code> 语句，通常会报错不匹配 <code>The VID must be a 64-bit integer or a string</code>。如果仍要使用 int64 作为 VID, 必须指定参数 <code>vid_type=INT64</code>。 <br/>
-2. VID 最大长度必须为 <code>N</code>，不可任意长度；超过该长度也会报错 <code>The VID must be a 64-bit integer or a string</code>。</p>
+<p>VID 类型变更与长度限制 <code>The VID must be a 64-bit integer or a string</code></p>
+<ol>
+<li>
+<p>在 Nebula Graph 1.x 中 VID 的类型只能为 int64，不支持字符型; 在Nebula Graph 2.x 中, VID 的默认类型更改为 <code>FIXED_STRING(&lt;N&gt;)</code>。如果继续使用 1.x 版本的 <code>INSERT</code> 语句，通常会报错不匹配 <code>The VID must be a 64-bit integer or a string</code>。如果仍要使用 int64 作为 VID, 必须指定参数 <code>vid_type=INT64</code>。   </p>
+</li>
+<li>
+<p>VID 最大长度必须为 <code>N</code>，不可任意长度；超过该长度也会报错 <code>The VID must be a 64-bit integer or a string</code>。</p>
+</li>
+</ol>
 </div>
 <h2 id="_5">示例<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code># 使用默认值。
@@ -1964,7 +1970,7 @@ nebula&gt; CREATE SPACE my_space_4(vid_type = FIXED_STRING(30));
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月26日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月27日</span>
 </small>
 </div>
 </article>
