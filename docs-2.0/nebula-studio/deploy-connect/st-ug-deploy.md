@@ -38,11 +38,11 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
 ### 操作步骤
 
-在命令行工具中按以下步骤依次运行命令，部署并启动 Docker 版 Studio，这里我们用 Nebula 版本为 2.x 的进行演示：
+在命令行工具中按以下步骤依次运行命令，部署并启动 Docker 版 Studio，这里我们用 Nebula Graph 版本为 2.x 的进行演示：
 
 1. 下载 Studio 的部署配置文件。
 
-   | 安装包 | Nebula版本 |
+   | 安装包 | Nebula Graph版本 |
    | ----- | ----- |
    | [nebula-graph-studio-v1.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-v1.gz) | 1.x |
    | [nebula-graph-studio-v2.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-v2.gz) | 2.x |
