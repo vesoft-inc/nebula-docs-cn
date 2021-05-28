@@ -1927,7 +1927,7 @@
 <h2 id="_4">创建标签/边类型索引<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG INDEX player_index on player();
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>nebula&gt; CREATE EDGE INDEX like_index on like();
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE EDGE INDEX follow_index on follow();
 </code></pre></div>
 <p>为标签或边类型创建索引后，用户可以使用 <code>LOOKUP</code> 语句查找<code>带有该标签的</code>所有点的VID，或者<code>所有该类型的边</code>的<code>对应起始点VID、目的点VID、以及rank</code>。详情请参见<a href="../../7.general-query-statements/5.lookup/">LOOKUP</a>。</p>
 <h2 id="_5">创建单属性索引<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>

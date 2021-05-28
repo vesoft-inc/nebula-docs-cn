@@ -255,8 +255,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#learner">
-    learner角色
+<a class="md-nav__link" href="#listener">
+    Listener 角色
   </a>
 </li>
 <li class="md-nav__item">
@@ -267,11 +267,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_5">
     成员变更
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#listener">
-    listener
   </a>
 </li>
 </ul>
@@ -1916,8 +1911,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#learner">
-    learner角色
+<a class="md-nav__link" href="#listener">
+    Listener 角色
   </a>
 </li>
 <li class="md-nav__item">
@@ -1928,11 +1923,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_5">
     成员变更
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#listener">
-    listener
   </a>
 </li>
 </ul>
@@ -1961,7 +1951,7 @@
 <li>高性能（自研KVStore）</li>
 </ul>
 <ul>
-<li>易扩展（Shared-nothing架构）</li>
+<li>易水平扩展（Shared-nothing架构，不依赖NAS等硬件设备）</li>
 </ul>
 <ul>
 <li>强一致性（Raft）</li>
@@ -2127,6 +2117,7 @@
 <p>创建图空间时需指定分片数量，分片数量设置后无法修改，建议设置时提前满足业务将来的扩容需求。</p>
 </div>
 <h2 id="raft">Raft<a class="headerlink" href="#raft" title="Permanent link">¶</a></h2>
+<p><a href="../../../20.appendix/4.raft/">附录</a>简单介绍了Raft的原理和作用。本文主要介绍 Nebula Storage 的一些特定的实现。</p>
 <p>由于Storage服务需要支持集群分布式架构，所以基于Raft协议实现了Multi Group Raft，即每个分片的所有副本共同组成一个Raft group，其中一个副本是leader，其他副本是follower，从而实现强一致性和高可用性。Raft的部分实现如下。</p>
 <h3 id="multi_group_raft">Multi Group Raft<a class="headerlink" href="#multi_group_raft" title="Permanent link">¶</a></h3>
 <p>由于Raft日志不允许空洞，Nebula Graph使用Multi Group Raft缓解此问题，分片数量较多时，可以有效提高Nebula Graph的性能。但是分片数量太多会增加开销，例如Raft group内部存储的状态信息、WAL文件，或者负载过低时的批量操作。</p>
@@ -2146,20 +2137,19 @@
 <h3 id="batch">批量（Batch）操作<a class="headerlink" href="#batch" title="Permanent link">¶</a></h3>
 <p>Nebula Graph中，每个分片都是串行写日志，为了提高吞吐，写日志时需要做批量操作，但是由于Nebula Graph利用WAL实现一些特殊功能，需要对批量操作进行分组，这是Nebula Graph的特色。</p>
 <p>例如无锁CAS操作需要之前的WAL全部提交后才能执行，如果一个批量写入的WAL里包含了CAS类型的WAL，就需要拆分成粒度更小的几个组，还要保证这几组WAL串行提交。</p>
-<h3 id="learner">learner角色<a class="headerlink" href="#learner" title="Permanent link">¶</a></h3>
-<p>learner角色的存在主要是为了应对<strong>扩容</strong>，扩容时新增的机器需要很长时间去同步数据，如果以follower角色同步数据，会导致整个集群的高可用性下降。</p>
-<p>新增learner角色后，会写入command类型的WAL，leader在写WAL时如果发现有<code>add learner</code>的command，会将learner加入自己的peers，并将它标记为learner，在统计多数派的时候，不会算上learner，但是日志还是会照常发送给它们，learner本身也不会主动发起选举。</p>
+<h3 id="listener">Listener 角色<a class="headerlink" href="#listener" title="Permanent link">¶</a></h3>
+<p>Listener 角色的存在主要是为了应对<strong>扩容</strong>，扩容时新增的机器需要很长时间去同步数据，如果以 follower 角色同步数据，会导致整个集群的高可用性下降。</p>
+<p>新增Listener角色后，会写入command类型的WAL，leader在写WAL时如果发现有<code>add learner</code>的command，会将learner加入自己的peers，并将它标记为Listener，在统计多数派的时候，不会算上Listener，但是日志还是会照常发送给它们，Listener本身也不会主动发起选举。</p>
+<p>Raft listener进程还可以从Leader获取数据后，然后将它们写入Elasticsearch集群，以便实现全文搜索。详情请参见<a href="../../../4.deployment-and-installation/6.deploy-text-based-index/3.deploy-listener/">部署Raft Listener</a>。</p>
 <h3 id="leadertransfer_leadership">leader切换（Transfer Leadership）<a class="headerlink" href="#leadertransfer_leadership" title="Permanent link">¶</a></h3>
 <p>leader切换对于负载均衡至关重要，当把某个分片从一台机器迁移到另一台机器时，首先会检查分片是不是leader，如果是的话，需要先切换leader，数据迁移完毕之后，通常还要重新<a href="../../../8.service-tuning/load-balance/">均衡leader分布</a>。</p>
 <p>对于leader来说，提交leader切换命令时，就会放弃自己的leader身份，当follower收到leader切换命令时，就会发起选举。</p>
 <h3 id="_5">成员变更<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
-<p>为了避免脑裂，当一个Raft group的成员发生变化时，需要有一个中间状态，该状态下新旧group的多数派需要有重叠的部分，这样就防止了新的group或旧的group单方面做出决定。为了更加简化，Diego Ongaro在自己的博士论文中提出每次只增减一个peer的方式，以保证新旧group的多数派总是有重叠。Nebula Graph也采用了这个方式，只不过增加成员和移除成员的实现有所区别。具体实现方式请参见Raft Part class里addPeer/removePeer的实现。</p>
-<h3 id="listener">listener<a class="headerlink" href="#listener" title="Permanent link">¶</a></h3>
-<p>Raft listener进程可以从Storage服务获取数据，然后将它们写入Elasticsearch集群，以便实现全文搜索。详情请参见<a href="../../../4.deployment-and-installation/6.deploy-text-based-index/3.deploy-listener/">部署Raft listener</a>。</p>
+<p>为了避免脑裂，当一个Raft group的成员发生变化时，需要有一个中间状态，该状态下新旧group的多数派需要有重叠的部分，这样就防止了新的group或旧的group单方面做出决定。为了更加简化，Diego Ongaro 在自己的博士论文中提出每次只增减一个peer的方式，以保证新旧group的多数派总是有重叠。Nebula Graph也采用了这个方式，只不过增加成员和移除成员的实现有所区别。具体实现方式请参见Raft Part class里addPeer/removePeer的实现。</p>
 <h2 id="hdfs">与HDFS的区别<a class="headerlink" href="#hdfs" title="Permanent link">¶</a></h2>
 <p>Storage服务基于Raft协议实现的分布式架构，与HDFS的分布式架构有一些区别。例如：</p>
 <ul>
-<li>Storage服务本身通过Raft协议保证一致性，所有副本必须为奇数，方便进行选举leader，而HDFS存储具体数据的Datanode需要通过Namenode保证一致性，对副本数量没有要求。</li>
+<li>Storage服务本身通过Raft协议保证一致性，所有副本必须为奇数，方便进行选举leader，而HDFS存储具体数据的DataNode需要通过NameNode保证一致性，对副本数量没有要求。</li>
 </ul>
 <ul>
 <li>Storage服务只有leader副本提供读写服务，而HDFS的所有副本都可以提供读写服务。</li>
@@ -2175,7 +2165,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月27日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月28日</span>
 </small>
 </div>
 </article>
