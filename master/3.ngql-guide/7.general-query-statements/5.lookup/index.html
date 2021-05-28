@@ -531,7 +531,7 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#opencypher">
-    openCypher兼容性
+    OpenCypher兼容性
   </a>
 </li>
 <li class="md-nav__item">
@@ -1829,7 +1829,7 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#opencypher">
-    openCypher兼容性
+    OpenCypher兼容性
   </a>
 </li>
 <li class="md-nav__item">
@@ -1883,18 +1883,18 @@
 <li>根据<code>WHERE</code>子句搜索特定数据。</li>
 </ul>
 <ul>
-<li>通过标签列出点: 检索指定标签的所有点ID。</li>
+<li>通过标签列出点：检索指定标签的所有点ID。</li>
 </ul>
 <ul>
 <li>通过边类型列出边：检索指定边类型的所有边的起始点、目的点和rank。</li>
 </ul>
 <ul>
-<li>计数指定标签的点或指定边类型的边。</li>
+<li>统计包含指定标签的点或属于指定边类型的边的数量。</li>
 </ul>
-<h2 id="opencypher">openCypher兼容性<a class="headerlink" href="#opencypher" title="Permanent link">¶</a></h2>
+<h2 id="opencypher">OpenCypher兼容性<a class="headerlink" href="#opencypher" title="Permanent link">¶</a></h2>
 <p>本文操作仅适用于原生nGQL。</p>
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>请确保<code>LOOKUP</code>语句有至少一个索引可用。如果需要创建索引，但是已经有相关的点、边或属性，用户必须在创建索引后重建索引，索引才能生效。</p>
+<p>请确保<code>LOOKUP</code>语句有至少一个索引可用。如果需要创建索引，但是已经有相关的点、边或属性，用户必须在创建索引后<a href="../../14.native-index-statements/4.rebuild-native-index/">重建索引</a>，才能使其生效。</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p>索引会导致写性能大幅降低（降低90%甚至更多）。请不要随意在生产环境中使用索引，除非很清楚使用索引对业务的影响。</p>
@@ -1906,13 +1906,13 @@
     &lt;prop_name&gt; [AS &lt;col_alias&gt;] [, &lt;prop_name&gt; [AS &lt;prop_alias&gt;] ...];
 </code></pre></div>
 <ul>
-<li><code>WHERE &lt;expression&gt;</code>：指定遍历的过滤条件，还可以结合AND、OR一起使用。详情请参见<a href="../../8.clauses-and-options/where/">WHERE</a>。</li>
+<li><code>WHERE &lt;expression&gt;</code>：指定遍历的过滤条件，还可以结合布尔运算符AND和OR一起使用。详情请参见<a href="../../8.clauses-and-options/where/">WHERE</a>。</li>
 </ul>
 <ul>
-<li><code>YIELD &lt;return_list&gt;</code>：指定要返回的结果和格式.</li>
+<li><code>YIELD &lt;return_list&gt;</code>：指定要返回的结果和格式。</li>
 </ul>
 <ul>
-<li>如果只有<code>WHERE</code>子句，没有<code>YIELD</code>子句:<ul>
+<li>如果只有<code>WHERE</code>子句，没有<code>YIELD</code>子句：<ul>
 <li><code>LOOKUP</code>标签时，返回点ID。</li>
 <li><code>LOOKUP</code>边类型时，返回起始点ID、目的点ID和rank。</li>
 </ul>
@@ -1925,7 +1925,7 @@
 <li>在关系表达式中，不支持运算符两边都有字段名，例如<code>tagName.prop1 &gt; tagName.prop2</code>。</li>
 <li>不支持运算表达式和函数表达式中嵌套AliasProp表达式。</li>
 <li>字符串类型索引不支持范围扫描。</li>
-<li>不支持<code>OR</code>和<code>XOR</code>运算符。</li>
+<li>不支持XOR和NOT运算符。</li>
 </ul>
 <h2 id="_3">检索点<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <p>返回标签为<code>player</code>且<code>name</code>为<code>Tony Parker</code>的点。</p>
@@ -1974,31 +1974,41 @@ nebula&gt; REBUILD EDGE INDEX index_follow;
 +------------+
 
 nebula&gt; LOOKUP ON follow WHERE follow.degree == 90;
-=============================
-| SrcVID | DstVID | Ranking |
-=============================
-| 100    | 106    | 0       |
------------------------------
++-------------+-------------+---------+
+| SrcVID      | DstVID      | Ranking |
++-------------+-------------+---------+
+| "player101" | "player102" | 0       |
++-------------+-------------+---------+
+| "player133" | "player114" | 0       |
++-------------+-------------+---------+
+| "player133" | "player144" | 0       |
++-------------+-------------+---------+
+...
 
 nebula&gt; LOOKUP ON follow WHERE follow.degree == 90 YIELD follow.degree;
-=============================================
-| SrcVID | DstVID | Ranking | follow.degree |
-=============================================
-| 100    | 106    | 0       | 90            |
----------------------------------------------
++-------------+-------------+---------+---------------+
+| SrcVID      | DstVID      | Ranking | follow.degree |
++-------------+-------------+---------+---------------+
+| "player101" | "player102" | 0       | 90            |
++-------------+-------------+---------+---------------+
+| "player133" | "player114" | 0       | 90            |
++-------------+-------------+---------+---------------+
+| "player133" | "player144" | 0       | 90            |
++-------------+-------------+---------+---------------+
+...
 
 nebula&gt; LOOKUP ON follow WHERE follow.degree == 60 YIELD follow.degree AS Degree \
         | GO FROM $-.DstVID OVER serve \
         YIELD $-.DstVID, serve.start_year, serve.end_year, $$.team.name;
-================================================================
-| $-.DstVID | serve.start_year | serve.end_year | $$.team.name |
-================================================================
-| 105       | 2010             | 2018           | Spurs        |
-----------------------------------------------------------------
-| 105       | 2009             | 2010           | Cavaliers    |
-----------------------------------------------------------------
-| 105       | 2018             | 2019           | Raptors      |
-----------------------------------------------------------------
++-------------+------------------+----------------+--------------+
+| $-.DstVID   | serve.start_year | serve.end_year | $$.team.name |
++-------------+------------------+----------------+--------------+
+| "player105" | 2010             | 2018           | "Spurs"      |
++-------------+------------------+----------------+--------------+
+| "player105" | 2009             | 2010           | "Cavaliers"  |
++-------------+------------------+----------------+--------------+
+| "player105" | 2018             | 2019           | "Raptors"    |
++-------------+------------------+----------------+--------------+
 </code></pre></div>
 <h2 id="_5">通过标签列出所有的对应的点/通过边类型列出边<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
 <p>如果需要通过标签列出所有的点，或通过边类型列出边，则标签、边类型或属性上必须有至少一个索引。</p>
@@ -2072,13 +2082,14 @@ nebula&gt; LOOKUP ON like | YIELD COUNT(*) AS Like_Number;
 +-------------+
 </code></pre></div>
 <div class="admonition note">
-<p class="admonition-title">用户也可以使用<a href="../6.show/14.show-stats/"><code>show-stats</code>命令</a>实现类似的功能。</p>
+<p class="admonition-title">Note</p>
+<p>使用<a href="../6.show/14.show-stats/"><code>show-stats</code>命令</a>也可以统计点和边。</p>
 </div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月24日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月28日</span>
 </small>
 </div>
 </article>
