@@ -42,7 +42,7 @@ Nebula Algorithm实现图计算的流程如下：
 1. 克隆仓库`nebula-spark-utils`。
 
   ```bash
-  $ git clone https://github.com/vesoft-inc/nebula-spark-utils.git
+  $ git clone -b {{algorithm.release}} https://github.com/vesoft-inc/nebula-spark-utils.git
   ```
 
 2. 进入目录`nebula-algorithm`。
