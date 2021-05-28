@@ -1908,7 +1908,7 @@
 <div class="highlight"><pre><span></span><code>CREATE {TAG | EDGE} INDEX [IF NOT EXISTS] &lt;index_name&gt; ON {&lt;tag_name&gt; | &lt;edge_name&gt;} ([prop_name_list]);
 </code></pre></div>
 <ul>
-<li><code>index_name</code>：索引名。索引名在一个图空间中必须是唯一的。推荐的命名方式为<code>i_tagName_propName</code>。</li>
+<li><code>index_name</code>：索引名。索引名在一个图空间中必须是唯一的。推荐的命名方式为<code>i_tagName_propName</code>。索引名称由大小写英文字母、数字或下划线组成，区分大写小，且不可使用<a href="../../../20.appendix/keywords-and-reserved-words/">关键字和保留字</a>。</li>
 </ul>
 <ul>
 <li><code>IF NOT EXISTS</code>：检测待创建的索引是否存在，只有不存在时，才会创建索引。</li>
@@ -1970,7 +1970,7 @@ nebula&gt; LOOKUP ON t WHERE p1 == 1 and p2 == 1 and p3 == 1;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月26日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月28日</span>
 </small>
 </div>
 </article>

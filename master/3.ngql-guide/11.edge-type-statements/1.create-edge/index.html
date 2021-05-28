@@ -1913,11 +1913,11 @@
 </li>
 </ul>
 <ul>
-<li><code>edge_type_name</code>：每个图空间内的边类型必须是唯一的。边类型名称设置后无法修改。允许的边类型名称规则与图空间名称规则相同，详情请参见<a href="../../../20.appendix/keywords-and-reserved-words/">关键字和保留字</a>。</li>
+<li><code>edge_type_name</code>：每个图空间内的边类型必须是唯一的。边类型名称设置后无法修改。边类型名称由大小写英文字母、数字或下划线组成，区分大写小，且不可使用<a href="../../../20.appendix/keywords-and-reserved-words/">关键字和保留字</a>。</li>
 </ul>
 <h3 id="_4">边类型属性<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
 <ul>
-<li><code>prop_name</code><p>属性名称。每个边类型中的属性名称必须唯一。</p>
+<li><code>prop_name</code><p>属性名称。每个边类型中的属性名称必须唯一。属性的命名规则与边类型相同。</p>
 </li>
 </ul>
 <ul>
@@ -1959,7 +1959,7 @@ nebula&gt; CREATE EDGE e1(p1 string, p2 int, p3 timestamp) \
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月18日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月28日</span>
 </small>
 </div>
 </article>
