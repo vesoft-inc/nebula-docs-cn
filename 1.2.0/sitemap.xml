@@ -703,5 +703,9 @@
      <loc>https://docs.nebula-graph.com.cn/manual-CN/5.appendix/vid-partition/</loc>
      <lastmod>2021-05-28</lastmod>
      <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/manual-CN/5.appendix/super-node/</loc>
+     <lastmod>2021-05-28</lastmod>
+     <changefreq>daily</changefreq>
     </url>
 </urlset>

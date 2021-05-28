@@ -13,21 +13,21 @@
         <meta name="author" content="Nebula Graph">
       
       
-        <link rel="canonical" href="https://docs.nebula-graph.com.cn/nebula-algorithm/na-ug-example/">
+        <link rel="canonical" href="https://docs.nebula-graph.com.cn/manual-CN/5.appendix/super-node/">
       
-      <link rel="icon" href="../../assets/images/favicon.ico">
+      <link rel="icon" href="../../../assets/images/favicon.ico">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.5">
     
     
       
-        <title>使用示例 - Nebula Graph Database 内核手册</title>
+        <title>超级顶点（稠密点）处理 - Nebula Graph Database 内核手册</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.bde7dde4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.bde7dde4.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ef6f36e2.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ef6f36e2.min.css">
         
           
           
@@ -46,9 +46,9 @@
     
     
     
-      <link rel="stylesheet" href="../../stylesheets/logo.css">
+      <link rel="stylesheet" href="../../../stylesheets/logo.css">
     
-      <link rel="stylesheet" href="../../css/version-select.css">
+      <link rel="stylesheet" href="../../../css/version-select.css">
     
     
       
@@ -69,7 +69,7 @@
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="indigo" data-md-color-accent="indigo">
   
     
-    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    <script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -88,7 +88,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Nebula Graph Database 内核手册" class="md-header__button md-logo" aria-label="Nebula Graph Database 内核手册" data-md-component="logo">
+    <a href="../../.." title="Nebula Graph Database 内核手册" class="md-header__button md-logo" aria-label="Nebula Graph Database 内核手册" data-md-component="logo">
       
   <img src="https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png" alt="logo">
 
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              使用示例
+              超级顶点（稠密点）处理
             
           </span>
         </div>
@@ -180,7 +180,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Nebula Graph Database 内核手册" class="md-nav__button md-logo" aria-label="Nebula Graph Database 内核手册" data-md-component="logo">
+    <a href="../../.." title="Nebula Graph Database 内核手册" class="md-nav__button md-logo" aria-label="Nebula Graph Database 内核手册" data-md-component="logo">
       
   <img src="https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png" alt="logo">
 
@@ -232,7 +232,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         关于
       </a>
     </li>
@@ -244,7 +244,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/0.about-this-manual/" class="md-nav__link">
+      <a href="../../0.about-this-manual/" class="md-nav__link">
         关于本手册
       </a>
     </li>
@@ -256,7 +256,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         目录索引
       </a>
     </li>
@@ -289,7 +289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/1.overview/1.concepts/1.data-model/" class="md-nav__link">
+      <a href="../../1.overview/1.concepts/1.data-model/" class="md-nav__link">
         数据模型
       </a>
     </li>
@@ -301,7 +301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/1.overview/1.concepts/2.nGQL-overview/" class="md-nav__link">
+      <a href="../../1.overview/1.concepts/2.nGQL-overview/" class="md-nav__link">
         查询语言概览
       </a>
     </li>
@@ -340,7 +340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/1.overview/2.quick-start/1.get-started/" class="md-nav__link">
+      <a href="../../1.overview/2.quick-start/1.get-started/" class="md-nav__link">
         开始试用
       </a>
     </li>
@@ -352,7 +352,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/1.overview/2.quick-start/2.FAQ/" class="md-nav__link">
+      <a href="../../1.overview/2.quick-start/2.FAQ/" class="md-nav__link">
         常见问题 FAQ
       </a>
     </li>
@@ -364,7 +364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/3.configurations/0.system-requirement/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/3.configurations/0.system-requirement/" class="md-nav__link">
         系统要求
       </a>
     </li>
@@ -376,7 +376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/1.overview/2.quick-start/3.supported-clients/" class="md-nav__link">
+      <a href="../../1.overview/2.quick-start/3.supported-clients/" class="md-nav__link">
         Nebula Graph 客户端
       </a>
     </li>
@@ -388,7 +388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/1.build/1.build-source-code/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/1.build/1.build-source-code/" class="md-nav__link">
         编译源代码
       </a>
     </li>
@@ -400,7 +400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/1.overview/2.quick-start/4.import-csv-file/" class="md-nav__link">
+      <a href="../../1.overview/2.quick-start/4.import-csv-file/" class="md-nav__link">
         导入 .csv 文件
       </a>
     </li>
@@ -439,7 +439,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/1.overview/3.design-and-architecture/1.design-and-architecture/" class="md-nav__link">
+      <a href="../../1.overview/3.design-and-architecture/1.design-and-architecture/" class="md-nav__link">
         设计总览
       </a>
     </li>
@@ -451,7 +451,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/1.overview/3.design-and-architecture/2.storage-design/" class="md-nav__link">
+      <a href="../../1.overview/3.design-and-architecture/2.storage-design/" class="md-nav__link">
         存储层架构
       </a>
     </li>
@@ -463,7 +463,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/1.overview/3.design-and-architecture/3.query-engine/" class="md-nav__link">
+      <a href="../../1.overview/3.design-and-architecture/3.query-engine/" class="md-nav__link">
         查询引擎架构
       </a>
     </li>
@@ -511,7 +511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/0.README/" class="md-nav__link">
+      <a href="../../2.query-language/0.README/" class="md-nav__link">
         查询语言简介
       </a>
     </li>
@@ -544,7 +544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/1.data-types/data-types/" class="md-nav__link">
+      <a href="../../2.query-language/1.data-types/data-types/" class="md-nav__link">
         基本数据类型
       </a>
     </li>
@@ -556,7 +556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/1.data-types/type-conversion/" class="md-nav__link">
+      <a href="../../2.query-language/1.data-types/type-conversion/" class="md-nav__link">
         类型转换
       </a>
     </li>
@@ -595,7 +595,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/2.functions-and-operators/bitwise-operators/" class="md-nav__link">
+      <a href="../../2.query-language/2.functions-and-operators/bitwise-operators/" class="md-nav__link">
         位运算
       </a>
     </li>
@@ -607,7 +607,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/2.functions-and-operators/built-in-functions/" class="md-nav__link">
+      <a href="../../2.query-language/2.functions-and-operators/built-in-functions/" class="md-nav__link">
         内置函数
       </a>
     </li>
@@ -619,7 +619,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/2.functions-and-operators/comparison-functions-and-operators/" class="md-nav__link">
+      <a href="../../2.query-language/2.functions-and-operators/comparison-functions-and-operators/" class="md-nav__link">
         比较运算
       </a>
     </li>
@@ -631,7 +631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/2.functions-and-operators/group-by-function/" class="md-nav__link">
+      <a href="../../2.query-language/2.functions-and-operators/group-by-function/" class="md-nav__link">
         分组 GROUP BY
       </a>
     </li>
@@ -643,7 +643,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/2.functions-and-operators/limit-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/2.functions-and-operators/limit-syntax/" class="md-nav__link">
         LIMIT 语法
       </a>
     </li>
@@ -655,7 +655,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/2.functions-and-operators/logical-operators/" class="md-nav__link">
+      <a href="../../2.query-language/2.functions-and-operators/logical-operators/" class="md-nav__link">
         逻辑运算
       </a>
     </li>
@@ -667,7 +667,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/2.functions-and-operators/operator-precedence/" class="md-nav__link">
+      <a href="../../2.query-language/2.functions-and-operators/operator-precedence/" class="md-nav__link">
         运算符优先级
       </a>
     </li>
@@ -679,7 +679,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/2.functions-and-operators/order-by-function/" class="md-nav__link">
+      <a href="../../2.query-language/2.functions-and-operators/order-by-function/" class="md-nav__link">
         ORDER BY 函数
       </a>
     </li>
@@ -691,7 +691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/2.functions-and-operators/set-operations/" class="md-nav__link">
+      <a href="../../2.query-language/2.functions-and-operators/set-operations/" class="md-nav__link">
         SET 运算符
       </a>
     </li>
@@ -703,7 +703,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/2.functions-and-operators/string-comparison-functions-and-operators/" class="md-nav__link">
+      <a href="../../2.query-language/2.functions-and-operators/string-comparison-functions-and-operators/" class="md-nav__link">
         字符比较函数和运算符
       </a>
     </li>
@@ -715,7 +715,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/2.functions-and-operators/uuid/" class="md-nav__link">
+      <a href="../../2.query-language/2.functions-and-operators/uuid/" class="md-nav__link">
         UUID 函数
       </a>
     </li>
@@ -775,7 +775,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/3.language-structure/literal-values/boolean-literals/" class="md-nav__link">
+      <a href="../../2.query-language/3.language-structure/literal-values/boolean-literals/" class="md-nav__link">
         布尔类型
       </a>
     </li>
@@ -787,7 +787,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/3.language-structure/literal-values/numeric-literals/" class="md-nav__link">
+      <a href="../../2.query-language/3.language-structure/literal-values/numeric-literals/" class="md-nav__link">
         数值类型
       </a>
     </li>
@@ -799,7 +799,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/3.language-structure/literal-values/string-literals/" class="md-nav__link">
+      <a href="../../2.query-language/3.language-structure/literal-values/string-literals/" class="md-nav__link">
         字符串类型
       </a>
     </li>
@@ -817,7 +817,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/3.language-structure/comment-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/3.language-structure/comment-syntax/" class="md-nav__link">
         注释语法
       </a>
     </li>
@@ -829,7 +829,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/3.language-structure/identifier-case-sensitivity/" class="md-nav__link">
+      <a href="../../2.query-language/3.language-structure/identifier-case-sensitivity/" class="md-nav__link">
         标识符大小写
       </a>
     </li>
@@ -841,7 +841,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/3.language-structure/keywords-and-reserved-words/" class="md-nav__link">
+      <a href="../../2.query-language/3.language-structure/keywords-and-reserved-words/" class="md-nav__link">
         关键字和保留字
       </a>
     </li>
@@ -853,7 +853,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/3.language-structure/pipe-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/3.language-structure/pipe-syntax/" class="md-nav__link">
         管道
       </a>
     </li>
@@ -865,7 +865,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/3.language-structure/property-reference/" class="md-nav__link">
+      <a href="../../2.query-language/3.language-structure/property-reference/" class="md-nav__link">
         属性引用
       </a>
     </li>
@@ -877,7 +877,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/3.language-structure/schema-object-names/" class="md-nav__link">
+      <a href="../../2.query-language/3.language-structure/schema-object-names/" class="md-nav__link">
         标识符命名规则
       </a>
     </li>
@@ -889,7 +889,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/3.language-structure/statement-composition/" class="md-nav__link">
+      <a href="../../2.query-language/3.language-structure/statement-composition/" class="md-nav__link">
         语句组合
       </a>
     </li>
@@ -901,7 +901,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/3.language-structure/user-defined-variables/" class="md-nav__link">
+      <a href="../../2.query-language/3.language-structure/user-defined-variables/" class="md-nav__link">
         用户自定义变量
       </a>
     </li>
@@ -961,7 +961,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/alter-edge-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/1.data-definition-statements/alter-edge-syntax/" class="md-nav__link">
         ALTER EDGE
       </a>
     </li>
@@ -973,7 +973,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/alter-tag-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/1.data-definition-statements/alter-tag-syntax/" class="md-nav__link">
         ALTER TAG
       </a>
     </li>
@@ -985,7 +985,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/create-space-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/1.data-definition-statements/create-space-syntax/" class="md-nav__link">
         CREATE SPACE
       </a>
     </li>
@@ -997,7 +997,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/create-edge-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/1.data-definition-statements/create-edge-syntax/" class="md-nav__link">
         CREATE EDGE
       </a>
     </li>
@@ -1009,7 +1009,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/create-tag-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/1.data-definition-statements/create-tag-syntax/" class="md-nav__link">
         CREATE TAG
       </a>
     </li>
@@ -1021,7 +1021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/drop-edge-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/1.data-definition-statements/drop-edge-syntax/" class="md-nav__link">
         DROP EDGE
       </a>
     </li>
@@ -1033,7 +1033,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/drop-tag-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/1.data-definition-statements/drop-tag-syntax/" class="md-nav__link">
         DROP TAG
       </a>
     </li>
@@ -1045,7 +1045,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/drop-space-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/1.data-definition-statements/drop-space-syntax/" class="md-nav__link">
         DROP SPACE
       </a>
     </li>
@@ -1057,7 +1057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/1.data-definition-statements/" class="md-nav__link">
         INDEX
       </a>
     </li>
@@ -1069,7 +1069,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/1.data-definition-statements/TTL/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/1.data-definition-statements/TTL/" class="md-nav__link">
         TTL
       </a>
     </li>
@@ -1108,7 +1108,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/delete-edge-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/delete-edge-syntax/" class="md-nav__link">
         DELETE EDGE
       </a>
     </li>
@@ -1120,7 +1120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/delete-vertex-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/delete-vertex-syntax/" class="md-nav__link">
         DELETE VERTEX
       </a>
     </li>
@@ -1132,7 +1132,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/fetch-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/fetch-syntax/" class="md-nav__link">
         FETCH
       </a>
     </li>
@@ -1144,7 +1144,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/go-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/go-syntax/" class="md-nav__link">
         GO
       </a>
     </li>
@@ -1156,7 +1156,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/insert-edge-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/insert-edge-syntax/" class="md-nav__link">
         INSERT EDGE
       </a>
     </li>
@@ -1168,7 +1168,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/insert-vertex-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/insert-vertex-syntax/" class="md-nav__link">
         INSERT VERTEX
       </a>
     </li>
@@ -1180,7 +1180,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/lookup-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/lookup-syntax/" class="md-nav__link">
         LOOKUP
       </a>
     </li>
@@ -1192,7 +1192,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/return-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/return-syntax/" class="md-nav__link">
         RETURN
       </a>
     </li>
@@ -1204,7 +1204,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/update-edge-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/update-edge-syntax/" class="md-nav__link">
         UPDATE EDGE
       </a>
     </li>
@@ -1216,7 +1216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/update-vertex-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/update-vertex-syntax/" class="md-nav__link">
         UPDATE VERTEX
       </a>
     </li>
@@ -1228,7 +1228,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/upsert-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/upsert-syntax/" class="md-nav__link">
         UPSERT
       </a>
     </li>
@@ -1240,7 +1240,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/where-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/where-syntax/" class="md-nav__link">
         WHERE
       </a>
     </li>
@@ -1252,7 +1252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/yield-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/2.data-query-and-manipulation-statements/yield-syntax/" class="md-nav__link">
         YIELD
       </a>
     </li>
@@ -1312,7 +1312,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-charset-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-charset-syntax/" class="md-nav__link">
         SHOW CHARSET
       </a>
     </li>
@@ -1324,7 +1324,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-collation-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-collation-syntax/" class="md-nav__link">
         SHOW COLLATION
       </a>
     </li>
@@ -1336,7 +1336,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-configs-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-configs-syntax/" class="md-nav__link">
         SHOW CONFIGS
       </a>
     </li>
@@ -1348,7 +1348,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-create-space-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-create-space-syntax/" class="md-nav__link">
         SHOW CREATE SPACE
       </a>
     </li>
@@ -1360,7 +1360,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-create-tag-edge-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-create-tag-edge-syntax/" class="md-nav__link">
         SHOW CREATE TAG EDGE
       </a>
     </li>
@@ -1372,7 +1372,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-hosts-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-hosts-syntax/" class="md-nav__link">
         SHOW HOSTS
       </a>
     </li>
@@ -1384,7 +1384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-indexes-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-indexes-syntax/" class="md-nav__link">
         SHOW INDEXES
       </a>
     </li>
@@ -1396,7 +1396,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-parts-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-parts-syntax/" class="md-nav__link">
         SHOW PARTS
       </a>
     </li>
@@ -1408,7 +1408,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-roles-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-roles-syntax/" class="md-nav__link">
         SHOW ROLES
       </a>
     </li>
@@ -1420,7 +1420,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-snapshots-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-snapshots-syntax/" class="md-nav__link">
         SHOW SNAPSHOTS
       </a>
     </li>
@@ -1432,7 +1432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-spaces-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-spaces-syntax/" class="md-nav__link">
         SHOW SPACES
       </a>
     </li>
@@ -1444,7 +1444,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-tags-edges-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-tags-edges-syntax/" class="md-nav__link">
         SHOW TAGS EDGES
       </a>
     </li>
@@ -1456,7 +1456,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-users-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/show-statements/show-users-syntax/" class="md-nav__link">
         SHOW USERS
       </a>
     </li>
@@ -1474,7 +1474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/3.utility-statements/describe-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/describe-syntax/" class="md-nav__link">
         DESCRIBE
       </a>
     </li>
@@ -1486,7 +1486,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/3.utility-statements/use-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/3.utility-statements/use-syntax/" class="md-nav__link">
         USE
       </a>
     </li>
@@ -1525,7 +1525,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/2.query-language/4.statement-syntax/4.graph-algorithms/find-path-syntax/" class="md-nav__link">
+      <a href="../../2.query-language/4.statement-syntax/4.graph-algorithms/find-path-syntax/" class="md-nav__link">
         FIND PATH
       </a>
     </li>
@@ -1600,7 +1600,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/1.build/1.build-source-code/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/1.build/1.build-source-code/" class="md-nav__link">
         编译源代码
       </a>
     </li>
@@ -1612,7 +1612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/1.build/2.build-by-docker/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/1.build/2.build-by-docker/" class="md-nav__link">
         使用 Docker 编译
       </a>
     </li>
@@ -1651,7 +1651,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/2.install/1.install-with-rpm-deb/" class="md-nav__link">
         rpm 安装
       </a>
     </li>
@@ -1663,7 +1663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/2.install/2.start-stop-service/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/2.install/2.start-stop-service/" class="md-nav__link">
         启停服务
       </a>
     </li>
@@ -1675,7 +1675,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/2.install/deploy-nebula-with-swarm.md" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/2.install/deploy-nebula-with-swarm.md" class="md-nav__link">
         集群部署
       </a>
     </li>
@@ -1687,7 +1687,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/2.install/3.install-with-docker/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/2.install/3.install-with-docker/" class="md-nav__link">
         Docker 安装
       </a>
     </li>
@@ -1726,7 +1726,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/3.configurations/0.system-requirement/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/3.configurations/0.system-requirement/" class="md-nav__link">
         系统要求
       </a>
     </li>
@@ -1738,7 +1738,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/3.configurations/1.config-persistency-and-priority/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/3.configurations/1.config-persistency-and-priority/" class="md-nav__link">
         配置持久化与优先级
       </a>
     </li>
@@ -1750,7 +1750,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/3.configurations/2.configs-syntax/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/3.configurations/2.configs-syntax/" class="md-nav__link">
         CONFIG 语法
       </a>
     </li>
@@ -1762,7 +1762,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/3.configurations/4.graph-config/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/3.configurations/4.graph-config/" class="md-nav__link">
         Graphd 配置
       </a>
     </li>
@@ -1774,7 +1774,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/3.configurations/5.storage-config/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/3.configurations/5.storage-config/" class="md-nav__link">
         Storaged 配置
       </a>
     </li>
@@ -1786,7 +1786,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/3.configurations/6.console-config/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/3.configurations/6.console-config/" class="md-nav__link">
         Console 配置
       </a>
     </li>
@@ -1798,7 +1798,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/3.configurations/7.kernel-config/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/3.configurations/7.kernel-config/" class="md-nav__link">
         Kernel 配置
       </a>
     </li>
@@ -1810,7 +1810,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/3.configurations/8.single-node-log/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/3.configurations/8.single-node-log/" class="md-nav__link">
         单机日志
       </a>
     </li>
@@ -1849,7 +1849,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/4.account-management-statements/alter-user-syntax/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/4.account-management-statements/alter-user-syntax/" class="md-nav__link">
         Alter User
       </a>
     </li>
@@ -1861,7 +1861,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/4.account-management-statements/authentication/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/4.account-management-statements/authentication/" class="md-nav__link">
         身份验证
       </a>
     </li>
@@ -1873,7 +1873,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/4.account-management-statements/built-in-roles/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/4.account-management-statements/built-in-roles/" class="md-nav__link">
         Built-in Roles
       </a>
     </li>
@@ -1885,7 +1885,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/4.account-management-statements/change-password/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/4.account-management-statements/change-password/" class="md-nav__link">
         Change Password
       </a>
     </li>
@@ -1897,7 +1897,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/4.account-management-statements/create-user-syntax/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/4.account-management-statements/create-user-syntax/" class="md-nav__link">
         Create User
       </a>
     </li>
@@ -1909,7 +1909,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/4.account-management-statements/drop-user-syntax/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/4.account-management-statements/drop-user-syntax/" class="md-nav__link">
         Drop User
       </a>
     </li>
@@ -1921,7 +1921,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/4.account-management-statements/grant-role-syntax/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/4.account-management-statements/grant-role-syntax/" class="md-nav__link">
         Grant Role
       </a>
     </li>
@@ -1933,7 +1933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/4.account-management-statements/LDAP/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/4.account-management-statements/LDAP/" class="md-nav__link">
         LDAP
       </a>
     </li>
@@ -1945,7 +1945,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/4.account-management-statements/revoke-syntax/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/4.account-management-statements/revoke-syntax/" class="md-nav__link">
         Revoke
       </a>
     </li>
@@ -2005,7 +2005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-import/import-csv-file/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/5.storage-service-administration/data-import/import-csv-file/" class="md-nav__link">
         读取 .csv 文件
       </a>
     </li>
@@ -2017,7 +2017,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-import/spark-writer/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/5.storage-service-administration/data-import/spark-writer/" class="md-nav__link">
         Spark 导入工具
       </a>
     </li>
@@ -2056,7 +2056,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-export/dump-tool/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/5.storage-service-administration/data-export/dump-tool/" class="md-nav__link">
         Dump Tool
       </a>
     </li>
@@ -2074,7 +2074,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/5.storage-service-administration/storage-balance/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/5.storage-service-administration/storage-balance/" class="md-nav__link">
         负载均衡和数据迁移
       </a>
     </li>
@@ -2086,7 +2086,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/5.storage-service-administration/cluster-snapshot/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/5.storage-service-administration/cluster-snapshot/" class="md-nav__link">
         集群快照
       </a>
     </li>
@@ -2098,7 +2098,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/5.storage-service-administration/job-manager/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/5.storage-service-administration/job-manager/" class="md-nav__link">
         长耗时任务管理
       </a>
     </li>
@@ -2110,7 +2110,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/5.storage-service-administration/compact/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/5.storage-service-administration/compact/" class="md-nav__link">
         Compact
       </a>
     </li>
@@ -2149,7 +2149,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/7.monitor/1.metrics-exposer/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/7.monitor/1.metrics-exposer/" class="md-nav__link">
         Metrics
       </a>
     </li>
@@ -2161,7 +2161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/7.monitor/2.meta-metrics/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/7.monitor/2.meta-metrics/" class="md-nav__link">
         Meta Metrics
       </a>
     </li>
@@ -2173,7 +2173,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/7.monitor/3.storage-metrics/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/7.monitor/3.storage-metrics/" class="md-nav__link">
         Storage Metrics
       </a>
     </li>
@@ -2185,7 +2185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/7.monitor/4.graph-metrics/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/7.monitor/4.graph-metrics/" class="md-nav__link">
         Graph Metrics
       </a>
     </li>
@@ -2197,7 +2197,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/7.monitor/5.rocksdb-statistics.md" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/7.monitor/5.rocksdb-statistics.md" class="md-nav__link">
         RocksDB Statistics
       </a>
     </li>
@@ -2236,7 +2236,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/6.develop-and-interface/kv-interfaces/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/6.develop-and-interface/kv-interfaces/" class="md-nav__link">
         Key Value API
       </a>
     </li>
@@ -2248,7 +2248,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/1.overview/2.quick-start/3.supported-clients/" class="md-nav__link">
+      <a href="../../1.overview/2.quick-start/3.supported-clients/" class="md-nav__link">
         Nebula Graph 客户端
       </a>
     </li>
@@ -2273,14 +2273,12 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
       
       <label class="md-nav__link" for="__nav_4">
         图算法
@@ -2296,14 +2294,12 @@
             
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" checked>
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" type="checkbox" id="__nav_4_1" >
       
       <label class="md-nav__link" for="__nav_4_1">
         nebula-algorithm
@@ -2321,7 +2317,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../na-ug-what-is-nebula-algorithm/" class="md-nav__link">
+      <a href="../../../nebula-algorithm/na-ug-what-is-nebula-algorithm/" class="md-nav__link">
         什么是 nebula-algorithm
       </a>
     </li>
@@ -2333,7 +2329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../na-ug-limitations/" class="md-nav__link">
+      <a href="../../../nebula-algorithm/na-ug-limitations/" class="md-nav__link">
         使用限制
       </a>
     </li>
@@ -2345,7 +2341,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../na-ug-compile/" class="md-nav__link">
+      <a href="../../../nebula-algorithm/na-ug-compile/" class="md-nav__link">
         编译 nebula-algorithm
       </a>
     </li>
@@ -2355,86 +2351,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          使用示例
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../nebula-algorithm/na-ug-example/" class="md-nav__link">
         使用示例
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    示例环境
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    示例数据
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    前提条件
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    第 1 步. 修改配置文件
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2_nebula-algorithm" class="md-nav__link">
-    第 2 步. 执行 nebula-algorithm
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    测试结果
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2522,7 +2443,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-exchange/about-exchange/ex-ug-what-is-exchange/" class="md-nav__link">
+      <a href="../../../nebula-exchange/about-exchange/ex-ug-what-is-exchange/" class="md-nav__link">
         什么是 Nebula Exchange
       </a>
     </li>
@@ -2534,7 +2455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-exchange/about-exchange/ex-ug-limitations/" class="md-nav__link">
+      <a href="../../../nebula-exchange/about-exchange/ex-ug-limitations/" class="md-nav__link">
         使用限制
       </a>
     </li>
@@ -2546,7 +2467,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-exchange/about-exchange/ex-ug-terms/" class="md-nav__link">
+      <a href="../../../nebula-exchange/about-exchange/ex-ug-terms/" class="md-nav__link">
         名词解释
       </a>
     </li>
@@ -2558,7 +2479,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-exchange/about-exchange/ex-ug-faq/" class="md-nav__link">
+      <a href="../../../nebula-exchange/about-exchange/ex-ug-faq/" class="md-nav__link">
         常见问题
       </a>
     </li>
@@ -2576,7 +2497,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-exchange/ex-ug-compile/" class="md-nav__link">
+      <a href="../../../nebula-exchange/ex-ug-compile/" class="md-nav__link">
         编译 Exchange
       </a>
     </li>
@@ -2609,7 +2530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-exchange/use-exchange/ex-ug-import-steps/" class="md-nav__link">
+      <a href="../../../nebula-exchange/use-exchange/ex-ug-import-steps/" class="md-nav__link">
         导入数据步骤
       </a>
     </li>
@@ -2621,7 +2542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-exchange/use-exchange/ex-ug-import-from-neo4j/" class="md-nav__link">
+      <a href="../../../nebula-exchange/use-exchange/ex-ug-import-from-neo4j/" class="md-nav__link">
         导入 Neo4j 数据
       </a>
     </li>
@@ -2633,7 +2554,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-exchange/use-exchange/ex-ug-import-sst/" class="md-nav__link">
+      <a href="../../../nebula-exchange/use-exchange/ex-ug-import-sst/" class="md-nav__link">
         导入 SST 文件
       </a>
     </li>
@@ -2645,7 +2566,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-exchange/use-exchange/ex-ug-import-hive/" class="md-nav__link">
+      <a href="../../../nebula-exchange/use-exchange/ex-ug-import-hive/" class="md-nav__link">
         导入 HIVE 数据
       </a>
     </li>
@@ -2657,7 +2578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-exchange/use-exchange/ex-ug-import-from-csv/" class="md-nav__link">
+      <a href="../../../nebula-exchange/use-exchange/ex-ug-import-from-csv/" class="md-nav__link">
         导入 CSV 文件数据
       </a>
     </li>
@@ -2669,7 +2590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-exchange/use-exchange/ex-ug-import-json/" class="md-nav__link">
+      <a href="../../../nebula-exchange/use-exchange/ex-ug-import-json/" class="md-nav__link">
         导入 JSON 文件数据
       </a>
     </li>
@@ -2708,7 +2629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-exchange/parameter-reference/ex-ug-paras-spark/" class="md-nav__link">
+      <a href="../../../nebula-exchange/parameter-reference/ex-ug-paras-spark/" class="md-nav__link">
         Spark 参数
       </a>
     </li>
@@ -2720,7 +2641,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-exchange/parameter-reference/ex-ug-paras-nebulagraph/" class="md-nav__link">
+      <a href="../../../nebula-exchange/parameter-reference/ex-ug-paras-nebulagraph/" class="md-nav__link">
         Nebula Graph 参数
       </a>
     </li>
@@ -2732,7 +2653,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-exchange/parameter-reference/ex-ug-para-import-command/" class="md-nav__link">
+      <a href="../../../nebula-exchange/parameter-reference/ex-ug-para-import-command/" class="md-nav__link">
         导入命令参数
       </a>
     </li>
@@ -2777,7 +2698,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-import/import-csv-file/" class="md-nav__link">
+      <a href="../../3.build-develop-and-administration/5.storage-service-administration/data-import/import-csv-file/" class="md-nav__link">
         导入CSV文件
       </a>
     </li>
@@ -2816,7 +2737,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-flink/nf-ug-what-is-flink-connector/" class="md-nav__link">
+      <a href="../../../nebula-flink/nf-ug-what-is-flink-connector/" class="md-nav__link">
         什么是 Nebula Flink Connector
       </a>
     </li>
@@ -2828,7 +2749,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-flink/nf-ug-compile/" class="md-nav__link">
+      <a href="../../../nebula-flink/nf-ug-compile/" class="md-nav__link">
         编译 Nebula Flink Connector
       </a>
     </li>
@@ -2840,7 +2761,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-flink/nf-ug-limitations/" class="md-nav__link">
+      <a href="../../../nebula-flink/nf-ug-limitations/" class="md-nav__link">
         使用限制
       </a>
     </li>
@@ -2852,7 +2773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-flink/nf-ug-customize-source/" class="md-nav__link">
+      <a href="../../../nebula-flink/nf-ug-customize-source/" class="md-nav__link">
         自定义 source (NebulaSource)
       </a>
     </li>
@@ -2864,7 +2785,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-flink/nf-ug-customize-sink/" class="md-nav__link">
+      <a href="../../../nebula-flink/nf-ug-customize-sink/" class="md-nav__link">
         自定义 sink (NebulaSink)
       </a>
     </li>
@@ -2876,7 +2797,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-flink/nf-ug-notes/" class="md-nav__link">
+      <a href="../../../nebula-flink/nf-ug-notes/" class="md-nav__link">
         特殊说明
       </a>
     </li>
@@ -2915,7 +2836,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spark-connector/sc-ug-what-is-spark-connector/" class="md-nav__link">
+      <a href="../../../spark-connector/sc-ug-what-is-spark-connector/" class="md-nav__link">
         什么是 Nebula Spark Connector
       </a>
     </li>
@@ -2927,7 +2848,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spark-connector/sc-ug-compile/" class="md-nav__link">
+      <a href="../../../spark-connector/sc-ug-compile/" class="md-nav__link">
         编译 Nebula Spark Connector
       </a>
     </li>
@@ -2939,7 +2860,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spark-connector/sc-ug-limitations/" class="md-nav__link">
+      <a href="../../../spark-connector/sc-ug-limitations/" class="md-nav__link">
         使用限制
       </a>
     </li>
@@ -2972,7 +2893,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spark-connector/reader/sc-ug-what-is-reader/" class="md-nav__link">
+      <a href="../../../spark-connector/reader/sc-ug-what-is-reader/" class="md-nav__link">
         什么是 Nebula Spark Connector Reader
       </a>
     </li>
@@ -2984,7 +2905,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spark-connector/reader/sc-ug-reader-example/" class="md-nav__link">
+      <a href="../../../spark-connector/reader/sc-ug-reader-example/" class="md-nav__link">
         使用示例
       </a>
     </li>
@@ -3023,7 +2944,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spark-connector/writer/sc-ug-what-is-writer/" class="md-nav__link">
+      <a href="../../../spark-connector/writer/sc-ug-what-is-writer/" class="md-nav__link">
         什么是 Nebula Spark Connector Writer
       </a>
     </li>
@@ -3035,7 +2956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../spark-connector/writer/sc-ug-writer-example/" class="md-nav__link">
+      <a href="../../../spark-connector/writer/sc-ug-writer-example/" class="md-nav__link">
         使用示例
       </a>
     </li>
@@ -3110,7 +3031,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-studio/about-studio/st-ug-what-is-graph-studio/" class="md-nav__link">
+      <a href="../../../nebula-studio/about-studio/st-ug-what-is-graph-studio/" class="md-nav__link">
         什么是 Nebula Graph Studio
       </a>
     </li>
@@ -3122,7 +3043,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-studio/about-studio/st-ug-terms/" class="md-nav__link">
+      <a href="../../../nebula-studio/about-studio/st-ug-terms/" class="md-nav__link">
         名词解释
       </a>
     </li>
@@ -3134,7 +3055,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-studio/about-studio/st-ug-limitations/" class="md-nav__link">
+      <a href="../../../nebula-studio/about-studio/st-ug-limitations/" class="md-nav__link">
         使用限制
       </a>
     </li>
@@ -3146,7 +3067,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-studio/about-studio/st-ug-check-updates/" class="md-nav__link">
+      <a href="../../../nebula-studio/about-studio/st-ug-check-updates/" class="md-nav__link">
         版本更新
       </a>
     </li>
@@ -3158,7 +3079,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-studio/about-studio/st-ug-shortcuts/" class="md-nav__link">
+      <a href="../../../nebula-studio/about-studio/st-ug-shortcuts/" class="md-nav__link">
         快捷键
       </a>
     </li>
@@ -3197,7 +3118,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-studio/deploy-connect/st-ug-deploy/" class="md-nav__link">
+      <a href="../../../nebula-studio/deploy-connect/st-ug-deploy/" class="md-nav__link">
         部署 Studio
       </a>
     </li>
@@ -3209,7 +3130,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-studio/deploy-connect/st-ug-connect/" class="md-nav__link">
+      <a href="../../../nebula-studio/deploy-connect/st-ug-connect/" class="md-nav__link">
         连接数据库
       </a>
     </li>
@@ -3221,7 +3142,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-studio/deploy-connect/st-ug-reset-connection/" class="md-nav__link">
+      <a href="../../../nebula-studio/deploy-connect/st-ug-reset-connection/" class="md-nav__link">
         清除连接
       </a>
     </li>
@@ -3260,7 +3181,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-studio/quick-start/st-ug-plan-schema/" class="md-nav__link">
+      <a href="../../../nebula-studio/quick-start/st-ug-plan-schema/" class="md-nav__link">
         规划 Schema
       </a>
     </li>
@@ -3272,7 +3193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-studio/quick-start/st-ug-prepare-csv/" class="md-nav__link">
+      <a href="../../../nebula-studio/quick-start/st-ug-prepare-csv/" class="md-nav__link">
         准备 CSV 文件
       </a>
     </li>
@@ -3284,7 +3205,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-studio/quick-start/st-ug-create-schema/" class="md-nav__link">
+      <a href="../../../nebula-studio/quick-start/st-ug-create-schema/" class="md-nav__link">
         创建 Schema
       </a>
     </li>
@@ -3296,7 +3217,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-studio/quick-start/st-ug-import-data/" class="md-nav__link">
+      <a href="../../../nebula-studio/quick-start/st-ug-import-data/" class="md-nav__link">
         导入数据
       </a>
     </li>
@@ -3308,7 +3229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-studio/quick-start/st-ug-explore/" class="md-nav__link">
+      <a href="../../../nebula-studio/quick-start/st-ug-explore/" class="md-nav__link">
         查询图数据
       </a>
     </li>
@@ -3368,7 +3289,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-studio/manage-schema/st-ug-crud-space/" class="md-nav__link">
+      <a href="../../../nebula-studio/manage-schema/st-ug-crud-space/" class="md-nav__link">
         操作图空间
       </a>
     </li>
@@ -3380,7 +3301,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-studio/manage-schema/st-ug-crud-tag/" class="md-nav__link">
+      <a href="../../../nebula-studio/manage-schema/st-ug-crud-tag/" class="md-nav__link">
         操作标签
       </a>
     </li>
@@ -3392,7 +3313,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-studio/manage-schema/st-ug-crud-edge-type/" class="md-nav__link">
+      <a href="../../../nebula-studio/manage-schema/st-ug-crud-edge-type/" class="md-nav__link">
         操作边类型
       </a>
     </li>
@@ -3404,7 +3325,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-studio/manage-schema/st-ug-crud-index/" class="md-nav__link">
+      <a href="../../../nebula-studio/manage-schema/st-ug-crud-index/" class="md-nav__link">
         操作索引
       </a>
     </li>
@@ -3443,7 +3364,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-studio/use-console/st-ug-console/" class="md-nav__link">
+      <a href="../../../nebula-studio/use-console/st-ug-console/" class="md-nav__link">
         控制台界面
       </a>
     </li>
@@ -3455,7 +3376,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-studio/use-console/st-ug-open-in-explorer/" class="md-nav__link">
+      <a href="../../../nebula-studio/use-console/st-ug-open-in-explorer/" class="md-nav__link">
         导入图探索
       </a>
     </li>
@@ -3467,7 +3388,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-studio/use-console/st-ug-visualize-findpath/" class="md-nav__link">
+      <a href="../../../nebula-studio/use-console/st-ug-visualize-findpath/" class="md-nav__link">
         查看子图
       </a>
     </li>
@@ -3512,7 +3433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-studio/troubleshooting/st-ug-config-server-errors/" class="md-nav__link">
+      <a href="../../../nebula-studio/troubleshooting/st-ug-config-server-errors/" class="md-nav__link">
         连接数据库错误
       </a>
     </li>
@@ -3524,7 +3445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-studio/troubleshooting/st-ug-connection-errors/" class="md-nav__link">
+      <a href="../../../nebula-studio/troubleshooting/st-ug-connection-errors/" class="md-nav__link">
         无法访问 Studio
       </a>
     </li>
@@ -3536,7 +3457,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../nebula-studio/troubleshooting/st-ug-faq/" class="md-nav__link">
+      <a href="../../../nebula-studio/troubleshooting/st-ug-faq/" class="md-nav__link">
         常见问题
       </a>
     </li>
@@ -3584,7 +3505,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/4.contributions/contribute-to-documentation/" class="md-nav__link">
+      <a href="../../4.contributions/contribute-to-documentation/" class="md-nav__link">
         贡献文档
       </a>
     </li>
@@ -3596,7 +3517,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/4.contributions/cpp-coding-style/" class="md-nav__link">
+      <a href="../../4.contributions/cpp-coding-style/" class="md-nav__link">
         C++ 编程风格
       </a>
     </li>
@@ -3608,7 +3529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/4.contributions/how-to-contribute/" class="md-nav__link">
+      <a href="../../4.contributions/how-to-contribute/" class="md-nav__link">
         如何贡献
       </a>
     </li>
@@ -3620,7 +3541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/4.contributions/pull-request-commit-message-guidelines/" class="md-nav__link">
+      <a href="../../4.contributions/pull-request-commit-message-guidelines/" class="md-nav__link">
         PR and Commit 信息指南
       </a>
     </li>
@@ -3639,12 +3560,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" checked>
       
       <label class="md-nav__link" for="__nav_8">
         附录
@@ -3662,7 +3585,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/5.appendix/cypher-ngql/" class="md-nav__link">
+      <a href="../cypher-ngql/" class="md-nav__link">
         Cypher & nGQL
       </a>
     </li>
@@ -3674,7 +3597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/5.appendix/gremlin-ngql/" class="md-nav__link">
+      <a href="../gremlin-ngql/" class="md-nav__link">
         Gremlin & nGQL
       </a>
     </li>
@@ -3686,7 +3609,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/5.appendix/sql-ngql/" class="md-nav__link">
+      <a href="../sql-ngql/" class="md-nav__link">
         SQL & nGQL
       </a>
     </li>
@@ -3698,7 +3621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../manual-CN/5.appendix/vid-partition/" class="md-nav__link">
+      <a href="../vid-partition/" class="md-nav__link">
         点标识符和分区
       </a>
     </li>
@@ -3708,11 +3631,91 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../manual-CN/5.appendix/super-node/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          超级顶点（稠密点）处理
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         超级顶点（稠密点）处理
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    原理介绍
+  </a>
+  
+    <nav class="md-nav" aria-label="原理介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    重复属性索引
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    建议的办法
+  </a>
+  
+    <nav class="md-nav" aria-label="建议的办法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    数据库端的常见办法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    应用端的常见办法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3792,43 +3795,48 @@
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    示例环境
+    原理介绍
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="原理介绍">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    示例数据
+    重复属性索引
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    前提条件
+    建议的办法
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    第 1 步. 修改配置文件
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2_nebula-algorithm" class="md-nav__link">
-    第 2 步. 执行 nebula-algorithm
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav" aria-label="建议的办法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    测试结果
+    数据库端的常见办法
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    应用端的常见办法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3844,145 +3852,54 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/vesoft-inc/nebula-docs-cn/edit/v1.2.0/docs/nebula-algorithm/na-ug-example.md" title="编辑此页" class="md-content__button md-icon">
+                  <a href="https://github.com/vesoft-inc/nebula-docs-cn/edit/v1.2.0/docs/manual-CN/5.appendix/super-node.md" title="编辑此页" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                <h1 id="_1">使用示例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>一般，您可以按以下步骤使用 nebula-algorithm：</p>
+                <h1 id="_1">超级顶点（稠密点）处理<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">原理介绍<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>在图论中，超级顶点（稠密点）是指一个点有着极多的相邻边。相邻边可以是出边（我指向谁）或者是入边（谁指向我）。</p>
+<p>由于幂律分布的特点，超级顶点现象非常普遍。
+例如社交网络中的影响力领袖（网红大V）、证券市场中的热门股票、银行系统中的四大行、交通网络中的枢纽站、互联网中的高流量网站等、电商网络中的爆款产品。</p>
+<p>在 <strong>Nebula Graph</strong> 中，一个<code>点</code> 和其<code>属性</code>是一个 <code>Key-Value</code>（以该点的 <code>VID</code> 以及其他元信息作为 <code>Key</code>），其 <code>Out-Edge Key-Value</code> 和 <code>In-Edge Key-Value</code> 都存储在同一个 partition 中(具体原理详见<a href="../../1.overview/3.design-and-architecture/2.storage-design/">存储架构</a>)，并且以 LSM-tree 的形式组织存放在硬盘（和缓存）中。</p>
+<p>因此不论是<code>从该点出发的有向遍历</code>，或者<code>以该点为终点的有向遍历</code>，都会涉及到大量的<code>顺序 IO 扫描</code>（最理想情况，当完成<a href="../../3.build-develop-and-administration/5.storage-service-administration/compact/">Compact</a>操作之后），或者大量的<code>随机 IO</code>（有关于<code>该点</code>和其<code>出入边</code>频繁的写入)。</p>
+<p>经验上说，当一个点的出入度超过 1 万时，就可以视为是稠密点。需要考虑一些特殊的设计和处理。</p>
+<h3 id="_3">重复属性索引<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>在属性图中，除了网络拓扑结构中的超级顶点，还有一类情况类似于超级顶点————某<strong>属性有极高重复率</strong>，也即"相同的<code>点类型 Tag</code>，不同的<code>顶点 VID</code>，同一属性字段，拥有相同属性值"。</p>
+<p>Nebula Graph 原生属性索引的设计复用了存储模块 RocksDB 的功能，这种情况下的索引会被建模为<code>前缀相同的 Key</code>。对于该属性的查找，（如果未能命中缓存，）会对应为硬盘上的“一次随机查找 + 一次前缀顺序扫描”，以找到对应的<code>点 VID</code>（此后，通常会从该顶点开始图遍历，这样又会发生该点对应 Key-Value 的一次随机读+顺序扫描）。当重复率越高，扫描范围就越大。</p>
+<p>关于属性索引的原理详细介绍在<a href="https://nebula-graph.com.cn/posts/how-indexing-works-in-nebula-graph/">博客《分布式图数据库 Nebula Graph 的 Index 实践》</a>。</p>
+<p>经验上说，当重复属性值超过 1 万时，也需要特殊的设计和处理。</p>
+<h3 id="_4">建议的办法<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h4 id="_5">数据库端的常见办法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
 <ol>
-<li>参考配置文件修改 nebula-algorithm 的配置。</li>
-<li>运行 nebula-algorithm。</li>
+<li><a href="../../3.build-develop-and-administration/3.configurations/5.storage-config/">截断</a>: 只访问一定阈值的边，超过该阈值的其他边则不返回。</li>
+<li><a href="../../3.build-develop-and-administration/3.configurations/5.storage-config/">采样</a>：对于每条边有一定概率的返回。</li>
+<li><a href="../../3.build-develop-and-administration/5.storage-service-administration/compact/">Compact</a>：重新组织 RocksDB 中数据的排列方式，减少随机读，增加顺序读。</li>
 </ol>
-<p>本文以一个示例说明如何使用 nebula-algorithm。</p>
-<h2 id="_2">示例环境<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h4 id="_6">应用端的常见办法<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<p>根据业务意义，将一些超级顶点拆分：</p>
 <ul>
-<li>三台虚拟机，配置如下：<ul>
-<li>CPU：Intel(R) Xeon(R) Platinum 8260M CPU @ 2.30GHz</li>
-<li>Processors：32</li>
-<li>CPU Cores：16</li>
-<li>内存：128 GB</li>
+<li>删除多条边，合并为一条</li>
 </ul>
-</li>
-<li>软件环境：<ul>
-<li>Spark：spark-2.4.6-bin-hadoop2.7 三个节点集群</li>
-<li>yarn V2.10.0：三个节点集群</li>
-<li>Nebula Graph V1.1.0：分布式部署，默认配置</li>
-</ul>
-</li>
-</ul>
-<h2 id="_3">示例数据<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>在本示例中，Nebula Graph 图空间名称为 algoTest，Schema 要素如下表所示。</p>
-<table>
-<thead>
-<tr>
-<th align="left">要素</th>
-<th align="left">名称</th>
-<th align="left">属性</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">标签</td>
-<td align="left"><code>PERSON</code></td>
-<td align="left">无</td>
-</tr>
-<tr>
-<td align="left">边类型</td>
-<td align="left"><code>FRIEND</code></td>
-<td align="left"><code>likeness</code>(<code>double</code>)</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_4">前提条件<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>在操作之前，您需要确认以下信息：</p>
+<p>例如，一个转账场景： (账户A)-[转账]-&gt;(账户B)。每次转账建模为一条AB之间的边，那么(账户A)和(账户B)之间会有着数万十次转账的场景。</p>
+<p>按日、周、或者月为粒度，合并陈旧的转账明细。也就是批量删除陈旧的边，改为少量的边“月总额”和“次数。而保留最近月的转账明细。</p>
 <ul>
-<li>已经完成 nebula-algorithm 编译。详细信息参考 <a href="../na-ug-compile/">编译 nebula-algorithm</a>。</li>
-<li>Nebula Graph 数据库中已经有图数据。您可以使用不同的方式将其他来源的数据导入 Nebula Graph 数据库中，例如 <a href="https://docs.nebula-graph.com.cn/manual-CN/3.build-develop-and-administration/5.storage-service-administration/data-import/spark-writer/" title="点击前往 Nebula Graph 网站">Spark Writer</a>。</li>
-<li>当前机器上已经安装 Spark 并已启动 Spark 服务。</li>
+<li>拆分相同类型的边，变为多种不同类型的边</li>
 </ul>
-<h2 id="1">第 1 步. 修改配置文件<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
-<p>根据项目中的 <code>src/main/resources/application.conf</code> 文件修改 nebula-algorithm 配置。</p>
-<div class="highlight"><pre><span></span><code>{
-  # Spark 相关设置
-  spark: {
-    app: {
-        # Spark 应用程序的名称，可选项。默认设置为您即将运行的算法名称，例如 PageRank
-        name: PageRank
-
-        # Spark 中分区数量，可选项。
-        partitionNum: 12
-    }
-
-    master: local
-
-    # 可选项，如果这里未设置，则在执行 spark-submit spark 任务时设置
-    conf: {
-        driver-memory: 20g
-        executor-memory: 100g
-        executor-cores: 3
-        cores-max:6
-    }
-  }
-
-  # Nebula Graph 相关配置
-  nebula: {
-    # 必需。Meta 服务的信息
-    addresses: &quot;127.0.0.1:45500&quot; # 如果有多个 Meta 服务复本，则以英文逗号隔开
-    user: root
-    pswd: nebula
-    space: algoTest
-    # 必需。创建图空间时设置的分区数量。如果创建图空间时未设置分区数，则设置为默认值 100
-    partitionNumber: 100
-    # 必需。Nebula Graph 的边类型，如果有多种边类型，则以英文逗号隔开
-    labels: [&quot;FRIENDS&quot;]
-
-    hasWeight: true
-    # 如果 hasWeight 配置为 true，则必须配置 weightCols。根据 labels 列出的边类型，按顺序在 weightCols 里设置对应的属性，一种边类型仅对应一个属性
-    # 说明：nebula-algorithm 仅支持同构图，所以，weightCols 中列出的属性的数据类型必须保持一致而且均为数字类型
-    weightCols: [&quot;likeness&quot;] # 如果 labels 里有多种边类型，则相应设置对应的属性，属性之间以英文逗号隔开
-  }
-
-  algorithm: {
-    # 指定即将执行的算法，可以配置为 pagerank 或 louvain
-    executeAlgo: louvain
-    # 指定算法结果的存储路径
-    path: /tmp
-
-    # 如果选择的是 PageRank，则配置 pagerank 相关参数
-    #pagerank: {
-    #    maxIter: 20
-    #    resetProb: 0.15  # 默认值为 0.15
-    #}
-
-    # 如果选择的是 louvain，则配置 louvain 相关参数
-    #louvain: {
-    #   maxIter: 20
-    #    internalIter: 10
-    #    tol: 0.5
-   #}
-  }
-}
+<p>例如，"(机场)&lt;-[depart]-(航班)"场景，每个架次航班的离港，都建模为一条航班和机场之间的边。那么大型机场的离港航班会极多。</p>
+<p>根据不同的"航空公司"将 "depart" 这个边类型拆分更细的边类型，如 "depart_ceair", "depart_csair" 等。在查询（图遍历）时，指定离港的航空公司。</p>
+<ul>
+<li>切分顶点本身</li>
+</ul>
+<p>例如，对于"(人)-[借款]-&gt;(银行)"的借款网络，某大型银行A的借款次数和借款人会非常的多。</p>
+<p>可以将该大行节点 A 拆分为多个相关联的子节点 A1、A2、A3,</p>
+<div class="highlight"><pre><span></span><code>(人1)-[借款]-&gt;(银行A1), (人2)-[借款]-&gt;(银行A2), (人2)-[借款]-&gt;(银行A3);
+(银行A1)-[属于]-&gt;(银行A), (银行A2)-[属于]-&gt;(银行A), (银行A3)-[属于]-&gt;(银行A).
 </code></pre></div>
-<h2 id="2_nebula-algorithm">第 2 步. 执行 nebula-algorithm<a class="headerlink" href="#2_nebula-algorithm" title="Permanent link">&para;</a></h2>
-<p>运行以下命令，提交 nebula-algorithm 应用程序。</p>
-<div class="highlight"><pre><span></span><code>spark-submit --master <span class="s2">&quot;local&quot;</span> --class com.vesoft.nebula.tools.algorithm.Main /your-jar-path/nebula-algorithm-1.x.y.jar -p /your-application.conf-path/application.conf
-</code></pre></div>
-<p>其中，</p>
-<ul>
-<li><code>--master</code>：指定 Spark 集群中Master 进程的 URL。详细信息，参考 <a href="https://spark.apache.org/docs/latest/submitting-applications.html#master-urls" title="点击前往 Apache Spark 文档">master-urls</a>。</li>
-<li><code>--class</code>：指定 Driver 主类。</li>
-<li>指定 nebula-algorithm JAR 文件的路径，JAR 文件版本号以您实际编译得到的 JAR 文件名称为准。</li>
-<li><code>-p</code>：Spark 配置文件文件路径。</li>
-<li>其他：如果您未在配置文件中设置 Spark 的任务资源分配（<code>conf</code>）信息，您可以在这个命令中指定。例如，本示例中，<code>--driver-memory=20G  --executor-memory=100G --executor-cores=3</code>。</li>
-</ul>
-<h2 id="_5">测试结果<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>按本示例设置的 Spark 任务资源分配，对于一个拥有一亿个数据的数据集：</p>
-<ul>
-<li>PageRank 的执行时间（PageRank 算法执行时间）为 21 分钟</li>
-<li>Louvain 的执行时间（Reader + Louvain 算法执行时间）为 1.3 小时</li>
-</ul>
+<p>这里的 A1、A2、A3 既可以是 A 真实的三个分行（例如北京、上海、浙江），也可以是三个按某种规则设立的虚拟分行，
+例如按借款金额划分 A1: 1-1000, A2: 1001-10000, A3: 10000+。
+这样，查询时对于 A 的任何操作，都转变为为对于 A1、A2、A3 的三次单独操作。</p>
                 
                   
                     
@@ -3991,7 +3908,7 @@
 <div class="md-source-date">
   <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月7日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月28日</span>
       
     
   </small>
@@ -4015,7 +3932,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../na-ug-compile/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../vid-partition/" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -4024,25 +3941,11 @@
               <span class="md-footer__direction">
                 上一页
               </span>
-              编译 nebula-algorithm
+              点标识符和分区
             </div>
           </div>
         </a>
       
-      
-        <a href="../../nebula-exchange/about-exchange/ex-ug-what-is-exchange/" class="md-footer__link md-footer__link--next" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              什么是 Nebula Exchange
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
@@ -4082,12 +3985,12 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
     
     
-      <script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.a1609d9a.min.js"></script>
       
-        <script src="../../js/version-select.js"></script>
+        <script src="../../../js/version-select.js"></script>
       
     
   </body>
