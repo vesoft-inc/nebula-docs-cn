@@ -1751,6 +1751,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../7.vid/">
+        VID
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../5.partition/">
         分片ID
       </a>
@@ -1758,11 +1763,6 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../6.eco-tool-version/">
         生态工具概览
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../7.vid/">
-        VID
       </a>
 </li>
 <li class="md-nav__item">
@@ -1843,7 +1843,7 @@
 <li>Nebula Graph master 更擅长处理（互联网式的）有大量并发的小请求。也即：虽然全图很大（万亿点边），但是每个请求要访问到的子图本身并不大（几百万个点边）——单个请求时延不大；但这类请求的并发数量特别多——吞吐量大。</li>
 </ul>
 <ul>
-<li>但对于一些相互分析型的场景，并发请求的数量不多，而每个请求要访问的子图本身特别大（亿以上）。为降低时延，可以在应用程序中将一个大的请求，拆分为多个小请求，并发发送给多个graphd。这样可以降低单个请求的时延和graphd的内存占用。</li>
+<li>但对于一些交互分析型的场景，并发请求的数量不多，而每个请求要访问的子图本身特别大（亿以上）。为降低时延，可以在应用程序中将一个大的请求，拆分为多个小请求，并发发送给多个graphd。这样可以降低单个大请求的时延，降低单个graphd的内存占用。</li>
 </ul>
 <h2 id="_3">水平扩展或垂直扩展<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <p>Nebula Graph master 支持水平扩展：</p>
@@ -1860,26 +1860,26 @@
 <ul>
 <li>Metad 不支持水平扩展。</li>
 </ul>
-<p>垂直扩展通常硬件成本更高，但运维操作相对简单。Nebula Graph master 也可以直接垂直扩展。</p>
+<p>垂直扩展通常硬件成本更高，但运维操作相对简单。Nebula Graph master 也可以垂直扩展。</p>
 <h2 id="_4">数据传输与优化<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <ul>
-<li>读写平衡。Nebula Graph 适合读写平衡性的在线场景，也即“并发的写入与读取”；而非数仓型的“一次写入多次读取”。</li>
+<li>读写平衡。Nebula Graph 适合读写平衡性的在线场景，也即 OLTP 型的的“并发的发生写入与读取”；而非数仓 OLAP 型的“一次写入多次读取”。</li>
 <li>选择不同的写入方式。大批量的数据写入可以使用sst加载的方式；小批量的写入使用<code>INSERT</code>语句。</li>
 <li>选择合适的时间运行 COMPACTION 和 BALANCE，来分别优化数据格式和存储分布。</li>
 <li>Nebula Graph master 不支持关系型数据库意义上的事务和隔离性，更接近 NoSQL。</li>
 </ul>
 <h2 id="_5">查询预热与数据预热<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<p>应用端进行预热：</p>
 <ul>
 <li>Graphd 不支持预编译查询及相应生成查询计划，也不支持缓存之前的查询结果；</li>
 <li>Storaged 不支持预热数据，只有 RocksDB 自身的 LSM-tree 和 BloomFilter 会启动时加载到内存中。</li>
-<li>点和边被访问过后，会各自缓存在 storaged 的两种 (LRU) Cache 中。</li>
+<li>点和边被访问过后，会各自缓存在 Storaged 的两种 (LRU) Cache 中。</li>
 </ul>
-<p>因此只能应用端来进行预热。</p>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月26日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月28日</span>
 </small>
 </div>
 </article>
