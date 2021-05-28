@@ -330,6 +330,7 @@ nav:
       - 注释: 20.appendix/comments.md
       - 大小写区分: 20.appendix/identifier-case-sensitivity.md
       - 关键字: 20.appendix/keywords-and-reserved-words.md
+      - 超级节点(稠密点): 20.appendix/super-node.md
 
   - 如何贡献: 15.contribution/how-to-contribute.md
 
