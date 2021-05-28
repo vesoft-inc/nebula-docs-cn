@@ -44,8 +44,8 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
    | 安装包 | Nebula Graph版本 |
    | ----- | ----- |
-   | [nebula-graph-studio-v1.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-v1.gz) | 1.x |
-   | [nebula-graph-studio-v2.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-v2.gz) | 2.x |
+   | [nebula-graph-studio-v1.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-v1.tar.gz) | 1.x |
+   | [nebula-graph-studio-v2.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-v2.tar.gz) | 2.x |
 
 2. 解压后进入 `nebula-graph-studio-v2` 目录。
 
