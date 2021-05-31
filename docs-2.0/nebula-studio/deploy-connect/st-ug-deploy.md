@@ -107,11 +107,11 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
   !!! note
 
         `node` 及 `npm` 命令需要安装在 `/usr/bin/`目录下，以防出现 RPM 安装时 node 命令找不到的情况。
-        如果依赖安装于用户个人目录下，如 `/usr/local`，用户可以使用以下命令建立软连接：
+        例如nodejs12默认目录为`/opt/rh/rh-nodejs12`，用户可以使用以下命令建立软连接：
 
         ```bash
-        $ sudo ln -s /usr/local/bin/node /usr/bin/node
-        $ sudo ln -s /usr/local/bin/npm /usr/bin/npm
+        $ sudo ln -s /opt/rh/rh-nodejs12/root/usr/bin/node /usr/bin/node
+        $ sudo ln -s /opt/rh/rh-nodejs12/root/usr/bin/npm /usr/bin/npm
         ```
 
 - 确保在安装开始前，以下端口处于未被使用状态。
