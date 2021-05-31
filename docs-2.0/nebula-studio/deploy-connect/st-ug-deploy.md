@@ -47,19 +47,25 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
    | [nebula-graph-studio-v1.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-v1.tar.gz) | 1.x |
    | [nebula-graph-studio-v2.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-v2.tar.gz) | 2.x |
 
-2. 解压后进入 `nebula-graph-studio-v2` 目录。
+2. 创建`nebula-graph-studio-v2`目录，并将安装包解压至目录中。
+
+    ```bash
+    mkdir nebula-graph-studio-v2 && tar -zxvf nebula-graph-studio-v2.gz -C nebula-graph-studio-v2
+    ```
+
+3. 解压后进入 `nebula-graph-studio-v2` 目录。
 
    ```bash
    cd nebula-graph-studio-v2
    ```
 
-3. 拉取 Studio 的 Docker 镜像。
+4. 拉取 Studio 的 Docker 镜像。
 
    ```bash
    docker-compose pull
    ```
 
-4. 构建并启动 Studio 服务。其中，`-d` 表示在后台运行服务容器。
+5. 构建并启动 Studio 服务。其中，`-d` 表示在后台运行服务容器。
 
    ```bash
    docker-compose up -d
@@ -74,7 +80,7 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
    Creating docker_nginx_1    ... done
    ```
 
-5. 启动成功后，在浏览器地址栏输入 `http://ip address:7001`。
+6. 启动成功后，在浏览器地址栏输入 `http://ip address:7001`。
 
   !!! Note
 
@@ -96,16 +102,16 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
         用户可以使用Docker Compose或RPM方式部署并启动 Nebula Graph 服务。如果刚开始使用 Nebula Graph，建议使用 Docker Compose 部署 Nebula Graph。详细信息参考 [使用 Docker Compose 部署 Nebula Graph](../../2.quick-start/2.deploy-nebula-graph-with-docker-compose.md "点击前往Nebula Graph 安装部署")。
 
-- 使用的 Linux 发行版为 CentOS ，安装有 losf 和版本为 v10.16.0 + 以上的 Node.js。
+- 使用的 Linux 发行版为 CentOS ，安装有 lsof 和版本为 v10.16.0 + 以上的 Node.js。
   
   !!! note
 
         `node` 及 `npm` 命令需要安装在 `/usr/bin/`目录下，以防出现 RPM 安装时 node 命令找不到的情况。
-        如果依赖安装于用户个人目录下，如 `/usr/local`，用户可以使用以下命令建立软连接：
+        例如nodejs12默认目录为`/opt/rh/rh-nodejs12`，用户可以使用以下命令建立软连接：
 
         ```bash
-        $ sudo ln -s /usr/local/bin/node /usr/bin/node
-        $ sudo ln -s /usr/local/bin/npm /usr/bin/npm
+        $ sudo ln -s /opt/rh/rh-nodejs12/root/usr/bin/node /usr/bin/node
+        $ sudo ln -s /opt/rh/rh-nodejs12/root/usr/bin/npm /usr/bin/npm
         ```
 
 - 确保在安装开始前，以下端口处于未被使用状态。
