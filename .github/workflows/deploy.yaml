@@ -37,6 +37,7 @@ jobs:
       - name: mike list delete
         run: |
           mike list
+          mkdocs build
 
       - name: Mike Deploy 2.0
         run: |
