@@ -21,6 +21,20 @@
 
 ## 执行问题
 
+### Yarn-Cluster模式下如何提交？
+
+在Yarn-Cluster模式下提交任务，请参考如下命令：
+
+```bash
+$SPARK_HOME/bin/spark-submit --class com.vesoft.nebula.exchange.Exchange \
+--master yarn-cluster \
+--files application.conf \
+--conf spark.driver.extraClassPath=./ \
+--conf spark.executor.extraClassPath=./ \
+nebula-exchange-2.0.0.jar \
+-c application.conf
+```
+
 ### 报错`method name xxx not found`
 
 一般是端口配置错误，需检查Meta服务、Graph服务、Storage服务的端口配置。
