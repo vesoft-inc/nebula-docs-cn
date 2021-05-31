@@ -141,6 +141,22 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
    $ sudo rpm -i nebula-graph-studio-{{ studio.base220 }}-1.x86_64.rpm
    ```
 
+   当屏幕返回以下信息时，表示 PRM 版 Studio 已经成功启动。
+
+   ```bash
+   egg started on http://0.0.0.0:7001
+   nohup: 把输出追加到"nohup.out"
+   --- START OF NEBULA IMPORTER ---
+   [INFO] httpserver.go:80: Starting http server on 5699
+   ```
+
+
+3. 启动成功后，在浏览器地址栏输入 `http://ip address:7001`。
+   
+   如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Studio。
+
+   ![Nebula Graph Studio 登录界面](../figs/st-ug-001-1.png "Nebula Graph Studio 登录界面")
+
 ### 卸载
 
 用户可以使用以下的命令卸载 Studio。
