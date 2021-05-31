@@ -50,7 +50,7 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 2. 创建`nebula-graph-studio-v2`目录，并将安装包解压至目录中。
 
    ```bash
-   mkdir nebula-graph-studio-v2 && tar -zxvf nebula-graph-studio-v2.gz -C <nebula_graph_studio_v2_path>
+   mkdir nebula-graph-studio-v2 && tar -zxvf nebula-graph-studio-v2.gz -C nebula-graph-studio-v2
    ```
 
 3. 解压后进入 `nebula-graph-studio-v2` 目录。
@@ -102,7 +102,7 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
         用户可以使用Docker Compose或RPM方式部署并启动 Nebula Graph 服务。如果刚开始使用 Nebula Graph，建议使用 Docker Compose 部署 Nebula Graph。详细信息参考 [使用 Docker Compose 部署 Nebula Graph](../../2.quick-start/2.deploy-nebula-graph-with-docker-compose.md "点击前往Nebula Graph 安装部署")。
 
-- 使用的 Linux 发行版为 CentOS ，安装有 losf 和版本为 v10.16.0 + 以上的 Node.js。
+- 使用的 Linux 发行版为 CentOS ，安装有 lsof 和版本为 v10.16.0 + 以上的 [Node.js](https://www.softwarecollections.org/en/scls/jstanek/rh-nodejs12/)。
   
   !!! note
 
