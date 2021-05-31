@@ -1,8 +1,7 @@
 mkdocs==1.1.2
-mkdocs-material
-mkdocs-macros-plugin
 mike==1.0.0
 mkdocs-material
+mkdocs-macros-plugin
 mdx_truly_sane_lists
 mkdocs_latest_release_plugin
 mkdocs-git-revision-date-localized-plugin
