@@ -7,12 +7,12 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Documentation for Nebula Graph Database" name="description"/>
 <meta content="Nebula Graph" name="author"/>
-<link href="https://docs.nebula-graph.com.cn/2.0.1/nebula-studio/deploy-connect/st-ug-deploy/" rel="canonical"/>
+<link href="https://docs.nebula-graph.com.cn/2.0.1/2.0.1/nebula-studio/deploy-connect/st-ug-deploy/" rel="canonical"/>
 <link href="../../../assets/images/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.5" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.6" name="generator"/>
 <title>部署 Studio - Nebula Graph Database 手册</title>
-<link href="../../../assets/stylesheets/main.bde7dde4.min.css" rel="stylesheet"/>
-<link href="../../../assets/stylesheets/palette.ef6f36e2.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.875de78c.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
 <meta content="#ffffff" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
@@ -1981,6 +1981,11 @@
 </table>
 </li>
 <li>
+<p>创建<code>nebula-graph-studio-v2</code>目录，并将安装包解压至目录中。</p>
+<div class="highlight"><pre><span></span><code>mkdir nebula-graph-studio-v2 <span class="o">&amp;&amp;</span> tar -zxvf nebula-graph-studio-v2.gz -C nebula-graph-studio-v2
+</code></pre></div>
+</li>
+<li>
 <p>解压后进入 <code>nebula-graph-studio-v2</code> 目录。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">cd</span> nebula-graph-studio-v2
 </code></pre></div>
@@ -2025,13 +2030,13 @@ Creating docker_nginx_1    ... <span class="k">done</span>
 </ul>
 <ul>
 <li>
-<p>使用的 Linux 发行版为 CentOS ，安装有 losf 和版本为 v10.16.0 + 以上的 Node.js。</p>
+<p>使用的 Linux 发行版为 CentOS ，安装有 lsof 和版本为 v10.16.0 + 以上的 Node.js。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><code>node</code> 及 <code>npm</code> 命令需要安装在 <code>/usr/bin/</code>目录下，以防出现 RPM 安装时 node 命令找不到的情况。
-  如果依赖安装于用户个人目录下，如 <code>/usr/local</code>，用户可以使用以下命令建立软连接：</p>
-<div class="highlight"><pre><span></span><code>$ sudo ln -s /usr/local/bin/node /usr/bin/node
-$ sudo ln -s /usr/local/bin/npm /usr/bin/npm
+  例如nodejs12默认目录为<code>/opt/rh/rh-nodejs12</code>，用户可以使用以下命令建立软连接：</p>
+<div class="highlight"><pre><span></span><code>$ sudo ln -s /opt/rh/rh-nodejs12/root/usr/bin/node /usr/bin/node
+$ sudo ln -s /opt/rh/rh-nodejs12/root/usr/bin/npm /usr/bin/npm
 </code></pre></div>
 </div>
 </li>
@@ -2123,7 +2128,7 @@ $ sudo ln -s /usr/local/bin/npm /usr/bin/npm
 </code></pre></div></li>
 </ul>
 <p>如果启动服务时遇到报错报错 ERROR: bind EADDRINUSE 0.0.0.0:7001，用户可以通过以下命令查看端口7001是否被占用。
-<div class="highlight"><pre><span></span><code>$ losf -i:7001
+<div class="highlight"><pre><span></span><code>$ lsof -i:7001
 </code></pre></div></p>
 <p>如果端口被占用，且无法结束该端口上进程，用户可以通过以下命令修改Studio服务启动端口，并重新启动服务。
 <div class="highlight"><pre><span></span><code>//修改studio服务启动端口
@@ -2148,7 +2153,7 @@ $ sudo ln -s /usr/local/bin/npm /usr/bin/npm
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月28日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月31日</span>
 </small>
 </div>
 </article>
@@ -2212,7 +2217,7 @@ $ sudo ln -s /usr/local/bin/npm /usr/bin/npm
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.d351de03.min.js", "version": {"method": "mike"}}</script>
-<script src="../../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+<script src="../../../assets/javascripts/bundle.34eae1b6.min.js"></script>
 <script src="../../../js/version-select.js"></script>
 <script src="../../../js/config.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
