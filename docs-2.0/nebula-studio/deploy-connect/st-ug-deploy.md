@@ -47,19 +47,25 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
    | [nebula-graph-studio-v1.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-v1.gz) | 1.x |
    | [nebula-graph-studio-v2.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-v2.gz) | 2.x |
 
-2. 解压后进入 `nebula-graph-studio-v2` 目录。
+2. 创建`nebula-graph-studio-v2`目录，并将安装包解压至目录中。
+
+   ```bash
+   mkdir nebula-graph-studio-v2 && tar -zxvf nebula-graph-studio-v2.gz -C <nebula_graph_studio_v2_path>
+   ```
+
+3. 解压后进入 `nebula-graph-studio-v2` 目录。
 
    ```bash
    cd nebula-graph-studio-v2
    ```
 
-3. 拉取 Studio 的 Docker 镜像。
+4. 拉取 Studio 的 Docker 镜像。
 
    ```bash
    docker-compose pull
    ```
 
-4. 构建并启动 Studio 服务。其中，`-d` 表示在后台运行服务容器。
+5. 构建并启动 Studio 服务。其中，`-d` 表示在后台运行服务容器。
 
    ```bash
    docker-compose up -d
@@ -74,7 +80,7 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
    Creating docker_nginx_1    ... done
    ```
 
-5. 启动成功后，在浏览器地址栏输入 `http://ip address:7001`。
+6. 启动成功后，在浏览器地址栏输入 `http://ip address:7001`。
 
   !!! Note
 
