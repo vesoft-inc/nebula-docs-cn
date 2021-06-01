@@ -1850,11 +1850,15 @@ prop_value_list:
 <ul>
 <li><code>prop_value_list</code>：根据<code>prop_name_list</code>填写属性值。如果属性值和标签中的数据类型不匹配，会返回错误。如果没有填写属性值，而标签中对应的属性设置为<code>NOT NULL</code>，也会返回错误。详情请参见<a href="../../10.tag-statements/1.create-tag/">CREATE TAG</a>。</li>
 </ul>
-<p>!!! warning “INSERT VERTEX 与 openCypher 中 CREATE 的语意不同”</p>
-<div class="codehilite"><pre><span></span><code>- `INSERT  VERTEX` 语意更接近于 NoSQL(Key-value) 方式的 INSERT 语意，或者 SQL 中的 `UPSERT (UPDATE or INSERT)`。
-- 相同 `VID` 和 `TAG` 的情况下：新写入会覆盖旧写入，不存在时会新写入。
-- 相同 `VID` 但不同 `TAG` 的情况下：不同TAG对应的记录不会相互覆盖，不存在会新写入。
-</code></pre></div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>INSERT VERTEX 与 openCypher 中 CREATE 的语意不同</p>
+<ul>
+<li><code>INSERT  VERTEX</code> 语意更接近于 NoSQL(Key-value) 方式的 INSERT 语意，或者 SQL 中的 <code>UPSERT (UPDATE or INSERT)</code>。</li>
+<li>相同 <code>VID</code> 和 <code>TAG</code> 的情况下：新写入会覆盖旧写入，不存在时会新写入。</li>
+<li>相同 <code>VID</code> 但不同 <code>TAG</code> 的情况下：不同TAG对应的记录不会相互覆盖，不存在会新写入。</li>
+</ul>
+</div>
 <p>参考以下示例。</p>
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code># 插入不包含属性的点。
@@ -1917,7 +1921,7 @@ nebula&gt; FETCH PROP on t5 "004";
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月19日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月1日</span>
 </small>
 </div>
 </article>
