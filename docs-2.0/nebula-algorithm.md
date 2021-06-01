@@ -2,6 +2,19 @@
 
 [Nebula Algorithm](https://github.com/vesoft-inc/nebula-spark-utils/tree/master/nebula-algorithm) （简称Algorithm）是一款基于[GraphX](https://spark.apache.org/graphx/)的Spark应用程序，通过提交Spark任务的形式使用完整的算法工具对Nebula Graph数据库中的数据执行图计算，也可以通过编程形式调用lib库下的算法针对DataFrame执行图计算。
 
+## 前提条件
+
+在使用 Algorithm 之前，用户需要确认以下信息：
+
+- Nebula Graph 服务已经部署并启动。详细信息，参考[Nebula Graph安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
+
+  !!! Note
+
+        用户可以使用Docker Compose或RPM方式部署并启动 Nebula Graph 服务。如果刚开始使用 Nebula Graph，建议使用 Docker Compose 部署 Nebula Graph。详细信息参考 [使用 Docker Compose 部署 Nebula Graph](../../2.quick-start/2.deploy-nebula-graph-with-docker-compose.md "点击前往 GitHub 网站")。
+
+- Spark 版本为 2.4.x 。
+
+- （可选）如果用户需要在Github中克隆最新的Algorithm，并自行编译打包，可以选择安装[Maven](https://maven.apache.org/download.cgi)。
 ## 使用限制
 
 点ID的数据必须为整数，即点ID可以是INT类型，或者是String类型但数据本身为整数。
@@ -139,6 +152,7 @@ Nebula Algorithm实现图计算的流程如下：
           metaAddress: "192.168.*.12:9559"
           user:root
           pswd:nebula
+          # 在提交图计算任务之前需要自行创建图空间及标签
           # Nebula Graph图空间名称
           space:nb
           # Nebula Graph标签名称，图计算结果会写入该标签。标签中的属性名称固定如下：
