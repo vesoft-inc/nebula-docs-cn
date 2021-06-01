@@ -135,6 +135,8 @@ Nebula Algorithm实现图计算的流程如下：
       # 数据源。Nebula Graph作为图计算的数据源时，nebula.read的配置才生效。
       read: {
           # 所有Meta服务的IP地址和端口，多个地址用英文逗号（,）分隔。格式: "ip1:port1,ip2:port2"。
+          # 使用docker-compose部署，端口需要填写docker-compose映射到外部的端口
+          # 可以用`docker-compose ps`查看
           metaAddress: "192.168.*.10:9559"
           # Nebula Graph图空间名称
           space: basketballplayer
@@ -147,8 +149,12 @@ Nebula Algorithm实现图计算的流程如下：
       # 数据落库。图计算结果落库到Nebula Graph时，nebula.write的配置才生效。
       write:{
           # Graph服务的IP地址和端口, 多个地址用英文逗号（,）分隔。格式: "ip1:port1,ip2:port2"。
+          # 使用docker-compose部署，端口需要填写docker-compose映射到外部的端口
+          # 可以用`docker-compose ps`查看
           graphAddress: "192.168.*.11:9669"
           # 所有Meta服务的IP地址和端口，多个地址用英文逗号（,）分隔。格式: "ip1:port1,ip2:port2"。
+          # 使用docker-compose部署，端口需要填写docker-compose映射到外部的端口
+          # 可以用`docker-compose ps`查看
           metaAddress: "192.168.*.12:9559"
           user:root
           pswd:nebula
