@@ -7,10 +7,10 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Documentation for Nebula Graph Database" name="description"/>
 <meta content="Nebula Graph" name="author"/>
-<link href="https://docs.nebula-graph.com.cn/master/master/20.appendix/2.graph-modeling/" rel="canonical"/>
+<link href="https://docs.nebula-graph.com.cn/master/master/8.service-tuning/super-node/" rel="canonical"/>
 <link href="../../assets/images/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.1.2, mkdocs-material-7.1.6" name="generator"/>
-<title>图建模 - Nebula Graph Database 手册</title>
+<title>超级节点(稠密点) - Nebula Graph Database 手册</title>
 <link href="../../assets/stylesheets/main.875de78c.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
 <meta content="#009485" name="theme-color"/>
@@ -58,7 +58,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              图建模
+              超级节点(稠密点)
             
           </span>
 </div>
@@ -159,17 +159,22 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../1.introduction/2.data-model/">
-        数据结构
+        数据模型
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1.introduction/3.vid/">
+        VID
       </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_3">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_4">
         Nebula Graph架构
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Nebula Graph架构" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_3">
+<label class="md-nav__title" for="__nav_2_4">
 <span class="md-nav__icon md-icon"></span>
           Nebula Graph架构
         </label>
@@ -266,12 +271,27 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../3.ngql-guide/1.nGQL-overview/1.overview/">
-        什么是nGQL
+        Nebula Graph查询语言（nGQL）
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../3.ngql-guide/1.nGQL-overview/3.graph-patterns/">
-        模式
+        图模式
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3.ngql-guide/1.nGQL-overview/comments/">
+        注释
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3.ngql-guide/1.nGQL-overview/identifier-case-sensitivity/">
+        大小写区分
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3.ngql-guide/1.nGQL-overview/keywords-and-reserved-words/">
+        关键字
       </a>
 </li>
 </ul>
@@ -1141,7 +1161,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../5.configurations-and-logs/1.configurations/6.kernel-config/">
-        内核配置
+        Linux内核配置
       </a>
 </li>
 </ul>
@@ -1240,27 +1260,88 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_9">
-        调整服务
+        服务调优
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="调整服务" class="md-nav" data-md-level="1">
+<nav aria-label="服务调优" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_9">
 <span class="md-nav__icon md-icon"></span>
-          调整服务
+          服务调优
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../8.service-tuning/compaction/">
+<a class="md-nav__link" href="../compaction/">
         Compaction
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../8.service-tuning/load-balance/">
+<a class="md-nav__link" href="../load-balance/">
         Storage负载均衡
       </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../2.graph-modeling/">
+        图建模
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../3.system-design/">
+        系统建模
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          超级节点(稠密点)
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        超级节点(稠密点)
+      </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    原理介绍
+  </a>
+<nav aria-label="原理介绍" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    重复属性索引
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    建议的办法
+  </a>
+<nav aria-label="建议的办法" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    数据库端的常见办法
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+    应用端的常见办法
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -1685,8 +1766,8 @@
         Nebula Algorithm
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" id="__nav_16" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" id="__nav_16" type="checkbox"/>
 <label class="md-nav__link" for="__nav_16">
         附录
         <span class="md-nav__icon md-icon"></span>
@@ -1698,109 +1779,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../0.FAQ/">
+<a class="md-nav__link" href="../../20.appendix/0.FAQ/">
         Nebula Graph 常见问题
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          图建模
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
-        图建模
-      </a>
-<nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-    以性能为第一目标进行建模
-  </a>
-<nav aria-label="以性能为第一目标进行建模" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-    合理设置边属性
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    合理设置标签属性
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
-    正确使用索引
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#vid">
-    合理设计VID
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../3.system-design/">
-        系统建模
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../4.raft/">
-        关于Raft的简单介绍
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../7.vid/">
-        VID
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../5.partition/">
-        分片ID
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../6.eco-tool-version/">
+<a class="md-nav__link" href="../../20.appendix/6.eco-tool-version/">
         生态工具概览
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../comments/">
-        注释
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../identifier-case-sensitivity/">
-        大小写区分
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../keywords-and-reserved-words/">
-        关键字
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../super-node/">
-        超级节点(稠密点)
+<a class="md-nav__link" href="../../15.contribution/how-to-contribute/">
+        社区参与
       </a>
 </li>
 </ul>
 </nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../15.contribution/how-to-contribute/">
-        如何贡献
-      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../pdf/NebulaGraph-CN.pdf">
@@ -1823,29 +1817,33 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
-    以性能为第一目标进行建模
+    原理介绍
   </a>
-<nav aria-label="以性能为第一目标进行建模" class="md-nav">
+<nav aria-label="原理介绍" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
-    合理设置边属性
+    重复属性索引
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_4">
-    合理设置标签属性
+    建议的办法
   </a>
-</li>
+<nav aria-label="建议的办法" class="md-nav">
+<ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_5">
-    正确使用索引
+    数据库端的常见办法
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#vid">
-    合理设计VID
+<a class="md-nav__link" href="#_6">
+    应用端的常见办法
   </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -1857,35 +1855,56 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/20.appendix/2.graph-modeling.md" title="编辑此页">
+<a class="md-content__button md-icon" href="https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/8.service-tuning/super-node.md" title="编辑此页">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
-<h1 id="_1">图建模设计<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
-<p>本文介绍在Nebula Graph项目中成功应用的一些图建模和系统设计的通用建议。</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>本文建议是通用的，在特定领域有例外，请结合实际业务情况进行图建模。</p>
-</div>
-<h2 id="_2">以性能为第一目标进行建模<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p>目前 Nebula Graph 没有完美的建模方法，如何建模取决于想从数据中挖掘的内容。分析数据并根据业务模型创建方便直观的数据模型，测试模型并优化，逐渐适应业务。为了更好的性能，用户可以多次更改或重新设计模型。</p>
-<h3 id="_3">合理设置边属性<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<h1 id="_1">超级顶点（稠密点）处理<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
+<h2 id="_2">原理介绍<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p>在图论中，超级顶点（稠密点）是指一个点有着极多的相邻边。相邻边可以是出边（我指向谁）或者是入边（谁指向我）。</p>
+<p>由于幂律分布的特点，超级顶点现象非常普遍。
+例如社交网络中的影响力领袖（网红大V）、证券市场中的热门股票、银行系统中的四大行、交通网络中的枢纽站、互联网中的高流量网站等、电商网络中的爆款产品。</p>
+<p>在 Nebula Graph master 中，一个<code>点</code> 和其<code>属性</code>是一个 <code>Key-Value</code>（以该点的 <code>VID</code> 以及其他元信息作为 <code>Key</code>），其 <code>Out-Edge Key-Value</code> 和 <code>In-Edge Key-Value</code> 都存储在同一个 partition 中(具体原理详见<a href="../../1.introduction/3.nebula-graph-architecture/4.storage-service/">存储架构</a>，并且以 LSM-tree 的形式组织存放在硬盘（和缓存）中。</p>
+<p>因此不论是<code>从该点出发的有向遍历</code>，或者<code>以该点为终点的有向遍历</code>，都会涉及到大量的<code>顺序 IO 扫描</code>（最理想情况，当完成<a href="../compaction/">Compact</a>操作之后），或者大量的<code>随机 IO</code>（有关于<code>该点</code>和其<code>出入边</code>频繁的写入)。</p>
+<p>经验上说，当一个点的出入度超过 1 万时，就可以视为是稠密点。需要考虑一些特殊的设计和处理。</p>
+<h3 id="_3">重复属性索引<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<p>在属性图中，除了网络拓扑结构中的超级顶点，还有一类情况类似于超级顶点————某<strong>属性有极高重复率</strong>，也即"相同的<code>点类型 Tag</code>，不同的<code>顶点 VID</code>，同一属性字段，拥有相同属性值"。</p>
+<p>Nebula Graph master 属性索引的设计复用了存储模块 RocksDB 的功能，这种情况下的索引会被建模为<code>前缀相同的 Key</code>。对于该属性的查找，（如果未能命中缓存，）会对应为硬盘上的“一次随机查找 + 一次前缀顺序扫描”，以找到对应的<code>点 VID</code>（此后，通常会从该顶点开始图遍历，这样又会发生该点对应 Key-Value 的一次随机读+顺序扫描）。当重复率越高，扫描范围就越大。</p>
+<p>关于属性索引的原理详细介绍在<a href="https://nebula-graph.com.cn/posts/how-indexing-works-in-nebula-graph/">博客《分布式图数据库 Nebula Graph 的 Index 实践》</a>。</p>
+<p>经验上说，当重复属性值超过 1 万时，也需要特殊的设计和处理。</p>
+<h3 id="_4">建议的办法<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<h4 id="_5">数据库端的常见办法<a class="headerlink" href="#_5" title="Permanent link">¶</a></h4>
+<ol>
+<li><a href="../../5.configurations-and-logs/1.configurations/4.storage-config/">截断</a>: 只访问一定阈值的边，超过该阈值的其他边则不返回。</li>
+<li><a href="../compaction/">Compact</a>：重新组织 RocksDB 中数据的排列方式，减少随机读，增加顺序读。</li>
+</ol>
+<h4 id="_6">应用端的常见办法<a class="headerlink" href="#_6" title="Permanent link">¶</a></h4>
+<p>根据业务意义，将一些超级顶点拆分：</p>
 <ul>
-<li>Nebula Graph 基于图拓扑结构进行深度图遍历的性能较低，但是广度优先遍历以及获取属性的性能较好。因此为了减少遍历深度，请使用点属性代替边。例如，模型a包括姓名、年龄、眼睛颜色三种属性，建议创建一个标签<code>person</code>，然后为它添加姓名、年龄、眼睛颜色的属性。如果创建一个包含眼睛颜色的标签和一个边类型<code>has</code>，然后创建一个边用来表示人拥有的眼睛颜色，这种建模方法会降低遍历性能。</li>
+<li>删除多条边，合并为一条</li>
 </ul>
+<p>例如，一个转账场景： <code>(账户A)-[转账]-&gt;(账户B)</code>。每次<code>转账</code>建模为<code>一条AB之间的边</code>，那么<code>(账户A)</code>和<code>(账户B)</code>之间会有着数万十次转账的场景。</p>
+<p>按日、周、或者月为粒度，合并陈旧的转账明细。也就是批量删除陈旧的边，改为少量的边“月总额”和“次数。而保留最近月的转账明细。</p>
 <ul>
-<li>为边创建属性时请勿使用长字符串：虽然 Nebula Graph 支持在边上存储长字符串属性，但是这些属性会同时保存在出边和入边，注意写入放大问题（write amplification）。</li>
+<li>拆分相同类型的边，变为多种不同类型的边</li>
 </ul>
-<h3 id="_4">合理设置标签属性<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
-<p>在图建模中，请将一组类似的平级属性放入同一个标签，即按不同概念进行分组。</p>
-<h3 id="_5">正确使用索引<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
-<p>使用属性索引可以通过属性查找到 VID。但是索引会导致写性能下降90%甚至更多，只有在根据点或边的属性定位点或边时才使用索引。</p>
-<h3 id="vid">合理设计VID<a class="headerlink" href="#vid" title="Permanent link">¶</a></h3>
-<p>参考<a href="../7.vid/">点VID一节</a>。</p>
+<p>例如，<code>(机场)&lt;-[depart]-(航班)</code>场景，每个架次航班的离港，都建模为一条航班和机场之间的边。那么大型机场的离港航班会极多。</p>
+<p>根据不同的<code>航空公司</code>将 <code>depart</code> 这个边类型拆分更细的边类型，如 <code>depart_ceair</code>, <code>depart_csair</code> 等。在查询（图遍历）时，指定离港的航空公司。</p>
+<ul>
+<li>切分顶点本身</li>
+</ul>
+<p>例如，对于<code>(人)-[借款]-&gt;(银行)</code>的借款网络，某大型银行A的借款次数和借款人会非常的多。</p>
+<p>可以将该大行节点 A 拆分为多个相关联的子节点 A1、A2、A3,</p>
+<div class="highlight"><pre><span></span><code>(人1)-[借款]-&gt;(银行A1), (人2)-[借款]-&gt;(银行A2), (人2)-[借款]-&gt;(银行A3);
+(银行A1)-[属于]-&gt;(银行A), (银行A2)-[属于]-&gt;(银行A), (银行A3)-[属于]-&gt;(银行A).
+</code></pre></div>
+<p>这里的 A1、A2、A3 既可以是 A 真实的三个分行（例如北京、上海、浙江），也可以是三个按某种规则设立的虚拟分行，
+例如按借款金额划分 <code>A1: 1-1000, A2: 1001-10000, A3: 10000+</code>。
+这样，查询时对于 A 的任何操作，都转变为为对于 A1、A2、A3 的三次单独操作。</p>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月28日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月1日</span>
 </small>
 </div>
 </article>
@@ -1897,7 +1916,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a class="md-footer__link md-footer__link--prev" href="../0.FAQ/" rel="prev">
+<a class="md-footer__link md-footer__link--prev" href="../3.system-design/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -1906,17 +1925,17 @@
 <span class="md-footer__direction">
                 上一页
               </span>
-              Nebula Graph 常见问题
+              系统建模
             </div>
 </div>
 </a>
-<a class="md-footer__link md-footer__link--next" href="../3.system-design/" rel="next">
+<a class="md-footer__link md-footer__link--next" href="../../nebula-studio/about-studio/st-ug-release-note/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 下一页
               </span>
-              系统建模
+              Studio版本更新说明
             </div>
 </div>
 <div class="md-footer__button md-icon">

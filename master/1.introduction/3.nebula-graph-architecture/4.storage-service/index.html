@@ -159,17 +159,22 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../2.data-model/">
-        数据结构
+        数据模型
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3.vid/">
+        VID
       </a>
 </li>
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_3">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_4">
         Nebula Graph架构
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Nebula Graph架构" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_3">
+<label class="md-nav__title" for="__nav_2_4">
 <span class="md-nav__icon md-icon"></span>
           Nebula Graph架构
         </label>
@@ -216,7 +221,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#kvstore">
-    自研KVStore
+    KVStore
   </a>
 </li>
 <li class="md-nav__item">
@@ -237,6 +242,15 @@
 <a class="md-nav__link" href="#_4">
     数据分片
   </a>
+<nav aria-label="数据分片" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    分片算法
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#raft">
@@ -244,6 +258,11 @@
   </a>
 <nav aria-label="Raft" class="md-nav">
 <ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#raft_1">
+    关于 Raft 的简单介绍
+  </a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#multi_group_raft">
     Multi Group Raft
@@ -265,7 +284,7 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
+<a class="md-nav__link" href="#_6">
     成员变更
   </a>
 </li>
@@ -352,12 +371,27 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../3.ngql-guide/1.nGQL-overview/1.overview/">
-        什么是nGQL
+        Nebula Graph查询语言（nGQL）
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../3.ngql-guide/1.nGQL-overview/3.graph-patterns/">
-        模式
+        图模式
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../3.ngql-guide/1.nGQL-overview/comments/">
+        注释
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../3.ngql-guide/1.nGQL-overview/identifier-case-sensitivity/">
+        大小写区分
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../3.ngql-guide/1.nGQL-overview/keywords-and-reserved-words/">
+        关键字
       </a>
 </li>
 </ul>
@@ -1227,7 +1261,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../5.configurations-and-logs/1.configurations/6.kernel-config/">
-        内核配置
+        Linux内核配置
       </a>
 </li>
 </ul>
@@ -1329,13 +1363,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_9">
-        调整服务
+        服务调优
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="调整服务" class="md-nav" data-md-level="1">
+<nav aria-label="服务调优" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_9">
 <span class="md-nav__icon md-icon"></span>
-          调整服务
+          服务调优
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -1346,6 +1380,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../8.service-tuning/load-balance/">
         Storage负载均衡
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../8.service-tuning/2.graph-modeling/">
+        图建模
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../8.service-tuning/3.system-design/">
+        系统建模
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../8.service-tuning/super-node/">
+        超级节点(稠密点)
       </a>
 </li>
 </ul>
@@ -1789,62 +1838,17 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../20.appendix/2.graph-modeling/">
-        图建模
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../20.appendix/3.system-design/">
-        系统建模
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../20.appendix/4.raft/">
-        关于Raft的简单介绍
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../20.appendix/7.vid/">
-        VID
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../20.appendix/5.partition/">
-        分片ID
-      </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="../../../20.appendix/6.eco-tool-version/">
         生态工具概览
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../20.appendix/comments/">
-        注释
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../20.appendix/identifier-case-sensitivity/">
-        大小写区分
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../20.appendix/keywords-and-reserved-words/">
-        关键字
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../20.appendix/super-node/">
-        超级节点(稠密点)
+<a class="md-nav__link" href="../../../15.contribution/how-to-contribute/">
+        社区参与
       </a>
 </li>
 </ul>
 </nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../15.contribution/how-to-contribute/">
-        如何贡献
-      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../pdf/NebulaGraph-CN.pdf">
@@ -1877,7 +1881,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#kvstore">
-    自研KVStore
+    KVStore
   </a>
 </li>
 <li class="md-nav__item">
@@ -1898,6 +1902,15 @@
 <a class="md-nav__link" href="#_4">
     数据分片
   </a>
+<nav aria-label="数据分片" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    分片算法
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#raft">
@@ -1905,6 +1918,11 @@
   </a>
 <nav aria-label="Raft" class="md-nav">
 <ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#raft_1">
+    关于 Raft 的简单介绍
+  </a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#multi_group_raft">
     Multi Group Raft
@@ -1926,7 +1944,7 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
+<a class="md-nav__link" href="#_6">
     成员变更
   </a>
 </li>
@@ -2000,7 +2018,7 @@
 </li>
 </ul>
 <p>下文将基于架构介绍Storage服务的部分特性。</p>
-<h2 id="kvstore">自研KVStore<a class="headerlink" href="#kvstore" title="Permanent link">¶</a></h2>
+<h2 id="kvstore">KVStore<a class="headerlink" href="#kvstore" title="Permanent link">¶</a></h2>
 <p>Nebula Graph使用自行开发的KVStore，而不是其他开源KVStore，原因如下：</p>
 <ul>
 <li>需要高性能KVStore。</li>
@@ -2083,11 +2101,11 @@
 </tr>
 <tr>
 <td align="left"><code>VertexID</code></td>
-<td align="left">点ID。前一个<code>VertexID</code>在出边里表示起始点ID，在入边里表示目的点ID；后一个<code>VertexID</code>出边里表示目的点ID，在入边里表示起始点ID。</td>
+<td align="left">点ID。前一个<code>VertexID</code>在出边里表示起始点ID，在"入边"里表示目的点ID；后一个<code>VertexID</code>"出边"里表示目的点ID，在"入边"里表示起始点ID。</td>
 </tr>
 <tr>
 <td align="left"><code>Edge Type</code></td>
-<td align="left">边的类型。大于0表示出边，小于0表示入边。长度为4个字节。</td>
+<td align="left">边的类型。大于0表示"出边"，小于0表示"入边"。长度为4个字节。</td>
 </tr>
 <tr>
 <td align="left"><code>Rank</code></td>
@@ -2113,18 +2131,101 @@
 </ul>
 </div>
 <h3 id="_3">属性说明<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
-<p>对于点或边的属性信息，Nebula Graph会将属性信息编码后按顺序存储，由于属性的长度是固定的，查询时可以根据偏移量快速查询。Nebula Graph使用强类型Schema，所以在解码之前，需要先从Meta服务中查询具体的Schema信息。同时为了支持在线变更Schema，在编码属性时，会加入对应的Schema版本信息。</p>
+<p>Nebula Graph使用强类型Schema。</p>
+<p>对于点或边的属性信息，Nebula Graph会将属性信息编码后按顺序存储。由于属性的长度是固定的，查询时可以根据偏移量快速查询。在解码之前，需要先从Meta服务中查询具体的Schema信息（并缓存）。同时为了支持在线变更Schema，在编码属性时，会加入对应的Schema版本信息。</p>
 <h2 id="_4">数据分片<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
-<p>目前Nebula Graph的分片策略采用<strong>静态 Hash</strong>的方式，即对点VID进行取模操作，同一个点的所有标签、出边和入边信息都会存储到同一个分片，这种方式极大地提升了查询效率。</p>
-<p>对于在线图查询来说，最常见的操作便是从一个点开始向外拓展（广度优先），查询一个点的出边或者入边是最基本的操作，同时可能会根据属性进行过滤，Nebula Graph通过将属性与点边存储在一起，保证了整个操作的高效。</p>
+<p>由于超大规模关系网络的节点数量高达百亿到千亿，而边的数量更会高达万亿，即使仅存储点和边两者也远大于一般服务器的容量。因此需要有方法将图元素切割，并存储在不同逻辑分片 partition 上。Nebula Graph 采用边分割的方式</p>
+<p><img alt="image" src="https://www-cdn.nebula-graph.com.cn/nebula-blog/DataModel02.png"/></p>
+<!-- TODO (joe 's help)
+### 切边与存储放大
+
+    Nebula Graph 的边数据存储格式，使得逻辑上的一条边，实际对应于硬盘上的两个Key-Value。当边的数量和属性较多时，会在硬盘上多占用一倍的空间。
+
+https://docs-cdn.nebula-graph.com.cn/docs-2.0/1.introduction/2.nebula-graph-architecture/two-edge-format.png
+
+例如1，以最简单的一个图“两个点`src`, `dst`和一条边`e`”为例。在存储层会对应于4个key-value，并且这4个key-value通常会落在两个不同的artition上(0和1)。
+
+<div class="highlight"><pre><span></span><code>(src)-[e]-&gt;(dst)
+</code></pre></div>
+
+在Partition 0内，有一个 Key (src-key) 的格式为 <Type, PartID(0), "src", TagID>, value 为该点序列化的属性
+
+一个 Key (out-key) 的格式为 <Type, PartID(0), "src", +EdgeType, Rank(0), "dst", PlaceHolder>, value 为该边序列化的属性
+
+在Partition 1内，有一个 Key (dst-key) 的格式为 <Type, PartID(1), "dst", TagID>, value 为该点序列化的属性
+
+一个 Key (in-key) 的格式为 <Type, PartID(1), "dst", -EdgeType, Rank(0), "src", PlaceHolder>, value 为该边序列化的属性
+
+加号+和减号-用于标识边的方向。
+
+out-key 用于从 src 开始的出发遍历，in-key 用于指向 dst 的遍历（可也理解为从dst开始，沿着边的方向逆序遍历）。 
+
+由于 out-key 和 in-key 冗余存储了两份一样的属性，当边的属性较多时候，硬盘占用会比较多。
+
+-->
+<h3 id="_5">分片算法<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
+<p>分片策略采用<strong>静态 Hash</strong>的方式，即对点VID进行取模操作，同一个点的所有标签、出边和入边信息都会存储到同一个分片，这种方式极大地提升了查询效率。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>创建图空间时需指定分片数量，分片数量设置后无法修改，建议设置时提前满足业务将来的扩容需求。</p>
 </div>
+<p>点和边分布在不同的分片，分片分布在不同的机器。分片数量在 CREATE SPACE 语句中指定，此后不可更改。</p>
+<p>如果需要将某些点放置在相同的分片（例如在一台机器上），可以参考<a href="https://github.com/vesoft-inc/nebula-common/blob/master/src/common/clients/meta/MetaClient.cpp">公式或代码</a>。</p>
+<p>下文用简单代码说明VID和分片的关系。</p>
+<div class="highlight"><pre><span></span><code>    // 如果ID长度为8，为了兼容1.0，将数据类型视为int64。
+    uint64_t vid = 0;
+    if (id.size() == 8) {
+        memcpy(static_cast&lt;void*&gt;(&amp;vid), id.data(), 8);
+    } else {
+        MurmurHash2 hash;
+        vid = hash(id.data());
+    }
+    PartitionID pId = vid % numParts + 1;
+</code></pre></div>
+<p>简单来说，上述代码是将一个固定的字符串进行哈希计算，转换成数据类型为int64的数字（int64数字的哈希计算结果是数字本身），将数字取模，然后加1，即：</p>
+<div class="highlight"><pre><span></span><code><span class="n">pId</span> <span class="o">=</span> <span class="n">vid</span> <span class="o">%</span> <span class="n">numParts</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div>
+<p>示例的部分参数说明如下。</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>%</code></td>
+<td align="left">取模运算。</td>
+</tr>
+<tr>
+<td align="left"><code>numParts</code></td>
+<td align="left"><code>VID</code>所在图空间的分片数，即<a href="../../../3.ngql-guide/9.space-statements/1.create-space/">CREATE SPACE</a>语句中的<code>partition_num</code>值。</td>
+</tr>
+<tr>
+<td align="left"><code>pId</code></td>
+<td align="left"><code>VID</code>所在分片的ID。</td>
+</tr>
+</tbody>
+</table>
+<p>例如有100个分片，<code>VID</code>为1、101和1001的三个点将会存储在相同的分片。分片ID和机器地址之间的映射是随机的，所以不能假定任何两个分片位于同一台机器上。</p>
 <h2 id="raft">Raft<a class="headerlink" href="#raft" title="Permanent link">¶</a></h2>
-<p><a href="../../../20.appendix/4.raft/">附录</a>简单介绍了Raft的原理和作用。本文主要介绍 Nebula Storage 的一些特定的实现。</p>
-<p>由于Storage服务需要支持集群分布式架构，所以基于Raft协议实现了Multi Group Raft，即每个分片的所有副本共同组成一个Raft group，其中一个副本是leader，其他副本是follower，从而实现强一致性和高可用性。Raft的部分实现如下。</p>
+<h3 id="raft_1">关于 Raft 的简单介绍<a class="headerlink" href="#raft_1" title="Permanent link">¶</a></h3>
+<p>分布式系统中，同一份数据通常会有多个副本，这样即使少数副本发生故障，系统仍可正常运行。这就需要一定的技术手段来保证多个副本之间的一致性。</p>
+<p>基本原理：Raft 就是一种用于保证多副本一致性的协议。Raft 采用多个副本之间竞选的方式，赢得”超过半数”副本投票的(候选)副本成为 Leader，由 Leader 代表所有副本对外提供服务；其他 Follower 作为备份。当该 Leader 出现异常后(通信故障、运维命令等)，其余 Follower 进行新一轮选举，投票出一个新的 Leader。Leader 和 Follower 之间通过心跳的方式相互探测是否存活，并以 Raft-wal 的方式写入硬盘，超过多个心跳仍无响应的副本会认为发生故障。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>因为 Raft-wal 需要定期写硬盘，如果硬盘写能力瓶颈会导致 Raft 心跳失败，导致重新发起选举。硬盘IO严重堵塞情况下，会导致长期无法选举出Leader。</p>
+</div>
+<p>读写流程：对于客户端的每个写入请求，Leader 会将该写入以 Raft-wal 的方式，将该条同步给其他 Follower，并只有在“超过半数”副本都成功收到 Raft-wal 后，才会返回客户端该写入成功。对于客户端的每个读取请求，都直接访问 Leader，而 Follower 并不参与读请求服务。</p>
+<p>故障流程：如果系统只有一个副本时，其自身就是 Leader；如果其发生故障，系统将完全不可用。如果系统有 3 个副本，其中一个副本是 Leader，其他 2 个副本是 Follower；即使原 Leader 发生故障，剩下两个副本仍可投票出一个新的Leader（以及一个Follower），此时系统仍可使用；但是当这2个副本中任一者再次发生故障后，由于投票人数不足，系统将完全不可用。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Raft 多副本的方式与 HDFS 多副本的方式是不同的，Raft 基于“多数派”投票，因此副本数量不能是偶数。</p>
+</div>
+<p>Listener：这是一种特殊的 Raft 角色，并不参与投票，也不能用于多副本的数据一致性。在Nebula Graph中，其作用是从 Leader 读取 Raft-wal，并向ElasticSearch集群同步。</p>
 <h3 id="multi_group_raft">Multi Group Raft<a class="headerlink" href="#multi_group_raft" title="Permanent link">¶</a></h3>
+<p>由于Storage服务需要支持集群分布式架构，所以基于Raft协议实现了Multi Group Raft，即每个分片的所有副本共同组成一个Raft group，其中一个副本是leader，其他副本是follower，从而实现强一致性和高可用性。Raft的部分实现如下。</p>
 <p>由于Raft日志不允许空洞，Nebula Graph使用Multi Group Raft缓解此问题，分片数量较多时，可以有效提高Nebula Graph的性能。但是分片数量太多会增加开销，例如Raft group内部存储的状态信息、WAL文件，或者负载过低时的批量操作。</p>
 <p>实现Multi Group Raft有2个关键点：</p>
 <ul>
@@ -2149,7 +2250,7 @@
 <h3 id="leadertransfer_leadership">leader切换（Transfer Leadership）<a class="headerlink" href="#leadertransfer_leadership" title="Permanent link">¶</a></h3>
 <p>leader切换对于负载均衡至关重要，当把某个分片从一台机器迁移到另一台机器时，首先会检查分片是不是leader，如果是的话，需要先切换leader，数据迁移完毕之后，通常还要重新<a href="../../../8.service-tuning/load-balance/">均衡leader分布</a>。</p>
 <p>对于leader来说，提交leader切换命令时，就会放弃自己的leader身份，当follower收到leader切换命令时，就会发起选举。</p>
-<h3 id="_5">成员变更<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
+<h3 id="_6">成员变更<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
 <p>为了避免脑裂，当一个Raft group的成员发生变化时，需要有一个中间状态，该状态下新旧group的多数派需要有重叠的部分，这样就防止了新的group或旧的group单方面做出决定。为了更加简化，Diego Ongaro 在自己的博士论文中提出每次只增减一个peer的方式，以保证新旧group的多数派总是有重叠。Nebula Graph也采用了这个方式，只不过增加成员和移除成员的实现有所区别。具体实现方式请参见Raft Part class里addPeer/removePeer的实现。</p>
 <h2 id="hdfs">与HDFS的区别<a class="headerlink" href="#hdfs" title="Permanent link">¶</a></h2>
 <p>Storage服务基于Raft协议实现的分布式架构，与HDFS的分布式架构有一些区别。例如：</p>
@@ -2170,7 +2271,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月28日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月1日</span>
 </small>
 </div>
 </article>

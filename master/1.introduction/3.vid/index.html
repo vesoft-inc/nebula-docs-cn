@@ -7,10 +7,10 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Documentation for Nebula Graph Database" name="description"/>
 <meta content="Nebula Graph" name="author"/>
-<link href="https://docs.nebula-graph.com.cn/master/master/20.appendix/identifier-case-sensitivity/" rel="canonical"/>
+<link href="https://docs.nebula-graph.com.cn/master/master/1.introduction/3.vid/" rel="canonical"/>
 <link href="../../assets/images/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.1.2, mkdocs-material-7.1.6" name="generator"/>
-<title>大小写区分 - Nebula Graph Database 手册</title>
+<title>VID - Nebula Graph Database 手册</title>
 <link href="../../assets/stylesheets/main.875de78c.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
 <meta content="#009485" name="theme-color"/>
@@ -29,7 +29,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#_1">
+<a class="md-skip" href="#vid">
           跳转至
         </a>
 </div>
@@ -58,7 +58,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              大小写区分
+              VID
             
           </span>
 </div>
@@ -140,8 +140,8 @@
         前言
       </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
 <label class="md-nav__link" for="__nav_2">
         简介
         <span class="md-nav__icon md-icon"></span>
@@ -153,44 +153,77 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../1.introduction/1.what-is-nebula-graph/">
+<a class="md-nav__link" href="../1.what-is-nebula-graph/">
         什么是Nebula Graph
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../1.introduction/2.data-model/">
-        数据结构
+<a class="md-nav__link" href="../2.data-model/">
+        数据模型
       </a>
 </li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          VID
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        VID
+      </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vid_1">
+    VID有如下特点
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vid_2">
+    VID使用建议
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vid_3">
+    VID生成建议
+  </a>
+</li>
+</ul>
+</nav>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_3">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_4">
         Nebula Graph架构
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Nebula Graph架构" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_3">
+<label class="md-nav__title" for="__nav_2_4">
 <span class="md-nav__icon md-icon"></span>
           Nebula Graph架构
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../1.introduction/3.nebula-graph-architecture/1.architecture-overview/">
+<a class="md-nav__link" href="../3.nebula-graph-architecture/1.architecture-overview/">
         架构总览
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../1.introduction/3.nebula-graph-architecture/2.meta-service/">
+<a class="md-nav__link" href="../3.nebula-graph-architecture/2.meta-service/">
         Meta服务
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../1.introduction/3.nebula-graph-architecture/3.graph-service/">
+<a class="md-nav__link" href="../3.nebula-graph-architecture/3.graph-service/">
         Graph服务
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../1.introduction/3.nebula-graph-architecture/4.storage-service/">
+<a class="md-nav__link" href="../3.nebula-graph-architecture/4.storage-service/">
         Storage服务
       </a>
 </li>
@@ -266,12 +299,27 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../3.ngql-guide/1.nGQL-overview/1.overview/">
-        什么是nGQL
+        Nebula Graph查询语言（nGQL）
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../3.ngql-guide/1.nGQL-overview/3.graph-patterns/">
-        模式
+        图模式
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3.ngql-guide/1.nGQL-overview/comments/">
+        注释
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3.ngql-guide/1.nGQL-overview/identifier-case-sensitivity/">
+        大小写区分
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3.ngql-guide/1.nGQL-overview/keywords-and-reserved-words/">
+        关键字
       </a>
 </li>
 </ul>
@@ -1141,7 +1189,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../5.configurations-and-logs/1.configurations/6.kernel-config/">
-        内核配置
+        Linux内核配置
       </a>
 </li>
 </ul>
@@ -1243,13 +1291,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_9">
-        调整服务
+        服务调优
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="调整服务" class="md-nav" data-md-level="1">
+<nav aria-label="服务调优" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_9">
 <span class="md-nav__icon md-icon"></span>
-          调整服务
+          服务调优
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -1260,6 +1308,21 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../8.service-tuning/load-balance/">
         Storage负载均衡
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../8.service-tuning/2.graph-modeling/">
+        图建模
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../8.service-tuning/3.system-design/">
+        系统建模
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../8.service-tuning/super-node/">
+        超级节点(稠密点)
       </a>
 </li>
 </ul>
@@ -1685,8 +1748,8 @@
         Nebula Algorithm
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" id="__nav_16" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" id="__nav_16" type="checkbox"/>
 <label class="md-nav__link" for="__nav_16">
         附录
         <span class="md-nav__icon md-icon"></span>
@@ -1698,90 +1761,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../0.FAQ/">
+<a class="md-nav__link" href="../../20.appendix/0.FAQ/">
         Nebula Graph 常见问题
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../2.graph-modeling/">
-        图建模
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../3.system-design/">
-        系统建模
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../4.raft/">
-        关于Raft的简单介绍
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../7.vid/">
-        VID
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../5.partition/">
-        分片ID
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../6.eco-tool-version/">
+<a class="md-nav__link" href="../../20.appendix/6.eco-tool-version/">
         生态工具概览
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../comments/">
-        注释
-      </a>
-</li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          大小写区分
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
-        大小写区分
-      </a>
-<nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-    标识符区分大小写
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-    关键字和保留字不区分大小写
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../keywords-and-reserved-words/">
-        关键字
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../super-node/">
-        超级节点(稠密点)
-      </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="../../15.contribution/how-to-contribute/">
-        如何贡献
+        社区参与
       </a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../pdf/NebulaGraph-CN.pdf">
@@ -1803,13 +1798,18 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-    标识符区分大小写
+<a class="md-nav__link" href="#vid_1">
+    VID有如下特点
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-    关键字和保留字不区分大小写
+<a class="md-nav__link" href="#vid_2">
+    VID使用建议
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vid_3">
+    VID生成建议
   </a>
 </li>
 </ul>
@@ -1819,28 +1819,73 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/20.appendix/identifier-case-sensitivity.md" title="编辑此页">
+<a class="md-content__button md-icon" href="https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/1.introduction/3.vid.md" title="编辑此页">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
-<h1 id="_1">大小写区分<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
-<h2 id="_2">标识符区分大小写<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p>以下语句会出现错误，因为<code>my_space</code>和<code>MY_SPACE</code>是两个不同的图空间。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; CREATE SPACE my_space;
-nebula&gt; use MY_SPACE;
-[ERROR (-8)]: SpaceNotFound:
-</code></pre></div>
-<h2 id="_3">关键字和保留字不区分大小写<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<p>以下语句是等价的，因为<code>show</code>和<code>spaces</code>是关键字。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; show spaces;  
-nebula&gt; SHOW SPACES;
-nebula&gt; SHOW spaces;
-nebula&gt; show SPACES;
-</code></pre></div>
+<h1 id="vid">点VID<a class="headerlink" href="#vid" title="Permanent link">¶</a></h1>
+<p>在Nebula Graph中，一个点由点的ID唯一标识，即VID或Vertex ID。</p>
+<h2 id="vid_1">VID有如下特点<a class="headerlink" href="#vid_1" title="Permanent link">¶</a></h2>
+<ul>
+<li>VID数据类型只可以为定长字符串<code>FIXED_STRING(&lt;N&gt;)</code>或64位整数；一个图空间只能选用其中一种VID类型。</li>
+</ul>
+<ul>
+<li>VID在一个图空间中必须唯一，其作用类似于关系型数据库中的主键（索引+唯一约束）。但不同图空间中的VID是完全独立无关的。</li>
+</ul>
+<ul>
+<li>点VID的生成方式必须由用户自行指定，系统不提供自增ID或者UUID。</li>
+</ul>
+<ul>
+<li>
+<p>VID相同的点，会被认为是同一个点。例如：</p>
+<ul>
+<li>VID相当于一个实体的唯一标号，例如一个人的身份证号。标签（Tag）相当于实体所拥有的类型，例如"滴滴司机"和"老板"。不同的Tag又相应定义了两组不同的属性，例如"驾照号、驾龄、接单量、接单小号"和"工号、薪水、债务额度、商务电话"。</li>
+</ul>
+<ul>
+<li>同时操作相同VID并且相同Tag的两条<code>INSERT</code>语句，晚写入的<code>INSERT</code>会覆盖先写入的。</li>
+</ul>
+<ul>
+<li>同时操作包含相同VID但是两个不同<code>TAG A</code>和<code>TAG B</code>的两条<code>INSERT</code>语句，对<code>TAG A</code>的操作不会影响<code>TAG B</code>。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>VID通常会被（LSM-tree方式）索引并缓存在内存中，因此直接访问VID的性能最高。</li>
+</ul>
+<h2 id="vid_2">VID使用建议<a class="headerlink" href="#vid_2" title="Permanent link">¶</a></h2>
+<ul>
+<li>Nebula Graph 1.x只支持VID为int64。2.x默认使用<code>FIXED_STRING(&lt;N&gt;)</code>为VID类型；但在<code>CREATE SPACE</code>中通过参数<code>vid_type = int64</code>，也可设置为64位整数。</li>
+</ul>
+<ul>
+<li>可以使用<code>id()</code>函数，指定或引用该点的VID；</li>
+</ul>
+<ul>
+<li>可以使用<code>LOOKUP</code>或者<code>MATCH</code>语句，来通过属性索引查找对应的VID;</li>
+</ul>
+<ul>
+<li>性能上，直接通过VID找到点的语句性能最高，例如<code>DELETE xxx WHERE id(xxx) == "player100"</code>, 或者<code>GO FROM "player100"</code>等语句。通过属性先查找VID，再进行图操作的性能会变差，例如<code>LOOKUP | GO FROM $-.ids</code>等语句，相比前者多了一次内存或硬盘的随机读（<code>LOOKUP</code>）以及一次序列化（<code>|</code>）。</li>
+</ul>
+<h2 id="vid_3">VID生成建议<a class="headerlink" href="#vid_3" title="Permanent link">¶</a></h2>
+<p>VID的生成工作完全交给应用端，有一些通用的建议：</p>
+<ul>
+<li>（最优）通过有唯一性的主键或者属性来直接作为VID；属性访问依赖于VID;</li>
+</ul>
+<ul>
+<li>通过有唯一性的属性组合来生成VID，属性访问依赖于属性索引。</li>
+</ul>
+<ul>
+<li>通过snowflake等算法生成VID，属性访问依赖于属性索引;</li>
+</ul>
+<ul>
+<li>如果个别记录的主键特别长，但绝大多数记录的主键都很短的情况，不要将<code>FIXED_STRING(&lt;N&gt;)</code>的<code>N</code>设置成超大，这会浪费大量内存和硬盘，也会降低性能。此时可通过BASE64，MD5，hash编码加拼接的方式来生成。</li>
+</ul>
+<ul>
+<li>如果用hash方式生成int64 VID，在有10亿个点的情况下，发生碰撞的概率大约是1/10。边的数量与碰撞的概率无关。</li>
+</ul>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月18日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月1日</span>
 </small>
 </div>
 </article>
@@ -1852,7 +1897,7 @@ nebula&gt; show SPACES;
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a class="md-footer__link md-footer__link--prev" href="../comments/" rel="prev">
+<a class="md-footer__link md-footer__link--prev" href="../2.data-model/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -1861,17 +1906,17 @@ nebula&gt; show SPACES;
 <span class="md-footer__direction">
                 上一页
               </span>
-              注释
+              数据模型
             </div>
 </div>
 </a>
-<a class="md-footer__link md-footer__link--next" href="../keywords-and-reserved-words/" rel="next">
+<a class="md-footer__link md-footer__link--next" href="../3.nebula-graph-architecture/1.architecture-overview/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 下一页
               </span>
-              关键字
+              架构总览
             </div>
 </div>
 <div class="md-footer__button md-icon">

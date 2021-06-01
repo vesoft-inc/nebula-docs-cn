@@ -7,10 +7,10 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Documentation for Nebula Graph Database" name="description"/>
 <meta content="Nebula Graph" name="author"/>
-<link href="https://docs.nebula-graph.com.cn/master/master/20.appendix/5.partition/" rel="canonical"/>
+<link href="https://docs.nebula-graph.com.cn/master/master/8.service-tuning/3.system-design/" rel="canonical"/>
 <link href="../../assets/images/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.1.2, mkdocs-material-7.1.6" name="generator"/>
-<title>分片ID - Nebula Graph Database 手册</title>
+<title>系统建模 - Nebula Graph Database 手册</title>
 <link href="../../assets/stylesheets/main.875de78c.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
 <meta content="#009485" name="theme-color"/>
@@ -29,7 +29,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#id">
+<a class="md-skip" href="#_1">
           跳转至
         </a>
 </div>
@@ -58,7 +58,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              分片ID
+              系统建模
             
           </span>
 </div>
@@ -159,17 +159,22 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../1.introduction/2.data-model/">
-        数据结构
+        数据模型
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../1.introduction/3.vid/">
+        VID
       </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" id="__nav_2_3" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_3">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_4">
         Nebula Graph架构
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Nebula Graph架构" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_3">
+<label class="md-nav__title" for="__nav_2_4">
 <span class="md-nav__icon md-icon"></span>
           Nebula Graph架构
         </label>
@@ -266,12 +271,27 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../3.ngql-guide/1.nGQL-overview/1.overview/">
-        什么是nGQL
+        Nebula Graph查询语言（nGQL）
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../3.ngql-guide/1.nGQL-overview/3.graph-patterns/">
-        模式
+        图模式
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3.ngql-guide/1.nGQL-overview/comments/">
+        注释
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3.ngql-guide/1.nGQL-overview/identifier-case-sensitivity/">
+        大小写区分
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../3.ngql-guide/1.nGQL-overview/keywords-and-reserved-words/">
+        关键字
       </a>
 </li>
 </ul>
@@ -1141,7 +1161,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../5.configurations-and-logs/1.configurations/6.kernel-config/">
-        内核配置
+        Linux内核配置
       </a>
 </li>
 </ul>
@@ -1240,26 +1260,74 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" id="__nav_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_9">
-        调整服务
+        服务调优
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="调整服务" class="md-nav" data-md-level="1">
+<nav aria-label="服务调优" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_9">
 <span class="md-nav__icon md-icon"></span>
-          调整服务
+          服务调优
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../8.service-tuning/compaction/">
+<a class="md-nav__link" href="../compaction/">
         Compaction
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../8.service-tuning/load-balance/">
+<a class="md-nav__link" href="../load-balance/">
         Storage负载均衡
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../2.graph-modeling/">
+        图建模
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          系统建模
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        系统建模
+      </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#qps">
+    选择QPS优先或时延优先
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    水平扩展或垂直扩展
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    数据传输与优化
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    查询预热与数据预热
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../super-node/">
+        超级节点(稠密点)
       </a>
 </li>
 </ul>
@@ -1685,8 +1753,8 @@
         Nebula Algorithm
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" id="__nav_16" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" id="__nav_16" type="checkbox"/>
 <label class="md-nav__link" for="__nav_16">
         附录
         <span class="md-nav__icon md-icon"></span>
@@ -1698,68 +1766,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../0.FAQ/">
+<a class="md-nav__link" href="../../20.appendix/0.FAQ/">
         Nebula Graph 常见问题
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../2.graph-modeling/">
-        图建模
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../3.system-design/">
-        系统建模
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../4.raft/">
-        关于Raft的简单介绍
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../7.vid/">
-        VID
-      </a>
-</li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<a class="md-nav__link md-nav__link--active" href="./">
-        分片ID
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../6.eco-tool-version/">
+<a class="md-nav__link" href="../../20.appendix/6.eco-tool-version/">
         生态工具概览
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../comments/">
-        注释
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../identifier-case-sensitivity/">
-        大小写区分
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../keywords-and-reserved-words/">
-        关键字
-      </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../super-node/">
-        超级节点(稠密点)
+<a class="md-nav__link" href="../../15.contribution/how-to-contribute/">
+        社区参与
       </a>
 </li>
 </ul>
 </nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../15.contribution/how-to-contribute/">
-        如何贡献
-      </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../pdf/NebulaGraph-CN.pdf">
@@ -1775,61 +1797,84 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#qps">
+    选择QPS优先或时延优先
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    水平扩展或垂直扩展
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    数据传输与优化
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    查询预热与数据预热
+  </a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/20.appendix/5.partition.md" title="编辑此页">
+<a class="md-content__button md-icon" href="https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/8.service-tuning/3.system-design.md" title="编辑此页">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
-<h1 id="id">分片ID<a class="headerlink" href="#id" title="Permanent link">¶</a></h1>
-<p>点和边分布在不同的分片，分片分布在不同的机器。分片数量在 CREATE SPACE 语句中指定，此后不可更改。</p>
-<p>如果需要将某些点放置在相同的分片（例如在一台机器上），可以参考<a href="https://github.com/vesoft-inc/nebula-common/blob/master/src/common/clients/meta/MetaClient.cpp">公式或代码</a>。</p>
-<p>下文用简单代码说明VID和分片的关系。</p>
-<div class="highlight"><pre><span></span><code>    // 如果ID长度为8，为了兼容1.0，将数据类型视为int64。
-    uint64_t vid = 0;
-    if (id.size() == 8) {
-        memcpy(static_cast&lt;void*&gt;(&amp;vid), id.data(), 8);
-    } else {
-        MurmurHash2 hash;
-        vid = hash(id.data());
-    }
-    PartitionID pId = vid % numParts + 1;
-</code></pre></div>
-<p>简单来说，上述代码是将一个固定的字符串进行哈希计算，转换成数据类型为int64的数字（int64数字的哈希计算结果是数字本身），将数字取模，然后加1，即：</p>
-<div class="highlight"><pre><span></span><code><span class="n">pId</span> <span class="o">=</span> <span class="n">vid</span> <span class="o">%</span> <span class="n">numParts</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-</code></pre></div>
-<p>示例的部分参数说明如下。</p>
-<table>
-<thead>
-<tr>
-<th align="left">参数</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>%</code></td>
-<td align="left">取模运算。</td>
-</tr>
-<tr>
-<td align="left"><code>numParts</code></td>
-<td align="left"><code>VID</code>所在图空间的分片数，即<a href="../../3.ngql-guide/9.space-statements/1.create-space/">CREATE SPACE</a>语句中的<code>partition_num</code>值。</td>
-</tr>
-<tr>
-<td align="left"><code>pId</code></td>
-<td align="left"><code>VID</code>所在分片的ID。</td>
-</tr>
-</tbody>
-</table>
-<p>例如有100个分片，<code>VID</code>为1、101和1001的三个点将会存储在相同的分片。分片ID和机器地址之间的映射是随机的，所以不能假定任何两个分片位于同一台机器上。</p>
+<h1 id="_1">系统设计建议<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
+<h2 id="qps">选择QPS优先或时延优先<a class="headerlink" href="#qps" title="Permanent link">¶</a></h2>
+<ul>
+<li>Nebula Graph master 更擅长处理（互联网式的）有大量并发的小请求。也即：虽然全图很大（万亿点边），但是每个请求要访问到的子图本身并不大（几百万个点边）——单个请求时延不大；但这类请求的并发数量特别多——QPS大。</li>
+</ul>
+<ul>
+<li>但对于一些交互分析型的场景，并发请求的数量不多，而每个请求要访问的子图本身特别大（亿以上）。为降低时延，可以在应用程序中将一个大的请求，拆分为多个小请求，并发发送给多个graphd。这样可以降低单个大请求的时延，降低单个graphd的内存占用。另外，也可以使用<a href="../../nebula-algorithm/">图计算功能 Nebula Algorithm</a>。</li>
+</ul>
+<h2 id="_2">水平扩展或垂直扩展<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p>Nebula Graph master 支持水平扩展：</p>
+<ul>
+<li>Storaged 的水平扩展：<p>- 增加storaged的机器数量，可以大体线性增加集群的整体能力，包括增加整体QPS和降低时延。</p>
+<p>- 但由于 partition 数量在 CREATE SPACE 时已固定，因此单个 partition 的服务能力只由单服务器决定——例如：获取单个点的属性(<code>FETCH</code>)、单个点开始的广度优先遍历(<code>GO</code>)</p>
+</li>
+</ul>
+<ul>
+<li>Graphd 的水平扩展：<p>- 来自客户端的每个请求，都由且仅由一个 graphd 处理，其他 graphd 不会参与处理该请求。</p>
+<p>- 因此增加 graphd 机器数量，可以增加集群整体QPS，但不能降低单个请求时延。</p>
+</li>
+</ul>
+<ul>
+<li>Metad 不支持水平扩展。</li>
+</ul>
+<p>垂直扩展通常硬件成本更高，但运维操作相对简单。Nebula Graph master 也可以垂直扩展。</p>
+<h2 id="_3">数据传输与优化<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<ul>
+<li>读写平衡。Nebula Graph 适合读写平衡性的在线场景，也即 OLTP 型的的“并发的发生写入与读取”；而非数仓 OLAP 型的“一次写入多次读取”。</li>
+<li>选择不同的写入方式。大批量的数据写入可以使用sst加载的方式；小批量的写入使用<code>INSERT</code>语句。</li>
+<li>选择合适的时间运行 COMPACTION 和 BALANCE，来分别优化数据格式和存储分布。</li>
+<li>Nebula Graph master 不支持关系型数据库意义上的事务和隔离性，更接近 NoSQL。</li>
+</ul>
+<h2 id="_4">查询预热与数据预热<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<p>应用端进行预热：</p>
+<ul>
+<li>Graphd 不支持预编译查询及相应生成查询计划，也不支持缓存之前的查询结果；</li>
+<li>Storaged 不支持预热数据，只有 RocksDB 自身的 LSM-tree 和 BloomFilter 会启动时加载到内存中。</li>
+<li>点和边被访问过后，会各自缓存在 Storaged 的两种 (LRU) Cache 中。</li>
+</ul>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月18日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月1日</span>
 </small>
 </div>
 </article>
@@ -1841,7 +1886,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a class="md-footer__link md-footer__link--prev" href="../7.vid/" rel="prev">
+<a class="md-footer__link md-footer__link--prev" href="../2.graph-modeling/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -1850,17 +1895,17 @@
 <span class="md-footer__direction">
                 上一页
               </span>
-              VID
+              图建模
             </div>
 </div>
 </a>
-<a class="md-footer__link md-footer__link--next" href="../6.eco-tool-version/" rel="next">
+<a class="md-footer__link md-footer__link--next" href="../super-node/" rel="next">
 <div class="md-footer__title">
 <div class="md-ellipsis">
 <span class="md-footer__direction">
                 下一页
               </span>
-              生态工具概览
+              超级节点(稠密点)
             </div>
 </div>
 <div class="md-footer__button md-icon">

@@ -12,6 +12,10 @@
      <lastmod>2021-06-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://docs.nebula-graph.com.cn/master/master/1.introduction/3.vid/</loc>
+     <lastmod>2021-06-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://docs.nebula-graph.com.cn/master/master/1.introduction/3.nebula-graph-architecture/1.architecture-overview/</loc>
      <lastmod>2021-06-01</lastmod>
      <changefreq>daily</changefreq>
@@ -53,6 +57,18 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/master/master/3.ngql-guide/1.nGQL-overview/3.graph-patterns/</loc>
+     <lastmod>2021-06-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/master/master/3.ngql-guide/1.nGQL-overview/comments/</loc>
+     <lastmod>2021-06-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/master/master/3.ngql-guide/1.nGQL-overview/identifier-case-sensitivity/</loc>
+     <lastmod>2021-06-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/master/master/3.ngql-guide/1.nGQL-overview/keywords-and-reserved-words/</loc>
      <lastmod>2021-06-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -532,6 +548,18 @@
      <lastmod>2021-06-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
+     <loc>https://docs.nebula-graph.com.cn/master/master/8.service-tuning/2.graph-modeling/</loc>
+     <lastmod>2021-06-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/master/master/8.service-tuning/3.system-design/</loc>
+     <lastmod>2021-06-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/master/master/8.service-tuning/super-node/</loc>
+     <lastmod>2021-06-01</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
      <loc>https://docs.nebula-graph.com.cn/master/master/nebula-studio/about-studio/st-ug-release-note/</loc>
      <lastmod>2021-06-01</lastmod>
      <changefreq>daily</changefreq>
@@ -716,43 +744,7 @@
      <lastmod>2021-06-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.nebula-graph.com.cn/master/master/20.appendix/2.graph-modeling/</loc>
-     <lastmod>2021-06-01</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://docs.nebula-graph.com.cn/master/master/20.appendix/3.system-design/</loc>
-     <lastmod>2021-06-01</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://docs.nebula-graph.com.cn/master/master/20.appendix/4.raft/</loc>
-     <lastmod>2021-06-01</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://docs.nebula-graph.com.cn/master/master/20.appendix/7.vid/</loc>
-     <lastmod>2021-06-01</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://docs.nebula-graph.com.cn/master/master/20.appendix/5.partition/</loc>
-     <lastmod>2021-06-01</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
      <loc>https://docs.nebula-graph.com.cn/master/master/20.appendix/6.eco-tool-version/</loc>
-     <lastmod>2021-06-01</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://docs.nebula-graph.com.cn/master/master/20.appendix/comments/</loc>
-     <lastmod>2021-06-01</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://docs.nebula-graph.com.cn/master/master/20.appendix/identifier-case-sensitivity/</loc>
-     <lastmod>2021-06-01</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://docs.nebula-graph.com.cn/master/master/20.appendix/keywords-and-reserved-words/</loc>
-     <lastmod>2021-06-01</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://docs.nebula-graph.com.cn/master/master/20.appendix/super-node/</loc>
      <lastmod>2021-06-01</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
