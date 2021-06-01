@@ -10,7 +10,7 @@
 
 ## openCypher兼容性
 
-- 不支持在模式中使用`WHERE`子句（TODO: planning），例如`WHERE (v)-->(v2)`。
+- 不支持在`WHERE`子句中使用模式（TODO: planning），例如`WHERE (v)-->(v2)`。
 
 - [过滤rank](#rank)是原生nGQL功能。只支持在nGQL扩展的语句（例如`GO`和`LOOKUP`）中使用，因为openCypher中没有rank的概念。
 
