@@ -7,12 +7,12 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Documentation for Nebula Graph Database" name="description"/>
 <meta content="Nebula Graph" name="author"/>
-<link href="https://docs.nebula-graph.com.cn/master/3.ngql-guide/1.nGQL-overview/1.overview/" rel="canonical"/>
+<link href="https://docs.nebula-graph.com.cn/master/master/3.ngql-guide/1.nGQL-overview/1.overview/" rel="canonical"/>
 <link href="../../../assets/images/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.5" name="generator"/>
-<title>Nebula Graph查询语言（nGQL） - Nebula Graph Database 手册</title>
-<link href="../../../assets/stylesheets/main.bde7dde4.min.css" rel="stylesheet"/>
-<link href="../../../assets/stylesheets/palette.ef6f36e2.min.css" rel="stylesheet"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.6" name="generator"/>
+<title>什么是nGQL - Nebula Graph Database 手册</title>
+<link href="../../../assets/stylesheets/main.875de78c.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
 <meta content="#009485" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
@@ -29,7 +29,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#nebula_graphngql">
+<a class="md-skip" href="#ngql">
           跳转至
         </a>
 </div>
@@ -58,7 +58,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Nebula Graph查询语言（nGQL）
+              什么是nGQL
             
           </span>
 </div>
@@ -267,11 +267,11 @@
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
-          Nebula Graph查询语言（nGQL）
+          什么是nGQL
           <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
-        Nebula Graph查询语言（nGQL）
+        什么是nGQL
       </a>
 <nav aria-label="目录" class="md-nav md-nav--secondary">
 <label class="md-nav__title" for="__toc">
@@ -279,11 +279,6 @@
       目录
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ngql">
-    什么是nGQL
-  </a>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ngql_1">
     nGQL可以做什么
@@ -578,7 +573,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../7.general-query-statements/2.match/">
-        Match
+        MATCH
       </a>
 </li>
 <li class="md-nav__item">
@@ -1814,6 +1809,11 @@
         关键字
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../20.appendix/super-node/">
+        超级节点(稠密点)
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1841,11 +1841,6 @@
       目录
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ngql">
-    什么是nGQL
-  </a>
-</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#ngql_1">
     nGQL可以做什么
@@ -1905,10 +1900,8 @@
 <a class="md-content__button md-icon" href="https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/3.ngql-guide/1.nGQL-overview/1.overview.md" title="编辑此页">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
-<h1 id="nebula_graphngql">Nebula Graph查询语言（nGQL）<a class="headerlink" href="#nebula_graphngql" title="Permanent link">¶</a></h1>
-<p>本文介绍Nebula Graph使用的查询语言nGQL（Nebula Graph Query Language）。</p>
-<h2 id="ngql">什么是nGQL<a class="headerlink" href="#ngql" title="Permanent link">¶</a></h2>
-<p>nGQL是Nebula Graph使用的的声明式图查询语言，支持灵活高效的<a href="../3.graph-patterns/">图模式</a>，而且nGQL是为开发和运维人员设计的类SQL查询语言，易于学习。</p>
+<h1 id="ngql">什么是nGQL<a class="headerlink" href="#ngql" title="Permanent link">¶</a></h1>
+<p>nGQL（Nebula Graph Query Language）是Nebula Graph使用的的声明式图查询语言，支持灵活高效的<a href="../3.graph-patterns/">图模式</a>，而且nGQL是为开发和运维人员设计的类SQL查询语言，易于学习。</p>
 <p>nGQL是一个进行中的项目，会持续发布新特性和优化，因此可能会出现语法和实际操作不一致的问题，如果遇到此类问题，请提交<a href="https://github.com/vesoft-inc/nebula-graph/issues">issue</a>通知Nebula Graph团队。Nebula Graph 2.0及更新版本将支持<a href="https://www.opencypher.org/resources">openCypher 9</a>。</p>
 <h2 id="ngql_1">nGQL可以做什么<a class="headerlink" href="#ngql_1" title="Permanent link">¶</a></h2>
 <ul>
@@ -2003,7 +1996,7 @@
 <p><code>nGQL 语言</code> = <code>原生 nGQL 语句</code> + <code>OpenCypher 兼容语句</code></p>
 </div>
 <h3 id="ngql_opencypher_9">nGQL 完全兼容openCypher 9吗？<a class="headerlink" href="#ngql_opencypher_9" title="Permanent link">¶</a></h3>
-<div class="admonition caution">
+<div class="admonition compatibility">
 <p class="admonition-title">nGQL部分兼容openCypher 9</p>
 <p>在<a href="https://github.com/vesoft-inc/nebula-graph/issues?q=is%3Aissue+is%3Aopen+label%3Aincompatible">Nebula Graph Issues</a>中已经列出已知的37处不兼容项。如果发现这种类型的新问题，请提交问题并附带<code>incompatible</code>标签。</p>
 </div>
@@ -2135,7 +2128,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月28日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月31日</span>
 </small>
 </div>
 </article>
@@ -2199,7 +2192,7 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.d351de03.min.js", "version": {"method": "mike"}}</script>
-<script src="../../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+<script src="../../../assets/javascripts/bundle.34eae1b6.min.js"></script>
 <script src="../../../js/version-select.js"></script>
 <script src="../../../js/config.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>

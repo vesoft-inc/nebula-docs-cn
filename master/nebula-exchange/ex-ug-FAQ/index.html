@@ -7,12 +7,12 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Documentation for Nebula Graph Database" name="description"/>
 <meta content="Nebula Graph" name="author"/>
-<link href="https://docs.nebula-graph.com.cn/master/nebula-exchange/ex-ug-FAQ/" rel="canonical"/>
+<link href="https://docs.nebula-graph.com.cn/master/master/nebula-exchange/ex-ug-FAQ/" rel="canonical"/>
 <link href="../../assets/images/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.5" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.6" name="generator"/>
 <title>Exchange 常见问题 - Nebula Graph Database 手册</title>
-<link href="../../assets/stylesheets/main.bde7dde4.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.ef6f36e2.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.875de78c.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
 <meta content="#009485" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
@@ -266,7 +266,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../3.ngql-guide/1.nGQL-overview/1.overview/">
-        Nebula Graph查询语言（nGQL）
+        什么是nGQL
       </a>
 </li>
 <li class="md-nav__item">
@@ -511,7 +511,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../3.ngql-guide/7.general-query-statements/2.match/">
-        Match
+        MATCH
       </a>
 </li>
 <li class="md-nav__item">
@@ -1708,6 +1708,11 @@
 <nav aria-label="执行问题" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#yarn-cluster">
+    Yarn-Cluster模式下如何提交？
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#method_name_xxx_not_found">
     报错method name xxx not found
   </a>
@@ -1836,6 +1841,11 @@
         关键字
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../20.appendix/super-node/">
+        超级节点(稠密点)
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1883,6 +1893,11 @@
   </a>
 <nav aria-label="执行问题" class="md-nav">
 <ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#yarn-cluster">
+    Yarn-Cluster模式下如何提交？
+  </a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#method_name_xxx_not_found">
     报错method name xxx not found
@@ -1963,6 +1978,16 @@
 <p>检查<code>mirrorOf</code>的值是否配置为<code>*</code>，如果为<code>*</code>，请修改为<code>central</code>或<code>*,!SparkPackagesRepo,!bintray-streamnative-maven</code>。</p>
 <p><strong>原因</strong>：Exchange的<code>pom.xml</code>中有两个依赖包不在Maven的central仓库中，<code>pom.xml</code>配置了这两个依赖所在的仓库地址。如果maven中配置的镜像地址对应的<code>mirrorOf</code>值为<code>*</code>，那么所有依赖都会在central仓库下载，导致下载失败。</p>
 <h2 id="_2">执行问题<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<h3 id="yarn-cluster">Yarn-Cluster模式下如何提交？<a class="headerlink" href="#yarn-cluster" title="Permanent link">¶</a></h3>
+<p>在Yarn-Cluster模式下提交任务，请参考如下命令：</p>
+<div class="highlight"><pre><span></span><code><span class="nv">$SPARK_HOME</span>/bin/spark-submit --class com.vesoft.nebula.exchange.Exchange <span class="se">\</span>
+--master yarn-cluster <span class="se">\</span>
+--files application.conf <span class="se">\</span>
+--conf spark.driver.extraClassPath<span class="o">=</span>./ <span class="se">\</span>
+--conf spark.executor.extraClassPath<span class="o">=</span>./ <span class="se">\</span>
+nebula-exchange-2.0.0.jar <span class="se">\</span>
+-c application.conf
+</code></pre></div>
 <h3 id="method_name_xxx_not_found">报错<code>method name xxx not found</code><a class="headerlink" href="#method_name_xxx_not_found" title="Permanent link">¶</a></h3>
 <p>一般是端口配置错误，需检查Meta服务、Graph服务、Storage服务的端口配置。</p>
 <h3 id="nosuchmethodmethodnotfoundexception_in_thread_main_javalangnosuchmethoderror">报NoSuchMethod、MethodNotFound错误（<code>Exception in thread "main" java.lang.NoSuchMethodError</code>等）<a class="headerlink" href="#nosuchmethodmethodnotfoundexception_in_thread_main_javalangnosuchmethoderror" title="Permanent link">¶</a></h3>
@@ -2022,7 +2047,7 @@ nebula-docker-compose_storaged2_1   ./bin/nebula-storaged --fl ...   Up <span cl
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月31日</span>
 </small>
 </div>
 </article>
@@ -2086,7 +2111,7 @@ nebula-docker-compose_storaged2_1   ./bin/nebula-storaged --fl ...   Up <span cl
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": {"method": "mike"}}</script>
-<script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+<script src="../../assets/javascripts/bundle.34eae1b6.min.js"></script>
 <script src="../../js/version-select.js"></script>
 <script src="../../js/config.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>

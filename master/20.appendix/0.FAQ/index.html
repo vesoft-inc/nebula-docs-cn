@@ -7,12 +7,12 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Documentation for Nebula Graph Database" name="description"/>
 <meta content="Nebula Graph" name="author"/>
-<link href="https://docs.nebula-graph.com.cn/master/20.appendix/0.FAQ/" rel="canonical"/>
+<link href="https://docs.nebula-graph.com.cn/master/master/20.appendix/0.FAQ/" rel="canonical"/>
 <link href="../../assets/images/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.5" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.6" name="generator"/>
 <title>Nebula Graph 常见问题 - Nebula Graph Database 手册</title>
-<link href="../../assets/stylesheets/main.bde7dde4.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.ef6f36e2.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.875de78c.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
 <meta content="#009485" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
@@ -266,7 +266,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../3.ngql-guide/1.nGQL-overview/1.overview/">
-        Nebula Graph查询语言（nGQL）
+        什么是nGQL
       </a>
 </li>
 <li class="md-nav__item">
@@ -511,7 +511,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../3.ngql-guide/7.general-query-statements/2.match/">
-        Match
+        MATCH
       </a>
 </li>
 <li class="md-nav__item">
@@ -1797,17 +1797,32 @@
     能不能用中文字符做标识符，比如图空间、标签、边类型、属性、索引的名称？
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    获取指定点的出度（或者入度）?
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    是否有办法快速获取所有点的出度和入度？
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#error_-1005_used_memory_hits_the_high_watermark0800000_of_total_system_memory">
+    如何处理错误信息[ERROR (-1005)]: Used memory hits the high watermark(0.800000) of total system memory.
+  </a>
+</li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
+<a class="md-nav__link" href="#_9">
     关于运维
   </a>
 <nav aria-label="关于运维" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
+<a class="md-nav__link" href="#_10">
     日志文件过大时如何回收日志？
   </a>
 </li>
@@ -1817,7 +1832,7 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_9">
+<a class="md-nav__link" href="#_11">
     如何扩缩容
   </a>
 </li>
@@ -1830,18 +1845,18 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_10">
+<a class="md-nav__link" href="#_12">
     关于连接
   </a>
 <nav aria-label="关于连接" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_11">
+<a class="md-nav__link" href="#_13">
     防火墙中需要开放哪些端口
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_12">
+<a class="md-nav__link" href="#_14">
     如何测试端口是否已开放
   </a>
 </li>
@@ -1894,6 +1909,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="../keywords-and-reserved-words/">
         关键字
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../super-node/">
+        超级节点(稠密点)
       </a>
 </li>
 </ul>
@@ -2008,17 +2028,32 @@
     能不能用中文字符做标识符，比如图空间、标签、边类型、属性、索引的名称？
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_7">
+    获取指定点的出度（或者入度）?
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    是否有办法快速获取所有点的出度和入度？
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#error_-1005_used_memory_hits_the_high_watermark0800000_of_total_system_memory">
+    如何处理错误信息[ERROR (-1005)]: Used memory hits the high watermark(0.800000) of total system memory.
+  </a>
+</li>
 </ul>
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
+<a class="md-nav__link" href="#_9">
     关于运维
   </a>
 <nav aria-label="关于运维" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
+<a class="md-nav__link" href="#_10">
     日志文件过大时如何回收日志？
   </a>
 </li>
@@ -2028,7 +2063,7 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_9">
+<a class="md-nav__link" href="#_11">
     如何扩缩容
   </a>
 </li>
@@ -2041,18 +2076,18 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_10">
+<a class="md-nav__link" href="#_12">
     关于连接
   </a>
 <nav aria-label="关于连接" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_11">
+<a class="md-nav__link" href="#_13">
     防火墙中需要开放哪些端口
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_12">
+<a class="md-nav__link" href="#_14">
     如何测试端口是否已开放
   </a>
 </li>
@@ -2077,10 +2112,12 @@
 <p>Nebula Graph 2.0一直在持续开发，功能或操作的行为可能会有变化，如果发现不一致，请提交<a href="https://github.com/vesoft-inc/nebula-graph/issues/new">issue</a>通知Nebula Graph团队。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>如果您发现本文档中的错误:
-1. 用户可以点击页面顶部右上角的"铅笔"图标进入编辑页面。
-2. 使用 Markdown 修改文档。完成后点击页面底部的 "Commit changes"，这会触发一个 GitHub pull request。
-3. 完成<a href="../../15.contribution/how-to-contribute/">CLA签署</a>，并且至少2位reviewer审核通过即可合并。</p>
+<p>如果您发现本文档中的错误:</p>
+<ol>
+<li>用户可以点击页面顶部右上角的"铅笔"图标进入编辑页面。</li>
+<li>使用 Markdown 修改文档。完成后点击页面底部的 "Commit changes"，这会触发一个 GitHub pull request。</li>
+<li>完成<a href="../../15.contribution/how-to-contribute/">CLA签署</a>，并且至少2位reviewer审核通过即可合并。</li>
+</ol>
 </div>
 <h2 id="_3">关于历史兼容性<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <div class="admonition compatibility">
@@ -2171,8 +2208,28 @@ Got 1 rows (time spent 1235/1934 us)
 <h3 id="_6">能不能用中文字符做标识符，比如图空间、标签、边类型、属性、索引的名称？<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
 <p>不能。图空间、标签、边类型、属性以及索引的名称都需由大小写英文字母、数字或下划线组成，暂不支持使用中文字符。</p>
 <p>同时，上述标识符区分大小写，且不可使用<a href="../../20.appendix/keywords-and-reserved-words.md">关键字和保留字</a>。</p>
-<h2 id="_7">关于运维<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
-<h3 id="_8">日志文件过大时如何回收日志？<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
+<h3 id="_7">获取指定点的出度（或者入度）?<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
+<p>一个点的“出度”是指从该点出发的“边”的条数。入度，是指指向该点的边的条数。</p>
+<div class="highlight"><pre><span></span><code>nebula &gt; MATCH (s)-[e]-&gt;() WHERE id(s) == "given" RETURN count(e); #出度
+nebula &gt; MATCH (s)&lt;-[e]-() WHERE id(s) == "given" RETURN count(e); #入度
+</code></pre></div>
+<h3 id="_8">是否有办法快速获取所有点的出度和入度？<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
+<p>没有直接命令。可以使用 <a href="../../nebula-algorithm/">Nebula Algorithm</a>。</p>
+<h3 id="error_-1005_used_memory_hits_the_high_watermark0800000_of_total_system_memory">如何处理错误信息<code>[ERROR (-1005)]: Used memory hits the high watermark(0.800000) of total system memory.</code><a class="headerlink" href="#error_-1005_used_memory_hits_the_high_watermark0800000_of_total_system_memory" title="Permanent link">¶</a></h3>
+<p>报错原因：Nebula Graph的<code>system_memory_high_watermark_ratio</code>参数指定了内存高水位报警机制的触发阈值，默认为<code>0.8</code>。系统内存占用率高于该值会触发报警机制，Nebula Graph会停止接受查询。</p>
+<p>解决方案：</p>
+<ul>
+<li>清理系统内存，使其降低到阈值以下。</li>
+<li>
+<p><a href="../../5.configurations-and-logs/1.configurations/1.configurations/">修改Graph配置</a>。在所有Graph服务器的配置文件中增加<code>system_memory_high_watermark_ratio</code>参数，为其设置一个大于<code>0.8</code>的值，例如<code>0.9</code>。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>仅Graph服务支持<code>system_memory_high_watermark_ratio</code>，Storage和Meta服务不支持该参数。</p>
+</div>
+</li>
+</ul>
+<h2 id="_9">关于运维<a class="headerlink" href="#_9" title="Permanent link">¶</a></h2>
+<h3 id="_10">日志文件过大时如何回收日志？<a class="headerlink" href="#_10" title="Permanent link">¶</a></h3>
 <p>Nebula Graph 的日志默认在 <code>/usr/local/nebula/logs/</code> 下, 正常INFO级别日志文件为 <code>nebula-graphd.INFO, nebula-storaged.INFO, nebula-metad.INFO</code>，报警和错误级别后缀为 <code>.WARNING</code> 和 <code>.ERROR</code>。</p>
 <p>Nebula Graph使用 <a href="https://github.com/google/glog">glog</a> 打印日志。glog 没有日志回收的功能，用户可以使用 crontab 设置定期任务回收日志文件，详情请参见<a href="https://github.com/google/glog/issues/423">Glog should delete old log files automatically</a>。</p>
 <h3 id="nebula_graph">如何查看Nebula Graph版本<a class="headerlink" href="#nebula_graph" title="Permanent link">¶</a></h3>
@@ -2213,7 +2270,7 @@ This <span class="nb">source</span> code is licensed under Apache <span class="m
 <p>执行<code>rpm -qa |grep nebula</code>即可查看版本。</p>
 </li>
 </ul>
-<h3 id="_9">如何扩缩容<a class="headerlink" href="#_9" title="Permanent link">¶</a></h3>
+<h3 id="_11">如何扩缩容<a class="headerlink" href="#_11" title="Permanent link">¶</a></h3>
 <p>Nebula Graph master 未提供运维命令以实现自动扩缩容，参考以下步骤：</p>
 <ul>
 <li>metad 的扩容和缩容： metad 不支持扩缩容，也不支持迁移到新机器，也不要增加新的 metad 进程。</li>
@@ -2233,8 +2290,8 @@ This <span class="nb">source</span> code is licensed under Apache <span class="m
 <p>storaged扩缩容之后，还需要运行<a href="../../8.service-tuning/load-balance/">Balance Data 和 Balance Leader 命令</a>。</p>
 <h3 id="hosthostoffline">修改Host名称后，旧的Host一直显示<code>OFFLINE</code>怎么办？<a class="headerlink" href="#hosthostoffline" title="Permanent link">¶</a></h3>
 <p><code>OFFLINE</code>状态的Host将在一天后自动删除。</p>
-<h2 id="_10">关于连接<a class="headerlink" href="#_10" title="Permanent link">¶</a></h2>
-<h3 id="_11">防火墙中需要开放哪些端口<a class="headerlink" href="#_11" title="Permanent link">¶</a></h3>
+<h2 id="_12">关于连接<a class="headerlink" href="#_12" title="Permanent link">¶</a></h2>
+<h3 id="_13">防火墙中需要开放哪些端口<a class="headerlink" href="#_13" title="Permanent link">¶</a></h3>
 <p>如果没有修改过<a href="../../5.configurations-and-logs/1.configurations/1.configurations/">配置文件</a>中预设的端口，请在防火墙中开放如下端口：</p>
 <table>
 <thead>
@@ -2259,7 +2316,7 @@ This <span class="nb">source</span> code is licensed under Apache <span class="m
 </tbody>
 </table>
 <p>如果修改过配置文件中预设的端口，请找出实际使用的端口并在防火墙中开放它们。</p>
-<h3 id="_12">如何测试端口是否已开放<a class="headerlink" href="#_12" title="Permanent link">¶</a></h3>
+<h3 id="_14">如何测试端口是否已开放<a class="headerlink" href="#_14" title="Permanent link">¶</a></h3>
 <p>用户可以使用如下telnet命令检查端口状态：</p>
 <div class="highlight"><pre><span></span><code>telnet &lt;ip&gt; &lt;port&gt;
 </code></pre></div>
@@ -2283,7 +2340,7 @@ telnet: connect to address <span class="m">192</span>.168.1.10: Connection refus
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月28日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月31日</span>
 </small>
 </div>
 </article>
@@ -2347,7 +2404,7 @@ telnet: connect to address <span class="m">192</span>.168.1.10: Connection refus
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": {"method": "mike"}}</script>
-<script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+<script src="../../assets/javascripts/bundle.34eae1b6.min.js"></script>
 <script src="../../js/version-select.js"></script>
 <script src="../../js/config.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>

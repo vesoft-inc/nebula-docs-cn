@@ -7,12 +7,12 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Documentation for Nebula Graph Database" name="description"/>
 <meta content="Nebula Graph" name="author"/>
-<link href="https://docs.nebula-graph.com.cn/master/5.configurations-and-logs/1.configurations/3.graph-config/" rel="canonical"/>
+<link href="https://docs.nebula-graph.com.cn/master/master/5.configurations-and-logs/1.configurations/3.graph-config/" rel="canonical"/>
 <link href="../../../assets/images/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.5" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.6" name="generator"/>
 <title>Graph服务配置 - Nebula Graph Database 手册</title>
-<link href="../../../assets/stylesheets/main.bde7dde4.min.css" rel="stylesheet"/>
-<link href="../../../assets/stylesheets/palette.ef6f36e2.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.875de78c.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
 <meta content="#009485" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
@@ -266,7 +266,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../3.ngql-guide/1.nGQL-overview/1.overview/">
-        Nebula Graph查询语言（nGQL）
+        什么是nGQL
       </a>
 </li>
 <li class="md-nav__item">
@@ -511,7 +511,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../3.ngql-guide/7.general-query-statements/2.match/">
-        Match
+        MATCH
       </a>
 </li>
 <li class="md-nav__item">
@@ -1800,6 +1800,11 @@
         关键字
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../20.appendix/super-node/">
+        超级节点(稠密点)
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1914,9 +1919,14 @@
 <td>是否启用优化器。</td>
 </tr>
 <tr>
+<td><code>system_memory_high_watermark_ratio</code></td>
+<td>-</td>
+<td>内存高水位报警机制的触发阈值，默认为<code>0.8</code>。系统内存占用率高于该值会触发报警机制，Nebula Graph会停止接受查询。初始配置文件中未设置该参数，使用需手动添加。</td>
+</tr>
+<tr>
 <td><code>timezone_name</code></td>
 <td>-</td>
-<td>指定Nebula Graph的时区。初始配置文件中未设置该参数，如需使用请手动添加。系统默认值为<code>UTC+00:00:00</code>。格式请参见<a href="https://www.gnu.org/software/libc/manual/html_node/TZ-Variable.html" title="Click to view the timezone-related content in the GNU C Library manual">Specifying the Time Zone with TZ</a>。例如，东八区的设置方式为<code>--timezone_name=CST-8</code>。</td>
+<td>指定Nebula Graph的时区。初始配置文件中未设置该参数，使用需手动添加。系统默认值为<code>UTC+00:00:00</code>。格式请参见<a href="https://www.gnu.org/software/libc/manual/html_node/TZ-Variable.html" title="Click to view the timezone-related content in the GNU C Library manual">Specifying the Time Zone with TZ</a>。例如，东八区的设置方式为<code>--timezone_name=CST-8</code>。</td>
 </tr>
 </tbody>
 </table>
@@ -2084,7 +2094,7 @@
 <tr>
 <td><code>storage_client_timeout_ms</code></td>
 <td>-</td>
-<td>Graph服务与Storage服务的RPC连接超时时间。初始配置文件中未设置该参数，如需使用请手动添加。默认值为<code>60000</code>毫秒。</td>
+<td>Graph服务与Storage服务的RPC连接超时时间。初始配置文件中未设置该参数，使用需手动添加。默认值为<code>60000</code>毫秒。</td>
 </tr>
 </tbody>
 </table>
@@ -2140,7 +2150,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月26日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月31日</span>
 </small>
 </div>
 </article>
@@ -2204,7 +2214,7 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.d351de03.min.js", "version": {"method": "mike"}}</script>
-<script src="../../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+<script src="../../../assets/javascripts/bundle.34eae1b6.min.js"></script>
 <script src="../../../js/version-select.js"></script>
 <script src="../../../js/config.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>

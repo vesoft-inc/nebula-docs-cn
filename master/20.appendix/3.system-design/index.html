@@ -7,12 +7,12 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Documentation for Nebula Graph Database" name="description"/>
 <meta content="Nebula Graph" name="author"/>
-<link href="https://docs.nebula-graph.com.cn/master/20.appendix/3.system-design/" rel="canonical"/>
+<link href="https://docs.nebula-graph.com.cn/master/master/20.appendix/3.system-design/" rel="canonical"/>
 <link href="../../assets/images/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.5" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.6" name="generator"/>
 <title>系统建模 - Nebula Graph Database 手册</title>
-<link href="../../assets/stylesheets/main.bde7dde4.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.ef6f36e2.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/main.875de78c.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
 <meta content="#009485" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
@@ -266,7 +266,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../3.ngql-guide/1.nGQL-overview/1.overview/">
-        Nebula Graph查询语言（nGQL）
+        什么是nGQL
       </a>
 </li>
 <li class="md-nav__item">
@@ -511,7 +511,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../3.ngql-guide/7.general-query-statements/2.match/">
-        Match
+        MATCH
       </a>
 </li>
 <li class="md-nav__item">
@@ -1780,6 +1780,11 @@
         关键字
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../super-node/">
+        超级节点(稠密点)
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1843,7 +1848,7 @@
 <li>Nebula Graph master 更擅长处理（互联网式的）有大量并发的小请求。也即：虽然全图很大（万亿点边），但是每个请求要访问到的子图本身并不大（几百万个点边）——单个请求时延不大；但这类请求的并发数量特别多——吞吐量大。</li>
 </ul>
 <ul>
-<li>但对于一些交互分析型的场景，并发请求的数量不多，而每个请求要访问的子图本身特别大（亿以上）。为降低时延，可以在应用程序中将一个大的请求，拆分为多个小请求，并发发送给多个graphd。这样可以降低单个大请求的时延，降低单个graphd的内存占用。</li>
+<li>但对于一些交互分析型的场景，并发请求的数量不多，而每个请求要访问的子图本身特别大（亿以上）。为降低时延，可以在应用程序中将一个大的请求，拆分为多个小请求，并发发送给多个graphd。这样可以降低单个大请求的时延，降低单个graphd的内存占用。另外，也可以使用<a href="../../nebula-algorithm/">图计算功能 Nebula Algorithm</a>。</li>
 </ul>
 <h2 id="_3">水平扩展或垂直扩展<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <p>Nebula Graph master 支持水平扩展：</p>
@@ -1879,7 +1884,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月28日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月31日</span>
 </small>
 </div>
 </article>
@@ -1943,7 +1948,7 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": {"method": "mike"}}</script>
-<script src="../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+<script src="../../assets/javascripts/bundle.34eae1b6.min.js"></script>
 <script src="../../js/version-select.js"></script>
 <script src="../../js/config.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>

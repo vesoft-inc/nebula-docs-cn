@@ -7,12 +7,12 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Documentation for Nebula Graph Database" name="description"/>
 <meta content="Nebula Graph" name="author"/>
-<link href="https://docs.nebula-graph.com.cn/master/5.configurations-and-logs/1.configurations/4.storage-config/" rel="canonical"/>
+<link href="https://docs.nebula-graph.com.cn/master/master/5.configurations-and-logs/1.configurations/4.storage-config/" rel="canonical"/>
 <link href="../../../assets/images/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.5" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.6" name="generator"/>
 <title>Storage服务配置 - Nebula Graph Database 手册</title>
-<link href="../../../assets/stylesheets/main.bde7dde4.min.css" rel="stylesheet"/>
-<link href="../../../assets/stylesheets/palette.ef6f36e2.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.875de78c.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
 <meta content="#009485" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
@@ -266,7 +266,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../3.ngql-guide/1.nGQL-overview/1.overview/">
-        Nebula Graph查询语言（nGQL）
+        什么是nGQL
       </a>
 </li>
 <li class="md-nav__item">
@@ -511,7 +511,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../3.ngql-guide/7.general-query-statements/2.match/">
-        Match
+        MATCH
       </a>
 </li>
 <li class="md-nav__item">
@@ -1189,6 +1189,16 @@
     rocksdb options配置
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    超级节点处理（出入边数量极多的点）
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    数据量大而内存不够时
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1800,6 +1810,11 @@
         关键字
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../20.appendix/super-node/">
+        超级节点(稠密点)
+      </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1865,6 +1880,16 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#rocksdb_options">
     rocksdb options配置
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    超级节点处理（出入边数量极多的点）
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    数据量大而内存不够时
   </a>
 </li>
 </ul>
@@ -2190,11 +2215,22 @@ disable_auto_compactions
 参数的详细说明请参见<a href="https://rocksdb.org/">RocksDB官方文档</a>。</p>
 </li>
 </ul>
+<h2 id="_3">超级节点处理（出入边数量极多的点）<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<p>在每个点出发的fan-out扩展查询中，直接截断。目的是避免超级节点的邻边过多，单个查询占用过多的硬盘和内存。截取前 <code>max_edge_returned_per_vertex</code> 个边，多余的边不返回。该参数作用于全局，不用于单个space。</p>
+<p>属性名                   | 默认值                    | 说明  |
+-------------------------| ------------------------ | ----------- | --- |
+max_edge_returned_per_vertex | 2147483647 | 每个稠密点，最多返回多少条边，多余的边截断不返回。配置文件默认未设置。 |</p>
+<div class="admonition compatibility">
+<p class="admonition-title">Compatibility</p>
+<p>Nebula Graph 1.x 中的蓄水池采样方法在 Nebula Graph master 不再支持。</p>
+</div>
+<h2 id="_4">数据量大而内存不够时<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<p>如果数据量很大但内存不够，则推荐把 storage 配置中的 <code>enable_partitioned_index_filter</code> 设置为 <code>true</code>；但由于缓存了较少的 RocksDB 索引，性能会受影响。</p>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月26日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月31日</span>
 </small>
 </div>
 </article>
@@ -2258,7 +2294,7 @@ disable_auto_compactions
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.d351de03.min.js", "version": {"method": "mike"}}</script>
-<script src="../../../assets/javascripts/bundle.a1609d9a.min.js"></script>
+<script src="../../../assets/javascripts/bundle.34eae1b6.min.js"></script>
 <script src="../../../js/version-select.js"></script>
 <script src="../../../js/config.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
