@@ -24,12 +24,14 @@ theme:
     accent: 'light green'
   features:
     - navigation.top
+    - header.autohide
   language: 'zh'
 
 extra_css:
   - 'stylesheets/logo.css'
   - stylesheets/note.css
   - css/version-select.css
+  - stylesheets/extra.css
 extra:
   nebula:
     base20: 2.0
@@ -377,7 +379,10 @@ markdown_extensions:
 
 # Plugins
 plugins:
-  - search
+  - search:
+      lang:
+        - jp
+        - en
   - macros
   - git-revision-date-localized
   - with-pdf:
