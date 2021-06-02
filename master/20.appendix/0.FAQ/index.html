@@ -1823,6 +1823,11 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#rpc_failure_in_metaclient_connection_refused">
+    如何处理错误信息RPC failure in MetaClient: Connection refused
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#_5">
     是否支持停止或者中断慢查询
   </a>
@@ -2006,6 +2011,11 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#the_leader_has_changed_try_again_later">
     如何处理错误信息The leader has changed. Try again later
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#rpc_failure_in_metaclient_connection_refused">
+    如何处理错误信息RPC failure in MetaClient: Connection refused
   </a>
 </li>
 <li class="md-nav__item">
@@ -2193,6 +2203,17 @@ Got 1 rows (time spent 1235/1934 us)
 </ul>
 <h3 id="the_leader_has_changed_try_again_later">如何处理错误信息<code>The leader has changed. Try again later</code><a class="headerlink" href="#the_leader_has_changed_try_again_later" title="Permanent link">¶</a></h3>
 <p>已知问题，通常需要重试1-N次(N==partition数量)。原因为 meta client 更新leader缓存需要1-2个心跳或者通过错误触发强制更新。</p>
+<h3 id="rpc_failure_in_metaclient_connection_refused">如何处理错误信息<code>RPC failure in MetaClient: Connection refused</code><a class="headerlink" href="#rpc_failure_in_metaclient_connection_refused" title="Permanent link">¶</a></h3>
+<p>报错原因通常为metad服务状态异常，或是metad和graphd服务所在机器网络不通。请尝试以下解决方案：</p>
+<ul>
+<li>在metad所在服务器查看下metad服务状态，如果服务状态异常，可以重新启动metad服务。</li>
+</ul>
+<ul>
+<li>在报错服务器下使用<code>telnet meta-ip:port</code>查看网络状态。</li>
+</ul>
+<ul>
+<li>检查配置文件中的端口配置，如果端口号与连接时使用的不同，改用配置文件中的端口或者修改配置。</li>
+</ul>
 <h3 id="_5">是否支持停止或者中断慢查询<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
 <p>不支持。即使关闭了客户端，服务端仍会尽力把该查询执行完毕，无法中断。</p>
 <h3 id="_6">能不能用中文字符做标识符，比如图空间、标签、边类型、属性、索引的名称？<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
