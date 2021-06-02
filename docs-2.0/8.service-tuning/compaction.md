@@ -82,7 +82,7 @@ nebula> SHOW JOB <job_id>;
 
 - 业务低峰期（例如凌晨）执行`SUBMIT JOB COMPACT`。
 
-- 白天时设置`disable_auto_compactions`为`flase`，提升短时间内的读取性能。
+- 白天时设置`disable_auto_compactions`为`false`，提升短时间内的读取性能。
 
 - 为控制`Compaction`的读写速率，请在配置文件`nebula-storaged.conf`中设置如下两个参数：
 
