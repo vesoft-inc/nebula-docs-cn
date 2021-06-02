@@ -65,7 +65,8 @@ nav:
   - 前言: README.md
   - 简介:
       - 什么是Nebula Graph: 1.introduction/1.what-is-nebula-graph.md
-      - 数据结构: 1.introduction/2.data-model.md
+      - 数据模型: 1.introduction/2.data-model.md
+      - VID: 1.introduction/3.vid.md
       - Nebula Graph架构:
         - 架构总览: 1.introduction/3.nebula-graph-architecture/1.architecture-overview.md
         - Meta服务: 1.introduction/3.nebula-graph-architecture/2.meta-service.md
@@ -82,7 +83,11 @@ nav:
   - nGQL指南:
       - nGQL概述:
         - Nebula Graph查询语言（nGQL）: 3.ngql-guide/1.nGQL-overview/1.overview.md
-        - 模式: 3.ngql-guide/1.nGQL-overview/3.graph-patterns.md
+        - 图模式: 3.ngql-guide/1.nGQL-overview/3.graph-patterns.md
+        - 注释: 3.ngql-guide/1.nGQL-overview/comments.md
+        - 大小写区分: 3.ngql-guide/1.nGQL-overview/identifier-case-sensitivity.md
+        - 关键字: 3.ngql-guide/1.nGQL-overview/keywords-and-reserved-words.md
+        
       - 数据类型:
         - 数值: 3.ngql-guide/3.data-types/1.numeric.md
         - 布尔: 3.ngql-guide/3.data-types/2.boolean.md
@@ -124,7 +129,7 @@ nav:
           - 自定义函数: 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
 
       - 通用查询语句:
-          - Match: 3.ngql-guide/7.general-query-statements/2.match.md
+          - MATCH: 3.ngql-guide/7.general-query-statements/2.match.md
           - LOOKUP: 3.ngql-guide/7.general-query-statements/5.lookup.md
           - GO: 3.ngql-guide/7.general-query-statements/3.go.md
           - FETCH: 3.ngql-guide/7.general-query-statements/4.fetch.md
@@ -232,7 +237,7 @@ nav:
           - Meta服务配置: 5.configurations-and-logs/1.configurations/2.meta-config.md
           - Graph服务配置: 5.configurations-and-logs/1.configurations/3.graph-config.md
           - Storage服务配置: 5.configurations-and-logs/1.configurations/4.storage-config.md
-          - 内核配置: 5.configurations-and-logs/1.configurations/6.kernel-config.md
+          - Linux内核配置: 5.configurations-and-logs/1.configurations/6.kernel-config.md
       - 日志:
           - 日志配置: 5.configurations-and-logs/2.log-management/logs.md
 
@@ -251,9 +256,12 @@ nav:
 #          - 使用BR恢复数据: 7.data-security/2.backup-restore/4.br-restore-data.md
       - 管理快照: 7.data-security/3.manage-snapshot.md
 
-  - 调整服务:
+  - 服务调优:
       - Compaction: 8.service-tuning/compaction.md
       - Storage负载均衡: 8.service-tuning/load-balance.md
+      - 图建模: 8.service-tuning/2.graph-modeling.md
+      - 系统建模: 8.service-tuning/3.system-design.md
+      - 超级节点(稠密点): 8.service-tuning/super-node.md
 
   - Nebula Graph Studio:
     - Studio版本更新说明: nebula-studio/about-studio/st-ug-release-note.md
@@ -321,18 +329,8 @@ nav:
 
   - 附录:
       - Nebula Graph 常见问题: 20.appendix/0.FAQ.md
-      - 图建模: 20.appendix/2.graph-modeling.md
-      - 系统建模: 20.appendix/3.system-design.md
-      - 关于Raft的简单介绍: 20.appendix/4.raft.md
-      - VID: 20.appendix/7.vid.md
-      - 分片ID: 20.appendix/5.partition.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
-      - 注释: 20.appendix/comments.md
-      - 大小写区分: 20.appendix/identifier-case-sensitivity.md
-      - 关键字: 20.appendix/keywords-and-reserved-words.md
-
-  - 如何贡献: 15.contribution/how-to-contribute.md
-
+      - 社区参与: 15.contribution/how-to-contribute.md
 
   - PDF: ./pdf/NebulaGraph-CN.pdf
 
