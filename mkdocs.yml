@@ -24,12 +24,14 @@ theme:
     accent: 'light green'
   features:
     - navigation.top
+    - header.autohide
   language: 'zh'
 
 extra_css:
   - 'stylesheets/logo.css'
   - stylesheets/note.css
   - css/version-select.css
+  - stylesheets/extra.css
 extra:
   nebula:
     base20: 2.0
