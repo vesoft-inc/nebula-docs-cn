@@ -111,6 +111,16 @@
   symbol.addEventListener("click",function(){
     banner.style.display = "none";
   })
+  window.onload = function(){
+    var hidden = document.getElementsByClassName("md-nav__item");
+    var hiddenlabel = [...(hidden)]
+    for(i=0;i<hidden.length;i++){
+      var link = hidden[i].getElementsByClassName("md-nav__link")
+      if(link[0].innerHTML.replace(/\s+/g,"") == ""){
+        hidden.item(i).style.display = "none"
+      }
+    }
+  }
 </script>
 <div class="md-container" data-md-component="container">
 <main class="md-main" data-md-component="main">
@@ -155,8 +165,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../1.introduction/1.what-is-nebula-graph/">
-        什么是Nebula Graph
-      </a>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../1.introduction/2.data-model/">
@@ -1968,7 +1977,7 @@ nebula&gt; SUBMIT JOB COMPACT;
 <li>业务低峰期（例如凌晨）执行<code>SUBMIT JOB COMPACT</code>。</li>
 </ul>
 <ul>
-<li>白天时设置<code>disable_auto_compactions</code>为<code>false</code>，提升短时间内的读取性能。</li>
+<li>白天时设置<code>disable_auto_compactions</code>为<code>flase</code>，提升短时间内的读取性能。</li>
 </ul>
 <ul>
 <li>为控制<code>Compaction</code>的读写速率，请在配置文件<code>nebula-storaged.conf</code>中设置如下两个参数：<div class="highlight"><pre><span></span><code><span class="c1"># 设置为从本地配置文件读取配置。</span>
@@ -1991,7 +2000,7 @@ nebula&gt; SUBMIT JOB COMPACT;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月3日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
 </small>
 </div>
 </article>

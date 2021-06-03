@@ -111,6 +111,16 @@
   symbol.addEventListener("click",function(){
     banner.style.display = "none";
   })
+  window.onload = function(){
+    var hidden = document.getElementsByClassName("md-nav__item");
+    var hiddenlabel = [...(hidden)]
+    for(i=0;i<hidden.length;i++){
+      var link = hidden[i].getElementsByClassName("md-nav__link")
+      if(link[0].innerHTML.replace(/\s+/g,"") == ""){
+        hidden.item(i).style.display = "none"
+      }
+    }
+  }
 </script>
 <div class="md-container" data-md-component="container">
 <main class="md-main" data-md-component="main">
@@ -155,8 +165,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../1.introduction/1.what-is-nebula-graph/">
-        什么是Nebula Graph
-      </a>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../1.introduction/2.data-model/">
@@ -2140,12 +2149,8 @@
 </li>
 </ol>
 <h2 id="opencypher">openCypher兼容性<a class="headerlink" href="#opencypher" title="Permanent link">¶</a></h2>
-<ul>
-<li>nGQL不支持遍历所有点和边，例如<code>MATCH (v) RETURN v</code>。但是，建立相应Tag的索引后，可以遍历对应Tag的所有点，例如<code>MATCH (v:T1) RETURN v</code>。</li>
-</ul>
-<ul>
-<li>WHERE子句内不支持再嵌套MATCH语句。</li>
-</ul>
+<p>nGQL不支持遍历所有点和边，例如<code>MATCH (v) RETURN v</code>。</p>
+<p>但是，建立相应Tag的索引后，可以遍历对应Tag的所有点，例如<code>MATCH (v:T1) RETURN v</code>。</p>
 <h2 id="pattern">使用模式（pattern）<a class="headerlink" href="#pattern" title="Permanent link">¶</a></h2>
 <h3 id="_2">前提条件<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
 <p>请确保<code>MATCH</code>语句有至少一个索引可用，或者其中指定了VID。如果需要创建索引，但是已经有相关的点、边或属性，用户必须在创建索引后重建索引，索引才能生效。</p>
@@ -2711,7 +2716,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;(v2) \
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月3日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月28日</span>
 </small>
 </div>
 </article>
