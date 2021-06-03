@@ -86,4 +86,14 @@
   symbol.addEventListener("click",function(){
     banner.style.display = "none";
   })
+  window.onload = function(){
+    var hidden = document.getElementsByClassName("md-nav__item");
+    var hiddenlabel = [...(hidden)]
+    for(i=0;i<hidden.length;i++){
+      var link = hidden[i].getElementsByClassName("md-nav__link")
+      if(link[0].innerHTML.replace(/\s+/g,"") == ""){
+        hidden.item(i).style.display = "none"
+      }
+    }
+  }
 </script>
