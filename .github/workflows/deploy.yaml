@@ -50,7 +50,7 @@ jobs:
 
       - name: Compress
         run: |
-          tar -vczf nebula-docs.tar.gz master versions.json index.html *.html
+          tar -vczf nebula-docs.tar.gz master versions.json *.html
           
       - name: Transfer
         # uses: garygrossgarten/github-action-scp@release
