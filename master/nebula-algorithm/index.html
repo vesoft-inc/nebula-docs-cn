@@ -1733,16 +1733,21 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
-    使用限制
+    前提条件
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
-    支持算法
+    使用限制
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
+    支持算法
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
     实现方法
   </a>
 </li>
@@ -1753,7 +1758,7 @@
 <nav aria-label="获取Nebula Algorithm" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
+<a class="md-nav__link" href="#_5">
     编译打包
   </a>
 </li>
@@ -1766,18 +1771,18 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
+<a class="md-nav__link" href="#_6">
     使用方法
   </a>
 <nav aria-label="使用方法" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
+<a class="md-nav__link" href="#_7">
     调用算法接口（推荐）
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
+<a class="md-nav__link" href="#_8">
     直接提交算法包
   </a>
 </li>
@@ -1838,16 +1843,21 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
-    使用限制
+    前提条件
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
-    支持算法
+    使用限制
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
+    支持算法
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
     实现方法
   </a>
 </li>
@@ -1858,7 +1868,7 @@
 <nav aria-label="获取Nebula Algorithm" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
+<a class="md-nav__link" href="#_5">
     编译打包
   </a>
 </li>
@@ -1871,18 +1881,18 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
+<a class="md-nav__link" href="#_6">
     使用方法
   </a>
 <nav aria-label="使用方法" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
+<a class="md-nav__link" href="#_7">
     调用算法接口（推荐）
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
+<a class="md-nav__link" href="#_8">
     直接提交算法包
   </a>
 </li>
@@ -1901,9 +1911,26 @@
 </a>
 <h1 id="nebula_algorithm">Nebula Algorithm<a class="headerlink" href="#nebula_algorithm" title="Permanent link">¶</a></h1>
 <p><a href="https://github.com/vesoft-inc/nebula-spark-utils/tree/master/nebula-algorithm">Nebula Algorithm</a> （简称Algorithm）是一款基于<a href="https://spark.apache.org/graphx/">GraphX</a>的Spark应用程序，通过提交Spark任务的形式使用完整的算法工具对Nebula Graph数据库中的数据执行图计算，也可以通过编程形式调用lib库下的算法针对DataFrame执行图计算。</p>
-<h2 id="_1">使用限制<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>在使用 Algorithm 之前，用户需要确认以下信息：</p>
+<ul>
+<li>
+<p>Nebula Graph 服务已经部署并启动。详细信息，参考<a href="../../4.deployment-and-installation/1.resource-preparations.md" title="点击前往 Nebula Graph 安装部署">Nebula Graph安装部署</a>。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>用户可以使用Docker Compose或RPM方式部署并启动 Nebula Graph 服务。如果刚开始使用 Nebula Graph，建议使用 Docker Compose 部署 Nebula Graph。详细信息参考 <a href="../../2.quick-start/2.deploy-nebula-graph-with-docker-compose.md" title="点击前往 GitHub 网站">使用 Docker Compose 部署 Nebula Graph</a>。</p>
+</div>
+</li>
+</ul>
+<ul>
+<li>Spark 版本为 2.4.x 。</li>
+</ul>
+<ul>
+<li>（可选）如果用户需要在Github中克隆最新的Algorithm，并自行编译打包，可以选择安装<a href="https://maven.apache.org/download.cgi">Maven</a>。</li>
+</ul>
+<h2 id="_2">使用限制<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <p>点ID的数据必须为整数，即点ID可以是INT类型，或者是String类型但数据本身为整数。</p>
-<h2 id="_2">支持算法<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<h2 id="_3">支持算法<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <p>Nebula Algorithm支持的图计算算法如下。</p>
 <table>
 <thead>
@@ -1966,7 +1993,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="_3">实现方法<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<h2 id="_4">实现方法<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <p>Nebula Algorithm实现图计算的流程如下：</p>
 <ol>
 <li>
@@ -1981,7 +2008,7 @@
 </ol>
 <p>详细的实现方法可以参见相关<a href="https://github.com/vesoft-inc/nebula-spark-utils/tree/master/nebula-algorithm/src/main/scala/com/vesoft/nebula/algorithm/lib">Scala文件</a>。</p>
 <h2 id="nebula_algorithm_1">获取Nebula Algorithm<a class="headerlink" href="#nebula_algorithm_1" title="Permanent link">¶</a></h2>
-<h3 id="_4">编译打包<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<h3 id="_5">编译打包<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
 <ol>
 <li>
 <p>克隆仓库<code>nebula-spark-utils</code>。</p>
@@ -2002,8 +2029,8 @@
 <p>编译完成后，在目录<code>nebula-algorithm/target</code>下生成类似文件<code>nebula-algorithm-2.0.0.jar</code>。</p>
 <h3 id="maven">Maven远程仓库下载<a class="headerlink" href="#maven" title="Permanent link">¶</a></h3>
 <p><a href="https://repo1.maven.org/maven2/com/vesoft/nebula-algorithm/2.0.0/">下载地址</a></p>
-<h2 id="_5">使用方法<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
-<h3 id="_6">调用算法接口（推荐）<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
+<h2 id="_6">使用方法<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
+<h3 id="_7">调用算法接口（推荐）<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
 <p><code>lib</code>库中提供了10种常用图计算算法，用户可以通过编程调用的形式调用算法。</p>
 <ol>
 <li>
@@ -2026,7 +2053,7 @@ val <span class="nv">louvainResult</span> <span class="o">=</span> PageRankAlgo.
 </code></pre></div>
 </li>
 </ol>
-<h3 id="_7">直接提交算法包<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
+<h3 id="_8">直接提交算法包<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>使用封装好的算法包有一定的局限性，例如落库到Nebula Graph时，落库的图空间中创建的标签的属性名称必须和代码内预设的名称保持一致。如果用户有开发能力，推荐使用第一种方法。</p>
@@ -2059,6 +2086,8 @@ val <span class="nv">louvainResult</span> <span class="o">=</span> PageRankAlgo.
     <span class="c1"># 数据源。Nebula Graph作为图计算的数据源时，nebula.read的配置才生效。</span>
     read: <span class="o">{</span>
         <span class="c1"># 所有Meta服务的IP地址和端口，多个地址用英文逗号（,）分隔。格式: "ip1:port1,ip2:port2"。</span>
+        <span class="c1"># 使用docker-compose部署，端口需要填写docker-compose映射到外部的端口</span>
+        <span class="c1"># 可以用`docker-compose ps`查看</span>
         metaAddress: <span class="s2">"192.168.*.10:9559"</span>
         <span class="c1"># Nebula Graph图空间名称</span>
         space: basketballplayer
@@ -2071,11 +2100,16 @@ val <span class="nv">louvainResult</span> <span class="o">=</span> PageRankAlgo.
     <span class="c1"># 数据落库。图计算结果落库到Nebula Graph时，nebula.write的配置才生效。</span>
     write:<span class="o">{</span>
         <span class="c1"># Graph服务的IP地址和端口, 多个地址用英文逗号（,）分隔。格式: "ip1:port1,ip2:port2"。</span>
+        <span class="c1"># 使用docker-compose部署，端口需要填写docker-compose映射到外部的端口</span>
+        <span class="c1"># 可以用`docker-compose ps`查看</span>
         graphAddress: <span class="s2">"192.168.*.11:9669"</span>
         <span class="c1"># 所有Meta服务的IP地址和端口，多个地址用英文逗号（,）分隔。格式: "ip1:port1,ip2:port2"。</span>
+        <span class="c1"># 使用docker-compose部署，端口需要填写docker-compose映射到外部的端口</span>
+        <span class="c1"># 可以用`docker-compose ps`查看</span>
         metaAddress: <span class="s2">"192.168.*.12:9559"</span>
         user:root
         pswd:nebula
+        <span class="c1"># 在提交图计算任务之前需要自行创建图空间及标签</span>
         <span class="c1"># Nebula Graph图空间名称</span>
         space:nb
         <span class="c1"># Nebula Graph标签名称，图计算结果会写入该标签。标签中的属性名称固定如下：</span>
@@ -2185,7 +2219,7 @@ val <span class="nv">louvainResult</span> <span class="o">=</span> PageRankAlgo.
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月27日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月3日</span>
 </small>
 </div>
 </article>
