@@ -43,7 +43,7 @@ Nebula Spark Connector适用于以下场景：
 1. 克隆仓库`nebula-spark-utils`。
 
   ```bash
-  $ git clone https://github.com/vesoft-inc/nebula-spark-utils.git
+  $ git clone -b {{sparkconnector.release}} https://github.com/vesoft-inc/nebula-spark-utils.git
   ```
 
 2. 进入目录`nebula-spark-connector`。
@@ -133,6 +133,7 @@ val edge = spark.read.nebula(config, nebulaReadEdgeConfig).loadEdgesToDF()
   |`withReturnCols`  |否|  配置要读取的点或边的属性集。格式为`List(property1,property2,...)`，默认值为`List()`，表示读取全部属性。  |
   |`withLimit`  |否|  配置Nebula Java Storage Client一次从服务端读取的数据行数。默认值为1000。  |
   |`withPartitionNum`  |否|  配置读取Nebula Graph数据时Spark的分区数。默认值为100。该值的配置最好不超过图空间的的分片数量（partition_num）。  |
+
 ### 向Nebula Graph写入数据
 
 ```scala

@@ -5,7 +5,7 @@
 ## 历史版本兼容性
 
 * Nebula Graph 1.0支持四种注释方式: `#`、`--`、`//`、`/* */`。
-* Nebula Graph 2.0中，`--`不再是注释符，而是代表[边模式](../3.ngql-guide/1.nGQL-overview/3.graph-patterns.md)。
+* Nebula Graph 2.0中，`--`不再是注释符，而是代表[边模式](../../3.ngql-guide/1.nGQL-overview/3.graph-patterns.md)。
 
 ## Examples
 
@@ -37,7 +37,7 @@ RETURN n;
 ```
 
 ```ngql
-/* nGQL风格：  \
+/* 原生nGQL风格：  \
 这条注释       \
 延续了不止     \
 一行 */       \

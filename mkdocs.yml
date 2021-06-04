@@ -13,11 +13,14 @@ theme:
     primary: 'deep purple'
   features:
     - navigation.top
+    - header.autohide
   language: 'zh'
 
 extra_css:
   - 'stylesheets/logo.css'
+  - stylesheets/note.css
   - css/version-select.css
+  - stylesheets/extra.css
 extra:
   nebula:
     base20: 2.0
@@ -32,6 +35,22 @@ extra:
   studio:
     base111b: 1.1.1-beta
     base220: 2.2.0
+  exchange:
+    release: master
+  importer:
+    release: master  
+  algorithm:
+    release: master
+  sparkconnector:
+    release: master
+  flinkconnector:
+    release: master
+  dockercompose:
+    release: master
+  common:
+    release: master
+  
+
   
 nav:
 
@@ -42,8 +61,9 @@ nav:
       - 图数据库: 0.foreground/1-graph-database.md
 
   - 简介:
-      - 什么是Nebula Graph: 1.introduction/1.what-is-nebula-graph.md
-      - 数据结构: 1.introduction/2.data-model.md
+      - '': 1.introduction/1.what-is-nebula-graph.md
+      - 数据模型: 1.introduction/2.data-model.md
+      - VID: 1.introduction/3.vid.md
       - Nebula Graph架构:
         - 架构总览: 1.introduction/3.nebula-graph-architecture/1.architecture-overview.md
         - Meta服务: 1.introduction/3.nebula-graph-architecture/2.meta-service.md
@@ -60,7 +80,11 @@ nav:
   - nGQL指南:
       - nGQL概述:
         - Nebula Graph查询语言（nGQL）: 3.ngql-guide/1.nGQL-overview/1.overview.md
-        - 模式: 3.ngql-guide/1.nGQL-overview/3.graph-patterns.md
+        - 图模式: 3.ngql-guide/1.nGQL-overview/3.graph-patterns.md
+        - 注释: 3.ngql-guide/1.nGQL-overview/comments.md
+        - 大小写区分: 3.ngql-guide/1.nGQL-overview/identifier-case-sensitivity.md
+        - 关键字: 3.ngql-guide/1.nGQL-overview/keywords-and-reserved-words.md
+        
       - 数据类型:
         - 数值: 3.ngql-guide/3.data-types/1.numeric.md
         - 布尔: 3.ngql-guide/3.data-types/2.boolean.md
@@ -102,7 +126,7 @@ nav:
 #          - 自定义函数: 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
 
       - 通用查询语句:
-          - Match: 3.ngql-guide/7.general-query-statements/2.match.md
+          - MATCH: 3.ngql-guide/7.general-query-statements/2.match.md
           - LOOKUP: 3.ngql-guide/7.general-query-statements/5.lookup.md
           - GO: 3.ngql-guide/7.general-query-statements/3.go.md
           - FETCH: 3.ngql-guide/7.general-query-statements/4.fetch.md
@@ -208,7 +232,7 @@ nav:
           - Meta服务配置: 5.configurations-and-logs/1.configurations/2.meta-config.md
           - Graph服务配置: 5.configurations-and-logs/1.configurations/3.graph-config.md
           - Storage服务配置: 5.configurations-and-logs/1.configurations/4.storage-config.md
-          - 内核配置: 5.configurations-and-logs/1.configurations/6.kernel-config.md
+          - Linux内核配置: 5.configurations-and-logs/1.configurations/6.kernel-config.md
       - 日志:
           - 日志配置: 5.configurations-and-logs/2.log-management/logs.md
 
@@ -227,9 +251,12 @@ nav:
 #          - 使用BR恢复数据: 7.data-security/2.backup-restore/4.br-restore-data.md
       - 管理快照: 7.data-security/3.manage-snapshot.md
 
-  - 调整服务:
+  - 服务调优:
       - Compaction: 8.service-tuning/compaction.md
       - Storage负载均衡: 8.service-tuning/load-balance.md
+      - 图建模: 8.service-tuning/2.graph-modeling.md
+      - 系统建模: 8.service-tuning/3.system-design.md
+      - 超级节点(稠密点): 8.service-tuning/super-node.md
 
   - Nebula Graph Studio:
     - 认识 Nebula Graph Studio:
@@ -295,21 +322,39 @@ nav:
     - 常见问题FAQ: nebula-exchange/ex-ug-FAQ.md
 
   - 附录:
-      - 常见问题: 20.appendix/0.FAQ.md
-      - 相关技术: 20.appendix/1.relates.md
-      - 图建模: 20.appendix/2.graph-modeling.md
-      - 系统建模: 20.appendix/3.system-design.md
-      - 关于Raft的简单介绍: 20.appendix/4.raft.md
-      - 分片ID: 20.appendix/5.partition.md
+      - Nebula Graph 常见问题: 20.appendix/0.FAQ.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
-      - VID: 20.appendix/7.vid.md
-      - 注释: 20.appendix/comments.md
-      - 区分大小写: 20.appendix/identifier-case-sensitivity.md
-      - 关键字: 20.appendix/keywords-and-reserved-words.md
-      - 产品年表: 20.appendix/20.history.md
+      - 社区参与: 15.contribution/how-to-contribute.md
 
-  - PDF: ./pdf/NebulaGraph-book.pdf
+  - PDF: ./pdf/NebulaGraph-CN.pdf
 
+
+#  - 图算法:
+#    - nebula-algorithm:
+#      - 什么是 nebula-algorithm: nebula-algorithm/na-ug-what-is-nebula-algorithm.md
+#      - 使用限制: nebula-algorithm/na-ug-limitations.md
+#      - 编译 nebula-algorithm: nebula-algorithm/na-ug-compile.md
+#      - 使用示例: nebula-algorithm/na-ug-example.md
+#
+#  - Nebula Flink Connector:
+#    - 什么是 Nebula Flink Connector: nebula-flink/nf-ug-what-is-flink-connector.md
+#    - 编译 Nebula Flink Connector: nebula-flink/nf-ug-compile.md
+#    - 使用限制: nebula-flink/nf-ug-limitations.md
+#    - 自定义 source (NebulaSource): nebula-flink/nf-ug-customize-source.md
+#    - 自定义 sink (NebulaSink): nebula-flink/nf-ug-customize-sink.md
+#    - 特殊说明: nebula-flink/nf-ug-notes.md
+#
+#  - Nebula Spark Connector:
+#    - 什么是 Nebula Spark Connector: spark-connector/sc-ug-what-is-spark-connector.md
+#    - 编译 Nebula Spark Connector: spark-connector/sc-ug-compile.md
+#    - 使用限制: spark-connector/sc-ug-limitations.md
+#    - Nebula Spark Connector Reader:
+#      - 什么是 Nebula Spark Connector Reader: spark-connector/reader/sc-ug-what-is-reader.md
+#      - 使用示例: spark-connector/reader/sc-ug-reader-example.md
+#    - Nebula Spark Connector Writer:
+#      - 什么是 Nebula Spark Connector Writer: spark-connector/writer/sc-ug-what-is-writer.md
+#      - 使用示例: spark-connector/writer/sc-ug-writer-example.md
+# Extensions
 markdown_extensions:
   - footnotes
   - admonition
