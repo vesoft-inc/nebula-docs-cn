@@ -22,7 +22,7 @@ extra:
   nebula:
     base20: 2.0
     base200: 2.0.0
-    release: 2.0.2
+    release: book
     nightly: v2-nightly
   version:
     method: mike
