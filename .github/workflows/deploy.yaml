@@ -59,7 +59,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER_NAME }}
           password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.port }}
+          port: ${{ secrets.PORT }}
           source: nebula-docs.tar.gz
           target: /usr/web
 
