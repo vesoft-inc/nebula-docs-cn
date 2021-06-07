@@ -1850,9 +1850,9 @@
 <ul>
 <li>两点之间可以有多条边。</li>
 <li>边是有方向的，不存在无向边。</li>
-<li>四元组 <code>&lt;起点VID、边类型（edgetype）、边排序值(rank)、终点VID&gt;</code> 用于唯一标识一条边。边没有EID。</li>
+<li>四元组 <code>&lt;起点VID、边类型（edge type）、边排序值(rank)、终点VID&gt;</code> 用于唯一标识一条边。边没有EID。</li>
 <li>一条边有且仅有一个边类型。</li>
-<li>一条边有且仅有一个 rank。其为int64, 默认为0。</li>
+<li>一条边有且仅有一个rank。其为int64, 默认为0。</li>
 </ul>
 </li>
 </ul>
@@ -1864,23 +1864,23 @@
 </ul>
 <ul>
 <li>
-<p>边类型（edgetype）</p>
+<p>边类型（edge type）</p>
 <p>边类型由一组事先预定义的属性构成。</p>
 </li>
 </ul>
 <ul>
 <li>
 <p>属性（properties）</p>
-<p>属性是指以键值对（key-value）形式存储的信息。</p>
+<p>属性是指以键值对（key-value pair）形式存储的信息。</p>
 </li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Tag和Edgetype的作用，类似于关系型数据库中“点表”和“边表”的表结构。</p>
+<p>Tag和Edge type的作用，类似于关系型数据库中“点表”和“边表”的表结构。</p>
 </div>
 <h2 id="_3">有向属性图<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <p>Nebula Graph使用有向属性图模型，指点和边构成的图，这些边是有方向的，点和边都可以有属性。</p>
-<p>下表为篮球运动员数据集的结构示例，包括两种类型的点（<strong>player</strong>、<strong>team</strong>）和两种类型的边（<strong>serve</strong>、<strong>like</strong>）。</p>
+<p>下表为篮球运动员数据集的结构示例，包括两种类型的点（<strong>player</strong>、<strong>team</strong>）和两种类型的边（<strong>serve</strong>、<strong>follow</strong>）。</p>
 <table>
 <thead>
 <tr>
@@ -1904,13 +1904,13 @@
 <td align="left">表示球队。</td>
 </tr>
 <tr>
-<td align="left">edgetype</td>
+<td align="left">edge type</td>
 <td align="left"><strong>serve</strong></td>
 <td align="left">start_year （int） <br/> end_year （int）</td>
 <td align="left">表示球员的行为。<br/>该行为将球员和球队联系起来，方向是从球员到球队。</td>
 </tr>
 <tr>
-<td align="left">edgetype</td>
+<td align="left">edge type</td>
 <td align="left"><strong>follow</strong></td>
 <td align="left">degree（int）</td>
 <td align="left">表示球员的行为。<br/>该行为将两个球员联系起来，方向是从一个球员到另一个球员。</td>
@@ -1925,7 +1925,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月28日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月7日</span>
 </small>
 </div>
 </article>
