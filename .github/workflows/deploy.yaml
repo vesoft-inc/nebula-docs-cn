@@ -1,8 +1,8 @@
-name:
+name: Publish docs via GitHub Pages
 on:
   push:
     branches:
-       - kun-dev
+      - master
 
 jobs:
   deploy:
@@ -23,12 +23,15 @@ jobs:
           sudo apt update -y
           sudo apt install -y $(cat pkglist.txt)
 
-      - name: Install dependencies  
+      - name: Install dependencies
         run: |
           pip install --upgrade pip
           pip install -r ./requirements.txt
 
-      - name: Git Config  
+      - name: set LANG
+        run: sh lang-zh.sh	  
+
+      - name: Git Config
         run: git config user.name whitewum && git config user.email min.wu@vesoft.com
 
       - name: mike list delete
@@ -38,8 +41,8 @@ jobs:
       - name: Mike Deploy master
         run: |
           mike deploy master -p --rebase
-          mike list  
-          
+          mike list
+
       - name: show git branch
         run: | 
           git branch
@@ -47,26 +50,33 @@ jobs:
 
       - name: Compress
         run: |
-           tar -czf nebula-docs-cn.tar.gz * --exclude=*.tar.gz
-
+          tar -vczf nebula-docs.tar.gz master versions.json *.html
+          
       - name: Transfer
         # uses: garygrossgarten/github-action-scp@release
         uses: appleboy/scp-action@master
         with:
-          host: ${{ secrets.TEST_HOST }}
-          username: ${{ secrets.TEST_USER_NAME }}
-          password: ${{ secrets.TEST_PASSWORD }}
-          port: ${{ secrets.TEST_PORT }}
-          source: nebula-docs-cn.tar.gz
-          target: /usr/www
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER_NAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          source: nebula-docs.tar.gz
+          target: /usr/web
 
       - name: UnCompress
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.TEST_HOST }}
-          username: ${{ secrets.TEST_USER_NAME }}
-          password: ${{ secrets.TEST_PASSWORD }}
-          port: ${{ secrets.TEST_PORT }}
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER_NAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
           script: |
-            mkdir -p /usr/www/nebula-docs-cn/
-            tar -xzf /usr/www/nebula-docs-cn.tar.gz -C /usr/www/nebula-docs-cn/
+            mkdir -p /usr/web/nebula-docs/
+            tar -xzf /usr/web/nebula-docs.tar.gz -C /usr/web/nebula-docs/
+#            pip3 install --upgrade pip
+#            pip3 install -r /usr/web/nebula-docs/requirement.txt
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.DEPLOY_TOKEN }}
+      #     publish_dir: ./site
