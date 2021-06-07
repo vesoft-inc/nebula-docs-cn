@@ -68,6 +68,7 @@ nav:
   - 简介:
       - '': 1.introduction/1.what-is-nebula-graph.md
       - 数据模型: 1.introduction/2.data-model.md
+      - 路径: 1.introduction/2.1.path.md
       - VID: 1.introduction/3.vid.md
       - Nebula Graph架构:
         - 架构总览: 1.introduction/3.nebula-graph-architecture/1.architecture-overview.md
