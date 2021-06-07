@@ -9,9 +9,9 @@
 <meta content="Nebula Graph" name="author"/>
 <link href="https://docs.nebula-graph.com.cn/2.0.1/2.0.1/7.data-security/2.backup-restore/1.what-is-br/" rel="canonical"/>
 <link href="../../../assets/images/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.6" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.7" name="generator"/>
 <title>什么是Backup&amp;Restore - Nebula Graph Database 手册</title>
-<link href="../../../assets/stylesheets/main.875de78c.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.ca7ac06f.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
 <meta content="#ffffff" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -1727,14 +1727,19 @@
         Nebula Flink Connector
       </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../nebula-algorithm/">
+        Nebula Algorithm
+      </a>
+</li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_15" id="__nav_15" type="checkbox"/>
-<label class="md-nav__link" for="__nav_15">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_16" id="__nav_16" type="checkbox"/>
+<label class="md-nav__link" for="__nav_16">
         社区贡献
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="社区贡献" class="md-nav" data-md-level="1">
-<label class="md-nav__title" for="__nav_15">
+<label class="md-nav__title" for="__nav_16">
 <span class="md-nav__icon md-icon"></span>
           社区贡献
         </label>
@@ -1836,8 +1841,8 @@
 <p>为了备份数据，BR会发送备份请求给leader的metad进程，触发备份。详细说明如下：</p>
 <ol>
 <li>
-<p>验证BR访问Meta服务器和Storage服务器的SSH登录信息。
-    !!! Note</p>
+<p>验证BR访问Meta服务器和Storage服务器的SSH登录信息。</p>
+<p>!!! Note</p>
 <div class="codehilite"><pre><span></span><code>  如果必须使用云存储，例如Alibaba Cloud OSS或Amazon S3，还需要验证它们的客户端安装和配置。
 </code></pre></div>
 </li>
@@ -1845,8 +1850,8 @@
 <p>BR发起请求创建备份文件。</p>
 </li>
 <li>
-<p>leader的metad进程被锁定。
-    !!! Note</p>
+<p>leader的metad进程被锁定。</p>
+<p>!!! Note</p>
 <div class="codehilite"><pre><span></span><code>  从此时起至第9步结束，您无法在指定图空间内执行任何nGQL的DDL语句。
 </code></pre></div>
 </li>
@@ -1885,8 +1890,8 @@
 <li>
 <p>BR通过SSH登录至leader所在的Meta服务器和所有Storage服务器，然后备份文件。</p>
 </li>
-<li>如果使用的是Alibaba Cloud OSS或Amazon S3，BR会调用命令将备份文件上传至云存储中。
-    !!! Note<div class="codehilite"><pre><span></span><code>  本步骤会大量读取磁盘，建议使用万兆网络保证速率。如果上传过程中出现网络错误，备份会失败，必须重新执行备份操作。目前备份过程不支持断点续传。
+<li>如果使用的是Alibaba Cloud OSS或Amazon S3，BR会调用命令将备份文件上传至云存储中。<p>!!! Note</p>
+<div class="codehilite"><pre><span></span><code>  本步骤会大量读取磁盘，建议使用万兆网络保证速率。如果上传过程中出现网络错误，备份会失败，必须重新执行备份操作。目前备份过程不支持断点续传。
 </code></pre></div>
 <ol>
 <li>BR发起请求清理Storage服务器的快照，备份完成。</li>
@@ -1907,8 +1912,8 @@
 <p>恢复过程的详细说明如下：</p>
 <ol>
 <li>
-<p>验证BR访问Meta服务器和Storage服务器的SSH登录信息。
-    !!! Note</p>
+<p>验证BR访问Meta服务器和Storage服务器的SSH登录信息。</p>
+<p>!!! Note</p>
 <div class="codehilite"><pre><span></span><code>  如果必须使用云存储，例如Alibaba Cloud OSS或Amazon S3，还需要验证它们的客户端安装和配置。
 </code></pre></div>
 </li>
@@ -1936,7 +1941,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月4日</span>
 </small>
 </div>
 </article>
@@ -1971,8 +1976,8 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../../assets/javascripts/workers/search.d351de03.min.js", "version": {"method": "mike"}}</script>
-<script src="../../../assets/javascripts/bundle.34eae1b6.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.b0710199.min.js", "version": {"method": "mike"}}</script>
+<script src="../../../assets/javascripts/bundle.76f349be.min.js"></script>
 <script src="../../../js/version-select.js"></script>
 <script src="../../../js/config.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
