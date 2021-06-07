@@ -19,4 +19,28 @@ Nebula Graph是一款开源的、分布式的、易扩展的原生图数据库�
 - [视频](https://space.bilibili.com/472621355)
 - [English](https://docs.nebula-graph.io/)
 
+## 图例说明
 
+!!! note
+
+    额外的信息或者操作相关的提醒等。
+
+!!! caution
+
+    需要严格遵守的注意事项。不遵守caution可能导致系统故障、数据丢失、安全问题等。
+
+!!! danger
+
+    会引发危险的事项。不遵守danger必定会导致系统故障、数据丢失、安全问题等。
+
+!!! performance
+
+    性能调优时需要注意的事项。
+
+!!! faq
+
+    常见问题。
+
+!!! compatibility
+
+    nGQL与openCypher的兼容性或nGQL当前版本与历史版本的兼容性。
