@@ -59,11 +59,12 @@ nav:
   - 前言: 
       - 图: 0.foreground/0-graph.md
       - 图数据库: 0.foreground/1-graph-database.md
-      - 相关技术：0.foreground/2.relates.md
+      - 相关技术: 0.foreground/2.relates.md
 
   - 简介:
-      - '': 1.introduction/1.what-is-nebula-graph.md
+      - 什么是Nebula Graph: 1.introduction/1.what-is-nebula-graph.md
       - 数据模型: 1.introduction/2.data-model.md
+      - 路径: 1.introduction/2.1.path.md
       - VID: 1.introduction/3.vid.md
       - Nebula Graph架构:
         - 架构总览: 1.introduction/3.nebula-graph-architecture/1.architecture-overview.md
@@ -229,7 +230,7 @@ nav:
 
   - 配置和日志:
       - 配置:
-          - 配置简介: 5.configurations-and-logs/1.configurations/1.configurations.md
+          - 配置管理: 5.configurations-and-logs/1.configurations/1.configurations.md
           - Meta服务配置: 5.configurations-and-logs/1.configurations/2.meta-config.md
           - Graph服务配置: 5.configurations-and-logs/1.configurations/3.graph-config.md
           - Storage服务配置: 5.configurations-and-logs/1.configurations/4.storage-config.md
@@ -394,6 +395,6 @@ extra_javascript:
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
-#google_analytics:
-#  - UA-60523578-15
-#  - auto
+google_analytics:
+  - UA-60523578-15
+  - auto

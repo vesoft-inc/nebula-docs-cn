@@ -187,3 +187,25 @@ pull request创建后，至少需要两人审查。审查人员将进行彻底�
 ## 添加测试用例
 
 添加测试用例的方法参见[How to add test cases](https://github.com/vesoft-inc/nebula-graph/blob/master/tests/README.md#how-to-add-test-case)。
+
+## 捐赠项目
+
+### Step 1：确认项目捐赠
+
+通过邮件、微信、Slack等方式联络Nebula Graph官方人员，确认捐赠项目一事。项目将被捐赠至Nebula Contrib组织下。
+
+邮件地址：info@vesoft.com
+
+微信：NebulaGraphbot
+
+Slack：[Join Slack](https://join.slack.com/t/nebulagraph/shared_invite/zt-7ybejuqa-NCZBroh~PCh66d9kOQj45g)
+
+### Step 2：获取项目接收人信息
+
+由Nebula Graph官方人员给出Nebula Contrib的项目接收者ID。
+
+### Step 3：捐赠项目
+
+由您将项目转移至本次捐赠的项目接受人，并由项目接收者将该项目转移至Nebula Contrib组织下。捐赠后，您将以Maintain角色继续主导社区项目的发展。
+
+GitHub上转移仓库的操作，请参见[Transferring a repository owned by your user account](https://docs.github.com/en/enterprise-server@3.0/github/administering-a-repository/managing-repository-settings/transferring-a-repository#transferring-a-repository-owned-by-your-user-account)。 
