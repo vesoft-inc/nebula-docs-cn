@@ -198,7 +198,7 @@ pull request创建后，至少需要两人审查。审查人员将进行彻底�
 
 微信：NebulaGraphbot
 
-Slack：xxxx
+Slack：[Join Slack](https://join.slack.com/t/nebulagraph/shared_invite/zt-7ybejuqa-NCZBroh~PCh66d9kOQj45g)
 
 ### Step 2: 获取项目接收人信息
 
