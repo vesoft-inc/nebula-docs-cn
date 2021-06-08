@@ -174,18 +174,23 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../1.introduction/2.1.path/">
+        路径
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../1.introduction/3.vid/">
         VID
       </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_4">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" id="__nav_2_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_5">
         Nebula Graph架构
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Nebula Graph架构" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_4">
+<label class="md-nav__title" for="__nav_2_5">
 <span class="md-nav__icon md-icon"></span>
           Nebula Graph架构
         </label>
@@ -1784,6 +1789,11 @@
 <nav aria-label="关于执行" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#gomatch">
+    使用GO和MATCH执行相同语义的查询，查询结果为什么不同？
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#time_spent">
     返回消息中time spent的含义是什么？
   </a>
@@ -1975,6 +1985,11 @@
 <nav aria-label="关于执行" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#gomatch">
+    使用GO和MATCH执行相同语义的查询，查询结果为什么不同？
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#time_spent">
     返回消息中time spent的含义是什么？
   </a>
@@ -2142,6 +2157,19 @@
 <p>Neubla Graph master 与 Nebula Graph 2.0 的数据格式、通信协议历史兼容。</p>
 </div>
 <h2 id="_4">关于执行<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<h3 id="gomatch">使用GO和MATCH执行相同语义的查询，查询结果为什么不同？<a class="headerlink" href="#gomatch" title="Permanent link">¶</a></h3>
+<p>路径的类型不同，导致查询结果可能会不同。</p>
+<ul>
+<li><code>GO</code>语句采用的是<code>walk</code>类型，遍历时点和边可以重复。</li>
+</ul>
+<ul>
+<li><code>MATCH</code>语句兼容openCypher，采用的是<code>trail</code>类型，遍历时只有点可以重复，边不可以重复。</li>
+</ul>
+<p>例如下图。</p>
+<p><img alt="路径示例" src="../path.png"/></p>
+<p>从点A开始查询距离5跳的点，都会查询到点C（<code>A-&gt;B-&gt;C-&gt;D-&gt;E-&gt;C</code>），查询6跳的点时，<code>GO</code>语句会查询到点D（<code>A-&gt;B-&gt;C-&gt;D-&gt;E-&gt;C-&gt;D</code>），因为边<code>C-&gt;D</code>可以重复查询，而<code>MATCH</code>语句查询为空，因为边不可以重复。</p>
+<p>所以使用<code>GO</code>和<code>MATCH</code>执行相同语义的查询，可能会出现<code>MATCH</code>语句的查询结果比<code>GO</code>语句少。</p>
+<p>关于路径的详细说明，请参见<a href="https://en.wikipedia.org/wiki/Path_(graph_theory)#Walk,_trail,_path">维基百科</a>。</p>
 <h3 id="time_spent">返回消息中<code>time spent</code>的含义是什么？<a class="headerlink" href="#time_spent" title="Permanent link">¶</a></h3>
 <p>将命令<code>SHOW SPACES</code>返回的消息作为示例：</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; SHOW SPACES;
@@ -2362,7 +2390,7 @@ telnet: connect to address <span class="m">192</span>.168.1.10: Connection refus
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月1日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月8日</span>
 </small>
 </div>
 </article>

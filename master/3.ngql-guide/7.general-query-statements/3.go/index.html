@@ -174,18 +174,23 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../1.introduction/2.1.path/">
+        路径
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../1.introduction/3.vid/">
         VID
       </a>
 </li>
 <li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" id="__nav_2_4" type="checkbox"/>
-<label class="md-nav__link" for="__nav_2_4">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" id="__nav_2_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2_5">
         Nebula Graph架构
         <span class="md-nav__icon md-icon"></span>
 </label>
 <nav aria-label="Nebula Graph架构" class="md-nav" data-md-level="2">
-<label class="md-nav__title" for="__nav_2_4">
+<label class="md-nav__title" for="__nav_2_5">
 <span class="md-nav__icon md-icon"></span>
           Nebula Graph架构
         </label>
@@ -1861,7 +1866,13 @@ OVER &lt;edge_type_list&gt; [{REVERSELY | BIDIRECT}]
     &lt;col_name&gt; [AS &lt;col_alias&gt;] [, &lt;col_name&gt; [AS &lt;col_alias&gt;] ...]
 </code></pre></div>
 <ul>
-<li><code>&lt;N&gt; STEPS</code>：指定跳数。如果没有指定跳数，默认值<code>N</code>为<code>1</code>。如果<code>N</code>为<code>0</code>，Nebula Graph不会检索任何边。</li>
+<li>
+<p><code>&lt;N&gt; STEPS</code>：指定跳数。如果没有指定跳数，默认值<code>N</code>为<code>1</code>。如果<code>N</code>为<code>0</code>，Nebula Graph不会检索任何边。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>GO</code>语句采用的路径类型是<code>walk</code>，即遍历时点和边可以重复。详情请参见<a href="../../../1.introduction/2.1.path/">路径</a>。</p>
+</div>
+</li>
 </ul>
 <ul>
 <li><code>M TO N STEPS</code>：遍历<code>M~N</code>跳的边。如果<code>M</code>为<code>0</code>，输出结果和<code>M</code>为<code>1</code>相同，即<code>GO 0 TO 2</code>和<code>GO 1 TO 2</code>是相同的。</li>
@@ -2084,7 +2095,7 @@ nebula&gt; $a = GO FROM "player100" OVER follow YIELD follow._src AS src, follow
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月24日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月8日</span>
 </small>
 </div>
 </article>
