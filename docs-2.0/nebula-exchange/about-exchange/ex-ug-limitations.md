@@ -28,7 +28,7 @@ Exchange 2.0 支持以下操作系统：
 
 为保证Exchange正常工作，请确认机器上已经安装如下软件：
 
-- Apache Spark：2.3.0及以上版本
+- Apache Spark：2.4.x
 
 - Java：1.8
 
