@@ -1157,7 +1157,7 @@
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="../1.configurations/">
-        配置简介
+        配置管理
       </a>
 </li>
 <li class="md-nav__item md-nav__item--active">
@@ -1890,15 +1890,18 @@
 </a>
 <h1 id="meta">Meta服务配置<a class="headerlink" href="#meta" title="Permanent link">¶</a></h1>
 <p>Meta服务提供了两份初始配置文件<code>nebula-metad.conf.default</code>和<code>nebula-metad.conf.production</code>，方便在不同场景中使用。文件的默认路径为<code>/usr/local/nebula/etc/</code>。</p>
-<h2 id="_1">配置文件使用方式<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>首次启动时，Meta服务会从配置文件<code>nebula-metad.conf</code>中读取配置信息。需要把初始配置文件的后缀<code>.default</code>或<code>.production</code>删除，Meta服务才能将其识别为配置文件。</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>如果修改了配置文件，必须在配置文件开头添加<code>--local_config=true</code>，并重启服务。否则会从缓存中读取旧的配置。</p>
+<ul>
+<li>不建议修改<code>local_config</code>的值为<code>false</code>。修改后Nebula Graph服务启动后会先尝试从Meta服务获取缓存的配置信息，可能导致集群配置不一致，造成未知风险。</li>
+<li>不建议修改文档未介绍的配置项，除非已经熟悉源代码并清楚了解配置项作用。</li>
+</ul>
 </div>
+<h2 id="_1">配置文件使用方式<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<p>如需使用初始配置文件，从上述两个文件选择其一，删除后缀<code>.default</code>或<code>.production</code>，Meta服务才能将其识别为配置文件并从中获取配置信息。</p>
 <h2 id="_2">配置文件参数值说明<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p>如果配置文件内没有设置某个参数，表示参数使用的是默认值。</p>
-<p>配置文件内只预设了部分参数的值，而且两份初始配置文件内的参数值也略有不同，本文的预设值以<code>nebula-metad.conf.default</code>为准。</p>
+<p>配置文件内没有设置某个参数表示参数使用的是默认值。文件内只预设了部分参数的值，而且两份初始配置文件内的参数值也略有不同，本文的预设值以<code>nebula-metad.conf.default</code>为准。</p>
+<p>如需查看所有的参数及其当前值，参见[配置管理](1.configurations.md。</p>
 <h2 id="basics">basics配置<a class="headerlink" href="#basics" title="Permanent link">¶</a></h2>
 <table>
 <thead>
@@ -1923,6 +1926,11 @@
 <td align="left"><code>timezone_name</code></td>
 <td align="left">-</td>
 <td align="left">指定Nebula Graph的时区。初始配置文件中未设置该参数，如需使用请手动添加。系统默认值为<code>UTC+00:00:00</code>。格式请参见<a href="https://www.gnu.org/software/libc/manual/html_node/TZ-Variable.html" title="Click to view the timezone-related content in the GNU C Library manual">Specifying the Time Zone with TZ</a>。例如，东八区的设置方式为<code>--timezone_name=CST-8</code>。</td>
+</tr>
+<tr>
+<td align="left"><code>local_config</code></td>
+<td align="left"><code>true</code></td>
+<td align="left">是否从配置文件获取配置信息。</td>
 </tr>
 </tbody>
 </table>
@@ -2096,7 +2104,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月26日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月8日</span>
 </small>
 </div>
 </article>
@@ -2108,7 +2116,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="上一页: 配置简介" class="md-footer__link md-footer__link--prev" href="../1.configurations/" rel="prev">
+<a aria-label="上一页: 配置管理" class="md-footer__link md-footer__link--prev" href="../1.configurations/" rel="prev">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
 </div>
@@ -2117,7 +2125,7 @@
 <span class="md-footer__direction">
                 上一页
               </span>
-              配置简介
+              配置管理
             </div>
 </div>
 </a>
