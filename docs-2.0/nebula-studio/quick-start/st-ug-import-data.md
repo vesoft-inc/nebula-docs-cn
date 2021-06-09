@@ -38,7 +38,7 @@
   1. 在 **对应列标** 列，点击 **选择**。  
   ![在数据源中点击“选择”](../figs/st-ug-009-1.png "为 vertexId 选择数据源")  
 
-  2. 在弹出对话框中，选择数据列。在本示例中，`vertex_player.csv` 中仅有一列数据用于生成代表用户的 VID，`vertex_player.csv` 中选择表示 `playerID` 信息的 Column 0 用于生成代表球员的 VID。
+  2. 在弹出对话框中，选择数据列。在本示例中，`vertex_player.csv` 中仅有一列数据用于生成代表球员的 VID，`vertex_player.csv` 中选择表示 `playerID` 信息的 Column 0 用于生成代表球员的 VID。
 
     !!! Note
 
