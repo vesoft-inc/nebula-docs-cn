@@ -2290,9 +2290,9 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"}) RETURN v;
 </code></pre></div>
 <h3 id="_6">匹配连接的点<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
 <p>用户可以使用<code>--</code>符号表示两个方向的边，并匹配这些边连接的点。</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>在nGQL 1.x中，<code>--</code>符号用于行内注释，在nGQL 2.x中，<code>--</code>符号表示出边或入边。</p>
+<div class="admonition compatibility">
+<p class="admonition-title">历史版本兼容性</p>
+<p>在nGQL 1.x中，<code>--</code>符号用于行内注释，在nGQL 2.x中，<code>--</code>符号表示出边或入边，不再用于注释。</p>
 </div>
 <div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"})--(v2) \
         RETURN v2.name AS Name;
@@ -2735,7 +2735,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;(v2) \
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月11日</span>
 </small>
 </div>
 </article>
