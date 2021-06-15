@@ -9,7 +9,7 @@
 <meta content="Nebula Graph" name="author"/>
 <link href="https://docs.nebula-graph.com.cn/master/master/3.ngql-guide/7.general-query-statements/6.show/17.show-sessions/" rel="canonical"/>
 <link href="../../../../assets/images/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.7" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.8" name="generator"/>
 <title>SHOW SESSIONS - Nebula Graph Database 手册</title>
 <link href="../../../../assets/stylesheets/main.ca7ac06f.min.css" rel="stylesheet"/>
 <link href="../../../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
@@ -1846,7 +1846,7 @@
 <h1 id="show_sessions">SHOW SESSIONS<a class="headerlink" href="#show_sessions" title="Permanent link">¶</a></h1>
 <p><code>SHOW SESSIONS</code>语句显示所有会话信息，也可以指定会话ID进行查看。</p>
 <h2 id="_1">注意事项<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>登录数据库时，会创建一个会话，操作结束执行<code>exit</code>退出登录时，会清空自身的会话信息。</p>
+<p>使用Nebula Console登录数据库时，会创建一个会话，操作结束执行<code>exit</code>退出登录时，客户端会调用API <code>release</code>，释放会话并清除会话信息。</p>
 <p>如果没有正常退出，且没有在配置文件<a href="../../../../5.configurations-and-logs/1.configurations/3.graph-config/">nebula-graphd.conf</a>设置空闲会话超时时间（<code>session_idle_timeout_secs</code>），会话不会自动释放。</p>
 <p>对于未自动释放的会话，需要手动删除指定会话(TODO: coding)。</p>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
@@ -1906,11 +1906,11 @@ nebula&gt; SHOW SESSION 1623304491050858;
 </tr>
 <tr>
 <td align="left"><code>CreateTime</code></td>
-<td align="left">会话的创建时间（UTC时间），即用户认证登录的时间。</td>
+<td align="left">会话的创建时间，即用户认证登录的时间。时区为配置文件中<code>timezone_name</code>指定的时区。</td>
 </tr>
 <tr>
 <td align="left"><code>UpdateTime</code></td>
-<td align="left">用户有执行操作时，会更新此时间（UTC时间）。</td>
+<td align="left">用户有执行操作时，会更新此时间。时区为配置文件中<code>timezone_name</code>指定的时区。</td>
 </tr>
 <tr>
 <td align="left"><code>GraphAddr</code></td>
@@ -1930,7 +1930,7 @@ nebula&gt; SHOW SESSION 1623304491050858;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月10日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月15日</span>
 </small>
 </div>
 </article>
