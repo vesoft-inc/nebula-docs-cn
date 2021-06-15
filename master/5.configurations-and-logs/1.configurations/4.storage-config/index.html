@@ -2165,6 +2165,11 @@
 <td align="left"><code>12</code></td>
 <td align="left">每个key的prefix长度。可选值为<code>12</code>（分片ID+点ID）和<code>16</code>（分片ID+点ID+标签ID/边类型ID）。单位：字节。</td>
 </tr>
+<tr>
+<td align="left"><code>enable_partitioned_index_filter</code></td>
+<td align="left">-</td>
+<td align="left">设置为<code>true</code>可以降低bloom过滤器占用的内存大小，但是在某些随机寻道（random-seek）的情况下，可能会降低读取性能。</td>
+</tr>
 </tbody>
 </table>
 <h2 id="rocksdb_options">rocksdb options配置<a class="headerlink" href="#rocksdb_options" title="Permanent link">¶</a></h2>
@@ -2262,7 +2267,7 @@ disable_auto_compactions
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月11日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月15日</span>
 </small>
 </div>
 </article>
