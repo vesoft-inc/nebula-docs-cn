@@ -94,7 +94,7 @@ Importer适用于将本地CSV文件的内容导入至Nebula Graph中。
    ```bash
    $ tar -zxvf nebula-importer.tar.gz 
    $ cd nebula-importer
-   $ go build -mod vendor cmd/
+   $ go build -mod vendor cmd/importer.go
    ```
 
 ### Docker方式运行
