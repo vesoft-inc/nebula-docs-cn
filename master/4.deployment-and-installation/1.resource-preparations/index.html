@@ -1186,9 +1186,23 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+    FAQ
+  </a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
 <a class="md-nav__link" href="#_12">
     关于存储设备
   </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cpu">
+    关于CPU架构
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -1983,9 +1997,23 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+    FAQ
+  </a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
 <a class="md-nav__link" href="#_12">
     关于存储设备
   </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cpu">
+    关于CPU架构
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -2476,15 +2504,18 @@ $ <span class="nb">source</span> /opt/vesoft/toolset/gcc/7.5.0/enable
 <p class="admonition-title">Note</p>
 <p>用户可以在配置文件<code>nebula-storaged.conf</code>中添加<code>--enable_partitioned_index_filter=true</code>来降低bloom过滤器占用的内存大小，但是在某些随机寻道（random-seek）的情况下，可能会降低读取性能。</p>
 </div>
-<h2 id="_12">关于存储设备<a class="headerlink" href="#_12" title="Permanent link">¶</a></h2>
+<h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">¶</a></h2>
+<h3 id="_12">关于存储设备<a class="headerlink" href="#_12" title="Permanent link">¶</a></h3>
 <p>Nebula Graph是针对NVMe SSD进行设计和实现的，所有默认参数都是基于SSD设备进行调优。</p>
 <p>不推荐使用HDD，因为HDD的IOPS性能差，随机寻道延迟高，可能还会遇到许多其他问题。也不建议使用远端存储设备，例如NAS或SAN。</p>
 <p>请使用本地SSD设备。</p>
+<h3 id="cpu">关于CPU架构<a class="headerlink" href="#cpu" title="Permanent link">¶</a></h3>
+<p>Nebula Graph master 不支持在 ARM 架构（包括Mac M1 或者华为鲲鹏）上运行或者编译。</p>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月4日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月15日</span>
 </small>
 </div>
 </article>
