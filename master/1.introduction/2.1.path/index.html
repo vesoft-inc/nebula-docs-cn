@@ -1853,14 +1853,14 @@
 <p>查看示例图，由于C、D、E构成了一个环，因此该图包含无限个路径，例如<code>A-&gt;B-&gt;C-&gt;D-&gt;E</code>、<code>A-&gt;B-&gt;C-&gt;D-&gt;E-&gt;C</code>、<code>A-&gt;B-&gt;C-&gt;D-&gt;E-&gt;C-&gt;D</code>。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>原生nGQL的<code>GO</code>语句采用的是<code>walk</code>类型路径。</p>
+<p><code>GO</code>语句采用的是<code>walk</code>类型路径。</p>
 </div>
 <h2 id="trail">trail<a class="headerlink" href="#trail" title="Permanent link">¶</a></h2>
 <p><code>trail</code>类型的路径由有限的边序列构成。遍历时只有点可以重复，边不可以重复。柯尼斯堡七桥问题的路径类型就是<code>trail</code>。</p>
 <p>查看示例图，由于边不可以重复，所以该图包含有限个路径，最长路径由5条边组成：<code>A-&gt;B-&gt;C-&gt;D-&gt;E-&gt;C</code>。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>openCypher兼容语句的<code>MATCH</code>语句采用的是<code>trail</code>类型路径。</p>
+<p><code>MATCH</code>、<code>FIND PATH</code>和<code>GET SUBGRAPH</code>语句采用的是<code>trail</code>类型路径。</p>
 </div>
 <h2 id="path">path<a class="headerlink" href="#path" title="Permanent link">¶</a></h2>
 <p><code>path</code>类型的路径由有限的边序列构成。遍历时点和边都不可以重复。</p>
@@ -1869,7 +1869,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月17日</span>
 </small>
 </div>
 </article>
