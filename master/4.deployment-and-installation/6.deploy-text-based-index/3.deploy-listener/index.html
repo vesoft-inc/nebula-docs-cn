@@ -1017,18 +1017,23 @@
 <nav aria-label="部署流程" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#storage">
+    第一步：安装Storage服务
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#listener">
-    第一步：准备listener的配置文件
+    第二步：准备listener的配置文件
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#listener_1">
-    第二步：启动listener
+    第三步：启动listener
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#listener_nebula_graph">
-    第三步：添加 listener 到 Nebula Graph 集群
+    第四步：添加 listener 到 Nebula Graph 集群
   </a>
 </li>
 </ul>
@@ -1887,18 +1892,23 @@
 <nav aria-label="部署流程" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#storage">
+    第一步：安装Storage服务
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#listener">
-    第一步：准备listener的配置文件
+    第二步：准备listener的配置文件
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#listener_1">
-    第二步：启动listener
+    第三步：启动listener
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#listener_nebula_graph">
-    第三步：添加 listener 到 Nebula Graph 集群
+    第四步：添加 listener 到 Nebula Graph 集群
   </a>
 </li>
 </ul>
@@ -1970,8 +1980,10 @@
 <li>只能为一个图空间“一次性添加所有的 listener 机器”。尝试向已经存在有 listener 的图空间再添加新 listener 会失败。因此，需在一个命令语句里完整地添加全部的 listener。</li>
 </ul>
 <h2 id="_3">部署流程<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<h3 id="listener">第一步：准备listener的配置文件<a class="headerlink" href="#listener" title="Permanent link">¶</a></h3>
-<p>用户必须在需要部署listener的机器上准备对应的配置文件。文件名称必须为<code>nebula-storaged-listener.conf</code>。用户可以参考提供的<a href="https://github.com/vesoft-inc/nebula-storage/blob/master/conf/nebula-storaged-listener.conf.production">模板</a>。注意去掉文件后缀<code>.production</code>。</p>
+<h3 id="storage">第一步：安装Storage服务<a class="headerlink" href="#storage" title="Permanent link">¶</a></h3>
+<p>listerner进程与storaged进程使用相同的二进制文件，但是二者配置文件不同，进程使用端口也不同，可以在所有需要部署listener的服务器上都安装Nebula Graph，但是仅使用Storage服务。详情请参见<a href="../../2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb/">使用RPM或DEB安装包安装Nebula Graph</a>。</p>
+<h3 id="listener">第二步：准备listener的配置文件<a class="headerlink" href="#listener" title="Permanent link">¶</a></h3>
+<p>用户必须在需要部署listener的机器上准备对应的配置文件，文件名称必须为<code>nebula-storaged-listener.conf</code>，并保存在安装路径下的<code>etc</code>目录内。用户可以参考提供的<a href="https://github.com/vesoft-inc/nebula-storage/blob/master/conf/nebula-storaged-listener.conf.production">模板</a>。注意去掉文件后缀<code>.production</code>。</p>
 <p>大部分配置与<a href="../../../5.configurations-and-logs/1.configurations/4.storage-config/">Storage服务</a>的配置文件相同，本文仅介绍差异部分。</p>
 <table>
 <thead>
@@ -2053,12 +2065,12 @@
 <p class="admonition-title">Note</p>
 <p>在配置文件中请使用真实的（listener机器）IP地址替换<code>127.0.0.1</code>。</p>
 </div>
-<h3 id="listener_1">第二步：启动listener<a class="headerlink" href="#listener_1" title="Permanent link">¶</a></h3>
+<h3 id="listener_1">第三步：启动listener<a class="headerlink" href="#listener_1" title="Permanent link">¶</a></h3>
 <p>执行如下命令启动启动listener：</p>
 <div class="highlight"><pre><span></span><code>./bin/nebula-storaged --flagfile &lt;listener_config_path&gt;/nebula-storaged-listener.conf
 </code></pre></div>
 <p><code>listener_config_path</code>是存放 listener 配置文件的路径。</p>
-<h3 id="listener_nebula_graph">第三步：添加 listener 到 Nebula Graph 集群<a class="headerlink" href="#listener_nebula_graph" title="Permanent link">¶</a></h3>
+<h3 id="listener_nebula_graph">第四步：添加 listener 到 Nebula Graph 集群<a class="headerlink" href="#listener_nebula_graph" title="Permanent link">¶</a></h3>
 <p><a href="../../../2.quick-start/3.connect-to-nebula-graph/">用命令行连接到Nebula Graph</a>，然后执行<a href="../../../3.ngql-guide/9.space-statements/2.use-space/"><code>USE &lt;space&gt;</code></a>进入需要创建全文索引的图空间。然后执行如下命令添加 listener：</p>
 <div class="highlight"><pre><span></span><code>ADD LISTENER ELASTICSEARCH &lt;listener_ip:port&gt; [,&lt;listener_ip:port&gt;, ...]
 </code></pre></div>
@@ -2067,7 +2079,7 @@
 <p>listener 必须使用真实的IP地址。</p>
 <p>请在一个语句里完整地添加所有 listener。例如：</p>
 </div>
-<div class="highlight"><pre><span></span><code>nebula&gt; ADD LISTENER ELASTICSEARCH 192.168.8.5:46780,192.168.8.6:46780;
+<div class="highlight"><pre><span></span><code>nebula&gt; ADD LISTENER ELASTICSEARCH 192.168.8.5:9789,192.168.8.6:9789;
 </code></pre></div>
 <h2 id="listener_2">查看 listener<a class="headerlink" href="#listener_2" title="Permanent link">¶</a></h2>
 <p>执行<code>SHOW LISTENER</code>语句可以列出所有的 listener。</p>
@@ -2098,7 +2110,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月26日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月17日</span>
 </small>
 </div>
 </article>

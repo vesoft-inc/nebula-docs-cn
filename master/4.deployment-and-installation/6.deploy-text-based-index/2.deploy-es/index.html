@@ -1977,6 +1977,29 @@
 <span class="nt">"column_id"</span> <span class="p">:</span> <span class="p">{</span> <span class="nt">"type"</span> <span class="p">:</span> <span class="s2">"text"</span> <span class="p">},</span>
 <span class="nt">"value"</span> <span class="p">:{</span> <span class="nt">"type"</span> <span class="p">:</span> <span class="s2">"keyword"</span><span class="p">}</span>
 </code></pre></div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>创建全文索引时，索引名称需要以<code>nebula</code>开头。</p>
+</div>
+<p>示例命令：</p>
+<div class="highlight"><pre><span></span><code>curl -H <span class="s2">"Content-Type: application/json; charset=utf-8"</span> -XPUT http://127.0.0.1:9200/_template/nebula_index_template -d <span class="s1">'</span>
+<span class="s1">{</span>
+<span class="s1"> "template": "nebula*",</span>
+<span class="s1">  "settings": {</span>
+<span class="s1">    "index": {</span>
+<span class="s1">      "number_of_shards": 3,</span>
+<span class="s1">      "number_of_replicas": 1</span>
+<span class="s1">    }</span>
+<span class="s1">  },</span>
+<span class="s1">  "mappings": {</span>
+<span class="s1">    "properties" : {</span>
+<span class="s1">            "tag_id" : { "type" : "long" },</span>
+<span class="s1">            "column_id" : { "type" : "text" },</span>
+<span class="s1">            "value" :{ "type" : "keyword"}</span>
+<span class="s1">        }</span>
+<span class="s1">  }</span>
+<span class="s1">}'</span>
+</code></pre></div>
 <p>用户可以配置Elasticsearch来满足业务需求，如果需要定制Elasticsearch，请参见<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/settings.html">Elasticsearch官方文档</a>。</p>
 <h2 id="_3">登录文本搜索客户端<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <p>部署Elasticsearch集群之后，可以使用<code>SIGN IN</code>语句登录Elasticsearch客户端。必须使用Elasticsearch配置文件中的IP地址和端口才能正常连接，同时登录多个客户端，请在多个<code>elastic_ip:port</code>之间用英文逗号（,）分隔。</p>
@@ -2019,7 +2042,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月17日</span>
 </small>
 </div>
 </article>

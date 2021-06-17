@@ -1802,7 +1802,10 @@
 </div>
 <p>目前为止，全文索引有如下限制：</p>
 <ul>
-<li>字符串索引的最大长度为256字节，超出的部分做截断处理。</li>
+<li>定长字符串长度超过256字节，将无法创建全文索引。</li>
+</ul>
+<ul>
+<li>如果标签上存在全文索引，无法删除或修改标签。</li>
 </ul>
 <ul>
 <li>不能同时为多个属性创建全文索引。</li>
@@ -1844,7 +1847,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月26日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月17日</span>
 </small>
 </div>
 </article>
