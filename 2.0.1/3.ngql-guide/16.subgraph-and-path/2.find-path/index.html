@@ -9,7 +9,7 @@
 <meta content="Nebula Graph" name="author"/>
 <link href="https://docs.nebula-graph.com.cn/2.0.1/2.0.1/3.ngql-guide/16.subgraph-and-path/2.find-path/" rel="canonical"/>
 <link href="../../../assets/images/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.7" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.8" name="generator"/>
 <title>FIND PATH - Nebula Graph Database 手册</title>
 <link href="../../../assets/stylesheets/main.ca7ac06f.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
@@ -1905,33 +1905,44 @@ OVER &lt;edge_type_list&gt; [REVERSELY | BIDIRECT] [UPTO &lt;N&gt; STEPS] [| ORD
 </ul>
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <p>返回的路径格式类似于<code>(&lt;vertex_id&gt;)-[:&lt;edge_type_name&gt;@&lt;rank&gt;]-&gt;(&lt;vertex_id)</code>。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; FIND SHORTEST PATH FROM "player102" TO "team201" OVER *;
-+------------------------------------------------------------------+
-| path                                                             |
-+------------------------------------------------------------------+
-| ("player102")-[:follow@0]-&gt;("player101")-[:serve@0]-&gt;("team201") |
-+------------------------------------------------------------------+
+<div class="highlight"><pre><span></span><code>nebula&gt; FIND SHORTEST PATH FROM "player102" TO "team204" OVER *;
++--------------------------------------------+
+| path                                       |
++--------------------------------------------+
+| &lt;("player102")-[:serve@0 {}]-&gt;("team204")&gt; |
++--------------------------------------------+
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>nebula&gt; FIND SHORTEST PATH FROM "team200" TO "player100" OVER * REVERSELY;
-+---------------------------------------+
-| path                                  |
-+---------------------------------------+
-| ("team200")&lt;-[:serve@0]-("player100") |
-+---------------------------------------+
+<div class="highlight"><pre><span></span><code>nebula&gt; FIND SHORTEST PATH FROM "team204" TO "player100" OVER * REVERSELY;
++--------------------------------------------+
+| path                                       |
++--------------------------------------------+
+| &lt;("team204")&lt;-[:serve@0 {}]-("player100")&gt; |
++--------------------------------------------+
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>nebula&gt; FIND ALL PATH FROM "player100" TO "team200" OVER *;
-+---------------------------------------+
-| path                                  |
-+---------------------------------------+
-| ("player100")-[:serve@0]-&gt;("team200") |
-+---------------------------------------+
+<div class="highlight"><pre><span></span><code>nebula&gt; FIND ALL PATH FROM "player100" TO "team204" OVER *;
++-------------------------------------------------------------------------------+
+| path                                                                          |
++-------------------------------------------------------------------------------+
+| &lt;("player100")-[:serve@0 {}]-&gt;("team204")&gt;                                    |
++-------------------------------------------------------------------------------+
+| &lt;("player100")-[:follow@0 {}]-&gt;("player125")-[:serve@0 {}]-&gt;("team204")&gt;      |
++-------------------------------------------------------------------------------+
+...
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>nebula&gt; FIND NOLOOP PATH FROM "player100" TO "team200" OVER *;
-+---------------------------------------+
-| path                                  |
-+---------------------------------------+
-| ("player100")-[:serve@0]-&gt;("team200") |
-+---------------------------------------+
+<div class="highlight"><pre><span></span><code>nebula&gt; FIND NOLOOP PATH FROM "player100" TO "team204" OVER *;
++--------------------------------------------------------------------------------------------------------+
+| path                                                                                                   |
++--------------------------------------------------------------------------------------------------------+
+| &lt;("player100")-[:serve@0 {}]-&gt;("team204")&gt;                                                             |
++--------------------------------------------------------------------------------------------------------+
+| &lt;("player100")-[:follow@0 {}]-&gt;("player125")-[:serve@0 {}]-&gt;("team204")&gt;                               |
++--------------------------------------------------------------------------------------------------------+
+| &lt;("player100")-[:follow@0 {}]-&gt;("player101")-[:serve@0 {}]-&gt;("team204")&gt;                               |
++--------------------------------------------------------------------------------------------------------+
+| &lt;("player100")-[:follow@0 {}]-&gt;("player101")-[:follow@0 {}]-&gt;("player125")-[:serve@0 {}]-&gt;("team204")&gt; |
++--------------------------------------------------------------------------------------------------------+
+| &lt;("player100")-[:follow@0 {}]-&gt;("player101")-[:follow@0 {}]-&gt;("player102")-[:serve@0 {}]-&gt;("team204")&gt; |
++--------------------------------------------------------------------------------------------------------+
 </code></pre></div>
 <h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">¶</a></h2>
 <h3 id="where">是否支持WHERE子句，以实现图遍历过程中的条件过滤?<a class="headerlink" href="#where" title="Permanent link">¶</a></h3>
@@ -1940,7 +1951,7 @@ OVER &lt;edge_type_list&gt; [REVERSELY | BIDIRECT] [UPTO &lt;N&gt; STEPS] [| ORD
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月1日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月17日</span>
 </small>
 </div>
 </article>
