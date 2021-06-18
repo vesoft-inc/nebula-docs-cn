@@ -91,6 +91,7 @@ https://www.marketsandmarkets.com/Market-Reports/graph-database-market-126230231
 - 2017 年，ISO WG3 工作组开始讨论如何将属性图查询能力引入 SQL。
 - 2018 年 12 月，从 Neo4j 3.5 开始其核心部分转为闭源。
 - 2019 年, ISO 正式立项两个项目(ISO/IEC JTC 1 N 14279和ISO/IEC JTC 1/SC 32 N 3228），启动关于图数据库语言国际标准的制定工作。
+- 2021 年，Neo4j 完成 F 轮 3.25 亿美元的融资，是整个数据库（包括关系型）历史上最大一轮融资。
 
 [^Gremlin]: Gremlin是基于Apache TinkerPop开发的图语言(https://tinkerpop.apache.org/)。
 
