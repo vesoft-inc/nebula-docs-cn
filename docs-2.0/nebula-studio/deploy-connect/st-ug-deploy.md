@@ -44,7 +44,6 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
    | 安装包 | Nebula Graph版本 |
    | ----- | ----- |
-   | [nebula-graph-studio-v1.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-v1.tar.gz) | 1.x |
    | [nebula-graph-studio-v2.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-v2.tar.gz) | 2.x |
 
 2. 创建`nebula-graph-studio-v2`目录，并将安装包解压至目录中。
@@ -126,15 +125,9 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
 1. 根据需要选择并下载RPM包，建议选择最新版本。常用下载链接如下：
 
-   | 安装包 | 检验和 | Nebula版本 |
+   | 安装包 | 检验和 | Nebula Graph内核版本 |
    | ----- | ----- | ----- |
    | [nebula-graph-studio-2.2.1-6.x86_64.rpm](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-2.2.1-6.x86_64.rpm) |  [nebula-graph-studio-2.2.1-6.x86_64.rpm.sha256](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-2.2.1-6.x86_64.rpm.sha256) | 2.0.1 |
-   
-   Nebula Graph 内核版本与 Studio 版本的对应关系如下：
-   
-   |Nebula Graph版本|Studio版本|
-   |:---|:---|
-   | 2.0.1  | 2.2.1 |
    
 2. 使用`sudo rpm -i <rpm>`命令安装RPM包。
 
