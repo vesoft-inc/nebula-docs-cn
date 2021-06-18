@@ -1034,6 +1034,15 @@
 <a class="md-nav__link" href="#_2">
     示例
   </a>
+<nav aria-label="示例" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step_count">
+    为什么返回结果中会出现超出step_count跳数之外的关系？
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -1822,6 +1831,15 @@
 <a class="md-nav__link" href="#_2">
     示例
   </a>
+<nav aria-label="示例" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#step_count">
+    为什么返回结果中会出现超出step_count跳数之外的关系？
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -1901,11 +1919,25 @@
 <p><img alt='GET SUBGRAPH FROM "100" OUT serve' src="https://docs-cdn.nebula-graph.com.cn/docs-2.0/3.ngql-guide/15.subgraph-and-path/subgraph-2.png"/></p>
 </li>
 </ul>
+<h3 id="step_count">为什么返回结果中会出现超出<code>step_count</code>跳数之外的关系？<a class="headerlink" href="#step_count" title="Permanent link">¶</a></h3>
+<p>为了展示子图的完整性，会在满足条件的所有点上额外查询一跳。例如下图。</p>
+<p><img alt="FAQ" src="../subgraph2.png"/></p>
+<ul>
+<li>用<code>GET SUBGRAPH 1 STEPS FROM "A";</code>查询的满足结果的路径是<code>A-&gt;B</code>、<code>B-&gt;A</code>和<code>A-&gt;C</code>，为了子图的完整性，会在满足结果的点上额外查询一跳，即<code>B-&gt;C</code>。</li>
+</ul>
+<ul>
+<li>用<code>GET SUBGRAPH 1 STEPS FROM "A" IN follow;</code>查询的满足结果的路径是<code>B-&gt;A</code>，在满足结果的点上额外查询一跳，即<code>A-&gt;B</code>。</li>
+</ul>
+<p>如果只是查询满足条件的路径或点，建议使用<a href="../../7.general-query-statements/2.match/">MATCH</a>或<a href="../../7.general-query-statements/3.go/">GO</a>语句。例如：</p>
+<div class="highlight"><pre><span></span><code>nebula&gt; match p= (v:player) -- (v2) where id(v)=="A" return p;
+
+nebula&gt; go 1 steps from "A" over follow;
+</code></pre></div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月17日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月18日</span>
 </small>
 </div>
 </article>
