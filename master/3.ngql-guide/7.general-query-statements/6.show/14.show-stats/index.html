@@ -1854,9 +1854,9 @@
 </ul>
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <p>在需要查看统计信息的图空间中执行<code>SUBMIT JOB STATS</code>。详情请参见<a href="../../../18.operation-and-maintenance-statements/4.job-statements/">SUBMIT JOB STATS</a>。</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><code>SHOW STATS</code>的结果取决于最近一次执行的<code>SUBMIT JOB STATS</code>，如果需要更新结果，请再次执行<code>SUBMIT JOB STATS</code>。</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p><code>SHOW STATS</code>的结果取决于最后一次执行的<code>SUBMIT JOB STATS</code>。如果发生过新的写入或者更改，必须再次执行<code>SUBMIT JOB STATS</code>，否则统计数据有错误。</p>
 </div>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code>SHOW STATS;
@@ -1909,7 +1909,7 @@ nebula&gt; SHOW STATS;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月21日</span>
 </small>
 </div>
 </article>

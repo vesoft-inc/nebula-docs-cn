@@ -1941,9 +1941,6 @@ nebula&gt; MATCH p = (n:player{name:"Tim Duncan"})-[:follow]-&gt;(m) \
 </code></pre></div>
 <h2 id="opencypher">OpenCypher兼容性<a class="headerlink" href="#opencypher" title="Permanent link">¶</a></h2>
 <ul>
-<li>复合数据类型（例如set、map、list）<strong>不能</strong>存储为点或边的属性。</li>
-</ul>
-<ul>
 <li>在openCypher中，查询越界元素时返回<code>null</code>，而在nGQL中，查询越界元素时返回<code>OUT_OF_RANGE</code>。<div class="highlight"><pre><span></span><code>nebula&gt; RETURN range(0,5)[-12];
 +-------------------+
 | range(0,5)[-(12)] |
@@ -1953,11 +1950,15 @@ nebula&gt; MATCH p = (n:player{name:"Tim Duncan"})-[:follow]-&gt;(m) \
 </code></pre></div>
 </li>
 </ul>
+<ul>
+<li>复合数据类型（例如set、map、list）<strong>不能</strong>存储为点或边的属性。<p>+ 建议修改图建模方式：将复合数据类型建模为点的邻边，而不是该点的自身属性，每条邻边可以动态增删，并且可以设置邻边的 rank 值来控制邻边的顺序。</p>
+</li>
+</ul>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月24日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月21日</span>
 </small>
 </div>
 </article>
