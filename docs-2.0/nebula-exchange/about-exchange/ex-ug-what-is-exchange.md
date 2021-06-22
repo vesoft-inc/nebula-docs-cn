@@ -42,7 +42,7 @@ Exchange具有以下优点：
 
 Exchange 2.0支持将以下格式或来源的数据转换为Nebula Graph能识别的点和边数据：
 
-- 存储在HDFS的数据，包括：
+- 存储在HDFS或本地的数据，包括：
   - [Apache Parquet](../use-exchange/ex-ug-import-from-parquet.md)
   - [Apache ORC](../use-exchange/ex-ug-import-from-orc.md)
   - [JSON](../use-exchange/ex-ug-import-from-json.md)

@@ -1,6 +1,6 @@
 # 导入CSV文件数据
 
-本文以一个示例说明如何使用Exchange将存储在HDFS上的CSV文件数据导入Nebula Graph。
+本文以一个示例说明如何使用Exchange将存储在HDFS或本地的CSV文件数据导入Nebula Graph。
 
 如果要向Nebula Graph导入本地CSV文件，请参见[Nebula Importer](https://github.com/vesoft-inc/nebula-importer "Click to go to GitHub")。
 
@@ -38,7 +38,9 @@
 
 - 了解Nebula Graph中创建Schema的信息，包括标签和边类型的名称、属性等。
 
-- 已经安装并开启Hadoop服务。
+- 如果文件存储在HDFS上，需要确认Hadoop服务运行正常。
+
+- 如果文件存储在本地且Nebula Graph是集群架构，需要在集群每台机器本地相同目录下放置文件。
 
 ## 操作步骤
 
@@ -92,7 +94,7 @@
 
         Exchange支持上传有表头或者无表头的CSV文件。
 
-1. CSV文件必须存储在HDFS中，并已获取文件存储路径。
+2. 获取CSV文件存储路径。
 
 ### 步骤 3：修改配置文件
 
@@ -165,8 +167,9 @@
         sink: client
       }
 
-      # 指定CSV文件的HDFS路径。
-      # 用双引号括起路径，以hdfs://开头。
+      # 指定CSV文件的路径。
+      # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
       path: "hdfs://192.168.11.13:9000/data/vertex_player.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
@@ -212,8 +215,9 @@
         sink: client
       }
 
-      # 指定CSV文件的HDFS路径。
-      # 用双引号括起路径，以hdfs://开头。
+      # 指定CSV文件的路径。
+      # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
       path: "hdfs://192.168.11.13:9000/data/vertex_team.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
@@ -264,8 +268,9 @@
         sink: client
       }
 
-      # 指定CSV文件的HDFS路径。
-      # 用双引号括起路径，以hdfs://开头。
+      # 指定CSV文件的路径。
+      # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
       path: "hdfs://192.168.11.13:9000/data/edge_follow.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
@@ -317,8 +322,9 @@
         sink: client
       }
 
-      # 指定CSV文件的HDFS路径。
-      # 用双引号括起路径，以hdfs://开头。
+      # 指定CSV文件的路径。
+      # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
       path: "hdfs://192.168.11.13:9000/data/edge_serve.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。

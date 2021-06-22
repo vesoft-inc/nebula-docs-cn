@@ -1,6 +1,6 @@
 # 导入Parquet文件数据
 
-本文以一个示例说明如何使用Exchange将存储在HDFS上的Parquet文件数据导入Nebula Graph。
+本文以一个示例说明如何使用Exchange将存储在HDFS或本地的Parquet文件数据导入Nebula Graph。
 
 如果要向Nebula Graph导入本地Parquet文件，请参见[Nebula Importer](https://github.com/vesoft-inc/nebula-importer "Click to go to GitHub")。
 
@@ -38,7 +38,9 @@
 
 - 了解Nebula Graph中创建Schema的信息，包括标签和边类型的名称、属性等。
 
-- 已经安装并开启Hadoop服务。
+- 如果文件存储在HDFS上，需要确认Hadoop服务运行正常。
+
+- 如果文件存储在本地且Nebula Graph是集群架构，需要在集群每台机器本地相同目录下放置文件。
 
 ## 操作步骤
 
@@ -88,7 +90,7 @@
 
 1. 处理Parquet文件以满足Schema的要求。
 
-2. Parquet文件必须存储在HDFS中，并已获取文件存储路径。
+2. 获取Parquet文件存储路径。
 
 ### 步骤 3：修改配置文件
 
@@ -161,8 +163,9 @@
         sink: client
       }
 
-      # 指定Parquet文件的HDFS路径。
-      # 用双引号括起路径，以hdfs://开头。
+      # 指定Parquet文件的路径。
+      # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
       path: "hdfs://192.168.11.139000/data/vertex_player.parquet"
 
       # 在fields里指定Parquet文件中key名称，其对应的value会作为Nebula Graph中指定属性的数据源。
@@ -200,8 +203,9 @@
         sink: client
       }
 
-      # 指定Parquet文件的HDFS路径。
-      # 用双引号括起路径，以hdfs://开头。
+      # 指定Parquet文件的路径。
+      # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
       path: "hdfs://192.168.11.13:9000/data/vertex_team.parquet"
 
       # 在fields里指定Parquet文件中key名称，其对应的value会作为Nebula Graph中指定属性的数据源。
@@ -245,8 +249,9 @@
         sink: client
       }
 
-      # 指定Parquet文件的HDFS路径。
-      # 用双引号括起路径，以hdfs://开头。
+      # 指定Parquet文件的路径。
+      # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
       path: "hdfs://192.168.11.13:9000/data/edge_follow.parquet"
 
       # 在fields里指定Parquet文件中key名称，其对应的value会作为Nebula Graph中指定属性的数据源。
@@ -291,8 +296,9 @@
         sink: client
       }
 
-      # 指定Parquet文件的HDFS路径。
-      # 用双引号括起路径，以hdfs://开头。
+      # 指定Parquet文件的路径。
+      # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
       path: "hdfs://192.168.11.13:9000/data/edge_serve.parquet"
 
       # 在fields里指定Parquet文件中key名称，其对应的value会作为Nebula Graph中指定属性的数据源。
