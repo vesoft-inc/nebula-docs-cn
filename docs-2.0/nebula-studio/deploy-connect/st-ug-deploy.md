@@ -155,7 +155,7 @@ $ bash /usr/local/nebula-graph-studio/scripts/stop.sh
 
 如果启动服务时遇到报错报错 ERROR: bind EADDRINUSE 0.0.0.0:7001，您可以通过以下命令查看端口7001是否被占用。
 ```bash
-$ losf -i:7001
+$ lsof -i:7001
 ```
 
 如果端口被占用，且无法结束该端口上进程，您可以通过以下命令修改Studio服务启动端口，并重新启动服务。
