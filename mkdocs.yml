@@ -265,7 +265,9 @@ nav:
       - Storage负载均衡: 8.service-tuning/load-balance.md
       - 图建模: 8.service-tuning/2.graph-modeling.md
       - 系统建模: 8.service-tuning/3.system-design.md
+      - 执行计划: 8.service-tuning/4.plan.md
       - 超级节点(稠密点): 8.service-tuning/super-node.md
+
 
   - Nebula Graph Studio:
     - Studio版本更新说明: nebula-studio/about-studio/st-ug-release-note.md
