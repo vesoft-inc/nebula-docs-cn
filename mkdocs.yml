@@ -169,7 +169,7 @@ nav:
 
       - 标签语句:
           - CREATE TAG: 3.ngql-guide/10.tag-statements/1.create-tag.md
-          - DROP TAGS: 3.ngql-guide/10.tag-statements/2.drop-tag.md
+          - DROP TAG: 3.ngql-guide/10.tag-statements/2.drop-tag.md
           - ALTER TAG: 3.ngql-guide/10.tag-statements/3.alter-tag.md
           - SHOW TAGS: 3.ngql-guide/10.tag-statements/4.show-tags.md
           - DESCRIBE TAG: 3.ngql-guide/10.tag-statements/5.describe-tag.md
