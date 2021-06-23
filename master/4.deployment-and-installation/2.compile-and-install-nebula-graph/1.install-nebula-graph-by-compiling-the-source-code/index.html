@@ -1189,6 +1189,11 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    问题排查
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1951,6 +1956,11 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+    问题排查
+  </a>
+</li>
 </ul>
 </nav>
 </div>
@@ -1965,7 +1975,7 @@
 <p>使用源码安装Nebula Graph允许自定义编译和安装设置，并测试最新特性。</p>
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <ul>
-<li>已准备正确的编译环境。详情请参见<a href="../../1.resource-preparations/">准备编译、安装和运行Nebula Graph的环境</a>。</li>
+<li>准备正确的编译环境。参见<a href="../../1.resource-preparations/">软硬件要求和安装三方库依赖包</a>。</li>
 </ul>
 <ul>
 <li>待安装Nebula Graph的主机可以访问互联网。</li>
@@ -1975,12 +1985,12 @@
 <li>
 <p>克隆Nebula Graph源码到主机。</p>
 <ul>
-<li>如果需要安装最新版本的开发代码，请执行如下命令下载<code>master</code>分支的源码：<div class="highlight"><pre><span></span><code>$ git clone -b master https://github.com/vesoft-inc/nebula-graph.git
+<li>[推荐]如果需要安装指定版本的Nebula Graph 2.x，请使用选项<code>--branch</code>指定分支。例如安装vmaster发布版本，请执行如下命令：<div class="highlight"><pre><span></span><code>$ git clone --branch vmaster https://github.com/vesoft-inc/nebula-graph.git
 </code></pre></div>
 </li>
 </ul>
 <ul>
-<li>如果需要安装指定版本的Nebula Graph 2.x，请使用选项<code>--branch</code>指定分支。例如安装v2.0.0发布版本，请执行如下命令：<div class="highlight"><pre><span></span><code>$ git clone --branch v2.0.0 https://github.com/vesoft-inc/nebula-graph.git
+<li>如果需要安装日常开发版本的开发代码，请执行如下命令下载<code>master</code>分支的源码：<div class="highlight"><pre><span></span><code>$ git clone https://github.com/vesoft-inc/nebula-graph.git
 </code></pre></div>
 </li>
 </ul>
@@ -2003,12 +2013,12 @@
 <p>更多CMake参数说明，请参见<a href="#cmake">CMake参数</a>。</p>
 </div>
 <ul>
-<li>如果在第1步下载的是最新版本的开发代码，请执行如下命令：<div class="highlight"><pre><span></span><code>$ cmake -DENABLE_BUILD_STORAGE<span class="o">=</span>on -DENABLE_TESTING<span class="o">=</span>OFF -DCMAKE_BUILD_TYPE<span class="o">=</span>Release ..
+<li>如果在第1步下载的是最新版本的开发代码（master），请执行如下命令：<div class="highlight"><pre><span></span><code>$ cmake -DENABLE_BUILD_STORAGE<span class="o">=</span>on -DENABLE_TESTING<span class="o">=</span>OFF -DENABLE_MODULE_UPDATE<span class="o">=</span>ON -DCMAKE_BUILD_TYPE<span class="o">=</span>Release ..
 </code></pre></div>
 </li>
 </ul>
 <ul>
-<li>如果在第1步下载的是指定版本的Nebula Graph 2.x，请使用选项<code>-DNEBULA_COMMON_REPO_TAG</code>和<code>-DNEBULA_STORAGE_REPO_TAG</code>指定相同的<a href="https://github.com/vesoft-inc/nebula-common">nebula-common</a>和<a href="https://github.com/vesoft-inc/nebula-storage">nebula-storage</a>分支。例如安装master GA版本，请执行如下命令：<div class="highlight"><pre><span></span><code>$ cmake -DENABLE_BUILD_STORAGE<span class="o">=</span>on -DENABLE_TESTING<span class="o">=</span>OFF -DCMAKE_BUILD_TYPE<span class="o">=</span>Release <span class="se">\</span>
+<li>如果在第1步下载的是指定版本的Nebula Graph master，请使用选项<code>-DNEBULA_COMMON_REPO_TAG</code>和<code>-DNEBULA_STORAGE_REPO_TAG</code>指定相同的<a href="https://github.com/vesoft-inc/nebula-common">nebula-common</a>和<a href="https://github.com/vesoft-inc/nebula-storage">nebula-storage</a>分支。例如安装master 版本，请执行如下命令：<div class="highlight"><pre><span></span><code>$ cmake -DENABLE_BUILD_STORAGE<span class="o">=</span>on -DENABLE_TESTING<span class="o">=</span>OFF -DCMAKE_BUILD_TYPE<span class="o">=</span>Release <span class="se">\</span>
 -DNEBULA_COMMON_REPO_TAG<span class="o">=</span>vmaster -DNEBULA_STORAGE_REPO_TAG<span class="o">=</span>vmaster ..
 </code></pre></div>
 </li>
@@ -2016,8 +2026,12 @@
 </li>
 <li>
 <p>编译Nebula Graph。</p>
-<p>为了适当地加快编译速度，可以使用选项<code>-j</code>并行编译。并行数量<code>N</code>建议为<span class="arithmatex">\(min(CPU核数,\frac{内存(GB)}{2})\)</span>。</p>
-<div class="highlight"><pre><span></span><code>$ make -j<span class="o">{</span>N<span class="o">}</span>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>检查<a href="../../1.resource-preparations/">软硬件要求和安装三方库依赖包</a></p>
+</div>
+<p>为了适当地加快编译速度，可以使用选项<code>-j</code>并行编译。并行数量<code>N</code>建议为<span class="arithmatex">\(\min(\text{CPU}核数,\frac{内存(GB)}{2})\)</span>。</p>
+<div class="highlight"><pre><span></span><code>$ make -j<span class="o">{</span>N<span class="o">}</span> <span class="c1"># E.g., make -j2</span>
 </code></pre></div>
 </li>
 <li>
@@ -2102,11 +2116,27 @@ $ cmake -DCMAKE_C_COMPILER<span class="o">=</span>&lt;path_to_clang/bin/clang&gt
 <p>如果想要禁用ccache，仅仅设置<code>ENABLE_CCACHE=OFF</code>是不行的，因为在某些平台上，ccache会代理当前编译器，因此还需要设置环境变量<code>export CCACHE_DISABLE=true</code>，或者在文件<code>~/.ccache/ccache.conf</code>中添加<code>disable=true</code>。更多信息请参见<a href="https://ccache.dev/manual/3.7.6.html">ccache official documentation</a>。</p>
 <h3 id="nebula_thirdparty_root">NEBULA_THIRDPARTY_ROOT<a class="headerlink" href="#nebula_thirdparty_root" title="Permanent link">¶</a></h3>
 <p><code>NEBULA_THIRDPARTY_ROOT</code>指定第三方软件的安装路径，默认路径为<code>/opt/vesoft/third-party</code>。</p>
+<h2 id="_5">问题排查<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<p>如果出现编译失败，请参考以下建议：</p>
+<ol>
+<li>
+<p>检查操作系统版本是否符合要求、内存和硬盘空间是否足够。</p>
+</li>
+<li>
+<p>检查<a href="../1.resource-preparations/#_5">third-party</a>是否正确安装。</p>
+</li>
+<li>
+<p>使用<code>make -j1</code>降低编译并发度。 </p>
+</li>
+<li>
+<p>更新代码：<code>git pull</code>，并再次编译，第4步加上CMake选项<code>-DENABLE_MODULE_UPDATE=ON</code>。</p>
+</li>
+</ol>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月28日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>
