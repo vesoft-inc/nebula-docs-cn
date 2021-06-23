@@ -53,7 +53,7 @@
     | 要素  | 名称 | 属性 |
     | :--- | :--- | :--- |
     | Tag | `player` | `name string, age int` |
-    | Tag） | `team` | `name string` |
+    | Tag | `team` | `name string` |
     | Edge Type | `follow` | `degree int` |
     | Edge Type | `serve` | `start_year int, end_year int` |
 
