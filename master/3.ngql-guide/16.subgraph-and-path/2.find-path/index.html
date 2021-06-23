@@ -1874,7 +1874,7 @@
 <h1 id="find_path">FIND PATH<a class="headerlink" href="#find_path" title="Permanent link">¶</a></h1>
 <p><code>FIND PATH</code>语句查找指定起始点和目的点之间的路径。</p>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span></span><code>FIND { SHORTEST | ALL | NOLOOP } PATH FROM &lt;vertex_id_list&gt; TO &lt;vertex_id_list&gt;
+<div class="highlight"><pre><span></span><code>FIND { SHORTEST | ALL | NOLOOP } PATH [WITH PROP] FROM &lt;vertex_id_list&gt; TO &lt;vertex_id_list&gt;
 OVER &lt;edge_type_list&gt; [REVERSELY | BIDIRECT] [&lt;WHERE clause&gt;] [UPTO &lt;N&gt; STEPS] [| ORDER BY $-.path] [| LIMIT &lt;M&gt;];
 
 &lt;vertex_id_list&gt; ::=
@@ -1888,6 +1888,9 @@ OVER &lt;edge_type_list&gt; [REVERSELY | BIDIRECT] [&lt;WHERE clause&gt;] [UPTO 
 </ul>
 <ul>
 <li><code>NOLOOP</code>：查找非循环路径。</li>
+</ul>
+<ul>
+<li><code>WITH PROP</code>：展示点和边的属性。不添加本参数则隐藏属性。</li>
 </ul>
 <ul>
 <li><code>&lt;vertex_id_list&gt;</code>：点ID列表.多个点用英文逗号（,）分隔。支持<code>$-</code>和<code>$var</code>。</li>
@@ -1933,12 +1936,12 @@ OVER &lt;edge_type_list&gt; [REVERSELY | BIDIRECT] [&lt;WHERE clause&gt;] [UPTO 
 | &lt;("player102")-[:serve@0 {}]-&gt;("team204")&gt; |
 +--------------------------------------------+
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>nebula&gt; FIND SHORTEST PATH FROM "team204" TO "player100" OVER * REVERSELY;
-+--------------------------------------------+
-| path                                       |
-+--------------------------------------------+
-| &lt;("team204")&lt;-[:serve@0 {}]-("player100")&gt; |
-+--------------------------------------------+
+<div class="highlight"><pre><span></span><code>nebula&gt; FIND SHORTEST PATH WITH PROP FROM "team204" TO "player100" OVER * REVERSELY;
++--------------------------------------------------------------------------------------------------------------------------------------+
+| path                                                                                                                                 |
++--------------------------------------------------------------------------------------------------------------------------------------+
+| &lt;("team204" :team{name: "Spurs"})&lt;-[:serve@0 {end_year: 2016, start_year: 1997}]-("player100" :player{age: 42, name: "Tim Duncan"})&gt; |
++--------------------------------------------------------------------------------------------------------------------------------------+
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>nebula&gt; FIND ALL PATH FROM "player100" TO "team204" OVER * WHERE follow.degree is EMPTY or follow.degree &gt;=0;
 +------------------------------------------------------------------------------+
@@ -1974,7 +1977,7 @@ OVER &lt;edge_type_list&gt; [REVERSELY | BIDIRECT] [&lt;WHERE clause&gt;] [UPTO 
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月17日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

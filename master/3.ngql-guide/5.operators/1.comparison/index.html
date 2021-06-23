@@ -476,6 +476,11 @@
     IS [NOT] NULL
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#is_not_empty">
+    IS [NOT] EMPTY
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1898,6 +1903,11 @@
     IS [NOT] NULL
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#is_not_empty">
+    IS [NOT] EMPTY
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1973,15 +1983,33 @@
 <td align="left"><code>IS NOT NULL</code></td>
 <td align="center">不为NULL</td>
 </tr>
+<tr>
+<td align="left"><code>IS EMPTY</code></td>
+<td align="center">不存在</td>
+</tr>
+<tr>
+<td align="left"><code>IS NOT EMPTY</code></td>
+<td align="center">存在</td>
+</tr>
 </tbody>
 </table>
 <p>比较操作的结果是<code>true</code>或者<code>false</code>。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>比较不同类型的值通常没有定义，结果可能是NULL或其它。</p>
+<ul>
+<li>比较不同类型的值通常没有定义，结果可能是<code>NULL</code>或其它。</li>
+</ul>
+<ul>
+<li><code>EMPTY</code>当前仅用于判断，不支持函数或者运算操作，包括且不限于<code>GROUP BY</code>、<code>count()</code>、<code>sum()</code>、<code>max()</code>、<code>hash()</code>、<code>collect()</code>、<code>+</code>、<code>*</code>。</li>
+</ul>
 </div>
 <h2 id="opencypher">OpenCypher兼容性<a class="headerlink" href="#opencypher" title="Permanent link">¶</a></h2>
-<p>Nebula Graph中，NULL的比较操作和openCypher不同，行为也可能会改变。在openCypher中，<code>IS [NOT] NULL</code>通常与<code>OPTIONAL MATCH</code>一起使用，但是nGQL不支持<code>OPTIONAL MATCH</code>。</p>
+<ul>
+<li><code>NULL</code>的比较操作和openCypher不同，行为也可能会改变。在openCypher中，<code>IS [NOT] NULL</code>通常与<code>OPTIONAL MATCH</code>一起使用，但是nGQL不支持<code>OPTIONAL MATCH</code>。</li>
+</ul>
+<ul>
+<li>openCypher中没有<code>EMPTY</code>，因此不支持在MATCH语句中使用<code>EMPTY</code>。</li>
+</ul>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <h3 id="_3"><code>==</code><a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
 <p>字符串比较时，会区分大小写。不同类型的值不相等。</p>
@@ -2096,11 +2124,35 @@ nebula&gt; MATCH (n:player) \
 +---------------+--------------------+-----------------+
 ...
 </code></pre></div>
+<h3 id="is_not_empty"><code>IS [NOT] EMPTY</code><a class="headerlink" href="#is_not_empty" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN null IS EMPTY;
++---------------+
+| NULL IS EMPTY |
++---------------+
+| false         |
++---------------+
+
+nebula&gt; RETURN "a" IS NOT EMPTY;
++------------------+
+| "a" IS NOT EMPTY |
++------------------+
+| true             |
++------------------+
+
+nebula&gt; GO FROM "player100" OVER * WHERE $$.player.name IS NOT EMPTY YIELD follow._dst;
++-------------+
+| follow._dst |
++-------------+
+| "player125" |
++-------------+
+| "player101" |
++-------------+
+</code></pre></div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月25日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

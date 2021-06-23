@@ -2096,11 +2096,21 @@ nebula&gt; $a = GO FROM "player100" OVER follow YIELD follow._src AS src, follow
 | "player100" | "player101" | "player100" | "player125" |
 +-------------+-------------+-------------+-------------+
 </code></pre></div>
+<div class="highlight"><pre><span></span><code># 在多个边上通过IS NOT EMPTY进行判断。
+nebula&gt; GO FROM "player100" OVER * WHERE $$.player.name IS NOT EMPTY YIELD follow._dst;
++-------------+
+| follow._dst |
++-------------+
+| "player125" |
++-------------+
+| "player101" |
++-------------+
+</code></pre></div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

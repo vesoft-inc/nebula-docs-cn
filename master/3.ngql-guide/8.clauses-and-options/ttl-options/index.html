@@ -1948,7 +1948,7 @@
 <li>不能修改带有TTL选项的属性的Schema。</li>
 </ul>
 <ul>
-<li>标签或边类型上不能同时存在TTL选项和索引，即使在不同属性上分别设置也不行。</li>
+<li>标签或边类型上如果有索引，不能设置TTL选项，即使在没有索引的属性上设置也不行。</li>
 </ul>
 <h2 id="_2">属性过期<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <h3 id="_3">点属性过期<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
@@ -2029,7 +2029,7 @@ nebula&gt; INSERT VERTEX t2(a, b, c) values "102":(1612778164674, 30, "Hello");
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月24日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>
