@@ -111,7 +111,7 @@ nebula> MATCH (v:player) \
         LIMIT 3 \
         RETURN collect(Name);
 +-----------------------------------------------+
-| COLLECT(Name)                                 |
+| collect(Name)                                 |
 +-----------------------------------------------+
 | ["Yao Ming", "Vince Carter", "Tracy McGrady"] |
 +-----------------------------------------------+
