@@ -1862,7 +1862,7 @@
 <div class="highlight"><pre><span></span><code>nebula&gt; WITH [NULL, 1, 1, 2, 2] As a UNWIND a AS b \
         RETURN count(b), count(*), count(DISTINCT b);
 +----------+----------+-------------------+
-| COUNT(b) | COUNT(*) | COUNT(distinct b) |
+| count(b) | count(*) | count(distinct b) |
 +----------+----------+-------------------+
 | 4        | 5        | 2                 |
 +----------+----------+-------------------+
@@ -1872,7 +1872,7 @@ nebula&gt; GO FROM "player101" OVER follow BIDIRECT \
         YIELD $$.player.name AS Name \
         | GROUP BY $-.Name YIELD $-.Name, count(*);
 +---------------------+----------+
-| $-.Name             | COUNT(*) |
+| $-.Name             | count(*) |
 +---------------------+----------+
 | "Dejounte Murray"   | 1        |
 +---------------------+----------+
@@ -1892,9 +1892,9 @@ nebula&gt; GO FROM "player101" OVER follow BIDIRECT \
 <li><code>$-.Name</code>：查询结果包含的姓名。</li>
 </ul>
 <ul>
-<li><code>COUNT(*)</code>：姓名出现的次数。</li>
+<li><code>count(*)</code>：姓名出现的次数。</li>
 </ul>
-<p>因为测试数据集<code>basketballplayer</code>中没有重复的姓名，<code>COUNT(*)</code>列中数字<code>2</code>表示该行的人和<code>player101</code>是互相<code>follow</code>的关系。</p>
+<p>因为测试数据集<code>basketballplayer</code>中没有重复的姓名，<code>count(*)</code>列中数字<code>2</code>表示该行的人和<code>player101</code>是互相<code>follow</code>的关系。</p>
 <div class="highlight"><pre><span></span><code># 方法一：统计数据库中的年龄分布情况。
 nebula&gt; LOOKUP ON player \
         YIELD player.age As playerage \
@@ -1939,7 +1939,7 @@ nebula&gt; MATCH (n:player) \
 nebula&gt; MATCH (v:player{name:"Tim Duncan"}) -- (v2) \
         RETURN count(DISTINCT v2);
 +--------------------+
-| COUNT(distinct v2) |
+| count(distinct v2) |
 +--------------------+
 | 11                 |
 +--------------------+
@@ -1948,7 +1948,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"}) -- (v2) \
 nebula&gt; MATCH (n:player {name : "Tim Duncan"})-[]-&gt;(friend:player)-[]-&gt;(fof:player) \
         RETURN count(fof), count(DISTINCT fof);
 +------------+---------------------+
-| COUNT(fof) | COUNT(distinct fof) |
+| count(fof) | count(distinct fof) |
 +------------+---------------------+
 | 4          | 3                   |
 +------------+---------------------+
@@ -1957,7 +1957,7 @@ nebula&gt; MATCH (n:player {name : "Tim Duncan"})-[]-&gt;(friend:player)-[]-&gt;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月27日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

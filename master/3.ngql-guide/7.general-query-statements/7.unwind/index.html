@@ -1909,7 +1909,7 @@
         ORDER BY r \
         RETURN collect(r);
 +------------+
-| COLLECT(r) |
+| collect(r) |
 +------------+
 | [1, 2, 3]  |
 +------------+
@@ -1927,7 +1927,7 @@
         WITH DISTINCT r AS r \
         RETURN collect(r);
 +----------------------------------------------------------------------------------------------------------------------+
-| COLLECT(r)                                                                                                           |
+| collect(r)                                                                                                           |
 +----------------------------------------------------------------------------------------------------------------------+
 | [("player100" :player{age: 42, name: "Tim Duncan"}), ("player101" :player{age: 36, name: "Tony Parker"}), 
 ("team204" :team{name: "Spurs"}), ("player102" :player{age: 33, name: "LaMarcus Aldridge"}), 
@@ -1941,7 +1941,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年4月20日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

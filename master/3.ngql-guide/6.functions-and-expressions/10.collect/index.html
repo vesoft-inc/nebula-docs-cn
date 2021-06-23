@@ -1847,7 +1847,7 @@
 nebula&gt; UNWIND [1, 2, 1] AS a \
         RETURN collect(a);
 +------------+
-| COLLECT(a) |
+| collect(a) |
 +------------+
 | [1, 2, 1]  |
 +------------+
@@ -1855,7 +1855,7 @@ nebula&gt; UNWIND [1, 2, 1] AS a \
 nebula&gt; UNWIND [1, 2, 1] AS a \
         RETURN a, collect(a), size(collect(a));
 +---+------------+------------------+
-| a | COLLECT(a) | size(COLLECT(a)) |
+| a | collect(a) | size(COLLECT(a)) |
 +---+------------+------------------+
 | 2 | [2]        | 1                |
 +---+------------+------------------+
@@ -1868,7 +1868,7 @@ nebula&gt; UNWIND ["c", "b", "a", "d" ] AS p \
         ORDER BY q DESC LIMIT 3 \
         RETURN collect(q);
 +-----------------+
-| COLLECT(q)      |
+| collect(q)      |
 +-----------------+
 | ["d", "c", "b"] |
 +-----------------+
@@ -1886,7 +1886,7 @@ nebula&gt; WITH [1, 1, 2, 2] AS coll \
 nebula&gt; MATCH (n:player) \
         RETURN collect(n.age);
 +---------------------------------------------------------------+
-| COLLECT(n.age)                                                |
+| collect(n.age)                                                |
 ----------------------------------------------------------------+
 | [32, 32, 34, 29, 41, 40, 33, 25, 40, 37, ...
 ...
@@ -1909,7 +1909,7 @@ nebula&gt; MATCH (n:player) \
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年3月24日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>
