@@ -57,7 +57,7 @@ Exchange读取Neo4j数据时需要完成以下工作：
 
 - 已经安装Spark。
 
-- 了解Nebula Graph中创建Schema的信息，包括标签和边类型的名称、属性等。
+- 了解Nebula Graph中创建Schema的信息，包括Tag和Edge type的名称、属性等。
 
 ## 操作步骤
 
@@ -69,10 +69,10 @@ Exchange读取Neo4j数据时需要完成以下工作：
 
     | 要素  | 名称 | 属性 |
     | :--- | :--- | :--- |
-    | 标签（Tag） | `player` | `name string, age int` |
-    | 标签（Tag） | `team` | `name string` |
-    | 边类型（Edge Type） | `follow` | `degree int` |
-    | 边类型（Edge Type） | `serve` | `start_year int, end_year int` |
+    | Tag | `player` | `name string, age int` |
+    | Tag | `team` | `name string` |
+    | Edge Type | `follow` | `degree int` |
+    | Edge Type | `serve` | `start_year int, end_year int` |
 
 2. 使用Nebula Console创建一个图空间**basketballplayer**，并创建一个Schema，如下所示。
 
@@ -86,16 +86,16 @@ Exchange读取Neo4j数据时需要完成以下工作：
     ## 选择图空间basketballplayer
     nebula> USE basketballplayer;
     
-    ## 创建标签player
+    ## 创建Tag player
     nebula> CREATE TAG player(name string, age int);
     
-    ## 创建标签team
+    ## 创建Tag team
     nebula> CREATE TAG team(name string);
     
-    ## 创建边类型follow
+    ## 创建Edge type follow
     nebula> CREATE EDGE follow(degree int);
 
-    ## 创建边类型serve
+    ## 创建Edge type serve
     nebula> CREATE EDGE serve(start_year int, end_year int);
     ```
 
@@ -166,7 +166,7 @@ Exchange读取Neo4j数据时需要完成以下工作：
   tags: [
 
 
-    # 设置标签player相关信息。
+    # 设置Tag player相关信息。
     {
       name: player
       type: {
@@ -187,7 +187,7 @@ Exchange读取Neo4j数据时需要完成以下工作：
       batch: 1000
       check_point_path: /tmp/test
    }
-  # 设置标签team相关信息。
+  # 设置Tag team相关信息。
   {
       name: team
       type: {
@@ -212,7 +212,7 @@ Exchange读取Neo4j数据时需要完成以下工作：
 
   # 处理边数据
   edges: [
-    # 设置边类型follow相关信息
+    # 设置Edge type follow相关信息
     {
       name: follow
       type: {
@@ -236,7 +236,7 @@ Exchange读取Neo4j数据时需要完成以下工作：
       batch: 1000
       check_point_path: /tmp/test
     }
-   # 设置边类型serve相关信息
+   # 设置Edge type serve相关信息
    {
       name: serve
       type: {
