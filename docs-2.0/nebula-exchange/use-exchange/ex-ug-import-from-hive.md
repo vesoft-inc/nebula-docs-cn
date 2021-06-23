@@ -78,7 +78,7 @@ scala> spark.sql("describe basketball.serve").show
 
 - 已经安装Spark。
 
-- 了解Nebula Graph中创建Schema的信息，包括标签和边类型的名称、属性等。
+- 了解Nebula Graph中创建Schema的信息，包括Tag和Edge type的名称、属性等。
 
 - 已经安装并开启Hadoop服务，并已启动Hive Metastore数据库（本示例中为 MySQL）。
 
@@ -92,10 +92,10 @@ scala> spark.sql("describe basketball.serve").show
 
     | 要素  | 名称 | 属性 |
     | :--- | :--- | :--- |
-    | 标签（Tag） | `player` | `name string, age int` |
-    | 标签（Tag） | `team` | `name string` |
-    | 边类型（Edge Type） | `follow` | `degree int` |
-    | 边类型（Edge Type） | `serve` | `start_year int, end_year int` |
+    | Tag | `player` | `name string, age int` |
+    | Tag | `team` | `name string` |
+    | Edge Type | `follow` | `degree int` |
+    | Edge Type | `serve` | `start_year int, end_year int` |
 
 2. 在Nebula Graph中创建一个图空间**basketballplayer**，并创建一个Schema，如下所示。
 
@@ -109,16 +109,16 @@ scala> spark.sql("describe basketball.serve").show
     ## 选择图空间basketballplayer
     nebula> USE basketballplayer;
     
-    ## 创建标签player
+    ## 创建Tag player
     nebula> CREATE TAG player(name string, age int);
     
-    ## 创建标签team
+    ## 创建Tag team
     nebula> CREATE TAG team(name string);
     
-    ## 创建边类型follow
+    ## 创建Edge type follow
     nebula> CREATE EDGE follow(degree int);
 
-    ## 创建边类型serve
+    ## 创建Edge type serve
     nebula> CREATE EDGE serve(start_year int, end_year int);
     ```
 
@@ -211,9 +211,9 @@ scala> sql("select playerid, teamid, start_year, end_year from basketball.serve"
   }
   # 处理点
   tags: [
-    # 设置标签player相关信息。
+    # 设置Tag player相关信息。
     {
-      # Nebula Graph中对应的标签名称。
+      # Nebula Graph中对应的Tag名称。
       name: player
       type: {
         # 指定数据源文件格式，设置为hive。
@@ -243,7 +243,7 @@ scala> sql("select playerid, teamid, start_year, end_year from basketball.serve"
       # Spark 分区数量
       partition: 32
     }
-    # 设置标签team相关信息。
+    # 设置Tag team相关信息。
     {
       name: team
       type: {
@@ -264,9 +264,9 @@ scala> sql("select playerid, teamid, start_year, end_year from basketball.serve"
 
   # 处理边数据
   edges: [
-    # 设置边类型follow相关信息
+    # 设置Edge type follow相关信息
     {
-      # Nebula Graph中对应的边类型名称。
+      # Nebula Graph中对应的Edge type名称。
       name: follow
 
       type: {
@@ -304,7 +304,7 @@ scala> sql("select playerid, teamid, start_year, end_year from basketball.serve"
       partition: 32
     }
 
-    # 设置边类型serve相关信息
+    # 设置Edge type serve相关信息
     {
       name: serve
       type: {

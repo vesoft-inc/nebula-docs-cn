@@ -15,7 +15,7 @@
 
 - 已经获取 Nebula Graph 数据库的以下信息：
   - 图空间名称和分区数量（如果创建图空间时未设置分区数量，则默认使用 100）
-  - 标签和边类型的名称以及属性
+  - Tag和Edge type的名称以及属性
   - Meta 服务所在机器的 IP 地址及端口号
 
 ## 操作步骤
@@ -80,13 +80,13 @@
 
     - `loadVerticesToDF(<tag: String>, <fields: String>)`，所有参数均为必需参数。
 
-      - `<tag: String>`：配置为指定 Nebula Graph 图空间中某个标签的名称。
-      - `<fields: String>`：配置为指定标签的属性名称，不允许为空。如果一个标签有多个属性，则以英文逗号分隔。如果指定了属性名称，表示只读取指定的属性。如果配置为 `*`，表示读取指定标签的所有属性。
+      - `<tag: String>`：配置为指定 Nebula Graph 图空间中某个Tag的名称。
+      - `<fields: String>`：配置为指定Tag的属性名称，不允许为空。如果一个Tag有多个属性，则以英文逗号分隔。如果指定了属性名称，表示只读取指定的属性。如果配置为 `*`，表示读取指定Tag的所有属性。
 
     - `loadEdgesToDF(<edge: String>, <fields: String>)`，所有参数均为必需参数。
 
-      - `<edge: String>`：配置为指定 Nebula Graph 图空间中某个边类型的名称。
-      - `<fields: String>`：配置为指定边类型的属性名称，不允许为空。如果一个边类型有多个属性，则以英文逗号分隔。如果指定了属性名称，表示只读取指定的属性，如果配置为 `*` 表示读取指定边类型的所有属性。
+      - `<edge: String>`：配置为指定 Nebula Graph 图空间中某个Edge type的名称。
+      - `<fields: String>`：配置为指定Edge type的属性名称，不允许为空。如果一个Edge type有多个属性，则以英文逗号分隔。如果指定了属性名称，表示只读取指定的属性，如果配置为 `*` 表示读取指定Edge type的所有属性。
 
 以下为读取结果示例。
 

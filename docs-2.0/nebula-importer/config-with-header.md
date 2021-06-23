@@ -62,9 +62,9 @@
 !!! note
     除了`:LABEL`列之外的所有列都可以按任何顺序排序，因此针对较大的CSV文件，用户可以灵活地设置header来选择需要的列。
 
-对于标签或边类型的属性，格式为`<tag_name/edge_name>.<prop_name>:<prop_type>`，说明如下：
+对于Tag或Edge type的属性，格式为`<tag_name/edge_name>.<prop_name>:<prop_type>`，说明如下：
 
-- `<tag_name/edge_name>`：标签或者边类型的名称。
+- `<tag_name/edge_name>`：Tag或者Edge type的名称。
 
 - `<prop_name>`：属性名称。
 
@@ -173,7 +173,7 @@ files:
       # Schema的类型为edge。
       type: edge
       edge:
-        # 边类型名称。
+        # Edge type名称。
         name: follow
 
         # 是否包含rank。

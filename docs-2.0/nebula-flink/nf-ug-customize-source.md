@@ -40,23 +40,23 @@ NebulaSource 的实现类图如下所示。
   - Nebula Graph 图数据库的账号及其密码。
 - `VertexExecutionOptions` 需要配置：
   - 需要读取点数据的 Nebula Graph 图数据库中的图空间名称。
-  - 需要读取的标签（点类型）名称。一次只能一个标签。
-  - 要读取的标签属性。
-  - 是否读取指定标签的所有属性，默认为 `false`。如果配置为 `true` 则标签属性的配置无效。
+  - 需要读取的Tag（点类型）名称。一次只能一个Tag。
+  - 要读取的Tag属性。
+  - 是否读取指定Tag的所有属性，默认为 `false`。如果配置为 `true` 则Tag属性的配置无效。
   - 单次读取的数据量限值，默认为 2000 个点数据。
 - `EdgeExecutionOptions` 需要配置：
   - 需要读取边数据的 Nebula Graph 图数据库中的图空间名称。
-  - 需要读取的边类型。一次只能一个边类型。
-  - 需要读取的边类型属性。
-  - 是否读取指定边类型的所有属性，默认为 `false`。如果配置为 `true` 则边类型属性的配置无效。
+  - 需要读取的Edge type。一次只能一个Edge type。
+  - 需要读取的Edge type属性。
+  - 是否读取指定Edge type的所有属性，默认为 `false`。如果配置为 `true` 则Edge type属性的配置无效。
   - 单次读取的数据量限值，默认值为 2000 个边数据。
 
 假设需要读取点数据的 Nebula Graph 图数据库信息如下：
 
 - Meta 服务为本地单副本部署，使用默认端口
 - 图空间名称：`flinkSource`
-- 标签：`player`
-- 标签属性：`name` 和 `age`
+- Tag：`player`
+- Tag属性：`name` 和 `age`
 - 单次最多读取 100 个点数据
 
 以下为自定义 NebulaSource 的代码示例。

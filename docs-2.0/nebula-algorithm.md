@@ -105,7 +105,7 @@ Nebula Algorithm实现图计算的流程如下：
 ### 直接提交算法包
   
 !!! note
-    使用封装好的算法包有一定的局限性，例如落库到Nebula Graph时，落库的图空间中创建的标签的属性名称必须和代码内预设的名称保持一致。如果用户有开发能力，推荐使用第一种方法。
+    使用封装好的算法包有一定的局限性，例如落库到Nebula Graph时，落库的图空间中创建的Tag的属性名称必须和代码内预设的名称保持一致。如果用户有开发能力，推荐使用第一种方法。
 
 1. 设置[配置文件](https://github.com/vesoft-inc/nebula-spark-utils/blob/master/nebula-algorithm/src/main/resources/application.conf)。
 
@@ -140,9 +140,9 @@ Nebula Algorithm实现图计算的流程如下：
           metaAddress: "192.168.*.10:9559"
           # Nebula Graph图空间名称
           space: basketballplayer
-          # Nebula Graph边类型, 多个labels时，多个边的数据将合并。
+          # Nebula GraphEdge type, 多个labels时，多个边的数据将合并。
           labels: ["serve"]
-          # Nebula Graph每个边类型的属性名称，此属性将作为算法的权重列，请确保和边类型对应。
+          # Nebula Graph每个Edge type的属性名称，此属性将作为算法的权重列，请确保和Edge type对应。
           weightCols: ["start_year"]
       }
  
@@ -158,10 +158,10 @@ Nebula Algorithm实现图计算的流程如下：
           metaAddress: "192.168.*.12:9559"
           user:root
           pswd:nebula
-          # 在提交图计算任务之前需要自行创建图空间及标签
+          # 在提交图计算任务之前需要自行创建图空间及Tag
           # Nebula Graph图空间名称
           space:nb
-          # Nebula Graph标签名称，图计算结果会写入该标签。标签中的属性名称固定如下：
+          # Nebula Graph Tag名称，图计算结果会写入该Tag。Tag中的属性名称固定如下：
           # PageRank：pagerank
           # Louvain：louvain
           # ConnectedComponent：cc
