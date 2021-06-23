@@ -1990,7 +1990,7 @@
 <li>
 <p>克隆Nebula Graph源码到主机。</p>
 <ul>
-<li>[推荐]如果需要安装指定版本的Nebula Graph 2.x，请使用选项<code>--branch</code>指定分支。例如安装vmaster发布版本，请执行如下命令：<div class="highlight"><pre><span></span><code>$ git clone --branch vmaster https://github.com/vesoft-inc/nebula-graph.git
+<li>[推荐]如果需要安装指定版本的Nebula Graph 2.x，请使用选项<code>--branch</code>指定分支。例如安装v2.1.0发布版本，请执行如下命令：<div class="highlight"><pre><span></span><code>$ git clone --branch v2.1.0 https://github.com/vesoft-inc/nebula-graph.git
 </code></pre></div>
 </li>
 </ul>
@@ -2023,8 +2023,8 @@
 </li>
 </ul>
 <ul>
-<li>如果在第1步下载的是指定版本的Nebula Graph master，请使用选项<code>-DNEBULA_COMMON_REPO_TAG</code>和<code>-DNEBULA_STORAGE_REPO_TAG</code>指定相同的<a href="https://github.com/vesoft-inc/nebula-common">nebula-common</a>和<a href="https://github.com/vesoft-inc/nebula-storage">nebula-storage</a>分支。例如安装master 版本，请执行如下命令：<div class="highlight"><pre><span></span><code>$ cmake -DENABLE_BUILD_STORAGE<span class="o">=</span>on -DENABLE_TESTING<span class="o">=</span>OFF -DCMAKE_BUILD_TYPE<span class="o">=</span>Release <span class="se">\</span>
--DNEBULA_COMMON_REPO_TAG<span class="o">=</span>vmaster -DNEBULA_STORAGE_REPO_TAG<span class="o">=</span>vmaster ..
+<li>如果在第1步下载的是指定版本的Nebula Graph 2.1.0，请使用选项<code>-DNEBULA_COMMON_REPO_TAG</code>和<code>-DNEBULA_STORAGE_REPO_TAG</code>指定相同的<a href="https://github.com/vesoft-inc/nebula-common">nebula-common</a>和<a href="https://github.com/vesoft-inc/nebula-storage">nebula-storage</a>分支。例如安装2.1.0 版本，请执行如下命令：<div class="highlight"><pre><span></span><code>$ cmake -DENABLE_BUILD_STORAGE<span class="o">=</span>on -DENABLE_TESTING<span class="o">=</span>OFF -DCMAKE_BUILD_TYPE<span class="o">=</span>Release <span class="se">\</span>
+-DNEBULA_COMMON_REPO_TAG<span class="o">=</span>v2.1.0 -DNEBULA_STORAGE_REPO_TAG<span class="o">=</span>v2.1.0 ..
 </code></pre></div>
 </li>
 </ul>
@@ -2075,7 +2075,7 @@
 </code></pre></div>
 <p>下文的CMake参数可以在配置(CMake)阶段用来调整编译设置。</p>
 <h3 id="enable_build_storage">ENABLE_BUILD_STORAGE<a class="headerlink" href="#enable_build_storage" title="Permanent link">¶</a></h3>
-<p>从master版本开始，Nebula Graph的graph和storage代码仓库分离，可以各自单独编译。<code>ENABLE_BUILD_STORAGE</code>默认值为<code>OFF</code>，表示Storage服务不会和Graph服务一起安装。</p>
+<p>从2.1.0版本开始，Nebula Graph的graph和storage代码仓库分离，可以各自单独编译。<code>ENABLE_BUILD_STORAGE</code>默认值为<code>OFF</code>，表示Storage服务不会和Graph服务一起安装。</p>
 <p>如果单机部署Nebula Graph进行测试，可以设置<code>ENABLE_BUILD_STORAGE=ON</code>，安装时会自动下载和安装Storage服务。</p>
 <h3 id="cmake_install_prefix">CMAKE_INSTALL_PREFIX<a class="headerlink" href="#cmake_install_prefix" title="Permanent link">¶</a></h3>
 <p><code>CMAKE_INSTALL_PREFIX</code>指定Nebula Graph服务模块、脚本和配置文件的安装路径，默认路径为<code>/usr/local/nebula</code>。</p>

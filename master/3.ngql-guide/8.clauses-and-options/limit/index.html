@@ -2047,7 +2047,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"}) --&gt; (v2) \
 +-----------------+-----+
 </code></pre></div>
 <h2 id="_3">性能提示<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<p>Nebula Graph master 未实现 <code>LIMIT</code> 语句的存储层下推优化, 类似 <code>MATCH (n:T) RETURN n LIMIT 10</code> 语句或者 <code>LOOKUP on i_T | LIMIT 10</code> 语句会发生 graphd 资源占用过大的问题：一个 graphd 会从所有的 storaged 获取全部T类型的点，然后返回 10 个。如果全部数据量很大，graphd 此时通常会消耗大量内存，甚至 OOM。</p>
+<p>Nebula Graph 2.1.0 未实现 <code>LIMIT</code> 语句的存储层下推优化, 类似 <code>MATCH (n:T) RETURN n LIMIT 10</code> 语句或者 <code>LOOKUP on i_T | LIMIT 10</code> 语句会发生 graphd 资源占用过大的问题：一个 graphd 会从所有的 storaged 获取全部T类型的点，然后返回 10 个。如果全部数据量很大，graphd 此时通常会消耗大量内存，甚至 OOM。</p>
 <hr/>
 <div class="md-source-date">
 <small>

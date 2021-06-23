@@ -1841,7 +1841,7 @@
 <h1 id="_1">大小写区分<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
 <h2 id="_2">标识符区分大小写<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <p>以下语句会出现错误，因为<code>my_space</code>和<code>MY_SPACE</code>是两个不同的图空间。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; CREATE SPACE my_space;
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE SPACE my_space (vid_type=FIXED_STRING(30));
 nebula&gt; use MY_SPACE;
 [ERROR (-8)]: SpaceNotFound:
 </code></pre></div>
@@ -1856,7 +1856,7 @@ nebula&gt; show SPACES;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月1日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

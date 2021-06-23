@@ -1903,10 +1903,12 @@
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <p>只有God角色的用户可以执行<code>CREATE SPACE</code>语句。详情请参见<a href="../../../7.data-security/1.authentication/1.authentication/">身份验证</a>。</p>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span></span><code>CREATE SPACE [IF NOT EXISTS] &lt;graph_space_name&gt;
-    [(partition_num = &lt;partition_number&gt;, 
-    replica_factor = &lt;replica_number&gt;, 
-    vid_type = {FIXED_STRING(&lt;N&gt;) | INT64})];
+<div class="highlight"><pre><span></span><code>CREATE SPACE [IF NOT EXISTS] &lt;graph_space_name&gt; (
+    [partition_num = &lt;partition_number&gt;,] 
+    [replica_factor = &lt;replica_number&gt;,]
+    vid_type = {FIXED_STRING(&lt;N&gt;) | INT64}
+    )
+    [comment = '&lt;space_comment&gt;'];
 </code></pre></div>
 <h2 id="if_not_exists">IF NOT EXISTS<a class="headerlink" href="#if_not_exists" title="Permanent link">¶</a></h2>
 <p><code>IF NOT EXISTS</code>关键字可以检测待创建的图空间是否存在，只有不存在时，才会创建图空间。</p>
@@ -1933,34 +1935,41 @@
 </li>
 </ul>
 <ul>
-<li><code>vid_type</code><p>指定点ID的数据类型。可选值为<code>FIXED_STRING(&lt;N&gt;)</code>和<code>INT64</code>。<code>FIXED_STRING(&lt;N&gt;)</code>表示数据类型为字符串，最大长度为<code>N</code>，超出长度会报错；<code>INT64</code>表示数据类型为整数。默认值为<code>FIXED_STRING(8)</code>。</p>
+<li>
+<p><code>vid_type</code>（必选）</p>
+<p>指定点ID的数据类型。可选值为<code>FIXED_STRING(&lt;N&gt;)</code>和<code>INT64</code>。<code>FIXED_STRING(&lt;N&gt;)</code>表示数据类型为字符串，最大长度为<code>N</code>，超出长度会报错；<code>INT64</code>表示数据类型为整数。</p>
+<div class="admonition compatibility">
+<p class="admonition-title">历史版本兼容性</p>
+<p>2.1.0之前的2.x版本中，<code>vid_type</code>不是必选参数，默认为<code>FIXED_STRING(8)</code>。</p>
+</div>
 </li>
 </ul>
-<p>如果没有指定选项，Nebula Graph会使用默认值创建图空间。</p>
+<ul>
+<li><code>comment</code><p>图空间的描述。最大为256字节。默认无描述。</p>
+</li>
+</ul>
+<p>如果没有指定除<code>vid_type</code>之外的选项，Nebula Graph会使用默认值创建图空间。</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>VID 类型变更与长度限制 <code>The VID must be a 64-bit integer or a string</code></p>
+<p>VID类型变更与长度限制</p>
 <ol>
 <li>
-<p>在 Nebula Graph 1.x 中 VID 的类型只能为 int64，不支持字符型; 在Nebula Graph 2.x 中, VID 的默认类型更改为 <code>FIXED_STRING(&lt;N&gt;)</code>。如果继续使用 1.x 版本的 <code>INSERT</code> 语句，通常会报错不匹配 <code>The VID must be a 64-bit integer or a string</code>。如果仍要使用 int64 作为 VID, 必须指定参数 <code>vid_type=INT64</code>。   </p>
+<p>在Nebula Graph 1.x中，VID的类型只能为<code>INT64</code>，不支持字符型；在Nebula Graph 2.x中, VID的类型支持<code>INT64</code>和<code>FIXED_STRING(&lt;N&gt;)</code>。请在创建图空间时指定VID类型，使用<code>INSERT</code>语句时也需要保持一致，否则会报错VID类型不匹配<code>Wrong vertex id type: 1001</code>。</p>
 </li>
 <li>
-<p>VID 最大长度必须为 <code>N</code>，不可任意长度；超过该长度也会报错 <code>The VID must be a 64-bit integer or a string</code>。</p>
+<p>VID最大长度必须为<code>N</code>，不可任意长度；超过该长度也会报错<code>The VID must be a 64-bit integer or a string fitting space vertex id length limit.</code>。</p>
 </li>
 </ol>
 </div>
 <h2 id="_5">示例<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span></span><code># 使用默认值。
-nebula&gt; CREATE SPACE my_space_1; 
+<div class="highlight"><pre><span></span><code># 仅指定VID类型，其他选项使用默认值。
+nebula&gt; CREATE SPACE my_space_1 (vid_type=FIXED_STRING(30)); 
 
-# 指定分片数量。
-nebula&gt; CREATE SPACE my_space_2(partition_num=10); 
+# 指定分片数量、副本数量和VID类型。
+nebula&gt; CREATE SPACE my_space_2 (partition_num=15, replica_factor=1, vid_type=FIXED_STRING(30));
 
-# 指定副本数量。
-nebula&gt; CREATE SPACE my_space_3(replica_factor=1); 
-
-# 指定点ID最大长度。
-nebula&gt; CREATE SPACE my_space_4(vid_type = FIXED_STRING(30)); 
+# 指定分片数量、副本数量和VID类型，并添加描述。
+nebula&gt; CREATE SPACE my_space_3 (partition_num=15, replica_factor=1, vid_type=FIXED_STRING(30)) comment="测试图空间"; 
 </code></pre></div>
 <h2 id="_6">创建图空间说明<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
 <div class="admonition caution">
@@ -1974,24 +1983,37 @@ nebula&gt; CREATE SPACE my_space_4(vid_type = FIXED_STRING(30));
 <h2 id="_7">检查分片分布情况<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
 <p>在大型集群中，由于启动时间不同，分片的分布可能不均衡。用户可以执行如下命令检查分片的分布情况：</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; SHOW HOSTS;
-+-----------+-------+--------+--------------+----------------------------------+-------------------------------------+
-| Host      | Port  | Status | Leader count | Leader distribution              | Partition distribution              |
-+-----------+-------+--------+--------------+----------------------------------+-------------------------------------+
-| storaged0 | 9779  | ONLINE | 1            | basketballplayer:5               | basketballplayer:5                  |
-+-----------+-------+--------+--------------+----------------------------------+-------------------------------------+
-| storaged1 | 9779  | ONLINE | 2            | test:1, basketballplayer:5       | basketballplayer:5, test:1          |
-+-----------+-------+--------+--------------+----------------------------------+-------------------------------------+
-| storaged2 | 9779  | ONLINE | 1            | basketballplayer:5               | basketballplayer:5                  |
-+-----------+-------+--------+--------------+----------------------------------+-------------------------------------+
++-------------+------+----------+--------------+--------------------------------+--------------------------------+
+| Host        | Port | Status   | Leader count | Leader distribution            | Partition distribution         |
++-------------+------+----------+--------------+--------------------------------+--------------------------------+
+| "storaged0" | 9779 | "ONLINE" | 8            | "basketballplayer:3, test:5"   | "basketballplayer:10, test:10" |
++-------------+------+----------+--------------+--------------------------------+--------------------------------+
+| "storaged1" | 9779 | "ONLINE" | 9            | "basketballplayer:4, test:5"   | "basketballplayer:10, test:10" |
++-------------+------+----------+--------------+--------------------------------+--------------------------------+
+| "storaged2" | 9779 | "ONLINE" | 3            | "basketballplayer:3"           | "basketballplayer:10, test:10" |
++-------------+------+----------+--------------+--------------------------------+--------------------------------+
+| "Total"     |      |          | 20           | "basketballplayer:10, test:10" | "basketballplayer:30, test:30" |
++-------------+------+----------+--------------+--------------------------------+--------------------------------+
 </code></pre></div>
 <p>如果需要均衡负载，请执行如下命令：</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; BALANCE LEADER;
++-------------+------+----------+--------------+--------------------------------+--------------------------------+
+| Host        | Port | Status   | Leader count | Leader distribution            | Partition distribution         |
++-------------+------+----------+--------------+--------------------------------+--------------------------------+
+| "storaged0" | 9779 | "ONLINE" | 7            | "basketballplayer:3, test:4"   | "basketballplayer:10, test:10" |
++-------------+------+----------+--------------+--------------------------------+--------------------------------+
+| "storaged1" | 9779 | "ONLINE" | 7            | "basketballplayer:4, test:3"   | "basketballplayer:10, test:10" |
++-------------+------+----------+--------------+--------------------------------+--------------------------------+
+| "storaged2" | 9779 | "ONLINE" | 6            | "basketballplayer:3, test:3"   | "basketballplayer:10, test:10" |
++-------------+------+----------+--------------+--------------------------------+--------------------------------+
+| "Total"     |      |          | 20           | "basketballplayer:10, test:10" | "basketballplayer:30, test:30" |
++-------------+------+----------+--------------+--------------------------------+--------------------------------+
 </code></pre></div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月1日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

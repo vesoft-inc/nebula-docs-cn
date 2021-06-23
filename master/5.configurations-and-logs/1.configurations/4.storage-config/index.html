@@ -2264,7 +2264,7 @@ disable_auto_compactions
 </table>
 <div class="admonition compatibility">
 <p class="admonition-title">Compatibility</p>
-<p>Nebula Graph 1.x 中的蓄水池采样方法在 Nebula Graph master 不再支持。</p>
+<p>Nebula Graph 1.x 中的蓄水池采样方法在 Nebula Graph 2.1.0 不再支持。</p>
 </div>
 <h2 id="_4">数据量大而内存不够时<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <p>如果数据量很大但内存不够，则推荐把 storage 配置中的 <code>enable_partitioned_index_filter</code> 设置为 <code>true</code>；但由于缓存了较少的 RocksDB 索引，性能会受影响。</p>

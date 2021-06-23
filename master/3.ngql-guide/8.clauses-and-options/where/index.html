@@ -2134,7 +2134,7 @@
 <h3 id="rank">过滤rank<a class="headerlink" href="#rank" title="Permanent link">¶</a></h3>
 <p>在nGQL中，如果多个边拥有相同的起始点、目的点和属性，则它们的唯一区别是rank值。在<code>WHERE</code>子句中可以使用rank过滤边。</p>
 <div class="highlight"><pre><span></span><code># 创建测试数据。
-nebula&gt; CREATE SPACE test;
+nebula&gt; CREATE SPACE test (vid_type=FIXED_STRING(30));
 nebula&gt; USE test;
 nebula&gt; CREATE EDGE e1(p1 int);
 nebula&gt; CREATE TAG person(p1 int);
@@ -2305,7 +2305,7 @@ Empty set (time spent 5080/6474 us)
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月24日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

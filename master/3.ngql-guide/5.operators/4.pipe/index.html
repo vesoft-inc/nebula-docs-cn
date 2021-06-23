@@ -1884,7 +1884,7 @@ GO FROM $-.dstid OVER follow;
 <p>用户可以使用<code>YIELD</code>显式声明需要返回的结果，如果不使用<code>YIELD</code>，默认返回目标点ID。</p>
 <p>必须在<code>YIELD</code>子句中为需要的返回结果设置别名，才能在管道符右侧使用引用符<code>$-</code>，例如示例中的<code>$-.dstid</code>。</p>
 <h2 id="_4">性能提示<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
-<p>Nebula Graph master 中的管道对性能有影响，以<code>A | B</code>为例，体现在以下几个方面：</p>
+<p>Nebula Graph 2.1.0 中的管道对性能有影响，以<code>A | B</code>为例，体现在以下几个方面：</p>
 <ol>
 <li>
 <p>管道是同步操作。也即需要管道之前的子句<code>A</code>执行完毕后，数据才能整体进入管道子句。</p>

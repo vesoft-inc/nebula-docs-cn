@@ -1834,8 +1834,13 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#storage_error_the_vid_must_be_a_64-bit_integer_or_a_string">
-    如何处理错误信息Storage Error: The VID must be a 64-bit integer or a string.
+<a class="md-nav__link" href="#wrong_vertex_id_type_1001">
+    如何处理错误信息Wrong vertex id type: 1001
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the_vid_must_be_a_64-bit_integer_or_a_string_fitting_space_vertex_id_length_limit">
+    如何处理错误信息The VID must be a 64-bit integer or a string fitting space vertex id length limit.
   </a>
 </li>
 <li class="md-nav__item">
@@ -2030,8 +2035,13 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#storage_error_the_vid_must_be_a_64-bit_integer_or_a_string">
-    如何处理错误信息Storage Error: The VID must be a 64-bit integer or a string.
+<a class="md-nav__link" href="#wrong_vertex_id_type_1001">
+    如何处理错误信息Wrong vertex id type: 1001
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the_vid_must_be_a_64-bit_integer_or_a_string_fitting_space_vertex_id_length_limit">
+    如何处理错误信息The VID must be a 64-bit integer or a string fitting space vertex id length limit.
   </a>
 </li>
 <li class="md-nav__item">
@@ -2141,7 +2151,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="faq">常见问题 FAQ<a class="headerlink" href="#faq" title="Permanent link">¶</a></h1>
-<p>本文列出了使用Nebula Graph master 时可能遇到的常见问题，用户可以使用文档中心或者浏览器的搜索功能查找相应问题。</p>
+<p>本文列出了使用Nebula Graph 2.1.0 时可能遇到的常见问题，用户可以使用文档中心或者浏览器的搜索功能查找相应问题。</p>
 <p>如果按照文中的建议无法解决问题，请到<a href="https://discuss.nebula-graph.com.cn/">Nebula Graph论坛</a>提问或提交<a href="https://github.com/vesoft-inc/nebula-graph/issues">GitHub issue</a>。</p>
 <h2 id="_1">关于本手册<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <h3 id="_2">为什么手册示例和系统行为不一致？<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
@@ -2158,13 +2168,13 @@
 <h2 id="_3">关于历史兼容性<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <div class="admonition compatibility">
 <p class="admonition-title">大版本兼容性</p>
-<p>Nebula Graph master 与 历史版本 (包括 Nebula Graph 1.x 和 2.0-RC) 的数据格式、客户端通信协议均<strong>双向不兼容</strong>。
+<p>Nebula Graph 2.1.0 与 历史版本 (包括 Nebula Graph 1.x 和 2.0-RC) 的数据格式、客户端通信协议均<strong>双向不兼容</strong>。
 数据格式升级参见<a href="../4.deployment-and-installation/3.upgrade-nebula-graph/">升级 Nebula Graph 历史版本至 v2.0.0</a>。
 客户端与工具均需要<a href="../6.eco-tool-version/">下载对应版本</a>。</p>
 </div>
 <div class="admonition compatibility">
 <p class="admonition-title">小版本兼容性</p>
-<p>Neubla Graph master 与 Nebula Graph 2.0 的数据格式、通信协议历史兼容。</p>
+<p>Neubla Graph 2.1.0 与 Nebula Graph 2.0 的数据格式、通信协议历史兼容。</p>
 </div>
 <h2 id="_4">关于执行<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <h3 id="gomatch">使用GO和MATCH执行相同语义的查询，查询结果为什么不同？<a class="headerlink" href="#gomatch" title="Permanent link">¶</a></h3>
@@ -2236,9 +2246,10 @@ Got 1 rows (time spent 1235/1934 us)
 # 通过点属性name的索引，来得到VID
 </code></pre></div>
 <p>否则，就会抛出这样一个异常 <code>can’t solve the start vids from the sentence</code>。</p>
-<h3 id="storage_error_the_vid_must_be_a_64-bit_integer_or_a_string">如何处理错误信息<code>Storage Error: The VID must be a 64-bit integer or a string.</code><a class="headerlink" href="#storage_error_the_vid_must_be_a_64-bit_integer_or_a_string" title="Permanent link">¶</a></h3>
-<p>检查输入的 vid 是否是 create space 设置的整型或者 <code>fix_string(N)</code>. 如果是字符串类型，检查长度是否超过<code>N</code> (默认为 <code>8</code>)。
-见<a href="../../3.ngql-guide/9.space-statements/1.create-space/">create space</a>。</p>
+<h3 id="wrong_vertex_id_type_1001">如何处理错误信息<code>Wrong vertex id type: 1001</code><a class="headerlink" href="#wrong_vertex_id_type_1001" title="Permanent link">¶</a></h3>
+<p>检查输入的VID类型是否是<code>create space</code>设置的<code>INT64</code>或<code>FIXED_STRING(N)</code>。详情请参见<a href="../../3.ngql-guide/9.space-statements/1.create-space/">create space</a>。</p>
+<h3 id="the_vid_must_be_a_64-bit_integer_or_a_string_fitting_space_vertex_id_length_limit">如何处理错误信息<code>The VID must be a 64-bit integer or a string fitting space vertex id length limit.</code><a class="headerlink" href="#the_vid_must_be_a_64-bit_integer_or_a_string_fitting_space_vertex_id_length_limit" title="Permanent link">¶</a></h3>
+<p>检查输入的VID是否超过限制长度。详情请参见<a href="../../3.ngql-guide/9.space-statements/1.create-space/">create space</a>。</p>
 <h3 id="edge_conflictvertex_conflict">如何处理错误信息<code>edge conflict</code>或<code>vertex conflict</code><a class="headerlink" href="#edge_conflictvertex_conflict" title="Permanent link">¶</a></h3>
 <p>Storage服务在毫秒级时间内多次收到插入或者更新同一点或边的请求时，可能返回该错误。请稍后重试。</p>
 <h3 id="storage_error_e_rpc_failure">如何处理错误信息<code>Storage Error E_RPC_FAILURE</code><a class="headerlink" href="#storage_error_e_rpc_failure" title="Permanent link">¶</a></h3>
@@ -2331,7 +2342,7 @@ This <span class="nb">source</span> code is licensed under Apache <span class="m
 </li>
 </ul>
 <h3 id="_11">如何扩缩容<a class="headerlink" href="#_11" title="Permanent link">¶</a></h3>
-<p>Nebula Graph master 未提供运维命令以实现自动扩缩容，参考以下步骤：</p>
+<p>Nebula Graph 2.1.0 未提供运维命令以实现自动扩缩容，参考以下步骤：</p>
 <ul>
 <li>metad 的扩容和缩容： metad 不支持扩缩容，也不支持迁移到新机器，也不要增加新的 metad 进程。</li>
 </ul>
@@ -2400,7 +2411,7 @@ telnet: connect to address <span class="m">192</span>.168.1.10: Connection refus
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

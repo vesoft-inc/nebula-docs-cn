@@ -1852,7 +1852,7 @@
 <p>在Nebula Graph中，一个点由点的ID唯一标识，即VID或Vertex ID。</p>
 <h2 id="vid_1">VID有如下特点<a class="headerlink" href="#vid_1" title="Permanent link">¶</a></h2>
 <ul>
-<li>VID数据类型只可以为定长字符串<code>FIXED_STRING(&lt;N&gt;)</code>或64位整数；一个图空间只能选用其中一种VID类型。</li>
+<li>VID数据类型只可以为定长字符串<code>FIXED_STRING(&lt;N&gt;)</code>或<code>INT64</code>；一个图空间只能选用其中一种VID类型。</li>
 </ul>
 <ul>
 <li>VID在一个图空间中必须唯一，其作用类似于关系型数据库中的主键（索引+唯一约束）。但不同图空间中的VID是完全独立无关的。</li>
@@ -1879,7 +1879,7 @@
 </ul>
 <h2 id="vid_2">VID使用建议<a class="headerlink" href="#vid_2" title="Permanent link">¶</a></h2>
 <ul>
-<li>Nebula Graph 1.x只支持VID为int64。2.x默认使用<code>FIXED_STRING(&lt;N&gt;)</code>为VID类型；但在<code>CREATE SPACE</code>中通过参数<code>vid_type = int64</code>，也可设置为64位整数。</li>
+<li>Nebula Graph 1.x只支持VID类型为<code>INT64</code>，2.x支持<code>INT64</code>和<code>FIXED_STRING(&lt;N&gt;)</code>。在<code>CREATE SPACE</code>中通过参数<code>vid_type</code>可以指定VID类型。</li>
 </ul>
 <ul>
 <li>可以使用<code>id()</code>函数，指定或引用该点的VID；</li>
@@ -1911,7 +1911,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月1日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>
