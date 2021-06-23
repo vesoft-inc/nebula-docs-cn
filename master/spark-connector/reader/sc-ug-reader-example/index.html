@@ -761,13 +761,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" id="__nav_4_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_9">
-        标签语句
+        Tag语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="标签语句" class="md-nav" data-md-level="2">
+<nav aria-label="Tag语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_9">
 <span class="md-nav__icon md-icon"></span>
-          标签语句
+          Tag语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -801,13 +801,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" id="__nav_4_10" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_10">
-        边类型语句
+        Edge type语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="边类型语句" class="md-nav" data-md-level="2">
+<nav aria-label="Edge type语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_10">
 <span class="md-nav__icon md-icon"></span>
-          边类型语句
+          Edge type语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -1479,12 +1479,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-tag/">
-        操作标签
+        操作Tag
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-edge-type/">
-        操作边类型
+        操作Edge type
       </a>
 </li>
 <li class="md-nav__item">
@@ -1833,7 +1833,7 @@
 <ul>
 <li>已经获取 Nebula Graph 数据库的以下信息：<ul>
 <li>图空间名称和分区数量（如果创建图空间时未设置分区数量，则默认使用 100）</li>
-<li>标签和边类型的名称以及属性</li>
+<li>Tag和Edge type的名称以及属性</li>
 <li>Meta 服务所在机器的 IP 地址及端口号</li>
 </ul>
 </li>
@@ -1890,12 +1890,12 @@ edgeDataset.show<span class="o">()</span>
 - `&lt;partitionNum: String&gt;`：设置 Spark 的分区数量。建议设置为 Nebula Graph 中创建图空间时指定的 `partitionNum`，以确保一个 Spark 分区读取 Nebula Graph 图空间中一个分区的数据。如果在创建 Nebula Graph 图空间时未指定分区数量，则使用默认值 100。
 </code></pre></div>
 <p>- <code>loadVerticesToDF(&lt;tag: String&gt;, &lt;fields: String&gt;)</code>，所有参数均为必需参数。</p>
-<div class="codehilite"><pre><span></span><code>- `&lt;tag: String&gt;`：配置为指定 Nebula Graph 图空间中某个标签的名称。
-- `&lt;fields: String&gt;`：配置为指定标签的属性名称，不允许为空。如果一个标签有多个属性，则以英文逗号分隔。如果指定了属性名称，表示只读取指定的属性。如果配置为 `*`，表示读取指定标签的所有属性。
+<div class="codehilite"><pre><span></span><code>- `&lt;tag: String&gt;`：配置为指定 Nebula Graph 图空间中某个Tag的名称。
+- `&lt;fields: String&gt;`：配置为指定Tag的属性名称，不允许为空。如果一个Tag有多个属性，则以英文逗号分隔。如果指定了属性名称，表示只读取指定的属性。如果配置为 `*`，表示读取指定Tag的所有属性。
 </code></pre></div>
 <p>- <code>loadEdgesToDF(&lt;edge: String&gt;, &lt;fields: String&gt;)</code>，所有参数均为必需参数。</p>
-<div class="codehilite"><pre><span></span><code>- `&lt;edge: String&gt;`：配置为指定 Nebula Graph 图空间中某个边类型的名称。
-- `&lt;fields: String&gt;`：配置为指定边类型的属性名称，不允许为空。如果一个边类型有多个属性，则以英文逗号分隔。如果指定了属性名称，表示只读取指定的属性，如果配置为 `*` 表示读取指定边类型的所有属性。
+<div class="codehilite"><pre><span></span><code>- `&lt;edge: String&gt;`：配置为指定 Nebula Graph 图空间中某个Edge type的名称。
+- `&lt;fields: String&gt;`：配置为指定Edge type的属性名称，不允许为空。如果一个Edge type有多个属性，则以英文逗号分隔。如果指定了属性名称，表示只读取指定的属性，如果配置为 `*` 表示读取指定Edge type的所有属性。
 </code></pre></div>
 </li>
 </ol>
@@ -1945,7 +1945,7 @@ only showing top 20 rows
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

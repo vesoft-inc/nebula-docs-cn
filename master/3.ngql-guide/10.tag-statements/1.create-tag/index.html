@@ -761,13 +761,13 @@
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" id="__nav_4_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_9">
-        标签语句
+        Tag语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="标签语句" class="md-nav" data-md-level="2">
+<nav aria-label="Tag语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_9">
 <span class="md-nav__icon md-icon"></span>
-          标签语句
+          Tag语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--active">
@@ -802,13 +802,13 @@
 <nav aria-label="语法" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-    标签名称
+<a class="md-nav__link" href="#tag">
+    Tag名称
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    标签属性
+<a class="md-nav__link" href="#tag_1">
+    Tag属性
   </a>
 </li>
 <li class="md-nav__item">
@@ -820,13 +820,13 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
+<a class="md-nav__link" href="#_3">
     示例
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
-    创建标签说明
+<a class="md-nav__link" href="#tag_2">
+    创建Tag说明
   </a>
 </li>
 </ul>
@@ -858,13 +858,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" id="__nav_4_10" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_10">
-        边类型语句
+        Edge type语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="边类型语句" class="md-nav" data-md-level="2">
+<nav aria-label="Edge type语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_10">
 <span class="md-nav__icon md-icon"></span>
-          边类型语句
+          Edge type语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -1536,12 +1536,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-tag/">
-        操作标签
+        操作Tag
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-edge-type/">
-        操作边类型
+        操作Edge type
       </a>
 </li>
 <li class="md-nav__item">
@@ -1869,13 +1869,13 @@
 <nav aria-label="语法" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-    标签名称
+<a class="md-nav__link" href="#tag">
+    Tag名称
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    标签属性
+<a class="md-nav__link" href="#tag_1">
+    Tag属性
   </a>
 </li>
 <li class="md-nav__item">
@@ -1887,13 +1887,13 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
+<a class="md-nav__link" href="#_3">
     示例
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
-    创建标签说明
+<a class="md-nav__link" href="#tag_2">
+    创建Tag说明
   </a>
 </li>
 </ul>
@@ -1907,7 +1907,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="create_tag">CREATE TAG<a class="headerlink" href="#create_tag" title="Permanent link">¶</a></h1>
-<p><code>CREATE TAG</code>语句可以通过指定名称创建一个标签。</p>
+<p><code>CREATE TAG</code>语句可以通过指定名称创建一个Tag。</p>
 <h2 id="opencypher">OpenCypher兼容性<a class="headerlink" href="#opencypher" title="Permanent link">¶</a></h2>
 <p>nGQL中的tag和openCypher中的label相似，但又有所不同，例如它们的创建方式。</p>
 <ul>
@@ -1915,9 +1915,9 @@
 <li>nGQL中的tag需要使用<code>CREATE TAG</code>语句独立创建。tag更像是MySQL中的表。</li>
 </ul>
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>执行<code>CREATE TAG</code>语句需要当前登录的用户拥有指定图空间的<a href="../../../7.data-security/1.authentication/3.role-list/">创建标签权限</a>，否则会报错。</p>
+<p>执行<code>CREATE TAG</code>语句需要当前登录的用户拥有指定图空间的<a href="../../../7.data-security/1.authentication/3.role-list/">创建Tag权限</a>，否则会报错。</p>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p>创建标签前，需要先用<code>USE</code>语句指定工作空间。</p>
+<p>创建Tag前，需要先用<code>USE</code>语句指定工作空间。</p>
 <div class="highlight"><pre><span></span><code>CREATE TAG [IF NOT EXISTS] &lt;tag_name&gt;
     ([&lt;create_definition&gt;, ...])
     [tag_options];
@@ -1933,22 +1933,22 @@
     | TTL_COL [=] &lt;prop_name&gt;
     | DEFAULT &lt;default_value&gt;
 </code></pre></div>
-<h3 id="_3">标签名称<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<h3 id="tag">Tag名称<a class="headerlink" href="#tag" title="Permanent link">¶</a></h3>
 <ul>
 <li>
-<p><code>IF NOT EXISTS</code>：用户可以使用<code>IF NOT EXISTS</code>关键字检测待创建的标签是否存在，只有不存在时，才会创建标签。</p>
+<p><code>IF NOT EXISTS</code>：用户可以使用<code>IF NOT EXISTS</code>关键字检测待创建的Tag是否存在，只有不存在时，才会创建Tag。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>仅检测标签的名称，不会检测具体属性。</p>
+<p>仅检测Tag的名称，不会检测具体属性。</p>
 </div>
 </li>
 </ul>
 <ul>
-<li><code>tag_name</code>：每个图空间内的标签必须是唯一的。标签名称设置后无法修改。标签名称由大小写英文字母、数字或下划线组成，区分大写小，且不可使用<a href="../../1.nGQL-overview/keywords-and-reserved-words/">关键字和保留字</a>。</li>
+<li><code>tag_name</code>：每个图空间内的Tag必须是唯一的。Tag名称设置后无法修改。Tag名称由大小写英文字母、数字或下划线组成，区分大写小，且不可使用<a href="../../1.nGQL-overview/keywords-and-reserved-words/">关键字和保留字</a>。</li>
 </ul>
-<h3 id="_4">标签属性<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<h3 id="tag_1">Tag属性<a class="headerlink" href="#tag_1" title="Permanent link">¶</a></h3>
 <ul>
-<li><code>prop_name</code><p>属性名称。每个标签中的属性名称必须唯一。属性的命名规则与标签相同。</p>
+<li><code>prop_name</code><p>属性名称。每个Tag中的属性名称必须唯一。属性的命名规则与Tag相同。</p>
 </li>
 </ul>
 <ul>
@@ -1972,14 +1972,14 @@
 <li><code>TTL_COL</code><p>指定要设置存活时间的属性。属性的数据类型必须是<code>int</code>或者<code>timestamp</code>。</p>
 </li>
 </ul>
-<p>一个标签只能指定一个字段为<code>TTL_COL</code>。更多TTL的信息请参见<a href="../../8.clauses-and-options/ttl-options/">TTL</a>。</p>
-<h2 id="_5">示例<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<p>一个Tag只能指定一个字段为<code>TTL_COL</code>。更多TTL的信息请参见<a href="../../8.clauses-and-options/ttl-options/">TTL</a>。</p>
+<h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG player(name string, age int);
 
-# 创建没有属性的标签。
+# 创建没有属性的Tag。
 nebula&gt; CREATE TAG no_property(); 
 
-# 创建包含默认值的标签。
+# 创建包含默认值的Tag。
 nebula&gt; CREATE TAG player_with_default(name string, age int DEFAULT 20);
 
 # 对字段create_time设置TTL为100秒。
@@ -1987,11 +1987,11 @@ nebula&gt; CREATE TAG woman(name string, age int, \
         married bool, salary double, create_time timestamp) \
         TTL_DURATION = 100, TTL_COL = "create_time";
 </code></pre></div>
-<h2 id="_6">创建标签说明<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
-<p>尝试使用新创建的标签可能会失败，因为创建是异步实现的。</p>
-<p>Nebula Graph将在下一个心跳周期内完成标签的创建，为了确保创建成功，可以使用如下方法之一：</p>
+<h2 id="tag_2">创建Tag说明<a class="headerlink" href="#tag_2" title="Permanent link">¶</a></h2>
+<p>尝试使用新创建的Tag可能会失败，因为创建是异步实现的。</p>
+<p>Nebula Graph将在下一个心跳周期内完成Tag的创建，为了确保创建成功，可以使用如下方法之一：</p>
 <ul>
-<li>在<a href="../4.show-tags/"><code>SHOW TAGS</code></a>语句的结果中查找新的标签，如果找不到，请等待几秒重试。</li>
+<li>在<a href="../4.show-tags/"><code>SHOW TAGS</code></a>语句的结果中查找新的Tag，如果找不到，请等待几秒重试。</li>
 </ul>
 <ul>
 <li>等待两个心跳周期，例如20秒。</li>
@@ -2001,7 +2001,7 @@ nebula&gt; CREATE TAG woman(name string, age int, \
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月1日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

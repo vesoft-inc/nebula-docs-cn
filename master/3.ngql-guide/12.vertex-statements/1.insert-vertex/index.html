@@ -761,13 +761,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" id="__nav_4_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_9">
-        标签语句
+        Tag语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="标签语句" class="md-nav" data-md-level="2">
+<nav aria-label="Tag语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_9">
 <span class="md-nav__icon md-icon"></span>
-          标签语句
+          Tag语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -801,13 +801,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" id="__nav_4_10" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_10">
-        边类型语句
+        Edge type语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="边类型语句" class="md-nav" data-md-level="2">
+<nav aria-label="Edge type语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_10">
 <span class="md-nav__icon md-icon"></span>
-          边类型语句
+          Edge type语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -1507,12 +1507,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-tag/">
-        操作标签
+        操作Tag
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-edge-type/">
-        操作边类型
+        操作Edge type
       </a>
 </li>
 <li class="md-nav__item">
@@ -1853,7 +1853,7 @@
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <p>执行<code>INSERT VERTEX</code>语句需要当前登录的用户拥有指定图空间的<a href="../../../7.data-security/1.authentication/3.role-list/">插入点权限</a>，否则会报错。</p>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span></span><code>INSERT VERTEX &lt;tag_name&gt; (&lt;prop_name_list&gt;) [, &lt;tag_name&gt; (&lt;prop_name_list&gt;), ...]
+<div class="highlight"><pre><span></span><code>INSERT VERTEX [IF NOT EXISTS] &lt;tag_name&gt; (&lt;prop_name_list&gt;) [, &lt;tag_name&gt; (&lt;prop_name_list&gt;), ...]
      {VALUES | VALUE} VID: (&lt;prop_value_list&gt;[, &lt;prop_value_list&gt;])
 
 prop_name_list:
@@ -1863,7 +1863,16 @@ prop_value_list:
   [prop_value [, prop_value] ...]
 </code></pre></div>
 <ul>
-<li><code>tag_name</code>：点关联的标签（点类型）。标签必须提前创建，详情请参见<a href="../../10.tag-statements/1.create-tag/">CREATE TAG</a>。</li>
+<li>
+<p><code>IF NOT EXISTS</code>：用户可以使用<code>IF NOT EXISTS</code>关键字检测待插入的VID是否存在，只有不存在时，才会插入，如果已经存在，不会进行修改。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>仅检测VID+Tag的值是否相同，不会检测属性值。</p>
+</div>
+</li>
+</ul>
+<ul>
+<li><code>tag_name</code>：点关联的Tag（点类型）。Tag必须提前创建，详情请参见<a href="../../10.tag-statements/1.create-tag/">CREATE TAG</a>。</li>
 </ul>
 <ul>
 <li><code>prop_name_list</code>：需要设置的属性名称列表。</li>
@@ -1872,14 +1881,14 @@ prop_value_list:
 <li><code>VID</code>：点ID。在Nebula Graph 2.0中支持字符串和整数，需要在创建图空间时设置，详情请参见<a href="../../9.space-statements/1.create-space/">CREATE SPACE</a>。</li>
 </ul>
 <ul>
-<li><code>prop_value_list</code>：根据<code>prop_name_list</code>填写属性值。如果属性值和标签中的数据类型不匹配，会返回错误。如果没有填写属性值，而标签中对应的属性设置为<code>NOT NULL</code>，也会返回错误。详情请参见<a href="../../10.tag-statements/1.create-tag/">CREATE TAG</a>。</li>
+<li><code>prop_value_list</code>：根据<code>prop_name_list</code>填写属性值。如果属性值和Tag中的数据类型不匹配，会返回错误。如果没有填写属性值，而Tag中对应的属性设置为<code>NOT NULL</code>，也会返回错误。详情请参见<a href="../../10.tag-statements/1.create-tag/">CREATE TAG</a>。</li>
 </ul>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p><code>INSERT VERTEX</code>与openCypher中<code>CREATE</code>的语意不同：</p>
 <ul>
 <li><code>INSERT VERTEX</code>语意更接近于NoSQL(key-value)方式的INSERT语意，或者SQL中的<code>UPSERT</code> (<code>UPDATE</code> or <code>INSERT</code>)。</li>
-<li>相同<code>VID</code>和<code>TAG</code>的情况下，新写入的数据会覆盖旧数据，不存在时会新写入。</li>
+<li>相同<code>VID</code>和<code>TAG</code>的情况下，如果没有使用<code>IF NOT EXISTS</code>，新写入的数据会覆盖旧数据，不存在时会新写入。</li>
 <li>相同<code>VID</code>但不同<code>TAG</code>的情况下，不同TAG对应的记录不会相互覆盖，不存在会新写入。</li>
 </ul>
 </div>
@@ -1901,7 +1910,7 @@ nebula&gt; INSERT VERTEX t2 (name, age) VALUES "13":("n3", 12), "14":("n4", 8);
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG t3(p1 int);
 nebula&gt; CREATE TAG t4(p2 string);
 
-# 一次插入两个标签的属性到同一个点。
+# 一次插入两个Tag的属性到同一个点。
 nebula&gt; INSERT VERTEX  t3 (p1), t4(p2) VALUES "21": (321, "hello");
 </code></pre></div>
 <p>一个点可以多次插入属性值，以最后一次为准。</p>
@@ -1941,11 +1950,23 @@ nebula&gt; FETCH PROP on t5 "004";
 | ("004" :t5{p1: "shala", p2: 4, p3: __NULL__}) |
 +-----------------------------------------------+
 </code></pre></div>
+<p>使用<code>IF NOT EXISTS</code>插入已存在的点时，不会进行修改。</p>
+<div class="highlight"><pre><span></span><code># 插入点1。
+nebula&gt; INSERT VERTEX t2 (name, age) VALUES "1":("n2", 13);
+# 使用IF NOT EXISTS修改点1，因为点1已存在，不会进行修改。
+nebula&gt; INSERT VERTEX IF NOT EXISTS t2 (name, age) VALUES "1":("n3", 14);
+nebula&gt; FETCH PROP ON t2 "1";
++--------------------------------+
+| vertices_                      |
++--------------------------------+
+| ("1" :t2{age: 13, name: "n2"}) |
++--------------------------------+
+</code></pre></div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月20日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

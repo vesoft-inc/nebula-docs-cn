@@ -250,6 +250,11 @@
     代码结构
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    视频
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -804,13 +809,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" id="__nav_4_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_9">
-        标签语句
+        Tag语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="标签语句" class="md-nav" data-md-level="2">
+<nav aria-label="Tag语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_9">
 <span class="md-nav__icon md-icon"></span>
-          标签语句
+          Tag语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -844,13 +849,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" id="__nav_4_10" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_10">
-        边类型语句
+        Edge type语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="边类型语句" class="md-nav" data-md-level="2">
+<nav aria-label="Edge type语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_10">
 <span class="md-nav__icon md-icon"></span>
-          边类型语句
+          Edge type语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -1522,12 +1527,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-tag/">
-        操作标签
+        操作Tag
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-edge-type/">
-        操作边类型
+        操作Edge type
       </a>
 </li>
 <li class="md-nav__item">
@@ -1868,6 +1873,11 @@
     代码结构
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    视频
+  </a>
+</li>
 </ul>
 </nav>
 </div>
@@ -1905,7 +1915,7 @@
 <p>Validator模块对生成的AST进行语义校验，主要包括：</p>
 <ul>
 <li>校验元数据信息<p>校验语句中的元数据信息是否正确。</p>
-<p>例如解析<code>OVER</code>、<code>WHERE</code>和<code>YIELD</code>语句时，会查找Schema校验边类型、标签的信息是否存在，或者插入数据时校验插入的数据类型和Schema中的是否一致。</p>
+<p>例如解析<code>OVER</code>、<code>WHERE</code>和<code>YIELD</code>语句时，会查找Schema校验Edge type、Tag的信息是否存在，或者插入数据时校验插入的数据类型和Schema中的是否一致。</p>
 </li>
 </ul>
 <ul>
@@ -1920,7 +1930,7 @@
 </ul>
 <ul>
 <li>校验<code>*</code>代表的信息<p>查询语句中包含<code>*</code>时，校验子句时需要将<code>*</code>涉及的Schema都进行校验。</p>
-<p>例如语句<code>GO FROM "Tim" OVER * YIELD like._dst, like.likeness, serve._dst</code>，校验<code>OVER</code>子句时需要校验所有的边类型，如果边类型包含<code>like</code>和<code>serve</code>，该语句会展开为<code>GO FROM "Tim" OVER like,serve YIELD like._dst, like.likeness, serve._dst</code>。</p>
+<p>例如语句<code>GO FROM "Tim" OVER * YIELD like._dst, like.likeness, serve._dst</code>，校验<code>OVER</code>子句时需要校验所有的Edge type，如果Edge type包含<code>like</code>和<code>serve</code>，该语句会展开为<code>GO FROM "Tim" OVER like,serve YIELD like._dst, like.likeness, serve._dst</code>。</p>
 </li>
 </ul>
 <ul>
@@ -1969,11 +1979,17 @@
    <span class="p">|</span>--validator  //语句校验
    <span class="p">|</span>--visitor
 </code></pre></div>
+<h2 id="_2">视频<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p>用户也可以通过视频全方位了解 Nebula Graph 的查询引擎。</p>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV1xV411n7DD">nMeetup·上海 ｜全面解析 2.0 Query Engine</a>（33分30秒）</li>
+</ul>
+<iframe allowfullscreen="true" border="0" frameborder="no" framespacing="0" height="480px" scrolling="no" src="//player.bilibili.com/player.html?aid=417369444&amp;bvid=BV1xV411n7DD&amp;cid=317029694&amp;page=1" width="720px"> </iframe>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月18日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

@@ -761,13 +761,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" id="__nav_4_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_9">
-        标签语句
+        Tag语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="标签语句" class="md-nav" data-md-level="2">
+<nav aria-label="Tag语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_9">
 <span class="md-nav__icon md-icon"></span>
-          标签语句
+          Tag语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -801,13 +801,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" id="__nav_4_10" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_10">
-        边类型语句
+        Edge type语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="边类型语句" class="md-nav" data-md-level="2">
+<nav aria-label="Edge type语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_10">
 <span class="md-nav__icon md-icon"></span>
-          边类型语句
+          Edge type语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -1511,12 +1511,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-tag/">
-        操作标签
+        操作Tag
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-edge-type/">
-        操作边类型
+        操作Edge type
       </a>
 </li>
 <li class="md-nav__item">
@@ -1857,7 +1857,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="get_subgraph">GET SUBGRAPH<a class="headerlink" href="#get_subgraph" title="Permanent link">¶</a></h1>
-<p><code>GET SUBGRAPH</code>语句检索指定边类型的起始点可以到达的点和边的信息，返回子图信息。</p>
+<p><code>GET SUBGRAPH</code>语句检索指定Edge type的起始点可以到达的点和边的信息，返回子图信息。</p>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code>GET SUBGRAPH [WITH PROP] [&lt;step_count&gt; STEPS] FROM {&lt;vid&gt;, &lt;vid&gt;...}
 [IN &lt;edge_type&gt;, &lt;edge_type&gt;...]
@@ -1874,7 +1874,7 @@
 <li><code>vid</code>：指定起始点ID。</li>
 </ul>
 <ul>
-<li><code>edge_type</code>：指定边类型。可以用<code>IN</code>、<code>OUT</code>和<code>BOTH</code>来指定起始点上该边类型的方向。默认为<code>BOTH</code>。</li>
+<li><code>edge_type</code>：指定Edge type。可以用<code>IN</code>、<code>OUT</code>和<code>BOTH</code>来指定起始点上该Edge type的方向。默认为<code>BOTH</code>。</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1884,7 +1884,7 @@
 <p>以下面的示例图进行演示。</p>
 <p><img alt="A sample graph for GET SUBGRAPH" src="https://docs-cdn.nebula-graph.com.cn/docs-2.0/2.quick-start/dataset-for-crud.png"/></p>
 <ul>
-<li>查询从点<code>player100</code>开始、0~1跳、所有边类型的子图。<div class="highlight"><pre><span></span><code>nebula&gt; GET SUBGRAPH 1 STEPS FROM "player100";
+<li>查询从点<code>player100</code>开始、0~1跳、所有Edge type的子图。<div class="highlight"><pre><span></span><code>nebula&gt; GET SUBGRAPH 1 STEPS FROM "player100";
 +-------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 | _vertices                                                                                                                                             | _edges                                                                                                                      |
 +-------------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
@@ -1942,7 +1942,7 @@ nebula&gt; go 1 steps from "A" over follow;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月18日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

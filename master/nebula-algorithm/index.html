@@ -761,13 +761,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" id="__nav_4_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_9">
-        标签语句
+        Tag语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="标签语句" class="md-nav" data-md-level="2">
+<nav aria-label="Tag语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_9">
 <span class="md-nav__icon md-icon"></span>
-          标签语句
+          Tag语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -801,13 +801,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" id="__nav_4_10" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_10">
-        边类型语句
+        Edge type语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="边类型语句" class="md-nav" data-md-level="2">
+<nav aria-label="Edge type语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_10">
 <span class="md-nav__icon md-icon"></span>
-          边类型语句
+          Edge type语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -1479,12 +1479,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../nebula-studio/manage-schema/st-ug-crud-tag/">
-        操作标签
+        操作Tag
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../nebula-studio/manage-schema/st-ug-crud-edge-type/">
-        操作边类型
+        操作Edge type
       </a>
 </li>
 <li class="md-nav__item">
@@ -2081,7 +2081,7 @@ val <span class="nv">louvainResult</span> <span class="o">=</span> PageRankAlgo.
 <h3 id="_8">直接提交算法包<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>使用封装好的算法包有一定的局限性，例如落库到Nebula Graph时，落库的图空间中创建的标签的属性名称必须和代码内预设的名称保持一致。如果用户有开发能力，推荐使用第一种方法。</p>
+<p>使用封装好的算法包有一定的局限性，例如落库到Nebula Graph时，落库的图空间中创建的Tag的属性名称必须和代码内预设的名称保持一致。如果用户有开发能力，推荐使用第一种方法。</p>
 </div>
 <ol>
 <li>
@@ -2116,9 +2116,9 @@ val <span class="nv">louvainResult</span> <span class="o">=</span> PageRankAlgo.
         metaAddress: <span class="s2">"192.168.*.10:9559"</span>
         <span class="c1"># Nebula Graph图空间名称</span>
         space: basketballplayer
-        <span class="c1"># Nebula Graph边类型, 多个labels时，多个边的数据将合并。</span>
+        <span class="c1"># Nebula Graph Edge type, 多个labels时，多个边的数据将合并。</span>
         labels: <span class="o">[</span><span class="s2">"serve"</span><span class="o">]</span>
-        <span class="c1"># Nebula Graph每个边类型的属性名称，此属性将作为算法的权重列，请确保和边类型对应。</span>
+        <span class="c1"># Nebula Graph每个Edge type的属性名称，此属性将作为算法的权重列，请确保和Edge type对应。</span>
         weightCols: <span class="o">[</span><span class="s2">"start_year"</span><span class="o">]</span>
     <span class="o">}</span>
 
@@ -2134,10 +2134,10 @@ val <span class="nv">louvainResult</span> <span class="o">=</span> PageRankAlgo.
         metaAddress: <span class="s2">"192.168.*.12:9559"</span>
         user:root
         pswd:nebula
-        <span class="c1"># 在提交图计算任务之前需要自行创建图空间及标签</span>
+        <span class="c1"># 在提交图计算任务之前需要自行创建图空间及Tag</span>
         <span class="c1"># Nebula Graph图空间名称</span>
         space:nb
-        <span class="c1"># Nebula Graph标签名称，图计算结果会写入该标签。标签中的属性名称固定如下：</span>
+        <span class="c1"># Nebula Graph Tag名称，图计算结果会写入该Tag。Tag中的属性名称固定如下：</span>
         <span class="c1"># PageRank：pagerank</span>
         <span class="c1"># Louvain：louvain</span>
         <span class="c1"># ConnectedComponent：cc</span>
@@ -2244,7 +2244,7 @@ val <span class="nv">louvainResult</span> <span class="o">=</span> PageRankAlgo.
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

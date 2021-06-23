@@ -761,13 +761,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" id="__nav_4_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_9">
-        标签语句
+        Tag语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="标签语句" class="md-nav" data-md-level="2">
+<nav aria-label="Tag语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_9">
 <span class="md-nav__icon md-icon"></span>
-          标签语句
+          Tag语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -801,13 +801,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" id="__nav_4_10" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_10">
-        边类型语句
+        Edge type语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="边类型语句" class="md-nav" data-md-level="2">
+<nav aria-label="Edge type语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_10">
 <span class="md-nav__icon md-icon"></span>
-          边类型语句
+          Edge type语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -1479,12 +1479,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../nebula-studio/manage-schema/st-ug-crud-tag/">
-        操作标签
+        操作Tag
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../nebula-studio/manage-schema/st-ug-crud-edge-type/">
-        操作边类型
+        操作Edge type
       </a>
 </li>
 <li class="md-nav__item">
@@ -1862,17 +1862,17 @@
 </li>
 <li><code>VertexExecutionOptions</code> 需要配置：<ul>
 <li>需要读取点数据的 Nebula Graph 图数据库中的图空间名称。</li>
-<li>需要读取的标签（点类型）名称。一次只能一个标签。</li>
-<li>要读取的标签属性。</li>
-<li>是否读取指定标签的所有属性，默认为 <code>false</code>。如果配置为 <code>true</code> 则标签属性的配置无效。</li>
+<li>需要读取的Tag（点类型）名称。一次只能一个Tag。</li>
+<li>要读取的Tag属性。</li>
+<li>是否读取指定Tag的所有属性，默认为 <code>false</code>。如果配置为 <code>true</code> 则Tag属性的配置无效。</li>
 <li>单次读取的数据量限值，默认为 2000 个点数据。</li>
 </ul>
 </li>
 <li><code>EdgeExecutionOptions</code> 需要配置：<ul>
 <li>需要读取边数据的 Nebula Graph 图数据库中的图空间名称。</li>
-<li>需要读取的边类型。一次只能一个边类型。</li>
-<li>需要读取的边类型属性。</li>
-<li>是否读取指定边类型的所有属性，默认为 <code>false</code>。如果配置为 <code>true</code> 则边类型属性的配置无效。</li>
+<li>需要读取的Edge type。一次只能一个Edge type。</li>
+<li>需要读取的Edge type属性。</li>
+<li>是否读取指定Edge type的所有属性，默认为 <code>false</code>。如果配置为 <code>true</code> 则Edge type属性的配置无效。</li>
 <li>单次读取的数据量限值，默认值为 2000 个边数据。</li>
 </ul>
 </li>
@@ -1881,8 +1881,8 @@
 <ul>
 <li>Meta 服务为本地单副本部署，使用默认端口</li>
 <li>图空间名称：<code>flinkSource</code></li>
-<li>标签：<code>player</code></li>
-<li>标签属性：<code>name</code> 和 <code>age</code></li>
+<li>Tag：<code>player</code></li>
+<li>Tag属性：<code>name</code> 和 <code>age</code></li>
 <li>单次最多读取 100 个点数据</li>
 </ul>
 <p>以下为自定义 NebulaSource 的代码示例。</p>
@@ -1926,7 +1926,7 @@ NebulaSourceFunction sourceFunction = new NebulaSourceFunction(metaConnectionPro
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

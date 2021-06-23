@@ -761,13 +761,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" id="__nav_4_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_9">
-        标签语句
+        Tag语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="标签语句" class="md-nav" data-md-level="2">
+<nav aria-label="Tag语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_9">
 <span class="md-nav__icon md-icon"></span>
-          标签语句
+          Tag语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -801,13 +801,13 @@
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" id="__nav_4_10" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_10">
-        边类型语句
+        Edge type语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="边类型语句" class="md-nav" data-md-level="2">
+<nav aria-label="Edge type语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_10">
 <span class="md-nav__icon md-icon"></span>
-          边类型语句
+          Edge type语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item md-nav__item--active">
@@ -842,13 +842,13 @@
 <nav aria-label="语法" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-    边类型名称
+<a class="md-nav__link" href="#edge_type">
+    Edge type名称
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    边类型属性
+<a class="md-nav__link" href="#edge_type_1">
+    Edge type属性
   </a>
 </li>
 <li class="md-nav__item">
@@ -857,7 +857,7 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
+<a class="md-nav__link" href="#_3">
     示例
   </a>
 </li>
@@ -1531,12 +1531,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-tag/">
-        操作标签
+        操作Tag
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-edge-type/">
-        操作边类型
+        操作Edge type
       </a>
 </li>
 <li class="md-nav__item">
@@ -1864,13 +1864,13 @@
 <nav aria-label="语法" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-    边类型名称
+<a class="md-nav__link" href="#edge_type">
+    Edge type名称
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    边类型属性
+<a class="md-nav__link" href="#edge_type_1">
+    Edge type属性
   </a>
 </li>
 <li class="md-nav__item">
@@ -1879,7 +1879,7 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
+<a class="md-nav__link" href="#_3">
     示例
   </a>
 </li>
@@ -1897,17 +1897,17 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="create_edge">CREATE EDGE<a class="headerlink" href="#create_edge" title="Permanent link">¶</a></h1>
-<p><code>CREATE EDGE</code>语句可以通过指定名称创建一个边类型。</p>
+<p><code>CREATE EDGE</code>语句可以通过指定名称创建一个Edge type。</p>
 <h2 id="opencypher">OpenCypher兼容性<a class="headerlink" href="#opencypher" title="Permanent link">¶</a></h2>
-<p>nGQL中的边类型和openCypher中的关系类型相似，但又有所不同，例如它们的创建方式。</p>
+<p>nGQL中的Edge type和openCypher中的关系类型相似，但又有所不同，例如它们的创建方式。</p>
 <ul>
 <li>openCypher中的关系类型需要在<code>CREATE</code>语句中与点一起创建。</li>
-<li>nGQL中的边类型需要使用<code>CREATE EDGE</code>语句独立创建。边类型更像是MySQL中的表。</li>
+<li>nGQL中的Edge type需要使用<code>CREATE EDGE</code>语句独立创建。Edge type更像是MySQL中的表。</li>
 </ul>
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<p>执行<code>CREATE EDGE</code>语句需要当前登录的用户拥有指定图空间的<a href="../../../7.data-security/1.authentication/3.role-list/">创建边类型权限</a>，否则会报错。</p>
+<p>执行<code>CREATE EDGE</code>语句需要当前登录的用户拥有指定图空间的<a href="../../../7.data-security/1.authentication/3.role-list/">创建Edge type权限</a>，否则会报错。</p>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p>创建边类型前，需要先用<code>USE</code>语句指定工作空间。</p>
+<p>创建Edge type前，需要先用<code>USE</code>语句指定工作空间。</p>
 <div class="highlight"><pre><span></span><code>CREATE EDGE [IF NOT EXISTS] &lt;edge_type_name&gt;
     ([&lt;create_definition&gt;, ...])
     [edge_type_options];
@@ -1923,22 +1923,22 @@
     | TTL_COL [=] &lt;prop_name&gt;
     | DEFAULT &lt;default_value&gt;
 </code></pre></div>
-<h3 id="_3">边类型名称<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
+<h3 id="edge_type">Edge type名称<a class="headerlink" href="#edge_type" title="Permanent link">¶</a></h3>
 <ul>
 <li>
-<p><code>IF NOT EXISTS</code>：检测待创建的边类型是否存在，只有不存在时，才会创建边类型。</p>
+<p><code>IF NOT EXISTS</code>：检测待创建的Edge type是否存在，只有不存在时，才会创建Edge type。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>仅检测边类型的名称，不会检测具体属性。</p>
+<p>仅检测Edge type的名称，不会检测具体属性。</p>
 </div>
 </li>
 </ul>
 <ul>
-<li><code>edge_type_name</code>：每个图空间内的边类型必须是唯一的。边类型名称设置后无法修改。边类型名称由大小写英文字母、数字或下划线组成，区分大写小，且不可使用<a href="../../1.nGQL-overview/keywords-and-reserved-words/">关键字和保留字</a>。</li>
+<li><code>edge_type_name</code>：每个图空间内的Edge type必须是唯一的。Edge type名称设置后无法修改。Edge type名称由大小写英文字母、数字或下划线组成，区分大写小，且不可使用<a href="../../1.nGQL-overview/keywords-and-reserved-words/">关键字和保留字</a>。</li>
 </ul>
-<h3 id="_4">边类型属性<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
+<h3 id="edge_type_1">Edge type属性<a class="headerlink" href="#edge_type_1" title="Permanent link">¶</a></h3>
 <ul>
-<li><code>prop_name</code><p>属性名称。每个边类型中的属性名称必须唯一。属性的命名规则与边类型相同。</p>
+<li><code>prop_name</code><p>属性名称。每个Edge type中的属性名称必须唯一。属性的命名规则与Edge type相同。</p>
 </li>
 </ul>
 <ul>
@@ -1962,14 +1962,14 @@
 <li><code>TTL_COL</code><p>指定要设置存活时间的属性。属性的数据类型必须是<code>int</code>或者<code>timestamp</code>。</p>
 </li>
 </ul>
-<p>一个边类型只能指定一个字段为<code>TTL_COL</code>。更多TTL的信息请参见<a href="../../8.clauses-and-options/ttl-options/">TTL</a>。</p>
-<h3 id="_5">示例<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
+<p>一个Edge type只能指定一个字段为<code>TTL_COL</code>。更多TTL的信息请参见<a href="../../8.clauses-and-options/ttl-options/">TTL</a>。</p>
+<h3 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE EDGE follow(degree int);
 
-# 创建没有属性的边类型。
+# 创建没有属性的Edge type。
 nebula&gt; CREATE EDGE no_property();
 
-# 创建包含默认值的边类型。
+# 创建包含默认值的Edge type。
 nebula&gt; CREATE EDGE follow_with_default(degree int DEFAULT 20);
 
 # 对字段p2设置TTL为100秒。
@@ -1980,7 +1980,7 @@ nebula&gt; CREATE EDGE e1(p1 string, p2 int, p3 timestamp) \
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月1日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

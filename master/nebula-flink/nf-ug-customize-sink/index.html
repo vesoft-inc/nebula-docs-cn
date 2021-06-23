@@ -761,13 +761,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" id="__nav_4_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_9">
-        标签语句
+        Tag语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="标签语句" class="md-nav" data-md-level="2">
+<nav aria-label="Tag语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_9">
 <span class="md-nav__icon md-icon"></span>
-          标签语句
+          Tag语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -801,13 +801,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" id="__nav_4_10" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_10">
-        边类型语句
+        Edge type语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="边类型语句" class="md-nav" data-md-level="2">
+<nav aria-label="Edge type语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_10">
 <span class="md-nav__icon md-icon"></span>
-          边类型语句
+          Edge type语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -1479,12 +1479,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../nebula-studio/manage-schema/st-ug-crud-tag/">
-        操作标签
+        操作Tag
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../nebula-studio/manage-schema/st-ug-crud-edge-type/">
-        操作边类型
+        操作Edge type
       </a>
 </li>
 <li class="md-nav__item">
@@ -1978,16 +1978,16 @@ public DataStreamSink<t> writeUsingOutputFormat(OutputFormat<t> format) {
 </li>
 <li><code>VertexExecutionOptions</code> 需要配置：<ul>
 <li>需要写入点数据的 Nebula Graph 图数据库中的图空间名称。</li>
-<li>需要写入的标签（点类型）名称。</li>
-<li>需要写入的标签属性。</li>
+<li>需要写入的Tag（点类型）名称。</li>
+<li>需要写入的Tag属性。</li>
 <li>需要写入的点 VID 所在 Flink 数据流 Row 中的索引。</li>
 <li>单次写入 Nebula Graph 的数据量限值，默认为 2000。</li>
 </ul>
 </li>
 <li><code>EdgeExecutionOptions</code> 需要配置：<ul>
 <li>需要写入边数据的 Nebula Graph 图数据库中的图空间名称。</li>
-<li>需要写入的边类型。</li>
-<li>需要写入的边类型属性。</li>
+<li>需要写入的Edge type。</li>
+<li>需要写入的Edge type属性。</li>
 <li>需要写入的边起点 VID（src_Id）所在 Flink 数据流 Row 中的索引。</li>
 <li>需要写入的边终点 VID（dst_Id）所在 Flink 数据流 Row 中的索引。</li>
 <li>需要写入的边 rank 所在 Flink 数据流 Row 中的索引。如果不配置，则写入边数据时不带 rank 信息。</li>
@@ -1999,8 +1999,8 @@ public DataStreamSink<t> writeUsingOutputFormat(OutputFormat<t> format) {
 <ul>
 <li>Graph 服务为本地单副本部署，使用默认端口</li>
 <li>图空间名称：<code>flinkSink</code></li>
-<li>标签：<code>player</code></li>
-<li>标签属性：<code>name</code> 和 <code>age</code></li>
+<li>Tag：<code>player</code></li>
+<li>Tag属性：<code>name</code> 和 <code>age</code></li>
 </ul>
 <p>以下为自定义 NebulaSink 的代码示例。</p>
 <div class="highlight"><pre><span></span><code>// 构造 Nebula Graph 的 Graph 服务客户端连接需要的参数
@@ -2031,7 +2031,7 @@ dataSource.addSink(nebulaSinkFunction);
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

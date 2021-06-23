@@ -761,13 +761,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" id="__nav_4_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_9">
-        标签语句
+        Tag语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="标签语句" class="md-nav" data-md-level="2">
+<nav aria-label="Tag语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_9">
 <span class="md-nav__icon md-icon"></span>
-          标签语句
+          Tag语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -801,13 +801,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" id="__nav_4_10" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_10">
-        边类型语句
+        Edge type语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="边类型语句" class="md-nav" data-md-level="2">
+<nav aria-label="Edge type语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_10">
 <span class="md-nav__icon md-icon"></span>
-          边类型语句
+          Edge type语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -1479,12 +1479,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-tag/">
-        操作标签
+        操作Tag
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-edge-type/">
-        操作边类型
+        操作Edge type
       </a>
 </li>
 <li class="md-nav__item">
@@ -2011,7 +2011,7 @@
 <li>已经安装Spark。</li>
 </ul>
 <ul>
-<li>了解Nebula Graph中创建Schema的信息，包括标签和边类型的名称、属性等。</li>
+<li>了解Nebula Graph中创建Schema的信息，包括Tag和Edge type的名称、属性等。</li>
 </ul>
 <ul>
 <li>已经安装并开启Hadoop服务，并已启动Hive Metastore数据库（本示例中为 MySQL）。</li>
@@ -2032,22 +2032,22 @@
 </thead>
 <tbody>
 <tr>
-<td align="left">标签（Tag）</td>
+<td align="left">Tag</td>
 <td align="left"><code>player</code></td>
 <td align="left"><code>name string, age int</code></td>
 </tr>
 <tr>
-<td align="left">标签（Tag）</td>
+<td align="left">Tag</td>
 <td align="left"><code>team</code></td>
 <td align="left"><code>name string</code></td>
 </tr>
 <tr>
-<td align="left">边类型（Edge Type）</td>
+<td align="left">Edge Type</td>
 <td align="left"><code>follow</code></td>
 <td align="left"><code>degree int</code></td>
 </tr>
 <tr>
-<td align="left">边类型（Edge Type）</td>
+<td align="left">Edge Type</td>
 <td align="left"><code>serve</code></td>
 <td align="left"><code>start_year int, end_year int</code></td>
 </tr>
@@ -2065,16 +2065,16 @@ nebula&gt; CREATE SPACE basketballplayer \
 ## 选择图空间basketballplayer
 nebula&gt; USE basketballplayer;
 
-## 创建标签player
+## 创建Tag player
 nebula&gt; CREATE TAG player(name string, age int);
 
-## 创建标签team
+## 创建Tag team
 nebula&gt; CREATE TAG team(name string);
 
-## 创建边类型follow
+## 创建Edge type follow
 nebula&gt; CREATE EDGE follow(degree int);
 
-## 创建边类型serve
+## 创建Edge type serve
 nebula&gt; CREATE EDGE serve(start_year int, end_year int);
 </code></pre></div>
 </li>
@@ -2157,9 +2157,9 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
   }
   # 处理点
   tags: [
-    # 设置标签player相关信息。
+    # 设置Tag player相关信息。
     {
-      # Nebula Graph中对应的标签名称。
+      # Nebula Graph中对应的Tag名称。
       name: player
       type: {
         # 指定数据源文件格式，设置为hive。
@@ -2189,7 +2189,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
       # Spark 分区数量
       partition: 32
     }
-    # 设置标签team相关信息。
+    # 设置Tag team相关信息。
     {
       name: team
       type: {
@@ -2210,9 +2210,9 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
 
   # 处理边数据
   edges: [
-    # 设置边类型follow相关信息
+    # 设置Edge type follow相关信息
     {
-      # Nebula Graph中对应的边类型名称。
+      # Nebula Graph中对应的Edge type名称。
       name: follow
 
       type: {
@@ -2250,7 +2250,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
       partition: 32
     }
 
-    # 设置边类型serve相关信息
+    # 设置Edge type serve相关信息
     {
       name: serve
       type: {
@@ -2295,7 +2295,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

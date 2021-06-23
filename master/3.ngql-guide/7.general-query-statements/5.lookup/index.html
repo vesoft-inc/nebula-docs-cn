@@ -596,12 +596,12 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
-    通过标签列出所有的对应的点/通过边类型列出边
+<a class="md-nav__link" href="#tagedge_type">
+    通过Tag列出所有的对应的点/通过Edge type列出边
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
+<a class="md-nav__link" href="#_5">
     统计点或边
   </a>
 </li>
@@ -814,13 +814,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" id="__nav_4_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_9">
-        标签语句
+        Tag语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="标签语句" class="md-nav" data-md-level="2">
+<nav aria-label="Tag语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_9">
 <span class="md-nav__icon md-icon"></span>
-          标签语句
+          Tag语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -854,13 +854,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" id="__nav_4_10" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_10">
-        边类型语句
+        Edge type语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="边类型语句" class="md-nav" data-md-level="2">
+<nav aria-label="Edge type语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_10">
 <span class="md-nav__icon md-icon"></span>
-          边类型语句
+          Edge type语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -1532,12 +1532,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-tag/">
-        操作标签
+        操作Tag
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-edge-type/">
-        操作边类型
+        操作Edge type
       </a>
 </li>
 <li class="md-nav__item">
@@ -1879,12 +1879,12 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
-    通过标签列出所有的对应的点/通过边类型列出边
+<a class="md-nav__link" href="#tagedge_type">
+    通过Tag列出所有的对应的点/通过Edge type列出边
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
+<a class="md-nav__link" href="#_5">
     统计点或边
   </a>
 </li>
@@ -1904,13 +1904,13 @@
 <li>根据<code>WHERE</code>子句搜索特定数据。</li>
 </ul>
 <ul>
-<li>通过标签列出点：检索指定标签的所有点ID。</li>
+<li>通过Tag列出点：检索指定Tag的所有点ID。</li>
 </ul>
 <ul>
-<li>通过边类型列出边：检索指定边类型的所有边的起始点、目的点和rank。</li>
+<li>通过Edge type列出边：检索指定Edge type的所有边的起始点、目的点和rank。</li>
 </ul>
 <ul>
-<li>统计包含指定标签的点或属于指定边类型的边的数量。</li>
+<li>统计包含指定Tag的点或属于指定Edge type的边的数量。</li>
 </ul>
 <h2 id="opencypher">OpenCypher兼容性<a class="headerlink" href="#opencypher" title="Permanent link">¶</a></h2>
 <p>本文操作仅适用于原生nGQL。</p>
@@ -1934,8 +1934,8 @@
 </ul>
 <ul>
 <li>如果只有<code>WHERE</code>子句，没有<code>YIELD</code>子句：<ul>
-<li><code>LOOKUP</code>标签时，返回点ID。</li>
-<li><code>LOOKUP</code>边类型时，返回起始点ID、目的点ID和rank。</li>
+<li><code>LOOKUP</code>Tag时，返回点ID。</li>
+<li><code>LOOKUP</code>Edge type时，返回起始点ID、目的点ID和rank。</li>
 </ul>
 </li>
 </ul>
@@ -1949,7 +1949,7 @@
 <li>不支持XOR和NOT运算符。</li>
 </ul>
 <h2 id="_3">检索点<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<p>返回标签为<code>player</code>且<code>name</code>为<code>Tony Parker</code>的点。</p>
+<p>返回Tag为<code>player</code>且<code>name</code>为<code>Tony Parker</code>的点。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG INDEX index_player ON player(name(30), age);
 
 nebula&gt; REBUILD TAG INDEX index_player;
@@ -1984,7 +1984,7 @@ nebula&gt; LOOKUP ON player WHERE player.name == "Kobe Bryant" YIELD player.name
 ------------------------------------------------------------------
 </code></pre></div>
 <h2 id="_4">检索边<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
-<p>返回边类型为<code>follow</code>且<code>degree</code>为<code>90</code>的边。</p>
+<p>返回Edge type为<code>follow</code>且<code>degree</code>为<code>90</code>的边。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE EDGE INDEX index_follow ON follow(degree);
 
 nebula&gt; REBUILD EDGE INDEX index_follow;
@@ -2031,11 +2031,11 @@ nebula&gt; LOOKUP ON follow WHERE follow.degree == 60 YIELD follow.degree AS Deg
 | "player105" | 2018             | 2019           | "Raptors"    |
 +-------------+------------------+----------------+--------------+
 </code></pre></div>
-<h2 id="_5">通过标签列出所有的对应的点/通过边类型列出边<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
-<p>如果需要通过标签列出所有的点，或通过边类型列出边，则标签、边类型或属性上必须有至少一个索引。</p>
-<p>例如一个标签<code>player</code>有两个属性<code>name</code>和<code>age</code>，为了遍历所有包含标签<code>player</code>的点ID，标签<code>player</code>、属性<code>name</code>或属性<code>age</code>中必须有一个已经创建索引。</p>
+<h2 id="tagedge_type">通过Tag列出所有的对应的点/通过Edge type列出边<a class="headerlink" href="#tagedge_type" title="Permanent link">¶</a></h2>
+<p>如果需要通过Tag列出所有的点，或通过Edge type列出边，则Tag、Edge type或属性上必须有至少一个索引。</p>
+<p>例如一个Tag<code>player</code>有两个属性<code>name</code>和<code>age</code>，为了遍历所有包含Tag<code>player</code>的点ID，Tag<code>player</code>、属性<code>name</code>或属性<code>age</code>中必须有一个已经创建索引。</p>
 <ul>
-<li>查找所有标签为<code>player</code>的点 VID。<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG player(name string,age int);
+<li>查找所有Tag为<code>player</code>的点 VID。<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG player(name string,age int);
 
 nebula&gt; CREATE TAG INDEX player_index on player();
 
@@ -2062,7 +2062,7 @@ nebula&gt; LOOKUP ON player;
 </li>
 </ul>
 <ul>
-<li>查找边类型为<code>like</code>的所有边的信息。<div class="highlight"><pre><span></span><code>nebula)&gt; CREATE EDGE like(likeness int);
+<li>查找Edge type为<code>like</code>的所有边的信息。<div class="highlight"><pre><span></span><code>nebula)&gt; CREATE EDGE like(likeness int);
 
 nebula)&gt; CREATE EDGE INDEX like_index on like();
 
@@ -2086,8 +2086,8 @@ nebula)&gt; LOOKUP ON like;
 </code></pre></div>
 </li>
 </ul>
-<h2 id="_6">统计点或边<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
-<p>统计标签为<code>player</code>的点和边类型为<code>like</code>的边。</p>
+<h2 id="_5">统计点或边<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<p>统计Tag为<code>player</code>的点和Edge type为<code>like</code>的边。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; LOOKUP ON player | YIELD COUNT(*) AS Player_Number;
 +---------------+
 | Player_Number |
@@ -2110,7 +2110,7 @@ nebula&gt; LOOKUP ON like | YIELD COUNT(*) AS Like_Number;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月28日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

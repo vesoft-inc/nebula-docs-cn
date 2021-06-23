@@ -761,13 +761,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" id="__nav_4_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_9">
-        标签语句
+        Tag语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="标签语句" class="md-nav" data-md-level="2">
+<nav aria-label="Tag语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_9">
 <span class="md-nav__icon md-icon"></span>
-          标签语句
+          Tag语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -801,13 +801,13 @@
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" id="__nav_4_10" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_10">
-        边类型语句
+        Edge type语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="边类型语句" class="md-nav" data-md-level="2">
+<nav aria-label="Edge type语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_10">
 <span class="md-nav__icon md-icon"></span>
-          边类型语句
+          Edge type语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -851,8 +851,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    修改边类型说明
+<a class="md-nav__link" href="#edge_type">
+    修改Edge type说明
   </a>
 </li>
 </ul>
@@ -1512,12 +1512,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-tag/">
-        操作标签
+        操作Tag
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-edge-type/">
-        操作边类型
+        操作Edge type
       </a>
 </li>
 <li class="md-nav__item">
@@ -1844,8 +1844,8 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    修改边类型说明
+<a class="md-nav__link" href="#edge_type">
+    修改Edge type说明
   </a>
 </li>
 </ul>
@@ -1859,7 +1859,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="alter_edge">ALTER EDGE<a class="headerlink" href="#alter_edge" title="Permanent link">¶</a></h1>
-<p><code>ALTER EDGE</code>语句可以修改边类型的结构。例如增删属性、修改数据类型，也可以为属性设置、修改<a href="../../8.clauses-and-options/ttl-options/">TTL</a>（Time-To-Live）。</p>
+<p><code>ALTER EDGE</code>语句可以修改Edge type的结构。例如增删属性、修改数据类型，也可以为属性设置、修改<a href="../../8.clauses-and-options/ttl-options/">TTL</a>（Time-To-Live）。</p>
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <ul>
 <li>登录的用户必须拥有对应权限才能执行<code>ALTER EDGE</code>语句。详情请参见<a href="../../../7.data-security/1.authentication/3.role-list/">内置角色权限</a>。</li>
@@ -1881,7 +1881,7 @@ ttl_definition:
     TTL_DURATION = ttl_duration, TTL_COL = prop_name
 </code></pre></div>
 <ul>
-<li><code>edge_type_name</code>：指定要修改的边类型名称。一次只能修改一个边类型。请确保要修改的边类型在当前工作空间中存在，否则会报错。</li>
+<li><code>edge_type_name</code>：指定要修改的Edge type名称。一次只能修改一个Edge type。请确保要修改的Edge type在当前工作空间中存在，否则会报错。</li>
 </ul>
 <ul>
 <li>可以在一个<code>ALTER EDGE</code>语句中使用多个<code>ADD</code>、<code>DROP</code>和<code>CHANGE</code>子句，子句之间用英文逗号（,）分隔。</li>
@@ -1891,11 +1891,11 @@ ttl_definition:
 nebula&gt; ALTER EDGE e1 ADD (p3 int, p4 string);
 nebula&gt; ALTER EDGE e1 TTL_DURATION = 2, TTL_COL = "p2";
 </code></pre></div>
-<h2 id="_4">修改边类型说明<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
-<p>尝试使用刚修改的边类型可能会失败，因为修改是异步实现的。</p>
-<p>Nebula Graph将在下一个心跳周期内完成边类型的修改，为了确保修改成功，可以使用如下方法之一：</p>
+<h2 id="edge_type">修改Edge type说明<a class="headerlink" href="#edge_type" title="Permanent link">¶</a></h2>
+<p>尝试使用刚修改的Edge type可能会失败，因为修改是异步实现的。</p>
+<p>Nebula Graph将在下一个心跳周期内完成Edge type的修改，为了确保修改成功，可以使用如下方法之一：</p>
 <ul>
-<li>在<a href="../5.describe-edge/"><code>DESCRIBE EDGE</code></a>语句的结果中查看边类型信息，确认修改成功。如果没有修改成功，请等待几秒重试。</li>
+<li>在<a href="../5.describe-edge/"><code>DESCRIBE EDGE</code></a>语句的结果中查看Edge type信息，确认修改成功。如果没有修改成功，请等待几秒重试。</li>
 </ul>
 <ul>
 <li>等待两个心跳周期，例如20秒。</li>
@@ -1905,7 +1905,7 @@ nebula&gt; ALTER EDGE e1 TTL_DURATION = 2, TTL_COL = "p2";
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

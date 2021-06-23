@@ -761,13 +761,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" id="__nav_4_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_9">
-        标签语句
+        Tag语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="标签语句" class="md-nav" data-md-level="2">
+<nav aria-label="Tag语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_9">
 <span class="md-nav__icon md-icon"></span>
-          标签语句
+          Tag语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -801,13 +801,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" id="__nav_4_10" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_10">
-        边类型语句
+        Edge type语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="边类型语句" class="md-nav" data-md-level="2">
+<nav aria-label="Edge type语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_10">
 <span class="md-nav__icon md-icon"></span>
-          边类型语句
+          Edge type语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -1479,12 +1479,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-tag/">
-        操作标签
+        操作Tag
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-edge-type/">
-        操作边类型
+        操作Edge type
       </a>
 </li>
 <li class="md-nav__item">
@@ -1867,8 +1867,8 @@
 <ul>
 <li>在 Nebula Graph 中创建 Schema，并获取以下信息：<ul>
 <li>图空间名称和分区数量。在本示例中，对应的信息为 <code>nb</code> 和 <code>100</code>。</li>
-<li>点的信息，包括标签和 VID 映射策略（<code>hash</code><!--或者 <code>uuid</code>-->）。</li>
-<li>边的信息，包括起点和终点对应的标签，以及 VID 映射策略（<code>hash</code><!--或者 <code>uuid</code>-->）。</li>
+<li>点的信息，包括Tag和 VID 映射策略（<code>hash</code><!--或者 <code>uuid</code>-->）。</li>
+<li>边的信息，包括起点和终点对应的Tag，以及 VID 映射策略（<code>hash</code><!--或者 <code>uuid</code>-->）。</li>
 </ul>
 </li>
 </ul>
@@ -1922,7 +1922,7 @@
 </ul>
 <ul>
 <li><code>writeVertices(tag: String, vertexField: String, policy: String = "")</code><ul>
-<li><code>tag</code>：点对应的 Nebula Graph 图空间中的标签名称。</li>
+<li><code>tag</code>：点对应的 Nebula Graph 图空间中的Tag名称。</li>
 <li><code>vertexField</code>：DataFrame 中可作为 Nebula Graph 点 VID 的列。例如，如果 DataFrame 有三列，分别为 a、b、c，其中 a 列作为点 VID 列，则该参数设置为 <code>"a"</code>。</li>
 <li><code>policy</code>：如果 DataFrame 中 <code>vertexField</code> 列的数据类型非数值型，则需要配置 Nebula Graph 中 VID 的映射策略，即该参数设置为 <code>"hash"</code><!--或者 <code>uuid</code>-->。如果 <code>vertexField</code> 列的数据类型为整数型，则不需要配置。</li>
 </ul>
@@ -1930,7 +1930,7 @@
 </ul>
 <ul>
 <li><code>writeEdges(edge: String, srcVertexField: String, dstVertexField: String, policy: String = "")</code><ul>
-<li><code>edge</code>：边对应的 Nebula Graph 图空间中的边类型名称。</li>
+<li><code>edge</code>：边对应的 Nebula Graph 图空间中的Edge type名称。</li>
 <li><code>srcVertexField</code> 和 <code>dstVertexField</code>：DataFrame 中可作为边起点和边终点的列。列值必须同为整数型或同为非数值型。</li>
 <li><code>policy</code>：如果 DataFrame 中 <code>srcVertexField</code> 列和 <code>dstVertexField</code> 列的数据类型非数值型，则需要配置 Nebula Graph 中 VID 的映射策略，即该参数设置为  <code>"hash"</code><!--或者 <code>uuid</code>-->。如果 <code>srcVertexField</code> 列和 <code>dstVertexField</code> 列的数据类型为整数型，则不需要配置。</li>
 </ul>
@@ -1968,7 +1968,7 @@ new NebulaBatchWriterUtils<span class="o">()</span>
 <ul>
 <li><code>batchToNebulaVertex(data: DataFrame, tag: String, vertexField: String, policy: String = "")</code>：<ul>
 <li><code>data</code>：待写入 Nebula Graph 的 DataFrame 数据。</li>
-<li><code>tag</code>：Nebula Graph 图空间中对应的标签名称。</li>
+<li><code>tag</code>：Nebula Graph 图空间中对应的Tag名称。</li>
 <li><code>vertexField</code>：DataFrame 中可作为 Nebula Graph 点 VID 的列。例如，如果 DataFrame 有三列，分别为 a、b、c，其中a 列作为点 VID 列，则该参数设置为 <code>"a"</code>。</li>
 <li><code>policy</code>：如果 DataFrame 中 <code>vertexField</code> 列的数据类型非数值型，则需要配置 Nebula Graph 中 VID 的映射策略，即该参数设置为 <code>"hash"</code><!--或者 <code>uuid</code>-->。如果 <code>vertexField</code> 列的数据类型为整数型，则不需要配置。</li>
 </ul>
@@ -1977,7 +1977,7 @@ new NebulaBatchWriterUtils<span class="o">()</span>
 <ul>
 <li><code>batchToNebulaEdge(data: DataFrame,  edge: String, srcVertexField: String, dstVertexField: String, rankField: String = "",  policy: String = "")</code>：<ul>
 <li><code>data</code>：待写入 Nebula Graph 的 DataFrame 数据。</li>
-<li><code>edge</code>：Nebula Graph 中对应的边类型。</li>
+<li><code>edge</code>：Nebula Graph 中对应的Edge type。</li>
 <li><code>srcVertexField</code> 和 <code>dstVertexField</code>：DataFrame 中可作为边起点和边终点的列。列值必须同为整数型或同为非数值型。</li>
 <li><code>rankField</code>：DataFrame 中可作为边 <code>rank</code> 值的列，可选配。</li>
 <li><code>policy</code>：可选。如果 DataFrame 中 <code>srcVertexField</code> 列和 <code>dstVertexField</code> 列的数据类型非数值型，则需要配置 Nebula Graph 中 VID 的映射策略，即该参数设置为  <code>"hash"</code><!--或者 <code>uuid</code>-->。如果 <code>srcVertexField</code> 列和 <code>dstVertexField</code> 列的数据类型为整数型，则不需要配置。</li>
@@ -1988,7 +1988,7 @@ new NebulaBatchWriterUtils<span class="o">()</span>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

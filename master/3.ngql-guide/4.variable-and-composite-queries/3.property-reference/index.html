@@ -817,13 +817,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" id="__nav_4_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_9">
-        标签语句
+        Tag语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="标签语句" class="md-nav" data-md-level="2">
+<nav aria-label="Tag语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_9">
 <span class="md-nav__icon md-icon"></span>
-          标签语句
+          Tag语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -857,13 +857,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" id="__nav_4_10" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_10">
-        边类型语句
+        Edge type语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="边类型语句" class="md-nav" data-md-level="2">
+<nav aria-label="Edge type语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_10">
 <span class="md-nav__icon md-icon"></span>
-          边类型语句
+          Edge type语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -1535,12 +1535,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-tag/">
-        操作标签
+        操作Tag
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-edge-type/">
-        操作边类型
+        操作Edge type
       </a>
 </li>
 <li class="md-nav__item">
@@ -1928,11 +1928,11 @@
 </tr>
 <tr>
 <td align="left"><code>tag_name</code></td>
-<td align="left">点的标签名称</td>
+<td align="left">点的Tag名称</td>
 </tr>
 <tr>
 <td align="left"><code>prop_name</code></td>
-<td align="left">标签内的属性名称</td>
+<td align="left">Tag内的属性名称</td>
 </tr>
 </tbody>
 </table>
@@ -1953,11 +1953,11 @@
 </tr>
 <tr>
 <td align="left"><code>tag_name</code></td>
-<td align="left">点的标签名称</td>
+<td align="left">点的Tag名称</td>
 </tr>
 <tr>
 <td align="left"><code>prop_name</code></td>
-<td align="left">标签内的属性名称</td>
+<td align="left">Tag内的属性名称</td>
 </tr>
 </tbody>
 </table>
@@ -1975,11 +1975,11 @@
 <tbody>
 <tr>
 <td align="left"><code>edge_type</code></td>
-<td align="left">边类型</td>
+<td align="left">Edge type</td>
 </tr>
 <tr>
 <td align="left"><code>prop_name</code></td>
-<td align="left">边类型的属性名称</td>
+<td align="left">Edge type的属性名称</td>
 </tr>
 </tbody>
 </table>
@@ -2012,7 +2012,7 @@
 </tbody>
 </table>
 <h2 id="_8">示例<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span></span><code># 返回起始点的标签player的name属性值和目的点的标签player的age属性值。
+<div class="highlight"><pre><span></span><code># 返回起始点的Tag player的name属性值和目的点的Tag player的age属性值。
 nebula&gt; GO FROM "player100" OVER follow YIELD $^.player.name AS startName, $$.player.age AS endAge;
 +--------------+--------+
 | startName    | endAge |
@@ -2022,7 +2022,7 @@ nebula&gt; GO FROM "player100" OVER follow YIELD $^.player.name AS startName, $$
 | "Tim Duncan" | 33     |
 +--------------+--------+
 
-# 返回边类型follow的degree属性值。
+# 返回Edge type follow的degree属性值。
 nebula&gt; GO FROM "player100" OVER follow YIELD follow.degree;
 +---------------+
 | follow.degree |
@@ -2032,7 +2032,7 @@ nebula&gt; GO FROM "player100" OVER follow YIELD follow.degree;
 | 90            |
 +---------------+
 
-# 返回边类型follow的起始点、目的点、边类型编码和边rank值。
+# 返回Edge type follow的起始点、目的点、Edge type编码和边rank值。
 nebula&gt; GO FROM "player100" OVER follow YIELD follow._src, follow._dst, follow._type, follow._rank;
 +-------------+-------------+--------------+--------------+
 | follow._src | follow._dst | follow._type | follow._rank |
@@ -2046,7 +2046,7 @@ nebula&gt; GO FROM "player100" OVER follow YIELD follow._src, follow._dst, follo
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月25日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

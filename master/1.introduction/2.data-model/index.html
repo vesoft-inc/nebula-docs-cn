@@ -784,13 +784,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" id="__nav_4_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_9">
-        标签语句
+        Tag语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="标签语句" class="md-nav" data-md-level="2">
+<nav aria-label="Tag语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_9">
 <span class="md-nav__icon md-icon"></span>
-          标签语句
+          Tag语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -824,13 +824,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" id="__nav_4_10" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_10">
-        边类型语句
+        Edge type语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="边类型语句" class="md-nav" data-md-level="2">
+<nav aria-label="Edge type语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_10">
 <span class="md-nav__icon md-icon"></span>
-          边类型语句
+          Edge type语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -1502,12 +1502,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../nebula-studio/manage-schema/st-ug-crud-tag/">
-        操作标签
+        操作Tag
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../nebula-studio/manage-schema/st-ug-crud-edge-type/">
-        操作边类型
+        操作Edge type
       </a>
 </li>
 <li class="md-nav__item">
@@ -1854,7 +1854,7 @@
 <p>点用来保存实体对象，特点如下：</p>
 <ul>
 <li>点是用点标识符（<code>VID</code>）标识的。<code>VID</code>在同一图空间中唯一。VID 是一个 int64, 或者 fixed_string(N)。</li>
-<li>点必须有至少一个标签（Tag)，也可以有多个标签。</li>
+<li>点必须有至少一个Tag，也可以有多个Tag。但不能没有Tag。</li>
 </ul>
 </li>
 </ul>
@@ -1865,8 +1865,8 @@
 <ul>
 <li>两点之间可以有多条边。</li>
 <li>边是有方向的，不存在无向边。</li>
-<li>四元组 <code>&lt;起点VID、边类型（edge type）、边排序值(rank)、终点VID&gt;</code> 用于唯一标识一条边。边没有EID。</li>
-<li>一条边有且仅有一个边类型。</li>
+<li>四元组 <code>&lt;起点VID、Edge type、边排序值(rank)、终点VID&gt;</code> 用于唯一标识一条边。边没有EID。</li>
+<li>一条边有且仅有一个Edge type。</li>
 <li>一条边有且仅有一个rank。其为int64, 默认为0。</li>
 </ul>
 </li>
@@ -1874,13 +1874,13 @@
 <ul>
 <li>
 <p>标签（tag）</p>
-<p>标签由一组事先预定义的属性构成。</p>
+<p>Tag由一组事先预定义的属性构成。</p>
 </li>
 </ul>
 <ul>
 <li>
 <p>边类型（edge type）</p>
-<p>边类型由一组事先预定义的属性构成。</p>
+<p>Edge type由一组事先预定义的属性构成。</p>
 </li>
 </ul>
 <ul>
@@ -1940,7 +1940,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月7日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

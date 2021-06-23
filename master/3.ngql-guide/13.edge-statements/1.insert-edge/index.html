@@ -761,13 +761,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" id="__nav_4_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_9">
-        标签语句
+        Tag语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="标签语句" class="md-nav" data-md-level="2">
+<nav aria-label="Tag语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_9">
 <span class="md-nav__icon md-icon"></span>
-          标签语句
+          Tag语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -801,13 +801,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" id="__nav_4_10" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_10">
-        边类型语句
+        Edge type语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="边类型语句" class="md-nav" data-md-level="2">
+<nav aria-label="Edge type语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_10">
 <span class="md-nav__icon md-icon"></span>
-          边类型语句
+          Edge type语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -1502,12 +1502,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-tag/">
-        操作标签
+        操作Tag
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-edge-type/">
-        操作边类型
+        操作Edge type
       </a>
 </li>
 <li class="md-nav__item">
@@ -1840,9 +1840,9 @@
 </a>
 <h1 id="insert_edge">INSERT EDGE<a class="headerlink" href="#insert_edge" title="Permanent link">¶</a></h1>
 <p><code>INSERT EDGE</code>语句可以在Nebula Graph实例的指定图空间中插入一条或多条边。边是有方向的，从起始点（src_vid）到目的点（dst_vid）。</p>
-<p><code>INSERT EDGE</code>的执行方式为覆盖式插入。如果已有边类型、起点、终点、rank都相同的边，则<strong>覆盖</strong>原边。</p>
+<p><code>INSERT EDGE</code>的执行方式为覆盖式插入。如果已有Edge type、起点、终点、rank都相同的边，则<strong>覆盖</strong>原边。</p>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span></span><code>INSERT EDGE &lt;edge_type&gt; ( &lt;prop_name_list&gt; ) {VALUES | VALUE}
+<div class="highlight"><pre><span></span><code>INSERT EDGE [IF NOT EXISTS] &lt;edge_type&gt; ( &lt;prop_name_list&gt; ) {VALUES | VALUE}
 &lt;src_vid&gt; -&gt; &lt;dst_vid&gt;[@&lt;rank&gt;] : ( &lt;prop_value_list&gt; )
 [, &lt;src_vid&gt; -&gt; &lt;dst_vid&gt;[@&lt;rank&gt;] : ( &lt;prop_value_list&gt; ), ...];
 
@@ -1853,7 +1853,16 @@
   [ &lt;prop_value&gt; [, &lt;prop_value&gt; ] ...]
 </code></pre></div>
 <ul>
-<li><code>&lt;edge_type&gt;</code>：边关联的边类型，只能指定一个边类型。边类型必须提前创建，详情请参见<a href="../../11.edge-type-statements/1.create-edge/">CREATE EDGE</a>。</li>
+<li>
+<p><code>IF NOT EXISTS</code>：用户可以使用<code>IF NOT EXISTS</code>关键字检测待插入的边是否存在，只有不存在时，才会插入。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>仅检测边的类型、起始点、目的点和rank，不会检测属性值。</p>
+</div>
+</li>
+</ul>
+<ul>
+<li><code>&lt;edge_type&gt;</code>：边关联的Edge type，只能指定一个Edge type。Edge type必须提前创建，详情请参见<a href="../../11.edge-type-statements/1.create-edge/">CREATE EDGE</a>。</li>
 </ul>
 <ul>
 <li><code>&lt;prop_name_list&gt;</code>：需要设置的属性名称列表。</li>
@@ -1866,7 +1875,7 @@
 </ul>
 <ul>
 <li>
-<p><code>rank</code>：可选项。边的rank值。默认值为<code>0</code>。rank值可以用来区分边类型、起始点、目的点都相同的边。</p>
+<p><code>rank</code>：可选项。边的rank值。默认值为<code>0</code>。rank值可以用来区分Edge type、起始点、目的点都相同的边。</p>
 <div class="admonition compatibility">
 <p class="admonition-title">openCypher兼容性</p>
 <p>openCypher中没有rank的概念。</p>
@@ -1874,7 +1883,7 @@
 </li>
 </ul>
 <ul>
-<li><code>&lt;prop_value_list&gt;</code>：根据<code>prop_name_list</code>填写属性值。如果属性值和边类型中的数据类型不匹配，会返回错误。如果没有填写属性值，而边类型中对应的属性设置为<code>NOT NULL</code>，也会返回错误。详情请参见<a href="../../11.edge-type-statements/1.create-edge/">CREATE EDGE</a>。</li>
+<li><code>&lt;prop_value_list&gt;</code>：根据<code>prop_name_list</code>填写属性值。如果属性值和Edge type中的数据类型不匹配，会返回错误。如果没有填写属性值，而Edge type中对应的属性设置为<code>NOT NULL</code>，也会返回错误。详情请参见<a href="../../11.edge-type-statements/1.create-edge/">CREATE EDGE</a>。</li>
 </ul>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code># 插入不包含属性的边。
@@ -1906,6 +1915,18 @@ nebula&gt; FETCH PROP ON e2 "11"-&gt;"13";
 | [:e2 "11"-&gt;"13" @0 {age: 14, name: "n1"}] |
 +-------------------------------------------+
 </code></pre></div>
+<p>使用<code>IF NOT EXISTS</code>插入已存在的边时，不会进行修改。</p>
+<div class="highlight"><pre><span></span><code># 插入边。
+nebula&gt; INSERT EDGE e2 (name, age) VALUES "14"-&gt;"15"@1:("n1", 12);
+# 使用IF NOT EXISTS修改边，因为边已存在，不会进行修改。
+nebula&gt; INSERT EDGE IF NOT EXISTS e2 (name, age) VALUES "14"-&gt;"15"@1:("n2", 13);
+nebula&gt; FETCH PROP ON e2 "14"-&gt;"15"@1;
++-------------------------------------------+
+| edges_                                    |
++-------------------------------------------+
+| [:e2 "14"-&gt;"15" @1 {age: 12, name: "n1"}] |
++-------------------------------------------+
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
@@ -1919,7 +1940,7 @@ nebula&gt; FETCH PROP ON e2 "11"-&gt;"13";
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月28日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

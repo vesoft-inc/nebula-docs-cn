@@ -317,6 +317,11 @@
     与HDFS的区别
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    视频
+  </a>
+</li>
 </ul>
 </nav>
 </li>
@@ -866,13 +871,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" id="__nav_4_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_9">
-        标签语句
+        Tag语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="标签语句" class="md-nav" data-md-level="2">
+<nav aria-label="Tag语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_9">
 <span class="md-nav__icon md-icon"></span>
-          标签语句
+          Tag语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -906,13 +911,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" id="__nav_4_10" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_10">
-        边类型语句
+        Edge type语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="边类型语句" class="md-nav" data-md-level="2">
+<nav aria-label="Edge type语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_10">
 <span class="md-nav__icon md-icon"></span>
-          边类型语句
+          Edge type语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -1584,12 +1589,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-tag/">
-        操作标签
+        操作Tag
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-edge-type/">
-        操作边类型
+        操作Edge type
       </a>
 </li>
 <li class="md-nav__item">
@@ -1992,6 +1997,11 @@
     与HDFS的区别
   </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_8">
+    视频
+  </a>
+</li>
 </ul>
 </nav>
 </div>
@@ -2111,7 +2121,7 @@
 </tr>
 <tr>
 <td align="left"><code>TagID</code></td>
-<td align="left">点关联的标签ID。长度为4个字节。</td>
+<td align="left">点关联的Tag ID。长度为4个字节。</td>
 </tr>
 </tbody>
 </table>
@@ -2159,7 +2169,7 @@
 <p class="admonition-title">历史版本兼容性</p>
 <p>2.0和1.x的差异如下：</p>
 <ul>
-<li>1.x中，点和边的<code>Type</code>值相同，而在2.0中进行了区分，即在物理上分离了点和边，方便快速查询某个点的所有标签。</li>
+<li>1.x中，点和边的<code>Type</code>值相同，而在2.0中进行了区分，即在物理上分离了点和边，方便快速查询某个点的所有Tag。</li>
 <li>1.x中，<code>VertexID</code>仅支持int类型，而在2.0中新增了string类型。</li>
 <li>2.0中取消了1.x中的保留字段<code>Timestamp</code>。</li>
 <li>2.0中边数据新增字段<code>PlaceHolder</code>。</li>
@@ -2191,7 +2201,7 @@
 <p>EdgeA_Out和EdgeA_In以方向相反的两条边的形式存在于存储层，二者组合成了逻辑上的一条边EdgeA。EdgeA_Out用于从起点开始的遍历请求，例如<code>(a)-[]-&gt;()</code>；EdgeA_In用于指向目的点的遍历请求，或者说从目的点开始，沿着边的方向逆序进行的遍历请求，例如例如<code>()-[]-&gt;(a)</code>。</p>
 <p>如EdgeA_Out和EdgeA_In一样，Nebula Graph冗余了存储每条边的信息，导致存储边所需的实际空间翻倍。因为边对应的Key占用的硬盘空间较小，但Value占用的空间与属性值的长度和数量成正比，所以，当边的属性值较大或数量较多时候，硬盘空间占用量会比较大。</p>
 <h3 id="_6">分片算法<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
-<p>分片策略采用<strong>静态 Hash</strong>的方式，即对点VID进行取模操作，同一个点的所有标签、出边和入边信息都会存储到同一个分片，这种方式极大地提升了查询效率。</p>
+<p>分片策略采用<strong>静态 Hash</strong>的方式，即对点VID进行取模操作，同一个点的所有Tag、出边和入边信息都会存储到同一个分片，这种方式极大地提升了查询效率。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>创建图空间时需指定分片数量，分片数量设置后无法修改，建议设置时提前满足业务将来的扩容需求。</p>
@@ -2294,6 +2304,12 @@
 <li>Storage服务是直接访问文件系统，而HDFS的上层（例如HBase）需要先访问HDFS，再访问到文件系统，远程过程调用（RPC）次数更多。</li>
 </ul>
 <p>总而言之，Storage服务更加轻量级，精简了一些功能，架构没有HDFS复杂，可以有效提高小块存储的读写性能。</p>
+<h2 id="_8">视频<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
+<p>用户也可以通过视频全方位了解 Nebula Graph 的存储设计。</p>
+<ul>
+<li><a href="https://www.bilibili.com/video/BV16b4y1Q77k">nMeetup·上海 ｜ Storage in Nebula Graph 2.0</a>（24分29秒）</li>
+</ul>
+<iframe allowfullscreen="true" border="0" frameborder="no" framespacing="0" height="480px" scrolling="no" src="//player.bilibili.com/player.html?aid=629800372&amp;bvid=BV16b4y1Q77k&amp;cid=317031300&amp;page=1" width="720px"> </iframe>
 <hr/>
 <div class="md-source-date">
 <small>

@@ -761,13 +761,13 @@
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" id="__nav_4_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_9">
-        标签语句
+        Tag语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="标签语句" class="md-nav" data-md-level="2">
+<nav aria-label="Tag语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_9">
 <span class="md-nav__icon md-icon"></span>
-          标签语句
+          Tag语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -829,13 +829,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" id="__nav_4_10" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_10">
-        边类型语句
+        Edge type语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="边类型语句" class="md-nav" data-md-level="2">
+<nav aria-label="Edge type语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_10">
 <span class="md-nav__icon md-icon"></span>
-          边类型语句
+          Edge type语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -1507,12 +1507,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-tag/">
-        操作标签
+        操作Tag
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-edge-type/">
-        操作边类型
+        操作Edge type
       </a>
 </li>
 <li class="md-nav__item">
@@ -1849,30 +1849,30 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="drop_tag">DROP TAG<a class="headerlink" href="#drop_tag" title="Permanent link">¶</a></h1>
-<p><code>DROP TAG</code>语句可以删除当前工作空间内的指定标签。</p>
-<p>点可以有一个或多个标签。</p>
+<p><code>DROP TAG</code>语句可以删除当前工作空间内的指定Tag。</p>
+<p>点可以有一个或多个Tag。</p>
 <ul>
-<li>如果某个点只有一个标签，删除这个标签后，用户就<strong>无法访问</strong>这个点，下次Compaction操作时会删除该点，但点上的边仍然存在。</li>
+<li>如果某个点只有一个Tag，删除这个Tag后，用户就<strong>无法访问</strong>这个点，下次Compaction操作时会删除该点，但点上的边仍然存在。</li>
 </ul>
 <ul>
-<li>如果某点有多个标签，删除其中一个标签，仍然可以访问这个点，但是<strong>无法访问</strong>已删除标签定义的所有属性。</li>
+<li>如果某点有多个Tag，删除其中一个Tag，仍然可以访问这个点，但是<strong>无法访问</strong>已删除Tag定义的所有属性。</li>
 </ul>
-<p>删除标签操作仅删除Schema数据，硬盘上的文件或目录不会立刻删除，而是在下一次Compaction操作时删除。</p>
+<p>删除Tag操作仅删除Schema数据，硬盘上的文件或目录不会立刻删除，而是在下一次Compaction操作时删除。</p>
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <ul>
 <li>登录的用户必须拥有对应权限才能执行<code>DROP TAG</code>语句。详情请参见<a href="../../../7.data-security/1.authentication/3.role-list/">内置角色权限</a>。</li>
 </ul>
 <ul>
-<li>确保标签不包含任何索引，否则<code>DROP TAG</code>时会报冲突错误<code>[ERROR (-8)]: Conflict!</code>。删除索引请参见<a href="../../14.native-index-statements/6.drop-native-index/">drop index</a>。</li>
+<li>确保Tag不包含任何索引，否则<code>DROP TAG</code>时会报冲突错误<code>[ERROR (-8)]: Conflict!</code>。删除索引请参见<a href="../../14.native-index-statements/6.drop-native-index/">drop index</a>。</li>
 </ul>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code>DROP TAG [IF EXISTS] &lt;tag_name&gt;;
 </code></pre></div>
 <ul>
-<li><code>IF NOT EXISTS</code>：检测待删除的标签是否存在，只有存在时，才会删除标签。</li>
+<li><code>IF NOT EXISTS</code>：检测待删除的Tag是否存在，只有存在时，才会删除Tag。</li>
 </ul>
 <ul>
-<li><code>tag_name</code>：指定要删除的标签名称。一次只能删除一个标签。</li>
+<li><code>tag_name</code>：指定要删除的Tag名称。一次只能删除一个Tag。</li>
 </ul>
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG test(p1 string, p2 int);
@@ -1880,9 +1880,9 @@ nebula&gt; DROP TAG test;
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>nGQL中没有移除指定点的某个标签的语句。</p>
+<p>nGQL中没有移除指定点的某个Tag的语句。</p>
 <ul>
-<li>在openCypher中，可以使用<code>REMOVE v:LABEL</code>语句来移除该点<code>v</code>的标签<code>LABLE</code>。</li>
+<li>在openCypher中，可以使用<code>REMOVE v:LABEL</code>语句来移除该点<code>v</code>的Tag<code>LABLE</code>。</li>
 <li>在nGQL中，通过<code>CREATE TAG</code>和<code>INSERT VERTEX</code>语句后，可以为该点增加一个<code>TAG</code>；但是没有任何办法移除这个点的<code>TAG</code>。</li>
 </ul>
 <p>建议在schema中增加一个字段来标识软移除，例如为每个TAG的schema增加一个字段<code>removed</code>。</p>
@@ -1891,7 +1891,7 @@ nebula&gt; DROP TAG test;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月25日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

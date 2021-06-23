@@ -316,27 +316,27 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    标签模式
+<a class="md-nav__link" href="#tag">
+    Tag模式
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
+<a class="md-nav__link" href="#_4">
     属性模式
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
+<a class="md-nav__link" href="#_5">
     边模式
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
+<a class="md-nav__link" href="#_6">
     变长模式
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
+<a class="md-nav__link" href="#_7">
     路径变量
   </a>
 </li>
@@ -809,13 +809,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_9" id="__nav_4_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_9">
-        标签语句
+        Tag语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="标签语句" class="md-nav" data-md-level="2">
+<nav aria-label="Tag语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_9">
 <span class="md-nav__icon md-icon"></span>
-          标签语句
+          Tag语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -849,13 +849,13 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_10" id="__nav_4_10" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_10">
-        边类型语句
+        Edge type语句
         <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-label="边类型语句" class="md-nav" data-md-level="2">
+<nav aria-label="Edge type语句" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_4_10">
 <span class="md-nav__icon md-icon"></span>
-          边类型语句
+          Edge type语句
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
@@ -1527,12 +1527,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-tag/">
-        操作标签
+        操作Tag
       </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../nebula-studio/manage-schema/st-ug-crud-edge-type/">
-        操作边类型
+        操作Edge type
       </a>
 </li>
 <li class="md-nav__item">
@@ -1854,27 +1854,27 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    标签模式
+<a class="md-nav__link" href="#tag">
+    Tag模式
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
+<a class="md-nav__link" href="#_4">
     属性模式
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
+<a class="md-nav__link" href="#_5">
     边模式
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
+<a class="md-nav__link" href="#_6">
     变长模式
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
+<a class="md-nav__link" href="#_7">
     路径变量
   </a>
 </li>
@@ -1907,18 +1907,18 @@
 <p>只有在涉及某个点时，才需要命名这个点。如果不涉及这个点，则可以省略名称，例如：</p>
 <div class="highlight"><pre><span></span><code>(a)-[]-&gt;()&lt;-[]-(c)
 </code></pre></div>
-<h2 id="_4">标签模式<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<h2 id="tag">Tag模式<a class="headerlink" href="#tag" title="Permanent link">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>nGQL中的<code>tag</code>概念与openCypher中的<code>label</code>有一些不同。例如，您必须创建一个<code>tag</code>之后才能使用它，而且<code>tag</code>还定义了属性的类型。</p>
 </div>
-<p>模式除了简单地描述图中的点之外，还可以描述点的标签。例如：</p>
+<p>模式除了简单地描述图中的点之外，还可以描述点的Tag。例如：</p>
 <div class="highlight"><pre><span></span><code>(a:User)-[]-&gt;(b)
 </code></pre></div>
-<p>模式也可以描述有多个标签的点，例如：</p>
+<p>模式也可以描述有多个Tag的点，例如：</p>
 <div class="highlight"><pre><span></span><code>(a:User:Admin)-[]-&gt;(b)
 </code></pre></div>
-<h2 id="_5">属性模式<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<h2 id="_4">属性模式<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <p>点和边是图的基本结构。nGQL在这两种结构上都可以增加属性，方便实现更丰富的模型。</p>
 <p>在模式中，属性的表示方式为：用花括号括起一些键值对，用英文逗号分隔。例如一个点有两个属性：</p>
 <div class="highlight"><pre><span></span><code>(a {name: 'Andres', sport: 'Brazilian Ju-Jitsu'})
@@ -1926,7 +1926,7 @@
 <p>在这个点上可以有一条边是：</p>
 <div class="highlight"><pre><span></span><code>(a)-[{blocked: false}]-&gt;(b)
 </code></pre></div>
-<h2 id="_6">边模式<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
+<h2 id="_5">边模式<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
 <p>描述一条边最简单的方法是使用箭头连接两个点。</p>
 <p>您可以用以下方式描述边以及它的方向性。如果您不关心边的方向，可以省略箭头，例如：</p>
 <div class="highlight"><pre><span></span><code>(a)-[]-(b)
@@ -1934,16 +1934,16 @@
 <p>和点一样，边也可以命名。一对方括号用于分隔箭头，变量放在两者之间。例如：</p>
 <div class="highlight"><pre><span></span><code>(a)-[r]-&gt;(b)
 </code></pre></div>
-<p>和点上的标签一样，边也可以有类型。描述边的类型，例如：</p>
+<p>和点上的Tag一样，边也可以有类型。描述边的类型，例如：</p>
 <div class="highlight"><pre><span></span><code>(a)-[r:REL_TYPE]-&gt;(b)
 </code></pre></div>
-<p>和点上的标签不同，一条边只能有一种边类型。但是如果我们想描述多个可选边类型，可以用管道符号（|）将可选值分开，例如：</p>
+<p>和点上的Tag不同，一条边只能有一种Edge type。但是如果我们想描述多个可选Edge type，可以用管道符号（|）将可选值分开，例如：</p>
 <div class="highlight"><pre><span></span><code>(a)-[r:TYPE1|TYPE2]-&gt;(b)
 </code></pre></div>
 <p>和点一样，边的名称可以省略，例如：</p>
 <div class="highlight"><pre><span></span><code>(a)-[:REL_TYPE]-&gt;(b)
 </code></pre></div>
-<h2 id="_7">变长模式<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
+<h2 id="_6">变长模式<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
 <p>在图中指定边的长度来描述多条边（以及中间的点）组成的一条长路径，不需要使用多个点和边来描述。例如：</p>
 <div class="highlight"><pre><span></span><code>(a)-[*2]-&gt;(b)
 </code></pre></div>
@@ -1962,7 +1962,7 @@
 <p class="admonition-title">Note</p>
 <p>必须指定最大长度，<strong>不支持</strong>仅指定最小长度（<code>(a)-[*3..]-&gt;(b)</code>）或都不指定（<code>(a)-[*]-&gt;(b)</code>）。</p>
 </div>
-<h2 id="_8">路径变量<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
+<h2 id="_7">路径变量<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
 <p>一系列连接的点和边称为<code>路径</code>。nGQL允许使用变量来命名路径，例如：</p>
 <div class="highlight"><pre><span></span><code>p = (a)-[*3..5]-&gt;(b)
 </code></pre></div>
@@ -1971,7 +1971,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>
