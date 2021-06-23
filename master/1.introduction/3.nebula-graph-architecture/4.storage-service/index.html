@@ -1419,6 +1419,11 @@
       </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../8.service-tuning/4.plan/">
+        执行计划
+      </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../8.service-tuning/super-node/">
         超级节点(稠密点)
       </a>
@@ -2277,7 +2282,7 @@
 <h2 id="hdfs">与HDFS的区别<a class="headerlink" href="#hdfs" title="Permanent link">¶</a></h2>
 <p>Storage服务基于Raft协议实现的分布式架构，与HDFS的分布式架构有一些区别。例如：</p>
 <ul>
-<li>Storage服务本身通过Raft协议保证一致性，所有副本必须为奇数，方便进行选举leader，而HDFS存储具体数据的DataNode需要通过NameNode保证一致性，对副本数量没有要求。</li>
+<li>Storage服务本身通过Raft协议保证一致性，副本数量通常为奇数，方便进行选举leader，而HDFS存储具体数据的DataNode需要通过NameNode保证一致性，对副本数量没有要求。</li>
 </ul>
 <ul>
 <li>Storage服务只有leader副本提供读写服务，而HDFS的所有副本都可以提供读写服务。</li>
@@ -2293,7 +2298,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月9日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>
