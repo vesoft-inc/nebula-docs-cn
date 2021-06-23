@@ -34,10 +34,11 @@ extra_css:
   - stylesheets/extra.css
 extra:
   nebula:
+    release: 2.1.0
+    nightly: v2-nightly
+    master: master
     base20: 2.0
     base200: 2.0.0
-    release: master
-    nightly: v2-nightly
   version:
     method: mike
   social:
@@ -60,8 +61,6 @@ extra:
     release: master
   common:
     release: master
-  
-
   
 nav:
   - 前言: README.md
@@ -265,7 +264,9 @@ nav:
       - Storage负载均衡: 8.service-tuning/load-balance.md
       - 图建模: 8.service-tuning/2.graph-modeling.md
       - 系统建模: 8.service-tuning/3.system-design.md
+      - 执行计划: 8.service-tuning/4.plan.md
       - 超级节点(稠密点): 8.service-tuning/super-node.md
+
 
   - Nebula Graph Studio:
     - Studio版本更新说明: nebula-studio/about-studio/st-ug-release-note.md
@@ -386,7 +387,7 @@ plugins:
   - git-revision-date-localized
   - with-pdf:
       copyright: 2021 Vesoft Inc.
-      cover_subtitle: master
+      cover_subtitle: 2.1.0
       author: 吴敏,周瑶,梁振亚
       cover: true
       back_cover: true
