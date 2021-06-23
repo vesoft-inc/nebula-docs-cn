@@ -140,7 +140,7 @@ Nebula Algorithm实现图计算的流程如下：
           metaAddress: "192.168.*.10:9559"
           # Nebula Graph图空间名称
           space: basketballplayer
-          # Nebula GraphEdge type, 多个labels时，多个边的数据将合并。
+          # Nebula Graph Edge type, 多个labels时，多个边的数据将合并。
           labels: ["serve"]
           # Nebula Graph每个Edge type的属性名称，此属性将作为算法的权重列，请确保和Edge type对应。
           weightCols: ["start_year"]
