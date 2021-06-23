@@ -1922,7 +1922,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="csv">导入CSV文件数据<a class="headerlink" href="#csv" title="Permanent link">¶</a></h1>
-<p>本文以一个示例说明如何使用Exchange将存储在HDFS上的CSV文件数据导入Nebula Graph。</p>
+<p>本文以一个示例说明如何使用Exchange将存储在HDFS或本地的CSV文件数据导入Nebula Graph。</p>
 <p>如果要向Nebula Graph导入本地CSV文件，请参见<a href="https://github.com/vesoft-inc/nebula-importer" title="Click to go to GitHub">Nebula Importer</a>。</p>
 <h2 id="_1">数据集<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <p>本文以<a href="https://docs-cdn.nebula-graph.com.cn/dataset/dataset.zip">basketballplayer数据集</a>为例。</p>
@@ -1967,7 +1967,10 @@
 <li>了解Nebula Graph中创建Schema的信息，包括标签和边类型的名称、属性等。</li>
 </ul>
 <ul>
-<li>已经安装并开启Hadoop服务。</li>
+<li>如果文件存储在HDFS上，需要确认Hadoop服务运行正常。</li>
+</ul>
+<ul>
+<li>如果文件存储在本地且Nebula Graph是集群架构，需要在集群每台机器本地相同目录下放置文件。</li>
 </ul>
 <h2 id="_4">操作步骤<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <h3 id="1nebula_graphschema">步骤 1：在Nebula Graph中创建Schema<a class="headerlink" href="#1nebula_graphschema" title="Permanent link">¶</a></h3>
@@ -2044,7 +2047,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
 </div>
 </li>
 <li>
-<p>CSV文件必须存储在HDFS中，并已获取文件存储路径。</p>
+<p>获取CSV文件存储路径。</p>
 </li>
 </ol>
 <h3 id="3">步骤 3：修改配置文件<a class="headerlink" href="#3" title="Permanent link">¶</a></h3>
@@ -2115,8 +2118,9 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         sink: client
       }
 
-      # 指定CSV文件的HDFS路径。
-      # 用双引号括起路径，以hdfs://开头。
+      # 指定CSV文件的路径。
+      # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
       path: "hdfs://192.168.11.13:9000/data/vertex_player.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
@@ -2162,8 +2166,9 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         sink: client
       }
 
-      # 指定CSV文件的HDFS路径。
-      # 用双引号括起路径，以hdfs://开头。
+      # 指定CSV文件的路径。
+      # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
       path: "hdfs://192.168.11.13:9000/data/vertex_team.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
@@ -2214,8 +2219,9 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         sink: client
       }
 
-      # 指定CSV文件的HDFS路径。
-      # 用双引号括起路径，以hdfs://开头。
+      # 指定CSV文件的路径。
+      # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
       path: "hdfs://192.168.11.13:9000/data/edge_follow.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
@@ -2267,8 +2273,9 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         sink: client
       }
 
-      # 指定CSV文件的HDFS路径。
-      # 用双引号括起路径，以hdfs://开头。
+      # 指定CSV文件的路径。
+      # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
       path: "hdfs://192.168.11.13:9000/data/edge_serve.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
@@ -2334,7 +2341,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月26日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

@@ -2073,30 +2073,55 @@
 <h3 id="ngql_2">哪里可以找到更多nGQL的示例？<a class="headerlink" href="#ngql_2" title="Permanent link">¶</a></h3>
 <p>用户可以在Nebula Graph GitHub的<a href="https://github.com/vesoft-inc/nebula-graph/tree/master/tests/tck/features">features</a>目录内查看超过2500条nGQL示例。</p>
 <p>features目录内包含很多.features格式的文件，每个文件都记录了使用nGQL的场景和示例。例如：</p>
-<div class="highlight"><pre><span></span><code>Feature: Match seek by tag
+<div class="highlight"><pre><span></span><code>Feature: Basic match
 
-  Background: Prepare space
+  Background:
     Given a graph with space named "basketballplayer"
 
-  Scenario: seek by empty tag index
+  Scenario: Single node
     When executing query:
       """
-      MATCH (v:bachelor)
-      RETURN id(v) AS vid
+      MATCH (v:player {name: "Yao Ming"}) RETURN v;
       """
-    Then the result should be, in any order:
-      | vid          |
-      | 'Tim Duncan' |
-    And no side effects
+    Then the result should be, in any order, with relax comparison:
+      | v                                                |
+      | ("player133" :player{age: 38, name: "Yao Ming"}) |
+
+  Scenario: One step
     When executing query:
       """
-      MATCH (v:bachelor)
-      RETURN id(v) AS vid, v.age AS age
+      MATCH (v1:player{name: "LeBron James"}) -[r]-&gt; (v2)
+      RETURN type(r) AS Type, v2.name AS Name
       """
     Then the result should be, in any order:
-      | vid          | age |
-      | 'Tim Duncan' | 42  |
-    And no side effects
+
+      | Type     | Name        |
+      | "follow" | "Ray Allen" |
+      | "serve"  | "Lakers"    |
+      | "serve"  | "Heat"      |
+      | "serve"  | "Cavaliers" |
+
+Feature:  Comparison of where clause
+
+  Background:
+    Given a graph with space named "basketballplayer"
+
+    Scenario: push edge props filter down
+      When profiling query:
+        """
+        GO FROM "player100" OVER follow 
+        WHERE follow.degree IN [v IN [95,99] WHERE v &gt; 0] 
+        YIELD follow._dst, follow.degree
+        """
+      Then the result should be, in any order:
+        | follow._dst | follow.degree |
+        | "player101" | 95            |
+        | "player125" | 95            |
+      And the execution plan should be:
+        | id | name         | dependencies | operator info                                               |
+        | 0  | Project      | 1            |                                                             |
+        | 1  | GetNeighbors | 2            | {"filter": "(follow.degree IN [v IN [95,99] WHERE (v&gt;0)])"} |
+        | 2  | Start        |              |                                                             |
 </code></pre></div>
 <p>示例中的关键字说明如下。</p>
 <table>
@@ -2125,7 +2150,7 @@
 </tr>
 <tr>
 <td align="left"><code>When</code></td>
-<td align="left">描述要执行的nGQL示例语句。</td>
+<td align="left">描述要执行的nGQL示例语句。可以是<code>executing query</code>或<code>profiling query</code>。</td>
 </tr>
 <tr>
 <td align="left"><code>Then</code></td>
@@ -2133,7 +2158,7 @@
 </tr>
 <tr>
 <td align="left"><code>And</code></td>
-<td align="left">描述执行<code>When</code>内语句的副作用。</td>
+<td align="left">描述执行<code>When</code>内语句的副作用或执行计划。</td>
 </tr>
 <tr>
 <td align="left"><code>@skip</code></td>
@@ -2152,7 +2177,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月15日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>

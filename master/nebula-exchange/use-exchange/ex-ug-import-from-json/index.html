@@ -1922,7 +1922,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="json">导入JSON文件数据<a class="headerlink" href="#json" title="Permanent link">¶</a></h1>
-<p>本文以一个示例说明如何使用Exchange将存储在HDFS上的JSON文件数据导入Nebula Graph。</p>
+<p>本文以一个示例说明如何使用Exchange将存储在HDFS或本地的JSON文件数据导入Nebula Graph。</p>
 <h2 id="_1">数据集<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <p>本文以basketballplayer数据集为例。部分示例数据如下：</p>
 <ul>
@@ -2004,7 +2004,10 @@
 <li>了解Nebula Graph中创建Schema的信息，包括标签和边类型的名称、属性等。</li>
 </ul>
 <ul>
-<li>已经安装并开启Hadoop服务。</li>
+<li>如果文件存储在HDFS上，需要确认Hadoop服务运行正常。</li>
+</ul>
+<ul>
+<li>如果文件存储在本地且Nebula Graph是集群架构，需要在集群每台机器本地相同目录下放置文件。</li>
 </ul>
 <h2 id="_4">操作步骤<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <h3 id="1nebula_graphschema">步骤 1：在Nebula Graph中创建Schema<a class="headerlink" href="#1nebula_graphschema" title="Permanent link">¶</a></h3>
@@ -2077,7 +2080,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
 <p>处理JSON文件以满足Schema的要求。</p>
 </li>
 <li>
-<p>JSON文件必须存储在HDFS中，并已获取文件存储路径。</p>
+<p>获取JSON文件存储路径。</p>
 </li>
 </ol>
 <h3 id="3">步骤 3. 修改配置文件<a class="headerlink" href="#3" title="Permanent link">¶</a></h3>
@@ -2148,8 +2151,9 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         sink: client
       }
 
-      # 指定JSON文件的HDFS路径。
-      # 用双引号括起路径，以hdfs://开头。
+      # 指定JSON文件的路径。
+      # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
       path: "hdfs://192.168.11.13:9000/data/vertex_player.json"
 
       # 在fields里指定JSON文件中key名称，其对应的value会作为Nebula Graph中指定属性的数据源。
@@ -2187,8 +2191,9 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         sink: client
       }
 
-      # 指定JSON文件的HDFS路径。
-      # 用双引号括起路径，以hdfs://开头。
+      # 指定JSON文件的路径。
+      # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
       path: "hdfs://192.168.11.13:9000/data/vertex_team.json"
 
       # 在fields里指定JSON文件中key名称，其对应的value会作为Nebula Graph中指定属性的数据源。
@@ -2232,8 +2237,9 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         sink: client
       }
 
-      # 指定JSON文件的HDFS路径。
-      # 用双引号括起路径，以hdfs://开头。
+      # 指定JSON文件的路径。
+      # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
       path: "hdfs://192.168.11.13:9000/data/edge_follow.json"
 
       # 在fields里指定JSON文件中key名称，其对应的value会作为Nebula Graph中指定属性的数据源。
@@ -2278,8 +2284,9 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         sink: client
       }
 
-      # 指定JSON文件的HDFS路径。
-      # 用双引号括起路径，以hdfs://开头。
+      # 指定JSON文件的路径。
+      # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
       path: "hdfs://192.168.11.13:9000/data/edge_serve.json"
 
       # 在fields里指定JSON文件中key名称，其对应的value会作为Nebula Graph中指定属性的数据源。
@@ -2340,7 +2347,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月26日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
 </small>
 </div>
 </article>
