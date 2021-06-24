@@ -1959,11 +1959,14 @@ nebula&gt; MATCH p = (n:player{name:"Tim Duncan"})-[:follow]-&gt;(m) \
 <li>复合数据类型（例如set、map、list）<strong>不能</strong>存储为点或边的属性。<p>+ 建议修改图建模方式：将复合数据类型建模为点的邻边，而不是该点的自身属性，每条邻边可以动态增删，并且可以设置邻边的 rank 值来控制邻边的顺序。</p>
 </li>
 </ul>
+<ul>
+<li>List中不支持pattern，例如 <code>[(src)-[]-&gt;(m) | m.name]</code>。</li>
+</ul>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月21日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月24日</span>
 </small>
 </div>
 </article>
