@@ -129,7 +129,6 @@ nav:
           - 谓词函数: 3.ngql-guide/6.functions-and-expressions/8.predicate.md
           - 自定义函数: 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
           - CASE表达式: 3.ngql-guide/6.functions-and-expressions/5.case-expressions.md
-          - 下标表达式: 3.ngql-guide/6.functions-and-expressions/13.subscript-expressions.md
 
       - 通用查询语句:
           - MATCH: 3.ngql-guide/7.general-query-statements/2.match.md
