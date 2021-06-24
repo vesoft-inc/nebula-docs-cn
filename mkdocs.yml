@@ -25,8 +25,9 @@ extra:
   nebula:
     base20: 2.0
     base200: 2.0.0
-    release: book
+    release: 2.1.0
     nightly: v2-nightly
+    master: master
   version:
     method: mike
   social:
@@ -382,7 +383,7 @@ plugins:
   - git-revision-date-localized
   - with-pdf:
       copyright: 2021 Vesoft Inc.
-      cover_subtitle: book
+      cover_subtitle: Book
       author: 吴敏,周瑶,梁振亚
       cover: true
       back_cover: true
