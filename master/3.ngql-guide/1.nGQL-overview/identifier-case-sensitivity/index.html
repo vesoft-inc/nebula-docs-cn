@@ -1864,18 +1864,20 @@ nebula&gt; show SPACES;
 </code></pre></div>
 <h2 id="_4">函数不区分大小写<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <p>函数名称不区分大小写，例如<code>count()</code>、<code>COUNT()</code>、<code>couNT()</code>是等价的。</p>
-<p>```ngql
-nebula&gt; WITH [NULL, 1, 1, 2, 2] As a UNWIND a AS b   RETURN count(b), COUNT(<em>), couNT(DISTINCT b);
+<div class="highlight"><pre><span></span><code>nebula&gt; WITH [NULL, 1, 1, 2, 2] As a \
+        UNWIND a AS b \
+        RETURN count(b), COUNT(*), couNT(DISTINCT b);
 +----------+----------+-------------------+
-| count(b) | COUNT(</em>) | couNT(distinct b) |
+| count(b) | COUNT(*) | couNT(distinct b) |
 +----------+----------+-------------------+
 | 4        | 5        | 2                 |
-+----------+----------+-------------------+</p>
++----------+----------+-------------------+
+</code></pre></div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月24日</span>
 </small>
 </div>
 </article>
