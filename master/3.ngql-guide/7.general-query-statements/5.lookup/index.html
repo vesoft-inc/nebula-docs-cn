@@ -2048,7 +2048,7 @@ nebula&gt; REBUILD TAG INDEX player_index;
 
 nebula&gt; INSERT VERTEX player(name,age) VALUES "player100":("Tim Duncan", 42), "player101":("Tony Parker", 36);
 
-# 列出所有的 player. 类似于 MATCH (n:player) RETURN id(n) /*, n */
+# 列出所有的 player。类似于 MATCH (n:player) RETURN id(n) /*, n */。
 
 nebula&gt; LOOKUP ON player;
 +-------------+
@@ -2062,9 +2062,9 @@ nebula&gt; LOOKUP ON player;
 </li>
 </ul>
 <ul>
-<li>查找Edge type为<code>like</code>的所有边的信息。<div class="highlight"><pre><span></span><code>nebula)&gt; CREATE EDGE like(likeness int);
+<li>查找Edge type为<code>like</code>的所有边的信息。<div class="highlight"><pre><span></span><code>nebula&gt; CREATE EDGE like(likeness int);
 
-nebula)&gt; CREATE EDGE INDEX like_index on like();
+nebula&gt; CREATE EDGE INDEX like_index on like();
 
 nebula&gt; REBUILD EDGE INDEX like_index;
 +------------+
@@ -2073,7 +2073,7 @@ nebula&gt; REBUILD EDGE INDEX like_index;
 | 88         |
 +------------+
 
-nebula)&gt; INSERT EDGE like(likeness) values "player100"-&gt;"player101":(95);
+nebula&gt; INSERT EDGE like(likeness) values "player100"-&gt;"player101":(95);
 
 # 列出所有的 like 边。类似于 MATCH (s)-[e:like]-&gt;(d) RETURN id(s), rank(e), id(d) /*, type(e) */
 
@@ -2110,7 +2110,7 @@ nebula&gt; LOOKUP ON like | YIELD COUNT(*) AS Like_Number;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月24日</span>
 </small>
 </div>
 </article>

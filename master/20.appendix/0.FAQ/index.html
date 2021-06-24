@@ -2186,7 +2186,7 @@
 <li><code>MATCH</code>语句兼容openCypher，采用的是<code>trail</code>类型，遍历时只有点可以重复，边不可以重复。</li>
 </ul>
 <p>例如下图。</p>
-<p><img alt="路径示例" src="../path.png"/></p>
+<p><img alt="路径示例" src="path.png"/></p>
 <p>从点A开始查询距离5跳的点，都会查询到点C（<code>A-&gt;B-&gt;C-&gt;D-&gt;E-&gt;C</code>），查询6跳的点时，<code>GO</code>语句会查询到点D（<code>A-&gt;B-&gt;C-&gt;D-&gt;E-&gt;C-&gt;D</code>），因为边<code>C-&gt;D</code>可以重复查询，而<code>MATCH</code>语句查询为空，因为边不可以重复。</p>
 <p>所以使用<code>GO</code>和<code>MATCH</code>执行相同语义的查询，可能会出现<code>MATCH</code>语句的查询结果比<code>GO</code>语句少。</p>
 <p>关于路径的详细说明，请参见<a href="https://en.wikipedia.org/wiki/Path_(graph_theory)#Walk,_trail,_path">维基百科</a>。</p>
