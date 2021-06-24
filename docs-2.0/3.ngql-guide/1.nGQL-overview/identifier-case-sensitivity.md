@@ -26,9 +26,12 @@ nebula> show SPACES;
 函数名称不区分大小写，例如`count()`、`COUNT()`、`couNT()`是等价的。
 
 ```ngql
-nebula> WITH [NULL, 1, 1, 2, 2] As a UNWIND a AS b   RETURN count(b), COUNT(*), couNT(DISTINCT b);
+nebula> WITH [NULL, 1, 1, 2, 2] As a \
+        UNWIND a AS b \
+        RETURN count(b), COUNT(*), couNT(DISTINCT b);
 +----------+----------+-------------------+
 | count(b) | COUNT(*) | couNT(distinct b) |
 +----------+----------+-------------------+
 | 4        | 5        | 2                 |
 +----------+----------+-------------------+
+```
