@@ -89,7 +89,8 @@ nav:
         - 注释: 3.ngql-guide/1.nGQL-overview/comments.md
         - 大小写区分: 3.ngql-guide/1.nGQL-overview/identifier-case-sensitivity.md
         - 关键字: 3.ngql-guide/1.nGQL-overview/keywords-and-reserved-words.md
-        
+        - nGQL风格指南: 3.ngql-guide/1.nGQL-overview/ngql-style-guide.md
+
       - 数据类型:
         - 数值: 3.ngql-guide/3.data-types/1.numeric.md
         - 布尔: 3.ngql-guide/3.data-types/2.boolean.md
