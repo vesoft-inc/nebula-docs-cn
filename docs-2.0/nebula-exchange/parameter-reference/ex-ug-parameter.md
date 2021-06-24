@@ -68,7 +68,7 @@
 
 |参数|数据类型|默认值|是否必须|说明|
 |:---|:---|:---|:---|:---|
-|`tags.name`|string|-|是|Nebula Graph中定义的标签名称。|
+|`tags.name`|string|-|是|Nebula Graph中定义的Tag名称。|
 |`tags.type.source`|string|-|是|指定数据源。例如`csv`。|
 |`tags.type.sink`|string|`client`|是|指定导入方式，可选值为`client`和`SST`（不支持）。|
 |`tags.fields`|list\[string\]|-|是|属性对应的列的表头或列名。如果有表头或列名，请直接使用该名称。如果CSV文件没有表头，用`[_c0, _c1, _c2]`的形式表示第一列、第二列、第三列，以此类推。|
@@ -156,7 +156,7 @@
 
 |参数|数据类型|默认值|是否必须|说明|
 |:---|:---|:---|:---|:---|
-|`edges.name`| string|-|是|Nebula Graph中定义的边类型名称。|
+|`edges.name`| string|-|是|Nebula Graph中定义的Edge type名称。|
 |`edges.type.source`|string|-|是|指定数据源。例如`csv`。|
 |`edges.type.sink`|string|`client`|是|指定导入方式，可选值为`client`和`SST`（不支持）。|
 |`edges.fields`|list\[string\]|-|是|属性对应的列的表头或列名。如果有表头或列名，请直接使用该名称。如果CSV文件没有表头，用`[_c0, _c1, _c2]`的形式表示第一列、第二列、第三列，以此类推。|

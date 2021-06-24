@@ -126,12 +126,12 @@ files:
            # 点ID的数据类型，可选值为int和string，分别对应Nebula Graph中的INT64和FIXED_STRING。
            type: string
 
-        # 标签设置。   
+        # Tag设置。   
         tags:
-            # 标签名称。
+            # Tag名称。
           - name: student
            
-            # 标签内的属性设置。
+            # Tag内的属性设置。
             props:
                 # 属性名称。
               - name: name
@@ -163,7 +163,7 @@ files:
       # Schema的类型为edge。
       type: edge
       edge:
-        # 边类型名称。
+        # Edge type名称。
         name: follow
 
         # 是否包含rank。
@@ -187,7 +187,7 @@ files:
            # rank值对应CSV文件中列的序号。如果没有设置index，请务必在第三列设置rank的值。之后的列依次设置各属性。
            index: 2
         
-        # 边类型内的属性设置。
+        # Edge type内的属性设置。
         props:
              # 属性名称。
            - name: degree

@@ -24,7 +24,7 @@ Importer适用于将本地CSV文件的内容导入至Nebula Graph中。
   
   - [源码编译安装](../4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)
 
-- Nebula Graph中已创建Schema，包括图空间、标签和边类型，或者通过参数`clientSettings.postStart.commands`设置。
+- Nebula Graph中已创建Schema，包括图空间、Tag和Edge type，或者通过参数`clientSettings.postStart.commands`设置。
 
 - 运行Importer的机器已部署Golang环境。详情请参见[Golang 环境搭建](https://github.com/vesoft-inc/nebula-importer/blob/release-v2.0.0-ga/docs/golang-install.md)。
 
@@ -249,8 +249,8 @@ schema:
 |`files.schema.type`|-|是|Schema的类型，可选值为`vertex`和`edge`。|
 |`files.schema.vertex.vid.type`|-|否|点ID的数据类型，可选值为`int`和`string`。|
 |`files.schema.vertex.vid.index`|-|否|点ID对应CSV文件中列的序号。|
-|`files.schema.vertex.tags.name`|-|是|标签名称。|
-|`files.schema.vertex.tags.props.name`|-|是|标签属性名称，必须和Nebula Graph中的标签属性一致。|
+|`files.schema.vertex.tags.name`|-|是|Tag名称。|
+|`files.schema.vertex.tags.props.name`|-|是|Tag属性名称，必须和Nebula Graph中的Tag属性一致。|
 |`files.schema.vertex.tags.props.type`|-|否|属性数据类型，支持`bool`、`int`、`float`、`double`、`timestamp`和`string`。|
 |`files.schema.vertex.tags.props.index`|-|否|属性对应CSV文件中列的序号。|
 
@@ -284,13 +284,13 @@ schema:
 |参数|默认值|是否必须|说明|
 |:---|:---|:---|:---|
 |`files.schema.type`|-|是|Schema的类型，可选值为`vertex`和`edge`。|
-|`files.schema.edge.name`|-|是|边类型名称。|
+|`files.schema.edge.name`|-|是|Edge type名称。|
 |`files.schema.edge.srcVID.type`|-|否|边的起始点ID的数据类型。|
 |`files.schema.edge.srcVID.index`|-|否|边的起始点ID对应CSV文件中列的序号。|
 |`files.schema.edge.dstVID.type`|-|否|边的目的点ID的数据类型。|
 |`files.schema.edge.dstVID.index`|-|否|边的目的点ID对应CSV文件中列的序号。|
 |`files.schema.edge.rank.index`|-|否|边的rank值对应CSV文件中列的序号。|
-|`files.schema.edge.props.name`|-|是|边类型属性名称，必须和Nebula Graph中的边类型属性一致。|
+|`files.schema.edge.props.name`|-|是|Edge type属性名称，必须和Nebula Graph中的Edge type属性一致。|
 |`files.schema.edge.props.type`|-|否|属性类型，支持`bool`、`int`、`float`、`double`、`timestamp`和`string`。|
 |`files.schema.edge.props.index`|-|否|属性对应CSV文件中列的序号。|
 
