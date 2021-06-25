@@ -2,6 +2,10 @@
 
 nGQL没有严格的构建格式要求，但根据恰当而统一的风格创建nGQL语句有利于提高可读性、避免歧义。在同一组织或项目中使用相同的nGQL风格有利于降低维护成本，规避因格式混乱或误解造成的问题。本文为写作nGQL语句提供了风格参考。
 
+!!! compatibility
+
+    nGQL 风格与[Cypher Style Guide](https://s3.amazonaws.com/artifacts.opencypher.org/M15/docs/style-guide.pdf)不同。
+
 ## 换行与缩进
 
 1. 换行写子句。
