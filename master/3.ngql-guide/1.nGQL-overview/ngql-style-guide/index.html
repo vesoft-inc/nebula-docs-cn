@@ -7,10 +7,10 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Documentation for Nebula Graph Database" name="description"/>
 <meta content="Nebula Graph" name="author"/>
-<link href="https://docs.nebula-graph.com.cn/master/master/spark-connector/reader/sc-ug-what-is-reader/" rel="canonical"/>
+<link href="https://docs.nebula-graph.com.cn/master/master/3.ngql-guide/1.nGQL-overview/ngql-style-guide/" rel="canonical"/>
 <link href="../../../assets/images/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.1.2, mkdocs-material-7.1.8" name="generator"/>
-<title>什么是 Nebula Spark Connector Reader - Nebula Graph Database 手册</title>
+<title>nGQL风格指南 - Nebula Graph Database 手册</title>
 <link href="../../../assets/stylesheets/main.ca7ac06f.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
 <meta content="#009485" name="theme-color"/>
@@ -30,7 +30,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#nebula_spark_connector_reader">
+<a class="md-skip" href="#ngql">
           跳转至
         </a>
 </div>
@@ -59,7 +59,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              什么是 Nebula Spark Connector Reader
+              nGQL风格指南
             
           </span>
 </div>
@@ -261,8 +261,8 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4">
         nGQL指南
         <span class="md-nav__icon md-icon"></span>
@@ -273,8 +273,8 @@
           nGQL指南
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" id="__nav_4_1" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_1" id="__nav_4_1" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_1">
         nGQL概述
         <span class="md-nav__icon md-icon"></span>
@@ -286,34 +286,72 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/1.nGQL-overview/1.overview/">
+<a class="md-nav__link" href="../1.overview/">
         Nebula Graph查询语言（nGQL）
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/1.nGQL-overview/3.graph-patterns/">
+<a class="md-nav__link" href="../3.graph-patterns/">
         图模式
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/1.nGQL-overview/comments/">
+<a class="md-nav__link" href="../comments/">
         注释
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/1.nGQL-overview/identifier-case-sensitivity/">
+<a class="md-nav__link" href="../identifier-case-sensitivity/">
         大小写区分
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/1.nGQL-overview/keywords-and-reserved-words/">
+<a class="md-nav__link" href="../keywords-and-reserved-words/">
         关键字
       </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/1.nGQL-overview/ngql-style-guide/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          nGQL风格指南
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
         nGQL风格指南
       </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+    换行与缩进
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    标识符命名
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pattern">
+    Pattern
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+    字符串
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    结束语句
+  </a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -331,47 +369,47 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/3.data-types/1.numeric/">
+<a class="md-nav__link" href="../../3.data-types/1.numeric/">
         数值
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/3.data-types/2.boolean/">
+<a class="md-nav__link" href="../../3.data-types/2.boolean/">
         布尔
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/3.data-types/3.string/">
+<a class="md-nav__link" href="../../3.data-types/3.string/">
         字符串
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/3.data-types/4.date-and-time/">
+<a class="md-nav__link" href="../../3.data-types/4.date-and-time/">
         日期时间
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/3.data-types/5.null/">
+<a class="md-nav__link" href="../../3.data-types/5.null/">
         NULL
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/3.data-types/6.list/">
+<a class="md-nav__link" href="../../3.data-types/6.list/">
         列表
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/3.data-types/7.set/">
+<a class="md-nav__link" href="../../3.data-types/7.set/">
         集合
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/3.data-types/8.map/">
+<a class="md-nav__link" href="../../3.data-types/8.map/">
         映射
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/3.data-types/9.type-conversion/">
+<a class="md-nav__link" href="../../3.data-types/9.type-conversion/">
         类型转换
       </a>
 </li>
@@ -391,17 +429,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/4.variable-and-composite-queries/1.composite-queries/">
+<a class="md-nav__link" href="../../4.variable-and-composite-queries/1.composite-queries/">
         复合查询
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/4.variable-and-composite-queries/2.user-defined-variables/">
+<a class="md-nav__link" href="../../4.variable-and-composite-queries/2.user-defined-variables/">
         自定义变量
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/4.variable-and-composite-queries/3.property-reference/">
+<a class="md-nav__link" href="../../4.variable-and-composite-queries/3.property-reference/">
         引用属性
       </a>
 </li>
@@ -421,42 +459,42 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/5.operators/1.comparison/">
+<a class="md-nav__link" href="../../5.operators/1.comparison/">
         比较符
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/5.operators/2.boolean/">
+<a class="md-nav__link" href="../../5.operators/2.boolean/">
         布尔符
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/5.operators/4.pipe/">
+<a class="md-nav__link" href="../../5.operators/4.pipe/">
         管道符
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/5.operators/5.property-reference/">
+<a class="md-nav__link" href="../../5.operators/5.property-reference/">
         属性引用符
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/5.operators/6.set/">
+<a class="md-nav__link" href="../../5.operators/6.set/">
         集合运算符
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/5.operators/7.string/">
+<a class="md-nav__link" href="../../5.operators/7.string/">
         字符串运算符
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/5.operators/8.list/">
+<a class="md-nav__link" href="../../5.operators/8.list/">
         列表运算符
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/5.operators/9.precedence/">
+<a class="md-nav__link" href="../../5.operators/9.precedence/">
         运算符优先级
       </a>
 </li>
@@ -476,62 +514,62 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/6.functions-and-expressions/1.math/">
+<a class="md-nav__link" href="../../6.functions-and-expressions/1.math/">
         数学函数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/6.functions-and-expressions/2.string/">
+<a class="md-nav__link" href="../../6.functions-and-expressions/2.string/">
         字符串函数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/6.functions-and-expressions/3.date-and-time/">
+<a class="md-nav__link" href="../../6.functions-and-expressions/3.date-and-time/">
         日期时间函数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/6.functions-and-expressions/4.schema/">
+<a class="md-nav__link" href="../../6.functions-and-expressions/4.schema/">
         Schema函数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/6.functions-and-expressions/6.list/">
+<a class="md-nav__link" href="../../6.functions-and-expressions/6.list/">
         列表函数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/6.functions-and-expressions/7.count/">
+<a class="md-nav__link" href="../../6.functions-and-expressions/7.count/">
         count函数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/6.functions-and-expressions/10.collect/">
+<a class="md-nav__link" href="../../6.functions-and-expressions/10.collect/">
         collect函数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/6.functions-and-expressions/11.reduce/">
+<a class="md-nav__link" href="../../6.functions-and-expressions/11.reduce/">
         reduce函数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/6.functions-and-expressions/12.hash/">
+<a class="md-nav__link" href="../../6.functions-and-expressions/12.hash/">
         hash函数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/6.functions-and-expressions/8.predicate/">
+<a class="md-nav__link" href="../../6.functions-and-expressions/8.predicate/">
         谓词函数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/6.functions-and-expressions/9.user-defined-functions/">
+<a class="md-nav__link" href="../../6.functions-and-expressions/9.user-defined-functions/">
         自定义函数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/6.functions-and-expressions/5.case-expressions/">
+<a class="md-nav__link" href="../../6.functions-and-expressions/5.case-expressions/">
         CASE表达式
       </a>
 </li>
@@ -551,27 +589,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/7.general-query-statements/2.match/">
+<a class="md-nav__link" href="../../7.general-query-statements/2.match/">
         MATCH
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/7.general-query-statements/5.lookup/">
+<a class="md-nav__link" href="../../7.general-query-statements/5.lookup/">
         LOOKUP
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/7.general-query-statements/3.go/">
+<a class="md-nav__link" href="../../7.general-query-statements/3.go/">
         GO
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/7.general-query-statements/4.fetch/">
+<a class="md-nav__link" href="../../7.general-query-statements/4.fetch/">
         FETCH
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/7.general-query-statements/7.unwind/">
+<a class="md-nav__link" href="../../7.general-query-statements/7.unwind/">
         UNWIND
       </a>
 </li>
@@ -588,77 +626,77 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/7.general-query-statements/6.show/1.show-charset/">
+<a class="md-nav__link" href="../../7.general-query-statements/6.show/1.show-charset/">
         SHOW CHARSET
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/7.general-query-statements/6.show/2.show-collation/">
+<a class="md-nav__link" href="../../7.general-query-statements/6.show/2.show-collation/">
         SHOW COLLATION
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/7.general-query-statements/6.show/4.show-create-space/">
+<a class="md-nav__link" href="../../7.general-query-statements/6.show/4.show-create-space/">
         SHOW CREATE SPACE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/7.general-query-statements/6.show/5.show-create-tags-edges/">
+<a class="md-nav__link" href="../../7.general-query-statements/6.show/5.show-create-tags-edges/">
         SHOW CREATE TAGS/EDGES
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/7.general-query-statements/6.show/6.show-hosts/">
+<a class="md-nav__link" href="../../7.general-query-statements/6.show/6.show-hosts/">
         SHOW HOSTS
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/7.general-query-statements/6.show/7.show-index-status/">
+<a class="md-nav__link" href="../../7.general-query-statements/6.show/7.show-index-status/">
         SHOW INDEX STATUS
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/7.general-query-statements/6.show/8.show-indexes/">
+<a class="md-nav__link" href="../../7.general-query-statements/6.show/8.show-indexes/">
         SHOW INDEXES
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/7.general-query-statements/6.show/9.show-parts/">
+<a class="md-nav__link" href="../../7.general-query-statements/6.show/9.show-parts/">
         SHOW PARTS
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/7.general-query-statements/6.show/10.show-roles/">
+<a class="md-nav__link" href="../../7.general-query-statements/6.show/10.show-roles/">
         SHOW ROLES
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/7.general-query-statements/6.show/11.show-snapshots/">
+<a class="md-nav__link" href="../../7.general-query-statements/6.show/11.show-snapshots/">
         SHOW SNAPSHOTS
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/7.general-query-statements/6.show/12.show-spaces/">
+<a class="md-nav__link" href="../../7.general-query-statements/6.show/12.show-spaces/">
         SHOW SPACES
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/7.general-query-statements/6.show/14.show-stats/">
+<a class="md-nav__link" href="../../7.general-query-statements/6.show/14.show-stats/">
         SHOW STATS
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/7.general-query-statements/6.show/15.show-tags-edges/">
+<a class="md-nav__link" href="../../7.general-query-statements/6.show/15.show-tags-edges/">
         SHOW TAGS/EDGES
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/7.general-query-statements/6.show/16.show-users/">
+<a class="md-nav__link" href="../../7.general-query-statements/6.show/16.show-users/">
         SHOW USERS
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/7.general-query-statements/6.show/17.show-sessions/">
+<a class="md-nav__link" href="../../7.general-query-statements/6.show/17.show-sessions/">
         SHOW SESSIONS
       </a>
 </li>
@@ -681,42 +719,42 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/8.clauses-and-options/group-by/">
+<a class="md-nav__link" href="../../8.clauses-and-options/group-by/">
         GROUP BY
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/8.clauses-and-options/limit/">
+<a class="md-nav__link" href="../../8.clauses-and-options/limit/">
         LIMIT and SKIP
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/8.clauses-and-options/order-by/">
+<a class="md-nav__link" href="../../8.clauses-and-options/order-by/">
         ORDER BY
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/8.clauses-and-options/return/">
+<a class="md-nav__link" href="../../8.clauses-and-options/return/">
         RETURN
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/8.clauses-and-options/ttl-options/">
+<a class="md-nav__link" href="../../8.clauses-and-options/ttl-options/">
         TTL
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/8.clauses-and-options/where/">
+<a class="md-nav__link" href="../../8.clauses-and-options/where/">
         WHERE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/8.clauses-and-options/yield/">
+<a class="md-nav__link" href="../../8.clauses-and-options/yield/">
         YIELD
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/8.clauses-and-options/with/">
+<a class="md-nav__link" href="../../8.clauses-and-options/with/">
         WITH
       </a>
 </li>
@@ -736,27 +774,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/9.space-statements/1.create-space/">
+<a class="md-nav__link" href="../../9.space-statements/1.create-space/">
         CREATE SPACE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/9.space-statements/2.use-space/">
+<a class="md-nav__link" href="../../9.space-statements/2.use-space/">
         USE SPACE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/9.space-statements/3.show-spaces/">
+<a class="md-nav__link" href="../../9.space-statements/3.show-spaces/">
         SHOW SPACES
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/9.space-statements/4.describe-space/">
+<a class="md-nav__link" href="../../9.space-statements/4.describe-space/">
         DESCRIBE SPACE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/9.space-statements/5.drop-space/">
+<a class="md-nav__link" href="../../9.space-statements/5.drop-space/">
         DROP SPACE
       </a>
 </li>
@@ -776,27 +814,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/10.tag-statements/1.create-tag/">
+<a class="md-nav__link" href="../../10.tag-statements/1.create-tag/">
         CREATE TAG
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/10.tag-statements/2.drop-tag/">
+<a class="md-nav__link" href="../../10.tag-statements/2.drop-tag/">
         DROP TAG
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/10.tag-statements/3.alter-tag/">
+<a class="md-nav__link" href="../../10.tag-statements/3.alter-tag/">
         ALTER TAG
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/10.tag-statements/4.show-tags/">
+<a class="md-nav__link" href="../../10.tag-statements/4.show-tags/">
         SHOW TAGS
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/10.tag-statements/5.describe-tag/">
+<a class="md-nav__link" href="../../10.tag-statements/5.describe-tag/">
         DESCRIBE TAG
       </a>
 </li>
@@ -816,27 +854,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/11.edge-type-statements/1.create-edge/">
+<a class="md-nav__link" href="../../11.edge-type-statements/1.create-edge/">
         CREATE EDGE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/11.edge-type-statements/2.drop-edge/">
+<a class="md-nav__link" href="../../11.edge-type-statements/2.drop-edge/">
         DROP EDGE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/11.edge-type-statements/3.alter-edge/">
+<a class="md-nav__link" href="../../11.edge-type-statements/3.alter-edge/">
         ALTER EDGE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/11.edge-type-statements/4.show-edges/">
+<a class="md-nav__link" href="../../11.edge-type-statements/4.show-edges/">
         SHOW EDGES
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/11.edge-type-statements/5.describe-edge/">
+<a class="md-nav__link" href="../../11.edge-type-statements/5.describe-edge/">
         DESCRIBE EDGE
       </a>
 </li>
@@ -856,22 +894,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/12.vertex-statements/1.insert-vertex/">
+<a class="md-nav__link" href="../../12.vertex-statements/1.insert-vertex/">
         INSERT VERTEX
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/12.vertex-statements/4.delete-vertex/">
+<a class="md-nav__link" href="../../12.vertex-statements/4.delete-vertex/">
         DELETE VERTEX
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/12.vertex-statements/2.update-vertex/">
+<a class="md-nav__link" href="../../12.vertex-statements/2.update-vertex/">
         UPDATE VERTEX
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/12.vertex-statements/3.upsert-vertex/">
+<a class="md-nav__link" href="../../12.vertex-statements/3.upsert-vertex/">
         UPSERT VERTEX
       </a>
 </li>
@@ -891,22 +929,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/13.edge-statements/1.insert-edge/">
+<a class="md-nav__link" href="../../13.edge-statements/1.insert-edge/">
         INSERT EDGE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/13.edge-statements/4.delete-edge/">
+<a class="md-nav__link" href="../../13.edge-statements/4.delete-edge/">
         DELETE EDGE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/13.edge-statements/2.update-edge/">
+<a class="md-nav__link" href="../../13.edge-statements/2.update-edge/">
         UPDATE EDGE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/13.edge-statements/3.upsert-edge/">
+<a class="md-nav__link" href="../../13.edge-statements/3.upsert-edge/">
         UPSERT EDGE
       </a>
 </li>
@@ -926,42 +964,42 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/14.native-index-statements/">
+<a class="md-nav__link" href="../../14.native-index-statements/">
         索引介绍
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/14.native-index-statements/1.create-native-index/">
+<a class="md-nav__link" href="../../14.native-index-statements/1.create-native-index/">
         CREATE INDEX
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/14.native-index-statements/2.show-native-indexes/">
+<a class="md-nav__link" href="../../14.native-index-statements/2.show-native-indexes/">
         SHOW INDEX
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/14.native-index-statements/2.1.show-create-index/">
+<a class="md-nav__link" href="../../14.native-index-statements/2.1.show-create-index/">
         SHOW CREATE INDEX
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/14.native-index-statements/3.describe-native-index/">
+<a class="md-nav__link" href="../../14.native-index-statements/3.describe-native-index/">
         DESCRIBE INDEX
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/14.native-index-statements/4.rebuild-native-index/">
+<a class="md-nav__link" href="../../14.native-index-statements/4.rebuild-native-index/">
         REBUILD INDEX
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/14.native-index-statements/5.show-native-index-status/">
+<a class="md-nav__link" href="../../14.native-index-statements/5.show-native-index-status/">
         SHOW INDEX STATUS
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/14.native-index-statements/6.drop-native-index/">
+<a class="md-nav__link" href="../../14.native-index-statements/6.drop-native-index/">
         DROP INDEX
       </a>
 </li>
@@ -996,7 +1034,7 @@
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/15.full-text-index-statements/1.search-with-text-based-index/">
+<a class="md-nav__link" href="../../15.full-text-index-statements/1.search-with-text-based-index/">
         全文搜索
       </a>
 </li>
@@ -1016,12 +1054,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/16.subgraph-and-path/1.get-subgraph/">
+<a class="md-nav__link" href="../../16.subgraph-and-path/1.get-subgraph/">
         GET SUBGRAPH
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/16.subgraph-and-path/2.find-path/">
+<a class="md-nav__link" href="../../16.subgraph-and-path/2.find-path/">
         FIND PATH
       </a>
 </li>
@@ -1041,7 +1079,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/17.query-tuning-statements/1.explain-and-profile/">
+<a class="md-nav__link" href="../../17.query-tuning-statements/1.explain-and-profile/">
         EXPLAIN和PROFILE
       </a>
 </li>
@@ -1061,12 +1099,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/18.operation-and-maintenance-statements/2.balance-syntax/">
+<a class="md-nav__link" href="../../18.operation-and-maintenance-statements/2.balance-syntax/">
         BALANCE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../3.ngql-guide/18.operation-and-maintenance-statements/4.job-statements/">
+<a class="md-nav__link" href="../../18.operation-and-maintenance-statements/4.job-statements/">
         作业管理
       </a>
 </li>
@@ -1806,27 +1844,28 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#nebula_spark_connector_reader_1">
-    Nebula Spark Connector Reader 实现原理
-  </a>
-<nav aria-label="Nebula Spark Connector Reader 实现原理" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
-    接口
+    换行与缩进
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_2">
-    实现类图
+    标识符命名
   </a>
 </li>
-</ul>
-</nav>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#pattern">
+    Pattern
+  </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
-    应用示例
+    字符串
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+    结束语句
   </a>
 </li>
 </ul>
@@ -1836,71 +1875,204 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/spark-connector/reader/sc-ug-what-is-reader.md" title="编辑此页">
+<a class="md-content__button md-icon" href="https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/3.ngql-guide/1.nGQL-overview/ngql-style-guide.md" title="编辑此页">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
-<h1 id="nebula_spark_connector_reader">什么是 Nebula Spark Connector Reader<a class="headerlink" href="#nebula_spark_connector_reader" title="Permanent link">¶</a></h1>
-<p>Nebula Spark Connector Reader 是 Nebula Spark Connector 的组成部分，提供了 Spark SQL 接口，用户可以使用 Spark SQL 接口编程读取 Nebula Graph 图数据，单次读取一个Tag或Edge type的数据，并将读取的结果组装成 Spark 的 DataFrame。读出的 DataFrame 可以通过 Nebula Spark Connector Writer 写入 Nebula Graph 数据库或实现不同图空间之间的数据迁移。</p>
-<h2 id="nebula_spark_connector_reader_1">Nebula Spark Connector Reader 实现原理<a class="headerlink" href="#nebula_spark_connector_reader_1" title="Permanent link">¶</a></h2>
-<p>Spark SQL 是 Spark 中用于处理结构化数据的一个编程模块。它提供了一个称为 DataFrame 的编程抽象，并且可以充当分布式 SQL 查询引擎。Spark SQL 允许用户自定义数据源，支持对外部数据源进行扩展。通过 Spark SQL 读取到的数据格式是以命名列方式组织的分布式数据集 DataFrame，而且 Spark SQL 提供了众多 API 方便用户对 DataFrame 进行计算和转换，能对多种数据源使用 DataFrame 接口。</p>
-<h3 id="_1">接口<a class="headerlink" href="#_1" title="Permanent link">¶</a></h3>
-<p>Spark 使用 <code>org.apache.spark.sql</code> 调用外部数据源包。以下为 Spark SQL 提供的扩展数据源相关的接口。</p>
-<ul>
-<li>
-<p>基本接口，包括：</p>
-<ul>
-<li><code>BaseRelation</code>: 表示具有已知 Schema 的元组的集合。所有继承了 <code>BaseRelation</code> 的子类都必须生成 <code>StructType</code> 格式的 Schema。换句话说，<code>BaseRelation</code> 定义了从数据源中读取的数据在 Spark SQL 的 DataFrame 中存储的数据格式。</li>
-</ul>
-<ul>
-<li><code>RelationProvider</code>: 获取参数列表，根据给定的参数返回一个新的 <code>BaseRelation</code>。</li>
-</ul>
-<ul>
-<li><code>DataSourceRegister</code>: “注册数据源”的简称，在使用数据源时不用写数据源的全限定类名，而只需要写自定义的 <code>shortName</code> 即可。</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>
-<p>Providers 接口，包括：</p>
-<ul>
-<li><code>RelationProvider</code>：从指定数据源中生成自定义的 <code>relation</code>。<code>RelationProvider#createRelation</code> 会基于给定的参数生成新的 <code>relation</code>。</li>
-</ul>
-<ul>
-<li><code>SchemaRelationProvider</code>：可以基于给定的参数和给定的 Schema 信息生成新的 <code>relation</code>。</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li>
-<p>RDD 接口，包括：</p>
-<ul>
-<li><code>RDD[InternalRow]</code>: 从数据源中扫描出来后，需要构造成 <code>RDD[Row]</code>。</li>
-</ul>
-</li>
-</ul>
-<p>Nebula Spark Connector Reader 根据 Nebula Graph 的数据源自定义了上述部分方法，从而实现自定义 Spark 外部数据源。</p>
-<h3 id="_2">实现类图<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
-<p>在 Nebula Spark Connector Reader 中，作为 Spark SQL 的外部数据源，Nebula Graph 通过 <code>sparkSession.read</code> 的形式读取数据。该功能实现的类图展示如下图所示。</p>
-<p><img alt="Nebula Spark Connector Reader 实现类图" src="https://docs-cdn.nebula-graph.com.cn/nebula-java-tools-docs/sc-ug-001.png" title="Nebula Spark Connector Reader 实现类图"/></p>
-<p>处理流程如下：</p>
+<h1 id="ngql">nGQL风格指南<a class="headerlink" href="#ngql" title="Permanent link">¶</a></h1>
+<p>nGQL没有严格的构建格式要求，但根据恰当而统一的风格创建nGQL语句有利于提高可读性、避免歧义。在同一组织或项目中使用相同的nGQL风格有利于降低维护成本，规避因格式混乱或误解造成的问题。本文为写作nGQL语句提供了风格参考。</p>
+<div class="admonition compatibility">
+<p class="admonition-title">Compatibility</p>
+<p>nGQL 风格与<a href="https://s3.amazonaws.com/artifacts.opencypher.org/M15/docs/style-guide.pdf">Cypher Style Guide</a>不同。</p>
+</div>
+<h2 id="_1">换行与缩进<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <ol>
 <li>
-<p>定义数据源 <code>NebulaRelationProvider</code>：继承 <code>RelationProvider</code> 自定义 <code>relation</code>，继承 <code>DataSourceRegister</code> 注册外部数据源。</p>
+<p>换行写子句。</p>
+<p>不推荐：</p>
+<div class="highlight"><pre><span></span><code>GO FROM "player100" OVER follow REVERSELY YIELD follow._dst AS id;
+</code></pre></div>
+<p>推荐：</p>
+<div class="highlight"><pre><span></span><code>GO FROM "player100" \
+OVER follow REVERSELY \
+YIELD follow._dst AS id;
+</code></pre></div>
 </li>
 <li>
-<p>定义 <code>NebulaRelation</code>，实现 Nebula Graph 图数据 Schema 的获取和数据转换方法。在 <code>NebulaRelation#getSchema</code> 方法中连接 Nebula Graph 的 Meta 服务获取配置的返回字段对应的 Schema 信息。</p>
+<p>换行写复合语句中的不同语句。</p>
+<p>不推荐：</p>
+<div class="highlight"><pre><span></span><code>GO FROM "player100" OVER follow REVERSELY YIELD follow._dst AS id | GO FROM $-.id \
+OVER serve WHERE $^.player.age &gt; 20 YIELD $^.player.name AS FriendOf, $$.team.name AS Team;
+</code></pre></div>
+<p>推荐：</p>
+<div class="highlight"><pre><span></span><code>GO FROM "player100" \
+OVER follow REVERSELY \
+YIELD follow._dst AS id | \
+GO FROM $-.id OVER serve \
+WHERE $^.player.age &gt; 20 \
+YIELD $^.player.name AS FriendOf, $$.team.name AS Team;
+</code></pre></div>
 </li>
 <li>
-<p>定义 <code>NebulaRDD</code> 读取 Nebula Graph 图数据。其中，<code>NebulaRDD#compute</code> 方法定义了如何读取 Nebula Graph 图数据，主要涉及到扫描 Nebula Graph 图数据、将读到的 Nebula Graph 的行（Row）数据转换为 Spark 的 <code>InternalRow</code> 数据，以 <code>InternalRow</code> 组成 RDD 的一行，其中每一个 <code>InternalRow</code> 表示 Nebula Graph 中的一行数据，最终通过分区迭代的形式读取 Nebula Graph 所有数据并组装成最终的 DataFrame 结果数据。</p>
+<p>子句长度超过80个字符时，在合适的位置换行。</p>
+<p>不推荐：</p>
+<div class="highlight"><pre><span></span><code>MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;(v2) \
+WHERE (v2.name STARTS WITH "Y" AND v2.age &gt; 35 AND v2.age &lt; v.age) OR (v2.name STARTS WITH "T" AND v2.age &lt; 45 AND v2.age &gt; v.age) \
+RETURN v2;
+</code></pre></div>
+<p>推荐：</p>
+<div class="highlight"><pre><span></span><code>MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;(v2) \
+WHERE (v2.name STARTS WITH "Y" AND v2.age &gt; 35 AND v2.age &lt; v.age) \
+OR (v2.name STARTS WITH "T" AND v2.age &lt; 45 AND v2.age &gt; v.age) \
+RETURN v2;
+</code></pre></div>
 </li>
 </ol>
-<h2 id="_3">应用示例<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<p>参考 <a href="../sc-ug-reader-example/">Nebula Spark Connector Reader 应用示例</a>。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>即使子句不超过80个字符，如需换行后有助于理解，也可将子句再次分行。</p>
+</div>
+<h2 id="_2">标识符命名<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<p>在nGQL语句中，关键字、标点符号、空格以外的字符内容都是标识符。推荐的标识符命名方式如下。</p>
+<ol>
+<li>
+<p>使用单数名词命名Tag，用原型动词或动词短语构成Edge type。</p>
+<p>不推荐：</p>
+<div class="highlight"><pre><span></span><code>MATCH p=(v:players)-[e:are_following]-(v2) \
+RETURN nodes(p);
+</code></pre></div>
+<p>推荐：</p>
+<div class="highlight"><pre><span></span><code>MATCH p=(v:player)-[e:follow]-(v2) \
+RETURN nodes(p);
+</code></pre></div>
+</li>
+<li>
+<p>标识符用蛇形命名法，以下划线（_）连接单词，且所有字母小写。</p>
+<p>不推荐：</p>
+<div class="highlight"><pre><span></span><code>MATCH (v:basketballTeam) \
+RETURN v;
+</code></pre></div>
+<p>推荐：</p>
+<div class="highlight"><pre><span></span><code>MATCH (v:basketball_team) \
+RETURN v;
+</code></pre></div>
+</li>
+</ol>
+<h2 id="pattern">Pattern<a class="headerlink" href="#pattern" title="Permanent link">¶</a></h2>
+<ol>
+<li>
+<p>分行写Pattern时，在表示边的箭头右侧换行，而不是左侧。</p>
+<p>不推荐：</p>
+<div class="highlight"><pre><span></span><code>MATCH (v:player{name: "Tim Duncan", age: 42}) \
+-[e:follow]-&gt;()-[e:serve]-&gt;()&lt;--(v3) \
+RETURN v, e, v2;
+</code></pre></div>
+<p>推荐：</p>
+<div class="highlight"><pre><span></span><code>MATCH (v:player{name: "Tim Duncan", age: 42})-[e:follow]-&gt; \
+()-[e:serve]-&gt;()&lt;--(v3) \
+RETURN v, e, v2;
+</code></pre></div>
+</li>
+<li>
+<p>将无需查询的点和边匿名化。</p>
+<p>不推荐：</p>
+<div class="highlight"><pre><span></span><code>MATCH (v:player)-(e:follow)-&gt;(v2) \
+RETURN v;
+</code></pre></div>
+<p>推荐：</p>
+<div class="highlight"><pre><span></span><code>MATCH (v:player)-(:follow)-&gt;() \
+RETURN v;
+</code></pre></div>
+</li>
+<li>
+<p>将非匿名点放在匿名点的前面。</p>
+<p>不推荐：</p>
+<div class="highlight"><pre><span></span><code>MATCH ()-(:follow)-&gt;(v) \
+RETURN v;
+</code></pre></div>
+<p>推荐：</p>
+<div class="highlight"><pre><span></span><code>MATCH (v)&lt;-(:follow)-() \
+RETURN v;
+</code></pre></div>
+</li>
+</ol>
+<h2 id="_3">字符串<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<p>字符串用双引号包围。</p>
+<p>不推荐：</p>
+<div class="highlight"><pre><span></span><code>RETURN 'Hello Nebula!';
+</code></pre></div>
+<p>推荐：</p>
+<div class="highlight"><pre><span></span><code>RETURN "Hello Nebula!\"123\"";
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>字符串中需要嵌套单引号或双引号时，用反斜线（\）转义。例如:</p>
+<div class="highlight"><pre><span></span><code>RETURN "\"Nebula Graph is amazing,\" the user says.";
+</code></pre></div>
+</div>
+<!--## 空格 TODO-->
+<h2 id="_4">结束语句<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
+<ol>
+<li>
+<p>用英文分号（;）结束nGQL语句。</p>
+<p>不推荐：</p>
+<div class="highlight"><pre><span></span><code>FETCH PROP ON player "player100"
+</code></pre></div>
+<p>推荐：</p>
+<div class="highlight"><pre><span></span><code>FETCH PROP ON player "player100";
+</code></pre></div>
+</li>
+<li>
+<p>使用管道符（|）分隔的复合语句，仅在最后一行末用英文分号结尾。在管道符前使用英文分号会导致语句执行失败。</p>
+<p>不支持：</p>
+<div class="highlight"><pre><span></span><code>GO FROM "player100" \
+OVER follow \
+YIELD follow._dst AS id; | \
+GO FROM $-.id \
+OVER serve \
+YIELD $$.team.name AS Team, $^.player.name AS Player;
+</code></pre></div>
+<p>支持：</p>
+<div class="highlight"><pre><span></span><code>GO FROM "player100" \
+OVER follow \
+YIELD follow._dst AS id | \
+GO FROM $-.id \
+OVER serve \
+YIELD $$.team.name AS Team, $^.player.name AS Player;
+</code></pre></div>
+</li>
+<li>
+<p>在包含自定义变量的复合语句中，用英文分号结束定义变量的语句。不按规则加分号或使用管道符结束该语句会导致执行失败。</p>
+<p>不支持：</p>
+<div class="highlight"><pre><span></span><code>$var = GO FROM "player100" \
+OVER follow \
+YIELD follow._dst AS id \
+GO FROM $var.id \
+OVER serve \
+YIELD $$.team.name AS Team, $^.player.name AS Player;
+</code></pre></div>
+<p>也不支持：</p>
+<div class="highlight"><pre><span></span><code>$var = GO FROM "player100" \
+OVER follow \
+YIELD follow._dst AS id | \
+GO FROM $var.id \
+OVER serve \
+YIELD $$.team.name AS Team, $^.player.name AS Player;
+</code></pre></div>
+<p>支持：</p>
+<div class="highlight"><pre><span></span><code>$var = GO FROM "player100" \
+OVER follow \
+YIELD follow._dst AS id; \
+GO FROM $var.id \
+OVER serve \
+YIELD $$.team.name AS Team, $^.player.name AS Player;
+</code></pre></div>
+</li>
+</ol>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月25日</span>
 </small>
 </div>
 </article>
@@ -1911,6 +2083,34 @@
 </a>
 </main>
 <footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="上一页: 关键字" class="md-footer__link md-footer__link--prev" href="../keywords-and-reserved-words/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                上一页
+              </span>
+              关键字
+            </div>
+</div>
+</a>
+<a aria-label="下一页: 数值" class="md-footer__link md-footer__link--next" href="../../3.data-types/1.numeric/" rel="next">
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                下一页
+              </span>
+              数值
+            </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
+</div>
+</a>
+</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">
