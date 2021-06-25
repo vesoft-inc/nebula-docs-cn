@@ -2160,7 +2160,7 @@
 <h2 id="match_1">MATCH工作流程<a class="headerlink" href="#match_1" title="Permanent link">¶</a></h2>
 <ol>
 <li>
-<p><code>MATCH</code>语句使用原生索引查找起始点，起始点可以在模式的任何位置。即一个有效的<code>MATCH</code>语句，<strong>必须有一个属性、Tag或者点已经创建索引，或者在<code>WHERE</code>子句中用id()函数指定了特定点的VID</strong>。如何创建索引，请参见<a href="../../14.native-index-statements/1.create-native-index/">创建原生索引</a>。</p>
+<p><code>MATCH</code>语句使用原生索引查找起始点或边，起始点或边可以在模式的任何位置。即一个有效的<code>MATCH</code>语句，<strong>必须有一个属性、Tag或Edge type已经创建索引，或者在<code>WHERE</code>子句中用id()函数指定了特定点的VID</strong>。如何创建索引，请参见<a href="../../14.native-index-statements/1.create-native-index/">创建原生索引</a>。</p>
 </li>
 <li>
 <p><code>MATCH</code>语句在模式中搜索，寻找匹配的边或点。</p>
@@ -2745,7 +2745,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;(v2) \
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月25日</span>
 </small>
 </div>
 </article>
