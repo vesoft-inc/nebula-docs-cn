@@ -1877,7 +1877,8 @@ prop_value_list:
 <p><code>IF NOT EXISTS</code>：用户可以使用<code>IF NOT EXISTS</code>关键字检测待插入的VID是否存在，只有不存在时，才会插入，如果已经存在，不会进行修改。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>仅检测VID+Tag的值是否相同，不会检测属性值。</p>
+<p>- <code>IF NOT EXISTS</code> 仅检测 VID + Tag 的值是否相同，不会检测属性值。
+  - <code>IF NOT EXISTS</code> 会先读取一次数据是否存在，因此对性能会有明显影响。</p>
 </div>
 </li>
 </ul>
@@ -1976,7 +1977,7 @@ nebula&gt; FETCH PROP ON t2 "1";
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月25日</span>
 </small>
 </div>
 </article>

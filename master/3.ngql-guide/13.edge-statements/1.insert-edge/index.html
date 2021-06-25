@@ -1867,7 +1867,8 @@
 <p><code>IF NOT EXISTS</code>：用户可以使用<code>IF NOT EXISTS</code>关键字检测待插入的边是否存在，只有不存在时，才会插入。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>仅检测边的类型、起始点、目的点和rank，不会检测属性值。</p>
+<p>- <code>IF NOT EXISTS</code> 仅检测&lt;边的类型、起始点、目的点和rank&gt;是否存在，不会检测属性值是否重合。
+  - <code>IF NOT EXISTS</code> 会先读取一次数据是否存在，因此对性能会有明显影响。</p>
 </div>
 </li>
 </ul>
@@ -1950,7 +1951,7 @@ nebula&gt; FETCH PROP ON e2 "14"-&gt;"15"@1;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月25日</span>
 </small>
 </div>
 </article>
