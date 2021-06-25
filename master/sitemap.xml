@@ -172,10 +172,6 @@
      <lastmod>2021-06-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://docs.nebula-graph.com.cn/master/master/3.ngql-guide/6.functions-and-expressions/5.case-expressions/</loc>
-     <lastmod>2021-06-25</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
      <loc>https://docs.nebula-graph.com.cn/master/master/3.ngql-guide/6.functions-and-expressions/6.list/</loc>
      <lastmod>2021-06-25</lastmod>
      <changefreq>daily</changefreq>
@@ -201,6 +197,10 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.nebula-graph.com.cn/master/master/3.ngql-guide/6.functions-and-expressions/9.user-defined-functions/</loc>
+     <lastmod>2021-06-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://docs.nebula-graph.com.cn/master/master/3.ngql-guide/6.functions-and-expressions/5.case-expressions/</loc>
      <lastmod>2021-06-25</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
