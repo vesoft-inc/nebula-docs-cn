@@ -11,5 +11,5 @@
 
 下图给出了几种方式的定位：
 
- ![image](../../images/write-choice.png)
+ ![image](../images/write-choice.png)
 
