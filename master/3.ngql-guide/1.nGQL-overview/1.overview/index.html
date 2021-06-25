@@ -1949,13 +1949,10 @@
 <h2 id="_1">占位标识符和占位符值<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <p>Nebula Graph查询语言nGQL参照以下标准设计：</p>
 <ul>
-<li>ISO/IEC 10646</li>
+<li>(Draft) ISO/IEC JTC1 N14279 SC 32 - Database_Languages - GQL</li>
 </ul>
 <ul>
-<li>ISO/IEC 39075</li>
-</ul>
-<ul>
-<li>ISO/IEC JTC 1/SC 32 N 3228 (Draft)</li>
+<li>(Draft) ISO/IEC JTC1 SC32 N3228 - SQL_Property_Graph_Queries - SQLPGQ</li>
 </ul>
 <ul>
 <li>OpenCypher 9</li>
@@ -2068,7 +2065,7 @@
 <p>请注意<a href="http://www.opencypher.org/">openCypher 9</a>和<a href="https://neo4j.com/developer/cypher/">Cypher</a>在语法和许可上有一些不同:</p>
 <ol>
 <li>
-<p>Cypher要求所有Cypher语句必须“显式地在一个事务中”执行，而openCypher没有这样的要求。另外，nGQL 不支持事务。</p>
+<p>Cypher要求所有Cypher语句必须“显式地在一个事务中”执行，而openCypher没有这样的要求。另外，nGQL <strong>没有</strong>事务及隔离性。</p>
 </li>
 <li>
 <p>Cypher 企业版功能有多种的约束(constraints)，包括 Unique node property constraints、Node property existence constraints、Relationship property existence constraints、Node key constraints。 OpenCypher 标准中没有约束。 而 nGQL 是强 schema 系统，前述的约束大多通过 schema 定义可实现(包括 NOT NULL)，唯一不能支持的功能是“属性值唯一性”(UNIQUE constraint）。</p>
@@ -2182,7 +2179,7 @@ Feature:  Comparison of where clause
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月25日</span>
 </small>
 </div>
 </article>

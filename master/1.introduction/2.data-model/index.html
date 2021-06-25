@@ -1936,11 +1936,16 @@
 <p class="admonition-title">Note</p>
 <p>Nebula Graph 中没有无向边，只支持有向边。</p>
 </div>
+<div class="admonition compatibility">
+<p class="admonition-title">Compatibility</p>
+<p>由于 Nebula Graph 2.1.0 的数据模型中，允许存在"悬挂边"，因此在增删时，用户需自行保证“一条边所对应的起点和终点”的存在性。详见<a href="../../3.ngql-guide/12.vertex-statements/1.insert-vertex/">INSERT VERTEX</a>, <a href="../../3.ngql-guide/12.vertex-statements/4.delete-vertex/">DELETE VERTEX</a>, <a href="docs-2.0/3.ngql-guide/13.edge-statements/1.insert-edge.md">INSERT EDGE</a>, <a href="../../3.ngql-guide/13.edge-statements/4.delete-edge/">DELETE EDGE</a>。</p>
+<p>不支持 openCypher 中的 MERGE 语句。</p>
+</div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月25日</span>
 </small>
 </div>
 </article>
