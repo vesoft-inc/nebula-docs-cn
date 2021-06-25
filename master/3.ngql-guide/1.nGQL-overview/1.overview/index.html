@@ -327,8 +327,13 @@
 <nav aria-label="原生 nGQL 和 openCypher 的关系" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ngql_opencypher_9">
-    nGQL 完全兼容openCypher 9吗？
+<a class="md-nav__link" href="#ngqlopencypher_9">
+    nGQL完全兼容openCypher 9吗？
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ngqlopencypher_10">
+    nGQL和openCypher 9的主要差异有哪些？
   </a>
 </li>
 <li class="md-nav__item">
@@ -1894,8 +1899,13 @@
 <nav aria-label="原生 nGQL 和 openCypher 的关系" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ngql_opencypher_9">
-    nGQL 完全兼容openCypher 9吗？
+<a class="md-nav__link" href="#ngqlopencypher_9">
+    nGQL完全兼容openCypher 9吗？
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ngqlopencypher_10">
+    nGQL和openCypher 9的主要差异有哪些？
   </a>
 </li>
 <li class="md-nav__item">
@@ -2018,12 +2028,12 @@
 <p class="admonition-title">Note</p>
 <p><code>nGQL 语言</code> = <code>原生 nGQL 语句</code> + <code>OpenCypher 兼容语句</code></p>
 </div>
-<h3 id="ngql_opencypher_9">nGQL 完全兼容openCypher 9吗？<a class="headerlink" href="#ngql_opencypher_9" title="Permanent link">¶</a></h3>
+<h3 id="ngqlopencypher_9">nGQL完全兼容openCypher 9吗？<a class="headerlink" href="#ngqlopencypher_9" title="Permanent link">¶</a></h3>
 <div class="admonition compatibility">
 <p class="admonition-title">nGQL部分兼容openCypher 9</p>
 <p>在<a href="https://github.com/vesoft-inc/nebula-graph/issues?q=is%3Aissue+is%3Aopen+label%3Aincompatible">Nebula Graph Issues</a>中已经列出已知的37处不兼容项。如果发现这种类型的新问题，请提交问题并附带<code>incompatible</code>标签。</p>
 </div>
-<p>下面是nGQL和openCypher 9的主要差异。</p>
+<h3 id="ngqlopencypher_10">nGQL和openCypher 9的主要差异有哪些？<a class="headerlink" href="#ngqlopencypher_10" title="Permanent link">¶</a></h3>
 <table>
 <thead>
 <tr>
@@ -2046,12 +2056,12 @@
 <tr>
 <td align="left">数学求幂</td>
 <td align="left"><code>^</code></td>
-<td align="left">使用<code>pow(x, y)</code>替代<code>^</code></td>
+<td align="left">使用<code>pow(x, y)</code>替代<code>^</code>。</td>
 </tr>
 <tr>
 <td align="left">边rank</td>
 <td align="left">无此概念</td>
-<td align="left">用<code>@rank</code>设置</td>
+<td align="left">用<code>@rank</code>设置。</td>
 </tr>
 <tr>
 <td align="left">语句</td>
@@ -2059,9 +2069,14 @@
 <td align="left">不支持openCypher 9的所有DML语句（<code>CREATE</code>、<code>MERGE</code>等）和部分<code>MATCH</code>语句（不支持<code>OPTIONAL MATCH</code>也不支持多<code>MATCH</code>）。</td>
 </tr>
 <tr>
-<td align="left">label与tag是不同的概念</td>
-<td align="left">label用于寻找点(点的索引)</td>
-<td align="left">tag用于定义点的一种类型及相应的属性，无索引功能</td>
+<td align="left">语句文本换行</td>
+<td align="left">换行符</td>
+<td align="left"><code>\</code> + 换行符</td>
+</tr>
+<tr>
+<td align="left">Label与Tag是不同的概念</td>
+<td align="left">Label用于寻找点(点的索引)。</td>
+<td align="left">Tag用于定义点的一种类型及相应的属性，无索引功能。</td>
 </tr>
 <tr>
 <td align="left">预编译与参数化查询</td>

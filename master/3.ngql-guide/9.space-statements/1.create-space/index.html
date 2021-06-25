@@ -1971,6 +1971,10 @@
 </li>
 </ol>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>graph_space_name</code>, <code>partition_num</code>, <code>replica_factor</code>, <code>vid_type</code>, <code>comment</code> 设置后就无法改变。除非<a href="../5.drop-space/"><code>DROP SPACE</code></a>，并重新<code>CREATE SPACE</code>。</p>
+</div>
 <h2 id="_5">示例<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code># 仅指定VID类型，其他选项使用默认值。
 nebula&gt; CREATE SPACE my_space_1 (vid_type=FIXED_STRING(30)); 
@@ -2023,7 +2027,7 @@ nebula&gt; CREATE SPACE my_space_3 (partition_num=15, replica_factor=1, vid_type
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月25日</span>
 </small>
 </div>
 </article>
