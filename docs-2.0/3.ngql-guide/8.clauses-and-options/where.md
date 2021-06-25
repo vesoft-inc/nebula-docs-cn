@@ -163,7 +163,7 @@ nebula> MATCH (v:player) \
 
 ```ngql
 # 创建测试数据。
-nebula> CREATE SPACE test;
+nebula> CREATE SPACE test (vid_type=FIXED_STRING(30));
 nebula> USE test;
 nebula> CREATE EDGE e1(p1 int);
 nebula> CREATE TAG person(p1 int);

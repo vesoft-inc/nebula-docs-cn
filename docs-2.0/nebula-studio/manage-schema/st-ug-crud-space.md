@@ -60,6 +60,6 @@ Studio v{{ studio.base220 }} 及以后版本。请更新版本，详细操作参
 
 图空间创建成功后，用户可以开始创建或修改 Schema，包括：
 
-- [操作标签](st-ug-crud-tag.md)
-- [操作边类型](st-ug-crud-edge-type.md)
+- [操作Tag](st-ug-crud-tag.md)
+- [操作Edge type](st-ug-crud-edge-type.md)
 - [操作索引](st-ug-crud-index.md)

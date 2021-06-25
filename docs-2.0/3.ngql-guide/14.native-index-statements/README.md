@@ -6,11 +6,11 @@ Nebula Graph支持两种类型索引：原生索引和全文索引。
 
 原生索引可以基于指定的属性查询数据，有如下特点：
 
-- 包括标签索引和边类型索引。
+- 包括Tag索引和Edge type索引。
 
 - 必须手动重建索引（`REBUILD INDEX`）。
 
-- 支持创建同一个标签或边类型的多个属性的索引（复合索引），但是不能跨标签或边类型。
+- 支持创建同一个Tag或Edge type的多个属性的索引（复合索引），但是不能跨Tag或Edge type。
 
 - 复合索引可以实现部分匹配检索，遵循最左匹配原则。详情请参见[LOOKUP FAQ](../7.general-query-statements/5.lookup.md#faq)。
 

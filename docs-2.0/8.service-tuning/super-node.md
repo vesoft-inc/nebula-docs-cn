@@ -44,7 +44,7 @@ Nebula Graph {{ nebula.release }} 属性索引的设计复用了存储模块 Roc
 
 例如，`(机场)<-[depart]-(航班)`场景，每个架次航班的离港，都建模为一条航班和机场之间的边。那么大型机场的离港航班会极多。
 
-根据不同的`航空公司`将 `depart` 这个边类型拆分更细的边类型，如 `depart_ceair`, `depart_csair` 等。在查询（图遍历）时，指定离港的航空公司。
+根据不同的`航空公司`将 `depart` 这个Edge type拆分更细的Edge type，如 `depart_ceair`, `depart_csair` 等。在查询（图遍历）时，指定离港的航空公司。
 
 - 切分顶点本身
 
