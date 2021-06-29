@@ -19,6 +19,8 @@
 
 点ID的数据必须为整数，即点ID可以是INT类型，或者是String类型但数据本身为整数。
 
+对于非整数的String类型数据，推荐使用调用算法接口的方式，可以使用SparkSQL的`dense_rank`函数进行编码，将String类型转换为Long类型。
+
 ## 支持算法
 
 Nebula Algorithm支持的图计算算法如下。
