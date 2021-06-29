@@ -2,6 +2,10 @@
 
 导入数据后，用户可以开始使用 **控制台** 或者 **图探索** 查询图数据。
 
+!!! Note
+
+    用户也可以通过 [Studio](https://playground.nebula-graph.com.cn/explore) 在线执行以下查询操作。
+
 以查询代表球员"player100"与球队"team204"的边的属性为例：
 
 * 在 **控制台** 页面：运行 `FETCH PROP ON serve "player100" -> "team204";`，数据库会返回 rank 为0的边。返回结果后，点击 **查看子图** 按钮，将点数据查询结果导入 **图探索** 进行可视化显示。  

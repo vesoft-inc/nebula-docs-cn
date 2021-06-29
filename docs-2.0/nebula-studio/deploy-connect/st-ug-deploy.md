@@ -2,6 +2,10 @@
 
 Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云服务版 Studio 只能在 Nebula Graph Cloud Service 上使用。当在 Nebula Graph Cloud Service 上创建 Nebula Graph 实例时即自动完成云服务版本 Studio 的部署，一键直连即可使用，不需要自己部署。详细信息参考[《Nebula Graph Cloud Service 用户手册》](https://cloud-docs.nebula-graph.com.cn/cn/posts/manage-instances/dbaas-ug-connect-nebulastudio/ "点击前往 Nebula Graph Cloud Service 用户手册")。本文介绍如何在本地通过 Docker 和 RPM 部署 Studio。
 
+!!! Note
+
+    用户也可以在 [Studio](https://playground.nebula-graph.com.cn/explore) 在线试用部分功能。
+
 ## Docker 部署 Studio
 ### 前提条件
 
@@ -44,7 +48,6 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
    | 安装包 | Nebula Graph版本 |
    | ----- | ----- |
-   | [nebula-graph-studio-v1.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-v1.gz) | 1.x |
    | [nebula-graph-studio-v2.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-v2.gz) | 2.x |
 
 2. 创建`nebula-graph-studio-v2`目录，并将安装包解压至目录中。
@@ -129,16 +132,13 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
    | 安装包 | 检验和 | Nebula版本 |
    | ----- | ----- | ----- |
    | [nebula-graph-studio-2.2.1-6.x86_64.rpm](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-2.2.1-6.x86_64.rpm) |  [nebula-graph-studio-2.2.1-6.x86_64.rpm.sha256](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-2.2.1-6.x86_64.rpm.sha256) | 2.0.1 |
-   | [nebula-graph-studio-2.2.0-1.x86_64.rpm](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-2.2.0-1.x86_64.rpm) |  [nebula-graph-studio-2.2.0-1.x86_64.rpm.sha256](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-2.2.0-1.x86_64.rpm.sha256) | 2.0.1 |
-   | [nebula-graph-studio-2.1.9-1.x86_64.rpm](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-2.1.9-1.x86_64.rpm) | - |  2.0 GA |
-   | [nebula-graph-studio-1.2.7-2.x86_64.rpm](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-1.2.7-2.x86_64.rpm) | [nebula-graph-studio-1.2.7-2.x86_64.rpm.sha256](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-1.2.7-2.x86_64.rpm.sha256) |  1.x |
 
 2. 使用`sudo rpm -i <rpm>`命令安装RPM包。
 
    例如，安装Studio {{ studio.base220 }} 版本需要运行以下命令：
 
    ```bash
-   $ sudo rpm -i nebula-graph-studio-{{ studio.base220 }}-1.x86_64.rpm
+   $ sudo rpm -i nebula-graph-studio-{{ studio.base220 }}-6.x86_64.rpm
    ```
 
    当屏幕返回以下信息时，表示 PRM 版 Studio 已经成功启动。
