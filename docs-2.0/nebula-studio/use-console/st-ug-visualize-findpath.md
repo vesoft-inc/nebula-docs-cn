@@ -16,13 +16,17 @@ Studio v{{ studio.base220 }} 及以后版本。请更新版本，详细操作参
 - Studio 已经连接到 Nebula Graph 数据库。详细信息参考 [连接数据库](../deploy-connect/st-ug-connect.md)。
 - 已经导入数据集。详细操作参考 [导入数据](../quick-start/st-ug-import-data.md)。
 
+!!! Note
+
+    用户也可以在 [Studio](https://playground.nebula-graph.com.cn/explore) 在线使用查看子图功能。
+
 ## 操作步骤
 
 按以下步骤在 **控制台** 运行 `FIND PATH` 语句并将结果导入 **图探索**：
 
 1. 在工具栏里，点击 **控制台** 页签。
 
-2. 在 **当前Space** 中选择一个图空间。在本示例中，选择 **mooc_actions**。
+2. 在 **当前Space** 中选择一个图空间。在本示例中，选择 **basketballplayer**。
 
 3. 在命令行中，输入 `FIND SHORTEST PATH` 或者 `FIND ALL PATH` 语句，并点击 ![表示运行的图标](../figs/st-ug-008.png "Run 图标") 图标。
 
