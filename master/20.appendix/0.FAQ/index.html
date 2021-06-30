@@ -1869,6 +1869,16 @@
   </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#nebula-graphinfostorageclientbaseinl214_request_to_xxxx9779_failed_n6apache6thrift9transport19ttransportexceptione_timed_out">
+    如何处理nebula-graph.INFO错误日志StorageClientBase.inl:214] Request to "x.x.x.x":9779 failed: N6apache6thrift9transport19TTransportExceptionE: Timed Out
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nebula-storagedinfometaclientcpp65_heartbeat_failed_statuswrong_cluster_nebula-metadinfohbprocessorcpp54_reject_wrong_cluster_host_xxxx9771">
+    如何处理nebula-storaged.INFO错误日志MetaClient.cpp:65] Heartbeat failed, status:Wrong cluster!或者 nebula-metad.INFO含有错误日志HBProcessor.cpp:54] Reject wrong cluster host "x.x.x.x":9771!
+  </a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#_5">
     是否支持停止或者中断慢查询
   </a>
@@ -2077,6 +2087,16 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#rpc_failure_in_metaclient_connection_refused">
     如何处理错误信息RPC failure in MetaClient: Connection refused
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nebula-graphinfostorageclientbaseinl214_request_to_xxxx9779_failed_n6apache6thrift9transport19ttransportexceptione_timed_out">
+    如何处理nebula-graph.INFO错误日志StorageClientBase.inl:214] Request to "x.x.x.x":9779 failed: N6apache6thrift9transport19TTransportExceptionE: Timed Out
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nebula-storagedinfometaclientcpp65_heartbeat_failed_statuswrong_cluster_nebula-metadinfohbprocessorcpp54_reject_wrong_cluster_host_xxxx9771">
+    如何处理nebula-storaged.INFO错误日志MetaClient.cpp:65] Heartbeat failed, status:Wrong cluster!或者 nebula-metad.INFO含有错误日志HBProcessor.cpp:54] Reject wrong cluster host "x.x.x.x":9771!
   </a>
 </li>
 <li class="md-nav__item">
@@ -2294,6 +2314,17 @@ Got 1 rows (time spent 1235/1934 us)
 <ul>
 <li>检查配置文件中的端口配置，如果端口号与连接时使用的不同，改用配置文件中的端口或者修改配置。</li>
 </ul>
+<h3 id="nebula-graphinfostorageclientbaseinl214_request_to_xxxx9779_failed_n6apache6thrift9transport19ttransportexceptione_timed_out">如何处理<code>nebula-graph.INFO</code>错误日志<code>StorageClientBase.inl:214] Request to "x.x.x.x":9779 failed: N6apache6thrift9transport19TTransportExceptionE: Timed Out</code><a class="headerlink" href="#nebula-graphinfostorageclientbaseinl214_request_to_xxxx9779_failed_n6apache6thrift9transport19ttransportexceptione_timed_out" title="Permanent link">¶</a></h3>
+<p>报错原因可能是查询的数据量比较大，storaged 处理超时。请尝试以下解决方法：</p>
+<ul>
+<li>导入数据时，手动<a href="../../8.service-tuning/compaction/">compaction</a>，加速读的速度。</li>
+</ul>
+<ul>
+<li>增加Graph服务与Storage服务的RPC连接超时时间，在<code>nebula-storaged.conf</code>文件里面修改<code>--storage_client_timeout_ms</code>参数的值。该值的单位为毫秒（ms），默认值为60000毫秒。提示：请在配置文件开头添加--local_config=true再重启服务。</li>
+</ul>
+<h3 id="nebula-storagedinfometaclientcpp65_heartbeat_failed_statuswrong_cluster_nebula-metadinfohbprocessorcpp54_reject_wrong_cluster_host_xxxx9771">如何处理<code>nebula-storaged.INFO</code>错误日志<code>MetaClient.cpp:65] Heartbeat failed, status:Wrong cluster!</code>或者 <code>nebula-metad.INFO</code>含有错误日志<code>HBProcessor.cpp:54] Reject wrong cluster host "x.x.x.x":9771!</code><a class="headerlink" href="#nebula-storagedinfometaclientcpp65_heartbeat_failed_statuswrong_cluster_nebula-metadinfohbprocessorcpp54_reject_wrong_cluster_host_xxxx9771" title="Permanent link">¶</a></h3>
+<p>报错的原因可能是用户修改了 metad 的 ip 或者端口信息，或者 storage 之前加入过其他集群。请尝试以下解决方法：</p>
+<p>用户到storage部署的机器所在的安装目录（默认安装目录为 <code>/usr/local/nebula</code>）下面将<code>cluster.id</code>文件删除，然后重启 storaged 服务。</p>
 <h3 id="_5">是否支持停止或者中断慢查询<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
 <p>不支持。即使关闭了客户端，服务端仍会尽力把该查询执行完毕，无法中断。</p>
 <h3 id="tagedge_type_2">能不能用中文字符做标识符，比如图空间、Tag、Edge type、属性、索引的名称？<a class="headerlink" href="#tagedge_type_2" title="Permanent link">¶</a></h3>
@@ -2434,7 +2465,7 @@ telnet: connect to address <span class="m">192</span>.168.1.10: Connection refus
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月25日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月30日</span>
 </small>
 </div>
 </article>
