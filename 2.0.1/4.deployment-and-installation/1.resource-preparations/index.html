@@ -2207,7 +2207,7 @@ $ ./third-party/install-cmake.sh cmake-install
 $ <span class="nb">source</span> cmake-install/bin/enable-cmake.sh
 
 //opt目录添加写权限。
-$ sudo chmod -R a+w /opt
+$ sudo mkdir /opt/vesoft <span class="o">&amp;&amp;</span> sudo chmod -R a+w /opt/vesoft
 
 // 安装GCC。安装到opt目录需要写权限，用户也可以修改为其他目录。
 $ ./third-party/install-gcc.sh --prefix<span class="o">=</span>/opt
