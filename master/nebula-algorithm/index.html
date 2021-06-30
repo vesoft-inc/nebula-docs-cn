@@ -1965,6 +1965,7 @@
 </ul>
 <h2 id="_2">使用限制<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <p>点ID的数据必须为整数，即点ID可以是INT类型，或者是String类型但数据本身为整数。</p>
+<p>对于非整数的String类型数据，推荐使用调用算法接口的方式，可以使用SparkSQL的<code>dense_rank</code>函数进行编码，将String类型转换为Long类型。</p>
 <h2 id="_3">支持算法<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <p>Nebula Algorithm支持的图计算算法如下。</p>
 <table>
@@ -2254,7 +2255,7 @@ val <span class="nv">louvainResult</span> <span class="o">=</span> PageRankAlgo.
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月30日</span>
 </small>
 </div>
 </article>
