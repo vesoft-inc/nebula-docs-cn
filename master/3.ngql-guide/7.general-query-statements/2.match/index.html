@@ -2183,7 +2183,7 @@
 <li>nGQL不支持遍历所有点和边，例如<code>MATCH (v) RETURN v</code>。但是，建立相应Tag的索引后，可以遍历对应Tag的所有点，例如<code>MATCH (v:T1) RETURN v</code>。</li>
 </ul>
 <ul>
-<li>WHERE子句内不支持再嵌套MATCH语句。</li>
+<li>WHERE子句内不支持图模式。</li>
 </ul>
 <h2 id="pattern">使用模式（pattern）<a class="headerlink" href="#pattern" title="Permanent link">¶</a></h2>
 <h3 id="_2">前提条件<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
@@ -2750,7 +2750,7 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;(v2) \
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月25日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月1日</span>
 </small>
 </div>
 </article>

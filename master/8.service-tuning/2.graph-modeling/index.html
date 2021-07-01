@@ -1384,7 +1384,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_9">
-    不能支持动态时序图
+    不能支持动态图(时序图)
   </a>
 </li>
 </ul>
@@ -1943,7 +1943,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_9">
-    不能支持动态时序图
+    不能支持动态图(时序图)
   </a>
 </li>
 </ul>
@@ -1997,13 +1997,23 @@
 <p>参考<a href="../../1.introduction/3.vid/">点VID一节</a>。</p>
 <h3 id="_8">长文本<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
 <p>为边创建属性时请勿使用长文本：这些属性会被<a href="../../1.introduction/3.nebula-graph-architecture/4.storage-service/">存储2份</a>，导致写入放大问题（write amplification）。此时建议将长文本放在 HBase/ES 中，将其地址存放在 Nebula Graph 中。</p>
-<h2 id="_9">不能支持动态时序图<a class="headerlink" href="#_9" title="Permanent link">¶</a></h2>
-<p>在某些场景下，图需要同时带有时序信息，以描述整个图的结构随着时间变化的情况。Nebula Graph 2.1.0 的边可以使用 rank 字段存放时间信息(int64)，但是点上没有字段可以存放时间信息（存放在属性会被新写入覆盖）。因此不能支持动态时序图。</p>
+<h2 id="_9">不能支持动态图(时序图)<a class="headerlink" href="#_9" title="Permanent link">¶</a></h2>
+<p>在某些场景下，图需要同时带有时序信息，以描述整个图的结构随着时间变化的情况<sup id="fnref:twitter"><a class="footnote-ref" href="#fn:twitter">1</a></sup>。</p>
+<p>Nebula Graph 2.1.0 的边可以使用 rank 字段存放时间信息(int64)，但是点上没有字段可以存放时间信息（存放在属性会被新写入覆盖）。因此不能支持动态时序图。</p>
+<p><img alt="image" src="https://cdn.cms-twdigitalassets.com/content/dam/blog-twitter/engineering/en_us/insights/2021/tgn/temporal_graph1.png.img.fullhd.medium.png"/></p>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:twitter">
+<p>https://blog.twitter.com/engineering/en_us/topics/insights/2021/temporal-graph-networks <a class="footnote-backref" href="#fnref:twitter" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+</ol>
+</div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月25日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月1日</span>
 </small>
 </div>
 </article>

@@ -1973,11 +1973,16 @@ nebula&gt; FETCH PROP ON t2 "1";
 | ("1" :t2{age: 13, name: "n2"}) |
 +--------------------------------+
 </code></pre></div>
+<p>!!! Caution “不支持只移除一个点的 Tag （remove/delete tag）”</p>
+<div class="codehilite"><pre><span></span><code>在 `INSERT VERTEX` 时，必须指定该点的 Tag。这样一个点可以有多个TagA, TagB。但是不支持移除该点的TagA，只保留TagB。nGQL 只支持删除该点本身(DELETE VERTEX)，或者删除一个空间内的指定 Tag (DROP TAG)。
+
+如果有类似需求，建议为每种 Tag 增加一种属性标识，来标识该 Tag 是否有效。再通过 `INSERT/UPDATE VERTEX` 命令更改该标识位。
+</code></pre></div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月25日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月1日</span>
 </small>
 </div>
 </article>

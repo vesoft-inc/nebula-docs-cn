@@ -2031,7 +2031,7 @@
 <h3 id="ngqlopencypher_9">nGQL完全兼容openCypher 9吗？<a class="headerlink" href="#ngqlopencypher_9" title="Permanent link">¶</a></h3>
 <div class="admonition compatibility">
 <p class="admonition-title">nGQL部分兼容openCypher 9</p>
-<p>在<a href="https://github.com/vesoft-inc/nebula-graph/issues?q=is%3Aissue+is%3Aopen+label%3Aincompatible">Nebula Graph Issues</a>中已经列出已知的37处不兼容项。如果发现这种类型的新问题，请提交问题并附带<code>incompatible</code>标签。</p>
+<p>在<a href="https://github.com/vesoft-inc/nebula-graph/issues?q=is%3Aissue+is%3Aopen+label%3Aincompatible">Nebula Graph Issues</a>中已经列出已知的37处不兼容项。如果发现这种类型的新问题，请提交问题并附带<code>incompatible</code>标签。在本文搜索"compatibility"或者“兼容性”查看具体不兼容细节。</p>
 </div>
 <h3 id="ngqlopencypher_10">nGQL和openCypher 9的主要差异有哪些？<a class="headerlink" href="#ngqlopencypher_10" title="Permanent link">¶</a></h3>
 <table>
@@ -2066,7 +2066,7 @@
 <tr>
 <td align="left">语句</td>
 <td align="left">-</td>
-<td align="left">不支持openCypher 9的所有DML语句（<code>CREATE</code>、<code>MERGE</code>等）和部分<code>MATCH</code>语句（不支持<code>OPTIONAL MATCH</code>也不支持多<code>MATCH</code>）。</td>
+<td align="left">不支持 openCypher 9 的所有 DML 语句（如<code>CREATE</code>、<code>MERGE</code>等），不支持所有的 DCL， 和支持部分 <code>MATCH</code> 语法和函数（不支持<code>OPTIONAL MATCH</code>，不支持多<code>MATCH</code>）。</td>
 </tr>
 <tr>
 <td align="left">语句文本换行</td>
@@ -2087,13 +2087,16 @@
 </table>
 <div class="admonition compatibility">
 <p class="admonition-title">Compatibility</p>
-<p>请注意<a href="http://www.opencypher.org/">openCypher 9</a>和<a href="https://neo4j.com/developer/cypher/">Cypher</a>在语法和许可上有一些不同:</p>
+<p>请注意<a href="http://www.opencypher.org/">openCypher 9</a>和<a href="https://neo4j.com/developer/cypher/">Cypher</a>在语法和许可上有不同:</p>
 <ol>
 <li>
 <p>Cypher要求所有Cypher语句必须“显式地在一个事务中”执行，而openCypher没有这样的要求。另外，nGQL <strong>没有</strong>事务及隔离性。</p>
 </li>
 <li>
 <p>Cypher 企业版功能有多种的约束(constraints)，包括 Unique node property constraints、Node property existence constraints、Relationship property existence constraints、Node key constraints。 OpenCypher 标准中没有约束。 而 nGQL 是强 schema 系统，前述的约束大多通过 schema 定义可实现(包括 NOT NULL)，唯一不能支持的功能是“属性值唯一性”(UNIQUE constraint）。</p>
+</li>
+<li>
+<p>Cypher 有 APoC，openCypher 9 没有 APoC。Cypher 有 Blot 协议支持要求， openCypher 9 没有。</p>
 </li>
 </ol>
 </div>
@@ -2193,7 +2196,7 @@ Feature:  Comparison of where clause
 </tr>
 </tbody>
 </table>
-<p>欢迎<a href="../../../15.contribution/how-to-contribute/">增加更多实用场景示例</a>，成为Nebula Graph贡献者。</p>
+<p>欢迎<a href="https://github.com/vesoft-inc/nebula-graph/tree/master/tests">增加更多 tck case</a>，在 CI/CD 中自动回归所使用的语句。</p>
 <h3 id="tinkerpop_gremlin">是否支持TinkerPop Gremlin？<a class="headerlink" href="#tinkerpop_gremlin" title="Permanent link">¶</a></h3>
 <p>不支持。也没有计划。</p>
 <h3 id="w3c_rdfsparql_graphql">是否支持 W3C 的RDF（SPARQL） 或 GraphQL 等？<a class="headerlink" href="#w3c_rdfsparql_graphql" title="Permanent link">¶</a></h3>
@@ -2204,7 +2207,7 @@ Feature:  Comparison of where clause
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月25日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月1日</span>
 </small>
 </div>
 </article>
