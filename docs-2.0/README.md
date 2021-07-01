@@ -13,7 +13,7 @@ Nebula Graph是一款开源的、分布式的、易扩展的原生图数据库�
 
 ## 其他资料
 
-- [Nebula Graph Homepage](https://nebula-graph.com.cn/)
+- [Homepage](https://nebula-graph.com.cn/)
 - [视频](https://space.bilibili.com/472621355)
-- [Blog](https://nebula-graph.com.cn/posts/)
+- [书PDF](https://docs.nebula-graph.com.cn/site/pdf/NebulaGraph-book.pdf)
 
