@@ -301,3 +301,8 @@ Importer根据CSV文件有无表头，需要对配置文件进行不同的设置
 - [无表头配置说明](config-without-header.md)
 
 - [有表头配置说明](config-with-header.md)
+
+## 视频
+
+* [数据库导入工具——Nebula Importer 简介](https://www.bilibili.com/video/BV1ny4y1u7i4)（3分09秒）
+<iframe src="//player.bilibili.com/player.html?aid=803505035&bvid=BV1ny4y1u7i4&cid=351250785&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
