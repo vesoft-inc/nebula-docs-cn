@@ -1336,12 +1336,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#tag_edge_type">
-    Tag 与 Edge Type 之间没有绑定关系
+    Tag 与 Edge type 之间没有绑定关系
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#tagedge_type">
-    Tag/Edge Type 预先定义了一组属性
+    Tag/Edge type 预先定义了一组属性
   </a>
 </li>
 <li class="md-nav__item">
@@ -1895,12 +1895,12 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#tag_edge_type">
-    Tag 与 Edge Type 之间没有绑定关系
+    Tag 与 Edge type 之间没有绑定关系
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#tagedge_type">
-    Tag/Edge Type 预先定义了一组属性
+    Tag/Edge type 预先定义了一组属性
   </a>
 </li>
 <li class="md-nav__item">
@@ -1966,15 +1966,15 @@
 <p>目前 Nebula Graph 没有完美的建模方法，如何建模取决于想从数据中挖掘的内容。分析数据并根据业务模型创建方便直观的数据模型，测试模型并优化，逐渐适应业务。为了更好的性能，用户可以多次更改或重新设计模型。</p>
 <h3 id="_3">设计和评估最重要的查询语句<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
 <p>在测试环节中，通常会验证各种各样的查询语句，以全面评估系统能力。但在大多数生产场景下，每个集群被频繁调用的查询语句的类型并不会太多；根据20-80原则，针对重要的查询语句进行建模优化。</p>
-<h3 id="tag_edge_type">Tag 与 Edge Type 之间没有绑定关系<a class="headerlink" href="#tag_edge_type" title="Permanent link">¶</a></h3>
-<p>任何 Tag 可以与任何 Edge Type 相关联，完全交由应用程序控制。不需要在 Nebula Graph 中预先定义，也没有命令获取哪些 Tag 与哪些 Edge Type 相关联。</p>
-<h3 id="tagedge_type">Tag/Edge Type 预先定义了一组属性<a class="headerlink" href="#tagedge_type" title="Permanent link">¶</a></h3>
-<p>建立Tag（或者Edge Type）时，需要指定对应的属性。通常称为 schema。</p>
+<h3 id="tag_edge_type">Tag 与 Edge type 之间没有绑定关系<a class="headerlink" href="#tag_edge_type" title="Permanent link">¶</a></h3>
+<p>任何 Tag 可以与任何 Edge type 相关联，完全交由应用程序控制。不需要在 Nebula Graph 中预先定义，也没有命令获取哪些 Tag 与哪些 Edge type 相关联。</p>
+<h3 id="tagedge_type">Tag/Edge type 预先定义了一组属性<a class="headerlink" href="#tagedge_type" title="Permanent link">¶</a></h3>
+<p>建立Tag（或者Edge type）时，需要指定对应的属性。通常称为 Schema。</p>
 <h3 id="_4">区分“经常改变的部分”和“不经常改变的部分”<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
 <p>改变指的是业务模型和数据模型上的改变（元信息），不是数据自身的改变。</p>
 <p>一些图数据库产品是schema-free的设计，所以在数据模型上，不论是图拓扑结构还是属性，都可以非常自由。属性可以建模转变为图拓扑，反之亦然。这类系统通常对于图拓扑的访问有特别的优化。</p>
-<p>而 Nebula Graph 2.1.0 是强 schema 的（行存型）系统，这意味着业务数据模型中的部分是“不应该经常改变的”，例如属性 schema 应该避免改变。类似于 MySQL 中 alter table 是应该尽量避免的操作。</p>
-<p>而点及邻边可以非常低成本的增删，因此可以将业务模型中“经常改变的部分”建模成点或边（关系），而不是属性 schema。</p>
+<p>而 Nebula Graph 2.1.0 是强 Schema 的（行存型）系统，这意味着业务数据模型中的部分是“不应该经常改变的”，例如属性 Schema 应该避免改变。类似于 MySQL 中 ALTER TABLE 是应该尽量避免的操作。</p>
+<p>而点及邻边可以非常低成本的增删，因此可以将业务模型中“经常改变的部分”建模成点或边（关系），而不是属性 Schema。</p>
 <p>例如，在一个业务模型中，人的属性是相对固定的，例如“年龄”，“性别”，“姓名”。而“通信好友”，“出入场所”，“交易账号”，“登录设备”等是相对容易改变的。前者适合建模为属性，后者适合建模为点或边。</p>
 <h3 id="_5">广度优先大于深度优先<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
 <ul>
@@ -1999,7 +1999,7 @@
 <p>为边创建属性时请勿使用长文本：这些属性会被<a href="../../1.introduction/3.nebula-graph-architecture/4.storage-service/">存储2份</a>，导致写入放大问题（write amplification）。此时建议将长文本放在 HBase/ES 中，将其地址存放在 Nebula Graph 中。</p>
 <h2 id="_9">不能支持动态图(时序图)<a class="headerlink" href="#_9" title="Permanent link">¶</a></h2>
 <p>在某些场景下，图需要同时带有时序信息，以描述整个图的结构随着时间变化的情况<sup id="fnref:twitter"><a class="footnote-ref" href="#fn:twitter">1</a></sup>。</p>
-<p>Nebula Graph 2.1.0 的边可以使用 rank 字段存放时间信息(int64)，但是点上没有字段可以存放时间信息（存放在属性会被新写入覆盖）。因此不能支持动态时序图。</p>
+<p>Nebula Graph 2.1.0 的边可以使用 Rank 字段存放时间信息(int64)，但是点上没有字段可以存放时间信息（存放在属性会被新写入覆盖）。因此不能支持动态时序图。</p>
 <p><img alt="image" src="https://cdn.cms-twdigitalassets.com/content/dam/blog-twitter/engineering/en_us/insights/2021/tgn/temporal_graph1.png.img.fullhd.medium.png"/></p>
 <div class="footnote">
 <hr/>
@@ -2013,7 +2013,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月1日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月2日</span>
 </small>
 </div>
 </article>

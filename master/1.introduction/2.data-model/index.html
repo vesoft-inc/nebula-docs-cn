@@ -1854,13 +1854,13 @@
 <p>Nebula Graph数据模型使用6种基本的数据结构：</p>
 <ul>
 <li>
-<p>图空间(space）</p>
+<p>图空间(Space）</p>
 <p>图空间用于隔离不同团队或者项目的数据。不同图空间的数据是相互隔离的，可以指定不同的存储副本数、权限、分片等。</p>
 </li>
 </ul>
 <ul>
 <li>
-<p>点（vertex）</p>
+<p>点（Vertex）</p>
 <p>点用来保存实体对象，特点如下：</p>
 <ul>
 <li>点是用点标识符（<code>VID</code>）标识的。<code>VID</code>在同一图空间中唯一。VID 是一个 int64, 或者 fixed_string(N)。</li>
@@ -1870,12 +1870,12 @@
 </ul>
 <ul>
 <li>
-<p>边（edge）</p>
+<p>边（Edge）</p>
 <p>边是用来连接点的，表示两个点之间的关系或行为，特点如下：</p>
 <ul>
 <li>两点之间可以有多条边。</li>
 <li>边是有方向的，不存在无向边。</li>
-<li>四元组 <code>&lt;起点VID、Edge type、边排序值(rank)、终点VID&gt;</code> 用于唯一标识一条边。边没有EID。</li>
+<li>四元组 <code>&lt;起点VID、Edge type、边排序值(Rank)、终点VID&gt;</code> 用于唯一标识一条边。边没有EID。</li>
 <li>一条边有且仅有一个Edge type。</li>
 <li>一条边有且仅有一个rank。其为int64, 默认为0。</li>
 </ul>
@@ -1883,20 +1883,20 @@
 </ul>
 <ul>
 <li>
-<p>标签（tag）</p>
+<p>标签（Tag）</p>
 <p>Tag由一组事先预定义的属性构成。</p>
 </li>
 </ul>
 <ul>
 <li>
-<p>边类型（edge type）</p>
+<p>边类型（Edge type）</p>
 <p>Edge type由一组事先预定义的属性构成。</p>
 </li>
 </ul>
 <ul>
 <li>
-<p>属性（properties）</p>
-<p>属性是指以键值对（key-value pair）形式存储的信息。</p>
+<p>属性（Properties）</p>
+<p>属性是指以键值对（Key-value pair）形式存储的信息。</p>
 </li>
 </ul>
 <div class="admonition note">
@@ -1917,25 +1917,25 @@
 </thead>
 <tbody>
 <tr>
-<td align="left">tag</td>
+<td align="left">Tag</td>
 <td align="left"><strong>player</strong></td>
 <td align="left">name （string） <br/>age （int）</td>
 <td align="left">表示球员。</td>
 </tr>
 <tr>
-<td align="left">tag</td>
+<td align="left">Tag</td>
 <td align="left"><strong>team</strong></td>
 <td align="left">name （string）</td>
 <td align="left">表示球队。</td>
 </tr>
 <tr>
-<td align="left">edge type</td>
+<td align="left">Edge type</td>
 <td align="left"><strong>serve</strong></td>
 <td align="left">start_year （int） <br/> end_year （int）</td>
 <td align="left">表示球员的行为。<br/>该行为将球员和球队联系起来，方向是从球员到球队。</td>
 </tr>
 <tr>
-<td align="left">edge type</td>
+<td align="left">Edge type</td>
 <td align="left"><strong>follow</strong></td>
 <td align="left">degree（int）</td>
 <td align="left">表示球员的行为。<br/>该行为将两个球员联系起来，方向是从一个球员到另一个球员。</td>
@@ -1955,7 +1955,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月25日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月2日</span>
 </small>
 </div>
 </article>

@@ -2351,7 +2351,7 @@ nebula &gt; MATCH (s)&lt;-[e]-() WHERE id(s) == "given" RETURN count(e); #入度
 </li>
 </ul>
 <h3 id="_8">关于悬挂边<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
-<p>悬挂边 (dangling edge) 是指一条边的起点或者终点在数据库中不存在。</p>
+<p>悬挂边 (Dangling edge) 是指一条边的起点或者终点在数据库中不存在。</p>
 <p>Nebula Graph 2.1.0 的数据模型中，允许存在"悬挂边"；也没有 openCypher 中的 MERGE 语句。对于悬挂边的保证完全依赖应用层面。详见<a href="../../3.ngql-guide/12.vertex-statements/1.insert-vertex/">INSERT VERTEX</a>, <a href="../../3.ngql-guide/12.vertex-statements/4.delete-vertex/">DELETE VERTEX</a>, <a href="docs-2.0/3.ngql-guide/13.edge-statements/1.insert-edge.md">INSERT EDGE</a>, <a href="../../3.ngql-guide/13.edge-statements/4.delete-edge/">DELETE EDGE</a>。</p>
 <h2 id="_9">关于运维<a class="headerlink" href="#_9" title="Permanent link">¶</a></h2>
 <h3 id="_10">日志文件过大时如何回收日志？<a class="headerlink" href="#_10" title="Permanent link">¶</a></h3>
@@ -2465,7 +2465,7 @@ telnet: connect to address <span class="m">192</span>.168.1.10: Connection refus
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月30日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月2日</span>
 </small>
 </div>
 </article>

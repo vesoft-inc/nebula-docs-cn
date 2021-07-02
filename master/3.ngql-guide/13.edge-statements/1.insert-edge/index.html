@@ -1941,7 +1941,7 @@ nebula&gt; FETCH PROP ON e2 "14"-&gt;"15"@1;
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
-<li>Nebula Graph 2.1.0 允许存在悬挂边（dangling edge）。因此可以在起点或者终点存在前，先写边；此时就可以通过 <code>&lt;edgetype&gt;._src</code>或<code>&lt;edgetype&gt;._dst</code>获取到（尚未写入的）点VID（不建议这样使用）。</li>
+<li>Nebula Graph 2.1.0 允许存在悬挂边（Dangling edge）。因此可以在起点或者终点存在前，先写边；此时就可以通过 <code>&lt;edgetype&gt;._src</code>或<code>&lt;edgetype&gt;._dst</code>获取到（尚未写入的）点VID（不建议这样使用）。</li>
 <li>目前还不能保证操作的原子性，如果失败请重试，否则会发生部分写入。此时读取该数据的行为是未定义的。</li>
 <li>并发写入同一条边会报<code>edge conflict</code>错误，可稍后重试。</li>
 <li><code>边的INSERT速度</code>大约是点的INSERT速度一半。原因是INSERT边会对应storaged的两个INSERT，<code>INSERT点</code>对应storaged的一个INSERT。</li>
@@ -1951,7 +1951,7 @@ nebula&gt; FETCH PROP ON e2 "14"-&gt;"15"@1;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月25日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月2日</span>
 </small>
 </div>
 </article>

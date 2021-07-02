@@ -2013,10 +2013,10 @@
 </ul>
 <h2 id="opencypher">openCypher兼容性<a class="headerlink" href="#opencypher" title="Permanent link">¶</a></h2>
 <ul>
-<li>不支持在模式中使用<code>WHERE</code>子句（TODO: planning），例如<code>WHERE (v)--&gt;(v2)</code>。</li>
+<li>不支持在<code>WHERE</code>子句中使用Pattern（TODO: planning），例如<code>WHERE (v)--&gt;(v2)</code>。</li>
 </ul>
 <ul>
-<li><a href="#rank">过滤rank</a>是原生nGQL功能。只支持在原生nGQL的语句（例如<code>GO</code>和<code>LOOKUP</code>）中使用，因为openCypher中没有rank的概念。</li>
+<li><a href="#rank">过滤Rank</a>是原生nGQL功能。如需在openCypher兼容语句中直接获取Rank值，可以使用rank()函数，例如<code>MATCH (:player)-[e:follow]-&gt;() RETURN rank(e);</code>。</li>
 </ul>
 <h2 id="_1">基础用法<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <div class="admonition note">
@@ -2266,8 +2266,6 @@ Empty set (time spent 5080/6474 us)
 
 ### Filter on properties in patterns
 
-### Filter on edge type
-
 -->
 <h2 id="_7">过滤列表<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
 <h3 id="_8">匹配列表中的值<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
@@ -2315,7 +2313,7 @@ Empty set (time spent 5080/6474 us)
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月2日</span>
 </small>
 </div>
 </article>
