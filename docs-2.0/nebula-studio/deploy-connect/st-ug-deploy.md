@@ -49,7 +49,7 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 2. 创建`nebula-graph-studio-v2`目录，并将安装包解压至目录中。
 
     ```bash
-    mkdir nebula-graph-studio-v2 && tar -zxvf nebula-graph-studio-v2.gz -C nebula-graph-studio-v2
+    mkdir nebula-graph-studio-v2 && tar -zxvf nebula-graph-studio-v2.tar.gz -C nebula-graph-studio-v2
     ```
 
 3. 解压后进入 `nebula-graph-studio-v2` 目录。
