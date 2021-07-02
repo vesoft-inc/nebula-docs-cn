@@ -39,4 +39,4 @@ Studio 具备以下功能：
 ## 视频
 
 * [图解 Nebula Studio 图探索功能](https://www.bilibili.com/video/BV1QN411Z7Vh)（3分23秒）
-<iframe src="//player.bilibili.com/player.html?aid=503286771&bvid=BV1QN411Z7Vh&cid=344349765&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
+<iframe src="//player.bilibili.com/player.html?aid=503286771&bvid=BV1QN411Z7Vh&cid=344349765&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
