@@ -10,9 +10,9 @@
 
 ## OpenCypher兼容性
 
-- 不支持在模式中使用`WHERE`子句，例如`WHERE (v)-->(v2)`。
+- 不支持在`WHERE`子句中使用Pattern（TODO: planning），例如`WHERE (v)-->(v2)`。
 
-- [过滤rank](#rank)是原生nGQL功能。只支持在原生nGQL的语句（例如`GO`和`LOOKUP`）中使用，因为OpenCypher中没有rank的概念。
+- [过滤Rank](#rank)是原生nGQL功能。如需在openCypher兼容语句中直接获取Rank值，可以使用rank()函数，例如 `MATCH (:player)-[e:follow]->() RETURN rank(e);`。
 
 ## 基础用法
 
@@ -306,8 +306,6 @@ nebula> MATCH (v:player) \
 ### Filter on patterns using NOT
 
 ### Filter on properties in patterns
-
-### Filter on edge type
 
 -->
 

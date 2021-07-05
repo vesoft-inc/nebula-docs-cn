@@ -19,6 +19,8 @@
 
 点ID的数据必须为整数，即点ID可以是INT类型，或者是String类型但数据本身为整数。
 
+对于非整数的String类型数据，推荐使用调用算法接口的方式，可以使用SparkSQL的`dense_rank`函数进行编码，将String类型转换为Long类型。
+
 ## 支持算法
 
 Nebula Algorithm支持的图计算算法如下。
@@ -95,7 +97,7 @@ Nebula Algorithm实现图计算的流程如下：
 2. 传入参数调用算法（以PageRank为例）。更多算法请参见[测试用例](https://github.com/vesoft-inc/nebula-spark-utils/tree/master/nebula-algorithm/src/test/scala/com/vesoft/nebula/algorithm/lib)。
 
   !!! note
-        执行算法的DataFrame默认第一列是起始点，第二列是目的点，第三列是边权重（非Nebula Graph中的rank）。
+        执行算法的DataFrame默认第一列是起始点，第二列是目的点，第三列是边权重（非Nebula Graph中的Rank）。
 
   ```bash
   val prConfig = new PRConfig(5, 1.0)
@@ -266,3 +268,8 @@ Nebula Algorithm实现图计算的流程如下：
   ```bash
   ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.algorithm.Main /root/nebula-spark-utils/nebula-algorithm/target/nebula-algorithm-2.0.0.jar -p /root/nebula-spark-utils/nebula-algorithm/src/main/resources/application.conf
   ```
+
+## 视频
+
+* [图计算工具——Nebula Algorithm 介绍](https://www.bilibili.com/video/BV1fB4y1T7XK)（2分36秒）
+<iframe src="//player.bilibili.com/player.html?aid=588577467&bvid=BV1fB4y1T7XK&cid=351282857&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
