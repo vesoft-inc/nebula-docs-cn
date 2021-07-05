@@ -1877,6 +1877,10 @@
 <li>不建议修改文档未介绍的配置项，除非已经熟悉源代码并完全了解配置项的作用。</li>
 </ul>
 </div>
+<div class="admonition compatibility">
+<p class="admonition-title">历史版本兼容性</p>
+<p>1.x版本的文档提供了使用CONFIGS命令修改缓存中配置的方法，但在生产环境中使用该方法容易导致集群配置与本地配置文件不一致。因此，2.x版本的文档中将不再介绍CONFIGS命令的使用方法。</p>
+</div>
 <h2 id="_2">查看配置项列表与说明<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <p>使用以下命令获取二进制文件对应服务的所有配置项信息：</p>
 <div class="highlight"><pre><span></span><code>&lt;binary&gt; --help
@@ -1965,7 +1969,7 @@ curl <span class="m">127</span>.0.0.1:19779/flags
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月5日</span>
 </small>
 </div>
 </article>
