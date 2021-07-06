@@ -1963,7 +1963,9 @@
 <li>不能修改带有TTL选项的属性的Schema。</li>
 </ul>
 <ul>
-<li>Tag或Edge type上如果有索引，不能设置TTL选项，即使在没有索引的属性上设置也不行。</li>
+<li>TTL 和 INDEX 共存问题：<p>+ 如果已有 INDEX：不能再设置 TTL，即使在没有 INDEX 的属性上设置 TTL 也不行。    </p>
+<p>+ 如果已有 TTL：可以再添加 INDEX。</p>
+</li>
 </ul>
 <h2 id="_2">属性过期<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <h3 id="_3">点属性过期<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
@@ -2044,7 +2046,7 @@ nebula&gt; INSERT VERTEX t2(a, b, c) values "102":(1612778164674, 30, "Hello");
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月6日</span>
 </small>
 </div>
 </article>
