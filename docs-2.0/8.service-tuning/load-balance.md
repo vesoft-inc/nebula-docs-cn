@@ -171,3 +171,7 @@ nebula> SHOW HOSTS;
 | "Total"     |      |          | 15           | "basketballplayer:15"             | "basketballplayer:45"  |
 +-------------+------+----------+--------------+-----------------------------------+------------------------+
 ```
+
+!!! caution
+
+    在 Nebula Graph {{ nebula.release }} 中，Leader 切换会导致短时的大量请求错误（Storage Error `E_RPC_FAILURE`），处理方法见[FAQ](../20.appendix/0.FAQ.md)。
