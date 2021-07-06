@@ -1968,12 +1968,23 @@ nebula&gt; MATCH (n:player) \
 | false        | true          |
 +--------------+---------------+
 ...
+
+nebula&gt; MATCH (n:player) \
+        WHERE exists(n['name']) RETURN n;
++-------------------------------------------------------------------------------------------------------------+
+| n                                                                                                           |
++-------------------------------------------------------------------------------------------------------------+
+| ("Grant Hill" :player{age: 46, name: "Grant Hill"})                                                         |
++-------------------------------------------------------------------------------------------------------------+
+| ("Marc Gasol" :player{age: 34, name: "Marc Gasol"})                                                         |
++-------------------------------------------------------------------------------------------------------------+
+...
 </code></pre></div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月6日</span>
 </small>
 </div>
 </article>
