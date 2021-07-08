@@ -1900,21 +1900,21 @@ nebula&gt; SHOW TAGS; SHOW EDGES;
 
 # 插入多个点。
 nebula&gt; INSERT VERTEX player(name, age) VALUES "player100":("Tim Duncan", 42); \
-INSERT VERTEX player(name, age) VALUES "player101":("Tony Parker", 36); \
-INSERT VERTEX player(name, age) VALUES "player102":("LaMarcus Aldridge", 33);
+        INSERT VERTEX player(name, age) VALUES "player101":("Tony Parker", 36); \
+        INSERT VERTEX player(name, age) VALUES "player102":("LaMarcus Aldridge", 33);
 </code></pre></div>
 </li>
 </ul>
 <ul>
 <li>原生nGQL（管道符）<div class="highlight"><pre><span></span><code># 管道符连接多个查询。
 nebula&gt; GO FROM "player100" OVER follow YIELD follow._dst AS id | \
-    GO FROM $-.id OVER serve YIELD $$.team.name AS Team, \
-    $^.player.name AS Player;
-    +---------+-------------+
-    | Team    | Player      |
-    +---------+-------------+
-    | Nuggets | Tony Parker |
-    +---------+-------------+
+        GO FROM $-.id OVER serve YIELD $$.team.name AS Team, \
+        $^.player.name AS Player;
++---------+-------------+
+| Team    | Player      |
++---------+-------------+
+| Nuggets | Tony Parker |
++---------+-------------+
 </code></pre></div>
 </li>
 </ul>
@@ -1922,7 +1922,7 @@ nebula&gt; GO FROM "player100" OVER follow YIELD follow._dst AS id | \
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月24日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月8日</span>
 </small>
 </div>
 </article>

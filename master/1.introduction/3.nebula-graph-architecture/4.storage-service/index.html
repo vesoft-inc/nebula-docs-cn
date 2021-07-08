@@ -2219,15 +2219,15 @@
 <p>点和边分布在不同的分片，分片分布在不同的机器。分片数量在 CREATE SPACE 语句中指定，此后不可更改。</p>
 <p>如果需要将某些点放置在相同的分片（例如在一台机器上），可以参考<a href="https://github.com/vesoft-inc/nebula-common/blob/master/src/common/clients/meta/MetaClient.cpp">公式或代码</a>。</p>
 <p>下文用简单代码说明VID和分片的关系。</p>
-<div class="highlight"><pre><span></span><code>    // 如果ID长度为8，为了兼容1.0，将数据类型视为int64。
-    uint64_t vid = 0;
-    if (id.size() == 8) {
-        memcpy(static_cast&lt;void*&gt;(&amp;vid), id.data(), 8);
-    } else {
-        MurmurHash2 hash;
-        vid = hash(id.data());
-    }
-    PartitionID pId = vid % numParts + 1;
+<div class="highlight"><pre><span></span><code>// 如果ID长度为8，为了兼容1.0，将数据类型视为int64。
+uint64_t vid = 0;
+if (id.size() == 8) {
+    memcpy(static_cast&lt;void*&gt;(&amp;vid), id.data(), 8);
+} else {
+    MurmurHash2 hash;
+    vid = hash(id.data());
+}
+PartitionID pId = vid % numParts + 1;
 </code></pre></div>
 <p>简单来说，上述代码是将一个固定的字符串进行哈希计算，转换成数据类型为int64的数字（int64数字的哈希计算结果是数字本身），将数字取模，然后加1，即：</p>
 <div class="highlight"><pre><span></span><code><span class="n">pId</span> <span class="o">=</span> <span class="n">vid</span> <span class="o">%</span> <span class="n">numParts</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
@@ -2324,7 +2324,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月2日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月8日</span>
 </small>
 </div>
 </article>
