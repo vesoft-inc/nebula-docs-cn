@@ -1886,7 +1886,7 @@ nebula&gt; REBUILD TAG INDEX single_person_index;
 +------------+
 | New Job Id |
 +------------+
-| 66         |
+| 31         |
 +------------+
 
 # 查看索引状态。
@@ -1898,11 +1898,17 @@ nebula&gt; SHOW TAG INDEX STATUS;
 +-----------------------+--------------+
 
 # 也可以使用SHOW JOB &lt;job_id&gt;查看重建索引的任务状态。
-nebula&gt; SHOW JOB 66;
+nebula&gt; SHOW JOB 31;
 +----------------+---------------------+------------+-------------------------+-------------------------+
 | Job Id(TaskId) | Command(Dest)       | Status     | Start Time              | Stop Time               |
 +----------------+---------------------+------------+-------------------------+-------------------------+
-| 66             | "REBUILD_TAG_INDEX" | "FINISHED" | 2021-03-31T03:35:21.000 | 2021-03-31T03:35:21.000 |
+| 31             | "REBUILD_TAG_INDEX" | "FINISHED" | 2021-07-07T09:04:24.000 | 2021-07-07T09:04:24.000 |
++----------------+---------------------+------------+-------------------------+-------------------------+
+| 0              | "storaged1"         | "FINISHED" | 2021-07-07T09:04:24.000 | 2021-07-07T09:04:28.000 |
++----------------+---------------------+------------+-------------------------+-------------------------+
+| 1              | "storaged2"         | "FINISHED" | 2021-07-07T09:04:24.000 | 2021-07-07T09:04:28.000 |
++----------------+---------------------+------------+-------------------------+-------------------------+
+| 2              | "storaged0"         | "FINISHED" | 2021-07-07T09:04:24.000 | 2021-07-07T09:04:28.000 |
 +----------------+---------------------+------------+-------------------------+-------------------------+
 </code></pre></div>
 <p>Nebula Graph创建一个任务去重建索引，因此可以根据返回的任务ID，通过<code>SHOW JOB &lt;job_id&gt;</code>语句查看任务状态。详情请参见<a href="../18.operation-and-maintenance-statements/4.job-statements/#show_job">SHOW JOB</a>。</p>
@@ -1912,7 +1918,7 @@ nebula&gt; SHOW JOB 66;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月25日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月8日</span>
 </small>
 </div>
 </article>
