@@ -9,9 +9,9 @@
 <meta content="Nebula Graph" name="author"/>
 <link href="https://docs.nebula-graph.com.cn/master/master/1.introduction/3.nebula-graph-architecture/2.meta-service/" rel="canonical"/>
 <link href="../../../assets/images/favicon.ico" rel="icon"/>
-<meta content="mkdocs-1.1.2, mkdocs-material-7.1.9" name="generator"/>
+<meta content="mkdocs-1.1.2, mkdocs-material-7.1.10" name="generator"/>
 <title>Meta服务 - Nebula Graph Database 手册</title>
-<link href="../../../assets/stylesheets/main.ca7ac06f.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.1fe995fd.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
 <meta content="#009485" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -217,14 +217,14 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#meta_1">
-    Meta服务架构
+    Meta 服务架构
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#meta_2">
-    Meta服务功能
+    Meta 服务功能
   </a>
-<nav aria-label="Meta服务功能" class="md-nav">
+<nav aria-label="Meta 服务功能" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
@@ -243,7 +243,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#schema">
-    管理Schema信息
+    管理 Schema 信息
   </a>
 </li>
 <li class="md-nav__item">
@@ -1864,14 +1864,14 @@
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#meta_1">
-    Meta服务架构
+    Meta 服务架构
   </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#meta_2">
-    Meta服务功能
+    Meta 服务功能
   </a>
-<nav aria-label="Meta服务功能" class="md-nav">
+<nav aria-label="Meta 服务功能" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
@@ -1890,7 +1890,7 @@
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#schema">
-    管理Schema信息
+    管理 Schema 信息
   </a>
 </li>
 <li class="md-nav__item">
@@ -1916,50 +1916,51 @@
 <a class="md-content__button md-icon" href="https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/1.introduction/3.nebula-graph-architecture/2.meta-service.md" title="编辑此页">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
-<h1 id="meta">Meta服务<a class="headerlink" href="#meta" title="Permanent link">¶</a></h1>
-<p>本文介绍Meta服务的架构和功能。</p>
-<h2 id="meta_1">Meta服务架构<a class="headerlink" href="#meta_1" title="Permanent link">¶</a></h2>
+<h1 id="meta">Meta 服务<a class="headerlink" href="#meta" title="Permanent link">¶</a></h1>
+<p>本文介绍 Meta 服务的架构和功能。</p>
+<h2 id="meta_1">Meta 服务架构<a class="headerlink" href="#meta_1" title="Permanent link">¶</a></h2>
 <p><img alt="The architecture of the Meta Service" src="https://docs-cdn.nebula-graph.com.cn/docs-2.0/1.introduction/2.nebula-graph-architecture/meta-architecture1.png"/></p>
-<p>Meta服务是由nebula-metad进程提供的，用户可以根据场景配置nebula-metad进程数量：</p>
+<p>Meta 服务是由 nebula-metad 进程提供的，用户可以根据场景配置 nebula-metad 进程数量：</p>
 <ul>
-<li>测试环境中，用户可以在Nebula Graph集群中部署1个或3个nebula-metad进程。如果要部署3个，用户可以将它们部署在1台机器上，或者分别部署在不同的机器上。</li>
-<li>生产环境中，建议在Nebula Graph集群中部署3个nebula-metad进程。请将这些进程部署在不同的机器上以保证高可用。</li>
+<li>测试环境中，用户可以在 Nebula Graph 集群中部署1个或3个 nebula-metad 进程。如果要部署3个，用户可以将它们部署在1台机器上，或者分别部署在不同的机器上。</li>
+<li>生产环境中，建议在 Nebula Graph 集群中部署3个 nebula-metad 进程。请将这些进程部署在不同的机器上以保证高可用。</li>
 </ul>
-<p>所有nebula-metad进程构成了基于Raft协议的集群，其中一个进程是leader，其他进程都是follower。</p>
-<p>leader是由多数派选举出来，只有leader能够对客户端或其他组件提供服务，其他follower作为候补，如果leader出现故障，会在所有follower中选举出新的leader。</p>
+<p>所有 nebula-metad 进程构成了基于 Raft 协议的集群，其中一个进程是 leader，其他进程都是 follower。</p>
+<p>leader 是由多数派选举出来，只有 leader 能够对客户端或其他组件提供服务，其他 follower 作为候补，如果 leader 出现故障，会在所有follower 中选举出新的 leader。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>leader和follower的数据通过Raft协议保持一致，因此leader故障和选举新leader不会导致数据不一致。更多关于Raft的介绍见附录。</p>
+<p>leader 和 follower 的数据通过 Raft 协议保持一致，因此 leader 故障和选举新 leader 不会导致数据不一致。更多关于 Raft 的介绍见附录。</p>
 </div>
-<h2 id="meta_2">Meta服务功能<a class="headerlink" href="#meta_2" title="Permanent link">¶</a></h2>
+<h2 id="meta_2">Meta 服务功能<a class="headerlink" href="#meta_2" title="Permanent link">¶</a></h2>
 <h3 id="_1">管理用户账号<a class="headerlink" href="#_1" title="Permanent link">¶</a></h3>
-<p>Meta服务中存储了用户的账号和权限信息，当客户端通过账号发送请求给Meta服务，Meta服务会检查账号信息，以及该账号是否有对应的请求权限。</p>
-<p>更多Nebula Graph的访问控制说明，请参见<a href="../../../7.data-security/1.authentication/1.authentication/">身份验证</a>。</p>
+<p>Meta 服务中存储了用户的账号和权限信息，当客户端通过账号发送请求给Meta 服务，Meta 服务会检查账号信息，以及该账号是否有对应的请求权限。</p>
+<p>更多 Nebula Graph 的访问控制说明，请参见<a href="../../../7.data-security/1.authentication/1.authentication/">身份验证</a>。</p>
 <h3 id="_2">管理分片<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
-<p>Meta服务负责存储和管理分片的位置信息，并且保证分片的负载均衡。</p>
+<p>Meta 服务负责存储和管理分片的位置信息，并且保证分片的负载均衡。</p>
 <h3 id="_3">管理图空间<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
-<p>Nebula Graph支持多个图空间，不同图空间内的数据是安全隔离的。Meta服务存储所有图空间的元数据（非完整数据），并跟踪数据的变更，例如增加或删除图空间。</p>
-<h3 id="schema">管理Schema信息<a class="headerlink" href="#schema" title="Permanent link">¶</a></h3>
-<p>Nebula Graph是强类型图数据库，它的Schema包括Tag、Edge type、Tag属性和Edge type属性。</p>
-<p>Meta服务中存储了Schema信息，同时还负责Schema的添加、修改和删除，并记录它们的版本。</p>
-<p>更多Nebula Graph的Schema信息，请参见<a href="../../2.data-model/">数据模型</a>。</p>
+<p>Nebula Graph 支持多个图空间，不同图空间内的数据是安全隔离的。Meta 服务存储所有图空间的元数据（非完整数据），并跟踪数据的变更，例如增加或删除图空间。</p>
+<h3 id="schema">管理 Schema 信息<a class="headerlink" href="#schema" title="Permanent link">¶</a></h3>
+<p>Nebula Graph 是强类型图数据库，它的 Schema 包括 Tag、Edge type、Tag 属性和 Edge type 属性。</p>
+<p>Meta 服务中存储了 Schema 信息，同时还负责 Schema 的添加、修改和删除，并记录它们的版本。</p>
+<p>更多 Nebula Graph 的 Schema 信息，请参见<a href="../../2.data-model/">数据模型</a>。</p>
 <h3 id="ttl">管理基于TTL的数据回收<a class="headerlink" href="#ttl" title="Permanent link">¶</a></h3>
-<p>Meta服务提供基于TTL（time to live）的自动数据回收和空间回收。</p>
+<p>Meta 服务提供基于 TTL(Time To Live) 的自动数据回收和空间回收。</p>
 <h3 id="_4">管理作业<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
-<p>Meta服务中的作业管理模块负责作业的创建、排队、查询和删除。</p>
+<p>Meta 服务中的作业管理模块负责作业的创建、排队、查询和删除。</p>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月12日</span>
 </small>
 </div>
 </article>
 </div>
 </div>
-<a class="md-top md-icon" data-md-component="top" data-md-state="hidden" href="#" title="Back to top">
+<a class="md-top md-icon" data-md-component="top" data-md-state="hidden" href="#">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path></svg>
-</a>
+            Back to top
+          </a>
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
@@ -2015,7 +2016,7 @@
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "header.autohide"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.477d984a.min.js", "version": {"method": "mike"}}</script>
-<script src="../../../assets/javascripts/bundle.82b56eb2.min.js"></script>
+<script src="../../../assets/javascripts/bundle.ddd52ceb.min.js"></script>
 <script src="../../../js/version-select.js"></script>
 <script src="../../../js/config.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
