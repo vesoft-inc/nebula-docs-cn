@@ -1771,7 +1771,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
 <h1 id="faq">常见问题 FAQ<a class="headerlink" href="#faq" title="Permanent link">¶</a></h1>
-<p>本文列出了使用Nebula Graph 2.1.0 时可能遇到的常见问题，用户可以使用文档中心或者浏览器的搜索功能查找相应问题。</p>
+<p>本文列出了使用Nebula Graph 2.5.0 时可能遇到的常见问题，用户可以使用文档中心或者浏览器的搜索功能查找相应问题。</p>
 <p>如果按照文中的建议无法解决问题，请到<a href="https://discuss.nebula-graph.com.cn/">Nebula Graph论坛</a>提问或提交<a href="https://github.com/vesoft-inc/nebula-graph/issues">GitHub issue</a>。</p>
 <h2 id="_1">关于本手册<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
 <h3 id="_2">为什么手册示例和系统行为不一致？<a class="headerlink" href="#_2" title="Permanent link">¶</a></h3>
@@ -1788,13 +1788,13 @@
 <h2 id="_3">关于历史兼容性<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <div class="admonition compatibility">
 <p class="admonition-title">大版本兼容性</p>
-<p>Nebula Graph 2.1.0 与 历史版本 (包括 Nebula Graph 1.x 和 2.0-RC) 的数据格式、客户端通信协议均<strong>双向不兼容</strong>。
+<p>Nebula Graph 2.5.0 与 历史版本 (包括 Nebula Graph 1.x 和 2.0-RC) 的数据格式、客户端通信协议均<strong>双向不兼容</strong>。
 数据格式升级参见<a href="../../4.deployment-and-installation/3.upgrade-nebula-graph/">升级 Nebula Graph 历史版本至 v2.0.0</a>。
 客户端与工具均需要<a href="../6.eco-tool-version/">下载对应版本</a>。</p>
 </div>
 <div class="admonition compatibility">
 <p class="admonition-title">小版本兼容性</p>
-<p>Neubla Graph 2.1.0 与 Nebula Graph 2.0 的数据格式、通信协议历史兼容。</p>
+<p>Neubla Graph 2.5.0 与 Nebula Graph 2.0 的数据格式、通信协议历史兼容。</p>
 </div>
 <h2 id="_4">关于执行<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <h3 id="gomatch">使用GO和MATCH执行相同语义的查询，查询结果为什么不同？<a class="headerlink" href="#gomatch" title="Permanent link">¶</a></h3>
@@ -1932,7 +1932,7 @@ nebula &gt; MATCH (s)&lt;-[e]-() WHERE id(s) == "given" RETURN count(e); #入度
 </ul>
 <h3 id="_8">关于悬挂边<a class="headerlink" href="#_8" title="Permanent link">¶</a></h3>
 <p>悬挂边 (Dangling edge) 是指一条边的起点或者终点在数据库中不存在。</p>
-<p>Nebula Graph 2.1.0 的数据模型中，允许存在"悬挂边"；也没有 openCypher 中的 MERGE 语句。对于悬挂边的保证完全依赖应用层面。详见<a href="../../3.ngql-guide/12.vertex-statements/1.insert-vertex/">INSERT VERTEX</a>, <a href="../../3.ngql-guide/12.vertex-statements/4.delete-vertex/">DELETE VERTEX</a>, <a href="docs-2.0/3.ngql-guide/13.edge-statements/1.insert-edge.md">INSERT EDGE</a>, <a href="../../3.ngql-guide/13.edge-statements/4.delete-edge/">DELETE EDGE</a>。</p>
+<p>Nebula Graph 2.5.0 的数据模型中，允许存在"悬挂边"；也没有 openCypher 中的 MERGE 语句。对于悬挂边的保证完全依赖应用层面。详见<a href="../../3.ngql-guide/12.vertex-statements/1.insert-vertex/">INSERT VERTEX</a>, <a href="../../3.ngql-guide/12.vertex-statements/4.delete-vertex/">DELETE VERTEX</a>, <a href="docs-2.0/3.ngql-guide/13.edge-statements/1.insert-edge.md">INSERT EDGE</a>, <a href="../../3.ngql-guide/13.edge-statements/4.delete-edge/">DELETE EDGE</a>。</p>
 <h2 id="_9">关于运维<a class="headerlink" href="#_9" title="Permanent link">¶</a></h2>
 <h3 id="_10">日志文件过大时如何回收日志？<a class="headerlink" href="#_10" title="Permanent link">¶</a></h3>
 <p>Nebula Graph 的日志默认在 <code>/usr/local/nebula/logs/</code> 下, 正常INFO级别日志文件为 <code>nebula-graphd.INFO, nebula-storaged.INFO, nebula-metad.INFO</code>，报警和错误级别后缀为 <code>.WARNING</code> 和 <code>.ERROR</code>。</p>
@@ -1976,7 +1976,7 @@ This <span class="nb">source</span> code is licensed under Apache <span class="m
 </li>
 </ul>
 <h3 id="_11">如何扩缩容<a class="headerlink" href="#_11" title="Permanent link">¶</a></h3>
-<p>Nebula Graph 2.1.0 未提供运维命令以实现自动扩缩容，参考以下步骤：</p>
+<p>Nebula Graph 2.5.0 未提供运维命令以实现自动扩缩容，参考以下步骤：</p>
 <ul>
 <li>metad 的扩容和缩容： metad 不支持扩缩容，也不支持迁移到新机器，也不要增加新的 metad 进程。</li>
 </ul>

@@ -1553,7 +1553,7 @@
 <h3 id="_4">区分“经常改变的部分”和“不经常改变的部分”<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
 <p>改变指的是业务模型和数据模型上的改变（元信息），不是数据自身的改变。</p>
 <p>一些图数据库产品是schema-free的设计，所以在数据模型上，不论是图拓扑结构还是属性，都可以非常自由。属性可以建模转变为图拓扑，反之亦然。这类系统通常对于图拓扑的访问有特别的优化。</p>
-<p>而 Nebula Graph 2.1.0 是强 Schema 的（行存型）系统，这意味着业务数据模型中的部分是“不应该经常改变的”，例如属性 Schema 应该避免改变。类似于 MySQL 中 ALTER TABLE 是应该尽量避免的操作。</p>
+<p>而 Nebula Graph 2.5.0 是强 Schema 的（行存型）系统，这意味着业务数据模型中的部分是“不应该经常改变的”，例如属性 Schema 应该避免改变。类似于 MySQL 中 ALTER TABLE 是应该尽量避免的操作。</p>
 <p>而点及邻边可以非常低成本的增删，因此可以将业务模型中“经常改变的部分”建模成点或边（关系），而不是属性 Schema。</p>
 <p>例如，在一个业务模型中，人的属性是相对固定的，例如“年龄”，“性别”，“姓名”。而“通信好友”，“出入场所”，“交易账号”，“登录设备”等是相对容易改变的。前者适合建模为属性，后者适合建模为点或边。</p>
 <h3 id="_5">广度优先大于深度优先<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
@@ -1561,7 +1561,7 @@
 <li>Nebula Graph 基于图拓扑结构进行深度图遍历的性能较低，广度优先遍历以及获取属性的性能较好。例如，模型a包括姓名、年龄、眼睛颜色三种属性，建议创建一个Tag<code>person</code>，然后为它添加姓名、年龄、眼睛颜色的属性。如果创建一个包含眼睛颜色的Tag和一个Edge type<code>has</code>，然后创建一个边用来表示人拥有的眼睛颜色，这种建模方法会降低遍历性能。</li>
 </ul>
 <ul>
-<li>“通过边属性获取边”的性能与“通过点属性获取点”的性能是接近的。在一些数据库中，会建议将边上的属性重新建模为中间节点的属性：例如 <code>(src)-[edge {P1, P2}]-&gt;(dst)</code>，<code>edge</code> 上有属性 <code>P1, P2</code>，会建议建模为 <code>(src)-[edge1]-&gt;(i_node {P1, P2})-[edge2]-&gt;(dst)</code>。在 Nebula Graph 2.1.0 中可以直接使用 <code>(src)-[edge {P1, P2}]-&gt;(dst)</code>，减少遍历深度有助于性能。</li>
+<li>“通过边属性获取边”的性能与“通过点属性获取点”的性能是接近的。在一些数据库中，会建议将边上的属性重新建模为中间节点的属性：例如 <code>(src)-[edge {P1, P2}]-&gt;(dst)</code>，<code>edge</code> 上有属性 <code>P1, P2</code>，会建议建模为 <code>(src)-[edge1]-&gt;(i_node {P1, P2})-[edge2]-&gt;(dst)</code>。在 Nebula Graph 2.5.0 中可以直接使用 <code>(src)-[edge {P1, P2}]-&gt;(dst)</code>，减少遍历深度有助于性能。</li>
 </ul>
 <h3 id="_6">边的方向<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
 <p>查询时，如果需要使用边的逆向查询，可以用如下语法：</p>
@@ -1579,7 +1579,7 @@
 <p>为边创建属性时请勿使用长文本：这些属性会被<a href="../../1.introduction/3.nebula-graph-architecture/4.storage-service/">存储2份</a>，导致写入放大问题（write amplification）。此时建议将长文本放在 HBase/ES 中，将其地址存放在 Nebula Graph 中。</p>
 <h2 id="_9">不能支持动态图(时序图)<a class="headerlink" href="#_9" title="Permanent link">¶</a></h2>
 <p>在某些场景下，图需要同时带有时序信息，以描述整个图的结构随着时间变化的情况<sup id="fnref:twitter"><a class="footnote-ref" href="#fn:twitter">1</a></sup>。</p>
-<p>Nebula Graph 2.1.0 的边可以使用 Rank 字段存放时间信息(int64)，但是点上没有字段可以存放时间信息（存放在属性会被新写入覆盖）。因此不能支持动态时序图。</p>
+<p>Nebula Graph 2.5.0 的边可以使用 Rank 字段存放时间信息(int64)，但是点上没有字段可以存放时间信息（存放在属性会被新写入覆盖）。因此不能支持动态时序图。</p>
 <p><img alt="image" src="https://cdn.cms-twdigitalassets.com/content/dam/blog-twitter/engineering/en_us/insights/2021/tgn/temporal_graph1.png.img.fullhd.medium.png"/></p>
 <div class="footnote">
 <hr/>

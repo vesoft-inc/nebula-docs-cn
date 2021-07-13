@@ -1451,13 +1451,13 @@
 <h1 id="_1">系统设计建议<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
 <h2 id="qps">选择QPS优先或时延优先<a class="headerlink" href="#qps" title="Permanent link">¶</a></h2>
 <ul>
-<li>Nebula Graph 2.1.0 更擅长处理（互联网式的）有大量并发的小请求。也即：虽然全图很大（万亿点边），但是每个请求要访问到的子图本身并不大（几百万个点边）——单个请求时延不大；但这类请求的并发数量特别多——QPS大。</li>
+<li>Nebula Graph 2.5.0 更擅长处理（互联网式的）有大量并发的小请求。也即：虽然全图很大（万亿点边），但是每个请求要访问到的子图本身并不大（几百万个点边）——单个请求时延不大；但这类请求的并发数量特别多——QPS大。</li>
 </ul>
 <ul>
 <li>但对于一些交互分析型的场景，并发请求的数量不多，而每个请求要访问的子图本身特别大（亿以上）。为降低时延，可以在应用程序中将一个大的请求，拆分为多个小请求，并发发送给多个graphd。这样可以降低单个大请求的时延，降低单个graphd的内存占用。另外，也可以使用<a href="../../nebula-algorithm/">图计算功能 Nebula Algorithm</a>。</li>
 </ul>
 <h2 id="_2">水平扩展或垂直扩展<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<p>Nebula Graph 2.1.0 支持水平扩展：</p>
+<p>Nebula Graph 2.5.0 支持水平扩展：</p>
 <ul>
 <li>Storaged 的水平扩展：<p>- 增加storaged的机器数量，可以大体线性增加集群的整体能力，包括增加整体QPS和降低时延。</p>
 <p>- 但由于 partition 数量在 CREATE SPACE 时已固定，因此单个 partition 的服务能力只由单服务器决定——例如：获取单个点的属性(<code>FETCH</code>)、单个点开始的广度优先遍历(<code>GO</code>)</p>
@@ -1471,13 +1471,13 @@
 <ul>
 <li>Metad 不支持水平扩展。</li>
 </ul>
-<p>垂直扩展通常硬件成本更高，但运维操作相对简单。Nebula Graph 2.1.0 也可以垂直扩展。</p>
+<p>垂直扩展通常硬件成本更高，但运维操作相对简单。Nebula Graph 2.5.0 也可以垂直扩展。</p>
 <h2 id="_3">数据传输与优化<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <ul>
 <li>读写平衡。Nebula Graph 适合读写平衡性的在线场景，也即 OLTP 型的的“并发的发生写入与读取”；而非数仓 OLAP 型的“一次写入多次读取”。</li>
 <li>选择不同的写入方式。大批量的数据写入可以使用sst加载的方式；小批量的写入使用<code>INSERT</code>语句。</li>
 <li>选择合适的时间运行 COMPACTION 和 BALANCE，来分别优化数据格式和存储分布。</li>
-<li>Nebula Graph 2.1.0 不支持关系型数据库意义上的事务和隔离性，更接近 NoSQL。</li>
+<li>Nebula Graph 2.5.0 不支持关系型数据库意义上的事务和隔离性，更接近 NoSQL。</li>
 </ul>
 <h2 id="_4">查询预热与数据预热<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <p>应用端进行预热：</p>
