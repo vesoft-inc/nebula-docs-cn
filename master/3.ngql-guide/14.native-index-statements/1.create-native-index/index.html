@@ -1516,25 +1516,42 @@
 <p>创建索引，或者删除并再次创建同名索引后，必须<code>REBUILD INDEX</code>。否则无法在<code>MATCH</code>和<code>LOOKUP</code>语句中返回这些数据。</p>
 </div>
 <h2 id="_3">语法<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span></span><code>CREATE {TAG | EDGE} INDEX [IF NOT EXISTS] &lt;index_name&gt; ON {&lt;tag_name&gt; | &lt;edge_name&gt;} ([prop_name_list]);
+<div class="highlight"><pre><span></span><code>CREATE {TAG | EDGE} INDEX [IF NOT EXISTS] &lt;index_name&gt; ON {&lt;tag_name&gt; | &lt;edge_name&gt;} ([&lt;prop_name_list&gt;]) [COMMENT = '&lt;comment&gt;'];
 </code></pre></div>
-<ul>
-<li><code>index_name</code>：索引名。索引名在一个图空间中必须是唯一的。推荐的命名方式为<code>i_tagName_propName</code>。索引名称由大小写英文字母、数字或下划线组成，区分大写小，且不可使用<a href="../../1.nGQL-overview/keywords-and-reserved-words/">关键字和保留字</a>。</li>
-</ul>
-<ul>
-<li><code>IF NOT EXISTS</code>：检测待创建的索引是否存在，只有不存在时，才会创建索引。</li>
-</ul>
-<ul>
-<li>
-<p><code>prop_name_list</code>:</p>
-<ul>
-<li>为<strong>变长</strong>字符串属性创建索引时，必须用<code>prop_name(length)</code>指定索引长度。</li>
-</ul>
-<ul>
-<li>为Tag或Edge type本身创建索引时，忽略<code>prop_name_list</code>。</li>
-</ul>
-</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>TAG \| EDGE</code></td>
+<td align="left">指定要创建的索引类型。</td>
+</tr>
+<tr>
+<td align="left"><code>IF NOT EXISTS</code></td>
+<td align="left">检测待创建的索引是否存在，只有不存在时，才会创建索引。</td>
+</tr>
+<tr>
+<td align="left"><code>&lt;index_name&gt;</code></td>
+<td align="left">索引名。索引名在一个图空间中必须是唯一的。推荐的命名方式为<code>i_tagName_propName</code>。索引名称由大小写英文字母、数字或下划线组成，区分大写小，且不可使用<a href="../../1.nGQL-overview/keywords-and-reserved-words/">关键字和保留字</a>。</td>
+</tr>
+<tr>
+<td align="left"><code>&lt;tag_name&gt; \| &lt;edge_name&gt;</code></td>
+<td align="left">指定索引关联的Tag或Edge名称。</td>
+</tr>
+<tr>
+<td align="left"><code>&lt;prop_name_list&gt;</code></td>
+<td align="left">为<strong>变长</strong>字符串属性创建索引时，必须用<code>prop_name(length)</code>指定索引长度；为Tag或Edge type本身创建索引时，忽略<code>&lt;prop_name_list&gt;</code>。</td>
+</tr>
+<tr>
+<td align="left"><code>COMMENT</code></td>
+<td align="left">索引的描述。最大为256字节。默认无描述。</td>
+</tr>
+</tbody>
+</table>
 <h2 id="tagedge_type">创建Tag/Edge type索引<a class="headerlink" href="#tagedge_type" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG INDEX player_index on player();
 </code></pre></div>
@@ -1581,7 +1598,7 @@ nebula&gt; LOOKUP ON t WHERE p1 == 1 and p2 == 1 and p3 == 1;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月24日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月14日</span>
 </small>
 </div>
 </article>

@@ -1824,38 +1824,13 @@ Got 4 rows (time spent 1061/2251 us)
 [replica_factor = &lt;replica_number&gt;,]
 vid_type = {FIXED_STRING(&lt;N&gt;) | INT64}
 )
-[comment = '&lt;space_comment&gt;'];
+[COMMENT = '&lt;comment&gt;'];
 </code></pre></div>
+<p>参数详情请参见<a href="../../3.ngql-guide/9.space-statements/1.create-space/">CREATE SPACE</a>。</p>
 <!-- <code>charset</code>和<code>collate</code>当前只有一个可选值，忽略。
       charset = <charset>
       collate = <collate>
   -->
-<table>
-<thead>
-<tr>
-<th align="left">参数</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>partition_num</code></td>
-<td align="left">指定图空间的分片数量。建议设置为5倍的集群硬盘数量。例如集群中有3个硬盘，建议设置15个分片。</td>
-</tr>
-<tr>
-<td align="left"><code>replica_factor</code></td>
-<td align="left">指定每个分片的副本数量。建议在生产环境中设置为3，在测试环境中设置为1。由于需要进行基于quorum的选举，副本数量必须是<strong>奇数</strong>。</td>
-</tr>
-<tr>
-<td align="left"><code>vid_type</code></td>
-<td align="left">必选参数，指定点ID的数据类型。可选值为<code>FIXED_STRING(&lt;N&gt;)</code>和<code>INT64</code>。<code>FIXED_STRING(&lt;N&gt;)</code>表示数据类型为字符串，最大长度为<code>N</code>，超出长度会报错；<code>INT64</code>表示数据类型为整数。</td>
-</tr>
-<tr>
-<td align="left"><code>comment</code></td>
-<td align="left">图空间的描述。最大为256字节。默认无描述。</td>
-</tr>
-</tbody>
-</table>
 </li>
 </ul>
 <ul>
@@ -1913,8 +1888,10 @@ Got 1 rows (time spent 977/2000 us)
 <h2 id="tagedge_type">创建Tag和Edge type<a class="headerlink" href="#tagedge_type" title="Permanent link">¶</a></h2>
 <h3 id="ngql_1">nGQL语法<a class="headerlink" href="#ngql_1" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code>CREATE {TAG | EDGE} {&lt;tag_name&gt; | &lt;edge_type&gt;}(&lt;property_name&gt; &lt;data_type&gt;
-[, &lt;property_name&gt; &lt;data_type&gt; ...]);
+[, &lt;property_name&gt; &lt;data_type&gt; ...])
+[COMMENT = '&lt;comment&gt;'];
 </code></pre></div>
+<p>参数详情请参见<a href="../../3.ngql-guide/10.tag-statements/1.create-tag/">CREATE TAG</a>和<a href="../../3.ngql-guide/11.edge-type-statements/1.create-edge/">CREATE EDGE</a>。</p>
 <h3 id="_5">示例<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
 <p>创建Tag<code>player</code>和<code>team</code>，以及Edge type<code>follow</code>和<code>serve</code>。说明如下表。</p>
 <table>
@@ -1977,7 +1954,7 @@ Wed, 24 Feb 2021 03:48:16 EST
 {VALUES | VALUE} &lt;vid&gt;: (&lt;property_value&gt;[, &lt;property_value&gt;...])
 [, &lt;vid&gt;: (&lt;property_value&gt;[, &lt;property_value&gt;...];
 </code></pre></div>
-<p><code>VID</code>是Vertex ID的缩写，<code>VID</code>在一个图空间中是唯一的。</p>
+<p><code>VID</code>是Vertex ID的缩写，<code>VID</code>在一个图空间中是唯一的。参数详情请参见<a href="../../3.ngql-guide/12.vertex-statements/1.insert-vertex/">INSERT VERTEX</a>。</p>
 </li>
 </ul>
 <ul>
@@ -1985,6 +1962,7 @@ Wed, 24 Feb 2021 03:48:16 EST
 {VALUES | VALUE} &lt;src_vid&gt; -&gt; &lt;dst_vid&gt;[@&lt;rank&gt;] : (&lt;property_value&gt;[, &lt;property_value&gt;...])
 [, &lt;src_vid&gt; -&gt; &lt;dst_vid&gt;[@&lt;rank&gt;] : (&lt;property_name&gt;[, &lt;property_name&gt;...]), ...];
 </code></pre></div>
+<p>参数详情请参见<a href="../../3.ngql-guide/13.edge-statements/1.insert-edge/">INSERT EDGE</a>。</p>
 </li>
 </ul>
 <h3 id="_7">示例<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
@@ -2325,8 +2303,8 @@ Execution succeeded (time spent 3700/4101 us)
 </ul>
 <h3 id="ngql_6">nGQL语法<a class="headerlink" href="#ngql_6" title="Permanent link">¶</a></h3>
 <ul>
-<li>创建索引<div class="highlight"><pre><span></span><code>CREATE {TAG | EDGE} INDEX [IF NOT EXISTS] &lt;index_name&gt;
-ON {&lt;tag_name&gt; | &lt;edge_name&gt;} (prop_name_list);
+<li>创建索引<div class="highlight"><pre><span></span><code>CREATE {TAG | EDGE} INDEX [IF NOT EXISTS] &lt;index_name&gt; 
+ON {&lt;tag_name&gt; | &lt;edge_name&gt;} ([&lt;prop_name_list&gt;]) [COMMENT = '&lt;comment&gt;'];
 </code></pre></div>
 </li>
 </ul>
@@ -2382,7 +2360,7 @@ Got 1 rows (time spent 5132/6246 us)
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月14日</span>
 </small>
 </div>
 </article>

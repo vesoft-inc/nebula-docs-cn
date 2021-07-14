@@ -761,32 +761,17 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#if_not_exists">
-    IF NOT EXISTS
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
-    图空间名称
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    自定义图空间选项
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
     示例
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
+<a class="md-nav__link" href="#_4">
     创建图空间说明
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
+<a class="md-nav__link" href="#_5">
     检查分片分布情况
   </a>
 </li>
@@ -1449,32 +1434,17 @@
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#if_not_exists">
-    IF NOT EXISTS
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
-    图空间名称
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    自定义图空间选项
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
     示例
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
+<a class="md-nav__link" href="#_4">
     创建图空间说明
   </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
+<a class="md-nav__link" href="#_5">
     检查分片分布情况
   </a>
 </li>
@@ -1498,47 +1468,46 @@
     [replica_factor = &lt;replica_number&gt;,]
     vid_type = {FIXED_STRING(&lt;N&gt;) | INT64}
     )
-    [comment = '&lt;space_comment&gt;'];
+    [COMMENT = '&lt;comment&gt;'];
 </code></pre></div>
-<h2 id="if_not_exists">IF NOT EXISTS<a class="headerlink" href="#if_not_exists" title="Permanent link">¶</a></h2>
-<p><code>IF NOT EXISTS</code>关键字可以检测待创建的图空间是否存在，只有不存在时，才会创建图空间。</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>仅检测图空间的名称，不会检测具体属性。</p>
-</div>
-<h2 id="_3">图空间名称<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
-<p><code>graph_space_name</code>在Nebula Graph实例中唯一标识一个图空间。图空间名称由大小写英文字母、数字或下划线组成，区分大写小，且不可使用<a href="../../1.nGQL-overview/keywords-and-reserved-words/">关键字和保留字</a>。</p>
-<h2 id="_4">自定义图空间选项<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
-<p>用户可以为新的图空间设置如下选项：</p>
-<ul>
-<li><code>partition_num</code><p>指定图空间的分片数量。建议设置为5倍的集群硬盘数量。例如集群中有3个硬盘，建议设置15个分片。默认值为100。</p>
-</li>
-</ul>
-<ul>
-<li>
-<p><code>replica_factor</code></p>
-<p>指定每个分片的副本数量。建议在生产环境中设置为3，在测试环境中设置为1。由于需要基于多数表决，副本数量必须是<strong>奇数</strong>。默认值为1。</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>IF NOT EXISTS</code></td>
+<td align="left">检测待创建的图空间是否存在，只有不存在时，才会创建图空间。仅检测图空间的名称，不会检测具体属性。</td>
+</tr>
+<tr>
+<td align="left"><code>&lt;graph_space_name&gt;</code></td>
+<td align="left">在Nebula Graph实例中唯一标识一个图空间。图空间名称由大小写英文字母、数字或下划线组成，区分大写小，且不可使用<a href="../../1.nGQL-overview/keywords-and-reserved-words/">关键字和保留字</a>。</td>
+</tr>
+<tr>
+<td align="left"><code>partition_num</code></td>
+<td align="left">指定图空间的分片数量。建议设置为5倍的集群硬盘数量。例如集群中有3个硬盘，建议设置15个分片。默认值为100。</td>
+</tr>
+<tr>
+<td align="left"><code>replica_factor</code></td>
+<td align="left">指定每个分片的副本数量。建议在生产环境中设置为3，在测试环境中设置为1。由于需要基于多数表决，副本数量必须是<strong>奇数</strong>。默认值为1。</td>
+</tr>
+<tr>
+<td align="left"><code>vid_type</code></td>
+<td align="left">必选参数。指定点ID的数据类型。可选值为<code>FIXED_STRING(&lt;N&gt;)</code>和<code>INT64</code>。<code>FIXED_STRING(&lt;N&gt;)</code>表示数据类型为字符串，最大长度为<code>N</code>，超出长度会报错；<code>INT64</code>表示数据类型为整数。</td>
+</tr>
+<tr>
+<td align="left"><code>COMMENT</code></td>
+<td align="left">图空间的描述。最大为256字节。默认无描述。</td>
+</tr>
+</tbody>
+</table>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p>如果将副本数设置为1，用户将无法使用<a href="../../../8.service-tuning/load-balance/">BALANCE</a>命令为Nebula Graph的存储服务平衡负载或扩容。</p>
 </div>
-</li>
-</ul>
-<ul>
-<li>
-<p><code>vid_type</code>（必选）</p>
-<p>指定点ID的数据类型。可选值为<code>FIXED_STRING(&lt;N&gt;)</code>和<code>INT64</code>。<code>FIXED_STRING(&lt;N&gt;)</code>表示数据类型为字符串，最大长度为<code>N</code>，超出长度会报错；<code>INT64</code>表示数据类型为整数。</p>
-<div class="admonition compatibility">
-<p class="admonition-title">历史版本兼容性</p>
-<p>2.1.0之前的2.x版本中，<code>vid_type</code>不是必选参数，默认为<code>FIXED_STRING(8)</code>。</p>
-</div>
-</li>
-</ul>
-<ul>
-<li><code>comment</code><p>图空间的描述。最大为256字节。默认无描述。</p>
-</li>
-</ul>
-<p>如果没有指定除<code>vid_type</code>之外的选项，Nebula Graph会使用默认值创建图空间。</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p>VID类型变更与长度限制</p>
@@ -1551,11 +1520,15 @@
 </li>
 </ol>
 </div>
+<div class="admonition compatibility">
+<p class="admonition-title">历史版本兼容性</p>
+<p>2.1.0之前的2.x版本中，<code>vid_type</code>不是必选参数，默认为<code>FIXED_STRING(8)</code>。</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><code>graph_space_name</code>, <code>partition_num</code>, <code>replica_factor</code>, <code>vid_type</code>, <code>comment</code> 设置后就无法改变。除非<a href="../5.drop-space/"><code>DROP SPACE</code></a>，并重新<code>CREATE SPACE</code>。</p>
 </div>
-<h2 id="_5">示例<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
+<h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
 <div class="highlight"><pre><span></span><code># 仅指定VID类型，其他选项使用默认值。
 nebula&gt; CREATE SPACE my_space_1 (vid_type=FIXED_STRING(30)); 
 
@@ -1565,7 +1538,7 @@ nebula&gt; CREATE SPACE my_space_2 (partition_num=15, replica_factor=1, vid_type
 # 指定分片数量、副本数量和VID类型，并添加描述。
 nebula&gt; CREATE SPACE my_space_3 (partition_num=15, replica_factor=1, vid_type=FIXED_STRING(30)) comment="测试图空间"; 
 </code></pre></div>
-<h2 id="_6">创建图空间说明<a class="headerlink" href="#_6" title="Permanent link">¶</a></h2>
+<h2 id="_4">创建图空间说明<a class="headerlink" href="#_4" title="Permanent link">¶</a></h2>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p>立刻尝试使用刚创建的图空间可能会失败，因为创建是异步实现的。</p>
@@ -1574,7 +1547,7 @@ nebula&gt; CREATE SPACE my_space_3 (partition_num=15, replica_factor=1, vid_type
 <p>- 等待两个心跳周期，例如20秒。</p>
 <p>如果需要修改心跳间隔，请为<a href="../../../5.configurations-and-logs/1.configurations/1.configurations/">所有配置文件</a>修改参数<code>heartbeat_interval_secs</code>。但过短的心跳周期（&lt;5秒）可能会导致分布式系统中的机器误判对端失联。</p>
 </div>
-<h2 id="_7">检查分片分布情况<a class="headerlink" href="#_7" title="Permanent link">¶</a></h2>
+<h2 id="_5">检查分片分布情况<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
 <p>在大型集群中，由于启动时间不同，分片的分布可能不均衡。用户可以执行如下命令检查分片的分布情况：</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; SHOW HOSTS;
 +-------------+------+----------+--------------+--------------------------------+--------------------------------+
@@ -1607,7 +1580,7 @@ nebula&gt; CREATE SPACE my_space_3 (partition_num=15, replica_factor=1, vid_type
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月25日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月14日</span>
 </small>
 </div>
 </article>

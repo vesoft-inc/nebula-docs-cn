@@ -847,21 +847,6 @@
 <nav aria-label="语法" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#edge_type">
-    Edge type名称
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#edge_type_1">
-    Edge type属性
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ttltime-to-live">
-    TTL（Time-To-Live）
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
     示例
   </a>
@@ -1454,21 +1439,6 @@
 <nav aria-label="语法" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#edge_type">
-    Edge type名称
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#edge_type_1">
-    Edge type属性
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ttltime-to-live">
-    TTL（Time-To-Live）
-  </a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
     示例
   </a>
@@ -1499,60 +1469,60 @@
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
 <p>创建Edge type前，需要先用<code>USE</code>语句指定工作空间。</p>
 <div class="highlight"><pre><span></span><code>CREATE EDGE [IF NOT EXISTS] &lt;edge_type_name&gt;
-    ([&lt;create_definition&gt;, ...])
-    [edge_type_options];
-
-&lt;create_definition&gt; ::=
-    &lt;prop_name&gt; &lt;data_type&gt;
-
-&lt;edge_type_options&gt; ::=
-    &lt;option&gt; [, &lt;option&gt; ...]
-
-&lt;option&gt; ::=
-    TTL_DURATION [=] &lt;ttl_duration&gt;
-    | TTL_COL [=] &lt;prop_name&gt;
-    | DEFAULT &lt;default_value&gt;
+    (
+      &lt;prop_name&gt; &lt;data_type&gt; [NULL | NOT NULL] [DEFAULT &lt;default_value&gt;] [COMMENT '&lt;comment&gt;']
+      [{, &lt;prop_name&gt; &lt;data_type&gt; [NULL | NOT NULL] [DEFAULT &lt;default_value&gt;] [COMMENT '&lt;comment&gt;']} ...] 
+    )
+    [TTL_DURATION = &lt;ttl_duration&gt;]
+    [TTL_COL = &lt;prop_name&gt;]
+    [COMMENT = '&lt;comment&gt;'];
 </code></pre></div>
-<h3 id="edge_type">Edge type名称<a class="headerlink" href="#edge_type" title="Permanent link">¶</a></h3>
-<ul>
-<li>
-<p><code>IF NOT EXISTS</code>：检测待创建的Edge type是否存在，只有不存在时，才会创建Edge type。</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>仅检测Edge type的名称，不会检测具体属性。</p>
-</div>
-</li>
-</ul>
-<ul>
-<li><code>edge_type_name</code>：每个图空间内的Edge type必须是唯一的。Edge type名称设置后无法修改。Edge type名称由大小写英文字母、数字或下划线组成，区分大写小，且不可使用<a href="../../1.nGQL-overview/keywords-and-reserved-words/">关键字和保留字</a>。</li>
-</ul>
-<h3 id="edge_type_1">Edge type属性<a class="headerlink" href="#edge_type_1" title="Permanent link">¶</a></h3>
-<ul>
-<li><code>prop_name</code><p>属性名称。每个Edge type中的属性名称必须唯一。属性的命名规则与Edge type相同。</p>
-</li>
-</ul>
-<ul>
-<li><code>data_type</code><p>属性的数据类型。数据类型的完整说明，请参见<a href="../../3.data-types/1.numeric/">数值类型</a>、<a href="../../3.data-types/2.boolean/">布尔</a>等文档。</p>
-</li>
-</ul>
-<ul>
-<li><code>NULL | NOT NULL</code><p>指定属性值是否支持为<code>NULL</code>。默认值为<code>NULL</code>。</p>
-</li>
-</ul>
-<ul>
-<li><code>DEFAULT</code><p>指定属性的默认值。默认值可以是一个文字值或Nebula Graph支持的表达式。如果插入边时没有指定某个属性的值，则使用默认值。</p>
-</li>
-</ul>
-<h3 id="ttltime-to-live">TTL（Time-To-Live）<a class="headerlink" href="#ttltime-to-live" title="Permanent link">¶</a></h3>
-<ul>
-<li><code>TTL_DURATION</code><p>指定属性存活时间。超时的属性将会过期。属性值和时间戳差值之和如果小于当前时间戳，属性就会过期。默认值为<code>0</code>，表示属性永不过期。</p>
-</li>
-</ul>
-<ul>
-<li><code>TTL_COL</code><p>指定要设置存活时间的属性。属性的数据类型必须是<code>int</code>或者<code>timestamp</code>。</p>
-</li>
-</ul>
-<p>一个Edge type只能指定一个字段为<code>TTL_COL</code>。更多TTL的信息请参见<a href="../../8.clauses-and-options/ttl-options/">TTL</a>。</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>IF NOT EXISTS</code></td>
+<td align="left">检测待创建的Edge type是否存在，只有不存在时，才会创建Edge type。仅检测Edge type的名称，不会检测具体属性。</td>
+</tr>
+<tr>
+<td align="left"><code>&lt;edge_type_name&gt;</code></td>
+<td align="left">每个图空间内的Edge type必须是唯一的。Edge type名称设置后无法修改。Edge type名称由大小写英文字母、数字或下划线组成，区分大写小，且不可使用<a href="../../1.nGQL-overview/keywords-and-reserved-words/">关键字和保留字</a>。</td>
+</tr>
+<tr>
+<td align="left"><code>&lt;prop_name&gt;</code></td>
+<td align="left">属性名称。每个Edge type中的属性名称必须唯一。属性的命名规则与Edge type相同。</td>
+</tr>
+<tr>
+<td align="left"><code>&lt;data_type&gt;</code></td>
+<td align="left">属性的数据类型。数据类型的完整说明，请参见<a href="../../3.data-types/1.numeric/">数值类型</a>、<a href="../../3.data-types/2.boolean/">布尔</a>等文档。</td>
+</tr>
+<tr>
+<td align="left"><code>NULL \| NOT NULL</code></td>
+<td align="left">指定属性值是否支持为<code>NULL</code>。默认值为<code>NULL</code>。</td>
+</tr>
+<tr>
+<td align="left"><code>DEFAULT</code></td>
+<td align="left">指定属性的默认值。默认值可以是一个文字值或Nebula Graph支持的表达式。如果插入边时没有指定某个属性的值，则使用默认值。</td>
+</tr>
+<tr>
+<td align="left"><code>COMMENT</code></td>
+<td align="left">对单个属性或整个边的描述。最大为256字节。默认无描述。</td>
+</tr>
+<tr>
+<td align="left"><code>TTL_DURATION</code></td>
+<td align="left">指定属性存活时间。超时的属性将会过期。属性值和时间戳差值之和如果小于当前时间戳，属性就会过期。默认值为<code>0</code>，表示属性永不过期。</td>
+</tr>
+<tr>
+<td align="left"><code>TTL_COL</code></td>
+<td align="left">指定要设置存活时间的属性。属性的数据类型必须是<code>int</code>或者<code>timestamp</code>。一个Edge type只能指定一个字段为<code>TTL_COL</code>。更多TTL的信息请参见<a href="../../8.clauses-and-options/ttl-options/">TTL</a>。</td>
+</tr>
+</tbody>
+</table>
 <h3 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE EDGE follow(degree int);
 
@@ -1570,7 +1540,7 @@ nebula&gt; CREATE EDGE e1(p1 string, p2 int, p3 timestamp) \
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月23日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月14日</span>
 </small>
 </div>
 </article>
