@@ -129,14 +129,14 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
    例如，安装Studio {{ studio.base220 }} 版本需要运行以下命令：
    ```bash
-   $ sudo rpm -i nebula-graph-studio-2.2.0-1.x86_64.rpm
+   $ sudo rpm -i nebula-graph-studio-2.2.0-1.x86_64
    ```
 
 ### 卸载
 
 您可以使用以下的命令卸载 Studio。
 ```bash
-$ sudo rpm -e nebula-graph-studio-2.2.0-1.x86_64.rpm
+$ sudo rpm -e nebula-graph-studio-2.2.0-1.x86_64
 ```
 
 ### 异常处理
