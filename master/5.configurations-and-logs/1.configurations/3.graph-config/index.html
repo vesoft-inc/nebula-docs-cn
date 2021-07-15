@@ -1618,6 +1618,11 @@
 <td><code>false</code></td>
 <td>是否将部分成功视为错误。此配置仅适用于只读请求，写请求总是将部分成功视为错误。</td>
 </tr>
+<tr>
+<td><code>session_reclaim_interval_secs</code></td>
+<td><code>10</code></td>
+<td>将Session信息发送给Meta服务的间隔。单位：秒。</td>
+</tr>
 </tbody>
 </table>
 <h2 id="networking">networking配置<a class="headerlink" href="#networking" title="Permanent link">¶</a></h2>
@@ -1710,6 +1715,11 @@
 <td>-</td>
 <td>Graph服务与Storage服务的RPC连接超时时间。初始配置文件中未设置该参数，使用需手动添加。默认值为<code>60000</code>毫秒。</td>
 </tr>
+<tr>
+<td><code>ws_meta_http_port</code></td>
+<td><code>19559</code></td>
+<td>HTTP协议监听Meta服务的端口，需要和Meta服务配置文件中的<code>ws_http_port</code>保持一致。</td>
+</tr>
 </tbody>
 </table>
 <div class="admonition caution">
@@ -1764,7 +1774,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月30日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月15日</span>
 </small>
 </div>
 </article>

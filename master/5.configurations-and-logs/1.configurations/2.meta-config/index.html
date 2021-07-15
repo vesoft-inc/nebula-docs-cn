@@ -1532,6 +1532,11 @@
 <td align="left"><code>true</code></td>
 <td align="left">是否从配置文件获取配置信息。</td>
 </tr>
+<tr>
+<td align="left"><code>minimum_reserved_bytes</code></td>
+<td align="left">-</td>
+<td align="left">每个数据存储路径的剩余空间最小值，低于该值时，可能会导致集群元数据操作失败。单位：字节。默认为<code>1073741824</code>，即1GB。</td>
+</tr>
 </tbody>
 </table>
 <div class="admonition note">
@@ -1634,6 +1639,11 @@
 <td align="left">HTTP2服务的端口。</td>
 </tr>
 <tr>
+<td align="left"><code>ws_storage_http_port</code></td>
+<td align="left"><code>19779</code></td>
+<td align="left">HTTP协议监听Storage服务的端口，需要和Storage服务配置文件中的<code>ws_http_port</code>保持一致。</td>
+</tr>
+<tr>
 <td align="left"><code>heartbeat_interval_secs</code></td>
 <td align="left"><code>10</code></td>
 <td align="left">默认心跳间隔。请确保所有服务的<code>heartbeat_interval_secs</code>取值相同，否则会导致系统无法正常工作。单位：秒。</td>
@@ -1704,7 +1714,7 @@
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月30日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月15日</span>
 </small>
 </div>
 </article>

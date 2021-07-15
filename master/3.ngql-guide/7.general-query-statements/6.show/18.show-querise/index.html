@@ -7,30 +7,30 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Documentation for Nebula Graph Database" name="description"/>
 <meta content="Nebula Graph" name="author"/>
-<link href="https://docs.nebula-graph.com.cn/master/master/3.ngql-guide/4.variable-and-composite-queries/3.property-reference/" rel="canonical"/>
-<link href="../../../assets/images/favicon.ico" rel="icon"/>
+<link href="https://docs.nebula-graph.com.cn/master/master/3.ngql-guide/7.general-query-statements/6.show/18.show-querise/" rel="canonical"/>
+<link href="../../../../assets/images/favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.1.2, mkdocs-material-7.1.10" name="generator"/>
-<title>引用属性 - Nebula Graph Database 手册</title>
-<link href="../../../assets/stylesheets/main.1fe995fd.min.css" rel="stylesheet"/>
-<link href="../../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
+<title>SHOW QUERIES - Nebula Graph Database 手册</title>
+<link href="../../../../assets/stylesheets/main.1fe995fd.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/palette.f1a3b89f.min.css" rel="stylesheet"/>
 <meta content="#009485" name="theme-color"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
-<link href="../../../stylesheets/logo.css" rel="stylesheet"/>
-<link href="../../../stylesheets/note.css" rel="stylesheet"/>
-<link href="../../../css/version-select.css" rel="stylesheet"/>
-<link href="../../../stylesheets/extra.css" rel="stylesheet"/>
+<link href="../../../../stylesheets/logo.css" rel="stylesheet"/>
+<link href="../../../../stylesheets/note.css" rel="stylesheet"/>
+<link href="../../../../css/version-select.css" rel="stylesheet"/>
+<link href="../../../../stylesheets/extra.css" rel="stylesheet"/>
 <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-60523578-15","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
 <script async="" src="https://www.google-analytics.com/analytics.js"></script>
 </head>
 <body data-md-color-accent="light-green" data-md-color-primary="teal" data-md-color-scheme="" dir="ltr">
-<script>function __prefix(e){return new URL("../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+<script>function __prefix(e){return new URL("../../../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#_1">
+<a class="md-skip" href="#show_queries">
           跳转至
         </a>
 </div>
@@ -43,7 +43,7 @@
     <a id="delete" style="margin-left: 20px;cursor: pointer;">✖</a>
 </div>
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Nebula Graph Database 手册" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Nebula Graph Database 手册">
+<a aria-label="Nebula Graph Database 手册" class="md-header__button md-logo" data-md-component="logo" href="../../../.." title="Nebula Graph Database 手册">
 <img alt="logo" src="https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -59,7 +59,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              引用属性
+              SHOW QUERIES
             
           </span>
 </div>
@@ -130,7 +130,7 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Nebula Graph Database 手册" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Nebula Graph Database 手册">
+<a aria-label="Nebula Graph Database 手册" class="md-nav__button md-logo" data-md-component="logo" href="../../../.." title="Nebula Graph Database 手册">
 <img alt="logo" src="https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png"/>
 </a>
     Nebula Graph Database 手册
@@ -147,7 +147,7 @@
 </div>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../..">
+<a class="md-nav__link" href="../../../..">
         前言
       </a>
 </li>
@@ -164,22 +164,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../1.introduction/1.what-is-nebula-graph/">
+<a class="md-nav__link" href="../../../../1.introduction/1.what-is-nebula-graph/">
         什么是Nebula Graph
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../1.introduction/2.data-model/">
+<a class="md-nav__link" href="../../../../1.introduction/2.data-model/">
         数据模型
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../1.introduction/2.1.path/">
+<a class="md-nav__link" href="../../../../1.introduction/2.1.path/">
         路径
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../1.introduction/3.vid/">
+<a class="md-nav__link" href="../../../../1.introduction/3.vid/">
         VID
       </a>
 </li>
@@ -196,22 +196,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../1.introduction/3.nebula-graph-architecture/1.architecture-overview/">
+<a class="md-nav__link" href="../../../../1.introduction/3.nebula-graph-architecture/1.architecture-overview/">
         架构总览
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../1.introduction/3.nebula-graph-architecture/2.meta-service/">
+<a class="md-nav__link" href="../../../../1.introduction/3.nebula-graph-architecture/2.meta-service/">
         Meta服务
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../1.introduction/3.nebula-graph-architecture/3.graph-service/">
+<a class="md-nav__link" href="../../../../1.introduction/3.nebula-graph-architecture/3.graph-service/">
         Graph服务
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../1.introduction/3.nebula-graph-architecture/4.storage-service/">
+<a class="md-nav__link" href="../../../../1.introduction/3.nebula-graph-architecture/4.storage-service/">
         Storage服务
       </a>
 </li>
@@ -234,35 +234,35 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../2.quick-start/1.quick-start-workflow/">
+<a class="md-nav__link" href="../../../../2.quick-start/1.quick-start-workflow/">
         快速入门流程
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../2.quick-start/2.deploy-nebula-graph-with-docker-compose/">
+<a class="md-nav__link" href="../../../../2.quick-start/2.deploy-nebula-graph-with-docker-compose/">
         Docker Compose部署Nebula Graph
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../2.quick-start/5.start-stop-service/">
+<a class="md-nav__link" href="../../../../2.quick-start/5.start-stop-service/">
         管理Nebula Graph服务
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../2.quick-start/3.connect-to-nebula-graph/">
+<a class="md-nav__link" href="../../../../2.quick-start/3.connect-to-nebula-graph/">
         连接Nebula Graph
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../2.quick-start/4.nebula-graph-crud/">
+<a class="md-nav__link" href="../../../../2.quick-start/4.nebula-graph-crud/">
         Nebula Graph常用语法（CRUD）
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4">
         nGQL指南
         <span class="md-nav__icon md-icon"></span>
@@ -286,32 +286,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../1.nGQL-overview/1.overview/">
+<a class="md-nav__link" href="../../../1.nGQL-overview/1.overview/">
         Nebula Graph查询语言（nGQL）
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../1.nGQL-overview/3.graph-patterns/">
+<a class="md-nav__link" href="../../../1.nGQL-overview/3.graph-patterns/">
         图模式
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../1.nGQL-overview/comments/">
+<a class="md-nav__link" href="../../../1.nGQL-overview/comments/">
         注释
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../1.nGQL-overview/identifier-case-sensitivity/">
+<a class="md-nav__link" href="../../../1.nGQL-overview/identifier-case-sensitivity/">
         大小写区分
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../1.nGQL-overview/keywords-and-reserved-words/">
+<a class="md-nav__link" href="../../../1.nGQL-overview/keywords-and-reserved-words/">
         关键字
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../1.nGQL-overview/ngql-style-guide/">
+<a class="md-nav__link" href="../../../1.nGQL-overview/ngql-style-guide/">
         nGQL风格指南
       </a>
 </li>
@@ -331,55 +331,55 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../3.data-types/1.numeric/">
+<a class="md-nav__link" href="../../../3.data-types/1.numeric/">
         数值
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../3.data-types/2.boolean/">
+<a class="md-nav__link" href="../../../3.data-types/2.boolean/">
         布尔
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../3.data-types/3.string/">
+<a class="md-nav__link" href="../../../3.data-types/3.string/">
         字符串
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../3.data-types/4.date-and-time/">
+<a class="md-nav__link" href="../../../3.data-types/4.date-and-time/">
         日期时间
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../3.data-types/5.null/">
+<a class="md-nav__link" href="../../../3.data-types/5.null/">
         NULL
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../3.data-types/6.list/">
+<a class="md-nav__link" href="../../../3.data-types/6.list/">
         列表
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../3.data-types/7.set/">
+<a class="md-nav__link" href="../../../3.data-types/7.set/">
         集合
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../3.data-types/8.map/">
+<a class="md-nav__link" href="../../../3.data-types/8.map/">
         映射
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../3.data-types/9.type-conversion/">
+<a class="md-nav__link" href="../../../3.data-types/9.type-conversion/">
         类型转换
       </a>
 </li>
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" id="__nav_4_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_3" id="__nav_4_3" type="checkbox"/>
 <label class="md-nav__link" for="__nav_4_3">
         变量和复合查询
         <span class="md-nav__icon md-icon"></span>
@@ -391,75 +391,19 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../1.composite-queries/">
+<a class="md-nav__link" href="../../../4.variable-and-composite-queries/1.composite-queries/">
         复合查询
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../2.user-defined-variables/">
+<a class="md-nav__link" href="../../../4.variable-and-composite-queries/2.user-defined-variables/">
         自定义变量
       </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-          引用属性
-          <span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../4.variable-and-composite-queries/3.property-reference/">
         引用属性
       </a>
-<nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-    引用点的属性
-  </a>
-<nav aria-label="引用点的属性" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
-    起始点
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    目的点
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
-    引用边的属性
-  </a>
-<nav aria-label="引用边的属性" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
-    引用自定义的边属性
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
-    引用内置的边属性
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
-    示例
-  </a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -477,42 +421,42 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../5.operators/1.comparison/">
+<a class="md-nav__link" href="../../../5.operators/1.comparison/">
         比较符
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../5.operators/2.boolean/">
+<a class="md-nav__link" href="../../../5.operators/2.boolean/">
         布尔符
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../5.operators/4.pipe/">
+<a class="md-nav__link" href="../../../5.operators/4.pipe/">
         管道符
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../5.operators/5.property-reference/">
+<a class="md-nav__link" href="../../../5.operators/5.property-reference/">
         属性引用符
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../5.operators/6.set/">
+<a class="md-nav__link" href="../../../5.operators/6.set/">
         集合运算符
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../5.operators/7.string/">
+<a class="md-nav__link" href="../../../5.operators/7.string/">
         字符串运算符
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../5.operators/8.list/">
+<a class="md-nav__link" href="../../../5.operators/8.list/">
         列表运算符
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../5.operators/9.precedence/">
+<a class="md-nav__link" href="../../../5.operators/9.precedence/">
         运算符优先级
       </a>
 </li>
@@ -532,62 +476,62 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../6.functions-and-expressions/1.math/">
+<a class="md-nav__link" href="../../../6.functions-and-expressions/1.math/">
         数学函数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../6.functions-and-expressions/2.string/">
+<a class="md-nav__link" href="../../../6.functions-and-expressions/2.string/">
         字符串函数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../6.functions-and-expressions/3.date-and-time/">
+<a class="md-nav__link" href="../../../6.functions-and-expressions/3.date-and-time/">
         日期时间函数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../6.functions-and-expressions/4.schema/">
+<a class="md-nav__link" href="../../../6.functions-and-expressions/4.schema/">
         Schema函数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../6.functions-and-expressions/6.list/">
+<a class="md-nav__link" href="../../../6.functions-and-expressions/6.list/">
         列表函数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../6.functions-and-expressions/7.count/">
+<a class="md-nav__link" href="../../../6.functions-and-expressions/7.count/">
         count函数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../6.functions-and-expressions/10.collect/">
+<a class="md-nav__link" href="../../../6.functions-and-expressions/10.collect/">
         collect函数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../6.functions-and-expressions/11.reduce/">
+<a class="md-nav__link" href="../../../6.functions-and-expressions/11.reduce/">
         reduce函数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../6.functions-and-expressions/12.hash/">
+<a class="md-nav__link" href="../../../6.functions-and-expressions/12.hash/">
         hash函数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../6.functions-and-expressions/8.predicate/">
+<a class="md-nav__link" href="../../../6.functions-and-expressions/8.predicate/">
         谓词函数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../6.functions-and-expressions/9.user-defined-functions/">
+<a class="md-nav__link" href="../../../6.functions-and-expressions/9.user-defined-functions/">
         自定义函数
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../6.functions-and-expressions/5.case-expressions/">
+<a class="md-nav__link" href="../../../6.functions-and-expressions/5.case-expressions/">
         CASE表达式
       </a>
 </li>
@@ -607,27 +551,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../7.general-query-statements/2.match/">
+<a class="md-nav__link" href="../../2.match/">
         MATCH
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../7.general-query-statements/5.lookup/">
+<a class="md-nav__link" href="../../5.lookup/">
         LOOKUP
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../7.general-query-statements/3.go/">
+<a class="md-nav__link" href="../../3.go/">
         GO
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../7.general-query-statements/4.fetch/">
+<a class="md-nav__link" href="../../4.fetch/">
         FETCH
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../7.general-query-statements/7.unwind/">
+<a class="md-nav__link" href="../../7.unwind/">
         UNWIND
       </a>
 </li>
@@ -644,77 +588,77 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../7.general-query-statements/6.show/1.show-charset/">
+<a class="md-nav__link" href="../1.show-charset/">
         SHOW CHARSET
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../7.general-query-statements/6.show/2.show-collation/">
+<a class="md-nav__link" href="../2.show-collation/">
         SHOW COLLATION
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../7.general-query-statements/6.show/4.show-create-space/">
+<a class="md-nav__link" href="../4.show-create-space/">
         SHOW CREATE SPACE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../7.general-query-statements/6.show/5.show-create-tags-edges/">
+<a class="md-nav__link" href="../5.show-create-tags-edges/">
         SHOW CREATE TAGS/EDGES
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../7.general-query-statements/6.show/6.show-hosts/">
+<a class="md-nav__link" href="../6.show-hosts/">
         SHOW HOSTS
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../7.general-query-statements/6.show/7.show-index-status/">
+<a class="md-nav__link" href="../7.show-index-status/">
         SHOW INDEX STATUS
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../7.general-query-statements/6.show/8.show-indexes/">
+<a class="md-nav__link" href="../8.show-indexes/">
         SHOW INDEXES
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../7.general-query-statements/6.show/9.show-parts/">
+<a class="md-nav__link" href="../9.show-parts/">
         SHOW PARTS
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../7.general-query-statements/6.show/10.show-roles/">
+<a class="md-nav__link" href="../10.show-roles/">
         SHOW ROLES
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../7.general-query-statements/6.show/11.show-snapshots/">
+<a class="md-nav__link" href="../11.show-snapshots/">
         SHOW SNAPSHOTS
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../7.general-query-statements/6.show/12.show-spaces/">
+<a class="md-nav__link" href="../12.show-spaces/">
         SHOW SPACES
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../7.general-query-statements/6.show/14.show-stats/">
+<a class="md-nav__link" href="../14.show-stats/">
         SHOW STATS
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../7.general-query-statements/6.show/15.show-tags-edges/">
+<a class="md-nav__link" href="../15.show-tags-edges/">
         SHOW TAGS/EDGES
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../7.general-query-statements/6.show/16.show-users/">
+<a class="md-nav__link" href="../16.show-users/">
         SHOW USERS
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../7.general-query-statements/6.show/17.show-sessions/">
+<a class="md-nav__link" href="../17.show-sessions/">
         SHOW SESSIONS
       </a>
 </li>
@@ -737,42 +681,42 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../8.clauses-and-options/group-by/">
+<a class="md-nav__link" href="../../../8.clauses-and-options/group-by/">
         GROUP BY
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../8.clauses-and-options/limit/">
+<a class="md-nav__link" href="../../../8.clauses-and-options/limit/">
         LIMIT and SKIP
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../8.clauses-and-options/order-by/">
+<a class="md-nav__link" href="../../../8.clauses-and-options/order-by/">
         ORDER BY
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../8.clauses-and-options/return/">
+<a class="md-nav__link" href="../../../8.clauses-and-options/return/">
         RETURN
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../8.clauses-and-options/ttl-options/">
+<a class="md-nav__link" href="../../../8.clauses-and-options/ttl-options/">
         TTL
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../8.clauses-and-options/where/">
+<a class="md-nav__link" href="../../../8.clauses-and-options/where/">
         WHERE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../8.clauses-and-options/yield/">
+<a class="md-nav__link" href="../../../8.clauses-and-options/yield/">
         YIELD
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../8.clauses-and-options/with/">
+<a class="md-nav__link" href="../../../8.clauses-and-options/with/">
         WITH
       </a>
 </li>
@@ -792,27 +736,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../9.space-statements/1.create-space/">
+<a class="md-nav__link" href="../../../9.space-statements/1.create-space/">
         CREATE SPACE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../9.space-statements/2.use-space/">
+<a class="md-nav__link" href="../../../9.space-statements/2.use-space/">
         USE SPACE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../9.space-statements/3.show-spaces/">
+<a class="md-nav__link" href="../../../9.space-statements/3.show-spaces/">
         SHOW SPACES
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../9.space-statements/4.describe-space/">
+<a class="md-nav__link" href="../../../9.space-statements/4.describe-space/">
         DESCRIBE SPACE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../9.space-statements/5.drop-space/">
+<a class="md-nav__link" href="../../../9.space-statements/5.drop-space/">
         DROP SPACE
       </a>
 </li>
@@ -832,27 +776,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../10.tag-statements/1.create-tag/">
+<a class="md-nav__link" href="../../../10.tag-statements/1.create-tag/">
         CREATE TAG
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../10.tag-statements/2.drop-tag/">
+<a class="md-nav__link" href="../../../10.tag-statements/2.drop-tag/">
         DROP TAG
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../10.tag-statements/3.alter-tag/">
+<a class="md-nav__link" href="../../../10.tag-statements/3.alter-tag/">
         ALTER TAG
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../10.tag-statements/4.show-tags/">
+<a class="md-nav__link" href="../../../10.tag-statements/4.show-tags/">
         SHOW TAGS
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../10.tag-statements/5.describe-tag/">
+<a class="md-nav__link" href="../../../10.tag-statements/5.describe-tag/">
         DESCRIBE TAG
       </a>
 </li>
@@ -872,27 +816,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../11.edge-type-statements/1.create-edge/">
+<a class="md-nav__link" href="../../../11.edge-type-statements/1.create-edge/">
         CREATE EDGE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../11.edge-type-statements/2.drop-edge/">
+<a class="md-nav__link" href="../../../11.edge-type-statements/2.drop-edge/">
         DROP EDGE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../11.edge-type-statements/3.alter-edge/">
+<a class="md-nav__link" href="../../../11.edge-type-statements/3.alter-edge/">
         ALTER EDGE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../11.edge-type-statements/4.show-edges/">
+<a class="md-nav__link" href="../../../11.edge-type-statements/4.show-edges/">
         SHOW EDGES
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../11.edge-type-statements/5.describe-edge/">
+<a class="md-nav__link" href="../../../11.edge-type-statements/5.describe-edge/">
         DESCRIBE EDGE
       </a>
 </li>
@@ -912,22 +856,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../12.vertex-statements/1.insert-vertex/">
+<a class="md-nav__link" href="../../../12.vertex-statements/1.insert-vertex/">
         INSERT VERTEX
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../12.vertex-statements/4.delete-vertex/">
+<a class="md-nav__link" href="../../../12.vertex-statements/4.delete-vertex/">
         DELETE VERTEX
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../12.vertex-statements/2.update-vertex/">
+<a class="md-nav__link" href="../../../12.vertex-statements/2.update-vertex/">
         UPDATE VERTEX
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../12.vertex-statements/3.upsert-vertex/">
+<a class="md-nav__link" href="../../../12.vertex-statements/3.upsert-vertex/">
         UPSERT VERTEX
       </a>
 </li>
@@ -947,22 +891,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../13.edge-statements/1.insert-edge/">
+<a class="md-nav__link" href="../../../13.edge-statements/1.insert-edge/">
         INSERT EDGE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../13.edge-statements/4.delete-edge/">
+<a class="md-nav__link" href="../../../13.edge-statements/4.delete-edge/">
         DELETE EDGE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../13.edge-statements/2.update-edge/">
+<a class="md-nav__link" href="../../../13.edge-statements/2.update-edge/">
         UPDATE EDGE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../13.edge-statements/3.upsert-edge/">
+<a class="md-nav__link" href="../../../13.edge-statements/3.upsert-edge/">
         UPSERT EDGE
       </a>
 </li>
@@ -982,42 +926,42 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../14.native-index-statements/">
+<a class="md-nav__link" href="../../../14.native-index-statements/">
         索引介绍
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../14.native-index-statements/1.create-native-index/">
+<a class="md-nav__link" href="../../../14.native-index-statements/1.create-native-index/">
         CREATE INDEX
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../14.native-index-statements/2.show-native-indexes/">
+<a class="md-nav__link" href="../../../14.native-index-statements/2.show-native-indexes/">
         SHOW INDEX
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../14.native-index-statements/2.1.show-create-index/">
+<a class="md-nav__link" href="../../../14.native-index-statements/2.1.show-create-index/">
         SHOW CREATE INDEX
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../14.native-index-statements/3.describe-native-index/">
+<a class="md-nav__link" href="../../../14.native-index-statements/3.describe-native-index/">
         DESCRIBE INDEX
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../14.native-index-statements/4.rebuild-native-index/">
+<a class="md-nav__link" href="../../../14.native-index-statements/4.rebuild-native-index/">
         REBUILD INDEX
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../14.native-index-statements/5.show-native-index-status/">
+<a class="md-nav__link" href="../../../14.native-index-statements/5.show-native-index-status/">
         SHOW INDEX STATUS
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../14.native-index-statements/6.drop-native-index/">
+<a class="md-nav__link" href="../../../14.native-index-statements/6.drop-native-index/">
         DROP INDEX
       </a>
 </li>
@@ -1037,22 +981,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../4.deployment-and-installation/6.deploy-text-based-index/1.text-based-index-restrictions/">
+<a class="md-nav__link" href="../../../../4.deployment-and-installation/6.deploy-text-based-index/1.text-based-index-restrictions/">
         全文索引限制
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../4.deployment-and-installation/6.deploy-text-based-index/2.deploy-es/">
+<a class="md-nav__link" href="../../../../4.deployment-and-installation/6.deploy-text-based-index/2.deploy-es/">
         部署全文索引
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../4.deployment-and-installation/6.deploy-text-based-index/3.deploy-listener/">
+<a class="md-nav__link" href="../../../../4.deployment-and-installation/6.deploy-text-based-index/3.deploy-listener/">
         部署Raft listener
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../15.full-text-index-statements/1.search-with-text-based-index/">
+<a class="md-nav__link" href="../../../15.full-text-index-statements/1.search-with-text-based-index/">
         全文搜索
       </a>
 </li>
@@ -1072,12 +1016,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../16.subgraph-and-path/1.get-subgraph/">
+<a class="md-nav__link" href="../../../16.subgraph-and-path/1.get-subgraph/">
         GET SUBGRAPH
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../16.subgraph-and-path/2.find-path/">
+<a class="md-nav__link" href="../../../16.subgraph-and-path/2.find-path/">
         FIND PATH
       </a>
 </li>
@@ -1097,7 +1041,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../17.query-tuning-statements/1.explain-and-profile/">
+<a class="md-nav__link" href="../../../17.query-tuning-statements/1.explain-and-profile/">
         EXPLAIN和PROFILE
       </a>
 </li>
@@ -1117,12 +1061,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../18.operation-and-maintenance-statements/2.balance-syntax/">
+<a class="md-nav__link" href="../../../18.operation-and-maintenance-statements/2.balance-syntax/">
         BALANCE
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../18.operation-and-maintenance-statements/4.job-statements/">
+<a class="md-nav__link" href="../../../18.operation-and-maintenance-statements/4.job-statements/">
         作业管理
       </a>
 </li>
@@ -1145,7 +1089,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../4.deployment-and-installation/1.resource-preparations/">
+<a class="md-nav__link" href="../../../../4.deployment-and-installation/1.resource-preparations/">
         准备资源
       </a>
 </li>
@@ -1162,12 +1106,12 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code/">
+<a class="md-nav__link" href="../../../../4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code/">
         源码编译安装
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb/">
+<a class="md-nav__link" href="../../../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb/">
         RPM/DEB包安装
       </a>
 </li>
@@ -1175,22 +1119,22 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../4.deployment-and-installation/deploy-nebula-graph-cluster/">
+<a class="md-nav__link" href="../../../../4.deployment-and-installation/deploy-nebula-graph-cluster/">
         部署Nebula Graph集群
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../4.deployment-and-installation/3.upgrade-nebula-graph/">
+<a class="md-nav__link" href="../../../../4.deployment-and-installation/3.upgrade-nebula-graph/">
         升级历史版本至Nebula Graph v2.0.0
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../4.deployment-and-installation/5.upgrade-nebula-from-200-to-201/">
+<a class="md-nav__link" href="../../../../4.deployment-and-installation/5.upgrade-nebula-from-200-to-201/">
         Nebula Graph v2.0.0升级至v2.0.1
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../4.deployment-and-installation/4.uninstall-nebula-graph/">
+<a class="md-nav__link" href="../../../../4.deployment-and-installation/4.uninstall-nebula-graph/">
         卸载Nebula Graph
       </a>
 </li>
@@ -1222,27 +1166,27 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../5.configurations-and-logs/1.configurations/1.configurations/">
+<a class="md-nav__link" href="../../../../5.configurations-and-logs/1.configurations/1.configurations/">
         配置管理
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../5.configurations-and-logs/1.configurations/2.meta-config/">
+<a class="md-nav__link" href="../../../../5.configurations-and-logs/1.configurations/2.meta-config/">
         Meta服务配置
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../5.configurations-and-logs/1.configurations/3.graph-config/">
+<a class="md-nav__link" href="../../../../5.configurations-and-logs/1.configurations/3.graph-config/">
         Graph服务配置
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../5.configurations-and-logs/1.configurations/4.storage-config/">
+<a class="md-nav__link" href="../../../../5.configurations-and-logs/1.configurations/4.storage-config/">
         Storage服务配置
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../5.configurations-and-logs/1.configurations/6.kernel-config/">
+<a class="md-nav__link" href="../../../../5.configurations-and-logs/1.configurations/6.kernel-config/">
         Linux内核配置
       </a>
 </li>
@@ -1262,7 +1206,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../5.configurations-and-logs/2.log-management/logs/">
+<a class="md-nav__link" href="../../../../5.configurations-and-logs/2.log-management/logs/">
         日志配置
       </a>
 </li>
@@ -1285,7 +1229,7 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../6.monitor-and-metrics/1.query-performance-metrics/">
+<a class="md-nav__link" href="../../../../6.monitor-and-metrics/1.query-performance-metrics/">
         查询Nebula Graph监控指标
       </a>
 </li>
@@ -1317,17 +1261,17 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../7.data-security/1.authentication/1.authentication/">
+<a class="md-nav__link" href="../../../../7.data-security/1.authentication/1.authentication/">
         身份验证
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../7.data-security/1.authentication/2.management-user/">
+<a class="md-nav__link" href="../../../../7.data-security/1.authentication/2.management-user/">
         用户管理
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../7.data-security/1.authentication/3.role-list/">
+<a class="md-nav__link" href="../../../../7.data-security/1.authentication/3.role-list/">
         内置角色权限
       </a>
 </li>
@@ -1335,7 +1279,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../7.data-security/3.manage-snapshot/">
+<a class="md-nav__link" href="../../../../7.data-security/3.manage-snapshot/">
         管理快照
       </a>
 </li>
@@ -1355,32 +1299,32 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../8.service-tuning/compaction/">
+<a class="md-nav__link" href="../../../../8.service-tuning/compaction/">
         Compaction
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../8.service-tuning/load-balance/">
+<a class="md-nav__link" href="../../../../8.service-tuning/load-balance/">
         Storage负载均衡
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../8.service-tuning/2.graph-modeling/">
+<a class="md-nav__link" href="../../../../8.service-tuning/2.graph-modeling/">
         图建模
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../8.service-tuning/3.system-design/">
+<a class="md-nav__link" href="../../../../8.service-tuning/3.system-design/">
         系统建模
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../8.service-tuning/4.plan/">
+<a class="md-nav__link" href="../../../../8.service-tuning/4.plan/">
         执行计划
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../8.service-tuning/super-node/">
+<a class="md-nav__link" href="../../../../8.service-tuning/super-node/">
         超级节点(稠密点)
       </a>
 </li>
@@ -1400,22 +1344,22 @@
         </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../20.appendix/0.FAQ/">
+<a class="md-nav__link" href="../../../../20.appendix/0.FAQ/">
         Nebula Graph 常见问题
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../20.appendix/6.eco-tool-version/">
+<a class="md-nav__link" href="../../../../20.appendix/6.eco-tool-version/">
         生态工具概览
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../20.appendix/write-tools/">
+<a class="md-nav__link" href="../../../../20.appendix/write-tools/">
         导入工具选择
       </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../15.contribution/how-to-contribute/">
+<a class="md-nav__link" href="../../../../15.contribution/how-to-contribute/">
         社区参与
       </a>
 </li>
@@ -1423,7 +1367,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../pdf/NebulaGraph-CN.pdf">
+<a class="md-nav__link" href="../../../../pdf/NebulaGraph-CN.pdf">
         PDF
       </a>
 </li>
@@ -1442,45 +1386,17 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-    引用点的属性
+<a class="md-nav__link" href="#_1">
+    注意事项
   </a>
-<nav aria-label="引用点的属性" class="md-nav">
-<ul class="md-nav__list">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+    语法
+  </a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
-    起始点
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_4">
-    目的点
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
-    引用边的属性
-  </a>
-<nav aria-label="引用边的属性" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_6">
-    引用自定义的边属性
-  </a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_7">
-    引用内置的边属性
-  </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_8">
     示例
   </a>
 </li>
@@ -1491,152 +1407,98 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/3.ngql-guide/4.variable-and-composite-queries/3.property-reference.md" title="编辑此页">
+<a class="md-content__button md-icon" href="https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/3.ngql-guide/7.general-query-statements/6.show/18.show-querise.md" title="编辑此页">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"></path></svg>
 </a>
-<h1 id="_1">引用属性<a class="headerlink" href="#_1" title="Permanent link">¶</a></h1>
-<p>用户可以在<code>WHERE</code>和<code>YIELD</code>子句中引用点或边的属性。</p>
+<h1 id="show_queries">SHOW QUERIES<a class="headerlink" href="#show_queries" title="Permanent link">¶</a></h1>
+<p><code>SHOW QUERIES</code>语句可以查看当前Session中正在执行的查询请求信息。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>本功能仅适用于原生nGQL。</p>
+<p>如果需要终止查询，请参见<a href="../../../18.operation-and-maintenance-statements/6.kill-query/">终止查询</a>。</p>
 </div>
-<h2 id="_2">引用点的属性<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
-<h3 id="_3">起始点<a class="headerlink" href="#_3" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code>$^.&lt;tag_name&gt;.&lt;prop_name&gt;
+<h2 id="_1">注意事项<a class="headerlink" href="#_1" title="Permanent link">¶</a></h2>
+<ul>
+<li><code>SHOW QUERIES</code>从本地缓存获取当前Session中查询的状态，几乎没有延迟。</li>
+</ul>
+<ul>
+<li><code>SHOW ALL QUERIES</code>从Meta服务获取所有Session中的查询信息。这些信息会根据参数<code>session_reclaim_interval_secs</code>定义的周期同步到Meta服务，因此在客户端获取到的信息可能属于上个同步周期。</li>
+</ul>
+<h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code>SHOW [ALL] QUERIES;
 </code></pre></div>
-<table>
-<thead>
-<tr>
-<th align="left">参数</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>$^</code></td>
-<td align="left">起始点</td>
-</tr>
-<tr>
-<td align="left"><code>tag_name</code></td>
-<td align="left">点的Tag名称</td>
-</tr>
-<tr>
-<td align="left"><code>prop_name</code></td>
-<td align="left">Tag内的属性名称</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_4">目的点<a class="headerlink" href="#_4" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code>$$.&lt;tag_name&gt;.&lt;prop_name&gt;
-</code></pre></div>
-<table>
-<thead>
-<tr>
-<th align="left">参数</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>$$</code></td>
-<td align="left">目的点</td>
-</tr>
-<tr>
-<td align="left"><code>tag_name</code></td>
-<td align="left">点的Tag名称</td>
-</tr>
-<tr>
-<td align="left"><code>prop_name</code></td>
-<td align="left">Tag内的属性名称</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_5">引用边的属性<a class="headerlink" href="#_5" title="Permanent link">¶</a></h2>
-<h3 id="_6">引用自定义的边属性<a class="headerlink" href="#_6" title="Permanent link">¶</a></h3>
-<div class="highlight"><pre><span></span><code>&lt;edge_type&gt;.&lt;prop_name&gt;
-</code></pre></div>
-<table>
-<thead>
-<tr>
-<th align="left">参数</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>edge_type</code></td>
-<td align="left">Edge type</td>
-</tr>
-<tr>
-<td align="left"><code>prop_name</code></td>
-<td align="left">Edge type的属性名称</td>
-</tr>
-</tbody>
-</table>
-<h3 id="_7">引用内置的边属性<a class="headerlink" href="#_7" title="Permanent link">¶</a></h3>
-<p>除了自定义的边属性，每条边还有如下四种内置属性：</p>
-<table>
-<thead>
-<tr>
-<th align="left">参数</th>
-<th align="left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left"><code>_src</code></td>
-<td align="left">边的起始点</td>
-</tr>
-<tr>
-<td align="left"><code>_dst</code></td>
-<td align="left">边的目的点</td>
-</tr>
-<tr>
-<td align="left"><code>_type</code></td>
-<td align="left">边的类型内部编码，正负号表示方向</td>
-</tr>
-<tr>
-<td align="left"><code>_rank</code></td>
-<td align="left">边的rank值</td>
-</tr>
-</tbody>
-</table>
-<h2 id="_8">示例<a class="headerlink" href="#_8" title="Permanent link">¶</a></h2>
-<div class="highlight"><pre><span></span><code># 返回起始点的Tag player的name属性值和目的点的Tag player的age属性值。
-nebula&gt; GO FROM "player100" OVER follow YIELD $^.player.name AS startName, $$.player.age AS endAge;
-+--------------+--------+
-| startName    | endAge |
-+--------------+--------+
-| "Tim Duncan" | 36     |
-+--------------+--------+
-| "Tim Duncan" | 33     |
-+--------------+--------+
+<h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW QUERIES;
++------------------+-----------------+--------+----------------------+----------------------------+----------------+-----------+-----------------+
+| SessionID        | ExecutionPlanID | User   | Host                 | StartTime                  | DurationInUSec | Status    | Query           |
++------------------+-----------------+--------+----------------------+----------------------------+----------------+-----------+-----------------+
+| 1625463842921750 | 46              | "root" | ""192.168.x.x":9669" | 2021-07-05T05:44:19.502903 | 0              | "RUNNING" | "SHOW QUERIES;" |
++------------------+-----------------+--------+----------------------+----------------------------+----------------+-----------+-----------------+
 
-# 返回Edge type follow的degree属性值。
-nebula&gt; GO FROM "player100" OVER follow YIELD follow.degree;
-+---------------+
-| follow.degree |
-+---------------+
-| 95            |
-+---------------+
-| 90            |
-+---------------+
+nebula&gt; SHOW ALL QUERIES;
++------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+---------------------------------------------------------+
+| SessionID        | ExecutionPlanID | User    | Host                 | StartTime                  | DurationInUSec | Status    | Query                                                   |
++------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+---------------------------------------------------------+
+| 1625456037718757 | 54              | "user1" | ""192.168.x.x":9669" | 2021-07-05T05:51:08.691318 | 1504502        | "RUNNING" | "MATCH p=(v:player)-[*1..4]-(v2) RETURN v2 AS Friends;" |
++------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+---------------------------------------------------------+
 
-# 返回Edge type follow的起始点、目的点、Edge type编码和边rank值。
-nebula&gt; GO FROM "player100" OVER follow YIELD follow._src, follow._dst, follow._type, follow._rank;
-+-------------+-------------+--------------+--------------+
-| follow._src | follow._dst | follow._type | follow._rank |
-+-------------+-------------+--------------+--------------+
-| "player100" | "player101" | 136          | 0            |
-+-------------+-------------+--------------+--------------+
-| "player100" | "player102" | 136          | 0            |
-+-------------+-------------+--------------+--------------+
+# 返回耗时TOP 10的查询。
+nebula&gt; SHOW ALL QUERIES | ORDER BY $-.DurationInUSec DESC | LIMIT 10; 
++------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+-------------------------------------------------------+
+| SessionID        | ExecutionPlanID | User    | Host                 | StartTime                  | DurationInUSec | Status    | Query                                                 |
++------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+-------------------------------------------------------+
+| 1625471375320831 | 98              | "user2" | ""192.168.x.x":9669" | 2021-07-05T07:50:24.461779 | 2608176        | "RUNNING" | "MATCH (v:player)-[*1..4]-(v2) RETURN v2 AS Friends;" |
++------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+-------------------------------------------------------+
+| 1625456037718757 | 99              | "user1" | ""192.168.x.x":9669" | 2021-07-05T07:50:24.910616 | 2159333        | "RUNNING" | "MATCH (v:player)-[*1..4]-(v2) RETURN v2 AS Friends;" |
++------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+-------------------------------------------------------+
 </code></pre></div>
+<p>参数说明如下。</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>SessionID</code></td>
+<td align="left">会话ID。</td>
+</tr>
+<tr>
+<td align="left"><code>ExecutionPlanID</code></td>
+<td align="left">执行计划ID。</td>
+</tr>
+<tr>
+<td align="left"><code>User</code></td>
+<td align="left">执行查询的用户名。</td>
+</tr>
+<tr>
+<td align="left"><code>Host</code></td>
+<td align="left">用户连接的服务器地址和端口。</td>
+</tr>
+<tr>
+<td align="left"><code>StartTime</code></td>
+<td align="left">执行查询的开始时间。</td>
+</tr>
+<tr>
+<td align="left"><code>DurationInUSec</code></td>
+<td align="left">执行查询的持续时长。单位：微秒。</td>
+</tr>
+<tr>
+<td align="left"><code>Status</code></td>
+<td align="left">查询的当前状态。</td>
+</tr>
+<tr>
+<td align="left"><code>Query</code></td>
+<td align="left">查询语句。</td>
+</tr>
+</tbody>
+</table>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月14日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月15日</span>
 </small>
 </div>
 </article>
@@ -1648,34 +1510,6 @@ nebula&gt; GO FROM "player100" OVER follow YIELD follow._src, follow._dst, follo
           </a>
 </main>
 <footer class="md-footer">
-<nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="上一页: 自定义变量" class="md-footer__link md-footer__link--prev" href="../2.user-defined-variables/" rel="prev">
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"></path></svg>
-</div>
-<div class="md-footer__title">
-<div class="md-ellipsis">
-<span class="md-footer__direction">
-                上一页
-              </span>
-              自定义变量
-            </div>
-</div>
-</a>
-<a aria-label="下一页: 比较符" class="md-footer__link md-footer__link--next" href="../../5.operators/1.comparison/" rel="next">
-<div class="md-footer__title">
-<div class="md-ellipsis">
-<span class="md-footer__direction">
-                下一页
-              </span>
-              比较符
-            </div>
-</div>
-<div class="md-footer__button md-icon">
-<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"></path></svg>
-</div>
-</a>
-</nav>
 <div class="md-footer-meta md-typeset">
 <div class="md-footer-meta__inner md-grid">
 <div class="md-footer-copyright">
@@ -1687,7 +1521,7 @@ nebula&gt; GO FROM "player100" OVER follow YIELD follow._src, follow._dst, follo
         <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
           Material for MkDocs
         </a>
- ... <a class="link--pdf-download" download href="../../../pdf/NebulaGraph-CN.pdf" title="PDF">download PDF</a></div>
+ ... <a class="link--pdf-download" download href="../../../../pdf/NebulaGraph-CN.pdf" title="PDF">download PDF</a></div>
 <div class="md-footer-social">
 <a class="md-footer-social__link" href="https://github.com/vesoft-inc/nebula-docs-cn" rel="noopener" target="_blank" title="github.com">
 <svg viewbox="0 0 496 512" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
@@ -1700,10 +1534,10 @@ nebula&gt; GO FROM "player100" OVER follow YIELD follow._src, follow._dst, follo
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.top", "header.autohide"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../assets/javascripts/workers/search.477d984a.min.js", "version": {"method": "mike"}}</script>
-<script src="../../../assets/javascripts/bundle.ddd52ceb.min.js"></script>
-<script src="../../../js/version-select.js"></script>
-<script src="../../../js/config.js"></script>
+<script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.top", "header.autohide"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../../../assets/javascripts/workers/search.477d984a.min.js", "version": {"method": "mike"}}</script>
+<script src="../../../../assets/javascripts/bundle.ddd52ceb.min.js"></script>
+<script src="../../../../js/version-select.js"></script>
+<script src="../../../../js/config.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </body>

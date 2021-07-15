@@ -1906,7 +1906,7 @@ Got 1 rows (time spent 1235/1934 us)
 <p>报错的原因可能是用户修改了 metad 的 ip 或者端口信息，或者 storage 之前加入过其他集群。请尝试以下解决方法：</p>
 <p>用户到storage部署的机器所在的安装目录（默认安装目录为 <code>/usr/local/nebula</code>）下面将<code>cluster.id</code>文件删除，然后重启 storaged 服务。</p>
 <h3 id="_5">是否支持停止或者中断慢查询<a class="headerlink" href="#_5" title="Permanent link">¶</a></h3>
-<p>不支持。即使关闭了客户端，服务端仍会尽力把该查询执行完毕，无法中断。</p>
+<p>支持。详情请参见<a href="../../3.ngql-guide/18.operation-and-maintenance-statements/6.kill-query/">终止查询</a>。</p>
 <h3 id="tagedge_type_2">能不能用中文字符做标识符，比如图空间、Tag、Edge type、属性、索引的名称？<a class="headerlink" href="#tagedge_type_2" title="Permanent link">¶</a></h3>
 <p>不能。图空间、Tag、Edge type、属性以及索引的名称都需由大小写英文字母、数字或下划线组成，暂不支持使用中文字符。</p>
 <p>同时，上述标识符区分大小写，且不可使用<a href="../../3.ngql-guide/1.nGQL-overview/keywords-and-reserved-words/">关键字和保留字</a> 。</p>
@@ -2045,7 +2045,7 @@ telnet: connect to address <span class="m">192</span>.168.1.10: Connection refus
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月12日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月15日</span>
 </small>
 </div>
 </article>

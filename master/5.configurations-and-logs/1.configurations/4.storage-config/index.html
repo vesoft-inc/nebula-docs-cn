@@ -1700,7 +1700,7 @@
 <thead>
 <tr>
 <th align="left">名称</th>
-<th align="left">默认值</th>
+<th align="left">预设值</th>
 <th align="left">说明</th>
 </tr>
 </thead>
@@ -1709,6 +1709,11 @@
 <td align="left"><code>data_path</code></td>
 <td align="left"><code>data/storage</code></td>
 <td align="left">数据存储路径，多个路径用英文逗号（,）分隔。一个RocksDB实例对应一个路径。</td>
+</tr>
+<tr>
+<td align="left"><code>minimum_reserved_bytes</code></td>
+<td align="left"><code>268435456</code></td>
+<td align="left">每个数据存储路径的剩余空间最小值，低于该值时，可能会导致集群元数据操作失败。单位：字节。默认为<code>1073741824</code>，即1GB。</td>
 </tr>
 <tr>
 <td align="left"><code>rocksdb_batch_size</code></td>
@@ -1862,7 +1867,7 @@ disable_auto_compactions
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年6月30日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月15日</span>
 </small>
 </div>
 </article>
