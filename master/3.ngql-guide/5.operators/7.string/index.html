@@ -1604,7 +1604,7 @@ nebula&gt; RETURN 'apple' STARTS WITH 'b','apple' NOT STARTS WITH 'app'
 <p class="admonition-title">Note</p>
 <p>当前仅opencypher兼容语句（<code>MATCH</code>、<code>WITH</code>等）支持正则表达式，原生nGQL语句（<code>FETCH</code>、<code>GO</code>、<code>LOOKUP</code>等）不支持正则表达式。</p>
 </div>
-<p>Nebula Graph支持使用正则表达式进行过滤，正则表达式的语法是继承自<code>std::regex</code>，用户可以使用语法<code>=~ '&lt;regexp&gt;'</code>进行正则表达式匹配配。例如：</p>
+<p>Nebula Graph支持使用正则表达式进行过滤，正则表达式的语法是继承自<code>std::regex</code>，用户可以使用语法<code>=~ '&lt;regexp&gt;'</code>进行正则表达式匹配。例如：</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; RETURN "384748.39" =~ "\\d+(\\.\\d{2})?";
 +----------------------------+
 | (384748.39=~\d+(\.\d{2})?) |
@@ -1623,7 +1623,7 @@ nebula&gt; MATCH (v:player) WHERE v.name =~ 'Tony.*' RETURN v.name;
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年5月24日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月15日</span>
 </small>
 </div>
 </article>
