@@ -6,7 +6,7 @@ nGQL没有严格的构建格式要求，但根据恰当而统一的风格创建n
 
     nGQL 风格与[Cypher Style Guide](https://s3.amazonaws.com/artifacts.opencypher.org/M15/docs/style-guide.pdf)不同。
 
-## 换行与缩进
+## 换行
 
 1. 换行写子句。
 
