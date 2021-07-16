@@ -37,6 +37,7 @@
 <div data-md-component="announce">
 </div>
 <header class="md-header" data-md-component="header">
+<div id="dialog-bg"></div>
 <div id="banner" style="width: 100%;display:flex;height: 35px;justify-content:center;align-items:center;background-color:#FFE45E;font-size:15px;font-weight: 400;color: #000000;">
     该版本文档对应尚未发布的Nebula Graph开发版本。如需了解最新的已发布版本，请查看
     <a href="https://docs.nebula-graph.com.cn/2.0.1/" style="font-weight: 500;text-decoration:underline;">v2.0.1文档</a>。
@@ -1467,11 +1468,15 @@ nebula&gt; SHOW CREATE EDGE INDEX follow_index;
 |                 | )"                                              |
 +-----------------+-------------------------------------------------+
 </code></pre></div>
+<div class="admonition compatibility">
+<p class="admonition-title">历史版本兼容性</p>
+<p>Nebula Graph 2.0.1中， <code>SHOW TAG/EDGE INDEXES</code> 语句仅返回 <code>Names</code>。</p>
+</div>
 <hr/>
 <div class="md-source-date">
 <small>
     
-      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月8日</span>
+      最后更新: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2021年7月15日</span>
 </small>
 </div>
 </article>
@@ -1539,6 +1544,8 @@ nebula&gt; SHOW CREATE EDGE INDEX follow_index;
 <script src="../../../assets/javascripts/bundle.ddd52ceb.min.js"></script>
 <script src="../../../js/version-select.js"></script>
 <script src="../../../js/config.js"></script>
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/init.js"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </body>
