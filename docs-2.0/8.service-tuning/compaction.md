@@ -88,7 +88,7 @@ nebula> SHOW JOB <job_id>;
 
     ```bash
     # 设置为从本地配置文件读取配置。
-    --local-config=true
+    --local_config=true
     # 读写速率限制为20MB/S。
     --rate_limit=20 (in MB/s)
     ```
