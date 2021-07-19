@@ -29,10 +29,10 @@
 
 2. 使用`sudo rpm -i <rpm>`命令安装RPM包。
 
-   例如，安装 Explorer 1.0.0 版本需要运行以下命令：
+   例如，安装 Explorer {{ explorer.base100 }} 版本需要运行以下命令：
 
    ```bash
-   $ sudo rpm -i nebula-graph-explorer-1.0.0-1.x86_64.rpm
+   $ sudo rpm -i nebula-graph-explorer-{{ explorer.base100 }}-1.x86_64.rpm
    ```
 
 
@@ -41,7 +41,7 @@
 用户可以使用以下的命令卸载 Explorer 。
 
 ```bash
-$ sudo rpm -e nebula-graph-explorer-1.0.0-1.x86_64.rpm
+$ sudo rpm -e nebula-graph-explorer-{{ explorer.base100 }}-1.x86_64.rpm
 ```
 
 ## 异常处理
