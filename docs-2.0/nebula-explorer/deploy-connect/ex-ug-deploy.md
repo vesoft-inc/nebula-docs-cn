@@ -25,7 +25,7 @@
 
    | 安装包 | 检验和 | Nebula Graph内核版本 |
    | ----- | ----- | ----- |
-   | [nebula-graph-explorer-1.0.0-1.x86_64.rpm](https://oss-cdn.nebula-graph.com.cn/nebula-graph-explorer/nebula-graph-explorer-1.0.0-1.x86_64.rpm) |  [nebula-graph-explorer-1.0.0-1.x86_64.rpm.sha256](https://oss-cdn.nebula-graph.com.cn/nebula-graph-explorer/nebula-graph-explorer-1.0.0-1.x86_64.rpm.sha256) | 2.0.1 |
+   | [nebula-graph-explorer-{{ explorer.base100 }}-1.x86_64.rpm](https://oss-cdn.nebula-graph.com.cn/nebula-graph-explorer/nebula-graph-explorer-{{ explorer.base100 }}-1.x86_64.rpm) |  [nebula-graph-explorer-{{ explorer.base100 }}-1.x86_64.rpm.sha256](https://oss-cdn.nebula-graph.com.cn/nebula-graph-explorer/nebula-graph-explorer-{{ explorer.base100 }}-1.x86_64.rpm.sha256) | 2.0.1 |
 
 2. 使用`sudo rpm -i <rpm>`命令安装RPM包。
 
@@ -62,10 +62,10 @@ $ sudo rpm -e nebula-graph-explorer-1.0.0-1.x86_64.rpm
 
 ## 后续操作
 
-启动成功后，在浏览器地址栏输入 `http://ip address:7000`。
+启动成功后，在浏览器地址栏输入 `http://ipaddress:7000`。
 
 如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Explorer。
 
-![Nebula Graph Explorer 登录页面](../figs/../nebula-explorer/figs/ex-ug-001.png)
+![Nebula Graph Explorer 登录页面](../figs/ex-ug-001.png)
 
 进入 Explorer 登录界面后，用户需要连接 Nebula Graph。详细信息，参考[连接数据库](ex-ug-connect.md)。

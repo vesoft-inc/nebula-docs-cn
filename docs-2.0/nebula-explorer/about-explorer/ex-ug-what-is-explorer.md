@@ -2,6 +2,10 @@
 
 Nebula Explorer （简称 Explorer）是一款可以通过 Web 访问的图形探索可视化工具，搭配 Nebula Graph 内核使用，用于与图形数据进行可视化交互。即使没有图数据操作经验，用户也可以快速成为图专家。
 
+!!! enterpriseonly
+
+    Explorer 仅在企业版提供。
+
 ## 适用场景
 
 Explorer 适用于使用 GUI 工具进行图探索，支持可视化展示图数据。
@@ -20,6 +24,6 @@ Explorer 适用于使用 GUI 工具进行图探索，支持可视化展示图数
 
 Nebula Graph 默认不启用身份验证，一般情况下用户可以使用默认账号和密码（`user` 和 `password`）登录 Studio。
 
-Nebula Graph 启用了身份验证后，用户只能使用指定的账号和密码登录 Studio。
+Nebula Graph 启用了身份验证后，用户只能使用指定的账号和密码登录 Explorer。
 
 关于 Nebula Graph 的身份验证功能，参考 [Nebula Graph 用户手册](../7.data-security/1.authentication/1.authentication.md "点击前往 Nebula Graph 官网")。

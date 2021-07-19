@@ -65,9 +65,9 @@ Explorer 的主页面分为五个部分：
 
 - 图模式切换：用户可以切换画布中图的展示模式。
 
-| 图标 |force | dagre | circular | 
+| 图标 | ![force](../figs/Thumbnail-graphView.png) | ![dagre](../figs/Thumbnail-treeView.png) | ![circular](../figs/Thumbnail-sphereView.png) | 
 | ---- | ---- |----| ----|
 | 展示模式 | force（力导向图） | dagre（层次图） | circular（环形图） |
 ## 关系列表
 
-点击右侧的 ![unfold](../figs/sidebar-unfold.png)图标，用户可以打开菜单，查看画板中 Tag 和 Edge 的数量、搜索 Tag 和 Edge ，同时也支持修改 Tag 的颜色和 Icon 。
+点击右侧的 ![unfold](../figs/sidebar-unfold.png)图标，用户可以打开菜单，查看画板中 Tag 和 Edge 的数量、搜索 Tag 和 Edge ，同时也支持修改点的颜色和图标。

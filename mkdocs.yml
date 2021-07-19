@@ -47,6 +47,8 @@ extra:
   studio:
     base111b: 1.1.1-beta
     base220: 2.2.0
+  explorer:
+    base100: 1.0.0
   exchange:
     release: master
   importer:
