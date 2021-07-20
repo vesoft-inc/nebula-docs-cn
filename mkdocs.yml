@@ -155,6 +155,7 @@ nav:
             - SHOW TAGS/EDGES: 3.ngql-guide/7.general-query-statements/6.show/15.show-tags-edges.md
             - SHOW USERS: 3.ngql-guide/7.general-query-statements/6.show/16.show-users.md
             - SHOW SESSIONS: 3.ngql-guide/7.general-query-statements/6.show/17.show-sessions.md
+            - SHOW QUERIES: 3.ngql-guide/7.general-query-statements/6.show/18.show-queries.md
 
       - 子句和选项:
           - GROUP BY: 3.ngql-guide/8.clauses-and-options/group-by.md
@@ -226,6 +227,7 @@ nav:
         # - CONFIG syntax: 3.ngql-guide/18.operation-and-maintenance-statements/1.configs-syntax.md
         - BALANCE: 3.ngql-guide/18.operation-and-maintenance-statements/2.balance-syntax.md
         - 作业管理: 3.ngql-guide/18.operation-and-maintenance-statements/4.job-statements.md
+        - 终止查询: 3.ngql-guide/18.operation-and-maintenance-statements/6.kill-query.md
 
   - 安装部署:
       - 准备资源: 4.deployment-and-installation/1.resource-preparations.md
