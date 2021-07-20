@@ -6,22 +6,22 @@
 
 在部署 Explorer 之前，用户需要确认以下信息：
 
-- Nebula Graph 服务已经部署并启动。详细信息，参考[Nebula Graph安装部署](../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
+- Nebula Graph 服务已经部署并启动。详细信息参考[Nebula Graph安装部署](../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
 
   !!! Note
 
-        用户可以使用Docker Compose或RPM方式部署并启动 Nebula Graph 服务。如果刚开始使用 Nebula Graph，建议使用 Docker Compose 部署 Nebula Graph。详细信息参考 [使用 Docker Compose 部署 Nebula Graph](../../2.quick-start/2.deploy-nebula-graph-with-docker-compose.md "点击前往 GitHub 网站")。
+        用户可以使用 Docker Compose 或 RPM 方式部署并启动 Nebula Graph 服务。如果刚开始使用 Nebula Graph，建议使用 Docker Compose 部署 Nebula Graph。详细信息参考 [使用 Docker Compose 部署 Nebula Graph](../../2.quick-start/2.deploy-nebula-graph-with-docker-compose.md "点击前往 GitHub 网站")。
 
-- 确保在安装开始前，以下端口处于未被使用状态。
+- 以下端口未被使用。
 
-   | 端口号 | 说明 |
-   | ---- | ---- |
-   | 7000 | Explorer 提供的 web 服务 |
-   | 8070 | Nebula-http-gateway 的 HTTP 服务 |
+  | 端口号 | 说明 |
+  | ---- | ---- |
+  | 7000 | Explorer 提供的 web 服务 |
+  | 8070 | Nebula-http-gateway 的 HTTP 服务 |
 
 ## 安装
 
-1. 根据需要选择并下载 RPM 包，建议选择最新版本。常用链接如下：
+1. 根据需要下载 RPM 包，建议选择最新版本。常用链接如下：
 
    | 安装包 | 检验和 | Nebula Graph内核版本 |
    | ----- | ----- | ----- |
@@ -38,7 +38,7 @@
 
 ## 卸载
 
-用户可以使用以下的命令卸载 Explorer 。
+使用以下的命令卸载 Explorer 。
 
 ```bash
 $ sudo rpm -e nebula-graph-explorer-{{ explorer.base100 }}-1.x86_64.rpm
@@ -62,9 +62,9 @@ $ sudo rpm -e nebula-graph-explorer-{{ explorer.base100 }}-1.x86_64.rpm
 
 ## 后续操作
 
-启动成功后，在浏览器地址栏输入 `http://ipaddress:7000`。
+启动成功后，在浏览器地址栏输入 `http://<ip_address>:7000`。
 
-如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Explorer。
+在浏览器窗口中看到以下登录界面表示已经成功部署并启动了 Explorer。
 
 ![Nebula Graph Explorer 登录页面](../figs/ex-ug-001.png)
 
