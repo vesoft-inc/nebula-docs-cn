@@ -22,8 +22,8 @@ Explorer 适用于使用 GUI 工具进行图探索，支持可视化展示图数
 
 ## 身份验证
 
-Nebula Graph 默认不启用身份验证，一般情况下用户可以使用默认账号和密码（`user` 和 `password`）登录 Studio。
+Nebula Graph 默认不启用身份验证，一般情况下用户可以使用`root`账号和任意密码登录 Explorer。
 
 Nebula Graph 启用了身份验证后，用户只能使用指定的账号和密码登录 Explorer。
 
-关于 Nebula Graph 的身份验证功能，参考 [Nebula Graph 用户手册](../7.data-security/1.authentication/1.authentication.md "点击前往 Nebula Graph 官网")。
+关于 Nebula Graph 的身份验证功能，参考 [Nebula Graph 用户手册](../../7.data-security/1.authentication/1.authentication.md "点击前往 Nebula Graph 官网")。
