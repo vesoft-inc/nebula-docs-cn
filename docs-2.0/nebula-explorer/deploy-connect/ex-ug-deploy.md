@@ -25,7 +25,7 @@
 
    | 安装包 | 检验和 | Nebula Graph内核版本 |
    | ----- | ----- | ----- |
-   | [nebula-graph-explorer-{{ explorer.base100 }}-1.rpm]() |  [nebula-graph-explorer-{{ explorer.base100 }}-1.rpm.sha256]() | 2.0.1 |
+   | [nebula-graph-explorer-{{ explorer.base100 }}-1.rpm]() |  [nebula-graph-explorer-{{ explorer.base100 }}-1.rpm.sha256]() | {{ nebula.release }} |
 
 !!! enterpriseonly
 
