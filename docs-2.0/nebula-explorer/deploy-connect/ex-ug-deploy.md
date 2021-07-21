@@ -25,7 +25,11 @@
 
    | 安装包 | 检验和 | Nebula Graph内核版本 |
    | ----- | ----- | ----- |
-   | [nebula-graph-explorer-{{ explorer.base100 }}-1.x86_64.rpm](https://oss-cdn.nebula-graph.com.cn/nebula-graph-explorer/nebula-graph-explorer-{{ explorer.base100 }}-1.x86_64.rpm) |  [nebula-graph-explorer-{{ explorer.base100 }}-1.x86_64.rpm.sha256](https://oss-cdn.nebula-graph.com.cn/nebula-graph-explorer/nebula-graph-explorer-{{ explorer.base100 }}-1.x86_64.rpm.sha256) | 2.0.1 |
+   | [nebula-graph-explorer-{{ explorer.base100 }}-1.rpm]() |  [nebula-graph-explorer-{{ explorer.base100 }}-1.rpm.sha256]() | 2.0.1 |
+
+!!! enterpriseonly
+
+    Explorer 仅在企业版提供，点击 [定价](https://nebula-graph.com.cn/pricing/) 查看更多。
 
 2. 使用`sudo rpm -i <rpm>`命令安装RPM包。
 
