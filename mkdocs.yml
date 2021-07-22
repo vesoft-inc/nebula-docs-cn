@@ -73,7 +73,7 @@ nav:
       - 数据模型: 1.introduction/2.data-model.md
       - 路径: 1.introduction/2.1.path.md
       - VID: 1.introduction/3.vid.md
-      - Nebula Graph架构:
+      - 服务架构:
         - 架构总览: 1.introduction/3.nebula-graph-architecture/1.architecture-overview.md
         - Meta服务: 1.introduction/3.nebula-graph-architecture/2.meta-service.md
         - Graph服务: 1.introduction/3.nebula-graph-architecture/3.graph-service.md
@@ -81,14 +81,14 @@ nav:
 
   - 快速入门:
       - 快速入门流程: 2.quick-start/1.quick-start-workflow.md
-      - Docker Compose部署Nebula Graph: 2.quick-start/2.deploy-nebula-graph-with-docker-compose.md
-      - 管理Nebula Graph服务: 2.quick-start/5.start-stop-service.md
-      - 连接Nebula Graph: 2.quick-start/3.connect-to-nebula-graph.md
-      - Nebula Graph常用语法（CRUD）: 2.quick-start/4.nebula-graph-crud.md
+      - 步骤1：安装Nebula Graph: 2.quick-start/install-nebula-graph.md
+      - 步骤2：启动Nebula Graph: 2.quick-start/5.start-stop-service.md
+      - 步骤3：连接Nebula Graph: 2.quick-start/3.connect-to-nebula-graph.md
+      - 步骤4：使用常用命令: 2.quick-start/4.nebula-graph-crud.md
 
   - nGQL指南:
       - nGQL概述:
-        - Nebula Graph查询语言（nGQL）: 3.ngql-guide/1.nGQL-overview/1.overview.md
+        - 什么是nGQL: 3.ngql-guide/1.nGQL-overview/1.overview.md
         - 图模式: 3.ngql-guide/1.nGQL-overview/3.graph-patterns.md
         - 注释: 3.ngql-guide/1.nGQL-overview/comments.md
         - 大小写区分: 3.ngql-guide/1.nGQL-overview/identifier-case-sensitivity.md
@@ -233,15 +233,18 @@ nav:
 
   - 安装部署:
       - 准备资源: 4.deployment-and-installation/1.resource-preparations.md
-      - 编译安装Nebula Graph:
-          - 源码编译安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md
-          - RPM/DEB包安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md
-      - 部署Nebula Graph集群: 4.deployment-and-installation/deploy-nebula-graph-cluster.md
-      - 升级历史版本至Nebula Graph v2.0.0: 4.deployment-and-installation/3.upgrade-nebula-graph.md
-      - Nebula Graph v2.0.0升级至v2.0.1: 4.deployment-and-installation/5.upgrade-nebula-from-200-to-201.md
+      - 编译与安装:
+          - 使用源码安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md
+          - 使用RPM/DEB包安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md
+          - 使用Docker Compose部署: 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
+          - 使用RPM/DEB包部署集群: 4.deployment-and-installation/deploy-nebula-graph-cluster.md
+      - 管理服务: 4.deployment-and-installation/manage-service.md
+      - 升级版本:
+          - 升级历史版本至v2.0.0: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-200.md
+          - 升级v2.0.0至v2.0.1: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-201.md
       - 卸载Nebula Graph: 4.deployment-and-installation/4.uninstall-nebula-graph.md
 
-  - 配置和日志:
+  - 配置与日志:
       - 配置:
           - 配置管理: 5.configurations-and-logs/1.configurations/1.configurations.md
           - Meta服务配置: 5.configurations-and-logs/1.configurations/2.meta-config.md
@@ -392,6 +395,8 @@ markdown_extensions:
       separator: "_"
   - mdx_truly_sane_lists
   - pymdownx.superfences
+  - pymdownx.snippets:
+      base_path: docs-2.0/reuse/
   - pymdownx.arithmatex:
       generic: true
 

@@ -22,9 +22,9 @@ Nebula Graph不提供官方的集群部署工具，需要手动部署，下文�
 
 在集群的每一台服务器上都安装Nebula Graph，安装后暂不需要启动服务。安装方式请参见：
 
-- [使用RPM或DEB安装包安装Nebula Graph](2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)
+- [使用RPM或DEB包安装Nebula Graph](2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)
 
-- [编译安装Nebula Graph](2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)
+- [使用源码安装Nebula Graph](2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)
 
 
 ### 2.修改配置文件

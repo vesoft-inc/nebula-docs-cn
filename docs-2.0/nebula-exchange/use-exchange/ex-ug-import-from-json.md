@@ -52,7 +52,7 @@
 
 - Hadoop：2.9.2，伪分布式部署
 
-- Nebula Graph：2.0.0。使用[Docker Compose部署](../../2.quick-start/2.deploy-nebula-graph-with-docker-compose.md)。
+- Nebula Graph：2.0.0。使用[Docker Compose部署](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)。
 
 ## 前提条件
 
