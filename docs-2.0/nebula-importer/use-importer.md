@@ -18,7 +18,7 @@ Importer适用于将本地CSV文件的内容导入至Nebula Graph中。
 
 - 已部署Nebula Graph服务。目前有三种部署方式：
   
-  - [Docker Compose部署](../2.quick-start/2.deploy-nebula-graph-with-docker-compose.md)（快速部署）
+  - [Docker Compose部署](../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)
   
   - [RPM/DEB包安装](../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)
   

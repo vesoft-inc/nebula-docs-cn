@@ -41,7 +41,7 @@ Exchange读取Neo4j数据时需要完成以下工作：
 
 - Neo4j：3.5.20 Community Edition
 
-- Nebula Graph：2.0.0。使用[Docker Compose部署](../../2.quick-start/2.deploy-nebula-graph-with-docker-compose.md)。
+- Nebula Graph：2.0.0。使用[Docker Compose部署](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)。
 
 ## 前提条件
 
@@ -298,7 +298,7 @@ ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchan
 ${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-spark-utils/nebula-exchange/target/nebula-exchange-2.0.0.jar  -c /root/nebula-spark-utils/nebula-exchange/target/classes/neo4j_application.conf
 ```
 
-用户可以在返回信息中搜索`batchSuccess.<tag_name/edge_name>`，确认成功的数量。例如例如`batchSuccess.follow: 300`。
+用户可以在返回信息中搜索`batchSuccess.<tag_name/edge_name>`，确认成功的数量。例如`batchSuccess.follow: 300`。
 
 ### 步骤 5：（可选）验证数据
 

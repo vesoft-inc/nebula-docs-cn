@@ -39,4 +39,4 @@ Nebula Graph v2.0.0升级至v2.0.1，只需要使用v2.0.1的RPM/DEB包进行升
 
 ## Docker Compose部署升级步骤
 
-请参见[如何更新Nebula Graph服务的Docker镜像](../2.quick-start/2.deploy-nebula-graph-with-docker-compose.md#nebula_graphdocker)。
+请参见[如何更新Nebula Graph服务的Docker镜像](../2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md#nebula_graphdocker)。

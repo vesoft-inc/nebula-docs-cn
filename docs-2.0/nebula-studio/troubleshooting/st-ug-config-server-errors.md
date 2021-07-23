@@ -22,7 +22,7 @@
 
 检查 Nebula Graph 服务状态。关于查看服务的操作：
 
-- 如果在 Linux 服务器上通过编译部署的 Nebula Graph，参考 [查看 Nebula Graph 服务](../../4.deployment-and-installation/deploy-nebula-graph-cluster.md "点击查看Nebula Graph内核文档")。
+- 如果在 Linux 服务器上通过编译部署的 Nebula Graph，参考 [查看 Nebula Graph 服务](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md "点击查看Nebula Graph内核文档")。
 - 如果使用 Docker Compose 部署和 RPM 部署的 Nebula Graph，参考 [查看 Nebula Graph 服务状态和端口](../deploy-connect/st-ug-deploy.md "点击前往 GitHub 网站")。
   
 如果 Nebula Graph 服务正常，进入第 4 步继续排查问题。否则，请重启 Nebula Graph 服务。
