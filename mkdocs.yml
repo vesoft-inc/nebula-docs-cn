@@ -408,7 +408,7 @@ plugins:
   - with-pdf:
       copyright: 2021 Vesoft Inc.
       cover_subtitle: 2.5.0
-      author: 吴敏，周瑶，梁振亚
+      author: 吴敏，周瑶，梁振亚，杨怡璇
       cover: true
       back_cover: true
       cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
