@@ -237,7 +237,7 @@ nav:
           - 使用源码安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md
           - 使用RPM/DEB包安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md
           - 使用Docker Compose部署: 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
-          - 使用RPM/DEB包部署集群: 4.deployment-and-installation/deploy-nebula-graph-cluster.md
+          - 使用RPM/DEB包部署集群: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
       - 管理服务: 4.deployment-and-installation/manage-service.md
       - 升级版本:
           - 升级历史版本至v2.0.0: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-200.md
@@ -408,7 +408,7 @@ plugins:
   - with-pdf:
       copyright: 2021 Vesoft Inc.
       cover_subtitle: 2.5.0
-      author: 吴敏,周瑶,梁振亚
+      author: 吴敏，周瑶，梁振亚
       cover: true
       back_cover: true
       cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'

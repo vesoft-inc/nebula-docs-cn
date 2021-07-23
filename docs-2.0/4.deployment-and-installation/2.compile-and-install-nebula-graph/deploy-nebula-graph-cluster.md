@@ -1,6 +1,6 @@
-# 部署Nebula Graph集群
+# 使用RPM/DEB包部署Nebula Graph集群
 
-Nebula Graph不提供官方的集群部署工具，需要手动部署，下文将介绍手动部署的简单流程。
+Nebula Graph不提供官方的集群部署工具，用户可以使用RPM或DEB文件手动部署集群。本文提供了部署集群的示例。
 
 ## 部署方案
 
@@ -26,14 +26,13 @@ Nebula Graph不提供官方的集群部署工具，需要手动部署，下文�
 
 - [使用源码安装Nebula Graph](2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)
 
-
 ### 2.修改配置文件
 
 修改每个服务器上的Nebula Graph配置文件。
 
 Nebula Graph的所有配置文件均位于安装目录的`etc`目录内，包括`nebula-graphd.conf`、`nebula-metad.conf`和`nebula-storaged.conf`，用户可以只修改所需服务的配置文件。各个机器需要修改的配置文件如下。
 
-| 机器名称 |待修改配置文件    | 
+| 机器名称 |待修改配置文件    |
 | :----- |:---------------|
 | A      | `nebula-graphd.conf`、`nebula-storaged.conf`、`nebula-metad.conf`|
 | B      | `nebula-graphd.conf`、`nebula-storaged.conf`、`nebula-metad.conf`|
