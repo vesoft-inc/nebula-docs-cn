@@ -12,7 +12,7 @@
 
   | 端口号 | 说明 |
   | ---- | ---- |
-  | 7000 | Explorer 提供的 web 服务 |
+  | 7002 | Explorer 提供的 web 服务 |
   | 8070 | Nebula-http-gateway 的 HTTP 服务 |
 
 ## 安装
@@ -62,7 +62,7 @@ $ sudo rpm -e nebula-graph-explorer-{{ explorer.base100 }}-1.x86_64.rpm
 
 ## 后续操作
 
-启动成功后，在浏览器地址栏输入 `http://<ip_address>:7000`。
+启动成功后，在浏览器地址栏输入 `http://<ip_address>:7002`。
 
 在浏览器窗口中看到以下登录界面表示已经成功部署并启动了 Explorer。
 
