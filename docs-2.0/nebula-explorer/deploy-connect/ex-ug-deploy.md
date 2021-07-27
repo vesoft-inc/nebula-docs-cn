@@ -23,9 +23,9 @@
    | ----- | ----- | ----- |
    | [nebula-graph-explorer-{{ explorer.base100 }}-1.rpm]() |  [nebula-graph-explorer-{{ explorer.base100 }}-1.rpm.sha256]() | {{ nebula.release }} |
 
-!!! enterpriseonly
+  !!! enterpriseonly
 
-    Explorer 仅在企业版提供，点击 [定价](https://nebula-graph.com.cn/pricing/) 查看更多。
+        Explorer 仅在企业版提供，点击 [定价](https://nebula-graph.com.cn/pricing/) 查看更多。
 
 2. 使用`sudo rpm -i <rpm>`命令安装RPM包。
 

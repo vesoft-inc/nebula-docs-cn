@@ -69,7 +69,7 @@ Explorer 的主页面分为五个部分：
 
 - 点边概览：默认隐藏，在当前画布选中点和边时才显示。点击如图标识，用户可以打开菜单，查看当前子图中选中的点和边的详细数据。
 
-  ![review](../figs/ex-ug-027.png)
+  ![review](../figs/ex-ug-027-1.png)
 
 更多详细操作参考 [画布操作](../operation-guide/ex-ug-canvas.md)。
 
@@ -82,6 +82,7 @@ Explorer 的主页面分为五个部分：
   | 图标 | ![force](../figs/Thumbnail-graphView.png) | ![dagre](../figs/Thumbnail-treeView.png) | ![circular](../figs/Thumbnail-sphereView.png) | 
   | ---- | ---- |----| ----|
   | 展示模式 | force（力导向图） | dagre（层次图） | circular（环形图） |
+
 ## 关系列表
 
 点击右侧的 ![unfold](../figs/sidebar-unfold.png)图标，用户可以打开菜单，查看画板中 Tag 和 Edge 的数量、搜索 Tag 和 Edge ，同时也支持修改点的颜色和图标。
