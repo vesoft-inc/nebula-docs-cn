@@ -5,27 +5,27 @@
 ## 查看点边
 
 移动鼠标到点或边上，详细查看点和边的数据。以下展示 VID 为 `107` 的点的详细信息：
-![show](../figs/ex-ug-024.png)
+![show](../figs/ex-ug-024-1.png)
 
 ## 批量选中
+
+Explorer 支持批量选中多个点边，并查看选中点边的数据，详细数据可以在画布左下角的点边概览打开并查看。同时也支持导出选中点或边的 CSV 文件。
+![review](../figs/ex-ug-027-1.png)
 
 ### 框选操作
 
 点击![frameselect](../figs/nav-frameSelect.png) 图标后，按住左键拖拽并框选多个点和边。示例如下：
-![slect](../figs/ex-ug-023.png)
+![slect](../figs/ex-ug-023-1.png)
 ### 点击选择多个节边
 
-点击![singleselect](../figs/nav-singleSelect.png) 图标后，点击画布中的多个点和边，单击空白处取消选择。示例如下：
-![select](../figs/ex-ug-025.png)
+点击![singleselect](../figs/nav-singleSelect.png) 图标或按住 Shift 后，用鼠标单击并选中多个点和边，单击空白处取消选择。示例如下：
+![select](../figs/ex-ug-025-1.png)
 
 
-### 快捷键操作
-
-按住 Shift 之后用鼠标单击并选中多个点和边。
 
 ## 快速操作
 
 用户可以选择一个或多个点和边，在空白处点击右键可以进行对点进行扩展、查找两个点之间的路径、在页面中显示或隐藏其属性等等的操作。用户选择的点和边数据会影响到可以执行的操作，具体操作的说明参见[图探索拓展](../operation-guide/ex-ug-garph-exploration.md)。
-![quick](../figs/ex-ug-026.png)
+![quick](../figs/ex-ug-026-1.png)
 
 点击适合选中尺寸可以将选中的数据，移动到画布的中心，方便用户查看。
