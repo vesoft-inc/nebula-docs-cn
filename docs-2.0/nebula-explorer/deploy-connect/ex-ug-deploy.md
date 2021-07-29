@@ -30,7 +30,7 @@
    例如，安装 Explorer 需要运行以下命令：
 
    ```bash
-   $ sudo rpm -i nebula-graph-explorer-*.x86_64.rpm
+   $ sudo rpm -i nebula-graph-explorer-<version>.x86_64.rpm
    ```
 
 
@@ -39,7 +39,7 @@
 使用以下的命令卸载 Explorer 。
 
 ```bash
-$ sudo rpm -e nebula-graph-explorer-*.x86_64.rpm
+$ sudo rpm -e nebula-graph-explorer-<version>.x86_64
 ```
 
 ### 异常处理
@@ -86,7 +86,7 @@ $ sudo rpm -e nebula-graph-explorer-*.x86_64.rpm
 2. 使用 `tar -xvf` 解压 tar 包。
 
    ```bash
-   tar -xvf nebula-graph-explorer-*.tar.gz
+   tar -xvf nebula-graph-explorer-<version>.tar.gz
    ```
 
 ### 部署
