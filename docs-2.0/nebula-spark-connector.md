@@ -24,7 +24,7 @@ Nebula Spark Connector适用于以下场景：
 
 - 结合[Nebula Algorithm](nebula-algorithm.md)进行图计算。
 
-## 优势
+## 特性
 
 - 提供多种连接配置项，如超时时间、连接重试次数、执行重试次数等。
 
@@ -35,6 +35,8 @@ Nebula Spark Connector适用于以下场景：
 - Reader支持将Nebula Graph数据读取成Graphx的VertexRDD和EdgeRDD，支持非Long型点ID。
 
 - Nebula Spark Connector 2.0统一了SparkSQL的扩展数据源，统一采用DataSourceV2进行Nebula Graph数据扩展。
+
+- 支持`insert`和`update`两种写入模式。
 
 ## 获取Nebula Spark Connector
 
@@ -132,7 +134,7 @@ val edge = spark.read.nebula(config, nebulaReadEdgeConfig).loadEdgesToDF()
   |`withNoColumn`  |否|  是否不读取属性。默认值为`false`，表示读取属性。取值为`true`时，表示不读取属性，此时`withReturnCols`配置无效。  |
   |`withReturnCols`  |否|  配置要读取的点或边的属性集。格式为`List(property1,property2,...)`，默认值为`List()`，表示读取全部属性。  |
   |`withLimit`  |否|  配置Nebula Java Storage Client一次从服务端读取的数据行数。默认值为1000。  |
-  |`withPartitionNum`  |否|  配置读取Nebula Graph数据时Spark的分区数。默认值为100。该值的配置最好不超过图空间的的分片数量（partition_num）。  |
+  |`withPartitionNum`  |否|  配置读取Nebula Graph数据时Spark的分区数。默认值为100。该值的配置最好不超过图空间的的分片数量（partition_num）。|
 
 ### 向Nebula Graph写入数据
 
@@ -176,6 +178,26 @@ val nebulaWriteEdgeConfig: WriteNebulaEdgeConfig = WriteNebulaEdgeConfig
 df.write.nebula(config, nebulaWriteEdgeConfig).writeEdges()
 ```
 
+默认写入模式为`insert`，可以通过`withWriteMode`配置修改为`update`：
+
+```scala
+val config = NebulaConnectionConfig
+  .builder()
+  .withMetaAddress("127.0.0.1:9559")
+  .withGraphAddress("127.0.0.1:9669")
+  .build()
+val nebulaWriteVertexConfig = WriteNebulaVertexConfig
+  .builder()
+  .withSpace("test")
+  .withTag("person")
+  .withVidField("id")
+  .withVidAsProp(true)
+  .withBatch(1000)
+  .withWriteMode(WriteMode.UPDATE)
+  .build()
+df.write.nebula(config, nebulaWriteVertexConfig).writeVertices()
+```
+
 - `NebulaConnectionConfig`是连接Nebula Graph的配置，说明如下。
 
   |参数|是否必须|说明|
@@ -196,6 +218,7 @@ df.write.nebula(config, nebulaWriteEdgeConfig).writeEdges()
   |`withUser`  |否|  Nebula Graph用户名。若未开启[身份验证](7.data-security/1.authentication/1.authentication.md)，无需配置用户名和密码。   |
   |`withPasswd`  |否|  Nebula Graph用户名对应的密码。  |
   |`withBatch`  |是|  一次写入的数据行数。默认值为`1000`.  |
+  |`withWriteMode`|否|写入模式。可选值为`insert`和`update`。默认为`insert`。|
 
 - `WriteNebulaEdgeConfig`是写入边的配置，说明如下。
 
@@ -214,3 +237,4 @@ df.write.nebula(config, nebulaWriteEdgeConfig).writeEdges()
   |`withUser`  |否|  Nebula Graph用户名。若未开启[身份验证](7.data-security/1.authentication/1.authentication.md)，无需配置用户名和密码。  |
   |`withPasswd`  |否|  Nebula Graph用户名对应的密码。  |
   |`withBatch`  |是|  一次写入的数据行数。默认值为`1000`.  |
+  |`withWriteMode`|否|写入模式。可选值为`insert`和`update`。默认为`insert`。|
