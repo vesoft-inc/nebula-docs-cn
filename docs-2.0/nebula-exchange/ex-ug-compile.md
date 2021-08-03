@@ -4,8 +4,6 @@
 
 ## 准备工作
 
-### 配置Maven
-
 安装[Maven](https://maven.apache.org/download.cgi)，并执行如下操作：
 
 - 修改Maven安装目录下`libexec/conf/settings.xml`文件的`mirror`部分：
