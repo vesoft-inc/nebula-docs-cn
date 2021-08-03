@@ -237,7 +237,7 @@ scala> sql("select playerid, teamid, start_year, end_year from basketball.serve"
         field:playerid
       }
 
-      # 单批次写入 Nebula Graph 的最大点数据量。
+      # 单批次写入 Nebula Graph 的最大数据条数。
       batch: 256
 
       # Spark 分区数量
@@ -297,7 +297,7 @@ scala> sql("select playerid, teamid, start_year, end_year from basketball.serve"
         field: dst_player
       }
 
-      # 单批次写入 Nebula Graph 的最大点数据量。
+      # 单批次写入 Nebula Graph 的最大数据条数。
       batch: 256
 
       # Spark 分区数量

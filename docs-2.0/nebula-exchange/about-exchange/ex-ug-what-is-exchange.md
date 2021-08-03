@@ -60,6 +60,8 @@ Exchange 2.0支持将以下格式或来源的数据转换为Nebula Graph能识�
 
 - 发布/订阅消息平台：[Apache Pulsar 2.4.5](../use-exchange/ex-ug-import-from-pulsar.md)
 
+Exchange 2.1新增支持[ClickHouse](../use-exchange/ex-ug-import-from-clickhouse.md)和[MaxCompute](../use-exchange/ex-ug-import-from-maxcompute.md)，同时兼容以上数据格式和来源。
+
 ## 视频
 
 * [图数据库 Nebula Graph 数据导入工具——Exchange](https://www.bilibili.com/video/BV1Pq4y177D9)（3分08秒）

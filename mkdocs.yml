@@ -334,10 +334,12 @@ nav:
 #      - 导入Parquet文件数据: nebula-exchange/use-exchange/ex-ug-import-from-parquet.md
 #      - 导入HBase数据: nebula-exchange/use-exchange/ex-ug-import-from-hbase.md
 #      - 导入MySQL数据: nebula-exchange/use-exchange/ex-ug-import-from-mysql.md
+#      - 导入ClickHouse数据: nebula-exchange/use-exchange/ex-ug-import-from-clickhouse.md
 #      - 导入Neo4j数据: nebula-exchange/use-exchange/ex-ug-import-from-neo4j.md
 #      - 导入Hive数据: nebula-exchange/use-exchange/ex-ug-import-from-hive.md
 #      - 导入Pulsar数据: nebula-exchange/use-exchange/ex-ug-import-from-pulsar.md
 #      - 导入Kafka数据: nebula-exchange/use-exchange/ex-ug-import-from-kafka.md
+#      - 导入MaxCompute数据: nebula-exchange/use-exchange/ex-ug-import-from-maxcompute.md
 #    - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
 
 #  - Nebula Algorithm: nebula-algorithm.md
