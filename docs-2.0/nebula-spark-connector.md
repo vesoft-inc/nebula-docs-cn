@@ -38,6 +38,10 @@ Nebula Spark Connector适用于以下场景：
 
 - 支持`insert`和`update`两种写入模式。`insert`模式会插入（覆盖）数据，`update`模式仅会更新已存在的数据。
 
+    !!! note
+
+        `update`模式为Nebula Spark Connector 2.1.0版本新增功能。
+
 ## 获取Nebula Spark Connector
 
 ### 编译打包
