@@ -370,7 +370,7 @@ nav:
       - 社区参与: 15.contribution/how-to-contribute.md
 
   - PDF: ./pdf/NebulaGraph-CN.pdf
-
+  - English Docs: https://docs.nebula-graph.io/
 
 #  - 图算法:
 #    - nebula-algorithm:
