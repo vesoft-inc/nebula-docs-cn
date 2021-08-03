@@ -68,9 +68,9 @@
 
 |参数|数据类型|默认值|是否必须|说明|
 |:---|:---|:---|:---|:---|
-|`tags.name`|string|-|是|Nebula Graph中定义的标签名称。|
+|`tags.name`|string|-|是|Nebula Graph中定义的Tag名称。|
 |`tags.type.source`|string|-|是|指定数据源。例如`csv`。|
-|`tags.type.sink`|string|`client`|是|指定导入方式，可选值为`client`和`SST`（暂不支持）。|
+|`tags.type.sink`|string|`client`|是|指定导入方式，可选值为`client`和`SST`（不支持）。|
 |`tags.fields`|list\[string\]|-|是|属性对应的列的表头或列名。如果有表头或列名，请直接使用该名称。如果CSV文件没有表头，用`[_c0, _c1, _c2]`的形式表示第一列、第二列、第三列，以此类推。|
 |`tags.nebula.fields`|list\[string\]|-|是|Nebula Graph中定义的属性名称，顺序必须和`tags.fields`一一对应。例如`[_c1, _c2]`对应`[name, age]`，表示第二列为属性name的值，第三列为属性age的值。|
 |`tags.vertex.field`|string|-|是|点ID的列。例如CSV文件没有表头时，可以用`_c0`表示第一列的值作为点ID。|
@@ -156,9 +156,9 @@
 
 |参数|数据类型|默认值|是否必须|说明|
 |:---|:---|:---|:---|:---|
-|`edges.name`| string|-|是|Nebula Graph中定义的边类型名称。|
+|`edges.name`| string|-|是|Nebula Graph中定义的Edge type名称。|
 |`edges.type.source`|string|-|是|指定数据源。例如`csv`。|
-|`edges.type.sink`|string|`client`|是|指定导入方式，可选值为`client`和`SST`（暂不支持）。|
+|`edges.type.sink`|string|`client`|是|指定导入方式，可选值为`client`和`SST`（不支持）。|
 |`edges.fields`|list\[string\]|-|是|属性对应的列的表头或列名。如果有表头或列名，请直接使用该名称。如果CSV文件没有表头，用`[_c0, _c1, _c2]`的形式表示第一列、第二列、第三列，以此类推。|
 |`edges.nebula.fields`|list\[string\]|-|是|Nebula Graph中定义的属性名称，顺序必须和`edges.fields`一一对应。例如`[_c2, _c3]`对应`[start_year, end_year]`，表示第三列为开始年份的值，第四列为结束年份的值。|
 |`edges.source.field`|string|-|是|边的起始点的列。例如`_c0`表示第一列的值作为边的起始点。|

@@ -4,7 +4,7 @@
 
 Exchange由Reader、Processor和Writer三部分组成。Reader读取不同来源的数据返回DataFrame后，Processor遍历DataFrame的每一行，根据配置文件中`fields`的映射关系，按列名获取对应的值。在遍历指定批处理的行数后，Writer会将获取的数据一次性写入到Nebula Graph中。下图描述了Exchange完成数据转换和迁移的过程。
 
-![Nebula Graph&reg; Exchange 由 Reader、Processor、Writer 组成，可以完成多种不同格式和来源的数据向 Nebula Graph 的迁移](../figs/ex-ug-001.png "Nebula Graph&reg; Exchange 转数据转换和迁移的过程")
+![Nebula Graph&reg; Exchange 由 Reader、Processor、Writer 组成，可以完成多种不同格式和来源的数据向 Nebula Graph 的迁移](../figs/ex-ug-003.png "Nebula Graph&reg; Exchange 转数据转换和迁移的过程")
 
 ## 适用场景
 
@@ -32,7 +32,7 @@ Exchange具有以下优点：
 
 - 异步操作：会在源数据中生成一条插入语句，发送给Graph服务，最后再执行插入操作。
 
-- 灵活性强：支持同时导入多个标签和边类型，不同标签和边类型可以是不同的数据来源或格式。
+- 灵活性强：支持同时导入多个Tag和Edge type，不同Tag和Edge type可以是不同的数据来源或格式。
 
 - 统计功能：使用Apache Spark&trade;中的累加器统计插入操作的成功和失败次数。
 
@@ -42,7 +42,7 @@ Exchange具有以下优点：
 
 Exchange 2.0支持将以下格式或来源的数据转换为Nebula Graph能识别的点和边数据：
 
-- 存储在HDFS的数据，包括：
+- 存储在HDFS或本地的数据，包括：
   - [Apache Parquet](../use-exchange/ex-ug-import-from-parquet.md)
   - [Apache ORC](../use-exchange/ex-ug-import-from-orc.md)
   - [JSON](../use-exchange/ex-ug-import-from-json.md)
@@ -59,3 +59,10 @@ Exchange 2.0支持将以下格式或来源的数据转换为Nebula Graph能识�
 - 流处理软件平台：[Apache Kafka&reg;](../use-exchange/ex-ug-import-from-kafka.md)
 
 - 发布/订阅消息平台：[Apache Pulsar 2.4.5](../use-exchange/ex-ug-import-from-pulsar.md)
+
+Exchange 2.1新增支持[ClickHouse](../use-exchange/ex-ug-import-from-clickhouse.md)和[MaxCompute](../use-exchange/ex-ug-import-from-maxcompute.md)，同时兼容以上数据格式和来源。
+
+## 视频
+
+* [图数据库 Nebula Graph 数据导入工具——Exchange](https://www.bilibili.com/video/BV1Pq4y177D9)（3分08秒）
+<iframe src="//player.bilibili.com/player.html?aid=546003709&bvid=BV1Pq4y177D9&cid=352387808&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>

@@ -12,7 +12,7 @@
 
 - Spark：2.4.7，单机版
 
-- Nebula Graph：2.0.0。使用[Docker Compose部署](../../2.quick-start/2.deploy-nebula-graph-with-docker-compose.md)。
+- Nebula Graph：{{nebula.release}}。使用[Docker Compose部署](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)。
 
 ## 前提条件
 
@@ -24,11 +24,11 @@
 
   - 拥有Nebula Graph写权限的用户名和密码。
 
-- 已经编译Exchange。详情请参见[编译Exchange](../ex-ug-compile.md)。本示例中使用Exchange 2.0。
+- 已经编译Exchange。详情请参见[编译Exchange](../ex-ug-compile.md)。本示例中使用Exchange {{exchange.release}}。
 
 - 已经安装Spark。
 
-- 了解Nebula Graph中创建Schema的信息，包括标签和边类型的名称、属性等。
+- 了解Nebula Graph中创建Schema的信息，包括Tag和Edge type的名称、属性等。
 
 - 已经安装并开启Kafka服务。
 
@@ -42,10 +42,10 @@
 
     | 要素  | 名称 | 属性 |
     | :--- | :--- | :--- |
-    | 标签（Tag） | `player` | `name string, age int` |
-    | 标签（Tag） | `team` | `name string` |
-    | 边类型（Edge Type） | `follow` | `degree int` |
-    | 边类型（Edge Type） | `serve` | `start_year int, end_year int` |
+    | Tag | `player` | `name string, age int` |
+    | Tag | `team` | `name string` |
+    | Edge Type | `follow` | `degree int` |
+    | Edge Type | `serve` | `start_year int, end_year int` |
 
 2. 在Nebula Graph中创建一个图空间**basketballplayer**，并创建一个Schema，如下所示。
 
@@ -59,16 +59,16 @@
     ## 选择图空间basketballplayer
     nebula> USE basketballplayer;
     
-    ## 创建标签player
+    ## 创建Tag player
     nebula> CREATE TAG player(name string, age int);
     
-    ## 创建标签team
+    ## 创建Tag team
     nebula> CREATE TAG team(name string);
     
-    ## 创建边类型follow
+    ## 创建Edge type follow
     nebula> CREATE EDGE follow(degree int);
 
-    ## 创建边类型serve
+    ## 创建Edge type serve
     nebula> CREATE EDGE serve(start_year int, end_year int);
     ```
 
@@ -83,7 +83,7 @@
   # Spark相关配置
   spark: {
     app: {
-      name: Nebula Exchange 2.0
+      name: Nebula Exchange {{exchange.release}}
     }
     driver: {
       cores: 1
@@ -127,9 +127,9 @@
   }
   # 处理点
   tags: [
-    # 设置标签player相关信息。
+    # 设置Tag player相关信息。
     {
-      # Nebula Graph中对应的标签名称。
+      # Nebula Graph中对应的Tag名称。
       name: player
       type: {
         # 指定数据源文件格式，设置为Kafka。
@@ -154,7 +154,7 @@
       }
 
 
-      # 单次写入 Nebula Graph 的最大点数据量。
+      # 单次写入 Nebula Graph 的最大数据条数。
       batch: 10
 
       # Spark 分区数量
@@ -162,7 +162,7 @@
       # 读取消息的间隔。单位：秒。
       interval.seconds: 10
     }
-    # 设置标签team相关信息。
+    # 设置Tag team相关信息。
     {
       name: team
       type: {
@@ -185,9 +185,9 @@
 
   # 处理边数据
   edges: [
-    # 设置边类型follow相关信息
+    # 设置Edge type follow相关信息
     {
-      # Nebula Graph中对应的边类型名称。
+      # Nebula Graph中对应的Edge type名称。
       name: follow
 
       type: {
@@ -222,7 +222,7 @@
       }
 
 
-      # 单次写入 Nebula Graph 的最大点数据量。
+      # 单次写入 Nebula Graph 的最大数据条数。
       batch: 10
 
       # Spark 分区数量
@@ -232,7 +232,7 @@
       interval.seconds: 10
     }
 
-    # 设置边类型serve相关信息
+    # 设置Edge type serve相关信息
     {
       name: serve
       type: {
@@ -265,7 +265,7 @@
 运行如下命令将Kafka数据导入到Nebula Graph中。关于参数的说明，请参见[导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-2.0.0.jar_path> -c <kafka_application.conf_path>
+${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-{{exchange.release}}.jar_path> -c <kafka_application.conf_path>
 ```
 
 !!! note
@@ -275,7 +275,7 @@ ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchan
 示例：
 
 ```bash
-${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-spark-utils/nebula-exchange/target/nebula-exchange-2.0.0.jar  -c /root/nebula-spark-utils/nebula-exchange/target/classes/kafka_application.conf
+${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-spark-utils/nebula-exchange/target/nebula-exchange-{{exchange.release}}.jar  -c /root/nebula-spark-utils/nebula-exchange/target/classes/kafka_application.conf
 ```
 
 用户可以在返回信息中搜索`batchSuccess.<tag_name/edge_name>`，确认成功的数量。例如`batchSuccess.follow: 300`。

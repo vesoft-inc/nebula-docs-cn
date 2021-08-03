@@ -1,6 +1,6 @@
 # 导入Parquet文件数据
 
-本文以一个示例说明如何使用Exchange将存储在HDFS上的Parquet文件数据导入Nebula Graph。
+本文以一个示例说明如何使用Exchange将存储在HDFS或本地的Parquet文件数据导入Nebula Graph。
 
 如果要向Nebula Graph导入本地Parquet文件，请参见[Nebula Importer](https://github.com/vesoft-inc/nebula-importer "Click to go to GitHub")。
 
@@ -20,25 +20,27 @@
 
 - Hadoop：2.9.2 伪分布式部署
 
-- Nebula Graph：2.0.0。使用[Docker Compose部署](../../2.quick-start/2.deploy-nebula-graph-with-docker-compose.md)。
+- Nebula Graph：{{nebula.release}}。使用[Docker Compose部署](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)。
 
 ## 前提条件
 
 开始导入数据之前，用户需要确认以下信息：
 
-- 已经[安装部署Nebula Graph](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)并获取如下信息：
+- 已经[安装部署Nebula Graph](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md并获取如下信息：
 
   - Graph服务和Meta服务的的IP地址和端口。
 
   - 拥有Nebula Graph写权限的用户名和密码。
 
-- 已经编译Exchange。详情请参见[编译Exchange](../ex-ug-compile.md)。本示例中使用Exchange 2.0。
+- 已经编译Exchange。详情请参见[编译Exchange](../ex-ug-compile.md)。本示例中使用Exchange {{exchange.release}}。
 
 - 已经安装Spark。
 
-- 了解Nebula Graph中创建Schema的信息，包括标签和边类型的名称、属性等。
+- 了解Nebula Graph中创建Schema的信息，包括Tag和Edge type的名称、属性等。
 
-- 已经安装并开启Hadoop服务。
+- 如果文件存储在HDFS上，需要确认Hadoop服务运行正常。
+
+- 如果文件存储在本地且Nebula Graph是集群架构，需要在集群每台机器本地相同目录下放置文件。
 
 ## 操作步骤
 
@@ -50,10 +52,10 @@
 
     | 要素  | 名称 | 属性 |
     | :--- | :--- | :--- |
-    | 标签（Tag） | `player` | `name string, age int` |
-    | 标签（Tag） | `team` | `name string` |
-    | 边类型（Edge Type） | `follow` | `degree int` |
-    | 边类型（Edge Type） | `serve` | `start_year int, end_year int` |
+    | Tag | `player` | `name string, age int` |
+    | Tag | `team` | `name string` |
+    | Edge Type | `follow` | `degree int` |
+    | Edge Type | `serve` | `start_year int, end_year int` |
 
 2. 使用Nebula Console创建一个图空间**basketballplayer**，并创建一个Schema，如下所示。
 
@@ -67,16 +69,16 @@
     ## 选择图空间basketballplayer
     nebula> USE basketballplayer;
     
-    ## 创建标签player
+    ## 创建Tag player
     nebula> CREATE TAG player(name string, age int);
     
-    ## 创建标签team
+    ## 创建Tag team
     nebula> CREATE TAG team(name string);
     
-    ## 创建边类型follow
+    ## 创建Edge type follow
     nebula> CREATE EDGE follow(degree int);
 
-    ## 创建边类型serve
+    ## 创建Edge type serve
     nebula> CREATE EDGE serve(start_year int, end_year int);
     ```
 
@@ -88,7 +90,7 @@
 
 1. 处理Parquet文件以满足Schema的要求。
 
-2. Parquet文件必须存储在HDFS中，并已获取文件存储路径。
+2. 获取Parquet文件存储路径。
 
 ### 步骤 3：修改配置文件
 
@@ -99,7 +101,7 @@
   # Spark相关配置
   spark: {
     app: {
-      name: Nebula Exchange 2.0
+      name: Nebula Exchange {{exchange.release}}
     }
     driver: {
       cores: 1
@@ -149,9 +151,9 @@
 
   # 处理点
   tags: [
-    # 设置标签player相关信息。
+    # 设置Tag player相关信息。
     {
-      # 指定Nebula Graph中定义的标签名称。
+      # 指定Nebula Graph中定义的Tag名称。
       name: player
       type: {
         # 指定数据源，使用Parquet。
@@ -161,9 +163,10 @@
         sink: client
       }
 
-      # 指定Parquet文件的HDFS路径。
-      # 用双引号括起路径，以hdfs://开头。
-      path: "hdfs://192.168.*.*9000/data/vertex_player.parquet"
+      # 指定Parquet文件的路径。
+      # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
+      path: "hdfs://192.168.11.139000/data/vertex_player.parquet"
 
       # 在fields里指定Parquet文件中key名称，其对应的value会作为Nebula Graph中指定属性的数据源。
       # 如果需要指定多个值，用英文逗号（,）隔开。
@@ -175,7 +178,7 @@
 
       # 指定一个列作为VID的源。
       # vertex的值必须与Parquet文件中的字段保持一致。
-      # 目前，Nebula Graph 2.0.0仅支持字符串或整数类型的VID。
+      # 目前，Nebula Graph {{nebula.release}}仅支持字符串或整数类型的VID。
       # 不要使用vertex.policy映射。
       vertex: {
         field:id
@@ -188,9 +191,9 @@
       partition: 32
     }
 
-    # 设置标签team相关信息。
+    # 设置Tag team相关信息。
     {
-      # 指定Nebula Graph中定义的标签名称。
+      # 指定Nebula Graph中定义的Tag名称。
       name: team
       type: {
         # 指定数据源，使用Parquet。
@@ -200,9 +203,10 @@
         sink: client
       }
 
-      # 指定Parquet文件的HDFS路径。
-      # 用双引号括起路径，以hdfs://开头。
-      path: "hdfs://192.168.*.*:9000/data/vertex_team.parquet"
+      # 指定Parquet文件的路径。
+      # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
+      path: "hdfs://192.168.11.13:9000/data/vertex_team.parquet"
 
       # 在fields里指定Parquet文件中key名称，其对应的value会作为Nebula Graph中指定属性的数据源。
       # 如果需要指定多个值，用英文逗号（,）隔开。
@@ -214,7 +218,7 @@
 
       # 指定一个列作为VID的源。
       # vertex的值必须与Parquet文件中的字段保持一致。
-      # 目前，Nebula Graph 2.0.0仅支持字符串或整数类型的VID。
+      # 目前，Nebula Graph {{nebula.release}}仅支持字符串或整数类型的VID。
       # 不要使用vertex.policy映射。
       vertex: {
         field:id
@@ -233,9 +237,9 @@
   ]
   # 处理边
   edges: [
-    # 设置边类型follow相关信息。
+    # 设置Edge type follow相关信息。
     {
-      # 指定Nebula Graph中定义的边类型名称。
+      # 指定Nebula Graph中定义的Edge type名称。
       name: follow
       type: {
         # 指定数据源，使用Parquet。
@@ -245,9 +249,10 @@
         sink: client
       }
 
-      # 指定Parquet文件的HDFS路径。
-      # 用双引号括起路径，以hdfs://开头。
-      path: "hdfs://192.168.*.*:9000/data/edge_follow.parquet"
+      # 指定Parquet文件的路径。
+      # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
+      path: "hdfs://192.168.11.13:9000/data/edge_follow.parquet"
 
       # 在fields里指定Parquet文件中key名称，其对应的value会作为Nebula Graph中指定属性的数据源。
       # 如果需要指定多个值，用英文逗号（,）隔开。
@@ -259,7 +264,7 @@
 
       # 指定一个列作为起始点和目的点的源。
       # vertex的值必须与Parquet文件中的字段保持一致。
-      # 目前，Nebula Graph 2.0.0仅支持字符串或整数类型的VID。
+      # 目前，Nebula Graph {{nebula.release}}仅支持字符串或整数类型的VID。
       # 不要使用vertex.policy映射。
       source: {
         field: src
@@ -279,9 +284,9 @@
       partition: 32
     }
 
-    # 设置边类型serve相关信息。
+    # 设置Edge type serve相关信息。
     {
-      # 指定Nebula Graph中定义的边类型名称。
+      # 指定Nebula Graph中定义的Edge type名称。
       name: serve
       type: {
         # 指定数据源，使用Parquet。
@@ -291,9 +296,10 @@
         sink: client
       }
 
-      # 指定Parquet文件的HDFS路径。
-      # 用双引号括起路径，以hdfs://开头。
-      path: "hdfs://192.168.*.*:9000/data/edge_serve.parquet"
+      # 指定Parquet文件的路径。
+      # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
+      path: "hdfs://192.168.11.13:9000/data/edge_serve.parquet"
 
       # 在fields里指定Parquet文件中key名称，其对应的value会作为Nebula Graph中指定属性的数据源。
       # 如果需要指定多个值，用英文逗号（,）隔开。
@@ -305,7 +311,7 @@
 
       # 指定一个列作为起始点和目的点的源。
       # vertex的值必须与Parquet文件中的字段保持一致。
-      # 目前，Nebula Graph 2.0.0仅支持字符串或整数类型的VID。
+      # 目前，Nebula Graph {{nebula.release}}仅支持字符串或整数类型的VID。
       # 不要使用vertex.policy映射。
       source: {
         field: src
@@ -336,7 +342,7 @@
 运行如下命令将Parquet文件数据导入到Nebula Graph中。关于参数的说明，请参见[导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-2.0.0.jar_path> -c <parquet_application.conf_path> 
+${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-{{exchange.release}}.jar_path> -c <parquet_application.conf_path> 
 ```
 
 !!! note
@@ -346,7 +352,7 @@ ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchan
 示例：
 
 ```bash
-${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-spark-utils/nebula-exchange/target/nebula-exchange-2.0.0.jar  -c /root/nebula-spark-utils/nebula-exchange/target/classes/parquet_application.conf
+${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-spark-utils/nebula-exchange/target/nebula-exchange-{{exchange.release}}.jar  -c /root/nebula-spark-utils/nebula-exchange/target/classes/parquet_application.conf
 ```
 
 用户可以在返回信息中搜索`batchSuccess.<tag_name/edge_name>`，确认成功的数量。例如`batchSuccess.follow: 300`。

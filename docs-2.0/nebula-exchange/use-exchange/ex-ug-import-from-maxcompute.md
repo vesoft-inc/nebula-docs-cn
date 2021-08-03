@@ -1,47 +1,10 @@
-# 导入HBase数据
+# 导入MaxCompute数据
 
-本文以一个示例说明如何使用Exchange将存储在HBase上的数据导入Nebula Graph。
+本文以一个示例说明如何使用Exchange将存储在MaxCompute上的数据导入Nebula Graph。
 
 ## 数据集
 
 本文以[basketballplayer数据集](https://docs-cdn.nebula-graph.com.cn/dataset/dataset.zip)为例。
-
-在本示例中，该数据集已经存入HBase中，以`player`、`team`、`follow`和`serve`四个表存储了所有点和边的信息。以下为各个表的部分数据。
-
-```sql
-hbase(main):002:0> scan "player"
-ROW                                COLUMN+CELL
- player100                         column=cf:age, timestamp=1618881347530, value=42
- player100                         column=cf:name, timestamp=1618881354604, value=Tim Duncan
- player101                         column=cf:age, timestamp=1618881369124, value=36
- player101                         column=cf:name, timestamp=1618881379102, value=Tony Parker
- player102                         column=cf:age, timestamp=1618881386987, value=33
- player102                         column=cf:name, timestamp=1618881393370, value=LaMarcus Aldridge
- player103                         column=cf:age, timestamp=1618881402002, value=32
- player103                         column=cf:name, timestamp=1618881407882, value=Rudy Gay
- ...
-
-hbase(main):003:0> scan "team"
-ROW                                COLUMN+CELL
- team200                           column=cf:name, timestamp=1618881445563, value=Warriors
- team201                           column=cf:name, timestamp=1618881453636, value=Nuggets
- ...
-
-hbase(main):004:0> scan "follow"
-ROW                                COLUMN+CELL
- player100                         column=cf:degree, timestamp=1618881804853, value=95
- player100                         column=cf:dst_player, timestamp=1618881791522, value=player101
- player101                         column=cf:degree, timestamp=1618881824685, value=90
- player101                         column=cf:dst_player, timestamp=1618881816042, value=player102
- ...
-
-hbase(main):005:0> scan "serve"
-ROW                                COLUMN+CELL
- player100                         column=cf:end_year, timestamp=1618881899333, value=2016
- player100                         column=cf:start_year, timestamp=1618881890117, value=1997
- player100                         column=cf:teamid, timestamp=1618881875739, value=team204
- ...
-```
 
 ## 环境配置
 
@@ -55,7 +18,7 @@ ROW                                COLUMN+CELL
 
 - Hadoop：2.9.2，伪分布式部署
 
-- HBase：2.2.7
+- MaxCompute：阿里云官方版本
 
 - Nebula Graph：{{nebula.release}}。使用[Docker Compose部署](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)。
 
@@ -121,7 +84,7 @@ ROW                                COLUMN+CELL
 
 ### 步骤 2：修改配置文件
 
-编译Exchange后，复制`target/classes/application.conf`文件设置HBase数据源相关的配置。在本示例中，复制的文件名为`hbase_application.conf`。各个配置项的详细说明请参见[配置说明](../parameter-reference/ex-ug-parameter.md)。
+编译Exchange后，复制`target/classes/application.conf`文件设置MaxCompute数据源相关的配置。在本示例中，复制的文件名为`maxcompute_application.conf`。各个配置项的详细说明请参见[配置说明](../parameter-reference/ex-ug-parameter.md)。
 
 ```conf
 {
@@ -139,8 +102,7 @@ ROW                                COLUMN+CELL
     }
   }
 
-
-  # Nebula Graph相关配置
+# Nebula Graph相关配置
   nebula: {
     address:{
       # 以下为Nebula Graph的Graph服务和Meta服务所在机器的IP地址及端口。
@@ -172,34 +134,48 @@ ROW                                COLUMN+CELL
   }
   # 处理点
   tags: [
-    # 设置Tag player相关信息。
-    # 如果需要将rowkey设置为数据源，请填写“rowkey”,列族内的列请填写实际列名。
+    # 设置Tag player相关信息
     {
-      # Nebula Graph中对应的Tag名称。
       name: player
       type: {
-        # 指定数据源文件格式，设置为HBase。
-        source: hbase
+        # 指定数据源文件格式，设置为MaxCompute。
+        source: maxcompute
         # 指定如何将点数据导入Nebula Graph：Client或SST。
         sink: client
       }
-      host:192.168.11.13
-      port:2181
-      table:"player"
-      columnFamily:"cf"
+      
+      # MaxCompute的表名
+      table:player
+
+      # MaxCompute的项目名
+      project:project
+
+      # MaxCompute服务的odpsUrl和tunnelUrl，
+      # 地址可在 https://help.aliyun.com/document_detail/34951.html 查看。
+      odpsUrl:"http://service.cn-hangzhou.maxcompute.aliyun.com/api"
+      tunnelUrl:"http://dt.cn-hangzhou.maxcompute.aliyun.com"
+
+      # MaxCompute服务的accessKeyId和accessKeySecret。
+      accessKeyId:xxx
+      accessKeySecret:xxx
+
+      # MaxCompute表的分区描述，该配置可选。
+      partitionSpec:"dt='partition1'"
+
+      # 请确保SQL语句中的表名和上方table的值相同，该配置可选。 
+      sentence:"select id, name, age, playerid from player where id < 10"
 
       # 在fields里指定player表中的列名称，其对应的value会作为Nebula Graph中指定属性。
       # fields和nebula.fields里的配置必须一一对应。
       # 如果需要指定多个列名称，用英文逗号（,）隔开。
-      fields: [age,name]
-      nebula.fields: [age,name]
+      fields:[name, age]
+      nebula.fields:[name, age]
 
       # 指定表中某一列数据为Nebula Graph中点VID的来源。
-      # 例如rowkey作为VID的来源，请填写“rowkey”。
+      # vertex.field的值必须与上述fields中的列名保持一致。
       vertex:{
-          field:rowkey
+        field: playerid
       }
-
 
       # 单次写入 Nebula Graph 的最大数据条数。
       batch: 256
@@ -207,26 +183,30 @@ ROW                                COLUMN+CELL
       # Spark 分区数量
       partition: 32
     }
+
     # 设置Tag team相关信息。
     {
       name: team
       type: {
-        source: hbase
+        source: maxcompute
         sink: client
       }
-      host:192.168.11.13
-      port:2181
-      table:"team"
-      columnFamily:"cf"
-      fields: [name]
-      nebula.fields: [name]
+      table:team
+      project:project
+      odpsUrl:"http://service.cn-hangzhou.maxcompute.aliyun.com/api"
+      tunnelUrl:"http://dt.cn-hangzhou.maxcompute.aliyun.com"
+      accessKeyId:xxx
+      accessKeySecret:xxx
+      partitionSpec:"dt='partition1'"
+      sentence:"select id, name, teamid from team where id < 10"
+      fields:[name]
+      nebula.fields:[name]
       vertex:{
-          field:rowkey
+        field: teamid
       }
       batch: 256
       partition: 32
     }
-
   ]
 
   # 处理边数据
@@ -236,69 +216,84 @@ ROW                                COLUMN+CELL
       # Nebula Graph中对应的Edge type名称。
       name: follow
 
-      type: {
-        # 指定数据源文件格式，设置为HBase。
-        source: hbase
+      type:{
+        # 指定数据源文件格式，设置为MaxCompute。
+        source:maxcompute
 
         # 指定边数据导入Nebula Graph的方式，
         # 指定如何将点数据导入Nebula Graph：Client或SST。
-        sink: client
+        sink:client
       }
+      
+      # MaxCompute的表名
+      table:follow
 
-      host:192.168.11.13
-      port:2181
-      table:"follow"
-      columnFamily:"cf"
+      # MaxCompute的项目名
+      project:project
+
+      # MaxCompute服务的odpsUrl和tunnelUrl，
+      # 地址可在 https://help.aliyun.com/document_detail/34951.html 查看。
+      odpsUrl:"http://service.cn-hangzhou.maxcompute.aliyun.com/api"
+      tunnelUrl:"http://dt.cn-hangzhou.maxcompute.aliyun.com"
+
+      # MaxCompute服务的accessKeyId和accessKeySecret。
+      accessKeyId:xxx
+      accessKeySecret:xxx
+
+      # MaxCompute表的分区描述，该配置可选。
+      partitionSpec:"dt='partition1'"
+
+      # 请确保SQL语句中的表名和上方table的值相同，该配置可选。 
+      sentence:"select * from follow"
 
       # 在fields里指定follow表中的列名称，其对应的value会作为Nebula Graph中指定属性。
       # fields和nebula.fields里的配置必须一一对应。
       # 如果需要指定多个列名称，用英文逗号（,）隔开。
-      fields: [degree]
-      nebula.fields: [degree]
+      fields:[degree]
+      nebula.fields:[degree]
 
-      # 在source里，将follow表中某一列作为边的起始点数据源。示例使用rowkey。
-      # 在target里，将follow表中某一列作为边的目的点数据源。示例使用列dst_player。
+      # 在source里，将follow表中某一列作为边的起始点数据源。
       source:{
-          field:rowkey
+        field: src_player
       }
 
-
+      # 在target里，将follow表中某一列作为边的目的点数据源。
       target:{
-          field:dst_player
+        field: dst_player
       }
-
-
-      # 单次写入 Nebula Graph 的最大数据条数。
-      batch: 256
 
       # Spark 分区数量
-      partition: 32
-    }
+      partition:10
 
+      # 单次写入 Nebula Graph 的最大数据条数。
+      batch:10
+    }
+    
     # 设置Edge type serve相关信息
     {
       name: serve
-      type: {
-        source: hbase
-        sink: client
+      type:{
+        source:maxcompute
+        sink:client
       }
-      host:192.168.11.13
-      port:2181
-      table:"serve"
-      columnFamily:"cf"
-
-      fields: [start_year,end_year]
-      nebula.fields: [start_year,end_year]
+      table:serve
+      project:project
+      odpsUrl:"http://service.cn-hangzhou.maxcompute.aliyun.com/api"
+      tunnelUrl:"http://dt.cn-hangzhou.maxcompute.aliyun.com"
+      accessKeyId:xxx
+      accessKeySecret:xxx
+      partitionSpec:"dt='partition1'"
+      sentence:"select * from serve"
+      fields:[start_year,end_year]
+      nebula.fields:[start_year,end_year]
       source:{
-          field:rowkey
+        field: playerid
       }
-
       target:{
-          field:teamid
+        field: teamid
       }
-
-      batch: 256
-      partition: 32
+      partition:10
+      batch:10
     }
   ]
 }
@@ -306,10 +301,10 @@ ROW                                COLUMN+CELL
 
 ### 步骤 3：向Nebula Graph导入数据
 
-运行如下命令将HBase数据导入到Nebula Graph中。关于参数的说明，请参见[导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
+运行如下命令将MaxCompute数据导入到Nebula Graph中。关于参数的说明，请参见[导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-{{exchange.release}}.jar_path> -c <hbase_application.conf_path>
+${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-{{exchange.release}}.jar_path> -c <maxcompute_application.conf_path>
 ```
 
 !!! note
@@ -319,7 +314,7 @@ ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchan
 示例：
 
 ```bash
-${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-spark-utils/nebula-exchange/target/nebula-exchange-{{exchange.release}}.jar  -c /root/nebula-spark-utils/nebula-exchange/target/classes/hbase_application.conf
+${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-spark-utils/nebula-exchange/target/nebula-exchange-{{exchange.release}}.jar  -c /root/nebula-spark-utils/nebula-exchange/target/classes/maxcompute_application.conf
 ```
 
 用户可以在返回信息中搜索`batchSuccess.<tag_name/edge_name>`，确认成功的数量。例如`batchSuccess.follow: 300`。

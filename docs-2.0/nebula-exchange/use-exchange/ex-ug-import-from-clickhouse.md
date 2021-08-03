@@ -1,52 +1,10 @@
-# 导入Hive数据
+# 导入ClickHouse数据
 
-本文以一个示例说明如何使用Exchange将存储在Hive上的数据导入Nebula Graph。
+本文以一个示例说明如何使用Exchange将存储在ClickHouse上的数据导入Nebula Graph。
 
 ## 数据集
 
 本文以[basketballplayer数据集](https://docs-cdn.nebula-graph.com.cn/dataset/dataset.zip)为例。
-
-在本示例中，该数据集已经存入Hive中名为`basketball`的数据库中，以`player`、`team`、`follow`和`serve`四个表存储了所有点和边的信息。以下为各个表的结构。
-
-```sql
-scala> spark.sql("describe basketball.player").show
-+--------+---------+-------+
-|col_name|data_type|comment|
-+--------+---------+-------+
-|playerid|   string|   null|
-|     age|   bigint|   null|
-|    name|   string|   null|
-+--------+---------+-------+
-
-scala> spark.sql("describe basketball.team").show
-+----------+---------+-------+
-|  col_name|data_type|comment|
-+----------+---------+-------+
-|    teamid|   string|   null|
-|      name|   string|   null|
-+----------+---------+-------+
-
-scala> spark.sql("describe basketball.follow").show
-+----------+---------+-------+
-|  col_name|data_type|comment|
-+----------+---------+-------+
-|src_player|   string|   null|
-|dst_player|   string|   null|
-|    degree|   bigint|   null|
-+----------+---------+-------+
-
-scala> spark.sql("describe basketball.serve").show
-+----------+---------+-------+
-|  col_name|data_type|comment|
-+----------+---------+-------+
-|  playerid|   string|   null|
-|    teamid|   string|   null|
-|start_year|   bigint|   null|
-|  end_year|   bigint|   null|
-+----------+---------+-------+
-```
-
-> **说明**：Hive的数据类型`bigint`与Nebula Graph的`int`对应。
 
 ## 环境配置
 
@@ -60,7 +18,7 @@ scala> spark.sql("describe basketball.serve").show
 
 - Hadoop：2.9.2，伪分布式部署
 
-- Hive：2.3.7，Hive Metastore 数据库为 MySQL 8.0.22
+- ClickHouse：docker部署yandex/clickhouse-server tag: latest(2021.07.01)
 
 - Nebula Graph：{{nebula.release}}。使用[Docker Compose部署](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)。
 
@@ -80,7 +38,7 @@ scala> spark.sql("describe basketball.serve").show
 
 - 了解Nebula Graph中创建Schema的信息，包括Tag和Edge type的名称、属性等。
 
-- 已经安装并开启Hadoop服务，并已启动Hive Metastore数据库（本示例中为 MySQL）。
+- 已经安装并开启Hadoop服务。
 
 ## 操作步骤
 
@@ -124,35 +82,9 @@ scala> spark.sql("describe basketball.serve").show
 
 更多信息，请参见[快速开始](../../2.quick-start/1.quick-start-workflow.md)。
 
-### 步骤 2：使用Spark SQL确认Hive SQL语句
+### 步骤 2：修改配置文件
 
-启动spark-shell环境后，依次运行以下语句，确认Spark能读取Hive中的数据。
-
-```sql
-scala> sql("select playerid, age, name from basketball.player").show
-scala> sql("select teamid, name from basketball.team").show
-scala> sql("select src_player, dst_player, degree from basketball.follow").show
-scala> sql("select playerid, teamid, start_year, end_year from basketball.serve").show
-```
-
-以下为表`basketball.player`中读出的结果。
-
-```mysql
-+---------+----+-----------------+
-| playerid| age|             name|
-+---------+----+-----------------+
-|player100|  42|       Tim Duncan|
-|player101|  36|      Tony Parker|
-|player102|  33|LaMarcus Aldridge|
-|player103|  32|         Rudy Gay|
-|player104|  32|  Marco Belinelli|
-+---------+----+-----------------+
-...
-```
-
-### 步骤 3：修改配置文件
-
-编译Exchange后，复制`target/classes/application.conf`文件设置Hive数据源相关的配置。在本示例中，复制的文件名为`hive_application.conf`。各个配置项的详细说明请参见[配置说明](../parameter-reference/ex-ug-parameter.md)。
+编译Exchange后，复制`target/classes/application.conf`文件设置ClickHouse数据源相关的配置。在本示例中，复制的文件名为`clickhouse_application.conf`。各个配置项的详细说明请参见[配置说明](../parameter-reference/ex-ug-parameter.md)。
 
 ```conf
 {
@@ -170,19 +102,10 @@ scala> sql("select playerid, teamid, start_year, end_year from basketball.serve"
     }
   }
 
-  # 如果Spark和Hive部署在不同集群，才需要配置连接Hive的参数，否则请忽略这些配置。
-  #hive: {
-  #  waredir: "hdfs://NAMENODE_IP:9000/apps/svr/hive-xxx/warehouse/"
-  #  connectionURL: "jdbc:mysql://your_ip:3306/hive_spark?characterEncoding=UTF-8"
-  #  connectionDriverName: "com.mysql.jdbc.Driver"
-  #  connectionUserName: "user"
-  #  connectionPassword: "password"
-  #}
-
-  # Nebula Graph相关配置
+# Nebula Graph相关配置
   nebula: {
     address:{
-      # 以下为Nebula Graph的Graph服务和所有Meta服务所在机器的IP地址及端口。
+      # 以下为Nebula Graph的Graph服务和Meta服务所在机器的IP地址及端口。
       # 如果有多个地址，格式为 "ip1:port","ip2:port","ip3:port"。
       # 不同地址之间以英文逗号 (,) 隔开。
       graph:["127.0.0.1:9669"]
@@ -213,53 +136,64 @@ scala> sql("select playerid, teamid, start_year, end_year from basketball.serve"
   tags: [
     # 设置Tag player相关信息。
     {
-      # Nebula Graph中对应的Tag名称。
       name: player
       type: {
-        # 指定数据源文件格式，设置为hive。
-        source: hive
+        # 指定数据源文件格式，设置为ClickHouse。
+        source: clickhouse
         # 指定如何将点数据导入Nebula Graph：Client或SST。
         sink: client
       }
 
-      # 设置读取数据库basketball中player表数据的SQL语句
-      exec: "select playerid, age, name from basketball.player"
+      # ClickHouse的JDBC URL
+      url:"jdbc:clickhouse://192.168.*.*:8123/basketballplayer"
+
+      user:"user"
+      password:"123456"
+
+      # ClickHouse分区数
+      numPartition:"5"
+
+      sentence:"select * from player"
 
       # 在fields里指定player表中的列名称，其对应的value会作为Nebula Graph中指定属性。
       # fields和nebula.fields里的配置必须一一对应。
       # 如果需要指定多个列名称，用英文逗号（,）隔开。
-      fields: [age,name]
-      nebula.fields: [age,name]
+      fields: [name,age]
+      nebula.fields: [name,age]
 
       # 指定表中某一列数据为Nebula Graph中点VID的来源。
       # vertex.field的值必须与上述fields中的列名保持一致。
-      vertex:{
+      vertex: {
         field:playerid
       }
 
-      # 单批次写入 Nebula Graph 的最大数据条数。
+      # 单次写入 Nebula Graph 的最大数据条数。
       batch: 256
 
       # Spark 分区数量
       partition: 32
     }
+
     # 设置Tag team相关信息。
     {
       name: team
       type: {
-        source: hive
+        source: clickhouse
         sink: client
       }
-      exec: "select teamid, name from basketball.team"
+      url:"jdbc:clickhouse://192.168.*.*:8123/basketballplayer"
+      user:"user"
+      password:"123456"
+      numPartition:"5"
+      sentence:"select * from team"
       fields: [name]
       nebula.fields: [name]
       vertex: {
-        field: teamid
+        field:teamid
       }
       batch: 256
       partition: 32
     }
-
   ]
 
   # 处理边数据
@@ -270,16 +204,24 @@ scala> sql("select playerid, teamid, start_year, end_year from basketball.serve"
       name: follow
 
       type: {
-        # 指定数据源文件格式，设置为hive。
-        source: hive
+        # 指定数据源文件格式，设置为ClickHouse。
+        source: clickhouse
 
         # 指定边数据导入Nebula Graph的方式，
         # 指定如何将点数据导入Nebula Graph：Client或SST。
         sink: client
       }
+      
+      # ClickHouse的JDBC URL
+      url:"jdbc:clickhouse://192.168.*.*:8123/basketballplayer"
 
-      # 设置读取数据库basketball中follow表数据的SQL语句。
-      exec: "select src_player, dst_player, degree from basketball.follow"
+      user:"user"
+      password:"123456"
+
+      # ClickHouse分区数
+      numPartition:"5"
+
+      sentence:"select * from follow"
 
       # 在fields里指定follow表中的列名称，其对应的value会作为Nebula Graph中指定属性。
       # fields和nebula.fields里的配置必须一一对应。
@@ -288,37 +230,41 @@ scala> sql("select playerid, teamid, start_year, end_year from basketball.serve"
       nebula.fields: [degree]
 
       # 在source里，将follow表中某一列作为边的起始点数据源。
-      # 在target里，将follow表中某一列作为边的目的点数据源。
       source: {
-        field: src_player
+        field:src_player
       }
 
+      # 在target里，将follow表中某一列作为边的目的点数据源。
       target: {
-        field: dst_player
+        field:dst_player
       }
 
-      # 单批次写入 Nebula Graph 的最大数据条数。
+      # 单次写入 Nebula Graph 的最大数据条数。
       batch: 256
 
       # Spark 分区数量
       partition: 32
     }
-
+    
     # 设置Edge type serve相关信息
     {
       name: serve
       type: {
-        source: hive
+        source: clickhouse
         sink: client
       }
-      exec: "select playerid, teamid, start_year, end_year from basketball.serve"
+      url:"jdbc:clickhouse://192.168.*.*:8123/basketballplayer"
+      user:"user"
+      password:"123456"
+      numPartition:"5"
+      sentence:"select * from serve"
       fields: [start_year,end_year]
       nebula.fields: [start_year,end_year]
       source: {
-        field: playerid
+        field:playerid
       }
       target: {
-        field: teamid
+        field:teamid
       }
       batch: 256
       partition: 32
@@ -327,12 +273,12 @@ scala> sql("select playerid, teamid, start_year, end_year from basketball.serve"
 }
 ```
 
-### 步骤 4：向Nebula Graph导入数据
+### 步骤 3：向Nebula Graph导入数据
 
-运行如下命令将Hive数据导入到Nebula Graph中。关于参数的说明，请参见[导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
+运行如下命令将ClickHouse数据导入到Nebula Graph中。关于参数的说明，请参见[导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-{{exchange.release}}.jar_path> -c <hive_application.conf_path> -h
+${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-{{exchange.release}}.jar_path> -c <clickhouse_application.conf_path>
 ```
 
 !!! note
@@ -342,12 +288,12 @@ ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchan
 示例：
 
 ```bash
-${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-spark-utils/nebula-exchange/target/nebula-exchange-{{exchange.release}}.jar  -c /root/nebula-spark-utils/nebula-exchange/target/classes/hive_application.conf -h
+${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-spark-utils/nebula-exchange/target/nebula-exchange-{{exchange.release}}.jar  -c /root/nebula-spark-utils/nebula-exchange/target/classes/clickhouse_application.conf
 ```
 
 用户可以在返回信息中搜索`batchSuccess.<tag_name/edge_name>`，确认成功的数量。例如`batchSuccess.follow: 300`。
 
-### 步骤 5：（可选）验证数据
+### 步骤 4：（可选）验证数据
 
 用户可以在Nebula Graph客户端（例如Nebula Graph Studio）中执行查询语句，确认数据是否已导入。例如：
 
@@ -355,8 +301,8 @@ ${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.excha
 GO FROM "player100" OVER follow;
 ```
 
-用户也可以使用命令[`SHOW STATS`](../../3.ngql-guide/7.general-query-statements/6.show/14.show-stats/)查看统计数据。
+用户也可以使用命令[`SHOW STATS`](../../3.ngql-guide/7.general-query-statements/6.show/14.show-stats.md)查看统计数据。
 
-### 步骤 6：（如有）在Nebula Graph中重建索引
+### 步骤 5：（如有）在Nebula Graph中重建索引
 
 导入数据后，用户可以在Nebula Graph中重新创建并重建索引。详情请参见[索引介绍](../../3.ngql-guide/14.native-index-statements/README.md)。
