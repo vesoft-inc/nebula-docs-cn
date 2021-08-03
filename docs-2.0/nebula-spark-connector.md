@@ -36,7 +36,7 @@ Nebula Spark Connector适用于以下场景：
 
 - Nebula Spark Connector 2.0统一了SparkSQL的扩展数据源，统一采用DataSourceV2进行Nebula Graph数据扩展。
 
-- 支持`insert`和`update`两种写入模式。
+- 支持`insert`和`update`两种写入模式。`insert`模式会插入（覆盖）数据，`update`模式仅会更新已存在的数据。
 
 ## 获取Nebula Spark Connector
 
