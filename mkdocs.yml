@@ -342,26 +342,26 @@ nav:
 
 #  - Nebula Algorithm: nebula-algorithm.md
 
-  - Nebula Graph Dashboard: 
-      - 什么是Nebula Graph Dashboard: nebula-dashboard/1.what-is-dashboard.md
-      - 部署Dashboard: nebula-dashboard/2.deploy-dashboard.md
-      - 连接Dashboard: nebula-dashboard/3.connect-dashboard.md
-      - Dashboard页面介绍: nebula-dashboard/4.use-dashboard.md
-      - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
+#  - Nebula Graph Dashboard: 
+#      - 什么是Nebula Graph Dashboard: nebula-dashboard/1.what-is-dashboard.md
+#      - 部署Dashboard: nebula-dashboard/2.deploy-dashboard.md
+#      - 连接Dashboard: nebula-dashboard/3.connect-dashboard.md
+#      - Dashboard页面介绍: nebula-dashboard/4.use-dashboard.md
+#      - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
 
-  - Nebula Graph Explorer:
-      - 什么是Nebula Graph Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
-      - 安装与登录:
-        - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
-        - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
-        - 清除链接: nebula-explorer/deploy-connect/ex-ug-reset-connection.md
-      - 操作指南:
-        - 页面概览: nebula-explorer/operation-guide/ex-ug-page-overview.md
-        - 查询探索: nebula-explorer/operation-guide/ex-ug-query-exploration.md
-        - 图探索拓展: nebula-explorer/operation-guide/ex-ug-graph-exploration.md
-        - 画布操作: nebula-explorer/operation-guide/ex-ug-canvas.md
-        - 关系列表: nebula-explorer/operation-guide/ex-ug-relationship-list.md
-        - 快捷键: nebula-explorer/operation-guide/ex-ug-shortcuts.md
+#  - Nebula Graph Explorer:
+#      - 什么是Nebula Graph Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
+#      - 安装与登录:
+#        - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
+#        - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
+#        - 清除链接: nebula-explorer/deploy-connect/ex-ug-reset-connection.md
+#      - 操作指南:
+#        - 页面概览: nebula-explorer/operation-guide/ex-ug-page-overview.md
+#        - 查询探索: nebula-explorer/operation-guide/ex-ug-query-exploration.md
+#        - 图探索拓展: nebula-explorer/operation-guide/ex-ug-graph-exploration.md
+#        - 画布操作: nebula-explorer/operation-guide/ex-ug-canvas.md
+#        - 关系列表: nebula-explorer/operation-guide/ex-ug-relationship-list.md
+#        - 快捷键: nebula-explorer/operation-guide/ex-ug-shortcuts.md
 
   - 附录:
       - Nebula Graph 常见问题: 20.appendix/0.FAQ.md
