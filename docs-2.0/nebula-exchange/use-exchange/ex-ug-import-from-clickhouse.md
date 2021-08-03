@@ -18,7 +18,7 @@
 
 - Hadoop：2.9.2，伪分布式部署
 
-- ClickHouse：21.7.5.29
+- ClickHouse：docker部署yandex/clickhouse-server tag: latest(2021.07.01)
 
 - Nebula Graph：2.0.1。使用[Docker Compose部署](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)。
 
@@ -220,7 +220,7 @@
 
       # ClickHouse分区数
       numPartition:"5"
-      
+
       sentence:"select * from follow"
 
       # 在fields里指定follow表中的列名称，其对应的value会作为Nebula Graph中指定属性。
@@ -292,6 +292,20 @@ ${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.excha
 ```
 
 用户可以在返回信息中搜索`batchSuccess.<tag_name/edge_name>`，确认成功的数量。例如`batchSuccess.follow: 300`。
+
+!!! note
+
+    如果使用yarn-cluster模式提交任务，请参考如下示例：
+
+    ```bash
+    $SPARK_HOME/bin/spark-submit     --master yarn-cluster \
+    --class com.vesoft.nebula.exchange.Exchange \
+    --files clickhouse_application.conf \
+    --conf spark.driver.extraClassPath=./ \
+    --conf spark.executor.extraClassPath=./ \
+    /root/nebula-spark-utils/nebula-exchange/target/nebula-exchange-2.1.0.jar \
+    -c /root/nebula-spark-utils/nebula-exchange/target/classes/clickhouse_application.conf
+    ```
 
 ### 步骤 4：（可选）验证数据
 

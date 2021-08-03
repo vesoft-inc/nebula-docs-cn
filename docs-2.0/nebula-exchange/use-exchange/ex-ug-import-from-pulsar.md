@@ -294,6 +294,20 @@ ${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.excha
 
 用户可以在返回信息中搜索`batchSuccess.<tag_name/edge_name>`，确认成功的数量。例如`batchSuccess.follow: 300`。
 
+!!! note
+
+    如果使用yarn-cluster模式提交任务，请参考如下示例：
+
+    ```bash
+    $SPARK_HOME/bin/spark-submit     --master yarn-cluster \
+    --class com.vesoft.nebula.exchange.Exchange \
+    --files pulsar_application.conf \
+    --conf spark.driver.extraClassPath=./ \
+    --conf spark.executor.extraClassPath=./ \
+    /root/nebula-spark-utils/nebula-exchange/target/nebula-exchange-2.0.0.jar \
+    -c /root/nebula-spark-utils/nebula-exchange/target/classes/pulsar_application.conf
+    ```
+
 ### 步骤 4：（可选）验证数据
 
 用户可以在Nebula Graph客户端（例如Nebula Graph Studio）中执行查询语句，确认数据是否已导入。例如：
