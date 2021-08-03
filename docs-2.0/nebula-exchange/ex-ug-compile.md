@@ -24,7 +24,7 @@
 1. 在根目录克隆仓库`nebula-spark-utils`。
 
    ```bash
-   git clone -b v{{exchange.release}} https://github.com/vesoft-inc/nebula-spark-utils.git
+   git clone -b v{{exchange.branch}} https://github.com/vesoft-inc/nebula-spark-utils.git
    ```
 
 2. 切换到目录`nebula-exchange`。

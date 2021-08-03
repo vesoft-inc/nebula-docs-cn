@@ -51,6 +51,7 @@ extra:
     base100: 1.0.0
   exchange:
     release: master
+    branch: master
   importer:
     release: master  
   algorithm:
