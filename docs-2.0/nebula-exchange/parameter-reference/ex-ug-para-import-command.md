@@ -5,7 +5,7 @@
 - 首次导入
 
   ```bash
-  <spark_install_path>/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-2.x.y.jar_path> -c <csv_application.conf_path> 
+  <spark_install_path>/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-2.x.y.jar_path> -c <application.conf_path> 
   ```
 
 - 导入reload文件
@@ -13,7 +13,7 @@
   如果首次导入时有一些数据导入失败，会将导入失败的数据存入reload文件，可以用参数`-r`尝试导入reload文件。
   
   ```bash
-  <spark_install_path>/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-2.x.y.jar_path> -c <csv_application.conf_path> -r "<reload_file_path>" 
+  <spark_install_path>/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-2.x.y.jar_path> -c <application.conf_path> -r "<reload_file_path>" 
   ```
 
 !!! note
