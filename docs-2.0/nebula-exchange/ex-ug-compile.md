@@ -12,45 +12,21 @@
 
   ```text
   <mirror>
-  <id>alimaven</id>
-  <mirrorOf>central</mirrorOf>
-  <name>aliyun maven</name>
-  <url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
+   <id>alimaven</id>
+   <mirrorOf>central</mirrorOf>
+   <name>aliyun maven</name>
+   <url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
   </mirror>
   ```
 
 - 下载[pulsar-spark-connector_2.11](https://oss-cdn.nebula-graph.com.cn/jar-packages/pulsar-spark-connector_2.11.zip)，解压到本地Maven库的目录`io/streamnative/connectors`中。
-
-### 安装Nebula Java Client 2.0.0
-
-1. 克隆仓库`nebula-java`。
-
-   ```bash
-   git clone -b v2.0.0-ga https://github.com/vesoft-inc/nebula-java.git
-   ```
-
-2. 切换到目录`nebula-java`。
-
-   ```bash
-   cd nebula-java
-   ```
-
-3. 安装Nebula Java Client 2.0.0。
-
-   ```bash
-   mvn clean install -Dmaven.test.skip=true -Dgpg.skip -Dmaven.javadoc.skip=true
-   ```
-
-  !!! note
-  
-        安装后在本地Maven仓库会生成JAR文件，例如`com/vesoft/client/2.0.0/client-2.0.0.jar`。
 
 ## 编译Exchange
 
 1. 在根目录克隆仓库`nebula-spark-utils`。
 
    ```bash
-   git clone -b {{exchange.release}} https://github.com/vesoft-inc/nebula-spark-utils.git
+   git clone -b v{{exchange.release}} https://github.com/vesoft-inc/nebula-spark-utils.git
    ```
 
 2. 切换到目录`nebula-exchange`。
