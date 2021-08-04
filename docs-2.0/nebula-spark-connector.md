@@ -10,7 +10,7 @@ Nebula Spark Connector是一个Spark连接器，提供通过Spark标准形式读
 
   提供一个Spark SQL接口，用户可以使用该接口编程将DataFrame格式的数据逐条或批量写入Nebula Graph。
 
-更多使用说明请参见[Nebula Spark Connector](https://github.com/vesoft-inc/nebula-spark-utils/blob/v2.0.0/nebula-spark-connector/README_CN.md)。
+更多使用说明请参见[Nebula Spark Connector](https://github.com/vesoft-inc/nebula-spark-utils/blob/{{sparkconnector.branch}}/nebula-spark-connector/README_CN.md)。
 
 ## 适用场景
 
@@ -26,6 +26,8 @@ Nebula Spark Connector适用于以下场景：
 
 ## 特性
 
+Nebula Spark Connector {{sparkconnector.release}}版本特性如下：
+
 - 提供多种连接配置项，如超时时间、连接重试次数、执行重试次数等。
 
 - 提供多种数据配置项，如写入数据时设置对应列为点ID、起始点ID、目的点ID或属性。
@@ -37,10 +39,6 @@ Nebula Spark Connector适用于以下场景：
 - Nebula Spark Connector 2.0统一了SparkSQL的扩展数据源，统一采用DataSourceV2进行Nebula Graph数据扩展。
 
 - 支持`insert`和`update`两种写入模式。`insert`模式会插入（覆盖）数据，`update`模式仅会更新已存在的数据。
-
-    !!! note
-
-        `update`模式为Nebula Spark Connector 2.1.0版本新增功能。
 
 ## 获取Nebula Spark Connector
 
@@ -64,7 +62,7 @@ Nebula Spark Connector适用于以下场景：
   $ mvn clean package -Dmaven.test.skip=true -Dgpg.skip -Dmaven.javadoc.skip=true
   ```
 
-编译完成后，在目录`nebula-spark-connector/target`下生成类似文件`nebula-spark-connector-2.0.0-SHANPSHOT.jar`。
+编译完成后，在目录`nebula-spark-connector/target`下生成类似文件`nebula-spark-connector-{{sparkconnector.release}}-SHANPSHOT.jar`。
 
 ### Maven远程仓库下载
 
