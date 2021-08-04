@@ -372,7 +372,6 @@ nav:
   - PDF: ./pdf/NebulaGraph-CN.pdf
   - English Docs: https://docs.nebula-graph.io/
 
-
 #  - 图算法:
 #    - nebula-algorithm:
 #      - 什么是 nebula-algorithm: nebula-algorithm/na-ug-what-is-nebula-algorithm.md
