@@ -226,7 +226,6 @@ nebula> MATCH (v:player{name:"Tony Parker"})--(v2:player) \
 +---------------------+--------+
 | "Manu Ginobili"     | 41     |
 +---------------------+--------+
-Got 8 rows (time spent 3273/3893 us)
 
 # 使用DISTINCT。
 nebula> MATCH (v:player{name:"Tony Parker"})--(v2:player) \
