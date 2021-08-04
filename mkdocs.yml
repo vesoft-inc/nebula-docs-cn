@@ -64,7 +64,7 @@ extra:
   common:
     release: master
   dashboard:
-    release: beta
+    release: 1.0.0
   
 nav:
   - 前言: README.md
