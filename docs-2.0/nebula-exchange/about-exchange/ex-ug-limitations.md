@@ -8,8 +8,8 @@ Exchange client版本（即JAR包版本）和Nebula Graph的版本对应关系�
 
 |Exchange client版本|Nebula Graph版本|
 |:---|:---|
-|2.0-SNAPSHOT|v2-nightly|
 |2.0.1|2.0.0、2.0.1|
+|2.0-SNAPSHOT|v2-nightly|
 |2.0.0|2.0.0、2.0.1|
 |2.1.0|2.0.0、2.0.1|
 

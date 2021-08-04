@@ -1,6 +1,6 @@
 # 编译Exchange
 
-本文介绍如何编译Nebula Exchange。用户也可以直接[下载](https://repo1.maven.org/maven2/com/vesoft/nebula-exchange/2.0.0/)编译完成的`.jar`文件。
+本文介绍如何编译Nebula Exchange。用户也可以直接[下载](https://repo1.maven.org/maven2/com/vesoft/nebula-exchange/)编译完成的`.jar`文件。
 
 ## 准备工作
 
@@ -17,6 +17,7 @@
   </mirror>
   ```
 
+<!-- pulsar所在的maven库5月31日被官方关闭，还没找到迁移位置，找到后这里可以删掉-->
 - 下载[pulsar-spark-connector_2.11](https://oss-cdn.nebula-graph.com.cn/jar-packages/pulsar-spark-connector_2.11.zip)，解压到本地Maven库的目录`io/streamnative/connectors`中。
 
 ## 编译Exchange
@@ -24,7 +25,7 @@
 1. 在根目录克隆仓库`nebula-spark-utils`。
 
    ```bash
-   git clone -b v{{exchange.branch}} https://github.com/vesoft-inc/nebula-spark-utils.git
+   git clone -b {{exchange.branch}} https://github.com/vesoft-inc/nebula-spark-utils.git
    ```
 
 2. 切换到目录`nebula-exchange`。

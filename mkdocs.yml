@@ -44,7 +44,7 @@ extra:
     base220: 2.2.0
   exchange:
     release: 2.1.0
-    branch: 2.1
+    branch: v2.1
   importer:
     release: 2.0.0-GA
   sparkconnector:
