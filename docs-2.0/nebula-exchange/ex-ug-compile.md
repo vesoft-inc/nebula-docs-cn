@@ -16,7 +16,7 @@
    <url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
   </mirror>
   ```
-
+<!-- pulsar所在的maven库5月31日被官方关闭，还没找到迁移位置，找到后这里可以删掉-->
 - 下载[pulsar-spark-connector_2.11](https://oss-cdn.nebula-graph.com.cn/jar-packages/pulsar-spark-connector_2.11.zip)，解压到本地Maven库的目录`io/streamnative/connectors`中。
 
 ## 编译Exchange
