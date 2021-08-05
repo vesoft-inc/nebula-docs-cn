@@ -170,7 +170,7 @@
       # 指定CSV文件的路径。
       # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
       # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
-      path: "hdfs://192.168.11.13:9000/data/vertex_player.csv"
+      path: "hdfs://192.168.*.*:9000/data/vertex_player.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
       # 如果CSV文件有表头，则使用实际的列名。
@@ -218,7 +218,7 @@
       # 指定CSV文件的路径。
       # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
       # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
-      path: "hdfs://192.168.11.13:9000/data/vertex_team.csv"
+      path: "hdfs://192.168.*.*:9000/data/vertex_team.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
       # 如果CSV文件有表头，则使用实际的列名。
@@ -271,7 +271,7 @@
       # 指定CSV文件的路径。
       # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
       # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
-      path: "hdfs://192.168.11.13:9000/data/edge_follow.csv"
+      path: "hdfs://192.168.*.*:9000/data/edge_follow.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
       # 如果CSV文件有表头，则使用实际的列名。
@@ -325,7 +325,7 @@
       # 指定CSV文件的路径。
       # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
       # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
-      path: "hdfs://192.168.11.13:9000/data/edge_serve.csv"
+      path: "hdfs://192.168.*.*:9000/data/edge_serve.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
       # 如果CSV文件有表头，则使用实际的列名。
