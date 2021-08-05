@@ -162,7 +162,7 @@ nebula> MATCH (v:player{name:"Tim Duncan"})-[e]->(v2) \
 
 ## 返回表达式结果
 
-`RETURN`语句可以返回文字、函数或谓词等表达式的结果。
+`RETURN`语句可以返回字面量、函数或谓词等表达式的结果。
 
 ```ngql
 nebula> MATCH (v:player{name:"Tony Parker"})-->(v2:player) \
