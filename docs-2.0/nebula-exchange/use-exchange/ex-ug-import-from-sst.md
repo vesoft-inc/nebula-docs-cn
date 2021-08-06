@@ -462,6 +462,12 @@ ${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.excha
   nebula> INGEST;
   ```
 
+!!! note
+
+    - 如果导入时出现问题需要重新导入，请Nebula Graph安装路径内的`data/storage/nebula`目录内，将对应Space ID目录内的文件夹`download`删除，然后重新下载SST文件导入。
+
+    - 如果误操作删除了图空间，需要重新生成SST文件，因为SST文件会验证Space ID、Tag ID、Edge ID等信息。
+
 ### 步骤 6：（可选）验证数据
 
 用户可以在Nebula Graph客户端（例如Nebula Graph Studio）中执行查询语句，确认数据是否已导入。例如：
