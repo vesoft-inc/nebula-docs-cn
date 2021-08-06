@@ -440,6 +440,10 @@ ${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.excha
 
 任务执行完成后，可以在HDFS上的`/sst`目录（`nebula.path.remote`参数指定）内查看到生成的SST文件。
 
+!!! note
+
+    如果对Schema有修改操作，例如重建图空间、修改Tag、修改Edge type等，需要重新生成SST文件，因为SST文件会验证Space ID、Tag ID、Edge ID等信息。
+
 ### 步骤 5：导入SST文件
 
 使用客户端工具连接Nebula Graph数据库，按如下操作导入SST文件：
@@ -467,8 +471,6 @@ ${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.excha
     - 如果需要重新下载，请在Nebula Graph安装路径内的`data/storage/nebula`目录内，将对应Space ID目录内的文件夹`download`删除，然后重新下载SST文件。
 
     - 如果导入时出现问题需要重新导入，重新执行`INGEST;`即可。
-
-    - 如果误操作删除了图空间，需要重新生成SST文件，因为SST文件会验证Space ID、Tag ID、Edge ID等信息。
 
 ### 步骤 6：（可选）验证数据
 
