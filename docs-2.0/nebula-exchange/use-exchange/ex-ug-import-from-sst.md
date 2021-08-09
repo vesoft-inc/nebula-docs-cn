@@ -73,13 +73,15 @@ SST文件是一个内部包含了任意长度、排好序的键值对集合的�
 
   - Graph服务配置文件中有`--ws_meta_http_port=19559`。
 
+  - Schema的信息，包括Tag和Edge type的名称、属性等。
+
 - 已经编译Exchange。详情请参见[编译Exchange](../ex-ug-compile.md)。本示例中使用Exchange {{exchange.release}}。
 
 - 已经安装Spark。
 
-- 了解Nebula Graph中创建Schema的信息，包括Tag和Edge type的名称、属性等。
+- 已经安装JDK 1.8或以上版本，并配置环境变量JAVA_HOME。
 
-- 确认Hadoop服务运行正常。
+- 确认Hadoop服务在所有部署Storage服务的机器上运行正常。
 
 ## 操作步骤
 
