@@ -182,7 +182,7 @@ SST文件是一个内部包含了任意长度、排好序的键值对集合的�
         remote:"/sst"
         
         # HDFS的NameNode地址
-        hdfs.namenode: "hdfs://192.168.*.*:9000"
+        hdfs.namenode: "hdfs://*.*.*.*:9000"
     }
 
     # 客户端连接参数
@@ -226,7 +226,7 @@ SST文件是一个内部包含了任意长度、排好序的键值对集合的�
       # 指定CSV文件的路径。
       # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
       # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
-      path: "hdfs://192.168.*.*:9000/dataset/vertex_player.csv"
+      path: "hdfs://*.*.*.*:9000/dataset/vertex_player.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
       # 如果CSV文件有表头，则使用实际的列名。
@@ -272,7 +272,7 @@ SST文件是一个内部包含了任意长度、排好序的键值对集合的�
       # 指定CSV文件的路径。
       # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
       # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
-      path: "hdfs://192.168.*.*:9000/dataset/vertex_team.csv"
+      path: "hdfs://*.*.*.*:9000/dataset/vertex_team.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
       # 如果CSV文件有表头，则使用实际的列名。
@@ -323,7 +323,7 @@ SST文件是一个内部包含了任意长度、排好序的键值对集合的�
       # 指定CSV文件的路径。
       # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
       # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
-      path: "hdfs://192.168.*.*:9000/dataset/edge_follow.csv"
+      path: "hdfs://*.*.*.*:9000/dataset/edge_follow.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
       # 如果CSV文件有表头，则使用实际的列名。
@@ -376,7 +376,7 @@ SST文件是一个内部包含了任意长度、排好序的键值对集合的�
       # 指定CSV文件的路径。
       # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
       # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
-      path: "hdfs://192.168.*.*:9000/dataset/edge_serve.csv"
+      path: "hdfs://*.*.*.*:9000/dataset/edge_serve.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
       # 如果CSV文件有表头，则使用实际的列名。
@@ -461,7 +461,7 @@ ${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.excha
   示例：
 
   ```ngql
-  nebula> DOWNLOAD HDFS "hdfs://192.168.*.*:9000/sst";
+  nebula> DOWNLOAD HDFS "hdfs://*.*.*.*:9000/sst";
   ```
 
 2. 执行命令导入SST文件：
