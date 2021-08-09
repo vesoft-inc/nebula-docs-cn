@@ -10,7 +10,7 @@ Exchange支持两种数据导入模式：
 
 - 直接将数据源的数据通过**nGQL**语句的形式导入Nebula Graph。
 
-- 将**非流式数据源**的数据生成SST文件，然后借助Console将SST文件导入Nebula Graph。
+- 将数据源的数据生成SST文件，然后借助Console将SST文件导入Nebula Graph。
 
 下文将介绍生成导入SST文件的实现方法、前提条件、操作步骤等内容。
 
@@ -68,6 +68,10 @@ SST文件是一个内部包含了任意长度、排好序的键值对集合的�
   - Graph服务和Meta服务的的IP地址和端口。
 
   - 拥有Nebula Graph写权限的用户名和密码。
+
+  - Meta服务配置文件中有`--ws_storage_http_port=19779`。
+
+  - Graph服务配置文件中有`--ws_meta_http_port=19559`。
 
 - 已经编译Exchange。详情请参见[编译Exchange](../ex-ug-compile.md)。本示例中使用Exchange {{exchange.release}}。
 
@@ -235,10 +239,8 @@ SST文件是一个内部包含了任意长度、排好序的键值对集合的�
       # 指定一个列作为VID的源。
       # vertex的值必须与上述fields或者csv.fields中的列名保持一致。
       # 目前，Nebula Graph {{nebula.release}}仅支持字符串或整数类型的VID。
-      # 不要使用vertex.policy映射。
       vertex: {
         field:_c0
-        # policy:hash
       }
 
       # 指定的分隔符。默认值为英文逗号（,）。
@@ -283,10 +285,8 @@ SST文件是一个内部包含了任意长度、排好序的键值对集合的�
       # 指定一个列作为VID的源。
       # vertex的值必须与上述fields或者csv.fields中的列名保持一致。
       # 目前，Nebula Graph {{nebula.release}}仅支持字符串或整数类型的VID。
-      # 不要使用vertex.policy映射。
       vertex: {
         field:_c0
-        # policy:hash
       }
 
       # 指定的分隔符。默认值为英文逗号（,）。
@@ -336,7 +336,6 @@ SST文件是一个内部包含了任意长度、排好序的键值对集合的�
       # 指定一个列作为起始点和目的点的源。
       # vertex的值必须与上述fields或者csv.fields中的列名保持一致。
       # 目前，Nebula Graph {{nebula.release}}仅支持字符串或整数类型的VID。
-      # 不要使用vertex.policy映射。
       source: {
         field: _c0
       }
@@ -390,7 +389,6 @@ SST文件是一个内部包含了任意长度、排好序的键值对集合的�
       # 指定一个列作为起始点和目的点的源。
       # vertex的值必须与上述fields或者csv.fields中的列名保持一致。
       # 目前，Nebula Graph {{nebula.release}}仅支持字符串或整数类型的VID。
-      # 不要使用vertex.policy映射。
       source: {
         field: _c0
       }
@@ -448,7 +446,13 @@ ${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.excha
 
 使用客户端工具连接Nebula Graph数据库，按如下操作导入SST文件：
 
-1. 执行命令下载SST文件：
+1. 执行命令选择之前创建的图空间。
+
+  ```ngql
+  nebula> USE basketballplayer;
+  ```
+
+2. 执行命令下载SST文件：
 
   ```ngql
   nebula> DOWNLOAD HDFS "hdfs://<hadoop_address>:<hadoop_port>/<sst_file_path>";
@@ -468,7 +472,7 @@ ${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.excha
 
 !!! note
 
-    - 如果需要重新下载，请在Nebula Graph安装路径内的`data/storage/nebula`目录内，将对应Space ID目录内的文件夹`download`删除，然后重新下载SST文件。
+    - 如果需要重新下载，请在Nebula Graph安装路径内的`data/storage/nebula`目录内，将对应Space ID目录内的`download`文件夹删除，然后重新下载SST文件。如果是图空间是多副本，保存副本的所有机器都需要删除`download`文件夹。
 
     - 如果导入时出现问题需要重新导入，重新执行`INGEST;`即可。
 

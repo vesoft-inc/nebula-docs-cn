@@ -65,7 +65,7 @@ Exchange {{exchange.release}} 支持将以下格式或来源的数据转换为Ne
 
 - 发布/订阅消息平台：[Apache Pulsar 2.4.5](../use-exchange/ex-ug-import-from-pulsar.md)
 
-除了用nGQL语句的形式导入数据，Exchange还支持将上述数据源中非流式数据源的数据生成**SST文件**，然后通过Console[导入SST文件](../use-exchange/ex-ug-import-from-sst.md)。
+除了用nGQL语句的形式导入数据，Exchange还支持将数据源的数据生成**SST文件**，然后通过Console[导入SST文件](../use-exchange/ex-ug-import-from-sst.md)。
 
 ## 视频
 
