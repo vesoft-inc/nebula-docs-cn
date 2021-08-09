@@ -65,6 +65,14 @@ extra:
     release: master
   dashboard:
     release: nebula-graph-dashboard-beta
+  cpp:
+    release: 2.5.0
+  java:
+    release: 2.5.0
+  python:
+    release: 2.5.0
+  go:
+    release: 2.5.0
   
 nav:
   - 前言: README.md
