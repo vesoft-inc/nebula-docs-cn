@@ -22,9 +22,9 @@ SST文件是一个内部包含了任意长度、排好序的键值对集合的�
 
 1. Reader从数据源中读取数据。
 
-2. sstProcessor按照Nebula Graph要求的格式生成SST文件，然后上传至HDFS。SST文件的格式请参见[数据存储格式](../../1.introduction/3.nebula-graph-architecture/4.storage-service.md)。
+2. sstProcessor根据Nebula Graph的Schema信息生成SST文件，然后上传至HDFS。SST文件的格式请参见[数据存储格式](../../1.introduction/3.nebula-graph-architecture/4.storage-service.md)。
 
-3. sstWriter打开一个文件并插入数据。生成SST文件时，行数据必须严格按照顺序进行写入。
+3. sstWriter打开一个文件并插入数据。生成SST文件时，Key必须按照顺序写入。
 
 4. 生成SST文件之后，RocksDB通过`IngestExternalFile()`方法将SST文件导入到Nebula Graph中。例如：
 
@@ -63,19 +63,19 @@ SST文件是一个内部包含了任意长度、排好序的键值对集合的�
 
 开始导入数据之前，用户需要确认以下信息：
 
-- 已经[安装部署Nebula Graph](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)并获取如下信息：
+- 已经[安装部署Nebula Graph {{nebula.release}}](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)并获取如下信息：
 
   - Graph服务和Meta服务的的IP地址和端口。
 
   - 拥有Nebula Graph写权限的用户名和密码。
 
-  - Meta服务配置文件中有`--ws_storage_http_port=19779`。
+  - Meta服务配置文件中的`--ws_storage_http_port`和Storage服务配置文件中的`--ws_http_port`一致。例如都为`19779`。
 
-  - Graph服务配置文件中有`--ws_meta_http_port=19559`。
+  - Graph服务配置文件中的`--ws_meta_http_port`和Meta服务配置文件中的`--ws_http_port`一致。例如都为`19559`。
 
   - Schema的信息，包括Tag和Edge type的名称、属性等。
 
-- 已经编译Exchange。详情请参见[编译Exchange](../ex-ug-compile.md)。本示例中使用Exchange {{exchange.release}}。
+- 已经[编译Exchange](../ex-ug-compile.md)，或者直接[下载](https://repo1.maven.org/maven2/com/vesoft/nebula-exchange/)编译完成的.jar文件。本示例中使用Exchange {{exchange.release}}。
 
 - 已经安装Spark。
 
@@ -133,7 +133,7 @@ SST文件是一个内部包含了任意长度、排好序的键值对集合的�
 
   !!! note
 
-        Exchange支持上传有表头或者无表头的CSV文件。
+        可以使用有表头或者无表头的CSV文件。
 
 2. 获取CSV文件存储路径。
 
