@@ -183,7 +183,6 @@
       # 指定一个列作为VID的源。
       # vertex的值必须与上述fields或者csv.fields中的列名保持一致。
       # 目前，Nebula Graph {{nebula.release}}仅支持字符串或整数类型的VID。
-      # 不要使用vertex.policy映射。
       vertex: {
         field:_c0
         # policy:hash
@@ -231,7 +230,6 @@
       # 指定一个列作为VID的源。
       # vertex的值必须与上述fields或者csv.fields中的列名保持一致。
       # 目前，Nebula Graph {{nebula.release}}仅支持字符串或整数类型的VID。
-      # 不要使用vertex.policy映射。
       vertex: {
         field:_c0
         # policy:hash
@@ -284,7 +282,6 @@
       # 指定一个列作为起始点和目的点的源。
       # vertex的值必须与上述fields或者csv.fields中的列名保持一致。
       # 目前，Nebula Graph {{nebula.release}}仅支持字符串或整数类型的VID。
-      # 不要使用vertex.policy映射。
       source: {
         field: _c0
       }
@@ -338,7 +335,6 @@
       # 指定一个列作为起始点和目的点的源。
       # vertex的值必须与上述fields或者csv.fields中的列名保持一致。
       # 目前，Nebula Graph {{nebula.release}}仅支持字符串或整数类型的VID。
-      # 不要使用vertex.policy映射。
       source: {
         field: _c0
       }

@@ -232,7 +232,6 @@ scala> sql("select playerid, teamid, start_year, end_year from basketball.serve"
       nebula.fields: [age,name]
 
       # 指定表中某一列数据为Nebula Graph中点VID的来源。
-      # vertex.field的值必须与上述fields中的列名保持一致。
       vertex:{
         field:playerid
       }

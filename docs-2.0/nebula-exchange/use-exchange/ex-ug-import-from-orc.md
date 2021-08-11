@@ -179,7 +179,6 @@
       # 指定一个列作为VID的源。
       # vertex的值必须与ORC文件中的字段保持一致。
       # 目前，Nebula Graph {{nebula.release}}仅支持字符串或整数类型的VID。
-      # 不要使用vertex.policy映射。
       vertex: {
         field:id
       }
@@ -219,7 +218,6 @@
       # 指定一个列作为VID的源。
       # vertex的值必须与ORC文件中的字段保持一致。
       # 目前，Nebula Graph 2.0.0仅支持字符串或整数类型的VID。
-      # 不要使用vertex.policy映射。
       vertex: {
         field:id
       }
@@ -265,7 +263,6 @@
       # 指定一个列作为起始点和目的点的源。
       # vertex的值必须与ORC文件中的字段保持一致。
       # 目前，Nebula Graph 2.0.0仅支持字符串或整数类型的VID。
-      # 不要使用vertex.policy映射。
       source: {
         field: src
       }
@@ -312,7 +309,6 @@
       # 指定一个列作为起始点和目的点的源。
       # vertex的值必须与ORC文件中的字段保持一致。
       # 目前，Nebula Graph 2.0.0仅支持字符串或整数类型的VID。
-      # 不要使用vertex.policy映射。
       source: {
         field: src
       }
