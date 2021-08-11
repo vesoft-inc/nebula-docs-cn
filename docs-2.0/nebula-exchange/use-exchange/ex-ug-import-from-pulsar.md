@@ -158,7 +158,7 @@
       }
 
 
-      # 单次写入 Nebula Graph 的最大数据条数。
+      # 单批次写入 Nebula Graph 的数据条数。
       batch: 10
 
       # Spark 分区数量
@@ -233,7 +233,7 @@
       }
 
 
-      # 单次写入 Nebula Graph 的最大数据条数。
+      # 单批次写入 Nebula Graph 的数据条数。
       batch: 10
 
       # Spark 分区数量

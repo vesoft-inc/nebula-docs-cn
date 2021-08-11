@@ -204,7 +204,7 @@ mysql> desc serve;
         field:playerid
       }
 
-      # 单次写入 Nebula Graph 的最大数据条数。
+      # 单批次写入 Nebula Graph 的数据条数。
       batch: 256
 
       # Spark 分区数量
@@ -277,7 +277,7 @@ mysql> desc serve;
         field: dst_player
       }
 
-      # 单次写入 Nebula Graph 的最大数据条数。
+      # 单批次写入 Nebula Graph 的数据条数。
       batch: 256
 
       # Spark 分区数量

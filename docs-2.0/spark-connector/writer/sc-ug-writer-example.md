@@ -118,7 +118,7 @@ new NebulaBatchWriterUtils()
 - `batchInsert(address: String, space: String, batch: Int = 2000)`：
   - `address`：Nebula Graph 的 Graph 服务地址及端口，可以配置多个地址，以英文逗号分隔，如 `“ip1:port,ip2:port”`，端口默认为 `3699`。
   - `space`：Nebula Graph 中即将写入数据的图空间名称。
-  - `batch`：批量写入时一批次的最大数据条数，可不配置，默认为 2000。
+  - `batch`：批量写入时一批次的数据条数，可选，默认为 2000。
 
 - `batchToNebulaVertex(data: DataFrame, tag: String, vertexField: String, policy: String = "")`：
   - `data`：待写入 Nebula Graph 的 DataFrame 数据。
