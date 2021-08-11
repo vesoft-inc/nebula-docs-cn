@@ -319,26 +319,26 @@ Q：升级过程中是否可以通过客户端写入数据？
 
 A：不可以。这个过程中写入的数据状态是未定义的。
 
-Q: 除了 v1.2.x 和 v2.0.0-RC 外，其他版本是否支持升级？
+Q：除了 v1.2.x 和 v2.0.0-RC 外，其他版本是否支持升级？
 
-A: 未验证过。理论上 v1.0.0 - v1.2.0 都可以采用 v1.2.x 的升级版本。 v2.0.0-RC之前的日常研发版本（nightly）无升级方案。
+A：未验证过。理论上 v1.0.0 - v1.2.0 都可以采用 v1.2.x 的升级版本。 v2.0.0-RC之前的日常研发版本（nightly）无升级方案。
 
-Q: 如果某台机器只有 graphd 服务，没有 storaged 服务，如何升级？
+Q：如果某台机器只有 graphd 服务，没有 storaged 服务，如何升级？
 
-A: 只需要升级 graphd 对应的 binary （或者RPM包）。
+A：只需要升级 graphd 对应的 binary （或者RPM包）。
 
-Q: 操作报错 `Permission denied`。
+Q：操作报错 `Permission denied`。
 
-A: 部分命令需要有 sudo 权限。
+A：部分命令需要有 sudo 权限。
 
-Q: 是否有 gflags 发生改变？
+Q：是否有 gflags 发生改变？
 
-A: 目前已知的 gflags 改变整理在[github issues](https://github.com/vesoft-inc/nebula-graph/issues/858)。
+A：目前已知的 gflags 改变整理在[github issues](https://github.com/vesoft-inc/nebula-graph/issues/858)。
 
-Q: 删除数据重新安装，和升级有何不同？
+Q：删除数据重新安装，和升级有何不同？
 
-A: v2.x 的默认配置（包括端口）与 v1.x 不同。升级方案沿用老的配置，删除重新安装沿用新的配置。
+A：v2.x 的默认配置（包括端口）与 v1.x 不同。升级方案沿用老的配置，删除重新安装沿用新的配置。
 
-Q: 是否有工具或者办法验证新旧版本数据是否一致？
+Q：是否有工具或者办法验证新旧版本数据是否一致？
 
 A：没有。
