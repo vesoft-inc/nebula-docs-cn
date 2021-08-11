@@ -22,7 +22,7 @@
   - 点的信息，包括Tag和 VID 映射策略（`hash`<!--或者 `uuid`-->）。
   - 边的信息，包括起点和终点对应的Tag，以及 VID 映射策略（`hash`<!--或者 `uuid`-->）。
 
-- （可选）如果是批量写入，需要确认单次写入的最大数据量，默认为 2000。详见本文 `batchInsert` 配置项说明。
+- （可选）如果是批量写入，需要确认单次写入的最大数据条数，默认为 2000。详见本文 `batchInsert` 配置项说明。
 
 ## 操作步骤
 
@@ -118,7 +118,7 @@ new NebulaBatchWriterUtils()
 - `batchInsert(address: String, space: String, batch: Int = 2000)`：
   - `address`：Nebula Graph 的 Graph 服务地址及端口，可以配置多个地址，以英文逗号分隔，如 `“ip1:port,ip2:port”`，端口默认为 `3699`。
   - `space`：Nebula Graph 中即将写入数据的图空间名称。
-  - `batch`：批量写入时一批次的最大数据量，可不配置，默认为 2000。
+  - `batch`：批量写入时一批次的数据条数，可选，默认为 2000。
 
 - `batchToNebulaVertex(data: DataFrame, tag: String, vertexField: String, policy: String = "")`：
   - `data`：待写入 Nebula Graph 的 DataFrame 数据。

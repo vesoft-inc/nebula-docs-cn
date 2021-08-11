@@ -8,7 +8,7 @@
 
 在部署 Explorer 之前，用户需要确认以下信息：
 
-- Nebula Graph 服务已经部署并启动。详细信息参考[Nebula Graph安装部署](../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
+- Nebula Graph 服务已经部署并启动。详细信息参考[Nebula Graph安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
 
 - 以下端口未被使用。
 
@@ -64,7 +64,7 @@ $ sudo rpm -e nebula-graph-explorer-<version>.x86_64
 
 在部署 Explorer 之前，用户需要确认以下信息：
 
-- Nebula Graph 服务已经部署并启动。详细信息参考[Nebula Graph安装部署](../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
+- Nebula Graph 服务已经部署并启动。详细信息参考[Nebula Graph安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
 
 - 使用的 Linux 上安装有版本为 v10.12.0 以上的Node.js。
 
@@ -127,4 +127,4 @@ $ npm run stop # 停止 nebula-graph-explorer
 
 ![Nebula Graph Explorer 登录页面](../figs/ex-ug-001.png)
 
-进入 Explorer 登录界面后，用户需要连接 Nebula Graph。详细信息，参考[连接数据库](ex-ug-connect.md)。
+进入 Explorer 登录界面后，用户需要连接 Nebula Graph。详细信息，参考[连接数据库](../deploy-connect/ex-ug-connect.md)。

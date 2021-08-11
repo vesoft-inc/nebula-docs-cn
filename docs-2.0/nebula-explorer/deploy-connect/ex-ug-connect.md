@@ -1,12 +1,12 @@
 # 连接数据库
 
-对于 RPM 安装的 Explorer ，在成功启动 Explorer 后，用户需要配置连接 Nebula Graph。本文主要描述 RPM 安装的 Explorer 如何连接 Nebula Graph 数据库。
+对于 RPM 安装的 Explorer，在成功启动 Explorer 后，用户需要配置连接 Nebula Graph。本文主要描述 RPM 安装的 Explorer 如何连接 Nebula Graph 数据库。
 
 ## 前提条件
 
 在连接 Nebula Graph 数据库前，用户需要确认以下信息：
 
-- 已经安装部署了 Explorer 。详细信息参考 [部署 Explorer](ex_ug_connect.md)。
+- 已经安装部署了 Explorer。详细信息参考 [部署 Explorer](../deploy-connect/ex-ug-connect.md)。
 
 - Nebula Graph 的 Graph 服务本机 IP 地址以及服务所用端口。默认端口为 `9669`。
 

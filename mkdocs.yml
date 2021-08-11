@@ -51,6 +51,7 @@ extra:
     base100: 1.0.0
   exchange:
     release: master
+    branch: master
   importer:
     release: master  
   algorithm:
@@ -68,6 +69,14 @@ extra:
     release: master
   console:
     release: master
+  cpp:
+    release: 2.5.0
+  java:
+    release: 2.5.0
+  python:
+    release: 2.5.0
+  go:
+    release: 2.5.0
   
 nav:
   - 前言: README.md
@@ -337,34 +346,36 @@ nav:
 #      - 导入Parquet文件数据: nebula-exchange/use-exchange/ex-ug-import-from-parquet.md
 #      - 导入HBase数据: nebula-exchange/use-exchange/ex-ug-import-from-hbase.md
 #      - 导入MySQL数据: nebula-exchange/use-exchange/ex-ug-import-from-mysql.md
+#      - 导入ClickHouse数据: nebula-exchange/use-exchange/ex-ug-import-from-clickhouse.md
 #      - 导入Neo4j数据: nebula-exchange/use-exchange/ex-ug-import-from-neo4j.md
 #      - 导入Hive数据: nebula-exchange/use-exchange/ex-ug-import-from-hive.md
+#      - 导入MaxCompute数据: nebula-exchange/use-exchange/ex-ug-import-from-maxcompute.md
 #      - 导入Pulsar数据: nebula-exchange/use-exchange/ex-ug-import-from-pulsar.md
 #      - 导入Kafka数据: nebula-exchange/use-exchange/ex-ug-import-from-kafka.md
 #    - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
 
 #  - Nebula Algorithm: nebula-algorithm.md
 
-  - Nebula Graph Dashboard: 
-      - 什么是Nebula Graph Dashboard: nebula-dashboard/1.what-is-dashboard.md
-      - 部署Dashboard: nebula-dashboard/2.deploy-dashboard.md
-      - 连接Dashboard: nebula-dashboard/3.connect-dashboard.md
-      - Dashboard页面介绍: nebula-dashboard/4.use-dashboard.md
-      - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
+#  - Nebula Graph Dashboard: 
+#      - 什么是Nebula Graph Dashboard: nebula-dashboard/1.what-is-dashboard.md
+#      - 部署Dashboard: nebula-dashboard/2.deploy-dashboard.md
+#      - 连接Dashboard: nebula-dashboard/3.connect-dashboard.md
+#      - Dashboard页面介绍: nebula-dashboard/4.use-dashboard.md
+#      - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
 
-  - Nebula Graph Explorer:
-      - 什么是Nebula Graph Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
-      - 安装与登录:
-        - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
-        - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
-        - 清除链接: nebula-explorer/deploy-connect/ex-ug-reset-connection.md
-      - 操作指南:
-        - 页面概览: nebula-explorer/operation-guide/ex-ug-page-overview.md
-        - 查询探索: nebula-explorer/operation-guide/ex-ug-query-exploration.md
-        - 图探索拓展: nebula-explorer/operation-guide/ex-ug-graph-exploration.md
-        - 画布操作: nebula-explorer/operation-guide/ex-ug-canvas.md
-        - 关系列表: nebula-explorer/operation-guide/ex-ug-relationship-list.md
-        - 快捷键: nebula-explorer/operation-guide/ex-ug-shortcuts.md
+#  - Nebula Graph Explorer:
+#      - 什么是Nebula Graph Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
+#      - 安装与登录:
+#        - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
+#        - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
+#        - 清除链接: nebula-explorer/deploy-connect/ex-ug-reset-connection.md
+#      - 操作指南:
+#        - 页面概览: nebula-explorer/operation-guide/ex-ug-page-overview.md
+#        - 查询探索: nebula-explorer/operation-guide/ex-ug-query-exploration.md
+#        - 图探索拓展: nebula-explorer/operation-guide/ex-ug-graph-exploration.md
+#        - 画布操作: nebula-explorer/operation-guide/ex-ug-canvas.md
+#        - 关系列表: nebula-explorer/operation-guide/ex-ug-relationship-list.md
+#        - 快捷键: nebula-explorer/operation-guide/ex-ug-shortcuts.md
 
   - 附录:
       - Nebula Graph 常见问题: 20.appendix/0.FAQ.md
@@ -373,7 +384,7 @@ nav:
       - 社区参与: 15.contribution/how-to-contribute.md
 
   - PDF: ./pdf/NebulaGraph-CN.pdf
-
+  - English Docs: https://docs.nebula-graph.io/
 
 #  - 图算法:
 #    - nebula-algorithm:
