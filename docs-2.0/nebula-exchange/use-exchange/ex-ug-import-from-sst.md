@@ -1,8 +1,45 @@
-# 导入CSV文件数据
+# 导入SST文件数据（WIP）
 
-本文以一个示例说明如何使用Exchange将存储在HDFS或本地的CSV文件数据导入Nebula Graph。
+本文以一个示例说明如何将数据源的数据生成SST（Sorted String Table）文件，然后导入Nebula Graph，示例数据源是CSV文件。
 
-如果要向Nebula Graph导入本地CSV文件，请参见[Nebula Importer](https://github.com/vesoft-inc/nebula-importer "Click to go to GitHub")。
+> **说明**：仅Linux系统支持导入SST文件。
+
+## 背景信息
+
+Exchange支持两种数据导入模式：
+
+- 直接将数据源的数据通过**nGQL**语句的形式导入Nebula Graph。
+
+- 将数据源的数据生成SST文件，然后借助Console将SST文件导入Nebula Graph。
+
+下文将介绍生成导入SST文件的实现方法、前提条件、操作步骤等内容。
+
+## 实现方法
+
+Nebula Graph底层使用RocksDB作为键值型存储引擎。RocksDB是基于磁盘的存储引擎，提供了一系列API用于创建及导入SST格式的文件，有助于快速导入海量数据。
+
+SST文件是一个内部包含了任意长度、排好序的键值对集合的文件，用于高效地存储大量键值型数据。生成SST文件的整个过程主要由Exchange的Reader、sstProcessor和sstWriter完成。整个数据处理过程如下：
+
+1. Reader从数据源中读取数据。
+
+2. sstProcessor根据Nebula Graph的Schema信息生成SST文件，然后上传至HDFS。SST文件的格式请参见[数据存储格式](../../1.introduction/3.nebula-graph-architecture/4.storage-service.md)。
+
+3. sstWriter打开一个文件并插入数据。生成SST文件时，Key必须按照顺序写入。
+
+4. 生成SST文件之后，RocksDB通过`IngestExternalFile()`方法将SST文件导入到Nebula Graph中。例如：
+
+  ```
+  IngestExternalFileOptions ifo;
+  # 导入两个SST文件
+  Status s = db_->IngestExternalFile({"/home/usr/file1.sst", "/home/usr/file2.sst"}, ifo);
+  if (!s.ok()) {
+    printf("Error while adding file %s and %s, Error %s\n",
+           file_path1.c_str(), file_path2.c_str(), s.ToString().c_str());
+    return 1;
+  }
+  ```
+
+  调用`IngestExternalFile()`方法时，RocksDB默认会将文件拷贝到数据目录，并且阻塞RocksDB写入操作。如果SST文件中的键范围覆盖了Memtable键的范围，则将Memtable落盘（flush）到硬盘。将SST文件放置在LSM树最优位置后，为文件分配一个全局序列号，并打开写操作。
 
 ## 数据集
 
@@ -26,21 +63,25 @@
 
 开始导入数据之前，用户需要确认以下信息：
 
-- 已经[安装部署Nebula Graph](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)并获取如下信息：
+- 已经[安装部署Nebula Graph {{nebula.release}}](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)并获取如下信息：
 
   - Graph服务和Meta服务的的IP地址和端口。
 
   - 拥有Nebula Graph写权限的用户名和密码。
 
-- 已经编译Exchange。详情请参见[编译Exchange](../ex-ug-compile.md)。本示例中使用Exchange {{exchange.release}}。
+  - Meta服务配置文件中的`--ws_storage_http_port`和Storage服务配置文件中的`--ws_http_port`一致。例如都为`19779`。
+
+  - Graph服务配置文件中的`--ws_meta_http_port`和Meta服务配置文件中的`--ws_http_port`一致。例如都为`19559`。
+
+  - Schema的信息，包括Tag和Edge type的名称、属性等。
+
+- 已经[编译Exchange](../ex-ug-compile.md)，或者直接[下载](https://repo1.maven.org/maven2/com/vesoft/nebula-exchange/)编译完成的.jar文件。本示例中使用Exchange {{exchange.release}}。
 
 - 已经安装Spark。
 
-- 了解Nebula Graph中创建Schema的信息，包括Tag和Edge type的名称、属性等。
+- 已经安装JDK 1.8或以上版本，并配置环境变量JAVA_HOME。
 
-- 如果文件存储在HDFS上，需要确认Hadoop服务运行正常。
-
-- 如果文件存储在本地且Nebula Graph是集群架构，需要在集群每台机器本地相同目录下放置文件。
+- 确认Hadoop服务在所有部署Storage服务的机器上运行正常。
 
 ## 操作步骤
 
@@ -92,30 +133,34 @@
 
   !!! note
 
-        Exchange支持上传有表头或者无表头的CSV文件。
+        可以使用有表头或者无表头的CSV文件。
 
 2. 获取CSV文件存储路径。
 
 ### 步骤 3：修改配置文件
 
-编译Exchange后，复制`target/classes/application.conf`文件设置CSV数据源相关的配置。在本示例中，复制的文件名为`csv_application.conf`。各个配置项的详细说明请参见[配置说明](../parameter-reference/ex-ug-parameter.md)。
+编译Exchange后，复制`target/classes/application.conf`文件设置相关配置。在本示例中，复制的文件名为`sst_application.conf`。各个配置项的详细说明请参见[配置说明](../parameter-reference/ex-ug-parameter.md)。
 
 ```conf
 {
   # Spark相关配置
   spark: {
     app: {
-      name: Nebula Exchange {{exchange.release}}
+      name: Nebula Exchange 2.0
     }
+
+    master:local
+
     driver: {
       cores: 1
       maxResultSize: 1G
     }
+
     executor: {
         memory:1G
     }
 
-    cores {
+    cores:{
       max: 16
     }
   }
@@ -123,35 +168,48 @@
   # Nebula Graph相关配置
   nebula: {
     address:{
-      # 指定Graph服务和所有Meta服务的IP地址和端口。
-      # 如果有多台服务器，地址之间用英文逗号（,）分隔。
-      # 格式: "ip1:port","ip2:port","ip3:port"
       graph:["127.0.0.1:9669"]
       meta:["127.0.0.1:9559"]
     }
-
-    # 指定拥有Nebula Graph写权限的用户名和密码。
     user: root
     pswd: nebula
-
-    # 指定图空间名称。
     space: basketballplayer
+
+    # SST文件相关配置
+    path:{
+        # 本地临时存放生成的SST文件的目录
+        local:"/tmp"
+
+        # SST文件在HDFS的存储路径
+        remote:"/sst"
+        
+        # HDFS的NameNode地址
+        hdfs.namenode: "hdfs://*.*.*.*:9000"
+    }
+
+    # 客户端连接参数
     connection {
-      timeout: 3000
-      retry: 3
+      # socket连接、执行的超时时间，单位：毫秒。
+      timeout: 30000
     }
-    execution {
-      retry: 3
-    }
+
     error: {
+      # 最大失败数，超过后会退出应用程序。
       max: 32
+      # 失败的导入作业将记录在输出路径中。
       output: /tmp/errors
     }
+
+    # 使用谷歌的RateLimiter来限制发送到NebulaGraph的请求。
     rate: {
+      # RateLimiter的稳定吞吐量。
       limit: 1024
+
+      # 从RateLimiter获取允许的超时时间，单位：毫秒
       timeout: 1000
     }
   }
+
 
   # 处理点
   tags: [
@@ -164,13 +222,13 @@
         source: csv
 
         # 指定如何将点数据导入Nebula Graph：Client或SST。
-        sink: client
+        sink: sst
       }
 
       # 指定CSV文件的路径。
       # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
       # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
-      path: "hdfs://192.168.*.*:9000/data/vertex_player.csv"
+      path: "hdfs://*.*.*.*:9000/dataset/vertex_player.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
       # 如果CSV文件有表头，则使用实际的列名。
@@ -185,7 +243,6 @@
       # 目前，Nebula Graph {{nebula.release}}仅支持字符串或整数类型的VID。
       vertex: {
         field:_c0
-        # policy:hash
       }
 
       # 指定的分隔符。默认值为英文逗号（,）。
@@ -211,13 +268,13 @@
         source: csv
 
         # 指定如何将点数据导入Nebula Graph：Client或SST。
-        sink: client
+        sink: sst
       }
 
       # 指定CSV文件的路径。
       # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
       # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
-      path: "hdfs://192.168.*.*:9000/data/vertex_team.csv"
+      path: "hdfs://*.*.*.*:9000/dataset/vertex_team.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
       # 如果CSV文件有表头，则使用实际的列名。
@@ -232,7 +289,6 @@
       # 目前，Nebula Graph {{nebula.release}}仅支持字符串或整数类型的VID。
       vertex: {
         field:_c0
-        # policy:hash
       }
 
       # 指定的分隔符。默认值为英文逗号（,）。
@@ -263,13 +319,13 @@
         source: csv
 
         # 指定如何将点数据导入Nebula Graph：Client或SST。
-        sink: client
+        sink: sst
       }
 
       # 指定CSV文件的路径。
       # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
       # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
-      path: "hdfs://192.168.*.*:9000/data/edge_follow.csv"
+      path: "hdfs://*.*.*.*:9000/dataset/edge_follow.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
       # 如果CSV文件有表头，则使用实际的列名。
@@ -316,13 +372,13 @@
         source: csv
 
         # 指定如何将点数据导入Nebula Graph：Client或SST。
-        sink: client
+        sink: sst
       }
 
       # 指定CSV文件的路径。
       # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
       # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
-      path: "hdfs://192.168.*.*:9000/data/edge_serve.csv"
+      path: "hdfs://*.*.*.*:9000/dataset/edge_serve.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
       # 如果CSV文件有表头，则使用实际的列名。
@@ -364,12 +420,12 @@
 }
 ```
 
-### 步骤 4：向Nebula Graph导入数据
+### 步骤 4：生成SST文件
 
-运行如下命令将CSV文件数据导入到Nebula Graph中。关于参数的说明，请参见[导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
+运行如下命令将CSV源文件生成为SST文件。关于参数的说明，请参见[命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-{{exchange.release}}.jar_path> -c <csv_application.conf_path> 
+${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-{{exchange.release}}.jar_path> -c <sst_application.conf_path> 
 ```
 
 !!! note
@@ -379,12 +435,50 @@ ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchan
 示例：
 
 ```bash
-${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-spark-utils/nebula-exchange/target/nebula-exchange-{{exchange.release}}.jar  -c /root/nebula-spark-utils/nebula-exchange/target/classes/csv_application.conf
+${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-spark-utils/nebula-exchange/target/nebula-exchange-{{exchange.release}}.jar  -c /root/nebula-spark-utils/nebula-exchange/target/classes/sst_application.conf
 ```
 
-用户可以在返回信息中搜索`batchSuccess.<tag_name/edge_name>`，确认成功的数量。例如`batchSuccess.follow: 300`。
+任务执行完成后，可以在HDFS上的`/sst`目录（`nebula.path.remote`参数指定）内查看到生成的SST文件。
 
-### 步骤 5：（可选）验证数据
+!!! note
+
+    如果对Schema有修改操作，例如重建图空间、修改Tag、修改Edge type等，需要重新生成SST文件，因为SST文件会验证Space ID、Tag ID、Edge ID等信息。
+
+### 步骤 5：导入SST文件
+
+使用客户端工具连接Nebula Graph数据库，按如下操作导入SST文件：
+
+1. 执行命令选择之前创建的图空间。
+
+  ```ngql
+  nebula> USE basketballplayer;
+  ```
+
+2. 执行命令下载SST文件：
+
+  ```ngql
+  nebula> DOWNLOAD HDFS "hdfs://<hadoop_address>:<hadoop_port>/<sst_file_path>";
+  ```
+
+  示例：
+
+  ```ngql
+  nebula> DOWNLOAD HDFS "hdfs://*.*.*.*:9000/sst";
+  ```
+
+2. 执行命令导入SST文件：
+
+  ```ngql
+  nebula> INGEST;
+  ```
+
+!!! note
+
+    - 如果需要重新下载，请在Nebula Graph安装路径内的`data/storage/nebula`目录内，将对应Space ID目录内的`download`文件夹删除，然后重新下载SST文件。如果是图空间是多副本，保存副本的所有机器都需要删除`download`文件夹。
+
+    - 如果导入时出现问题需要重新导入，重新执行`INGEST;`即可。
+
+### 步骤 6：（可选）验证数据
 
 用户可以在Nebula Graph客户端（例如Nebula Graph Studio）中执行查询语句，确认数据是否已导入。例如：
 
@@ -394,6 +488,6 @@ GO FROM "player100" OVER follow;
 
 用户也可以使用命令[`SHOW STATS`](../../3.ngql-guide/7.general-query-statements/6.show/14.show-stats.md)查看统计数据。
 
-### 步骤 6：（如有）在Nebula Graph中重建索引
+### 步骤 7：（如有）在Nebula Graph中重建索引
 
 导入数据后，用户可以在Nebula Graph中重新创建并重建索引。详情请参见[索引介绍](../../3.ngql-guide/14.native-index-statements/README.md)。

@@ -19,6 +19,20 @@
 !!! note
     JAR文件版本号以实际编译得到的JAR文件名称为准。
 
+!!! note
+
+    如果使用yarn-cluster模式提交任务，请参考如下示例：
+
+    ```bash
+    $SPARK_HOME/bin/spark-submit     --master yarn-cluster \
+    --class com.vesoft.nebula.exchange.Exchange \
+    --files application.conf \
+    --conf spark.driver.extraClassPath=./ \
+    --conf spark.executor.extraClassPath=./ \
+    nebula-exchange-{{exchange.release}}.jar \
+    -c application.conf
+    ```
+
 下表列出了命令的相关参数。
 
 | 参数 | 是否必需 | 默认值 | 说明 |

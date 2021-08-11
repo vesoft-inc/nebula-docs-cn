@@ -1,50 +1,10 @@
-# 导入MySQL数据
+# 导入MaxCompute数据
 
-本文以一个示例说明如何使用Exchange将存储在MySQL上的数据导入Nebula Graph。
+本文以一个示例说明如何使用Exchange将存储在MaxCompute上的数据导入Nebula Graph。
 
 ## 数据集
 
 本文以[basketballplayer数据集](https://docs-cdn.nebula-graph.com.cn/dataset/dataset.zip)为例。
-
-在本示例中，该数据集已经存入MySQL中名为`basketball`的数据库中，以`player`、`team`、`follow`和`serve`四个表存储了所有点和边的信息。以下为各个表的结构。
-
-```sql
-mysql> desc player;
-+----------+-------------+------+-----+---------+-------+
-| Field    | Type        | Null | Key | Default | Extra |
-+----------+-------------+------+-----+---------+-------+
-| playerid | varchar(30) | YES  |     | NULL    |       |
-| age      | int         | YES  |     | NULL    |       |
-| name     | varchar(30) | YES  |     | NULL    |       |
-+----------+-------------+------+-----+---------+-------+
-
-mysql> desc team;
-+--------+-------------+------+-----+---------+-------+
-| Field  | Type        | Null | Key | Default | Extra |
-+--------+-------------+------+-----+---------+-------+
-| teamid | varchar(30) | YES  |     | NULL    |       |
-| name   | varchar(30) | YES  |     | NULL    |       |
-+--------+-------------+------+-----+---------+-------+
-
-mysql> desc follow;
-+------------+-------------+------+-----+---------+-------+
-| Field      | Type        | Null | Key | Default | Extra |
-+------------+-------------+------+-----+---------+-------+
-| src_player | varchar(30) | YES  |     | NULL    |       |
-| dst_player | varchar(30) | YES  |     | NULL    |       |
-| degree     | int         | YES  |     | NULL    |       |
-+------------+-------------+------+-----+---------+-------+
-
-mysql> desc serve;
-+------------+-------------+------+-----+---------+-------+
-| Field      | Type        | Null | Key | Default | Extra |
-+------------+-------------+------+-----+---------+-------+
-| playerid   | varchar(30) | YES  |     | NULL    |       |
-| teamid     | varchar(30) | YES  |     | NULL    |       |
-| start_year | int         | YES  |     | NULL    |       |
-| end_year   | int         | YES  |     | NULL    |       |
-+------------+-------------+------+-----+---------+-------+
-```
 
 ## 环境配置
 
@@ -58,7 +18,7 @@ mysql> desc serve;
 
 - Hadoop：2.9.2，伪分布式部署
 
-- MySQL： 8.0.23
+- MaxCompute：阿里云官方版本
 
 - Nebula Graph：{{nebula.release}}。使用[Docker Compose部署](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)。
 
@@ -124,7 +84,7 @@ mysql> desc serve;
 
 ### 步骤 2：修改配置文件
 
-编译Exchange后，复制`target/classes/application.conf`文件设置MySQL数据源相关的配置。在本示例中，复制的文件名为`mysql_application.conf`。各个配置项的详细说明请参见[配置说明](../parameter-reference/ex-ug-parameter.md)。
+编译Exchange后，复制`target/classes/application.conf`文件设置MaxCompute数据源相关的配置。在本示例中，复制的文件名为`maxcompute_application.conf`。各个配置项的详细说明请参见[配置说明](../parameter-reference/ex-ug-parameter.md)。
 
 ```conf
 {
@@ -174,34 +134,46 @@ mysql> desc serve;
   }
   # 处理点
   tags: [
-    # 设置Tag player相关信息。
+    # 设置Tag player相关信息
     {
-      # Nebula Graph中对应的Tag名称。
       name: player
       type: {
-        # 指定数据源文件格式，设置为MySQL。
-        source: mysql
+        # 指定数据源文件格式，设置为MaxCompute。
+        source: maxcompute
         # 指定如何将点数据导入Nebula Graph：Client或SST。
         sink: client
       }
+      
+      # MaxCompute的表名
+      table:player
 
-      host:192.168.*.*
-      port:3306
-      database:"basketball"
-      table:"player"
-      user:"test"
-      password:"123456"
-      sentence:"select playerid, age, name from basketball.player order by playerid;"
+      # MaxCompute的项目名
+      project:project
+
+      # MaxCompute服务的odpsUrl和tunnelUrl，
+      # 地址可在 https://help.aliyun.com/document_detail/34951.html 查看。
+      odpsUrl:"http://service.cn-hangzhou.maxcompute.aliyun.com/api"
+      tunnelUrl:"http://dt.cn-hangzhou.maxcompute.aliyun.com"
+
+      # MaxCompute服务的accessKeyId和accessKeySecret。
+      accessKeyId:xxx
+      accessKeySecret:xxx
+
+      # MaxCompute表的分区描述，该配置可选。
+      partitionSpec:"dt='partition1'"
+
+      # 请确保SQL语句中的表名和上方table的值相同，该配置可选。 
+      sentence:"select id, name, age, playerid from player where id < 10"
 
       # 在fields里指定player表中的列名称，其对应的value会作为Nebula Graph中指定属性。
       # fields和nebula.fields里的配置必须一一对应。
       # 如果需要指定多个列名称，用英文逗号（,）隔开。
-      fields: [age,name]
-      nebula.fields: [age,name]
+      fields:[name, age]
+      nebula.fields:[name, age]
 
       # 指定表中某一列数据为Nebula Graph中点VID的来源。
-      vertex: {
-        field:playerid
+      vertex:{
+        field: playerid
       }
 
       # 单批次写入 Nebula Graph 的数据条数。
@@ -210,31 +182,30 @@ mysql> desc serve;
       # Spark 分区数量
       partition: 32
     }
+
     # 设置Tag team相关信息。
     {
       name: team
       type: {
-        source: mysql
+        source: maxcompute
         sink: client
       }
-
-      host:192.168.*.*
-      port:3306
-      database:"basketball"
-      table:"team"
-      user:"test"
-      password:"123456"
-      sentence:"select teamid, name from basketball.team order by teamid;"
-
-      fields: [name]
-      nebula.fields: [name]
-      vertex: {
+      table:team
+      project:project
+      odpsUrl:"http://service.cn-hangzhou.maxcompute.aliyun.com/api"
+      tunnelUrl:"http://dt.cn-hangzhou.maxcompute.aliyun.com"
+      accessKeyId:xxx
+      accessKeySecret:xxx
+      partitionSpec:"dt='partition1'"
+      sentence:"select id, name, teamid from team where id < 10"
+      fields:[name]
+      nebula.fields:[name]
+      vertex:{
         field: teamid
       }
       batch: 256
       partition: 32
     }
-
   ]
 
   # 处理边数据
@@ -244,71 +215,84 @@ mysql> desc serve;
       # Nebula Graph中对应的Edge type名称。
       name: follow
 
-      type: {
-        # 指定数据源文件格式，设置为MySQL。
-        source: mysql
+      type:{
+        # 指定数据源文件格式，设置为MaxCompute。
+        source:maxcompute
 
         # 指定边数据导入Nebula Graph的方式，
         # 指定如何将点数据导入Nebula Graph：Client或SST。
-        sink: client
+        sink:client
       }
+      
+      # MaxCompute的表名
+      table:follow
 
-      host:192.168.*.*
-      port:3306
-      database:"basketball"
-      table:"follow"
-      user:"test"
-      password:"123456"
-      sentence:"select src_player,dst_player,degree from basketball.follow order by src_player;"
+      # MaxCompute的项目名
+      project:project
+
+      # MaxCompute服务的odpsUrl和tunnelUrl，
+      # 地址可在 https://help.aliyun.com/document_detail/34951.html 查看。
+      odpsUrl:"http://service.cn-hangzhou.maxcompute.aliyun.com/api"
+      tunnelUrl:"http://dt.cn-hangzhou.maxcompute.aliyun.com"
+
+      # MaxCompute服务的accessKeyId和accessKeySecret。
+      accessKeyId:xxx
+      accessKeySecret:xxx
+
+      # MaxCompute表的分区描述，该配置可选。
+      partitionSpec:"dt='partition1'"
+
+      # 请确保SQL语句中的表名和上方table的值相同，该配置可选。 
+      sentence:"select * from follow"
 
       # 在fields里指定follow表中的列名称，其对应的value会作为Nebula Graph中指定属性。
       # fields和nebula.fields里的配置必须一一对应。
       # 如果需要指定多个列名称，用英文逗号（,）隔开。
-      fields: [degree]
-      nebula.fields: [degree]
+      fields:[degree]
+      nebula.fields:[degree]
 
       # 在source里，将follow表中某一列作为边的起始点数据源。
-      # 在target里，将follow表中某一列作为边的目的点数据源。
-      source: {
+      source:{
         field: src_player
       }
 
-      target: {
+      # 在target里，将follow表中某一列作为边的目的点数据源。
+      target:{
         field: dst_player
       }
 
-      # 单批次写入 Nebula Graph 的数据条数。
-      batch: 256
-
       # Spark 分区数量
-      partition: 32
-    }
+      partition:10
 
+      # 单批次写入 Nebula Graph 的数据条数。
+      batch:10
+    }
+    
     # 设置Edge type serve相关信息
     {
       name: serve
-      type: {
-        source: mysql
-        sink: client
+      type:{
+        source:maxcompute
+        sink:client
       }
-
-      host:192.168.*.*
-      port:3306
-      database:"basketball"
-      table:"serve"
-      user:"test"
-      password:"123456"
-      sentence:"select playerid,teamid,start_year,end_year from basketball.serve order by playerid;"
-      fields: [start_year,end_year]
-      nebula.fields: [start_year,end_year]
-      source: {
+      table:serve
+      project:project
+      odpsUrl:"http://service.cn-hangzhou.maxcompute.aliyun.com/api"
+      tunnelUrl:"http://dt.cn-hangzhou.maxcompute.aliyun.com"
+      accessKeyId:xxx
+      accessKeySecret:xxx
+      partitionSpec:"dt='partition1'"
+      sentence:"select * from serve"
+      fields:[start_year,end_year]
+      nebula.fields:[start_year,end_year]
+      source:{
         field: playerid
       }
-      target: {
+      target:{
         field: teamid
       }
-      batch: 256
-      partition: 32
+      partition:10
+      batch:10
     }
   ]
 }
@@ -316,10 +300,10 @@ mysql> desc serve;
 
 ### 步骤 3：向Nebula Graph导入数据
 
-运行如下命令将MySQL数据导入到Nebula Graph中。关于参数的说明，请参见[导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
+运行如下命令将MaxCompute数据导入到Nebula Graph中。关于参数的说明，请参见[导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-{{exchange.release}}.jar_path> -c <mysql_application.conf_path>
+${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-{{exchange.release}}.jar_path> -c <maxcompute_application.conf_path>
 ```
 
 !!! note
@@ -329,7 +313,7 @@ ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchan
 示例：
 
 ```bash
-${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-spark-utils/nebula-exchange/target/nebula-exchange-{{exchange.release}}.jar  -c /root/nebula-spark-utils/nebula-exchange/target/classes/mysql_application.conf
+${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-spark-utils/nebula-exchange/target/nebula-exchange-{{exchange.release}}.jar  -c /root/nebula-spark-utils/nebula-exchange/target/classes/maxcompute_application.conf
 ```
 
 用户可以在返回信息中搜索`batchSuccess.<tag_name/edge_name>`，确认成功的数量。例如`batchSuccess.follow: 300`。
