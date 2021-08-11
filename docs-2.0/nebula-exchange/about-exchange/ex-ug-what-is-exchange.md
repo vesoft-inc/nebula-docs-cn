@@ -38,9 +38,9 @@ Exchange具有以下优点：
 
 - 易于使用：采用HOCON（Human-Optimized Config Object Notation）配置文件格式，具有面向对象风格，便于理解和操作。
 
-## 数据格式和来源
+## 数据源
 
-Exchange {{exchange.release}} 支持将以下格式或来源的数据转换为Nebula Graph能识别的点和边数据：
+Exchange {{exchange.release}} 支持将以下格式或来源的数据转换为Nebula Graph能识别的点和边数据，然后通过**nGQL**语句的形式导入Nebula Graph：
 
 - 存储在HDFS或本地的数据：
   - [Apache Parquet](../use-exchange/ex-ug-import-from-parquet.md)
@@ -64,6 +64,8 @@ Exchange {{exchange.release}} 支持将以下格式或来源的数据转换为Ne
 - 流处理软件平台：[Apache Kafka&reg;](../use-exchange/ex-ug-import-from-kafka.md)
 
 - 发布/订阅消息平台：[Apache Pulsar 2.4.5](../use-exchange/ex-ug-import-from-pulsar.md)
+
+除了用nGQL语句的形式导入数据，Exchange还支持将数据源的数据生成**SST文件**，然后通过Console[导入SST文件](../use-exchange/ex-ug-import-from-sst.md)。
 
 ## 视频
 
