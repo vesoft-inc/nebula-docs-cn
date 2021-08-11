@@ -82,7 +82,7 @@
 
    1. 安装新的二进制文件。
 
-    - 如果从 rpm/deb 安装,从[release page](https://github.com/vesoft-inc/nebula-graph/releases)下载对应操作系统的安装包。
+    - 如果从 rpm/deb 安装，从[release page](https://github.com/vesoft-inc/nebula-graph/releases)下载对应操作系统的安装包。
 
        ```bash
        > sudo rpm --force -i --prefix=${nebula-new}  ${nebula-package-name.rpm} # for centos/redhat
@@ -337,7 +337,7 @@ A: 部分命令需要有 sudo 权限。
 
 Q: 是否有 gflags 发生改变？
 
-A: 目前已知的 gflags 改变整理在[github issues](https://github.com/vesoft-inc/nebula-graph/issues/858)。
+A: 目前已知的 gflags 改变整理在[github issues](https://github.com/vesoft-inc/nebula/issues/2501)。
 
 Q: 删除数据重新安装，和升级有何不同？
 
