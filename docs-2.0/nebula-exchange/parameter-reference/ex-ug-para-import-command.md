@@ -21,7 +21,7 @@
 
 !!! note
 
-    如果使用yarn-cluster模式提交任务，请参考如下示例：
+    如果使用[yarn-cluster模式](https://spark-reference-doc-cn.readthedocs.io/zh_CN/latest/deploy-guide/running-on-yarn.html)提交任务，请参考如下示例：
 
     ```bash
     $SPARK_HOME/bin/spark-submit     --master yarn-cluster \
@@ -43,3 +43,5 @@
 | `-h`  / `--hive`  | 否 | `false` | 添加这个参数表示支持从Hive中导入数据。 |
 | `-D`  / `--dry`  | 否 | `false` | 添加这个参数表示检查配置文件的格式是否符合要求，但不会校验`tags`和`edges`的配置项是否正确。正式导入数据时不能添加这个参数。 |
 |-r / --reload | 否  |  无  |   指定需要重新加载的reload文件路径。 |
+
+更多Spark的参数配置说明请参见[Spark Configuration](https://spark.apache.org/docs/latest/configuration.html#runtime-environment)。

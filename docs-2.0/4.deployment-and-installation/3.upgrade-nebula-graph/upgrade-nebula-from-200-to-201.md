@@ -1,15 +1,16 @@
-# Nebula Graph v2.0.0升级至v2.0.1
+# Nebula Graph v2.0.x升级至v{{nebula.release}}
 
-Nebula Graph v2.0.0升级至v2.0.1，只需要使用v2.0.1的RPM/DEB包进行升级操作即可，或者[编译v2.0.1](2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)之后重新安装。
+Nebula Graph v2.0.x升级至v{{nebula.release}}，只需要使用v{{nebula.release}}的RPM/DEB包进行升级操作即可，或者[编译v{{nebula.release}}](../2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)之后重新安装。
 
 !!! note
-    如果Nebula Graph版本过低，需要先升级至v2.0.0，详情请参见[升级 Nebula Graph 历史版本至 v2.0.0](3.upgrade-nebula-graph.md)。
+
+    Nebula Graph v2.0.x指v2.0.0-GA和v2.0.1版本。如果Nebula Graph版本过低（v2.0.0-RC、v2.0.0-beta、v1.x），请参见[升级 Nebula Graph 历史版本至 v{{nebula.release}}](upgrade-nebula-graph-to-200.md)。
 
 ## RPM/DEB包升级步骤
 
-1. 下载[RPM/DEB包](https://github.com/vesoft-inc/nebula-graph/releases/tag/v2.0.1)。
+1. 下载[RPM/DEB包](https://github.com/vesoft-inc/nebula-graph/releases/tag/v{{nebula.release}})。
 
-2. 停止所有Nebula Graph服务。详情请参见[管理Nebula Graph服务](../2.quick-start/5.start-stop-service.md#_1)。
+2. 停止所有Nebula Graph服务。详情请参见[管理Nebula Graph服务](../../2.quick-start/5.start-stop-service.md)。
 
 3. 执行如下命令升级：
 
