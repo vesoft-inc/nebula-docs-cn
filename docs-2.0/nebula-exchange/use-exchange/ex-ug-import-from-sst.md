@@ -1,4 +1,4 @@
-# 导入SST文件数据（WIP）
+# 导入SST文件数据
 
 本文以一个示例说明如何将数据源的数据生成SST（Sorted String Table）文件，然后导入Nebula Graph，示例数据源是CSV文件。
 
@@ -12,13 +12,23 @@ Exchange支持两种数据导入模式：
 
 - 将数据源的数据生成SST文件，然后借助Console将SST文件导入Nebula Graph。
 
-下文将介绍生成导入SST文件的实现方法、前提条件、操作步骤等内容。
+下文将介绍生成SST文件并用其导入数据的适用场景、实现方法、前提条件、操作步骤等内容。
+
+## 适用场景
+
+- 适合在线业务，因为生成时几乎不会影响业务（只是读取Schema），导入速度快。
+
+  !!! caution
+  
+        虽然导入速度快，但是导入期间（大约10秒）会阻塞对应空间的写操作，建议在业务低峰期进行导入。
+
+- 适合数据源数据量较大的场景，导入速度快。
 
 ## 实现方法
 
-Nebula Graph底层使用RocksDB作为键值型存储引擎。RocksDB是基于磁盘的存储引擎，提供了一系列API用于创建及导入SST格式的文件，有助于快速导入海量数据。
+Nebula Graph底层使用RocksDB作为键值型存储引擎。RocksDB是基于硬盘的存储引擎，提供了一系列API用于创建及导入SST格式的文件，有助于快速导入海量数据。
 
-SST文件是一个内部包含了任意长度、排好序的键值对集合的文件，用于高效地存储大量键值型数据。生成SST文件的整个过程主要由Exchange的Reader、sstProcessor和sstWriter完成。整个数据处理过程如下：
+SST文件是一个内部包含了任意长度的有序键值对集合的文件，用于高效地存储大量键值型数据。生成SST文件的整个过程主要由Exchange的Reader、sstProcessor和sstWriter完成。整个数据处理过程如下：
 
 1. Reader从数据源中读取数据。
 
@@ -57,7 +67,7 @@ SST文件是一个内部包含了任意长度、排好序的键值对集合的�
 
 - Hadoop：2.9.2 伪分布式部署
 
-- Nebula Graph：{{nebula.release}}。使用[Docker Compose部署](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)。
+- Nebula Graph：{{nebula.release}}。
 
 ## 前提条件
 
