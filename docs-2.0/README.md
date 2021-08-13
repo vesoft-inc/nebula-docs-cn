@@ -50,6 +50,6 @@ Graph 完全指南》](https://docs.nebula-graph.com.cn/site/pdf/NebulaGraph-boo
 
     描述社区版和企业版的差异。
     
- ## 修改文档中的错误
+## 修改文档中的错误
  
 Nebula Graph 文档以 Markdown 语言编写。单击文档标题右上侧的铅笔图标即可提交修改建议。
