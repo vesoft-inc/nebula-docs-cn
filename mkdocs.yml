@@ -324,35 +324,6 @@ nav:
 #      - 连接数据库错误: nebula-studio/troubleshooting/st-ug-config-server-errors.md
 #      - 无法访问 Studio: nebula-studio/troubleshooting/st-ug-connection-errors.md
 #      - Studio 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
-
-#  - Nebula Importer:
-#    - 使用Nebula Importer: nebula-importer/use-importer.md
-#    - 有表头配置说明: nebula-importer/config-with-header.md
-#    - 无表头配置说明: nebula-importer/config-without-header.md
-
-#  - Nebula Exchange:
-#    - 认识Nebula Exchange:
-#      - 什么是Nebula Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
-#      - 使用限制: nebula-exchange/about-exchange/ex-ug-limitations.md
-#    - 编译Exchange: nebula-exchange/ex-ug-compile.md
-#    - 参数说明:
-#      - 导入命令参数: nebula-exchange/parameter-reference/ex-ug-para-import-command.md
-#      - 配置参数: nebula-exchange/parameter-reference/ex-ug-parameter.md
-#    - 使用Nebula Exchange:
-#      - 导入CSV文件数据: nebula-exchange/use-exchange/ex-ug-import-from-csv.md
-#      - 导入JSON文件数据: nebula-exchange/use-exchange/ex-ug-import-from-json.md
-#      - 导入ORC文件数据: nebula-exchange/use-exchange/ex-ug-import-from-orc.md
-#      - 导入Parquet文件数据: nebula-exchange/use-exchange/ex-ug-import-from-parquet.md
-#      - 导入HBase数据: nebula-exchange/use-exchange/ex-ug-import-from-hbase.md
-#      - 导入MySQL数据: nebula-exchange/use-exchange/ex-ug-import-from-mysql.md
-#      - 导入ClickHouse数据: nebula-exchange/use-exchange/ex-ug-import-from-clickhouse.md
-#      - 导入Neo4j数据: nebula-exchange/use-exchange/ex-ug-import-from-neo4j.md
-#      - 导入Hive数据: nebula-exchange/use-exchange/ex-ug-import-from-hive.md
-#      - 导入MaxCompute数据: nebula-exchange/use-exchange/ex-ug-import-from-maxcompute.md
-#      - 导入Pulsar数据: nebula-exchange/use-exchange/ex-ug-import-from-pulsar.md
-#      - 导入Kafka数据: nebula-exchange/use-exchange/ex-ug-import-from-kafka.md
-#    - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
-
   - Nebula Graph Dashboard: 
       - 什么是Nebula Graph Dashboard: nebula-dashboard/1.what-is-dashboard.md
       - 部署Dashboard: nebula-dashboard/2.deploy-dashboard.md
@@ -374,11 +345,46 @@ nav:
         - 关系列表: nebula-explorer/operation-guide/ex-ug-relationship-list.md
         - 快捷键: nebula-explorer/operation-guide/ex-ug-shortcuts.md
 
-#  - Nebula Algorithm: nebula-algorithm.md
-  
-#  - Nebula Spark Connector: nebula-spark-connector.md
+  - Nebula Importer:
+    - 使用Nebula Importer: nebula-importer/use-importer.md
+    - 有表头配置说明: nebula-importer/config-with-header.md
+    - 无表头配置说明: nebula-importer/config-without-header.md
 
-#  - Nebula Flink Connector: nebula-flink-connector.md
+  - Nebula Exchange:
+    - 认识Nebula Exchange:
+      - 什么是Nebula Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
+      - 使用限制: nebula-exchange/about-exchange/ex-ug-limitations.md
+    - 编译Exchange: nebula-exchange/ex-ug-compile.md
+    - 参数说明:
+      - 导入命令参数: nebula-exchange/parameter-reference/ex-ug-para-import-command.md
+      - 配置参数: nebula-exchange/parameter-reference/ex-ug-parameter.md
+    - 使用Nebula Exchange:
+      - 导入CSV文件数据: nebula-exchange/use-exchange/ex-ug-import-from-csv.md
+      - 导入JSON文件数据: nebula-exchange/use-exchange/ex-ug-import-from-json.md
+      - 导入ORC文件数据: nebula-exchange/use-exchange/ex-ug-import-from-orc.md
+      - 导入Parquet文件数据: nebula-exchange/use-exchange/ex-ug-import-from-parquet.md
+      - 导入HBase数据: nebula-exchange/use-exchange/ex-ug-import-from-hbase.md
+      - 导入MySQL数据: nebula-exchange/use-exchange/ex-ug-import-from-mysql.md
+      - 导入ClickHouse数据: nebula-exchange/use-exchange/ex-ug-import-from-clickhouse.md
+      - 导入Neo4j数据: nebula-exchange/use-exchange/ex-ug-import-from-neo4j.md
+      - 导入Hive数据: nebula-exchange/use-exchange/ex-ug-import-from-hive.md
+      - 导入MaxCompute数据: nebula-exchange/use-exchange/ex-ug-import-from-maxcompute.md
+      - 导入Pulsar数据: nebula-exchange/use-exchange/ex-ug-import-from-pulsar.md
+      - 导入Kafka数据: nebula-exchange/use-exchange/ex-ug-import-from-kafka.md
+    - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
+
+  - Nebula Algorithm: nebula-algorithm.md
+  
+  - Nebula Spark Connector: nebula-spark-connector.md
+
+  - Nebula Flink Connector: nebula-flink-connector.md
+
+  - 客户端:
+    - 客户端介绍: 14.client/1.nebula-client.md
+    - Nebula CPP: 14.client/3.nebula-cpp-client.md
+    - Nebula Java: 14.client/4.nebula-java-client.md
+    - Nebula Python: 14.client/5.nebula-python-client.md
+    - Nebula Go: 14.client/6.nebula-go-client.md
 
 #  - Nebula Bench: nebula-bench.md
 
