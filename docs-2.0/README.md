@@ -18,6 +18,7 @@ Graph 完全指南》](https://docs.nebula-graph.com.cn/site/pdf/NebulaGraph-boo
 - [论坛](https://discuss.nebula-graph.com.cn/)
 - [项目主页](https://nebula-graph.com.cn/)
 - [系列视频](https://space.bilibili.com/472621355)
+- [思维导图](20.appendix/mind-map.md)
 - [English](https://docs.nebula-graph.io/)
 
 ## 图例说明
