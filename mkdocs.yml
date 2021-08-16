@@ -77,6 +77,9 @@ extra:
     release: 2.5.0
   go:
     release: 2.5.0
+  bench:
+    release: master
+    branch: v2.0
   
 nav:
   - 前言: README.md
@@ -326,10 +329,6 @@ nav:
 #    - 使用Nebula Importer: nebula-importer/use-importer.md
 #    - 有表头配置说明: nebula-importer/config-with-header.md
 #    - 无表头配置说明: nebula-importer/config-without-header.md
-  
-#  - Nebula Spark Connector: nebula-spark-connector.md
-
-#  - Nebula Flink Connector: nebula-flink-connector.md
 
 #  - Nebula Exchange:
 #    - 认识Nebula Exchange:
@@ -354,8 +353,6 @@ nav:
 #      - 导入Kafka数据: nebula-exchange/use-exchange/ex-ug-import-from-kafka.md
 #    - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
 
-#  - Nebula Algorithm: nebula-algorithm.md
-
 #  - Nebula Graph Dashboard: 
 #      - 什么是Nebula Graph Dashboard: nebula-dashboard/1.what-is-dashboard.md
 #      - 部署Dashboard: nebula-dashboard/2.deploy-dashboard.md
@@ -377,6 +374,14 @@ nav:
 #        - 关系列表: nebula-explorer/operation-guide/ex-ug-relationship-list.md
 #        - 快捷键: nebula-explorer/operation-guide/ex-ug-shortcuts.md
 
+#  - Nebula Algorithm: nebula-algorithm.md
+  
+#  - Nebula Spark Connector: nebula-spark-connector.md
+
+#  - Nebula Flink Connector: nebula-flink-connector.md
+
+#  - Nebula Bench: nebula-bench.md
+
   - 附录:
       - Nebula Graph 常见问题: 20.appendix/0.FAQ.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
@@ -386,31 +391,6 @@ nav:
   - PDF: ./pdf/NebulaGraph-CN.pdf
   - English Docs: https://docs.nebula-graph.io/
 
-#  - 图算法:
-#    - nebula-algorithm:
-#      - 什么是 nebula-algorithm: nebula-algorithm/na-ug-what-is-nebula-algorithm.md
-#      - 使用限制: nebula-algorithm/na-ug-limitations.md
-#      - 编译 nebula-algorithm: nebula-algorithm/na-ug-compile.md
-#      - 使用示例: nebula-algorithm/na-ug-example.md
-#
-#  - Nebula Flink Connector:
-#    - 什么是 Nebula Flink Connector: nebula-flink/nf-ug-what-is-flink-connector.md
-#    - 编译 Nebula Flink Connector: nebula-flink/nf-ug-compile.md
-#    - 使用限制: nebula-flink/nf-ug-limitations.md
-#    - 自定义 source (NebulaSource): nebula-flink/nf-ug-customize-source.md
-#    - 自定义 sink (NebulaSink): nebula-flink/nf-ug-customize-sink.md
-#    - 特殊说明: nebula-flink/nf-ug-notes.md
-#
-#  - Nebula Spark Connector:
-#    - 什么是 Nebula Spark Connector: spark-connector/sc-ug-what-is-spark-connector.md
-#    - 编译 Nebula Spark Connector: spark-connector/sc-ug-compile.md
-#    - 使用限制: spark-connector/sc-ug-limitations.md
-#    - Nebula Spark Connector Reader:
-#      - 什么是 Nebula Spark Connector Reader: spark-connector/reader/sc-ug-what-is-reader.md
-#      - 使用示例: spark-connector/reader/sc-ug-reader-example.md
-#    - Nebula Spark Connector Writer:
-#      - 什么是 Nebula Spark Connector Writer: spark-connector/writer/sc-ug-what-is-writer.md
-#      - 使用示例: spark-connector/writer/sc-ug-writer-example.md
 # Extensions
 markdown_extensions:
   - footnotes
