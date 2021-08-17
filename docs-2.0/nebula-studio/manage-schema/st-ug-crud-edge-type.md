@@ -30,16 +30,16 @@ Studio v{{ studio.base220 }} 及以后版本。请更新版本，详细操作参
 
 5. 在 **创建** 页面上，完成以下设置：
 
-  1. **名称**：按提示信息输入合规的Edge type名称。本示例中，输入 `serve`。
+  - **名称**：按提示信息输入合规的Edge type名称。本示例中，输入 `serve`。
   
-  2. （可选）如果Edge type需要描述，可以在名称下方的 **描述** 输入相应内容。
-
-  3. （可选）如果Edge type需要属性，在 **定义属性**面板的左上角，点击勾选框，并在展开的列表中，完成以下操作：  
+  - （可选）如果Edge type需要描述，可以在名称下方的 **描述** 输入相应内容。
+  
+  - （可选）如果Edge type需要属性，在 **定义属性**面板的左上角，点击勾选框，并在展开的列表中，完成以下操作：  
     - 输入属性名称、数据类型和默认值。
     - 如果一个Edge type有多个属性，可以点击 **添加属性** 按钮，并定义属性。
     - 如果要删除某个属性，在该属性所在行，点击 ![表示删除的图标](../figs/st-ug-020.png "删除") 图标。
 
-  4. （可选）Edge type未设置索引时，用户可以设置 TTL：在 **设置TTL**面板的左上角，点击勾选框，并在展开的列表中设置 `TTL_COL` 和 `TTL_DURATION` 参数信息。关于这两个参数的详细信息，参考 [TTL 配置](../../3.ngql-guide/8.clauses-and-options/ttl-options.md "点击前往 Nebula Graph 网站")。
+  - （可选）Edge type未设置索引时，用户可以设置 TTL：在 **设置TTL**面板的左上角，点击勾选框，并在展开的列表中设置 `TTL_COL` 和 `TTL_DURATION` 参数信息。关于这两个参数的详细信息，参考 [TTL 配置](../../3.ngql-guide/8.clauses-and-options/ttl-options.md "点击前往 Nebula Graph 网站")。
 
 6. 完成设置后，在 **对应的nGQL语句** 面板上，用户能看到与上述配置等价的 nGQL 语句。  
 ![定义Edge type action 的属性](../figs/st-ug-022-2.png "定义Edge type")

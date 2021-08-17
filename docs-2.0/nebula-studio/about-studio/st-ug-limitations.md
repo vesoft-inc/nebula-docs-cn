@@ -4,7 +4,15 @@
 
 ## Nebula Graph 版本支持
 
-目前 Studio v1.x 仅支持 Nebula Graph v1.x，Studio v2.x 仅支持 Nebula Graph v2.0 和 Nebula Graph v2.0.1，Studio v3.0.0 仅支持 Nebula Graph v2.5.0。
+!!! Note
+
+    Studio 版本发布节奏独立于 Nebula Graph 内核，其命名方式也不参照内核命名规则，两者兼容对应关系如下表。
+
+| Nebula Graph 版本 | Studio 版本 |
+| --- | --- |
+| 1.x | 1.x|
+| 2.0 & 2.0.1 | 2.x |
+| 2.5.0 | 3.0.0 |
 
 ## 系统架构
 
@@ -44,7 +52,7 @@ Docker 版和 RPM 版 Studio 目前仅支持 x86_64 架构。
 - `GRANT ROLE`
 - `REVOKE ROLE`  
 
-关于语句的详细信息，参考 [Nebula Graph 用户手册](../../7.data-security/1.authentication/2.management-user.md "点击前往 Nebula Graph 用户手册")。
+关于语句的详细信息，参考 [用户管理](../../7.data-security/1.authentication/2.management-user.md "点击前往用户管理")。
 
 ## 浏览器支持
 
