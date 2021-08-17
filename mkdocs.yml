@@ -393,6 +393,7 @@ nav:
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
       - 导入工具选择: 20.appendix/write-tools.md
       - 社区参与: 15.contribution/how-to-contribute.md
+      - 思维导图: 20.appendix/mind-map.md
 
   - PDF: ./pdf/NebulaGraph-CN.pdf
   - English Docs: https://docs.nebula-graph.io/
