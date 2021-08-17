@@ -77,6 +77,9 @@ extra:
     release: 2.5.0
   go:
     release: 2.5.0
+  bench:
+    release: master
+    branch: v2.0
   
 nav:
   - 前言: README.md
@@ -289,7 +292,6 @@ nav:
       - 执行计划: 8.service-tuning/4.plan.md
       - 超级节点(稠密点): 8.service-tuning/super-node.md
 
-
   - Nebula Graph Studio:
     - Studio版本更新说明: nebula-studio/about-studio/st-ug-release-note.md
     - 认识 Nebula Graph Studio:
@@ -322,60 +324,69 @@ nav:
       - 无法访问 Studio: nebula-studio/troubleshooting/st-ug-connection-errors.md
       - Studio 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
 
-#  - Nebula Importer:
-#    - 使用Nebula Importer: nebula-importer/use-importer.md
-#    - 有表头配置说明: nebula-importer/config-with-header.md
-#    - 无表头配置说明: nebula-importer/config-without-header.md
+  - Nebula Graph Dashboard: 
+      - 什么是Nebula Graph Dashboard: nebula-dashboard/1.what-is-dashboard.md
+      - 部署Dashboard: nebula-dashboard/2.deploy-dashboard.md
+      - 连接Dashboard: nebula-dashboard/3.connect-dashboard.md
+      - Dashboard页面介绍: nebula-dashboard/4.use-dashboard.md
+      - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
+
+  - Nebula Graph Explorer:
+      - 什么是Nebula Graph Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
+      - 安装与登录:
+        - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
+        - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
+        - 清除链接: nebula-explorer/deploy-connect/ex-ug-reset-connection.md
+      - 操作指南:
+        - 页面概览: nebula-explorer/operation-guide/ex-ug-page-overview.md
+        - 查询探索: nebula-explorer/operation-guide/ex-ug-query-exploration.md
+        - 图探索拓展: nebula-explorer/operation-guide/ex-ug-graph-exploration.md
+        - 画布操作: nebula-explorer/operation-guide/ex-ug-canvas.md
+        - 关系列表: nebula-explorer/operation-guide/ex-ug-relationship-list.md
+        - 快捷键: nebula-explorer/operation-guide/ex-ug-shortcuts.md
+
+  - Nebula Importer:
+    - 使用Nebula Importer: nebula-importer/use-importer.md
+    - 有表头配置说明: nebula-importer/config-with-header.md
+    - 无表头配置说明: nebula-importer/config-without-header.md
+
+  - Nebula Exchange:
+    - 认识Nebula Exchange:
+      - 什么是Nebula Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
+      - 使用限制: nebula-exchange/about-exchange/ex-ug-limitations.md
+    - 编译Exchange: nebula-exchange/ex-ug-compile.md
+    - 参数说明:
+      - 导入命令参数: nebula-exchange/parameter-reference/ex-ug-para-import-command.md
+      - 配置参数: nebula-exchange/parameter-reference/ex-ug-parameter.md
+    - 使用Nebula Exchange:
+      - 导入CSV文件数据: nebula-exchange/use-exchange/ex-ug-import-from-csv.md
+      - 导入JSON文件数据: nebula-exchange/use-exchange/ex-ug-import-from-json.md
+      - 导入ORC文件数据: nebula-exchange/use-exchange/ex-ug-import-from-orc.md
+      - 导入Parquet文件数据: nebula-exchange/use-exchange/ex-ug-import-from-parquet.md
+      - 导入HBase数据: nebula-exchange/use-exchange/ex-ug-import-from-hbase.md
+      - 导入MySQL数据: nebula-exchange/use-exchange/ex-ug-import-from-mysql.md
+      - 导入ClickHouse数据: nebula-exchange/use-exchange/ex-ug-import-from-clickhouse.md
+      - 导入Neo4j数据: nebula-exchange/use-exchange/ex-ug-import-from-neo4j.md
+      - 导入Hive数据: nebula-exchange/use-exchange/ex-ug-import-from-hive.md
+      - 导入MaxCompute数据: nebula-exchange/use-exchange/ex-ug-import-from-maxcompute.md
+      - 导入Pulsar数据: nebula-exchange/use-exchange/ex-ug-import-from-pulsar.md
+      - 导入Kafka数据: nebula-exchange/use-exchange/ex-ug-import-from-kafka.md
+    - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
+
+  - Nebula Algorithm: nebula-algorithm.md
   
-#  - Nebula Spark Connector: nebula-spark-connector.md
+  - Nebula Spark Connector: nebula-spark-connector.md
 
-#  - Nebula Flink Connector: nebula-flink-connector.md
+  - Nebula Flink Connector: nebula-flink-connector.md
 
-#  - Nebula Exchange:
-#    - 认识Nebula Exchange:
-#      - 什么是Nebula Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
-#      - 使用限制: nebula-exchange/about-exchange/ex-ug-limitations.md
-#    - 编译Exchange: nebula-exchange/ex-ug-compile.md
-#    - 参数说明:
-#      - 导入命令参数: nebula-exchange/parameter-reference/ex-ug-para-import-command.md
-#      - 配置参数: nebula-exchange/parameter-reference/ex-ug-parameter.md
-#    - 使用Nebula Exchange:
-#      - 导入CSV文件数据: nebula-exchange/use-exchange/ex-ug-import-from-csv.md
-#      - 导入JSON文件数据: nebula-exchange/use-exchange/ex-ug-import-from-json.md
-#      - 导入ORC文件数据: nebula-exchange/use-exchange/ex-ug-import-from-orc.md
-#      - 导入Parquet文件数据: nebula-exchange/use-exchange/ex-ug-import-from-parquet.md
-#      - 导入HBase数据: nebula-exchange/use-exchange/ex-ug-import-from-hbase.md
-#      - 导入MySQL数据: nebula-exchange/use-exchange/ex-ug-import-from-mysql.md
-#      - 导入ClickHouse数据: nebula-exchange/use-exchange/ex-ug-import-from-clickhouse.md
-#      - 导入Neo4j数据: nebula-exchange/use-exchange/ex-ug-import-from-neo4j.md
-#      - 导入Hive数据: nebula-exchange/use-exchange/ex-ug-import-from-hive.md
-#      - 导入MaxCompute数据: nebula-exchange/use-exchange/ex-ug-import-from-maxcompute.md
-#      - 导入Pulsar数据: nebula-exchange/use-exchange/ex-ug-import-from-pulsar.md
-#      - 导入Kafka数据: nebula-exchange/use-exchange/ex-ug-import-from-kafka.md
-#    - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
+  - 客户端:
+    - 客户端介绍: 14.client/1.nebula-client.md
+    - Nebula CPP: 14.client/3.nebula-cpp-client.md
+    - Nebula Java: 14.client/4.nebula-java-client.md
+    - Nebula Python: 14.client/5.nebula-python-client.md
+    - Nebula Go: 14.client/6.nebula-go-client.md
 
-#  - Nebula Algorithm: nebula-algorithm.md
-
-#  - Nebula Graph Dashboard: 
-#      - 什么是Nebula Graph Dashboard: nebula-dashboard/1.what-is-dashboard.md
-#      - 部署Dashboard: nebula-dashboard/2.deploy-dashboard.md
-#      - 连接Dashboard: nebula-dashboard/3.connect-dashboard.md
-#      - Dashboard页面介绍: nebula-dashboard/4.use-dashboard.md
-#      - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
-
-#  - Nebula Graph Explorer:
-#      - 什么是Nebula Graph Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
-#      - 安装与登录:
-#        - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
-#        - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
-#        - 清除链接: nebula-explorer/deploy-connect/ex-ug-reset-connection.md
-#      - 操作指南:
-#        - 页面概览: nebula-explorer/operation-guide/ex-ug-page-overview.md
-#        - 查询探索: nebula-explorer/operation-guide/ex-ug-query-exploration.md
-#        - 图探索拓展: nebula-explorer/operation-guide/ex-ug-graph-exploration.md
-#        - 画布操作: nebula-explorer/operation-guide/ex-ug-canvas.md
-#        - 关系列表: nebula-explorer/operation-guide/ex-ug-relationship-list.md
-#        - 快捷键: nebula-explorer/operation-guide/ex-ug-shortcuts.md
+#  - Nebula Bench: nebula-bench.md
 
   - 附录:
       - Nebula Graph 常见问题: 20.appendix/0.FAQ.md
@@ -386,31 +397,6 @@ nav:
   - PDF: ./pdf/NebulaGraph-CN.pdf
   - English Docs: https://docs.nebula-graph.io/
 
-#  - 图算法:
-#    - nebula-algorithm:
-#      - 什么是 nebula-algorithm: nebula-algorithm/na-ug-what-is-nebula-algorithm.md
-#      - 使用限制: nebula-algorithm/na-ug-limitations.md
-#      - 编译 nebula-algorithm: nebula-algorithm/na-ug-compile.md
-#      - 使用示例: nebula-algorithm/na-ug-example.md
-#
-#  - Nebula Flink Connector:
-#    - 什么是 Nebula Flink Connector: nebula-flink/nf-ug-what-is-flink-connector.md
-#    - 编译 Nebula Flink Connector: nebula-flink/nf-ug-compile.md
-#    - 使用限制: nebula-flink/nf-ug-limitations.md
-#    - 自定义 source (NebulaSource): nebula-flink/nf-ug-customize-source.md
-#    - 自定义 sink (NebulaSink): nebula-flink/nf-ug-customize-sink.md
-#    - 特殊说明: nebula-flink/nf-ug-notes.md
-#
-#  - Nebula Spark Connector:
-#    - 什么是 Nebula Spark Connector: spark-connector/sc-ug-what-is-spark-connector.md
-#    - 编译 Nebula Spark Connector: spark-connector/sc-ug-compile.md
-#    - 使用限制: spark-connector/sc-ug-limitations.md
-#    - Nebula Spark Connector Reader:
-#      - 什么是 Nebula Spark Connector Reader: spark-connector/reader/sc-ug-what-is-reader.md
-#      - 使用示例: spark-connector/reader/sc-ug-reader-example.md
-#    - Nebula Spark Connector Writer:
-#      - 什么是 Nebula Spark Connector Writer: spark-connector/writer/sc-ug-what-is-writer.md
-#      - 使用示例: spark-connector/writer/sc-ug-writer-example.md
 # Extensions
 markdown_extensions:
   - footnotes
