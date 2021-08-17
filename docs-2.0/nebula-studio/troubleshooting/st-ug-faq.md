@@ -11,8 +11,10 @@
 
 **Studio 支持 Nebula Graph v2.x 吗？**
 
-Studio v1.x 仅适用于 Nebula Graph v1.x。Studio v2.x 适用于 Nebula Graph v2.x。
+目前 Studio v1.x 仅支持 Nebula Graph v1.x，Studio v2.x 仅支持 Nebula Graph v2.0 和 Nebula Graph v2.0.1，Studio v3.0.0 仅支持 Nebula Graph v2.5.0。
 
+<!--
 **Studio 是否会开源？**
 
 目前还未开源。
+-->
