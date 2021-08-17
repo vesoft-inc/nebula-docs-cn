@@ -256,7 +256,7 @@ nav:
       - 管理服务: 4.deployment-and-installation/manage-service.md
       - 升级版本:
           - 升级历史版本至v2.0.0: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-200.md
-          - 升级v2.0.0至v2.0.1: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-201.md
+          - 升级v2.0.x至v2.5.0: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-201.md
       - 卸载Nebula Graph: 4.deployment-and-installation/4.uninstall-nebula-graph.md
 
   - 配置与日志:

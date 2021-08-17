@@ -1,4 +1,4 @@
-# Nebula Graph v2.0.x升级至v{{nebula.release}}
+# 升级Nebula Graph v2.0.x至v{{nebula.release}}
 
 Nebula Graph v2.0.x升级至v{{nebula.release}}，只需要使用v{{nebula.release}}的RPM/DEB包进行升级操作即可，或者[编译v{{nebula.release}}](../2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)之后重新安装。
 
