@@ -27,7 +27,7 @@ Studio v{{ studio.base220 }} 及以后版本。请更新版本，详细操作参
 
   1. **名称**：指定图空间名称，本示例中设置为 `basketballplayer`。不可与已有的图空间名称重复。不可使用关键字或保留关键字做标识符，参考[关键字](../../3.ngql-guide/1.nGQL-overview/keywords-and-reserved-words.md "点击前往 关键字")。
 
-  2. **vid type**： 图空间中点 ID（VID）的数据类型，可选值为定长字符串 `FIXED_STRING(<N>` 或 `INT64`，一旦定义无法修改。本示例设置为`FIXED_STRING(32)`，参考 [VID](../../1.introduction/3.vid.md)。
+  2. **vid type**： 图空间中点 ID（VID）的数据类型，可选值为定长字符串 `FIXED_STRING(<N>)` 或 `INT64`，一旦定义无法修改。本示例设置为`FIXED_STRING(32)`，参考 [VID](../../1.introduction/3.vid.md)。
 
   3. **描述**： 图空间的描述，最大为256字节。默认无描述。本示例设置为`Statistics of basketball players`。
 
@@ -55,7 +55,7 @@ Studio v{{ studio.base220 }} 及以后版本。请更新版本，详细操作参
 
 2. 在图空间列表里，找到需要删除的图空间，并在 **操作** 列中，点击 ![表示删除的图标](../figs/st-ug-017.png "删除") 图标。
 
-  ![在图空间列表中删除指定的图空间](../figs/st-ug-016-1.png "删除图空间")
+  ![在图空间列表中删除指定的图空间](../figs/st-ug-016-2.png "删除图空间")
 
 3. 在弹出的对话框中点击 **确认**。
   删除成功后，页面回到 **图空间列表**。

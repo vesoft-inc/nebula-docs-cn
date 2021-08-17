@@ -43,9 +43,11 @@ Studio v{{ studio.base220 }} 及以后版本。请更新版本，详细操作参
     !!! Note
 
         索引属性的顺序会影响 `LOOKUP` 语句的查询结果。详细信息，参考 [《nGQL 用户手册》](../../3.ngql-guide/7.general-query-statements/5.lookup.md "点击前往 Nebula Graph 网站")。
+  
+  5. **描述**：输入对索引的描述，最大为256字节。默认无描述。本示例为 `index`。
 
 6. 完成设置后，在 **对应的 nGQL**面板，用户能看到与上述配置等价的 nGQL 语句。  
-![为Edge type action 创建索引](../figs/st-ug-023-1.png "创建索引")
+![为Edge type action 创建索引](../figs/st-ug-023-2.png "创建索引")
 
 7. 确认无误后，点击 **+ 创建** 按钮。
   如果索引创建成功，**定义属性**面板会显示这个索引的属性列表。
