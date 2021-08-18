@@ -25,9 +25,9 @@ Explorer 的主页面分为五个部分：
 
 - 画布操作：包括框选画布中的点、拖动画布、选中多条点边功能。
 
-- 图探索拓展：包括对点的拓展、查找两个点的共同邻居、查找两个点的路径、显示属性切换等功能。
+- 图探索拓展：包括对点的拓展、查找多个点的共同邻居、查找两个点的路径、显示属性切换等功能。
 
-- 删除及撤销：对画布中显示的数据删除、撤回上一步操作。
+- 隐藏及撤销：对画布中显示的数据进行视图隐藏、撤回上一步操作。
 
 - 设置和帮助：切换图空间、查找帮助、修改设置等。
 
@@ -46,7 +46,7 @@ Explorer 的主页面分为五个部分：
 ### 图探索扩展
 
 - 拓展：单击 ![expand](../figs/rightclickmenu-expand.png)图标，选择页面上的节点并进行自定义拓展，包括拓展方向、拓展步数、过滤条件等。
-- 共同邻居：单击 ![commonNeighbor](../figs/rightclickmenu-commonNeighbor.png)图标，选择页面上 2 个点并查看它们的共同邻居。
+- 共同邻居：单击 ![commonNeighbor](../figs/rightclickmenu-commonNeighbor.png)图标，选择页面上至少两个点并查看它们的共同邻居。
 - 路径查询：单击 ![findPath](../figs/rightclickmenu-findPath.png)图标，可以查询起点到终点之间的 `all paths` 、 `Shortest path` 或者是 `Noloop path` 的路径。
 - 查看属性：单击 ![propertyView](../figs/nav-propertyView.png)图标，选择是否显示画板中的点或边的属性值。
 - 
@@ -54,9 +54,9 @@ Explorer 的主页面分为五个部分：
 
 ### 删除及撤销
 
-- 隐藏：单击![miss](../figs/nav-miss.png) 图标，可以隐藏画板中选中的点。
-- 隐藏其他：单击![missreverse](../figs/nav-missReverse.png) 图标，可以隐藏画布中未选择的所有点。
-- 撤销：单击 ![Revoke](../figs/nav-Revoke.png)图标，撤销上一步操作。
+- 隐藏：单击![miss](../figs/nav-miss.png) 图标，可以隐藏画板中选中的点边。
+- 隐藏其他：单击![missreverse](../figs/nav-missReverse.png) 图标，可以隐藏画布中未选择的所有点边。
+- 撤销：单击 ![Revoke](../figs/nav-Revoke.png)图标，撤销上一步新增或隐藏的操作。
 
 ### 设置及帮助
 
