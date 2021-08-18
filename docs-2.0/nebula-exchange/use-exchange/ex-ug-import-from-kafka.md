@@ -140,17 +140,18 @@
       # Kafka服务器地址。
       service: "127.0.0.1:9092"
       # 消息类别。
-      topic: "topic_name"
+      topic: "topic_name1"
 
-      # 在fields里指定player表中的列名称，其对应的value会作为Nebula Graph中指定属性。
-      # fields和nebula.fields里的配置必须一一对应。
+      # kafka数据有固定的字段名称：key、value、topic、partition、offset、timestamp、timestampType。
       # 如果需要指定多个列名称，用英文逗号（,）隔开。
-      fields: [age,name]
-      nebula.fields: [age,name]
+      # 在fields里指定字段名称，例如用key对应Nebula中的name， value对应Nebula中的age，示例如下：
+      fields: [key,value]
+      nebula.fields: [name,age]
 
       # 指定表中某一列数据为Nebula Graph中点VID的来源。
+      # 这里的值key和上面的key重复，表示key既作为VID，也作为属性name。
       vertex:{
-          field:playerid
+          field:key
       }
 
 
@@ -170,11 +171,11 @@
         sink: client
       }
       service: "127.0.0.1:9092"
-      topic: "topic_name"
-      fields: [name]
+      topic: "topic_name2"
+      fields: [key]
       nebula.fields: [name]
       vertex:{
-          field:teamid
+          field:key
       }
       batch: 10
       partition: 10
@@ -202,23 +203,23 @@
       # Kafka服务器地址。
       service: "127.0.0.1:9092"
       # 消息类别。
-      topic: "topic_name"
+      topic: "topic_name3"
 
-      # 在fields里指定follow表中的列名称，其对应的value会作为Nebula Graph中指定属性。
-      # fields和nebula.fields里的配置必须一一对应。
+      # kafka数据有固定的字段名称：key、value、topic、partition、offset、timestamp、timestampType。
       # 如果需要指定多个列名称，用英文逗号（,）隔开。
-      fields: [degree]
+      # 在fields里指定字段名称，例如用key对应Nebula中的degree，示例如下：
+      fields: [key]
       nebula.fields: [degree]
 
-      # 在source里，将follow表中某一列作为边的起始点数据源。
-      # 在target里，将follow表中某一列作为边的目的点数据源。
+      # 在source里，将topic中某一列作为边的起始点数据源。
+      # 在target里，将topic中某一列作为边的目的点数据源。
       source:{
-          field:src_player
+          field:timestamp
       }
 
 
       target:{
-          field:dst_player
+          field:offset
       }
 
 
@@ -240,16 +241,16 @@
         sink: client
       }
       service: "127.0.0.1:9092"
-      topic: "topic_name"
+      topic: "topic_name4"
 
-      fields: [start_year,end_year]
+      fields: [timestamp,offset]
       nebula.fields: [start_year,end_year]
       source:{
-          field:playerid
+          field:key
       }
 
       target:{
-          field:teamid
+          field:value
       }
 
       batch: 10
