@@ -48,13 +48,13 @@ Explorer 的主页面分为五个部分：
 - 拓展：单击 ![expand](../figs/rightclickmenu-expand.png)图标，选择页面上的节点并进行自定义拓展，包括拓展方向、拓展步数、过滤条件等。
 - 共同邻居：单击 ![commonNeighbor](../figs/rightclickmenu-commonNeighbor.png)图标，选择页面上至少两个点并查看它们的共同邻居。
 - 路径查询：单击 ![findPath](../figs/rightclickmenu-findPath.png)图标，可以查询起点到终点之间的 `all paths` 、 `Shortest path` 或者是 `Noloop path` 的路径。
-- 查看属性：单击 ![propertyView](../figs/nav-propertyView.png)图标，选择是否显示画板中的点或边的属性值。
+- 查看属性：单击 ![propertyView](../figs/nav-propertyView.png)图标，选择是否显画布中的点或边的属性值。
 - 
 更多详细信息参考 [图探索拓展](../operation-guide/ex-ug-graph-exploration.md)。
 
 ### 删除及撤销
 
-- 隐藏：单击![miss](../figs/nav-miss.png) 图标，可以隐藏画板中选中的点边。
+- 隐藏：单击![miss](../figs/nav-miss.png) 图标，可以隐藏画布中选中的点边。
 - 隐藏其他：单击![missreverse](../figs/nav-missReverse.png) 图标，可以隐藏画布中未选择的所有点边。
 - 撤销：单击 ![Revoke](../figs/nav-Revoke.png)图标，撤销上一步新增或隐藏的操作。
 
@@ -87,4 +87,4 @@ Explorer 的主页面分为五个部分：
 
 ## 关系列表
 
-点击右侧的 ![unfold](../figs/sidebar-unfold.png)图标，用户可以打开菜单，查看画板中 Tag 和 Edge 的数量、搜索 Tag 和 Edge ，同时也支持修改点的颜色和图标。
+点击右侧的 ![unfold](../figs/sidebar-unfold.png)图标，用户可以打开菜单，查看画布中 Tag 和 Edge 的数量、搜索 Tag 和 Edge ，同时也支持修改点的颜色和图标。
