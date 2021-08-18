@@ -4,7 +4,7 @@
 
 ### github或社区提交问题
 
-欢迎为项目贡献任何代码或文档，但是建议先在[github](https://github.com/vesoft-inc/nebula-graph)或[社区](https://discuss.nebula-graph.io/)上提交一个问题，和大家共同讨论。
+欢迎为项目贡献任何代码或文档，但是建议先在[github](https://github.com/vesoft-inc/nebula)或[社区](https://discuss.nebula-graph.io/)上提交一个问题，和大家共同讨论。
 
 ### 签署贡献者许可协议（CLA）
 
@@ -28,9 +28,9 @@ Nebula Graph文档以Markdown语言编写。单击文档标题右侧的铅笔图
 
 ### Step 1：通过GitHub fork仓库
 
-Nebula Graph项目有很多[仓库](https://github.com/vesoft-inc)，以[nebula-graph仓库](https://github.com/vesoft-inc/nebula-graph)为例：
+Nebula Graph项目有很多[仓库](https://github.com/vesoft-inc)，以[nebula-graph仓库](https://github.com/vesoft-inc/nebula)为例：
 
-1. 访问[https://github.com/vesoft-inc/nebula-graph](https://github.com/vesoft-inc/nebula-graph)。
+1. 访问[https://github.com/vesoft-inc/nebula](https://github.com/vesoft-inc/nebula)。
 
 2. 在右上角单击按钮`Fork`，然后单击用户名，即可fork出nebula-graph仓库。
 
@@ -58,8 +58,8 @@ Nebula Graph项目有很多[仓库](https://github.com/vesoft-inc)，以[nebula-
   # 或：git clone git@github.com:$user/nebula-graph.git
 
   cd $working_dir/nebula
-  git remote add upstream https://github.com/vesoft-inc/nebula-graph.git
-  # 或：git remote add upstream git@github.com:vesoft-inc/nebula-graph.git
+  git remote add upstream https://github.com/vesoft-inc/nebula.git
+  # 或：git remote add upstream git@github.com:vesoft-inc/nebula.git
 
   # 由于没有写访问权限，请勿推送至上游主分支。
   git remote set-url --push upstream no_push
@@ -68,7 +68,7 @@ Nebula Graph项目有很多[仓库](https://github.com/vesoft-inc)，以[nebula-
   # 正确的格式为：
   # origin    git@github.com:$(user)/nebula-graph.git (fetch)
   # origin    git@github.com:$(user)/nebula-graph.git (push)
-  # upstream  https://github.com/vesoft-inc/nebula-graph (fetch)
+  # upstream  https://github.com/vesoft-inc/nebula (fetch)
   # upstream  no_push (push)
   git remote -v
   ```
@@ -186,7 +186,7 @@ pull request创建后，至少需要两人审查。审查人员将进行彻底�
 
 ## 添加测试用例
 
-添加测试用例的方法参见[How to add test cases](https://github.com/vesoft-inc/nebula-graph/blob/master/tests/README.md#how-to-add-test-case)。
+添加测试用例的方法参见[How to add test cases](https://github.com/vesoft-inc/nebula/blob/master/tests/README.md#how-to-add-test-case)。
 
 ## 捐赠项目
 

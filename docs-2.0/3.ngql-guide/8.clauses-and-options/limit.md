@@ -136,7 +136,8 @@ nebula> MATCH (v:player{name:"Tim Duncan"}) --> (v2) \
 | "Manu Ginobili" | 41  |
 +-----------------+-----+
 ```
-
+<!--
 ## 性能提示
 
 Nebula Graph {{ nebula.release }} 未实现 `LIMIT` 语句的存储层下推优化, 类似 `MATCH (n:T) RETURN n LIMIT 10` 语句或者 `LOOKUP on i_T | LIMIT 10` 语句会发生 graphd 资源占用过大的问题：一个 graphd 会从所有的 storaged 获取全部T类型的点，然后返回 10 个。如果全部数据量很大，graphd 此时通常会消耗大量内存，甚至 OOM。
+-->
