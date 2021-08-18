@@ -71,7 +71,7 @@ extra:
   console:
     release: master
   br:
-    release: master
+    release: 0.5.0
   cpp:
     release: 2.5.0
   java:
