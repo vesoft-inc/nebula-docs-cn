@@ -1,10 +1,10 @@
 # 操作索引
 
-用户可以为Tag和Edge type创建索引，使得图查询时可以从拥有共同属性的同一类型的点或边开始遍历，使大型图的查询更为高效。Nebula Graph 支持两种类型的索引：Tag索引和Edge type索引。用户可以选择使用 **控制台** 或者 **Schema** 操作索引。本文仅说明如何使用 **Schema** 操作索引。
+用户可以为 Tag 和 Edge type 创建索引，使得图查询时可以从拥有共同属性的同一类型的点或边开始遍历，使大型图的查询更为高效。Nebula Graph 支持两种类型的索引：Tag 索引和 Edge type 索引。用户可以选择使用 **控制台** 或者 **Schema** 操作索引。本文仅说明如何使用 **Schema** 操作索引。
 
 !!! Note
 
-    一般在创建了Tag或者Edge type之后即可创建索引，但是，索引会影响写性能，所以，建议先导入数据，再批量重建索引。关于索引的详细信息，参考[《nGQL 用户手册》](../../3.ngql-guide/14.native-index-statements/README.md "点击前往 Nebula Graph 网站")。
+    一般在创建了 Tag 或者 Edge type 之后即可创建索引，但是，索引会影响写性能，所以，建议先导入数据，再批量重建索引。关于索引的详细信息，参考[《nGQL 用户手册》](../../3.ngql-guide/14.native-index-statements/README.md "点击前往 Nebula Graph 网站")。
 
 ## 支持版本
 
@@ -15,7 +15,7 @@ Studio v{{ studio.base220 }} 及以后版本。请更新版本，详细操作参
 在 Studio 上操作索引之前，用户必须确认以下信息：
 
 - Studio 已经连接到 Nebula Graph 数据库。
-- 图空间、Tag和Edge type已经创建。
+- 图空间、Tag 和 Edge type 已经创建。
 - 当前登录的账号拥有 GOD、ADMIN 或者 DBA 的权限。
 
 ## 创建索引
