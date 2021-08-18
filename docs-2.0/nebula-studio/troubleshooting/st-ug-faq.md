@@ -9,10 +9,8 @@
 3. 搜索 [论坛](https://discuss.nebula-graph.com.cn/) 或 GitHub 的 [nebula](https://github.com/vesoft-inc/nebula) 和 [nebula-web-docker](https://github.com/vesoft-inc/nebula-web-docker/issues) 项目，确认是否已经有类似的问题。
 4. 如果上述操作均未解决问题，欢迎在论坛上提交问题。
 
-**Studio 支持 Nebula Graph v2.x 吗？**
-
-Studio v1.x 仅适用于 Nebula Graph v1.x。Studio v2.x 适用于 Nebula Graph v2.x。
-
+<!--
 **Studio 是否会开源？**
 
 目前还未开源。
+-->
