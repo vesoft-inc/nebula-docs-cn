@@ -1,4 +1,4 @@
-# 清除链接
+# 清除连接
 
 Explorer 还连接在某个 Nebula Graph 数据库时，在工具栏中，选择 设置 ![icon](../figs/nav-setup.png) > 清空连接，如下图所示：
 ![清除链接](../figs/ex-ug-004-1.png)

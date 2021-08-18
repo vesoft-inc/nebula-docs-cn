@@ -340,7 +340,7 @@ nav:
       - 安装与登录:
         - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
         - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
-        - 清除链接: nebula-explorer/deploy-connect/ex-ug-reset-connection.md
+        - 清除连接: nebula-explorer/deploy-connect/ex-ug-reset-connection.md
       - 操作指南:
         - 页面概览: nebula-explorer/operation-guide/ex-ug-page-overview.md
         - 查询探索: nebula-explorer/operation-guide/ex-ug-query-exploration.md
