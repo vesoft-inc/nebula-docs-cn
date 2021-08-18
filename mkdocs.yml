@@ -69,6 +69,8 @@ extra:
     release: master
   console:
     release: master
+  br:
+    release: master
   cpp:
     release: 2.5.0
   java:
@@ -386,7 +388,7 @@ nav:
     - Nebula Python: 14.client/5.nebula-python-client.md
     - Nebula Go: 14.client/6.nebula-go-client.md
 
-#  - Nebula Bench: nebula-bench.md
+  - Nebula Bench: nebula-bench.md
 
   - 附录:
       - Nebula Graph 常见问题: 20.appendix/0.FAQ.md
