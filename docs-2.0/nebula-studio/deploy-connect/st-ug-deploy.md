@@ -3,7 +3,7 @@
 Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云服务版 Studio 只能在 Nebula Graph Cloud Service 上使用。当在 Nebula Graph Cloud Service 上创建 Nebula Graph 实例时即自动完成云服务版本 Studio 的部署，一键直连即可使用，不需要自己部署。详细信息参考[《Nebula Graph Cloud Service 用户手册》](https://cloud-docs.nebula-graph.com.cn/cn/posts/manage-instances/dbaas-ug-connect-nebulastudio/ "点击前往 Nebula Graph Cloud Service 用户手册")。
 -->
 
-本文介绍如何在本地通过 Docker 和 RPM 部署 Studio。
+本文介绍如何在本地通过 Docker、RPM 和 tar 包部署 Studio。
 
 !!! Note
 
@@ -47,7 +47,7 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
    | 安装包 | Nebula Graph版本 |
    | ----- | ----- |
-   | [nebula-graph-studio-v3.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-v3.tar.gz) | 2.5.0 |
+   | [nebula-graph-studio-v3.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-v3.tar.gz) | 2.5.0 |
 
 2. 创建`nebula-graph-studio-v3`目录，并将安装包解压至目录中。
 
@@ -92,7 +92,7 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
    ![Nebula Graph Studio 登录界面](../figs/st-ug-001-1.png "Nebula Graph Studio 登录界面")
 
-## RPM 部署Studio
+## RPM 部署 Studio
 
 ### 前提条件
 
@@ -126,7 +126,7 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
    | 安装包 | 检验和 | Nebula版本 |
    | ----- | ----- | ----- |
-   | [nebula-graph-studio-2.2.1-6.x86_64.rpm](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-2.2.1-6.x86_64.rpm) |  [nebula-graph-studio-2.2.1-6.x86_64.rpm.sha256](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-2.2.1-6.x86_64.rpm.sha256) | 2.0.1 |
+   | [nebula-graph-studio-3.0.0-1.x86_64.rpm](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-3.0.0-1.x86_64.rpm) |  [nebula-graph-studio-3.0.0-1.x86_64.rpm.sha256](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-3.0.0-1.x86_64.rpm.sha256) | 2.5.0 |
 
 2. 使用`sudo rpm -i <rpm>`命令安装RPM包。
 
@@ -196,6 +196,81 @@ $ vi config/config.default.js
 
 //重新启动npm
 $ npm run start
+```
+
+## tar 包部署 Studio
+
+### 前提条件
+
+在部署 tar 包安装的 Studio 之前，用户需要确认以下信息：
+
+- Nebula Graph 服务已经部署并启动。详细信息，参考[Nebula Graph安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
+
+- 使用的 Linux 上安装有版本为 v10.12.0 以上的 Node.js。
+
+- 确保在安装开始前，以下端口处于未被使用状态。
+
+   | 端口号 | 说明 |
+   | ---- | ---- |
+   | 7001 | Studio提供的web服务 |
+   | 8080 | Nebula-http-gateway，Client的HTTP服务 |
+   | 5699 | Nebula importer文件导入工具，数据导入服务 |
+
+### 安装
+
+1. 根据需要下载 tar 包，建议选择最新版本。
+   | 安装包 | Studio 版本 |
+   | --- | --- |
+   | [nebula-graph-studio-3.0.0-1.x86_64.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-3.0.0-1.x86_64.tar.gz) | 3.0.0 |
+
+2. 使用 `tar -xvf` 解压 tar 包。
+
+   ```bash
+   tar -xvf nebula-graph-studio-3.0.0-1.x86_64.tar.gz
+   ```
+
+### 部署
+
+!!! Note
+
+    根目录 nebula-graph-studio 下一共有三安装包：nebula-graph-studio，nebula-importer 和 nebula-http-gateway。用户需要在同一台机器上分别部署并启动服务，才能完成 Studio 的部署。
+
+1. 部署 nebula-importer 并启动。
+
+   ```bash
+   $ cd nebula-importer
+   $ ./nebula-importer --port 5699 --callback "http://0.0.0.0:7001/api/import/finish" &
+   ```
+
+2. 部署 nebula-http-gateway 并启动。
+
+   ```bash
+   $ cd nebula-http-gateway
+   $ nohup ./nebula-httpd &
+   ```
+
+3. 部署 nebula-graph-studio 并启动。
+   
+   ```bash
+   $ cd nebula-graph-studio
+   $ npm run start
+   ```
+
+4.启动成功后，在浏览器地址栏输入 `http://ip address:7001`。
+   
+   如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Studio。
+
+   ![Nebula Graph Studio 登录界面](../figs/st-ug-001-1.png "Nebula Graph Studio 登录界面")
+
+
+### 停止服务
+
+用户可以采用 `kill pid` 的方式来关停服务：
+```bash
+$ kill $(lsof -t -i :5699) # stop nebula-importer
+$ kill $(lsof -t -i :8080) # stop nebula-http-gateway
+$ cd nebula-graph-studio
+$ npm run stop # stop nebula-graph-studio
 ```
 
 ## 后续操作

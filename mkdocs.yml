@@ -69,6 +69,8 @@ extra:
     release: master
   console:
     release: master
+  br:
+    release: master
   cpp:
     release: 2.5.0
   java:
@@ -82,6 +84,7 @@ extra:
     branch: v2.0
   
 nav:
+  - PDF: ./pdf/NebulaGraph-CN.pdf
   - 前言: README.md
   - 简介:
       - 什么是Nebula Graph: 1.introduction/1.what-is-nebula-graph.md
@@ -255,8 +258,8 @@ nav:
           - 使用RPM/DEB包部署集群: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
       - 管理服务: 4.deployment-and-installation/manage-service.md
       - 升级版本:
-          - 升级历史版本至v2.0.0: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-200.md
-          - 升级v2.0.x至v2.5.0: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-201.md
+          - 升级历史版本至v2.5.0: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-250.md
+          - 升级v2.0.x至v2.5.0: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-250.md
       - 卸载Nebula Graph: 4.deployment-and-installation/4.uninstall-nebula-graph.md
 
   - 配置与日志:
@@ -386,7 +389,7 @@ nav:
     - Nebula Python: 14.client/5.nebula-python-client.md
     - Nebula Go: 14.client/6.nebula-go-client.md
 
-#  - Nebula Bench: nebula-bench.md
+  - Nebula Bench: nebula-bench.md
 
   - 附录:
       - Nebula Graph 常见问题: 20.appendix/0.FAQ.md
@@ -395,7 +398,6 @@ nav:
       - 社区参与: 15.contribution/how-to-contribute.md
       - 思维导图: 20.appendix/mind-map.md
 
-  - PDF: ./pdf/NebulaGraph-CN.pdf
   - English Docs: https://docs.nebula-graph.io/
 
 # Extensions

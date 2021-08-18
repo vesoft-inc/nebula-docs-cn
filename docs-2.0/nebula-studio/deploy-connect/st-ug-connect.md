@@ -3,13 +3,13 @@
 在 Nebula Graph Cloud Service 上，创建 Nebula Graph 实例后，用户可以一键直连云服务版 Studio。详细信息参考 [Nebula Graph Cloud Service 用户手册](https://cloud-docs.nebula-graph.com.cn/cn/posts/manage-instances/dbaas-ug-connect-nebulastudio/ "点击进入 Nebula Graph Cloud Service 用户手册")。
 -->
 
-对于 Docker 版和 RPM 版 Studio，在成功启动 Studio 后，用户需要配置连接 Nebula Graph。本文主要描述 Docker 版和 RPM 版 Studio 如何连接 Nebula Graph 数据库。
+在成功启动 Studio 后，用户需要配置连接 Nebula Graph。本文主要描述 Studio 如何连接 Nebula Graph 数据库。
 
 ## 前提条件
 
 在连接 Nebula Graph 数据库前，用户需要确认以下信息：
 
-- Docker 版或 RPM 版 Studio 已经启动。详细信息参考 [部署 Studio](st-ug-deploy.md)。
+- Studio 已经启动。详细信息参考 [部署 Studio](st-ug-deploy.md)。
 
 - Nebula Graph 的 Graph 服务本机 IP 地址以及服务所用端口。默认端口为 `9669`。
 
