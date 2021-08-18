@@ -22,9 +22,9 @@ Nebula Graph不提供官方的集群部署工具，用户可以使用RPM或DEB�
 
 在集群的每一台服务器上都安装Nebula Graph，安装后暂不需要启动服务。安装方式请参见：
 
-- [使用RPM或DEB包安装Nebula Graph](2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)
+- [使用RPM或DEB包安装Nebula Graph](2.install-nebula-graph-by-rpm-or-deb.md)
 
-- [使用源码安装Nebula Graph](2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)
+- [使用源码安装Nebula Graph](1.install-nebula-graph-by-compiling-the-source-code.md)
 
 ### 2.修改配置文件
 
@@ -46,11 +46,11 @@ Nebula Graph的所有配置文件均位于安装目录的`etc`目录内，包括
 
     主要修改的配置是`meta_server_addrs`，所有配置文件都需要填写所有Meta服务的IP地址和端口，同时需要修改`local_ip`为机器本身的联网IP地址。配置参数的详细说明请参见：
 
-    - [Meta服务配置](../5.configurations-and-logs/1.configurations/2.meta-config.md)
+    - [Meta服务配置](../../5.configurations-and-logs/1.configurations/2.meta-config.md)
 
-    - [Graph服务配置](../5.configurations-and-logs/1.configurations/3.graph-config.md)
+    - [Graph服务配置](../../5.configurations-and-logs/1.configurations/3.graph-config.md)
 
-    - [Storage服务配置](../5.configurations-and-logs/1.configurations/4.storage-config.md)
+    - [Storage服务配置](../../5.configurations-and-logs/1.configurations/4.storage-config.md)
 
 - 机器A配置
 
@@ -276,11 +276,11 @@ sudo /usr/local/nebula/scripts/nebula.service start <metad|graphd|storaged|all>
 
     - graphd、storaged和metad都启动时，可以用all代替。
 
-    - `/usr/local/nebula`是Nebula Graph的默认安装路径，如果修改过安装路径，请使用实际路径。更多启停服务的内容，请参见[管理Nebula Graph服务](../2.quick-start/5.start-stop-service.md)。
+    - `/usr/local/nebula`是Nebula Graph的默认安装路径，如果修改过安装路径，请使用实际路径。更多启停服务的内容，请参见[管理Nebula Graph服务](../../2.quick-start/5.start-stop-service.md)。
 
 ### 4.检查集群
 
-安装原生CLI客户端[Nebula Console](../2.quick-start/3.connect-to-nebula-graph.md#_1)，然后连接任何一个已启动graphd进程的机器，执行命令`SHOW HOSTS`检查集群状态。例如：
+安装原生CLI客户端[Nebula Console](../../2.quick-start/3.connect-to-nebula-graph.md#_1)，然后连接任何一个已启动graphd进程的机器，执行命令`SHOW HOSTS`检查集群状态。例如：
 
 ```bash
 $ ./nebula-console --addr 192.168.10.111 --port 9669 -u root -p nebula

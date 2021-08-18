@@ -26,13 +26,13 @@ Nebula Graph v2.0.x升级至v{{nebula.release}}，只需要使用v{{nebula.relea
       $ sudo dpkg -i <package_name>
       ```
 
-4. 在每台服务器上启动所需的服务。详情请参见[管理Nebula Graph服务](../2.quick-start/5.start-stop-service.md#_1)。
+4. 在每台服务器上启动所需的服务。详情请参见[管理Nebula Graph服务](../../2.quick-start/5.start-stop-service.md#_1)。
 
 ## 编译新版本源码升级步骤
 
 1. 备份旧版本的配置文件。配置文件保存在Nebula Graph安装路径的`etc`目录内。
 
-2. 更新仓库并编译源码。详情请参见[使用源码安装Nebula Graph](2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)。
+2. 更新仓库并编译源码。详情请参见[使用源码安装Nebula Graph](../2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)。
 
   !!! note
 
