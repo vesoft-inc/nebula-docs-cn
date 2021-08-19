@@ -1,6 +1,6 @@
 # 连接数据库
 
-对于 RPM 安装的 Explorer，在成功启动 Explorer 后，用户需要配置连接 Nebula Graph。本文主要描述 RPM 安装的 Explorer 如何连接 Nebula Graph 数据库。
+在成功启动 Explorer 后，用户需要配置连接 Nebula Graph。本文主要描述 Explorer 如何连接 Nebula Graph 数据库。
 
 ## 前提条件
 

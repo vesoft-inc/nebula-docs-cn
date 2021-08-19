@@ -9,24 +9,20 @@
 用户也可以使用openCypher方式的[count()](../6.functions-and-expressions/7.count.md)函数聚合数据。
 
 ```ngql
-nebula>  MATCH (v:player)<-[:follow]-(:player) RETURN v.name AS Name, count(*) as cnt ORDER BY cnt DESC
-+----------------------+--------------+
-| Name                 | Follower_Num |
-+----------------------+--------------+
-| "Tim Duncan"         | 10           |
-+----------------------+--------------+
-| "LeBron James"       | 6            |
-+----------------------+--------------+
-| "Tony Parker"        | 5            |
-+----------------------+--------------+
-| "Manu Ginobili"      | 4            |
-+----------------------+--------------+
-| "Chris Paul"         | 4            |
-+----------------------+--------------+
-| "Tracy McGrady"      | 3            |
-+----------------------+--------------+
-| "Dwyane Wade"        | 3            |
-+----------------------+--------------+
+nebula>  MATCH (v:player)<-[:follow]-(:player) RETURN v.name AS Name, count(*) as cnt ORDER BY cnt DESC;
++----------------------+-----+
+| Name                 | cnt |
++----------------------+-----+
+| "Tim Duncan"         | 10  |
++----------------------+-----+
+| "LeBron James"       | 6   |
++----------------------+-----+
+| "Tony Parker"        | 5   |
++----------------------+-----+
+| "Chris Paul"         | 4   |
++----------------------+-----+
+| "Manu Ginobili"      | 4   |
++----------------------+-----+
 ...
 ```
 
