@@ -5,6 +5,6 @@ mike
 mdx_truly_sane_lists
 mkdocs_latest_release_plugin
 mkdocs-git-revision-date-localized-plugin
-weasyprint
+weasyprint==52.5
 mkdocs-with-pdf
 qrcode
