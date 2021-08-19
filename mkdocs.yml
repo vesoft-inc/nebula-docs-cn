@@ -68,6 +68,7 @@ extra:
     release: master
   dashboard:
     release: master
+    base100: 1.0.0
   console:
     release: master
   br:
