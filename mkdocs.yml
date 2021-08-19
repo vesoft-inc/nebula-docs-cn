@@ -51,26 +51,29 @@ extra:
   explorer:
     base100: 1.0.0
   exchange:
-    release: master
-    branch: master
+    release: 2.5.0
+    branch: v2.5
   importer:
-    release: master  
+    release: master
   algorithm:
-    release: master
+    release: 2.5.0
+    branch: v2.5
   sparkconnector:
-    release: master
-    branch: master
+    release: 2.5.0
+    branch: v2.5
   flinkconnector:
-    release: master
+    release: 2.5.0
+    branch: v2.5
   dockercompose:
-    release: master
+    release: 2.0.1
+    branch: v2.0.1
   common:
     release: master
   dashboard:
     release: master
     base100: 1.0.0
   console:
-    release: master
+    release: 2.0.1
   br:
     release: 0.5.0
   cpp:
@@ -82,8 +85,8 @@ extra:
   go:
     release: 2.5.0
   bench:
-    release: master
-    branch: v2.0
+    release: 1.0.0
+    branch: master
   
 nav:
   - PDF: ./pdf/NebulaGraph-CN.pdf
