@@ -297,6 +297,13 @@ nav:
       - 执行计划: 8.service-tuning/4.plan.md
       - 超级节点(稠密点): 8.service-tuning/super-node.md
 
+  - 客户端:
+    - 客户端介绍: 14.client/1.nebula-client.md
+    - Nebula CPP: 14.client/3.nebula-cpp-client.md
+    - Nebula Java: 14.client/4.nebula-java-client.md
+    - Nebula Python: 14.client/5.nebula-python-client.md
+    - Nebula Go: 14.client/6.nebula-go-client.md
+
   - Nebula Graph Studio:
     - Studio版本更新说明: nebula-studio/about-studio/st-ug-release-note.md
     - 认识 Nebula Graph Studio:
@@ -383,13 +390,6 @@ nav:
   - Nebula Spark Connector: nebula-spark-connector.md
 
   - Nebula Flink Connector: nebula-flink-connector.md
-
-  - 客户端:
-    - 客户端介绍: 14.client/1.nebula-client.md
-    - Nebula CPP: 14.client/3.nebula-cpp-client.md
-    - Nebula Java: 14.client/4.nebula-java-client.md
-    - Nebula Python: 14.client/5.nebula-python-client.md
-    - Nebula Go: 14.client/6.nebula-go-client.md
 
   - Nebula Bench: nebula-bench.md
 
