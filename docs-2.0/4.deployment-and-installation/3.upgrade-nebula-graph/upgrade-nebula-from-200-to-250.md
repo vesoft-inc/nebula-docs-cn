@@ -17,7 +17,7 @@ Nebula Graph v2.0.x升级至v{{nebula.release}}，只需要使用v{{nebula.relea
    - RPM包
 
       ```bash
-      $ sudo rpm -Uivh <package_name>
+      $ sudo rpm -Uvh <package_name>
       ```
 
    - DEB包

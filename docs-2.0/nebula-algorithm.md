@@ -54,7 +54,7 @@ Nebula Algorithm实现图计算的流程如下：
 1. 克隆仓库`nebula-spark-utils`。
 
   ```bash
-  $ git clone -b {{algorithm.release}} https://github.com/vesoft-inc/nebula-spark-utils.git
+  $ git clone -b {{algorithm.branch}} https://github.com/vesoft-inc/nebula-spark-utils.git
   ```
 
 2. 进入目录`nebula-algorithm`。
@@ -73,7 +73,7 @@ Nebula Algorithm实现图计算的流程如下：
 
 ### Maven远程仓库下载
 
-[下载地址](https://repo1.maven.org/maven2/com/vesoft/nebula-algorithm/2.0.0/)
+[下载地址](https://repo1.maven.org/maven2/com/vesoft/nebula-algorithm/{{algorithm.release}}/)
 
 ## 使用方法
 
@@ -87,7 +87,7 @@ Nebula Algorithm实现图计算的流程如下：
   <dependency>
   <groupId>com.vesoft</groupId>
   <artifactId>nebula-algorithm</artifactId>
-  <version>2.0.0</version>
+  <version>{{algorithm.release}}</version>
   </dependency>
   ```
 
@@ -106,7 +106,7 @@ Nebula Algorithm实现图计算的流程如下：
 !!! note
     使用封装好的算法包有一定的局限性，例如落库到Nebula Graph时，落库的图空间中创建的Tag的属性名称必须和代码内预设的名称保持一致。如果用户有开发能力，推荐使用第一种方法。
 
-1. 设置[配置文件](https://github.com/vesoft-inc/nebula-spark-utils/blob/master/nebula-algorithm/src/main/resources/application.conf)。
+1. 设置[配置文件](https://github.com/vesoft-inc/nebula-spark-utils/blob/{{algorithm.branch}}/nebula-algorithm/src/main/resources/application.conf)。
 
   ```bash
   {
