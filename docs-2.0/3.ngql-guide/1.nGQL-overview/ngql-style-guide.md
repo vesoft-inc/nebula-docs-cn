@@ -103,6 +103,20 @@ nGQL没有严格的构建格式要求，但根据恰当而统一的风格创建n
   RETURN v;
   ```
 
+3. 语法关键词大写，变量小写。
+
+  不推荐：
+
+  ```ngql
+  go from "player100" over Follow
+  ```
+  
+  推荐:
+    
+  ```ngql
+  GO FROM "player100" OVER follow
+  ```
+
 ## Pattern
 
 1. 分行写Pattern时，在表示边的箭头右侧换行，而不是左侧。

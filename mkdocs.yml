@@ -2,8 +2,8 @@
 site_name: Nebula Graph Database 手册
 site_description: Documentation for Nebula Graph Database
 site_author: Nebula Graph
-site_url: https://docs.nebula-graph.com.cn/master/
-edit_uri: 'edit/master/docs-2.0/'
+site_url: https://docs.nebula-graph.com.cn/v2.5.0/
+edit_uri: 'edit/v2.5.0/docs-2.0/'
 docs_dir: docs-2.0
 
 # repository
@@ -55,6 +55,7 @@ extra:
     branch: v2.5
   importer:
     release: master
+    branch: release-v2.0.0-ga
   algorithm:
     release: 2.5.0
     branch: v2.5
@@ -80,10 +81,12 @@ extra:
     release: 2.5.0
   java:
     release: 2.5.0
+    branch: v2.5.0
   python:
     release: 2.5.0
   go:
     release: 2.5.0
+    branch: release-v2.5.0
   bench:
     release: 1.0.0
     branch: master
@@ -397,7 +400,8 @@ nav:
   - Nebula Bench: nebula-bench.md
 
   - 附录:
-      - Nebula Graph 常见问题: 20.appendix/0.FAQ.md
+      - Release Note: 20.appendix/releasenote.md
+      - 常见问题 FAQ: 20.appendix/0.FAQ.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
       - 导入工具选择: 20.appendix/write-tools.md
       - 社区参与: 15.contribution/how-to-contribute.md
