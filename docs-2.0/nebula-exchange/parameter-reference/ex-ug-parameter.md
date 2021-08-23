@@ -97,6 +97,19 @@
 |:---|:---|:---|:---|:---|
 |`tags.exec`|string|-|是|查询数据源的语句。例如`select name,age from mooc.users`。|
 
+### MaxCompute源特有参数
+
+|参数|数据类型|默认值|是否必须|说明|
+|:---|:---|:---|:---|:---|
+|`tags.table`|string|-|是|MaxCompute的表名。|
+|`tags.project`|string|-|是|MaxCompute的项目名。|
+|`tags.odpsUrl`|string|-|是|MaxCompute服务的odpsUrl。地址可根据[阿里云文档](https://help.aliyun.com/document_detail/34951.html)查看。|
+|`tags.tunnelUrl`|string|-|是|MaxCompute服务的tunnelUrl。地址可根据[阿里云文档](https://help.aliyun.com/document_detail/34951.html)查看。|
+|`tags.accessKeyId`|string|-|是|MaxCompute服务的accessKeyId。|
+|`tags.accessKeySecret`|string|-|是|MaxCompute服务的accessKeySecret。|
+|`tags.partitionSpec`|string|-|否|MaxCompute表的分区描述。|
+|`tags.sentence`|string|-|否|查询数据源的语句。SQL语句中的表名和上方table的值相同。|
+
 ### Neo4j源特有参数
 
 |参数|数据类型|默认值|是否必须|说明|
@@ -118,7 +131,17 @@
 |`tags.table`|string|-|是|需要作为数据源的表名称。|
 |`tags.user`|string|-|是|拥有读取权限的MySQL用户名。|
 |`tags.password`|string|-|是|用户名对应密码。|
-|`tags.sentence`|string|-|是|查询数据源的语句。例如`"select teamid, name from basketball.team order by teamid;"`。|   
+|`tags.sentence`|string|-|是|查询数据源的语句。例如`"select teamid, name from basketball.team order by teamid;"`。|
+
+### ClickHouse源特有参数
+
+|参数|数据类型|默认值|是否必须|说明|
+|:---|:---|:---|:---|:---|
+|`tags.url`|string|-|是|ClickHouse的JDBC URL。|
+|`tags.user`|string|-|是|有读取权限的ClickHouse用户名。|
+|`tags.password`|string|-|是|用户名对应密码。|
+|`tags.numPartition`|string|-|是|ClickHouse分区数。|
+|`tags.sentence`|string|-|是|查询数据源的语句。|
 
 ### Hbase源特有参数
 
@@ -145,6 +168,12 @@
 |`tags.service`|string|-|是|Kafka服务器地址。|
 |`tags.topic`|string|-|是|消息类别。|
 |`tags.interval.seconds`|int|`10`|是|读取消息的间隔。单位：秒。|
+
+### SST源特有参数
+
+|参数|数据类型|默认值|是否必须|说明|
+|:---|:---|:---|:---|:---|
+|`tags.path`|string|-|是|指定需要生成SST文件的源文件的路径。|
 
 ## 边配置
 

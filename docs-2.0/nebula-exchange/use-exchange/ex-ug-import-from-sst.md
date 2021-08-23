@@ -1,6 +1,6 @@
 # 导入SST文件数据
 
-本文以一个示例说明如何将数据源的数据生成SST（Sorted String Table）文件，然后导入Nebula Graph，示例数据源是CSV文件。
+本文以一个示例说明如何将数据源的数据生成SST（Sorted String Table）文件并保存在HDFS上，然后导入Nebula Graph，示例数据源是CSV文件。
 
 > **说明**：仅Linux系统支持导入SST文件。
 
@@ -236,8 +236,7 @@ SST文件是一个内部包含了任意长度的有序键值对集合的文件�
       }
 
       # 指定CSV文件的路径。
-      # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
-      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
+      # 文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
       path: "hdfs://*.*.*.*:9000/dataset/vertex_player.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
@@ -282,8 +281,7 @@ SST文件是一个内部包含了任意长度的有序键值对集合的文件�
       }
 
       # 指定CSV文件的路径。
-      # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
-      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
+      # 文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
       path: "hdfs://*.*.*.*:9000/dataset/vertex_team.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
@@ -333,8 +331,7 @@ SST文件是一个内部包含了任意长度的有序键值对集合的文件�
       }
 
       # 指定CSV文件的路径。
-      # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
-      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
+      # 文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
       path: "hdfs://*.*.*.*:9000/dataset/edge_follow.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
@@ -386,8 +383,7 @@ SST文件是一个内部包含了任意长度的有序键值对集合的文件�
       }
 
       # 指定CSV文件的路径。
-      # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
-      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
+      # 文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
       path: "hdfs://*.*.*.*:9000/dataset/edge_serve.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
