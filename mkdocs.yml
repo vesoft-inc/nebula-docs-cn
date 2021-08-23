@@ -48,13 +48,15 @@ extra:
     base111b: 1.1.1-beta
     base220: 2.2.1
     base300: 3.0.0
+    release: 3.0.0
   explorer:
     base100: 1.0.0
+    release: 2.0.0
   exchange:
     release: 2.5.0
     branch: v2.5
   importer:
-    release: master
+    release: 2.5.0
     branch: release-v2.0.0-ga
   algorithm:
     release: 2.5.0
@@ -66,15 +68,15 @@ extra:
     release: 2.5.0
     branch: v2.5
   dockercompose:
-    release: 2.0.1
-    branch: v2.0.1
+    release: 2.5.0
+    branch: v2.5.0
   common:
-    release: master
+    release: 2.5.0
   dashboard:
-    release: master
+    release: 1.0.0
     base100: 1.0.0
   console:
-    release: 2.0.1
+    release: 2.5.0
   br:
     release: 0.5.0
   cpp:
