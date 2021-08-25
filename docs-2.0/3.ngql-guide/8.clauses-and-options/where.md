@@ -182,7 +182,7 @@ nebula> GO FROM "1" \
         OVER e1 \
         WHERE e1._rank>2 \
         YIELD e1._src, e1._dst, e1._rank AS Rank, e1.p1 | \
-        ORDER BY Rank DESC;
+        ORDER BY $-.Rank DESC;
 ====================================
 | e1._src | e1._dst | Rank | e1.p1 |
 ====================================

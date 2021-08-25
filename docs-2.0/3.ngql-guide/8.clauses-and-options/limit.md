@@ -31,7 +31,7 @@ YIELD <var>
 # 从排序结果中返回第2行开始的3行数据。
 nebula> GO FROM "player100" OVER follow REVERSELY \
         YIELD $$.player.name AS Friend, $$.player.age AS Age \
-        | ORDER BY Age,Friend \
+        | ORDER BY $-.Age, $-.Friend \
         | LIMIT 1, 3;
 +-------------------+-----+
 | Friend            | Age |
