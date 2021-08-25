@@ -21,7 +21,7 @@ Nebula Graph支持多种类型客户端，包括CLI客户端、GUI客户端和�
 1. 在[Nebula Console](https://github.com/vesoft-inc/nebula-console/releases "the nebula-console Releases page")下载页面，确认需要的版本，单击**Assets**。
 
   !!! Note
-    
+
         建议选择**最新**版本。
 
     ![Select a Nebula Graph version and click **Assets**](../reuse/console.png "Click Assets to show the available Nebula Graph binary files")
@@ -39,7 +39,7 @@ Nebula Graph支持多种类型客户端，包括CLI客户端、GUI客户端和�
 4. 在运行Nebula Console的机器上执行如下命令，为用户授予nebula-console文件的执行权限。
 
   !!! Note
-    
+
        Windows系统请跳过此步骤。
 
     ```bash
@@ -50,21 +50,21 @@ Nebula Graph支持多种类型客户端，包括CLI客户端、GUI客户端和�
 
 6. 执行如下命令连接Nebula Graph。
 
-    - Linux或macOS
+  - Linux或macOS
 
     ```bash
     $ ./nebula-console -addr <ip> -port <port> -u <username> -p <password>
-    [-t 120] [-e "nGQL_statement" | -f filename.nGQL]
+      [-t 120] [-e "nGQL_statement" | -f filename.nGQL]
     ```
 
-    - Windows
+  - Windows
 
     ```powershell
     > nebula-console.exe -addr <ip> -port <port> -u <username> -p <password>
-    [-t 120] [-e "nGQL_statement" | -f filename.nGQL]
+      [-t 120] [-e "nGQL_statement" | -f filename.nGQL]
     ```
 
-    参数说明如下。
+  参数说明如下。
 
     | 参数 | 说明 |
     | - | - |
