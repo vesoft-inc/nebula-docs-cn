@@ -12,7 +12,7 @@ Nebula Graph支持多种类型客户端，包括CLI客户端、GUI客户端和�
 
 ### 前提条件
 
-- Nebula Graph服务已启动。如何启动服务，请参见[启动和停止Nebula Graph服务](../2.quick-start/5.start-stop-service.md)。
+- Nebula Graph服务已[启动](../2.quick-start/5.start-stop-service.md)。
 
 - 运行Nebula Console的机器和运行Nebula Graph的服务器网络互通。
 

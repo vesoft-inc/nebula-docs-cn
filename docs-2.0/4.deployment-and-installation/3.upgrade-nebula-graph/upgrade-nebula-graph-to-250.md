@@ -1,4 +1,4 @@
-# 升级 Nebula Graph 历史版本至 v{{nebula.release}}
+# 升级Nebula Graph历史版本至v{{nebula.release}}
 
 Nebula Graph历史版本指低于Nebula Graph v2.0.0-GA的版本，本文介绍如何升级历史版本至v{{nebula.release}}。
 

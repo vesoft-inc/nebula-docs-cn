@@ -109,7 +109,7 @@ nav:
 
   - 快速入门:
       - 快速入门流程: 2.quick-start/1.quick-start-workflow.md
-      - 步骤1：安装Nebula Graph: 4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md
+      - 步骤1：安装Nebula Graph: 2.quick-start/2.install-nebula-graph.md
       - 步骤2：启动Nebula Graph: 2.quick-start/5.start-stop-service.md
       - 步骤3：连接Nebula Graph: 2.quick-start/3.connect-to-nebula-graph.md
       - 步骤4：使用常用命令: 2.quick-start/4.nebula-graph-crud.md
@@ -267,6 +267,7 @@ nav:
           - 使用Docker Compose部署: 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
           - 使用RPM/DEB包部署集群: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
       - 管理服务: 4.deployment-and-installation/manage-service.md
+      - 连接服务: 4.deployment-and-installation/connect-to-nebula-graph.md
       - 升级版本:
           - 升级历史版本至v2.5.0: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-250.md
           - 升级v2.0.x至v2.5.0: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-250.md
@@ -432,7 +433,8 @@ markdown_extensions:
 # Plugins
 plugins:
   - search
-  - macros
+  - macros:
+      include_dir: docs-2.0/reuse/
   - git-revision-date-localized
   - with-pdf:
       copyright: 2021 Vesoft Inc.
