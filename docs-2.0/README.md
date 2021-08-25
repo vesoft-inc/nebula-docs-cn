@@ -1,6 +1,8 @@
 # 欢迎阅读Nebula Graph {{ nebula.release }} 文档
 
-!!! Note "本文档更新时间{{ now().year }}-{{ now().month }}-{{ now().day }}, [GitHub commit](https://github.com/vesoft-inc/nebula-docs-cn/tree/v{{ nebula.release }}) {{ git.short_commit }}。"
+!!! Note "确认正在阅读最新的版本"
+
+    本文档更新时间{{ now().year }}-{{ now().month }}-{{ now().day }}, [GitHub commit](https://github.com/vesoft-inc/nebula-docs-cn/tree/v{{ nebula.release }}) {{ git.short_commit }}。
 
 Nebula Graph是一款开源的、分布式的、易扩展的原生图数据库，能够承载数千亿个点和数万亿条边的超大规模数据集，并且提供毫秒级查询。
 

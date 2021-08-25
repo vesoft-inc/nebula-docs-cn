@@ -46,7 +46,7 @@ $ sudo /usr/local/nebula/scripts/nebula.service start all
 对于使用Docker Compose部署的Nebula Graph，在`nebula-docker-compose/`目录内执行如下命令启动服务：
 
 ```bash
-nebula-docker-compose]$ docker-compose up -d
+[nebula-docker-compose]$ docker-compose up -d
 Building with native build. Learn about native build in Compose here: https://docs.docker.com/go/compose-native-build/
 Creating network "nebula-docker-compose_nebula-net" with the default driver
 Creating nebula-docker-compose_metad0_1 ... done

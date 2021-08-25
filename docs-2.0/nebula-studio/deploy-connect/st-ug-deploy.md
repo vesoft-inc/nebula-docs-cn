@@ -100,7 +100,7 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
 - Nebula Graph 服务已经部署并启动。详细信息，参考[Nebula Graph 安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
 
-- 使用的 Linux 发行版为 CentOS ，安装有 lsof 和版本为 v10.16.0 + 以上的 [Node.js](https://www.softwarecollections.org/en/scls/jstanek/rh-nodejs12/)。
+- 使用的 Linux 发行版为 CentOS ，安装有 lsof 和版本为 v10.16.0 + 以上的 [Node.js](https://nodejs.org/zh-cn/)。
   
   !!! note
 
