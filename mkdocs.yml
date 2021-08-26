@@ -73,8 +73,9 @@ extra:
   common:
     release: 2.5.0
   dashboard:
-    release: 1.0.0
+    release: 1.0.1
     base100: 1.0.0
+    branch: v1.0.1
   console:
     release: 2.5.0
   br:
