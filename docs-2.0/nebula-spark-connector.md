@@ -36,7 +36,7 @@ Nebula Spark Connector {{sparkconnector.release}}版本特性如下：
 
 - Reader支持将Nebula Graph数据读取成Graphx的VertexRDD和EdgeRDD，支持非Long型点ID。
 
-- Nebula Spark Connector 2.0统一了SparkSQL的扩展数据源，统一采用DataSourceV2进行Nebula Graph数据扩展。
+- 统一了SparkSQL的扩展数据源，统一采用DataSourceV2进行Nebula Graph数据扩展。
 
 - 支持`insert`和`update`两种写入模式。`insert`模式会插入（覆盖）数据，`update`模式仅会更新已存在的数据。
 
@@ -47,7 +47,7 @@ Nebula Spark Connector {{sparkconnector.release}}版本特性如下：
 1. 克隆仓库`nebula-spark-utils`。
 
   ```bash
-  $ git clone -b {{sparkconnector.release}} https://github.com/vesoft-inc/nebula-spark-utils.git
+  $ git clone -b {{sparkconnector.branch}} https://github.com/vesoft-inc/nebula-spark-utils.git
   ```
 
 2. 进入目录`nebula-spark-connector`。
@@ -215,7 +215,7 @@ df.write.nebula(config, nebulaWriteVertexConfig).writeVertices()
   |`withSpace`  |是|  Nebula Graph图空间名称。  |
   |`withTag`  |是|  写入点时需要关联的Tag名称。  |
   |`withVidField`  |是|  DataFrame中作为点ID的列。  |
-  |`withVidPolicy`  |否|  写入点ID时，采用的映射函数，Nebula Graph 2.0仅支持HASH。默认不做映射。  |
+  |`withVidPolicy`  |否|  写入点ID时，采用的映射函数，Nebula Graph 2.x仅支持HASH。默认不做映射。  |
   |`withVidAsProp`  |否|  DataFrame中作为点ID的列是否也作为属性写入。默认值为`false`。如果配置为`true`，请确保Tag中有和`VidField`相同的属性名。  |
   |`withUser`  |否|  Nebula Graph用户名。若未开启[身份验证](7.data-security/1.authentication/1.authentication.md)，无需配置用户名和密码。   |
   |`withPasswd`  |否|  Nebula Graph用户名对应的密码。  |
@@ -229,9 +229,9 @@ df.write.nebula(config, nebulaWriteVertexConfig).writeVertices()
   |`withSpace`  |是|  Nebula Graph图空间名称。  |
   |`withEdge`  |是|  写入边时需要关联的Edge type名称。  |
   |`withSrcIdField`  |是|  DataFrame中作为起始点的列。  |
-  |`withSrcPolicy`  |否| 写入起始点时，采用的映射函数，Nebula Graph 2.0仅支持HASH。默认不做映射。   |
+  |`withSrcPolicy`  |否| 写入起始点时，采用的映射函数，Nebula Graph 2.x仅支持HASH。默认不做映射。   |
   |`withDstIdField`  |是| DataFrame中作为目的点的列。   |
-  |`withDstPolicy`  |否| 写入目的点时，采用的映射函数，Nebula Graph 2.0仅支持HASH。默认不做映射。   |
+  |`withDstPolicy`  |否| 写入目的点时，采用的映射函数，Nebula Graph 2.x仅支持HASH。默认不做映射。   |
   |`withRankField`  |否| DataFrame中作为rank的列。默认不写入rank。   |
   |`withSrcAsProperty`  |否| DataFrame中作为起始点的列是否也作为属性写入。默认值为`false`。如果配置为`true`，请确保Edge type中有和`SrcIdField`相同的属性名。   |
   |`withDstAsProperty`  |否| DataFrame中作为目的点的列是否也作为属性写入。默认值为`false`。如果配置为`true`，请确保Edge type中有和`DstIdField`相同的属性名。   |

@@ -76,6 +76,10 @@
 
 ### 步骤 2：修改配置文件
 
+!!! note
+
+    如果部分数据存储在Kafka的value域内，需要自行修改源码，从Kafka中获取value域，将value通过from_json函数解析，然后作为Dataframe返回。
+
 编译Exchange后，复制`target/classes/application.conf`文件设置Kafka数据源相关的配置。在本示例中，复制的文件名为`kafka_application.conf`。各个配置项的详细说明请参见[配置说明](../parameter-reference/ex-ug-parameter.md)。
 
 ```conf
@@ -142,8 +146,8 @@
       # 消息类别。
       topic: "topic_name1"
 
-      # kafka数据有固定的字段名称：key、value、topic、partition、offset、timestamp、timestampType。
-      # 如果需要指定多个列名称，用英文逗号（,）隔开。
+      # Kafka数据有固定的域名称：key、value、topic、partition、offset、timestamp、timestampType。
+      # Spark读取为DataFrame后，如果需要指定多个字段，用英文逗号（,）隔开。
       # 在fields里指定字段名称，例如用key对应Nebula中的name， value对应Nebula中的age，示例如下：
       fields: [key,value]
       nebula.fields: [name,age]
@@ -205,8 +209,8 @@
       # 消息类别。
       topic: "topic_name3"
 
-      # kafka数据有固定的字段名称：key、value、topic、partition、offset、timestamp、timestampType。
-      # 如果需要指定多个列名称，用英文逗号（,）隔开。
+      # Kafka数据有固定的域名称：key、value、topic、partition、offset、timestamp、timestampType。
+      # Spark读取为DataFrame后，如果需要指定多个字段，用英文逗号（,）隔开。
       # 在fields里指定字段名称，例如用key对应Nebula中的degree，示例如下：
       fields: [key]
       nebula.fields: [degree]

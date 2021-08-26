@@ -22,7 +22,7 @@
 
 |参数|数据类型|默认值|是否必须|说明|
 |:---|:---|:---|:---|:---|
-|`spark.app.name`|string|`Nebula Exchange 2.0`|否|Spark驱动程序名称。|
+|`spark.app.name`|string|-|否|Spark驱动程序名称。|
 |`spark.driver.cores`|int|`1`|否|驱动程序使用的CPU核数，仅适用于集群模式。|
 |`spark.driver.maxResultSize`|string|`1G`|否|单个Spark操作（例如collect）时，所有分区的序列化结果的总大小限制（字节为单位）。最小值为1M，0表示无限制。|
 |`spark.executor.memory`|string|`1G`|否|Spark驱动程序使用的内存量，可以指定单位，例如512M、1G。|
@@ -49,9 +49,9 @@
 |`nebula.user`|string|-|是|拥有Nebula Graph写权限的用户名。|
 |`nebula.pswd`|string|-|是|用户名对应的密码。|
 |`nebula.space`|string|-|是|需要导入数据的的图空间名称。|
-|`nebula.path.local`|string|`"/tmp"`|否|（TODO:coding）导入SST文件时需要设置本地SST文件路径。|
-|`nebula.path.remote`|string|`"/sst"`|否|（TODO:coding）导入SST文件时需要设置远端SST文件路径。|
-|`nebula.path.hdfs.namenode`|string|`"hdfs://name_node:9000"`|否|（TODO:coding）导入SST文件时需要设置HDFS的namenode。|
+|`nebula.path.local`|string|`"/tmp"`|否|导入SST文件时需要设置本地SST文件路径。|
+|`nebula.path.remote`|string|`"/sst"`|否|导入SST文件时需要设置远端SST文件路径。|
+|`nebula.path.hdfs.namenode`|string|`"hdfs://name_node:9000"`|否|导入SST文件时需要设置HDFS的namenode。|
 |`nebula.connection.timeout`|int|`3000`|否|Thrift连接的超时时间，单位为 ms。|
 |`nebula.connection.retry`|int|`3`|否|Thrift连接重试次数。|
 |`nebula.execution.retry`|int|`3`|否|nGQL语句执行重试次数。|
@@ -70,7 +70,7 @@
 |:---|:---|:---|:---|:---|
 |`tags.name`|string|-|是|Nebula Graph中定义的Tag名称。|
 |`tags.type.source`|string|-|是|指定数据源。例如`csv`。|
-|`tags.type.sink`|string|`client`|是|指定导入方式，可选值为`client`和`SST`（不支持）。|
+|`tags.type.sink`|string|`client`|是|指定导入方式，可选值为`client`和`SST`。|
 |`tags.fields`|list\[string\]|-|是|属性对应的列的表头或列名。如果有表头或列名，请直接使用该名称。如果CSV文件没有表头，用`[_c0, _c1, _c2]`的形式表示第一列、第二列、第三列，以此类推。|
 |`tags.nebula.fields`|list\[string\]|-|是|Nebula Graph中定义的属性名称，顺序必须和`tags.fields`一一对应。例如`[_c1, _c2]`对应`[name, age]`，表示第二列为属性name的值，第三列为属性age的值。|
 |`tags.vertex.field`|string|-|是|点ID的列。例如CSV文件没有表头时，可以用`_c0`表示第一列的值作为点ID。|
@@ -97,6 +97,19 @@
 |:---|:---|:---|:---|:---|
 |`tags.exec`|string|-|是|查询数据源的语句。例如`select name,age from mooc.users`。|
 
+### MaxCompute源特有参数
+
+|参数|数据类型|默认值|是否必须|说明|
+|:---|:---|:---|:---|:---|
+|`tags.table`|string|-|是|MaxCompute的表名。|
+|`tags.project`|string|-|是|MaxCompute的项目名。|
+|`tags.odpsUrl`|string|-|是|MaxCompute服务的odpsUrl。地址可根据[阿里云文档](https://help.aliyun.com/document_detail/34951.html)查看。|
+|`tags.tunnelUrl`|string|-|是|MaxCompute服务的tunnelUrl。地址可根据[阿里云文档](https://help.aliyun.com/document_detail/34951.html)查看。|
+|`tags.accessKeyId`|string|-|是|MaxCompute服务的accessKeyId。|
+|`tags.accessKeySecret`|string|-|是|MaxCompute服务的accessKeySecret。|
+|`tags.partitionSpec`|string|-|否|MaxCompute表的分区描述。|
+|`tags.sentence`|string|-|否|查询数据源的语句。SQL语句中的表名和上方table的值相同。|
+
 ### Neo4j源特有参数
 
 |参数|数据类型|默认值|是否必须|说明|
@@ -118,7 +131,17 @@
 |`tags.table`|string|-|是|需要作为数据源的表名称。|
 |`tags.user`|string|-|是|拥有读取权限的MySQL用户名。|
 |`tags.password`|string|-|是|用户名对应密码。|
-|`tags.sentence`|string|-|是|查询数据源的语句。例如`"select teamid, name from basketball.team order by teamid;"`。|   
+|`tags.sentence`|string|-|是|查询数据源的语句。例如`"select teamid, name from basketball.team order by teamid;"`。|
+
+### ClickHouse源特有参数
+
+|参数|数据类型|默认值|是否必须|说明|
+|:---|:---|:---|:---|:---|
+|`tags.url`|string|-|是|ClickHouse的JDBC URL。|
+|`tags.user`|string|-|是|有读取权限的ClickHouse用户名。|
+|`tags.password`|string|-|是|用户名对应密码。|
+|`tags.numPartition`|string|-|是|ClickHouse分区数。|
+|`tags.sentence`|string|-|是|查询数据源的语句。|
 
 ### Hbase源特有参数
 
@@ -146,6 +169,12 @@
 |`tags.topic`|string|-|是|消息类别。|
 |`tags.interval.seconds`|int|`10`|是|读取消息的间隔。单位：秒。|
 
+### SST源特有参数
+
+|参数|数据类型|默认值|是否必须|说明|
+|:---|:---|:---|:---|:---|
+|`tags.path`|string|-|是|指定需要生成SST文件的源文件的路径。|
+
 ## 边配置
 
 对于不同的数据源，边的配置也有所不同，有很多通用参数，也有部分特有参数，配置时需要配置通用参数和不同数据源的特有参数。
@@ -158,7 +187,7 @@
 |:---|:---|:---|:---|:---|
 |`edges.name`| string|-|是|Nebula Graph中定义的Edge type名称。|
 |`edges.type.source`|string|-|是|指定数据源。例如`csv`。|
-|`edges.type.sink`|string|`client`|是|指定导入方式，可选值为`client`和`SST`（不支持）。|
+|`edges.type.sink`|string|`client`|是|指定导入方式，可选值为`client`和`SST`。|
 |`edges.fields`|list\[string\]|-|是|属性对应的列的表头或列名。如果有表头或列名，请直接使用该名称。如果CSV文件没有表头，用`[_c0, _c1, _c2]`的形式表示第一列、第二列、第三列，以此类推。|
 |`edges.nebula.fields`|list\[string\]|-|是|Nebula Graph中定义的属性名称，顺序必须和`edges.fields`一一对应。例如`[_c2, _c3]`对应`[start_year, end_year]`，表示第三列为开始年份的值，第四列为结束年份的值。|
 |`edges.source.field`|string|-|是|边的起始点的列。例如`_c0`表示第一列的值作为边的起始点。|

@@ -14,7 +14,10 @@ Nebula Graph有两种类型的`Compaction`操作：自动`Compaction`和全量`C
 
 ## 自动`Compaction`
 
-自动`Compaction`是在系统读取数据、写入数据或系统重启时自动触发`Compaction`操作，提升短时间内的读取性能。默认情况下，自动`Compaction`是开启状态，可能在业务高峰期触发，导致意外抢占IO影响业务。如果需要完全手动控制`Compaction`操作，用户可以关闭自动`Compaction`。
+自动`Compaction`是在系统读取数据、写入数据或系统重启时自动触发`Compaction`操作，提升短时间内的读取性能。默认情况下，自动`Compaction`是开启状态，可能在业务高峰期触发，导致意外抢占IO影响业务。
+
+<!--
+如果需要完全手动控制`Compaction`操作，用户可以关闭自动`Compaction`。
 
 ### 关闭自动`Compaction`
 
@@ -52,6 +55,7 @@ nebula> SHOW CONFIGS STORAGE;
 +-----------+-------------------------------------+-------+-----------+--------------------------------------------------------------------------------------------------------------------------------------+
 ...
 ```
+-->
 
 ## 全量`Compaction`
 
@@ -76,13 +80,17 @@ nebula> SHOW JOB <job_id>;
 
 为保证Nebula Graph的性能，请参考如下操作建议：
 
+<!--
 - 数据写入时为避免浪费IO，请在大量数据写入前关闭自动`Compaction`。详情请参见[关闭自动`Compaction`](#compaction_2)。
+-->
 
 - 数据导入完成后，请执行`SUBMIT JOB COMPACT`。
 
 - 业务低峰期（例如凌晨）执行`SUBMIT JOB COMPACT`。
 
+<!--
 - 白天时设置`disable_auto_compactions`为`false`，提升短时间内的读取性能。
+-->
 
 - 为控制`Compaction`的读写速率，请在配置文件`nebula-storaged.conf`中设置如下两个参数：
 
