@@ -1,6 +1,8 @@
 # 欢迎阅读Nebula Graph {{ nebula.release }} 文档
 
-!!! Note "本文档更新时间{{ now().year }}-{{ now().month }}-{{ now().day }}, [GitHub commit](https://github.com/vesoft-inc/nebula-docs-cn) {{ git.short_commit }}。"
+!!! Note "确认正在阅读最新的版本"
+
+    本文档更新时间{{ now().year }}-{{ now().month }}-{{ now().day }}, [GitHub commit](https://github.com/vesoft-inc/nebula-docs-cn/tree/v{{ nebula.release }}) {{ git.short_commit }}。
 
 Nebula Graph是一款开源的、分布式的、易扩展的原生图数据库，能够承载数千亿个点和数万亿条边的超大规模数据集，并且提供毫秒级查询。
 
@@ -16,6 +18,7 @@ Nebula Graph是一款开源的、分布式的、易扩展的原生图数据库�
 
 - [《开源分布式图数据库 Nebula
 Graph 完全指南》](https://docs.nebula-graph.com.cn/site/pdf/NebulaGraph-book.pdf)
+- [Release note](20.appendix/releasenote.md)
 - [论坛](https://discuss.nebula-graph.com.cn/)
 - [项目主页](https://nebula-graph.com.cn/)
 - [系列视频](https://space.bilibili.com/472621355)
@@ -24,13 +27,20 @@ Graph 完全指南》](https://docs.nebula-graph.com.cn/site/pdf/NebulaGraph-boo
 
 ## 图例说明
 
+
+<!-- 
+本文有 40+ 个 caution。
+本文有 30+ 个 danger。
+本文有 80+ 个 compatibility 和兼容性提示。
+-->
+
 !!! note
 
     额外的信息或者操作相关的提醒等。
 
 !!! caution
 
-    需要严格遵守的注意事项。不遵守caution可能导致系统故障、数据丢失、安全问题等。
+    需要严格遵守的注意事项。不遵守 caution 可能导致系统故障、数据丢失、安全问题等。
 
 !!! danger
 

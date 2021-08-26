@@ -1,4 +1,3 @@
-# Project information
 site_name: Nebula Graph Database 手册
 site_description: Documentation for Nebula Graph Database
 site_author: Nebula Graph
@@ -101,7 +100,7 @@ nav:
 
   - 快速入门:
       - 快速入门流程: 2.quick-start/1.quick-start-workflow.md
-      - 步骤1：安装Nebula Graph: 4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md
+      - 步骤1：安装Nebula Graph: 2.quick-start/2.install-nebula-graph.md
       - 步骤2：启动Nebula Graph: 2.quick-start/5.start-stop-service.md
       - 步骤3：连接Nebula Graph: 2.quick-start/3.connect-to-nebula-graph.md
       - 步骤4：使用常用命令: 2.quick-start/4.nebula-graph-crud.md
@@ -259,6 +258,7 @@ nav:
           - 使用Docker Compose部署: 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
           - 使用RPM/DEB包部署集群: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
       - 管理服务: 4.deployment-and-installation/manage-service.md
+      - 连接服务: 4.deployment-and-installation/connect-to-nebula-graph.md
       - 升级版本:
           - 升级历史版本至v2.5.0: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-250.md
           - 升级v2.0.x至v2.5.0: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-250.md
@@ -282,11 +282,11 @@ nav:
           - 身份验证: 7.data-security/1.authentication/1.authentication.md
           - 用户管理: 7.data-security/1.authentication/2.management-user.md
           - 内置角色权限: 7.data-security/1.authentication/3.role-list.md
-      - 备份恢复:
-          - 什么是BR: 7.data-security/2.backup-restore/1.what-is-br.md
-          - 编译BR: 7.data-security/2.backup-restore/2.compile-br.md
-          - 使用BR备份数据: 7.data-security/2.backup-restore/3.br-backup-data.md
-          - 使用BR恢复数据: 7.data-security/2.backup-restore/4.br-restore-data.md
+#      - 备份恢复:
+#          - 什么是BR: 7.data-security/2.backup-restore/1.what-is-br.md
+#          - 编译BR: 7.data-security/2.backup-restore/2.compile-br.md
+#          - 使用BR备份数据: 7.data-security/2.backup-restore/3.br-backup-data.md
+#          - 使用BR恢复数据: 7.data-security/2.backup-restore/4.br-restore-data.md
       - 管理快照: 7.data-security/3.manage-snapshot.md
 
   - 服务调优:
@@ -383,6 +383,7 @@ nav:
       - 导入MaxCompute数据: nebula-exchange/use-exchange/ex-ug-import-from-maxcompute.md
       - 导入Pulsar数据: nebula-exchange/use-exchange/ex-ug-import-from-pulsar.md
       - 导入Kafka数据: nebula-exchange/use-exchange/ex-ug-import-from-kafka.md
+      - 导入SST文件数据: nebula-exchange/use-exchange/ex-ug-import-from-sst.md
     - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
 
   - Nebula Algorithm: nebula-algorithm.md
@@ -394,7 +395,8 @@ nav:
   - Nebula Bench: nebula-bench.md
 
   - 附录:
-      - Nebula Graph 常见问题: 20.appendix/0.FAQ.md
+      - Release Note: 20.appendix/releasenote.md
+      - 常见问题 FAQ: 20.appendix/0.FAQ.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
       - 导入工具选择: 20.appendix/write-tools.md
       - 社区参与: 15.contribution/how-to-contribute.md
@@ -422,11 +424,12 @@ markdown_extensions:
 # Plugins
 plugins:
   - search
-  - macros
+  - macros:
+      include_dir: docs-2.0/reuse/
   - git-revision-date-localized
   - with-pdf:
       copyright: 2021 Vesoft Inc.
-      cover_subtitle: 2.5.0
+      cover_subtitle: master since v2.5.0
       author: 吴敏，周瑶，梁振亚，杨怡璇
       cover: true
       back_cover: true

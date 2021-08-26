@@ -16,6 +16,8 @@
   | ---- | ---- |
   | 7002 | Explorer 提供的 web 服务 |
   | 8070 | Nebula-http-gateway 的 HTTP 服务 |
+  
+- 使用的 Linux 发行版为 CentOS ，安装有版本为 v10.16.0 + 以上的 Node.js。
 
 ### 安装
 
@@ -66,7 +68,7 @@ $ sudo rpm -e nebula-graph-explorer-<version>.x86_64
 
 - Nebula Graph 服务已经部署并启动。详细信息参考[Nebula Graph安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
 
-- 使用的 Linux 上安装有版本为 v10.12.0 以上的Node.js。
+- 使用的 Linux 发行版为 CentOS ，安装有版本为 v10.16.0 + 以上的 Node.js。
 
 - 以下端口未被使用。
 

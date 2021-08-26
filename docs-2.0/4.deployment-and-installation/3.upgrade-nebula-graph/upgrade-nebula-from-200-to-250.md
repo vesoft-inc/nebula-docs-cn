@@ -10,16 +10,21 @@ Nebula Graph v2.0.x升级至v{{nebula.release}}，只需要使用v{{nebula.relea
 
 1. 下载[RPM/DEB包](https://github.com/vesoft-inc/nebula-graph/releases/tag/v{{nebula.release}})。
 
-2. 停止所有Nebula Graph服务。详情请参见[管理Nebula Graph服务](../../2.quick-start/5.start-stop-service.md)。
+2. 停止所有Nebula Graph服务。详情请参见[管理Nebula Graph服务](../../2.quick-start/5.start-stop-service.md)。建议更新前备份配置文件。
 
 3. 执行如下命令升级：
 
    - RPM包
 
       ```bash
-      $ sudo rpm -Uivh <package_name>
+      $ sudo rpm -Uvh <package_name>
       ```
-
+      
+      若安装时指定路径，那么升级时也需要指定路径
+      
+      ```bash
+      $ sudo rpm  -Uivh --prefix=<installation_path> <package_name> 
+      ```
    - DEB包
 
       ```bash

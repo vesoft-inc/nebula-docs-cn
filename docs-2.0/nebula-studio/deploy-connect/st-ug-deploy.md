@@ -100,7 +100,7 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
 - Nebula Graph 服务已经部署并启动。详细信息，参考[Nebula Graph 安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
 
-- 使用的 Linux 发行版为 CentOS ，安装有 lsof 和版本为 v10.16.0 + 以上的 [Node.js](https://www.softwarecollections.org/en/scls/jstanek/rh-nodejs12/)。
+- 使用的 Linux 发行版为 CentOS ，安装有 lsof 和版本为 v10.16.0 + 以上的 [Node.js](https://nodejs.org/zh-cn/)。
   
   !!! note
 
@@ -126,14 +126,14 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
    | 安装包 | 检验和 | Nebula版本 |
    | ----- | ----- | ----- |
-   | [nebula-graph-studio-3.0.0-1.x86_64.rpm](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-3.0.0-1.x86_64.rpm) |  [nebula-graph-studio-3.0.0-1.x86_64.rpm.sha256](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-3.0.0-1.x86_64.rpm.sha256) | 2.5.0 |
+   | [nebula-graph-studio-3.0.0-1.x86_64.rpm](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/3.0.0/nebula-graph-studio-3.0.0-1.x86_64.rpm) |  [nebula-graph-studio-3.0.0-1.x86_64.rpm.sha256](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/3.0.0/nebula-graph-studio-3.0.0-1.x86_64.rpm.sha256) | 2.5.0 |
 
 2. 使用`sudo rpm -i <rpm>`命令安装RPM包。
 
-   例如，安装Studio {{ studio.base220 }} 版本需要运行以下命令：
+   例如，安装Studio 3.0.0 版本需要运行以下命令：
 
    ```bash
-   $ sudo rpm -i nebula-graph-studio-{{ studio.base220 }}-6.x86_64.rpm
+   $ sudo rpm -i nebula-graph-studio-3.0.0-1.x86_64.rpm
    ```
 
    当屏幕返回以下信息时，表示 PRM 版 Studio 已经成功启动。
@@ -157,7 +157,7 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 用户可以使用以下的命令卸载 Studio。
 
 ```bash
-$ sudo rpm -e nebula-graph-studio-{{ studio.base220 }}-1.x86_64
+$ sudo rpm -e nebula-graph-studio-3.0.0-1.x86_64
 ```
 
 ### 异常处理
@@ -219,9 +219,10 @@ $ npm run start
 ### 安装
 
 1. 根据需要下载 tar 包，建议选择最新版本。
+
    | 安装包 | Studio 版本 |
    | --- | --- |
-   | [nebula-graph-studio-3.0.0-1.x86_64.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-3.0.0-1.x86_64.tar.gz) | 3.0.0 |
+   | [nebula-graph-studio-3.0.0-1.x86_64.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/3.0.0/nebula-graph-studio-3.0.0-1.x86_64.tar.gz) | 3.0.0 |
 
 2. 使用 `tar -xvf` 解压 tar 包。
 
