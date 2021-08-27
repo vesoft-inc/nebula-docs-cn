@@ -201,6 +201,7 @@ nav:
           - ALTER TAG: 3.ngql-guide/10.tag-statements/3.alter-tag.md
           - SHOW TAGS: 3.ngql-guide/10.tag-statements/4.show-tags.md
           - DESCRIBE TAG: 3.ngql-guide/10.tag-statements/5.describe-tag.md
+          - DELETE TAG: 3.ngql-guide/10.tag-statements/6.delete-tag.md
       - Edge type语句:
           - CREATE EDGE: 3.ngql-guide/11.edge-type-statements/1.create-edge.md
           - DROP EDGE: 3.ngql-guide/11.edge-type-statements/2.drop-edge.md
