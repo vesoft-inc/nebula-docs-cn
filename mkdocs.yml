@@ -19,8 +19,8 @@ theme:
   logo: 'https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png'
   favicon: 'assets/images/favicon.ico'
   palette:
-    primary: 'cyan'
-    accent: 'lime'
+    primary: 'teal'
+    accent: 'light green'
   features:
     - navigation.top
     - header.autohide
@@ -66,11 +66,7 @@ extra:
   common:
     release: master
   dashboard:
-<<<<<<< HEAD
     release: master
-=======
-    release: 1.0.1
->>>>>>> v2.5.0
     base100: 1.0.0
     branch: v1.0.1
   console:
