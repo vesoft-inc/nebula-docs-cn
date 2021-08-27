@@ -139,7 +139,7 @@ Nebula Graph将启动一个负载均衡任务，迁移storage3和storage4中的�
 
 !!! note
 
-    已下线节点状态会显示为OFFLINE.
+    已下线节点状态会显示为 OFFLINE。该记录一天后删除，或更改 meta 配置项 `removed_threshold_sec`。
 
 ## 均衡leader分布
 
