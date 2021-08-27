@@ -126,5 +126,5 @@ RPM和DEB是Linux系统下常见的两种安装包格式，本文介绍如何使
 
 ## 后续操作
 
-- [启动Nebula Graph](/4.deployment-and-installation/manage-service)<!--这里必须用绝对路径，并且文件名的后缀.md要删掉。-->
-- [连接Nebula Graph](/2.quick-start/3.connect-to-nebula-graph)<!--这里必须用绝对路径，并且文件名的后缀.md要删掉。-->
+- [启动Nebula Graph](/2.5.0/2.quick-start/5.start-stop-service)<!--这里必须用绝对路径，并且文件名的后缀.md要删掉。-->
+- [连接Nebula Graph](/2.5.0/2.quick-start/3.connect-to-nebula-graph)<!--这里必须用绝对路径，并且文件名的后缀.md要删掉。-->
