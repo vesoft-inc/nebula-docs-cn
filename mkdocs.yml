@@ -82,11 +82,13 @@ extra:
     release: 0.5.0
   cpp:
     release: 2.5.0
+    branch: v2.5.0
   java:
     release: 2.5.0
     branch: v2.5.0
   python:
     release: 2.5.0
+    branch: v2.5.0
   go:
     release: 2.5.0
     branch: release-v2.5.0
