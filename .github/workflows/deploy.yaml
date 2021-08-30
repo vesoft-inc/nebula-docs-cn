@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
         with:
@@ -15,19 +15,17 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v1
         with:
-          python-version: '3.7'
+          python-version: '3.8'
           architecture: 'x64'
 
       - name: apt install
         run: |
           sudo apt update -y
           sudo apt install -y $(cat pkglist.txt)
-
       - name: Install dependencies
         run: |
           pip install --upgrade pip
           pip install -r ./requirements.txt
-
       - name: set LANG
         run: sh lang-zh.sh	  
 
@@ -37,17 +35,14 @@ jobs:
       - name: mike list delete
         run: |
           mike list
-
       - name: Mike Deploy master
         run: |
           mike deploy master -p --rebase
           mike list
-
       - name: show git branch
         run: | 
           git branch
           git checkout gh-pages
-
       - name: Compress
         run: |
           tar -vczf nebula-docs.tar.gz master versions.json *.html
