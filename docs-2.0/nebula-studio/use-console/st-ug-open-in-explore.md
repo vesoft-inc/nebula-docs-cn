@@ -4,7 +4,7 @@
 
 ## 支持版本
 
-Studio v{{ studio.base220 }} 及以后版本。请更新版本，详细操作参考 [版本更新](../about-studio/st-ug-check-updates.md)。
+Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参考 [版本更新](../about-studio/st-ug-check-updates.md)。
 
 ## 前提条件
 

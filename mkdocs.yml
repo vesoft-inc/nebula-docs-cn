@@ -333,8 +333,8 @@ nav:
         - 操作索引: nebula-studio/manage-schema/st-ug-crud-index.md
       - 使用控制台:
         - 控制台界面: nebula-studio/use-console/st-ug-console.md
-        - 导入图探索: nebula-studio/use-console/st-ug-open-in-explorer.md
-        - 查看子图: nebula-studio/use-console/st-ug-visualize-findpath.md
+        - 导入图探索: nebula-studio/use-console/st-ug-open-in-explore.md
+        - 查看子图: nebula-studio/use-console/st-ug-visualize-subgraph.md
     - 故障排查:
       - 连接数据库错误: nebula-studio/troubleshooting/st-ug-config-server-errors.md
       - 无法访问 Studio: nebula-studio/troubleshooting/st-ug-connection-errors.md

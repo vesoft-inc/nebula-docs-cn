@@ -92,11 +92,9 @@ nebula> SHOW JOB <job_id>;
 - 白天时设置`disable_auto_compactions`为`false`，提升短时间内的读取性能。
 -->
 
-- 为控制`Compaction`的读写速率，请在配置文件`nebula-storaged.conf`中设置如下两个参数：
+- 为控制`Compaction`的读写速率，请在配置文件`nebula-storaged.conf`中设置如下参数：
 
     ```bash
-    # 设置为从本地配置文件读取配置。
-    --local-config=true
     # 读写速率限制为20MB/S。
     --rate_limit=20 (in MB/s)
     ```
