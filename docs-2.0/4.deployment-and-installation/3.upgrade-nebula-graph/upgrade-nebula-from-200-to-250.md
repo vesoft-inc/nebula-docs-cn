@@ -23,7 +23,7 @@ Nebula Graph v2.0.x升级至v{{nebula.release}}，只需要使用v{{nebula.relea
       若安装时指定路径，那么升级时也需要指定路径
       
       ```bash
-      $ sudo rpm  -Uivh --prefix=<installation_path> <package_name> 
+      $ sudo rpm  -Uvh --prefix=<installation_path> <package_name> 
       ```
    - DEB包
 
