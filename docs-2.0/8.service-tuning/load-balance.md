@@ -2,10 +2,6 @@
 
 用户可以使用`BALANCE`语句平衡分片和Raft leader的分布，或者删除冗余的Storage服务器。
 
-## 前提条件
-
-为了平衡分片和Raft leader的分布，Nebula Graph中图空间的副本数都必须大于1。
-
 ## 均衡分片分布
 
 `BALANCE DATA`语句会开始一个任务，将Nebula Graph集群中的分片平均分配到所有Storage服务器。通过创建和执行一组子任务来迁移数据和均衡分片分布。
