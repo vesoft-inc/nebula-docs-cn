@@ -1,7 +1,7 @@
 site_name: Nebula Graph Database 手册
 site_description: Documentation for Nebula Graph Database
 site_author: Nebula Graph
-site_url: https://docs.nebula-graph.com.cn/
+site_url: https://docs.nebula-graph.com.cn/master/
 edit_uri: 'edit/master/docs-2.0/'
 docs_dir: docs-2.0
 
@@ -19,8 +19,8 @@ theme:
   logo: 'https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png'
   favicon: 'assets/images/favicon.ico'
   palette:
-    primary: 'cyan'
-    accent: 'lime'
+    primary: 'teal'
+    accent: 'light green'
   features:
     - navigation.top
     - header.autohide
@@ -33,7 +33,7 @@ extra_css:
   - stylesheets/extra.css
 extra:
   nebula:
-    release: 2.5.0
+    release: master
     nightly: v2-nightly
     master: master
     base20: 2.0
