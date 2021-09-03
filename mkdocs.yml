@@ -1,7 +1,7 @@
 # Project information
 site_name: 开源分布式图数据库 Nebula Graph 完全指南
 site_description: Nebula Graph Database
-site_author: 吴敏,周瑶,梁振亚
+site_author: 吴敏，周瑶，梁振亚，杨怡璇
 docs_dir: docs-2.0
 
 # Configuration
@@ -59,6 +59,7 @@ nav:
   - 前言: 
       - 图: 0.foreground/0-graph.md
       - 图数据库: 0.foreground/1-graph-database.md
+      - 相关技术: 0.foreground/2.relates.md
 
   - 简介:
       - '': 1.introduction/1.what-is-nebula-graph.md
@@ -324,10 +325,15 @@ nav:
   - 附录:
       - Nebula Graph 常见问题: 20.appendix/0.FAQ.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
+      - Nebula Graph 常见问题: 20.appendix/0.FAQ.md
+      - 导入工具选择: 20.appendix/write-tools.md
       - 社区参与: 15.contribution/how-to-contribute.md
+      - 年表: 20.appendix/20.history.md
+      - 思维导图: 20.appendix/mind-map.md
+      - 致谢: 20.appendix/21.acknowledgement.md
 
   - PDF: ./pdf/NebulaGraph-CN.pdf
-
+#  - English Docs: https://docs.nebula-graph.io/
 
 #  - 图算法:
 #    - nebula-algorithm:

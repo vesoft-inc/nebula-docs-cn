@@ -61,18 +61,22 @@ https://www.marketsandmarkets.com/Market-Reports/graph-database-market-126230231
 
 ### （第一代）图数据库的先行者 Neo4j
 
-虽然在1970年代，人们已经提出了一些类似于"图”的数据模型和产品原型（例如 CODASYL[^DDIA])。但真正能够让“图数据库”这个概念流行起来，不得不说到这个市场最主要的先行者 Neo4j，甚至属性图和图数据库这两个主要术语就是 Neo4j 最早提出并实践的。 
+虽然在 1970 年代，人们已经提出了一些类似于"图”的数据模型和产品原型（例如 CODASYL[^DDIA])和相应的图语言 G/G+ 语言[^Glang]。但真正能够让“图数据库”这个概念流行起来，不得不说到这个市场最主要的先行者 Neo4j，甚至(标签)属性图和图数据库这两个主要术语就是 Neo4j 最早提出并实践的。 
 
 [^DDIA]: https://www.amazon.com/Designing-Data-Intensive-Applications-Reliable-Maintainable/dp/1449373321
 
-!!! Info "本小节关于Neo4j和其创造的图查询语言Cypher的历史内容主要摘录自 ISO WG3 的工作论文"An overview of the recent history of Graph Query Languages"[^Tobias2018]，本书作者根据最新两年的进展有删减和更新。"
+[^Glang]: I. F. Cruz, A. O. Mendelzon, and P. T. Wood. A Graphical Query Language Supporting Recursion. In Proceedings of the Association for Computing Machinery Special Interest Group on Management of Data, pages 323–330. ACM Press, May 1987.
 
-!!! Note "关于图查询查询(Graph Query Language，GQL) 和国际标准的制定"
+
+!!! Info "本小节关于Neo4j和其创造的图查询语言Cypher的历史内容主要摘录自 ISO WG3 的工作论文"An overview of the recent history of Graph Query Languages"[^Tobias2018] 和[^Glang]，本书作者根据最新两年的进展有删减和更新。"
+
+!!! Note "关于图查询语言(Graph Query Language，GQL) 和国际标准的制定"
 
     熟悉数据库的读者可能都知道结构化查询语言SQL。通过使用SQL，人们以接近自然语言的方式访问数据库。在 SQL 被广泛采用和标准化之前，关系型数据库的市场是非常碎片和割裂的——各家厂商的产品都有完全不同的接入访问方式，数据库产品自身的开发人员、数据库产品周边工具的开发人员、数据库最终的使用人员，都不得不学习各个厂商的完全不同的产品，在不同产品之间迁移极其困难。当1989年SQL-89标准被制定后，整个关系型数据库的市场快速收敛到SQL-89上。这大大降低了上述各种人员的学习曲线。
 
     类似的，在图数据库领域，图语言(GQL)承担了类似于SQL的作用，是一种用户与图数据库主要的交互方式。但不同于SQL-89这种国际标准，GQL还没有任何国际标准。目前有两种主流的图语言：
-    Neo4j的Cypher (及其后续——ISO正在制定过程中的GQL-standard 草案)和Apache TinkerPop的Gremlin。前者通常被称为声明式语言(Declarative query language)——也即用户只需要告诉系统“要什么”，而不管“怎么做”；后者通常被称为命令式语言(Imperative query language)，用户会显式地指定系统的操作。
+
+    Neo4j的Cypher (及其后续——ISO正在制定过程中的 GQL-standard 草案)和Apache TinkerPop的Gremlin。前者通常被称为声明式语言(Declarative query language)——也即用户只需要告诉系统“要什么”，而不管“怎么做”；后者通常被称为命令式语言(Imperative query language)，用户会显式地指定系统的操作。
     
     GQL国际标准正在制定过程中。
 
@@ -91,6 +95,7 @@ https://www.marketsandmarkets.com/Market-Reports/graph-database-market-126230231
 - 2017 年，ISO WG3 工作组开始讨论如何将属性图查询能力引入 SQL。
 - 2018 年 12 月，从 Neo4j 3.5 开始其核心部分转为闭源。
 - 2019 年, ISO 正式立项两个项目(ISO/IEC JTC 1 N 14279和ISO/IEC JTC 1/SC 32 N 3228），启动关于图数据库语言国际标准的制定工作。
+- 2021 年，Neo4j 完成 F 轮 3.25 亿美元的融资，是整个数据库（包括关系型）历史上最大一轮融资。
 
 [^Gremlin]: Gremlin是基于Apache TinkerPop开发的图语言(https://tinkerpop.apache.org/)。
 
@@ -148,7 +153,9 @@ Cypher 启发了一系列后续的图查询语言，包括
 
 [^GSQL]: https://docs.tigergraph.com/dev/gsql-ref
 
-2020 年，Nebula Graph 以 openCypher 为基础发布其扩展的图语言 Nebula Graph Query Language, nGQL。
+2019 年，Nebula Graph 以 openCypher 为基础发布其扩展的图语言 Nebula Graph Query Language, nGQL。
+
+![Image](https://docs-cdn.nebula-graph.com.cn/books/images/langhis.jpg "图语言的历史")
 
 ### 分布式图数据库
 
@@ -158,13 +165,30 @@ Cypher 启发了一系列后续的图查询语言，包括
 
 2. 开源方式使得更多的人（包括代码开发者、数据科学家、产品经理等）以更加低成本和有效的方式参与新兴的技术，并反馈给社区。
 
-!!! note "说明"
+严格说，Neo4j 也提供了不少的分布式的能力，但都和业界意义上的（对等、分片的）分布式系统有较大的不同:
 
-     严格说，Neo4j 也提供了不少的分布式的能力，但都和业界意义上的分布式系统有较大的不同。
+- Neo4j 3.X 要求全量数据必须存放在单机中。虽然其也提供多机之间(Master-slave/slave)做全量复制和高可用，但数据不可切分为不同子图存放。
 
-     Neo4j 3.X 要求全量数据必须存放在单机中。虽然其也提供多机之间(Master-slave/slave)做全量复制和高可用，但数据不可切分为不同子图存放。
+![](https://docs-cdn.nebula-graph.com.cn/books/images/causal.png)
 
-     Neo4j 4.X 允许在不同机器上各存放一部分数据（子图），然后在应用层需通过一定方式拼装后(其称为编织Fabric)，将读写分发到各个机器上。这种做法需要应用层代码有大量的参与和工作。例如，设计如何把不同子图应该放置在哪些机器上，如何将从各机器获取的部分结果重新编织为最终的结果。
+- Neo4j 4.X 允许在不同机器上各存放一部分数据（子图），然后在应用层需通过一定方式拼装后(其称为编织 Fabric)[^fosdem20]，将读写分发到各个机器上。这种做法需要应用层代码有大量的参与和工作。例如，设计如何把不同子图应该放置在哪些机器上，如何将从各机器获取的部分结果重新编织为最终的结果。
+
+![](https://dist.neo4j.com/wp-content/uploads/20200131191103/Neo4j-Fabric-LDBC-sharding-scheme.jpg)
+
+[^fosdem20]: https://neo4j.com/fosdem20/
+
+其语法风格大体是
+```Cypher 
+USE graphA  # S1.1 从 Shard A 读
+MATCH (movie:Movie)
+Return movie.title AS title
+    UNION   # S2. 在代理服务器 Join 结果
+USE graphB  # S1.2 从 Shard B 读
+MATCH （move:Movie)
+RETURN movie.title AS title
+```
+
+![](https://docs-cdn.nebula-graph.com.cn/books/images/fabric.png)
 
 #### 第二代（分布式）图数据库：Titan 和其后继者 JanusGraph
 
@@ -218,4 +242,4 @@ Oracle graph[^Oracle] 是关系型数据库巨头 Oracle 在图技术与图数�
 
 #### 新一代开源分布式图数据库 Nebula Graph
 
-下一节，我们将正式介绍新一代开源分布式图数据库 Nebula Graph。
+在下一章，我们将正式介绍新一代开源分布式图数据库 Nebula Graph。

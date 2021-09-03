@@ -33,6 +33,7 @@ Graph 完全指南》](https://docs.nebula-graph.com.cn/site/pdf/NebulaGraph-boo
 
 
 <!-- 
+本文有 230+ 个 caution。
 本文有 40+ 个 caution。
 本文有 30+ 个 danger。
 本文有 80+ 个 compatibility 和兼容性提示。

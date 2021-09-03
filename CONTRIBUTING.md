@@ -1,6 +1,6 @@
 # Nebula Graph 中文文档贡献指南
 
-**Nebula Graph** 欢迎帮助我们改善文档。
+**Nebula Graph** 欢迎帮助改善文档。
 
 ## 可贡献的内容
 

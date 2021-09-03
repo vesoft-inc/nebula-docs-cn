@@ -12,7 +12,7 @@
 
 - 不支持在`WHERE`子句中使用Pattern（TODO: planning），例如`WHERE (v)-->(v2)`。
 
-- [过滤Rank](#rank)是原生nGQL功能。如需在openCypher兼容语句中直接获取Rank值，可以使用rank()函数，例如`MATCH (:player)-[e:follow]->() RETURN rank(e);`。
+- [过滤Rank](#rank)是原生nGQL功能。如需在openCypher兼容语句中直接获取Rank值，可以使用rank()函数，例如 `MATCH (:player)-[e:follow]->() RETURN rank(e);`。
 
 ## 基础用法
 
