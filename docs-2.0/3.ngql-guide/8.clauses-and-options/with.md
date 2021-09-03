@@ -58,7 +58,7 @@ nebula> MATCH p=(v:player{name:"Tim Duncan"})--() \
 ### 示例2
 
 1. 匹配点ID为`player100`的点。
-2. 通过`labels()`函数将点的所有标签输出到一个列表。
+2. 通过`labels()`函数将点的所有Tag输出到一个列表。
 3. 将列表拆分为行。
 4. 返回结果。
 
@@ -111,7 +111,7 @@ nebula> MATCH (v:player) \
         LIMIT 3 \
         RETURN collect(Name);
 +-----------------------------------------------+
-| COLLECT(Name)                                 |
+| collect(Name)                                 |
 +-----------------------------------------------+
 | ["Yao Ming", "Vince Carter", "Tracy McGrady"] |
 +-----------------------------------------------+

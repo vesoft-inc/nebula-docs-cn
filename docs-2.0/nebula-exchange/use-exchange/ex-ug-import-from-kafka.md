@@ -12,7 +12,7 @@
 
 - Spark：2.4.7，单机版
 
-- Nebula Graph：2.0.0。使用[Docker Compose部署](../../2.quick-start/2.deploy-nebula-graph-with-docker-compose.md)。
+- Nebula Graph：{{nebula.release}}。使用[Docker Compose部署](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)。
 
 ## 前提条件
 
@@ -24,11 +24,11 @@
 
   - 拥有Nebula Graph写权限的用户名和密码。
 
-- 已经编译Exchange。详情请参见[编译Exchange](../ex-ug-compile.md)。本示例中使用Exchange 2.0。
+- 已经编译Exchange。详情请参见[编译Exchange](../ex-ug-compile.md)。本示例中使用Exchange {{exchange.release}}。
 
 - 已经安装Spark。
 
-- 了解Nebula Graph中创建Schema的信息，包括标签和边类型的名称、属性等。
+- 了解Nebula Graph中创建Schema的信息，包括Tag和Edge type的名称、属性等。
 
 - 已经安装并开启Kafka服务。
 
@@ -42,10 +42,10 @@
 
     | 要素  | 名称 | 属性 |
     | :--- | :--- | :--- |
-    | 标签（Tag） | `player` | `name string, age int` |
-    | 标签（Tag） | `team` | `name string` |
-    | 边类型（Edge Type） | `follow` | `degree int` |
-    | 边类型（Edge Type） | `serve` | `start_year int, end_year int` |
+    | Tag | `player` | `name string, age int` |
+    | Tag | `team` | `name string` |
+    | Edge Type | `follow` | `degree int` |
+    | Edge Type | `serve` | `start_year int, end_year int` |
 
 2. 在Nebula Graph中创建一个图空间**basketballplayer**，并创建一个Schema，如下所示。
 
@@ -59,22 +59,26 @@
     ## 选择图空间basketballplayer
     nebula> USE basketballplayer;
     
-    ## 创建标签player
+    ## 创建Tag player
     nebula> CREATE TAG player(name string, age int);
     
-    ## 创建标签team
+    ## 创建Tag team
     nebula> CREATE TAG team(name string);
     
-    ## 创建边类型follow
+    ## 创建Edge type follow
     nebula> CREATE EDGE follow(degree int);
 
-    ## 创建边类型serve
+    ## 创建Edge type serve
     nebula> CREATE EDGE serve(start_year int, end_year int);
     ```
 
 更多信息，请参见[快速开始](../../2.quick-start/1.quick-start-workflow.md)。
 
 ### 步骤 2：修改配置文件
+
+!!! note
+
+    如果部分数据存储在Kafka的value域内，需要自行修改源码，从Kafka中获取value域，将value通过from_json函数解析，然后作为Dataframe返回。
 
 编译Exchange后，复制`target/classes/application.conf`文件设置Kafka数据源相关的配置。在本示例中，复制的文件名为`kafka_application.conf`。各个配置项的详细说明请参见[配置说明](../parameter-reference/ex-ug-parameter.md)。
 
@@ -83,7 +87,7 @@
   # Spark相关配置
   spark: {
     app: {
-      name: Nebula Exchange 2.0
+      name: Nebula Exchange {{exchange.release}}
     }
     driver: {
       cores: 1
@@ -127,9 +131,9 @@
   }
   # 处理点
   tags: [
-    # 设置标签player相关信息。
+    # 设置Tag player相关信息。
     {
-      # Nebula Graph中对应的标签名称。
+      # Nebula Graph中对应的Tag名称。
       name: player
       type: {
         # 指定数据源文件格式，设置为Kafka。
@@ -140,21 +144,22 @@
       # Kafka服务器地址。
       service: "127.0.0.1:9092"
       # 消息类别。
-      topic: "topic_name"
+      topic: "topic_name1"
 
-      # 在fields里指定player表中的列名称，其对应的value会作为Nebula Graph中指定属性。
-      # fields和nebula.fields里的配置必须一一对应。
-      # 如果需要指定多个列名称，用英文逗号（,）隔开。
-      fields: [age,name]
-      nebula.fields: [age,name]
+      # Kafka数据有固定的域名称：key、value、topic、partition、offset、timestamp、timestampType。
+      # Spark读取为DataFrame后，如果需要指定多个字段，用英文逗号（,）隔开。
+      # 在fields里指定字段名称，例如用key对应Nebula中的name， value对应Nebula中的age，示例如下：
+      fields: [key,value]
+      nebula.fields: [name,age]
 
       # 指定表中某一列数据为Nebula Graph中点VID的来源。
+      # 这里的值key和上面的key重复，表示key既作为VID，也作为属性name。
       vertex:{
-          field:playerid
+          field:key
       }
 
 
-      # 单次写入 Nebula Graph 的最大点数据量。
+      # 单批次写入 Nebula Graph 的数据条数。
       batch: 10
 
       # Spark 分区数量
@@ -162,7 +167,7 @@
       # 读取消息的间隔。单位：秒。
       interval.seconds: 10
     }
-    # 设置标签team相关信息。
+    # 设置Tag team相关信息。
     {
       name: team
       type: {
@@ -170,11 +175,11 @@
         sink: client
       }
       service: "127.0.0.1:9092"
-      topic: "topic_name"
-      fields: [name]
+      topic: "topic_name2"
+      fields: [key]
       nebula.fields: [name]
       vertex:{
-          field:teamid
+          field:key
       }
       batch: 10
       partition: 10
@@ -185,9 +190,9 @@
 
   # 处理边数据
   edges: [
-    # 设置边类型follow相关信息
+    # 设置Edge type follow相关信息
     {
-      # Nebula Graph中对应的边类型名称。
+      # Nebula Graph中对应的Edge type名称。
       name: follow
 
       type: {
@@ -202,27 +207,27 @@
       # Kafka服务器地址。
       service: "127.0.0.1:9092"
       # 消息类别。
-      topic: "topic_name"
+      topic: "topic_name3"
 
-      # 在fields里指定follow表中的列名称，其对应的value会作为Nebula Graph中指定属性。
-      # fields和nebula.fields里的配置必须一一对应。
-      # 如果需要指定多个列名称，用英文逗号（,）隔开。
-      fields: [degree]
+      # Kafka数据有固定的域名称：key、value、topic、partition、offset、timestamp、timestampType。
+      # Spark读取为DataFrame后，如果需要指定多个字段，用英文逗号（,）隔开。
+      # 在fields里指定字段名称，例如用key对应Nebula中的degree，示例如下：
+      fields: [key]
       nebula.fields: [degree]
 
-      # 在source里，将follow表中某一列作为边的起始点数据源。
-      # 在target里，将follow表中某一列作为边的目的点数据源。
+      # 在source里，将topic中某一列作为边的起始点数据源。
+      # 在target里，将topic中某一列作为边的目的点数据源。
       source:{
-          field:src_player
+          field:timestamp
       }
 
 
       target:{
-          field:dst_player
+          field:offset
       }
 
 
-      # 单次写入 Nebula Graph 的最大点数据量。
+      # 单批次写入 Nebula Graph 的数据条数。
       batch: 10
 
       # Spark 分区数量
@@ -232,7 +237,7 @@
       interval.seconds: 10
     }
 
-    # 设置边类型serve相关信息
+    # 设置Edge type serve相关信息
     {
       name: serve
       type: {
@@ -240,16 +245,16 @@
         sink: client
       }
       service: "127.0.0.1:9092"
-      topic: "topic_name"
+      topic: "topic_name4"
 
-      fields: [start_year,end_year]
+      fields: [timestamp,offset]
       nebula.fields: [start_year,end_year]
       source:{
-          field:playerid
+          field:key
       }
 
       target:{
-          field:teamid
+          field:value
       }
 
       batch: 10
@@ -265,7 +270,7 @@
 运行如下命令将Kafka数据导入到Nebula Graph中。关于参数的说明，请参见[导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-2.0.0.jar_path> -c <kafka_application.conf_path>
+${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-{{exchange.release}}.jar_path> -c <kafka_application.conf_path>
 ```
 
 !!! note
@@ -275,10 +280,10 @@ ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchan
 示例：
 
 ```bash
-${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-spark-utils/nebula-exchange/target/nebula-exchange-2.0.0.jar  -c /root/nebula-spark-utils/nebula-exchange/target/classes/kafka_application.conf
+${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-spark-utils/nebula-exchange/target/nebula-exchange-{{exchange.release}}.jar  -c /root/nebula-spark-utils/nebula-exchange/target/classes/kafka_application.conf
 ```
 
-用户可以在返回信息中搜索`batchSuccess.<tag_name/edge_name>`，确认成功的数量。例如例如`batchSuccess.follow: 300`。
+用户可以在返回信息中搜索`batchSuccess.<tag_name/edge_name>`，确认成功的数量。例如`batchSuccess.follow: 300`。
 
 ### 步骤 4：（可选）验证数据
 

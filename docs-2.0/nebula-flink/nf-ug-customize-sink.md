@@ -162,14 +162,14 @@ Flink 将处理完成的数据 sink 到 Nebula Graph 数据库时，需要将 Fl
   - Nebula Graph 图数据库的账号及其密码。
 - `VertexExecutionOptions` 需要配置：
   - 需要写入点数据的 Nebula Graph 图数据库中的图空间名称。
-  - 需要写入的标签（点类型）名称。
-  - 需要写入的标签属性。
+  - 需要写入的Tag（点类型）名称。
+  - 需要写入的Tag属性。
   - 需要写入的点 VID 所在 Flink 数据流 Row 中的索引。
   - 单次写入 Nebula Graph 的数据量限值，默认为 2000。
 - `EdgeExecutionOptions` 需要配置：
   - 需要写入边数据的 Nebula Graph 图数据库中的图空间名称。
-  - 需要写入的边类型。
-  - 需要写入的边类型属性。
+  - 需要写入的Edge type。
+  - 需要写入的Edge type属性。
   - 需要写入的边起点 VID（src_Id）所在 Flink 数据流 Row 中的索引。
   - 需要写入的边终点 VID（dst_Id）所在 Flink 数据流 Row 中的索引。
   - 需要写入的边 rank 所在 Flink 数据流 Row 中的索引。如果不配置，则写入边数据时不带 rank 信息。
@@ -179,8 +179,8 @@ Flink 将处理完成的数据 sink 到 Nebula Graph 数据库时，需要将 Fl
 
 - Graph 服务为本地单副本部署，使用默认端口
 - 图空间名称：`flinkSink`
-- 标签：`player`
-- 标签属性：`name` 和 `age`
+- Tag：`player`
+- Tag属性：`name` 和 `age`
 
 以下为自定义 NebulaSink 的代码示例。
 

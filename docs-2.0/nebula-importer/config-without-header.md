@@ -126,12 +126,12 @@ files:
            # 点ID的数据类型，可选值为int和string，分别对应Nebula Graph中的INT64和FIXED_STRING。
            type: string
 
-        # 标签设置。   
+        # Tag设置。   
         tags:
-            # 标签名称。
+            # Tag名称。
           - name: student
            
-            # 标签内的属性设置。
+            # Tag内的属性设置。
             props:
                 # 属性名称。
               - name: name
@@ -163,7 +163,7 @@ files:
       # Schema的类型为edge。
       type: edge
       edge:
-        # 边类型名称。
+        # Edge type名称。
         name: follow
 
         # 是否包含rank。
@@ -187,7 +187,7 @@ files:
            # rank值对应CSV文件中列的序号。如果没有设置index，请务必在第三列设置rank的值。之后的列依次设置各属性。
            index: 2
         
-        # 边类型内的属性设置。
+        # Edge type内的属性设置。
         props:
              # 属性名称。
            - name: degree
@@ -201,12 +201,12 @@ files:
 
 !!! Note
 
-  - CSV文件中列的序号从0开始，即第一列的序号为0，第二列的序号为1。
+    - CSV文件中列的序号从0开始，即第一列的序号为0，第二列的序号为1。
 
-  - 点ID的数据类型需要和`clientSettings.postStart.commands`中的创建图空间语句的数据类型一致。
+    - 点ID的数据类型需要和`clientSettings.postStart.commands`中的创建图空间语句的数据类型一致。
 
-  - 如果没有设置index字段指定列的序号，CSV文件必须遵守如下规则：
+    - 如果没有设置index字段指定列的序号，CSV文件必须遵守如下规则：
 
-    + 在点数据文件中，第一列必须为点ID，后面的列为属性，且需要和配置文件内的顺序一一对应。
+      + 在点数据文件中，第一列必须为点ID，后面的列为属性，且需要和配置文件内的顺序一一对应。
 
-    + 在边数据文件中，第一列必须为起始点ID，第二列必须为目的点ID，如果`withRanking`为`true`，第三列必须为rank值，后面的列为属性，且需要和配置文件内的顺序一一对应。
+      + 在边数据文件中，第一列必须为起始点ID，第二列必须为目的点ID，如果`withRanking`为`true`，第三列必须为rank值，后面的列为属性，且需要和配置文件内的顺序一一对应。

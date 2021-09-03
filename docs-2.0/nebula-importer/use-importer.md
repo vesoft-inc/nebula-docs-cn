@@ -18,13 +18,13 @@ Importer适用于将本地CSV文件的内容导入至Nebula Graph中。
 
 - 已部署Nebula Graph服务。目前有三种部署方式：
   
-  - [Docker Compose部署](../2.quick-start/2.deploy-nebula-graph-with-docker-compose.md)（快速部署）
+  - [Docker Compose部署](../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)
   
   - [RPM/DEB包安装](../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)
   
   - [源码编译安装](../4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)
 
-- Nebula Graph中已创建Schema，包括图空间、标签和边类型，或者通过参数`clientSettings.postStart.commands`设置。
+- Nebula Graph中已创建Schema，包括图空间、Tag和Edge type，或者通过参数`clientSettings.postStart.commands`设置。
 
 - 运行Importer的机器已部署Golang环境。详情请参见[Golang 环境搭建](https://github.com/vesoft-inc/nebula-importer/blob/release-v2.0.0-ga/docs/golang-install.md)。
 
@@ -94,7 +94,7 @@ Importer适用于将本地CSV文件的内容导入至Nebula Graph中。
    ```bash
    $ tar -zxvf nebula-importer.tar.gz 
    $ cd nebula-importer
-   $ go build -mod vendor cmd/
+   $ go build -mod vendor cmd/importer.go
    ```
 
 ### Docker方式运行
@@ -121,7 +121,7 @@ $ docker run --rm -ti \
 
 ## 配置文件说明
 
-Nebula Importer通过docker-compose.yaml配置文件来描述待导入文件信息、Nebula Graph服务器信息等。用户可以参考示例配置文件：[无表头配置](config-without-header.md)/[有表头配置](config-with-header.md)。下文将分类介绍配置文件内的字段。
+Nebula Importer通过`nebula-importer/examples/v2/example.yaml`配置文件来描述待导入文件信息、Nebula Graph服务器信息等。用户可以参考示例配置文件：[无表头配置](config-without-header.md)/[有表头配置](config-with-header.md)。下文将分类介绍配置文件内的字段。
 
 ### 基本配置
 
@@ -205,7 +205,7 @@ files:
 |参数|默认值|是否必须|说明|
 |:---|:---|:---|:---|
 |`logPath`|-|否|导入过程中的错误等日志信息输出的文件路径。|
-|`files.path`|-|是|数据文件的存放路径，如果使用相对路径，则会将路径和当前配置文件的目录拼接。|
+|`files.path`|-|是|数据文件的存放路径，如果使用相对路径，则会将路径和当前配置文件的目录拼接。可以使用星号（\*）进行模糊匹配，导入多个名称相似的文件，但是文件的结构需要相同。|
 |`files.failDataPath`|-|是|插入失败的数据文件存放路径，以便后面补写数据。|
 |`files.batchSize`|128|否|单批次插入数据的语句数量。|
 |`files.limit`|-|否|读取数据的行数限制。|
@@ -249,8 +249,8 @@ schema:
 |`files.schema.type`|-|是|Schema的类型，可选值为`vertex`和`edge`。|
 |`files.schema.vertex.vid.type`|-|否|点ID的数据类型，可选值为`int`和`string`。|
 |`files.schema.vertex.vid.index`|-|否|点ID对应CSV文件中列的序号。|
-|`files.schema.vertex.tags.name`|-|是|标签名称。|
-|`files.schema.vertex.tags.props.name`|-|是|标签属性名称，必须和Nebula Graph中的标签属性一致。|
+|`files.schema.vertex.tags.name`|-|是|Tag名称。|
+|`files.schema.vertex.tags.props.name`|-|是|Tag属性名称，必须和Nebula Graph中的Tag属性一致。|
 |`files.schema.vertex.tags.props.type`|-|否|属性数据类型，支持`bool`、`int`、`float`、`double`、`timestamp`和`string`。|
 |`files.schema.vertex.tags.props.index`|-|否|属性对应CSV文件中列的序号。|
 
@@ -284,13 +284,13 @@ schema:
 |参数|默认值|是否必须|说明|
 |:---|:---|:---|:---|
 |`files.schema.type`|-|是|Schema的类型，可选值为`vertex`和`edge`。|
-|`files.schema.edge.name`|-|是|边类型名称。|
+|`files.schema.edge.name`|-|是|Edge type名称。|
 |`files.schema.edge.srcVID.type`|-|否|边的起始点ID的数据类型。|
 |`files.schema.edge.srcVID.index`|-|否|边的起始点ID对应CSV文件中列的序号。|
 |`files.schema.edge.dstVID.type`|-|否|边的目的点ID的数据类型。|
 |`files.schema.edge.dstVID.index`|-|否|边的目的点ID对应CSV文件中列的序号。|
 |`files.schema.edge.rank.index`|-|否|边的rank值对应CSV文件中列的序号。|
-|`files.schema.edge.props.name`|-|是|边类型属性名称，必须和Nebula Graph中的边类型属性一致。|
+|`files.schema.edge.props.name`|-|是|Edge type属性名称，必须和Nebula Graph中的Edge type属性一致。|
 |`files.schema.edge.props.type`|-|否|属性类型，支持`bool`、`int`、`float`、`double`、`timestamp`和`string`。|
 |`files.schema.edge.props.index`|-|否|属性对应CSV文件中列的序号。|
 
@@ -301,3 +301,8 @@ Importer根据CSV文件有无表头，需要对配置文件进行不同的设置
 - [无表头配置说明](config-without-header.md)
 
 - [有表头配置说明](config-with-header.md)
+
+## 视频
+
+* [数据库导入工具——Nebula Importer 简介](https://www.bilibili.com/video/BV1ny4y1u7i4)（3分09秒）
+<iframe src="//player.bilibili.com/player.html?aid=803505035&bvid=BV1ny4y1u7i4&cid=351250785&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>

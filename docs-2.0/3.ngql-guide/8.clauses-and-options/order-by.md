@@ -18,12 +18,16 @@
 ORDER BY <expression> [ASC | DESC] [, <expression> [ASC | DESC] ...];
 ```
 
+!!! compatibility
+
+    原生nGQL语法中，`ORDER BY`命令后必须使用引用符`$-.`。但在2.5.0之前的版本中不需要。
+
 ### 示例
 
 ```ngql
 nebula> FETCH PROP ON player "player100", "player101", "player102", "player103" \
         YIELD player.age AS age, player.name AS name \
-        | ORDER BY age ASC, name DESC;
+        | ORDER BY $-.age ASC, $-.name DESC;
 +-------------+-----+---------------------+
 | VertexID    | age | name                |
 +-------------+-----+---------------------+

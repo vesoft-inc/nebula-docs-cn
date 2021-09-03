@@ -10,7 +10,11 @@ TTL（Time To Live）指定属性的存活时间，超时后，该属性就会�
 
 - 不能修改带有TTL选项的属性的Schema。
 
-- 标签或边类型上不能同时存在TTL选项和索引，即使在不同属性上分别设置也不行。
+- TTL 和 INDEX 共存问题：
+
+    + 如果已有 INDEX：不能再设置 TTL，即使在没有 INDEX 的属性上设置 TTL 也不行。    
+
+    + 如果已有 TTL：可以再添加 INDEX。
 
 ## 属性过期
 
@@ -18,13 +22,13 @@ TTL（Time To Live）指定属性的存活时间，超时后，该属性就会�
 
 点属性过期有如下影响：
 
-- 如果一个点仅有一个标签，点上的一个属性过期，点也会过期。
+- 如果一个点仅有一个Tag，点上的一个属性过期，点也会过期。
 
-- 如果一个点有多个标签，点上的一个属性过期，和该属性相同标签的其他属性也会过期，但是点不会过期，点上其他标签的属性保持不变。
+- 如果一个点有多个Tag，点上的一个属性过期，和该属性相同Tag的其他属性也会过期，但是点不会过期，点上其他Tag的属性保持不变。
 
 ### 边属性过期
 
-因为一条边仅有一个边类型，边上的一个属性过期，边也会过期。
+因为一条边仅有一个Edge type，边上的一个属性过期，边也会过期。
 
 ## 过期处理
 
@@ -45,29 +49,29 @@ nGQL支持的TTL选项如下。
 |`ttl_col`|指定要设置存活时间的属性。属性的数据类型必须是`int`或者`timestamp`。|
 |`ttl_duration`|指定时间戳差值，单位：秒。时间戳差值必须为64位非负整数。属性值和时间戳差值之和如果小于当前时间戳，属性就会过期。如果`ttl_duration`为`0`，属性永不过期。|
 
-## 使用TTl选项
+## 使用TTL选项
 
-### 标签或边类型已存在
+### Tag或Edge type已存在
 
-如果标签和边类型已经创建，请使用`ALTER`语句更新标签或边类型。
+如果Tag和Edge type已经创建，请使用`ALTER`语句更新Tag或Edge type。
 
 ```ngql
-# 创建标签。
+# 创建Tag。
 nebula> CREATE TAG t1 (a timestamp);
 
-# ALTER修改标签，添加TTL选项。
+# ALTER修改Tag，添加TTL选项。
 nebula> ALTER TAG t1 ttl_col = "a", ttl_duration = 5;
 
 # 插入点，插入后5秒过期。
 nebula> INSERT VERTEX t1(a) values "101":(now());
 ```
 
-### 标签或边类型不存在
+### Tag或Edge type不存在
 
-创建标签或边类型时可以同时设置TTL选项。详情请参见[CREATE TAG](../10.tag-statements/1.create-tag.md)和[CREATE EDGE](../11.edge-type-statements/1.create-edge.md)。
+创建Tag或Edge type时可以同时设置TTL选项。详情请参见[CREATE TAG](../10.tag-statements/1.create-tag.md)和[CREATE EDGE](../11.edge-type-statements/1.create-edge.md)。
 
 ```ngql
-# 创建标签并设置TTL选项。
+# 创建Tag并设置TTL选项。
 nebula> CREATE TAG t2(a int, b int, c string) ttl_duration= 100, ttl_col = "a";
 
 # 插入点。过期时间戳为1612778164774（1612778164674 + 100）。

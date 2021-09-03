@@ -34,6 +34,26 @@
 
 - 在nGQL 2.0中，`RETURN`不适用于原生nGQL。
 
+## Map顺序说明
+
+`RETURN`返回Map时，Key的顺序是未定义的。
+
+```ngql
+nebula> RETURN {age: 32, name: "Marco Belinelli"};
++------------------------------------+
+| {age:32,name:"Marco Belinelli"}    |
++------------------------------------+
+| {age: 32, name: "Marco Belinelli"} |
++------------------------------------+
+
+nebula> RETURN {zage: 32, name: "Marco Belinelli"};
++-------------------------------------+
+| {zage:32,name:"Marco Belinelli"}    |
++-------------------------------------+
+| {name: "Marco Belinelli", zage: 32} |
++-------------------------------------+
+```
+
 ## 返回点
 
 ```ngql
@@ -162,7 +182,7 @@ nebula> MATCH (v:player{name:"Tim Duncan"})-[e]->(v2) \
 
 ## 返回表达式结果
 
-`RETURN`语句可以返回文字、函数或谓词等表达式的结果。
+`RETURN`语句可以返回字面量、函数或谓词等表达式的结果。
 
 ```ngql
 nebula> MATCH (v:player{name:"Tony Parker"})-->(v2:player) \
@@ -226,7 +246,6 @@ nebula> MATCH (v:player{name:"Tony Parker"})--(v2:player) \
 +---------------------+--------+
 | "Manu Ginobili"     | 41     |
 +---------------------+--------+
-Got 8 rows (time spent 3273/3893 us)
 
 # 使用DISTINCT。
 nebula> MATCH (v:player{name:"Tony Parker"})--(v2:player) \

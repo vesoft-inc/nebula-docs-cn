@@ -10,9 +10,9 @@
 
 ## OpenCypher兼容性
 
-- 不支持在模式中使用`WHERE`子句，例如`WHERE (v)-->(v2)`。
+- 不支持在`WHERE`子句中使用Pattern（TODO: planning），例如`WHERE (v)-->(v2)`。
 
-- [过滤rank](#rank)是原生nGQL功能。只支持在原生nGQL的语句（例如`GO`和`LOOKUP`）中使用，因为OpenCypher中没有rank的概念。
+- [过滤Rank](#rank)是原生nGQL功能。如需在openCypher兼容语句中直接获取Rank值，可以使用rank()函数，例如`MATCH (:player)-[e:follow]->() RETURN rank(e);`。
 
 ## 基础用法
 
@@ -163,7 +163,7 @@ nebula> MATCH (v:player) \
 
 ```ngql
 # 创建测试数据。
-nebula> CREATE SPACE test;
+nebula> CREATE SPACE test (vid_type=FIXED_STRING(30));
 nebula> USE test;
 nebula> CREATE EDGE e1(p1 int);
 nebula> CREATE TAG person(p1 int);
@@ -182,7 +182,7 @@ nebula> GO FROM "1" \
         OVER e1 \
         WHERE e1._rank>2 \
         YIELD e1._src, e1._dst, e1._rank AS Rank, e1.p1 | \
-        ORDER BY Rank DESC;
+        ORDER BY $-.Rank DESC;
 ====================================
 | e1._src | e1._dst | Rank | e1.p1 |
 ====================================
@@ -307,8 +307,6 @@ nebula> MATCH (v:player) \
 
 ### Filter on properties in patterns
 
-### Filter on edge type
-
 -->
 
 ## 过滤列表
@@ -336,6 +334,21 @@ nebula> MATCH (v:player) \
 +-------------------------+-------+
 | "Joel Embiid"           | 25    |
 +-------------------------+-------+
+
+nebula> LOOKUP ON player WHERE player.age IN [25,28]  YIELD player.name, player.age;
++-------------+------------------+------------+
+| VertexID    | player.name      | player.age |
++-------------+------------------+------------+
+| "player135" | "Damian Lillard" | 28         |
++-------------+------------------+------------+
+| "player131" | "Paul George"    | 28         |
++-------------+------------------+------------+
+| "player130" | "Joel Embiid"    | 25         |
++-------------+------------------+------------+
+| "player123" | "Ricky Rubio"    | 28         |
++-------------+------------------+------------+
+| "player106" | "Kyle Anderson"  | 25         |
++-------------+------------------+------------+
 ```
 
 ### 结合NOT使用

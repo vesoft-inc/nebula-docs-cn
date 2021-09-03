@@ -6,18 +6,17 @@
 
 在使用 Algorithm 之前，用户需要确认以下信息：
 
-- Nebula Graph 服务已经部署并启动。详细信息，参考[Nebula Graph安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
-
-  !!! Note
-
-        用户可以使用Docker Compose或RPM方式部署并启动 Nebula Graph 服务。如果刚开始使用 Nebula Graph，建议使用 Docker Compose 部署 Nebula Graph。详细信息参考 [使用 Docker Compose 部署 Nebula Graph](../../2.quick-start/2.deploy-nebula-graph-with-docker-compose.md "点击前往 GitHub 网站")。
+- Nebula Graph 服务已经部署并启动。详细信息，参考[Nebula Graph安装部署](4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
 
 - Spark 版本为 2.4.x 。
 
 - （可选）如果用户需要在Github中克隆最新的Algorithm，并自行编译打包，可以选择安装[Maven](https://maven.apache.org/download.cgi)。
+
 ## 使用限制
 
 点ID的数据必须为整数，即点ID可以是INT类型，或者是String类型但数据本身为整数。
+
+对于非整数的String类型数据，推荐使用调用算法接口的方式，可以使用SparkSQL的`dense_rank`函数进行编码，将String类型转换为Long类型。
 
 ## 支持算法
 
@@ -55,7 +54,7 @@ Nebula Algorithm实现图计算的流程如下：
 1. 克隆仓库`nebula-spark-utils`。
 
   ```bash
-  $ git clone -b {{algorithm.release}} https://github.com/vesoft-inc/nebula-spark-utils.git
+  $ git clone -b {{algorithm.branch}} https://github.com/vesoft-inc/nebula-spark-utils.git
   ```
 
 2. 进入目录`nebula-algorithm`。
@@ -70,11 +69,11 @@ Nebula Algorithm实现图计算的流程如下：
   $ mvn clean package -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
   ```
 
-编译完成后，在目录`nebula-algorithm/target`下生成类似文件`nebula-algorithm-2.0.0.jar`。
+编译完成后，在目录`nebula-algorithm/target`下生成类似文件`nebula-algorithm-{{algorithm.release}}.jar`。
 
 ### Maven远程仓库下载
 
-[下载地址](https://repo1.maven.org/maven2/com/vesoft/nebula-algorithm/2.0.0/)
+[下载地址](https://repo1.maven.org/maven2/com/vesoft/nebula-algorithm/{{algorithm.release}}/)
 
 ## 使用方法
 
@@ -88,14 +87,14 @@ Nebula Algorithm实现图计算的流程如下：
   <dependency>
   <groupId>com.vesoft</groupId>
   <artifactId>nebula-algorithm</artifactId>
-  <version>2.0.0</version>
+  <version>{{algorithm.release}}</version>
   </dependency>
   ```
 
 2. 传入参数调用算法（以PageRank为例）。更多算法请参见[测试用例](https://github.com/vesoft-inc/nebula-spark-utils/tree/master/nebula-algorithm/src/test/scala/com/vesoft/nebula/algorithm/lib)。
 
   !!! note
-        执行算法的DataFrame默认第一列是起始点，第二列是目的点，第三列是边权重（非Nebula Graph中的rank）。
+        执行算法的DataFrame默认第一列是起始点，第二列是目的点，第三列是边权重（非Nebula Graph中的Rank）。
 
   ```bash
   val prConfig = new PRConfig(5, 1.0)
@@ -105,9 +104,9 @@ Nebula Algorithm实现图计算的流程如下：
 ### 直接提交算法包
   
 !!! note
-    使用封装好的算法包有一定的局限性，例如落库到Nebula Graph时，落库的图空间中创建的标签的属性名称必须和代码内预设的名称保持一致。如果用户有开发能力，推荐使用第一种方法。
+    使用封装好的算法包有一定的局限性，例如落库到Nebula Graph时，落库的图空间中创建的Tag的属性名称必须和代码内预设的名称保持一致。如果用户有开发能力，推荐使用第一种方法。
 
-1. 设置[配置文件](https://github.com/vesoft-inc/nebula-spark-utils/blob/master/nebula-algorithm/src/main/resources/application.conf)。
+1. 设置[配置文件](https://github.com/vesoft-inc/nebula-spark-utils/blob/{{algorithm.branch}}/nebula-algorithm/src/main/resources/application.conf)。
 
   ```bash
   {
@@ -140,9 +139,9 @@ Nebula Algorithm实现图计算的流程如下：
           metaAddress: "192.168.*.10:9559"
           # Nebula Graph图空间名称
           space: basketballplayer
-          # Nebula Graph边类型, 多个labels时，多个边的数据将合并。
+          # Nebula Graph Edge type, 多个labels时，多个边的数据将合并。
           labels: ["serve"]
-          # Nebula Graph每个边类型的属性名称，此属性将作为算法的权重列，请确保和边类型对应。
+          # Nebula Graph每个Edge type的属性名称，此属性将作为算法的权重列，请确保和Edge type对应。
           weightCols: ["start_year"]
       }
  
@@ -158,10 +157,10 @@ Nebula Algorithm实现图计算的流程如下：
           metaAddress: "192.168.*.12:9559"
           user:root
           pswd:nebula
-          # 在提交图计算任务之前需要自行创建图空间及标签
+          # 在提交图计算任务之前需要自行创建图空间及Tag
           # Nebula Graph图空间名称
           space:nb
-          # Nebula Graph标签名称，图计算结果会写入该标签。标签中的属性名称固定如下：
+          # Nebula Graph Tag名称，图计算结果会写入该Tag。Tag中的属性名称固定如下：
           # PageRank：pagerank
           # Louvain：louvain
           # ConnectedComponent：cc
@@ -258,11 +257,16 @@ Nebula Algorithm实现图计算的流程如下：
 2. 提交图计算任务。
 
   ```bash
-  ${SPARK_HOME}/bin/spark-submit --master <mode> --class com.vesoft.nebula.algorithm.Main <nebula-algorithm-2.0.0.jar_path> -p <application.conf_path>
+  ${SPARK_HOME}/bin/spark-submit --master <mode> --class com.vesoft.nebula.algorithm.Main <nebula-algorithm-{{algorithm.release}}.jar_path> -p <application.conf_path>
   ```
 
   示例：
 
   ```bash
-  ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.algorithm.Main /root/nebula-spark-utils/nebula-algorithm/target/nebula-algorithm-2.0.0.jar -p /root/nebula-spark-utils/nebula-algorithm/src/main/resources/application.conf
+  ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.algorithm.Main /root/nebula-spark-utils/nebula-algorithm/target/nebula-algorithm-{{algorithm.release}}.jar -p /root/nebula-spark-utils/nebula-algorithm/src/main/resources/application.conf
   ```
+
+## 视频
+
+* [图计算工具——Nebula Algorithm 介绍](https://www.bilibili.com/video/BV1fB4y1T7XK)（2分36秒）
+<iframe src="//player.bilibili.com/player.html?aid=588577467&bvid=BV1fB4y1T7XK&cid=351282857&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
