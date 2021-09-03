@@ -1,8 +1,8 @@
 site_name: Nebula Graph Database 手册
 site_description: Documentation for Nebula Graph Database
 site_author: Nebula Graph
-site_url: https://docs.nebula-graph.com.cn/master/
-edit_uri: 'edit/master/docs-2.0/'
+site_url: https://docs.nebula-graph.com.cn/
+edit_uri: 'edit/v2.5.0/docs-2.0/'
 docs_dir: docs-2.0
 
 # repository
@@ -19,8 +19,8 @@ theme:
   logo: 'https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png'
   favicon: 'assets/images/favicon.ico'
   palette:
-    primary: 'teal'
-    accent: 'light green'
+    primary: 'cyan'
+    accent: 'lime'
   features:
     - navigation.top
     - header.autohide
@@ -47,30 +47,36 @@ extra:
     base111b: 1.1.1-beta
     base220: 2.2.1
     base300: 3.0.0
+    release: 3.0.0
   explorer:
     base100: 1.0.0
+    release: 2.0.0
   exchange:
-    release: master
-    branch: master
+    release: 2.5.0
+    branch: v2.5
   importer:
-    release: master  
+    release: 2.5.0
+    branch: release-v2.0.0-ga
   algorithm:
-    release: master
+    release: 2.5.0
+    branch: v2.5
   sparkconnector:
-    release: master
-    branch: master
+    release: 2.5.0
+    branch: v2.5
   flinkconnector:
-    release: master
+    release: 2.5.0
+    branch: v2.5
   dockercompose:
-    release: master
+    release: 2.5.0
+    branch: v2.5.0
   common:
-    release: master
+    release: 2.5.0
   dashboard:
-    release: master
+    release: 1.0.1
     base100: 1.0.0
     branch: v1.0.1
   console:
-    release: master
+    release: 2.5.0
   br:
     release: 0.5.0
   cpp:
@@ -78,14 +84,16 @@ extra:
     branch: v2.5.0
   java:
     release: 2.5.0
+    branch: v2.5.0
   python:
     release: 2.5.0
     branch: v2.5.0
   go:
     release: 2.5.0
+    branch: release-v2.5.0
   bench:
-    release: master
-    branch: v2.0
+    release: 1.0.0
+    branch: master
   
 nav:
   - PDF: ./pdf/NebulaGraph-CN.pdf
@@ -333,8 +341,8 @@ nav:
         - 操作索引: nebula-studio/manage-schema/st-ug-crud-index.md
       - 使用控制台:
         - 控制台界面: nebula-studio/use-console/st-ug-console.md
-        - 导入图探索: nebula-studio/use-console/st-ug-open-in-explorer.md
-        - 查看子图: nebula-studio/use-console/st-ug-visualize-findpath.md
+        - 导入图探索: nebula-studio/use-console/st-ug-open-in-explore.md
+        - 查看子图: nebula-studio/use-console/st-ug-visualize-subgraph.md
     - 故障排查:
       - 连接数据库错误: nebula-studio/troubleshooting/st-ug-config-server-errors.md
       - 无法访问 Studio: nebula-studio/troubleshooting/st-ug-connection-errors.md
@@ -440,6 +448,7 @@ plugins:
       cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
       output_path: pdf/NebulaGraph-CN.pdf
       show_anchors: true
+      render_js: true
 
 extra_javascript:
   - js/version-select.js

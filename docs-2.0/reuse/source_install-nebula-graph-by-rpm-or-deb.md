@@ -2,7 +2,7 @@ RPM和DEB是Linux系统下常见的两种安装包格式，本文介绍如何使
 
 !!! note
 
-    部署Nebula Graph集群的方式参见[使用RPM/DEB包部署集群](/4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster)。<!--这里必须用绝对路径，并且文件名的后缀.md要删掉。-->
+    部署Nebula Graph集群的方式参见[使用RPM/DEB包部署集群](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/1.resource-preparations/)。<!--这里用外链。-->
 
 ## 前提条件
 
@@ -24,13 +24,13 @@ RPM和DEB是Linux系统下常见的两种安装包格式，本文介绍如何使
     https://oss-cdn.nebula-graph.com.cn/package/<release_version>/nebula-graph-<release_version>.el8.x86_64.rpm
 
     //Ubuntu 1604
-    https://oss-cdn.nebula-graph.com.cn/package/<release_version>/nebula-graph-<release_version>.Ubuntu1604.amd64.deb
+    https://oss-cdn.nebula-graph.com.cn/package/<release_version>/nebula-graph-<release_version>.ubuntu1604.amd64.deb
 
     //Ubuntu 1804
-    https://oss-cdn.nebula-graph.com.cn/package/<release_version>/nebula-graph-<release_version>.Ubuntu1804.amd64.deb
+    https://oss-cdn.nebula-graph.com.cn/package/<release_version>/nebula-graph-<release_version>.ubuntu1804.amd64.deb
 
     //Ubuntu 2004
-    https://oss-cdn.nebula-graph.com.cn/package/<release_version>/nebula-graph-<release_version>.Ubuntu2004.amd64.deb
+    https://oss-cdn.nebula-graph.com.cn/package/<release_version>/nebula-graph-<release_version>.ubuntu2004.amd64.deb
     ```
 
     例如要下载适用于`Centos 7.5`的`{{ nebula.release }}`安装包：
@@ -42,15 +42,16 @@ RPM和DEB是Linux系统下常见的两种安装包格式，本文介绍如何使
 
     下载适用于`ubuntu 1804`的`{{ nebula.release }}`安装包：
     ```bash
-    wget https://oss-cdn.nebula-graph.com.cn/package/{{ nebula.release }}/nebula-graph-{{ nebula.release }}.Ubuntu1804.amd64.deb
-    wget https://oss-cdn.nebula-graph.com.cn/package/{{ nebula.release }}/nebula-graph-{{ nebula.release }}.Ubuntu1804.amd64.deb.sha256sum.txt
+    wget https://oss-cdn.nebula-graph.com.cn/package/{{ nebula.release }}/nebula-graph-{{ nebula.release }}.ubuntu1804.amd64.deb
+    wget https://oss-cdn.nebula-graph.com.cn/package/{{ nebula.release }}/nebula-graph-{{ nebula.release }}.ubuntu1804.amd64.deb.sha256sum.txt
     ```
 
 - 下载日常开发版本(nightly)
 
   !!! danger
   
-        nightly版本通常用于测试新功能、新特性，请**不要**在生产环境中使用nightly版本。
+      - nightly 版本通常用于测试新功能、新特性，请**不要**在生产环境中使用 nightly 版本。
+      - nightly 版本不保证每日都能完整发布，也不保证是否会更改文件名。
 
     URL格式如下：
 
@@ -62,26 +63,26 @@ RPM和DEB是Linux系统下常见的两种安装包格式，本文介绍如何使
     https://oss-cdn.nebula-graph.com.cn/package/v2-nightly/<yyyy.mm.dd>/nebula-graph-<yyyy.mm.dd>-nightly.el8.x86_64.rpm
 
     //Ubuntu 1604
-    https://oss-cdn.nebula-graph.com.cn/package/v2-nightly/<yyyy.mm.dd>/nebula-graph-<yyyy.mm.dd>-nightly.Ubuntu1604.amd64.deb
+    https://oss-cdn.nebula-graph.com.cn/package/v2-nightly/<yyyy.mm.dd>/nebula-graph-<yyyy.mm.dd>-nightly.ubuntu1604.amd64.deb
 
     //Ubuntu 1804
-    https://oss-cdn.nebula-graph.com.cn/package/v2-nightly/<yyyy.mm.dd>/nebula-graph-<yyyy.mm.dd>-nightly.Ubuntu1804.amd64.deb
+    https://oss-cdn.nebula-graph.com.cn/package/v2-nightly/<yyyy.mm.dd>/nebula-graph-<yyyy.mm.dd>-nightly.ubuntu1804.amd64.deb
 
     //Ubuntu 2004
-    https://oss-cdn.nebula-graph.com.cn/package/v2-nightly/<yyyy.mm.dd>/nebula-graph-<yyyy.mm.dd>-nightly.Ubuntu2004.amd64.deb
+    https://oss-cdn.nebula-graph.com.cn/package/v2-nightly/<yyyy.mm.dd>/nebula-graph-<yyyy.mm.dd>-nightly.ubuntu2004.amd64.deb
     ```
 
-    例如要下载`2021.08.18`适用于`Centos 7.5`的`2.x`安装包：
+    例如要下载`2021.03.28`适用于`Centos 7.5`的`2.x`安装包：
 
     ```bash
-    wget https://oss-cdn.nebula-graph.com.cn/package/v2-nightly/2021.08.18/nebula-graph-2021.08.18-nightly.el7.x86_64.rpm
-    wget https://oss-cdn.nebula-graph.com.cn/package/v2-nightly/2021.08.18/nebula-graph-2021.08.18-nightly.el7.x86_64.rpm.sha256sum.txt
+    wget https://oss-cdn.nebula-graph.com.cn/package/v2-nightly/2021.03.28/nebula-graph-2021.03.28-nightly.el7.x86_64.rpm
+    wget https://oss-cdn.nebula-graph.com.cn/package/v2-nightly/2021.03.28/nebula-graph-2021.03.28-nightly.el7.x86_64.rpm.sha256sum.txt
     ```
 
-    要下载`2021.08.18`适用于`Ubuntu 1804`的`2.x`安装包：
+    要下载`2021.03.28`适用于`Ubuntu 1804`的`2.x`安装包：
     ```bash
-    wget https://oss-cdn.nebula-graph.com.cn/package/v2-nightly/2021.08.18/nebula-graph-2021.08.18-nightly.Ubuntu1804.amd64.deb
-    wget https://oss-cdn.nebula-graph.com.cn/package/v2-nightly/2021.08.18/nebula-graph-2021.08.18-nightly.Ubuntu1804.amd64.deb.sha256sum.txt
+    wget https://oss-cdn.nebula-graph.com.cn/package/v2-nightly/2021.03.28/nebula-graph-2021.03.28-nightly.ubuntu1804.amd64.deb
+    wget https://oss-cdn.nebula-graph.com.cn/package/v2-nightly/2021.03.28/nebula-graph-2021.03.28-nightly.ubuntu1804.amd64.deb.sha256sum.txt
     ```
 
 <!--
@@ -126,5 +127,5 @@ RPM和DEB是Linux系统下常见的两种安装包格式，本文介绍如何使
 
 ## 后续操作
 
-- [启动Nebula Graph](/master/2.quick-start/5.start-stop-service)<!--这里必须用绝对路径，并且文件名的后缀.md要删掉。-->
-- [连接Nebula Graph](/master/2.quick-start/3.connect-to-nebula-graph)<!--这里必须用绝对路径，并且文件名的后缀.md要删掉。-->
+- [启动Nebula Graph](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/5.start-stop-service/)<!--这里用外链。-->
+- [连接Nebula Graph](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/3.connect-to-nebula-graph/)<!--这里用外链。-->

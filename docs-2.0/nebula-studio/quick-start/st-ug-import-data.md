@@ -42,7 +42,7 @@
 
     !!! Note
 
-        在同一个图空间中，VID 始终唯一，不可重复。关于 VID 的信息，参考 [Nebula Graph 的点ID](../../1.introduction/3.vid.md) "点击进入 Nebula Graph 用户手册")。 
+        在同一个图空间中，VID 始终唯一，不可重复。关于 VID 的信息，参考 [Nebula Graph 的点ID](../../1.introduction/3.vid.md) "点击进入 Nebula Graph 用户手册"。 
 
 8. 在 **TAG 1** 部分，完成以下操作：  
   3. 在 **TAG** 下拉列表中，选择数据源对应的Tag名称。在本示例中，`vertex_player.csv` 文件对应选择 **player**；`vertex_team.csv` 文件对应选择 **team**。  

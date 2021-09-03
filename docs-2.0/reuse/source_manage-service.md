@@ -164,7 +164,9 @@ nebula-docker-compose_storaged2_1   ./bin/nebula-storaged --fl ...   Up (healthy
                                                                                     0.0.0.0:49227->9779/tcp, 9780/tcp
 ```
 
-如果服务有异常，用户可以先确认异常的容器名称（例如`nebula-docker-compose_graphd2_1`），然后执行`docker ps`查看对应的`CONTAINER ID`(示例为`2a6c56c405f5`)，最后登录容器排查问题。
+如果服务有异常，用户可以先确认异常的容器名称（例如`nebula-docker-compose_graphd2_1`）,
+
+然后执行`docker ps`查看对应的`CONTAINER ID`(示例为`2a6c56c405f5`)。
 
 ```bash
 nebula-docker-compose]$ docker ps
@@ -178,11 +180,15 @@ a74054c6ae25   vesoft/nebula-graphd:v2-nightly     "/usr/local/nebula/b…"   36
 45736a32a23a   vesoft/nebula-metad:v2-nightly      "./bin/nebula-metad …"   36 minutes ago   Up 36 minutes (healthy)   9560/tcp, 0.0.0.0:49213->9559/tcp, 0.0.0.0:49212->19559/tcp, 0.0.0.0:49211->19560/tcp                  nebula-docker-compose_metad0_1
 3b2c90eb073e   vesoft/nebula-metad:v2-nightly      "./bin/nebula-metad …"   36 minutes ago   Up 36 minutes (healthy)   9560/tcp, 0.0.0.0:49207->9559/tcp, 0.0.0.0:49206->19559/tcp, 0.0.0.0:49205->19560/tcp                  nebula-docker-compose_metad2_1
 7bb31b7a5b3f   vesoft/nebula-metad:v2-nightly      "./bin/nebula-metad …"   36 minutes ago   Up 36 minutes (healthy)   9560/tcp, 0.0.0.0:49210->9559/tcp, 0.0.0.0:49209->19559/tcp, 0.0.0.0:49208->19560/tcp                  nebula-docker-compose_metad1_1
+```
 
+最后登录容器排查问题
+
+```bash
 nebula-docker-compose]$ docker exec -it 2a6c56c405f5 bash
 [root@2a6c56c405f5 nebula]#
 ```
 
 ## 下一步
 
-[连接Nebula Graph](../2.quick-start/3.connect-to-nebula-graph.md)
+[连接Nebula Graph](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/3.connect-to-nebula-graph/)<!--这里用外链。-->

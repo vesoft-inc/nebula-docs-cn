@@ -30,7 +30,7 @@ Studio 具备以下功能：
 
 如果有以下任一需求，都可以使用 Studio：
 
-- 有一份数据集，想进行可视化图探索或者数据分析。用户可以使用 Docker Compose 或者 Nebula Graph Cloud Service 部署 Nebula Graph，再使用 Studio 完成可视化操作。
+- 有一份数据集，想进行可视化图探索或者数据分析。用户可以使用 Docker Compose 包部署 Nebula Graph，再使用 Studio 完成可视化操作。
 - 已经安装部署了 Nebula Graph 数据库，并且已经导入数据集，想使用 GUI 工具执行 nGQL 语句查询、可视化图探索或者数据分析。
 - 刚开始学习 nGQL（Nebula Graph Query Language），但是不习惯用命令行工具，更希望使用 GUI 工具查看语句输出的结果。
 
