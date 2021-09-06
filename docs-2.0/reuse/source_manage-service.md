@@ -68,7 +68,7 @@ Creating nebula-docker-compose_graphd_1    ... done
 
 ### 非容器部署
   
-对于使用Docker Compose安装的Nebula Graph，执行如下命令停止Nebula Graph服务：
+执行如下命令停止Nebula Graph服务：
 
 ```bash
 $ sudo /usr/local/nebula/scripts/nebula.service stop all
