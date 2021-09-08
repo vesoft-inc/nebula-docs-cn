@@ -295,6 +295,7 @@ nav:
           - 身份验证: 7.data-security/1.authentication/1.authentication.md
           - 用户管理: 7.data-security/1.authentication/2.management-user.md
           - 内置角色权限: 7.data-security/1.authentication/3.role-list.md
+          - OpenLDAP验证: 7.data-security/1.authentication/4.ldap.md
 #      - 备份恢复:
 #          - 什么是BR: 7.data-security/2.backup-restore/1.what-is-br.md
 #          - 编译BR: 7.data-security/2.backup-restore/2.compile-br.md
