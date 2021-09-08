@@ -127,6 +127,6 @@ $ npm run stop # 停止 nebula-graph-explorer
 
 在浏览器窗口中看到以下登录界面表示已经成功部署并启动了 Explorer。
 
-![Nebula Graph Explorer 登录页面](../figs/ex-ug-001.png)
+![Nebula Explorer 登录页面](../figs/ex-ug-001.png)
 
 进入 Explorer 登录界面后，用户需要连接 Nebula Graph。详细信息，参考[连接数据库](../deploy-connect/ex-ug-connect.md)。

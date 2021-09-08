@@ -349,15 +349,15 @@ nav:
       - 无法访问 Studio: nebula-studio/troubleshooting/st-ug-connection-errors.md
       - Studio 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
 
-  - Nebula Graph Dashboard: 
-      - 什么是Nebula Graph Dashboard: nebula-dashboard/1.what-is-dashboard.md
+  - Nebula Dashboard: 
+      - 什么是Nebula Dashboard: nebula-dashboard/1.what-is-dashboard.md
       - 部署Dashboard: nebula-dashboard/2.deploy-dashboard.md
       - 连接Dashboard: nebula-dashboard/3.connect-dashboard.md
       - Dashboard页面介绍: nebula-dashboard/4.use-dashboard.md
       - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
 
-  - Nebula Graph Explorer:
-      - 什么是Nebula Graph Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
+  - Nebula Explorer:
+      - 什么是Nebula Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
       - 安装与登录:
         - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
         - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
