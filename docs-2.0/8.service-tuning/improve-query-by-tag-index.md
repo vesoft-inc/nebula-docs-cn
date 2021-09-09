@@ -1,12 +1,8 @@
-# 使用Tag索引提高查询效率
+# 增加和删除标签
 
-如果需要根据Tag进行查询，Nebula Graph支持为Tag创建索引，提高查询效率。
+在openCypher中，有增加标签（`SET label`）和移除标签（`REMOVE label`）的功能，可以用于加速查询或者标记过程。
 
-## 原理
-
-在Neo4j中，可以为点添加label，通过label可以快速筛选需要的点。
-
-Nebula Graph支持通过Tag实现相同的操作，创建Tag并将Tag插入到已有的点上，就可以根据Tag名称快速查找点，也可以通过`DELETE TAG`删除某些点上不再需要的Tag。
+在Nebula Graph中，可以通过Tag变相实现相同操作，创建Tag并将Tag插入到已有的点上，就可以根据Tag名称快速查找点，也可以通过`DELETE TAG`删除某些点上不再需要的Tag。
 
 !!! caution
 
@@ -15,8 +11,6 @@ Nebula Graph支持通过Tag实现相同的操作，创建Tag并将Tag插入到�
 ## 示例
 
 例如在basketballplayer数据集中，部分篮球运动员同时也是球队股东，可以为股东Tag`shareholder`创建索引，方便快速查找。如果不再是股东，可以通过`DELETE TAG`语句删除相应运动员的股东Tag。
-
-示例：
 
 ```ngql
 //创建股东Tag和索引，插入测试数据
