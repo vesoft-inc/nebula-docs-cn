@@ -310,7 +310,7 @@ nav:
       - 系统建模: 8.service-tuning/3.system-design.md
       - 执行计划: 8.service-tuning/4.plan.md
       - 超级节点(稠密点): 8.service-tuning/super-node.md
-      - 使用Tag索引提高查询效率: 8.service-tuning/improve-query-by-tag-index.md
+      - 增加和删除标签: 8.service-tuning/improve-query-by-tag-index.md
 
   - 客户端:
     - 客户端介绍: 14.client/1.nebula-client.md
