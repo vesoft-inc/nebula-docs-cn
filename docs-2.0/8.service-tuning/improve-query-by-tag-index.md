@@ -6,7 +6,7 @@
 
 在Neo4j中，可以为点添加label，通过label可以快速筛选需要的点。
 
-Nebula Graph支持通过Tag实现相同的操作，创建Tag并将Tag插入到已有的点上，就可以根据Tag名称快速查找相关的信息，也可以通过`DELETE TAG`删除某些点上不再需要的Tag。
+Nebula Graph支持通过Tag实现相同的操作，创建Tag并将Tag插入到已有的点上，就可以根据Tag名称快速查找点，也可以通过`DELETE TAG`删除某些点上不再需要的Tag。
 
 !!! caution
 
