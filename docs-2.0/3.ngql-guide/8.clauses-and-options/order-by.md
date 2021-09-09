@@ -39,6 +39,17 @@ nebula> FETCH PROP ON player "player100", "player101", "player102", "player103" 
 +-------------+-----+---------------------+
 | "player100" | 42  | "Tim Duncan"        |
 +-------------+-----+---------------------+
+
+nebula> $var = GO FROM "player100" OVER follow \
+        YIELD follow._dst AS dst; \
+        ORDER BY $var.dst DESC;
++-------------+
+| dst         |
++-------------+
+| "player125" |
++-------------+
+| "player101" |
++-------------+
 ```
 
 ## OpenCypher方式语法
