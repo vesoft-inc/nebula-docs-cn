@@ -14,7 +14,7 @@
 
 ```ngql
 //创建股东Tag和索引，插入测试数据
-nebula> CREATE TAG shareholder ();
+nebula> CREATE TAG shareholder();
 nebula> CREATE TAG INDEX shareholder_tag on shareholder();
 nebula> INSERT VERTEX shareholder() VALUES "player100":();
 nebula> INSERT VERTEX shareholder() VALUES "player101":();
