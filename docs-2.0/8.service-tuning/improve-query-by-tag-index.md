@@ -13,9 +13,11 @@
 例如在basketballplayer数据集中，部分篮球运动员同时也是球队股东，可以为股东Tag`shareholder`创建索引，方便快速查找。如果不再是股东，可以通过`DELETE TAG`语句删除相应运动员的股东Tag。
 
 ```ngql
-//创建股东Tag和索引，插入测试数据
+//创建股东Tag和索引
 nebula> CREATE TAG shareholder();
 nebula> CREATE TAG INDEX shareholder_tag on shareholder();
+
+//为点添加Tag
 nebula> INSERT VERTEX shareholder() VALUES "player100":();
 nebula> INSERT VERTEX shareholder() VALUES "player101":();
 
