@@ -37,7 +37,7 @@ Importer适用于将本地CSV文件的内容导入至Nebula Graph中。
 1. 克隆仓库。
 
   ```bash
-  $ git clone -b {{importer.release}} https://github.com/vesoft-inc/nebula-importer.git
+  $ git clone -b {{importer.branch}} https://github.com/vesoft-inc/nebula-importer.git
   ```
 
   !!! note
