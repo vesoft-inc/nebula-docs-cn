@@ -161,6 +161,7 @@ nav:
           - collect函数: 3.ngql-guide/6.functions-and-expressions/10.collect.md
           - reduce函数: 3.ngql-guide/6.functions-and-expressions/11.reduce.md
           - hash函数: 3.ngql-guide/6.functions-and-expressions/12.hash.md
+          - concat函数: 3.ngql-guide/6.functions-and-expressions/13.concat.md
           - 谓词函数: 3.ngql-guide/6.functions-and-expressions/8.predicate.md
           - 自定义函数: 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
           - CASE表达式: 3.ngql-guide/6.functions-and-expressions/5.case-expressions.md
@@ -188,6 +189,7 @@ nav:
             - SHOW USERS: 3.ngql-guide/7.general-query-statements/6.show/16.show-users.md
             - SHOW SESSIONS: 3.ngql-guide/7.general-query-statements/6.show/17.show-sessions.md
             - SHOW QUERIES: 3.ngql-guide/7.general-query-statements/6.show/18.show-queries.md
+            - SHOW META LEADER: 3.ngql-guide/7.general-query-statements/6.show/19.show-meta-leader.md
 
       - 子句和选项:
           - GROUP BY: 3.ngql-guide/8.clauses-and-options/group-by.md
@@ -295,6 +297,7 @@ nav:
           - 身份验证: 7.data-security/1.authentication/1.authentication.md
           - 用户管理: 7.data-security/1.authentication/2.management-user.md
           - 内置角色权限: 7.data-security/1.authentication/3.role-list.md
+          - OpenLDAP验证: 7.data-security/1.authentication/4.ldap.md
 #      - 备份恢复:
 #          - 什么是BR: 7.data-security/2.backup-restore/1.what-is-br.md
 #          - 编译BR: 7.data-security/2.backup-restore/2.compile-br.md
@@ -309,6 +312,7 @@ nav:
       - 系统建模: 8.service-tuning/3.system-design.md
       - 执行计划: 8.service-tuning/4.plan.md
       - 超级节点(稠密点): 8.service-tuning/super-node.md
+      - 增加和删除标签: 8.service-tuning/improve-query-by-tag-index.md
 
   - 客户端:
     - 客户端介绍: 14.client/1.nebula-client.md
@@ -349,15 +353,15 @@ nav:
       - 无法访问 Studio: nebula-studio/troubleshooting/st-ug-connection-errors.md
       - Studio 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
 
-  - Nebula Graph Dashboard: 
-      - 什么是Nebula Graph Dashboard: nebula-dashboard/1.what-is-dashboard.md
+  - Nebula Dashboard: 
+      - 什么是Nebula Dashboard: nebula-dashboard/1.what-is-dashboard.md
       - 部署Dashboard: nebula-dashboard/2.deploy-dashboard.md
       - 连接Dashboard: nebula-dashboard/3.connect-dashboard.md
       - Dashboard页面介绍: nebula-dashboard/4.use-dashboard.md
       - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
 
-  - Nebula Graph Explorer:
-      - 什么是Nebula Graph Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
+  - Nebula Explorer:
+      - 什么是Nebula Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
       - 安装与登录:
         - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
         - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
@@ -450,6 +454,11 @@ plugins:
       output_path: pdf/NebulaGraph-CN.pdf
       show_anchors: true
       render_js: true
+      headless_chrome_path: headless-chromium
+      enabled_if_env: ENABLE_PDF_EXPORT
+      #debug_html: true
+      #show_anchors: true
+      #verbose: true
 
 extra_javascript:
   - js/version-select.js

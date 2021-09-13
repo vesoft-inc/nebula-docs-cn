@@ -1,6 +1,6 @@
-# 什么是Nebula Graph Explorer
+# 什么是Nebula Explorer
 
-Nebula Graph Explorer （简称 Explorer）是一款可以通过 Web 访问的图探索可视化工具，搭配 Nebula Graph 内核使用，用于与图数据进行可视化交互。即使没有图数据操作经验，用户也可以快速成为图专家。
+Nebula Explorer （简称 Explorer）是一款可以通过 Web 访问的图探索可视化工具，搭配 Nebula Graph 内核使用，用于与图数据进行可视化交互。即使没有图数据操作经验，用户也可以快速成为图专家。
 
 !!! enterpriseonly
 
