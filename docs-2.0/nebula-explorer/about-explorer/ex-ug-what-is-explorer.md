@@ -6,6 +6,10 @@ Nebula Explorer （简称 Explorer）是一款可以通过 Web 访问的图探�
 
     Explorer 仅在企业版提供。
 
+!!! Note
+
+    用户也可以在 [Explorer](https://explorer.nebula-graph.com.cn/) 在线试用部分功能。
+
 ## 适用场景
 
 如果有以下任一需求，都可以使用 Explorer：
