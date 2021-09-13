@@ -19,6 +19,10 @@
   
 - 使用的 Linux 发行版为 CentOS ，安装有版本为 v10.16.0 + 以上的 Node.js。
 
+    !!! note
+
+        目前 Nebula Explorer 提供的包仅在 Linux 环境中使用，如果用户使用 mac 或其他环境，需要克隆[http-gateway repo](https://github.com/vesoft-inc/nebula-http-gateway)，并修改 `nebula-http-gateway/conf/app.conf` 文件中的`httpport = 8070` 使用 `make` 命令编译启动。
+
 ### 安装
 
 1. 根据需要下载 RPM 包，建议选择最新版本。
@@ -69,6 +73,10 @@ $ sudo rpm -e nebula-graph-explorer-<version>.x86_64
 - Nebula Graph 服务已经部署并启动。详细信息参考[Nebula Graph安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
 
 - 使用的 Linux 发行版为 CentOS ，安装有版本为 v10.16.0 + 以上的 Node.js。
+
+    !!! note
+
+        目前 Nebula Explorer 提供的包仅在 Linux 环境中使用，如果用户使用 mac 或其他环境，需要克隆[http-gateway repo](https://github.com/vesoft-inc/nebula-http-gateway)，并修改 `nebula-http-gateway/conf/app.conf` 文件中的`httpport = 8070` 使用 `make` 命令编译启动。
 
 - 以下端口未被使用。
 
