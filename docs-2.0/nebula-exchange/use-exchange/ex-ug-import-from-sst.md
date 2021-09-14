@@ -93,6 +93,12 @@ SST文件是一个内部包含了任意长度的有序键值对集合的文件�
 
 - 确认Hadoop服务在所有部署Storage服务的机器上运行正常。
 
+  !!! note
+  
+        - 如果需要生成其他数据源的SST文件，请参见相应数据源的文档，查看前提条件部分。
+
+        - 如果只需要生成SST文件，不需要在部署Storage服务的机器上安装Hadoop服务。
+
 ## 操作步骤
 
 ### 步骤 1：在Nebula Graph中创建Schema
@@ -451,6 +457,10 @@ ${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.excha
     如果对Schema有修改操作，例如重建图空间、修改Tag、修改Edge type等，需要重新生成SST文件，因为SST文件会验证Space ID、Tag ID、Edge ID等信息。
 
 ### 步骤 5：导入SST文件
+
+!!! note
+
+    确认Hadoop服务在所有部署Storage服务的机器上运行正常。
 
 使用客户端工具连接Nebula Graph数据库，按如下操作导入SST文件：
 
