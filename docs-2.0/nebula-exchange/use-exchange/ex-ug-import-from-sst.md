@@ -462,7 +462,7 @@ ${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.excha
 
     导入前请确认以下信息：
 
-    - 确认所有部署Storage服务的机器上都已部署Hadoop服务并正常运行。
+    - 确认所有部署Storage服务的机器上都已部署Hadoop服务，并配置HADOOP_HOME和JAVA_HOME。
     
     - Meta服务配置文件中的`--ws_storage_http_port`和Storage服务配置文件中的`--ws_http_port`一致。例如都为`19779`。
 
