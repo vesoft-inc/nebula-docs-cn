@@ -34,7 +34,7 @@ extra_css:
 extra:
   nebula:
     release: master
-    nightly: v2-nightly
+    nightly: nightly
     master: master
     base20: 2.0
     base200: 2.0.0
@@ -94,7 +94,7 @@ extra:
   bench:
     release: 1.0.0
     branch: master
-  
+
 nav:
   - PDF: ./pdf/NebulaGraph-CN.pdf
   - 前言: README.md
@@ -353,7 +353,7 @@ nav:
       - 无法访问 Studio: nebula-studio/troubleshooting/st-ug-connection-errors.md
       - Studio 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
 
-  - Nebula Dashboard: 
+  - Nebula Dashboard:
       - 什么是Nebula Dashboard: nebula-dashboard/1.what-is-dashboard.md
       - 部署Dashboard: nebula-dashboard/2.deploy-dashboard.md
       - 连接Dashboard: nebula-dashboard/3.connect-dashboard.md
@@ -404,7 +404,7 @@ nav:
     - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
 
   - Nebula Algorithm: nebula-algorithm.md
-  
+
   - Nebula Spark Connector: nebula-spark-connector.md
 
   - Nebula Flink Connector: nebula-flink-connector.md
