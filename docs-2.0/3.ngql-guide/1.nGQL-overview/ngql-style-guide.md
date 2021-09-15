@@ -142,14 +142,14 @@ nGQL没有严格的构建格式要求，但根据恰当而统一的风格创建n
   不推荐：
 
   ```ngql
-  MATCH (v:player)-(e:follow)->(v2) \
+  MATCH (v:player)-[e:follow]->(v2) \
   RETURN v;
   ```
 
   推荐：
 
   ```ngql
-  MATCH (v:player)-(:follow)->() \
+  MATCH (v:player)-[:follow]->() \
   RETURN v;
   ```
 
@@ -158,14 +158,14 @@ nGQL没有严格的构建格式要求，但根据恰当而统一的风格创建n
   不推荐：
 
   ```ngql
-  MATCH ()-(:follow)->(v) \
+  MATCH ()-[:follow]->(v) \
   RETURN v;
   ```
 
   推荐：
 
   ```ngql
-  MATCH (v)<-(:follow)-() \
+  MATCH (v)<-[:follow]-() \
   RETURN v;
   ```
 
