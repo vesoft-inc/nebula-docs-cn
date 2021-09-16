@@ -2,7 +2,7 @@ Nebula Graph支持多种类型客户端，包括CLI客户端、GUI客户端和�
 
 ## Nebula Graph客户端
 
-用户可以使用已支持的[客户端或者命令行工具](../20.appendix/6.eco-tool-version.md)来连接Nebula Graph数据库。
+用户可以使用已支持的[客户端或者命令行工具](https://docs.nebula-graph.com.cn/{{nebula.release}}/20.appendix/6.eco-tool-version/)来连接Nebula Graph数据库。<!--这里用外链。-->
 
 <!-- TODO 云服务未能和 v{{ nebula.release }} 一起发布.
 如果还没有Nebula Graph数据库，建议尝试云服务[Nebula Graph Cloud Service](https://cloud.nebula-graph.com.cn/)。Nebula Graph Cloud Service支持按需部署和快速搭建，并且使用Nebula Graph Studio作为默认客户端。
@@ -12,7 +12,7 @@ Nebula Graph支持多种类型客户端，包括CLI客户端、GUI客户端和�
 
 ### 前提条件
 
-- Nebula Graph服务已[启动](../2.quick-start/5.start-stop-service.md)。
+- Nebula Graph服务已[启动](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/manage-service/)。<!--这里用外链。-->
 
 - 运行Nebula Console的机器和运行Nebula Graph的服务器网络互通。
 

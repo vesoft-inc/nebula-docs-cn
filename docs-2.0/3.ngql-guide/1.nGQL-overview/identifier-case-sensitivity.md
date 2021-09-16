@@ -10,7 +10,7 @@ nebula> use MY_SPACE;
 [ERROR (-8)]: SpaceNotFound:
 ```
 
-## 关键字和保留字不区分大小写
+## 关键字不区分大小写
 
 以下语句是等价的，因为`show`和`spaces`是关键字。
 

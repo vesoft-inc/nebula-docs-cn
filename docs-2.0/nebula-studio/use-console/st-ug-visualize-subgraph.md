@@ -6,13 +6,13 @@
 
 ## 支持版本
 
-Studio v{{ studio.base220 }} 及以后版本。请更新版本，详细操作参考 [版本更新](../about-studio/st-ug-check-updates.md)。
+Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参考 [版本更新](../about-studio/st-ug-check-updates.md)。
 
 ## 前提条件
 
 在 **控制台** 上运行 `FIND PATH` 语句并查看子图之前，用户需要确认以下信息：
 
-- Studio 版本为 v{{ studio.base220 }} 及以后版本。
+- Studio 版本为 v{{ studio.release }} 及以后版本。
 - Studio 已经连接到 Nebula Graph 数据库。详细信息参考 [连接数据库](../deploy-connect/st-ug-connect.md)。
 - 已经导入数据集。详细操作参考 [导入数据](../quick-start/st-ug-import-data.md)。
 

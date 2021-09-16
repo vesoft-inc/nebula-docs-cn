@@ -19,8 +19,18 @@ theme:
   logo: 'https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png'
   favicon: 'assets/images/favicon.ico'
   palette:
-    primary: 'teal'
-    accent: 'light green'
+    - scheme: default
+      primary: teal
+      accent: light green
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+    - scheme: slate
+      primary: deep orange
+      accent: red
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
   features:
     - navigation.top
     - header.autohide
@@ -33,8 +43,8 @@ extra_css:
   - stylesheets/extra.css
 extra:
   nebula:
-    release: 2.5.0
-    nightly: v2-nightly
+    release: master
+    nightly: nightly
     master: master
     base20: 2.0
     base200: 2.0.0
@@ -47,43 +57,54 @@ extra:
     base111b: 1.1.1-beta
     base220: 2.2.1
     base300: 3.0.0
+    release: 3.0.0
   explorer:
     base100: 1.0.0
+    release: 2.0.0
   exchange:
-    release: master
-    branch: master
+    release: 2.5.0
+    branch: v2.5
   importer:
-    release: master  
+    release: 2.5.0
+    branch: release-v2.0.0-ga
   algorithm:
-    release: master
+    release: 2.5.0
+    branch: v2.5
   sparkconnector:
-    release: master
-    branch: master
+    release: 2.5.0
+    branch: v2.5
   flinkconnector:
-    release: master
+    release: 2.5.0
+    branch: v2.5
   dockercompose:
-    release: master
+    release: 2.5.0
+    branch: v2.5.0
   common:
-    release: master
+    release: 2.5.0
   dashboard:
-    release: master
+    release: 1.0.1
     base100: 1.0.0
+    branch: v1.0.1
   console:
-    release: master
+    release: 2.5.0
   br:
     release: 0.5.0
   cpp:
     release: 2.5.0
+    branch: v2.5.0
   java:
     release: 2.5.0
+    branch: v2.5.0
   python:
     release: 2.5.0
+    branch: v2.5.0
   go:
     release: 2.5.0
+    branch: release-v2.5.0
   bench:
-    release: master
-    branch: v2.0
-  
+    release: 1.0.0
+    branch: master
+
 nav:
   - PDF: ./pdf/NebulaGraph-CN.pdf
   - 前言: README.md
@@ -150,6 +171,7 @@ nav:
           - collect函数: 3.ngql-guide/6.functions-and-expressions/10.collect.md
           - reduce函数: 3.ngql-guide/6.functions-and-expressions/11.reduce.md
           - hash函数: 3.ngql-guide/6.functions-and-expressions/12.hash.md
+          - concat函数: 3.ngql-guide/6.functions-and-expressions/13.concat.md
           - 谓词函数: 3.ngql-guide/6.functions-and-expressions/8.predicate.md
           - 自定义函数: 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
           - CASE表达式: 3.ngql-guide/6.functions-and-expressions/5.case-expressions.md
@@ -177,6 +199,7 @@ nav:
             - SHOW USERS: 3.ngql-guide/7.general-query-statements/6.show/16.show-users.md
             - SHOW SESSIONS: 3.ngql-guide/7.general-query-statements/6.show/17.show-sessions.md
             - SHOW QUERIES: 3.ngql-guide/7.general-query-statements/6.show/18.show-queries.md
+            - SHOW META LEADER: 3.ngql-guide/7.general-query-statements/6.show/19.show-meta-leader.md
 
       - 子句和选项:
           - GROUP BY: 3.ngql-guide/8.clauses-and-options/group-by.md
@@ -277,12 +300,14 @@ nav:
 
   - 监控:
       - 查询Nebula Graph监控指标: 6.monitor-and-metrics/1.query-performance-metrics.md
+      - RocksDB统计数据: 6.monitor-and-metrics/2.rocksdb-statistics.md
 
   - 数据安全:
       - 验证和授权:
           - 身份验证: 7.data-security/1.authentication/1.authentication.md
           - 用户管理: 7.data-security/1.authentication/2.management-user.md
           - 内置角色权限: 7.data-security/1.authentication/3.role-list.md
+          - OpenLDAP验证: 7.data-security/1.authentication/4.ldap.md
 #      - 备份恢复:
 #          - 什么是BR: 7.data-security/2.backup-restore/1.what-is-br.md
 #          - 编译BR: 7.data-security/2.backup-restore/2.compile-br.md
@@ -297,6 +322,7 @@ nav:
       - 系统建模: 8.service-tuning/3.system-design.md
       - 执行计划: 8.service-tuning/4.plan.md
       - 超级节点(稠密点): 8.service-tuning/super-node.md
+      - 增加和删除标签: 8.service-tuning/improve-query-by-tag-index.md
 
   - 客户端:
     - 客户端介绍: 14.client/1.nebula-client.md
@@ -330,22 +356,22 @@ nav:
         - 操作索引: nebula-studio/manage-schema/st-ug-crud-index.md
       - 使用控制台:
         - 控制台界面: nebula-studio/use-console/st-ug-console.md
-        - 导入图探索: nebula-studio/use-console/st-ug-open-in-explorer.md
-        - 查看子图: nebula-studio/use-console/st-ug-visualize-findpath.md
+        - 导入图探索: nebula-studio/use-console/st-ug-open-in-explore.md
+        - 查看子图: nebula-studio/use-console/st-ug-visualize-subgraph.md
     - 故障排查:
       - 连接数据库错误: nebula-studio/troubleshooting/st-ug-config-server-errors.md
       - 无法访问 Studio: nebula-studio/troubleshooting/st-ug-connection-errors.md
       - Studio 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
 
-  - Nebula Graph Dashboard: 
-      - 什么是Nebula Graph Dashboard: nebula-dashboard/1.what-is-dashboard.md
+  - Nebula Dashboard:
+      - 什么是Nebula Dashboard: nebula-dashboard/1.what-is-dashboard.md
       - 部署Dashboard: nebula-dashboard/2.deploy-dashboard.md
       - 连接Dashboard: nebula-dashboard/3.connect-dashboard.md
       - Dashboard页面介绍: nebula-dashboard/4.use-dashboard.md
       - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
 
-  - Nebula Graph Explorer:
-      - 什么是Nebula Graph Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
+  - Nebula Explorer:
+      - 什么是Nebula Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
       - 安装与登录:
         - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
         - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
@@ -388,7 +414,7 @@ nav:
     - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
 
   - Nebula Algorithm: nebula-algorithm.md
-  
+
   - Nebula Spark Connector: nebula-spark-connector.md
 
   - Nebula Flink Connector: nebula-flink-connector.md
@@ -430,13 +456,19 @@ plugins:
   - git-revision-date-localized
   - with-pdf:
       copyright: 2021 Vesoft Inc.
-      cover_subtitle: master since v2.5.0
+      cover_subtitle: master since master
       author: 吴敏，周瑶，梁振亚，杨怡璇
       cover: true
       back_cover: true
       cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
       output_path: pdf/NebulaGraph-CN.pdf
-      show_anchors: true
+      #show_anchors: true
+      #render_js: true
+      #headless_chrome_path: headless-chromium
+      #enabled_if_env: ENABLE_PDF_EXPORT
+      #debug_html: true
+      #show_anchors: true
+      #verbose: true
 
 extra_javascript:
   - js/version-select.js

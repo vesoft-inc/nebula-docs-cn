@@ -92,16 +92,29 @@ nebula> SHOW JOB <job_id>;
 - 白天时设置`disable_auto_compactions`为`false`，提升短时间内的读取性能。
 -->
 
-- 为控制`Compaction`的读写速率，请在配置文件`nebula-storaged.conf`中设置如下两个参数：
+- 为控制`Compaction`的读写速率，请在配置文件`nebula-storaged.conf`中设置如下参数：
 
     ```bash
-    # 设置为从本地配置文件读取配置。
-    --local-config=true
     # 读写速率限制为20MB/S。
     --rate_limit=20 (in MB/s)
     ```
 
 ## FAQ
+
+### Compaction 相关的日志在哪？
+
+默认情况下，`/usr/local/nebula/data/storage/nebula/{1}/data/` 目录下的文件名为 `LOG` 文件，或者类似 `LOG.old.1625797988509303`，找到如下的部分。
+
+```text
+** Compaction Stats [default] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) CompMergeCPU(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  L0      2/0    2.46 KB   0.5      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      0.0      0.53              0.51         2    0.264       0      0
+ Sum      2/0    2.46 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      0.0      0.53              0.51         2    0.264       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0      0.00              0.00         0    0.000       0      0
+```
+
+如果当前的 `L0` 文件数量较多，对读性能影响较大，可以触发 compaction。
 
 ### 可以同时在多个图空间执行全量`Compaction`操作吗？
 
@@ -109,7 +122,7 @@ nebula> SHOW JOB <job_id>;
 
 ### 全量`Compaction`操作会耗费多长时间？
 
-如果已经设置读写速率限制，例如`rate_limit`限制为20MB/S时，用户可以通过`硬盘使用量/rate_limit`预估需要耗费的时间。如果没有设置读写速率限制，根据经验，速率大约为50MB/S。
+如果已经设置读写速率限制，例如`rate_limit`限制为 20MB/S 时，用户可以通过 `硬盘使用量/rate_limit` 预估需要耗费的时间。如果没有设置读写速率限制，根据经验，速率大约为 50MB/S。
 
 ### 可以动态调整`rate_limit`吗？
 

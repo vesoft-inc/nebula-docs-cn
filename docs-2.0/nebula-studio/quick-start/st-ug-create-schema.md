@@ -4,7 +4,7 @@
 
 !!! Note
 
-    用户也可以使用 nebula-console 创建 Schema。详细信息，参考 [使用 Docker Compose 部署 Nebula Graph](../../README.md) 和 [Nebula Graph 快速开始](../../2.quick-start/1.quick-start-workflow.md)。
+    用户也可以使用 nebula-console 创建 Schema。详细信息，参考 [Nebula Graph使用手册](../../README.md) 和 [Nebula Graph 快速开始](../../2.quick-start/1.quick-start-workflow.md)。
 
 ## 前提条件
 
@@ -38,7 +38,7 @@
 
 2. 在 **当前Space** 中选择一个图空间。在本示例中，选择 **basketballplayer**。
 
-   ![在 当前Space 中选择一个图空间](../figs/st-ug-007-1.png "选择图空间")
+   ![在当前Space 中选择一个图空间](../figs/st-ug-007-1.png "选择图空间")
 
 3. 在命令行中，依次输入以下语句，并点击 ![表示运行的图标](../figs/st-ug-008.png "Run 图标") 图标。
 

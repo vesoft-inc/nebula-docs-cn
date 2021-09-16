@@ -17,7 +17,11 @@
   | 7002 | Explorer 提供的 web 服务 |
   | 8070 | Nebula-http-gateway 的 HTTP 服务 |
   
-- 使用的 Linux 发行版为 CentOS ，安装有版本为 v10.16.0 + 以上的 Node.js。
+- 使用的 Linux 发行版为 CentOS ，安装有版本为 v10.16.0 + 以上的 Node.js，安装有版本为1.13及以上的Go。
+
+  !!! caution
+
+        目前 Nebula Explorer 提供的包仅在 Linux 环境中使用，如果用户使用 mac 或其他环境，需要克隆[http-gateway repo](https://github.com/vesoft-inc/nebula-http-gateway)，并修改 `nebula-http-gateway/conf/app.conf` 文件中的`httpport = 8070` 使用 `make` 命令编译启动。
 
 ### 安装
 
@@ -68,7 +72,11 @@ $ sudo rpm -e nebula-graph-explorer-<version>.x86_64
 
 - Nebula Graph 服务已经部署并启动。详细信息参考[Nebula Graph安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
 
-- 使用的 Linux 发行版为 CentOS ，安装有版本为 v10.16.0 + 以上的 Node.js。
+- 使用的 Linux 发行版为 CentOS ，安装有版本为 v10.16.0 + 以上的 Node.js，安装有版本为1.13及以上的Go。
+
+  !!! caution
+
+        目前 Nebula Explorer 提供的包仅在 Linux 环境中使用，如果用户使用 mac 或其他环境，需要克隆[http-gateway repo](https://github.com/vesoft-inc/nebula-http-gateway)，并修改 `nebula-http-gateway/conf/app.conf` 文件中的`httpport = 8070` 使用 `make` 命令编译启动。
 
 - 以下端口未被使用。
 
@@ -127,6 +135,6 @@ $ npm run stop # 停止 nebula-graph-explorer
 
 在浏览器窗口中看到以下登录界面表示已经成功部署并启动了 Explorer。
 
-![Nebula Graph Explorer 登录页面](../figs/ex-ug-001.png)
+![Nebula Explorer 登录页面](../figs/ex-ug-001.png)
 
 进入 Explorer 登录界面后，用户需要连接 Nebula Graph。详细信息，参考[连接数据库](../deploy-connect/ex-ug-connect.md)。
