@@ -45,4 +45,10 @@ Nebula Graph v2.0.x升级至v{{nebula.release}}，只需要使用v{{nebula.relea
 
 ## Docker Compose部署升级步骤
 
-请参见[如何更新Nebula Graph服务的Docker镜像](../2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md#nebula_graphdocker)。
+1. 修改目录`nebula-docker-compose`内的文件`docker-compose.yaml`，将`image`后的所有版本都修改为`{{nebula.release}}`。
+
+2. 在目录`nebula-docker-compose`内执行命令`docker-compose pull`，更新所有服务的镜像版本。
+ 
+3. 执行命令`docker-compose down`停止Nebula Graph服务。
+
+4. 执行命令`docker-compose up -d`启动Nebula Graph服务。
