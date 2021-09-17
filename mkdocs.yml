@@ -315,7 +315,7 @@ nav:
 #          - 使用BR恢复数据: 7.data-security/2.backup-restore/4.br-restore-data.md
       - 管理快照: 7.data-security/3.manage-snapshot.md
 
-  - 服务调优:
+  - 最佳实践:
       - Compaction: 8.service-tuning/compaction.md
       - Storage负载均衡: 8.service-tuning/load-balance.md
       - 图建模: 8.service-tuning/2.graph-modeling.md
@@ -323,6 +323,8 @@ nav:
       - 执行计划: 8.service-tuning/4.plan.md
       - 超级节点(稠密点): 8.service-tuning/super-node.md
       - 增加和删除标签: 8.service-tuning/improve-query-by-tag-index.md
+      - 实践案例: 8.service-tuning/practice.md
+
 
   - 客户端:
     - 客户端介绍: 14.client/1.nebula-client.md
