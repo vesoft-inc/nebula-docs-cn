@@ -1,8 +1,8 @@
 site_name: Nebula Graph Database 手册
 site_description: Documentation for Nebula Graph Database
 site_author: Nebula Graph
-site_url: https://docs.nebula-graph.com.cn/master/
-edit_uri: 'edit/master/docs-2.0/'
+site_url: https://docs.nebula-graph.com.cn/
+edit_uri: 'edit/v2.5.1/docs-2.0/'
 docs_dir: docs-2.0
 
 # repository
@@ -104,7 +104,6 @@ extra:
   bench:
     release: 1.0.0
     branch: master
-
 nav:
   - PDF: ./pdf/NebulaGraph-CN.pdf
   - 前言: README.md
@@ -315,7 +314,7 @@ nav:
 #          - 使用BR恢复数据: 7.data-security/2.backup-restore/4.br-restore-data.md
       - 管理快照: 7.data-security/3.manage-snapshot.md
 
-  - 服务调优:
+  - 最佳实践:
       - Compaction: 8.service-tuning/compaction.md
       - Storage负载均衡: 8.service-tuning/load-balance.md
       - 图建模: 8.service-tuning/2.graph-modeling.md
@@ -323,6 +322,8 @@ nav:
       - 执行计划: 8.service-tuning/4.plan.md
       - 超级节点(稠密点): 8.service-tuning/super-node.md
       - 增加和删除标签: 8.service-tuning/improve-query-by-tag-index.md
+      - 实践案例: 8.service-tuning/practice.md
+
 
   - 客户端:
     - 客户端介绍: 14.client/1.nebula-client.md
@@ -456,7 +457,7 @@ plugins:
   - git-revision-date-localized
   - with-pdf:
       copyright: 2021 Vesoft Inc.
-      cover_subtitle: master since master
+      cover_subtitle: master since 2.5.1
       author: 吴敏，周瑶，梁振亚，杨怡璇
       cover: true
       back_cover: true
