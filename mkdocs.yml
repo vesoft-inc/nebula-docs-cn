@@ -411,7 +411,7 @@ nav:
         - 使用Kubectl部署Nebula Graph集群: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
         - 使用Helm部署Nebula Graph集群: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
       - 连接Nebula Graph数据库: nebula-operator/4.connect-to-nebula-graph-service.md
-      - 故障转移: nebula-operator/5.operator-failover.md
+      - 容错机制: nebula-operator/5.operator-failover.md
 
   - Nebula Algorithm: nebula-algorithm.md
 
