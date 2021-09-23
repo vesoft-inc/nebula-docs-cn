@@ -115,7 +115,7 @@ RPM和DEB是Linux系统下常见的两种安装包格式，本文介绍如何使
     $ sudo rpm -ivh --prefix=<installation_path> <package_name>
     ```
     
-    例如要安装已经下载了的 {{ nebula.release }} 适用于`Centos 7.5`的`2.x`安装包：
+    例如，要安装适用于Centos 7.5的Nebula Graph {{ nebula.release }}安装包，运行如下命令：
     
     ```bash
     sudo rpm -ivh nebula-graph-{{ nebula.release }}.el7.x86_64.rpm
@@ -128,7 +128,7 @@ RPM和DEB是Linux系统下常见的两种安装包格式，本文介绍如何使
     $ sudo dpkg -i --instdir==<installation_path> <package_name>
     ```
     
-    例如要安装已经下载了的 {{ nebula.release }} 适用于`Ubuntu 18.04`的`2.x`安装包：
+    例如，要安装适用于Ubuntu 18.04的Nebula Graph {{ nebula.release }}安装包，运行如下命令：
 
     ```bash
     sudo dpkg -i nebula-graph-{{ nebula.release }}.ubuntu1804.amd64.deb
