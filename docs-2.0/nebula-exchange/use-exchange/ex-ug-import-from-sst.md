@@ -468,6 +468,10 @@ ${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.excha
 
     - Graph服务配置文件中的`--ws_meta_http_port`（如果没有，请手动添加）和Meta服务配置文件中的`--ws_http_port`一致。例如都为`19559`。
 
+!!! caution
+  
+    如果需要导入SST文件至Nebula Graph 2.5.x中，请在[Storage配置文件](../../5.configurations-and-logs/1.configurations/4.storage-config.md)中添加`--enable_vertex_cache =false`，并重启Storage服务，才能正常导入SST文件，否则可能会出现没有覆盖旧数据的问题。
+
 使用客户端工具连接Nebula Graph数据库，按如下操作导入SST文件：
 
 1. 执行命令选择之前创建的图空间。
