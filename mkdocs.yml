@@ -412,6 +412,7 @@ nav:
         - 使用Helm部署Nebula Graph集群: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
       - 连接Nebula Graph数据库: nebula-operator/4.connect-to-nebula-graph-service.md
       - 容错机制: nebula-operator/5.operator-failover.md
+      - 常见问题: nebula-operator/7.operator-faq.md
 
   - Nebula Algorithm: nebula-algorithm.md
 
