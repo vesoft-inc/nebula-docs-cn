@@ -94,6 +94,10 @@ extra:
   bench:
     release: 1.0.0
     branch: master
+  operator:
+    release: 0.8.0
+    branch: v0.8.0
+
 
 nav:
   - PDF: ./pdf/NebulaGraph-CN.pdf
@@ -455,21 +459,21 @@ plugins:
   - macros:
       include_dir: docs-2.0/reuse/
   - git-revision-date-localized
-#  - with-pdf:
-#      copyright: 2021 Vesoft Inc.
-#      cover_subtitle: master since master
-#      author: 吴敏，周瑶，梁振亚，杨怡璇
-#      cover: true
-#      back_cover: true
-#      cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
-#      output_path: pdf/NebulaGraph-CN.pdf
-      #show_anchors: true
-      #render_js: true
-      #headless_chrome_path: headless-chromium
-      #enabled_if_env: ENABLE_PDF_EXPORT
-      #debug_html: true
-      #show_anchors: true
-      #verbose: true
+  - with-pdf:
+      copyright: 2021 Vesoft Inc.
+      cover_subtitle: master since master
+      author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
+      cover: true
+      back_cover: true
+      cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
+      output_path: pdf/NebulaGraph-CN.pdf
+      show_anchors: true
+      render_js: true
+      headless_chrome_path: headless-chromium
+      enabled_if_env: ENABLE_PDF_EXPORT
+      debug_html: true
+      show_anchors: true
+      verbose: true
 
 extra_javascript:
   - js/version-select.js
