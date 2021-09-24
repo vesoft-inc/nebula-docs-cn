@@ -94,7 +94,7 @@ SST文件是一个内部包含了任意长度的有序键值对集合的文件�
 - 确认Hadoop服务在所有部署Storage服务的机器上运行正常。
 
   !!! note
-
+  
       - 如果需要生成其他数据源的SST文件，请参见相应数据源的文档，查看前提条件部分。
 
       - 如果只需要生成SST文件，不需要在部署Storage服务的机器上安装Hadoop服务。
@@ -463,7 +463,7 @@ ${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.excha
     导入前请确认以下信息：
 
     - 确认所有部署Storage服务的机器上都已部署Hadoop服务，并配置HADOOP_HOME和JAVA_HOME。
-
+    
     - Meta服务配置文件中的`--ws_storage_http_port`（如果没有，请手动添加）和Storage服务配置文件中的`--ws_http_port`一致。例如都为`19779`。
 
     - Graph服务配置文件中的`--ws_meta_http_port`（如果没有，请手动添加）和Meta服务配置文件中的`--ws_http_port`一致。例如都为`19559`。

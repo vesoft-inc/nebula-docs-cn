@@ -44,6 +44,10 @@ Nebula Spark Connector {{sparkconnector.release}}版本特性如下：
 
 ### 编译打包
 
+!!! note
+
+     安装 Spark 2.3以上版本。
+
 1. 克隆仓库`nebula-spark-utils`。
 
   ```bash
