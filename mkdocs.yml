@@ -104,6 +104,10 @@ extra:
   bench:
     release: 1.0.0
     branch: master
+  operator:
+    release: 0.8.0
+    branch: v0.8.0
+
 nav:
   - PDF: ./pdf/NebulaGraph-CN.pdf
   - 前言: README.md
@@ -414,10 +418,21 @@ nav:
       - 导入SST文件数据: nebula-exchange/use-exchange/ex-ug-import-from-sst.md
     - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
 
+  - Nebula Operator:
+      - 什么是Nebula Operator: nebula-operator/1.introduction-to-nebula-operator.md
+      - 使用流程: nebula-operator/6.get-started-with-operator.md
+      - 部署Nebula Operator: nebula-operator/2.deploy-nebula-operator.md
+      - 部署Nebula Graph集群: 
+        - 使用Kubectl部署Nebula Graph集群: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
+        - 使用Helm部署Nebula Graph集群: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
+      - 连接Nebula Graph数据库: nebula-operator/4.connect-to-nebula-graph-service.md
+      - 故障自愈: nebula-operator/5.operator-failover.md
+      - 常见问题: nebula-operator/7.operator-faq.md
+
   - Nebula Algorithm: nebula-algorithm.md
 
   - Nebula Spark Connector: nebula-spark-connector.md
-
+      
   - Nebula Flink Connector: nebula-flink-connector.md
 
   - Nebula Bench: nebula-bench.md
@@ -457,19 +472,19 @@ plugins:
   - git-revision-date-localized
   - with-pdf:
       copyright: 2021 Vesoft Inc.
-      cover_subtitle: master since 2.5.1
-      author: 吴敏，周瑶，梁振亚，杨怡璇
+      cover_subtitle: master since master
+      author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
       cover: true
       back_cover: true
       cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
       output_path: pdf/NebulaGraph-CN.pdf
-      #show_anchors: true
-      #render_js: true
-      #headless_chrome_path: headless-chromium
-      #enabled_if_env: ENABLE_PDF_EXPORT
-      #debug_html: true
-      #show_anchors: true
-      #verbose: true
+      show_anchors: true
+      render_js: true
+      headless_chrome_path: headless-chromium
+      enabled_if_env: ENABLE_PDF_EXPORT
+      debug_html: true
+      show_anchors: true
+      verbose: true
 
 extra_javascript:
   - js/version-select.js
