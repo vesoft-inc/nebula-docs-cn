@@ -67,7 +67,7 @@ Creating nebula-docker-compose_graphd_1    ... done
     请勿使用`kill -9` 命令强制终止进程，否则可能较小概率出现数据丢失。
 
 ### 非容器部署
-
+  
 执行如下命令停止Nebula Graph服务：
 
 ```bash
@@ -169,7 +169,7 @@ nebula-docker-compose_storaged2_1   ./bin/nebula-storaged --fl ...   Up (healthy
 然后执行`docker ps`查看对应的`CONTAINER ID`(示例为`2a6c56c405f5`)。
 
 ```bash
-nebula-docker-compose]$ docker ps
+[nebula-docker-compose]$ docker ps
 CONTAINER ID   IMAGE                               COMMAND                  CREATED          STATUS                    PORTS                                                                                                  NAMES
 2a6c56c405f5   vesoft/nebula-graphd:nightly     "/usr/local/nebula/b…"   36 minutes ago   Up 36 minutes (healthy)   0.0.0.0:49230->9669/tcp, 0.0.0.0:49229->19669/tcp, 0.0.0.0:49228->19670/tcp                            nebula-docker-compose_graphd2_1
 7042e0a8e83d   vesoft/nebula-storaged:nightly   "./bin/nebula-storag…"   36 minutes ago   Up 36 minutes (healthy)   9777-9778/tcp, 9780/tcp, 0.0.0.0:49227->9779/tcp, 0.0.0.0:49226->19779/tcp, 0.0.0.0:49225->19780/tcp   nebula-docker-compose_storaged2_1
