@@ -435,7 +435,7 @@ nav:
       
   - Nebula Flink Connector: nebula-flink-connector.md
 
-#  - Nebula Bench: nebula-bench.md
+  - Nebula Bench: nebula-bench.md
 
   - 附录:
       - Release Note: 20.appendix/releasenote.md
