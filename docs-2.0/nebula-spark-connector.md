@@ -38,7 +38,7 @@ Nebula Spark Connector {{sparkconnector.release}}版本特性如下：
 
 - 统一了SparkSQL的扩展数据源，统一采用DataSourceV2进行Nebula Graph数据扩展。
 
-- 支持`insert`和`update`两种写入模式。`insert`模式会插入（覆盖）数据，`update`模式仅会更新已存在的数据。
+- 支持`insert`、`update`和`delete`三种写入模式。`insert`模式会插入（覆盖）数据，`update`模式仅会更新已存在的数据，`delete`模式只删除数据。
 
 ## 获取Nebula Spark Connector
 

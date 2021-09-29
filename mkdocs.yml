@@ -62,17 +62,17 @@ extra:
     base100: 1.0.0
     release: 2.0.0
   exchange:
-    release: 2.5.0
-    branch: v2.5
+    release: 2.5.1
+    branch: v2.5.1
   importer:
     release: 2.5.0
     branch: release-v2.0.0-ga
   algorithm:
-    release: 2.5.0
-    branch: v2.5
+    release: 2.5.1
+    branch: v2.5.1
   sparkconnector:
-    release: 2.5.0
-    branch: v2.5
+    release: 2.5.1
+    branch: v2.5.1
   flinkconnector:
     release: 2.5.0
     branch: v2.5
