@@ -78,6 +78,10 @@ nebula-exchange-2.0.0.jar \
 
     - Storage服务可用的端口号有33183、33177、33185。
 
+### 运行时报错`Exception in thread "main" com.facebook.thrift.protocol.TProtocolException: The field 'code' has been assigned the invalid value -4`
+
+检查 Exchange 版本与 Nebula Graph 版本是否匹配，详细信息可参考[使用限制](../nebula-exchange/about-exchange/ex-ug-limitations.md)。
+
 ## 配置问题
 
 ### 哪些配置项影响导入性能？
