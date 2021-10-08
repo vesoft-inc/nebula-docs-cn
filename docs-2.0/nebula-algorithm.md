@@ -8,7 +8,9 @@
 
 - Nebula Graph 服务已经部署并启动。详细信息，参考[Nebula Graph安装部署](4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
 
-- Spark 版本为 2.4.x 。
+- Spark 版本为 2.4.x。
+
+- Scala 版本为 2.11。
 
 - （可选）如果用户需要在Github中克隆最新的Algorithm，并自行编译打包，可以选择安装[Maven](https://maven.apache.org/download.cgi)。
 
