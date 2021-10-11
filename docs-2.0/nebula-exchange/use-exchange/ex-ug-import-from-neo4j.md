@@ -232,6 +232,7 @@ Exchange读取Neo4j数据时需要完成以下工作：
       target: {
         field: dst
       }
+      #ranking: rank
       partition: 10
       batch: 1000
       check_point_path: /tmp/test
@@ -256,6 +257,7 @@ Exchange读取Neo4j数据时需要完成以下工作：
       target: {
         field: dst
       }
+      #ranking: rank
       partition: 10
       batch: 1000
       check_point_path: /tmp/test
