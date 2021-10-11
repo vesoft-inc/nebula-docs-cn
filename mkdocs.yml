@@ -48,6 +48,7 @@ extra:
     master: master
     base20: 2.0
     base200: 2.0.0
+    branch: master
   version:
     method: mike
   social:
