@@ -11,16 +11,16 @@
 
 ## 编译Exchange
 
-1. 在根目录克隆仓库`nebula-spark-utils`。
+1. 在根目录克隆仓库`nebula-exchange`。
 
    ```bash
-   git clone -b {{exchange.branch}} https://github.com/vesoft-inc/nebula-spark-utils.git
+   git clone -b {{exchange.branch}} https://github.com/vesoft-inc/nebula-exchange.git
    ```
 
 2. 切换到目录`nebula-exchange`。
 
    ```bash
-   cd nebula-spark-utils/nebula-exchange
+   cd nebula-exchange/nebula-exchange
    ```
 
 3. 打包Nebula Exchange。
@@ -55,7 +55,7 @@
 !!! note
     JAR文件版本号会因Nebula Java Client的发布版本而变化。用户可以在[Releases页面](https://github.com/vesoft-inc/nebula-java/releases)查看最新版本。
 
-迁移数据时，用户可以参考配置文件[`target/classes/application.conf`](https://github.com/vesoft-inc/nebula-spark-utils/blob/master/nebula-exchange/src/main/resources/application.conf)。
+迁移数据时，用户可以参考配置文件[`target/classes/application.conf`](https://github.com/vesoft-inc/nebula-exchange/blob/master/nebula-exchange/src/main/resources/application.conf)。
 
 ## 下载依赖包失败
 
