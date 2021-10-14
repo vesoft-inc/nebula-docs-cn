@@ -110,7 +110,7 @@ Nebula Graph项目有很多[仓库](https://github.com/vesoft-inc)，以[nebula-
 
   !!! Note
 
-        由于一个PR通常包含多个commit，在合并至master时容易被挤压（squash），因此强烈建议创建一个独立的分支进行更改。合并后，这个分支可以被丢弃，因此可以使用上述rebase命令将本地master与upstream同步。此外，如果直接将commit提交至 master，用户可以需要在master分支使用hard reset，例如：
+        由于一个PR通常包含多个commit，因此强烈建议创建一个独立的分支进行更改。合并后，这个分支可以被丢弃，因此可以使用上述rebase命令将本地master与upstream同步。此外，如果直接将commit提交至 master，用户可以需要在master分支使用hard reset，例如：
 
         ```bash
         git fetch upstream
