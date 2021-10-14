@@ -4,7 +4,7 @@
 
 ## 概览
 
-![Explorer](../figs/ex-ug-006.png)
+![Explorer](../figs/explorer.png)
 Explorer 的主页面分为五个部分：
 
 - 标签栏
