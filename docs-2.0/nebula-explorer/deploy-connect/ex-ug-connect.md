@@ -35,7 +35,7 @@
 
       ![Nebula Graph Explorer 的登录页面](../figs/ex-ug-002.png)
 
-2. 完成设置后，点击 **连接** 按钮。  
+2. 完成设置后，点击 **登陆** 按钮。
    如果能看到如下图所示的界面，表示已经成功连接到 Nebula Graph 数据库。
 
     ![Explorer 进入控制台页面，表示成功连接到 Nebula Graph](../figs/ex-ug-003.png "Nebula Graph 连接成功")
