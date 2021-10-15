@@ -15,7 +15,8 @@ Explorer 支持批量选中多个点边，并查看选中点边的数据，详�
 ### 框选操作
 
 点击![frameselect](../figs/nav-frameSelect.png) 图标后，按住左键拖拽并框选多个点和边。示例如下：
-![slect](../figs/ex-ug-023.png)
+![select](../figs/ex-ug-023.png)
+
 ### 点击选择多个节边
 
 点击![singleselect](../figs/nav-singleSelect.png) 图标或按住 Shift 后，用鼠标单击并选中多个点和边，单击空白处取消选择。示例如下：
