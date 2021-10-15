@@ -52,7 +52,7 @@ Explorer 的主页面分为五个部分：
 - 共同邻居：单击 ![commonNeighbor](../figs/rightclickmenu-commonNeighbor.png)图标，选择页面上至少两个点并查看它们的共同邻居。
 - 路径查询：单击 ![findPath](../figs/rightclickmenu-findPath.png)图标，可以查询起点到终点之间的 `all paths` 、 `Shortest path` 或者是 `Noloop path` 的路径。
 - 查看属性：单击 ![propertyView](../figs/nav-propertyView.png)图标，选择是否显画布中的点或边的属性值。
-- 
+
 更多详细信息参考 [图探索拓展](../operation-guide/ex-ug-graph-exploration.md)。
 
 ### 删除及撤销
@@ -66,6 +66,7 @@ Explorer 的主页面分为五个部分：
 - 选择图空间：单击 ![graphSpace](../figs/nav-graphSpace.png)图标，切换当前图空间。
 - 帮助：单击 ![help](../figs/nav-help.png)图标，查看更多信息。
 - 设置：单击 ![setup](../figs/nav-setup.png)图标，可以查看用户名和快捷键、修改语言设置、清除 Explorer 链接等。
+
 ## 画布
 
 画布主要分为：
