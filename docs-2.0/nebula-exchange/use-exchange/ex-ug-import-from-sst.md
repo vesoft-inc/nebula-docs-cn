@@ -2,7 +2,11 @@
 
 本文以一个示例说明如何将数据源的数据生成SST（Sorted String Table）文件并保存在HDFS上，然后导入Nebula Graph，示例数据源是CSV文件。
 
-> **说明**：仅Linux系统支持导入SST文件。
+## 注意事项
+
+- 仅Linux系统支持导入SST文件。
+
+- 不支持属性的Default值。因为是直接替换文件，在Schema中设置Default值无法生效。
 
 ## 背景信息
 
