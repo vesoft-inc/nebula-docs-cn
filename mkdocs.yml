@@ -70,6 +70,7 @@ extra:
     branch: release-v2.0.0-ga
   algorithm:
     release: 2.5.1
+    branch: v2.5
   sparkconnector:
     release: 2.5.1
     branch: v2.5
