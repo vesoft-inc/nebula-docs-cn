@@ -13,7 +13,7 @@ nGQL没有严格的构建格式要求，但根据恰当而统一的风格创建n
   不推荐：
 
   ```ngql
-  GO FROM "player100" OVER follow REVERSELY YIELD dst(edge) AS id;
+  GO FROM "player100" OVER follow REVERSELY YIELD src(edge) AS id;
   ```
 
   推荐：
