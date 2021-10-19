@@ -1,6 +1,6 @@
 # Nebula Algorithm
 
-[Nebula Algorithm](https://github.com/vesoft-inc/nebula-spark-utils/tree/master/nebula-algorithm) （简称Algorithm）是一款基于[GraphX](https://spark.apache.org/graphx/)的Spark应用程序，通过提交Spark任务的形式使用完整的算法工具对Nebula Graph数据库中的数据执行图计算，也可以通过编程形式调用lib库下的算法针对DataFrame执行图计算。
+[Nebula Algorithm](https://github.com/vesoft-inc/nebula-algorithm) （简称Algorithm）是一款基于[GraphX](https://spark.apache.org/graphx/)的Spark应用程序，通过提交Spark任务的形式使用完整的算法工具对Nebula Graph数据库中的数据执行图计算，也可以通过编程形式调用lib库下的算法针对DataFrame执行图计算。
 
 ## 前提条件
 
@@ -8,7 +8,9 @@
 
 - Nebula Graph 服务已经部署并启动。详细信息，参考[Nebula Graph安装部署](4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
 
-- Spark 版本为 2.4.x 。
+- Spark 版本为 2.4.x。
+
+- Scala 版本为 2.11。
 
 - （可选）如果用户需要在Github中克隆最新的Algorithm，并自行编译打包，可以选择安装[Maven](https://maven.apache.org/download.cgi)。
 
@@ -32,6 +34,7 @@ Nebula Algorithm支持的图计算算法如下。
  |StronglyConnectedComponent| 强联通分量  |社区发现|
  |       ShortestPath       |  最短路径   |路径规划、网络规划|
  |       TriangleCount      | 三角形计数  |网络结构分析|
+ |  GraphTriangleCount      | 全图三角形计数 |网络结构及紧密程度分析|
  |   BetweennessCentrality  | 介数中心性  |关键节点挖掘，节点影响力计算|
  |        DegreeStatic      |   度统计   |图结构分析|
 
@@ -45,22 +48,22 @@ Nebula Algorithm实现图计算的流程如下：
 
 3. 调用GraphX提供的图算法（例如PageRank）或者自行实现的算法（例如Louvain社区发现）。
 
-详细的实现方法可以参见相关[Scala文件](https://github.com/vesoft-inc/nebula-spark-utils/tree/master/nebula-algorithm/src/main/scala/com/vesoft/nebula/algorithm/lib)。
+详细的实现方法可以参见相关[Scala文件](https://github.com/vesoft-inc/nebula-algorithm/tree/master/nebula-algorithm/src/main/scala/com/vesoft/nebula/algorithm/lib)。
 
 ## 获取Nebula Algorithm
 
 ### 编译打包
 
-1. 克隆仓库`nebula-spark-utils`。
+1. 克隆仓库`nebula-algorithm`。
 
   ```bash
-  $ git clone -b {{algorithm.branch}} https://github.com/vesoft-inc/nebula-spark-utils.git
+  $ git clone -b {{algorithm.branch}} https://github.com/vesoft-inc/nebula-algorithm.git
   ```
 
 2. 进入目录`nebula-algorithm`。
 
   ```bash
-  $ cd nebula-spark-utils/nebula-algorithm
+  $ cd nebula-algorithm
   ```
 
 3. 编译打包。
@@ -85,15 +88,16 @@ Nebula Algorithm实现图计算的流程如下：
 
   ```bash
   <dependency>
-  <groupId>com.vesoft</groupId>
-  <artifactId>nebula-algorithm</artifactId>
-  <version>{{algorithm.release}}</version>
+       <groupId>com.vesoft</groupId>
+       <artifactId>nebula-algorithm</artifactId>
+       <version>{{algorithm.release}}</version>
   </dependency>
   ```
 
-2. 传入参数调用算法（以PageRank为例）。更多算法请参见[测试用例](https://github.com/vesoft-inc/nebula-spark-utils/tree/master/nebula-algorithm/src/test/scala/com/vesoft/nebula/algorithm/lib)。
+2. 传入参数调用算法（以PageRank为例）。更多算法请参见[测试用例](https://github.com/vesoft-inc/nebula-algorithm/tree/master/nebula-algorithm/src/test/scala/com/vesoft/nebula/algorithm/lib)。
 
   !!! note
+
         执行算法的DataFrame默认第一列是起始点，第二列是目的点，第三列是边权重（非Nebula Graph中的Rank）。
 
   ```bash
@@ -106,7 +110,7 @@ Nebula Algorithm实现图计算的流程如下：
 !!! note
     使用封装好的算法包有一定的局限性，例如落库到Nebula Graph时，落库的图空间中创建的Tag的属性名称必须和代码内预设的名称保持一致。如果用户有开发能力，推荐使用第一种方法。
 
-1. 设置[配置文件](https://github.com/vesoft-inc/nebula-spark-utils/blob/{{algorithm.branch}}/nebula-algorithm/src/main/resources/application.conf)。
+1. 设置[配置文件](https://github.com/vesoft-inc/nebula-algorithm/blob/{{algorithm.branch}}/nebula-algorithm/src/main/resources/application.conf)。
 
   ```bash
   {
@@ -263,7 +267,7 @@ Nebula Algorithm实现图计算的流程如下：
   示例：
 
   ```bash
-  ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.algorithm.Main /root/nebula-spark-utils/nebula-algorithm/target/nebula-algorithm-{{algorithm.release}}.jar -p /root/nebula-spark-utils/nebula-algorithm/src/main/resources/application.conf
+  ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.algorithm.Main /root/nebula-algorithm/target/nebula-algorithm-{{algorithm.release}}.jar -p /root/nebula-algorithm/src/main/resources/application.conf
   ```
 
 ## 视频

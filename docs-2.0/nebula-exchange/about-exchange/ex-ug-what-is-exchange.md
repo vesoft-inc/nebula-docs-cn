@@ -1,6 +1,6 @@
 # 什么是Nebula Exchange
 
-[Nebula Exchange](https://github.com/vesoft-inc/nebula-spark-utils/tree/{{exchange.branch}}/nebula-exchange)（简称Exchange）是一款Apache Spark&trade;应用，用于在分布式环境中将集群中的数据批量迁移到Nebula Graph中，能支持多种不同格式的批式数据和流式数据的迁移。
+[Nebula Exchange](https://github.com/vesoft-inc/nebula-exchange)（简称Exchange）是一款Apache Spark&trade;应用，用于在分布式环境中将集群中的数据批量迁移到Nebula Graph中，能支持多种不同格式的批式数据和流式数据的迁移。
 
 Exchange由Reader、Processor和Writer三部分组成。Reader读取不同来源的数据返回DataFrame后，Processor遍历DataFrame的每一行，根据配置文件中`fields`的映射关系，按列名获取对应的值。在遍历指定批处理的行数后，Writer会将获取的数据一次性写入到Nebula Graph中。下图描述了Exchange完成数据转换和迁移的过程。
 

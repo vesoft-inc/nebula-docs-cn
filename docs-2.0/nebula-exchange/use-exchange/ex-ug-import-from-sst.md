@@ -2,7 +2,11 @@
 
 本文以一个示例说明如何将数据源的数据生成SST（Sorted String Table）文件并保存在HDFS上，然后导入Nebula Graph，示例数据源是CSV文件。
 
-> **说明**：仅Linux系统支持导入SST文件。
+## 注意事项
+
+- 仅Linux系统支持导入SST文件。
+
+- 不支持属性的Default值。因为是直接替换文件，在Schema中设置Default值无法生效。
 
 ## 背景信息
 
@@ -447,7 +451,7 @@ ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchan
 示例：
 
 ```bash
-${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-spark-utils/nebula-exchange/target/nebula-exchange-{{exchange.release}}.jar  -c /root/nebula-spark-utils/nebula-exchange/target/classes/sst_application.conf
+${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-exchange/nebula-exchange/target/nebula-exchange-{{exchange.release}}.jar  -c /root/nebula-exchange/nebula-exchange/target/classes/sst_application.conf
 ```
 
 任务执行完成后，可以在HDFS上的`/sst`目录（`nebula.path.remote`参数指定）内查看到生成的SST文件。
