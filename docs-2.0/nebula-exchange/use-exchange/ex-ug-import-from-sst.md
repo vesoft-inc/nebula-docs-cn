@@ -6,7 +6,7 @@
 
 - 仅Linux系统支持导入SST文件。
 
-- 不支持属性的Default值。因为是直接替换文件，在Schema中设置Default值无法生效。
+- 不支持属性的Default值。
 
 ## 背景信息
 
