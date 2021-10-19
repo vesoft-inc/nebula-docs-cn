@@ -249,7 +249,6 @@ $ npm run stop # stop nebula-graph-studio
    当屏幕返回以下信息时，表示 Docker 版 Studio 已经成功启动。
 
    ```bash
-   Creating docker_importer_1 ... done
    Creating docker_client_1   ... done
    Creating docker_web_1      ... done
    Creating docker_nginx_1    ... done
