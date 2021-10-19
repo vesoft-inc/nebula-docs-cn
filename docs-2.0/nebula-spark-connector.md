@@ -10,7 +10,7 @@ Nebula Spark Connector是一个Spark连接器，提供通过Spark标准形式读
 
   提供一个Spark SQL接口，用户可以使用该接口编程将DataFrame格式的数据逐条或批量写入Nebula Graph。
 
-更多使用说明请参见[Nebula Spark Connector](https://github.com/vesoft-inc/nebula-spark-utils/blob/{{sparkconnector.branch}}/nebula-spark-connector/README_CN.md)。
+更多使用说明请参见[Nebula Spark Connector](https://github.com/vesoft-inc/nebula-spark-connector/blob/{{sparkconnector.branch}}/README_CN.md)。
 
 ## 适用场景
 
@@ -48,16 +48,16 @@ Nebula Spark Connector {{sparkconnector.release}}版本特性如下：
 
      安装 Spark 2.3以上版本。
 
-1. 克隆仓库`nebula-spark-utils`。
+1. 克隆仓库`nebula-spark-connector`。
 
   ```bash
-  $ git clone -b {{sparkconnector.branch}} https://github.com/vesoft-inc/nebula-spark-utils.git
+  $ git clone -b {{sparkconnector.branch}} https://github.com/vesoft-inc/nebula-spark-connector.git
   ```
 
 2. 进入目录`nebula-spark-connector`。
 
   ```bash
-  $ cd nebula-spark-utils/nebula-spark-connector
+  $ cd nebula-spark-connector/nebula-spark-connector
   ```
 
 3. 编译打包。
@@ -66,7 +66,7 @@ Nebula Spark Connector {{sparkconnector.release}}版本特性如下：
   $ mvn clean package -Dmaven.test.skip=true -Dgpg.skip -Dmaven.javadoc.skip=true
   ```
 
-编译完成后，在目录`nebula-spark-connector/target`下生成类似文件`nebula-spark-connector-{{sparkconnector.release}}-SHANPSHOT.jar`。
+编译完成后，在目录`nebula-spark-connector/nebula-spark-connector/target/`下生成类似文件`nebula-spark-connector-{{sparkconnector.release}}-SHANPSHOT.jar`。
 
 ### Maven远程仓库下载
 
