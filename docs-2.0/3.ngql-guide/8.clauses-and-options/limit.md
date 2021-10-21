@@ -1,8 +1,8 @@
 # LIMIT
 
-`LIMIT`子句限制输出结果的行数。
+`LIMIT`子句限制输出结果的行数。`LIMIT`在原生nGQL语句和openCypher兼容语句中的用法有所不同。
 
-- 在原生nGQL中，必须使用管道符（|），可以忽略偏移量。
+- 在原生nGQL中，使用管道符和不使用管道符有不同的语义，并且可以忽略偏移量。
 
 - 在openCypher方式中，不允许使用管道符，可以使用`SKIP`指明偏移量。
 
@@ -10,29 +10,46 @@
 
         在原生nGQL或openCypher方式中使用`LIMIT`时，使用`ORDER BY`子句限制输出顺序非常重要，否则会输出一个不可预知的子集。
 
-## 原生nGQL语法
+!!! compatibility "历史版本兼容性"
 
-在原生nGQL中，`LIMIT`的工作原理与`SQL`相同，必须和管道符一起使用。`LIMIT`子句接收一个或两个参数。参数的值必须是非负整数。
+    Nebula Graph {{nebula.release}}中，`GO`和`LOOKUP`支持了新的`LIMIT`语法。部分`LIMIT`相关的算子支持计算下推。
+
+## 原生nGQL语句中的LIMIT
+
+在原生nGQL中，`LIMIT`有三种语法：通用语法、GO中专属语法和LOOKUP中的专属语法。
+
+### 原生nGQL中的通用LIMIT语法
+
+原生nGQL中的通用`LIMIT`语法与`SQL`中的`LIMIT`原理相同。`LIMIT`子句接收一个或两个参数，参数的值必须是非负整数，且必须用在管道符之后。语法和说明如下：
 
 ```ngql
-YIELD <var>
-[| LIMIT [<offset_value>,] <number_rows>];
+... | LIMIT [<offset>,] <number_rows>;
 ```
 
 |参数|说明|
 |:--|:--|
-|`var`|排序的列或计算结果。|
-|`offset_value`|偏移量，即定义从哪一行开始返回。索引从`0`开始。默认值为`0`，表示从第一行开始返回。|
+|`offset`|偏移量，即定义从哪一行开始返回。索引从`0`开始。默认值为`0`，表示从第一行开始返回。|
 |`number_rows`|返回的总行数。|
 
-### 示例
+示例：
 
 ```ngql
-# 从排序结果中返回第2行开始的3行数据。
+# 从结果中返回最前面的3行数据。
+nebula> LOOKUP ON player |\
+        LIMIT 3;
++-------------+
+| VertexID    |
++-------------+
+| "player100" |
+| "player101" |
+| "player102" |
++-------------+
+
+# 从排序后结果中返回第2行开始的3行数据。
 nebula> GO FROM "player100" OVER follow REVERSELY \
-        YIELD $$.player.name AS Friend, $$.player.age AS Age \
-        | ORDER BY $-.Age, $-.Friend \
-        | LIMIT 1, 3;
+        YIELD $$.player.name AS Friend, $$.player.age AS Age |\
+        ORDER BY $-.Age, $-.Friend |\
+        LIMIT 1, 3;
 +-------------------+-----+
 | Friend            | Age |
 +-------------------+-----+
@@ -44,17 +61,38 @@ nebula> GO FROM "player100" OVER follow REVERSELY \
 +-------------------+-----+
 ```
 
-## openCypher方式语法
+### GO语句中的LIMIT
+
+`GO`语句中的`LIMIT`除了支持原生nGQL中的通用语法外，还支持根据边限制输出结果数量。
+
+语法：
 
 ```ngql
-RETURN <var>
-[SKIP <offset>]
-[LIMIT <number_rows>];
+<go_statement> LIMIT <limit_list>;
+```
+
+`limit_list`是一个列表，列表中的元素必须为自然数，且元素数量必须与`GO`语句中的`STEPS`的最大数相同。下文以`GO 1 TO 3 STEPS FROM "player101" OVER * LIMIT <limit_list>`为例详细介绍`LIMIT`的这种用法。
+
+* 列表`limit_list`必须包含3个自然数元素，例如`GO 1 TO 3 STEPS FROM "A" OVER * LIMIT [1,2,4]`。
+* `LIMIT [1,2,4]`中的`1`表示在遍历第一步时随机选择1条边继续遍历，`2`表示在第二步时随机选择2条边继续遍历，`4`表示在第三步时随机选择4条边继续遍历。
+* 因为`GO 1 TO 3 STEPS`表示返回第一到第三步的所有遍历结果，因此下图中所有红色边和它们的原点与目的点都会被这条`GO`语句匹配上，而黄色边表示`GO`语句遍历时没有选择的路径。如果不是`GO 1 TO 3 STEPS`而是`GO 3 STEPS`，则只会匹配上第三步的红色边和它们两端的点。
+
+![LIMIT in GO](limit_in_go.png)
+
+### LOOKUP语句中的LIMIT
+
+`LOOKUP`语句中支持原生nGQL中的通用`LIMIT`语法，也支持不带管道符使用`LIMIT`，此时会进行Partition级别的计算下推，性能相对较高。
+
+## openCypher兼容语句中的LIMIT
+
+在`MATCH`等openCypher兼容语句中使用LIMIT不需要加管道符。语法和说明如下：
+
+```ngql
+... [SKIP <offset>] [LIMIT <number_rows>];
 ```
 
 |参数|说明|
 |:--|:--|
-|`var`|排序的列或计算结果。|
 |`offset`|偏移量，即定义从哪一行开始返回。索引从`0`开始。默认值为`0`，表示从第一行开始返回。|
 |`number_rows`|返回的总行数量。|
 
@@ -64,7 +102,9 @@ RETURN <var>
 
     两个整数组成的分数表达式会自动向下取整。例如`8/6`向下取整为1。
 
-### 示例
+### 单独使用LIMIT
+
+`LIMIT`可以单独使用，返回指定数量的结果。
 
 ```ngql
 nebula> MATCH (v:player) RETURN v.name AS Name, v.age AS Age \
@@ -98,9 +138,9 @@ nebula> MATCH (v:player) RETURN v.name AS Name, v.age AS Age \
 +-------------------------+-----+
 ```
 
-### SKIP示例
+### 单独使用SKIP
 
-用户可以单独使用`SKIP <offset>`设置偏移量，后面不需要添加`LIMIT <number_rows>`。
+`SKIP`也可以单独使用，用于设置偏移量，后面不需要添加`LIMIT <number_rows>`。
 
 ```ngql
 nebula> MATCH (v:player{name:"Tim Duncan"}) --> (v2) \
@@ -124,7 +164,9 @@ nebula> MATCH (v:player{name:"Tim Duncan"}) --> (v2) \
 +---------------+-----+
 ```
 
-用户也可以同时使用`SKIP <offset>`和`LIMIT <number_rows>`，返回中间的部分数据。
+### 同时使用SKIP与LIMIT
+
+同时使用`SKIP`与`LIMIT`可以返回从指定位置开始的指定数量的数据。
 
 ```ngql
 nebula> MATCH (v:player{name:"Tim Duncan"}) --> (v2) \
@@ -136,6 +178,7 @@ nebula> MATCH (v:player{name:"Tim Duncan"}) --> (v2) \
 | "Manu Ginobili" | 41  |
 +-----------------+-----+
 ```
+
 <!--
 ## 性能提示
 
