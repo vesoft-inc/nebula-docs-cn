@@ -60,11 +60,11 @@ YIELD [DISTINCT] <col> [AS <alias>] [, <col> [AS <alias>] ...];
     ```ngql
     nebula> FETCH PROP ON player "player100" \
             YIELD properties(vertex).name;
-    +-------------+--------------+
-    | VertexID    | player.name  |
-    +-------------+--------------+
-    | "player100" | "Tim Duncan" |
-    +-------------+--------------+
+    +-------------+-------------------------+
+    | VertexID    | properties(VERTEX).name |
+    +-------------+-------------------------+
+    | "player100" | "Tim Duncan"            |
+    +-------------+-------------------------+
     ```
 
 - `LOOKUP`语句中使用`YIELD`：
@@ -72,11 +72,11 @@ YIELD [DISTINCT] <col> [AS <alias>] [, <col> [AS <alias>] ...];
     ```ngql
     nebula> LOOKUP ON player WHERE player.name == "Tony Parker" \
             YIELD properties(vertex).name, properties(vertex).age;
-    +-------------+---------------+------------+
-    | VertexID    | player.name   | player.age |
-    +-------------+---------------+------------+
-    | "player101" | "Tony Parker" | 36         |
-    +-------------+---------------+------------+
+    +-------------+-------------------------+------------------------+
+    | VertexID    | properties(VERTEX).name | properties(VERTEX).age |
+    +-------------+-------------------------+------------------------+
+    | "player101" | "Tony Parker"           | 36                     |
+    +-------------+-------------------------+------------------------+
     ```
 
 ## YIELD语句
