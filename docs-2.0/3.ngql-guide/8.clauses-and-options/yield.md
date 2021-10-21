@@ -59,7 +59,7 @@ YIELD [DISTINCT] <col> [AS <alias>] [, <col> [AS <alias>] ...];
 
     ```ngql
     nebula> FETCH PROP ON player "player100" \
-            YIELD player.name;
+            YIELD properties(vertex).name;
     +-------------+--------------+
     | VertexID    | player.name  |
     +-------------+--------------+
@@ -104,7 +104,7 @@ YIELD [DISTINCT] <col> [AS <alias>] [, <col> [AS <alias>] ...]
 nebula> GO FROM "player100" OVER follow \
         YIELD dst(edge) AS ID \
         | FETCH PROP ON player $-.ID \
-        YIELD player.age AS Age \
+        YIELD properties(vertex).age AS Age \
         | YIELD AVG($-.Age) as Avg_age, count(*)as Num_friends;
 +---------+-------------+
 | Avg_age | Num_friends |

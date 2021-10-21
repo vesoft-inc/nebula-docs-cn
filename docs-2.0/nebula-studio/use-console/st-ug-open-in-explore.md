@@ -81,7 +81,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
   查询语句示例如下：
 
   ```nGQL
-  nebula> FETCH PROP ON player "player100" YIELD player.name;
+  nebula> FETCH PROP ON player "player100" YIELD properties(vertex).name;
   ```
 
   查询得到 `playerId` 为 `player100` 的球员信息。如下图所示。
