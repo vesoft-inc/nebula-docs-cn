@@ -140,7 +140,7 @@ nebula> MATCH (v:player) RETURN v.name AS Name, v.age AS Age \
 
 ### 单独使用SKIP
 
-`SKIP`也可以单独使用，用于设置偏移量，后面不需要添加`LIMIT <number_rows>`。
+`SKIP`可以单独使用，用于设置偏移量，返回指定位置之后的数据。
 
 ```ngql
 nebula> MATCH (v:player{name:"Tim Duncan"}) --> (v2) \
