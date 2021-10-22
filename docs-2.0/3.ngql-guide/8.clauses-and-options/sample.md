@@ -4,7 +4,7 @@
 
 !!! compatibility "历史版本兼容性"
 
-    `SAMPLE`是Nebula Graph {{nebula.release}} 新增的子句。
+    `SAMPLE`是Nebula Graph 2.6.0 新增的子句。
 
 `SAMPLE`仅能在`GO`语句中使用，语法如下：
 
