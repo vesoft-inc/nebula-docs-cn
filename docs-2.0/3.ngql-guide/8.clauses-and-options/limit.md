@@ -12,7 +12,7 @@
 
 !!! compatibility "历史版本兼容性"
 
-    Nebula Graph {{nebula.release}}中，`GO`语句支持了新的`LIMIT`语法。部分`LIMIT`相关的算子支持计算下推。
+    Nebula Graph 2.6.0中，`GO`语句支持了新的`LIMIT`语法。部分`LIMIT`相关的算子支持计算下推。
 
 ## 原生nGQL语句中的LIMIT
 
@@ -78,6 +78,22 @@ nebula> GO FROM "player100" OVER follow REVERSELY \
 * 因为`GO 1 TO 3 STEPS`表示返回第一到第三步的所有遍历结果，因此下图中所有红色边和它们的原点与目的点都会被这条`GO`语句匹配上，而黄色边表示`GO`语句遍历时没有选择的路径。如果不是`GO 1 TO 3 STEPS`而是`GO 3 STEPS`，则只会匹配上第三步的红色边和它们两端的点。
 
 ![LIMIT in GO](limit_in_go_1.png)
+
+在basketballplayer数据集中的执行示例如下：
+
+```ngql
+nebula> GO 3 STEPS FROM "player100" \
+        OVER * \
+        YIELD properties($$).name AS NAME, properties($$).age AS Age \
+        LIMIT [3,3,3];
++-----------------+--------------+
+| NAME            | Age          |
++-----------------+--------------+
+| "Spurs"         | UNKNOWN_PROP |
+| "Tony Parker"   | 36           |
+| "Manu Ginobili" | 41           |
++-----------------+--------------+
+```
 
 ## openCypher兼容语句中的LIMIT
 
