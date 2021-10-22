@@ -64,16 +64,16 @@ extra:
     release: 2.0.0
   exchange:
     release: 2.5.1
-    branch: v2.5.1
+    branch: v2.5
   importer:
     release: 2.5.0
     branch: release-v2.0.0-ga
   algorithm:
     release: 2.5.1
-    branch: v2.5.1
+    branch: v2.5
   sparkconnector:
     release: 2.5.1
-    branch: v2.5.1
+    branch: v2.5
   flinkconnector:
     release: 2.5.0
     branch: v2.5
@@ -319,6 +319,7 @@ nav:
 #          - 使用BR恢复数据: 7.data-security/2.backup-restore/4.br-restore-data.md
       - 管理快照: 7.data-security/3.manage-snapshot.md
       - Group&Zone: 7.data-security/5.zone.md
+      - SSL加密: 7.data-security/4.ssl.md
 
   - 最佳实践:
       - Compaction: 8.service-tuning/compaction.md

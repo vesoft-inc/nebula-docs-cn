@@ -33,11 +33,11 @@
      - 如果已启用身份验证，但是未创建账号信息，用户只能以 GOD 角色登录，必须填写 `root` 及对应的密码 `nebula`。
      - 如果已启用身份验证，同时又创建了不同的用户并分配了角色，不同角色的用户使用自己的账号和密码登录。
 
-      ![Nebula Graph Explorer 的登录页面](../figs/ex-ug-002-1.png "配置数据库")
+      ![Nebula Graph Explorer 的登录页面](../figs/ex-ug-002.png)
 
-2. 完成设置后，点击 **连接** 按钮。  
+2. 完成设置后，点击 **登录** 按钮。
    如果能看到如下图所示的界面，表示已经成功连接到 Nebula Graph 数据库。
 
-    ![Explorer 进入控制台页面，表示成功连接到 Nebula Graph](../figs/ex-ug-003-1.png "Nebula Graph 连接成功")
+    ![Explorer 进入控制台页面，表示成功连接到 Nebula Graph](../figs/ex-ug-003.png "Nebula Graph 连接成功")
 
 一次连接会话持续 30 分钟。如果超过 30 分钟没有操作，会话即断开，用户需要重新登录数据库。
