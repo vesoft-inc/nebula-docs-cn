@@ -2,9 +2,9 @@
 
 `LIMIT`子句限制输出结果的行数。`LIMIT`在原生nGQL语句和openCypher兼容语句中的用法有所不同。
 
-- 在原生nGQL中，使用管道符和不使用管道符有不同的语义，并且可以忽略偏移量。
+- 在原生nGQL语句中，一般需要在`LIMIT`子句前使用管道符，可以直接在LIMIT语句后设置或者省略偏移量参数。
 
-- 在openCypher方式中，不允许使用管道符，可以使用`SKIP`指明偏移量。
+- 在openCypher兼容语句中，不允许在`LIMIT`子句前使用管道符，可以使用`SKIP`指明偏移量。
 
   !!! Note
 
@@ -12,11 +12,11 @@
 
 !!! compatibility "历史版本兼容性"
 
-    Nebula Graph {{nebula.release}}中，`GO`和`LOOKUP`支持了新的`LIMIT`语法。部分`LIMIT`相关的算子支持计算下推。
+    Nebula Graph {{nebula.release}}中，`GO`语句支持了新的`LIMIT`语法。部分`LIMIT`相关的算子支持计算下推。
 
 ## 原生nGQL语句中的LIMIT
 
-在原生nGQL中，`LIMIT`有三种语法：通用语法、GO中专属语法和LOOKUP中的专属语法。
+在原生nGQL中，`LIMIT`有通用语法和`GO`语句中的专属语法。
 
 ### 原生nGQL中的通用LIMIT语法
 
@@ -74,14 +74,10 @@ nebula> GO FROM "player100" OVER follow REVERSELY \
 `limit_list`是一个列表，列表中的元素必须为自然数，且元素数量必须与`GO`语句中的`STEPS`的最大数相同。下文以`GO 1 TO 3 STEPS FROM "player101" OVER * LIMIT <limit_list>`为例详细介绍`LIMIT`的这种用法。
 
 * 列表`limit_list`必须包含3个自然数元素，例如`GO 1 TO 3 STEPS FROM "A" OVER * LIMIT [1,2,4]`。
-* `LIMIT [1,2,4]`中的`1`表示在遍历第一步时随机选择1条边继续遍历，`2`表示在第二步时随机选择2条边继续遍历，`4`表示在第三步时随机选择4条边继续遍历。
+* `LIMIT [1,2,4]`中的`1`表示系统在第一步时自动选择1条边继续遍历，`2`表示在第二步时选择2条边继续遍历，`4`表示在第三步时选择4条边继续遍历。
 * 因为`GO 1 TO 3 STEPS`表示返回第一到第三步的所有遍历结果，因此下图中所有红色边和它们的原点与目的点都会被这条`GO`语句匹配上，而黄色边表示`GO`语句遍历时没有选择的路径。如果不是`GO 1 TO 3 STEPS`而是`GO 3 STEPS`，则只会匹配上第三步的红色边和它们两端的点。
 
 ![LIMIT in GO](limit_in_go.png)
-
-### LOOKUP语句中的LIMIT
-
-`LOOKUP`语句中支持原生nGQL中的通用`LIMIT`语法，也支持不带管道符使用`LIMIT`，此时会进行Partition级别的计算下推，性能相对较高。
 
 ## openCypher兼容语句中的LIMIT
 
