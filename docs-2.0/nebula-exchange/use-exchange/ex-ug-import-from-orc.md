@@ -165,7 +165,7 @@
 
       # 指定ORC文件的路径。
       # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
-      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.orc"。
       path: "hdfs://192.168.*.*:9000/data/vertex_player.orc"
 
       # 在fields里指定ORC文件中key名称，其对应的value会作为Nebula Graph中指定属性的数据源。
@@ -204,7 +204,7 @@
 
       # 指定ORC文件的路径。
       # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
-      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.orc"。
       path: "hdfs://192.168.*.*:9000/data/vertex_team.orc"
 
       # 在fields里指定ORC文件中key名称，其对应的value会作为Nebula Graph中指定属性的数据源。
@@ -249,7 +249,7 @@
 
       # 指定ORC文件的路径。
       # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
-      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.orc"。
       path: "hdfs://192.168.*.*:9000/data/edge_follow.orc"
 
       # 在fields里指定ORC文件中key名称，其对应的value会作为Nebula Graph中指定属性的数据源。
@@ -295,7 +295,7 @@
 
       # 指定ORC文件的路径。
       # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
-      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.orc"。
       path: "hdfs://192.168.*.*:9000/data/edge_serve.orc"
 
       # 在fields里指定ORC文件中key名称，其对应的value会作为Nebula Graph中指定属性的数据源。

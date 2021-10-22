@@ -13,7 +13,7 @@ nGQL没有严格的构建格式要求，但根据恰当而统一的风格创建n
   不推荐：
 
   ```ngql
-  GO FROM "player100" OVER follow REVERSELY YIELD follow._dst AS id;
+  GO FROM "player100" OVER follow REVERSELY YIELD src(edge) AS id;
   ```
 
   推荐：
@@ -21,7 +21,7 @@ nGQL没有严格的构建格式要求，但根据恰当而统一的风格创建n
   ```ngql
   GO FROM "player100" \
   OVER follow REVERSELY \
-  YIELD follow._dst AS id;
+  YIELD src(edge) AS id;
   ```
 
 2. 换行写复合语句中的不同语句。
@@ -29,8 +29,8 @@ nGQL没有严格的构建格式要求，但根据恰当而统一的风格创建n
   不推荐：
 
   ```ngql
-  GO FROM "player100" OVER follow REVERSELY YIELD follow._dst AS id | GO FROM $-.id \
-  OVER serve WHERE $^.player.age > 20 YIELD $^.player.name AS FriendOf, $$.team.name AS Team;
+  GO FROM "player100" OVER follow REVERSELY YIELD src(edge) AS id | GO FROM $-.id \
+  OVER serve WHERE properties($^).age > 20 YIELD properties($^).name AS FriendOf, properties($$).name AS Team;
   ```
 
   推荐：
@@ -38,10 +38,10 @@ nGQL没有严格的构建格式要求，但根据恰当而统一的风格创建n
   ```ngql
   GO FROM "player100" \
   OVER follow REVERSELY \
-  YIELD follow._dst AS id | \
+  YIELD src(edge) AS id | \
   GO FROM $-.id OVER serve \
-  WHERE $^.player.age > 20 \
-  YIELD $^.player.name AS FriendOf, $$.team.name AS Team;
+  WHERE properties($^).age > 20 \
+  YIELD properties($^).name AS FriendOf, properties($$).name AS Team;
   ```
 
 3. 子句长度超过80个字符时，在合适的位置换行。
@@ -218,10 +218,10 @@ nGQL没有严格的构建格式要求，但根据恰当而统一的风格创建n
   ```ngql
   GO FROM "player100" \
   OVER follow \
-  YIELD follow._dst AS id; | \
+  YIELD dst(edge) AS id; | \
   GO FROM $-.id \
   OVER serve \
-  YIELD $$.team.name AS Team, $^.player.name AS Player;
+  YIELD properties($$).name AS Team, properties($^).name AS Player;
   ```
 
   支持：
@@ -229,10 +229,10 @@ nGQL没有严格的构建格式要求，但根据恰当而统一的风格创建n
   ```ngql
   GO FROM "player100" \
   OVER follow \
-  YIELD follow._dst AS id | \
+  YIELD dst(edge) AS id | \
   GO FROM $-.id \
   OVER serve \
-  YIELD $$.team.name AS Team, $^.player.name AS Player;
+  YIELD properties($$).name AS Team, properties($^).name AS Player;
   ```
 
 3. 在包含自定义变量的复合语句中，用英文分号结束定义变量的语句。不按规则加分号或使用管道符结束该语句会导致执行失败。
@@ -242,10 +242,10 @@ nGQL没有严格的构建格式要求，但根据恰当而统一的风格创建n
   ```ngql
   $var = GO FROM "player100" \
   OVER follow \
-  YIELD follow._dst AS id \
+  YIELD dst(edge) AS id \
   GO FROM $var.id \
   OVER serve \
-  YIELD $$.team.name AS Team, $^.player.name AS Player;
+  YIELD properties($$).name AS Team, properties($^).name AS Player;
   ```
 
   也不支持：
@@ -253,10 +253,10 @@ nGQL没有严格的构建格式要求，但根据恰当而统一的风格创建n
   ```ngql
   $var = GO FROM "player100" \
   OVER follow \
-  YIELD follow._dst AS id | \
+  YIELD dst(edge) AS id | \
   GO FROM $var.id \
   OVER serve \
-  YIELD $$.team.name AS Team, $^.player.name AS Player;
+  YIELD properties($$).name AS Team, properties($^).name AS Player;
   ```
 
   支持：
@@ -264,8 +264,8 @@ nGQL没有严格的构建格式要求，但根据恰当而统一的风格创建n
   ```ngql
   $var = GO FROM "player100" \
   OVER follow \
-  YIELD follow._dst AS id; \
+  YIELD dst(edge) AS id; \
   GO FROM $var.id \
   OVER serve \
-  YIELD $$.team.name AS Team, $^.player.name AS Player;
+  YIELD properties($$).name AS Team, properties($^).name AS Player;
   ```

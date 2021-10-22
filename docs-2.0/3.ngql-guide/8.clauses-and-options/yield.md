@@ -59,24 +59,24 @@ YIELD [DISTINCT] <col> [AS <alias>] [, <col> [AS <alias>] ...];
 
     ```ngql
     nebula> FETCH PROP ON player "player100" \
-            YIELD player.name;
-    +-------------+--------------+
-    | VertexID    | player.name  |
-    +-------------+--------------+
-    | "player100" | "Tim Duncan" |
-    +-------------+--------------+
+            YIELD properties(vertex).name;
+    +-------------+-------------------------+
+    | VertexID    | properties(VERTEX).name |
+    +-------------+-------------------------+
+    | "player100" | "Tim Duncan"            |
+    +-------------+-------------------------+
     ```
 
 - `LOOKUP`语句中使用`YIELD`：
 
     ```ngql
     nebula> LOOKUP ON player WHERE player.name == "Tony Parker" \
-            YIELD player.name, player.age;
-    +-------------+---------------+------------+
-    | VertexID    | player.name   | player.age |
-    +-------------+---------------+------------+
-    | "player101" | "Tony Parker" | 36         |
-    +-------------+---------------+------------+
+            YIELD properties(vertex).name, properties(vertex).age;
+    +-------------+-------------------------+------------------------+
+    | VertexID    | properties(VERTEX).name | properties(VERTEX).age |
+    +-------------+-------------------------+------------------------+
+    | "player101" | "Tony Parker"           | 36                     |
+    +-------------+-------------------------+------------------------+
     ```
 
 ## YIELD语句
@@ -104,7 +104,7 @@ YIELD [DISTINCT] <col> [AS <alias>] [, <col> [AS <alias>] ...]
 nebula> GO FROM "player100" OVER follow \
         YIELD dst(edge) AS ID \
         | FETCH PROP ON player $-.ID \
-        YIELD player.age AS Age \
+        YIELD properties(vertex).age AS Age \
         | YIELD AVG($-.Age) as Avg_age, count(*)as Num_friends;
 +---------+-------------+
 | Avg_age | Num_friends |

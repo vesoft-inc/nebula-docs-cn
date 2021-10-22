@@ -30,7 +30,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
   查询语句示例如下：
 
   ```nGQL
-  nebula> GO FROM "player102" OVER serve YIELD serve._src,serve._dst;
+  nebula> GO FROM "player102" OVER serve YIELD src(edge),dst(edge);
   ```
 
   查询结果可以看到 `playerId` 为 `palyer102` 的球员服务球队的起始年份及终止年份。如下图所示。
@@ -81,7 +81,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
   查询语句示例如下：
 
   ```nGQL
-  nebula> FETCH PROP ON player "player100" YIELD player.name;
+  nebula> FETCH PROP ON player "player100" YIELD properties(vertex).name;
   ```
 
   查询得到 `playerId` 为 `player100` 的球员信息。如下图所示。
