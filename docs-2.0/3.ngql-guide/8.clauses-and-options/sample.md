@@ -19,3 +19,34 @@
 * 因为`GO 1 TO 3 STEPS`表示返回第一到第三步的所有遍历结果，因此下图中所有红色边和它们的原点与目的点都会被这条`GO`语句匹配上，而黄色边表示`GO`语句遍历时没有选择的路径。如果不是`GO 1 TO 3 STEPS`而是`GO 3 STEPS`，则只会匹配上第三步的红色边和它们两端的点。
 
 ![SAMPLE in GO](sample_in_go.png)
+
+在basketballplayer数据集中的执行示例如下：
+
+```ngql
+nebula> GO 3 STEPS FROM "player100" \
+        OVER * \
+        YIELD properties($$).name AS NAME, properties($$).age AS Age \
+        SAMPLE [1,2,3];
++-----------------+--------------+
+| NAME            | Age          |
++-----------------+--------------+
+| "Spurs"         | UNKNOWN_PROP |
+| "Tony Parker"   | 36           |
+| "Manu Ginobili" | 41           |
++-----------------+--------------+
+
+nebula> GO 1 TO 3 STEPS FROM "player100" \
+        OVER * \
+        YIELD properties($$).name AS NAME, properties($$).age AS Age \
+        SAMPLE [2,2,2];
++---------------------+-----+
+| NAME                | Age |
++---------------------+-----+
+| "Manu Ginobili"     | 41  |
+| "Tony Parker"       | 36  |
+| "Tim Duncan"        | 42  |
+| "LaMarcus Aldridge" | 33  |
+| "Tony Parker"       | 36  |
+| "Tim Duncan"        | 42  |
++---------------------+-----+
+```
