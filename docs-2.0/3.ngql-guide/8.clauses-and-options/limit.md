@@ -71,13 +71,13 @@ nebula> GO FROM "player100" OVER follow REVERSELY \
 <go_statement> LIMIT <limit_list>;
 ```
 
-`limit_list`是一个列表，列表中的元素必须为自然数，且元素数量必须与`GO`语句中的`STEPS`的最大数相同。下文以`GO 1 TO 3 STEPS FROM "player101" OVER * LIMIT <limit_list>`为例详细介绍`LIMIT`的这种用法。
+`limit_list`是一个列表，列表中的元素必须为自然数，且元素数量必须与`GO`语句中的`STEPS`的最大数相同。下文以`GO 1 TO 3 STEPS FROM "A" OVER * LIMIT <limit_list>`为例详细介绍`LIMIT`的这种用法。
 
 * 列表`limit_list`必须包含3个自然数元素，例如`GO 1 TO 3 STEPS FROM "A" OVER * LIMIT [1,2,4]`。
 * `LIMIT [1,2,4]`中的`1`表示系统在第一步时自动选择1条边继续遍历，`2`表示在第二步时选择2条边继续遍历，`4`表示在第三步时选择4条边继续遍历。
 * 因为`GO 1 TO 3 STEPS`表示返回第一到第三步的所有遍历结果，因此下图中所有红色边和它们的原点与目的点都会被这条`GO`语句匹配上，而黄色边表示`GO`语句遍历时没有选择的路径。如果不是`GO 1 TO 3 STEPS`而是`GO 3 STEPS`，则只会匹配上第三步的红色边和它们两端的点。
 
-![LIMIT in GO](limit_in_go.png)
+![LIMIT in GO](limit_in_go_1.png)
 
 ## openCypher兼容语句中的LIMIT
 
