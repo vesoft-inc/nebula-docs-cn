@@ -208,6 +208,7 @@ nav:
       - 子句和选项:
           - GROUP BY: 3.ngql-guide/8.clauses-and-options/group-by.md
           - LIMIT and SKIP: 3.ngql-guide/8.clauses-and-options/limit.md
+          - SAMPLE: 3.ngql-guide/8.clauses-and-options/sample.md
           - ORDER BY: 3.ngql-guide/8.clauses-and-options/order-by.md
           - RETURN: 3.ngql-guide/8.clauses-and-options/return.md
           - TTL: 3.ngql-guide/8.clauses-and-options/ttl-options.md
