@@ -26,7 +26,7 @@ ORDER BY <expression> [ASC | DESC] [, <expression> [ASC | DESC] ...];
 
 ```ngql
 nebula> FETCH PROP ON player "player100", "player101", "player102", "player103" \
-        YIELD player.age AS age, player.name AS name \
+        YIELD properties(vertex).age AS age, properties(vertex).name AS name \
         | ORDER BY $-.age ASC, $-.name DESC;
 +-------------+-----+---------------------+
 | VertexID    | age | name                |
@@ -41,7 +41,7 @@ nebula> FETCH PROP ON player "player100", "player101", "player102", "player103" 
 +-------------+-----+---------------------+
 
 nebula> $var = GO FROM "player100" OVER follow \
-        YIELD follow._dst AS dst; \
+        YIELD dst(edge) AS dst; \
         ORDER BY $var.dst DESC;
 +-------------+
 | dst         |
