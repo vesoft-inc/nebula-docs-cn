@@ -3,14 +3,14 @@
 ## Feature
 
 - 新增TOSS功能。[#2525](https://github.com/vesoft-inc/nebula/pull/2525)
-- 新增ZONE功能。[#181](https://github.com/vesoft-inc/nebula-storage/pull/181)
+- 新增Group&Zone功能。[#181](https://github.com/vesoft-inc/nebula-storage/pull/181)
 - 新增Geo Spatial功能。[#2954](https://github.com/vesoft-inc/nebula/pull/2954)、[#2979](https://github.com/vesoft-inc/nebula/pull/2979)、[#3043](https://github.com/vesoft-inc/nebula/pull/3043)
-- 新增传输加密。[#2584](https://github.com/vesoft-inc/nebula/pull/2584)
-- 新增支持服务端返回JSON格式的查询结果。[#2824](https://github.com/vesoft-inc/nebula/pull/2824)
+- 新增传输加密功能。[#2584](https://github.com/vesoft-inc/nebula/pull/2584)
+- 新增服务端返回JSON格式的查询结果。[#2824](https://github.com/vesoft-inc/nebula/pull/2824)
 - 新增图空间的meta克隆。[#2763](https://github.com/vesoft-inc/nebula/pull/2763)
-- 新增支持LOOKUP中使用IN表达式。[#2906](https://github.com/vesoft-inc/nebula/pull/2906)
+- 新增LOOKUP中使用IN表达式。[#2906](https://github.com/vesoft-inc/nebula/pull/2906)
 - 集成Breakpad。[#2536](https://github.com/vesoft-inc/nebula/pull/2536)
-- 新增支持将metad的本地文件夹复制到远程。 [#2532](https://github.com/vesoft-inc/nebula/pull/2532)
+- 新增将metad的本地文件夹复制到远程。 [#2532](https://github.com/vesoft-inc/nebula/pull/2532)
 - 新增DELETE TAG。[#2520](https://github.com/vesoft-inc/nebula/pull/2520)
 - 新增concat函数。 [#2540](https://github.com/vesoft-inc/nebula/pull/2540)
 - 新增SHOW META LEADER。[#2542](https://github.com/vesoft-inc/nebula/pull/2542)
@@ -30,7 +30,7 @@
 
 ## Bug fix
 
-- 修复`raftpart::reset`时清理部分rocksdb数据的问题。[#2522](https://github.com/vesoft-inc/nebula/pull/2522)
+- 修复`raftpart::reset`时清理部分RocksDB数据的问题。[#2522](https://github.com/vesoft-inc/nebula/pull/2522)
 - 修复了插入不匹配的日期时间类型的问题。[#2527](https://github.com/vesoft-inc/nebula/pull/2527)
 - 修复了设置毫秒失败但微秒有效的问题。[#2781](https://github.com/vesoft-inc/nebula/pull/2781)
 - 修复了批量插入过多数据（百万行）时Meta服务崩溃的问题。[#2813](https://github.com/vesoft-inc/nebula/pull/2813)
