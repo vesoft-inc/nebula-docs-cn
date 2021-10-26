@@ -342,58 +342,58 @@ nav:
     - Nebula Python: 14.client/5.nebula-python-client.md
     - Nebula Go: 14.client/6.nebula-go-client.md
 
-  - Nebula Graph Studio:
-    - Studio版本更新说明: nebula-studio/about-studio/st-ug-release-note.md
-    - 认识 Nebula Graph Studio:
-      - 什么是 Nebula Graph Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
-      - 名词解释: nebula-studio/about-studio/st-ug-terms.md
-      - 使用限制: nebula-studio/about-studio/st-ug-limitations.md
-      - 版本更新: nebula-studio/about-studio/st-ug-check-updates.md
-      - 快捷键: nebula-studio/about-studio/st-ug-shortcuts.md
-    - 安装与登录:
-      - 部署 Studio: nebula-studio/deploy-connect/st-ug-deploy.md
-      - 连接数据库: nebula-studio/deploy-connect/st-ug-connect.md
-      - 清除连接: nebula-studio/deploy-connect/st-ug-reset-connection.md
-    - 快速开始:
-      - 规划 Schema: nebula-studio/quick-start/st-ug-plan-schema.md
-      - 创建 Schema: nebula-studio/quick-start/st-ug-create-schema.md
-      - 导入数据: nebula-studio/quick-start/st-ug-import-data.md
-      - 查询图数据: nebula-studio/quick-start/st-ug-explore.md
-    - 操作指南:
-      - 管理 Schema:
-        - 操作图空间: nebula-studio/manage-schema/st-ug-crud-space.md
-        - 操作Tag: nebula-studio/manage-schema/st-ug-crud-tag.md
-        - 操作Edge type: nebula-studio/manage-schema/st-ug-crud-edge-type.md
-        - 操作索引: nebula-studio/manage-schema/st-ug-crud-index.md
-      - 使用控制台:
-        - 控制台界面: nebula-studio/use-console/st-ug-console.md
-        - 导入图探索: nebula-studio/use-console/st-ug-open-in-explore.md
-        - 查看子图: nebula-studio/use-console/st-ug-visualize-subgraph.md
-    - 故障排查:
-      - 连接数据库错误: nebula-studio/troubleshooting/st-ug-config-server-errors.md
-      - 无法访问 Studio: nebula-studio/troubleshooting/st-ug-connection-errors.md
-      - Studio 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
+#  - Nebula Graph Studio:
+#    - Studio版本更新说明: nebula-studio/about-studio/st-ug-release-note.md
+#    - 认识 Nebula Graph Studio:
+#      - 什么是 Nebula Graph Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
+#      - 名词解释: nebula-studio/about-studio/st-ug-terms.md
+#      - 使用限制: nebula-studio/about-studio/st-ug-limitations.md
+#      - 版本更新: nebula-studio/about-studio/st-ug-check-updates.md
+#      - 快捷键: nebula-studio/about-studio/st-ug-shortcuts.md
+#    - 安装与登录:
+#      - 部署 Studio: nebula-studio/deploy-connect/st-ug-deploy.md
+#      - 连接数据库: nebula-studio/deploy-connect/st-ug-connect.md
+#      - 清除连接: nebula-studio/deploy-connect/st-ug-reset-connection.md
+#    - 快速开始:
+#      - 规划 Schema: nebula-studio/quick-start/st-ug-plan-schema.md
+#      - 创建 Schema: nebula-studio/quick-start/st-ug-create-schema.md
+#      - 导入数据: nebula-studio/quick-start/st-ug-import-data.md
+#      - 查询图数据: nebula-studio/quick-start/st-ug-explore.md
+#    - 操作指南:
+#      - 管理 Schema:
+#        - 操作图空间: nebula-studio/manage-schema/st-ug-crud-space.md
+#        - 操作Tag: nebula-studio/manage-schema/st-ug-crud-tag.md
+#        - 操作Edge type: nebula-studio/manage-schema/st-ug-crud-edge-type.md
+#        - 操作索引: nebula-studio/manage-schema/st-ug-crud-index.md
+#      - 使用控制台:
+#        - 控制台界面: nebula-studio/use-console/st-ug-console.md
+#        - 导入图探索: nebula-studio/use-console/st-ug-open-in-explore.md
+#        - 查看子图: nebula-studio/use-console/st-ug-visualize-subgraph.md
+#    - 故障排查:
+#      - 连接数据库错误: nebula-studio/troubleshooting/st-ug-config-server-errors.md
+#      - 无法访问 Studio: nebula-studio/troubleshooting/st-ug-connection-errors.md
+#      - Studio 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
 
-  - Nebula Dashboard:
-      - 什么是Nebula Dashboard: nebula-dashboard/1.what-is-dashboard.md
-      - 部署Dashboard: nebula-dashboard/2.deploy-dashboard.md
-      - 连接Dashboard: nebula-dashboard/3.connect-dashboard.md
-      - Dashboard页面介绍: nebula-dashboard/4.use-dashboard.md
-      - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
+#  - Nebula Dashboard:
+#      - 什么是Nebula Dashboard: nebula-dashboard/1.what-is-dashboard.md
+#      - 部署Dashboard: nebula-dashboard/2.deploy-dashboard.md
+#      - 连接Dashboard: nebula-dashboard/3.connect-dashboard.md
+#      - Dashboard页面介绍: nebula-dashboard/4.use-dashboard.md
+#      - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
 
-  - Nebula Explorer:
-      - 什么是Nebula Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
-      - 安装与登录:
-        - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
-        - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
-        - 清除连接: nebula-explorer/deploy-connect/ex-ug-reset-connection.md
-      - 操作指南:
-        - 页面概览: nebula-explorer/operation-guide/ex-ug-page-overview.md
-        - 查询探索: nebula-explorer/operation-guide/ex-ug-query-exploration.md
-        - 图探索拓展: nebula-explorer/operation-guide/ex-ug-graph-exploration.md
-        - 画布操作: nebula-explorer/operation-guide/ex-ug-canvas.md
-        - 关系列表: nebula-explorer/operation-guide/ex-ug-relationship-list.md
-        - 快捷键: nebula-explorer/operation-guide/ex-ug-shortcuts.md
+#  - Nebula Explorer:
+#      - 什么是Nebula Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
+#      - 安装与登录:
+#        - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
+#        - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
+#        - 清除连接: nebula-explorer/deploy-connect/ex-ug-reset-connection.md
+#      - 操作指南:
+#        - 页面概览: nebula-explorer/operation-guide/ex-ug-page-overview.md
+#        - 查询探索: nebula-explorer/operation-guide/ex-ug-query-exploration.md
+#        - 图探索拓展: nebula-explorer/operation-guide/ex-ug-graph-exploration.md
+#        - 画布操作: nebula-explorer/operation-guide/ex-ug-canvas.md
+#        - 关系列表: nebula-explorer/operation-guide/ex-ug-relationship-list.md
+#        - 快捷键: nebula-explorer/operation-guide/ex-ug-shortcuts.md
 
   - Nebula Importer:
     - 使用Nebula Importer: nebula-importer/use-importer.md
