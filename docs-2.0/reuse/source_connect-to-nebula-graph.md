@@ -151,7 +151,6 @@ nebula> GO FROM "player100" OVER follow;
 | follow._dst |
 +-------------+
 | "player101" |
-+-------------+
 | "player125" |
 +-------------+
 Got 2 rows (time spent 2602/3214 us)
@@ -162,7 +161,6 @@ Fri, 20 Aug 2021 06:36:05 UTC
 | follow._dst |
 +-------------+
 | "player101" |
-+-------------+
 | "player125" |
 +-------------+
 Got 2 rows (time spent 583/849 us)
@@ -173,7 +171,6 @@ Fri, 20 Aug 2021 06:36:05 UTC
 | follow._dst |
 +-------------+
 | "player101" |
-+-------------+
 | "player125" |
 +-------------+
 Got 2 rows (time spent 496/671 us)

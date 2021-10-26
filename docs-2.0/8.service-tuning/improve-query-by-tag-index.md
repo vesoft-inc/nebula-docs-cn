@@ -27,7 +27,6 @@ nebula> MATCH (v:shareholder) RETURN v;
 | v                                                                   |
 +---------------------------------------------------------------------+
 | ("player100" :player{age: 42, name: "Tim Duncan"} :shareholder{})  |
-+---------------------------------------------------------------------+
 | ("player101" :player{age: 36, name: "Tony Parker"} :shareholder{}) |
 +---------------------------------------------------------------------+
 nebula> LOOKUP ON shareholder;
@@ -35,7 +34,6 @@ nebula> LOOKUP ON shareholder;
 | VertexID    |
 +-------------+
 | "player100" |
-+-------------+
 | "player101" |
 +-------------+
 

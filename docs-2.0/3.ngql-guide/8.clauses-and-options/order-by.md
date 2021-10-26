@@ -32,11 +32,8 @@ nebula> FETCH PROP ON player "player100", "player101", "player102", "player103" 
 | VertexID    | age | name                |
 +-------------+-----+---------------------+
 | "player103" | 32  | "Rudy Gay"          |
-+-------------+-----+---------------------+
 | "player102" | 33  | "LaMarcus Aldridge" |
-+-------------+-----+---------------------+
 | "player101" | 36  | "Tony Parker"       |
-+-------------+-----+---------------------+
 | "player100" | 42  | "Tim Duncan"        |
 +-------------+-----+---------------------+
 
@@ -47,7 +44,6 @@ nebula> $var = GO FROM "player100" OVER follow \
 | dst         |
 +-------------+
 | "player125" |
-+-------------+
 | "player101" |
 +-------------+
 ```
@@ -68,13 +64,9 @@ nebula> MATCH (v:player) RETURN v.name AS Name, v.age AS Age  \
 | Name            | Age |
 +-----------------+-----+
 | "Yao Ming"      | 38  |
-+-----------------+-----+
 | "Vince Carter"  | 42  |
-+-----------------+-----+
 | "Tracy McGrady" | 39  |
-+-----------------+-----+
 | "Tony Parker"   | 36  |
-+-----------------+-----+
 | "Tim Duncan"    | 42  |
 +-----------------+-----+
 ...
@@ -86,11 +78,8 @@ nebula> MATCH (v:player) RETURN v.age AS Age, v.name AS Name  \
 | Age | Name              |
 +-----+-------------------+
 | 47  | "Shaquille O'Neal" |
-+-----+-------------------+
 | 46  | "Grant Hill"      |
-+-----+-------------------+
 | 45  | "Jason Kidd"      |
-+-----+-------------------+
 | 45  | "Steve Nash"      |
 +-----+-------------------+
 ...
@@ -108,9 +97,7 @@ nebula> MATCH (v:player{name:"Tim Duncan"}) --> (v2) \
 | Name            | Age      |
 +-----------------+----------+
 | "Tony Parker"   | 36       |
-+-----------------+----------+
 | "Manu Ginobili" | 41       |
-+-----------------+----------+
 | "Spurs"         | __NULL__ |
 +-----------------+----------+
 
@@ -121,9 +108,7 @@ nebula> MATCH (v:player{name:"Tim Duncan"}) --> (v2) \
 | Name            | Age      |
 +-----------------+----------+
 | "Spurs"         | __NULL__ |
-+-----------------+----------+
 | "Manu Ginobili" | 41       |
-+-----------------+----------+
 | "Tony Parker"   | 36       |
 +-----------------+----------+
 ```
