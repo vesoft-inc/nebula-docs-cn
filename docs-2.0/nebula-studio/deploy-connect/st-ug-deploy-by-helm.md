@@ -2,10 +2,6 @@
 
 本文介绍如何在通过 Kubernetes 集群里用 Helm 来部署并启动 Studio。
 
-!!! Note
-
-    用户也可以在 [Studio](https://playground.nebula-graph.com.cn/explore) 在线试用部分功能。
-
 ## 前提条件
 
 安装 Studio 前，用户需要安装以下软件并确保安装版本的正确性：
