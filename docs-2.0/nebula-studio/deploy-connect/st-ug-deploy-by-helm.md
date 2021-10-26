@@ -16,7 +16,7 @@
 
 ## 安装
 
-1. 克隆 Nebula Graph Studio 的源代码到主机。
+1. 克隆 Studio 的源代码到主机。
 
    ```bash
    $ git clone https://github.com/vesoft-inc/nebula-studio.git
