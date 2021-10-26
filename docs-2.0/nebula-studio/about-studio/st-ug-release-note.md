@@ -4,6 +4,7 @@
 
 - 功能增强：
   - 适配 Nebula 2.6.0。
+  - 新增在 Kubernetes 集群里使用 Helm 部署并启动 Studio。
   - 图探索
     - 新增配置节点图标功能。
 
