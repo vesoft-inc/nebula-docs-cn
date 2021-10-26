@@ -92,10 +92,6 @@
 
 如果有子任务失败，请重新执行`BALANCE DATA`。如果重做负载均衡仍然不能解决问题，请到[Nebula Graph社区](https://discuss.nebula-graph.com.cn/)寻求帮助。
 
-!!! compatibility "历史版本兼容性"
-
-    在2.5.0之前的版本中，单副本的Nebula Graph不支持`BALANCE DATA`操作。
-
 ## 停止负载均衡任务
 
 停止负载均衡任务，请执行命令`BALANCE DATA STOP`。
