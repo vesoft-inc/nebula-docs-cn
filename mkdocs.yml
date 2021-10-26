@@ -149,6 +149,7 @@ nav:
         - 集合: 3.ngql-guide/3.data-types/7.set.md
         - 映射: 3.ngql-guide/3.data-types/8.map.md
         - 类型转换: 3.ngql-guide/3.data-types/9.type-conversion.md
+        - 地理位置: 3.ngql-guide/3.data-types/10.geography.md
 
       - 变量和复合查询:
         - 复合查询: 3.ngql-guide/4.variable-and-composite-queries/1.composite-queries.md
@@ -170,6 +171,7 @@ nav:
           - 字符串函数: 3.ngql-guide/6.functions-and-expressions/2.string.md
           - 日期时间函数: 3.ngql-guide/6.functions-and-expressions/3.date-and-time.md
           - Schema函数: 3.ngql-guide/6.functions-and-expressions/4.schema.md
+          - CASE表达式: 3.ngql-guide/6.functions-and-expressions/5.case-expressions.md
           - 列表函数: 3.ngql-guide/6.functions-and-expressions/6.list.md
           - count函数: 3.ngql-guide/6.functions-and-expressions/7.count.md
           - collect函数: 3.ngql-guide/6.functions-and-expressions/10.collect.md
@@ -177,8 +179,8 @@ nav:
           - hash函数: 3.ngql-guide/6.functions-and-expressions/12.hash.md
           - concat函数: 3.ngql-guide/6.functions-and-expressions/13.concat.md
           - 谓词函数: 3.ngql-guide/6.functions-and-expressions/8.predicate.md
+          - geo函数: 3.ngql-guide/6.functions-and-expressions/14.geo.md
           - 自定义函数: 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
-          - CASE表达式: 3.ngql-guide/6.functions-and-expressions/5.case-expressions.md
 
       - 通用查询语句:
           - MATCH: 3.ngql-guide/7.general-query-statements/2.match.md
