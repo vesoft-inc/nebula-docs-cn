@@ -4,7 +4,7 @@ Nebula Graph历史版本指低于Nebula Graph v2.0.0-GA的版本，本文介绍�
 
 !!! note
 
-    Nebula Graph v2.0.0-GA或更新版本升级至v{{nebula.release}}，请参见[Nebula Graph v2.0.x升级至v{{nebula.release}}](upgrade-nebula-from-200-to-250.md)。
+    Nebula Graph v2.0.0-GA或更新版本升级至v{{nebula.release}}，请参见[Nebula Graph v2.0.x升级至v{{nebula.release}}](upgrade-nebula-from-200-to-260.md)。
 
 ## 升级限制
 
