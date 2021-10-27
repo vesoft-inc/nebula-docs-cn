@@ -24,11 +24,11 @@ Nebula Graph支持多种类型客户端，包括CLI客户端、GUI客户端和�
 
         建议选择**最新**版本。
 
-    ![Select a Nebula Graph version and click **Assets**](../reuse/console-1.png "Click Assets to show the available Nebula Graph binary files")
+    ![Select a Nebula Graph version and click **Assets**](../reuse/console260.png "Click Assets to show the available Nebula Graph binary files")
 
 2. 在**Assets**区域找到机器运行所需的二进制文件，下载文件到机器上。
 
-    ![Click to download the package according to your hardware architecture](../reuse/assets-1.png "Click the package name to download it")
+    ![Click to download the package according to your hardware architecture](../reuse/assets260.png "Click the package name to download it")
 
 3. （可选）为方便使用，重命名文件为`nebula-console`。
 
@@ -89,6 +89,8 @@ Nebula Console提供部分命令，可以导出CSV文件、导出DOT文件、导
 
 ### 导出CSV文件
 
+CSV文件用于保存命令执行的返回结果。
+
 !!! note
 
     - CSV文件保存在当前工作目录中，即Linux命令`pwd`显示的目录。
@@ -102,6 +104,8 @@ nebula> :CSV <file_name.csv>
 ```
 
 ### 导出DOT文件
+
+DOT文件同样用于保存命令执行的返回结果，其保存的结果信息和CSV文件不同。
 
 !!! Note
 
