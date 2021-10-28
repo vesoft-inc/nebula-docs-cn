@@ -24,11 +24,11 @@ Nebula Graph支持多种类型客户端，包括CLI客户端、GUI客户端和�
 
         建议选择**最新**版本。
 
-    ![Select a Nebula Graph version and click **Assets**](../reuse/console.png "Click Assets to show the available Nebula Graph binary files")
+    ![Select a Nebula Graph version and click **Assets**](../reuse/console260.png "Click Assets to show the available Nebula Graph binary files")
 
 2. 在**Assets**区域找到机器运行所需的二进制文件，下载文件到机器上。
 
-    ![Click to download the package according to your hardware architecture](../reuse/assets.png "Click the package name to download it")
+    ![Click to download the package according to your hardware architecture](../reuse/assets260.png "Click the package name to download it")
 
 3. （可选）为方便使用，重命名文件为`nebula-console`。
 
@@ -77,7 +77,7 @@ Nebula Graph支持多种类型客户端，包括CLI客户端、GUI客户端和�
     | `-e/-eval` | 设置字符串类型的nGQL语句。连接成功后会执行一次该语句并返回结果，然后自动断开连接。 |
     | `-f/-file` | 设置存储nGQL语句的文件的路径。连接成功后会执行该文件内的nGQL语句并返回结果，执行完毕后自动断开连接。 |
 
-用户可以使用`./nebula-console --help`命令获取所有参数的说明，也可以在[项目仓库](https://github.com/vesoft-inc/nebula-console/tree/v2.0.0-ga)找到更多说明。
+用户可以使用`./nebula-console --help`命令获取所有参数的说明，也可以在[项目仓库](https://github.com/vesoft-inc/nebula-console/tree/{{console.branch}})找到更多说明。
 
 ## Nebula Console命令
 
@@ -88,6 +88,8 @@ Nebula Console提供部分命令，可以导出CSV文件、导出DOT文件、导
     命令不区分大小写。
 
 ### 导出CSV文件
+
+CSV文件用于保存命令执行的返回结果。
 
 !!! note
 
@@ -102,6 +104,8 @@ nebula> :CSV <file_name.csv>
 ```
 
 ### 导出DOT文件
+
+DOT文件同样用于保存命令执行的返回结果，其保存的结果信息和CSV文件不同。
 
 !!! Note
 
@@ -151,7 +155,6 @@ nebula> GO FROM "player100" OVER follow;
 | follow._dst |
 +-------------+
 | "player101" |
-+-------------+
 | "player125" |
 +-------------+
 Got 2 rows (time spent 2602/3214 us)
@@ -162,7 +165,6 @@ Fri, 20 Aug 2021 06:36:05 UTC
 | follow._dst |
 +-------------+
 | "player101" |
-+-------------+
 | "player125" |
 +-------------+
 Got 2 rows (time spent 583/849 us)
@@ -173,7 +175,6 @@ Fri, 20 Aug 2021 06:36:05 UTC
 | follow._dst |
 +-------------+
 | "player101" |
-+-------------+
 | "player125" |
 +-------------+
 Got 2 rows (time spent 496/671 us)
