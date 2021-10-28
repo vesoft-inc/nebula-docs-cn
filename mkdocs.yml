@@ -287,6 +287,7 @@ nav:
       - 编译与安装:
           - 使用源码安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md
           - 使用RPM/DEB包安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md
+          - 使用tar.gz文件安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/4.install-nebula-graph-from-tar.md
           - 使用Docker Compose部署: 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
           - 使用RPM/DEB包部署集群: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
       - 管理服务: 4.deployment-and-installation/manage-service.md
