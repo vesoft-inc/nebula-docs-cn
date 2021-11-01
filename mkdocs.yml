@@ -348,7 +348,7 @@ nav:
       - 快捷键: nebula-studio/about-studio/st-ug-shortcuts.md
     - 安装与登录:
       - 部署 Studio: nebula-studio/deploy-connect/st-ug-deploy.md
-      - 使用 Helm 部署 Nebula Graph Studio: nebula-studio/deploy-connect/st-ug-deploy-by-helm.md
+      - 使用 Helm 部署 Studio: nebula-studio/deploy-connect/st-ug-deploy-by-helm.md
       - 连接数据库: nebula-studio/deploy-connect/st-ug-connect.md
       - 清除连接: nebula-studio/deploy-connect/st-ug-reset-connection.md
     - 快速开始:

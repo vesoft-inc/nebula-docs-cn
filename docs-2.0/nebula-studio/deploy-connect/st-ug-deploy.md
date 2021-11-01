@@ -42,14 +42,14 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
    | 安装包 | 检验和 | Nebula版本 |
    | ----- | ----- | ----- |
-   | [nebula-graph-studio-{{studio.release}}-1.x86_64.rpm](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}-1.x86_64.rpm) |  [nebula-graph-studio-{{studio.release}}-1.x86_64.rpm.sha256](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}-1.x86_64.rpm.sha256) | {{ nebula.release }} |
+   | [nebula-graph-studio-{{studio.release}}.x86_64.rpm](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}.x86_64.rpm) |  [nebula-graph-studio-{{studio.release}}.x86_64.rpm.sha256](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}.x86_64.rpm.sha256) | {{ nebula.release }} |
 
 2. 使用`sudo rpm -i <rpm>`命令安装RPM包。
 
    例如，安装Studio {{studio.release}} 版本需要运行以下命令：
 
    ```bash
-   $ sudo rpm -i nebula-graph-studio-{{studio.release}}-1.x86_64.rpm
+   $ sudo rpm -i nebula-graph-studio-{{studio.release}}.x86_64.rpm
    ```
 
    当屏幕返回以下信息时，表示 PRM 版 Studio 已经成功启动。
@@ -71,7 +71,7 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 用户可以使用以下的命令卸载 Studio。
 
 ```bash
-$ sudo rpm -e nebula-graph-studio-{{studio.release}}-1.x86_64
+$ sudo rpm -e nebula-graph-studio-{{studio.release}}.x86_64
 ```
 
 ### 异常处理
@@ -135,12 +135,12 @@ $ npm run start
 
    | 安装包 | Studio 版本 |
    | --- | --- |
-   | [nebula-graph-studio-{{studio.release}}-1.x86_64.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}-1.x86_64.tar.gz) | {{studio.release}} |
+   | [nebula-graph-studio-{{studio.release}}.x86_64.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}.x86_64.tar.gz) | {{studio.release}} |
 
 2. 使用 `tar -xvf` 解压 tar 包。
 
    ```bash
-   tar -xvf nebula-graph-studio-{{studio.release}}-1.x86_64.tar.gz
+   tar -xvf nebula-graph-studio-{{studio.release}}.x86_64.tar.gz
    ```
 
 ### 部署
@@ -165,7 +165,7 @@ $ npm run start
 
   !!! caution
 
-        Studio {{nebula.release}} 版本不需要依赖于 nebula-importer，故安装部署方式与 Studio v3.0.0 不同。
+        Studio {{studio.release}} 版本不需要依赖于 nebula-importer，故安装部署方式与 Studio v3.0.0 不同。
 
 3. 启动成功后，在浏览器地址栏输入 `http://ip address:7001`。
    
@@ -220,18 +220,18 @@ $ npm run stop # stop nebula-graph-studio
 
    | 安装包 | Nebula Graph版本 |
    | ----- | ----- |
-   | [nebula-graph-studio-v3.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-v3.tar.gz) | {{nebula.release}} |
+   | [nebula-graph-studio-v{{studio.release}}.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-v{{studio.release}}.tar.gz) | {{nebula.release}} |
 
-2. 创建`nebula-graph-studio-v3`目录，并将安装包解压至目录中。
+2. 创建`nebula-graph-studio-v{{studio.release}}`目录，并将安装包解压至目录中。
 
    ```bash
-   mkdir nebula-graph-studio-v3 && tar -zxvf nebula-graph-studio-v3.tar.gz -C nebula-graph-studio-v3
+   mkdir nebula-graph-studio-v{{studio.release}} && tar -zxvf nebula-graph-studio-v{{studio.release}}.tar.gz -C nebula-graph-studio-v{{studio.release}}
    ```
 
-3. 解压后进入 `nebula-graph-studio-v3` 目录。
+3. 解压后进入 `nebula-graph-studio-v{{studio.release}}` 目录。
 
    ```bash
-   cd nebula-graph-studio-v3
+   cd nebula-graph-studio-v{{studio.release}}
    ```
 
 4. 拉取 Studio 的 Docker 镜像。
