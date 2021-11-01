@@ -10,12 +10,12 @@
     - 新增配置节点图标功能。
 
 - 修复：
-  - Schema:
+  - Schema
     - 修复以关键字命名的 Tag/Edge 或其下属性时会报错的问题。
     - 修复数据类型不完善的问题，补充 date/time/datetime/int32/int16/int8 等类型枚举。
 
 - 兼容：
-  - 去除 Studio 对 nebula-importer 的依赖，用 http-gateway 兼容相关功能.
+  - 去除 Studio 对 nebula-importer 的依赖，用 http-gateway 兼容相关功能。
 
 ## v3.0.0（2021.08.13）
 

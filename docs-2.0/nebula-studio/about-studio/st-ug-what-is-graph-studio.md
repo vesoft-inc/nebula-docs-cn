@@ -4,7 +4,7 @@ Nebula Graph Studio（简称 Studio）是一款可以通过 Web 访问的图数�
 
 ## 发行版本
 
-Studio 目前有四个发行版本：
+可以使用以下四种方式安装部署 Studio：
 
 - Docker 版本：用户可以使用 Docker 服务部署 Studio，并连接到 Nebula Graph 数据库。详细信息参考 [Docker 部署 Studio](../deploy-connect/st-ug-deploy.md)。
 - RPM 版本：用户可以使用 RPM 服务部署 Studio，并连接到 Nebula Graph 数据库。详细信息参考 [RPM 部署 Studio](../deploy-connect/st-ug-deploy.md)。

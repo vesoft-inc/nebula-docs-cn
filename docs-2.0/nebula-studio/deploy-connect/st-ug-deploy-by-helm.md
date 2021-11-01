@@ -14,20 +14,21 @@
 
 1. 克隆 Studio 的源代码到主机。
 
-   ```bash
-   $ git clone https://github.com/vesoft-inc/nebula-studio.git
-   ```
+  ```bash
+  $ git clone https://github.com/vesoft-inc/nebula-studio.git
+  ```
 
 2. 进入`nebula-studio`目录。
 
-   ```bash
-   $ cd nebula-studio
-   ```
+  ```bash
+  $ cd nebula-studio
+  ```
 
 3. 安装 Studio 到 Helm Chart，命名为 `my-studio`。
-   ```bash
-   $ helm upgrade --install my-studio --set service.type=NodePort --set service.port=30070 deployment/helm
-   ```
+
+  ```bash
+  $ helm upgrade --install my-studio --set service.type=NodePort --set service.port=30070 deployment/helm
+  ```
 
 4. 启动成功后，在浏览器地址栏输入 `http://address-of-node:30070/`。
    如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Studio。
