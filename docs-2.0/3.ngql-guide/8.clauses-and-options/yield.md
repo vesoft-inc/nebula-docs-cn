@@ -50,7 +50,6 @@ YIELD [DISTINCT] <col> [AS <alias>] [, <col> [AS <alias>] ...];
     | Friend          | Age |
     +-----------------+-----+
     | "Tony Parker"   | 36  |
-    +-----------------+-----+
     | "Manu Ginobili" | 41  |
     +-----------------+-----+
     ```
@@ -122,7 +121,6 @@ nebula> $var1 = GO FROM "player101" OVER follow \
 | ID          |
 +-------------+
 | "player100" |
-+-------------+
 | "player125" |
 +-------------+
 ```

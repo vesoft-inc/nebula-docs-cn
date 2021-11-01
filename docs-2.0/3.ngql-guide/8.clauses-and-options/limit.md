@@ -54,9 +54,7 @@ nebula> GO FROM "player100" OVER follow REVERSELY \
 | Friend            | Age |
 +-------------------+-----+
 | "Danny Green"     | 31  |
-+-------------------+-----+
 | "Aron Baynes"     | 32  |
-+-------------------+-----+
 | "Marco Belinelli" | 32  |
 +-------------------+-----+
 ```
@@ -125,13 +123,9 @@ nebula> MATCH (v:player) RETURN v.name AS Name, v.age AS Age \
 | Name                    | Age |
 +-------------------------+-----+
 | "Luka Doncic"           | 20  |
-+-------------------------+-----+
 | "Ben Simmons"           | 22  |
-+-------------------------+-----+
 | "Kristaps Porzingis"    | 23  |
-+-------------------------+-----+
 | "Giannis Antetokounmpo" | 24  |
-+-------------------------+-----+
 | "Kyle Anderson"         | 25  |
 +-------------------------+-----+
 
@@ -141,11 +135,8 @@ nebula> MATCH (v:player) RETURN v.name AS Name, v.age AS Age \
 | Name                    | Age |
 +-------------------------+-----+
 | "Luka Doncic"           | 20  |
-+-------------------------+-----+
 | "Ben Simmons"           | 22  |
-+-------------------------+-----+
 | "Kristaps Porzingis"    | 23  |
-+-------------------------+-----+
 | "Giannis Antetokounmpo" | 24  |
 +-------------------------+-----+
 ```
@@ -162,7 +153,6 @@ nebula> MATCH (v:player{name:"Tim Duncan"}) --> (v2) \
 | Name            | Age |
 +-----------------+-----+
 | "Manu Ginobili" | 41  |
-+-----------------+-----+
 | "Tony Parker"   | 36  |
 +-----------------+-----+
 
