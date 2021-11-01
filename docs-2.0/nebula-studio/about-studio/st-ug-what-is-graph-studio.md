@@ -15,7 +15,7 @@ Nebula Graph Studio（简称 Studio）是一款可以通过 Web 访问的图数�
 - 云服务版本：用户可以在 Nebula Graph Cloud Service 上创建 Nebula Graph 数据库实例，并一键直连云服务版 Studio。详细信息参考 [Nebula Graph Cloud Service 用户手册](https://cloud-docs.nebula-graph.com.cn/cn/posts/manage-instances/dbaas-ug-connect-nebulastudio/ "点击前往 Nebula Graph Cloud Service 用户手册")。
 -->
 
-三个发行版本功能基本相同，在使用 Studio 时可能会受到限制。详细信息，参考 [使用限制](st-ug-limitations.md)。
+四种部署方式功能基本相同，在使用 Studio 时可能会受到限制。详细信息，参考 [使用限制](st-ug-limitations.md)。
 
 ## 产品功能
 
