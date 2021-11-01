@@ -1,6 +1,6 @@
 # Nebula Algorithm
 
-[Nebula Algorithm](https://github.com/vesoft-inc/nebula-spark-utils/tree/master/nebula-algorithm) （简称Algorithm）是一款基于[GraphX](https://spark.apache.org/graphx/)的Spark应用程序，通过提交Spark任务的形式使用完整的算法工具对Nebula Graph数据库中的数据执行图计算，也可以通过编程形式调用lib库下的算法针对DataFrame执行图计算。
+[Nebula Algorithm](https://github.com/vesoft-inc/nebula-algorithm) （简称Algorithm）是一款基于[GraphX](https://spark.apache.org/graphx/)的Spark应用程序，通过提交Spark任务的形式使用完整的算法工具对Nebula Graph数据库中的数据执行图计算，也可以通过编程形式调用lib库下的算法针对DataFrame执行图计算。
 
 ## 前提条件
 
@@ -48,22 +48,22 @@ Nebula Algorithm实现图计算的流程如下：
 
 3. 调用GraphX提供的图算法（例如PageRank）或者自行实现的算法（例如Louvain社区发现）。
 
-详细的实现方法可以参见相关[Scala文件](https://github.com/vesoft-inc/nebula-spark-utils/tree/master/nebula-algorithm/src/main/scala/com/vesoft/nebula/algorithm/lib)。
+详细的实现方法可以参见相关[Scala文件](https://github.com/vesoft-inc/nebula-algorithm/tree/master/nebula-algorithm/src/main/scala/com/vesoft/nebula/algorithm/lib)。
 
 ## 获取Nebula Algorithm
 
 ### 编译打包
 
-1. 克隆仓库`nebula-spark-utils`。
+1. 克隆仓库`nebula-algorithm`。
 
   ```bash
-  $ git clone -b {{algorithm.branch}} https://github.com/vesoft-inc/nebula-spark-utils.git
+  $ git clone -b {{algorithm.branch}} https://github.com/vesoft-inc/nebula-algorithm.git
   ```
 
 2. 进入目录`nebula-algorithm`。
 
   ```bash
-  $ cd nebula-spark-utils/nebula-algorithm
+  $ cd nebula-algorithm
   ```
 
 3. 编译打包。
@@ -88,15 +88,16 @@ Nebula Algorithm实现图计算的流程如下：
 
   ```bash
   <dependency>
-  <groupId>com.vesoft</groupId>
-  <artifactId>nebula-algorithm</artifactId>
-  <version>{{algorithm.release}}</version>
+       <groupId>com.vesoft</groupId>
+       <artifactId>nebula-algorithm</artifactId>
+       <version>{{algorithm.release}}</version>
   </dependency>
   ```
 
-2. 传入参数调用算法（以PageRank为例）。更多算法请参见[测试用例](https://github.com/vesoft-inc/nebula-spark-utils/tree/master/nebula-algorithm/src/test/scala/com/vesoft/nebula/algorithm/lib)。
+2. 传入参数调用算法（以PageRank为例）。更多算法请参见[测试用例](https://github.com/vesoft-inc/nebula-algorithm/tree/master/nebula-algorithm/src/test/scala/com/vesoft/nebula/algorithm/lib)。
 
   !!! note
+
         执行算法的DataFrame默认第一列是起始点，第二列是目的点，第三列是边权重（非Nebula Graph中的Rank）。
 
   ```bash
@@ -109,7 +110,7 @@ Nebula Algorithm实现图计算的流程如下：
 !!! note
     使用封装好的算法包有一定的局限性，例如落库到Nebula Graph时，落库的图空间中创建的Tag的属性名称必须和代码内预设的名称保持一致。如果用户有开发能力，推荐使用第一种方法。
 
-1. 设置[配置文件](https://github.com/vesoft-inc/nebula-spark-utils/blob/{{algorithm.branch}}/nebula-algorithm/src/main/resources/application.conf)。
+1. 设置[配置文件](https://github.com/vesoft-inc/nebula-algorithm/blob/{{algorithm.branch}}/nebula-algorithm/src/main/resources/application.conf)。
 
   ```bash
   {
@@ -266,7 +267,7 @@ Nebula Algorithm实现图计算的流程如下：
   示例：
 
   ```bash
-  ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.algorithm.Main /root/nebula-spark-utils/nebula-algorithm/target/nebula-algorithm-{{algorithm.release}}.jar -p /root/nebula-spark-utils/nebula-algorithm/src/main/resources/application.conf
+  ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.algorithm.Main /root/nebula-algorithm/target/nebula-algorithm-{{algorithm.release}}.jar -p /root/nebula-algorithm/src/main/resources/application.conf
   ```
 
 ## 视频

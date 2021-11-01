@@ -4,7 +4,7 @@ Nebula Graph历史版本指低于Nebula Graph v2.0.0-GA的版本，本文介绍�
 
 !!! note
 
-    Nebula Graph v2.0.0-GA或更新版本升级至v{{nebula.release}}，请参见[Nebula Graph v2.0.x升级至v{{nebula.release}}](upgrade-nebula-from-200-to-250.md)。
+    Nebula Graph v2.0.0-GA或更新版本升级至v{{nebula.release}}，请参见[Nebula Graph v2.0.x升级至v{{nebula.release}}](upgrade-nebula-from-200-to-260.md)。
 
 ## 升级限制
 
@@ -273,7 +273,7 @@ Nebula Graph历史版本指低于Nebula Graph v2.0.0-GA的版本，本文介绍�
 
 11.  升级其他客户端。
 
-    所有的客户端都必须升级到支持Nebula Graph v{{nebula.release}}  的版本。包括但不限于[Python](https://github.com/vesoft-inc/nebula-python)、[Java](https://github.com/vesoft-inc/nebula-java)、[go](https://github.com/vesoft-inc/nebula-go)、[C++](https://github.com/vesoft-inc/nebula-cpp)、[Flink-connector](https://github.com/vesoft-inc/nebula-flink-connector)、[Spark-util](https://github.com/vesoft-inc/nebula-spark-utils)、[Nebula Bench](https://github.com/vesoft-inc/nebula-bench)。请找到各 repo 对应的 branch。
+    所有的客户端都必须升级到支持Nebula Graph v{{nebula.release}}  的版本。包括但不限于[Python](https://github.com/vesoft-inc/nebula-python)、[Java](https://github.com/vesoft-inc/nebula-java)、[go](https://github.com/vesoft-inc/nebula-go)、[C++](https://github.com/vesoft-inc/nebula-cpp)、[Flink-connector](https://github.com/vesoft-inc/nebula-flink-connector)、[Algorithm](https://github.com/vesoft-inc/nebula-algorithm)、[Exchange](https://github.com/vesoft-inc/nebula-exchange)、[Spark-connector](https://github.com/vesoft-inc/nebula-spark-connector)、[Nebula Bench](https://github.com/vesoft-inc/nebula-bench)。请找到各 repo 对应的 branch。
 
   !!! Note
 

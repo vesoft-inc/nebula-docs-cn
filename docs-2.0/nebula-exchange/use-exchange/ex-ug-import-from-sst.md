@@ -6,7 +6,7 @@
 
 - 仅Linux系统支持导入SST文件。
 
-- 不支持属性的Default值。因为是直接替换文件，在Schema中设置Default值无法生效。
+- 不支持属性的Default值。
 
 ## 背景信息
 
@@ -246,7 +246,7 @@ SST文件是一个内部包含了任意长度的有序键值对集合的文件�
       }
 
       # 指定CSV文件的路径。
-      # 文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx.csv"。
       path: "hdfs://*.*.*.*:9000/dataset/vertex_player.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
@@ -291,7 +291,7 @@ SST文件是一个内部包含了任意长度的有序键值对集合的文件�
       }
 
       # 指定CSV文件的路径。
-      # 文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx.csv"。
       path: "hdfs://*.*.*.*:9000/dataset/vertex_team.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
@@ -341,7 +341,7 @@ SST文件是一个内部包含了任意长度的有序键值对集合的文件�
       }
 
       # 指定CSV文件的路径。
-      # 文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx.csv"。
       path: "hdfs://*.*.*.*:9000/dataset/edge_follow.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
@@ -393,7 +393,7 @@ SST文件是一个内部包含了任意长度的有序键值对集合的文件�
       }
 
       # 指定CSV文件的路径。
-      # 文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx.csv"。
       path: "hdfs://*.*.*.*:9000/dataset/edge_serve.csv"
 
       # 如果CSV文件没有表头，使用[_c0, _c1, _c2, ..., _cn]表示其表头，并将列指示为属性值的源。
@@ -451,7 +451,7 @@ ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchan
 示例：
 
 ```bash
-${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-spark-utils/nebula-exchange/target/nebula-exchange-{{exchange.release}}.jar  -c /root/nebula-spark-utils/nebula-exchange/target/classes/sst_application.conf
+${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-exchange/nebula-exchange/target/nebula-exchange-{{exchange.release}}.jar  -c /root/nebula-exchange/nebula-exchange/target/classes/sst_application.conf
 ```
 
 任务执行完成后，可以在HDFS上的`/sst`目录（`nebula.path.remote`参数指定）内查看到生成的SST文件。
@@ -500,7 +500,7 @@ ${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.excha
 
 !!! note
 
-    - 如果需要重新下载，请在Nebula Graph安装路径内的`data/storage/nebula`目录内，将对应Space ID目录内的`download`文件夹删除，然后重新下载SST文件。如果是图空间是多副本，保存副本的所有机器都需要删除`download`文件夹。
+    - 如果需要重新下载，请在Nebula Graph安装路径内的`data/storage/nebula`目录内，将对应Space ID目录内的`download`文件夹删除，然后重新下载SST文件。如果图空间是多副本，保存副本的所有机器都需要删除`download`文件夹。
 
     - 如果导入时出现问题需要重新导入，重新执行`INGEST;`即可。
 
