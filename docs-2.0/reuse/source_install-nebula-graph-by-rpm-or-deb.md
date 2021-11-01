@@ -119,7 +119,7 @@ RPM和DEB是Linux系统下常见的两种安装包格式，本文介绍如何使
   $ sudo rpm -ivh --prefix=<installation_path> <package_name>
   ```
 
-  例如安装在默认路径下{{nebula.release}}版本的RPM包：
+  例如在默认路径下安装{{nebula.release}}版本的RPM包：
 
   ```bash
   sudo rpm -ivh nebula-graph-{{nebula.release}}.el7.x86_64.rpm
@@ -131,7 +131,7 @@ RPM和DEB是Linux系统下常见的两种安装包格式，本文介绍如何使
   $ sudo dpkg -i --instdir==<installation_path> <package_name>
   ```
 
-  例如安装在默认路径下{{nebula.release}}版本的DEB包：
+  例如在默认路径下安装{{nebula.release}}版本的DEB包：
 
   ```bash
   sudo dpkg -i nebula-graph-{{nebula.release}}.ubuntu1804.amd64.deb
