@@ -274,7 +274,7 @@ sudo /usr/local/nebula/scripts/nebula.service start <metad|graphd|storaged|all>
 
 !!! note
 
-    — 确保每个服务器中的对应进程都已启动，否则服务将启动失败。
+    - 确保每个服务器中的对应进程都已启动，否则服务将启动失败。
 
     - 当需都启动graphd、storaged和metad时，可以用all代替。
 
