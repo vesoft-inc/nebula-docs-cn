@@ -378,27 +378,6 @@ nav:
       - 无法访问 Studio: nebula-studio/troubleshooting/st-ug-connection-errors.md
       - Studio 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
 
-  - Nebula Dashboard:
-      - 什么是Nebula Dashboard: nebula-dashboard/1.what-is-dashboard.md
-      - 部署Dashboard: nebula-dashboard/2.deploy-dashboard.md
-      - 连接Dashboard: nebula-dashboard/3.connect-dashboard.md
-      - Dashboard页面介绍: nebula-dashboard/4.use-dashboard.md
-      - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
-
-  - Nebula Explorer:
-      - 什么是Nebula Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
-      - 安装与登录:
-        - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
-        - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
-        - 清除连接: nebula-explorer/deploy-connect/ex-ug-reset-connection.md
-      - 操作指南:
-        - 页面概览: nebula-explorer/operation-guide/ex-ug-page-overview.md
-        - 查询探索: nebula-explorer/operation-guide/ex-ug-query-exploration.md
-        - 图探索拓展: nebula-explorer/operation-guide/ex-ug-graph-exploration.md
-        - 画布操作: nebula-explorer/operation-guide/ex-ug-canvas.md
-        - 关系列表: nebula-explorer/operation-guide/ex-ug-relationship-list.md
-        - 快捷键: nebula-explorer/operation-guide/ex-ug-shortcuts.md
-
 #  - Nebula Dashboard:
 #      - 什么是Nebula Dashboard: nebula-dashboard/1.what-is-dashboard.md
 #      - 部署Dashboard: nebula-dashboard/2.deploy-dashboard.md
@@ -449,16 +428,16 @@ nav:
       - 导入SST文件数据: nebula-exchange/use-exchange/ex-ug-import-from-sst.md
     - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
 
-  - Nebula Operator:
-      - 什么是Nebula Operator: nebula-operator/1.introduction-to-nebula-operator.md
-      - 使用流程: nebula-operator/6.get-started-with-operator.md
-      - 部署Nebula Operator: nebula-operator/2.deploy-nebula-operator.md
-      - 部署Nebula Graph集群: 
-        - 使用Kubectl部署Nebula Graph集群: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
-        - 使用Helm部署Nebula Graph集群: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
-      - 连接Nebula Graph数据库: nebula-operator/4.connect-to-nebula-graph-service.md
-      - 故障自愈: nebula-operator/5.operator-failover.md
-      - 常见问题: nebula-operator/7.operator-faq.md
+#  - Nebula Operator:
+#      - 什么是Nebula Operator: nebula-operator/1.introduction-to-nebula-operator.md
+#      - 使用流程: nebula-operator/6.get-started-with-operator.md
+#      - 部署Nebula Operator: nebula-operator/2.deploy-nebula-operator.md
+#      - 部署Nebula Graph集群: 
+#        - 使用Kubectl部署Nebula Graph集群: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
+#        - 使用Helm部署Nebula Graph集群: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
+#      - 连接Nebula Graph数据库: nebula-operator/4.connect-to-nebula-graph-service.md
+#      - 故障自愈: nebula-operator/5.operator-failover.md
+#      - 常见问题: nebula-operator/7.operator-faq.md
 
   - Nebula Algorithm: nebula-algorithm.md
 
