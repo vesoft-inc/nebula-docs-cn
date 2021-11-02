@@ -35,7 +35,6 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
   | ---- | ---- |
   | 7001 | Studio提供web服务使用。 |
   | 8080 | Nebula HTTP Gateway Client进行HTTP通信使用。 |
-  | 5699 | Nebula Importer导入数据导入使用。 |
 
 ### 安装
 
@@ -43,14 +42,14 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
    | 安装包 | 检验和 | Nebula版本 |
    | ----- | ----- | ----- |
-   | [nebula-graph-studio-{{studio.release}}-1.x86_64.rpm](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}-1.x86_64.rpm) |  [nebula-graph-studio-{{studio.release}}-1.x86_64.rpm.sha256](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}-1.x86_64.rpm.sha256) | {{ nebula.release }} |
+   | [nebula-graph-studio-{{studio.release}}.x86_64.rpm](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}.x86_64.rpm) |  [nebula-graph-studio-{{studio.release}}.x86_64.rpm.sha256](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}.x86_64.rpm.sha256) | {{ nebula.release }} |
 
 2. 使用`sudo rpm -i <rpm>`命令安装RPM包。
 
    例如，安装Studio {{studio.release}} 版本需要运行以下命令：
 
    ```bash
-   $ sudo rpm -i nebula-graph-studio-{{studio.release}}-1.x86_64.rpm
+   $ sudo rpm -i nebula-graph-studio-{{studio.release}}.x86_64.rpm
    ```
 
    当屏幕返回以下信息时，表示 PRM 版 Studio 已经成功启动。
@@ -58,8 +57,6 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
    ```bash
    egg started on http://0.0.0.0:7001
    nohup: 把输出追加到"nohup.out"
-   --- START OF NEBULA IMPORTER ---
-   [INFO] httpserver.go:80: Starting http server on 5699
    ```
 
 
@@ -74,7 +71,7 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 用户可以使用以下的命令卸载 Studio。
 
 ```bash
-$ sudo rpm -e nebula-graph-studio-{{studio.release}}-1.x86_64
+$ sudo rpm -e nebula-graph-studio-{{studio.release}}.x86_64
 ```
 
 ### 异常处理
@@ -83,12 +80,12 @@ $ sudo rpm -e nebula-graph-studio-{{studio.release}}-1.x86_64
 
 - 手动启动服务
 ```bash
-$ bash /usr/local/nebula-graph-studio/scripts/start.sh
+$ bash /usr/local/nebula-graph-studio/scripts/rpm/start.sh
 ```
 
 - 手动停止服务
 ```bash  
-$ bash /usr/local/nebula-graph-studio/scripts/stop.sh
+$ bash /usr/local/nebula-graph-studio/scripts/rpm/stop.sh
 ```
 
 如果启动服务时遇到报错报错 ERROR: bind EADDRINUSE 0.0.0.0:7001，用户可以通过以下命令查看端口7001是否被占用。
@@ -131,7 +128,6 @@ $ npm run start
    | ---- | ---- |
    | 7001 | Studio提供的web服务 |
    | 8080 | Nebula-http-gateway，Client的HTTP服务 |
-   | 5699 | Nebula importer文件导入工具，数据导入服务 |
 
 ### 安装
 
@@ -139,42 +135,39 @@ $ npm run start
 
    | 安装包 | Studio 版本 |
    | --- | --- |
-   | [nebula-graph-studio-{{studio.release}}-1.x86_64.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}-1.x86_64.tar.gz) | {{studio.release}} |
+   | [nebula-graph-studio-{{studio.release}}.x86_64.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}.x86_64.tar.gz) | {{studio.release}} |
 
 2. 使用 `tar -xvf` 解压 tar 包。
 
    ```bash
-   tar -xvf nebula-graph-studio-{{studio.release}}-1.x86_64.tar.gz
+   tar -xvf nebula-graph-studio-{{studio.release}}.x86_64.tar.gz
    ```
 
 ### 部署
 
 !!! Note
 
-    根目录 nebula-graph-studio 下一共有三安装包：nebula-graph-studio，nebula-importer 和 nebula-http-gateway。用户需要在同一台机器上分别部署并启动服务，才能完成 Studio 的部署。
+    根目录 nebula-graph-studio 下一共有两个安装包：nebula-graph-studio 和 nebula-http-gateway。用户需要在同一台机器上分别部署并启动服务，才能完成 Studio 的部署。
 
-1. 部署 nebula-importer 并启动。
-
-   ```bash
-   $ cd nebula-importer
-   $ ./nebula-importer --port 5699 --callback "http://0.0.0.0:7001/api/import/finish" &
-   ```
-
-2. 部署 nebula-http-gateway 并启动。
+1. 部署 nebula-http-gateway 并启动。
 
    ```bash
    $ cd nebula-http-gateway
    $ nohup ./nebula-httpd &
    ```
 
-3. 部署 nebula-graph-studio 并启动。
+2. 部署 nebula-graph-studio 并启动。
    
    ```bash
    $ cd nebula-graph-studio
    $ npm run start
    ```
 
-4.启动成功后，在浏览器地址栏输入 `http://ip address:7001`。
+  !!! caution
+
+        Studio {{studio.release}} 版本不需要依赖于 nebula-importer，故安装部署方式与 Studio v3.0.0 不同。
+
+3. 启动成功后，在浏览器地址栏输入 `http://ip address:7001`。
    
    如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Studio。
 
@@ -185,7 +178,6 @@ $ npm run start
 
 用户可以采用 `kill pid` 的方式来关停服务：
 ```bash
-$ kill $(lsof -t -i :5699) # stop nebula-importer
 $ kill $(lsof -t -i :8080) # stop nebula-http-gateway
 $ cd nebula-graph-studio
 $ npm run stop # stop nebula-graph-studio
@@ -205,7 +197,6 @@ $ npm run stop # stop nebula-graph-studio
    | ---- | ---- |
    | 7001 | Studio提供的web服务 |
    | 8080 | Nebula-http-gateway，Client的HTTP服务 |
-   | 5699 | Nebula importer文件导入工具，数据导入服务 |
 
 - （可选）在中国大陆从 Docker Hub 拉取 Docker 镜像的速度可能比较慢，用户可以使用 `registry-mirrors` 参数配置加速镜像。例如，如果要使用 Docker 中国区官方镜像、网易镜像和中国科技大学的镜像，则按以下格式配置 `registry-mirrors` 参数：
 
@@ -229,18 +220,18 @@ $ npm run stop # stop nebula-graph-studio
 
    | 安装包 | Nebula Graph版本 |
    | ----- | ----- |
-   | [nebula-graph-studio-v3.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-v3.tar.gz) | {{nebula.release}} |
+   | [nebula-graph-studio-v{{studio.release}}.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-v{{studio.release}}.tar.gz) | {{nebula.release}} |
 
-2. 创建`nebula-graph-studio-v3`目录，并将安装包解压至目录中。
+2. 创建`nebula-graph-studio-v{{studio.release}}`目录，并将安装包解压至目录中。
 
    ```bash
-   mkdir nebula-graph-studio-v3 && tar -zxvf nebula-graph-studio-v3.tar.gz -C nebula-graph-studio-v3
+   mkdir nebula-graph-studio-v{{studio.release}} && tar -zxvf nebula-graph-studio-v{{studio.release}}.tar.gz -C nebula-graph-studio-v{{studio.release}}
    ```
 
-3. 解压后进入 `nebula-graph-studio-v3` 目录。
+3. 解压后进入 `nebula-graph-studio-v{{studio.release}}` 目录。
 
    ```bash
-   cd nebula-graph-studio-v3
+   cd nebula-graph-studio-v{{studio.release}}
    ```
 
 4. 拉取 Studio 的 Docker 镜像。
@@ -258,7 +249,6 @@ $ npm run stop # stop nebula-graph-studio
    当屏幕返回以下信息时，表示 Docker 版 Studio 已经成功启动。
 
    ```bash
-   Creating docker_importer_1 ... done
    Creating docker_client_1   ... done
    Creating docker_web_1      ... done
    Creating docker_nginx_1    ... done

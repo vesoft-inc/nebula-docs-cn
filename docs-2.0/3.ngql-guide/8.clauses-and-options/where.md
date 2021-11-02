@@ -141,6 +141,7 @@ nebula> MATCH (v:player) \
 | "Boris Diaw"            | 36    |
 | "DeAndre Jordan"        | 30    |
 +-------------------------+-------+
+...
 ```
 
 ### 过滤rank
@@ -301,7 +302,9 @@ nebula> MATCH (v:player) \
 | "Joel Embiid"           | 25    |
 +-------------------------+-------+
 
-nebula> LOOKUP ON player WHERE player.age IN [25,28]  YIELD properties(vertex).name, properties(vertex).age;
+nebula> LOOKUP ON player \
+        WHERE player.age IN [25,28]  \
+        YIELD properties(vertex).name, properties(vertex).age;
 +-------------+-------------------------+------------------------+
 | VertexID    | properties(VERTEX).name | properties(VERTEX).age |
 +-------------+-------------------------+------------------------+
