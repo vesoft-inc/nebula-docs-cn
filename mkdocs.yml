@@ -234,6 +234,7 @@ nav:
           - SHOW TAGS: 3.ngql-guide/10.tag-statements/4.show-tags.md
           - DESCRIBE TAG: 3.ngql-guide/10.tag-statements/5.describe-tag.md
           - DELETE TAG: 3.ngql-guide/10.tag-statements/6.delete-tag.md
+          - 增加和删除标签: 3.ngql-guide/10.tag-statements/improve-query-by-tag-index.md
       - Edge type语句:
           - CREATE EDGE: 3.ngql-guide/11.edge-type-statements/1.create-edge.md
           - DROP EDGE: 3.ngql-guide/11.edge-type-statements/2.drop-edge.md
@@ -334,7 +335,6 @@ nav:
       - 系统建模: 8.service-tuning/3.system-design.md
       - 执行计划: 8.service-tuning/4.plan.md
       - 超级节点(稠密点): 8.service-tuning/super-node.md
-      - 增加和删除标签: 8.service-tuning/improve-query-by-tag-index.md
       - 实践案例: 8.service-tuning/practice.md
 
 
@@ -507,6 +507,10 @@ plugins:
       glob:
 # Exclude all files in a directory. The path starts with the directory name in docs-2.0, such as `20.appendix/*`.
         - 7.data-security/2.backup-restore/*
+        - nebula-flink/*
+        - CHANGELOG.md
+        - spark-connector/*
+        - reuse/*
 # Exclude the file with the following file name.
 #        - abc.md
 # Exclude files with regular expressions (regexes)
