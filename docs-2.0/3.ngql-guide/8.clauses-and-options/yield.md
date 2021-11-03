@@ -24,7 +24,7 @@
 
 !!! note
     下文示例中的`$$`、`$-`等是引用符号，详情请参见[引用符](../5.operators/5.property-reference.md)。
- 
+
 ## YIELD子句
 
 ### 语法
@@ -45,12 +45,11 @@ YIELD [DISTINCT] <col> [AS <alias>] [, <col> [AS <alias>] ...];
 
     ```ngql
     nebula> GO FROM "player100" OVER follow \
-            YIELD $$.player.name AS Friend, $$.player.age AS Age;
+            YIELD properties($$).name AS Friend, properties($$).age AS Age;
     +-----------------+-----+
     | Friend          | Age |
     +-----------------+-----+
     | "Tony Parker"   | 36  |
-    +-----------------+-----+
     | "Manu Ginobili" | 41  |
     +-----------------+-----+
     ```
@@ -59,24 +58,24 @@ YIELD [DISTINCT] <col> [AS <alias>] [, <col> [AS <alias>] ...];
 
     ```ngql
     nebula> FETCH PROP ON player "player100" \
-            YIELD player.name;
-    +-------------+--------------+
-    | VertexID    | player.name  |
-    +-------------+--------------+
-    | "player100" | "Tim Duncan" |
-    +-------------+--------------+
+            YIELD properties(vertex).name;
+    +-------------+-------------------------+
+    | VertexID    | properties(VERTEX).name |
+    +-------------+-------------------------+
+    | "player100" | "Tim Duncan"            |
+    +-------------+-------------------------+
     ```
 
 - `LOOKUP`语句中使用`YIELD`：
 
     ```ngql
     nebula> LOOKUP ON player WHERE player.name == "Tony Parker" \
-            YIELD player.name, player.age;
-    =======================================
-    | VertexID | player.name | player.age |
-    =======================================
-    | 101      | Tony Parker | 36         |
-    ---------------------------------------
+            YIELD properties(vertex).name, properties(vertex).age;
+    +-------------+-------------------------+------------------------+
+    | VertexID    | properties(VERTEX).name | properties(VERTEX).age |
+    +-------------+-------------------------+------------------------+
+    | "player101" | "Tony Parker"           | 36                     |
+    +-------------+-------------------------+------------------------+
     ```
 
 ## YIELD语句
@@ -102,9 +101,9 @@ YIELD [DISTINCT] <col> [AS <alias>] [, <col> [AS <alias>] ...]
 ```ngql
 # 查找player100关注的player，并计算他们的平均年龄。
 nebula> GO FROM "player100" OVER follow \
-        YIELD follow._dst AS ID \
+        YIELD dst(edge) AS ID \
         | FETCH PROP ON player $-.ID \
-        YIELD player.age AS Age \
+        YIELD properties(vertex).age AS Age \
         | YIELD AVG($-.Age) as Avg_age, count(*)as Num_friends;
 +---------+-------------+
 | Avg_age | Num_friends |
@@ -116,13 +115,12 @@ nebula> GO FROM "player100" OVER follow \
 ```ngql
 # 查找player101关注的player，返回degree大于90的player。
 nebula> $var1 = GO FROM "player101" OVER follow \
-        YIELD follow.degree AS Degree, follow._dst as ID; \
+        YIELD properties(edge).degree AS Degree, dst(edge) as ID; \
         YIELD $var1.ID AS ID WHERE $var1.Degree > 90;
 +-------------+
 | ID          |
 +-------------+
 | "player100" |
-+-------------+
 | "player125" |
 +-------------+
 ```

@@ -165,7 +165,7 @@
 
       # 指定ORC文件的路径。
       # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
-      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.orc"。
       path: "hdfs://192.168.*.*:9000/data/vertex_player.orc"
 
       # 在fields里指定ORC文件中key名称，其对应的value会作为Nebula Graph中指定属性的数据源。
@@ -204,7 +204,7 @@
 
       # 指定ORC文件的路径。
       # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
-      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.orc"。
       path: "hdfs://192.168.*.*:9000/data/vertex_team.orc"
 
       # 在fields里指定ORC文件中key名称，其对应的value会作为Nebula Graph中指定属性的数据源。
@@ -249,7 +249,7 @@
 
       # 指定ORC文件的路径。
       # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
-      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.orc"。
       path: "hdfs://192.168.*.*:9000/data/edge_follow.orc"
 
       # 在fields里指定ORC文件中key名称，其对应的value会作为Nebula Graph中指定属性的数据源。
@@ -295,7 +295,7 @@
 
       # 指定ORC文件的路径。
       # 如果文件存储在HDFS上，用双引号括起路径，以hdfs://开头，例如"hdfs://ip:port/xx/xx"。
-      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.csv"。
+      # 如果文件存储在本地，用双引号括起路径，以file://开头，例如"file:///tmp/xx.orc"。
       path: "hdfs://192.168.*.*:9000/data/edge_serve.orc"
 
       # 在fields里指定ORC文件中key名称，其对应的value会作为Nebula Graph中指定属性的数据源。
@@ -348,7 +348,7 @@ ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchan
 示例：
 
 ```bash
-${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-spark-utils/nebula-exchange/target/nebula-exchange-{{exchange.release}}.jar  -c /root/nebula-spark-utils/nebula-exchange/target/classes/orc_application.conf
+${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-exchange/nebula-exchange/target/nebula-exchange-{{exchange.release}}.jar  -c /root/nebula-exchange/nebula-exchange/target/classes/orc_application.conf
 ```
 
 用户可以在返回信息中搜索`batchSuccess.<tag_name/edge_name>`，确认成功的数量。例如`batchSuccess.follow: 300`。

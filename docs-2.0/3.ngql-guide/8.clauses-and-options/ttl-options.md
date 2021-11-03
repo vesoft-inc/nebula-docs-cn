@@ -10,11 +10,11 @@ TTL（Time To Live）指定属性的存活时间，超时后，该属性就会�
 
 - 不能修改带有TTL选项的属性的Schema。
 
-- TTL 和 INDEX 共存问题：
+- TTL和INDEX共存问题：
 
-    + 如果已有 INDEX：不能再设置 TTL，即使在没有 INDEX 的属性上设置 TTL 也不行。    
+    + 如果一个Tag的其中一属性已有INDEX，则不能为其设置TTL，也不能为该Tag的其他属性设置TTL。    
 
-    + 如果已有 TTL：可以再添加 INDEX。
+    + 如果已有TTL，可以再添加INDEX。
 
 ## 属性过期
 

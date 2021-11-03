@@ -232,6 +232,7 @@ Exchange读取Neo4j数据时需要完成以下工作：
       target: {
         field: dst
       }
+      #ranking: rank
       partition: 10
       batch: 1000
       check_point_path: /tmp/test
@@ -256,6 +257,7 @@ Exchange读取Neo4j数据时需要完成以下工作：
       target: {
         field: dst
       }
+      #ranking: rank
       partition: 10
       batch: 1000
       check_point_path: /tmp/test
@@ -295,7 +297,7 @@ ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchan
 示例：
 
 ```bash
-${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-spark-utils/nebula-exchange/target/nebula-exchange-{{exchange.release}}.jar  -c /root/nebula-spark-utils/nebula-exchange/target/classes/neo4j_application.conf
+${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-exchange/nebula-exchange/target/nebula-exchange-{{exchange.release}}.jar  -c /root/nebula-exchange/nebula-exchange/target/classes/neo4j_application.conf
 ```
 
 用户可以在返回信息中搜索`batchSuccess.<tag_name/edge_name>`，确认成功的数量。例如`batchSuccess.follow: 300`。

@@ -14,13 +14,9 @@ nebula>  MATCH (v:player)<-[:follow]-(:player) RETURN v.name AS Name, count(*) a
 | Name                 | cnt |
 +----------------------+-----+
 | "Tim Duncan"         | 10  |
-+----------------------+-----+
 | "LeBron James"       | 6   |
-+----------------------+-----+
 | "Tony Parker"        | 5   |
-+----------------------+-----+
 | "Chris Paul"         | 4   |
-+----------------------+-----+
 | "Manu Ginobili"      | 4   |
 +----------------------+-----+
 ...
@@ -42,31 +38,22 @@ nebula>  MATCH (v:player)<-[:follow]-(:player) RETURN v.name AS Name, count(*) a
 ```ngql
 # 查找所有连接到player100的点，并根据他们的姓名进行分组，返回姓名的出现次数。
 nebula> GO FROM "player100" OVER follow BIDIRECT \
-        YIELD $$.player.name as Name \
+        YIELD properties($$).name as Name \
         | GROUP BY $-.Name \
         YIELD $-.Name as Player, count(*) AS Name_Count;
 +---------------------+------------+
 | Player              | Name_Count |
 +---------------------+------------+
+| "Shaquille O'Neal"  | 1          |
 | "Tiago Splitter"    | 1          |
-+---------------------+------------+
-| "Aron Baynes"       | 1          |
-+---------------------+------------+
-| "Boris Diaw"        | 1          |
-+---------------------+------------+
 | "Manu Ginobili"     | 2          |
-+---------------------+------------+
-| "Dejounte Murray"   | 1          |
-+---------------------+------------+
-| "Danny Green"       | 1          |
-+---------------------+------------+
-| "Tony Parker"       | 2          |
-+---------------------+------------+
-| "Shaquille O'Neal"   | 1         |
-+---------------------+------------+
+| "Boris Diaw"        | 1          |
 | "LaMarcus Aldridge" | 1          |
-+---------------------+------------+
+| "Tony Parker"       | 2          |
 | "Marco Belinelli"   | 1          |
+| "Dejounte Murray"   | 1          |
+| "Danny Green"       | 1          |
+| "Aron Baynes"       | 1          |
 +---------------------+------------+
 ```
 
@@ -75,7 +62,7 @@ nebula> GO FROM "player100" OVER follow BIDIRECT \
 ```ngql
 # 查找所有连接到player100的点，并根据起始点进行分组，返回degree的总和。
 nebula> GO FROM "player100" OVER follow \
-        YIELD follow._src AS player, follow.degree AS degree \
+        YIELD src(edge) AS player, properties(edge).degree AS degree \
         | GROUP BY $-.player \
         YIELD sum($-.degree);
 +----------------+

@@ -21,7 +21,7 @@
 
   !!! caution
 
-        目前 Nebula Explorer 提供的包仅在 Linux 环境中使用，如果用户使用 mac 或其他环境，需要克隆[http-gateway repo](https://github.com/vesoft-inc/nebula-http-gateway)，并修改 `nebula-http-gateway/conf/app.conf` 文件中的`httpport = 8070` 使用 `make` 命令编译启动。
+        目前 Nebula Explorer 提供的包仅在 Linux 环境中使用，如果用户使用 mac 或其他环境，需要克隆 [http-gateway repo](https://github.com/vesoft-inc/nebula-http-gateway)，并修改 `nebula-http-gateway/conf/app.conf` 文件中的 `httpport = 8070` 后使用 `make` 命令编译启动。
 
 ### 安装
 
@@ -38,7 +38,6 @@
    ```bash
    $ sudo rpm -i nebula-graph-explorer-<version>.x86_64.rpm
    ```
-
 
 ### 卸载
 
@@ -135,6 +134,6 @@ $ npm run stop # 停止 nebula-graph-explorer
 
 在浏览器窗口中看到以下登录界面表示已经成功部署并启动了 Explorer。
 
-![Nebula Explorer 登录页面](../figs/ex-ug-001.png)
+![Nebula Explorer 登录页面](../figs/ex-ug-002.png)
 
 进入 Explorer 登录界面后，用户需要连接 Nebula Graph。详细信息，参考[连接数据库](../deploy-connect/ex-ug-connect.md)。
