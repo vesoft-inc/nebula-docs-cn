@@ -1,7 +1,7 @@
 # Project information
 site_name: 开源分布式图数据库 Nebula Graph 完全指南
 site_description: Nebula Graph Database
-site_author: 吴敏，周瑶，梁振亚，杨怡璇
+site_author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
 docs_dir: docs-2.0
 
 # Configuration
