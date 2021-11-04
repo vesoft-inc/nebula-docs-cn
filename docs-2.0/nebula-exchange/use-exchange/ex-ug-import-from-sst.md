@@ -102,6 +102,8 @@ SST文件是一个内部包含了任意长度的有序键值对集合的文件�
       - 如果需要生成其他数据源的SST文件，请参见相应数据源的文档，查看前提条件部分。
 
       - 如果只需要生成SST文件，不需要在部署Storage服务的机器上安装Hadoop服务。
+      
+      - 如果希望在 ingest（数据导入）结束后自动删除 download 操作下载的 SST 文件，请在Storage服务配置文件中增加配置 `--move_files=true`。
 
 ## 操作步骤
 
@@ -441,7 +443,7 @@ SST文件是一个内部包含了任意长度的有序键值对集合的文件�
 运行如下命令将CSV源文件生成为SST文件。关于参数的说明，请参见[命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-{{exchange.release}}.jar_path> -c <sst_application.conf_path> 
+${SPARK_HOME}/bin/spark-submit --master "local" --conf spark.sql.shuffle.partition=<shuffle_concurrency> --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-{{exchange.release}}.jar_path> -c <sst_application.conf_path> 
 ```
 
 !!! note
@@ -451,7 +453,7 @@ ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchan
 示例：
 
 ```bash
-${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-exchange/nebula-exchange/target/nebula-exchange-{{exchange.release}}.jar  -c /root/nebula-exchange/nebula-exchange/target/classes/sst_application.conf
+${SPARK_HOME}/bin/spark-submit  --master "local" --conf spark.sql.shuffle.partition=200 --class com.vesoft.nebula.exchange.Exchange  /root/nebula-exchange/nebula-exchange/target/nebula-exchange-{{exchange.release}}.jar  -c /root/nebula-exchange/nebula-exchange/target/classes/sst_application.conf
 ```
 
 任务执行完成后，可以在HDFS上的`/sst`目录（`nebula.path.remote`参数指定）内查看到生成的SST文件。

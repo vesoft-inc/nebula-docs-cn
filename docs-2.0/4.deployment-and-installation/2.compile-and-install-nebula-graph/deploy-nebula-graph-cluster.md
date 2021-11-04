@@ -1,4 +1,4 @@
-# 使用RPM/DEB包部署Nebula Graph集群
+# 使用RPM/DEB包部署Nebula Graph多机集群
 
 Nebula Graph不提供官方的集群部署工具，用户可以使用RPM或DEB文件手动部署集群。本文提供了部署集群的示例。
 
@@ -256,7 +256,7 @@ Nebula Graph的所有配置文件均位于安装目录的`etc`目录内，包括
 
 ### 3.启动集群
 
-依次启动各个服务器上的对应进程。说明如下。
+依次启动**各个服务器**上的对应进程。
 
 | 机器名称 |待启动的进程    |
 | :----- |:---------------|
@@ -274,7 +274,9 @@ sudo /usr/local/nebula/scripts/nebula.service start <metad|graphd|storaged|all>
 
 !!! note
 
-    - graphd、storaged和metad都启动时，可以用all代替。
+    - 确保每个服务器中的对应进程都已启动，否则服务将启动失败。
+
+    - 当需都启动graphd、storaged和metad时，可以用all代替。
 
     - `/usr/local/nebula`是Nebula Graph的默认安装路径，如果修改过安装路径，请使用实际路径。更多启停服务的内容，请参见[管理Nebula Graph服务](../../2.quick-start/5.start-stop-service.md)。
 

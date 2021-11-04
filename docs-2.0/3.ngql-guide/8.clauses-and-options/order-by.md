@@ -93,22 +93,22 @@ nebula> MATCH (v:player) RETURN v.age AS Age, v.name AS Name  \
 nebula> MATCH (v:player{name:"Tim Duncan"}) --> (v2) \
         RETURN v2.name AS Name, v2.age AS Age  \
         ORDER BY Age;
-+-----------------+----------+
-| Name            | Age      |
-+-----------------+----------+
-| "Tony Parker"   | 36       |
-| "Manu Ginobili" | 41       |
-| "Spurs"         | __NULL__ |
-+-----------------+----------+
++-----------------+--------------+
+| Name            | Age          |
++-----------------+--------------+
+| "Tony Parker"   | 36           |
+| "Manu Ginobili" | 41           |
+| "Spurs"         | UNKNOWN_PROP |
++-----------------+--------------+
 
 nebula> MATCH (v:player{name:"Tim Duncan"}) --> (v2) \
         RETURN v2.name AS Name, v2.age AS Age  \
         ORDER BY Age DESC;
-+-----------------+----------+
-| Name            | Age      |
-+-----------------+----------+
-| "Spurs"         | __NULL__ |
-| "Manu Ginobili" | 41       |
-| "Tony Parker"   | 36       |
-+-----------------+----------+
++-----------------+--------------+
+| Name            | Age          |
++-----------------+--------------+
+| "Spurs"         | UNKNOWN_PROP |
+| "Manu Ginobili" | 41           |
+| "Tony Parker"   | 36           |
++-----------------+--------------+
 ```

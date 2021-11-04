@@ -26,22 +26,22 @@ nebula> MATCH p=(v:player{name:"Tim Duncan"})--() \
         WITH nodes(p) AS n \
         UNWIND n AS n1 \
         RETURN DISTINCT n1;
-+----------------------------------------------------------------------+
-| n1                                                                   |
-+----------------------------------------------------------------------+
-| ("player100" :star{} :person{} :player{age: 42, name: "Tim Duncan"}) |
-| ("player101" :player{age: 36, name: "Tony Parker"})                  |
-| ("team204" :team{name: "Spurs"})                                     |
-| ("player102" :player{age: 33, name: "LaMarcus Aldridge"})            |
-| ("player125" :player{age: 41, name: "Manu Ginobili"})                |
-| ("player104" :player{age: 32, name: "Marco Belinelli"})              |
-| ("player144" :player{age: 47, name: "Shaquile O'Neal"})              |
-| ("player105" :player{age: 31, name: "Danny Green"})                  |
-| ("player113" :player{age: 29, name: "Dejounte Murray"})              |
-| ("player107" :player{age: 32, name: "Aron Baynes"})                  |
-| ("player109" :player{age: 34, name: "Tiago Splitter"})               |
-| ("player108" :player{age: 36, name: "Boris Diaw"})                   |
-+----------------------------------------------------------------------+
++-----------------------------------------------------------+
+| n1                                                        |
++-----------------------------------------------------------+
+| ("player100" :player{age: 42, name: "Tim Duncan"})        |
+| ("player101" :player{age: 36, name: "Tony Parker"})       |
+| ("team204" :team{name: "Spurs"})                          |
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     |
+| ("player104" :player{age: 32, name: "Marco Belinelli"})   |
+| ("player144" :player{age: 47, name: "Shaquille O'Neal"})  |
+| ("player105" :player{age: 31, name: "Danny Green"})       |
+| ("player113" :player{age: 29, name: "Dejounte Murray"})   |
+| ("player107" :player{age: 32, name: "Aron Baynes"})       |
+| ("player109" :player{age: 34, name: "Tiago Splitter"})    |
+| ("player108" :player{age: 36, name: "Boris Diaw"})        |
++-----------------------------------------------------------+
 ```
 
 ### 示例2
@@ -60,9 +60,7 @@ nebula> MATCH (v) \
 +----------+
 | tags_f   |
 +----------+
-| "star"   |
 | "player" |
-| "person" |
 +----------+
 ```
 

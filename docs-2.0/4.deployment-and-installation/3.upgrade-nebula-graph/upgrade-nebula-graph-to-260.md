@@ -96,13 +96,13 @@ Nebula Graph历史版本指低于Nebula Graph v2.0.0-GA的版本，本文介绍�
       - clone 源代码
   
         ```
-        # git clone --branch v{{nebula.release}} https://github.com/vesoft-inc/nebula-graph.git
+        # git clone --branch {{nebula.branch}} https://github.com/vesoft-inc/nebula-graph.git
         ```
 
       - 设置 CMake
 
         ```
-        # cmake -DCMAKE_INSTALL_PREFIX=${nebula-new} -DENABLE_BUILD_STORAGE=on -DENABLE_TESTING=OFF -DCMAKE_BUILD_TYPE=Release -DNEBULA_COMMON_REPO_TAG=v{{nebula.release}}  -DNEBULA_STORAGE_REPO_TAG=v{{nebula.release}} .. 
+        # cmake -DCMAKE_INSTALL_PREFIX=${nebula-new} -DENABLE_TESTING=OFF -DCMAKE_BUILD_TYPE=Release .. 
         ```
 
    2. 拷贝配置文件。

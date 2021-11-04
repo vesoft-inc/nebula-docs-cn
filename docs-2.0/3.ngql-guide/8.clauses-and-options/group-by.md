@@ -44,16 +44,16 @@ nebula> GO FROM "player100" OVER follow BIDIRECT \
 +---------------------+------------+
 | Player              | Name_Count |
 +---------------------+------------+
+| "Shaquille O'Neal"  | 1          |
 | "Tiago Splitter"    | 1          |
-| "Aron Baynes"       | 1          |
-| "Boris Diaw"        | 1          |
 | "Manu Ginobili"     | 2          |
+| "Boris Diaw"        | 1          |
+| "LaMarcus Aldridge" | 1          |
+| "Tony Parker"       | 2          |
+| "Marco Belinelli"   | 1          |
 | "Dejounte Murray"   | 1          |
 | "Danny Green"       | 1          |
-| "Tony Parker"       | 2          |
-| "Shaquille O'Neal"   | 1         |
-| "LaMarcus Aldridge" | 1          |
-| "Marco Belinelli"   | 1          |
+| "Aron Baynes"       | 1          |
 +---------------------+------------+
 ```
 
