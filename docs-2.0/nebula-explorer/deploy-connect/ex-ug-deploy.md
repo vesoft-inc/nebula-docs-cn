@@ -122,13 +122,13 @@ $ sudo rpm -e nebula-explorer-<version>.x86_64
 2. 使用 `tar -xvf` 解压 tar 包。
 
    ```bash
-   tar -xvf nebula-graph-explorer-<version>.tar.gz
+   $ tar -xvf nebula-graph-explorer-<version>.tar.gz
    ```
 
 3. 拷贝 License 至`nebula-explorer`目录下。
 
    ```bash
-   cp -r <license> <explorer_path>
+   $ cp -r <license> <explorer_path>
    ```
 
   !!! enterpriseonly
@@ -138,7 +138,7 @@ $ sudo rpm -e nebula-explorer-<version>.x86_64
 4. 启动explorer。
 
   ```bash
-  ./nebula-httpd &
+  $ ./nebula-httpd &
   ```
   当屏幕返回以下信息时，表示 Explroer 已经成功启动。
   ```bash
