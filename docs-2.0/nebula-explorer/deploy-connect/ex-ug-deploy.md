@@ -11,17 +11,15 @@
 - Nebula Graph 服务已经部署并启动。详细信息参考[Nebula Graph安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
 
 - 以下端口未被使用。
-
   | 端口号 | 说明 |
   | ---- | ---- |
   | 7002 | Explorer 提供的 web 服务 |
-  | 8070 | Nebula-http-gateway 的 HTTP 服务 |
-  
-- 使用的 Linux 发行版为 CentOS ，安装有版本为1.13及以上的Go。
 
   !!! caution
 
-        目前 Nebula Explorer 提供的包仅在 Linux 环境中使用，如果用户使用 mac 或其他环境，需要克隆 [http-gateway repo](https://github.com/vesoft-inc/nebula-http-gateway)，并修改 `nebula-http-gateway/conf/app.conf` 文件中的 `httpport = 8070` 后使用 `make` 命令编译启动。
+       Explorer 默认使用的端口号为7002，用户可以在安装目录下的 `conf/app.conf` 文件中修改 `httpport`，并重启服务。
+
+- 使用的 Linux 发行版为 CentOS ，安装有版本为1.13及以上的Go。
 
 ### 安装
 
@@ -33,36 +31,56 @@
 
 2. 使用`sudo rpm -i <rpm>`命令安装RPM包。
 
-   例如，安装 Explorer 需要运行以下命令：
+   例如，安装 Explorer 需要运行以下命令，默认安装到`/usr/local/nebula-explorer`下：
 
    ```bash
-   $ sudo rpm -i nebula-graph-explorer-<version>.x86_64.rpm
+   $ sudo rpm -i nebula-explorer-<version>.x86_64.rpm
    ```
+
+   也可以使用以下命令安装到指定路径：
+   ```bash
+   $ sudo rpm -i nebula-explorer-xxx.rpm --prefix=<path> 
+   ```
+
+3. 拷贝 License 至安装目录下。
+
+   ```bash
+   $ cp -r <license> <explorer_path>
+   ```
+
+  !!! enterpriseonly
+
+        License 仅在企业版提供，请发送邮件至inquiry@vesoft.com。
+
+4. 添加 License 后需要使用以下命令停止并重启服务。
+
+   ```bash
+   $ systemctl stop nebula-explorer #停止服务
+   $ systemctl start nebula-explorer #启动服务
+   ```
+
+### 启停服务
+
+支持使用systemctl 服务控制项目启停。默认 rpm 安装后以 systemctl 启动，可使用以下命令：
+```bash
+$ systemctl status nebula-explorer #查看服务状态
+$ systemctl stop nebula-explorer #停止服务
+$ systemctl start nebula-explorer #启动服务
+```
+也可以在安装目录下使用以下命令，手动启动或停止服务：
+```bash
+$ cd ./scripts/rpm
+$ bash ./start.sh #启动服务
+$ bash ./stop.sh #停止服务
+```
 
 ### 卸载
 
 使用以下的命令卸载 Explorer 。
 
 ```bash
-$ sudo rpm -e nebula-graph-explorer-<version>.x86_64
+$ sudo rpm -e nebula-explorer-<version>.x86_64
 ```
-
-### 异常处理
-
-如果在安装过程中自动启动失败或是需要手动启动或停止服务，请使用以下命令.
-
-- 手动启动服务
-   
-   ```bash
-   $ sudo sh ./scripts/start.sh
-   ```
-
-- 手动停止服务
-
-   ```bash  
-   $ sudo sh ./scripts/stop.sh
-   ```
-
 ## tar 包部署
 
 ### 前提条件
@@ -71,19 +89,17 @@ $ sudo rpm -e nebula-graph-explorer-<version>.x86_64
 
 - Nebula Graph 服务已经部署并启动。详细信息参考[Nebula Graph安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
 
-- 使用的 Linux 发行版为 CentOS ，安装有版本为1.13及以上的Go。
-
-  !!! caution
-
-        目前 Nebula Explorer 提供的包仅在 Linux 环境中使用，如果用户使用 mac 或其他环境，需要克隆[http-gateway repo](https://github.com/vesoft-inc/nebula-http-gateway)，并修改 `nebula-http-gateway/conf/app.conf` 文件中的`httpport = 8070` 后使用 `make` 命令编译启动。
-
 - 以下端口未被使用。
-
   | 端口号 | 说明 |
   | ---- | ---- |
   | 7002 | Explorer 提供的 web 服务 |
-  | 8070 | Nebula-http-gateway 的 HTTP 服务 |
 
+  !!! caution
+
+       Explorer 默认使用的端口号为7002，用户可以在安装目录下的 `conf/app.conf` 文件中修改 `httpport`，并重启服务。
+
+
+- 使用的 Linux 发行版为 CentOS ，安装有版本为1.13及以上的Go。
 ### 安装及部署
 
 1. 根据需要下载 tar 包，建议选择最新版本。
@@ -98,7 +114,7 @@ $ sudo rpm -e nebula-graph-explorer-<version>.x86_64
    tar -xvf nebula-graph-explorer-<version>.tar.gz
    ```
 
-3. 拷贝证书至`nebula-explorer`目录下。
+3. 拷贝 License 至`nebula-explorer`目录下。
 
    ```bash
    cp -r <license> <explorer_path>
