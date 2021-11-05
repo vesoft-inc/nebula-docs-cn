@@ -150,12 +150,8 @@ $ sudo rpm -e nebula-explorer-<version>.x86_64
 4. 进入`nebula-explorer`文件夹，启动explorer。
 
   ```bash
-  $ cd nebula-exploere
+  $ cd nebula-explorer
   $ ./nebula-httpd &
-  ```
-  当屏幕返回以下信息时，表示 Explroer 已经成功启动。
-  ```bash
-  [1] 5169
   ```
 
 ### 停止服务
