@@ -22,6 +22,7 @@
 - Nebula Graph 服务已经部署并启动。详细信息参考[Nebula Graph安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
 
 - 以下端口未被使用。
+
   | 端口号 | 说明 |
   | ---- | ---- |
   | 7002 | Explorer 提供的 web 服务 |
