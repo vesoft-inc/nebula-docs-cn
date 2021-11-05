@@ -2,6 +2,16 @@
 
 本文介绍如何在本地通过 RPM 和 tar 包部署 Explorer。
 
+## Nebula Graph 版本支持
+
+!!! Note
+
+    Explorer 版本发布节奏独立于 Nebula Graph 内核，其命名方式也不参照内核命名规则，两者兼容对应关系如下表。
+
+| Nebula Graph 版本 | Explorer 版本 |
+| --- | --- |
+| 2.5 | 2.0.0 |
+| 2.6 | 2.1.0 |
 ## RPM 部署
 
 ### 前提条件
