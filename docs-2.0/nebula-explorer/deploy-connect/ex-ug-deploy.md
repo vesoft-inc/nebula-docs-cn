@@ -6,12 +6,12 @@
 
 !!! Note
 
-    Explorer 版本发布节奏独立于 Nebula Graph 内核，其命名方式也不参照内核命名规则，两者兼容对应关系如下表。
+    Explorer 的版本单独发布，不与 Nebula Graph 内核同步，其命名方式也不遵守命名规则，两者兼容对应关系如下表。
 
 | Nebula Graph 版本 | Explorer 版本 |
 | --- | --- |
-| 2.5 | 2.0.0 |
-| 2.6 | 2.1.0 |
+| 2.5.x | 2.0.0 |
+| 2.6.x | 2.1.0 |
 
 ## RPM 部署
 
@@ -30,7 +30,8 @@
 
        Explorer 默认使用的端口号为7002，用户可以在安装目录下的 `conf/app.conf` 文件中修改 `httpport`，并重启服务。
 
-- 使用的 Linux 发行版为 CentOS ，安装有版本为1.13及以上的Go。
+- 使用的 Linux 发行版为 CentOS。
+- 安装有版本为1.13及以上的Go。
 
 ### 安装
 
@@ -42,7 +43,7 @@
 
 2. 使用`sudo rpm -i <rpm>`命令安装RPM包。
 
-   例如，安装 Explorer 需要运行以下命令，默认安装到`/usr/local/nebula-explorer`下：
+   例如，安装 Explorer 需要运行以下命令，默认安装路径为`/usr/local/nebula-explorer`：
 
    ```bash
    $ sudo rpm -i nebula-explorer-<version>.x86_64.rpm
@@ -53,10 +54,15 @@
    $ sudo rpm -i nebula-explorer-xxx.rpm --prefix=<path> 
    ```
 
-3. 拷贝 License 至安装目录下。
+3. 拷贝 License 至安装路径下。
 
    ```bash
    $ cp -r <license> <explorer_path>
+   ```
+
+   例如：
+   ```bash
+   $ cp -r nebula.license /usr/local/nebula-explorer
    ```
 
   !!! enterpriseonly
@@ -109,8 +115,9 @@ $ sudo rpm -e nebula-explorer-<version>.x86_64
 
        Explorer 默认使用的端口号为7002，用户可以在安装目录下的 `conf/app.conf` 文件中修改 `httpport`，并重启服务。
 
+- 使用的 Linux 发行版为 CentOS。
+- 安装有版本为1.13及以上的Go。
 
-- 使用的 Linux 发行版为 CentOS ，安装有版本为1.13及以上的Go。
 ### 安装及部署
 
 1. 根据需要下载 tar 包，建议选择最新版本。
@@ -131,13 +138,19 @@ $ sudo rpm -e nebula-explorer-<version>.x86_64
    $ cp -r <license> <explorer_path>
    ```
 
+   例如：
+   ```bash
+   $ cp -r nebula.license /usr/local/nebula-explorer
+   ```
+
   !!! enterpriseonly
 
         License 仅在企业版提供，请发送邮件至inquiry@vesoft.com。
 
-4. 启动explorer。
+4. 进入`nebula-explorer`文件夹，启动explorer。
 
   ```bash
+  $ cd nebula-exploere
   $ ./nebula-httpd &
   ```
   当屏幕返回以下信息时，表示 Explroer 已经成功启动。
