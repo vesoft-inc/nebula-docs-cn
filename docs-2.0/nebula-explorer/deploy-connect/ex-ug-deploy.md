@@ -23,16 +23,16 @@
 
 - 以下端口未被使用。
 
-  | 端口号 | 说明 |
-  | ---- | ---- |
-  | 7002 | Explorer 提供的 web 服务 |
+    | 端口号 | 说明 |
+    | ---- | ---- |
+    | 7002 | Explorer 提供的 web 服务 |
 
   !!! caution
 
        Explorer 默认使用的端口号为7002，用户可以在安装目录下的 `conf/app.conf` 文件中修改 `httpport`，并重启服务。
 
 - 使用的 Linux 发行版为 CentOS。
-- 安装有版本为1.13及以上的Go。
+- 安装有版本为1.13及以上的 Go。
 
 ### 安装
 
@@ -79,7 +79,7 @@
 
 ### 启停服务
 
-支持使用systemctl 服务控制项目启停。默认 rpm 安装后以 systemctl 启动，可使用以下命令：
+支持使用 systemctl 服务控制项目启停。默认 rpm 安装后以 systemctl 启动，可使用以下命令：
 ```bash
 $ systemctl status nebula-explorer #查看服务状态
 $ systemctl stop nebula-explorer #停止服务
@@ -118,7 +118,7 @@ $ sudo rpm -e nebula-explorer-<version>.x86_64
        Explorer 默认使用的端口号为7002，用户可以在安装目录下的 `conf/app.conf` 文件中修改 `httpport`，并重启服务。
 
 - 使用的 Linux 发行版为 CentOS。
-- 安装有版本为1.13及以上的Go。
+- 安装有版本为1.13及以上的 Go。
 
 ### 安装及部署
 
@@ -147,9 +147,9 @@ $ sudo rpm -e nebula-explorer-<version>.x86_64
 
   !!! enterpriseonly
 
-        License 仅在企业版提供，请发送邮件至inquiry@vesoft.com。
+        License 仅在企业版提供，请发送邮件至 inquiry@vesoft.com。
 
-4. 进入`nebula-explorer`文件夹，启动explorer。
+4. 进入`nebula-explorer`文件夹，启动 explorer。
 
   ```bash
   $ cd nebula-explorer
