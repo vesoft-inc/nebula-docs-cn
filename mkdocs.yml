@@ -86,6 +86,8 @@ extra:
     release: 1.0.1
     base100: 1.0.0
     branch: v1.0.1
+  dashboard_ent:
+    release: 1.0.0
   console:
     release: 2.6.0
     branch: v2.6.0
@@ -386,7 +388,7 @@ nav:
       - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
 
   - Nebula Dashboard（企业版）:
-      - 什么是Nebula Dashboard（企业版）: nebula-dashboard-en/1.what-is-dashboard.md
+      - 什么是Nebula Dashboard（企业版）: nebula-dashboard-en/1.what-is-dashboard-en.md
       - 部署Dashboard: nebula-dashboard-en/2.deploy-connect-dashboard-en.md
       - 创建及导入集群:
         - 创建集群: nebula-dashboard-en/3.create-import-dashboard/1.create-cluster.md
