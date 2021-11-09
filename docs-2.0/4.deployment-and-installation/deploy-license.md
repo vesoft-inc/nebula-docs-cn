@@ -43,7 +43,7 @@ License文件包含生效时间、过期时间等信息。说明如下。
 |`vendor`|发放渠道。|
 |`organization`|用户名称。|
 |`issuedDate`|License生效时间。|
-|`expirationDate`|License过期时间|
+|`expirationDate`|License过期时间。|
 |`product`|产品类型。Nebula Graph的产品类型为`nebula_graph`。|
 |`version`|版本支持的信息。|
 |`licenseType`|License类型。包括`enterprise`、`samll_bussiness`、`pro`、`individual`。|
