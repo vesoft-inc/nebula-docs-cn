@@ -438,7 +438,8 @@ nav:
       - 配置Nebula Graph集群:
         -自定义Nebula Graph集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
         -回收PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
-        -均衡扩容后的Storage数据: nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md   
+        -均衡扩容后的Storage数据: nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
+      - 升级Nebula Graph集群: nebula-operator/9.upgrade-nebula-cluster.md   
       - 连接Nebula Graph数据库: nebula-operator/4.connect-to-nebula-graph-service.md
       - 故障自愈: nebula-operator/5.operator-failover.md
       - 常见问题: nebula-operator/7.operator-faq.md
