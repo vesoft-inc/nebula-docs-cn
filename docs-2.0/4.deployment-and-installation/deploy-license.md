@@ -1,6 +1,6 @@
 # 设置企业版License
 
-Nebula Graph企业版需要设置License才可以正常启动并使用企业版功能，本文介绍如何设置企业版的License文件。
+Nebula Graph企业版需要用户设置License才可以正常启动并使用企业版功能，本文介绍如何设置企业版的License文件。
 
 !!! enterpriseonly
 
@@ -10,13 +10,13 @@ Nebula Graph企业版需要设置License才可以正常启动并使用企业版�
 
 - 没有设置License时，Nebula Graph企业版无法启动。
 
-- 请勿修改文件，否则会导致License失效。
+- 请勿修改License文件，否则会导致License失效。
 
 - License过期后，将无法执行任何操作。请及时发送邮件至`inquiry@vesoft.com`申请续期。
 
 ## License说明
 
-用户可以用`cat`等命令查看License文件内容，示例文件如下：
+用户可以用`cat`等命令查看License文件（`nebula.license`）内容，示例文件内容如下：
 
 ```bash
 ----------License Content Start----------
