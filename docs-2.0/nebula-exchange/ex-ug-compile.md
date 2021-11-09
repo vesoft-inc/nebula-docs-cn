@@ -1,15 +1,29 @@
-# 编译Exchange
+# 获取Nebula Exchange
 
-本文介绍如何编译Nebula Exchange。用户也可以直接[下载](https://repo1.maven.org/maven2/com/vesoft/nebula-exchange/)编译完成的`.jar`文件。
+本文介绍如何获取Nebula Exchange的JAR文件。
 
-## 准备工作
+## 直接下载JAR文件
+
+社区版Exchange的JAR文件可以直接[下载](https://repo1.maven.org/maven2/com/vesoft/nebula-exchange/)。
+
+要下载企业版Exchange，需先[获取Nebula Graph企业版套餐](https://nebula-graph.com.cn/pricing/)。
+
+## 编译源代码获取JAR文件
+
+社区版Exchange的JAR文件还可以通过编译源代码获取。下文介绍如何编译Exchange源代码。
+
+!!! enterpriseonly
+
+    企业版Exchange仅能在Nebula Graph企业版套餐中获取。
+
+### 前提条件
 
 - 安装[Maven](https://maven.apache.org/download.cgi)。
 
 <!-- pulsar所在的maven库5月31日被官方关闭，还没找到迁移位置，找到后这里可以删掉-->
 - 下载[pulsar-spark-connector_2.11](https://oss-cdn.nebula-graph.com.cn/jar-packages/pulsar-spark-connector_2.11.zip)，解压到本地Maven库的目录`io/streamnative/connectors`中。
 
-## 编译Exchange
+### 操作步骤
 
 1. 在根目录克隆仓库`nebula-exchange`。
 
@@ -57,7 +71,7 @@
 
 迁移数据时，用户可以参考配置文件[`target/classes/application.conf`](https://github.com/vesoft-inc/nebula-exchange/blob/master/nebula-exchange/src/main/resources/application.conf)。
 
-## 下载依赖包失败
+### 下载依赖包失败
 
 如果编译时下载依赖包失败：
 
