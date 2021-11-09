@@ -12,7 +12,15 @@ Nebula Graph企业版需要用户设置License才可以正常启动并使用企�
 
 - 请勿修改License文件，否则会导致License失效。
 
-- License过期后，将无法执行任何操作。请及时发送邮件至`inquiry@vesoft.com`申请续期。
+- License快过期时，请及时发送邮件至`inquiry@vesoft.com`申请续期。
+
+- License的过期缓冲为3天：
+
+  - 过期7天前和过期当天，服务启动时会打印日志进行提醒。
+
+  - 过期后仍可继续使用3天。
+
+  - 过期3天后，服务无法启动，并会打印日志进行提醒。
 
 ## License说明
 
@@ -46,16 +54,18 @@ License文件包含生效时间、过期时间等信息。说明如下。
 |`expirationDate`|License过期时间。|
 |`product`|产品类型。Nebula Graph的产品类型为`nebula_graph`。|
 |`version`|版本支持的信息。|
-|`licenseType`|License类型。包括`enterprise`、`samll_bussiness`、`pro`、`individual`。|
+|`licenseType`|License类型。包括`enterprise`、`samll_bussiness`、`pro`、`individual`。预留参数。|
 
 ## 设置License
 
-1. 安装Nebula Graph企业版。
+1. 发送邮件至`inquiry@vesoft.com`申请Nebula Graph企业版安装包。
 
-2. 申请License文件。
+2. 安装Nebula Graph企业版。安装方式与企业版相同，请参见[使用RPM或DEB包安装Nebula Graph](2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)。
 
-3. 将License文件上传到所有包含Meta服务的机器上，路径为每个Meta服务安装目录的`share/resources/`内。
+3. 发送邮件至`inquiry@vesoft.com`申请License文件`nebula.license`。
+
+4. 将License文件上传到所有包含Meta服务的机器上，路径为每个Meta服务安装目录的`share/resources/`内。
 
   !!! note
 
-        周边工具的License文件上传位置，请参见具体工具的说明文档。
+        周边工具的License文件上传位置，请参见[具体周边工具](../20.appendix/6.eco-tool-version.md)的说明文档。
