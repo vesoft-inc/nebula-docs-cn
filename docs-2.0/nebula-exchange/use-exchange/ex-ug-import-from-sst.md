@@ -103,7 +103,7 @@ SST文件是一个内部包含了任意长度的有序键值对集合的文件�
 
       - 如果只需要生成SST文件，不需要在部署Storage服务的机器上安装Hadoop服务。
       
-      - 如果希望在 ingest（数据导入）结束后自动删除 download 操作下载的 sst 文件，请在Storage服务配置文件中增加配置 `--move_files=true`。
+      - 如果希望在 ingest（数据导入）去移动而不是去复制 download 操作下载的 sst 文件，请在Storage服务配置文件中增加配置 `--move_files=true`。
 
 ## 操作步骤
 
