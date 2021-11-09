@@ -86,7 +86,7 @@ extra:
     release: 1.0.1
     base100: 1.0.0
     branch: v1.0.1
-  dashboard_en:
+  dashboard_ent:
     release: 1.0.0
   console:
     release: 2.6.0
@@ -388,22 +388,22 @@ nav:
       - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
 
   - Nebula Dashboard（企业版）:
-      - 什么是Nebula Dashboard（企业版）: nebula-dashboard-en/1.what-is-dashboard-en.md
-      - 部署Dashboard: nebula-dashboard-en/2.deploy-connect-dashboard-en.md
+      - 什么是Nebula Dashboard（企业版）: nebula-dashboard-ent/1.what-is-dashboard-ent.md
+      - 部署Dashboard: nebula-dashboard-ent/2.deploy-connect-dashboard-ent.md
       - 创建及导入集群:
-        - 创建集群: nebula-dashboard-en/3.create-import-dashboard/1.create-cluster.md
-        - 导入集群: nebula-dashboard-en/3.create-import-dashboard/2.import-cluster.md
+        - 创建集群: nebula-dashboard-ent/3.create-import-dashboard/1.create-cluster.md
+        - 导入集群: nebula-dashboard-ent/3.create-import-dashboard/2.import-cluster.md
       - 集群操作:
-        - 集群总览: nebula-dashboard-en/4.cluster-operator/1.overview.md
-        - 集群监控: nebula-dashboard-en/4.cluster-operator/2.monitor.md
-        - 集群信息: nebula-dashboard-en/4.cluster-operator/3.cluster-information.md
-        - 集群操作: nebula-dashboard-en/4.cluster-operator/4.manage.md
-        - 操作记录: nebula-dashboard-en/4.cluster-operator/5.operation-record.md
-        - 其他设置: nebula-dashboard-en/4.cluster-operator/6.settings.md
-      - 权限管理: nebula-dashboard-en/5.account-management.md
-      - 系统设置: nebula-dashboard-en/6.system-settings.md
-      - 监控指标说明: nebula-dashboard-en/7.monitor-parameter.md
-      - 常见问题FAQ: nebula-dashboard-en/8.faq.md
+        - 集群总览: nebula-dashboard-ent/4.cluster-operator/1.overview.md
+        - 集群监控: nebula-dashboard-ent/4.cluster-operator/2.monitor.md
+        - 集群信息: nebula-dashboard-ent/4.cluster-operator/3.cluster-information.md
+        - 集群操作: nebula-dashboard-ent/4.cluster-operator/4.manage.md
+        - 操作记录: nebula-dashboard-ent/4.cluster-operator/5.operation-record.md
+        - 其他设置: nebula-dashboard-ent/4.cluster-operator/6.settings.md
+      - 权限管理: nebula-dashboard-ent/5.account-management.md
+      - 系统设置: nebula-dashboard-ent/6.system-settings.md
+      - 监控指标说明: nebula-dashboard-ent/7.monitor-parameter.md
+      - 常见问题FAQ: nebula-dashboard-ent/8.faq.md
 
   - Nebula Explorer:
       - 什么是Nebula Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
