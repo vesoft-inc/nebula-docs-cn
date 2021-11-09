@@ -54,7 +54,7 @@ License文件包含生效时间、过期时间等信息。说明如下。
 
 2. 申请License文件。
 
-3. 将License文件上传到所有包含Meta服务的机器上，路径为安装目录的`share/resources/`内。
+3. 将License文件上传到所有包含Meta服务的机器上，路径为每个Meta服务安装目录的`share/resources/`内。
 
   !!! note
 
