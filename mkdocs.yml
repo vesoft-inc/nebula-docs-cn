@@ -86,7 +86,7 @@ extra:
     release: 1.0.1
     base100: 1.0.0
     branch: v1.0.1
-  dashboard_ent:
+  dashboard_en:
     release: 1.0.0
   console:
     release: 2.6.0
