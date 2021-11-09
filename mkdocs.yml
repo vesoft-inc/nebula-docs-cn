@@ -86,6 +86,8 @@ extra:
     release: 1.0.1
     base100: 1.0.0
     branch: v1.0.1
+  dashboard_ent:
+    release: 1.0.0
   console:
     release: 2.6.0
     branch: v2.6.0
@@ -378,12 +380,30 @@ nav:
       - 无法访问 Studio: nebula-studio/troubleshooting/st-ug-connection-errors.md
       - Studio 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
 
-  - Nebula Dashboard:
-      - 什么是Nebula Dashboard: nebula-dashboard/1.what-is-dashboard.md
+  - Nebula Dashboard（社区版）:
+      - 什么是Nebula Dashboard（社区版）: nebula-dashboard/1.what-is-dashboard.md
       - 部署Dashboard: nebula-dashboard/2.deploy-dashboard.md
       - 连接Dashboard: nebula-dashboard/3.connect-dashboard.md
       - Dashboard页面介绍: nebula-dashboard/4.use-dashboard.md
       - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
+
+  - Nebula Dashboard（企业版）:
+      - 什么是Nebula Dashboard（企业版）: nebula-dashboard-ent/1.what-is-dashboard-ent.md
+      - 部署Dashboard: nebula-dashboard-ent/2.deploy-connect-dashboard-ent.md
+      - 创建及导入集群:
+        - 创建集群: nebula-dashboard-ent/3.create-import-dashboard/1.create-cluster.md
+        - 导入集群: nebula-dashboard-ent/3.create-import-dashboard/2.import-cluster.md
+      - 集群操作:
+        - 集群总览: nebula-dashboard-ent/4.cluster-operator/1.overview.md
+        - 集群监控: nebula-dashboard-ent/4.cluster-operator/2.monitor.md
+        - 集群信息: nebula-dashboard-ent/4.cluster-operator/3.cluster-information.md
+        - 集群操作: nebula-dashboard-ent/4.cluster-operator/4.manage.md
+        - 操作记录: nebula-dashboard-ent/4.cluster-operator/5.operation-record.md
+        - 其他设置: nebula-dashboard-ent/4.cluster-operator/6.settings.md
+      - 权限管理: nebula-dashboard-ent/5.account-management.md
+      - 系统设置: nebula-dashboard-ent/6.system-settings.md
+      - 监控指标说明: nebula-dashboard-ent/7.monitor-parameter.md
+      - 常见问题FAQ: nebula-dashboard-ent/8.faq.md
 
   - Nebula Explorer:
       - 什么是Nebula Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
@@ -398,27 +418,6 @@ nav:
         - 画布操作: nebula-explorer/operation-guide/ex-ug-canvas.md
         - 关系列表: nebula-explorer/operation-guide/ex-ug-relationship-list.md
         - 快捷键: nebula-explorer/operation-guide/ex-ug-shortcuts.md
-
-#  - Nebula Dashboard:
-#      - 什么是Nebula Dashboard: nebula-dashboard/1.what-is-dashboard.md
-#      - 部署Dashboard: nebula-dashboard/2.deploy-dashboard.md
-#      - 连接Dashboard: nebula-dashboard/3.connect-dashboard.md
-#      - Dashboard页面介绍: nebula-dashboard/4.use-dashboard.md
-#      - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
-
-#  - Nebula Explorer:
-#      - 什么是Nebula Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
-#      - 安装与登录:
-#        - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
-#        - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
-#        - 清除连接: nebula-explorer/deploy-connect/ex-ug-reset-connection.md
-#      - 操作指南:
-#        - 页面概览: nebula-explorer/operation-guide/ex-ug-page-overview.md
-#        - 查询探索: nebula-explorer/operation-guide/ex-ug-query-exploration.md
-#        - 图探索拓展: nebula-explorer/operation-guide/ex-ug-graph-exploration.md
-#        - 画布操作: nebula-explorer/operation-guide/ex-ug-canvas.md
-#        - 关系列表: nebula-explorer/operation-guide/ex-ug-relationship-list.md
-#        - 快捷键: nebula-explorer/operation-guide/ex-ug-shortcuts.md
 
   - Nebula Importer:
     - 使用Nebula Importer: nebula-importer/use-importer.md
