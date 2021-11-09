@@ -412,7 +412,7 @@ nav:
     - 认识Nebula Exchange:
       - 什么是Nebula Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
       - 使用限制: nebula-exchange/about-exchange/ex-ug-limitations.md
-    - 编译Exchange: nebula-exchange/ex-ug-compile.md
+    - 获取Nebula Exchange: nebula-exchange/ex-ug-compile.md
     - 参数说明:
       - 导入命令参数: nebula-exchange/parameter-reference/ex-ug-para-import-command.md
       - 配置参数: nebula-exchange/parameter-reference/ex-ug-parameter.md
@@ -430,6 +430,7 @@ nav:
       - 导入Pulsar数据: nebula-exchange/use-exchange/ex-ug-import-from-pulsar.md
       - 导入Kafka数据: nebula-exchange/use-exchange/ex-ug-import-from-kafka.md
       - 导入SST文件数据: nebula-exchange/use-exchange/ex-ug-import-from-sst.md
+      - 导出Nebula Graph数据: nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
     - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
 
 #  - Nebula Operator:
