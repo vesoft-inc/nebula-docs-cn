@@ -57,7 +57,7 @@ nGQL支持的TTL选项如下。
 
 ```ngql
 # 创建Tag。
-nebula> CREATE TAG t1 (a timestamp);
+nebula> CREATE TAG IF NOT EXISTS t1 (a timestamp);
 
 # ALTER修改Tag，添加TTL选项。
 nebula> ALTER TAG t1 ttl_col = "a", ttl_duration = 5;
@@ -72,7 +72,7 @@ nebula> INSERT VERTEX t1(a) values "101":(now());
 
 ```ngql
 # 创建Tag并设置TTL选项。
-nebula> CREATE TAG t2(a int, b int, c string) ttl_duration= 100, ttl_col = "a";
+nebula> CREATE TAG IF NOT EXISTS t2(a int, b int, c string) ttl_duration= 100, ttl_col = "a";
 
 # 插入点。过期时间戳为1612778164774（1612778164674 + 100）。
 nebula> INSERT VERTEX t2(a, b, c) values "102":(1612778164674, 30, "Hello");

@@ -150,10 +150,10 @@ nebula> MATCH (v:player) \
 
 ```ngql
 # 创建测试数据。
-nebula> CREATE SPACE test (vid_type=FIXED_STRING(30));
+nebula> CREATE SPACE IF NOT EXISTS test (vid_type=FIXED_STRING(30));
 nebula> USE test;
-nebula> CREATE EDGE e1(p1 int);
-nebula> CREATE TAG person(p1 int);
+nebula> CREATE EDGE IF NOT EXISTS e1(p1 int);
+nebula> CREATE TAG IF NOT EXISTS person(p1 int);
 nebula> INSERT VERTEX person(p1) VALUES "1":(1);
 nebula> INSERT VERTEX person(p1) VALUES "2":(2);
 nebula> INSERT EDGE e1(p1) VALUES "1"->"2"@0:(10);
