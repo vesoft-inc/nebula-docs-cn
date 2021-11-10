@@ -381,14 +381,14 @@ nav:
       - Studio 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
 
   - Nebula Dashboard（社区版）:
-      - 什么是Nebula Dashboard（社区版）: nebula-dashboard/1.what-is-dashboard.md
+      - 什么是Nebula Dashboard: nebula-dashboard/1.what-is-dashboard.md
       - 部署Dashboard: nebula-dashboard/2.deploy-dashboard.md
       - 连接Dashboard: nebula-dashboard/3.connect-dashboard.md
       - Dashboard页面介绍: nebula-dashboard/4.use-dashboard.md
       - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
 
   - Nebula Dashboard（企业版）:
-      - 什么是Nebula Dashboard（企业版）: nebula-dashboard-ent/1.what-is-dashboard-ent.md
+      - 什么是Nebula Dashboard: nebula-dashboard-ent/1.what-is-dashboard-ent.md
       - 部署Dashboard: nebula-dashboard-ent/2.deploy-connect-dashboard-ent.md
       - 创建及导入集群:
         - 创建集群: nebula-dashboard-ent/3.create-import-dashboard/1.create-cluster.md
