@@ -69,7 +69,7 @@ CentOS 7.9.2009
         # if no need to export any properties when export NebulaGraph tag data
         # if noField is configured true, just export vertexId
         noField:false
-        # define to export what properties when export NebulaGraph tag data
+        # define properties to export from NebulaGraph tag data
         # if return.fields is configured as empty list, then export all properties
         return.fields:[]
         # nebula space partition number
@@ -95,7 +95,7 @@ CentOS 7.9.2009
         # if no need to export any properties when export NebulaGraph edge data
         # if noField is configured true, just export src,dst,rank
         noField:false
-        # define to export what properties when export NebulaGraph edfe data
+        # define properties to export from NebulaGraph edge data
         # if return.fields is configured as empty list, then export all properties
         return.fields:[]
         # nebula space partition number
