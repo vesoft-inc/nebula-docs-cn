@@ -111,3 +111,8 @@ Exchange是在Spark Writer基础上开发的Spark应用程序，二者均适用�
 - 支持更丰富的数据源，如MySQL、Neo4j、Hive、HBase、Kafka、Pulsar等。
 
 - 修复了Spark Writer的部分问题。例如Spark读取HDFS里的数据时，默认读取到的源数据均为String类型，可能与Nebula Graph定义的Schema不同，所以Exchange增加了数据类型的自动匹配和类型转换，当Nebula Graph定义的Schema中数据类型为非String类型（如double）时，Exchange会将String类型的源数据转换为对应的类型（如double）。
+
+### Exchange传输数据的性能如何？
+
+Exchange的性能测试数据和测试方法参见[Nebula Exchange test result](https://github.com/vesoft-inc/nebula-exchange/blob/master/bench/exchange-test.md)。
+
