@@ -2,14 +2,14 @@
 
 本文描述Exchange 2.x的一些使用限制。
 
-## Nebula Graph版本
+## 版本兼容性
 
-Nebula Exchange版本（即JAR包版本）和Nebula Graph的版本对应关系如下。
+Nebula Exchange版本（即JAR包版本）和Nebula Graph内核的版本对应关系如下。
 
 |Exchange client版本|Nebula Graph版本|
 |:---|:---|
 |2.5-SNAPSHOT|nightly|
-|{{exchange.release}}|{{nebula.release}}|
+|{{exchange.release}}|2.6.0、{{nebula.release}}|
 |2.5.1|2.5.0、2.5.1|
 |2.5.0|2.5.0、2.5.1|
 |2.1.0|2.0.0、2.0.1|

@@ -143,5 +143,7 @@ RPM和DEB是Linux系统下常见的两种安装包格式，本文介绍如何使
 
 ## 后续操作
 
+- (企业版)[设置License](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/deploy-license)
+
 - [启动Nebula Graph](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/5.start-stop-service/)<!--这里用外链。-->
 - [连接Nebula Graph](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/3.connect-to-nebula-graph/)<!--这里用外链。-->

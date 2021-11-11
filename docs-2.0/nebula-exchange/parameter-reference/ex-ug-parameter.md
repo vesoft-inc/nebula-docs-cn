@@ -175,6 +175,18 @@
 |:---|:---|:---|:---|:---|
 |`tags.path`|string|-|是|指定需要生成SST文件的源文件的路径。|
 
+### Nebula Graph源特有参数
+
+!!! enterpriseonly
+
+    Nebula Graph源特有参数用于导出Nebula Graph数据，仅企业版Exchange支持。
+
+|参数|数据类型|默认值|是否必须|说明|
+|:---|:---|:---|:---|:---|
+|`tags.path`|string|`"hdfs://namenode:9000/path/vertex"`|是|指定CSV文件的存储路径。设置的路径必须不存在，Exchange会自动创建该路径。存储到HDFS服务器时路径格式同默认值，例如`"hdfs://192.168.8.177:9000/vertex/player"`。存储到本地时路径格式为`"file:///path/vertex"`，例如`"file:///home/nebula/vertex/player"`。有多个Tag时必须为每个Tag设置不同的目录。|
+|`tags.noField`|bool|`false`|是|当值为`true`时，仅导出VID而不导出属性数据；当值为`false`时导出VID和属性数据。|
+|`tags.return.fields`|list|`[]`|是|指定要导出的属性。例如，要导出`name`和`age`属性，需将参数值设置为`["name","age"]`。该参数仅在`tags.noField`的值为`false`时生效。|
+
 ## 边配置
 
 对于不同的数据源，边的配置也有所不同，有很多通用参数，也有部分特有参数，配置时需要配置通用参数和不同数据源的特有参数。
@@ -195,3 +207,11 @@
 |`edges.ranking`|int|-|否|rank值的列。没有指定时，默认所有rank值为`0`。|
 |`edges.batch`|int|`256`|是|单批次写入Nebula Graph的最大边数量。|
 |`edges.partition`|int|`32`|是|Spark分片数量。|
+
+### Nebula Graph源特有参数
+
+|参数|数据类型|默认值|是否必须|说明|
+|:---|:---|:---|:---|:---|
+|`edges.path`|string|`"hdfs://namenode:9000/path/edge"`|是|指定CSV文件的存储路径。设置的路径必须不存在，Exchange会自动创建该路径。存储到HDFS服务器时路径格式同默认值，例如`"hdfs://192.168.8.177:9000/edge/follow"`。存储到本地时路径格式为`"file:///path/edge"`，例如`"file:///home/nebula/edge/follow"`。有多个Edge时必须为每个Edge设置不同的目录。|
+|`edges.noField`|bool|`false`|是|当值为`true`时，仅导出起始点VID、目的点VID和Rank，而不导出属性数据；当值为`false`时导出起始点VID、目的点VID、Rank和属性数据。|
+|`edges.return.fields`|list|`[]`|是|指定要导出的属性。例如，要导出`start_year`和`end_year`属性，需将参数值设置为`["start_year","end_year"]`。该参数仅在`edges.noField`的值为`false`时生效。|

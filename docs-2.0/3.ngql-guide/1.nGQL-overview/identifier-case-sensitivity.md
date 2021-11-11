@@ -5,7 +5,7 @@
 以下语句会出现错误，因为`my_space`和`MY_SPACE`是两个不同的图空间。
 
 ```ngql
-nebula> CREATE SPACE my_space (vid_type=FIXED_STRING(30));
+nebula> CREATE SPACE IF NOT EXISTS my_space (vid_type=FIXED_STRING(30));
 nebula> use MY_SPACE;
 [ERROR (-8)]: SpaceNotFound:
 ```

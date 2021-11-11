@@ -8,6 +8,8 @@
 
 - 不支持属性的Default值。
 
+- 企业版Exchange {{exchange.release}}不支持基于[GEOGRAPHY](../../3.ngql-guide/3.data-types/10.geography.md)类型的数据生成SST文件。
+
 ## 背景信息
 
 Exchange支持两种数据导入模式：
@@ -102,6 +104,8 @@ SST文件是一个内部包含了任意长度的有序键值对集合的文件�
       - 如果需要生成其他数据源的SST文件，请参见相应数据源的文档，查看前提条件部分。
 
       - 如果只需要生成SST文件，不需要在部署Storage服务的机器上安装Hadoop服务。
+      
+      - 如需在INGEST（数据导入）结束后自动移除SST文件，在Storage服务配置文件中增加`--move_files=true`，该配置会让Nebula Graph在INGEST后将SST文件移动（`mv`）到`data`目录下。`--move_files`的默认值为`false`，此时Nebula Graph会复制（`cp`）SST文件而不是移动。
 
 ## 操作步骤
 
@@ -443,6 +447,10 @@ SST文件是一个内部包含了任意长度的有序键值对集合的文件�
 ```bash
 ${SPARK_HOME}/bin/spark-submit --master "local" --conf spark.sql.shuffle.partition=<shuffle_concurrency> --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-{{exchange.release}}.jar_path> -c <sst_application.conf_path> 
 ```
+
+!!! note
+
+    生成SST文件时，会涉及到Spark的shuffle操作，请注意在提交命令中增加`spark.sql.shuffle.partition`的配置。
 
 !!! note
 

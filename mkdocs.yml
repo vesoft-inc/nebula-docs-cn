@@ -54,9 +54,12 @@ extra:
   explorer:
     base100: 1.0.0
     release: 2.0.0
+  exchange_ent:
+    release: 2.6.0
+    branch: v2.6
   exchange:
     release: 2.6.0
-    branch: v2.6.0
+    branch: v2.6
   importer:
     release: 2.6.0
     branch: v2.6.0
@@ -78,6 +81,8 @@ extra:
     release: 1.0.1
     base100: 1.0.0
     branch: v1.0.1
+  dashboard_ent:
+    release: 1.0.0
   console:
     release: 2.6.0
     branch: v2.6.0
@@ -291,11 +296,12 @@ nav:
           - 使用tar.gz文件安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/4.install-nebula-graph-from-tar.md
           - 使用Docker Compose部署: 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
           - 使用RPM/DEB包部署多机集群: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
+      - 设置企业版License: 4.deployment-and-installation/deploy-license.md
       - 管理服务: 4.deployment-and-installation/manage-service.md
       - 连接服务: 4.deployment-and-installation/connect-to-nebula-graph.md
       - 升级版本:
-          - 升级历史版本至v2.6.0: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-260.md
-          - 升级v2.0.x至v2.6.0: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-260.md
+          - 升级历史版本至当前版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
+          - 升级v2.0.x至当前版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
       - 卸载Nebula Graph: 4.deployment-and-installation/4.uninstall-nebula-graph.md
 
   - 配置与日志:
@@ -334,7 +340,6 @@ nav:
       - 系统建模: 8.service-tuning/3.system-design.md
       - 执行计划: 8.service-tuning/4.plan.md
       - 超级节点(稠密点): 8.service-tuning/super-node.md
-      - 增加和删除标签: 8.service-tuning/improve-query-by-tag-index.md
       - 实践案例: 8.service-tuning/practice.md
 
 
@@ -378,26 +383,44 @@ nav:
       - 无法访问 Studio: nebula-studio/troubleshooting/st-ug-connection-errors.md
       - Studio 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
 
-#  - Nebula Dashboard:
-#      - 什么是Nebula Dashboard: nebula-dashboard/1.what-is-dashboard.md
-#      - 部署Dashboard: nebula-dashboard/2.deploy-dashboard.md
-#      - 连接Dashboard: nebula-dashboard/3.connect-dashboard.md
-#      - Dashboard页面介绍: nebula-dashboard/4.use-dashboard.md
-#      - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
+  - Nebula Dashboard（社区版）:
+      - 什么是Nebula Dashboard: nebula-dashboard/1.what-is-dashboard.md
+      - 部署Dashboard: nebula-dashboard/2.deploy-dashboard.md
+      - 连接Dashboard: nebula-dashboard/3.connect-dashboard.md
+      - Dashboard页面介绍: nebula-dashboard/4.use-dashboard.md
+      - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
 
-#  - Nebula Explorer:
-#      - 什么是Nebula Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
-#      - 安装与登录:
-#        - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
-#        - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
-#        - 清除连接: nebula-explorer/deploy-connect/ex-ug-reset-connection.md
-#      - 操作指南:
-#        - 页面概览: nebula-explorer/operation-guide/ex-ug-page-overview.md
-#        - 查询探索: nebula-explorer/operation-guide/ex-ug-query-exploration.md
-#        - 图探索拓展: nebula-explorer/operation-guide/ex-ug-graph-exploration.md
-#        - 画布操作: nebula-explorer/operation-guide/ex-ug-canvas.md
-#        - 关系列表: nebula-explorer/operation-guide/ex-ug-relationship-list.md
-#        - 快捷键: nebula-explorer/operation-guide/ex-ug-shortcuts.md
+  - Nebula Dashboard（企业版）:
+      - 什么是Nebula Dashboard: nebula-dashboard-ent/1.what-is-dashboard-ent.md
+      - 部署Dashboard: nebula-dashboard-ent/2.deploy-connect-dashboard-ent.md
+      - 创建及导入集群:
+        - 创建集群: nebula-dashboard-ent/3.create-import-dashboard/1.create-cluster.md
+        - 导入集群: nebula-dashboard-ent/3.create-import-dashboard/2.import-cluster.md
+      - 集群操作:
+        - 集群总览: nebula-dashboard-ent/4.cluster-operator/1.overview.md
+        - 集群监控: nebula-dashboard-ent/4.cluster-operator/2.monitor.md
+        - 集群信息: nebula-dashboard-ent/4.cluster-operator/3.cluster-information.md
+        - 集群操作: nebula-dashboard-ent/4.cluster-operator/4.manage.md
+        - 操作记录: nebula-dashboard-ent/4.cluster-operator/5.operation-record.md
+        - 其他设置: nebula-dashboard-ent/4.cluster-operator/6.settings.md
+      - 权限管理: nebula-dashboard-ent/5.account-management.md
+      - 系统设置: nebula-dashboard-ent/6.system-settings.md
+      - 监控指标说明: nebula-dashboard-ent/7.monitor-parameter.md
+      - 常见问题FAQ: nebula-dashboard-ent/8.faq.md
+
+  - Nebula Explorer:
+      - 什么是Nebula Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
+      - 安装与登录:
+        - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
+        - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
+        - 清除连接: nebula-explorer/deploy-connect/ex-ug-reset-connection.md
+      - 操作指南:
+        - 页面概览: nebula-explorer/operation-guide/ex-ug-page-overview.md
+        - 查询探索: nebula-explorer/operation-guide/ex-ug-query-exploration.md
+        - 图探索拓展: nebula-explorer/operation-guide/ex-ug-graph-exploration.md
+        - 画布操作: nebula-explorer/operation-guide/ex-ug-canvas.md
+        - 关系列表: nebula-explorer/operation-guide/ex-ug-relationship-list.md
+        - 快捷键: nebula-explorer/operation-guide/ex-ug-shortcuts.md
 
   - Nebula Importer:
     - 使用Nebula Importer: nebula-importer/use-importer.md
@@ -408,7 +431,7 @@ nav:
     - 认识Nebula Exchange:
       - 什么是Nebula Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
       - 使用限制: nebula-exchange/about-exchange/ex-ug-limitations.md
-    - 编译Exchange: nebula-exchange/ex-ug-compile.md
+    - 获取Nebula Exchange: nebula-exchange/ex-ug-compile.md
     - 参数说明:
       - 导入命令参数: nebula-exchange/parameter-reference/ex-ug-para-import-command.md
       - 配置参数: nebula-exchange/parameter-reference/ex-ug-parameter.md
@@ -426,6 +449,7 @@ nav:
       - 导入Pulsar数据: nebula-exchange/use-exchange/ex-ug-import-from-pulsar.md
       - 导入Kafka数据: nebula-exchange/use-exchange/ex-ug-import-from-kafka.md
       - 导入SST文件数据: nebula-exchange/use-exchange/ex-ug-import-from-sst.md
+      - 导出Nebula Graph数据: nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
     - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
 
 #  - Nebula Operator:

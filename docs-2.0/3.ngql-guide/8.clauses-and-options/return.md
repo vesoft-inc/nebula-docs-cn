@@ -173,13 +173,13 @@ nebula> MATCH (v:player{name:"Tim Duncan"})-[e]->(v2) \
 ```ngql
 nebula> MATCH (v:player{name:"Tony Parker"})-->(v2:player) \
         RETURN DISTINCT v2.name, "Hello"+" graphs!", v2.age > 35;
-+---------------------+------------------+-------------+
-| v2.name             | (Hello+ graphs!) | (v2.age>35) |
-+---------------------+------------------+-------------+
-| "Tim Duncan"        | "Hello graphs!"  | true        |
-| "LaMarcus Aldridge" | "Hello graphs!"  | false       |
-| "Manu Ginobili"     | "Hello graphs!"  | true        |
-+---------------------+------------------+-------------+
++---------------------+----------------------+-------------+
+| v2.name             | ("Hello"+" graphs!") | (v2.age>35) |
++---------------------+----------------------+-------------+
+| "Tim Duncan"        | "Hello graphs!"      | true        |
+| "LaMarcus Aldridge" | "Hello graphs!"      | false       |
+| "Manu Ginobili"     | "Hello graphs!"      | true        |
++---------------------+----------------------+-------------+
 
 nebula> RETURN 1+1;
 +-------+

@@ -14,8 +14,8 @@
 
 ```ngql
 //创建股东Tag和索引
-nebula> CREATE TAG shareholder();
-nebula> CREATE TAG INDEX shareholder_tag on shareholder();
+nebula> CREATE TAG IF NOT EXISTS shareholder();
+nebula> CREATE TAG INDEX IF NOT EXISTS shareholder_tag on shareholder();
 
 //为点添加Tag
 nebula> INSERT VERTEX shareholder() VALUES "player100":();
