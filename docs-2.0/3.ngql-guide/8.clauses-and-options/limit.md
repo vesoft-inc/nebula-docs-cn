@@ -95,13 +95,9 @@ nebula> GO 3 STEPS FROM "player100" \
 nebula> GO 3 STEPS FROM "player102" \
         OVER * \
         LIMIT [rand32(5),rand32(5),rand32(5)];
-+------------+-------------+---------------------+
-| serve._dst | follow._dst | any_shape_edge._dst |
-+------------+-------------+---------------------+
-| "team204"  |             |                     |
-| "team215"  |             |                     |
-|            | "player100" |                     |
-+------------+-------------+---------------------+
++------------+-------------+
+| serve._dst | follow._dst |
++------------+-------------+
 ```
 
 ## openCypher兼容语句中的LIMIT
