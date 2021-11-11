@@ -151,7 +151,7 @@ nav:
         - 日期时间: 3.ngql-guide/3.data-types/4.date-and-time.md
         - NULL: 3.ngql-guide/3.data-types/5.null.md
         - 列表: 3.ngql-guide/3.data-types/6.list.md
-        #- 集合: 3.ngql-guide/3.data-types/7.set.md
+        - 集合: 3.ngql-guide/3.data-types/7.set.md
         - 映射: 3.ngql-guide/3.data-types/8.map.md
         - 类型转换: 3.ngql-guide/3.data-types/9.type-conversion.md
         - 地理位置: 3.ngql-guide/3.data-types/10.geography.md
