@@ -199,7 +199,7 @@ nav:
             - SHOW CHARSET: 3.ngql-guide/7.general-query-statements/6.show/1.show-charset.md
             - SHOW COLLATION: 3.ngql-guide/7.general-query-statements/6.show/2.show-collation.md
             - SHOW CREATE SPACE: 3.ngql-guide/7.general-query-statements/6.show/4.show-create-space.md
-            - SHOW CREATE TAGS/EDGES: 3.ngql-guide/7.general-query-statements/6.show/5.show-create-tags-edges.md
+            - SHOW CREATE TAG/EDGE: 3.ngql-guide/7.general-query-statements/6.show/5.show-create-tag-edge.md
             - SHOW HOSTS: 3.ngql-guide/7.general-query-statements/6.show/6.show-hosts.md
             - SHOW INDEX STATUS: 3.ngql-guide/7.general-query-statements/6.show/7.show-index-status.md
             - SHOW INDEXES: 3.ngql-guide/7.general-query-statements/6.show/8.show-indexes.md
