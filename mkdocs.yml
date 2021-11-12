@@ -519,19 +519,12 @@ plugins:
 
   - with-pdf:
       copyright: 2021 Vesoft Inc.
-      cover_subtitle: master since master
+      cover_subtitle: master sinnce 2.6.1
       author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
       cover: true
       back_cover: true
       cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
       output_path: pdf/NebulaGraph-CN.pdf
-      show_anchors: true
-      render_js: true
-      headless_chrome_path: headless-chromium
-      enabled_if_env: ENABLE_PDF_EXPORT
-      debug_html: true
-      show_anchors: true
-      verbose: true
 
 extra_javascript:
   - js/version-select.js
