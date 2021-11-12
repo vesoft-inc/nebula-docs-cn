@@ -109,8 +109,8 @@ extra:
     release: 1.0.0
     branch: master
   operator:
-    release: 0.8.0
-    branch: v0.8.0
+    release: 0.9.0
+    branch: v0.9.0
 
 nav:
   - PDF: ./pdf/NebulaGraph-CN.pdf
@@ -455,6 +455,11 @@ nav:
       - 部署Nebula Graph集群: 
         - 使用Kubectl部署Nebula Graph集群: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
         - 使用Helm部署Nebula Graph集群: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
+      - 配置Nebula Graph集群:
+        -自定义Nebula Graph集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
+        -回收PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
+        -均衡扩容后的Storage数据: nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
+      - 升级Nebula Graph集群: nebula-operator/9.upgrade-nebula-cluster.md   
       - 连接Nebula Graph数据库: nebula-operator/4.connect-to-nebula-graph-service.md
       - 故障自愈: nebula-operator/5.operator-failover.md
       - 常见问题: nebula-operator/7.operator-faq.md
