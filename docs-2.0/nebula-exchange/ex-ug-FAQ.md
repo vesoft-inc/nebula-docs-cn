@@ -2,7 +2,7 @@
 
 ## 编译问题
 
-### 部分非central仓库的包下载失败，报错`Could not resolve dependencies for project xxx`
+### Q：部分非central仓库的包下载失败，报错`Could not resolve dependencies for project xxx`
 
 请检查Maven安装目录下`libexec/conf/settings.xml`文件的`mirror`部分：
 
@@ -21,7 +21,7 @@
 
 ## 执行问题
 
-### Yarn-Cluster模式下如何提交？
+### Q：Yarn-Cluster模式下如何提交？
 
 在Yarn-Cluster模式下提交任务，请参考如下命令：
 
@@ -35,19 +35,19 @@ nebula-exchange-2.0.0.jar \
 -c application.conf
 ```
 
-### 报错`method name xxx not found`
+### Q：报错`method name xxx not found`
 
 一般是端口配置错误，需检查Meta服务、Graph服务、Storage服务的端口配置。
 
-### 报NoSuchMethod、MethodNotFound错误（`Exception in thread "main" java.lang.NoSuchMethodError`等）
+### Q：报NoSuchMethod、MethodNotFound错误（`Exception in thread "main" java.lang.NoSuchMethodError`等）
 
 绝大多数是因为JAR包冲突和版本冲突导致的报错，请检查报错服务的版本，与Exchange中使用的版本进行对比，检查是否一致，尤其是Spark版本、Scala版本、Hive版本。
 
-### Exchange导入Hive数据时报错`Exception in thread "main" org.apache.spark.sql.AnalysisException: Table or view not found`
+### Q：Exchange导入Hive数据时报错`Exception in thread "main" org.apache.spark.sql.AnalysisException: Table or view not found`
 
 检查提交exchange任务的命令中是否遗漏参数`-h`，检查table和database是否正确，在spark-sql中执行用户配置的exec语句，验证exec语句的正确性。
 
-### 运行时报错`com.facebook.thrift.protocol.TProtocolException: Expected protocol id xxx`
+### Q：运行时报错`com.facebook.thrift.protocol.TProtocolException: Expected protocol id xxx`
 
 请检查Nebula Graph服务端口配置是否正确。
 
@@ -78,13 +78,47 @@ nebula-exchange-2.0.0.jar \
 
     - Storage服务可用的端口号有33183、33177、33185。
 
-### 运行时报错`Exception in thread "main" com.facebook.thrift.protocol.TProtocolException: The field 'code' has been assigned the invalid value -4`
+### Q：运行时报错`Exception in thread "main" com.facebook.thrift.protocol.TProtocolException: The field 'code' has been assigned the invalid value -4`
 
 检查 Exchange 版本与 Nebula Graph 版本是否匹配，详细信息可参考[使用限制](../nebula-exchange/about-exchange/ex-ug-limitations.md)。
 
+### Q：将Hive中的数据导入Nebula Graph时出现乱码如何解决？
+
+如果Hive中数据的属性值包含中文字符，可能出现该情况。解决方案是在导入命令中的JAR包路径前加上以下选项：
+
+```bash
+--conf spark.driver.extraJavaOptions=-Dfile.encoding=utf-8
+--conf spark.executor.extraJavaOptions=-Dfile.encoding=utf-8
+```
+
+即：
+
+```bash
+<spark_install_path>/bin/spark-submit --master "local" \
+--conf spark.driver.extraJavaOptions=-Dfile.encoding=utf-8 \
+--conf spark.executor.extraJavaOptions=-Dfile.encoding=utf-8 \
+--class com.vesoft.nebula.exchange.Exchange \
+<nebula-exchange-2.x.y.jar_path> -c <application.conf_path>
+```
+
+如果是在YARN中，则用以下命令：
+
+```bash
+<spark_install_path>/bin/spark-submit \
+--class com.vesoft.nebula.exchange.Exchange \
+--master yarn-cluster \
+--files <application.conf_path> \
+--conf spark.driver.extraClassPath=./ \
+--conf spark.executor.extraClassPath=./ \
+--conf spark.driver.extraJavaOptions=-Dfile.encoding=utf-8 \
+--conf spark.executor.extraJavaOptions=-Dfile.encoding=utf-8 \
+<nebula-exchange-2.x.y.jar_path> \
+-c application.conf
+```
+
 ## 配置问题
 
-### 哪些配置项影响导入性能？
+### Q：哪些配置项影响导入性能？
 
 - batch：每次发送给Nebula Graph服务的nGQL语句中包含的数据条数。
 
@@ -100,11 +134,11 @@ nebula-exchange-2.0.0.jar \
 
 ## 其他问题
 
-### Exchange支持哪些版本的Nebula Graph？
+### Q：Exchange支持哪些版本的Nebula Graph？
 
 请参见Exchange的[使用限制](about-exchange/ex-ug-limitations.md)。
 
-### Exchange与Spark Writer有什么关系？
+### Q：Exchange与Spark Writer有什么关系？
 
 Exchange是在Spark Writer基础上开发的Spark应用程序，二者均适用于在分布式环境中将集群的数据批量迁移到Nebula Graph中，但是后期的维护工作将集中在 Exchange上。与Spark Writer相比，Exchange有以下改进：
 
@@ -112,6 +146,6 @@ Exchange是在Spark Writer基础上开发的Spark应用程序，二者均适用�
 
 - 修复了Spark Writer的部分问题。例如Spark读取HDFS里的数据时，默认读取到的源数据均为String类型，可能与Nebula Graph定义的Schema不同，所以Exchange增加了数据类型的自动匹配和类型转换，当Nebula Graph定义的Schema中数据类型为非String类型（如double）时，Exchange会将String类型的源数据转换为对应的类型（如double）。
 
-### Exchange传输数据的性能如何？
+### Q：Exchange传输数据的性能如何？
 
 Exchange的性能测试数据和测试方法参见[Nebula Exchange test result](https://github.com/vesoft-inc/nebula-exchange/blob/master/bench/exchange-test.md)。
