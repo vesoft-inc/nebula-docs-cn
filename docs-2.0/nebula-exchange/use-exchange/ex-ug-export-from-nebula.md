@@ -6,6 +6,10 @@
 
     仅企业版Exchange支持导出Nebula Graph数据到CSV文件。
 
+!!! note
+
+    导出Nebula Graph数据时不支持SSL加密传输。
+
 ## 环境准备
 
 本示例在Linux系统的虚拟机环境下完成，导出数据前准备的软硬件信息如下。
@@ -107,7 +111,7 @@ CentOS 7.9.2009
     ]
   }
   ```
-  
+
 3. 使用如下命令导出Nebula Graph中的数据。
   
   ```bash
