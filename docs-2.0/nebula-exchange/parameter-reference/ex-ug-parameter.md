@@ -49,6 +49,14 @@
 |`nebula.user`|string|-|是|拥有Nebula Graph写权限的用户名。|
 |`nebula.pswd`|string|-|是|用户名对应的密码。|
 |`nebula.space`|string|-|是|需要导入数据的的图空间名称。|
+|`nebula.ssl.enable.graph`|bool|`false`|是|开启Exchange与Graph服务之间的[SSL加密](https://en.wikipedia.org/wiki/Transport_Layer_Security)传输。当值为`true`时开启，下方的SSL相关参数生效。如果Exchange运行在多机集群上，在设置以下SSL相关路径时，需要在每台机器的相同路径都存储相应的文件。|
+|`nebula.ssl.sign`|string|`ca`|是|签名方式，可选值：`ca`（CA签名）或`self`（自签名）。|
+|`nebula.ssl.ca.param.caCrtFilePath`|string|`"/path/caCrtFilePath"`|是|`nebula.ssl.sign`的值为`ca`时生效，用于指定CA证书的存储路径。|
+|`nebula.ssl.ca.param.crtFilePath`|string|`"/path/crtFilePath"`|是|`nebula.ssl.sign`的值为`ca`时生效，用于指定CRT证书的存储路径。|
+|`nebula.ssl.ca.param.keyFilePath`|string|`"/path/keyFilePath"`|是|`nebula.ssl.sign`的值为`ca`时生效，用于指定私钥文件的存储路径。|
+|`nebula.ssl.self.param.crtFilePath`|string|`"/path/crtFilePath"`|是|`nebula.ssl.sign`的值为`self`时生效，用于指定CRT证书的存储路径。|
+|`nebula.ssl.self.param.keyFilePath`|string|`"/path/keyFilePath"`|是|`nebula.ssl.sign`的值为`self`时生效，用于指定私钥文件的存储路径。|
+|`nebula.ssl.self.param.password`|string|`"nebula"`|是|`nebula.ssl.sign`的值为`self`时生效，用于指定密码文件的存储路径。|
 |`nebula.path.local`|string|`"/tmp"`|否|导入SST文件时需要设置本地SST文件路径。|
 |`nebula.path.remote`|string|`"/sst"`|否|导入SST文件时需要设置远端SST文件路径。|
 |`nebula.path.hdfs.namenode`|string|`"hdfs://name_node:9000"`|否|导入SST文件时需要设置HDFS的namenode。|
