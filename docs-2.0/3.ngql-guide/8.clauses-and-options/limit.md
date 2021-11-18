@@ -98,6 +98,10 @@ nebula> GO 3 STEPS FROM "player102" \
 +------------+-------------+
 | serve._dst | follow._dst |
 +------------+-------------+
+| "team204"  |             |
+| "team215"  |             |
+|            | "player100" |
++------------+-------------+
 ```
 
 ## openCypher兼容语句中的LIMIT
