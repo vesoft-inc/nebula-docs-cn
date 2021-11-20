@@ -155,15 +155,16 @@ clientSettings:
     user: user
     password: password
     address: 192.168.11.13:9669,192.168.11.14:9669
-  postStart:
-    commands: |
-      UPDATE CONFIGS storage:wal_ttl=3600;
-      UPDATE CONFIGS storage:rocksdb_column_family_options = { disable_auto_compactions = true };
-    afterPeriod: 8s
-  preStop:
-    commands: |
-      UPDATE CONFIGS storage:wal_ttl=86400;
-      UPDATE CONFIGS storage:rocksdb_column_family_options = { disable_auto_compactions = false };
+  # # 只有 local_config 是 false 的情况下，才可以通过 UPDATE CONFIGS 更新配置
+  # postStart:
+  #   commands: |
+  #     UPDATE CONFIGS storage:wal_ttl=3600;
+  #     UPDATE CONFIGS storage:rocksdb_column_family_options = { disable_auto_compactions = true };
+  #   afterPeriod: 8s
+  # preStop:
+  #   commands: |
+  #     UPDATE CONFIGS storage:wal_ttl=86400;
+  #     UPDATE CONFIGS storage:rocksdb_column_family_options = { disable_auto_compactions = false };
 ```
 
 |参数|默认值|是否必须|说明|
