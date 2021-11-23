@@ -24,6 +24,8 @@ Nebula Graph在各行各业都有应用，本文介绍部分实践案例。更�
 
 - [基于全文搜索引擎的文本搜索](https://nebula-graph.com.cn/posts/how-fulltext-index-works/)
 
+- [实操 - LDBC 数据导入及 nGQL 实践](https://nebula-graph.com.cn/posts/query-graph-with-ldbc-dataset/)
+
 ## 周边工具
 
 - [基于Nebula Importer批量导入工具性能验证方案总结](https://nebula-graph.com.cn/posts/nebula-importer-practice/)
@@ -31,3 +33,9 @@ Nebula Graph在各行各业都有应用，本文介绍部分实践案例。更�
 - [详解Nebula 2.0性能测试和Nebula Importer数据导入调优](https://nebula-graph.com.cn/posts/v2.0-benchmark-and-nebula-importer-optimize/)
 
 - [Nebula Graph支持JDBC协议](https://nebula-graph.com.cn/posts/what-is-nebula-jdbc/)
+
+- [Nebula·利器 - Norm 知乎开源的 ORM 工具](https://nebula-graph.com.cn/posts/zhihu-open-source-orm-tool/)
+
+- [基于 Nebula Graph 的 Betweenness Centrality 算法](https://nebula-graph.com.cn/posts/introduction-to-betweenness-centrality-algorithm/)
+
+- [无依赖单机尝鲜 Nebula Exchange 的 SST 导入](https://nebula-graph.com.cn/posts/import-sst-data-without-dependence/)
