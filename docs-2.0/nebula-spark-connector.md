@@ -46,7 +46,7 @@ Nebula Spark Connector {{sparkconnector.release}}版本特性如下：
 
 !!! note
 
-     安装 Spark 2.3以上版本。
+     安装 Spark 2.4.x 版本。
 
 1. 克隆仓库`nebula-spark-connector`。
 
