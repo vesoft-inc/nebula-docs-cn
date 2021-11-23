@@ -13,3 +13,7 @@ Nebula Flink Connector适用于以下场景：
 - 在同一个Nebula Graph集群内不同图空间之间迁移数据。
 
 - Nebula Graph与其他数据源之间迁移数据。
+
+## 更新说明
+
+[Release](https://github.com/vesoft-inc/nebula-flink-connector/releases/tag/{{flinkconnector.tag}})

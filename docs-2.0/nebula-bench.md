@@ -8,6 +8,10 @@ Nebula Bench是一款利用LDBC数据集对Nebula Graph进行性能测试的工�
 
 - 对Nebula Graph集群进行性能测试。
 
+## 更新说明
+
+[Release](https://github.com/vesoft-inc/nebula-bench/releases/tag/{{bench.tag}})
+
 ## 测试流程
 
 1. 使用ldbc_snb_datagen生成测试数据。

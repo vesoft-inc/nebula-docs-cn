@@ -77,18 +77,20 @@ extra:
   sparkconnector:
     release: 2.6.0
     branch: v2.6
+    tag: v2.6.0
   flinkconnector:
     release: 2.6.0
     branch: v2.6
+    tag: v2.6.0
   dockercompose:
     release: 2.6.0
     branch: v2.6.0
   common:
     release: 2.5.0
   dashboard:
-    release: 1.0.1
+    release: 1.0.2
     base100: 1.0.0
-    branch: v1.0.1
+    branch: v1.0.2
   dashboard_ent:
     release: 1.0.0
   console:
@@ -111,6 +113,7 @@ extra:
   bench:
     release: 1.0.0
     branch: master
+    tag: v1.0.0
   operator:
     release: 0.9.0
     branch: v0.9.0

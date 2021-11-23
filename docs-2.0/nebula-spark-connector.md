@@ -40,6 +40,10 @@ Nebula Spark Connector {{sparkconnector.release}}版本特性如下：
 
 - 支持`insert`、`update`和`delete`三种写入模式。`insert`模式会插入（覆盖）数据，`update`模式仅会更新已存在的数据，`delete`模式只删除数据。
 
+## 更新说明
+
+[Release](https://github.com/vesoft-inc/nebula-spark-connector/releases/tag/{{sparkconnector.tag}})
+
 ## 获取Nebula Spark Connector
 
 ### 编译打包

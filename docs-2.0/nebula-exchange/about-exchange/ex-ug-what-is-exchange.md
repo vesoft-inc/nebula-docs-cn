@@ -80,6 +80,10 @@ Exchange {{exchange.release}} 支持将以下格式或来源的数据转换为Ne
 
 此外，企业版Exchange还支持以Nebula Graph为源，将数据[导出到CSV文件](../use-exchange/ex-ug-export-from-nebula.md)。
 
+## 更新说明
+
+[Release](https://github.com/vesoft-inc/nebula-exchange/releases/tag/{{exchange.branch}})
+
 ## 视频
 
 * [图数据库 Nebula Graph 数据导入工具——Exchange](https://www.bilibili.com/video/BV1Pq4y177D9)（3分08秒）

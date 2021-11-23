@@ -12,6 +12,10 @@ Importer适用于将本地CSV文件的内容导入至Nebula Graph中。
 
 - 灵活筛选：通过配置文件可以实现对CSV文件数据的灵活筛选。
 
+## 更新说明
+
+[Release](https://github.com/vesoft-inc/nebula-importer/releases/tag/{{importer.branch}})
+
 ## 前提条件
 
 在使用Nebula Importer之前，请确保：
