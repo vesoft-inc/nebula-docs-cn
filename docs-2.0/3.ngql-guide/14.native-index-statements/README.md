@@ -1,16 +1,16 @@
 # 索引介绍
 
-Nebula Graph支持两种类型索引：原生索引和全文索引。
+Nebula Graph 支持两种类型索引：原生索引和全文索引。
 
 ## 原生索引
 
 原生索引可以基于指定的属性查询数据，有如下特点：
 
-- 包括Tag索引和Edge type索引。
+- 包括 Tag 索引和 Edge type 索引。
 
 - 必须手动重建索引（`REBUILD INDEX`）。
 
-- 支持创建同一个Tag或Edge type的多个属性的索引（复合索引），但是不能跨Tag或Edge type。
+- 支持创建同一个 Tag 或 Edge type 的多个属性的索引（复合索引），但是不能跨 Tag 或 Edge type。
 
 ### 原生索引操作
 
@@ -38,7 +38,7 @@ Nebula Graph支持两种类型索引：原生索引和全文索引。
 
 - 只允许创建一个属性的索引。
 
-- 只能创建指定长度（不超过256字节）字符串的索引。
+- 只能创建指定长度（不超过 256 字节）字符串的索引。
 
 - 不支持逻辑操作，例如`AND`、`OR`、`NOT`。
 
@@ -48,15 +48,15 @@ Nebula Graph支持两种类型索引：原生索引和全文索引。
 
 ### 全文索引操作
 
-在对全文索引执行任何操作之前，请确保已经部署全文索引。详情请参见[部署全文索引](../../4.deployment-and-installation/6.deploy-text-based-index/2.deploy-es.md)和[部署listener](../../4.deployment-and-installation/6.deploy-text-based-index/3.deploy-listener.md)。
+在对全文索引执行任何操作之前，请确保已经部署全文索引。详情请参见 [部署全文索引](../../4.deployment-and-installation/6.deploy-text-based-index/2.deploy-es.md) 和 [部署 listener](../../4.deployment-and-installation/6.deploy-text-based-index/3.deploy-listener.md)。
 
-部署完成后，Elasticsearch集群上会自动创建全文索引。不支持重建或修改全文索引。如果需要删除全文索引，请在Elasticsearch集群上手动删除。
+部署完成后，Elasticsearch 集群上会自动创建全文索引。不支持重建或修改全文索引。如果需要删除全文索引，请在 Elasticsearch 集群上手动删除。
 
-使用全文索引请参见[使用全文索引查询](../15.full-text-index-statements/1.search-with-text-based-index.md)。
+使用全文索引请参见 [使用全文索引查询](../15.full-text-index-statements/1.search-with-text-based-index.md)。
 
-## NULL值说明
+## NULL 值说明
 
-不支持对值为NULL的属性创建索引。
+不支持对值为 NULL 的属性创建索引。
 
 ## 范围查询
 
