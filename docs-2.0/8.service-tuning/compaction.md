@@ -1,20 +1,20 @@
 # Compaction
 
-本文介绍Compaction的相关信息。
+本文介绍 Compaction 的相关信息。
 
-Nebula Graph中，`Compaction`是最重要的后台操作，对性能有极其重要的影响。
+Nebula Graph 中，`Compaction`是最重要的后台操作，对性能有极其重要的影响。
 
-`Compaction`操作会读取硬盘上的数据，然后重组数据结构和索引，然后再写回硬盘，可以成倍提升读取性能。将大量数据写入Nebula Graph后，为了提高读取性能，需要手动触发`Compaction`操作（全量`Compaction`）。
+`Compaction`操作会读取硬盘上的数据，然后重组数据结构和索引，然后再写回硬盘，可以成倍提升读取性能。将大量数据写入 Nebula Graph 后，为了提高读取性能，需要手动触发`Compaction`操作（全量`Compaction`）。
 
 !!! Note
 
-    `Compaction`操作会长时间占用硬盘的IO，建议在业务低峰期（例如凌晨）执行该操作。
+    `Compaction`操作会长时间占用硬盘的 IO，建议在业务低峰期（例如凌晨）执行该操作。
 
-Nebula Graph有两种类型的`Compaction`操作：自动`Compaction`和全量`Compaction`。
+Nebula Graph 有两种类型的`Compaction`操作：自动`Compaction`和全量`Compaction`。
 
 ## 自动`Compaction`
 
-自动`Compaction`是在系统读取数据、写入数据或系统重启时自动触发`Compaction`操作，提升短时间内的读取性能。默认情况下，自动`Compaction`是开启状态，可能在业务高峰期触发，导致意外抢占IO影响业务。
+自动`Compaction`是在系统读取数据、写入数据或系统重启时自动触发`Compaction`操作，提升短时间内的读取性能。默认情况下，自动`Compaction`是开启状态，可能在业务高峰期触发，导致意外抢占 IO 影响业务。
 
 <!--
 如果需要完全手动控制`Compaction`操作，用户可以关闭自动`Compaction`。
@@ -26,7 +26,7 @@ Nebula Graph有两种类型的`Compaction`操作：自动`Compaction`和全量`C
     命令`UPDATE CONFIGS`会将未设置的参数恢复为默认值，因此修改前需要使用`SHOW CONFIGS STORAGE`查看`rocksdb_column_family_options`配置，然后一起重新传入值。
 
 ```ngql
-# 查看当前rocksdb_column_family_options设置，复制value列内容。
+# 查看当前 rocksdb_column_family_options 设置，复制 value 列内容。
 nebula> SHOW CONFIGS STORAGE;
 +-----------+-------------------------------------+-------+-----------+------------------------------------------------------------------------------------------------------+
 | module    | name                                | type  | mode      | value                                                                                                |
@@ -37,7 +37,7 @@ nebula> SHOW CONFIGS STORAGE;
 +-----------+-------------------------------------+-------+-----------+------------------------------------------------------------------------------------------------------+
 ...
 
-# 修改rocksdb_column_family_options设置，在复制的value内容中添加disable_auto_compactions: true
+# 修改 rocksdb_column_family_options 设置，在复制的 value 内容中添加 disable_auto_compactions: true
 nebula> UPDATE CONFIGS storage:rocksdb_column_family_options = {disable_auto_compactions: true, max_bytes_for_level_base: 268435456, max_write_buffer_number: 4, write_buffer_size: 67108864};
 
 # 查看是否修改成功。
@@ -55,18 +55,18 @@ nebula> SHOW CONFIGS STORAGE;
 
 ## 全量`Compaction`
 
-全量`Compaction`可以对图空间进行大规模后台操作，例如合并文件、删除TTL过期数据等，该操作需要手动发起。使用如下语句执行全量`Compaction`操作：
+全量`Compaction`可以对图空间进行大规模后台操作，例如合并文件、删除 TTL 过期数据等，该操作需要手动发起。使用如下语句执行全量`Compaction`操作：
 
 !!! Note
 
-    建议在业务低峰期（例如凌晨）执行该操作，避免大量占用硬盘IO影响业务。
+    建议在业务低峰期（例如凌晨）执行该操作，避免大量占用硬盘 IO 影响业务。
 
 ```ngql
 nebula> USE <your_graph_space>;
 nebula> SUBMIT JOB COMPACT;
 ```
 
-上述命令会返回作业的ID，用户可以使用如下命令查看`Compaction`状态：
+上述命令会返回作业的 ID，用户可以使用如下命令查看`Compaction`状态：
 
 ```ngql
 nebula> SHOW JOB <job_id>;
@@ -74,10 +74,10 @@ nebula> SHOW JOB <job_id>;
 
 ## 操作建议
 
-为保证Nebula Graph的性能，请参考如下操作建议：
+为保证 Nebula Graph 的性能，请参考如下操作建议：
 
 <!--
-- 数据写入时为避免浪费IO，请在大量数据写入前关闭自动`Compaction`。详情请参见[关闭自动`Compaction`](#compaction_2)。
+- 数据写入时为避免浪费 IO，请在大量数据写入前关闭自动`Compaction`。详情请参见 [关闭自动`Compaction`](#compaction_2)。
 -->
 
 - 数据导入完成后，请执行`SUBMIT JOB COMPACT`。
@@ -91,7 +91,7 @@ nebula> SHOW JOB <job_id>;
 - 为控制`Compaction`的读写速率，请在配置文件`nebula-storaged.conf`中设置如下参数：
 
     ```bash
-    # 读写速率限制为20MB/S。
+    # 读写速率限制为 20MB/S。
     --rate_limit=20 (in MB/s)
     ```
 
@@ -114,7 +114,7 @@ Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Mov
 
 ### 可以同时在多个图空间执行全量`Compaction`操作吗？
 
-可以，但是此时的硬盘IO会很高，可能会影响效率。
+可以，但是此时的硬盘 IO 会很高，可能会影响效率。
 
 ### 全量`Compaction`操作会耗费多长时间？
 
@@ -126,4 +126,4 @@ Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Mov
 
 ### 全量`Compaction`操作开始后可以停止吗？
 
-不可以停止，必须等待操作完成。这是RocksDB的限制。
+不可以停止，必须等待操作完成。这是 RocksDB 的限制。

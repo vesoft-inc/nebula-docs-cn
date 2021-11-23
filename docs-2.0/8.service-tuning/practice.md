@@ -1,6 +1,6 @@
 # 实践案例
 
-Nebula Graph在各行各业都有应用，本文介绍部分实践案例。更多实践分享内容请参见[博客](https://nebula-graph.com.cn/posts/)。
+Nebula Graph 在各行各业都有应用，本文介绍部分实践案例。更多实践分享内容请参见 [博客](https://nebula-graph.com.cn/posts/)。
 
 ## 业务场景
 
@@ -12,15 +12,15 @@ Nebula Graph在各行各业都有应用，本文介绍部分实践案例。更�
 
 ## 内核
 
-- [MATCH中变长Pattern的实现](https://nebula-graph.com.cn/posts/nebula-graph-source-code-reading-06/)
+- [MATCH 中变长 Pattern 的实现](https://nebula-graph.com.cn/posts/nebula-graph-source-code-reading-06/)
 
-- [如何向Nebula Graph增加一个测试用例](https://nebula-graph.com.cn/posts/bdd-testing-practice-add-test-case/)
+- [如何向 Nebula Graph 增加一个测试用例](https://nebula-graph.com.cn/posts/bdd-testing-practice-add-test-case/)
 
-- [基于BDD理论的Nebula集成测试框架重构（上）](https://nebula-graph.com.cn/posts/bdd-testing-practice/)
+- [基于 BDD 理论的 Nebula 集成测试框架重构（上）](https://nebula-graph.com.cn/posts/bdd-testing-practice/)
 
-- [基于BDD理论的Nebula集成测试框架重构（下）](https://nebula-graph.com.cn/posts/bdd-testing-practice-volume-2/)
+- [基于 BDD 理论的 Nebula 集成测试框架重构（下）](https://nebula-graph.com.cn/posts/bdd-testing-practice-volume-2/)
 
-- [解析Nebula Graph子图设计及实践](https://nebula-graph.com.cn/posts/nebula-graph-subgraph-introduction/)
+- [解析 Nebula Graph 子图设计及实践](https://nebula-graph.com.cn/posts/nebula-graph-subgraph-introduction/)
 
 - [基于全文搜索引擎的文本搜索](https://nebula-graph.com.cn/posts/how-fulltext-index-works/)
 
@@ -28,11 +28,11 @@ Nebula Graph在各行各业都有应用，本文介绍部分实践案例。更�
 
 ## 周边工具
 
-- [基于Nebula Importer批量导入工具性能验证方案总结](https://nebula-graph.com.cn/posts/nebula-importer-practice/)
+- [基于 Nebula Importer 批量导入工具性能验证方案总结](https://nebula-graph.com.cn/posts/nebula-importer-practice/)
 
-- [详解Nebula 2.0性能测试和Nebula Importer数据导入调优](https://nebula-graph.com.cn/posts/v2.0-benchmark-and-nebula-importer-optimize/)
+- [详解 Nebula 2.0 性能测试和 Nebula Importer 数据导入调优](https://nebula-graph.com.cn/posts/v2.0-benchmark-and-nebula-importer-optimize/)
 
-- [Nebula Graph支持JDBC协议](https://nebula-graph.com.cn/posts/what-is-nebula-jdbc/)
+- [Nebula Graph 支持 JDBC 协议](https://nebula-graph.com.cn/posts/what-is-nebula-jdbc/)
 
 - [Nebula·利器 | Norm 知乎开源的 ORM 工具](https://nebula-graph.com.cn/posts/zhihu-open-source-orm-tool/)
 
