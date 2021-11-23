@@ -4,24 +4,24 @@
 
 `WHERE`子句通常用于如下查询：
 
-- 原生nGQL，例如`GO`和`LOOKUP`语句。
+- 原生 nGQL，例如`GO`和`LOOKUP`语句。
 
-- openCypher方式，例如`MATCH`和`WITH`语句。
+- openCypher 方式，例如`MATCH`和`WITH`语句。
 
-## openCypher兼容性
+## openCypher 兼容性
 
-- 不支持在`WHERE`子句中使用Pattern（TODO: planning），例如`WHERE (v)-->(v2)`。
+- 不支持在`WHERE`子句中使用 Pattern（TODO: planning），例如`WHERE (v)-->(v2)`。
 
-- [过滤Rank](#rank)是原生nGQL功能。如需在openCypher兼容语句中直接获取Rank值，可以使用rank()函数，例如`MATCH (:player)-[e:follow]->() RETURN rank(e);`。
+- [过滤 Rank](#rank) 是原生 nGQL 功能。如需在 openCypher 兼容语句中直接获取 Rank 值，可以使用 rank() 函数，例如`MATCH (:player)-[e:follow]->() RETURN rank(e);`。
 
 ## 基础用法
 
 !!! note
-    下文示例中的`$$`、`$^`等是引用符号，详情请参见[引用符](../5.operators/5.property-reference.md)。
+    下文示例中的`$$`、`$^`等是引用符号，详情请参见 [引用符](../5.operators/5.property-reference.md)。
 
 ### 用布尔运算符定义条件
 
-在`WHERE`子句中使用布尔运算符`NOT`、`AND`、`OR`和`XOR`定义条件。关于运算符的优先级，请参见[运算符优先级](../5.operators/9.precedence.md)。
+在`WHERE`子句中使用布尔运算符`NOT`、`AND`、`OR`和`XOR`定义条件。关于运算符的优先级，请参见 [运算符优先级](../5.operators/9.precedence.md)。
 
 ```ngql
 nebula> MATCH (v:player) \
@@ -144,9 +144,9 @@ nebula> MATCH (v:player) \
 ...
 ```
 
-### 过滤rank
+### 过滤 rank
 
-在nGQL中，如果多个边拥有相同的起始点、目的点和属性，则它们的唯一区别是rank值。在`WHERE`子句中可以使用rank过滤边。
+在 nGQL 中，如果多个边拥有相同的起始点、目的点和属性，则它们的唯一区别是 rank 值。在`WHERE`子句中可以使用 rank 过滤边。
 
 ```ngql
 # 创建测试数据。
@@ -164,7 +164,7 @@ nebula> INSERT EDGE e1(p1) VALUES "1"->"2"@4:(14);
 nebula> INSERT EDGE e1(p1) VALUES "1"->"2"@5:(15);
 nebula> INSERT EDGE e1(p1) VALUES "1"->"2"@6:(16);
 
-# 通过rank过滤边，查找rank大于2的边。
+# 通过 rank 过滤边，查找 rank 大于 2 的边。
 nebula> GO FROM "1" \
         OVER e1 \
         WHERE rank(edge) > 2 \
@@ -189,7 +189,7 @@ nebula> GO FROM "1" \
 `STARTS WITH`会从字符串的起始位置开始匹配。
 
 ```ngql
-# 查询姓名以T开头的player信息。
+# 查询姓名以 T 开头的 player 信息。
 nebula> MATCH (v:player) \
         WHERE v.name STARTS WITH "T" \
         RETURN v.name, v.age;
@@ -247,7 +247,7 @@ nebula> MATCH (v:player) \
 +---------------+-------+
 ```
 
-### 结合NOT使用
+### 结合 NOT 使用
 
 用户可以结合布尔运算符`NOT`一起使用，否定字符串匹配条件。
 
@@ -316,7 +316,7 @@ nebula> LOOKUP ON player \
 +-------------+-------------------------+------------------------+
 ```
 
-### 结合NOT使用
+### 结合 NOT 使用
 
 ```ngql
 nebula> MATCH (v:player) \
