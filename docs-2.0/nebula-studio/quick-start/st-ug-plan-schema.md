@@ -4,11 +4,11 @@
 
  Schema 至少要包含以下要素：
 
-* Tag，以及每种Tag的属性。
+* Tag，以及每种 Tag 的属性。
 
-* Edge type，以及每种Edge type的属性。
+* Edge type，以及每种 Edge type 的属性。
 
-用户可以下载Nebula Graph示例数据集[basketballplayer](https://docs-cdn.nebula-graph.com.cn/dataset/dataset.zip "点击下载") ，本文将通过该实例说明如何规划 Schema。
+用户可以下载 Nebula Graph 示例数据集 [basketballplayer](https://docs-cdn.nebula-graph.com.cn/dataset/dataset.zip "点击下载") ，本文将通过该实例说明如何规划 Schema。
 
 下表列出了 Schema 要素。
 

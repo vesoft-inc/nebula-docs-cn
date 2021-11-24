@@ -122,32 +122,32 @@ extra:
 nav:
   - 前言: README.md
   - 简介:
-      - 什么是Nebula Graph: 1.introduction/1.what-is-nebula-graph.md
+      - 什么是 Nebula Graph: 1.introduction/1.what-is-nebula-graph.md
       - 数据模型: 1.introduction/2.data-model.md
       - 路径: 1.introduction/2.1.path.md
       - VID: 1.introduction/3.vid.md
       - 服务架构:
         - 架构总览: 1.introduction/3.nebula-graph-architecture/1.architecture-overview.md
-        - Meta服务: 1.introduction/3.nebula-graph-architecture/2.meta-service.md
-        - Graph服务: 1.introduction/3.nebula-graph-architecture/3.graph-service.md
-        - Storage服务: 1.introduction/3.nebula-graph-architecture/4.storage-service.md
+        - Meta 服务: 1.introduction/3.nebula-graph-architecture/2.meta-service.md
+        - Graph 服务: 1.introduction/3.nebula-graph-architecture/3.graph-service.md
+        - Storage 服务: 1.introduction/3.nebula-graph-architecture/4.storage-service.md
 
   - 快速入门:
       - 快速入门流程: 2.quick-start/1.quick-start-workflow.md
-      - 步骤1：安装Nebula Graph: 2.quick-start/2.install-nebula-graph.md
-      - 步骤2：启动Nebula Graph: 2.quick-start/5.start-stop-service.md
-      - 步骤3：连接Nebula Graph: 2.quick-start/3.connect-to-nebula-graph.md
+      - 步骤1：安装 Nebula Graph: 2.quick-start/2.install-nebula-graph.md
+      - 步骤2：启动 Nebula Graph: 2.quick-start/5.start-stop-service.md
+      - 步骤3：连接 Nebula Graph: 2.quick-start/3.connect-to-nebula-graph.md
       - 步骤4：使用常用命令: 2.quick-start/4.nebula-graph-crud.md
-      - nGQL命令汇总: 2.quick-start/6.cheatsheet-for-ngql-command.md
+      - nGQL 命令汇总: 2.quick-start/6.cheatsheet-for-ngql-command.md
 
-  - nGQL指南:
-      - nGQL概述:
-        - 什么是nGQL: 3.ngql-guide/1.nGQL-overview/1.overview.md
+  - nGQL 指南:
+      - nGQL 概述:
+        - 什么是 nGQL: 3.ngql-guide/1.nGQL-overview/1.overview.md
         - 图模式: 3.ngql-guide/1.nGQL-overview/3.graph-patterns.md
         - 注释: 3.ngql-guide/1.nGQL-overview/comments.md
         - 大小写区分: 3.ngql-guide/1.nGQL-overview/identifier-case-sensitivity.md
         - 关键字: 3.ngql-guide/1.nGQL-overview/keywords-and-reserved-words.md
-        - nGQL风格指南: 3.ngql-guide/1.nGQL-overview/ngql-style-guide.md
+        - nGQL 风格指南: 3.ngql-guide/1.nGQL-overview/ngql-style-guide.md
 
       - 数据类型:
         - 数值: 3.ngql-guide/3.data-types/1.numeric.md
@@ -180,16 +180,16 @@ nav:
           - 数学函数: 3.ngql-guide/6.functions-and-expressions/1.math.md
           - 字符串函数: 3.ngql-guide/6.functions-and-expressions/2.string.md
           - 日期时间函数: 3.ngql-guide/6.functions-and-expressions/3.date-and-time.md
-          - Schema函数: 3.ngql-guide/6.functions-and-expressions/4.schema.md
-          - CASE表达式: 3.ngql-guide/6.functions-and-expressions/5.case-expressions.md
+          - Schema 函数: 3.ngql-guide/6.functions-and-expressions/4.schema.md
+          - CASE 表达式: 3.ngql-guide/6.functions-and-expressions/5.case-expressions.md
           - 列表函数: 3.ngql-guide/6.functions-and-expressions/6.list.md
-          - count函数: 3.ngql-guide/6.functions-and-expressions/7.count.md
-          - collect函数: 3.ngql-guide/6.functions-and-expressions/10.collect.md
-          - reduce函数: 3.ngql-guide/6.functions-and-expressions/11.reduce.md
-          - hash函数: 3.ngql-guide/6.functions-and-expressions/12.hash.md
-          - concat函数: 3.ngql-guide/6.functions-and-expressions/13.concat.md
+          - count 函数: 3.ngql-guide/6.functions-and-expressions/7.count.md
+          - collect 函数: 3.ngql-guide/6.functions-and-expressions/10.collect.md
+          - reduce 函数: 3.ngql-guide/6.functions-and-expressions/11.reduce.md
+          - hash 函数: 3.ngql-guide/6.functions-and-expressions/12.hash.md
+          - concat 函数: 3.ngql-guide/6.functions-and-expressions/13.concat.md
           - 谓词函数: 3.ngql-guide/6.functions-and-expressions/8.predicate.md
-          - geo函数: 3.ngql-guide/6.functions-and-expressions/14.geo.md
+          - geo 函数: 3.ngql-guide/6.functions-and-expressions/14.geo.md
           - 自定义函数: 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
 
       - 通用查询语句:
@@ -235,7 +235,7 @@ nav:
           - DESCRIBE SPACE: 3.ngql-guide/9.space-statements/4.describe-space.md
           - DROP SPACE: 3.ngql-guide/9.space-statements/5.drop-space.md
 
-      - Tag语句:
+      - Tag 语句:
           - CREATE TAG: 3.ngql-guide/10.tag-statements/1.create-tag.md
           - DROP TAG: 3.ngql-guide/10.tag-statements/2.drop-tag.md
           - ALTER TAG: 3.ngql-guide/10.tag-statements/3.alter-tag.md
@@ -243,7 +243,7 @@ nav:
           - DESCRIBE TAG: 3.ngql-guide/10.tag-statements/5.describe-tag.md
           - DELETE TAG: 3.ngql-guide/10.tag-statements/6.delete-tag.md
           - 增加和删除标签: 3.ngql-guide/10.tag-statements/improve-query-by-tag-index.md
-      - Edge type语句:
+      - Edge type 语句:
           - CREATE EDGE: 3.ngql-guide/11.edge-type-statements/1.create-edge.md
           - DROP EDGE: 3.ngql-guide/11.edge-type-statements/2.drop-edge.md
           - ALTER EDGE: 3.ngql-guide/11.edge-type-statements/3.alter-edge.md
@@ -276,7 +276,7 @@ nav:
 #        - 索引介绍: 3.ngql-guide/14.native-index-statements/README.md
         - 全文索引限制: 4.deployment-and-installation/6.deploy-text-based-index/1.text-based-index-restrictions.md
         - 部署全文索引: 4.deployment-and-installation/6.deploy-text-based-index/2.deploy-es.md
-        - 部署Raft listener: 4.deployment-and-installation/6.deploy-text-based-index/3.deploy-listener.md
+        - 部署 Raft listener: 4.deployment-and-installation/6.deploy-text-based-index/3.deploy-listener.md
         - 全文搜索: 3.ngql-guide/15.full-text-index-statements/1.search-with-text-based-index.md
 
       - 子图和路径:
@@ -296,50 +296,50 @@ nav:
       - 准备资源: 4.deployment-and-installation/1.resource-preparations.md
       - 编译与安装:
           - 使用源码安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md
-          - 使用RPM/DEB包安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md
-          - 使用tar.gz文件安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/4.install-nebula-graph-from-tar.md
-          - 使用Docker Compose部署: 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
-          - 使用RPM/DEB包部署多机集群: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
-      - 设置企业版License: 4.deployment-and-installation/deploy-license.md
+          - 使用 RPM/DEB 包安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md
+          - 使用 tar.gz 文件安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/4.install-nebula-graph-from-tar.md
+          - 使用 Docker Compose 部署: 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
+          - 使用 RPM/DEB 包部署多机集群: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
+      - 设置企业版 License: 4.deployment-and-installation/deploy-license.md
       - 管理服务: 4.deployment-and-installation/manage-service.md
       - 连接服务: 4.deployment-and-installation/connect-to-nebula-graph.md
       - 升级版本:
           - 升级历史版本至当前版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
-          - 升级v2.0.x至当前版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
-      - 卸载Nebula Graph: 4.deployment-and-installation/4.uninstall-nebula-graph.md
+          - 升级 v2.0.x 至当前版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
+      - 卸载 Nebula Graph: 4.deployment-and-installation/4.uninstall-nebula-graph.md
 
   - 配置与日志:
       - 配置:
           - 配置管理: 5.configurations-and-logs/1.configurations/1.configurations.md
-          - Meta服务配置: 5.configurations-and-logs/1.configurations/2.meta-config.md
-          - Graph服务配置: 5.configurations-and-logs/1.configurations/3.graph-config.md
-          - Storage服务配置: 5.configurations-and-logs/1.configurations/4.storage-config.md
-          - Linux内核配置: 5.configurations-and-logs/1.configurations/6.kernel-config.md
+          - Meta 服务配置: 5.configurations-and-logs/1.configurations/2.meta-config.md
+          - Graph 服务配置: 5.configurations-and-logs/1.configurations/3.graph-config.md
+          - Storage 服务配置: 5.configurations-and-logs/1.configurations/4.storage-config.md
+          - Linux 内核配置: 5.configurations-and-logs/1.configurations/6.kernel-config.md
       - 日志:
           - 日志配置: 5.configurations-and-logs/2.log-management/logs.md
 
   - 监控:
-      - 查询Nebula Graph监控指标: 6.monitor-and-metrics/1.query-performance-metrics.md
-      - RocksDB统计数据: 6.monitor-and-metrics/2.rocksdb-statistics.md
+      - 查询 Nebula Graph 监控指标: 6.monitor-and-metrics/1.query-performance-metrics.md
+      - RocksDB 统计数据: 6.monitor-and-metrics/2.rocksdb-statistics.md
 
   - 数据安全:
       - 验证和授权:
           - 身份验证: 7.data-security/1.authentication/1.authentication.md
           - 用户管理: 7.data-security/1.authentication/2.management-user.md
           - 内置角色权限: 7.data-security/1.authentication/3.role-list.md
-          - OpenLDAP验证: 7.data-security/1.authentication/4.ldap.md
+          - OpenLDAP 验证: 7.data-security/1.authentication/4.ldap.md
 #      - 备份恢复:
-#          - 什么是BR: 7.data-security/2.backup-restore/1.what-is-br.md
-#          - 编译BR: 7.data-security/2.backup-restore/2.compile-br.md
-#          - 使用BR备份数据: 7.data-security/2.backup-restore/3.br-backup-data.md
-#          - 使用BR恢复数据: 7.data-security/2.backup-restore/4.br-restore-data.md
+#          - 什么是 BR: 7.data-security/2.backup-restore/1.what-is-br.md
+#          - 编译 BR: 7.data-security/2.backup-restore/2.compile-br.md
+#          - 使用 BR 备份数据: 7.data-security/2.backup-restore/3.br-backup-data.md
+#          - 使用 BR 恢复数据: 7.data-security/2.backup-restore/4.br-restore-data.md
       - 管理快照: 7.data-security/3.manage-snapshot.md
       - Group&Zone: 7.data-security/5.zone.md
-      - SSL加密: 7.data-security/4.ssl.md
+      - SSL 加密: 7.data-security/4.ssl.md
 
   - 最佳实践:
       - Compaction: 8.service-tuning/compaction.md
-      - Storage负载均衡: 8.service-tuning/load-balance.md
+      - Storage 负载均衡: 8.service-tuning/load-balance.md
       - 图建模: 8.service-tuning/2.graph-modeling.md
       - 系统建模: 8.service-tuning/3.system-design.md
       - 执行计划: 8.service-tuning/4.plan.md
@@ -355,7 +355,7 @@ nav:
     - Nebula Go: 14.client/6.nebula-go-client.md
 
   - Nebula Graph Studio:
-    - Studio版本更新说明: nebula-studio/about-studio/st-ug-release-note.md
+    - Studio 版本更新说明: nebula-studio/about-studio/st-ug-release-note.md
     - 认识 Nebula Graph Studio:
       - 什么是 Nebula Graph Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
       - 名词解释: nebula-studio/about-studio/st-ug-terms.md
@@ -375,8 +375,8 @@ nav:
     - 操作指南:
       - 管理 Schema:
         - 操作图空间: nebula-studio/manage-schema/st-ug-crud-space.md
-        - 操作Tag: nebula-studio/manage-schema/st-ug-crud-tag.md
-        - 操作Edge type: nebula-studio/manage-schema/st-ug-crud-edge-type.md
+        - 操作 Tag: nebula-studio/manage-schema/st-ug-crud-tag.md
+        - 操作 Edge type: nebula-studio/manage-schema/st-ug-crud-edge-type.md
         - 操作索引: nebula-studio/manage-schema/st-ug-crud-index.md
       - 使用控制台:
         - 控制台界面: nebula-studio/use-console/st-ug-console.md
@@ -388,15 +388,15 @@ nav:
       - Studio 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
 
   - Nebula Dashboard（社区版）:
-      - 什么是Nebula Dashboard: nebula-dashboard/1.what-is-dashboard.md
-      - 部署Dashboard: nebula-dashboard/2.deploy-dashboard.md
-      - 连接Dashboard: nebula-dashboard/3.connect-dashboard.md
-      - Dashboard页面介绍: nebula-dashboard/4.use-dashboard.md
+      - 什么 是Nebula Dashboard: nebula-dashboard/1.what-is-dashboard.md
+      - 部署 Dashboard: nebula-dashboard/2.deploy-dashboard.md
+      - 连接 Dashboard: nebula-dashboard/3.connect-dashboard.md
+      - Dashboard 页面介绍: nebula-dashboard/4.use-dashboard.md
       - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
 
   - Nebula Dashboard（企业版）:
-      - 什么是Nebula Dashboard: nebula-dashboard-ent/1.what-is-dashboard-ent.md
-      - 部署Dashboard: nebula-dashboard-ent/2.deploy-connect-dashboard-ent.md
+      - 什么是 Nebula Dashboard: nebula-dashboard-ent/1.what-is-dashboard-ent.md
+      - 部署 Dashboard: nebula-dashboard-ent/2.deploy-connect-dashboard-ent.md
       - 创建及导入集群:
         - 创建集群: nebula-dashboard-ent/3.create-import-dashboard/1.create-cluster.md
         - 导入集群: nebula-dashboard-ent/3.create-import-dashboard/2.import-cluster.md
@@ -410,10 +410,10 @@ nav:
       - 权限管理: nebula-dashboard-ent/5.account-management.md
       - 系统设置: nebula-dashboard-ent/6.system-settings.md
       - 监控指标说明: nebula-dashboard-ent/7.monitor-parameter.md
-      - 常见问题FAQ: nebula-dashboard-ent/8.faq.md
+      - 常见问题 FAQ: nebula-dashboard-ent/8.faq.md
 
   - Nebula Explorer:
-      - 什么是Nebula Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
+      - 什么是 Nebula Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
       - 安装与登录:
         - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
         - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
@@ -427,48 +427,48 @@ nav:
         - 快捷键: nebula-explorer/operation-guide/ex-ug-shortcuts.md
 
   - Nebula Importer:
-    - 使用Nebula Importer: nebula-importer/use-importer.md
+    - 使用 Nebula Importer: nebula-importer/use-importer.md
     - 有表头配置说明: nebula-importer/config-with-header.md
     - 无表头配置说明: nebula-importer/config-without-header.md
 
   - Nebula Exchange:
-    - 认识Nebula Exchange:
-      - 什么是Nebula Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
+    - 认识 Nebula Exchange:
+      - 什么是 Nebula Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
       - 使用限制: nebula-exchange/about-exchange/ex-ug-limitations.md
-    - 获取Nebula Exchange: nebula-exchange/ex-ug-compile.md
+    - 获取 Nebula Exchange: nebula-exchange/ex-ug-compile.md
     - 参数说明:
       - 导入命令参数: nebula-exchange/parameter-reference/ex-ug-para-import-command.md
       - 配置参数: nebula-exchange/parameter-reference/ex-ug-parameter.md
-    - 使用Nebula Exchange:
-      - 导入CSV文件数据: nebula-exchange/use-exchange/ex-ug-import-from-csv.md
-      - 导入JSON文件数据: nebula-exchange/use-exchange/ex-ug-import-from-json.md
-      - 导入ORC文件数据: nebula-exchange/use-exchange/ex-ug-import-from-orc.md
-      - 导入Parquet文件数据: nebula-exchange/use-exchange/ex-ug-import-from-parquet.md
-      - 导入HBase数据: nebula-exchange/use-exchange/ex-ug-import-from-hbase.md
-      - 导入MySQL数据: nebula-exchange/use-exchange/ex-ug-import-from-mysql.md
-      - 导入ClickHouse数据: nebula-exchange/use-exchange/ex-ug-import-from-clickhouse.md
-      - 导入Neo4j数据: nebula-exchange/use-exchange/ex-ug-import-from-neo4j.md
-      - 导入Hive数据: nebula-exchange/use-exchange/ex-ug-import-from-hive.md
-      - 导入MaxCompute数据: nebula-exchange/use-exchange/ex-ug-import-from-maxcompute.md
-      - 导入Pulsar数据: nebula-exchange/use-exchange/ex-ug-import-from-pulsar.md
-      - 导入Kafka数据: nebula-exchange/use-exchange/ex-ug-import-from-kafka.md
-      - 导入SST文件数据: nebula-exchange/use-exchange/ex-ug-import-from-sst.md
-      - 导出Nebula Graph数据: nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
+    - 使用 Nebula Exchange:
+      - 导入 CSV 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-csv.md
+      - 导入 JSON 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-json.md
+      - 导入 ORC 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-orc.md
+      - 导入 Parquet 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-parquet.md
+      - 导入 HBase 数据: nebula-exchange/use-exchange/ex-ug-import-from-hbase.md
+      - 导入 MySQL 数据: nebula-exchange/use-exchange/ex-ug-import-from-mysql.md
+      - 导入 ClickHouse 数据: nebula-exchange/use-exchange/ex-ug-import-from-clickhouse.md
+      - 导入 Neo4j 数据: nebula-exchange/use-exchange/ex-ug-import-from-neo4j.md
+      - 导入 Hive 数据: nebula-exchange/use-exchange/ex-ug-import-from-hive.md
+      - 导入 MaxCompute 数据: nebula-exchange/use-exchange/ex-ug-import-from-maxcompute.md
+      - 导入 Pulsar 数据: nebula-exchange/use-exchange/ex-ug-import-from-pulsar.md
+      - 导入 Kafka 数据: nebula-exchange/use-exchange/ex-ug-import-from-kafka.md
+      - 导入 SST 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-sst.md
+      - 导出 Nebula Graph 数据: nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
     - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
 
   - Nebula Operator:
-      - 什么是Nebula Operator: nebula-operator/1.introduction-to-nebula-operator.md
+      - 什么是 Nebula Operator: nebula-operator/1.introduction-to-nebula-operator.md
       - 使用流程: nebula-operator/6.get-started-with-operator.md
-      - 部署Nebula Operator: nebula-operator/2.deploy-nebula-operator.md
-      - 部署Nebula Graph集群: 
-        - 使用Kubectl部署Nebula Graph集群: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
-        - 使用Helm部署Nebula Graph集群: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
-      - 配置Nebula Graph集群:
-        - 自定义Nebula Graph集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
-        - 回收PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
-        - 均衡扩容后的Storage数据: nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
-      - 升级Nebula Graph集群: nebula-operator/9.upgrade-nebula-cluster.md   
-      - 连接Nebula Graph数据库: nebula-operator/4.connect-to-nebula-graph-service.md
+      - 部署 Nebula Operator: nebula-operator/2.deploy-nebula-operator.md
+      - 部署 Nebula Graph集群: 
+        - 使用 Kubectl 部署 Nebula Graph 集群: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
+        - 使用 Helm 部署 Nebula Graph 集群: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
+      - 配置 Nebula Graph 集群:
+        - 自定义 Nebula Graph 集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
+        - 回收 PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
+        - 均衡扩容后的 Storage 数据: nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
+      - 升级 Nebula Graph 集群: nebula-operator/9.upgrade-nebula-cluster.md   
+      - 连接 Nebula Graph 数据库: nebula-operator/4.connect-to-nebula-graph-service.md
       - 故障自愈: nebula-operator/5.operator-failover.md
       - 常见问题: nebula-operator/7.operator-faq.md
 

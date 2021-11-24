@@ -20,13 +20,13 @@
 
 1. 在工具栏里，点击 **导入** 页签。
 
-2. 在 **选择Space** 页面，选择一个图空间，再点击 **下一步** 按钮。
+2. 在 **选择 Space** 页面，选择一个图空间，再点击 **下一步** 按钮。
 
 3. 在 **上传文件** 页面，点击 **上传文件** 按钮，并选择需要的 CSV 文件。本示例中，选择 `edge_serve.csv`、`edge_follow.csv`、`vertex_player.csv` 和 `vertex_team.csv` 文件。
 
   !!! Note
 
-        一次可以选择多个 CSV 文件，本文使用的 CSV 文件可以在[规划 Schema ](st-ug-plan-schema.md)中下载。
+        一次可以选择多个 CSV 文件，本文使用的 CSV 文件可以在 [规划 Schema ](st-ug-plan-schema.md) 中下载。
 
 4. 在文件列表的 **操作** 列，点击 **预览** 或 **删除**，保证文件信息正确，之后，再点击 **下一步** 按钮。
 
@@ -42,25 +42,25 @@
 
     !!! Note
 
-        在同一个图空间中，VID 始终唯一，不可重复。关于 VID 的信息，参考 [Nebula Graph 的点ID](../../1.introduction/3.vid.md) "点击进入 Nebula Graph 用户手册"。 
+        在同一个图空间中，VID 始终唯一，不可重复。关于 VID 的信息，参考 [Nebula Graph 的点 ID](../../1.introduction/3.vid.md) "点击进入 Nebula Graph 用户手册"。 
 
 8. 在 **TAG 1** 部分，完成以下操作：  
-  3. 在 **TAG** 下拉列表中，选择数据源对应的Tag名称。在本示例中，`vertex_player.csv` 文件对应选择 **player**；`vertex_team.csv` 文件对应选择 **team**。  
+  3. 在 **TAG** 下拉列表中，选择数据源对应的 Tag 名称。在本示例中，`vertex_player.csv` 文件对应选择 **player**；`vertex_team.csv` 文件对应选择 **team**。  
 
-  4. 在显示的属性列表中，点击 **选择**，为Tag属性绑定源数据。在本示例中，`player` 标签的 `name` 属性对应 `vertex_player.csv` 文件中的 **Column 2** 列，**类型** 为 **string**，`age` 属性对应文件中的 **Column 1** 列，**类型** 为 **int**；`team` 标签的 `name` 属性对应 `vertex_team.csv` 文件中的 **Column 1** 列，**类型** 为 **string**。
+  4. 在显示的属性列表中，点击 **选择**，为 Tag 属性绑定源数据。在本示例中，`player` 标签的 `name` 属性对应 `vertex_player.csv` 文件中的 **Column 2** 列，**类型** 为 **string**，`age` 属性对应文件中的 **Column 1** 列，**类型** 为 **int**；`team` 标签的 `name` 属性对应 `vertex_team.csv` 文件中的 **Column 1** 列，**类型** 为 **string**。
 
-  ![course类点对应的属性数据源](../figs/st-ug-010-1.png "为点属性选择数据源")  
+  ![course 类点对应的属性数据源](../figs/st-ug-010-1.png "为点属性选择数据源")  
 
-9. （可选）如果有多个Tag数据文件，重复步骤 5 到步骤 8。
+9. （可选）如果有多个 Tag 数据文件，重复步骤 5 到步骤 8。
 
 10. 完成配置后，点击 **下一步**。  
-  界面提示 **配置验证成功**，表示Tag数据源绑定成功。
+  界面提示 **配置验证成功**，表示 Tag 数据源绑定成功。
 
 11. 在 **关联边** 页面，点击 **+ 绑定数据源** 按钮，在对话框中选择边数据文件，并点击 **确认** 按钮。如本示例中的 `edge_follow.csv` 文件。
 
-12. 在 **Edge X** 页签的 **类型** 下拉列表中，选择Edge type名称。本示例中，选择 **follow**。
+12. 在 **Edge X** 页签的 **类型** 下拉列表中，选择 Edge type 名称。本示例中，选择 **follow**。
 
-13. 根据Edge type的属性，从 `edge_follow.csv` 文件中选择相应的数据列。其中，**srcId** 和 **dstId** 分别表示边的起点与终点，所选择的数据及处理方式必须与相应的 VID 保持一致。本示例中，**srcId** 对应的是表示起点球员的 VID，**dstId** 对应的是表示终点球员的 VID。**rank** 为选填项，可以忽略。  
+13. 根据 Edge type 的属性，从 `edge_follow.csv` 文件中选择相应的数据列。其中，**srcId** 和 **dstId** 分别表示边的起点与终点，所选择的数据及处理方式必须与相应的 VID 保持一致。本示例中，**srcId** 对应的是表示起点球员的 VID，**dstId** 对应的是表示终点球员的 VID。**rank** 为选填项，可以忽略。  
 
   ![actions 边对应的属性数据源](../figs/st-ug-011-1.png "为边属性选择数据源")
 

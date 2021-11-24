@@ -18,7 +18,7 @@ Explorer 的主页面分为五个部分：
 
 - 导出图形：支持导出当前视图的 CSV 文件或 PNG（图片）文件。
 
-- 新增画布：支持创建多个画布，最多仅能打开10个画布。
+- 新增画布：支持创建多个画布，最多仅能打开 10 个画布。
 
 ## 侧边栏
 
@@ -36,43 +36,43 @@ Explorer 的主页面分为五个部分：
 
 ### 查询探索
 
-- 开始：单击 ![query](../figs/nav-query.png)图标，通过VID、Tag和子图，查询数据并显示到页面上。
+- 开始：单击 ![query](../figs/nav-query.png) 图标，通过 VID、Tag 和子图，查询数据并显示到页面上。
 
 ### 画布操作
 
-- 框选模式：单击![frameSelect](../figs/nav-frameSelect.png) 图标，支持框选画布中的点和边。
-- 选中多条点边：单击![singleSelect](../figs/nav-singleSelect.png) 图标，可以方便的点击画布中的点和边，单击空白处取消选择。
-- 拖动画布：单击![moveCanvas](../figs/nav-moveCanvas.png) 图标，支持拖动画布的位置。
-- 节点过滤：单击![filter](../figs/nav-filter.png)图标，支持对画布中显示的点进行过滤。
+- 框选模式：单击！[frameSelect](../figs/nav-frameSelect.png) 图标，支持框选画布中的点和边。
+- 选中多条点边：单击！[singleSelect](../figs/nav-singleSelect.png) 图标，可以方便的点击画布中的点和边，单击空白处取消选择。
+- 拖动画布：单击！[moveCanvas](../figs/nav-moveCanvas.png) 图标，支持拖动画布的位置。
+- 节点过滤：单击！[filter](../figs/nav-filter.png) 图标，支持对画布中显示的点进行过滤。
 
 更多详细信息参考 [画布操作](../operation-guide/ex-ug-canvas.md)。
 
 ### 图探索扩展
 
-- 拓展：单击 ![expand](../figs/rightclickmenu-expand.png)图标，选择页面上的节点并进行自定义拓展，包括拓展方向、拓展步数、过滤条件等。
-- 共同邻居：单击 ![commonNeighbor](../figs/rightclickmenu-commonNeighbor.png)图标，选择页面上至少两个点并查看它们的共同邻居。
-- 路径查询：单击 ![findPath](../figs/rightclickmenu-findPath.png)图标，可以查询起点到终点之间的 `all paths` 、 `Shortest path` 或者是 `Noloop path` 的路径。
-- 查看属性：单击 ![propertyView](../figs/nav-propertyView.png)图标，选择是否显画布中的点或边的属性值。
+- 拓展：单击 ![expand](../figs/rightclickmenu-expand.png) 图标，选择页面上的节点并进行自定义拓展，包括拓展方向、拓展步数、过滤条件等。
+- 共同邻居：单击 ![commonNeighbor](../figs/rightclickmenu-commonNeighbor.png) 图标，选择页面上至少两个点并查看它们的共同邻居。
+- 路径查询：单击 ![findPath](../figs/rightclickmenu-findPath.png) 图标，可以查询起点到终点之间的 `all paths` 、 `Shortest path` 或者是 `Noloop path` 的路径。
+- 查看属性：单击 ![propertyView](../figs/nav-propertyView.png) 图标，选择是否显画布中的点或边的属性值。
 
 更多详细信息参考 [图探索拓展](../operation-guide/ex-ug-graph-exploration.md)。
 
 ### 删除及撤销
 
-- 隐藏：单击![miss](../figs/nav-miss.png) 图标，可以隐藏画布中选中的点边。
-- 隐藏其他：单击![missreverse](../figs/nav-missReverse.png) 图标，可以隐藏画布中未选择的所有点边。
-- 撤销：单击 ![Revoke](../figs/nav-Revoke.png)图标，撤销上一步新增或隐藏的操作。
+- 隐藏：单击！[miss](../figs/nav-miss.png) 图标，可以隐藏画布中选中的点边。
+- 隐藏其他：单击！[missreverse](../figs/nav-missReverse.png) 图标，可以隐藏画布中未选择的所有点边。
+- 撤销：单击 ![Revoke](../figs/nav-Revoke.png) 图标，撤销上一步新增或隐藏的操作。
 
 ### 设置及帮助
 
-- 选择图空间：单击 ![graphSpace](../figs/nav-graphSpace.png)图标，切换当前图空间。
-- 帮助：单击 ![help](../figs/nav-help.png)图标，查看更多信息。
-- 设置：单击 ![setup](../figs/nav-setup.png)图标，可以查看用户名和快捷键、修改语言设置、清除 Explorer 链接等。
+- 选择图空间：单击 ![graphSpace](../figs/nav-graphSpace.png) 图标，切换当前图空间。
+- 帮助：单击 ![help](../figs/nav-help.png) 图标，查看更多信息。
+- 设置：单击 ![setup](../figs/nav-setup.png) 图标，可以查看用户名和快捷键、修改语言设置、清除 Explorer 链接等。
 
 ## 画布
 
 画布主要分为：
 
-- 图：显示通过VID、Tag或子图查询的数据。
+- 图：显示通过 VID、Tag 或子图查询的数据。
 
 - 点边概览：默认隐藏，在当前画布选中点和边时才显示。点击如图标识，用户可以打开菜单，查看当前子图中选中的点和边的详细数据。
 
@@ -92,4 +92,4 @@ Explorer 的主页面分为五个部分：
 
 ## 关系列表
 
-点击右侧的 ![unfold](../figs/sidebar-unfold.png)图标，用户可以打开菜单，查看画布中 Tag 和 Edge 的数量、搜索 Tag 和 Edge ，同时也支持修改点的颜色和图标。
+点击右侧的 ![unfold](../figs/sidebar-unfold.png) 图标，用户可以打开菜单，查看画布中 Tag 和 Edge 的数量、搜索 Tag 和 Edge ，同时也支持修改点的颜色和图标。

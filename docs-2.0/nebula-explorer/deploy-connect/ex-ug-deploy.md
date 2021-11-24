@@ -19,7 +19,7 @@
 
 在部署 Explorer 之前，用户需要确认以下信息：
 
-- Nebula Graph 服务已经部署并启动。详细信息参考[Nebula Graph安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
+- Nebula Graph 服务已经部署并启动。详细信息参考 [Nebula Graph 安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
 
 - 以下端口未被使用。
 
@@ -29,10 +29,10 @@
 
   !!! caution
 
-       Explorer 默认使用的端口号为7002，用户可以在安装目录下的 `conf/app.conf` 文件中修改 `httpport`，并重启服务。
+       Explorer 默认使用的端口号为 7002，用户可以在安装目录下的 `conf/app.conf` 文件中修改 `httpport`，并重启服务。
 
 - 使用的 Linux 发行版为 CentOS。
-- 安装有版本为1.13及以上的 Go。
+- 安装有版本为 1.13 及以上的 Go。
 
 ### 安装
 
@@ -42,7 +42,7 @@
 
         Explorer 仅在企业版提供，点击 [定价](https://nebula-graph.com.cn/pricing/) 查看更多。
 
-2. 使用`sudo rpm -i <rpm>`命令安装RPM包。
+2. 使用`sudo rpm -i <rpm>`命令安装 RPM 包。
 
    例如，安装 Explorer 需要运行以下命令，默认安装路径为`/usr/local/nebula-explorer`：
 
@@ -68,7 +68,7 @@
 
   !!! enterpriseonly
 
-        License 仅在企业版提供，请发送邮件至inquiry@vesoft.com。
+        License 仅在企业版提供，请发送邮件至 inquiry@vesoft.com。
 
 4. 添加 License 后需要使用以下命令停止并重启服务。
 
@@ -105,7 +105,7 @@ $ sudo rpm -e nebula-explorer-<version>.x86_64
 
 在部署 Explorer 之前，用户需要确认以下信息：
 
-- Nebula Graph 服务已经部署并启动。详细信息参考[Nebula Graph安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
+- Nebula Graph 服务已经部署并启动。详细信息参考 [Nebula Graph 安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
 
 - 以下端口未被使用。
 
@@ -115,10 +115,10 @@ $ sudo rpm -e nebula-explorer-<version>.x86_64
 
   !!! caution
 
-       Explorer 默认使用的端口号为7002，用户可以在安装目录下的 `conf/app.conf` 文件中修改 `httpport`，并重启服务。
+       Explorer 默认使用的端口号为 7002，用户可以在安装目录下的 `conf/app.conf` 文件中修改 `httpport`，并重启服务。
 
 - 使用的 Linux 发行版为 CentOS。
-- 安装有版本为1.13及以上的 Go。
+- 安装有版本为 1.13 及以上的 Go。
 
 ### 安装及部署
 
@@ -172,4 +172,4 @@ $ kill $(lsof -t -i :7002)
 
 ![Nebula Explorer 登录页面](../figs/ex-ug-002-1.png)
 
-进入 Explorer 登录界面后，用户需要连接 Nebula Graph。详细信息，参考[连接数据库](../deploy-connect/ex-ug-connect.md)。
+进入 Explorer 登录界面后，用户需要连接 Nebula Graph。详细信息，参考 [连接数据库](../deploy-connect/ex-ug-connect.md)。

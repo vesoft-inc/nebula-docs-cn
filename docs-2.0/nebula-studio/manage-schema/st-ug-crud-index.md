@@ -4,7 +4,7 @@
 
 !!! Note
 
-    一般在创建了 Tag 或者 Edge type 之后即可创建索引，但是，索引会影响写性能，所以，建议先导入数据，再批量重建索引。关于索引的详细信息，参考[《nGQL 用户手册》](../../3.ngql-guide/14.native-index-statements/README.md "点击前往 Nebula Graph 网站")。
+    一般在创建了 Tag 或者 Edge type 之后即可创建索引，但是，索引会影响写性能，所以，建议先导入数据，再批量重建索引。关于索引的详细信息，参考 [《nGQL 用户手册》](../../3.ngql-guide/14.native-index-statements/README.md "点击前往 Nebula Graph 网站")。
 
 ## 支持版本
 
@@ -33,7 +33,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 5. 在 **创建** 页面上，完成以下设置：
 
   - **索引类型**：确认或修改索引类型，即 **Tag** 或者 **Edge type**。本示例中选择 **Edge type**。
-  - **名称**：选择要创建索引的Tag或Edge type名称。本示例中选择 **follow**。
+  - **名称**：选择要创建索引的 Tag 或 Edge type 名称。本示例中选择 **follow**。
   - **索引名称**：按规定指定索引名称。本示例中输入 **follow_index**。
   - **索引属性**：点击 **添加**，在 **选择关联的属性** 列表里选择需要索引的属性，并点击 **确定** 按钮。如果需要关联多个属性，重复这一步操作。用户可以按界面提示重排索引属性的顺序。本示例中选择 `degree`。
 
@@ -41,10 +41,10 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 
         索引属性的顺序会影响 `LOOKUP` 语句的查询结果。详细信息，参考 [《nGQL 用户手册》](../../3.ngql-guide/7.general-query-statements/5.lookup.md "点击前往 Nebula Graph 网站")。
 
-  - **描述**：输入对索引的描述，最大为256字节。默认无描述。本示例为 `follow_index`。
+  - **描述**：输入对索引的描述，最大为 256 字节。默认无描述。本示例为 `follow_index`。
 
-6. 完成设置后，在 **对应的 nGQL**面板，用户能看到与上述配置等价的 nGQL 语句。  
-![为Edge type action 创建索引](../figs/st-ug-023-2.png "创建索引")
+6. 完成设置后，在 **对应的 nGQL **面板，用户能看到与上述配置等价的 nGQL 语句。  
+![为 Edge type action 创建索引](../figs/st-ug-023-2.png "创建索引")
 
 7. 确认无误后，点击 **+ 创建** 按钮。
   如果索引创建成功，**定义属性**面板会显示这个索引的属性列表。

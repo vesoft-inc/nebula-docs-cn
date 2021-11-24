@@ -14,17 +14,17 @@ Explorer 支持批量选中多个点边，并查看选中点边的数据，详�
 
 ### 框选操作
 
-点击![frameselect](../figs/nav-frameSelect.png) 图标后，按住左键拖拽并框选多个点和边。示例如下：
+点击！[frameselect](../figs/nav-frameSelect.png) 图标后，按住左键拖拽并框选多个点和边。示例如下：
 ![select](../figs/ex-ug-023.png)
 
 ### 点击选择多个节边
 
-点击![singleselect](../figs/nav-singleSelect.png) 图标或按住 Shift 后，用鼠标单击并选中多个点和边，单击空白处取消选择。示例如下：
+点击！[singleselect](../figs/nav-singleSelect.png) 图标或按住 Shift 后，用鼠标单击并选中多个点和边，单击空白处取消选择。示例如下：
 ![select](../figs/ex-ug-025.png)
 
 ## 快速操作
 
-用户可以选择一个或多个点和边，在空白处点击右键可以进行对点进行扩展、查找两个点之间的路径、在页面中显示或隐藏其属性等操作。用户选择的点和边数据会影响到可以执行的操作，具体操作的说明参见[图探索拓展](../operation-guide/ex-ug-graph-exploration.md)。
+用户可以选择一个或多个点和边，在空白处点击右键可以进行对点进行扩展、查找两个点之间的路径、在页面中显示或隐藏其属性等操作。用户选择的点和边数据会影响到可以执行的操作，具体操作的说明参见 [图探索拓展](../operation-guide/ex-ug-graph-exploration.md)。
 ![quick](../figs/ex-ug-026-1.png)
 
 点击 **适合选中尺寸** 可以将选中的数据，移动到画布的中心，方便用户查看。

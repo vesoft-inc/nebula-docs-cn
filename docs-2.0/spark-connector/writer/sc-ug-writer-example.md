@@ -19,8 +19,8 @@
 
 - 在 Nebula Graph 中创建 Schema，并获取以下信息：
   - 图空间名称和分区数量。在本示例中，对应的信息为 `nb` 和 `100`。
-  - 点的信息，包括Tag和 VID 映射策略（`hash`<!--或者 `uuid`-->）。
-  - 边的信息，包括起点和终点对应的Tag，以及 VID 映射策略（`hash`<!--或者 `uuid`-->）。
+  - 点的信息，包括 Tag 和 VID 映射策略（`hash`<!--或者 `uuid`-->）。
+  - 边的信息，包括起点和终点对应的 Tag，以及 VID 映射策略（`hash`<!--或者 `uuid`-->）。
 
 - （可选）如果是批量写入，需要确认单次写入的最大数据条数，默认为 2000。详见本文 `batchInsert` 配置项说明。
 
@@ -80,12 +80,12 @@
   - `partitionNum`：在 Nebula Graph 中创建图空间时指定的 `partitionNum` 的值。如果未指定，这里填写 `100`。
 
 - `writeVertices(tag: String, vertexField: String, policy: String = "")`
-  - `tag`：点对应的 Nebula Graph 图空间中的Tag名称。
+  - `tag`：点对应的 Nebula Graph 图空间中的 Tag 名称。
   - `vertexField`：DataFrame 中可作为 Nebula Graph 点 VID 的列。例如，如果 DataFrame 有三列，分别为 a、b、c，其中 a 列作为点 VID 列，则该参数设置为 `"a"`。
   - `policy`：如果 DataFrame 中 `vertexField` 列的数据类型非数值型，则需要配置 Nebula Graph 中 VID 的映射策略，即该参数设置为 `"hash"`<!--或者 `uuid`-->。如果 `vertexField` 列的数据类型为整数型，则不需要配置。
 
 - `writeEdges(edge: String, srcVertexField: String, dstVertexField: String, policy: String = "")`
-  - `edge`：边对应的 Nebula Graph 图空间中的Edge type名称。
+  - `edge`：边对应的 Nebula Graph 图空间中的 Edge type 名称。
   - `srcVertexField` 和 `dstVertexField`：DataFrame 中可作为边起点和边终点的列。列值必须同为整数型或同为非数值型。
   - `policy`：如果 DataFrame 中 `srcVertexField` 列和 `dstVertexField` 列的数据类型非数值型，则需要配置 Nebula Graph 中 VID 的映射策略，即该参数设置为  `"hash"`<!--或者 `uuid`-->。如果 `srcVertexField` 列和 `dstVertexField` 列的数据类型为整数型，则不需要配置。
 
@@ -122,13 +122,13 @@ new NebulaBatchWriterUtils()
 
 - `batchToNebulaVertex(data: DataFrame, tag: String, vertexField: String, policy: String = "")`：
   - `data`：待写入 Nebula Graph 的 DataFrame 数据。
-  - `tag`：Nebula Graph 图空间中对应的Tag名称。
-  - `vertexField`：DataFrame 中可作为 Nebula Graph 点 VID 的列。例如，如果 DataFrame 有三列，分别为 a、b、c，其中a 列作为点 VID 列，则该参数设置为 `"a"`。
+  - `tag`：Nebula Graph 图空间中对应的 Tag 名称。
+  - `vertexField`：DataFrame 中可作为 Nebula Graph 点 VID 的列。例如，如果 DataFrame 有三列，分别为 a、b、c，其中 a 列作为点 VID 列，则该参数设置为 `"a"`。
   - `policy`：如果 DataFrame 中 `vertexField` 列的数据类型非数值型，则需要配置 Nebula Graph 中 VID 的映射策略，即该参数设置为 `"hash"`<!--或者 `uuid`-->。如果 `vertexField` 列的数据类型为整数型，则不需要配置。
 
 - `batchToNebulaEdge(data: DataFrame,  edge: String, srcVertexField: String, dstVertexField: String, rankField: String = "",  policy: String = "")`：
   - `data`：待写入 Nebula Graph 的 DataFrame 数据。
-  - `edge`：Nebula Graph 中对应的Edge type。
+  - `edge`：Nebula Graph 中对应的 Edge type。
   - `srcVertexField` 和 `dstVertexField`：DataFrame 中可作为边起点和边终点的列。列值必须同为整数型或同为非数值型。
   - `rankField`：DataFrame 中可作为边 `rank` 值的列，可选配。
   - `policy`：可选。如果 DataFrame 中 `srcVertexField` 列和 `dstVertexField` 列的数据类型非数值型，则需要配置 Nebula Graph 中 VID 的映射策略，即该参数设置为  `"hash"`<!--或者 `uuid`-->。如果 `srcVertexField` 列和 `dstVertexField` 列的数据类型为整数型，则不需要配置。
