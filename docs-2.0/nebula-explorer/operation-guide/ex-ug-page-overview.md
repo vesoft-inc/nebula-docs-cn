@@ -45,7 +45,7 @@ Explorer 的主页面分为五个部分：
 - 拖动画布：单击！[moveCanvas](../figs/nav-moveCanvas.png) 图标，支持拖动画布的位置。
 - 节点过滤：单击！[filter](../figs/nav-filter.png) 图标，支持对画布中显示的点进行过滤。
 
-更多详细信息参考 [画布操作](../operation-guide/ex-ug-canvas.md)。
+更多详细信息参考[画布操作](../operation-guide/ex-ug-canvas.md)。
 
 ### 图探索扩展
 
@@ -54,7 +54,7 @@ Explorer 的主页面分为五个部分：
 - 路径查询：单击 ![findPath](../figs/rightclickmenu-findPath.png) 图标，可以查询起点到终点之间的 `all paths` 、 `Shortest path` 或者是 `Noloop path` 的路径。
 - 查看属性：单击 ![propertyView](../figs/nav-propertyView.png) 图标，选择是否显画布中的点或边的属性值。
 
-更多详细信息参考 [图探索拓展](../operation-guide/ex-ug-graph-exploration.md)。
+更多详细信息参考[图探索拓展](../operation-guide/ex-ug-graph-exploration.md)。
 
 ### 删除及撤销
 
@@ -78,7 +78,7 @@ Explorer 的主页面分为五个部分：
 
   ![review](../figs/ex-ug-027-1.png)
 
-更多详细操作参考 [画布操作](../operation-guide/ex-ug-canvas.md)。
+更多详细操作参考[画布操作](../operation-guide/ex-ug-canvas.md)。
 
 ## 缩略图
 

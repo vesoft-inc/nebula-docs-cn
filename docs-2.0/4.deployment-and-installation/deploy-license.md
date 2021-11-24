@@ -60,7 +60,7 @@ License 文件包含生效时间、过期时间等信息。说明如下。
 
 1. 发送邮件至`inquiry@vesoft.com`申请 Nebula Graph 企业版安装包。
 
-2. 安装 Nebula Graph 企业版。安装方式与社区版相同，请参见 [使用 RPM 或 DEB 包安装 Nebula Graph](2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)。
+2. 安装 Nebula Graph 企业版。安装方式与社区版相同，请参见[使用 RPM 或 DEB 包安装 Nebula Graph](2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)。
 
 3. 发送邮件至`inquiry@vesoft.com`申请 License 文件`nebula.license`。
 
@@ -68,4 +68,4 @@ License 文件包含生效时间、过期时间等信息。说明如下。
 
   !!! note
 
-        周边工具的 License 文件上传位置，请参见 [具体周边工具](../20.appendix/6.eco-tool-version.md) 的说明文档。
+        周边工具的 License 文件上传位置，请参见[具体周边工具](../20.appendix/6.eco-tool-version.md) 的说明文档。

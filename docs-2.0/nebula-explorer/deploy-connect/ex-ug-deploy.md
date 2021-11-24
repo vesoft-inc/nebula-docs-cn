@@ -40,7 +40,7 @@
 
   !!! enterpriseonly
 
-        Explorer 仅在企业版提供，点击 [定价](https://nebula-graph.com.cn/pricing/) 查看更多。
+        Explorer 仅在企业版提供，点击[定价](https://nebula-graph.com.cn/pricing/) 查看更多。
 
 2. 使用`sudo rpm -i <rpm>`命令安装 RPM 包。
 
@@ -126,7 +126,7 @@ $ sudo rpm -e nebula-explorer-<version>.x86_64
 
   !!! enterpriseonly
 
-        Explorer 仅在企业版提供，点击 [定价](https://nebula-graph.com.cn/pricing/) 查看更多。
+        Explorer 仅在企业版提供，点击[定价](https://nebula-graph.com.cn/pricing/) 查看更多。
 
 2. 使用 `tar -xvf` 解压 tar 包。
 
@@ -172,4 +172,4 @@ $ kill $(lsof -t -i :7002)
 
 ![Nebula Explorer 登录页面](../figs/ex-ug-002-1.png)
 
-进入 Explorer 登录界面后，用户需要连接 Nebula Graph。详细信息，参考 [连接数据库](../deploy-connect/ex-ug-connect.md)。
+进入 Explorer 登录界面后，用户需要连接 Nebula Graph。详细信息，参考[连接数据库](../deploy-connect/ex-ug-connect.md)。

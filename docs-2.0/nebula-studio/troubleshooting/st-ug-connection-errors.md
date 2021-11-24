@@ -27,7 +27,7 @@ nebula-web-docker_nginx_1      /docker-entrypoint.sh ngin ...   Up      0.0.0.0:
 nebula-web-docker_web_1        docker-entrypoint.sh npm r ...   Up      0.0.0.0:32784->7001/tcp
 ```
 
-如果没有返回以上结果，则先停止 Studio 重新启动。详细信息，参考 [部署 Studio](../deploy-connect/st-ug-deploy.md)。
+如果没有返回以上结果，则先停止 Studio 重新启动。详细信息，参考[部署 Studio](../deploy-connect/st-ug-deploy.md)。
 
 !!! Note
 

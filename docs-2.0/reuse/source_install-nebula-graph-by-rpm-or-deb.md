@@ -2,7 +2,7 @@ RPM 和 DEB 是 Linux 系统下常见的两种安装包格式，本文介绍如�
 
 !!! note
 
-    部署 Nebula Graph 集群的方式参见 [使用 RPM/DEB 包部署集群](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/deploy-nebula-graph-cluster/)。<!--这里用外链。-->
+    部署 Nebula Graph 集群的方式参见[使用 RPM/DEB 包部署集群](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/deploy-nebula-graph-cluster/)。<!--这里用外链。-->
 
 !!! enterpriseonly
 

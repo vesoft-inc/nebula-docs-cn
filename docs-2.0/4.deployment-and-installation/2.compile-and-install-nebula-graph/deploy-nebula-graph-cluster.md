@@ -278,7 +278,7 @@ sudo /usr/local/nebula/scripts/nebula.service start <metad|graphd|storaged|all>
 
     - 当需都启动 graphd、storaged 和 metad 时，可以用 all 代替。
 
-    - `/usr/local/nebula`是 Nebula Graph 的默认安装路径，如果修改过安装路径，请使用实际路径。更多启停服务的内容，请参见 [管理 Nebula Graph 服务](../../2.quick-start/5.start-stop-service.md)。
+    - `/usr/local/nebula`是 Nebula Graph 的默认安装路径，如果修改过安装路径，请使用实际路径。更多启停服务的内容，请参见[管理 Nebula Graph 服务](../../2.quick-start/5.start-stop-service.md)。
 
 ### 4. 检查集群
 

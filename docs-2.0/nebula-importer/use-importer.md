@@ -71,7 +71,7 @@ Importer 适用于将本地 CSV 文件的内容导入至 Nebula Graph 中。
   ```
 
   !!! note
-        yaml 配置文件说明请参见 [配置文件](#_7)。
+        yaml 配置文件说明请参见[配置文件](#_7)。
 
 ### 无网络编译方式
 
@@ -103,7 +103,7 @@ Importer 适用于将本地 CSV 文件的内容导入至 Nebula Graph 中。
 
 ### Docker 方式运行
 
-使用 Docker 可以不必在本地安装 Go 语言环境，只需要拉取 Nebula Importer 的 [镜像](https://hub.docker.com/r/vesoft/nebula-importer)，并将本地配置文件和 CSV 数据文件挂载到容器中。命令如下：
+使用 Docker 可以不必在本地安装 Go 语言环境，只需要拉取 Nebula Importer 的[镜像](https://hub.docker.com/r/vesoft/nebula-importer)，并将本地配置文件和 CSV 数据文件挂载到容器中。命令如下：
 
 ```bash
 $ docker run --rm -ti \
@@ -214,8 +214,8 @@ files:
 |`files.limit`|-|否|读取数据的行数限制。|
 |`files.inOrder`|-|否|是否按顺序在文件中插入数据行。如果为`false`，可以避免数据倾斜导致的导入速率降低。|
 |`files.type`|-|是|文件类型。|
-|`files.csv.withHeader`|`false`|是|是否有表头。详情请参见 [关于 CSV 文件表头](#csvheader)。|
-|`files.csv.withLabel`|`false`|是|是否有 LABEL。详情请参见 [有表头配置说明](config-with-header.md)。|
+|`files.csv.withHeader`|`false`|是|是否有表头。详情请参见[关于 CSV 文件表头](#csvheader)。|
+|`files.csv.withLabel`|`false`|是|是否有 LABEL。详情请参见[有表头配置说明](config-with-header.md)。|
 |`files.csv.delimiter`|`","`|是|指定 csv 文件的分隔符。只支持一个字符的字符串分隔符。|
 
 #### Schema 配置

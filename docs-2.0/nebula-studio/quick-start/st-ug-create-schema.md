@@ -26,9 +26,9 @@
 
 按以下步骤使用 **Schema** 创建 Schema：
 
-1. 创建 Tag。详细信息，参考 [操作 Tag](../manage-schema/st-ug-crud-tag.md)。
+1. 创建 Tag。详细信息，参考[操作 Tag](../manage-schema/st-ug-crud-tag.md)。
 
-2. 创建 Edge type。详细信息，参考 [操作 Edge type](../manage-schema/st-ug-crud-edge-type.md)。
+2. 创建 Edge type。详细信息，参考[操作 Edge type](../manage-schema/st-ug-crud-edge-type.md)。
 
 ## 使用控制台创建 Schema
 
@@ -74,4 +74,4 @@ DESCRIBE EDGE serve;
 
 ## 后续操作
 
-创建 Schema 后，用户可以开始 [导入数据](st-ug-import-data.md)。
+创建 Schema 后，用户可以开始[导入数据](st-ug-import-data.md)。

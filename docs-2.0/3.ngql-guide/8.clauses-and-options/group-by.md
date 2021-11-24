@@ -72,4 +72,4 @@ nebula> GO FROM "player100" OVER follow \
 +----------------+
 ```
 
-`sum()`函数详情请参见 [内置数学函数](../6.functions-and-expressions/1.math.md)。
+`sum()`函数详情请参见[内置数学函数](../6.functions-and-expressions/1.math.md)。

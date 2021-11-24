@@ -4,7 +4,7 @@ Studio 连接到 Nebula Graph 数据库后，用户可以创建或删除图空�
 
 ## 支持版本
 
-Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参考 [版本更新](../about-studio/st-ug-check-updates.md)。
+Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参考[版本更新](../about-studio/st-ug-check-updates.md)。
 
 ## 前提条件
 
@@ -25,7 +25,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 
 3. 在 **创建** 页面，完成以下配置：
 
-  - **名称**：指定图空间名称，本示例中设置为 `basketballplayer`。不可与已有的图空间名称重复。不可使用关键字或保留关键字做标识符，参考 [关键字](../../3.ngql-guide/1.nGQL-overview/keywords-and-reserved-words.md "点击前往 关键字")。
+  - **名称**：指定图空间名称，本示例中设置为 `basketballplayer`。不可与已有的图空间名称重复。不可使用关键字或保留关键字做标识符，参考[关键字](../../3.ngql-guide/1.nGQL-overview/keywords-and-reserved-words.md "点击前往 关键字")。
 
   - **vid type**：图空间中点 ID（VID）的数据类型，可选值为定长字符串 `FIXED_STRING(<N>)` 或 `INT64`，一旦定义无法修改。本示例设置为`FIXED_STRING(32)`，参考 [VID](../../1.introduction/3.vid.md)。
 
@@ -47,7 +47,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 ## 删除图空间
 
 !!! danger
-    删除图空间会删除其中的所有数据，已删除的数据如未 [备份](../../7.data-security/3.manage-snapshot.md) 无法恢复。
+    删除图空间会删除其中的所有数据，已删除的数据如未[备份](../../7.data-security/3.manage-snapshot.md) 无法恢复。
 
 按以下步骤使用 **Schema** 删除图空间：
 

@@ -68,13 +68,13 @@ scala> spark.sql("describe basketball.serve").show
 
 开始导入数据之前，用户需要确认以下信息：
 
-- 已经 [安装部署 Nebula Graph](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md) 并获取如下信息：
+- 已经[安装部署 Nebula Graph](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md) 并获取如下信息：
 
   - Graph 服务和 Meta 服务的的 IP 地址和端口。
 
   - 拥有 Nebula Graph 写权限的用户名和密码。
 
-- 已经编译 Exchange。详情请参见 [编译 Exchange](../ex-ug-compile.md)。本示例中使用 Exchange {{exchange.release}}。
+- 已经编译 Exchange。详情请参见[编译 Exchange](../ex-ug-compile.md)。本示例中使用 Exchange {{exchange.release}}。
 
 - 已经安装 Spark。
 
@@ -122,7 +122,7 @@ scala> spark.sql("describe basketball.serve").show
     nebula> CREATE EDGE serve(start_year int, end_year int);
     ```
 
-更多信息，请参见 [快速开始](../../2.quick-start/1.quick-start-workflow.md)。
+更多信息，请参见[快速开始](../../2.quick-start/1.quick-start-workflow.md)。
 
 ### 步骤 2：使用 Spark SQL 确认 Hive SQL 语句
 
@@ -152,7 +152,7 @@ scala> sql("select playerid, teamid, start_year, end_year from basketball.serve"
 
 ### 步骤 3：修改配置文件
 
-编译 Exchange 后，复制`target/classes/application.conf`文件设置 Hive 数据源相关的配置。在本示例中，复制的文件名为`hive_application.conf`。各个配置项的详细说明请参见 [配置说明](../parameter-reference/ex-ug-parameter.md)。
+编译 Exchange 后，复制`target/classes/application.conf`文件设置 Hive 数据源相关的配置。在本示例中，复制的文件名为`hive_application.conf`。各个配置项的详细说明请参见[配置说明](../parameter-reference/ex-ug-parameter.md)。
 
 ```conf
 {
@@ -328,7 +328,7 @@ scala> sql("select playerid, teamid, start_year, end_year from basketball.serve"
 
 ### 步骤 4：向 Nebula Graph 导入数据
 
-运行如下命令将 Hive 数据导入到 Nebula Graph 中。关于参数的说明，请参见 [导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
+运行如下命令将 Hive 数据导入到 Nebula Graph 中。关于参数的说明，请参见[导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
 ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-{{exchange.release}}.jar_path> -c <hive_application.conf_path> -h
@@ -358,4 +358,4 @@ GO FROM "player100" OVER follow;
 
 ### 步骤 6：（如有）在 Nebula Graph 中重建索引
 
-导入数据后，用户可以在 Nebula Graph 中重新创建并重建索引。详情请参见 [索引介绍](../../3.ngql-guide/14.native-index-statements/README.md)。
+导入数据后，用户可以在 Nebula Graph 中重新创建并重建索引。详情请参见[索引介绍](../../3.ngql-guide/14.native-index-statements/README.md)。

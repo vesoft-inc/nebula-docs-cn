@@ -8,7 +8,7 @@
 
 !!! Note
 
-    在原生 nGQL 中，有与`WITH`类似的 [管道符](../5.operators/4.pipe.md)，但它们的工作方式不同。不要在 openCypher 方式中使用管道符，也不要在原生 nGQL 中使用`WITH`子句。
+    在原生 nGQL 中，有与`WITH`类似的[管道符](../5.operators/4.pipe.md)，但它们的工作方式不同。不要在 openCypher 方式中使用管道符，也不要在原生 nGQL 中使用`WITH`子句。
 
 ## 组成复合查询
 

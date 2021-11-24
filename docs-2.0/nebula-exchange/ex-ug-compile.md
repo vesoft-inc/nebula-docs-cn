@@ -4,9 +4,9 @@
 
 ## 直接下载 JAR 文件
 
-社区版 Exchange 的 JAR 文件可以直接 [下载](https://repo1.maven.org/maven2/com/vesoft/nebula-exchange/)。
+社区版 Exchange 的 JAR 文件可以直接[下载](https://repo1.maven.org/maven2/com/vesoft/nebula-exchange/)。
 
-要下载企业版 Exchange，需先 [获取 Nebula Graph 企业版套餐](https://nebula-graph.com.cn/pricing/)。
+要下载企业版 Exchange，需先[获取 Nebula Graph 企业版套餐](https://nebula-graph.com.cn/pricing/)。
 
 ## 编译源代码获取 JAR 文件
 

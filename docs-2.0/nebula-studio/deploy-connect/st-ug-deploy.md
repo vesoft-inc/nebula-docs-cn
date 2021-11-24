@@ -264,4 +264,4 @@ $ npm run stop # stop nebula-graph-studio
 
 ## 后续操作
 
-进入 Studio 登录界面后，用户需要连接 Nebula Graph。详细信息，参考 [连接数据库](st-ug-connect.md)。
+进入 Studio 登录界面后，用户需要连接 Nebula Graph。详细信息，参考[连接数据库](st-ug-connect.md)。

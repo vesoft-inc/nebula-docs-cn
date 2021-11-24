@@ -80,7 +80,7 @@ nebula-exchange-2.0.0.jar \
 
 ### Q：运行时报错`Exception in thread "main" com.facebook.thrift.protocol.TProtocolException: The field 'code' has been assigned the invalid value -4`
 
-检查 Exchange 版本与 Nebula Graph 版本是否匹配，详细信息可参考 [使用限制](../nebula-exchange/about-exchange/ex-ug-limitations.md)。
+检查 Exchange 版本与 Nebula Graph 版本是否匹配，详细信息可参考[使用限制](../nebula-exchange/about-exchange/ex-ug-limitations.md)。
 
 ### Q：将 Hive 中的数据导入 Nebula Graph 时出现乱码如何解决？
 
@@ -136,7 +136,7 @@ nebula-exchange-2.0.0.jar \
 
 ### Q：Exchange 支持哪些版本的 Nebula Graph？
 
-请参见 Exchange 的 [使用限制](about-exchange/ex-ug-limitations.md)。
+请参见 Exchange 的[使用限制](about-exchange/ex-ug-limitations.md)。
 
 ### Q：Exchange 与 Spark Writer 有什么关系？
 

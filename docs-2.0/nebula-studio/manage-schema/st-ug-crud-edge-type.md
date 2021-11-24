@@ -4,7 +4,7 @@
 
 ## 支持版本
 
-Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参考 [版本更新](../about-studio/st-ug-check-updates.md)。
+Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参考[版本更新](../about-studio/st-ug-check-updates.md)。
 
 ## 前提条件
 
@@ -74,7 +74,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 ## 删除 Edge type
 
 !!! danger
-    删除 Edge type 前先确认 [影响](../../3.ngql-guide/11.edge-type-statements/2.drop-edge.md)，已删除的数据如未 [备份](../../7.data-security/3.manage-snapshot.md) 无法恢复。
+    删除 Edge type 前先确认[影响](../../3.ngql-guide/11.edge-type-statements/2.drop-edge.md)，已删除的数据如未[备份](../../7.data-security/3.manage-snapshot.md) 无法恢复。
 
 按以下步骤使用 **Schema** 删除 Edge type：
 

@@ -1,6 +1,6 @@
 # 实践案例
 
-Nebula Graph 在各行各业都有应用，本文介绍部分实践案例。更多实践分享内容请参见 [博客](https://nebula-graph.com.cn/posts/)。
+Nebula Graph 在各行各业都有应用，本文介绍部分实践案例。更多实践分享内容请参见[博客](https://nebula-graph.com.cn/posts/)。
 
 ## 业务场景
 

@@ -9,7 +9,7 @@
 
 在连接 Nebula Graph 数据库前，用户需要确认以下信息：
 
-- Studio 已经启动。详细信息参考 [部署 Studio](st-ug-deploy.md)。
+- Studio 已经启动。详细信息参考[部署 Studio](st-ug-deploy.md)。
 
 - Nebula Graph 的 Graph 服务本机 IP 地址以及服务所用端口。默认端口为 `9669`。
 
@@ -50,5 +50,5 @@
 成功连接 Nebula Graph 数据库后，根据账号的权限，用户可以选择执行以下操作：
 
 - 如果已拥有 GOD 或者 ADMIN 权限的账号登录，可以使用 [**控制台**](../quick-start/st-ug-create-schema.md) 或者 [**Schema**](../manage-schema/st-ug-crud-space.md) 页面管理 Schema。
-- 如果已拥有 GOD、ADMIN、DBA 或者 USER 权限的账号登录，可以 [批量导入数据](../quick-start/st-ug-import-data.md) 或者在 **控制台** 页面上运行 nGQL 语句插入数据。
+- 如果已拥有 GOD、ADMIN、DBA 或者 USER 权限的账号登录，可以[批量导入数据](../quick-start/st-ug-import-data.md) 或者在 **控制台** 页面上运行 nGQL 语句插入数据。
 - 如果已拥有 GOD、ADMIN、DBA、USER 或者 GUEST 权限的账号登录，可以在 **控制台** 页面上运行 nGQL 语句读取数据或者在 **图探索** 页面上进行图探索或数据分析。

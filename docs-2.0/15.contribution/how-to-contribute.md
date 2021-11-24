@@ -4,7 +4,7 @@
 
 ### github 或社区提交问题
 
-欢迎为项目贡献任何代码或文档，但是建议先在 [github](https://github.com/vesoft-inc/nebula) 或 [社区](https://discuss.nebula-graph.io/) 上提交一个问题，和大家共同讨论。
+欢迎为项目贡献任何代码或文档，但是建议先在 [github](https://github.com/vesoft-inc/nebula) 或[社区](https://discuss.nebula-graph.io/) 上提交一个问题，和大家共同讨论。
 
 ### 签署贡献者许可协议（CLA）
 
@@ -28,7 +28,7 @@ Nebula Graph 文档以 Markdown 语言编写。单击文档标题右侧的铅笔
 
 ### Step 1：通过 GitHub fork 仓库
 
-Nebula Graph 项目有很多 [仓库](https://github.com/vesoft-inc)，以 [nebula-graph 仓库](https://github.com/vesoft-inc/nebula) 为例：
+Nebula Graph 项目有很多[仓库](https://github.com/vesoft-inc)，以 [nebula-graph 仓库](https://github.com/vesoft-inc/nebula) 为例：
 
 1. 访问 [https://github.com/vesoft-inc/nebula](https://github.com/vesoft-inc/nebula)。
 
@@ -132,7 +132,7 @@ Nebula Graph 项目有很多 [仓库](https://github.com/vesoft-inc)，以 [nebu
 
 - 构建代码时开启单元测试
 
-  详情请参见 [使用源码安装 Nebula Graph](../4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)。
+  详情请参见[使用源码安装 Nebula Graph](../4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)。
 
   !!! Note
 
