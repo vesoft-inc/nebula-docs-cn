@@ -370,7 +370,7 @@ ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchan
 
 !!! note
 
-    JAR 包有两种获取方式：[自行编译](../ex-ug-compile.md) 或者从 maven 仓库下载。
+    JAR 包有两种获取方式：[自行编译](../ex-ug-compile.md)或者从 maven 仓库下载。
 
 示例：
 

@@ -16,7 +16,7 @@ Nebula Exchange 版本（即 JAR 包版本）和 Nebula Graph 内核的版本对
 |2.0.1|2.0.0、2.0.1|
 |2.0.0|2.0.0、2.0.1|
 
-JAR 包有两种获取方式：[自行编译](../ex-ug-compile.md) 或者从 maven 仓库下载。
+JAR 包有两种获取方式：[自行编译](../ex-ug-compile.md)或者从 maven 仓库下载。
 
 如果正在使用 Nebula Graph 1.x，请使用 [Nebula Exchange 1.x](https://github.com/vesoft-inc/nebula-java/tree/v1.0/tools "Click to go to GitHub")。
 

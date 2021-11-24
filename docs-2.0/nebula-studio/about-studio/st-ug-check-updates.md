@@ -1,6 +1,6 @@
 # 版本更新
 
-Studio 处于持续开发状态中。用户可以通过 [Studio 发布版本更新](../about-studio/st-ug-release-note.md) 查看最新发布的功能。
+Studio 处于持续开发状态中。用户可以通过 [Studio 发布版本更新](../about-studio/st-ug-release-note.md)查看最新发布的功能。
 
 <!-- 
 

@@ -96,7 +96,7 @@ YIELD [DISTINCT] <col> [AS <alias>] [, <col> [AS <alias>] ...]
 
 ### 复合查询中使用 YIELD 语句
 
-在[复合查询](../4.variable-and-composite-queries/1.composite-queries.md) 中，`YIELD`语句可以接收、过滤、修改之前语句的结果集，然后输出。
+在[复合查询](../4.variable-and-composite-queries/1.composite-queries.md)中，`YIELD`语句可以接收、过滤、修改之前语句的结果集，然后输出。
 
 ```ngql
 # 查找 player100 关注的 player，并计算他们的平均年龄。
