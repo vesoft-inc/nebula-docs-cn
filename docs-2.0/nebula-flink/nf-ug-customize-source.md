@@ -24,7 +24,7 @@ NebulaSource 的实现类图如下所示。
 - `open`：开始 `inputFormat` 的数据读取，将读取的数据转换为 Flink 的数据格式，构造迭代器。
 - `close`：在数据读取完成后打印读取日志。
 - `reachedEnd`：判断是否读取完成。
-- `nextRecord`：通过迭代器获取下一条数据.
+- `nextRecord`：通过迭代器获取下一条数据。
 
 ## 应用实践
 
@@ -40,15 +40,15 @@ NebulaSource 的实现类图如下所示。
   - Nebula Graph 图数据库的账号及其密码。
 - `VertexExecutionOptions` 需要配置：
   - 需要读取点数据的 Nebula Graph 图数据库中的图空间名称。
-  - 需要读取的Tag（点类型）名称。一次只能一个Tag。
-  - 要读取的Tag属性。
-  - 是否读取指定Tag的所有属性，默认为 `false`。如果配置为 `true` 则Tag属性的配置无效。
+  - 需要读取的 Tag（点类型）名称。一次只能一个 Tag。
+  - 要读取的 Tag 属性。
+  - 是否读取指定 Tag 的所有属性，默认为 `false`。如果配置为 `true` 则 Tag 属性的配置无效。
   - 单次读取的数据量限值，默认为 2000 个点数据。
 - `EdgeExecutionOptions` 需要配置：
   - 需要读取边数据的 Nebula Graph 图数据库中的图空间名称。
-  - 需要读取的Edge type。一次只能一个Edge type。
-  - 需要读取的Edge type属性。
-  - 是否读取指定Edge type的所有属性，默认为 `false`。如果配置为 `true` 则Edge type属性的配置无效。
+  - 需要读取的 Edge type。一次只能一个 Edge type。
+  - 需要读取的 Edge type 属性。
+  - 是否读取指定 Edge type 的所有属性，默认为 `false`。如果配置为 `true` 则 Edge type 属性的配置无效。
   - 单次读取的数据量限值，默认值为 2000 个边数据。
 
 假设需要读取点数据的 Nebula Graph 图数据库信息如下：
@@ -56,7 +56,7 @@ NebulaSource 的实现类图如下所示。
 - Meta 服务为本地单副本部署，使用默认端口
 - 图空间名称：`flinkSource`
 - Tag：`player`
-- Tag属性：`name` 和 `age`
+- Tag 属性：`name` 和 `age`
 - 单次最多读取 100 个点数据
 
 以下为自定义 NebulaSource 的代码示例。

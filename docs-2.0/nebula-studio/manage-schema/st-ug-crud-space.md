@@ -4,7 +4,7 @@ Studio 连接到 Nebula Graph 数据库后，用户可以创建或删除图空�
 
 ## 支持版本
 
-Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参考 [版本更新](../about-studio/st-ug-check-updates.md)。
+Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参考[版本更新](../about-studio/st-ug-check-updates.md)。
 
 ## 前提条件
 
@@ -29,11 +29,11 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 
   - **vid type**：图空间中点 ID（VID）的数据类型，可选值为定长字符串 `FIXED_STRING(<N>)` 或 `INT64`，一旦定义无法修改。本示例设置为`FIXED_STRING(32)`，参考 [VID](../../1.introduction/3.vid.md)。
 
-  - **描述**：图空间的描述，最大为256字节。默认无描述。本示例设置为`Statistics of basketball players`。
+  - **描述**：图空间的描述，最大为 256 字节。默认无描述。本示例设置为`Statistics of basketball players`。
 
   - **选填参数**：分别设置 `partition_num`、`replica_factor` 的值。在本示例中，两个参数分别设置为 `100`、`1`。详细信息，参考 [`CREATE SPACE` 语法](../../3.ngql-guide/9.space-statements/1.create-space.md "点击前往 CREATE SPACE")。
 
-  在 **对应的nGQL语句** 面板上，用户能看到上述设置对应的 nGQL 语句。如下所示：
+  在 **对应的 nGQL 语句** 面板上，用户能看到上述设置对应的 nGQL 语句。如下所示：
 
   ```ngql
   CREATE SPACE basketballplayer (partition_num = 100, replica_factor = 1, vid_type = FIXED_STRING(32)) COMMENT = "Statistics of basketball players"
@@ -64,6 +64,6 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 
 图空间创建成功后，用户可以开始创建或修改 Schema，包括：
 
-- [操作Tag](st-ug-crud-tag.md)
-- [操作Edge type](st-ug-crud-edge-type.md)
+- [操作 Tag](st-ug-crud-tag.md)
+- [操作 Edge type](st-ug-crud-edge-type.md)
 - [操作索引](st-ug-crud-index.md)

@@ -28,7 +28,7 @@ Nebula Spark Connector Writer 的实现类图如下：
 
 ![Nebula Spark Connector Writer 实现类图](../figs/sc-ug-002.png "Nebula Spark Connector Writer 实现类图")
 
-`NebulaVertexWriter` 和 `NebulaEdgeWriter的write` 方法中定义了具体写入逻辑。逐条写入数据的逻辑概括如下：
+`NebulaVertexWriter` 和 `NebulaEdgeWriter 的 write` 方法中定义了具体写入逻辑。逐条写入数据的逻辑概括如下：
 
 1. 创建客户端，连接 Nebula Graph 的 Graph 服务。
 2. 指定即将写入数据的 Nebula Graph 图空间。

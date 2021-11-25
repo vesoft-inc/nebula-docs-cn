@@ -4,14 +4,14 @@
 
 ## 支持版本
 
-Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参考 [版本更新](../about-studio/st-ug-check-updates.md)。
+Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参考[版本更新](../about-studio/st-ug-check-updates.md)。
 
 ## 前提条件
 
 使用导入图探索前，用户需要确认以下信息：
 
-- Studio 已经连接到 Nebula Graph 数据库。详细信息参考 [连接数据库](../deploy-connect/st-ug-connect.md)。
-- 已经导入数据集。详细操作参考 [导入数据](../quick-start/st-ug-import-data.md)。
+- Studio 已经连接到 Nebula Graph 数据库。详细信息参考[连接数据库](../deploy-connect/st-ug-connect.md)。
+- 已经导入数据集。详细操作参考[导入数据](../quick-start/st-ug-import-data.md)。
 
 ## 导入边数据
 
@@ -19,7 +19,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 
 1. 在工具栏里，点击 **控制台** 页签。
 
-2. 在 **当前Space** 中选择一个图空间。在本示例中，选择 **basketballplayer**。
+2. 在 **当前 Space** 中选择一个图空间。在本示例中，选择 **basketballplayer**。
 
 3. 在命令行中，输入查询语句，并点击 ![表示运行的图标](../figs/st-ug-008.png "Run 图标") 图标。
 
@@ -43,7 +43,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 
   1. 点击 **Edge type**。
 
-  2. 在 **Edge Type** 字段，填写Edge type名称。在本示例中，填写 `serve`。
+  2. 在 **Edge Type** 字段，填写 Edge type 名称。在本示例中，填写 `serve`。
 
   3. 在 **Src ID** 字段，选择查询结果中代表边起点 VID 的列名。在本示例中，选择 `serve._src`。
 
@@ -53,7 +53,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 
   6. 完成配置后，点击 **导入** 按钮。
 
-  ![填写Edge type名称，选择代表边起点和终点 VID 的列名](../figs/st-ug-041-1.png "配置Edge type信息")
+  ![填写 Edge type 名称，选择代表边起点和终点 VID 的列名](../figs/st-ug-041-1.png "配置 Edge type 信息")
 
 6. 如果 **图探索** 页面此前已有数据，在弹出的窗口中选择数据插入方式：
 
@@ -70,7 +70,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 
 1. 在工具栏里，点击 **控制台** 页签。
 
-2. 在 **当前Space** 中选择一个图空间。在本示例中，选择 **basketballplayer**。
+2. 在 **当前 Space** 中选择一个图空间。在本示例中，选择 **basketballplayer**。
 
 3. 在命令行中，输入查询语句，并点击 ![表示运行的图标](../figs/st-ug-008.png "Run 图标") 图标。
 

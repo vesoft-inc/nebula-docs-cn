@@ -1,11 +1,11 @@
 # 注释
 
-本文介绍nGQL中的注释方式。
+本文介绍 nGQL 中的注释方式。
 
 ## 历史版本兼容性
 
-* Nebula Graph 1.0支持四种注释方式: `#`、`--`、`//`、`/* */`。
-* Nebula Graph 2.0中，`--`不再是注释符，而是代表[边模式](../../3.ngql-guide/1.nGQL-overview/3.graph-patterns.md)。
+* Nebula Graph 1.x 支持四种注释方式：`#`、`--`、`//`、`/* */`。
+* Nebula Graph 2.x 中，`--`不再是注释符。
 
 ## Examples
 
@@ -20,15 +20,15 @@ nebula> RETURN 11 +            \
 */ 12;
 ```
 
-nGQL语句中的反斜线（\）代表换行。
+nGQL 语句中的反斜线（\）代表换行。
 
-## OpenCypher兼容性
+## OpenCypher 兼容性
 
-* 在nGQL中，用户必须在行末使用反斜线（\）来换行，即使是在使用`/* */`符号的多行注释内。
-* 在openCypher中不需要使用反斜线换行。
+* 在 nGQL 中，用户必须在行末使用反斜线（\）来换行，即使是在使用`/* */`符号的多行注释内。
+* 在 openCypher 中不需要使用反斜线换行。
 
 ```openCypher
-/* openCypher风格：
+/* openCypher 风格：
 这条注释
 延续了不止
 一行 */
@@ -37,7 +37,7 @@ RETURN n;
 ```
 
 ```ngql
-/* 原生nGQL风格：  \
+/* 原生 nGQL 风格：  \
 这条注释       \
 延续了不止     \
 一行 */       \
