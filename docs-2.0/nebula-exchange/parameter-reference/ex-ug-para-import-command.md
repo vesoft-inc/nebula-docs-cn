@@ -21,7 +21,7 @@
 
 !!! note
 
-    如果使用 [yarn-cluster 模式](https://spark-reference-doc-cn.readthedocs.io/zh_CN/latest/deploy-guide/running-on-yarn.html) 提交任务，请参考如下示例：
+    如果使用 [yarn-cluster 模式](https://spark-reference-doc-cn.readthedocs.io/zh_CN/latest/deploy-guide/running-on-yarn.html)提交任务，请参考如下示例：
 
     ```bash
     $SPARK_HOME/bin/spark-submit     --master yarn-cluster \

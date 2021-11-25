@@ -48,4 +48,4 @@ nebula-web-docker_web_1        docker-entrypoint.sh npm r ...   Up      0.0.0.0:
 - 如果浏览器与 Studio 在同一台机器上，检查端口是否已暴露。
 - 如果两者不在同一台机器上，检查 Studio 所在机器的网络配置，例如，防火墙、网关以及端口。
 
-如果按上述步骤排查后仍无法访问 Studio，请前往 [Nebula Graph 官方论坛](https://discuss.nebula-graph.com.cn/ "点击前往 Nebula Graph 官方论坛") 咨询。
+如果按上述步骤排查后仍无法访问 Studio，请前往 [Nebula Graph 官方论坛](https://discuss.nebula-graph.com.cn/ "点击前往 Nebula Graph 官方论坛")咨询。

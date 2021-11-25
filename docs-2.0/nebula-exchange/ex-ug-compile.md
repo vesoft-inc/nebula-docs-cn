@@ -67,7 +67,7 @@
 在`target`目录下，用户可以找到`exchange-2.x.y.jar`文件。
 
 !!! note
-    JAR 文件版本号会因 Nebula Java Client 的发布版本而变化。用户可以在 [Releases 页面](https://github.com/vesoft-inc/nebula-java/releases) 查看最新版本。
+    JAR 文件版本号会因 Nebula Java Client 的发布版本而变化。用户可以在 [Releases 页面](https://github.com/vesoft-inc/nebula-java/releases)查看最新版本。
 
 迁移数据时，用户可以参考配置文件 [`target/classes/application.conf`](https://github.com/vesoft-inc/nebula-exchange/blob/master/nebula-exchange/src/main/resources/application.conf)。
 

@@ -59,7 +59,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
 
 ## 数据集
 
-本文以 [basketballplayer 数据集](https://docs-cdn.nebula-graph.com.cn/dataset/dataset.zip) 为例。
+本文以 [basketballplayer 数据集](https://docs-cdn.nebula-graph.com.cn/dataset/dataset.zip)为例。
 
 ## 环境配置
 
@@ -91,7 +91,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
 
   - Schema 的信息，包括 Tag 和 Edge type 的名称、属性等。
 
-- 已经[编译 Exchange](../ex-ug-compile.md)，或者直接[下载](https://repo1.maven.org/maven2/com/vesoft/nebula-exchange/) 编译完成的。jar 文件。本示例中使用 Exchange {{exchange.release}}。
+- 已经[编译 Exchange](../ex-ug-compile.md)，或者直接[下载](https://repo1.maven.org/maven2/com/vesoft/nebula-exchange/)编译完成的。jar 文件。本示例中使用 Exchange {{exchange.release}}。
 
 - 已经安装 Spark。
 

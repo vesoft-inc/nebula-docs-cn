@@ -4,7 +4,7 @@
 
 ### github 或社区提交问题
 
-欢迎为项目贡献任何代码或文档，但是建议先在 [github](https://github.com/vesoft-inc/nebula) 或[社区](https://discuss.nebula-graph.io/) 上提交一个问题，和大家共同讨论。
+欢迎为项目贡献任何代码或文档，但是建议先在 [github](https://github.com/vesoft-inc/nebula) 或[社区](https://discuss.nebula-graph.io/)上提交一个问题，和大家共同讨论。
 
 ### 签署贡献者许可协议（CLA）
 
@@ -28,9 +28,9 @@ Nebula Graph 文档以 Markdown 语言编写。单击文档标题右侧的铅笔
 
 ### Step 1：通过 GitHub fork 仓库
 
-Nebula Graph 项目有很多[仓库](https://github.com/vesoft-inc)，以 [nebula-graph 仓库](https://github.com/vesoft-inc/nebula) 为例：
+Nebula Graph 项目有很多[仓库](https://github.com/vesoft-inc)，以 [nebula-graph 仓库](https://github.com/vesoft-inc/nebula)为例：
 
-1. 访问 [https://github.com/vesoft-inc/nebula](https://github.com/vesoft-inc/nebula)。
+1. 访问 [github.com/vesoft-inc/nebula](https://github.com/vesoft-inc/nebula)。
 
 2. 在右上角单击按钮`Fork`，然后单击用户名，即可 fork 出 nebula-graph 仓库。
 

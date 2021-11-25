@@ -43,7 +43,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 6. 完成设置后，在 **对应的 nGQL **面板，用户能看到与上述配置等价的 nGQL 语句。
 
 7. 确认无误后，点击 **+ 创建** 按钮。
-   如果 Tag 创建成功，**定义属性**面板会显示这个 Tag 的属性列表。
+   如果 Tag 创建成功，**定义属性** 面板会显示这个 Tag 的属性列表。
 
 ## 修改 Tag
 
@@ -72,7 +72,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 ## 删除 Tag
 
 !!! danger
-    删除 Tag 前先确认[影响](../../3.ngql-guide/10.tag-statements/2.drop-tag.md)，已删除的数据如未[备份](../../7.data-security/3.manage-snapshot.md) 无法恢复。
+    删除 Tag 前先确认[影响](../../3.ngql-guide/10.tag-statements/2.drop-tag.md)，已删除的数据如未[备份](../../7.data-security/3.manage-snapshot.md)无法恢复。
 
 按以下步骤使用 **Schema** 删除 Tag：
 

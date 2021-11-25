@@ -129,7 +129,7 @@ $ sudo /usr/local/nebula/scripts/nebula.service status all
     [INFO] nebula-storaged(de03025): Running as 26709, Listening on 9779
     ```
 
-- 如果返回类似如下结果，表示 Nebula Graph 服务异常，可以根据异常服务信息进一步排查，或者在 [Nebula Graph 社区](https://discuss.nebula-graph.com.cn/) 寻求帮助。
+- 如果返回类似如下结果，表示 Nebula Graph 服务异常，可以根据异常服务信息进一步排查，或者在 [Nebula Graph 社区](https://discuss.nebula-graph.com.cn/)寻求帮助。
 
     ```bash
     [INFO] nebula-metad: Running as 25600, Listening on 9559

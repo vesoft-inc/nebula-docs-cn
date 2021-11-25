@@ -40,7 +40,7 @@
 
   !!! enterpriseonly
 
-        Explorer 仅在企业版提供，点击[定价](https://nebula-graph.com.cn/pricing/) 查看更多。
+        Explorer 仅在企业版提供，点击[定价](https://nebula-graph.com.cn/pricing/)查看更多。
 
 2. 使用`sudo rpm -i <rpm>`命令安装 RPM 包。
 
@@ -126,7 +126,7 @@ $ sudo rpm -e nebula-explorer-<version>.x86_64
 
   !!! enterpriseonly
 
-        Explorer 仅在企业版提供，点击[定价](https://nebula-graph.com.cn/pricing/) 查看更多。
+        Explorer 仅在企业版提供，点击[定价](https://nebula-graph.com.cn/pricing/)查看更多。
 
 2. 使用 `tar -xvf` 解压 tar 包。
 

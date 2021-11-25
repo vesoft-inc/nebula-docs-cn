@@ -6,7 +6,7 @@
 
 ## 数据集
 
-本文以 [basketballplayer 数据集](https://docs-cdn.nebula-graph.com.cn/dataset/dataset.zip) 为例。
+本文以 [basketballplayer 数据集](https://docs-cdn.nebula-graph.com.cn/dataset/dataset.zip)为例。
 
 ## 环境配置
 

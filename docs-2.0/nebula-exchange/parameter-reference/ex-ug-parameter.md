@@ -49,7 +49,7 @@
 |`nebula.user`|string|-|是|拥有 Nebula Graph 写权限的用户名。|
 |`nebula.pswd`|string|-|是|用户名对应的密码。|
 |`nebula.space`|string|-|是|需要导入数据的的图空间名称。|
-|`nebula.ssl.enable.graph`|bool|`false`|是|开启 Exchange 与 Graph 服务之间的 [SSL 加密](https://en.wikipedia.org/wiki/Transport_Layer_Security) 传输。当值为`true`时开启，下方的 SSL 相关参数生效。如果 Exchange 运行在多机集群上，在设置以下 SSL 相关路径时，需要在每台机器的相同路径都存储相应的文件。|
+|`nebula.ssl.enable.graph`|bool|`false`|是|开启 Exchange 与 Graph 服务之间的 [SSL 加密](https://en.wikipedia.org/wiki/Transport_Layer_Security)传输。当值为`true`时开启，下方的 SSL 相关参数生效。如果 Exchange 运行在多机集群上，在设置以下 SSL 相关路径时，需要在每台机器的相同路径都存储相应的文件。|
 |`nebula.ssl.sign`|string|`ca`|是|签名方式，可选值：`ca`（CA 签名）或`self`（自签名）。|
 |`nebula.ssl.ca.param.caCrtFilePath`|string|`"/path/caCrtFilePath"`|是|`nebula.ssl.sign`的值为`ca`时生效，用于指定 CA 证书的存储路径。|
 |`nebula.ssl.ca.param.crtFilePath`|string|`"/path/crtFilePath"`|是|`nebula.ssl.sign`的值为`ca`时生效，用于指定 CRT 证书的存储路径。|
@@ -111,8 +111,8 @@
 |:---|:---|:---|:---|:---|
 |`tags.table`|string|-|是|MaxCompute 的表名。|
 |`tags.project`|string|-|是|MaxCompute 的项目名。|
-|`tags.odpsUrl`|string|-|是|MaxCompute 服务的 odpsUrl。地址可根据[阿里云文档](https://help.aliyun.com/document_detail/34951.html) 查看。|
-|`tags.tunnelUrl`|string|-|是|MaxCompute 服务的 tunnelUrl。地址可根据[阿里云文档](https://help.aliyun.com/document_detail/34951.html) 查看。|
+|`tags.odpsUrl`|string|-|是|MaxCompute 服务的 odpsUrl。地址可根据[阿里云文档](https://help.aliyun.com/document_detail/34951.html)查看。|
+|`tags.tunnelUrl`|string|-|是|MaxCompute 服务的 tunnelUrl。地址可根据[阿里云文档](https://help.aliyun.com/document_detail/34951.html)查看。|
 |`tags.accessKeyId`|string|-|是|MaxCompute 服务的 accessKeyId。|
 |`tags.accessKeySecret`|string|-|是|MaxCompute 服务的 accessKeySecret。|
 |`tags.partitionSpec`|string|-|否|MaxCompute 表的分区描述。|

@@ -24,7 +24,7 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
 
 ## 数据集
 
-本文以 [basketballplayer 数据集](https://docs-cdn.nebula-graph.com.cn/dataset/dataset.zip) 为例。
+本文以 [basketballplayer 数据集](https://docs-cdn.nebula-graph.com.cn/dataset/dataset.zip)为例。
 
 ### 环境配置
 

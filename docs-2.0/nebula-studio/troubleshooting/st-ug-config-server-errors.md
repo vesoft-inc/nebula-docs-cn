@@ -40,4 +40,4 @@
 - 如果 Studio 与 Nebula Graph 在同一台机器上，检查端口是否已暴露。
 - 如果两者不在同一台机器上，检查 Nebula Graph 服务器的网络配置，例如，防火墙、网关以及端口。
 
-如果按上述步骤排查后仍无法连接 Nebula Graph 服务，请前往 [Nebula Graph 官方论坛](https://discuss.nebula-graph.com.cn/ "点击前往 Nebula Graph 官方论坛") 咨询。
+如果按上述步骤排查后仍无法连接 Nebula Graph 服务，请前往 [Nebula Graph 官方论坛](https://discuss.nebula-graph.com.cn/ "点击前往 Nebula Graph 官方论坛")咨询。
