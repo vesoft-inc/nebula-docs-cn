@@ -38,7 +38,7 @@ Nebula Graph 自动删除过期数据后，会在下一次 [Compaction](../../8.
 
 !!! Note
 
-    如果 [关闭 TTL 选项](#ttl_1)，上一次 Compaction 之后的过期数据将可以被查询到。
+    如果[关闭 TTL 选项](#ttl_1)，上一次 Compaction 之后的过期数据将可以被查询到。
 
 ## TTL 选项
 

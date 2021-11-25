@@ -11,7 +11,7 @@
   - Scala
   - Java：1.8
 
-- 已经成功编译 Nebula Spark Connector Reader，并已经将 `nebula-spark-1.x.y.jar` 复制到本地 Maven 库。详细信息参考 [编译 Nebula Spark Connector](../sc-ug-compile.md)
+- 已经成功编译 Nebula Spark Connector Reader，并已经将 `nebula-spark-1.x.y.jar` 复制到本地 Maven 库。详细信息参考[编译 Nebula Spark Connector](../sc-ug-compile.md)
 
 - 已经获取 Nebula Graph 数据库的以下信息：
   - 图空间名称和分区数量（如果创建图空间时未设置分区数量，则默认使用 100）

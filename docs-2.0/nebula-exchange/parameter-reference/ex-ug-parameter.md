@@ -18,7 +18,7 @@
 
 ## Spark 相关配置
 
-本文只列出部分 Spark 参数，更多参数请参见 [官方文档](https://spark.apache.org/docs/latest/configuration.html#application-properties)。
+本文只列出部分 Spark 参数，更多参数请参见[官方文档](https://spark.apache.org/docs/latest/configuration.html#application-properties)。
 
 |参数|数据类型|默认值|是否必须|说明|
 |:---|:---|:---|:---|:---|
@@ -111,8 +111,8 @@
 |:---|:---|:---|:---|:---|
 |`tags.table`|string|-|是|MaxCompute 的表名。|
 |`tags.project`|string|-|是|MaxCompute 的项目名。|
-|`tags.odpsUrl`|string|-|是|MaxCompute 服务的 odpsUrl。地址可根据 [阿里云文档](https://help.aliyun.com/document_detail/34951.html) 查看。|
-|`tags.tunnelUrl`|string|-|是|MaxCompute 服务的 tunnelUrl。地址可根据 [阿里云文档](https://help.aliyun.com/document_detail/34951.html) 查看。|
+|`tags.odpsUrl`|string|-|是|MaxCompute 服务的 odpsUrl。地址可根据[阿里云文档](https://help.aliyun.com/document_detail/34951.html) 查看。|
+|`tags.tunnelUrl`|string|-|是|MaxCompute 服务的 tunnelUrl。地址可根据[阿里云文档](https://help.aliyun.com/document_detail/34951.html) 查看。|
 |`tags.accessKeyId`|string|-|是|MaxCompute 服务的 accessKeyId。|
 |`tags.accessKeySecret`|string|-|是|MaxCompute 服务的 accessKeySecret。|
 |`tags.partitionSpec`|string|-|否|MaxCompute 表的分区描述。|

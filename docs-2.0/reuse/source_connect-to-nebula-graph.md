@@ -2,7 +2,7 @@ Nebula Graph 支持多种类型客户端，包括 CLI 客户端、GUI 客户端�
 
 ## Nebula Graph 客户端
 
-用户可以使用已支持的 [客户端或者命令行工具](https://docs.nebula-graph.com.cn/{{nebula.release}}/20.appendix/6.eco-tool-version/) 来连接 Nebula Graph 数据库。<!--这里用外链。-->
+用户可以使用已支持的[客户端或者命令行工具](https://docs.nebula-graph.com.cn/{{nebula.release}}/20.appendix/6.eco-tool-version/) 来连接 Nebula Graph 数据库。<!--这里用外链。-->
 
 <!-- TODO 云服务未能和 v{{ nebula.release }} 一起发布。
 如果还没有 Nebula Graph 数据库，建议尝试云服务 [Nebula Graph Cloud Service](https://cloud.nebula-graph.com.cn/)。Nebula Graph Cloud Service 支持按需部署和快速搭建，并且使用 Nebula Graph Studio 作为默认客户端。
@@ -12,7 +12,7 @@ Nebula Graph 支持多种类型客户端，包括 CLI 客户端、GUI 客户端�
 
 ### 前提条件
 
-- Nebula Graph 服务已 [启动](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/manage-service/)。<!--这里用外链。-->
+- Nebula Graph 服务已[启动](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/manage-service/)。<!--这里用外链。-->
 
 - 运行 Nebula Console 的机器和运行 Nebula Graph 的服务器网络互通。
 
@@ -77,7 +77,7 @@ Nebula Graph 支持多种类型客户端，包括 CLI 客户端、GUI 客户端�
     | `-e/-eval` | 设置字符串类型的 nGQL 语句。连接成功后会执行一次该语句并返回结果，然后自动断开连接。 |
     | `-f/-file` | 设置存储 nGQL 语句的文件的路径。连接成功后会执行该文件内的 nGQL 语句并返回结果，执行完毕后自动断开连接。 |
 
-用户可以使用`./nebula-console --help`命令获取所有参数的说明，也可以在 [项目仓库](https://github.com/vesoft-inc/nebula-console/tree/{{console.branch}}) 找到更多说明。
+用户可以使用`./nebula-console --help`命令获取所有参数的说明，也可以在[项目仓库](https://github.com/vesoft-inc/nebula-console/tree/{{console.branch}}) 找到更多说明。
 
 ## Nebula Console 命令
 

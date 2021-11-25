@@ -8,7 +8,7 @@ Exchange 由 Reader、Processor 和 Writer 三部分组成。Reader 读取不同
 
 ## 版本系列
 
-Exchange 有社区版和企业版两个系列。社区版在 [GitHub](https://github.com/vesoft-inc/nebula-exchange) 开源开发，企业版除了支持社区版的功能，还增加了额外的特性，详情参见 [版本对比](https://nebula-graph.com.cn/pricing/)。
+Exchange 有社区版和企业版两个系列。社区版在 [GitHub](https://github.com/vesoft-inc/nebula-exchange) 开源开发，企业版除了支持社区版的功能，还增加了额外的特性，详情参见[版本对比](https://nebula-graph.com.cn/pricing/)。
 
 ## 适用场景
 
@@ -78,7 +78,7 @@ Exchange {{exchange.release}} 支持将以下格式或来源的数据转换为 N
 
 除了用 nGQL 语句的形式导入数据，Exchange 还支持将数据源的数据生成 SST 文件，然后通过 Console[导入 SST 文件](../use-exchange/ex-ug-import-from-sst.md)。
 
-此外，企业版 Exchange 还支持以 Nebula Graph 为源，将数据 [导出到 CSV 文件](../use-exchange/ex-ug-export-from-nebula.md)。
+此外，企业版 Exchange 还支持以 Nebula Graph 为源，将数据[导出到 CSV 文件](../use-exchange/ex-ug-export-from-nebula.md)。
 
 ## 更新说明
 

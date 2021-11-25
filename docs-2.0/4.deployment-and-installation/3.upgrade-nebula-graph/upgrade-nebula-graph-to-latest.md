@@ -89,9 +89,9 @@ Nebula Graph 历史版本指低于 Nebula Graph v2.0.0-GA 的版本，本文介�
        # sudo dpkg -i --instdir==${nebula-new} ${nebula-package-name.deb} # for ubuntu
        ```
 
-       具体步骤请参见 [从 RPM/DEB 安装](../2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)。
+       具体步骤请参见[从 RPM/DEB 安装](../2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)。
 
-    - 如果从源代码安装。具体步骤请参见 [从源代码安装](../2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)。这里列出几个关键命令：
+    - 如果从源代码安装。具体步骤请参见[从源代码安装](../2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)。这里列出几个关键命令：
 
       - clone 源代码
   
@@ -138,7 +138,7 @@ Nebula Graph 历史版本指低于 Nebula Graph v2.0.0-GA 的版本，本文介�
 
        `--null_type=false`: 升级后的 Schema 的属性是否要支持 [`NULL`](../../3.ngql-guide/3.data-types/5.null.md)，**默认为 true**。不希望支持 NULL 的话，设置为 false。此时，升级后的 Schema 如果要增加属性（ALTER TAG/EDGE）必须指定 [default 值](../../3.ngql-guide/10.tag-statements/1.create-tag.md)，否则会读不出数据。
 
-       `--string_index_limit=32`: 升级后 string 对应的 [索引的长度](../../3.ngql-guide/14.native-index-statements/1.create-native-index.md)，不加的话系统默认为 64。
+       `--string_index_limit=32`: 升级后 string 对应的[索引的长度](../../3.ngql-guide/14.native-index-statements/1.create-native-index.md)，不加的话系统默认为 64。
 
     !!! Note
 
@@ -255,7 +255,7 @@ Nebula Graph 历史版本指低于 Nebula Graph v2.0.0-GA 的版本，本文介�
 
         如果有 graphd 未正常启动，请将日志`${nebula-new}/logs/`在论坛提交问题。**放弃本次升级，关闭所有已经启动的 metad,storaged,graphd. 在原目录正常启动 nebula 服务。**
 
-10.  使用 [新版本 Nebula Console](https://github.com/vesoft-inc/nebula-console) 连接新的 Nebula Graph，验证服务是否可用、数据是否正常。命令行参数，如 graphd 的 IP、端口都不变。
+10.  使用[新版本 Nebula Console](https://github.com/vesoft-inc/nebula-console) 连接新的 Nebula Graph，验证服务是否可用、数据是否正常。命令行参数，如 graphd 的 IP、端口都不变。
 
     ```ngql
     nebula> SHOW HOSTS;

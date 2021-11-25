@@ -16,9 +16,11 @@
 
 ## 使用限制
 
-点 ID 的数据必须为整数，即点 ID 可以是 INT 类型，或者是 String 类型但数据本身为整数。
+- 点 ID 的数据必须为整数，即点 ID 可以是 INT 类型，或者是 String 类型但数据本身为整数。
 
-对于非整数的 String 类型数据，推荐使用调用算法接口的方式，可以使用 SparkSQL 的`dense_rank`函数进行编码，将 String 类型转换为 Long 类型。
+- 对于非整数的 String 类型数据，推荐使用调用算法接口的方式，可以使用 SparkSQL 的`dense_rank`函数进行编码，将 String 类型转换为 Long 类型。
+
+- 图计算会输出点的数据集，算法结果会以DataFrame形式作为点的属性存储。用户可以根据业务需求，自行对算法结果做进一步操作，例如统计、筛选。
 
 ## 支持算法
 
@@ -94,7 +96,7 @@ Nebula Algorithm 实现图计算的流程如下：
   </dependency>
   ```
 
-2. 传入参数调用算法（以 PageRank 为例）。更多算法请参见 [测试用例](https://github.com/vesoft-inc/nebula-algorithm/tree/master/nebula-algorithm/src/test/scala/com/vesoft/nebula/algorithm/lib)。
+2. 传入参数调用算法（以 PageRank 为例）。更多算法请参见[测试用例](https://github.com/vesoft-inc/nebula-algorithm/tree/master/nebula-algorithm/src/test/scala/com/vesoft/nebula/algorithm/lib)。
 
   !!! note
 
@@ -110,7 +112,7 @@ Nebula Algorithm 实现图计算的流程如下：
 !!! note
     使用封装好的算法包有一定的局限性，例如落库到 Nebula Graph 时，落库的图空间中创建的 Tag 的属性名称必须和代码内预设的名称保持一致。如果用户有开发能力，推荐使用第一种方法。
 
-1. 设置 [配置文件](https://github.com/vesoft-inc/nebula-algorithm/blob/{{algorithm.branch}}/nebula-algorithm/src/main/resources/application.conf)。
+1. 设置[配置文件](https://github.com/vesoft-inc/nebula-algorithm/blob/{{algorithm.branch}}/nebula-algorithm/src/main/resources/application.conf)。
 
   ```bash
   {

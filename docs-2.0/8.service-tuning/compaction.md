@@ -77,7 +77,7 @@ nebula> SHOW JOB <job_id>;
 为保证 Nebula Graph 的性能，请参考如下操作建议：
 
 <!--
-- 数据写入时为避免浪费 IO，请在大量数据写入前关闭自动`Compaction`。详情请参见 [关闭自动`Compaction`](#compaction_2)。
+- 数据写入时为避免浪费 IO，请在大量数据写入前关闭自动`Compaction`。详情请参见[关闭自动`Compaction`](#compaction_2)。
 -->
 
 - 数据导入完成后，请执行`SUBMIT JOB COMPACT`。

@@ -7,7 +7,7 @@
 由于幂律分布的特点，超级顶点现象非常普遍。
 例如社交网络中的影响力领袖（网红大 V）、证券市场中的热门股票、银行系统中的四大行、交通网络中的枢纽站、互联网中的高流量网站等、电商网络中的爆款产品。
 
-在 Nebula Graph {{ nebula.release }} 中，一个`点` 和其`属性`是一个 `Key-Value`（以该点的 `VID` 以及其他元信息作为 `Key`），其 `Out-Edge Key-Value` 和 `In-Edge Key-Value` 都存储在同一个 partition 中（具体原理详见 [存储架构](../1.introduction/3.nebula-graph-architecture/4.storage-service.md)，并且以 LSM-tree 的形式组织存放在硬盘（和缓存）中。
+在 Nebula Graph {{ nebula.release }} 中，一个`点` 和其`属性`是一个 `Key-Value`（以该点的 `VID` 以及其他元信息作为 `Key`），其 `Out-Edge Key-Value` 和 `In-Edge Key-Value` 都存储在同一个 partition 中（具体原理详见[存储架构](../1.introduction/3.nebula-graph-architecture/4.storage-service.md)，并且以 LSM-tree 的形式组织存放在硬盘（和缓存）中。
 
 因此不论是`从该点出发的有向遍历`，或者`以该点为终点的有向遍历`，都会涉及到大量的`顺序 IO 扫描`（最理想情况，当完成 [Compact](../8.service-tuning/compaction.md) 操作之后），或者大量的`随机 IO`（有关于`该点`和其`出入边`频繁的写入）。
 
@@ -23,7 +23,7 @@
 
 Nebula Graph {{ nebula.release }} 属性索引的设计复用了存储模块 RocksDB 的功能，这种情况下的索引会被建模为`前缀相同的 Key`。对于该属性的查找，（如果未能命中缓存，）会对应为硬盘上的“一次随机查找 + 一次前缀顺序扫描”，以找到对应的`点 VID`（此后，通常会从该顶点开始图遍历，这样又会发生该点对应 Key-Value 的一次随机读+顺序扫描）。当重复率越高，扫描范围就越大。
 
-关于属性索引的原理详细介绍在 [博客《分布式图数据库 Nebula Graph 的 Index 实践》](https://nebula-graph.com.cn/posts/how-indexing-works-in-nebula-graph/)。
+关于属性索引的原理详细介绍在[博客《分布式图数据库 Nebula Graph 的 Index 实践》](https://nebula-graph.com.cn/posts/how-indexing-works-in-nebula-graph/)。
 
 经验上说，当重复属性值超过 1 万时，也需要特殊的设计和处理。
 

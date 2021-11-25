@@ -53,7 +53,7 @@ CentOS 7.9.2009
 
 2. 修改配置文件。
   
-  企业版 Exchange 提供了导出 Nebula Graph 数据专用的配置文件模板`export_application.conf`，其中各配置项的说明参见 [Exchange 配置](../  parameter-reference/ex-ug-parameter.md)。本示例使用的配置文件核心内容如下：
+  企业版 Exchange 提供了导出 Nebula Graph 数据专用的配置文件模板`export_application.conf`，其中各配置项的说明参见 [Exchange 配置](../parameter-reference/ex-ug-parameter.md)。本示例使用的配置文件核心内容如下：
   
   ```conf
   ...

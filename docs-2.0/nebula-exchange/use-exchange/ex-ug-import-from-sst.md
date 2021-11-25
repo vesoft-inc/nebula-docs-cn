@@ -38,7 +38,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
 
 1. Reader 从数据源中读取数据。
 
-2. sstProcessor 根据 Nebula Graph 的 Schema 信息生成 SST 文件，然后上传至 HDFS。SST 文件的格式请参见 [数据存储格式](../../1.introduction/3.nebula-graph-architecture/4.storage-service.md)。
+2. sstProcessor 根据 Nebula Graph 的 Schema 信息生成 SST 文件，然后上传至 HDFS。SST 文件的格式请参见[数据存储格式](../../1.introduction/3.nebula-graph-architecture/4.storage-service.md)。
 
 3. sstWriter 打开一个文件并插入数据。生成 SST 文件时，Key 必须按照顺序写入。
 
@@ -79,7 +79,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
 
 开始导入数据之前，用户需要确认以下信息：
 
-- 已经 [安装部署 Nebula Graph {{nebula.release}}](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md) 并获取如下信息：
+- 已经[安装部署 Nebula Graph {{nebula.release}}](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md) 并获取如下信息：
 
   - Graph 服务和 Meta 服务的的 IP 地址和端口。
 
@@ -91,7 +91,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
 
   - Schema 的信息，包括 Tag 和 Edge type 的名称、属性等。
 
-- 已经 [编译 Exchange](../ex-ug-compile.md)，或者直接 [下载](https://repo1.maven.org/maven2/com/vesoft/nebula-exchange/) 编译完成的。jar 文件。本示例中使用 Exchange {{exchange.release}}。
+- 已经[编译 Exchange](../ex-ug-compile.md)，或者直接[下载](https://repo1.maven.org/maven2/com/vesoft/nebula-exchange/) 编译完成的。jar 文件。本示例中使用 Exchange {{exchange.release}}。
 
 - 已经安装 Spark。
 
@@ -147,7 +147,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
     nebula> CREATE EDGE serve(start_year int, end_year int);
     ```
 
-更多信息，请参见 [快速开始](../../2.quick-start/1.quick-start-workflow.md)。
+更多信息，请参见[快速开始](../../2.quick-start/1.quick-start-workflow.md)。
 
 ### 步骤 2：处理 CSV 文件
 
@@ -163,7 +163,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
 
 ### 步骤 3：修改配置文件
 
-编译 Exchange 后，复制`target/classes/application.conf`文件设置相关配置。在本示例中，复制的文件名为`sst_application.conf`。各个配置项的详细说明请参见 [配置说明](../parameter-reference/ex-ug-parameter.md)。
+编译 Exchange 后，复制`target/classes/application.conf`文件设置相关配置。在本示例中，复制的文件名为`sst_application.conf`。各个配置项的详细说明请参见[配置说明](../parameter-reference/ex-ug-parameter.md)。
 
 ```conf
 {
@@ -440,7 +440,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
 
 ### 步骤 4：生成 SST 文件
 
-运行如下命令将 CSV 源文件生成为 SST 文件。关于参数的说明，请参见 [命令参数](../parameter-reference/ex-ug-para-import-command.md)。
+运行如下命令将 CSV 源文件生成为 SST 文件。关于参数的说明，请参见[命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
 ${SPARK_HOME}/bin/spark-submit --master "local" --conf spark.sql.shuffle.partition=<shuffle_concurrency> --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-{{exchange.release}}.jar_path> -c <sst_application.conf_path> 
@@ -452,7 +452,7 @@ ${SPARK_HOME}/bin/spark-submit --master "local" --conf spark.sql.shuffle.partiti
 
 !!! note
 
-    JAR 包有两种获取方式：[自行编译](../ex-ug-compile.md) 或者从 maven 仓库下载。
+    JAR 包有两种获取方式：[自行编译](../ex-ug-compile.md)或者从 maven 仓库下载。
 
 示例：
 
@@ -522,4 +522,4 @@ GO FROM "player100" OVER follow;
 
 ### 步骤 7：（如有）在 Nebula Graph 中重建索引
 
-导入数据后，用户可以在 Nebula Graph 中重新创建并重建索引。详情请参见 [索引介绍](../../3.ngql-guide/14.native-index-statements/README.md)。
+导入数据后，用户可以在 Nebula Graph 中重新创建并重建索引。详情请参见[索引介绍](../../3.ngql-guide/14.native-index-statements/README.md)。

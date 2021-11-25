@@ -48,11 +48,11 @@ Nebula Graph 支持两种类型索引：原生索引和全文索引。
 
 ### 全文索引操作
 
-在对全文索引执行任何操作之前，请确保已经部署全文索引。详情请参见 [部署全文索引](../../4.deployment-and-installation/6.deploy-text-based-index/2.deploy-es.md) 和 [部署 listener](../../4.deployment-and-installation/6.deploy-text-based-index/3.deploy-listener.md)。
+在对全文索引执行任何操作之前，请确保已经部署全文索引。详情请参见[部署全文索引](../../4.deployment-and-installation/6.deploy-text-based-index/2.deploy-es.md) 和[部署 listener](../../4.deployment-and-installation/6.deploy-text-based-index/3.deploy-listener.md)。
 
 部署完成后，Elasticsearch 集群上会自动创建全文索引。不支持重建或修改全文索引。如果需要删除全文索引，请在 Elasticsearch 集群上手动删除。
 
-使用全文索引请参见 [使用全文索引查询](../15.full-text-index-statements/1.search-with-text-based-index.md)。
+使用全文索引请参见[使用全文索引查询](../15.full-text-index-statements/1.search-with-text-based-index.md)。
 
 ## NULL 值说明
 
