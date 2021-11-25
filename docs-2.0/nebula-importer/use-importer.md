@@ -36,6 +36,16 @@ Importer 适用于将本地 CSV 文件的内容导入至 Nebula Graph 中。
 
 配置 yaml 文件并准备好待导入的 CSV 文件，即可使用本工具向 Nebula Graph 批量写入数据。
 
+### 下载二进制包运行
+
+1. 在[Release](https://github.com/vesoft-inc/nebula-importer/releases/tag/{{importer.branch}})页面下载二进制包，并添加执行权限。
+
+2. 启动服务。
+
+  ```bash
+  $ ./<binary_package_name> --config <yaml_config_file_path>
+  ```
+
 ### 源码编译运行
 
 1. 克隆仓库。
@@ -71,7 +81,7 @@ Importer 适用于将本地 CSV 文件的内容导入至 Nebula Graph 中。
   ```
 
   !!! note
-        yaml 配置文件说明请参见 [配置文件](#_7)。
+        yaml 配置文件说明请参见下文的配置文件说明。
 
 ### 无网络编译方式
 
@@ -124,6 +134,10 @@ $ docker run --rm -ti \
 ## 配置文件说明
 
 Nebula Importer 通过`nebula-importer/examples/v2/example.yaml`配置文件来描述待导入文件信息、Nebula Graph 服务器信息等。用户可以参考示例配置文件：[无表头配置](config-without-header.md)/[有表头配置](config-with-header.md)。下文将分类介绍配置文件内的字段。
+
+!!! note
+
+    如果用户下载的是二进制包，请手动创建配置文件。
 
 ### 基本配置
 
