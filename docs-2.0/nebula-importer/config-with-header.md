@@ -1,14 +1,14 @@
 # 有表头配置说明
 
-对于有表头（header）的CSV文件，需要在配置文件里设置`withHeader`为`true`，表示CSV文件中第一行为表头，表头内容具有特殊含义。
+对于有表头（header）的 CSV 文件，需要在配置文件里设置`withHeader`为`true`，表示 CSV 文件中第一行为表头，表头内容具有特殊含义。
 
 !!! caution
 
-    如果CSV文件中含有header，Importer就会按照header来解析每行数据的Schema，并忽略yaml文件中的点或边设置。
+    如果 CSV 文件中含有 header，Importer 就会按照 header 来解析每行数据的 Schema，并忽略 yaml 文件中的点或边设置。
 
 ## 示例文件
 
-有表头的CSV文件示例如下：
+有表头的 CSV 文件示例如下：
 
 - 点示例
 
@@ -21,7 +21,7 @@
   student102,Jane,17,female
   ```
 
-  第一列为点ID，后面三列为属性`name`、`age`和`gender`。
+  第一列为点 ID，后面三列为属性`name`、`age`和`gender`。
 
 - 边示例
 
@@ -35,19 +35,19 @@
   student100,student102,1,96.2
   ```
 
-  前两列的数据分别为起始点ID和目的点ID，第三列为rank，第四列为属性`degree`。
+  前两列的数据分别为起始点 ID 和目的点 ID，第三列为 rank，第四列为属性`degree`。
 
 ## 表头格式说明
 
-表头通过一些关键词定义起始点、目的点、rank以及一些特殊功能，说明如下：
+表头通过一些关键词定义起始点、目的点、rank 以及一些特殊功能，说明如下：
 
-- `:VID`（必填）：点ID。需要用`:VID(type)`形式设置数据类型，例如`:VID(string)`或`:VID(int)`。
+- `:VID`（必填）：点 ID。需要用`:VID(type)`形式设置数据类型，例如`:VID(string)`或`:VID(int)`。
 
-- `:SRC_VID`（必填）：边的起始点ID。需要用`:SRC_VID(type)`形式设置数据类型。
+- `:SRC_VID`（必填）：边的起始点 ID。需要用`:SRC_VID(type)`形式设置数据类型。
 
-- `:DST_VID`（必填）：边的目的点ID。需要用`:DST_VID(type)`形式设置数据类型。
+- `:DST_VID`（必填）：边的目的点 ID。需要用`:DST_VID(type)`形式设置数据类型。
 
-- `:RANK`（可选）：边的rank值。
+- `:RANK`（可选）：边的 rank 值。
 
 - `:IGNORE`（可选）：插入数据时忽略这一列。
 
@@ -60,11 +60,11 @@
   ```
 
 !!! note
-    除了`:LABEL`列之外的所有列都可以按任何顺序排序，因此针对较大的CSV文件，用户可以灵活地设置header来选择需要的列。
+    除了`:LABEL`列之外的所有列都可以按任何顺序排序，因此针对较大的 CSV 文件，用户可以灵活地设置 header 来选择需要的列。
 
-对于Tag或Edge type的属性，格式为`<tag_name/edge_name>.<prop_name>:<prop_type>`，说明如下：
+对于 Tag 或 Edge type 的属性，格式为`<tag_name/edge_name>.<prop_name>:<prop_type>`，说明如下：
 
-- `<tag_name/edge_name>`：Tag或者Edge type的名称。
+- `<tag_name/edge_name>`：Tag 或者 Edge type 的名称。
 
 - `<prop_name>`：属性名称。
 
@@ -72,12 +72,10 @@
 
 例如`student.name:string`、`follow.degree:double`。
 
-
-
 ## 配置示例
 
 ```yaml
-# 连接的Nebula Graph版本，连接2.x时设置为v2。
+# 连接的 Nebula Graph 版本，连接 2.x 时设置为 v2。
 version: v2
 
 description: example
@@ -87,16 +85,16 @@ removeTempFiles: false
 
 clientSettings:
 
-  # nGQL语句执行失败的重试次数。
+  # nGQL 语句执行失败的重试次数。
   retry: 3
 
-  # Nebula Graph客户端并发数。
+  # Nebula Graph 客户端并发数。
   concurrency: 10 
 
-  # 每个Nebula Graph客户端的缓存队列大小。
+  # 每个 Nebula Graph 客户端的缓存队列大小。
   channelBufferSize: 128
 
-  # 指定数据要导入的Nebula Graph图空间。
+  # 指定数据要导入的 Nebula Graph 图空间。
   space: student
 
   # 连接信息。
@@ -106,7 +104,7 @@ clientSettings:
     address: 192.168.11.13:9669
 
   postStart:
-    # 配置连接Nebula Graph服务器之后，在插入数据之前执行的一些操作。
+    # 配置连接 Nebula Graph 服务器之后，在插入数据之前执行的一些操作。
     commands: |
       DROP SPACE IF EXISTS student;
       CREATE SPACE IF NOT EXISTS student(partition_num=5, replica_factor=1, vid_type=FIXED_STRING(20));
@@ -118,13 +116,13 @@ clientSettings:
     afterPeriod: 15s
   
   preStop:
-    # 配置断开Nebula Graph服务器连接之前执行的一些操作。
+    # 配置断开 Nebula Graph 服务器连接之前执行的一些操作。
     commands: |
 
 # 错误等日志信息输出的文件路径。    
 logPath: ./err/test.log
 
-# CSV文件相关设置。
+# CSV 文件相关设置。
 files:
   
     # 数据文件的存放路径，如果使用相对路径，则会将路径和当前配置文件的目录拼接。本示例第一个数据文件为点的数据。
@@ -139,24 +137,24 @@ files:
     # 读取数据的行数限制。
     limit: 10
 
-    # 是否按顺序在文件中插入数据行。如果为false，可以避免数据倾斜导致的导入速率降低。
+    # 是否按顺序在文件中插入数据行。如果为 false，可以避免数据倾斜导致的导入速率降低。
     inOrder: true
 
-    # 文件类型，当前仅支持csv。
+    # 文件类型，当前仅支持 csv。
     type: csv
 
     csv:
       # 是否有表头。
       withHeader: true
 
-      # 是否有LABEL。
+      # 是否有 LABEL。
       withLabel: false
 
-      # 指定csv文件的分隔符。只支持一个字符的字符串分隔符。
+      # 指定 csv 文件的分隔符。只支持一个字符的字符串分隔符。
       delimiter: ","
 
     schema:
-      # Schema的类型，可选值为vertex和edge。
+      # Schema 的类型，可选值为 vertex 和 edge。
       type: vertex
 
     # 本示例第二个数据文件为边的数据。
@@ -170,16 +168,16 @@ files:
       withHeader: true
       withLabel: false
     schema:
-      # Schema的类型为edge。
+      # Schema 的类型为 edge。
       type: edge
       edge:
-        # Edge type名称。
+        # Edge type 名称。
         name: follow
 
-        # 是否包含rank。
+        # 是否包含 rank。
         withRanking: true
 ```
 
 !!! Note
 
-    点ID的数据类型需要和`clientSettings.postStart.commands`中的创建图空间语句的数据类型一致。
+    点 ID 的数据类型需要和`clientSettings.postStart.commands`中的创建图空间语句的数据类型一致。

@@ -1,6 +1,6 @@
 # 什么是 Nebula Spark Connector Reader
 
-Nebula Spark Connector Reader 是 Nebula Spark Connector 的组成部分，提供了 Spark SQL 接口，用户可以使用 Spark SQL 接口编程读取 Nebula Graph 图数据，单次读取一个Tag或Edge type的数据，并将读取的结果组装成 Spark 的 DataFrame。读出的 DataFrame 可以通过 Nebula Spark Connector Writer 写入 Nebula Graph 数据库或实现不同图空间之间的数据迁移。
+Nebula Spark Connector Reader 是 Nebula Spark Connector 的组成部分，提供了 Spark SQL 接口，用户可以使用 Spark SQL 接口编程读取 Nebula Graph 图数据，单次读取一个 Tag 或 Edge type 的数据，并将读取的结果组装成 Spark 的 DataFrame。读出的 DataFrame 可以通过 Nebula Spark Connector Writer 写入 Nebula Graph 数据库或实现不同图空间之间的数据迁移。
 
 ## Nebula Spark Connector Reader 实现原理
 

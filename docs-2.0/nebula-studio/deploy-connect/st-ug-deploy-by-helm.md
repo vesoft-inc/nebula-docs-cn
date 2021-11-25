@@ -1,6 +1,6 @@
 # 使用 Helm 部署 Studio
 
-本文介绍如何在通过 Kubernetes 集群里用 Helm 来部署并启动 Studio。
+本文介绍如何在 Kubernetes 中使用 Helm 部署并启动 Studio。
 
 ## 前提条件
 
@@ -25,13 +25,13 @@
   $ cd nebula-studio
   ```
 
-3. 安装 Studio 到 Helm Chart，命名为 `my-studio`。
+3. 更新并安装 Nebula Graph Studio chart，命名为`my-studio`。
 
   ```bash
-  $ helm upgrade --install my-studio --set service.type=NodePort --set service.port=30070 deployment/helm
+  $ helm upgrade --install my-studio --set service.type=NodePort --set service.port={30070} deployment/helm
   ```
 
-4. 启动成功后，在浏览器地址栏输入 `http://address-of-node:30070/`。
+4. 启动成功后，在浏览器地址栏输入`http://{address-of-node}:{30070}/`。
    如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Studio。
 
    ![Nebula Graph Studio 登录界面](../figs/st-ug-001-1.png "Nebula Graph Studio 登录界面")
@@ -46,11 +46,11 @@ $ helm uninstall my-studio
 
 进入 Studio 登录界面后，用户需要连接 Nebula Graph。详细信息，参考[连接数据库](st-ug-connect.md)。
 
-## Nebula Graph Studio Chart配置参数说明
+## Nebula Graph Studio chart 配置参数说明
 
 | 参数 | 默认值 | 描述 |
 |:---|:---|:---|
-| replicaCount | 0 | Deployment的副本数。 |
+| replicaCount | 0 | Deployment 的副本数。 |
 | image.httpGateway.name | vesoft/nebula-http-gateway | nebula-http-gateway 镜像的仓库地址。 |
 | image.nebulaStudio.name | vesoft/nebula-graph-studio | nebula-graph-studio 镜像的仓库地址。 |
 | image.nginx.name | nginx | nginx 镜像的仓库地址。 |
@@ -60,7 +60,7 @@ $ helm uninstall my-studio
 | service.type | ClusterIP | 服务类型，必须为`NodePort`，`ClusterIP`或`LoadBalancer`其中之一。 |
 | service.port | 7001 | nebula-graph-studio 中 web 服务的端口。 |
 | resources.httpGateway | {} | nebula-http-gateway 的资源限制/请求。 |
-| resources.nebulaStudio | {} | nebula-studio的资源限制/请求。 |
+| resources.nebulaStudio | {} | nebula-studio 的资源限制/请求。 |
 | resources.nginx | {} | nginx 的资源限制/请求。 |
-| persistent.storageClassName | "" | storageClass名称，如果不指定就使用默认值。 |
+| persistent.storageClassName | "" | storageClass 名称，如果不指定就使用默认值。 |
 | persistent.size | 5Gi | 存储盘大小。 |

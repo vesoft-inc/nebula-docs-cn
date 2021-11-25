@@ -2,11 +2,11 @@
 
 `GROUP BY`子句可以用于聚合数据。
 
-## openCypher兼容性
+## openCypher 兼容性
 
-本文操作仅适用于原生nGQL。
+本文操作仅适用于原生 nGQL。
 
-用户也可以使用openCypher方式的[count()](../6.functions-and-expressions/7.count.md)函数聚合数据。
+用户也可以使用 openCypher 方式的 [count()](../6.functions-and-expressions/7.count.md) 函数聚合数据。
 
 ```ngql
 nebula>  MATCH (v:player)<-[:follow]-(:player) RETURN v.name AS Name, count(*) as cnt ORDER BY cnt DESC;
@@ -36,7 +36,7 @@ nebula>  MATCH (v:player)<-[:follow]-(:player) RETURN v.name AS Name, count(*) a
 ## 示例
 
 ```ngql
-# 查找所有连接到player100的点，并根据他们的姓名进行分组，返回姓名的出现次数。
+# 查找所有连接到 player100 的点，并根据他们的姓名进行分组，返回姓名的出现次数。
 nebula> GO FROM "player100" OVER follow BIDIRECT \
         YIELD properties($$).name as Name \
         | GROUP BY $-.Name \
@@ -60,7 +60,7 @@ nebula> GO FROM "player100" OVER follow BIDIRECT \
 ## 用函数进行分组和计算
 
 ```ngql
-# 查找所有连接到player100的点，并根据起始点进行分组，返回degree的总和。
+# 查找所有连接到 player100 的点，并根据起始点进行分组，返回 degree 的总和。
 nebula> GO FROM "player100" OVER follow \
         YIELD src(edge) AS player, properties(edge).degree AS degree \
         | GROUP BY $-.player \

@@ -1,6 +1,6 @@
 # 什么是 Nebula Graph Studio
 
-Nebula Graph Studio（简称 Studio）是一款可以通过 Web 访问的图数据库开源可视化工具，搭配 [Nebula Graph](../../README.md) 内核使用，提供构图、数据导入、编写 nGQL 查询、图探索等一站式服务。即使没有图数据库操作经验，用户也可以快速成为图专家。用户可以在 Nebula Graph GitHub 仓库中查看最新源码，详情参见[nebula-studio](https://github.com/vesoft-inc/nebula-studio)。
+Nebula Graph Studio（简称 Studio）是一款可以通过 Web 访问的图数据库开源可视化工具，搭配 [Nebula Graph](../../README.md) 内核使用，提供构图、数据导入、编写 nGQL 查询、图探索等一站式服务。用户可以在 Nebula Graph GitHub 仓库中查看最新源码，详情参见 [nebula-studio](https://github.com/vesoft-inc/nebula-studio)。
 
 ## 发行版本
 
@@ -9,13 +9,13 @@ Nebula Graph Studio（简称 Studio）是一款可以通过 Web 访问的图数�
 - Docker 版本：用户可以使用 Docker 服务部署 Studio，并连接到 Nebula Graph 数据库。详细信息参考 [Docker 部署 Studio](../deploy-connect/st-ug-deploy.md)。
 - RPM 版本：用户可以使用 RPM 服务部署 Studio，并连接到 Nebula Graph 数据库。详细信息参考 [RPM 部署 Studio](../deploy-connect/st-ug-deploy.md)。
 - tar 包安装部署：用户可以使用 tar 包安装并部署 Studio，并连接到 Nebula Graph 数据库。详细信息参考 [tar 包部署 Studio](../deploy-connect/st-ug-deploy.md)。
-- 使用 Helm 安装部署：在 Kubernetes 集群里使用 Helm 安装并部署 Studio，并连接到 Nebula Graph 数据库。详细信息参考 [使用 Helm 部署 Nebula Graph Studio](../deploy-connect/st-ug-deploy-by-helm.md)。
+- 使用 Helm 安装部署：在 Kubernetes 集群里使用 Helm 安装并部署 Studio，并连接到 Nebula Graph 数据库。详细信息参考[使用 Helm 部署 Nebula Graph Studio](../deploy-connect/st-ug-deploy-by-helm.md)。
 
 <!--
 - 云服务版本：用户可以在 Nebula Graph Cloud Service 上创建 Nebula Graph 数据库实例，并一键直连云服务版 Studio。详细信息参考 [Nebula Graph Cloud Service 用户手册](https://cloud-docs.nebula-graph.com.cn/cn/posts/manage-instances/dbaas-ug-connect-nebulastudio/ "点击前往 Nebula Graph Cloud Service 用户手册")。
 -->
 
-四种部署方式功能基本相同，在使用 Studio 时可能会受到限制。详细信息，参考 [使用限制](st-ug-limitations.md)。
+四种部署方式功能基本相同，在使用 Studio 时可能会受到限制。详细信息，参考[使用限制](st-ug-limitations.md)。
 
 ## 产品功能
 
@@ -47,5 +47,5 @@ Studio 具备以下功能：
 
 ## 视频
 
-* [图解 Nebula Studio 图探索功能](https://www.bilibili.com/video/BV1QN411Z7Vh)（3分23秒）
+* [图解 Nebula Studio 图探索功能](https://www.bilibili.com/video/BV1QN411Z7Vh)（3 分 23 秒）
 <iframe src="//player.bilibili.com/player.html?aid=503286771&bvid=BV1QN411Z7Vh&cid=344349765&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>

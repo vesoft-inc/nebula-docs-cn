@@ -6,15 +6,15 @@
 
 ## 支持版本
 
-Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参考 [版本更新](../about-studio/st-ug-check-updates.md)。
+Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参考[版本更新](../about-studio/st-ug-check-updates.md)。
 
 ## 前提条件
 
 在 **控制台** 上运行 `FIND PATH` 语句并查看子图之前，用户需要确认以下信息：
 
 - Studio 版本为 v{{ studio.release }} 及以后版本。
-- Studio 已经连接到 Nebula Graph 数据库。详细信息参考 [连接数据库](../deploy-connect/st-ug-connect.md)。
-- 已经导入数据集。详细操作参考 [导入数据](../quick-start/st-ug-import-data.md)。
+- Studio 已经连接到 Nebula Graph 数据库。详细信息参考[连接数据库](../deploy-connect/st-ug-connect.md)。
+- 已经导入数据集。详细操作参考[导入数据](../quick-start/st-ug-import-data.md)。
 
 !!! Note
 
@@ -26,7 +26,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 
 1. 在工具栏里，点击 **控制台** 页签。
 
-2. 在 **当前Space** 中选择一个图空间。在本示例中，选择 **basketballplayer**。
+2. 在 **当前 Space** 中选择一个图空间。在本示例中，选择 **basketballplayer**。
 
 3. 在命令行中，输入 `FIND SHORTEST PATH` 或者 `FIND ALL PATH` 语句，并点击 ![表示运行的图标](../figs/st-ug-008.png "Run 图标") 图标。
 
@@ -48,7 +48,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 
    - **清除插入**：清除画图板上原来的数据后，再插入新的数据。
 
-数据插入成功后，用户可以看到查询结果的可视化表现。并支持在页面中，完成点的拓展、移动画布、修改点的颜色及icon、显示点边属性等操作。
+数据插入成功后，用户可以看到查询结果的可视化表现。并支持在页面中，完成点的拓展、移动画布、修改点的颜色及 icon、显示点边属性等操作。
 
 ![在画布上显示返回的路径结果](../figs/st-ug-046.png "路径结果的可视化表现")
 
