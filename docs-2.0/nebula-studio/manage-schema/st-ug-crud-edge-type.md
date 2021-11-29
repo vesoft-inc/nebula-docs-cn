@@ -1,14 +1,14 @@
-# 操作Edge type
+# 操作 Edge type
 
-在 Nebula Graph 数据库中创建图空间后，用户可能需要创建Edge type。用户可以选择使用 **控制台** 或者 **Schema** 操作Edge type。本文仅说明如何使用 **Schema** 操作Edge type。
+在 Nebula Graph 数据库中创建图空间后，用户可能需要创建 Edge type。用户可以选择使用 **控制台** 或者 **Schema** 操作 Edge type。本文仅说明如何使用 **Schema** 操作 Edge type。
 
 ## 支持版本
 
-Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参考 [版本更新](../about-studio/st-ug-check-updates.md)。
+Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参考[版本更新](../about-studio/st-ug-check-updates.md)。
 
 ## 前提条件
 
-在 Studio 上操作Edge type之前，用户必须确认以下信息：
+在 Studio 上操作 Edge type 之前，用户必须确认以下信息：
 
 - Studio 已经连接到 Nebula Graph 数据库。
 
@@ -16,9 +16,9 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 
 - 当前登录的账号拥有 GOD、ADMIN 或者 DBA 的权限。
 
-## 创建Edge type
+## 创建 Edge type
 
-按以下步骤使用 **Schema** 创建Edge type：
+按以下步骤使用 **Schema** 创建 Edge type：
 
 1. 在工具栏中，点击 **Schema** 页签。
 
@@ -30,26 +30,26 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 
 5. 在 **创建** 页面上，完成以下设置：
 
-  - **名称**：按提示信息输入合规的Edge type名称。本示例中，输入 `serve`。
+  - **名称**：按提示信息输入合规的 Edge type 名称。本示例中，输入 `serve`。
   
-  - （可选）如果Edge type需要描述，可以在名称下方的 **描述** 输入相应内容。
+  - （可选）如果 Edge type 需要描述，可以在名称下方的 **描述** 输入相应内容。
   
-  - （可选）如果Edge type需要属性，在 **定义属性**面板的左上角，点击勾选框，并在展开的列表中，完成以下操作：  
+  - （可选）如果 Edge type 需要属性，在 **定义属性**面板的左上角，点击勾选框，并在展开的列表中，完成以下操作：  
     - 输入属性名称、数据类型和默认值。
-    - 如果一个Edge type有多个属性，可以点击 **添加属性** 按钮，并定义属性。
+    - 如果一个 Edge type 有多个属性，可以点击 **添加属性** 按钮，并定义属性。
     - 如果要删除某个属性，在该属性所在行，点击 ![表示删除的图标](../figs/st-ug-020.png "删除") 图标。
 
-  - （可选）Edge type未设置索引时，用户可以设置 TTL：在 **设置TTL**面板的左上角，点击勾选框，并在展开的列表中设置 `TTL_COL` 和 `TTL_DURATION` 参数信息。关于这两个参数的详细信息，参考 [TTL 配置](../../3.ngql-guide/8.clauses-and-options/ttl-options.md "点击前往 Nebula Graph 网站")。
+  - （可选）Edge type 未设置索引时，用户可以设置 TTL：在 **设置 TTL **面板的左上角，点击勾选框，并在展开的列表中设置 `TTL_COL` 和 `TTL_DURATION` 参数信息。关于这两个参数的详细信息，参考 [TTL 配置](../../3.ngql-guide/8.clauses-and-options/ttl-options.md "点击前往 Nebula Graph 网站")。
 
-6. 完成设置后，在 **对应的nGQL语句** 面板上，用户能看到与上述配置等价的 nGQL 语句。  
-![定义Edge type action 的属性](../figs/st-ug-022-2.png "定义Edge type")
+6. 完成设置后，在 **对应的 nGQL 语句** 面板上，用户能看到与上述配置等价的 nGQL 语句。  
+![定义 Edge type action 的属性](../figs/st-ug-022-2.png "定义 Edge type")
 
 7. 确认无误后，点击 **+ 创建** 按钮。
-  如果Edge type创建成功，**定义属性**面板会显示这个Edge type的属性列表。
+  如果 Edge type 创建成功，**定义属性**面板会显示这个 Edge type 的属性列表。
 
-## 修改Edge type
+## 修改 Edge type
 
-按以下步骤使用 **Schema** 修改Edge type：
+按以下步骤使用 **Schema** 修改 Edge type：
 
 1. 在工具栏中，点击 **Schema** 页签。
 
@@ -57,7 +57,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 
 3. 在 **当前图空间** 里确认图空间名称。用户也可以通过选择图空间名称完成图空间切换。
 
-4. 点击 **边类型** 页签，找到需要修改的Edge type，并在 **操作** 列中，点击 ![表示修改的图标](../figs/st-ug-021.png "修改") 图标。
+4. 点击 **边类型** 页签，找到需要修改的 Edge type，并在 **操作** 列中，点击 ![表示修改的图标](../figs/st-ug-021.png "修改") 图标。
 
 5. 在 **编辑** 页面，用户可以选择以下操作：
 
@@ -65,18 +65,18 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
   - 如果要修改属性：在 **定义属性** 面板上，找到需要修改的属性，在右侧点击 **编辑**，再修改属性的数据类型或者默认值。修改完成后，点击 **确认** 或 **取消**。
   - 如果要删除属性：在 **定义属性** 面板上，找到需要删除的属性，在右侧点击 **删除**，经确认后，删除属性。
   - 如果要添加属性：在 **定义属性** 面板上，点击 **添加属性** 按钮，添加属性信息。
-  - 如果要修改 TTL：在 **设置TTL** 面板上，修改或 `TTL_COL` 和 `TTL_DURATION` 设置。
-  - 如果要删除所有已经配置的 TTL：在 **设置TTL** 面板的左上角，点击勾选框，取消选择。
-  - 如果要设置 TTL：在 **设置TTL** 面板的左上角，点击勾选框，开始设置 TTL。
+  - 如果要修改 TTL：在 **设置 TTL** 面板上，修改或 `TTL_COL` 和 `TTL_DURATION` 设置。
+  - 如果要删除所有已经配置的 TTL：在 **设置 TTL** 面板的左上角，点击勾选框，取消选择。
+  - 如果要设置 TTL：在 **设置 TTL** 面板的左上角，点击勾选框，开始设置 TTL。
 
-6. 完成设置后，在 **对应的nGQL语句** 面板上，用户能看到修改后的 nGQL 语句。
+6. 完成设置后，在 **对应的 nGQL 语句** 面板上，用户能看到修改后的 nGQL 语句。
 
-## 删除Edge type
+## 删除 Edge type
 
 !!! danger
     删除 Edge type 前先确认[影响](../../3.ngql-guide/11.edge-type-statements/2.drop-edge.md)，已删除的数据如未[备份](../../7.data-security/3.manage-snapshot.md)无法恢复。
 
-按以下步骤使用 **Schema** 删除Edge type：
+按以下步骤使用 **Schema** 删除 Edge type：
 
 1. 在工具栏中，点击 **Schema** 页签。
 
@@ -84,10 +84,10 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 
 3. 在 **当前图空间** 里确认图空间名称。用户也可以通过选择图空间名称切换图空间。
 
-4. 点击 **边类型** 页签，找到需要修改的Edge type，并在 **操作** 列中，点击 ![表示删除的图标](../figs/st-ug-017.png "删除") 图标。
+4. 点击 **边类型** 页签，找到需要修改的 Edge type，并在 **操作** 列中，点击 ![表示删除的图标](../figs/st-ug-017.png "删除") 图标。
 
 5. 在弹出的对话框中点击 **确认**。
 
 ## 后续操作
 
-Edge type创建成功后，用户可以在 **控制台** 上逐条插入边数据，或者使用 **导入** 功能批量插入边数据。
+Edge type 创建成功后，用户可以在 **控制台** 上逐条插入边数据，或者使用 **导入** 功能批量插入边数据。

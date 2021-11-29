@@ -19,7 +19,7 @@
 
 在部署 Explorer 之前，用户需要确认以下信息：
 
-- Nebula Graph 服务已经部署并启动。详细信息参考[Nebula Graph安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
+- Nebula Graph 服务已经部署并启动。详细信息参考 [Nebula Graph 安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
 
 - 以下端口未被使用。
 
@@ -29,10 +29,10 @@
 
   !!! caution
 
-       Explorer 默认使用的端口号为7002，用户可以在安装目录下的 `conf/app.conf` 文件中修改 `httpport`，并重启服务。
+       Explorer 默认使用的端口号为 7002，用户可以在安装目录下的 `conf/app.conf` 文件中修改 `httpport`，并重启服务。
 
 - 使用的 Linux 发行版为 CentOS。
-- 安装有版本为1.13及以上的Go。
+- 安装有版本为 1.13 及以上的 Go。
 
 ### 安装
 
@@ -40,9 +40,9 @@
 
   !!! enterpriseonly
 
-        Explorer 仅在企业版提供，点击 [定价](https://nebula-graph.com.cn/pricing/) 查看更多。
+        Explorer 仅在企业版提供，点击[定价](https://nebula-graph.com.cn/pricing/)查看更多。
 
-2. 使用`sudo rpm -i <rpm>`命令安装RPM包。
+2. 使用`sudo rpm -i <rpm>`命令安装 RPM 包。
 
    例如，安装 Explorer 需要运行以下命令，默认安装路径为`/usr/local/nebula-explorer`：
 
@@ -68,7 +68,7 @@
 
   !!! enterpriseonly
 
-        License 仅在企业版提供，请发送邮件至inquiry@vesoft.com。
+        License 仅在企业版提供，请发送邮件至 inquiry@vesoft.com。
 
 4. 添加 License 后需要使用以下命令停止并重启服务。
 
@@ -79,7 +79,7 @@
 
 ### 启停服务
 
-支持使用systemctl 服务控制项目启停。默认 rpm 安装后以 systemctl 启动，可使用以下命令：
+支持使用 systemctl 服务控制项目启停。
 ```bash
 $ systemctl status nebula-explorer #查看服务状态
 $ systemctl stop nebula-explorer #停止服务
@@ -94,7 +94,7 @@ $ bash ./stop.sh #停止服务
 
 ### 卸载
 
-使用以下的命令卸载 Explorer 。
+使用以下的命令卸载 Explorer。
 
 ```bash
 $ sudo rpm -e nebula-explorer-<version>.x86_64
@@ -105,19 +105,20 @@ $ sudo rpm -e nebula-explorer-<version>.x86_64
 
 在部署 Explorer 之前，用户需要确认以下信息：
 
-- Nebula Graph 服务已经部署并启动。详细信息参考[Nebula Graph安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
+- Nebula Graph 服务已经部署并启动。详细信息参考 [Nebula Graph 安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
 
 - 以下端口未被使用。
+
   | 端口号 | 说明 |
-  | ---- | ---- |
+  | :---- | :---- |
   | 7002 | Explorer 提供的 web 服务 |
 
   !!! caution
 
-       Explorer 默认使用的端口号为7002，用户可以在安装目录下的 `conf/app.conf` 文件中修改 `httpport`，并重启服务。
+       Explorer 默认使用的端口号为 7002，用户可以在安装目录下的 `conf/app.conf` 文件中修改 `httpport`，并重启服务。
 
 - 使用的 Linux 发行版为 CentOS。
-- 安装有版本为1.13及以上的Go。
+- 安装有版本为 1.13 及以上的 Go。
 
 ### 安装及部署
 
@@ -125,7 +126,7 @@ $ sudo rpm -e nebula-explorer-<version>.x86_64
 
   !!! enterpriseonly
 
-        Explorer 仅在企业版提供，点击 [定价](https://nebula-graph.com.cn/pricing/) 查看更多。
+        Explorer 仅在企业版提供，点击[定价](https://nebula-graph.com.cn/pricing/)查看更多。
 
 2. 使用 `tar -xvf` 解压 tar 包。
 
@@ -146,9 +147,9 @@ $ sudo rpm -e nebula-explorer-<version>.x86_64
 
   !!! enterpriseonly
 
-        License 仅在企业版提供，请发送邮件至inquiry@vesoft.com。
+        License 仅在企业版提供，请发送邮件至 inquiry@vesoft.com。
 
-4. 进入`nebula-explorer`文件夹，启动explorer。
+4. 进入`nebula-explorer`文件夹，启动 explorer。
 
   ```bash
   $ cd nebula-explorer

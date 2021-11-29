@@ -14,6 +14,7 @@
 | 2.0 & 2.0.1 | 2.x |
 | 2.5.0 & 2.5.1 | 3.0.0 |
 | 2.6.0 | 3.1.0 |
+| 2.6.1 | 3.1.0 |
 
 ## 系统架构
 
@@ -53,7 +54,7 @@ Studio 上传数据仅支持上传无表头的 CSV 文件，但是，单个文�
 - `GRANT ROLE`
 - `REVOKE ROLE`  
 
-关于语句的详细信息，参考 [用户管理](../../7.data-security/1.authentication/2.management-user.md "点击前往用户管理")。
+关于语句的详细信息，参考[用户管理](../../7.data-security/1.authentication/2.management-user.md "点击前往用户管理")。
 -->
 
 ## 浏览器支持

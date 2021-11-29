@@ -6,7 +6,7 @@
 
 在连接 Nebula Graph 数据库前，用户需要确认以下信息：
 
-- 已经安装部署了 Explorer。详细信息参考 [部署 Explorer](../deploy-connect/ex-ug-connect.md)。
+- 已经安装部署了 Explorer。详细信息参考[部署 Explorer](../deploy-connect/ex-ug-connect.md)。
 
 - Nebula Graph 的 Graph 服务本机 IP 地址以及服务所用端口。默认端口为 `9669`。
 
