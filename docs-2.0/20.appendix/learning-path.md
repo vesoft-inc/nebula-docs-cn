@@ -1,6 +1,6 @@
 # Nebula Graph 学习路径
 
-本文介绍 Nebula Graph 学习路径，用户可以通过路径中的文档及视频由浅入深得学习图数据库 Nebula Graph。
+本文介绍 Nebula Graph 学习路径，用户可以通过路径中的文档及视频由浅入深地学习图数据库 Nebula Graph。
 
  ![learning path](learning-path.png)
 
