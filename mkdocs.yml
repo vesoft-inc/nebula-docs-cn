@@ -121,6 +121,7 @@ extra:
 
 nav:
   - 前言: README.md
+  - 学习路径: 20.appendix/learning-path.md
   - 简介:
       - 什么是 Nebula Graph: 1.introduction/1.what-is-nebula-graph.md
       - 数据模型: 1.introduction/2.data-model.md
