@@ -191,7 +191,7 @@ mysql> desc serve;
       table:"player"
       user:"test"
       password:"123456"
-      sentence:"select playerid, age, name from basketball.player order by playerid;"
+      sentence:"select playerid, age, name from basketball order by playerid;"
 
       # 在 fields 里指定 player 表中的列名称，其对应的 value 会作为 Nebula Graph 中指定属性。
       # fields 和 nebula.fields 里的配置必须一一对应。
@@ -224,7 +224,7 @@ mysql> desc serve;
       table:"team"
       user:"test"
       password:"123456"
-      sentence:"select teamid, name from basketball.team order by teamid;"
+      sentence:"select teamid, name from basketball order by teamid;"
 
       fields: [name]
       nebula.fields: [name]
@@ -259,7 +259,7 @@ mysql> desc serve;
       table:"follow"
       user:"test"
       password:"123456"
-      sentence:"select src_player,dst_player,degree from basketball.follow order by src_player;"
+      sentence:"select src_player,dst_player,degree from basketball order by src_player;"
 
       # 在 fields 里指定 follow 表中的列名称，其对应的 value 会作为 Nebula Graph 中指定属性。
       # fields 和 nebula.fields 里的配置必须一一对应。
@@ -298,7 +298,7 @@ mysql> desc serve;
       table:"serve"
       user:"test"
       password:"123456"
-      sentence:"select playerid,teamid,start_year,end_year from basketball.serve order by playerid;"
+      sentence:"select playerid,teamid,start_year,end_year from basketball order by playerid;"
       fields: [start_year,end_year]
       nebula.fields: [start_year,end_year]
       source: {
