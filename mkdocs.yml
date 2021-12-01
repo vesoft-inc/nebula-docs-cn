@@ -482,6 +482,7 @@ nav:
 
   - 附录:
       - Release Note: 20.appendix/releasenote.md
+      - 学习路径: 20.appendix/learning-path.md
       - 常见问题 FAQ: 20.appendix/0.FAQ.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
       - 导入工具选择: 20.appendix/write-tools.md
