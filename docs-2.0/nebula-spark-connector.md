@@ -40,9 +40,11 @@ Nebula Spark Connector {{sparkconnector.release}}版本特性如下：
 
 - 支持`insert`、`update`和`delete`三种写入模式。`insert`模式会插入（覆盖）数据，`update`模式仅会更新已存在的数据，`delete`模式只删除数据。
 
+- 支持与 Nebula Graph 之间的 SSL 加密连接。
+
 ## 更新说明
 
-[Release](https://github.com/vesoft-inc/nebula-spark-connector/releases/tag/{{sparkconnector.tag}})
+[Release notes](https://github.com/vesoft-inc/nebula-spark-connector/releases/tag/{{sparkconnector.tag}})
 
 ## 获取 Nebula Spark Connector
 
@@ -252,3 +254,7 @@ df.write.nebula(config, nebulaWriteVertexConfig).writeVertices()
   |`withPasswd`  |否|  Nebula Graph 用户名对应的密码。  |
   |`withBatch`  |是|  一次写入的数据行数。默认值为`1000`.  |
   |`withWriteMode`|否|写入模式。可选值为`insert`和`update`。默认为`insert`。|
+
+### 示例代码
+
+详细的使用方式参见 [示例代码](https://github.com/vesoft-inc/nebula-spark-connector/tree/{{sparkconnector.branch}}/example/src/main/scala/com/vesoft/nebula/examples/connector)。
