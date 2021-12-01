@@ -162,6 +162,9 @@
       # MaxCompute 表的分区描述，该配置可选。
       partitionSpec:"dt='partition1'"
 
+      # MaxCompute 的 Spark 连接器在读取 MaxCompute 数据时使用的分区数。默认为1，该配置可选。
+      numPartitions:100
+
       # 请确保 SQL 语句中的表名和上方 table 的值相同，该配置可选。 
       sentence:"select id, name, age, playerid from player where id < 10"
 
