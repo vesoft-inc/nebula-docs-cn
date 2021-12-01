@@ -116,8 +116,8 @@
 |`tags.tunnelUrl`|string|-|是|MaxCompute 服务的 tunnelUrl。地址可根据[阿里云文档](https://help.aliyun.com/document_detail/34951.html)查看。|
 |`tags.accessKeyId`|string|-|是|MaxCompute 服务的 accessKeyId。|
 |`tags.accessKeySecret`|string|-|是|MaxCompute 服务的 accessKeySecret。|
-|`tags.partitionSpec`|string|-|否|MaxCompute 的 Spark 连接器在读取 MaxCompute 数据时使用的分区数。|
-|`tags.numPartitions`|int|`1`|是|MaxCompute 表的分区数量。|
+|`tags.partitionSpec`|string|-|否|MaxCompute 表的分区描述。|
+|`tags.numPartitions`|int|`1`|否|MaxCompute 的 Spark 连接器在读取 MaxCompute 数据时使用的分区数。|
 |`tags.sentence`|string|-|否|查询数据源的语句。SQL 语句中的表名和上方 table 的值相同。|
 
 ### Neo4j 源特有参数
