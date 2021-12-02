@@ -50,10 +50,6 @@ Nebula Spark Connector {{sparkconnector.release}}版本特性如下：
 
 ### 编译打包
 
-!!! note
-
-     安装 Spark 2.4.x 版本。
-
 1. 克隆仓库`nebula-spark-connector`。
 
   ```bash
@@ -77,6 +73,15 @@ Nebula Spark Connector {{sparkconnector.release}}版本特性如下：
 ### Maven 远程仓库下载
 
 [下载地址](https://repo1.maven.org/maven2/com/vesoft/nebula-spark-connector/)
+
+## 环境准备
+
+用以下方式运行 Nebula Spark Connector 需先安装 2.4.x 版本的 Apache Spark：
+
+* 在服务器上以提交JAR包的方式。
+* 在代码中以`master ("spark://<ip>:<port>/")`的方式。
+
+如果在本地编译器内写代码运行 Nebula Spark Connector，无需安装 Apache Spark。
 
 ## 使用方法
 
