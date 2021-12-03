@@ -39,6 +39,7 @@ Nebula Algorithm 支持的图计算算法如下。
  |  GraphTriangleCount      | 全图三角形计数 |网络结构及紧密程度分析|
  |   BetweennessCentrality  | 介数中心性  |关键节点挖掘，节点影响力计算|
  |        DegreeStatic      |   度统计   |图结构分析|
+ | ClusteringCoefficient    | 聚集系数    |推荐、电信诈骗分析|
 
 ## 实现方法
 
@@ -106,6 +107,8 @@ Nebula Algorithm 实现图计算的流程如下：
   val prConfig = new PRConfig(5, 1.0)
   val louvainResult = PageRankAlgo.apply(spark, data, prConfig, false)
   ```
+
+  如果用户的节点 ID 是 String 类型，可以参考 PageRank 的[示例](https://github.com/vesoft-inc/nebula-algorithm/blob/{{algorithm.branch}}/example/src/main/scala/com/vesoft/nebula/algorithm/PageRankExample.scala)。示例中进行了 ID 转换，将 String 类型编码为 Long 类型， 并在算法结果中将 Long 类型 ID 解码为原始的 String 类型。
 
 ### 直接提交算法包
   
