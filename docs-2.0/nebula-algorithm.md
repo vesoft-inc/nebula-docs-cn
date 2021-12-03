@@ -96,7 +96,7 @@ Nebula Algorithm 实现图计算的流程如下：
   </dependency>
   ```
 
-2. 传入参数调用算法（以 PageRank 为例）。更多算法请参见[测试用例](https://github.com/vesoft-inc/nebula-algorithm/tree/master/nebula-algorithm/src/test/scala/com/vesoft/nebula/algorithm/lib)。
+2. 传入参数调用算法（以 PageRank 为例）。更多调用示例请参见[示例](https://github.com/vesoft-inc/nebula-algorithm/tree/master/example/src/main/scala/com/vesoft/nebula/algorithm)。
 
   !!! note
 
