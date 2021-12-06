@@ -75,11 +75,11 @@ nebula> GO FROM "player100" \
     ```
 
     ```ngql
-    nebula> GO FROM "player100" \
-            OVER follow \
-            WHERE $^.player.age >= 42;
+    nebula> GO FROM "player100" OVER follow \
+            WHERE $^.player.age >= 42 \
+            YIELD dst(edge);
     +-------------+
-    | follow._dst |
+    | dst(EDGE)   |
     +-------------+
     | "player101" |
     | "player125" |
@@ -105,11 +105,11 @@ nebula> GO FROM "player100" \
     ```
 
     ```ngql
-    nebula> GO FROM "player100" \
-            OVER follow \
-            WHERE follow.degree > 90;
+    nebula> GO FROM "player100" OVER follow \
+            WHERE follow.degree > 90 \
+            YIELD dst(edge);
     +-------------+
-    | follow._dst |
+    | dst(EDGE)   |
     +-------------+
     | "player101" |
     | "player125" |
@@ -305,15 +305,15 @@ nebula> MATCH (v:player) \
 nebula> LOOKUP ON player \
         WHERE player.age IN [25,28]  \
         YIELD properties(vertex).name, properties(vertex).age;
-+-------------+-------------------------+------------------------+
-| VertexID    | properties(VERTEX).name | properties(VERTEX).age |
-+-------------+-------------------------+------------------------+
-| "player106" | "Kyle Anderson"         | 25                     |
-| "player135" | "Damian Lillard"        | 28                     |
-| "player130" | "Joel Embiid"           | 25                     |
-| "player131" | "Paul George"           | 28                     |
-| "player123" | "Ricky Rubio"           | 28                     |
-+-------------+-------------------------+------------------------+
++-------------------------+------------------------+
+| properties(VERTEX).name | properties(VERTEX).age |
++-------------------------+------------------------+
+| "Kyle Anderson"         | 25                     |
+| "Damian Lillard"        | 28                     |
+| "Joel Embiid"           | 25                     |
+| "Paul George"           | 28                     |
+| "Ricky Rubio"           | 28                     |
++-------------------------+------------------------+
 ```
 
 ### 结合 NOT 使用

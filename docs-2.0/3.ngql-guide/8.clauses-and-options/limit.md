@@ -35,10 +35,10 @@
 
 ```ngql
 # 从结果中返回最前面的 3 行数据。
-nebula> LOOKUP ON player |\
+nebula> LOOKUP ON player YIELD id(vertex)|\
         LIMIT 3;
 +-------------+
-| VertexID    |
+| id(VERTEX)  |
 +-------------+
 | "player100" |
 | "player101" |
@@ -92,16 +92,17 @@ nebula> GO 3 STEPS FROM "player100" \
 | "Manu Ginobili" | 41           |
 +-----------------+--------------+
 
-nebula> GO 3 STEPS FROM "player102" \
-        OVER * \
+nebula> GO 3 STEPS FROM "player102" OVER * \
+        YIELD dst(edge) \
         LIMIT [rand32(5),rand32(5),rand32(5)];
-+------------+-------------+
-| serve._dst | follow._dst |
-+------------+-------------+
-| "team204"  |             |
-| "team215"  |             |
-|            | "player100" |
-+------------+-------------+
++-------------+
+| dst(EDGE)   |
++-------------+
+| "team204"   |
+| "team215"   |
+| "player100" |
+| "player102" |
++-------------+
 ```
 
 ## openCypher 兼容语句中的 LIMIT

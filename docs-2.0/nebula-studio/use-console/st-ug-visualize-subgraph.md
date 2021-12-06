@@ -33,7 +33,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
    查询语句示例如下：
 
    ```nGQL
-   nebula> FIND ALL PATH FROM "player114" to "player100" OVER follow;
+   nebula> FIND ALL PATH FROM "player114" to "player100" OVER follow YIELD path AS p;
    ```
 
    查询得到如下图所示路径信息。
