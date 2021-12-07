@@ -30,7 +30,7 @@ nGQL 没有严格的构建格式要求，但根据恰当而统一的风格创建
 
   ```ngql
   GO FROM "player100" OVER follow REVERSELY YIELD src(edge) AS id | GO FROM $-.id \
-  OVER serve WHERE properties($^).age > 20 YIELD properties($^).name AS FriendOf, properties($$).name AS Team;
+  OVER serve WHERE $^.player.age > 20 YIELD properties($^).name AS FriendOf, properties($$).name AS Team;
   ```
 
   推荐：
@@ -40,7 +40,7 @@ nGQL 没有严格的构建格式要求，但根据恰当而统一的风格创建
   OVER follow REVERSELY \
   YIELD src(edge) AS id | \
   GO FROM $-.id OVER serve \
-  WHERE properties($^).age > 20 \
+  WHERE $^.player.age > 20 \
   YIELD properties($^).name AS FriendOf, properties($$).name AS Team;
   ```
 

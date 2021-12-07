@@ -44,7 +44,7 @@ nebula> MATCH (v:player) \
 ```ngql
 nebula> GO FROM "player100" \
         OVER follow \
-        WHERE properties(edge).degree > 90 \
+        WHERE follow.degree > 90 \
         OR properties($$).age != 33 \
         AND properties($$).name != "Tony Parker" \
         YIELD properties($$);
