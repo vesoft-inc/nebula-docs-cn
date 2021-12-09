@@ -6,9 +6,7 @@
 
 !!! Note
 
-    - 关键字不区分大小写。
-
-    - 非英文（例如中文、韩文）字符也需要使用反引号（\`）包围。
+    关键字不区分大小写。
 
 ```ngql
 nebula> CREATE TAG TAG(name string);
@@ -20,7 +18,7 @@ Execution succeeded
 nebula> CREATE TAG SPACE(name string);
 Execution succeeded
 
-nebula> CREATE TAG `中文`(`简体` string);
+nebula> CREATE TAG 中文(简体 string);
 Execution succeeded
 ```
 
