@@ -481,6 +481,7 @@ nav:
   - Nebula Bench: nebula-bench.md
 
   - 附录:
+      - 学习路径: 20.appendix/learning-path.md
       - Release Note: 20.appendix/releasenote.md
       - 常见问题 FAQ: 20.appendix/0.FAQ.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
