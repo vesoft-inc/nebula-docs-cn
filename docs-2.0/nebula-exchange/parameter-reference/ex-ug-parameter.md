@@ -50,6 +50,7 @@
 |`nebula.pswd`|string|-|是|用户名对应的密码。|
 |`nebula.space`|string|-|是|需要导入数据的的图空间名称。|
 |`nebula.ssl.enable.graph`|bool|`false`|是|开启 Exchange 与 Graph 服务之间的 [SSL 加密](https://en.wikipedia.org/wiki/Transport_Layer_Security)传输。当值为`true`时开启，下方的 SSL 相关参数生效。如果 Exchange 运行在多机集群上，在设置以下 SSL 相关路径时，需要在每台机器的相同路径都存储相应的文件。|
+|`nebula.ssl.enable.meta`|bool|`false`|是|开启 Exchange 与 Meta 服务之间的 SSL 加密传输。当值为`true`时开启，下方的 SSL 相关参数生效。如果 Exchange 运行在多机集群上，在设置以下 SSL 相关路径时，需要在每台机器的相同路径都存储相应的文件。|
 |`nebula.ssl.sign`|string|`ca`|是|签名方式，可选值：`ca`（CA 签名）或`self`（自签名）。|
 |`nebula.ssl.ca.param.caCrtFilePath`|string|`"/path/caCrtFilePath"`|是|`nebula.ssl.sign`的值为`ca`时生效，用于指定 CA 证书的存储路径。|
 |`nebula.ssl.ca.param.crtFilePath`|string|`"/path/crtFilePath"`|是|`nebula.ssl.sign`的值为`ca`时生效，用于指定 CRT 证书的存储路径。|
@@ -116,6 +117,7 @@
 |`tags.accessKeyId`|string|-|是|MaxCompute 服务的 accessKeyId。|
 |`tags.accessKeySecret`|string|-|是|MaxCompute 服务的 accessKeySecret。|
 |`tags.partitionSpec`|string|-|否|MaxCompute 表的分区描述。|
+|`tags.numPartitions`|int|`1`|否|MaxCompute 的 Spark 连接器在读取 MaxCompute 数据时使用的分区数。|
 |`tags.sentence`|string|-|否|查询数据源的语句。SQL 语句中的表名和上方 table 的值相同。|
 
 ### Neo4j 源特有参数

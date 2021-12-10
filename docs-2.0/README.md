@@ -11,7 +11,7 @@
 Nebula Graph 是一款开源的、分布式的、易扩展的原生图数据库，能够承载数千亿个点和数万亿条边的超大规模数据集，并且提供毫秒级查询。
 
 ## 快速开始
-
+* [学习路径](20.appendix/learning-path.md)
 * [简介](1.introduction/1.what-is-nebula-graph.md)
 * [快速开始](2.quick-start/1.quick-start-workflow.md)
 * [配置要求](4.deployment-and-installation/1.resource-preparations.md)
