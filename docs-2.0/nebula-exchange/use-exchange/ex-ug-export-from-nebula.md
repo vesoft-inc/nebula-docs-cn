@@ -6,10 +6,6 @@
 
     仅企业版 Exchange 支持导出 Nebula Graph 数据到 CSV 文件。
 
-!!! note
-
-    导出 Nebula Graph 数据时不支持 SSL 加密传输。
-
 ## 环境准备
 
 本示例在 Linux 系统的虚拟机环境下完成，导出数据前准备的软硬件信息如下。
