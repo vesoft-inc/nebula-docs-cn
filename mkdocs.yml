@@ -63,7 +63,7 @@ extra:
     base100: 1.0.0
     release: 2.1.0
   exchange_ent:
-    release: 2.6.0
+    release: 2.6.1
     branch: v2.6
   exchange:
     release: 2.6.1
