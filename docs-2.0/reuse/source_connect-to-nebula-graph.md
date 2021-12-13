@@ -150,9 +150,9 @@ nebula> :repeat N
 
 ```ngql
 nebula> :repeat 3
-nebula> GO FROM "player100" OVER follow;
+nebula> GO FROM "player100" OVER follow YIELD dst(edge);
 +-------------+
-| follow._dst |
+| dst(EDGE)   |
 +-------------+
 | "player101" |
 | "player125" |
@@ -162,7 +162,7 @@ Got 2 rows (time spent 2602/3214 us)
 Fri, 20 Aug 2021 06:36:05 UTC
 
 +-------------+
-| follow._dst |
+| dst(EDGE)   |
 +-------------+
 | "player101" |
 | "player125" |
@@ -172,7 +172,7 @@ Got 2 rows (time spent 583/849 us)
 Fri, 20 Aug 2021 06:36:05 UTC
 
 +-------------+
-| follow._dst |
+| dst(EDGE)   |
 +-------------+
 | "player101" |
 | "player125" |

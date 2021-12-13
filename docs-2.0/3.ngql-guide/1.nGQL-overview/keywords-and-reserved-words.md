@@ -2,7 +2,7 @@
 
 关键字在 nGQL 中有重要意义，分为保留关键字和非保留关键字。
 
-非保留关键字作为标识符时可以不使用引号。保留关键字作为标识符时，需要用反引号（\`）将它们括起来，例如 \`AND\`。
+非保留关键字作为标识符时可以不使用引号。保留关键字作为标识符时，需要用反引号（\`）包围，例如 \`AND\`。
 
 !!! Note
 
@@ -16,6 +16,9 @@ nebula> CREATE TAG `TAG` (name string);
 Execution succeeded
 
 nebula> CREATE TAG SPACE(name string);
+Execution succeeded
+
+nebula> CREATE TAG 中文(简体 string);
 Execution succeeded
 ```
 
