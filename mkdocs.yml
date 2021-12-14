@@ -64,10 +64,10 @@ extra:
     release: 2.1.0
   exchange_ent:
     release: 2.6.1
-    branch: v2.6
+    branch: v2.6.1
   exchange:
     release: 2.6.1
-    branch: v2.6.1
+    branch: v2.6
     tag: v2.6.1
   importer:
     release: 2.6.0
