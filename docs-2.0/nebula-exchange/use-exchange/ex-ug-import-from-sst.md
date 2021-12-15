@@ -443,12 +443,12 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
 运行如下命令将 CSV 源文件生成为 SST 文件。关于参数的说明，请参见[命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
-${SPARK_HOME}/bin/spark-submit --master "local" --conf spark.sql.shuffle.partition=<shuffle_concurrency> --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-{{exchange.release}}.jar_path> -c <sst_application.conf_path> 
+${SPARK_HOME}/bin/spark-submit --master "local" --conf spark.sql.shuffle.partitions=<shuffle_concurrency> --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-{{exchange.release}}.jar_path> -c <sst_application.conf_path> 
 ```
 
 !!! note
 
-    生成 SST 文件时，会涉及到 Spark 的 shuffle 操作，请注意在提交命令中增加`spark.sql.shuffle.partition`的配置。
+    生成 SST 文件时，会涉及到 Spark 的 shuffle 操作，请注意在提交命令中增加`spark.sql.shuffle.partitions`的配置。
 
 !!! note
 
@@ -457,7 +457,7 @@ ${SPARK_HOME}/bin/spark-submit --master "local" --conf spark.sql.shuffle.partiti
 示例：
 
 ```bash
-${SPARK_HOME}/bin/spark-submit  --master "local" --conf spark.sql.shuffle.partition=200 --class com.vesoft.nebula.exchange.Exchange  /root/nebula-exchange/nebula-exchange/target/nebula-exchange-{{exchange.release}}.jar  -c /root/nebula-exchange/nebula-exchange/target/classes/sst_application.conf
+${SPARK_HOME}/bin/spark-submit  --master "local" --conf spark.sql.shuffle.partitions=200 --class com.vesoft.nebula.exchange.Exchange  /root/nebula-exchange/nebula-exchange/target/nebula-exchange-{{exchange.release}}.jar  -c /root/nebula-exchange/nebula-exchange/target/classes/sst_application.conf
 ```
 
 任务执行完成后，可以在 HDFS 上的`/sst`目录（`nebula.path.remote`参数指定）内查看到生成的 SST 文件。
