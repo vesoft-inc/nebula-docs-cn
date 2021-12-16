@@ -2,6 +2,10 @@
 
 [Nebula Plato](https://github.com/vesoft-inc/nebula-algorithm) 是一款集成了开源高性能图计算框架 [Plato](https://github.com/tencent/plato) 的应用程序，支持利用 Plato 对 Nebula Graph 数据库中的数据执行图计算。
 
+!!! enterpriseonly
+
+    仅企业版支持本功能。
+
 ## 使用限制
 
 - 输入数据源支持 Nebula Graph 集群、HDFS 上的 CSV 文件或本地 CSV 文件。
