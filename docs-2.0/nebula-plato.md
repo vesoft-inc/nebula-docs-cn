@@ -16,27 +16,18 @@ Nebula Plato 支持的图计算算法如下。
 
 |           算法名        |说明             |分类        |
 |:----------------------|:----------------|:-----------|
-|     APSP              | 全对最短路径      |  路径       |
-|     SSSP              | 单源最短路径      | 路径        |
-|     Tree_stat         | 树深度/宽度       | 图特征      |
-|     NStepDegrees      | N阶度            | 图特征      |
-|     HyperANF          | 图平均距离估算     | 图特征      |
-|     TriangleCount     | 三角计数          | 图特征      |
-|     KCore             | K核              | 节点中心性   |
-|     PageRank          | 页面排序          | 节点中心性   |
-|     BNC               | 介数中心性         |  节点中心性 |
-|     CNC               | 接近中心性        |  节点中心性  |
-|     CGM               | 连通分量计算      |  社区发现    |
-|     LPA               | 标签传播          |  社区发现    |
-|     HANP              | 跳衰减和节点偏好   |  社区发现    |
-| Metapath-Randomwalk   | Metapath随机游走 | 图表示学习    |
-| Node2Vec-Randomwalk   | Node2Vec随机游走 |  图表示学习   |
-|     FastUnfolding     | 快速迭代优化      |  聚类        |
-|     InfoMap           | 信息图           |  聚类       |
-| Jaccard_similarity    | Jaccard相似系数  |  相似度      |
-|     Mutual            | 过滤式特征选择    |  其他       |
-|     Torch             |  todo              |  其他       |
-|     BFS               | 广度优先遍历      |  其他       |
+|  APSP                 | 全图最短路径      |  路径       |
+|  SSSP                 | 单源最短路径      | 路径        |
+|  BFS                  | 广度优先遍历      |  路径       |
+|  PageRank             | 页面排序          | 节点重要度   |
+|  KCore                | K核              | 节点重要度   |
+|  DegreeCentrality     | 度中心性          | 节点重要度   |
+|  TriangleCount        | 三角计数          | 图特征      |
+| LPA                   | 标签传播          |  社区发现    |
+| WCC                   | 联通分量          |  社区发现    |
+| LOUVAIN               | 社区发现          |  社区发现   |
+| HANP                  | 跳衰减和节点偏好   |  社区发现    |
+| Clustering Coefficient| 聚集系数          |  聚类       |
 
 ## 安装 Nebula Plato
 
