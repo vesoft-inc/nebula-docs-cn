@@ -218,3 +218,9 @@ sudo rpm -i nebula-plato-1.0-centos.x86_64.rpm  --prefix /home/xxx/nebula-plato
   ```bash
   ./run_pagerank.sh
   ```
+
+5. 在输出路径查看计算结果。
+
+  - 输出至 Nebula Graph 集群，请根据`nebula.conf`的设置查看计算结果。
+
+  - 输出至 HDFS 上的 CSV 文件或本地 CSV 文件，请根据图计算脚本内的`OUTPUT`设置查看计算结果，计算结果为`.gz`格式的压缩文件。
