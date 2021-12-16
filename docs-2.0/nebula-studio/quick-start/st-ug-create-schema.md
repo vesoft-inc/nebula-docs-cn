@@ -43,29 +43,29 @@
 3. 在命令行中，依次输入以下语句，并点击 ![表示运行的图标](../figs/st-ug-008.png "Run 图标") 图标。
 
    ```nGQL
-   -- 创建 Tag player，带有 2 个属性
+   // 创建 Tag player，带有 2 个属性
    CREATE TAG player(name string, age int);
 
-   -- 创建 Tag team，带有 1 个属性
+   // 创建 Tag team，带有 1 个属性
    CREATE TAG team(name string);
 
-   -- 创建 Edge type follow，带有 1 个属性
+   // 创建 Edge type follow，带有 1 个属性
    CREATE EDGE follow(degree int);
 
-   -- 创建 Edge type serve，带有 2 个属性
+   // 创建 Edge type serve，带有 2 个属性
    CREATE EDGE serve(start_year int, end_year int);
    ```
 
 至此，用户已经完成了 Schema 创建。用户可以运行以下语句查看 Tag 与 Edge type 的定义是否正确、完整。
 
 ```nGQL
--- 列出当前图空间中所有 Tag
+// 列出当前图空间中所有 Tag
 SHOW TAGS;
 
--- 列出当前图空间中所有 Edge type
+// 列出当前图空间中所有 Edge type
 SHOW EDGES;
 
--- 查看每种 Tag 和 Edge type 的结构是否正确
+// 查看每种 Tag 和 Edge type 的结构是否正确
 DESCRIBE TAG player;
 DESCRIBE TAG team;
 DESCRIBE EDGE follow;
