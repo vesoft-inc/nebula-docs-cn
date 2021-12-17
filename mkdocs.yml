@@ -388,7 +388,7 @@ nav:
       - Studio 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
 
   - Nebula Dashboard（社区版）:
-      - 什么 是Nebula Dashboard: nebula-dashboard/1.what-is-dashboard.md
+      - 什么是Nebula Dashboard: nebula-dashboard/1.what-is-dashboard.md
       - 部署 Dashboard: nebula-dashboard/2.deploy-dashboard.md
       - 连接 Dashboard: nebula-dashboard/3.connect-dashboard.md
       - Dashboard 页面介绍: nebula-dashboard/4.use-dashboard.md
