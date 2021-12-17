@@ -63,8 +63,8 @@ extra:
     base100: 1.0.0
     release: 2.1.0
   exchange_ent:
-    release: 2.6.0
-    branch: v2.6
+    release: 2.6.1
+    branch: v2.6.1
   exchange:
     release: 2.6.1
     branch: v2.6
@@ -531,7 +531,7 @@ plugins:
 #      - '.*\.(tmp|bin|tar)$'
 
   - with-pdf:
-      copyright: 2021 Vesoft Inc.
+      copyright: 2021 vesoft Inc.
       cover_subtitle: master sinnce 2.6.1
       author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
       cover: true
