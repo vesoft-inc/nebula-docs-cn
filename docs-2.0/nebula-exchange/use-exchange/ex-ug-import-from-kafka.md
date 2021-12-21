@@ -150,7 +150,7 @@
       # 指定表中某一列数据为 Nebula Graph 中点 VID 的来源。
       # 这里的值 key 和上面的 key 重复，表示 key 既作为 VID，也作为属性 name。
       vertex:{
-          field:key
+          field:personId
       }
 
       # 单批次写入 Nebula Graph 的数据条数。
@@ -173,7 +173,7 @@
       fields: [key]
       nebula.fields: [name]
       vertex:{
-          field:key
+          field:teamId
       }
       batch: 10
       partition: 10
@@ -212,11 +212,11 @@
       # 在 source 里，将 topic 中某一列作为边的起始点数据源。
       # 在 target 里，将 topic 中某一列作为边的目的点数据源。
       source:{
-          field:timestamp
+          field:personId
       }
 
       target:{
-          field:offset
+          field:personId
       }
 
       # 单批次写入 Nebula Graph 的数据条数。
@@ -242,11 +242,11 @@
       fields: [startYear,endYear]
       nebula.fields: [start_year,end_year]
       source:{
-          field:key
+          field:personId
       }
 
       target:{
-          field:value
+          field:teamId
       }
 
       batch: 10
