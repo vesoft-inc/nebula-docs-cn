@@ -124,7 +124,7 @@ $ sudo rpm -e nebula-explorer-<version>.x86_64
 
   !!! enterpriseonly
 
-        License 仅在企业版提供，申请 License 需填写 [Nebula Dashboard 试用申请](https://wj.qq.com/s2/9414111/81f4)。
+        License 仅在企业版提供，申请 License 需填写 [Nebula Explorer 试用申请](https://wj.qq.com/s2/9414111/81f4)。
 
 ### 安装及部署
 
