@@ -144,7 +144,7 @@
       # Kafka 数据有固定的域名称：key、value、topic、partition、offset、timestamp、timestampType。
       # 在 fields 里指定 Kafka value 中的字段名称，多个字段用英文逗号（,）隔开。Spark Structured Streaming 读取 Kafka 数据后会将其以 JSON 格式存储于 value 字段中，而这里的 fields 要配置 JSON 的 key 名。示例如下：
       fields: [personName, age]
-      # 设置 fields 中的 key 保存到 Nebula Graph 时转换成的属性名。下方设置会将 name 保存为 Nebula Graph 中的 personName 属性，age 则保存为同名属性。
+      # 设置 fields 中的 key 保存到 Nebula Graph 时转换成的属性名。下方设置会将 personName 保存为 Nebula Graph 中的 name 属性，age 则保存为同名属性。
       nebula.fields: [name, age]
 
       # 指定表中某一列数据为 Nebula Graph 中点 VID 的来源。
