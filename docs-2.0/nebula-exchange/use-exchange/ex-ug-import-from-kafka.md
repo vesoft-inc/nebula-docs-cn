@@ -142,8 +142,8 @@
       topic: "topic_name1"
 
       # 在 fields 里指定 Kafka value 中的字段名称，多个字段用英文逗号（,）隔开。Spark Structured Streaming 读取 Kafka 数据后会将其以 JSON 格式存储于 value 字段中，而这里的 fields 要配置 JSON 的 key 名。示例如下：
-      fields: [personName, age]
-      # 设置与 fields 中的 key 对应的 Nebula Graph 属性名，key 的 value 将保存为相应的属性值。下方设置会将 personName 的值保存到 Nebula Graph 中的 name 属性，age 的值则保存到 age 属性。
+      fields: [personName, personAge]
+      # 设置与 fields 中的 key 对应的 Nebula Graph 属性名，key 的 value 将保存为相应的属性值。下方设置会将 personName 的 value 保存到 Nebula Graph 中的 name 属性，personAge 的 value 则保存到 age 属性。
       nebula.fields: [name, age]
 
       # 指定表中某一列数据为 Nebula Graph 中点 VID 的来源。
@@ -204,7 +204,7 @@
 
       # 在 fields 里指定 Kafka value 中的字段名称，多个字段用英文逗号（,）隔开。Spark Structured Streaming 读取 Kafka 数据后会将其以 JSON 格式存储于 value 字段中，而这里的 fields 要配置 JSON 的 key 名。示例如下：
       fields: [degree]
-      # 设置与 fields 中的 key 对应的 Nebula Graph 属性名，key 的 value 将保存为相应的属性值。下方设置会将 degree 的值保存到 Nebula Graph 中的 degree 属性。
+      # 设置与 fields 中的 key 对应的 Nebula Graph 属性名，key 的 value 将保存为相应的属性值。下方设置会将 degree 的 value 保存到 Nebula Graph 中的 degree 属性。
       nebula.fields: [degree]
 
       # 在 source 里，将 topic 中某一列作为边的起始点数据源。
