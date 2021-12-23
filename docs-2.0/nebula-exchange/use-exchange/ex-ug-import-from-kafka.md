@@ -141,7 +141,6 @@
       # 消息类别。
       topic: "topic_name1"
 
-      # Kafka 数据有固定的域名称：key、value、topic、partition、offset、timestamp、timestampType。
       # 在 fields 里指定 Kafka value 中的字段名称，多个字段用英文逗号（,）隔开。Spark Structured Streaming 读取 Kafka 数据后会将其以 JSON 格式存储于 value 字段中，而这里的 fields 要配置 JSON 的 key 名。示例如下：
       fields: [personName, age]
       # 设置 fields 中的 key 保存到 Nebula Graph 时转换成的属性名。下方设置会将 personName 保存为 Nebula Graph 中的 name 属性，age 则保存为同名属性。
@@ -203,7 +202,6 @@
       # 消息类别。
       topic: "topic_name3"
 
-      # Kafka 数据有固定的域名称：key、value、topic、partition、offset、timestamp、timestampType。
       # 在 fields 里指定 Kafka value 中的字段名称，多个字段用英文逗号（,）隔开。Spark Structured Streaming 读取 Kafka 数据后会将其以 JSON 格式存储于 value 字段中，而这里的 fields 要配置 JSON 的 key 名。示例如下：
       fields: [degree]
       # 设置 fields 中的 key 保存到 Nebula Graph 时转换成的属性名。下方设置会将 degree 保存为 Nebula Graph 中的同名属性。
@@ -212,11 +210,11 @@
       # 在 source 里，将 topic 中某一列作为边的起始点数据源。
       # 在 target 里，将 topic 中某一列作为边的目的点数据源。
       source:{
-          field:personId
+          field:srcPersonId
       }
 
       target:{
-          field:personId
+          field:dstPersonId
       }
 
       # 单批次写入 Nebula Graph 的数据条数。
