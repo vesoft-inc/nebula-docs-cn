@@ -81,11 +81,56 @@ Nebula Graph 支持多种类型客户端，包括 CLI 客户端、GUI 客户端�
 
 ## Nebula Console 命令
 
-Nebula Console 提供部分命令，可以导出 CSV 文件、导出 DOT 文件、导入测试数据集等。
+Nebula Console 提供部分命令，可以管理参数、导出 CSV 文件、导出 DOT 文件、导入测试数据集等。
 
 !!! note
 
     命令不区分大小写。
+
+### 管理参数
+
+可以保存参数，用于参数化查询。会话释放后，参数不会保留。
+
+!!! note
+
+    - VID不支持参数化查询。
+
+    - SAMPLE子句中不支持参数化查询。
+
+    - 暂不支持一次保存多个参数。
+
+保存参数命令如下：
+
+```ngql
+nebula> :param <param_name> => <param_value>;
+```
+
+示例：
+
+```ngql
+nebula> :param p1 => "Tim Duncan";
+nebula> MATCH (v:player{name:$p1})-[:follow]->(n)  RETURN v,n;
++----------------------------------------------------+-------------------------------------------------------+
+| v                                                  | n                                                     |
++----------------------------------------------------+-------------------------------------------------------+
+| ("player100" :player{age: 42, name: "Tim Duncan"}) | ("player125" :player{age: 41, name: "Manu Ginobili"}) |
+| ("player100" :player{age: 42, name: "Tim Duncan"}) | ("player101" :player{age: 36, name: "Tony Parker"})   |
++----------------------------------------------------+-------------------------------------------------------+
+
+nebula> :param p2 => {"a":3,"b":false,"c":"Tim Duncan"};
+nebula> RETURN $p2.b AS b;
++-------+
+| b     |
++-------+
+| false |
++-------+
+```
+
+查看当前保存的参数命令如下：
+
+```ngql
+nebula> :params;
+```
 
 ### 导出 CSV 文件
 
