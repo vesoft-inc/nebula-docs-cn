@@ -20,38 +20,49 @@ Nebula Console 是 Nebula Graph 的原生命令行客户端，用于连接 Nebul
 
     - 会话释放后，参数不会保留。
 
-保存参数命令如下：
+- 保存参数命令如下：
 
-```ngql
-nebula> :param <param_name> => <param_value>;
-```
+  ```ngql
+  nebula> :param <param_name> => <param_value> [,<param_name> => <param_value>];
+  ```
 
-示例：
+  示例：
 
-```ngql
-nebula> :param p1 => "Tim Duncan";
-nebula> MATCH (v:player{name:$p1})-[:follow]->(n)  RETURN v,n;
-+----------------------------------------------------+-------------------------------------------------------+
-| v                                                  | n                                                     |
-+----------------------------------------------------+-------------------------------------------------------+
-| ("player100" :player{age: 42, name: "Tim Duncan"}) | ("player125" :player{age: 41, name: "Manu Ginobili"}) |
-| ("player100" :player{age: 42, name: "Tim Duncan"}) | ("player101" :player{age: 36, name: "Tony Parker"})   |
-+----------------------------------------------------+-------------------------------------------------------+
+  ```ngql
+  nebula> :param p1 => "Tim Duncan", p2 => {"a":3,"b":false,"c":"Tim Duncan"};
+  nebula> MATCH (v:player{name:$p1})-[:follow]->(n)  RETURN v,n;
+  +----------------------------------------------------+-------------------------------------------------------+
+  | v                                                  | n                                                     |
+  +----------------------------------------------------+-------------------------------------------------------+
+  | ("player100" :player{age: 42, name: "Tim Duncan"}) | ("player125" :player{age: 41, name: "Manu Ginobili"}) |
+  | ("player100" :player{age: 42, name: "Tim Duncan"}) | ("player101" :player{age: 36, name: "Tony Parker"})   |
+  +----------------------------------------------------+-------------------------------------------------------+
 
-nebula> :param p2 => {"a":3,"b":false,"c":"Tim Duncan"};
-nebula> RETURN $p2.b AS b;
-+-------+
-| b     |
-+-------+
-| false |
-+-------+
-```
+  nebula> RETURN $p2.b AS b;
+  +-------+
+  | b     |
+  +-------+
+  | false |
+  +-------+
+  ```
 
-查看当前保存的参数命令如下：
+- 查看当前保存的所有参数，命令如下：
 
-```ngql
-nebula> :params;
-```
+  ```ngql
+  nebula> :params;
+  ```
+
+- 查看指定参数，命令如下：
+
+  ```ngql
+  nebula> :params <param_name>;
+  ```
+
+- 删除指定参数，命令如下：
+
+  ```ngql
+  nebula> :param <param_name> =>;
+  ```
 
 ## 导出执行结果
 
