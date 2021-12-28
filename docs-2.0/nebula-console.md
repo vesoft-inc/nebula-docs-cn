@@ -14,7 +14,7 @@ Nebula Console 是 Nebula Graph 的原生命令行客户端，用于连接 Nebul
 
 !!! note
 
-    - VID不支持参数化查询。
+    - VID 不支持参数化查询。
 
     - `SAMPLE`子句中不支持参数化查询。
 
