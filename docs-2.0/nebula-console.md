@@ -53,46 +53,36 @@ nebula> RETURN $p2.b AS b;
 nebula> :params;
 ```
 
-## 导出 CSV 文件
+## 导出执行结果
 
-CSV 文件用于保存命令执行的返回结果。
+导出命令执行的返回结果，可以保存为 CSV 文件或 DOT 文件。
 
 !!! note
 
-    - CSV 文件保存在当前工作目录中，即 Linux 命令`pwd`显示的目录。
+    - 文件保存在当前工作目录中，即 Linux 命令`pwd`显示的目录。
 
     - 命令只对下一条查询语句生效。
-
-导出 CSV 文件命令如下：
-
-```ngql
-nebula> :CSV <file_name.csv>
-```
-
-## 导出 DOT 文件
-
-DOT 文件同样用于保存命令执行的返回结果，其保存的结果信息和 CSV 文件不同。
-
-!!! Note
-
-    - DOT 文件保存在当前工作目录中，即 Linux 命令`pwd`显示的目录。
 
     - DOT 文件的内容可以复制后在 [GraphvizOnline](https://dreampuf.github.io/GraphvizOnline/) 网页中粘贴，生成可视化的执行计划图。
 
-    - 命令只对下一条查询语句生效。
+- 导出 CSV 文件命令如下：
 
-导出 DOT 文件命令如下：
+  ```ngql
+  nebula> :CSV <file_name.csv>;
+  ```
 
-```ngql
-nebula> :dot <file_name.dot>
-```
+- 导出 DOT 文件命令如下：
 
-示例：
+  ```ngql
+  nebula> :dot <file_name.dot>;
+  ```
 
-```ngql
-nebula> :dot a.dot
-nebula> PROFILE FORMAT="dot" GO FROM "player100" OVER follow;
-```
+  示例：
+
+  ```ngql
+  nebula> :dot a.dot;
+  nebula> PROFILE FORMAT="dot" GO FROM "player100" OVER follow;
+  ```
 
 ## 加载测试数据集
 
@@ -101,7 +91,7 @@ nebula> PROFILE FORMAT="dot" GO FROM "player100" OVER follow;
 加载测试数据集命令如下：
 
 ```ngql
-nebula> :play nba
+nebula> :play nba;
 ```
 
 ## 重复执行
@@ -109,13 +99,13 @@ nebula> :play nba
 重复执行下一个命令 N 次，然后打印平均执行时间。命令如下：
 
 ```ngql
-nebula> :repeat N
+nebula> :repeat N;
 ```
 
 示例：
 
 ```ngql
-nebula> :repeat 3
+nebula> :repeat 3;
 nebula> GO FROM "player100" OVER follow YIELD dst(edge);
 +-------------+
 | dst(EDGE)   |
@@ -155,7 +145,7 @@ Executed 3 times, (total time spent 3681/4734 us), (average time spent 1227/1578
 睡眠 N 秒。常用于修改 Schema 的操作中，因为修改 Schema 是异步实现的，需要在下一个心跳周期才同步数据。命令如下：
 
 ```ngql
-nebula> :sleep N
+nebula> :sleep N;
 ```
 
 ## 断开连接
@@ -165,7 +155,7 @@ nebula> :sleep N
 示例：
 
 ```ngql
-nebula> :QUIT
+nebula> :QUIT;
 
 Bye root!
 ```
