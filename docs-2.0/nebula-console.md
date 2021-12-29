@@ -23,13 +23,13 @@ Nebula Console 是 Nebula Graph 的原生命令行客户端，用于连接 Nebul
 - 保存参数命令如下：
 
   ```ngql
-  nebula> :param <param_name> => <param_value> [,<param_name> => <param_value>];
+  nebula> :param <param_name> => <param_value>;
   ```
 
   示例：
 
   ```ngql
-  nebula> :param p1 => "Tim Duncan", p2 => {"a":3,"b":false,"c":"Tim Duncan"};
+  nebula> :param p1 => "Tim Duncan";
   nebula> MATCH (v:player{name:$p1})-[:follow]->(n)  RETURN v,n;
   +----------------------------------------------------+-------------------------------------------------------+
   | v                                                  | n                                                     |
@@ -38,6 +38,7 @@ Nebula Console 是 Nebula Graph 的原生命令行客户端，用于连接 Nebul
   | ("player100" :player{age: 42, name: "Tim Duncan"}) | ("player101" :player{age: 36, name: "Tony Parker"})   |
   +----------------------------------------------------+-------------------------------------------------------+
 
+  nebula> :param p2 => {"a":3,"b":false,"c":"Tim Duncan"};
   nebula> RETURN $p2.b AS b;
   +-------+
   | b     |
