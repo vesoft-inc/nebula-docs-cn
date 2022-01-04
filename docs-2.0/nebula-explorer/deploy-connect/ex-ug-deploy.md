@@ -33,6 +33,11 @@
 
 - 使用的 Linux 发行版为 CentOS。
 - 安装有版本为 1.13 及以上的 Go。
+- 准备 License。
+
+  !!! enterpriseonly
+
+        License 仅在企业版提供，申请 License 需填写 [Nebula Explorer 试用申请](https://wj.qq.com/s2/9414111/81f4)。
 
 ### 安装
 
@@ -65,10 +70,6 @@
    ```bash
    $ cp -r nebula.license /usr/local/nebula-explorer
    ```
-
-  !!! enterpriseonly
-
-        License 仅在企业版提供，请发送邮件至 inquiry@vesoft.com。
 
 4. 添加 License 后需要使用以下命令停止并重启服务。
 
@@ -119,6 +120,11 @@ $ sudo rpm -e nebula-explorer-<version>.x86_64
 
 - 使用的 Linux 发行版为 CentOS。
 - 安装有版本为 1.13 及以上的 Go。
+- 准备 License。
+
+  !!! enterpriseonly
+
+        License 仅在企业版提供，申请 License 需填写 [Nebula Explorer 试用申请](https://wj.qq.com/s2/9414111/81f4)。
 
 ### 安装及部署
 
@@ -144,10 +150,6 @@ $ sudo rpm -e nebula-explorer-<version>.x86_64
    ```bash
    $ cp -r nebula.license /usr/local/nebula-explorer
    ```
-
-  !!! enterpriseonly
-
-        License 仅在企业版提供，请发送邮件至 inquiry@vesoft.com。
 
 4. 进入`nebula-explorer`文件夹，启动 explorer。
 
