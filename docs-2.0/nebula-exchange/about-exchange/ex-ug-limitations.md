@@ -36,6 +36,9 @@ Exchange 2.x 支持以下操作系统：
 - Scala 2.10.7、2.11.12 或 2.12.10 版本
 
 - Apache Spark。使用 Exchange 从不同数据源导出数据对 Spark 版本的要求如下：
+  
+  !!! note
+        使用 Exchange 时，需根据 Spark 版本选择相应的 JAR 文件。例如，当 Spark 版本为 2.4 时，选择 nebula-exchange_spark_2.4-{{exchange.release}}.jar。
 
   | 数据源 | Spark 2.2 | Spark 2.4 | Spark 3 |
   | - | - | - | - |
