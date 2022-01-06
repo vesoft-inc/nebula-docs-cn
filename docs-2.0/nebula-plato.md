@@ -6,13 +6,13 @@
 
     仅企业版支持本功能。
 
+## 适用场景
+
+支持将数据源为 Nebula Graph 集群、HDFS 上的 CSV 文件或本地 CSV 文件中的数据导入Nebula Plato，并将图计算结果输出至 Nebula Graph 集群、HDFS 上的 CSV 文件或本地 CSV 文件。
+
 ## 使用限制
 
-- 输入数据源支持 Nebula Graph 集群、HDFS 上的 CSV 文件或本地 CSV 文件。
-
-- 图计算结果支持输出至 Nebula Graph 集群、HDFS 上的 CSV 文件或本地 CSV 文件。
-
-- 输入和输出均为 Nebula Graph 集群时，图计算结果只能输出到数据源所在的图空间。
+输入和输出均为 Nebula Graph 集群时，图计算结果只能输出到数据源所在的图空间。
 
 ## 支持算法
 
