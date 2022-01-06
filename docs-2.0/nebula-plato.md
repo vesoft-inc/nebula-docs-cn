@@ -14,6 +14,14 @@
 
 输入和输出均为 Nebula Graph 集群时，图计算结果只能输出到数据源所在的图空间。
 
+## 版本兼容性
+
+Nebula Plato 版本和 Nebula Graph 内核的版本对应关系如下。
+
+|Plato client 版本|Nebula Graph 版本|
+|:---|:---|
+|{{plato.release}}|{{nebula.release}}|
+
 ## 支持算法
 
 Nebula Plato 支持的图计算算法如下。
