@@ -403,7 +403,7 @@ nav:
       - 集群管理:
         - 集群总览: nebula-dashboard-ent/4.cluster-operator/1.overview.md
         - 集群监控: nebula-dashboard-ent/4.cluster-operator/2.monitor.md
-        - 监控指标: nebula-dashboard-ent/9.alerts.md
+        - 监控告警: nebula-dashboard-ent/9.alerts.md
         - 集群信息: nebula-dashboard-ent/4.cluster-operator/3.cluster-information.md
         - 集群操作: nebula-dashboard-ent/4.cluster-operator/4.manage.md
         - 操作记录: nebula-dashboard-ent/4.cluster-operator/5.operation-record.md
