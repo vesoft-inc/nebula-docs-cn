@@ -172,7 +172,7 @@ sudo rpm -i nebula-plato-1.0-centos.x86_64.rpm  --prefix /home/xxx/nebula-plato
       ITERATIONS=${ITERATIONS:=100}
       ```
 
-  - 数据源为本地或HDFS上的CSV文件
+  - 数据源为本地或 HDFS 上的 CSV 文件
 
     修改需要使用的算法脚本，例如`run_pagerank.sh`，设置相关参数。
 
