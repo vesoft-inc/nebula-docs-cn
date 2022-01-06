@@ -8,7 +8,7 @@
 
 ## 适用场景
 
-支持将数据源为 Nebula Graph 集群、HDFS 上的 CSV 文件或本地 CSV 文件中的数据导入Nebula Plato，并将图计算结果输出至 Nebula Graph 集群、HDFS 上的 CSV 文件或本地 CSV 文件。
+支持将数据源为 Nebula Graph 集群、HDFS 上的 CSV 文件或本地 CSV 文件中的数据导入 Nebula Plato，并将图计算结果输出至 Nebula Graph 集群、HDFS 上的 CSV 文件或本地 CSV 文件。
 
 ## 使用限制
 
@@ -157,15 +157,15 @@ sudo rpm -i nebula-plato-1.0-centos.x86_64.rpm  --prefix /home/xxx/nebula-plato
       # 也可以输出至本地或 HDFS 上的 CSV 文件：
       # OUTPUT=${OUTPUT:='hdfs://192.168.8.100:9000/_test/output'}
 
-      # true为有向图，false为无向图。
+      # true 为有向图，false 为无向图。
       IS_DIRECTED=${IS_DIRECTED:=true}
-      # 是否进行ID编码
+      # 是否进行 ID 编码
       NEED_ENCODE=${NEED_ENCODE:=true}
-      # 数据源的点ID类型，例如：string、int32、int64。
+      # 数据源的点 ID 类型，例如：string、int32、int64。
       VTYPE=${VTYPE:=int32}
-      # 编码类型。distributed为分布式点ID编码，single为单机点ID编码。
+      # 编码类型。distributed 为分布式点ID编码，single 为单机点 ID 编码。
       ENCODER=${ENCODER:="distributed"}
-      # PageRank算法的参数。不同算法的参数不同。
+      # PageRank 算法的参数。不同算法的参数不同。
       EPS=${EPS:=0.0001}
       DAMPING=${DAMPING:=0.85}
       # 迭代次数
@@ -193,15 +193,15 @@ sudo rpm -i nebula-plato-1.0-centos.x86_64.rpm  --prefix /home/xxx/nebula-plato
     # 也可以输出至本地或 HDFS 上的 CSV 文件：
     OUTPUT=${OUTPUT:='hdfs://192.168.8.100:9000/_test/output'}
 
-    # true为有向图，false为无向图。
+    # true 为有向图，false 为无向图。
     IS_DIRECTED=${IS_DIRECTED:=true}
-    # 是否进行ID编码
+    # 是否进行 ID 编码
     NEED_ENCODE=${NEED_ENCODE:=true}
-    # 数据源的点ID类型，例如：string、int32、int64。
+    # 数据源的点 ID 类型，例如：string、int32、int64。
     VTYPE=${VTYPE:=int32}
-    # 编码类型。distributed为分布式点ID编码，single为单机点ID编码。
+    # 编码类型。distributed 为分布式点ID编码，single 为单机点 ID 编码。
     ENCODER=${ENCODER:="distributed"}
-    # PageRank算法的参数。不同算法的参数不同。
+    # PageRank 算法的参数。不同算法的参数不同。
     EPS=${EPS:=0.0001}
     DAMPING=${DAMPING:=0.85}
     # 迭代次数
@@ -211,7 +211,7 @@ sudo rpm -i nebula-plato-1.0-centos.x86_64.rpm  --prefix /home/xxx/nebula-plato
 3. 修改配置文件`cluster`，设置执行算法的 Nebula Plato 集群节点和任务分配权重。
 
   ```bash
-  # Nebula Plato 集群节点IP地址:任务分配权重
+  # Nebula Plato 集群节点 IP 地址:任务分配权重
   192.168.8.200:1
   192.168.8.201:1
   192.168.8.202:1
