@@ -4,7 +4,7 @@
 
 `YIELD`可以引导子句或语句：
 
-- `YIELD`子句可以用于原生 nGQL 语句中，例如`GO`、`FETCH`或`LOOKUP`。
+- `YIELD`子句用于原生 nGQL 语句中，例如`GO`、`FETCH`或`LOOKUP`，必须通过`YIELD`子句定义返回结果。
 
 - `YIELD`语句可以在独立查询或复合查询中使用。
 
@@ -59,11 +59,11 @@ YIELD [DISTINCT] <col> [AS <alias>] [, <col> [AS <alias>] ...];
     ```ngql
     nebula> FETCH PROP ON player "player100" \
             YIELD properties(vertex).name;
-    +-------------+-------------------------+
-    | VertexID    | properties(VERTEX).name |
-    +-------------+-------------------------+
-    | "player100" | "Tim Duncan"            |
-    +-------------+-------------------------+
+    +-------------------------+
+    | properties(VERTEX).name |
+    +-------------------------+
+    | "Tim Duncan"            |
+    +-------------------------+
     ```
 
 - `LOOKUP`语句中使用`YIELD`：
@@ -71,11 +71,11 @@ YIELD [DISTINCT] <col> [AS <alias>] [, <col> [AS <alias>] ...];
     ```ngql
     nebula> LOOKUP ON player WHERE player.name == "Tony Parker" \
             YIELD properties(vertex).name, properties(vertex).age;
-    +-------------+-------------------------+------------------------+
-    | VertexID    | properties(VERTEX).name | properties(VERTEX).age |
-    +-------------+-------------------------+------------------------+
-    | "player101" | "Tony Parker"           | 36                     |
-    +-------------+-------------------------+------------------------+
+    +-------------------------+------------------------+
+    | properties(VERTEX).name | properties(VERTEX).age |
+    +-------------------------+------------------------+
+    | "Tony Parker"           | 36                     |
+    +-------------------------+------------------------+
     ```
 
 ## YIELD 语句

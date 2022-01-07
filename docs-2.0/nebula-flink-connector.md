@@ -16,4 +16,4 @@ Nebula Flink Connector 适用于以下场景：
 
 ## 更新说明
 
-[Release](https://github.com/vesoft-inc/nebula-flink-connector/releases/tag/{{flinkconnector.tag}})
+[Release notes](https://github.com/vesoft-inc/nebula-flink-connector/releases/tag/{{flinkconnector.tag}})

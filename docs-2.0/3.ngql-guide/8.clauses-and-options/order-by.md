@@ -28,14 +28,14 @@ ORDER BY <expression> [ASC | DESC] [, <expression> [ASC | DESC] ...];
 nebula> FETCH PROP ON player "player100", "player101", "player102", "player103" \
         YIELD properties(vertex).age AS age, properties(vertex).name AS name \
         | ORDER BY $-.age ASC, $-.name DESC;
-+-------------+-----+---------------------+
-| VertexID    | age | name                |
-+-------------+-----+---------------------+
-| "player103" | 32  | "Rudy Gay"          |
-| "player102" | 33  | "LaMarcus Aldridge" |
-| "player101" | 36  | "Tony Parker"       |
-| "player100" | 42  | "Tim Duncan"        |
-+-------------+-----+---------------------+
++-----+---------------------+
+| age | name                |
++-----+---------------------+
+| 32  | "Rudy Gay"          |
+| 33  | "LaMarcus Aldridge" |
+| 36  | "Tony Parker"       |
+| 42  | "Tim Duncan"        |
++-----+---------------------+
 
 nebula> $var = GO FROM "player100" OVER follow \
         YIELD dst(edge) AS dst; \

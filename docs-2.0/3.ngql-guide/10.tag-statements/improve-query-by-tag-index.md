@@ -4,10 +4,6 @@
 
 在 Nebula Graph 中，可以通过 Tag 变相实现相同操作，创建 Tag 并将 Tag 插入到已有的点上，就可以根据 Tag 名称快速查找点，也可以通过`DELETE TAG`删除某些点上不再需要的 Tag。
 
-!!! caution
-
-    请确保点上已经有另一个 Tag，否则删除点上最后一个 Tag 时，会导致点也被删除。
-
 ## 示例
 
 例如在 basketballplayer 数据集中，部分篮球运动员同时也是球队股东，可以为股东 Tag`shareholder`创建索引，方便快速查找。如果不再是股东，可以通过`DELETE TAG`语句删除相应运动员的股东 Tag。
@@ -29,9 +25,9 @@ nebula> MATCH (v:shareholder) RETURN v;
 | ("player100" :player{age: 42, name: "Tim Duncan"} :shareholder{})  |
 | ("player101" :player{age: 36, name: "Tony Parker"} :shareholder{}) |
 +---------------------------------------------------------------------+
-nebula> LOOKUP ON shareholder;
+nebula> LOOKUP ON shareholder YIELD id(vertex);
 +-------------+
-| VertexID    |
+| id(VERTEX)  |
 +-------------+
 | "player100" |
 | "player101" |
@@ -39,9 +35,9 @@ nebula> LOOKUP ON shareholder;
 
 //如果 player100 不再是股东
 nebula> DELETE TAG shareholder FROM "player100";
-nebula> LOOKUP ON shareholder;
+nebula> LOOKUP ON shareholder YIELD id(vertex);
 +-------------+
-| VertexID    |
+| id(VERTEX)  |
 +-------------+
 | "player101" |
 +-------------+

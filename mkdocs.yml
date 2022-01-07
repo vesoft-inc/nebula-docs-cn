@@ -63,8 +63,8 @@ extra:
     base100: 1.0.0
     release: 2.1.0
   exchange_ent:
-    release: 2.6.0
-    branch: v2.6
+    release: 2.6.1
+    branch: v2.6.1
   exchange:
     release: 2.6.1
     branch: v2.6
@@ -75,6 +75,9 @@ extra:
   algorithm:
     release: 2.5.1
     branch: v2.5
+  plato:
+    release: 1.0.0
+    branch: v1.0.0
   sparkconnector:
     release: 2.6.1
     branch: v2.6
@@ -194,10 +197,10 @@ nav:
 
       - 通用查询语句:
           - MATCH: 3.ngql-guide/7.general-query-statements/2.match.md
+          - OPTIONAL MATCH: 3.ngql-guide/7.general-query-statements/optional-match.md
           - LOOKUP: 3.ngql-guide/7.general-query-statements/5.lookup.md
           - GO: 3.ngql-guide/7.general-query-statements/3.go.md
           - FETCH: 3.ngql-guide/7.general-query-statements/4.fetch.md
-          - UNWIND: 3.ngql-guide/7.general-query-statements/7.unwind.md
           - SHOW:
             - SHOW CHARSET: 3.ngql-guide/7.general-query-statements/6.show/1.show-charset.md
             - SHOW COLLATION: 3.ngql-guide/7.general-query-statements/6.show/2.show-collation.md
@@ -227,6 +230,7 @@ nav:
           - WHERE: 3.ngql-guide/8.clauses-and-options/where.md
           - YIELD: 3.ngql-guide/8.clauses-and-options/yield.md
           - WITH: 3.ngql-guide/8.clauses-and-options/with.md
+          - UNWIND: 3.ngql-guide/8.clauses-and-options/unwind.md
 
       - 图空间语句:
           - CREATE SPACE: 3.ngql-guide/9.space-statements/1.create-space.md
@@ -368,6 +372,8 @@ nav:
     - 用户服务条款: nebula-cloud/7.terms-and-conditions.md
     - 隐私政策条款: nebula-cloud/8.privacy-policy.md
 
+  - Nebula Console: nebula-console.md
+
   - Nebula Graph Studio:
     - Studio 版本更新说明: nebula-studio/about-studio/st-ug-release-note.md
     - 认识 Nebula Graph Studio:
@@ -488,6 +494,8 @@ nav:
 
   - Nebula Algorithm: nebula-algorithm.md
 
+  - Nebula Plato: nebula-plato.md
+
   - Nebula Spark Connector: nebula-spark-connector.md
       
   - Nebula Flink Connector: nebula-flink-connector.md
@@ -545,7 +553,7 @@ plugins:
 #      - '.*\.(tmp|bin|tar)$'
 
   - with-pdf:
-      copyright: 2021 Vesoft Inc.
+      copyright: 2021 vesoft Inc.
       cover_subtitle: master sinnce 2.6.1
       author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
       cover: true

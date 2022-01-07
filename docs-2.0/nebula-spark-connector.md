@@ -40,9 +40,11 @@ Nebula Spark Connector {{sparkconnector.release}}版本特性如下：
 
 - 支持`insert`、`update`和`delete`三种写入模式。`insert`模式会插入（覆盖）数据，`update`模式仅会更新已存在的数据，`delete`模式只删除数据。
 
+- 支持与 Nebula Graph 之间的 SSL 加密连接。
+
 ## 更新说明
 
-[Release](https://github.com/vesoft-inc/nebula-spark-connector/releases/tag/{{sparkconnector.tag}})
+[Release notes](https://github.com/vesoft-inc/nebula-spark-connector/releases/tag/{{sparkconnector.tag}})
 
 ## 获取 Nebula Spark Connector
 
@@ -169,7 +171,7 @@ val nebulaWriteVertexConfig: WriteNebulaVertexConfig = WriteNebulaVertexConfig
   .withVidAsProp(true)
   .withUser("root")
   .withPasswd("nebula")
-  .withBatch(1000)
+  .withBatch(512)
   .build()    
 df.write.nebula(config, nebulaWriteVertexConfig).writeVertices()
   
@@ -187,7 +189,7 @@ val nebulaWriteEdgeConfig: WriteNebulaEdgeConfig = WriteNebulaEdgeConfig
   .withRankAsProperty(true)
   .withUser("root")
   .withPasswd("nebula")
-  .withBatch(1000)
+  .withBatch(512)
   .build()
 df.write.nebula(config, nebulaWriteEdgeConfig).writeEdges()
 ```
@@ -206,7 +208,7 @@ val nebulaWriteVertexConfig = WriteNebulaVertexConfig
   .withTag("person")
   .withVidField("id")
   .withVidAsProp(true)
-  .withBatch(1000)
+  .withBatch(512)
   .withWriteMode(WriteMode.UPDATE)
   .build()
 df.write.nebula(config, nebulaWriteVertexConfig).writeVertices()
@@ -231,7 +233,7 @@ df.write.nebula(config, nebulaWriteVertexConfig).writeVertices()
   |`withVidAsProp`  |否|  DataFrame 中作为点 ID 的列是否也作为属性写入。默认值为`false`。如果配置为`true`，请确保 Tag 中有和`VidField`相同的属性名。  |
   |`withUser`  |否|  Nebula Graph 用户名。若未开启[身份验证](7.data-security/1.authentication/1.authentication.md)，无需配置用户名和密码。   |
   |`withPasswd`  |否|  Nebula Graph 用户名对应的密码。  |
-  |`withBatch`  |是|  一次写入的数据行数。默认值为`1000`.  |
+  |`withBatch`  |是|  一次写入的数据行数，默认值为`512`。当`withWriteMode`为`update`时，该参数的最大值为`512`。  |
   |`withWriteMode`|否|写入模式。可选值为`insert`和`update`。默认为`insert`。|
 
 - `WriteNebulaEdgeConfig`是写入边的配置，说明如下。
@@ -250,5 +252,9 @@ df.write.nebula(config, nebulaWriteVertexConfig).writeVertices()
   |`withRankAsProperty`  |否| DataFrame 中作为 rank 的列是否也作为属性写入。默认值为`false`。如果配置为`true`，请确保 Edge type 中有和`RankField`相同的属性名。   |
   |`withUser`  |否|  Nebula Graph 用户名。若未开启[身份验证](7.data-security/1.authentication/1.authentication.md)，无需配置用户名和密码。  |
   |`withPasswd`  |否|  Nebula Graph 用户名对应的密码。  |
-  |`withBatch`  |是|  一次写入的数据行数。默认值为`1000`.  |
+  |`withBatch`  |是| 一次写入的数据行数，默认值为`512`。当`withWriteMode`为`update`时，该参数的最大值为`512`。  |
   |`withWriteMode`|否|写入模式。可选值为`insert`和`update`。默认为`insert`。|
+
+### 示例代码
+
+详细的使用方式参见 [示例代码](https://github.com/vesoft-inc/nebula-spark-connector/tree/{{sparkconnector.branch}}/example/src/main/scala/com/vesoft/nebula/examples/connector)。
