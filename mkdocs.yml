@@ -194,10 +194,10 @@ nav:
 
       - 通用查询语句:
           - MATCH: 3.ngql-guide/7.general-query-statements/2.match.md
+          - OPTIONAL MATCH: 3.ngql-guide/7.general-query-statements/optional-match.md
           - LOOKUP: 3.ngql-guide/7.general-query-statements/5.lookup.md
           - GO: 3.ngql-guide/7.general-query-statements/3.go.md
           - FETCH: 3.ngql-guide/7.general-query-statements/4.fetch.md
-          - UNWIND: 3.ngql-guide/7.general-query-statements/7.unwind.md
           - SHOW:
             - SHOW CHARSET: 3.ngql-guide/7.general-query-statements/6.show/1.show-charset.md
             - SHOW COLLATION: 3.ngql-guide/7.general-query-statements/6.show/2.show-collation.md
@@ -227,6 +227,7 @@ nav:
           - WHERE: 3.ngql-guide/8.clauses-and-options/where.md
           - YIELD: 3.ngql-guide/8.clauses-and-options/yield.md
           - WITH: 3.ngql-guide/8.clauses-and-options/with.md
+          - UNWIND: 3.ngql-guide/8.clauses-and-options/unwind.md
 
       - 图空间语句:
           - CREATE SPACE: 3.ngql-guide/9.space-statements/1.create-space.md
