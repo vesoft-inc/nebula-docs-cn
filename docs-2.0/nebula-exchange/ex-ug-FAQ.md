@@ -116,6 +116,31 @@ nebula-exchange-2.0.0.jar \
 -c application.conf
 ```
 
+### Q：Hive 数据导入时提示 schema 版本不一致
+
+Spark 日志提示 `Hive Schema version 1.2.0 does not match metastore's schema version 2.1.0 Metastore is not upgraded or corrupt` 的原因是 Hive 环境中配置的 metastore schema 版本和 Spark 使用的 metastore 版本不一致。
+
+解决方法：
+
+1. 将 Hive 环境中存储 Hive metastore 信息的 MySQL version 信息更新为 Spark 中使用的 metastore 版本。
+
+    假设 Hive 在 MySQL 中存储 metastore 的数据库是`hive`，需要按如下方式修改 `hive.VERSION` 表中的 `version` 字段：
+
+    ```
+    update hive.VERSION set SCHEMA_VERSION="2.1.0" where VER_ID=1
+    ```
+
+2. 在 Hive 环境的 `hive-site.xml` 文件中增加如下配置：
+
+    ```
+    <property>
+    <name>hive.metastore.schema.verification</name>
+    <value>false</value>
+    </property>
+    ```
+
+3. 重启 Hive。
+
 ## 配置问题
 
 ### Q：哪些配置项影响导入性能？
