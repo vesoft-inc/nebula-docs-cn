@@ -94,15 +94,15 @@ nebula> MATCH (v:player)-[e]->() \
 
 ```ngql
 nebula> MATCH (v:player) \
-        RETURN v.name, v.age \
+        RETURN v.player.name, v.player.age \
         LIMIT 3;
-+-------------------+-------+
-| v.name            | v.age |
-+-------------------+-------+
-| "Rajon Rondo"     | 33    |
-| "Rudy Gay"        | 32    |
-| "Dejounte Murray" | 29    |
-+-------------------+-------+
++------------------+--------------+
+| v.player.name    | v.player.age |
++------------------+--------------+
+| "Danny Green"    | 31           |
+| "Tiago Splitter" | 34           |
+| "David West"     | 38           |
++------------------+--------------+
 ```
 
 ## 返回所有元素
@@ -135,7 +135,7 @@ nebula> MATCH (v:player{name:"Tim Duncan"})-[e]->(v2) \
 
 ```ngql
 nebula> MATCH (v:player{name:"Tim Duncan"})-[:serve]->(v2) \
-        RETURN v2.name AS Team;
+        RETURN v2.team.name AS Team;
 +---------+
 | Team    |
 +---------+
@@ -156,14 +156,14 @@ nebula> RETURN "Amber" AS Name;
 
 ```ngql
 nebula> MATCH (v:player{name:"Tim Duncan"})-[e]->(v2) \
-        RETURN v2.name, type(e), v2.age;
-+-----------------+----------+--------------+
-| v2.name         | type(e)  | v2.age       |
-+-----------------+----------+--------------+
-| "Tony Parker"   | "follow" | 36           |
-| "Manu Ginobili" | "follow" | 41           |
-| "Spurs"         | "serve"  | UNKNOWN_PROP |
-+-----------------+----------+--------------+
+        RETURN v2.player.name, type(e), v2.player.age;
++-----------------+----------+---------------+
+| v2.player.name  | type(e)  | v2.player.age |
++-----------------+----------+---------------+
+| "Manu Ginobili" | "follow" | 41            |
+| __NULL__        | "serve"  | __NULL__      |
+| "Tony Parker"   | "follow" | 36            |
++-----------------+----------+---------------+
 ```
 
 ## 返回表达式结果
@@ -172,14 +172,14 @@ nebula> MATCH (v:player{name:"Tim Duncan"})-[e]->(v2) \
 
 ```ngql
 nebula> MATCH (v:player{name:"Tony Parker"})-->(v2:player) \
-        RETURN DISTINCT v2.name, "Hello"+" graphs!", v2.age > 35;
-+---------------------+----------------------+-------------+
-| v2.name             | ("Hello"+" graphs!") | (v2.age>35) |
-+---------------------+----------------------+-------------+
-| "Tim Duncan"        | "Hello graphs!"      | true        |
-| "LaMarcus Aldridge" | "Hello graphs!"      | false       |
-| "Manu Ginobili"     | "Hello graphs!"      | true        |
-+---------------------+----------------------+-------------+
+        RETURN DISTINCT v2.player.name, "Hello"+" graphs!", v2.player.age > 35;
++---------------------+----------------------+--------------------+
+| v2.player.name      | ("Hello"+" graphs!") | (v2.player.age>35) |
++---------------------+----------------------+--------------------+
+| "LaMarcus Aldridge" | "Hello graphs!"      | false              |
+| "Tim Duncan"        | "Hello graphs!"      | true               |
+| "Manu Ginobili"     | "Hello graphs!"      | true               |
++---------------------+----------------------+--------------------+
 
 nebula> RETURN 1+1;
 +-------+
@@ -210,7 +210,7 @@ nebula> RETURN 1+1, rand32(1, 5);
 ```ngql
 # 未使用 DISTINCT。
 nebula> MATCH (v:player{name:"Tony Parker"})--(v2:player) \
-        RETURN v2.name, v2.age;
+        RETURN v2.player.name, v2.player.age;
 +---------------------+--------+
 | v2.name             | v2.age |
 +---------------------+--------+
@@ -226,7 +226,7 @@ nebula> MATCH (v:player{name:"Tony Parker"})--(v2:player) \
 
 # 使用 DISTINCT。
 nebula> MATCH (v:player{name:"Tony Parker"})--(v2:player) \
-        RETURN DISTINCT v2.name, v2.age;
+        RETURN DISTINCT v2.player.name, v2.player.age;
 +---------------------+--------+
 | v2.name             | v2.age |
 +---------------------+--------+
