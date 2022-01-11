@@ -1,0 +1,63 @@
+# 安装单机版 Nebula Graph
+
+单机版 Nebula Graph 是指单机器单进程的 Nebula Graph 服务。本文介绍如何部署单机版 Nebula Graph。
+
+适用于测试环境受限于机器数量或仅希望验证功能。
+
+## 背景信息
+
+传统的 Nebula Graph 架构由 3 个服务构成，每个服务都有可执行的二进制文件和对应的进程，进程之间通过 RPC 协议进行调用。用户可以使用这些二进制文件在一台或多台计算机上部署 Nebula Graph 集群。关于 Nebula Graph 的更多信息，参见 [架构总览](../1.introduction/3.nebula-graph-architecture/1.architecture-overview.md)。
+
+## 使用场景
+
+针对数据量相对稳定，可用性需求不大的场景。例如，受限于机器数量的测试环境或者仅用于验证功能的场景。
+
+!!! danger
+
+    单机版 Nebula Graph 不用于生产环境。
+
+## 使用限制
+
+无法支持高可用和可靠性。
+
+## 环境准备
+
+关于安装单机版 Nebula Graph 所需的环境，参见 [准备资源](1.resource-preparations.md)。
+
+## 安装步骤
+
+目前仅支持使用源码安装单机版 Nebula Graph。其安装步骤与多进程的 Nebula Graph 步骤类似，用户只需在**使用 CMake 生成 makefile 文件**步骤的命令中添加`-DENABLE_STANDALON_VERSION=on`。完整命令如下：
+
+```bash
+cmake -DCMAKE_INSTALL_PREFIX=/usr/local/nebula -DENABLE_TESTING=OFF -DCMAKE_BUILD_TYPE=Release .. -DENABLE_STANDALON_VERSION=on
+``` 
+
+有关具体的安装步骤，参见 [使用源码安装](2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)。
+
+## 配置文件
+
+单机版 Nebula Graph 的配置文件的路径默认为`/usr/local/nebula/etc`。
+
+用户可执行`sudo cat nebula-standalone.conf.default`查看配置文件内容。配置文件参数说明如下：
+
+### basics 配置
+
+### logging 配置
+
+### query 配置
+
+### networking 配置
+
+### authentication 配置
+
+### memory 配置
+
+### experimental feature 配置
+
+### Raft  配置
+
+### Disk 配置
+
+### rocksdb Options 配置
+
+### meta Options 配置
