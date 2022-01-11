@@ -54,9 +54,12 @@ nebula> RETURN {zage: 32, name: "Marco Belinelli"};
 +-------------------------------------+
 ```
 
-## 返回点
+## 返回点或边
+
+使用`RETURN {<vertex_name> | <edge_name>}`返回点或边的所有信息。
 
 ```ngql
+// 返回点
 nebula> MATCH (v:player) \
         RETURN v;
 +---------------------------------------------------------------+
@@ -69,11 +72,8 @@ nebula> MATCH (v:player) \
 | ("player125" :player{age: 41, name: "Manu Ginobili"})         |
 +---------------------------------------------------------------+
 ...
-```
 
-## 返回边
-
-```ngql
+// 返回边
 nebula> MATCH (v:player)-[e]->() \
         RETURN e;
 +------------------------------------------------------------------------------+
@@ -86,6 +86,45 @@ nebula> MATCH (v:player)-[e]->() \
 | [:serve "player104"->"team208" @0 {end_year: 2016, start_year: 2015}]        |
 +------------------------------------------------------------------------------+
 ...
+```
+
+## 返回点 ID
+
+使用`id()`函数返回点 ID。
+```ngql
+nebula> MATCH (v:player{name:"Tim Duncan"}) \
+        RETURN id(v);
++-------------+
+| id(v)       |
++-------------+
+| "player100" |
++-------------+
+```
+
+## 返回 Tag
+
+使用`labels()`函数返回点上的 Tag 列表。
+
+```ngql
+nebula> MATCH (v:player{name:"Tim Duncan"}) \
+        RETURN labels(v);
++------------+
+| labels(v)  |
++------------+
+| ["player"] |
++------------+
+```
+
+返回列表`labels(v)`中的第 N 个元素，可以使用`labels(v)[n-1]`。例如下面示例使用`labels(v)[0]`检索第一个元素。
+
+```ngql
+nebula> MATCH (v:player{name:"Tim Duncan"}) \
+        RETURN labels(v)[0];
++--------------+
+| labels(v)[0] |
++--------------+
+| "player"     |
++--------------+
 ```
 
 ## 返回属性
@@ -103,6 +142,107 @@ nebula> MATCH (v:player) \
 | "Tiago Splitter" | 34           |
 | "David West"     | 38           |
 +------------------+--------------+
+```
+
+使用`properties()`函数返回点或边的所有属性。
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[]->(v2) \
+        RETURN properties(v2);
++----------------------------------+
+| properties(v2)                   |
++----------------------------------+
+| {name: "Spurs"}                  |
+| {age: 36, name: "Tony Parker"}   |
+| {age: 41, name: "Manu Ginobili"} |
++----------------------------------+
+```
+
+## 返回 Edge type
+
+使用`type()`函数返回匹配的 Edge type。
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e]->() \
+        RETURN DISTINCT type(e);
++----------+
+| type(e)  |
++----------+
+| "serve"  |
+| "follow" |
++----------+
+```
+
+## 返回路径
+
+使用`RETURN <path_name>`返回匹配路径的所有信息。
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[*3]->() \
+        RETURN p;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| p                                                                                                                                                                                                                                                                                                              |
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| <("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]->("player101" :player{age: 36, name: "Tony Parker"})-[:follow@0 {degree: 90}]->("player102" :player{age: 33, name: "LaMarcus Aldridge"})-[:serve@0 {end_year: 2019, start_year: 2015}]->("team204" :team{name: "Spurs"})>         |
+| <("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]->("player101" :player{age: 36, name: "Tony Parker"})-[:follow@0 {degree: 90}]->("player102" :player{age: 33, name: "LaMarcus Aldridge"})-[:serve@0 {end_year: 2015, start_year: 2006}]->("team203" :team{name: "Trail Blazers"})> |
+| <("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]->("player101" :player{age: 36, name: "Tony Parker"})-[:follow@0 {degree: 90}]->("player102" :player{age: 33, name: "LaMarcus Aldridge"})-[:follow@0 {degree: 75}]->("player101" :player{age: 36, name: "Tony Parker"})>           |
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+...
+```
+
+## 返回路径中的点
+
+使用`nodes()`函数返回路径中的所有点。
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[]->(v2) \
+        RETURN nodes(p);
++---------------------------------------------------------------------------------------------------------------------+
+| nodes(p)                                                                                                            |
++---------------------------------------------------------------------------------------------------------------------+
+| [("player100" :star{} :player{age: 42, name: "Tim Duncan"}), ("player204" :team{name: "Spurs"})]                    |
+| [("player100" :star{} :player{age: 42, name: "Tim Duncan"}), ("player101" :player{name: "Tony Parker", age: 36})]   |
+| [("player100" :star{} :player{age: 42, name: "Tim Duncan"}), ("player125" :player{name: "Manu Ginobili", age: 41})] |
++---------------------------------------------------------------------------------------------------------------------+
+```
+
+## 返回路径中的边
+
+使用`relationships()`函数返回路径中的所有边。
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[]->(v2) \
+        RETURN relationships(p);
++-------------------------------------------------------------------------+
+| relationships(p)                                                        |
++-------------------------------------------------------------------------+
+| [[:serve "player100"->"team204" @0 {end_year: 2016, start_year: 1997}]] |
+| [[:follow "player100"->"player101" @0 {degree: 95}]]                    |
+| [[:follow "player100"->"player125" @0 {degree: 95}]]                    |
++-------------------------------------------------------------------------+
+```
+
+## 返回路径长度
+
+使用`length()`函数检索路径的长度。
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[*..2]->(v2) \
+        RETURN p AS Paths, length(p) AS Length;
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| Paths                                                                                                                                                                                                                  | Length |
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| <("player100" :player{age: 42, name: "Tim Duncan"})-[:serve@0 {end_year: 2016, start_year: 1997}]->("team204" :team{name: "Spurs"})>                                                                                   | 1      |
+| <("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]->("player101" :player{age: 36, name: "Tony Parker"})>                                                                                     | 1      |
+| <("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]->("player125" :player{age: 41, name: "Manu Ginobili"})>                                                                                   | 1      |
+| <("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]->("player101" :player{age: 36, name: "Tony Parker"})-[:serve@0 {end_year: 2018, start_year: 1999}]->("team204" :team{name: "Spurs"})>     | 2      |
+| <("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]->("player101" :player{age: 36, name: "Tony Parker"})-[:serve@0 {end_year: 2019, start_year: 2018}]->("team215" :team{name: "Hornets"})>   | 2      |
+| <("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]->("player101" :player{age: 36, name: "Tony Parker"})-[:follow@0 {degree: 95}]->("player100" :player{age: 42, name: "Tim Duncan"})>        | 2      |
+| <("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]->("player101" :player{age: 36, name: "Tony Parker"})-[:follow@0 {degree: 90}]->("player102" :player{age: 33, name: "LaMarcus Aldridge"})> | 2      |
+| <("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]->("player101" :player{age: 36, name: "Tony Parker"})-[:follow@0 {degree: 95}]->("player125" :player{age: 41, name: "Manu Ginobili"})>     | 2      |
+| <("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]->("player125" :player{age: 41, name: "Manu Ginobili"})-[:serve@0 {end_year: 2018, start_year: 2002}]->("team204" :team{name: "Spurs"})>   | 2      |
+| <("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]->("player125" :player{age: 41, name: "Manu Ginobili"})-[:follow@0 {degree: 90}]->("player100" :player{age: 42, name: "Tim Duncan"})>      | 2      |
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
 ```
 
 ## 返回所有元素
