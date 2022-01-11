@@ -152,7 +152,8 @@
 
       # ClickHouse 分区数
       numPartition:"5"
-
+      
+      table:"player"
       sentence:"select * from player"
 
       # 在 fields 里指定 player 表中的列名称，其对应的 value 会作为 Nebula Graph 中指定属性。
@@ -185,6 +186,7 @@
       user:"user"
       password:"123456"
       numPartition:"5"
+      table:"team"
       sentence:"select * from team"
       fields: [name]
       nebula.fields: [name]
@@ -220,7 +222,8 @@
 
       # ClickHouse 分区数
       numPartition:"5"
-
+      
+      table:"follow"
       sentence:"select * from follow"
 
       # 在 fields 里指定 follow 表中的列名称，其对应的 value 会作为 Nebula Graph 中指定属性。

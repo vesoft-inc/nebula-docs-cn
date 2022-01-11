@@ -2,9 +2,9 @@
 
 ## 开始之前
 
-### github 或社区提交问题
+### GitHub 或社区提交问题
 
-欢迎为项目贡献任何代码或文档，但是建议先在 [github](https://github.com/vesoft-inc/nebula) 或[社区](https://discuss.nebula-graph.io/)上提交一个问题，和大家共同讨论。
+欢迎为项目贡献任何代码或文档，但是建议先在 [GitHub](https://github.com/vesoft-inc/nebula) 或[社区](https://discuss.nebula-graph.io/)上提交一个问题，和大家共同讨论。
 
 ### 签署贡献者许可协议（CLA）
 
@@ -12,7 +12,7 @@
 
 签署协议链接：[vesoft inc. Contributor License Agreement](https://cla-assistant.io/vesoft-inc/)
 
-单击按钮** Sign in with GitHub to agree **签署协议。
+单击按钮 **Sign in with GitHub to agree** 签署协议。
 
 如果有任何问题，请发送邮件至`info@vesoft.com`。
 
@@ -124,7 +124,7 @@ Nebula Graph 项目有很多[仓库](https://github.com/vesoft-inc)，以 [nebul
 
 - 代码风格
 
-  **Nebula Graph **采用`cpplint`来确保代码符合 Google 的代码风格指南。检查器将在提交代码之前执行。
+  **Nebula Graph** 采用`cpplint`来确保代码符合 Google 的代码风格指南。检查器将在提交代码之前执行。
 
 - 单元测试要求
 
@@ -193,13 +193,13 @@ pull request 创建后，至少需要两人审查。审查人员将进行彻底�
 
 ### Step 1：确认项目捐赠
 
-通过邮件、微信、Slack 等方式联络 Nebula Graph 官方人员，确认捐赠项目一事。项目将被捐赠至 Nebula Contrib 组织下。
+通过邮件、微信、Slack 等方式联络 Nebula Graph 官方人员，确认捐赠项目一事。项目将被捐赠至 [Nebula Contrib](https://github.com/nebula-contrib) 组织下。
 
-邮件地址：info@vesoft.com
+* 邮件地址：info@vesoft.com
 
-微信：NebulaGraphbot
+* 微信：NebulaGraphbot
 
-Slack：[Join Slack](https://join.slack.com/t/nebulagraph/shared_invite/zt-7ybejuqa-NCZBroh~PCh66d9kOQj45g)
+* Slack：[Join Slack](https://join.slack.com/t/nebulagraph/shared_invite/zt-7ybejuqa-NCZBroh~PCh66d9kOQj45g)
 
 ### Step 2：获取项目接收人信息
 
@@ -207,6 +207,6 @@ Slack：[Join Slack](https://join.slack.com/t/nebulagraph/shared_invite/zt-7ybej
 
 ### Step 3：捐赠项目
 
-由您将项目转移至本次捐赠的项目接受人，并由项目接收者将该项目转移至 Nebula Contrib 组织下。捐赠后，您将以 Maintain 角色继续主导社区项目的发展。
+由您将项目转移至本次捐赠的项目接受人，并由项目接收者将该项目转移至 [Nebula Contrib](https://github.com/nebula-contrib) 组织下。捐赠后，您将以 Maintain 角色继续主导社区项目的发展。
 
 GitHub 上转移仓库的操作，请参见 [Transferring a repository owned by your user account](https://docs.github.com/en/enterprise-server@3.0/github/administering-a-repository/managing-repository-settings/transferring-a-repository#transferring-a-repository-owned-by-your-user-account)。 

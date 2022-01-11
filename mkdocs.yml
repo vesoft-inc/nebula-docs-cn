@@ -75,6 +75,9 @@ extra:
   algorithm:
     release: 2.5.1
     branch: v2.5
+  plato:
+    release: 1.0.0
+    branch: v1.0.0
   sparkconnector:
     release: 2.6.1
     branch: v2.6
@@ -194,10 +197,10 @@ nav:
 
       - 通用查询语句:
           - MATCH: 3.ngql-guide/7.general-query-statements/2.match.md
+          - OPTIONAL MATCH: 3.ngql-guide/7.general-query-statements/optional-match.md
           - LOOKUP: 3.ngql-guide/7.general-query-statements/5.lookup.md
           - GO: 3.ngql-guide/7.general-query-statements/3.go.md
           - FETCH: 3.ngql-guide/7.general-query-statements/4.fetch.md
-          - UNWIND: 3.ngql-guide/7.general-query-statements/7.unwind.md
           - SHOW:
             - SHOW CHARSET: 3.ngql-guide/7.general-query-statements/6.show/1.show-charset.md
             - SHOW COLLATION: 3.ngql-guide/7.general-query-statements/6.show/2.show-collation.md
@@ -227,6 +230,7 @@ nav:
           - WHERE: 3.ngql-guide/8.clauses-and-options/where.md
           - YIELD: 3.ngql-guide/8.clauses-and-options/yield.md
           - WITH: 3.ngql-guide/8.clauses-and-options/with.md
+          - UNWIND: 3.ngql-guide/8.clauses-and-options/unwind.md
 
       - 图空间语句:
           - CREATE SPACE: 3.ngql-guide/9.space-statements/1.create-space.md
@@ -354,6 +358,22 @@ nav:
     - Nebula Python: 14.client/5.nebula-python-client.md
     - Nebula Go: 14.client/6.nebula-go-client.md
 
+  - Nebula Graph Cloud:
+    - 什么是 Nebula Graph Cloud: nebula-cloud/1.what-is-cloud.md
+    - 创建订阅: nebula-cloud/2.how-to-create-subsciption.md
+    - 配置Solution: nebula-cloud/3.how-to-set-solution.md
+    - Cloud Solution 角色身份说明: nebula-cloud/4.user-role-description.md
+    - Solution 操作:
+      - Solution: nebula-cloud/5.solution/5.0.introduce-solution.md
+      - 配套的应用（Dashboard/Studio/Explorer）: nebula-cloud/5.solution/5.1.supporting-application.md
+      - Private Link: nebula-cloud/5.solution/5.2.connection-configuration-and-use.md
+      - 管理角色权限: nebula-cloud/5.solution/5.3.role-and-authority-management.md
+    - 价格: nebula-cloud/6.pricing.md
+    - 用户服务条款: nebula-cloud/7.terms-and-conditions.md
+    - 隐私政策条款: nebula-cloud/8.privacy-policy.md
+
+  - Nebula Console: nebula-console.md
+
   - Nebula Graph Studio:
     - Studio 版本更新说明: nebula-studio/about-studio/st-ug-release-note.md
     - 认识 Nebula Graph Studio:
@@ -473,6 +493,8 @@ nav:
       - 常见问题: nebula-operator/7.operator-faq.md
 
   - Nebula Algorithm: nebula-algorithm.md
+
+  - Nebula Plato: nebula-plato.md
 
   - Nebula Spark Connector: nebula-spark-connector.md
       

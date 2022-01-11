@@ -50,7 +50,7 @@ nGQL 没有严格的构建格式要求，但根据恰当而统一的风格创建
 
   ```ngql
   MATCH (v:player{name:"Tim Duncan"})-[e]->(v2) \
-  WHERE (v2.name STARTS WITH "Y" AND v2.age > 35 AND v2.age < v.age) OR (v2.name STARTS WITH "T" AND v2.age < 45 AND v2.age > v.age) \
+  WHERE (v2.player.name STARTS WITH "Y" AND v2.player.age > 35 AND v2.player.age < v.player.age) OR (v2.player.name STARTS WITH "T" AND v2.player.age < 45 AND v2.player.age > v.player.age) \
   RETURN v2;
   ```
 
@@ -58,8 +58,8 @@ nGQL 没有严格的构建格式要求，但根据恰当而统一的风格创建
 
   ```ngql
   MATCH (v:player{name:"Tim Duncan"})-[e]->(v2) \
-  WHERE (v2.name STARTS WITH "Y" AND v2.age > 35 AND v2.age < v.age) \
-  OR (v2.name STARTS WITH "T" AND v2.age < 45 AND v2.age > v.age) \
+  WHERE (v2.player.name STARTS WITH "Y" AND v2.player.age > 35 AND v2.player.age < v.player.age) \
+  OR (v2.player.name STARTS WITH "T" AND v2.player.age < 45 AND v2.player.age > v.player.age) \
   RETURN v2;
   ```
 
@@ -125,7 +125,7 @@ nGQL 没有严格的构建格式要求，但根据恰当而统一的风格创建
 
   ```ngql
   MATCH (v:player{name: "Tim Duncan", age: 42}) \
-  -[e:follow]->()-[e:serve]->()<--(v3) \
+  -[e:follow]->()-[e2:serve]->()<--(v2) \
   RETURN v, e, v2;
   ```
 
@@ -133,7 +133,7 @@ nGQL 没有严格的构建格式要求，但根据恰当而统一的风格创建
 
   ```ngql
   MATCH (v:player{name: "Tim Duncan", age: 42})-[e:follow]-> \
-  ()-[e:serve]->()<--(v3) \
+  ()-[e2:serve]->()<--(v2) \
   RETURN v, e, v2;
   ```
 

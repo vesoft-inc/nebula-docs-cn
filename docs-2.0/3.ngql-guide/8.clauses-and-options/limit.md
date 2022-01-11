@@ -129,7 +129,7 @@ nebula> GO 3 STEPS FROM "player102" OVER * \
 `LIMIT`可以单独使用，返回指定数量的结果。
 
 ```ngql
-nebula> MATCH (v:player) RETURN v.name AS Name, v.age AS Age \
+nebula> MATCH (v:player) RETURN v.player.name AS Name, v.player.age AS Age \
         ORDER BY Age LIMIT 5;
 +-------------------------+-----+
 | Name                    | Age |
@@ -141,7 +141,7 @@ nebula> MATCH (v:player) RETURN v.name AS Name, v.age AS Age \
 | "Kyle Anderson"         | 25  |
 +-------------------------+-----+
 
-nebula> MATCH (v:player) RETURN v.name AS Name, v.age AS Age \
+nebula> MATCH (v:player) RETURN v.player.name AS Name, v.player.age AS Age \
         ORDER BY Age LIMIT rand32(5);
 +-------------------------+-----+
 | Name                    | Age |
@@ -159,7 +159,7 @@ nebula> MATCH (v:player) RETURN v.name AS Name, v.age AS Age \
 
 ```ngql
 nebula> MATCH (v:player{name:"Tim Duncan"}) --> (v2) \
-        RETURN v2.name AS Name, v2.age AS Age \
+        RETURN v2.player.name AS Name, v2.player.age AS Age \
         ORDER BY Age DESC SKIP 1;
 +-----------------+-----+
 | Name            | Age |
@@ -169,7 +169,7 @@ nebula> MATCH (v:player{name:"Tim Duncan"}) --> (v2) \
 +-----------------+-----+
 
 nebula> MATCH (v:player{name:"Tim Duncan"}) --> (v2) \
-        RETURN v2.name AS Name, v2.age AS Age \
+        RETURN v2.player.name AS Name, v2.player.age AS Age \
         ORDER BY Age DESC SKIP 1+1;
 +---------------+-----+
 | Name          | Age |
@@ -184,7 +184,7 @@ nebula> MATCH (v:player{name:"Tim Duncan"}) --> (v2) \
 
 ```ngql
 nebula> MATCH (v:player{name:"Tim Duncan"}) --> (v2) \
-        RETURN v2.name AS Name, v2.age AS Age \
+        RETURN v2.player.name AS Name, v2.player.age AS Age \
         ORDER BY Age DESC SKIP 1 LIMIT 1;
 +-----------------+-----+
 | Name            | Age |

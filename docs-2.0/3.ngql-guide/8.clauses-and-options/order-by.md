@@ -58,7 +58,7 @@ ORDER BY <expression> [ASC | DESC] [, <expression> [ASC | DESC] ...];
 ### 示例
 
 ```ngql
-nebula> MATCH (v:player) RETURN v.name AS Name, v.age AS Age  \
+nebula> MATCH (v:player) RETURN v.player.name AS Name, v.player.age AS Age  \
         ORDER BY Name DESC;
 +-----------------+-----+
 | Name            | Age |
@@ -72,7 +72,7 @@ nebula> MATCH (v:player) RETURN v.name AS Name, v.age AS Age  \
 ...
 
 # 首先以年龄排序，如果年龄相同，再以姓名排序。
-nebula> MATCH (v:player) RETURN v.age AS Age, v.name AS Name  \
+nebula> MATCH (v:player) RETURN v.player.age AS Age, v.player.name AS Name  \
         ORDER BY Age DESC, Name ASC;
 +-----+-------------------+
 | Age | Name              |
@@ -91,7 +91,7 @@ nebula> MATCH (v:player) RETURN v.age AS Age, v.name AS Name  \
 
 ```ngql
 nebula> MATCH (v:player{name:"Tim Duncan"}) --> (v2) \
-        RETURN v2.name AS Name, v2.age AS Age  \
+        RETURN v2.player.name AS Name, v2.player.age AS Age  \
         ORDER BY Age;
 +-----------------+--------------+
 | Name            | Age          |
@@ -102,7 +102,7 @@ nebula> MATCH (v:player{name:"Tim Duncan"}) --> (v2) \
 +-----------------+--------------+
 
 nebula> MATCH (v:player{name:"Tim Duncan"}) --> (v2) \
-        RETURN v2.name AS Name, v2.age AS Age  \
+        RETURN v2.player.name AS Name, v2.player.age AS Age  \
         ORDER BY Age DESC;
 +-----------------+--------------+
 | Name            | Age          |
