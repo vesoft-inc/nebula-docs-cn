@@ -19,6 +19,31 @@
 
 **原因**：Exchange 的`pom.xml`中有两个依赖包不在 Maven 的 central 仓库中，`pom.xml`配置了这两个依赖所在的仓库地址。如果 maven 中配置的镜像地址对应的`mirrorOf`值为`*`，那么所有依赖都会在 central 仓库下载，导致下载失败。
 
+### Q：编译 Exchange 时无法下载 SNAPSHOT 包
+
+现象：编译时提示`Could not find artifact com.vesoft:client:jar:xxx-SNAPSHOT`。
+
+原因：本地 maven 没有配置用于下载 SNAPSHOT 的仓库。maven 中默认的 central 仓库用于存放正式发布版本，而不是开发版本（SNAPSHOT）。
+
+解决方案：在 maven 的 setting.xml文件的`profiles`作用域内中增加以下配置：
+
+```
+  <profile>
+     <activation>
+        <activeByDefault>true</activeByDefault>
+     </activation>
+     <repositories>
+        <repository>
+            <id>snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <snapshots>
+               <enabled>true</enabled>
+            </snapshots>
+      </repository>
+     </repositories>
+  </profile>
+```
+
 ## 执行问题
 
 ### Q：Yarn-Cluster 模式下如何提交？
@@ -140,6 +165,13 @@ Spark 日志提示 `Hive Schema version 1.2.0 does not match metastore's schema 
     ```
 
 3. 重启 Hive。
+
+### Q: 生成 SST 时提示 org.rocksdb.RocksDBException: While open a file for appending: /path/sst/1-xxx.sst: No such file or directory
+
+排查方法：
+
+1. 检查`/path`是否存在，如没有或者路径设置错误，创建或修正路径。
+2. 检查 Spark 在每台机器上的当前用户对`/path`是否有操作权限，如没有，添加权限。
 
 ## 配置问题
 
