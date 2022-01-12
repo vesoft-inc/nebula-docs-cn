@@ -45,8 +45,8 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr/local/nebula -DENABLE_TESTING=OFF -DENABLE_STA
 
 | 参数             | 预设值      | 说明                  |
 | ---------------- | ----------- | --------------------- |
-| `meta_port`      | `9559`      | Meta服务的端口号。    |
-| `storage_port`   | `9779`      | Storage服务的端口号。 |
-| `meta_data_path` | `data/meta` | Meta数据存储路径。    |
+| `meta_port`      | `9559`      | Meta 服务的端口号。    |
+| `storage_port`   | `9779`      | Storage 服务的端口号。 |
+| `meta_data_path` | `data/meta` | Meta 数据存储路径。    |
 
 用户可以执行命令查看配置项列表与说明。具体操作，请参见[配置管理](../5.configurations-and-logs/1.configurations/1.configurations.md)。
