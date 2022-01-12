@@ -6,7 +6,7 @@
 
 ## 背景信息
 
-传统的 Nebula Graph 架构由 3 个服务构成，每个服务都有可执行的二进制文件和对应的进程，进程之间通过 RPC 协议进行调用。用户可以使用这些二进制文件在一台或多台计算机上部署 Nebula Graph 集群。关于 Nebula Graph 的更多信息，参见 [架构总览](../1.introduction/3.nebula-graph-architecture/1.architecture-overview.md)。
+传统的 Nebula Graph 架构由 3 个服务构成，每个服务都有可执行的二进制文件和对应的进程，进程之间通过 RPC 协议进行调用。用户可以使用这些二进制文件在一台或多台计算机上部署 Nebula Graph 集群。关于 Nebula Graph 的更多信息，参见[架构总览](../1.introduction/3.nebula-graph-architecture/1.architecture-overview.md)。
 
 ## 使用场景
 
@@ -23,17 +23,17 @@
 
 ## 环境准备
 
-关于安装单机版 Nebula Graph 所需的环境，参见 [准备资源](1.resource-preparations.md)。
+关于安装单机版 Nebula Graph 所需的环境，参见[准备资源](1.resource-preparations.md)。
 
 ## 安装步骤
 
-目前仅支持使用源码安装单机版 Nebula Graph。其安装步骤与多进程的 Nebula Graph 步骤类似，用户只需在**使用 CMake 生成 makefile 文件**步骤的命令中添加`-DENABLE_STANDALON_VERSION=on`。示例如下：
+目前仅支持使用源码安装单机版 Nebula Graph。其安装步骤与多进程的 Nebula Graph 步骤类似，用户只需在**使用 CMake 生成 makefile 文件**步骤的命令中添加`-DENABLE_STANDALONE_VERSION=on`。示例如下：
 
 ```bash
-cmake -DCMAKE_INSTALL_PREFIX=/usr/local/nebula -DENABLE_TESTING=OFF -DCMAKE_BUILD_TYPE=Release .. -DENABLE_STANDALON_VERSION=on
+cmake -DCMAKE_INSTALL_PREFIX=/usr/local/nebula -DENABLE_TESTING=OFF -DENABLE_STANDALONE_VERSION=on -DCMAKE_BUILD_TYPE=Release ..
 ``` 
 
-有关具体的安装步骤，参见 [使用源码安装](2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)。
+有关具体的安装步骤，参见[使用源码安装](2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)。
 
 用户完成单机版 Nebula Graph 后，可以参见[连接服务](connect-to-nebula-graph.md)连接 Nebula Graph。
 
@@ -48,3 +48,5 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr/local/nebula -DENABLE_TESTING=OFF -DCMAKE_BUIL
 | `meta_port`      | `9559`      | Meta服务的端口号。    |
 | `storage_port`   | `9779`      | Storage服务的端口号。 |
 | `meta_data_path` | `data/meta` | Meta数据存储路径。    |
+
+用户可以执行命令查看配置项列表与说明。具体操作，请参见[配置管理](../5.configurations-and-logs/1.configurations/1.configurations.md)。

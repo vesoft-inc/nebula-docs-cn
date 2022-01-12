@@ -304,8 +304,8 @@ nav:
           - 使用 tar.gz 文件安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/4.install-nebula-graph-from-tar.md
           - 使用 Docker Compose 部署: 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
           - 使用 RPM/DEB 包部署多机集群: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
-      - 设置企业版 License: 4.deployment-and-installation/deploy-license.md
-      - 安装单机版 Nebula Graph: 4.deployment-and-installation/standalone-deployment.md
+      - 部署单机版 Nebula Graph: 4.deployment-and-installation/standalone-deployment.md
+      - 设置企业版 License: 4.deployment-and-installation/deploy-license.md      
       - 管理服务: 4.deployment-and-installation/manage-service.md
       - 连接服务: 4.deployment-and-installation/connect-to-nebula-graph.md
       - 管理集群（Zone）: 4.deployment-and-installation/5.zone.md
