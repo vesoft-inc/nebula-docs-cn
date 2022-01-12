@@ -28,6 +28,7 @@ Execution succeeded
 ## 保留关键字
 
 ```ngql
+ACROSS
 ADD
 ALTER
 AND
