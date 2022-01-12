@@ -2,8 +2,6 @@
 
 单机版 Nebula Graph 是指单机器单进程的 Nebula Graph 服务。本文介绍单机版 Nebula Graph 的使用场景、安装步骤等。
 
-适用于测试环境受限于机器数量或仅希望验证功能。
-
 ## 背景信息
 
 传统的 Nebula Graph 架构由 3 个服务构成，每个服务都有可执行的二进制文件和对应的进程，进程之间通过 RPC 协议进行调用。用户可以使用这些二进制文件在一台或多台计算机上部署 Nebula Graph 集群。关于 Nebula Graph 的更多信息，参见[架构总览](../1.introduction/3.nebula-graph-architecture/1.architecture-overview.md)。
