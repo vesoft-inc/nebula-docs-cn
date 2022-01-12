@@ -1,6 +1,6 @@
 # 存算合并版 Nebula Graph
 
-存算合并版 Nebula Graph 是指单机器单进程的 Nebula Graph 服务。本文介绍存算合并版 Nebula Graph 的使用场景、安装步骤等。
+存算合并版 Nebula Graph 将存储服务（Meta和Storage）和计算服务（Graph）合并进一个进程，用于部署在单台机器上。本文介绍存算合并版 Nebula Graph 的使用场景、安装步骤等。
 
 !!! danger
 
