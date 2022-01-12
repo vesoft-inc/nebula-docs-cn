@@ -49,7 +49,7 @@
   +------------+
   ```
 
-4. 根据返回的任务 ID，执行命令`SHOW JOB <job_id>`检查任务状态。
+4. 根据返回的作业 ID，执行命令`SHOW JOB <job_id>`检查作业状态。
 
   ```ngql
   nebula> SHOW JOB 30;
@@ -85,19 +85,22 @@
   +------------------+------+----------+--------------+-----------------------------------+------------------------+
   ```
 
-如果有子任务失败，请重启任务，详情参见[作业管理](4.job-statements.md)。如果重做负载均衡仍然不能解决问题，请到 [Nebula Graph 社区](https://discuss.nebula-graph.com.cn/)寻求帮助。
+如果有子任务失败，请重启作业，详情参见[作业管理](4.job-statements.md)。如果重做负载均衡仍然不能解决问题，请到 [Nebula Graph 社区](https://discuss.nebula-graph.com.cn/)寻求帮助。
 
-## 停止负载均衡任务
+## 停止负载均衡作业
 
-停止负载均衡任务，请执行命令`STOP JOB <job_id>`。
+停止负载均衡作业，请执行命令`STOP JOB <job_id>`。
 
-- 如果没有正在执行的负载均衡任务，会返回错误。
+- 如果没有正在执行的负载均衡作业，会返回错误。
 
-- 如果有正在执行的负载均衡任务，会返回`Job stopped`。
+- 如果有正在执行的负载均衡作业，会返回`Job stopped`。
 
-`STOP JOB <job_id>`不会停止正在执行的子任务，而是取消所有后续子任务。用户可以执行命令`SHOW JOB <job_id>`检查停止的任务状态。
+!!! note
 
-一旦所有子任务都完成或停止，用户可以再次执行命令`RECOVER JOB <job_id>`重启任务。
+    - `STOP JOB <job_id>`不会停止正在执行的子任务，而是取消所有后续子任务。用户可以执行命令`SHOW JOB <job_id>`检查停止的作业状态。
+    - 宕机重启后，作业状态变为`QUEUE`，子任务如果之前是`INVALID`或`FAILED`，状态会置为`IN_PROGRESS`，如果是`IN_PROGRESS`或`SUCCEEDED`则保持不变。
+
+一旦所有子任务都完成或停止，用户可以再次执行命令`RECOVER JOB <job_id>`重启作业。
 
 ## 移除 Storage 服务器
 
