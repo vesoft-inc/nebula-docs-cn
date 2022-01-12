@@ -97,10 +97,10 @@
 
 !!! note
 
-    - `STOP JOB <job_id>`不会停止正在执行的子任务，而是取消所有后续子任务。用户可以执行命令`SHOW JOB <job_id>`检查停止的作业状态。
+    - `STOP JOB <job_id>`不会停止正在执行的子任务，而是取消所有后续子任务，状态会置为`INVALID`，然后等待正在执行的子任执行完毕根据结果置为`SUCCEEDED`或`FAILED`。用户可以执行命令`SHOW JOB <job_id>`检查停止的作业状态。
     - 宕机重启后，作业状态变为`QUEUE`，子任务如果之前是`INVALID`或`FAILED`，状态会置为`IN_PROGRESS`，如果是`IN_PROGRESS`或`SUCCEEDED`则保持不变。
 
-一旦所有子任务都完成或停止，用户可以再次执行命令`RECOVER JOB <job_id>`重启作业。
+一旦所有子任务都完成或停止，用户可以再次执行命令`RECOVER JOB <job_id>`重启作业，子任务按原有的状态继续执行。
 
 ## 移除 Storage 服务器
 
