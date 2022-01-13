@@ -85,7 +85,7 @@
   +------------------+------+----------+--------------+-----------------------------------+------------------------+
   ```
 
-如果有子任务失败，请重启作业，详情参见[作业管理](4.job-statements.md)。如果重做负载均衡仍然不能解决问题，请到 [Nebula Graph 社区](https://discuss.nebula-graph.com.cn/)寻求帮助。
+如果有子任务失败，请重启作业，详情参见[作业管理](../3.ngql-guide/18.operation-and-maintenance-statements/4.job-statements.md)。如果重做负载均衡仍然不能解决问题，请到 [Nebula Graph 社区](https://discuss.nebula-graph.com.cn/)寻求帮助。
 
 ## 停止负载均衡作业
 
