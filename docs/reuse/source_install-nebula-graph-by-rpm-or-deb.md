@@ -96,7 +96,7 @@ RPM 和 DEB 是 Linux 系统下常见的两种安装包格式，本文介绍如�
 
    + 登录 [Nebula Graph Releases](https://github.com/vesoft-inc/nebula/releases) 页面，确认需要的版本，单击** Assets**。
 
-   ![Select a Nebula Graph release version](https://github.com/vesoft-inc/nebula-docs/raw/master/docs-2.0/figs/4.deployment-and-installation/2.complie-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb/releases-page.png?raw=true)
+   ![Select a Nebula Graph release version](https://github.com/vesoft-inc/nebula-docs/raw/master/docs/figs/4.deployment-and-installation/2.complie-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb/releases-page.png?raw=true)
 
    + 在** Assets **区域找到机器运行所需的安装包，下载文件到机器上。
 
@@ -106,7 +106,7 @@ RPM 和 DEB 是 Linux 系统下常见的两种安装包格式，本文介绍如�
 
    + 登录 [Nebula Graph package](https://github.com/vesoft-inc/nebula/actions/workflows/package.yaml) 页面，单击顶部最新的** package**。
 
-   ![Select a Nebula Graph nightly version](https://github.com/vesoft-inc/nebula-docs/raw/master/docs-2.0/figs/4.deployment-and-installation/2.complie-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb/nightly-page.png?raw=true)
+   ![Select a Nebula Graph nightly version](https://github.com/vesoft-inc/nebula-docs/raw/master/docs/figs/4.deployment-and-installation/2.complie-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb/nightly-page.png?raw=true)
 
    + 在** Artifacts **区域找到机器运行所需的安装包，下载文件到机器上。
 -->

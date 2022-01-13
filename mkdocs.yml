@@ -2,8 +2,8 @@ site_name: Nebula Graph Database 手册
 site_description: Documentation for Nebula Graph Database
 site_author: Nebula Graph
 site_url: https://docs.nebula-graph.com.cn/
-edit_uri: 'edit/master/docs-2.0/'
-docs_dir: docs-2.0
+edit_uri: 'edit/master/docs/'
+docs_dir: docs
 
 # repository
 repo_name: 'vesoft-inc/nebula-docs-cn'
@@ -530,7 +530,7 @@ markdown_extensions:
   - mdx_truly_sane_lists
   - pymdownx.superfences
   - pymdownx.snippets:
-      base_path: docs-2.0/reuse/
+      base_path: docs/reuse/
   - pymdownx.arithmatex:
       generic: true
 
@@ -538,13 +538,13 @@ markdown_extensions:
 plugins:
   - search
   - macros:
-      include_dir: docs-2.0/reuse/
+      include_dir: docs/reuse/
   - git-revision-date-localized
 
   - exclude:
 # Exclude files with unix-style wildcards (globs)
       glob:
-# Exclude all files in a directory. The path starts with the directory name in docs-2.0, such as `20.appendix/*`.
+# Exclude all files in a directory. The path starts with the directory name in docs, such as `20.appendix/*`.
         - 7.data-security/2.backup-restore/*
         - nebula-flink/*
         - CHANGELOG.md
