@@ -117,15 +117,15 @@
 
 1. 执行如下命令清空指定 Storage 服务器：
 
-```ngql
-nebula> BALANCE IN ZONE REMOVE 192.168.10.104:9779,192.168.10.105:9779;
-```
+  ```ngql
+  nebula> BALANCE IN ZONE REMOVE 192.168.10.104:9779,192.168.10.105:9779;
+  ```
 
 2. 等待作业完成后，执行如下命令移除指定 Storage 服务：
 
-```ngql
-nebula> DROP HOSTS 192.168.10.104:9779,192.168.10.105:9779;
-```
+  ```ngql
+  nebula> DROP HOSTS 192.168.10.104:9779,192.168.10.105:9779;
+  ```
 
 ## 均衡 leader 分布
 
