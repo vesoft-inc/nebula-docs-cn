@@ -229,7 +229,7 @@ files:
 |`files.limit`|-|否|读取数据的行数限制。|
 |`files.inOrder`|-|否|是否按顺序在文件中插入数据行。如果为`false`，可以避免数据倾斜导致的导入速率降低。|
 |`files.type`|-|是|文件类型。|
-|`files.csv.withHeader`|`false`|是|是否有表头。详情请参见[关于 CSV 文件表头](#csvheader)。|
+|`files.csv.withHeader`|`false`|是|是否有表头。详情请参见[关于 CSV 文件表头](#csv_header)。|
 |`files.csv.withLabel`|`false`|是|是否有 LABEL。详情请参见[有表头配置说明](config-with-header.md)。|
 |`files.csv.delimiter`|`","`|是|指定 csv 文件的分隔符。只支持一个字符的字符串分隔符。|
 
