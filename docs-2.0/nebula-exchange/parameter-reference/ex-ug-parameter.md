@@ -184,6 +184,7 @@
 |参数|数据类型|默认值|是否必须|说明|
 |:---|:---|:---|:---|:---|
 |`tags.path`|string|-|是|指定需要生成 SST 文件的源文件的路径。|
+|`tags.repartitionWithNebula`|bool|`false`|否|生成 SST 文件时是否要基于 Nebula Graph 中图空间的 partition 进行数据重分区。开启该功能可减少 DOWNLOAD 和 INGEST SST 文件需要的时间。|
 
 ### Nebula Graph 源特有参数
 
@@ -217,6 +218,13 @@
 |`edges.ranking`|int|-|否|rank 值的列。没有指定时，默认所有 rank 值为`0`。|
 |`edges.batch`|int|`256`|是|单批次写入 Nebula Graph 的最大边数量。|
 |`edges.partition`|int|`32`|是|Spark 分片数量。|
+
+### 生成 SST 时的特有参数
+
+|参数|数据类型|默认值|是否必须|说明|
+|:---|:---|:---|:---|:---|
+|`edges.path`|string|-|是|指定需要生成 SST 文件的源文件的路径。|
+|`edges.repartitionWithNebula`|bool|`false`|否|生成 SST 文件时是否要基于 Nebula Graph 中图空间的 partition 进行数据重分区。开启该功能可减少 DOWNLOAD 和 INGEST SST 文件需要的时间。|
 
 ### Nebula Graph 源特有参数
 

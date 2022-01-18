@@ -279,6 +279,9 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
 
       # 指定 Spark 分片数量。
       partition: 32
+
+      # 生成 SST 文件时是否要基于 Nebula Graph 中图空间的 partition 进行数据重分区。
+      repartitionWithNebula: false
     }
 
     # 设置 Tag team 相关信息。
@@ -324,6 +327,9 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
 
       # 指定 Spark 分片数量。
       partition: 32
+
+      # 生成 SST 文件时是否要基于 Nebula Graph 中图空间的 partition 进行数据重分区。
+      repartitionWithNebula: false
     }
 
     # 如果需要添加更多点，请参考前面的配置进行添加。
@@ -380,6 +386,9 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
 
       # 指定 Spark 分片数量。
       partition: 32
+
+      # 生成 SST 文件时是否要基于 Nebula Graph 中图空间的 partition 进行数据重分区。
+      repartitionWithNebula: false
     }
 
     # 设置 Edge type serve 相关信息。
@@ -431,6 +440,9 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
 
       # 指定 Spark 分片数量。
       partition: 32
+
+      # 生成 SST 文件时是否要基于 Nebula Graph 中图空间的 partition 进行数据重分区。
+      repartitionWithNebula: false
     }
 
   ]
