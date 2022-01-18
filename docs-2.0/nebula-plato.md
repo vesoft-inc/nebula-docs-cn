@@ -36,9 +36,9 @@ Nebula Plato 支持的图计算算法如下。
 |  DegreeCentrality     | 度中心性          | 节点重要度   |
 |  TriangleCount        | 三角计数          | 图特征      |
 | LPA                   | 标签传播          |  社区发现    |
+| HANP                  | 标签传播进阶版   |  社区发现    |
 | WCC                   | 联通分量          |  社区发现    |
 | LOUVAIN               | 社区发现          |  社区发现   |
-| HANP                  | 跳衰减和节点偏好   |  社区发现    |
 | Clustering Coefficient| 聚集系数          |  聚类       |
 
 ## 安装 Nebula Plato
