@@ -264,6 +264,9 @@
         field: dst_player
       }
 
+      # 指定一个列作为 rank 的源（可选）。
+      #ranking: rank
+
       # Spark 分区数量
       partition:10
 
@@ -294,6 +297,10 @@
       target:{
         field: teamid
       }
+
+      # 指定一个列作为 rank 的源（可选）。
+      #ranking: rank
+
       partition:10
       batch:10
     }
