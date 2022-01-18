@@ -226,6 +226,8 @@
           field:offset
       }
 
+      # 指定一个列作为 rank 的源（可选）。
+      #ranking: rank
 
       # 单批次写入 Nebula Graph 的数据条数。
       batch: 10
@@ -256,6 +258,9 @@
       target:{
           field:value
       }
+
+      # 指定一个列作为 rank 的源（可选）。
+      #ranking: rank
 
       batch: 10
       partition: 10

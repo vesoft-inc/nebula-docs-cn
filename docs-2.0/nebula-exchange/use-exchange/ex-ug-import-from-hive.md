@@ -296,6 +296,9 @@ scala> sql("select playerid, teamid, start_year, end_year from basketball.serve"
         field: dst_player
       }
 
+      # 指定一个列作为 rank 的源（可选）。
+      #ranking: rank
+
       # 单批次写入 Nebula Graph 的最大数据条数。
       batch: 256
 
@@ -319,6 +322,10 @@ scala> sql("select playerid, teamid, start_year, end_year from basketball.serve"
       target: {
         field: teamid
       }
+
+      # 指定一个列作为 rank 的源（可选）。
+      #ranking: rank
+
       batch: 256
       partition: 32
     }

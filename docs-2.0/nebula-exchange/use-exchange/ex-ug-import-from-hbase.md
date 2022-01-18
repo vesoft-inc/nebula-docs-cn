@@ -267,6 +267,8 @@ ROW                                COLUMN+CELL
           field:dst_player
       }
 
+      # 指定一个列作为 rank 的源（可选）。
+      #ranking: rank
 
       # 单批次写入 Nebula Graph 的数据条数。
       batch: 256
@@ -296,6 +298,9 @@ ROW                                COLUMN+CELL
       target:{
           field:teamid
       }
+
+      # 指定一个列作为 rank 的源（可选）。
+      #ranking: rank
 
       batch: 256
       partition: 32
