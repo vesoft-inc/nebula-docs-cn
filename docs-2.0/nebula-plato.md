@@ -43,7 +43,7 @@ Nebula Plato 支持的图计算算法如下。
 
 ## 安装 Nebula Plato
 
-在多个机器安装多个 Nebula Plato 服务构成集群时，需要安装路径相同，并设置节点间 SSH 免密登录。
+在多个机器安装由多个 Nebula Plato 服务构成的集群时，需要安装路径相同，并设置节点间 SSH 免密登录。
 
 ### RPM包安装
 
