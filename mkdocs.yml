@@ -531,10 +531,10 @@ markdown_extensions:
 
 # Plugins
 plugins:
-#  - search
+  - search
   - macros:
       include_dir: docs-2.0/reuse/
-#  - git-revision-date-localized
+  - git-revision-date-localized
 
   - exclude:
 # Exclude files with unix-style wildcards (globs)
