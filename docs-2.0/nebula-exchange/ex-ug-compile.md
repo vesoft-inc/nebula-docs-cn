@@ -63,7 +63,7 @@
 !!! note
     JAR 文件版本号会因 Nebula Java Client 的发布版本而变化。用户可以在 [Releases 页面](https://github.com/vesoft-inc/nebula-java/releases)查看最新版本。
 
-迁移数据时，用户可以参考配置文件 [`target/classes/application.conf`](https://github.com/vesoft-inc/nebula-exchange/blob/master/nebula-exchange/src/main/resources/application.conf)。
+迁移数据时，用户可以参考配置文件 [`target/classes/application.conf`](https://github.com/vesoft-inc/nebula-exchange/blob/master/nebula-exchange_spark_2.4/src/main/resources/application.conf。
 
 ### 下载依赖包失败
 

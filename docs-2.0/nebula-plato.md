@@ -43,7 +43,7 @@ Nebula Plato 支持的图计算算法如下。
 
 ## 安装 Nebula Plato
 
-在多个机器安装多个 Nebula Plato 服务构成集群时，需要安装路径相同，并设置节点间 SSH 免密登录。
+在多个机器安装由多个 Nebula Plato 服务构成的集群时，需要安装路径相同，并设置节点间 SSH 免密登录。
 
 ### RPM包安装
 
@@ -58,7 +58,7 @@ sudo rpm -i nebula-plato-1.0-centos.x86_64.rpm  --prefix /home/xxx/nebula-plato
 1. 克隆仓库`plato`。
 
   ```bash
-  $ git clone -b {{plato.branch}} https://github.com/vesoft-inc/plato.t
+  $ git clone -b {{plato.branch}} https://github.com/vesoft-inc/plato.git
   ```
 
 2. 进入目录`plato`。
