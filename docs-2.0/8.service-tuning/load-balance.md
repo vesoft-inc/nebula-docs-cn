@@ -2,6 +2,11 @@
 
 用户可以使用`BALANCE`语句平衡分片和 Raft leader 的分布，或者清空某些 Storage 服务器方便进行维护。详情请参见 [BALANCE](../3.ngql-guide/18.operation-and-maintenance-statements/2.balance-syntax.md)。
 
+!!! compatibility "历史版本兼容性"
+
+    不支持`BALANCE DATA`命令。
+
+<!-- balance-3.1
 !!! danger
 
     `BALANCE`命令通过创建和执行一组子任务来迁移数据和均衡分片分布，不要停止集群中的任何机器或改变机器的 IP 地址，直到所有子任务完成，否则后续子任务会失败。
@@ -126,6 +131,7 @@
   ```ngql
   nebula> DROP HOSTS 192.168.10.104:9779,192.168.10.105:9779;
   ```
+-->
 
 ## 均衡 leader 分布
 

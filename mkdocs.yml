@@ -485,7 +485,7 @@ nav:
       - 配置 Nebula Graph 集群:
         - 自定义 Nebula Graph 集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
         - 回收 PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
-        - 均衡扩容后的 Storage 数据: nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
+#banlance-3.1  notice Exclude       - 均衡扩容后的 Storage 数据: nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
       - 升级 Nebula Graph 集群: nebula-operator/9.upgrade-nebula-cluster.md   
       - 连接 Nebula Graph 数据库: nebula-operator/4.connect-to-nebula-graph-service.md
       - 故障自愈: nebula-operator/5.operator-failover.md
@@ -545,6 +545,7 @@ plugins:
         - nebula-flink/*
         - CHANGELOG.md
         - spark-connector/*
+        - nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
 # Exclude the file with the following file name.
 #        - abc.md
 # Exclude files with regular expressions (regexes)
