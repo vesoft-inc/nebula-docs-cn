@@ -436,7 +436,6 @@ nav:
       - 安装与登录:
         - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
         - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
-        - 清除连接: nebula-explorer/deploy-connect/ex-ug-reset-connection.md
       - 操作指南:
         - 页面概览: nebula-explorer/operation-guide/ex-ug-page-overview.md
         - 查询探索: nebula-explorer/operation-guide/ex-ug-query-exploration.md
@@ -531,34 +530,34 @@ markdown_extensions:
       generic: true
 
 # Plugins
-plugins:
-  - search
-  - macros:
-      include_dir: docs-2.0/reuse/
-  - git-revision-date-localized
+#plugins:
+#  - search
+#  - macros:
+#      include_dir: docs-2.0/reuse/
+#  - git-revision-date-localized
 
-  - exclude:
+#  - exclude:
 # Exclude files with unix-style wildcards (globs)
-      glob:
+#      glob:
 # Exclude all files in a directory. The path starts with the directory name in docs-2.0, such as `20.appendix/*`.
-        - 7.data-security/2.backup-restore/*
-        - nebula-flink/*
-        - CHANGELOG.md
-        - spark-connector/*
+#        - 7.data-security/2.backup-restore/*
+#        - nebula-flink/*
+#        - CHANGELOG.md
+#        - spark-connector/*
 # Exclude the file with the following file name.
 #        - abc.md
 # Exclude files with regular expressions (regexes)
 #    regex:
 #      - '.*\.(tmp|bin|tar)$'
 
-  - with-pdf:
-      copyright: 2022 vesoft Inc.
-      cover_subtitle: v3.0.0
-      author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
-      cover: true
-      back_cover: true
-      cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
-      output_path: pdf/NebulaGraph-CN.pdf
+#  - with-pdf:
+#      copyright: 2022 vesoft Inc.
+#      cover_subtitle: v3.0.0
+#      author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
+#      cover: true
+#      back_cover: true
+#      cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
+#      output_path: pdf/NebulaGraph-CN.pdf
 
 extra_javascript:
   - js/version-select.js
