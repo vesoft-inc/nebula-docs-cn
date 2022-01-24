@@ -136,7 +136,7 @@ $ npm run start
 
   !!! caution
 
-        Studio {{studio.release}} 版本不需要依赖于 nebula-importer 和 nebula-http-gateway，故安装部署方式与 Studio v3.0.0 不同。
+        Studio {{studio.release}} 版本不需要依赖于 nebula-importer 和 nebula-http-gateway，故安装部署方式与 Studio v3.1.0 不同。
 
 4. 启动成功后，在浏览器地址栏输入 `http://ip address:7001`。
    
@@ -176,7 +176,7 @@ $ kill $(lsof -t -i :7001) # stop nebula-graph-studio
    | ----- | ----- | ----- |
    | [nebula-graph-studio-{{studio.release}}.x86_64.deb](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}.x86_64.deb) |  [nebula-graph-studio-{{studio.release}}.x86_64.deb.sha256](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}.x86_64.deb.sha256) | {{ nebula.release }} |
 
-2. 使用`sudo dpkg -i <rpm>`命令安装 DEB 包。
+2. 使用`sudo dpkg -i <deb>`命令安装 DEB 包。
 
    例如，安装 Studio {{studio.release}} 版本需要运行以下命令：
 
