@@ -69,3 +69,7 @@ License 文件包含生效时间、过期时间等信息。说明如下。
   !!! note
 
         周边工具的 License 文件上传位置，请参见[具体周边工具](../20.appendix/6.eco-tool-version.md)的说明文档。
+
+## 下一步
+
+[启动 Nebula Graph](manage-service.md)

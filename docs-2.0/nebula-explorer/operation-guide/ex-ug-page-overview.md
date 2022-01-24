@@ -12,7 +12,7 @@ Explorer 由导航栏和画布两大模块组成。
     
 ![explorer-overview-graph_space](../figs/explorer-overview-graphspace.png)
 
-## 左侧导航栏
+## 导航栏
 
 用户可以通过单击 Explorer 页面左侧的图标进行图数据导入、图数据分析与探索等操作。左侧导航栏的图标及描述如下：
 
