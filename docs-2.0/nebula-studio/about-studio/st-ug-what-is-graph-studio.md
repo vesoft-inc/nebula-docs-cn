@@ -4,7 +4,7 @@ Nebula Graph Studio（简称 Studio）是一款可以通过 Web 访问的开源�
 
 ## 发行版本
 
-可以使用以下四种方式安装部署 Studio：
+可以使用以下五种方式安装部署 Studio：
 
 - Docker 版本：用户可以使用 Docker 服务部署 Studio，并连接到 Nebula Graph 数据库。详细信息参考 [Docker 部署 Studio](../deploy-connect/st-ug-deploy.md)。
 - RPM 版本：用户可以使用 RPM 服务部署 Studio，并连接到 Nebula Graph 数据库。详细信息参考 [RPM 部署 Studio](../deploy-connect/st-ug-deploy.md)。
@@ -32,15 +32,13 @@ Studio 具备以下功能：
 
 如果有以下任一需求，都可以使用 Studio：
 
-- 有一份数据集，想进行可视化图探索或者数据分析。用户可以使用 Docker Compose 包部署 Nebula Graph，再使用 Studio 完成可视化操作。
+- 有一份数据集，想进行可视化图探索或者数据分析。用户可以使用 Docker Compose 部署 Nebula Graph，再使用 Studio 完成可视化操作。
 - 已经安装部署了 Nebula Graph 数据库，并且已经导入数据集，想使用 GUI 工具执行 nGQL 语句查询、可视化图探索或者数据分析。
 - 刚开始学习 nGQL（Nebula Graph Query Language），但是不习惯用命令行工具，更希望使用 GUI 工具查看语句输出的结果。
 
 ## 身份验证
 
-<!--
-对于云服务版 Studio，只有 Nebula Graph 实例的创建者以及被授予操作权限的 Nebula Graph Cloud Service 用户可以登录 Studio。详细信息参考 [Nebula Graph Cloud Service 用户手册](https://cloud-docs.nebula-graph.com.cn/cn/posts/manage-instances/dbaas-ug-connect-nebulastudio/ "点击前往 Nebula Graph Cloud Service 用户手册")。
--->
+对于云服务版 Studio，只有操作权限为 **ROOT** 和 **USER** 的 Nebula Graph Cloud 用户可以登录 Studio。详细信息参考 [配套的应用（Dashboard/Studio/Explorer）](../../nebula-cloud/5.solution/5.1.supporting-application.md)。
 
 因为 Nebula Graph 默认不启用身份验证，所以，一般情况下用户可以使用 `root` 账号和任意密码登录 Studio。
 

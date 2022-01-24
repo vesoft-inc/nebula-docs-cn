@@ -3,7 +3,7 @@
 Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云服务版 Studio 只能在 Nebula Graph Cloud Service 上使用。当在 Nebula Graph Cloud Service 上创建 Nebula Graph 实例时即自动完成云服务版本 Studio 的部署，一键直连即可使用，不需要自己部署。详细信息参考 [《Nebula Graph Cloud Service 用户手册》](https://cloud-docs.nebula-graph.com.cn/cn/posts/manage-instances/dbaas-ug-connect-nebulastudio/ "点击前往 Nebula Graph Cloud Service 用户手册")。
 -->
 
-本文介绍如何在本地通过 Docker、RPM 和 tar 包部署 Studio。
+本文介绍如何在本地通过 Docker、RPM、DEB 和 tar 包部署 Studio。
 
 !!! Note
 
@@ -113,7 +113,7 @@ $ npm run start
    | ---- | ---- |
    | 7001 | Studio 提供的 web 服务 |
 
-### 安装
+### 安装部署
 
 1. 根据需要下载 tar 包，建议选择最新版本。
 
@@ -127,21 +127,18 @@ $ npm run start
    tar -xvf nebula-graph-studio-{{studio.release}}.x86_64.tar.gz
    ```
 
-### 部署
-
-
-1. 部署 nebula-graph-studio 并启动。
+3. 部署 nebula-graph-studio 并启动。
    
    ```bash
    $ cd nebula-graph-studio
-   $ npm run start
+   $ ./server
    ```
 
   !!! caution
 
         Studio {{studio.release}} 版本不需要依赖于 nebula-importer 和 nebula-http-gateway，故安装部署方式与 Studio v3.0.0 不同。
 
-3. 启动成功后，在浏览器地址栏输入 `http://ip address:7001`。
+4. 启动成功后，在浏览器地址栏输入 `http://ip address:7001`。
    
    如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Studio。
 
@@ -151,16 +148,14 @@ $ npm run start
 
 用户可以采用 `kill pid` 的方式来关停服务：
 ```bash
-$ kill $(lsof -t -i :8080) # stop nebula-http-gateway
-$ cd nebula-graph-studio
-$ npm run stop # stop nebula-graph-studio
+$ kill $(lsof -t -i :7001) # stop nebula-graph-studio
 ```
 
 ## DEB 部署 Studio
 
 ### 前提条件
 
-在部署 tar 包安装的 Studio 之前，用户需要确认以下信息：
+在通过 DEB 部署安装 Studio 之前，用户需要确认以下信息：
 
 - Nebula Graph 服务已经部署并启动。详细信息，参考 [Nebula Graph 安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
 
@@ -175,7 +170,7 @@ $ npm run stop # stop nebula-graph-studio
 
 ### 安装
 
-1. 根据需要选择并下载 RPM 包，建议选择最新版本。常用下载链接如下：
+1. 根据需要选择并下载 DEB 包，建议选择最新版本。常用下载链接如下：
 
    | 安装包 | 检验和 | Nebula 版本 |
    | ----- | ----- | ----- |

@@ -6,6 +6,4 @@
 
 - Nebula Graph：一款开源图数据库管理系统（Graph Database Management System），擅长处理千亿个点和万亿条边的超大规模数据集。详细信息，参考 [Nebula Graph 用户手册](../../README.md "点击前往 Nebula Graph 用户手册")。
 
-<!--
-- Nebula Graph Cloud Service：Nebula Graph 图数据库的云服务平台（Database-as-a-Service，DBaaS），按需付费，支持一键部署 Nebula Graph，集成了 Nebula Graph Studio，并内置资源监控工具。详细信息，参考 [Nebula Graph Cloud Service 用户手册](https://cloud-docs.nebula-cloud.io/en/posts/toc/dbaas-ug-toc/ "点击前往 Nebula Graph Cloud Service 用户手册")。
--->
+- Nebula Graph Cloud：一款支持 Azure 平台，在云上搭建 Nebula Graph 数据库的产品，支持一键部署 Nebula Graph，集成了可视化图数据库管理工具 Nebula Graph Studio、Nebula Dashboard、Nebula Explorer。详细信息，参考 [什么是 Nebula Graph Cloud](../../nebula-cloud/1.what-is-cloud.md)。
