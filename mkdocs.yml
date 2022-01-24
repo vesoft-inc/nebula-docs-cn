@@ -438,8 +438,9 @@ nav:
         - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
       - 操作指南:
         - 页面概览: nebula-explorer/operation-guide/ex-ug-page-overview.md
-        - 查询探索: nebula-explorer/operation-guide/ex-ug-query-exploration.md
-        - 图探索拓展: nebula-explorer/operation-guide/ex-ug-graph-exploration.md
+        - 开始探索: nebula-explorer/operation-guide/ex-ug-query-exploration.md
+        - 节点筛选: nebula-explorer/operation-guide/node-filtering.md
+        - 探索拓展: nebula-explorer/operation-guide/ex-ug-graph-exploration.md
         - 画布操作: nebula-explorer/operation-guide/ex-ug-canvas.md
         - 关系列表: nebula-explorer/operation-guide/ex-ug-relationship-list.md
         - 快捷键: nebula-explorer/operation-guide/ex-ug-shortcuts.md
