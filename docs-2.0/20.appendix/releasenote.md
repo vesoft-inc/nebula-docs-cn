@@ -2,7 +2,11 @@
 
 ## Bug fix
 
-修复了`LOOKUP`中`YIELD`子句出现聚合函数时，Nebula Graph 连接会被中断的缺陷。[#3245](https://github.com/vesoft-inc/nebula/pull/3245)
+- 修复了 nGQL 语句因为未指定值而使用默认值时，内存没有释放的问题。[#3666](https://github.com/vesoft-inc/nebula/pull/3666)
+
+- 修复了 Cgroup v2 读取内存统计的问题。[#3792](https://github.com/vesoft-inc/nebula/pull/3792)
+
+- 修复了不同的图空间中存在相同的 Tag 或 Edge type 的内部 ID 时，创建全文索引失败的问题。[#3793](https://github.com/vesoft-inc/nebula/pull/3793)
 
 ## 历史版本
 
