@@ -2,7 +2,7 @@ name: Publish docs via GitHub Pages
 on:
   push:
     branches:
-      - v2.6.1
+      - v2.6.2
 
 jobs:
   deploy:
@@ -35,18 +35,18 @@ jobs:
       - name: mike list delete
         run: |
           mike list
-      - name: Mike Deploy master
-        run: |
-          mike deploy 2.6.1 -p --rebase
-          mike set-default 2.6.1 -p --rebase
-          mike list
+#      - name: Mike Deploy master
+#        run: |
+#          mike deploy 2.6.2 -p --rebase
+#          mike set-default 2.6.2 -p --rebase
+#          mike list
       - name: show git branch
         run: | 
           git branch
           git checkout gh-pages
       - name: Compress
         run: |
-          tar -vczf nebula-docs.tar.gz 2.6.1 versions.json *.html
+          tar -vczf nebula-docs.tar.gz 2.6.2 versions.json *.html
           
       - name: Transfer
         # uses: garygrossgarten/github-action-scp@release
