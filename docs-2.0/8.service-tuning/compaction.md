@@ -92,7 +92,7 @@ nebula> SHOW JOB <job_id>;
 
     ```bash
     # 读写速率限制为 20MB/S。
-    --rate_limit=20 (in MB/s)
+    --rocksdb_rate_limit=20 (in MB/s)
     ```
 
 ## FAQ
