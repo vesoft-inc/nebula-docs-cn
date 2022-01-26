@@ -23,8 +23,6 @@
 
 - 已知会造成数据丢失的 4 种场景，和 alter schema 以及 default value 相关，请参见 [github known issues](https://github.com/vesoft-inc/nebula-graph/issues/857)。
 
-- 所有的客户端均需要升级到兼容 Nebula Graph {{nebula.release}} 的版本，否则无法成功连接。
-
 - 数据目录不要使用软连接切换，避免失效。
 
 - 部分升级操作需要有 sudo 权限。
