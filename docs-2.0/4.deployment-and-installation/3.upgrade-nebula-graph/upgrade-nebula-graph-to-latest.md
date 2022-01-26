@@ -21,7 +21,7 @@
 
 - 硬盘空间要求：各机器硬盘剩余空间都需要是原数据目录的**三倍以上**。
 
-- 已知会造成数据丢失的 4 种场景，和 alter schema 以及 default value 相关，请参见 [github known issues](https://github.com/vesoft-inc/nebula-graph/issues/857)。
+- 已知会造成数据丢失的 4 种场景，和 alter schema 以及 default value 相关，参见 [github known issues](https://github.com/vesoft-inc/nebula-graph/issues/857)。
 
 - 数据目录不要使用软连接切换，避免失效。
 
@@ -41,7 +41,7 @@
 
 - 配置变化
 
-  少数配置参数发生改变。影响升级的参数将在本文的升级步骤中介绍，其它变化请参考版本发布说明和参数文档。
+  少数配置参数发生改变，详情参考版本发布说明和参数文档。
 
 !!! caution
 
