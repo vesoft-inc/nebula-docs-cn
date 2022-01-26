@@ -58,6 +58,11 @@
 
 - 备份原配置文件。
 
+- 统计升级前的数据量，供升级后比较：
+
+  1. 运行`SUBMIT JOB STATS`。
+  2. 运行`SHOW JOBS`并记录返回结果
+
 ## 升级步骤
 
 1. 停止所有 Nebula Graph 服务。
@@ -182,7 +187,7 @@ A: 有部分 glags 改变了，详情参见版本发布说明和配置说明文�
 
 Q：是否有工具或者办法验证新旧版本数据是否一致？
 
-A：没有。
+A：没有。如果只是检查数据量，可以在升级完成后再次运行`SUBMIT JOB STATS`和`SHOW STATS`统计数据量，并与升级之前做对比。
 
 Q: 为什么`SHOW HOSTS`提示 Storage `OFFLINE`并且`Leader count`是`0`？
 
