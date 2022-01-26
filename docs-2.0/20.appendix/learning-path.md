@@ -89,8 +89,7 @@
 
   | 文档                                                         |
   | ------------------------------------------------------------ |
-  | [升级 v2.0.x 至当前版本](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest/) |
-  | [升级 v2.0.0-GA 以下版本至当前版本](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest/) |
+  | [升级 Nebula Graph](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest/) |
 
 ### 3.3 配置Nebula
 
