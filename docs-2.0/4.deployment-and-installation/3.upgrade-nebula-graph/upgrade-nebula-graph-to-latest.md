@@ -4,10 +4,11 @@
 
 ## 适用版本
 
-本文适用于将 Nebula Graph 从 2.6.0 及之后的 2.x 版本升级到 {{nebula.release}} 版本。对于此前的版本：
+本文适用于将 Nebula Graph 从 2.0.0 及之后的 2.x 版本升级到 {{nebula.release}} 版本。不适用于 2.0.0 之前的历史版本（含 1.x 版本）。如需升级历史版本，将其根据最新的 2.x 版本文档升级到最新的 2.x 版本，然后根据本文的说明升级到 3.x 版本。
 
-- 是否适用于 2.0.0 GA、2.6.0及二者之间的版本有待确认（TODO）。
-- 不适用于 2.0.0 GA 之前的历史版本（含 1.x 版本）。如需升级历史版本，将其根据最新的 2.x 版本文档升级到最新的 2.x 版本，然后根据本文的说明升级到 3.x 版本。
+!!! caution
+
+    如需从 2.0.0 之前的版本（含 1.x 版本）升级到 {{nebula.release}}，还需找到 {{nebula.release}} 版本文件中`share/resources`目录下的`date_time_zonespec.csv`文件，将其复制到 Nebula Graph 安装路径下的相同目录内。也可从 [GitHub](https://github.com/vesoft-inc/nebula/blob/master/resources/date_time_zonespec.csv) 下载该文件。
 
 ## 升级限制
 
