@@ -61,7 +61,7 @@
 - 统计升级前的数据量，供升级后比较：
 
   1. 运行`SUBMIT JOB STATS`。
-  2. 运行`SHOW JOBS`并记录返回结果
+  2. 运行`SHOW JOBS`并记录返回结果。
 
 ## 升级步骤
 
@@ -77,7 +77,7 @@
 
   !!! Note
 
-        如果超过 20 分钟不能停止服务，**放弃本次升级**，并在论坛提交问题。
+        如果超过 20 分钟不能停止服务，放弃本次升级，在[论坛](https://discuss.nebula-graph.com.cn/)或 [GitHub](https://github.com/vesoft-inc/nebula/issues) 提问。
 
 2. 在**升级准备**中解压 TAR 包的目的路径下，用此处`bin`目录中的新版二进制文件替换 Nebula Graph 安装路径下`bin`目录中的旧版二进制文件。
 
@@ -89,7 +89,7 @@
   - 为`session_idle_timeout_secs`参数设置一个在 [1,604800] 区间的值，推荐值为 28800。
   - 为`client_idle_timeout_secs`参数设置一个在 [1,604800] 区间的值，推荐值为 28800。
 
-  2.x 版本该参数的默认值为0，不在新版本的取值范围内，如不修改会升级失败。详细参数说明参见[Graph 服务配置](../../5.configurations-and-logs/1.configurations/3.graph-config.md)
+  这些参数在 2.x 版本中的默认值不在新版本的取值范围内，如不修改会升级失败。详细参数说明参见[Graph 服务配置](../../5.configurations-and-logs/1.configurations/3.graph-config.md)。
 
 4. 启动所有 Meta 服务。
 
