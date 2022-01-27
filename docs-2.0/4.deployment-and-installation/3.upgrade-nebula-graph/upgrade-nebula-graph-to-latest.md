@@ -56,7 +56,7 @@
 
 - 根据 Storage 和 Meta 服务配置中`data_path`参数的值找到数据文件的位置，并备份数据。默认路径为`nebula/data/storage`和`nebula/data/meta`。
 
-- 备份原配置文件。
+- 备份配置文件。
 
 - 统计升级前的数据量，供升级后比较：
 
@@ -84,16 +84,12 @@
   !!! note
         每台部署了 Nebula Graph 服务的机器上都要更新相应服务的二进制文件。
 
-3. 处理配置文件：
+3. 编辑所有 Graph 服务的配置文件，修改以下参数以适应新版本的取值范围。如参数值已在规定范围内，忽略该步骤。
 
-  1. 在 TAR 包解压路径下的`etc`目录中，删除配置模板文件名中的`.default`，获得新版配置文件。
+  - 为`session_idle_timeout_secs`参数设置一个在 [1,604800] 区间的值，推荐值为 28800。
+  - 为`client_idle_timeout_secs`参数设置一个在 [1,604800] 区间的值，推荐值为 28800。
 
-  2. 如果修改过旧版 Nebula Graph 配置文件，则在新版配置文件中也做相应的修改。建议让之前未修改过的参数继续保留默认值；如未修改过旧版配置文件，略过该步骤。
-
-  3. 用新版配置文件替换旧版配置文件。
-
-  !!! note
-        每台部署了 Nebula Graph 服务的机器上都要更新相应服务的配置文件。
+  2.x 版本该参数的默认值为0，不在新版本的取值范围内，如不修改会升级失败。详细参数说明参见[Graph 服务配置](../../5.configurations-and-logs/1.configurations/3.graph-config.md)
 
 4. 启动所有 Meta 服务。
 
@@ -102,6 +98,8 @@
   ```
 
   启动后，Meta 服务选举 leader，并更新 Zone。该过程耗时数秒。
+
+  启动后可以任意启动一个 Graph 服务节点，使用 Nebula Graph 连接该节点并运行[`SHOW HOSTS meta`](../../3.ngql-guide/7.general-query-statements/6.show/6.show-hosts.md)和[`SHOW META LEADER`](../../3.ngql-guide/7.general-query-statements/6.show/19.show-meta-leader.md)，如果能够正常返回 Meta 节点的状态，则 Meta 服务启动成功。
 
   !!! note
         如果启动异常，放弃本次升级，并在[论坛](https://discuss.nebula-graph.com.cn/)或 [GitHub](https://github.com/vesoft-inc/nebula/issues) 提问。
@@ -199,3 +197,5 @@ A：可能的原因有：
     ```
     ADD HOSTS 192.168.10.100:9779, 192.168.10.101:9779, 192.168.10.102:9779;
     ```
+
+  如果有多个 Meta 服务节点，手动`ADD HOSTS`之后，部分 Storage 节点需等待数个心跳（`heartbeat_interval_secs`）的时间才能正常连接到集群。
