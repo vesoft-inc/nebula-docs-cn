@@ -14,9 +14,9 @@
 
 以下示例为筛选画布中年龄大于 33 岁的球员。
 
-1. 在左侧导航栏中，单击**节点筛选**图标![node-filter](../figs/nav-filter.png)。
+1. 在左侧导航栏中，单击**节点筛选**图标![node-filter](figs/nav-filter.png)。
 2. 单击**添加筛选条件**，然后填入对应值（如下图所示）。
 3. （可选）重复第二步骤，添加多个筛选条件。
 4. 打开**启动筛选**开关。
 
-![](../figs/node-filtering.png)
+![](figs/node-filtering.png)

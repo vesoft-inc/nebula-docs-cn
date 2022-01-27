@@ -432,20 +432,19 @@ nav:
       - 常见问题 FAQ: nebula-dashboard-ent/8.faq.md
 
   - Nebula Explorer:
-      - 什么是 Nebula Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
-      - 安装与登录:
-        - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
-        - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
-      - 操作指南:
-        - 页面概览: nebula-explorer/operation-guide/ex-ug-page-overview.md
-        - 开始探索: nebula-explorer/operation-guide/ex-ug-query-exploration.md
-        - 节点筛选: nebula-explorer/operation-guide/node-filtering.md
-        - 探索拓展: nebula-explorer/operation-guide/ex-ug-graph-exploration.md
-        - 画布功能: 
-          - 画布概览: nebula-explorer/operation-guide/canvas-operations/canvas-overview.md
-          - 可视化模式: nebula-explorer/operation-guide/canvas-operations/visualization-mode.md
-          - 画布快照: nebula-explorer/operation-guide/canvas-operations/canvas-snapshot.md
-        - 基本操作和快捷键: nebula-explorer/operation-guide/ex-ug-shortcuts.md
+    - 什么是 Nebula Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
+    - 安装与登录:
+      - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
+      - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
+    - 页面概览: nebula-explorer/ex-ug-page-overview.md
+    - 开始探索: nebula-explorer/ex-ug-query-exploration.md
+    - 节点筛选: nebula-explorer/node-filtering.md
+    - 探索拓展: nebula-explorer/ex-ug-graph-exploration.md
+    - 画布功能: 
+      - 画布概览: nebula-explorer/canvas-operations/canvas-overview.md
+      - 可视化模式: nebula-explorer/canvas-operations/visualization-mode.md
+      - 画布快照: nebula-explorer/canvas-operations/canvas-snapshot.md
+    - 基本操作和快捷键: nebula-explorer/ex-ug-shortcuts.md
 
   - Nebula Importer:
     - 使用 Nebula Importer: nebula-importer/use-importer.md
@@ -532,38 +531,38 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
 
-# Plugins
-plugins:
-  - search
-  - macros:
-      include_dir: docs-2.0/reuse/
-  - git-revision-date-localized
+# # Plugins
+# plugins:
+#   - search
+#   - macros:
+#       include_dir: docs-2.0/reuse/
+#   - git-revision-date-localized
 
-  - exclude:
-# Exclude files with unix-style wildcards (globs)
-      glob:
-# Exclude all files in a directory. The path starts with the directory name in docs-2.0, such as `20.appendix/*`.
-        - 7.data-security/2.backup-restore/*
-        - nebula-flink/*
-        - CHANGELOG.md
-        - spark-connector/*
-        - nebula-operator/*
-        - 4.deployment-and-installation/5.zone.md
-        - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
-# Exclude the file with the following file name.
-#        - abc.md
-# Exclude files with regular expressions (regexes)
-#    regex:
-#      - '.*\.(tmp|bin|tar)$'
+#   - exclude:
+# # Exclude files with unix-style wildcards (globs)
+#       glob:
+# # Exclude all files in a directory. The path starts with the directory name in docs-2.0, such as `20.appendix/*`.
+#         - 7.data-security/2.backup-restore/*
+#         - nebula-flink/*
+#         - CHANGELOG.md
+#         - spark-connector/*
+#         - nebula-operator/*
+#         - 4.deployment-and-installation/5.zone.md
+#         - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
+# # Exclude the file with the following file name.
+# #        - abc.md
+# # Exclude files with regular expressions (regexes)
+# #    regex:
+# #      - '.*\.(tmp|bin|tar)$'
 
-  - with-pdf:
-      copyright: 2022 vesoft Inc.
-      cover_subtitle: v3.0.0
-      author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
-      cover: true
-      back_cover: true
-      cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
-      output_path: pdf/NebulaGraph-CN.pdf
+#   - with-pdf:
+#       copyright: 2022 vesoft Inc.
+#       cover_subtitle: v3.0.0
+#       author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
+#       cover: true
+#       back_cover: true
+#       cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
+#       output_path: pdf/NebulaGraph-CN.pdf
 
 extra_javascript:
   - js/version-select.js

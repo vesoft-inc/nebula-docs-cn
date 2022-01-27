@@ -6,9 +6,9 @@
 
 !!! compatibility "历史版本兼容性"
 
-    针对 3.0.0 以下版本的 Nebula Graph，需要创建索引后才可以使用查询功能。更多信息，参见[创建索引](../../3.ngql-guide/14.native-index-statements/1.create-native-index.md)。
+    针对 3.0.0 以下版本的 Nebula Graph，需要创建索引后才可以使用查询功能。更多信息，参见[创建索引](../3.ngql-guide/14.native-index-statements/1.create-native-index.md)。
 
-用户进行图数据的探索和分析前，首先需要先单击**开始**图标![query](../figs/nav-query2.png)然后查询目标数据。查询到的数据会显示在画布中。查询方式如下：
+用户进行图数据的探索和分析前，首先需要先单击**开始**图标![query](figs/nav-query2.png)然后查询目标数据。查询到的数据会显示在画布中。查询方式如下：
 
 - VID 查询
 - Tag 查询
@@ -27,13 +27,13 @@
 
 以下以图空间`nba`及相关数据为例演示如何查询数据。
 
-![VID QUERY](../figs/vid_query.gif)
+![VID QUERY](figs/vid_query.gif)
 
 ## Tag 查询
 
 !!! note
 
-使用 **Tag 查询** 方式查询数据，确保对应的图空间中已存在相应的 Tag 和索引。更多信息，参见[创建 Tag](../../3.ngql-guide/10.tag-statements/1.create-tag.md)和[创建索引](../../3.ngql-guide/14.native-index-statements/1.create-native-index.md)。
+使用 **Tag 查询** 方式查询数据，确保对应的图空间中已存在相应的 Tag 和索引。更多信息，参见[创建 Tag](../3.ngql-guide/10.tag-statements/1.create-tag.md)和[创建索引](../3.ngql-guide/14.native-index-statements/1.create-native-index.md)。
 
 用户可以对输出的结果进行数量上的限制和对结果进行过滤。以下查询 10 个年龄大于 30 岁，且不等于 40 岁的球员。
 

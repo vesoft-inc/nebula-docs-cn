@@ -6,7 +6,7 @@
 
 在连接 Nebula Graph 数据库前，用户需要确认以下信息：
 
-- 已经安装部署了 Explorer。详细信息参考[部署 Explorer](../deploy-connect/ex-ug-connect.md)。
+- 已经安装部署了 Explorer。详细信息，参见[部署 Explorer](../deploy-connect/ex-ug-deploy.md)。
 
 - Nebula Graph 的 Graph 服务本机 IP 地址以及服务所用端口。默认端口为 `9669`。
 
@@ -41,6 +41,6 @@
 
 ## 断开连接
 
-在页面左侧工具栏中，选择设置 ![icon](../figs/nav-setup.png)图标 > 清空连接。
+在页面左侧工具栏中，选择设置![icon](../figs/nav-setup.png)图标 > 清空连接。
 
 如果浏览器上显示**配置数据库**页面，表示 Explorer 已经成功断开了与 Nebula Graph 数据库的连接。

@@ -173,7 +173,7 @@ $ kill $(lsof -t -i :7002)
 
 在浏览器窗口中看到以下登录界面表示已经成功部署并启动了 Explorer。
 
-![Nebula Explorer 登录页面](../figs/ex-ug-002-1.png)
+![Nebula Explorer 登录页面](../figs/explorer_deploy.png)
 
 !!! note
 

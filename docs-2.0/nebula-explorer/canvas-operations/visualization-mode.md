@@ -6,13 +6,13 @@ Explorer 支持 **2D** 和 **3D** 2 种可视化模式探索数据。2D 模式�
 
     3D 模式下，不可进行图数据的操作。
 
-![visualizaiton_mode](../../figs/visualization.gif)
+![visualizaiton_mode](../figs/visualization.gif)
 
 ## 2D 模式
 
 2D 模式下可对画布上的数据进行探索操作：
 
-![2D](../../figs/2d-mode.png)
+![2D](../figs/2d-mode.png)
 
 | 参数       | 说明                                                         |
 | ---------- | ------------------------------------------------------------ |
@@ -25,7 +25,7 @@ Explorer 支持 **2D** 和 **3D** 2 种可视化模式探索数据。2D 模式�
 
 ## 3D 模式
 
-![2D](../../figs/3d-mode.png)
+![2D](../figs/3d-mode.png)
 
 在页面左上方，单击视图切换开关可切换至 3D 视图模式。3D 视图模式下，可切换回到 2D 图探索模式，并且不会对 2D 的探索产生任何副作用。
 
@@ -37,4 +37,4 @@ Explorer 支持 **2D** 和 **3D** 2 种可视化模式探索数据。2D 模式�
 
 !!! compatibility "历史版本兼容性"
 
-    针对 3.0.0 以下版本的 Nebula Graph，需要创建索引后才可以使用鸟瞰功能。更多信息，参见[创建索引](../../../3.ngql-guide/14.native-index-statements/1.create-native-index.md)。
+    针对 3.0.0 以下版本的 Nebula Graph，需要创建索引后才可以使用鸟瞰功能。更多信息，参见[创建索引](../../3.ngql-guide/14.native-index-statements/1.create-native-index.md)。
