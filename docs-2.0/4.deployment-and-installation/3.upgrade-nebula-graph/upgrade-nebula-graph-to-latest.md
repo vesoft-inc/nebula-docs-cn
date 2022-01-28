@@ -50,16 +50,16 @@
 
 ## 升级准备
 
-- 根据操作系统和架构下载 Nebula Graph {{nebula.release}} 版本的 TAR 文件并解压，升级过程中需要其中的二进制文件和配置文件。TAR 包下载地址参见 [Download 页面](https://nebula-graph.io/download/)。
+- 根据操作系统和架构下载 Nebula Graph {{nebula.release}} 版本的 TAR 文件并解压，升级过程中需要其中的二进制文件。TAR 包下载地址参见 [Download 页面](https://nebula-graph.io/download/)。
 
   !!! note
-        获取新版本二进制文件和配置文件有多种，除了解压 TAR 文件，还可以编译源码或者下载RPM/DEB包。
+        编译源码或者下载RPM/DEB包也可以获取新版二进制文件。
 
 - 根据 Storage 和 Meta 服务配置中`data_path`参数的值找到数据文件的位置，并备份数据。默认路径为`nebula/data/storage`和`nebula/data/meta`。
 
 - 备份配置文件。
 
-- 统计升级前的数据量，供升级后比较：
+- 统计所有图空间升级前的数据量，供升级后比较。统计方法如下：
 
   1. 运行`SUBMIT JOB STATS`。
   2. 运行`SHOW JOBS`并记录返回结果。
@@ -74,7 +74,7 @@
 
   `nebula_install_path`代表 Nebula Graph 的安装目录。
 
-  `storaged` 进程 flush 数据可能要等待 1 分钟。运行命令后可继续运行`nebula.service status all`命令以确认所有服务都已停止。启动和停止服务的详细说明参见[管理服务](../manage-service.md)。
+  `storaged` 进程 flush 数据要等待约 1 分钟。运行命令后可继续运行`nebula.service status all`命令以确认所有服务都已停止。启动和停止服务的详细说明参见[管理服务](../manage-service.md)。
 
   !!! Note
 
@@ -108,7 +108,7 @@
 5. 使用`bin`目录下的新版 db_upgrader 文件升级数据格式。
 
   !!! caution
-        本步骤会备份 Storage 服务中保存的数据，但为防止备份失败，升级数据格式前，务必按照本文**升级准备**部分的说明备份 Meta 数据和 Storage 数据，确保数据安全。
+        本步骤会备份 Storage 服务中保存的数据，但为防止备份失败，升级数据格式前，务必按照本文**升级准备**部分的说明备份数据。
 
   命令语法：
 
@@ -120,7 +120,7 @@
   --upgrade_version=2:3
   ```
 
-  - `old_storage_data_path`代表数据的存储路径，由 Graph 服务和 Meta 服务配置文件中的`data_path`参数定义。
+  - `old_storage_data_path`代表数据的存储路径，由 Storage 服务配置文件中的`data_path`参数定义。
   - `data_backup_path`代表自定义的数据备份路径。
   - `meta_server_ip`和`port`分别代表 Meta 服务各节点的 IP 地址和端口号。
   - `2:3`代表从 Nebula Graph 2.x 版本升级到 3.x 版本。
@@ -158,7 +158,7 @@
   nebula> MATCH (v) RETURN v LIMIT 5;
   ```
 
-  也可根据 3.0.0 版本的新功能测试，新功能列表参见[发布说明](../../20.appendix/releasenote.md)。
+  也可根据 {{nebula.release}} 版本的新功能测试，新功能列表参见[发布说明](../../20.appendix/releasenote.md)。
 
 ## 升级失败回滚
 
@@ -200,3 +200,7 @@ A：可能的原因有：
     ```
 
   如果有多个 Meta 服务节点，手动`ADD HOSTS`之后，部分 Storage 节点需等待数个心跳（`heartbeat_interval_secs`）的时间才能正常连接到集群。
+
+Q：为什么升级后用`SHOW JOBS`查询到的 Job 的 ID 与升级前一样，但 Job 名称等信息不同了？
+
+A： Nebula Graph 2.5.0 版本调整了 Job 的定义，详情参见 [Pull request](https://github.com/vesoft-inc/nebula-common/pull/562/files)。如果是从 2.5.0 之前的版本升级，会出现该问题。
