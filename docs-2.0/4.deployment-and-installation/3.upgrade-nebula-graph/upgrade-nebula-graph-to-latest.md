@@ -98,7 +98,7 @@
   <nebula_install_path>/scripts/nebula-metad.service start
   ```
 
-  启动后，Meta 服务选举 leader，并更新 Zone。该过程耗时数秒。
+  启动后，Meta 服务选举 leader。该过程耗时数秒。
 
   启动后可以任意启动一个 Graph 服务节点，使用 Nebula Graph 连接该节点并运行[`SHOW HOSTS meta`](../../3.ngql-guide/7.general-query-statements/6.show/6.show-hosts.md)和[`SHOW META LEADER`](../../3.ngql-guide/7.general-query-statements/6.show/19.show-meta-leader.md)，如果能够正常返回 Meta 节点的状态，则 Meta 服务启动成功。
 
@@ -188,18 +188,23 @@ Q：是否有工具或者办法验证新旧版本数据是否一致？
 
 A：没有。如果只是检查数据量，可以在升级完成后再次运行`SUBMIT JOB STATS`和`SHOW STATS`统计数据量，并与升级之前做对比。
 
-Q: 为什么`SHOW HOSTS`提示 Storage `OFFLINE`并且`Leader count`是`0`？
+Q: Storage `OFFLINE`并且`Leader count`是`0`怎么处理？
 
-A：可能的原因有：
+A：运行以下命令手动添加 Storage 主机：
 
-- Meta 没有启动成功或者升级失败，导致 Storage 节点没有自动加入默认 Zone。
-- Meta 升级成功但是没有自动把 Storage 节点加入默认 Zone。连接 Nebula Graph 并手动将 Storage 节点[加入默认 Zone](../5.zone.md)，例如：
+```ngql
+ADD HOSTS <ip>:<port>[, <ip>:<port> ...];
+```
 
-    ```
-    ADD HOSTS 192.168.10.100:9779, 192.168.10.101:9779, 192.168.10.102:9779;
-    ```
+例如：
 
-  如果有多个 Meta 服务节点，手动`ADD HOSTS`之后，部分 Storage 节点需等待数个心跳（`heartbeat_interval_secs`）的时间才能正常连接到集群。
+```
+ADD HOSTS 192.168.10.100:9779, 192.168.10.101:9779, 192.168.10.102:9779;
+```
+
+如果有多个 Meta 服务节点，手动`ADD HOSTS`之后，部分 Storage 节点需等待数个心跳（`heartbeat_interval_secs`）的时间才能正常连接到集群。
+
+如果添加 Storage 主机后问题仍然存在，在[论坛](https://discuss.nebula-graph.com.cn/)或 [GitHub](https://github.com/vesoft-inc/nebula/issues) 提问。
 
 Q：为什么升级后用`SHOW JOBS`查询到的 Job 的 ID 与升级前一样，但 Job 名称等信息不同了？
 

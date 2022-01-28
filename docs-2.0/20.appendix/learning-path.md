@@ -136,11 +136,13 @@
   | ------------------------------------------------------------ |
   |[创建快照](https://docs.nebula-graph.com.cn/{{nebula.release}}/7.data-security/3.manage-snapshot/#_5)|
 
+<!--
 - 资源隔离
 
   | 文档 |
   | ------------------------------------------------------------ |
   |[Group & Zone](https://docs.nebula-graph.com.cn/{{nebula.release}}/7.data-security/5.zone/)|
+-->
 
 - SSL 加密
 
