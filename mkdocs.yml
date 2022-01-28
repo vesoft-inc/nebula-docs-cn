@@ -306,10 +306,11 @@ nav:
       - 管理服务: 4.deployment-and-installation/manage-service.md
       - 连接服务: 4.deployment-and-installation/connect-to-nebula-graph.md
       - 管理 Storage 主机: 4.deployment-and-installation/manage-storage-host.md
-      - 管理逻辑机架（Zone）: 4.deployment-and-installation/5.zone.md
+#      - 管理逻辑机架（Zone）: 4.deployment-and-installation/5.zone.md
+
       - 升级版本:
-          - 升级历史版本至当前版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
-          - 升级 v2.0.x 至当前版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
+          - 升级 Nebula Graph 版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
+#          - 升级 v2.0.x 至当前版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
       - 卸载 Nebula Graph: 4.deployment-and-installation/4.uninstall-nebula-graph.md
 
   - 配置与日志:
@@ -442,9 +443,11 @@ nav:
         - 开始探索: nebula-explorer/operation-guide/ex-ug-query-exploration.md
         - 节点筛选: nebula-explorer/operation-guide/node-filtering.md
         - 探索拓展: nebula-explorer/operation-guide/ex-ug-graph-exploration.md
-        - 画布操作: nebula-explorer/operation-guide/ex-ug-canvas.md
-        - 关系列表: nebula-explorer/operation-guide/ex-ug-relationship-list.md
-        - 快捷键: nebula-explorer/operation-guide/ex-ug-shortcuts.md
+        - 画布功能: 
+          - 画布概览: nebula-explorer/operation-guide/canvas-operations/canvas-overview.md
+          - 可视化模式: nebula-explorer/operation-guide/canvas-operations/visualization-mode.md
+          - 画布快照: nebula-explorer/operation-guide/canvas-operations/canvas-snapshot.md
+        - 基本操作和快捷键: nebula-explorer/operation-guide/ex-ug-shortcuts.md
 
   - Nebula Importer:
     - 使用 Nebula Importer: nebula-importer/use-importer.md
@@ -547,6 +550,8 @@ plugins:
         - CHANGELOG.md
         - spark-connector/*
         - nebula-operator/*
+        - 4.deployment-and-installation/5.zone.md
+        - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
 # Exclude the file with the following file name.
 #        - abc.md
 # Exclude files with regular expressions (regexes)

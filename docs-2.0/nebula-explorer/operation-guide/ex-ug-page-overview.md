@@ -45,4 +45,4 @@ Explorer 由导航栏和画布两大模块组成。
 - 缩略图
 - 数据概览
 
-更多详细信息参考[画布操作](../operation-guide/ex-ug-canvas.md)。
+更多信息，参见[画布操作](canvas-operations/canvas-overview.md)。
