@@ -33,15 +33,20 @@
 
 !!! note
 
-使用 **Tag 查询** 方式查询数据，确保对应的图空间中已存在相应的 Tag 和索引。更多信息，参见[创建 Tag](../3.ngql-guide/10.tag-statements/1.create-tag.md)和[创建索引](../3.ngql-guide/14.native-index-statements/1.create-native-index.md)。
+使用 **Tag 查询** 方式查询数据，确保对应的图空间中已存在相应的 Tag 和索引。更多信息，参见[创建 Tag](../3.ngql-guide/10.tag-statements/1.create-tag.md) 和[创建索引](../3.ngql-guide/14.native-index-statements/1.create-native-index.md)。
 
-用户可以对输出的结果进行数量上的限制和对结果进行过滤。以下查询 10 个年龄大于 30 岁，且不等于 40 岁的球员。
+用户可以对输出的结果进行数量上的限制和对结果进行过滤。
 
-<!--补充录屏-->
+以下查询 10 个年龄大于 30 岁，且不等于 40 岁的球员。
+
+![tag](figs/query_tag.png)
 
 ## 子图查询
 
 **子图查询**方式的必选值为 VID。用户可以输入一个或多个 VID，指定查询的步数、边类型及流入流出的方向查询子图数据。以下给出 VID 值为 `Kings`和`Suns`，步数为`2` ，边类型为`server`和`like`的入边的示例。
 
+!!! note
 
-<!--补充录屏-->
+    当输入多个 VID 时，VID 之间以`Enter`键隔开。
+
+![tag](figs/query_subgraph.png)

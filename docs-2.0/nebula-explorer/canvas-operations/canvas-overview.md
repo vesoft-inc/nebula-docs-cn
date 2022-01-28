@@ -2,17 +2,9 @@
 
 用户可在画布中可视化地探索图数据。本文主要介绍画布的组成及相关功能。
 
+画布概览图如下：
+
 ![canvas](../figs/canvas-overview.png)
-
-画布的组成如下：
-
-- 顶部页签
-- 可视化模式
-- 数据存储
-- 搜索框
-- 多布局
-- 缩略图
-- 数据概览
 
 ## 顶部页签
 
@@ -31,9 +23,12 @@
 
 用户可以通过创建快照，或以图片、CSV 文件的方式导出画布以存储当前画布数据。
 
-在页面右上方单击![PNG](../figs/topbar-exportPNG.png)以图片形式存储画布数据；单击![CSV](../figs/topbar-exportCSV.png)以 CSV 文件的方式存储画布数据。
+在页面右上方：
 
-关于快照的更多信息，参见[画布快照](canvas-snapshot.md)。
+- 单击![snapshot](../figs/graph-snapshot.png)创建快照。更多信息，参见[画布快照](canvas-snapshot.md)。
+- 单击![PNG](../figs/topbar-exportPNG.png)以图片形式存储画布数据。
+- 单击![CSV](../figs/topbar-exportCSV.png)以 CSV 文件的方式存储画布数据。
+
 
 ## 搜索框
 

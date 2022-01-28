@@ -28,7 +28,9 @@ Nebula Explorer （简称 Explorer）是一款可以通过 Web 访问的可视�
 
 - [探索拓展](../ex-ug-graph-exploration.md)：支持对多个点进行拓展操作、查询多个点的共同邻居、查询起点到终点之间的路径等操作。
 
-- [多样展示](../ex-ug-page-overview.md)：支持修改画布中点的颜色和图标，突出关键节点；也支持使用不同布局模式展示数据。
+- [多样展示](../canvas-operations/canvas-overview.md)：支持修改画布中点的颜色和图标，突出关键节点；也支持使用不同布局模式展示数据。
+
+- [数据存储](../canvas-operations/canvas-snapshot.md)：支持保存和导入画布数据。
 
 <!-- - 便于筛选：支持基于自定义条件灵活筛选需要展示的数据。-->
 

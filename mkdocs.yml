@@ -444,6 +444,7 @@ nav:
       - 画布概览: nebula-explorer/canvas-operations/canvas-overview.md
       - 可视化模式: nebula-explorer/canvas-operations/visualization-mode.md
       - 画布快照: nebula-explorer/canvas-operations/canvas-snapshot.md
+    - 控制台: nebula-explorer/explorer-console.md
     - 基本操作和快捷键: nebula-explorer/ex-ug-shortcuts.md
 
   - Nebula Importer:

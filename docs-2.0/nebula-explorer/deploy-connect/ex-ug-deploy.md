@@ -12,7 +12,7 @@
 | --- | --- |
 | 2.5.x | 2.0.0 |
 | 2.6.x | 2.1.0 |
-| 2.5.X ~ 3.0.0| 2.2.0|
+| 2.5.x ~ 3.0.0| 2.2.0|
 
 ## RPM 部署
 
@@ -82,12 +82,14 @@
 ### 启停服务
 
 支持使用 systemctl 服务控制项目启停。
+
 ```bash
 $ systemctl status nebula-explorer #查看服务状态
 $ systemctl stop nebula-explorer #停止服务
 $ systemctl start nebula-explorer #启动服务
 ```
-也可以在安装目录下使用以下命令，手动启动或停止服务：
+也可以在安装目录下使用以下命令，手动启动或停止服务。
+
 ```bash
 $ cd ./scripts/rpm
 $ bash ./start.sh #启动服务
@@ -101,7 +103,7 @@ $ bash ./stop.sh #停止服务
 ```bash
 $ sudo rpm -e nebula-explorer-<version>.x86_64
 ```
-## tar 包部署
+## TAR 包部署
 
 ### 前提条件
 
@@ -129,7 +131,7 @@ $ sudo rpm -e nebula-explorer-<version>.x86_64
 
 ### 安装及部署
 
-1. 根据需要下载 tar 包，建议选择最新版本。
+1. 根据需要下载 TAR 包，建议选择最新版本。
 
   !!! enterpriseonly
 
@@ -152,7 +154,7 @@ $ sudo rpm -e nebula-explorer-<version>.x86_64
    $ cp -r nebula.license /usr/local/nebula-explorer
    ```
 
-4. 进入`nebula-explorer`文件夹，启动 explorer。
+4. 进入`nebula-explorer`文件夹，启动 Explorer。
 
   ```bash
   $ cd nebula-explorer
