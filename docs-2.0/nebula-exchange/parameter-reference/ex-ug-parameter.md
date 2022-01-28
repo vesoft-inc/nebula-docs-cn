@@ -131,15 +131,15 @@
 |`tags.database`|string|-|是|Neo4j 中保存源数据的数据库名。|
 |`tags.check_point_path`|string|`/tmp/test`|否|设置保存导入进度信息的目录，用于断点续传。如果未设置，表示不启用断点续传。|
 
-### MySQL 源特有参数
+### MySQL/PostgreSQL 源特有参数
 
 |参数|数据类型|默认值|是否必须|说明|
 |:---|:---|:---|:---|:---|
-|`tags.host`|string|-|是|MySQL 服务器地址。|
-|`tags.port`|string|-|是|MySQL 服务器端口。|
+|`tags.host`|string|-|是|MySQL/PostgreSQL 服务器地址。|
+|`tags.port`|string|-|是|MySQL/PostgreSQL 服务器端口。|
 |`tags.database`|string|-|是|数据库名称。|
 |`tags.table`|string|-|是|需要作为数据源的表名称。|
-|`tags.user`|string|-|是|拥有读取权限的 MySQL 用户名。|
+|`tags.user`|string|-|是|拥有读取权限的 MySQL/PostgreSQL 用户名。|
 |`tags.password`|string|-|是|用户名对应密码。|
 |`tags.sentence`|string|-|是|查询数据源的语句。例如`"select teamid, name from basketball.team order by teamid;"`。|
 

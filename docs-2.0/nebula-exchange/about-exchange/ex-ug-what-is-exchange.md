@@ -68,7 +68,9 @@ Exchange {{exchange.release}} 支持将以下格式或来源的数据转换为 N
 
 - 图数据库：[Neo4j](../use-exchange/ex-ug-import-from-neo4j.md)（Client 版本 2.4.5-M1）
 
-- 关系型数据库：[MySQL](../use-exchange/ex-ug-import-from-mysql.md)
+- 关系型数据库：
+  - [MySQL](../use-exchange/ex-ug-import-from-mysql.md)
+  - [PostgreSQL](../use-exchange/ex-ug-import-from-mysql.md)
 
 - 列式数据库：[ClickHouse](../use-exchange/ex-ug-import-from-clickhouse.md)
 

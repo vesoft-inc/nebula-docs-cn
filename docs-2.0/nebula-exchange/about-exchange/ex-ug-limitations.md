@@ -48,6 +48,7 @@ Exchange 2.x 支持以下操作系统：
   | Parquet 文件 | 支持 | 支持 | 支持 |
   | HBase | 支持 | 支持 | 支持 |
   | MySQL | 支持 | 支持 | 支持 |
+  | PostgreSQL | 支持 | 支持 | 支持 |
   | ClickHouse | 支持 | 支持 | 支持 |
   | Neo4j | 不支持 | 支持 | 不支持 |
   | Hive | 支持 | 支持 | 支持 |
