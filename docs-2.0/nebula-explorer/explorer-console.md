@@ -2,6 +2,10 @@
 
 Explorer 的控制台功能允许用户手动输入 nGQL 语句，并将查询结果导入 Explorer 的画布中进行可视化呈现。
 
+!!! note
+
+    使用控制台功能前，确保用户已选择目标图空间。
+
 ## 输入 nGQL 语句
 
 1. 在左侧导航栏，单击![console_input](figs/nav-console.png)。
