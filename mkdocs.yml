@@ -354,6 +354,20 @@ nav:
     - Nebula Python: 14.client/5.nebula-python-client.md
     - Nebula Go: 14.client/6.nebula-go-client.md
 
+  - Nebula Graph Cloud:
+    - 什么是 Nebula Graph Cloud: nebula-cloud/1.what-is-cloud.md
+    - 创建订阅: nebula-cloud/2.how-to-create-subsciption.md
+    - 配置Solution: nebula-cloud/3.how-to-set-solution.md
+    - Cloud Solution 角色身份说明: nebula-cloud/4.user-role-description.md
+    - Solution 操作:
+      - Solution: nebula-cloud/5.solution/5.0.introduce-solution.md
+      - 配套的应用（Dashboard/Studio/Explorer）: nebula-cloud/5.solution/5.1.supporting-application.md
+      - Private Link: nebula-cloud/5.solution/5.2.connection-configuration-and-use.md
+      - 管理角色权限: nebula-cloud/5.solution/5.3.role-and-authority-management.md
+    - 价格: nebula-cloud/6.pricing.md
+    - 用户服务条款: nebula-cloud/7.terms-and-conditions.md
+    - 隐私政策条款: nebula-cloud/8.privacy-policy.md
+
   - Nebula Graph Studio:
     - Studio 版本更新说明: nebula-studio/about-studio/st-ug-release-note.md
     - 认识 Nebula Graph Studio:
