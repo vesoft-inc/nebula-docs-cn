@@ -138,7 +138,7 @@ Nebula Graph {{ nebula.release }} 不支持 v2.x 的大部分生态工具，请�
 
 - 禁用`YIELD`子句返回自定义变量。 [#3271](https://github.com/vesoft-inc/nebula/pull/3271)
 
-- FETCH 、GO、LOOKUP、FINDPATH 语句中必须添加`YIELD`子句。[#2957](https://github.com/vesoft-inc/nebula/pull/2957) [#3056](https://github.com/vesoft-inc/nebula/pull/3056) [#3139](https://github.com/vesoft-inc/nebula/pull/3139)
+- FETCH、GO、LOOKUP、FIND PATH、GET SUBGRAPH 语句中必须添加`YIELD`子句。[#2957](https://github.com/vesoft-inc/nebula/pull/2957) [#3056](https://github.com/vesoft-inc/nebula/pull/3056) [#3139](https://github.com/vesoft-inc/nebula/pull/3139)
 
 - 新增非保留关键字`s2_max_level`、`s2_max_cells`。[#3396](https://github.com/vesoft-inc/nebula/pull/3396)
 
