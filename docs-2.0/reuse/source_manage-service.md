@@ -1,4 +1,4 @@
-Nebula Graph使用脚本`nebula.service`管理服务，包括启动、停止、重启、中止和查看。
+Nebula Graph 使用脚本`nebula.service`管理服务，包括启动、停止、重启、中止和查看。
 
 `nebula.service`的默认路径是`/usr/local/nebula/scripts`，如果修改过安装路径，请使用实际路径。
 
@@ -20,16 +20,16 @@ $ sudo /usr/local/nebula/scripts/nebula.service
 |`restart`|重启服务。|
 |`kill`|中止服务。|
 |`status`|查看服务状态。|
-|`metad`|管理Meta服务。|
-|`graphd`|管理Graph服务。|
-|`storaged`|管理Storage服务。|
+|`metad`|管理 Meta 服务。|
+|`graphd`|管理 Graph 服务。|
+|`storaged`|管理 Storage 服务。|
 |`all`|管理所有服务。|
 
-## 启动Nebula Graph服务
+## 启动 Nebula Graph 服务
 
 ### 非容器部署
 
-对于使用RPM或DEB文件安装的Nebula Graph，执行如下命令启动服务：
+对于使用 RPM 或 DEB 文件安装的 Nebula Graph，执行如下命令启动服务：
 
 ```bash
 $ sudo /usr/local/nebula/scripts/nebula.service start all
@@ -43,7 +43,7 @@ $ sudo /usr/local/nebula/scripts/nebula.service start all
 
 ### 容器部署
 
-对于使用Docker Compose部署的Nebula Graph，在`nebula-docker-compose/`目录内执行如下命令启动服务：
+对于使用 Docker Compose 部署的 Nebula Graph，在`nebula-docker-compose/`目录内执行如下命令启动服务：
 
 ```bash
 [nebula-docker-compose]$ docker-compose up -d
@@ -60,15 +60,15 @@ Creating nebula-docker-compose_graphd2_1   ... done
 Creating nebula-docker-compose_graphd_1    ... done
 ```
 
-## 停止Nebula Graph服务
+## 停止 Nebula Graph 服务
 
 !!! danger
 
     请勿使用`kill -9` 命令强制终止进程，否则可能较小概率出现数据丢失。
 
 ### 非容器部署
-
-执行如下命令停止Nebula Graph服务：
+  
+执行如下命令停止 Nebula Graph 服务：
 
 ```bash
 $ sudo /usr/local/nebula/scripts/nebula.service stop all
@@ -82,10 +82,10 @@ $ sudo /usr/local/nebula/scripts/nebula.service stop all
 
 ### 容器部署
 
-在`nebula-docker-compose/`目录内执行如下命令停止Nebula Graph服务：
+在`nebula-docker-compose/`目录内执行如下命令停止 Nebula Graph 服务：
 
 ```bash
-nebula-docker-compose]$ docker-compose down
+[nebula-docker-compose]$ docker-compose down
 Stopping nebula-docker-compose_graphd_1    ... done
 Stopping nebula-docker-compose_graphd2_1   ... done
 Stopping nebula-docker-compose_storaged0_1 ... done
@@ -109,19 +109,19 @@ Removing network nebula-docker-compose_nebula-net
 
 !!! Note
 
-    命令`docker-compose down -v`将会**删除**所有本地Nebula Graph的数据。如果使用的是developing或nightly版本，并且有一些兼容性问题，请尝试这个命令。
+    命令`docker-compose down -v`将会**删除**所有本地 Nebula Graph 的数据。如果使用的是 developing 或 nightly 版本，并且有一些兼容性问题，请尝试这个命令。
 
-## 查看Nebula Graph服务
+## 查看 Nebula Graph 服务
 
 ### 非容器部署
 
-执行如下命令查看Nebula Graph服务状态：
+执行如下命令查看 Nebula Graph 服务状态：
 
 ```bash
 $ sudo /usr/local/nebula/scripts/nebula.service status all
 ```
 
-- 如果返回如下结果，表示Nebula Graph服务正常运行。
+- 如果返回如下结果，表示 Nebula Graph 服务正常运行。
 
     ```bash
     [INFO] nebula-metad(de03025): Running as 26601, Listening on 9559
@@ -129,7 +129,7 @@ $ sudo /usr/local/nebula/scripts/nebula.service status all
     [INFO] nebula-storaged(de03025): Running as 26709, Listening on 9779
     ```
 
-- 如果返回类似如下结果，表示Nebula Graph服务异常，可以根据异常服务信息进一步排查，或者在[Nebula Graph社区](https://discuss.nebula-graph.com.cn/)寻求帮助。
+- 如果返回类似如下结果，表示 Nebula Graph 服务异常，可以根据异常服务信息进一步排查，或者在 [Nebula Graph 社区](https://discuss.nebula-graph.com.cn/)寻求帮助。
 
     ```bash
     [INFO] nebula-metad: Running as 25600, Listening on 9559
@@ -137,14 +137,14 @@ $ sudo /usr/local/nebula/scripts/nebula.service status all
     [INFO] nebula-storaged: Running as 25646, Listening on 9779
     ```
 
-Nebula Graph服务由Meta服务、Graph服务和Storage服务共同提供，这三种服务的配置文件都保存在安装目录的`etc`目录内，默认路径为`/usr/local/nebula/etc/`，用户可以检查相应的配置文件排查问题。
+Nebula Graph 服务由 Meta 服务、Graph 服务和 Storage 服务共同提供，这三种服务的配置文件都保存在安装目录的`etc`目录内，默认路径为`/usr/local/nebula/etc/`，用户可以检查相应的配置文件排查问题。
 
 ### 容器部署
 
-在`nebula-docker-compose`目录内执行如下命令查看Nebula Graph服务状态：
+在`nebula-docker-compose`目录内执行如下命令查看 Nebula Graph 服务状态：
 
 ```bash
-nebula-docker-compose]$ docker-compose ps
+[nebula-docker-compose]$ docker-compose ps
             Name                             Command                  State                                             Ports
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 nebula-docker-compose_graphd1_1     /usr/local/nebula/bin/nebu ...   Up (healthy)   0.0.0.0:49223->19669/tcp, 0.0.0.0:49222->19670/tcp, 0.0.0.0:49224->9669/tcp
@@ -166,7 +166,7 @@ nebula-docker-compose_storaged2_1   ./bin/nebula-storaged --fl ...   Up (healthy
 
 如果服务有异常，用户可以先确认异常的容器名称（例如`nebula-docker-compose_graphd2_1`）,
 
-然后执行`docker ps`查看对应的`CONTAINER ID`(示例为`2a6c56c405f5`)。
+然后执行`docker ps`查看对应的`CONTAINER ID`（示例为`2a6c56c405f5`)。
 
 ```bash
 nebula-docker-compose]$ docker ps
@@ -185,10 +185,10 @@ a74054c6ae25   vesoft/nebula-graphd:nightly     "/usr/local/nebula/b…"   36 mi
 最后登录容器排查问题
 
 ```bash
-nebula-docker-compose]$ docker exec -it 2a6c56c405f5 bash
+[nebula-docker-compose]$ docker exec -it 2a6c56c405f5 bash
 [root@2a6c56c405f5 nebula]#
 ```
 
 ## 下一步
 
-[连接Nebula Graph](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/3.connect-to-nebula-graph/)<!--这里用外链。-->
+[连接 Nebula Graph](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/3.connect-to-nebula-graph/)<!--这里用外链。-->

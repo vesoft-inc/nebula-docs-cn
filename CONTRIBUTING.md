@@ -25,5 +25,4 @@
 - 在 GitHub 提交 [issue][_issues]。
 - [Fork](https://github.com/vesoft-inc/nebula-docs-cn/fork) 文档，在本地分支上更改或添加新内容，然后向主分支提交 PR。
 
-
 [_issues]: https://github.com/vesoft-inc/nebula-docs-cn/issues
