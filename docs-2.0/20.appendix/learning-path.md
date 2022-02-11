@@ -230,7 +230,7 @@
   | [知乎使用 Nebula Graph 实践](https://mp.weixin.qq.com/s/K2QinpR5Rplw1teHpHtf4w) |
   |[Nebula Graph 在微众银行的数据治理业务的实践](https://www.bilibili.com/video/BV1Pr4y1F7kA)|
   |[图数据库在安全风控场景的应用 @BOSS 直聘](https://www.bilibili.com/video/BV1Rh41117G9)|
-  |[更多文档](https://nebula-graph.com.cn/posts/)   、[视频](https://space.bilibili.com/472621355/channel/seriesdetail)                |
+  |[更多文档](https://nebula-graph.com.cn/posts/)   、[视频](https://space.bilibili.com/472621355/channel/series)                |
 ## 6. 常见问题
 
   | 文档                                                         |
