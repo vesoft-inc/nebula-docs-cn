@@ -118,7 +118,7 @@
 
 - 修复当不同的图空间中存在相同的 Tag 或 Edge type 的内部 ID 时，创建全文索引失败的问题。 [#3747](https://github.com/vesoft-inc/nebula/pull/3747)
 
-- 修复`YIELD`子句和 GO 语句中变量不一致的问题。[#3430](https://github.com/vesoft-inc/nebula/pull/3430)
+- 修复`YIELD`子句和 `GO` 语句中变量不一致的问题。[#3430](https://github.com/vesoft-inc/nebula/pull/3430)
 
 ## Incompatibility
 
