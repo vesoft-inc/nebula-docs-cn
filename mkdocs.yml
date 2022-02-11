@@ -364,7 +364,7 @@ nav:
       - 配套的应用（Dashboard/Studio/Explorer）: nebula-cloud/5.solution/5.1.supporting-application.md
       - Private Link: nebula-cloud/5.solution/5.2.connection-configuration-and-use.md
       - 管理角色权限: nebula-cloud/5.solution/5.3.role-and-authority-management.md
-    - 价格: nebula-cloud/6.pricing.md
+#    - 价格: nebula-cloud/6.pricing.md
     - 用户服务条款: nebula-cloud/7.terms-and-conditions.md
     - 隐私政策条款: nebula-cloud/8.privacy-policy.md
 
