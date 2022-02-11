@@ -2,29 +2,29 @@
 
 ## Feature
 
-- 新增备份与恢复工具BR。 [#3469](https://github.com/vesoft-inc/nebula/pull/3469) [#1](https://github.com/vesoft-inc/nebula-agent/pull/1) [#22](https://github.com/vesoft-inc/nebula-br/pull/22)
+- 新增[备份与恢复工具BR](../7.data-security/2.backup-restore/1.what-is-br.md)。 [#3469](https://github.com/vesoft-inc/nebula/pull/3469) [#1](https://github.com/vesoft-inc/nebula-agent/pull/1) [#22](https://github.com/vesoft-inc/nebula-br/pull/22)
 
-- 新增 openCypher 多查询。 [#3519](https://github.com/vesoft-inc/nebula/pull/3519) [#3318](https://github.com/vesoft-inc/nebula/pull/3318)
+- 新增 [openCypher 多 MATCH 查询](../3.ngql-guide/7.general-query-statements/2.match.md)。 [#3519](https://github.com/vesoft-inc/nebula/pull/3519) [#3318](https://github.com/vesoft-inc/nebula/pull/3318)
 
 - 新增 traverse 算子。 [#3308](https://github.com/vesoft-inc/nebula/pull/3308)
 
-- 新增存算合并版。 [#3310](https://github.com/vesoft-inc/nebula/pull/3310)
+- 新增[存算合并版](../4.deployment-and-installation/standalone-deployment.md)。 [#3310](https://github.com/vesoft-inc/nebula/pull/3310)
 
-- 新增存储引擎的 kv 分离。 [#3281](https://github.com/vesoft-inc/nebula/pull/3281)
+- 新增[存储引擎的 kv 分离](../5.configurations-and-logs/1.configurations/4.storage-config.md)。 [#3281](https://github.com/vesoft-inc/nebula/pull/3281)
 
 - 新增 LOOKUP 支持 topN 下推。 [#3499](https://github.com/vesoft-inc/nebula/pull/3499)
 
-- 新增不带 Tag 的点。 [#3316](https://github.com/vesoft-inc/nebula/pull/3316) [#3335](https://github.com/vesoft-inc/nebula/pull/3335) [#3328](https://github.com/vesoft-inc/nebula/pull/3328) [#3286](https://github.com/vesoft-inc/nebula/pull/3286)
+- 新增[不带 Tag 的点](../3.ngql-guide/12.vertex-statements/1.insert-vertex.md)。 [#3316](https://github.com/vesoft-inc/nebula/pull/3316) [#3335](https://github.com/vesoft-inc/nebula/pull/3335) [#3328](https://github.com/vesoft-inc/nebula/pull/3328) [#3286](https://github.com/vesoft-inc/nebula/pull/3286)
 
-- 新增参数化查询。 [#3379](https://github.com/vesoft-inc/nebula/pull/3379)
+- 新增[参数化查询](../nebula-console.md)。 [#3379](https://github.com/vesoft-inc/nebula/pull/3379)
 
-- 新增不指定 VID 的查询，通过`LIMIT`子句限制输出结果。 [#3320](https://github.com/vesoft-inc/nebula/pull/3320) [#3329](https://github.com/vesoft-inc/nebula/pull/3329) [#3262](https://github.com/vesoft-inc/nebula/pull/3262)
+- 新增[不指定 VID 的查询](../3.ngql-guide/7.general-query-statements/2.match.md)，通过`LIMIT`子句限制输出结果。 [#3320](https://github.com/vesoft-inc/nebula/pull/3320) [#3329](https://github.com/vesoft-inc/nebula/pull/3329) [#3262](https://github.com/vesoft-inc/nebula/pull/3262)
 
-- 新增 duration 数据类型和函数。 [#3338](https://github.com/vesoft-inc/nebula/pull/3338)
+- 新增 [duration](../3.ngql-guide/3.data-types/4.date-and-time.md) 数据类型和函数。 [#3338](https://github.com/vesoft-inc/nebula/pull/3338)
 
-- 新增中文 Schema。 [#3380](https://github.com/vesoft-inc/nebula/pull/3380)  [#3440](https://github.com/vesoft-inc/nebula/pull/3440)
+- 新增[中文 Schema](../3.ngql-guide/1.nGQL-overview/keywords-and-reserved-words.md)。 [#3380](https://github.com/vesoft-inc/nebula/pull/3380)  [#3440](https://github.com/vesoft-inc/nebula/pull/3440)
 
-- 新增查看指定用户权限。 [#3300](https://github.com/vesoft-inc/nebula/pull/3300)
+- 新增[查看指定用户权限](../7.data-security/1.authentication/2.management-user.md)。 [#3300](https://github.com/vesoft-inc/nebula/pull/3300)
 
 <!--
 - 支持Snowflake IDs。 [#3500](https://github.com/vesoft-inc/nebula/pull/3500)
