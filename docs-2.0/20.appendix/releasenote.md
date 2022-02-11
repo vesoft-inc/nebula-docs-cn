@@ -12,7 +12,7 @@
 
 - 新增[存储引擎的 kv 分离](../5.configurations-and-logs/1.configurations/4.storage-config.md)。 [#3281](https://github.com/vesoft-inc/nebula/pull/3281)
 
-- 新增 LOOKUP 支持 topN 下推。 [#3499](https://github.com/vesoft-inc/nebula/pull/3499)
+- 新增`LOOKUP`支持 topN 下推。 [#3499](https://github.com/vesoft-inc/nebula/pull/3499)
 
 - 新增[不带 Tag 的点](../3.ngql-guide/12.vertex-statements/1.insert-vertex.md)。 [#3316](https://github.com/vesoft-inc/nebula/pull/3316) [#3335](https://github.com/vesoft-inc/nebula/pull/3335) [#3328](https://github.com/vesoft-inc/nebula/pull/3328) [#3286](https://github.com/vesoft-inc/nebula/pull/3286)
 
@@ -44,13 +44,13 @@
 
 - 添加对无效密码尝试的限制。 [#3573](https://github.com/vesoft-inc/nebula/pull/3573) [#3629](https://github.com/vesoft-inc/nebula/pull/3629)
 
-- TOSS 支持 DELETE 操作的一致性。 [#3374](https://github.com/vesoft-inc/nebula/pull/3374)
+- TOSS 支持`DELETE`操作的一致性。 [#3374](https://github.com/vesoft-inc/nebula/pull/3374)
 
 - 支持对接 logrotate。 [#3541](https://github.com/vesoft-inc/nebula/pull/3541)
 
 - 支持更多的统计。 [#3446](https://github.com/vesoft-inc/nebula/pull/3446) [#3605](https://github.com/vesoft-inc/nebula/pull/3605) [#3590](https://github.com/vesoft-inc/nebula/pull/3590)
 
-- 在 GO 语句的`WHERE`子句中支持属性函数。 [#3443](https://github.com/vesoft-inc/nebula/pull/3443)
+- 在`GO`语句的`WHERE`子句中支持属性函数。 [#3443](https://github.com/vesoft-inc/nebula/pull/3443)
 
 - 增强日期解析器。 [#3179](https://github.com/vesoft-inc/nebula/pull/3179)
 
@@ -90,11 +90,11 @@
 
 - 修复 CentOS6 中估计内存信息的错误。 [#3534](https://github.com/vesoft-inc/nebula/pull/3534)
 
-- 修复当 LOOKUP 语句包含一个过滤器，该过滤器由一个逻辑 AND 表达式和一个只有一个元素的 IN 表达式组成时的崩溃问题。 [#3525](https://github.com/vesoft-inc/nebula/pull/3525)
+- 修复当`LOOKUP`语句包含一个过滤器，该过滤器由一个逻辑 AND 表达式和一个只有一个元素的 IN 表达式组成时的崩溃问题。 [#3525](https://github.com/vesoft-inc/nebula/pull/3525)
 
 - 修复 metad 在高负载下挂起的问题。 [#3482](https://github.com/vesoft-inc/nebula/pull/3482)
 
-- 修复 UNWIND 子图的崩溃问题。 [#3506](https://github.com/vesoft-inc/nebula/pull/3506)
+- 修复`UNWIND`子图的崩溃问题。 [#3506](https://github.com/vesoft-inc/nebula/pull/3506)
 
 - 修复重建索引时`DROP SPACE`的崩溃问题。[#3406](https://github.com/vesoft-inc/nebula/pull/3406)
 
@@ -138,7 +138,7 @@ Nebula Graph {{ nebula.release }} 不支持 v2.x 的大部分生态工具，请�
 
 - 禁用`YIELD`子句返回自定义变量。 [#3271](https://github.com/vesoft-inc/nebula/pull/3271)
 
-- FETCH、GO、LOOKUP、FIND PATH、GET SUBGRAPH 语句中必须添加`YIELD`子句。[#2957](https://github.com/vesoft-inc/nebula/pull/2957) [#3056](https://github.com/vesoft-inc/nebula/pull/3056) [#3139](https://github.com/vesoft-inc/nebula/pull/3139)
+- `FETCH`、`GO`、`LOOKUP`、`FIND PATH`、`GET SUBGRAPH`语句中必须添加`YIELD`子句。[#2957](https://github.com/vesoft-inc/nebula/pull/2957) [#3056](https://github.com/vesoft-inc/nebula/pull/3056) [#3139](https://github.com/vesoft-inc/nebula/pull/3139)
 
 - 新增非保留关键字`s2_max_level`、`s2_max_cells`。[#3396](https://github.com/vesoft-inc/nebula/pull/3396)
 
