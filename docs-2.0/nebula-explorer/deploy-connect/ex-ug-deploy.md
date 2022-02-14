@@ -16,17 +16,6 @@
 
 
 
-## Nebula Graph 版本支持
-
-!!! Note
-
-    Explorer 的版本单独发布，不与 Nebula Graph 内核同步，其命名方式也不遵守命名规则，两者兼容对应关系如下表。
-
-| Nebula Graph 版本 | Explorer 版本 |
-| --- | --- |
-| 2.5.x | 2.0.0 |
-| 2.6.x | 2.1.0 |
-
 ## RPM 部署
 
 ### 前提条件
