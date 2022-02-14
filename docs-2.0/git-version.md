@@ -12,11 +12,11 @@
 
 !!! caution
 
-    需要严格遵守的注意事项。不遵守caution可能导致系统故障、数据丢失、安全问题等。
+    需要严格遵守的注意事项。不遵守 caution 可能导致系统故障、数据丢失、安全问题等。
 
 !!! danger
 
-    会引发危险的事项。不遵守danger必定会导致系统故障、数据丢失、安全问题等。
+    会引发危险的事项。不遵守 danger 必定会导致系统故障、数据丢失、安全问题等。
 
 !!! performance
 
@@ -28,7 +28,7 @@
 
 !!! compatibility
 
-    nGQL与openCypher的兼容性或nGQL当前版本与历史版本的兼容性。
+    nGQL 与 openCypher 的兼容性或 nGQL 当前版本与历史版本的兼容性。
 
 !!! enterpriseonly
 
@@ -38,4 +38,4 @@
 
 [吴敏](mailto:min.wu@vesoft.com)
 
-如果发现本书错误，请访问[github 源文件](https://github.com/vesoft-inc/nebula-docs-cn/tree/book/docs-2.0), 通过 pull request 方式提交修改建议。
+如果发现本书错误，请访问 [github 源文件](https://github.com/vesoft-inc/nebula-docs-cn/tree/book/docs-2.0), 通过 pull request 方式提交修改建议。
