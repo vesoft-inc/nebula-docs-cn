@@ -44,6 +44,16 @@
 
   少数配置参数发生改变，详情参考版本发布说明和参数文档。
 
+- 语法变化
+
+  nGQL 语法有部分不兼容：
+
+  - 禁用`YIELD`子句返回自定义变量。
+
+  - `FETCH`、`GO`、`LOOKUP`、`FIND PATH`、`GET SUBGRAPH`语句中必须添加`YIELD`子句。
+
+  - MATCH 语句中获取点属性时，必须指定 Tag，例如从`return v.name`变为`return v.player.name`。
+
 !!! caution
 
     可能存在其它暂未发现的影响，建议升级前详细查看版本发布说明和产品手册，并密切关注[论坛](https://discuss.nebula-graph.com.cn/)与 [GitHub](https://github.com/vesoft-inc/nebula/issues) 的最新动态。
