@@ -170,7 +170,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
   # Spark 相关配置
   spark: {
     app: {
-      name: Nebula Exchange 2.0
+      name: Nebula Exchange {{exchange.release}}
     }
 
     master:local
