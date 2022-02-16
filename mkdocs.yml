@@ -71,7 +71,7 @@ extra:
   algorithm:
     release: 3.0.0
     branch: v3.0.0
-  plato:
+  analytics:
     release: 1.0.0
     branch: v1.0.0
   sparkconnector:
@@ -496,7 +496,7 @@ nav:
 
   - Nebula Algorithm: nebula-algorithm.md
 
-  - Nebula Plato: nebula-plato.md
+  - Nebula Analytics: nebula-analytics.md
 
   - Nebula Spark Connector: nebula-spark-connector.md
       
