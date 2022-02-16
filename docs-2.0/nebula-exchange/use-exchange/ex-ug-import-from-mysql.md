@@ -1,4 +1,4 @@
-# 导入 MySQL 数据
+# 导入 MySQL/PostgreSQL 数据
 
 本文以一个示例说明如何使用 Exchange 将存储在 MySQL 上的数据导入 Nebula Graph，也适用于从 PostgreSQL 导出数据到 Nebula Graph。
 

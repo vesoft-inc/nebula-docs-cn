@@ -467,7 +467,7 @@ nav:
       - 导入 ORC 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-orc.md
       - 导入 Parquet 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-parquet.md
       - 导入 HBase 数据: nebula-exchange/use-exchange/ex-ug-import-from-hbase.md
-      - 导入 MySQL 数据: nebula-exchange/use-exchange/ex-ug-import-from-mysql.md
+      - 导入 MySQL/PostgreSQL 数据: nebula-exchange/use-exchange/ex-ug-import-from-mysql.md
       - 导入 ClickHouse 数据: nebula-exchange/use-exchange/ex-ug-import-from-clickhouse.md
       - 导入 Neo4j 数据: nebula-exchange/use-exchange/ex-ug-import-from-neo4j.md
       - 导入 Hive 数据: nebula-exchange/use-exchange/ex-ug-import-from-hive.md
