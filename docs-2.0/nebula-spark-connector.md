@@ -229,7 +229,7 @@ df.write.nebula(config, nebulaWriteVertexConfig).writeVertices()
   |`withSpace`  |是|  Nebula Graph 图空间名称。  |
   |`withTag`  |是|  写入点时需要关联的 Tag 名称。  |
   |`withVidField`  |是|  DataFrame 中作为点 ID 的列。  |
-  |`withVidPolicy`  |否|  写入点 ID 时，采用的映射函数，Nebula Graph 2.x 仅支持 HASH。默认不做映射。  |
+  |`withVidPolicy`  |否|  写入点 ID 时，采用的映射函数，Nebula Graph 仅支持 HASH。默认不做映射。  |
   |`withVidAsProp`  |否|  DataFrame 中作为点 ID 的列是否也作为属性写入。默认值为`false`。如果配置为`true`，请确保 Tag 中有和`VidField`相同的属性名。  |
   |`withUser`  |否|  Nebula Graph 用户名。若未开启[身份验证](7.data-security/1.authentication/1.authentication.md)，无需配置用户名和密码。   |
   |`withPasswd`  |否|  Nebula Graph 用户名对应的密码。  |
@@ -243,9 +243,9 @@ df.write.nebula(config, nebulaWriteVertexConfig).writeVertices()
   |`withSpace`  |是|  Nebula Graph 图空间名称。  |
   |`withEdge`  |是|  写入边时需要关联的 Edge type 名称。  |
   |`withSrcIdField`  |是|  DataFrame 中作为起始点的列。  |
-  |`withSrcPolicy`  |否| 写入起始点时，采用的映射函数，Nebula Graph 2.x 仅支持 HASH。默认不做映射。   |
+  |`withSrcPolicy`  |否| 写入起始点时，采用的映射函数，Nebula Graph 仅支持 HASH。默认不做映射。   |
   |`withDstIdField`  |是| DataFrame 中作为目的点的列。   |
-  |`withDstPolicy`  |否| 写入目的点时，采用的映射函数，Nebula Graph 2.x 仅支持 HASH。默认不做映射。   |
+  |`withDstPolicy`  |否| 写入目的点时，采用的映射函数，Nebula Graph 仅支持 HASH。默认不做映射。   |
   |`withRankField`  |否| DataFrame 中作为 rank 的列。默认不写入 rank。   |
   |`withSrcAsProperty`  |否| DataFrame 中作为起始点的列是否也作为属性写入。默认值为`false`。如果配置为`true`，请确保 Edge type 中有和`SrcIdField`相同的属性名。   |
   |`withDstAsProperty`  |否| DataFrame 中作为目的点的列是否也作为属性写入。默认值为`false`。如果配置为`true`，请确保 Edge type 中有和`DstIdField`相同的属性名。   |
