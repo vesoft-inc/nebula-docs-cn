@@ -57,13 +57,13 @@ sudo rpm -i nebula-analytics-1.0.0-centos.x86_64.rpm  --prefix /home/xxx/nebula-
 1. 克隆仓库`analytics`。
 
   ```bash
-  $ git clone -b {{analytics.branch}} https://github.com/vesoft-inc/analytics.git
+  $ git clone -b {{analytics.branch}} https://github.com/vesoft-inc/nebula-analytics.git
   ```
 
-2. 进入目录`analytics`。
+2. 进入目录`nebula-analytics`。
 
   ```bash
-  $ cd analytics
+  $ cd nebula-analytics
   ```
 
 3. 执行脚本安装编译依赖。
