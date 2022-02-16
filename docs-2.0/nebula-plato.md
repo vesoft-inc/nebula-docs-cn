@@ -1,6 +1,6 @@
-# Nebula Plato
+# NebulaAnalytics
 
-Nebula Plato 是一款集成了开源高性能图计算框架 [Plato](https://github.com/tencent/plato) 的应用程序，支持利用 Plato 对 Nebula Graph 数据库中的数据执行图计算。
+Nebula Analytics 是一款集成了开源高性能图计算框架 [Plato](https://github.com/tencent/plato) 的应用程序，支持利用 Analytics 对 Nebula Graph 数据库中的数据执行图计算。
 
 !!! enterpriseonly
 
@@ -8,7 +8,7 @@ Nebula Plato 是一款集成了开源高性能图计算框架 [Plato](https://gi
 
 ## 适用场景
 
-支持将数据源为 Nebula Graph 集群、HDFS 上的 CSV 文件或本地 CSV 文件中的数据导入 Nebula Plato，并将图计算结果输出至 Nebula Graph 集群、HDFS 上的 CSV 文件或本地 CSV 文件。
+支持将数据源为 Nebula Graph 集群、HDFS 上的 CSV 文件或本地 CSV 文件中的数据导入 Nebula Analytics，并将图计算结果输出至 Nebula Graph 集群、HDFS 上的 CSV 文件或本地 CSV 文件。
 
 ## 使用限制
 
@@ -16,15 +16,15 @@ Nebula Plato 是一款集成了开源高性能图计算框架 [Plato](https://gi
 
 ## 版本兼容性
 
-Nebula Plato 版本和 Nebula Graph 内核的版本对应关系如下。
+Nebula Analytics 版本和 Nebula Graph 内核的版本对应关系如下。
 
-|Plato client 版本|Nebula Graph 版本|
+|Analytics client 版本|Nebula Graph 版本|
 |:---|:---|
-|{{plato.release}}|{{nebula.release}}|
+|{{analytics.release}}|{{nebula.release}}|
 
 ## 支持算法
 
-Nebula Plato 支持的图计算算法如下。
+Nebula Analytics 支持的图计算算法如下。
 
 |           算法名        |说明             |分类        |
 |:----------------------|:----------------|:-----------|
@@ -41,29 +41,29 @@ Nebula Plato 支持的图计算算法如下。
 | LOUVAIN               | 社区发现          |  社区发现   |
 | Clustering Coefficient| 聚集系数          |  聚类       |
 
-## 安装 Nebula Plato
+## 安装 Nebula Analytics
 
-在多个机器安装由多个 Nebula Plato 服务构成的集群时，需要安装路径相同，并设置节点间 SSH 免密登录。
+在多个机器安装由多个 Nebula Analytics 服务构成的集群时，需要安装路径相同，并设置节点间 SSH 免密登录。
 
 ```bash
-sudo rpm -i nebula-plato-1.0.0-centos.x86_64.rpm  --prefix /home/xxx/nebula-plato
+sudo rpm -i nebula-analytics-1.0.0-centos.x86_64.rpm  --prefix /home/xxx/nebula-analytics
 ```
 
 <!--
 ### 编译安装
 
-编译安装 Nebula Plato 的准备工作和编译 Nebula Graph 类似，详情参见[准备资源](4.deployment-and-installation/1.resource-preparations.md)。
+编译安装 Nebula Analytics 的准备工作和编译 Nebula Graph 类似，详情参见[准备资源](4.deployment-and-installation/1.resource-preparations.md)。
 
-1. 克隆仓库`plato`。
+1. 克隆仓库`analytics`。
 
   ```bash
-  $ git clone -b {{plato.branch}} https://github.com/vesoft-inc/plato.git
+  $ git clone -b {{analytics.branch}} https://github.com/vesoft-inc/analytics.git
   ```
 
-2. 进入目录`plato`。
+2. 进入目录`analytics`。
 
   ```bash
-  $ cd plato
+  $ cd analytics
   ```
 
 3. 执行脚本安装编译依赖。
@@ -78,7 +78,7 @@ sudo rpm -i nebula-plato-1.0.0-centos.x86_64.rpm  --prefix /home/xxx/nebula-plat
   $ ./3rdtools.sh distclean && ./3rdtools.sh install
   ```
 
-5. 编译 Nebula Plato。
+5. 编译 Nebula Analytics
 
   ```bash
   $ ./build.sh
@@ -90,7 +90,7 @@ sudo rpm -i nebula-plato-1.0.0-centos.x86_64.rpm  --prefix /home/xxx/nebula-plat
 
 安装完成后，用户可以设置不同算法的参数，然后执行脚本，即可获得算法的结果，并导出为指定格式。
 
-1. 选择 Nebula Plato 集群的任一节点，进入目录`scripts`。
+1. 选择 Nebula Analytics 集群的任一节点，进入目录`scripts`。
 
   ```bash
   $ cd scripts
@@ -136,7 +136,7 @@ sudo rpm -i nebula-plato-1.0.0-centos.x86_64.rpm  --prefix /home/xxx/nebula-plat
       # 写回时，每次写入的行数。
       --write_batch_size=1000 
       # 写回失败的数据所存储的文件。
-      --err_file=/home/jie.wang/plato/err.txt 
+      --err_file=/home/jie.wang/analytics/err.txt 
       ```
     
     2. 修改需要使用的算法脚本，例如`run_pagerank.sh`，设置相关参数。
@@ -209,10 +209,10 @@ sudo rpm -i nebula-plato-1.0.0-centos.x86_64.rpm  --prefix /home/xxx/nebula-plat
     ITERATIONS=${ITERATIONS:=100}
     ```
 
-3. 修改配置文件`cluster`，设置执行算法的 Nebula Plato 集群节点和任务分配权重。
+3. 修改配置文件`cluster`，设置执行算法的 Nebula Analytics 集群节点和任务分配权重。
 
   ```bash
-  # Nebula Plato 集群节点 IP 地址:任务分配权重
+  # Nebula Analytics 集群节点 IP 地址:任务分配权重
   192.168.8.200:1
   192.168.8.201:1
   192.168.8.202:1
