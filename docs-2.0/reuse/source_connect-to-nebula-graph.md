@@ -75,7 +75,7 @@ Nebula Graph 支持多种类型客户端，包括 CLI 客户端、GUI 客户端�
     | 参数 | 说明 |
     | - | - |
     | `-h` | 显示帮助菜单。 |
-    | `-addr` | 设置要连接的 graphd 服务的 IP 地址。默认地址为 127.0.0.1。如果 Nebula Graph 部署在 [Nebula Cloud](../nebula-cloud/1.what-is-cloud.md) 上，用户需要创建 [Private Link](../nebula-cloud/5.solution/5.2.connection-configuration-and-use.md)，设置为专用终结点的 IP 地址。 |
+    | `-addr` | 设置要连接的 graphd 服务的 IP 地址。默认地址为 127.0.0.1。如果 Nebula Graph 部署在 [Nebula Cloud](https://docs.nebula-graph.com.cn/2.6.2/nebula-cloud/1.what-is-cloud/) 上，用户需要创建 [Private Link](https://docs.nebula-graph.com.cn/2.6.2/nebula-cloud/5.solution/5.2.connection-configuration-and-use)，设置为专用终结点的 IP 地址。 |
     | `-port` | 设置要连接的 graphd 服务的端口。默认端口为 9669。|
     | `-u/-user` | 设置 Nebula Graph 账号的用户名。未启用身份认证时，可以使用任意已存在的用户名（默认为`root`）。 |
     | `-p/-password` | 设置用户名对应的密码。未启用身份认证时，密码可以填写任意字符。 |
