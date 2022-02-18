@@ -1,0 +1,100 @@
+{#-
+    This file was automatically generated - do not edit
+  -#}
+  <header class="md-header" data-md-component="header">
+    <div id="dialog-bg"></div>
+    <div id="banner" style="width: 100%;display:flex;height: 35px;justify-content:center;align-items:center;background-color:#FFE45E;font-size:15px;font-weight: 400;color: #000000;">
+      该版本文档对应尚未发布的Nebula Graph开发版本。如需了解已发布版本，请查看
+      <a href="https://docs.nebula-graph.com.cn/" style="font-weight: 500;text-decoration:underline;">文档</a>。
+      <a id="delete" style="margin-left: 20px;cursor: pointer;">&#10006</a>
+    </div>
+    <nav class="md-header__inner md-grid" aria-label="{{ lang.t('header.title') }}">
+      <a href="{{ config.extra.homepage | d(nav.homepage.url, true) | url }}" title="{{ config.site_name | e }}" class="md-header__button md-logo" aria-label="{{ config.site_name }}" data-md-component="logo">
+        {% include "partials/logo.html" %}
+      </a>
+      <label class="md-header__button md-icon" for="__drawer">
+        {% include ".icons/material/menu" ~ ".svg" %}
+      </label>
+      <div class="md-header__title" data-md-component="header-title">
+        <div class="md-header__ellipsis">
+          <div class="md-header__topic">
+            <span class="md-ellipsis">
+              {{ config.site_name }}
+            </span>
+          </div>
+          <div class="md-header__topic" data-md-component="header-topic">
+            <span class="md-ellipsis">
+              {% if page and page.meta and page.meta.title %}
+                {{ page.meta.title }}
+              {% else %}
+                {{ page.title }}
+              {% endif %}
+            </span>
+          </div>
+        </div>
+      </div>
+      {% if not config.theme.palette is mapping %}
+        <form class="md-header__option" data-md-component="palette">
+          {% for option in config.theme.palette %}
+            {% set primary = option.primary | replace(" ", "-") | lower %}
+            {% set accent  = option.accent  | replace(" ", "-") | lower %}
+            <input class="md-option" data-md-color-media="{{ option.media }}" data-md-color-scheme="{{ option.scheme }}" data-md-color-primary="{{ primary }}" data-md-color-accent="{{ accent }}" type="radio" name="__palette" id="__palette_{{ loop.index }}">
+            {% if option.toggle %}
+              <label class="md-header__button md-icon" title="{{ option.toggle.name }}" for="__palette_{{ loop.index0 or loop.length }}" hidden>
+                {% include ".icons/" ~ option.toggle.icon ~ ".svg" %}
+              </label>
+            {% endif %}
+          {% endfor %}
+        </form>
+      {% endif %}
+      {% if config.extra.alternate %}
+        <div class="md-header__option">
+          <div class="md-select">
+            {% set icon = config.theme.icon.alternate or "material/translate" %}
+            <button class="md-header__button md-icon">
+              {% include ".icons/" ~ icon ~ ".svg" %}
+            </button>
+            <div class="md-select__inner">
+              <ul class="md-select__list">
+                {% for alt in config.extra.alternate %}
+                  <li class="md-select__item">
+                    <a href="{{ alt.link | url }}" hreflang="{{ alt.lang }}" class="md-select__link">
+                      {{ alt.name }}
+                    </a>
+                  </li>
+                  {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+      {% if "search" in config["plugins"] %}
+        <label class="md-header__button md-icon" for="__search">
+          {% include ".icons/material/magnify.svg" %}
+        </label>
+        {% include "partials/search.html" %}
+      {% endif %}
+      {% if config.repo_url %}
+        <div class="md-header__source">
+          {% include "partials/source.html" %}
+        </div>
+      {% endif %}
+    </nav>
+  </header>
+  <script>
+    var symbol = document.getElementById("delete");
+    var banner = document.getElementById("banner");
+    symbol.addEventListener("click",function(){
+      banner.style.display = "none";
+    })
+    window.onload = function(){
+      var hidden = document.getElementsByClassName("md-nav__item");
+      var hiddenlabel = [...(hidden)]
+      for(i=0;i<hidden.length;i++){
+        var link = hidden[i].getElementsByClassName("md-nav__link")
+        if(link[0].innerHTML.replace(/\s+/g,"") == ""){
+          hidden.item(i).style.display = "none"
+        }
+      }
+    }
+  </script>

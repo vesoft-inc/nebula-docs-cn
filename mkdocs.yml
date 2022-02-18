@@ -2,7 +2,7 @@ site_name: Nebula Graph Database 手册
 site_description: Documentation for Nebula Graph Database
 site_author: Nebula Graph
 site_url: https://docs.nebula-graph.com.cn/
-edit_uri: 'edit/v3.0.0/docs-2.0/'
+edit_uri: 'edit/master/docs-2.0/'
 docs_dir: docs-2.0
 
 # repository
@@ -20,11 +20,15 @@ theme:
   favicon: 'assets/images/favicon.ico'
   # Change color in `stylesheets > extra.css`
   palette:
-    - scheme: nebula
+    - scheme: default
+      primary: teal
+      accent: light green
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
     - scheme: slate
+      primary: deep orange
+      accent: red
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
@@ -40,12 +44,12 @@ extra_css:
   - stylesheets/extra.css
 extra:
   nebula:
-    release: 3.0.0
+    release: master
     nightly: nightly
     master: master
     base20: 2.0
     base200: 2.0.0
-    branch: v3.0.0
+    branch: master
   version:
     method: mike
   social:
@@ -562,7 +566,7 @@ plugins:
 
   - with-pdf:
       copyright: 2022 vesoft Inc.
-      cover_subtitle: v3.0.0
+      cover_subtitle: master sinnce 3.0.0
       author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
       cover: true
       back_cover: true
