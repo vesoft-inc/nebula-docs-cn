@@ -124,9 +124,9 @@ $ sudo /usr/local/nebula/scripts/nebula.service status all
 - 如果返回如下结果，表示 Nebula Graph 服务正常运行。
 
     ```bash
-    [INFO] nebula-metad(de03025): Running as 26601, Listening on 9559
-    [INFO] nebula-graphd(de03025): Running as 26644, Listening on 9669
-    [INFO] nebula-storaged(de03025): Running as 26709, Listening on 9779
+    [INFO] nebula-metad(02b2091): Running as 26601, Listening on 9559
+    [INFO] nebula-graphd(02b2091): Running as 26644, Listening on 9669
+    [INFO] nebula-storaged(02b2091): Running as 26709, Listening on 9779
     ```
 
 - 如果返回类似如下结果，表示 Nebula Graph 服务异常，可以根据异常服务信息进一步排查，或者在 [Nebula Graph 社区](https://discuss.nebula-graph.com.cn/)寻求帮助。

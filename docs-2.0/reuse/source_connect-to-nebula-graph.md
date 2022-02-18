@@ -30,11 +30,8 @@ Nebula Graph 支持多种类型客户端，包括 CLI 客户端、GUI 客户端�
 
         建议选择**最新**版本。
 
-    ![Select a Nebula Graph version and click **Assets**](../reuse/console260.png "Click Assets to show the available Nebula Graph binary files")
-
 2. 在** Assets **区域找到机器运行所需的二进制文件，下载文件到机器上。
 
-    ![Click to download the package according to your hardware architecture](../reuse/assets260.png "Click the package name to download it")
 
 3. （可选）为方便使用，重命名文件为`nebula-console`。
 
