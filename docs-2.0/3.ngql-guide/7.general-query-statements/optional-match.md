@@ -1,6 +1,6 @@
 # OPTIONAL MATCH
 
-`OPTIONAL MATCH`通常用于`MATCH`语句中，作为`MATCH`语句的可选项去匹配图数据库中的模式，如果图数据库中没有对应的模式，对应的列返回`NULL`。
+`OPTIONAL MATCH`通常与`MATCH`语句一起使用，作为`MATCH`语句的可选项去匹配命中的模式，如果没有命中对应的模式，对应的列返回`NULL`。
 
 ## openCypher 兼容性
 

@@ -2,6 +2,11 @@
 
 用户可以使用`BALANCE`语句平衡分片和 Raft leader 的分布，或者清空某些 Storage 服务器方便进行维护。详情请参见 [BALANCE](../3.ngql-guide/18.operation-and-maintenance-statements/2.balance-syntax.md)。
 
+!!! compatibility "历史版本兼容性"
+
+    不支持`BALANCE DATA`命令。
+
+<!-- balance-3.1
 !!! danger
 
     `BALANCE`命令通过创建和执行一组子任务来迁移数据和均衡分片分布，不要停止集群中的任何机器或改变机器的 IP 地址，直到所有子任务完成，否则后续子任务会失败。
@@ -24,17 +29,16 @@
 
   ```ngql
   nebual> SHOW HOSTS;
-  +------------------+------+----------+--------------+-----------------------------------+------------------------+
-   Host             | Port | Status   | Leader count | Leader distribution               | Partition distribution |
-  +------------------+------+----------+--------------+-----------------------------------+------------------------+
-  | "192.168.10.100" | 9779 | "ONLINE" | 4            | "basketballplayer:4"              | "basketballplayer:15"  |
-  | "192.168.10.101" | 9779 | "ONLINE" | 8            | "basketballplayer:8"              | "basketballplayer:15"  |
-  | "192.168.10.102" | 9779 | "ONLINE" | 3            | "basketballplayer:3"              | "basketballplayer:15"  |
-  | "192.168.10.103" | 9779 | "ONLINE" | 0            | "No valid partition"              | "No valid partition"   |
-  | "192.168.10.104" | 9779 | "ONLINE" | 0            | "No valid partition"              | "No valid partition"   |
-  | "192.168.10.105" | 9779 | "ONLINE" | 0            | "No valid partition"              | "No valid partition"   |
-  | "Total"          |      |          | 15           | "basketballplayer:15"             | "basketballplayer:45"  |
-  +------------------+------+----------+--------------+-----------------------------------+------------------------+
+  +------------------+------+----------+--------------+-----------------------------------+------------------------+---------+
+  | Host             | Port | Status   | Leader count | Leader distribution               | Partition distribution | Version |
+  +------------------+------+----------+--------------+-----------------------------------+------------------------+---------+
+  | "192.168.10.100" | 9779 | "ONLINE" | 4            | "basketballplayer:4"              | "basketballplayer:15"  | "3.1.0" |
+  | "192.168.10.101" | 9779 | "ONLINE" | 8            | "basketballplayer:8"              | "basketballplayer:15"  | "3.1.0" |
+  | "192.168.10.102" | 9779 | "ONLINE" | 3            | "basketballplayer:3"              | "basketballplayer:15"  | "3.1.0" |
+  | "192.168.10.103" | 9779 | "ONLINE" | 0            | "No valid partition"              | "No valid partition"   | "3.1.0" |
+  | "192.168.10.104" | 9779 | "ONLINE" | 0            | "No valid partition"              | "No valid partition"   | "3.1.0" |
+  | "192.168.10.105" | 9779 | "ONLINE" | 0            | "No valid partition"              | "No valid partition"   | "3.1.0" |
+  +------------------+------+----------+--------------+-----------------------------------+------------------------+---------+
   ```
 
 3. 执行命令`BALANCE IN ZONE`将当前图空间内每个 Zone 内部的分片均衡分布。
@@ -72,17 +76,16 @@
 
   ```ngql
   nebula> SHOW HOSTS;
-  +------------------+------+----------+--------------+-----------------------------------+------------------------+
-  | Host             | Port | Status   | Leader count | Leader distribution               | Partition distribution |
-  +------------------+------+----------+--------------+-----------------------------------+------------------------+
-  | "192.168.10.100" | 9779 | "ONLINE" | 4            | "basketballplayer:4"              | "basketballplayer:8"   |
-  | "192.168.10.101" | 9779 | "ONLINE" | 8            | "basketballplayer:8"              | "basketballplayer:8"   |
-  | "192.168.10.102" | 9779 | "ONLINE" | 3            | "basketballplayer:3"              | "basketballplayer:8"   |
-  | "192.168.10.103" | 9779 | "ONLINE" | 0            | "No valid partition"              | "basketballplayer:7"   |
-  | "192.168.10.104" | 9779 | "ONLINE" | 0            | "No valid partition"              | "basketballplayer:7"   |
-  | "192.168.10.105" | 9779 | "ONLINE" | 0            | "No valid partition"              | "basketballplayer:7"   |
-  | "Total"          |      |          | 15           | "basketballplayer:15"             | "basketballplayer:45"  |
-  +------------------+------+----------+--------------+-----------------------------------+------------------------+
+  +------------------+------+----------+--------------+-----------------------------------+------------------------+---------+
+  | Host             | Port | Status   | Leader count | Leader distribution               | Partition distribution | Version |
+  +------------------+------+----------+--------------+-----------------------------------+------------------------+---------+
+  | "192.168.10.100" | 9779 | "ONLINE" | 4            | "basketballplayer:4"              | "basketballplayer:8"   | "3.1.0" |
+  | "192.168.10.101" | 9779 | "ONLINE" | 8            | "basketballplayer:8"              | "basketballplayer:8"   | "3.1.0" |
+  | "192.168.10.102" | 9779 | "ONLINE" | 3            | "basketballplayer:3"              | "basketballplayer:8"   | "3.1.0" |
+  | "192.168.10.103" | 9779 | "ONLINE" | 0            | "No valid partition"              | "basketballplayer:7"   | "3.1.0" |
+  | "192.168.10.104" | 9779 | "ONLINE" | 0            | "No valid partition"              | "basketballplayer:7"   | "3.1.0" |
+  | "192.168.10.105" | 9779 | "ONLINE" | 0            | "No valid partition"              | "basketballplayer:7"   | "3.1.0" |
+  +------------------+------+----------+--------------+-----------------------------------+------------------------+---------+
   ```
 
 如果有子任务失败，请重启作业，详情参见[作业管理](../3.ngql-guide/18.operation-and-maintenance-statements/4.job-statements.md)。如果重做负载均衡仍然不能解决问题，请到 [Nebula Graph 社区](https://discuss.nebula-graph.com.cn/)寻求帮助。
@@ -126,6 +129,7 @@
   ```ngql
   nebula> DROP HOSTS 192.168.10.104:9779,192.168.10.105:9779;
   ```
+-->
 
 ## 均衡 leader 分布
 
@@ -141,17 +145,16 @@ nebula> BALANCE LEADER;
 
 ```ngql
 nebula> SHOW HOSTS;
-+------------------+------+----------+--------------+-----------------------------------+------------------------+
-| Host             | Port | Status   | Leader count | Leader distribution               | Partition distribution |
-+------------------+------+----------+--------------+-----------------------------------+------------------------+
-| "192.168.10.100" | 9779 | "ONLINE" | 4            | "basketballplayer:3"              | "basketballplayer:8"   |
-| "192.168.10.101" | 9779 | "ONLINE" | 8            | "basketballplayer:3"              | "basketballplayer:8"   |
-| "192.168.10.102" | 9779 | "ONLINE" | 3            | "basketballplayer:3"              | "basketballplayer:8"   |
-| "192.168.10.103" | 9779 | "ONLINE" | 0            | "basketballplayer:2"              | "basketballplayer:7"   |
-| "192.168.10.104" | 9779 | "ONLINE" | 0            | "basketballplayer:2"              | "basketballplayer:7"   |
-| "192.168.10.105" | 9779 | "ONLINE" | 0            | "basketballplayer:2"              | "basketballplayer:7"   |
-| "Total"          |      |          | 15           | "basketballplayer:15"             | "basketballplayer:45"  |
-+------------------+------+----------+--------------+-----------------------------------+------------------------+
++------------------+------+----------+--------------+-----------------------------------+------------------------+---------+
+| Host             | Port | Status   | Leader count | Leader distribution               | Partition distribution | Version |
++------------------+------+----------+--------------+-----------------------------------+------------------------+---------+
+| "192.168.10.100" | 9779 | "ONLINE" | 4            | "basketballplayer:3"              | "basketballplayer:8"   | "3.0.0" |
+| "192.168.10.101" | 9779 | "ONLINE" | 8            | "basketballplayer:3"              | "basketballplayer:8"   | "3.0.0" |
+| "192.168.10.102" | 9779 | "ONLINE" | 3            | "basketballplayer:3"              | "basketballplayer:8"   | "3.0.0" |
+| "192.168.10.103" | 9779 | "ONLINE" | 0            | "basketballplayer:2"              | "basketballplayer:7"   | "3.0.0" |
+| "192.168.10.104" | 9779 | "ONLINE" | 0            | "basketballplayer:2"              | "basketballplayer:7"   | "3.0.0" |
+| "192.168.10.105" | 9779 | "ONLINE" | 0            | "basketballplayer:2"              | "basketballplayer:7"   | "3.0.0" |
++------------------+------+----------+--------------+-----------------------------------+------------------------+---------+
 ```
 
 !!! caution

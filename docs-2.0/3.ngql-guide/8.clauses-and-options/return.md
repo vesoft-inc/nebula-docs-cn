@@ -32,7 +32,7 @@
 
 - 在 nGQL 1.x 中，`RETURN`适用于原生 nGQL，语法为`RETURN <var_ref> IF <var_ref> IS NOT NULL`。
 
-- 在 nGQL 2.0 中，`RETURN`不适用于原生 nGQL。
+- 从 nGQL 2.0 开始，`RETURN`不适用于原生 nGQL。
 
 ## Map 顺序说明
 

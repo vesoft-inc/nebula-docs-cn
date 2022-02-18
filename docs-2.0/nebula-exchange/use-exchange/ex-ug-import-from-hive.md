@@ -296,6 +296,9 @@ scala> sql("select playerid, teamid, start_year, end_year from basketball.serve"
         field: dst_player
       }
 
+      # 指定一个列作为 rank 的源（可选）。
+      #ranking: rank
+
       # 单批次写入 Nebula Graph 的最大数据条数。
       batch: 256
 
@@ -319,6 +322,10 @@ scala> sql("select playerid, teamid, start_year, end_year from basketball.serve"
       target: {
         field: teamid
       }
+
+      # 指定一个列作为 rank 的源（可选）。
+      #ranking: rank
+
       batch: 256
       partition: 32
     }
@@ -354,7 +361,7 @@ ${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.excha
 GO FROM "player100" OVER follow;
 ```
 
-用户也可以使用命令 [`SHOW STATS`](../../3.ngql-guide/7.general-query-statements/6.show/14.show-stats/) 查看统计数据。
+用户也可以使用命令 [`SHOW STATS`](../../3.ngql-guide/7.general-query-statements/6.show/14.show-stats.md) 查看统计数据。
 
 ### 步骤 6：（如有）在 Nebula Graph 中重建索引
 

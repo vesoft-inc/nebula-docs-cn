@@ -51,16 +51,11 @@ $ helm uninstall my-studio
 | 参数 | 默认值 | 描述 |
 |:---|:---|:---|
 | replicaCount | 0 | Deployment 的副本数。 |
-| image.httpGateway.name | vesoft/nebula-http-gateway | nebula-http-gateway 镜像的仓库地址。 |
 | image.nebulaStudio.name | vesoft/nebula-graph-studio | nebula-graph-studio 镜像的仓库地址。 |
-| image.nginx.name | nginx | nginx 镜像的仓库地址。 |
-| image.httpGateway.version | v2.1.1 | nebula-http-gateway 的版本。 |
-| image.nebulaStudio.version | v3.1.0 | nebula-graph-studio 的版本。 |
-| image.nginx.version | alpine | nginx 的版本。 |
+| image.nebulaStudio.version | v3.2.0 | nebula-graph-studio 的版本。 |
 | service.type | ClusterIP | 服务类型，必须为`NodePort`，`ClusterIP`或`LoadBalancer`其中之一。 |
 | service.port | 7001 | nebula-graph-studio 中 web 服务的端口。 |
-| resources.httpGateway | {} | nebula-http-gateway 的资源限制/请求。 |
+| service.nodePort | 32701 | Kubernetes 集群外部访问 nebula-studio 的代理端口。 |
 | resources.nebulaStudio | {} | nebula-studio 的资源限制/请求。 |
-| resources.nginx | {} | nginx 的资源限制/请求。 |
 | persistent.storageClassName | "" | storageClass 名称，如果不指定就使用默认值。 |
 | persistent.size | 5Gi | 存储盘大小。 |

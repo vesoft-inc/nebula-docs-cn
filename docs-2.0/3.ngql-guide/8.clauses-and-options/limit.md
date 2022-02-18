@@ -10,10 +10,6 @@
 
         在原生 nGQL 或 openCypher 方式中使用`LIMIT`时，使用`ORDER BY`子句限制输出顺序非常重要，否则会输出一个不可预知的子集。
 
-!!! compatibility "历史版本兼容性"
-
-    Nebula Graph 2.6.0 中，`GO`语句支持了新的`LIMIT`语法。部分`LIMIT`相关的算子支持计算下推。
-
 ## 原生 nGQL 语句中的 LIMIT
 
 在原生 nGQL 中，`LIMIT`有通用语法和`GO`语句中的专属语法。

@@ -56,7 +56,7 @@ $SPARK_HOME/bin/spark-submit --class com.vesoft.nebula.exchange.Exchange \
 --files application.conf \
 --conf spark.driver.extraClassPath=./ \
 --conf spark.executor.extraClassPath=./ \
-nebula-exchange-2.0.0.jar \
+nebula-exchange-3.0.0.jar \
 -c application.conf
 ```
 
@@ -123,7 +123,7 @@ nebula-exchange-2.0.0.jar \
 --conf spark.driver.extraJavaOptions=-Dfile.encoding=utf-8 \
 --conf spark.executor.extraJavaOptions=-Dfile.encoding=utf-8 \
 --class com.vesoft.nebula.exchange.Exchange \
-<nebula-exchange-2.x.y.jar_path> -c <application.conf_path>
+<nebula-exchange-3.x.y.jar_path> -c <application.conf_path>
 ```
 
 如果是在 YARN 中，则用以下命令：
@@ -137,7 +137,7 @@ nebula-exchange-2.0.0.jar \
 --conf spark.executor.extraClassPath=./ \
 --conf spark.driver.extraJavaOptions=-Dfile.encoding=utf-8 \
 --conf spark.executor.extraJavaOptions=-Dfile.encoding=utf-8 \
-<nebula-exchange-2.x.y.jar_path> \
+<nebula-exchange-3.x.y.jar_path> \
 -c application.conf
 ```
 
@@ -205,4 +205,4 @@ Exchange 是在 Spark Writer 基础上开发的 Spark 应用程序，二者均�
 
 ### Q：Exchange 传输数据的性能如何？
 
-Exchange 的性能测试数据和测试方法参见 [Nebula Exchange test result](https://github.com/vesoft-inc/nebula-exchange/blob/master/bench/exchange-test.md)。
+Exchange 的性能测试数据和测试方法参见 [Nebula Exchange test result](https://github.com/vesoft-inc/nebula-exchange/blob/{{exchange.branch}}/bench/exchange-test.md)。

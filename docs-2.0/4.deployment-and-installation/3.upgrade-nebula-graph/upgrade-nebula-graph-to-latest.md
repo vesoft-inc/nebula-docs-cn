@@ -1,10 +1,14 @@
-# 升级 Nebula Graph 历史版本至 v{{nebula.release}}
+# 升级 Nebula Graph 2.x 至 {{nebula.release}} 版本
 
-Nebula Graph 历史版本指低于 Nebula Graph v2.0.0-GA 的版本，本文介绍如何升级历史版本至 v{{nebula.release}}。
+本文以 Nebula Graph 2.6.1 版本升级到 {{nebula.release}} 版本为例，介绍 Nebula Graph 2.x 版本升级到 3.x 版本的方法。
 
-!!! note
+## 适用版本
 
-    Nebula Graph v2.0.0-GA 或更新版本升级至 v{{nebula.release}}，请参见 [Nebula Graph v2.0.x 升级至 v{{nebula.release}}](upgrade-nebula-from-200-to-latest.md)。
+本文适用于将 Nebula Graph 从 2.0.0 及之后的 2.x 版本升级到 {{nebula.release}} 版本。不适用于 2.0.0 之前的历史版本（含 1.x 版本）。如需升级历史版本，将其根据最新的 2.x 版本文档升级到最新的 2.x 版本，然后根据本文的说明升级到 3.x 版本。
+
+!!! caution
+
+    如需从 2.0.0 之前的版本（含 1.x 版本）升级到 {{nebula.release}}，还需找到 {{nebula.release}} 版本文件中`share/resources`目录下的`date_time_zonespec.csv`文件，将其复制到 Nebula Graph 安装路径下的相同目录内。也可从 [GitHub](https://github.com/vesoft-inc/nebula/blob/master/resources/date_time_zonespec.csv) 下载该文件。
 
 ## 升级限制
 
@@ -12,332 +16,212 @@ Nebula Graph 历史版本指低于 Nebula Graph v2.0.0-GA 的版本，本文介�
 
 - 未提供升级脚本，需手动在每台服务器上依次执行。
 
-- **不支持**基于 Docker 容器（包括 Docker Swarm、Docker Compose、K8s）的升级。
+- 不支持基于 Docker 容器（包括 Docker Swarm、Docker Compose、K8s）的升级。
 
 - 必须在原服务器上原地升级，不能修改原机器的 IP 地址、配置文件，不可更改集群拓扑。
 
-- 硬盘空间要求：各机器硬盘剩余空间都需要是原数据目录的**三倍**。
+- 硬盘空间要求：各机器硬盘剩余空间都需要是原数据目录的**三倍以上**。
 
-- 已知会造成数据丢失的 4 种场景，和 alter schema 以及 default value 相关，请参见 [github known issues](https://github.com/vesoft-inc/nebula-graph/issues/857)。
-
-- 所有的客户端均需要升级，通信协议不兼容。
-
-- 升级时间大约需要 30 分钟（取决于具体配置），请参见文末测试环境。
+- 已知会造成数据丢失的 4 种场景，和 alter schema 以及 default value 相关，参见 [github known issues](https://github.com/vesoft-inc/nebula-graph/issues/857)。
 
 - 数据目录不要使用软连接切换，避免失效。
 
-- 升级操作需要有 sudo 权限。
+- 部分升级操作需要有 sudo 权限。
 
-## 前置条件说明
+## 升级影响
 
-### 历史版本安装目录
+- 数据膨胀
+  
+  Nebula Graph 3.x 版本扩展了原有的数据格式，每个点多出一个 key，所以升级后数据会占用更大的空间。
+  
+  新增 key 的格式为： Type 字段（1 字节）+ Partition ID 字段（3 字节）+ VID（大小根据类型而定）。key 的 value 为空。多占用的空间可以根据点的数量和 VID 的数据类型计算。例如，数据集中有 1 亿个点，且 VID 为 INT64，则升级后这个 key 会占用 1 亿 * （1 + 3 + 8）= 12 亿字节，约等于 1.2 GB。
 
-默认情况下，历史版本安装的根目录为`/usr/local/nebula/`（下文记为 `${nebula-old}`）。默认配置文件目录为 `${nebula-old}/etc/`。
+- 客户端兼容
 
-- `${nebula-old}/etc/nebula-storaged.conf`文件中的`--data_path`参数指定了 storaged 数据目录的位置，其默认值为`data/storage`。
+  升级后旧版本客户端将无法连接 Nebula Graph，需将所有客户端都升级到兼容 Nebula Graph {{nebula.release}} 的版本。
 
-- `${nebula-old}/etc/nebula-metad.conf`文件中的`--data_path`参数指定了 metad 数据目录位置，其默认值为`data/meta`。
+- 配置变化
 
-!!! Note
+  少数配置参数发生改变，详情参考版本发布说明和参数文档。
 
-    Nebula Graph 的实际安装路径可能和本文示例不同，请使用实际路径。用户也可以用 `ps -ef | grep nebula` 中的参数来找到实际使用的配置文件地址。
+- 语法兼容
 
-### 新版本安装目录
+  nGQL 语法有部分不兼容：
 
-本文中新版本安装目录记为 `${nebula-new}` （例如 `/usr/local/nebula-new/`)。
+  - 禁用`YIELD`子句返回自定义变量。
 
-```
-# mkdir -p ${nebula-new}
-```
+  - `FETCH`、`GO`、`LOOKUP`、`FIND PATH`、`GET SUBGRAPH`语句中必须添加`YIELD`子句。
+
+  - MATCH 语句中获取点属性时，必须指定 Tag，例如从`return v.name`变为`return v.player.name`。
+
+!!! caution
+
+    可能存在其它暂未发现的影响，建议升级前详细查看版本发布说明和产品手册，并密切关注[论坛](https://discuss.nebula-graph.com.cn/)与 [GitHub](https://github.com/vesoft-inc/nebula/issues) 的最新动态。
+
+## 升级准备
+
+- 根据操作系统和架构下载 Nebula Graph {{nebula.release}} 版本的 TAR 文件并解压，升级过程中需要其中的二进制文件。TAR 包下载地址参见 [Download 页面](https://nebula-graph.io/download/)。
+
+  !!! note
+        编译源码或者下载RPM/DEB包也可以获取新版二进制文件。
+
+- 根据 Storage 和 Meta 服务配置中`data_path`参数的值找到数据文件的位置，并备份数据。默认路径为`nebula/data/storage`和`nebula/data/meta`。
+
+- 备份配置文件。
+
+- 统计所有图空间升级前的数据量，供升级后比较。统计方法如下：
+
+  1. 运行`SUBMIT JOB STATS`。
+  2. 运行`SHOW JOBS`并记录返回结果。
 
 ## 升级步骤
 
-1. **停止所有客户端访问**。也可以通过在每台服务器上关闭 graphd 服务避免脏写。在每台服务器上运行如下命令。
+1. 停止所有 Nebula Graph 服务。
 
-   ```
-   # ${nebula-old}/scripts/nebula.service stop graphd
-   [INFO] Stopping nebula-graphd...
-   [INFO] Done
-   ```
+  ```
+  <nebula_install_path>/scripts/nebula.service stop all
+  ```
 
-2. 停止历史版本服务。在每台服务器上运行如下命令。
+  `nebula_install_path`代表 Nebula Graph 的安装目录。
 
-   ```
-   # ${nebula-old}/scripts/nebula.service stop all
-   [INFO] Stopping nebula-metad...
-   [INFO] Done
-   [INFO] Stopping nebula-graphd...
-   [INFO] Done
-   [INFO] Stopping nebula-storaged...
-   [INFO] Done
-   ```
-
-   运行 `ps -ef | grep nebula` 检查所有 nebula 服务都已停止。`storaged` 进程 flush 数据可能要等待 1 分钟。
+  `storaged` 进程 flush 数据要等待约 1 分钟。运行命令后可继续运行`nebula.service status all`命令以确认所有服务都已停止。启动和停止服务的详细说明参见[管理服务](../manage-service.md)。
 
   !!! Note
 
-        如果超过 20 分钟不能停止服务，**放弃本次升级**，并在论坛提交问题。
+        如果超过 20 分钟不能停止服务，放弃本次升级，在[论坛](https://discuss.nebula-graph.com.cn/)或 [GitHub](https://github.com/vesoft-inc/nebula/issues) 提问。
 
-3. 在每台服务器上运行如下命令。
+2. 在**升级准备**中解压 TAR 包的目的路径下，用此处`bin`目录中的新版二进制文件替换 Nebula Graph 安装路径下`bin`目录中的旧版二进制文件。
 
-   1. 安装新的二进制文件。
+  !!! note
+        每台部署了 Nebula Graph 服务的机器上都要更新相应服务的二进制文件。
 
-    - 如果从 RPM/DEB 安装，从 [release page](https://github.com/vesoft-inc/nebula-graph/releases) 下载对应操作系统的安装包。
+3. 编辑所有 Graph 服务的配置文件，修改以下参数以适应新版本的取值范围。如参数值已在规定范围内，忽略该步骤。
 
-       ```
-       # sudo rpm --force -i --prefix=${nebula-new}  ${nebula-package-name.rpm} # for centos/redhat
-       # sudo dpkg -i --instdir==${nebula-new} ${nebula-package-name.deb} # for ubuntu
-       ```
+  - 为`session_idle_timeout_secs`参数设置一个在 [1,604800] 区间的值，推荐值为 28800。
+  - 为`client_idle_timeout_secs`参数设置一个在 [1,604800] 区间的值，推荐值为 28800。
 
-       具体步骤请参见[从 RPM/DEB 安装](../2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)。
+  这些参数在 2.x 版本中的默认值不在新版本的取值范围内，如不修改会升级失败。详细参数说明参见[Graph 服务配置](../../5.configurations-and-logs/1.configurations/3.graph-config.md)。
 
-    - 如果从源代码安装。具体步骤请参见[从源代码安装](../2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)。这里列出几个关键命令：
+4. 启动所有 Meta 服务。
 
-      - clone 源代码
-  
-        ```
-        # git clone --branch {{nebula.branch}} https://github.com/vesoft-inc/nebula-graph.git
-        ```
+  ```
+  <nebula_install_path>/scripts/nebula-metad.service start
+  ```
 
-      - 设置 CMake
+  启动后，Meta 服务选举 leader。该过程耗时数秒。
 
-        ```
-        # cmake -DCMAKE_INSTALL_PREFIX=${nebula-new} -DENABLE_TESTING=OFF -DCMAKE_BUILD_TYPE=Release .. 
-        ```
+  启动后可以任意启动一个 Graph 服务节点，使用 Nebula Graph 连接该节点并运行[`SHOW HOSTS meta`](../../3.ngql-guide/7.general-query-statements/6.show/6.show-hosts.md)和[`SHOW META LEADER`](../../3.ngql-guide/7.general-query-statements/6.show/19.show-meta-leader.md)，如果能够正常返回 Meta 节点的状态，则 Meta 服务启动成功。
 
-   2. 拷贝配置文件。
+  !!! note
+        如果启动异常，放弃本次升级，并在[论坛](https://discuss.nebula-graph.com.cn/)或 [GitHub](https://github.com/vesoft-inc/nebula/issues) 提问。
 
-       ```
-       # cp -rf ${nebula-old}/etc ${nebula-new}/
-       ```
+5. 使用`bin`目录下的新版 db_upgrader 文件升级数据格式。
 
-4. 在曾经运行 metad 的服务器上（通常为 3 台），拷贝 metad 数据、配置文件到新目录。
+  !!! caution
+        本步骤会备份 Storage 服务中保存的数据，但为防止备份失败，升级数据格式前，务必按照本文**升级准备**部分的说明备份数据。
 
-   - 拷贝 metad 数据
+  命令语法：
 
-     在 `${nebula-old}/etc/nebula-metad.conf` 中找到 `--data_path` 项（其默认值为 `data/meta`）
+  ```
+  <nebula_install_path>/bin/db_upgrader \
+  --src_db_path=<old_storage_data_path> \
+  --dst_db_path=<data_backup_path> \
+  --upgrade_meta_server=<meta_server_ip>:<port>[, <meta_server_ip>:<port> ...] \
+  --upgrade_version=2:3
+  ```
 
-     - 如果历史版本配置**未更改** `--data_path` 项，则可以运行如下命令，将 metad 数据拷贝到新目录。
+  - `old_storage_data_path`代表数据的存储路径，由 Storage 服务配置文件中的`data_path`参数定义。
+  - `data_backup_path`代表自定义的数据备份路径。
+  - `meta_server_ip`和`port`分别代表 Meta 服务各节点的 IP 地址和端口号。
+  - `2:3`代表从 Nebula Graph 2.x 版本升级到 3.x 版本。
 
-       ```
-       # mkdir -p ${nebula-new}/data/meta/
-       # cp -r ${nebula-old}/data/meta/* ${nebula-new}/data/meta/
-       ```
+  本文示例：
 
-     - 如果历史版本配置更改了默认的 metad 目录，请根据实际目录拷贝。
+  ```
+  <nebula_install_path>/bin/db_upgrader \
+  --src_db_path=/usr/local/nebula/data/storage \
+  --dst_db_path=/home/vesoft/nebula/data-backup \
+  --upgrade_meta_server=192.168.8.132:9559 \
+  --upgrade_version=2:3
+  ```
 
-   - 拷贝并修改配置文件
+  !!! note
+        如果出现异常，放弃本次升级，并在[论坛](https://discuss.nebula-graph.com.cn/)或 [GitHub](https://github.com/vesoft-inc/nebula/issues) 提问。
 
-     - 编辑新的 metad 配置文件：
+6. 启动所有 Graph 和 Storage 服务。
 
-       ```
-       # vim ${nebula-new}/nebula-metad.conf
-       ```
+  !!! note
+        如果启动异常，放弃本次升级，并在[论坛](https://discuss.nebula-graph.com.cn/)或 [GitHub](https://github.com/vesoft-inc/nebula/issues) 提问。
 
-     - [可选] 增加配置项：
+7. 连接新版 Nebula Graph，验证服务是否可用、数据是否正常。连接方法参见[连接服务](../connect-to-nebula-graph.md)。
 
-       `--null_type=false`: 升级后的 Schema 的属性是否要支持 [`NULL`](../../3.ngql-guide/3.data-types/5.null.md)，**默认为 true**。不希望支持 NULL 的话，设置为 false。此时，升级后的 Schema 如果要增加属性（ALTER TAG/EDGE）必须指定 [default 值](../../3.ngql-guide/10.tag-statements/1.create-tag.md)，否则会读不出数据。
+  目前尚无有效方式判断升级是否完全成功，可用于测试的参考命令如下：
 
-       `--string_index_limit=32`: 升级后 string 对应的[索引的长度](../../3.ngql-guide/14.native-index-statements/1.create-native-index.md)，不加的话系统默认为 64。
+  ```ngql
+  nebula> SHOW HOSTS;
+  nebula> SHOW HOSTS storage;
+  nebula> SHOW SPACES;
+  nebula> USE <space_name>
+  nebula> SHOW PARTS;
+  nebula> SUBMIT JOB STATS;
+  nebula> SHOW STATS;
+  nebula> MATCH (v) RETURN v LIMIT 5;
+  ```
 
-    !!! Note
-
-        请确保在每个 metad 服务器都完成了以上操作。
-
-5. 在每个 storaged 服务器上，修改 storaged 配置文件。
-
-   + [可选] 如果历史版本 storaged 数据目录 `--data_path=data/storage` 不是默认值，有更改。
-
-      ```
-      # vim ${nebula-new}/nebula-storaged.conf
-      ```
-      `--data_path`设置为新的 storaged 数据目录地址。
-
-   + 创建新版本 storaged 数据目录。
-
-      ```
-      # mkdir -p ${nebula-new}/data/storage/
-      ```
-
-   如果`${nebula-new}/etc/nebula-storaged.conf` 中的 `--data_path` 有改动，请按实际路径创建。
-
-6. 启动新版本的 metad 进程。
-
-   - 在每个 metad 的服务器上运行如下命令。
-
-      ```
-      # ${nebula-new}/scripts/nebula.service start metad
-      [INFO] Starting nebula-metad...
-      [INFO] Done
-      ```
-
-   - 检查每个 metad 进程是否正常。
-
-      ```
-      # ps -ef |grep nebula-metad
-      ```
-
-   - 检查 metad 日志`${nebula-new}/logs/` 下的 ERROR 日志。
-  
-  !!! Note
-
-        如果服务异常：请查看目录`${nebula-new}/logs`内的 metad 相关日志，并在论坛提交问题。**放弃本次升级，在原目录正常启动 nebula 服务。**
-
-7. 升级 storaged 数据格式。
-
-   在每个 storaged 服务器运行如下命令。
-
-   ```
-   # ${nebula-new}/bin/db_upgrader  \
-   --src_db_path=<old_storage_directory_path> \
-   --dst_db_path=<new_storage_directory_path>  \
-   --upgrade_meta_server=<meta_server_ip1>:<port1>[,<meta_server_ip2>:<port2>,...] \
-   --upgrade_version=<old_nebula_version> \
-   ```
-    
-   参数说明：
-
-   - `--src_db_path`：**历史版本** storaged 的数据目录的绝对路径，多个目录用逗号分隔，不加空格。
-
-   - `--dst_db_path`：**新版本** storaged 的数据目录的绝对路径，多个目录用逗号分隔。逗号分隔的目录必须和`--src_db_path`中一一对应。
-
-   - `--upgrade_meta_server` ：步骤 6 中启动的所有新 metad 的地址。
-
-   - `--upgrade_version`：如果历史版本为 v1.2.x，则填写 1；如果历史版本为 v2.0.0-RC，则填写 2。不可填写其他数字。
-    
-  !!! danger
-
-        请勿颠倒`--src_db_path`和`--dst_db_path`的顺序，否则会升级失败且破坏历史版本的数据。
-
-   例如，从 v1.2.x 升级：
-
-   ```
-   # /usr/local/nebula_new/bin/db_upgrader \
-   --src_db_path=/usr/local/nebula/data/storage/data1/,/usr/local/nebula/data/storage/data2/ \
-   --dst_db_path=/usr/local/nebula_new/data/storage/data1/,/usr/local/nebula_new/data/storage/data2/\
-   --upgrade_meta_server=192.168.*.14:45500,192.168.*.15:45500,192.168.*.16:45500 \
-   --upgrade_version=1
-   ```
-
-   从 v2.0.0-RC 升级：
-
-   ```
-   # /usr/local/nebula_new/bin/db_upgrader \
-   --src_db_path=/usr/local/nebula/data/storage/ \
-   --dst_db_path=/usr/local/nebula_new/data/storage/ \
-   --upgrade_meta_server=192.168.*.14:9559,192.168.*.15:9559,192.168.*.16:9559 \
-   --upgrade_version=2
-   ```
-
-  !!! Note
-  
-      - 如果工具抛出异常请在论坛提交问题。**放弃本次升级，关闭所有已经启动的 metad，在原目录正常启动 nebula 服务。**
-      - 请确保在每个 storaged 服务器都完成了以上操作。
-
-8. 在每个 storaged 服务器启动新版本的 storaged 服务。
-
-   ```
-   # ${nebula-new}/scripts/nebula.service start storaged
-   # ${nebula-new}/scripts/nebula.service status storaged
-   ```
-
-  !!! Note
-
-        如果有 storaged 未正常启动，请将日志`${nebula-new}/logs/`在论坛提交问题。**放弃本次升级，关闭所有已经启动的 metad 和 storaged，在原目录正常启动 nebula 服务。**
-
-9. 在每个 graphd 服务器启动新版本的 graphd 服务。
-
-   ```
-   # ${nebula-new}/scripts/nebula.service start graphd
-   # ${nebula-new}/scripts/nebula.service status graphd
-   ```
-  !!! Note
-
-        如果有 graphd 未正常启动，请将日志`${nebula-new}/logs/`在论坛提交问题。**放弃本次升级，关闭所有已经启动的 metad,storaged,graphd. 在原目录正常启动 nebula 服务。**
-
-10.  使用[新版本 Nebula Console](https://github.com/vesoft-inc/nebula-console) 连接新的 Nebula Graph，验证服务是否可用、数据是否正常。命令行参数，如 graphd 的 IP、端口都不变。
-
-    ```ngql
-    nebula> SHOW HOSTS;
-    nebula> SHOW SPACES;
-    nebula> USE <space_name>
-    nebula> SHOW PARTS;
-    nebula> SUBMIT JOB STATS;
-    nebula> SHOW STATS;
-    ```
-
-  !!! Note
-
-        历史版本 Nebula Console 可能会有兼容性问题。
-
-11.  升级其他客户端。
-
-    所有的客户端都必须升级到支持 Nebula Graph v{{nebula.release}}  的版本。包括但不限于 [Python](https://github.com/vesoft-inc/nebula-python)、[Java](https://github.com/vesoft-inc/nebula-java)、[go](https://github.com/vesoft-inc/nebula-go)、[C++](https://github.com/vesoft-inc/nebula-cpp)、[Flink-connector](https://github.com/vesoft-inc/nebula-flink-connector)、[Algorithm](https://github.com/vesoft-inc/nebula-algorithm)、[Exchange](https://github.com/vesoft-inc/nebula-exchange)、[Spark-connector](https://github.com/vesoft-inc/nebula-spark-connector)、[Nebula Bench](https://github.com/vesoft-inc/nebula-bench)。请找到各 repo 对应的 branch。
-
-  !!! Note
-
-        不兼容历史版本的通信协议。需重新源代码编译或者下载二进制包。
-        
-        运维提醒：升级后的数据目录为`${nebula-new}/`。如有硬盘容量监控、日志、ELK 等，请做相应改动。
+  也可根据 {{nebula.release}} 版本的新功能测试，新功能列表参见[发布说明](../../20.appendix/releasenote.md)。
 
 ## 升级失败回滚
 
-如果升级失败，请停止新版本的所有服务，启动历史版本的所有服务。
+如果升级失败，停止新版本的所有服务，从备份中恢复配置文件和二进制文件，启动历史版本的服务。
 
-所有周边客户端也切换为**历史版本**。
-
-## 附 1：升级测试环境
-
-本文测试升级的环境如下：
-
-- 机器配置：32 核 CPU、62 GB 内存、SSD
-
-- 数据规模：Nebula Graph 1.2 版本 LDBC 测试数据 100 GB（1 个图空间、24 个分片、data 目录 92 GB）
-
-- 并发参数：`--max_concurrent=5`、`--max_concurrent_parts=24`、`--write_batch_num=100`
-
-升级共耗时** 21 分钟**（其中 compaction 耗时 13 分钟）。工具并发参数说明如下：
-
-|参数名称|默认值|
-|:---|:---|
-|`--max_concurrent`|5|
-|`--max_concurrent_parts`|10|
-|`--write_batch_num`|100|
-
-## 附 2：Nebula Graph v2.0.0 代码地址和 commit id
-
-| 地址 | commit id |
-|:---|:---|
-| [graphd](https://github.com/vesoft-inc/nebula-graph/releases/tag/v2.0.0) | 91639db |
-| [storaged 和 metad](https://github.com/vesoft-inc/nebula-storage/tree/v2.0.0) | 761f22b |
-| [common](https://github.com/vesoft-inc/nebula-common/tree/v2.0.0) | b2512aa |
+所有周边客户端也切换为旧版。
 
 ## FAQ
 
 Q：升级过程中是否可以通过客户端写入数据？
 
-A：不可以。这个过程中写入的数据状态是未定义的。
+A：不可以。升级过程中需要停止所有服务。
 
-Q：除了 v1.2.x 和 v2.0.0-RC 外，其他版本是否支持升级？
+Q：如果某台机器只有 Graph 服务，没有 Storage 服务，如何升级？
 
-A：未验证过。理论上 v1.0.0 - v1.2.0 都可以采用 v1.2.x 的升级版本。 v2.0.0-RC 之前的日常研发版本（nightly）无升级方案。
-
-Q：如果某台机器只有 graphd 服务，没有 storaged 服务，如何升级？
-
-A：只需要升级 graphd 对应的 binary （或者 RPM 包）。
+A：只需要升级 Graph 服务对应的二进制文件和配置文件。
 
 Q：操作报错 `Permission denied`。
 
 A：部分命令需要有 sudo 权限。
 
+<!--
 Q：是否有 gflags 发生改变？
 
-A: 目前已知的 gflags 改变整理在 [github issues](https://github.com/vesoft-inc/nebula/issues/2501)。
-
-Q：删除数据重新安装，和升级有何不同？
-
-A：v2.x 的默认配置（包括端口）与 v1.x 不同。升级方案沿用老的配置，删除重新安装沿用新的配置。
+A: 有部分 glags 改变了，详情参见版本发布说明和配置说明文档。
+-->
 
 Q：是否有工具或者办法验证新旧版本数据是否一致？
 
-A：没有。
+A：没有。如果只是检查数据量，可以在升级完成后再次运行`SUBMIT JOB STATS`和`SHOW STATS`统计数据量，并与升级之前做对比。
+
+Q: Storage `OFFLINE`并且`Leader count`是`0`怎么处理？
+
+A：运行以下命令手动添加 Storage 主机：
+
+```ngql
+ADD HOSTS <ip>:<port>[, <ip>:<port> ...];
+```
+
+例如：
+
+```
+ADD HOSTS 192.168.10.100:9779, 192.168.10.101:9779, 192.168.10.102:9779;
+```
+
+如果有多个 Meta 服务节点，手动`ADD HOSTS`之后，部分 Storage 节点需等待数个心跳（`heartbeat_interval_secs`）的时间才能正常连接到集群。
+
+如果添加 Storage 主机后问题仍然存在，在[论坛](https://discuss.nebula-graph.com.cn/)或 [GitHub](https://github.com/vesoft-inc/nebula/issues) 提问。
+
+Q：为什么升级后用`SHOW JOBS`查询到的 Job 的 ID 与升级前一样，但 Job 名称等信息不同了？
+
+A： Nebula Graph 2.5.0 版本调整了 Job 的定义，详情参见 [Pull request](https://github.com/vesoft-inc/nebula-common/pull/562/files)。如果是从 2.5.0 之前的版本升级，会出现该问题。
+
+Q: 有哪些语法不兼容 ?
+
+A: 参见[Release Note](../../20.appendix/releasenote.md) Incompatibility 部分。

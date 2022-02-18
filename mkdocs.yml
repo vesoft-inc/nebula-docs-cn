@@ -2,7 +2,7 @@ site_name: Nebula Graph Database 手册
 site_description: Documentation for Nebula Graph Database
 site_author: Nebula Graph
 site_url: https://docs.nebula-graph.com.cn/
-edit_uri: 'edit/master/docs-2.0/'
+edit_uri: 'edit/v3.0.0/docs-2.0/'
 docs_dir: docs-2.0
 
 # repository
@@ -10,7 +10,7 @@ repo_name: 'vesoft-inc/nebula-docs-cn'
 repo_url: 'https://github.com/vesoft-inc/nebula-docs-cn'
 
 # Copyright
-copyright: Copyright &copy; 2021 Nebula Graph - 浙ICP备20010487号
+copyright: Copyright &copy; 2022 Nebula Graph - 浙ICP备20010487号
 
 # Configuration
 theme:
@@ -18,16 +18,13 @@ theme:
   custom_dir: overrides
   logo: 'https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png'
   favicon: 'assets/images/favicon.ico'
+  # Change color in `stylesheets > extra.css`
   palette:
-    - scheme: default
-      primary: teal
-      accent: light green
+    - scheme: nebula
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
     - scheme: slate
-      primary: deep orange
-      accent: red
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
@@ -43,12 +40,12 @@ extra_css:
   - stylesheets/extra.css
 extra:
   nebula:
-    release: master
+    release: 3.0.0
     nightly: nightly
     master: master
     base20: 2.0
     base200: 2.0.0
-    branch: master
+    branch: v3.0.0
   version:
     method: mike
   social:
@@ -58,62 +55,61 @@ extra:
     base111b: 1.1.1-beta
     base220: 2.2.1
     base300: 3.0.0
-    release: 3.1.0
+    release: 3.2.1
   explorer:
-    base100: 1.0.0
-    release: 2.1.0
+    release: 2.2.0
   exchange_ent:
-    release: 2.6.1
-    branch: v2.6.1
+    release: 3.0.0
+    branch: v3.0.0
   exchange:
-    release: 2.6.1
-    branch: v2.6
-    tag: v2.6.1
+    release: 3.0.0
+    branch: v3.0.0
+    tag: v3.0.0
   importer:
-    release: 2.6.0
-    branch: v2.6.0
+    release: 3.0.0
+    branch: v3.0.0
   algorithm:
-    release: 2.5.1
-    branch: v2.5
-  plato:
+    release: 3.0.0
+    branch: v3.0.0
+  analytics:
     release: 1.0.0
     branch: v1.0.0
   sparkconnector:
-    release: 2.6.1
-    branch: v2.6
-    tag: v2.6.1
+    release: 3.0.0
+    branch: v3.0.0
+    tag: v3.0.0
   flinkconnector:
-    release: 2.6.1
-    branch: v2.6
-    tag: v2.6.1
+    release: 3.0.0
+    branch: v3.0.0
+    tag: v3.0.0
   dockercompose:
-    release: 2.6.0
-    branch: v2.6.0
+    release: 3.0.0
+    branch: v3.0.0
   common:
     release: 2.5.0
   dashboard:
-    release: 1.0.2
+    release: 1.1.0
     base100: 1.0.0
-    branch: v1.0.2
+    branch: v1.1.0
   dashboard_ent:
-    release: 1.0.0
+    release: 1.1.0
   console:
-    release: 2.6.0
-    branch: v2.6.0
+    release: 3.0.0
+    branch: v3.0.0
   br:
-    release: 0.5.0
+    release: 0.6.0
   cpp:
-    release: 2.5.0
-    branch: v2.5.0
+    release: 3.0.0
+    branch: v3.0.0
   java:
-    release: 2.6.1
-    branch: v2.6.1
+    release: 3.0.0
+    branch: v3.0.0
   python:
-    release: 2.6.0
-    branch: v2.6.0
+    release: 3.0.0
+    branch: v3.0.0
   go:
-    release: 2.6.0
-    branch: v2.6.0
+    release: 3.0.0
+    branch: release-v3.0.0
   bench:
     release: 1.0.0
     branch: master
@@ -308,10 +304,12 @@ nav:
       - 设置企业版 License: 4.deployment-and-installation/deploy-license.md      
       - 管理服务: 4.deployment-and-installation/manage-service.md
       - 连接服务: 4.deployment-and-installation/connect-to-nebula-graph.md
-      - 管理逻辑机架（Zone）: 4.deployment-and-installation/5.zone.md
+      - 管理 Storage 主机: 4.deployment-and-installation/manage-storage-host.md
+#      - 管理逻辑机架（Zone）: 4.deployment-and-installation/5.zone.md
+
       - 升级版本:
-          - 升级历史版本至当前版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
-          - 升级 v2.0.x 至当前版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
+          - 升级 Nebula Graph 版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
+#          - 升级 v2.0.x 至当前版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
       - 卸载 Nebula Graph: 4.deployment-and-installation/4.uninstall-nebula-graph.md
 
   - 配置与日志:
@@ -334,14 +332,15 @@ nav:
           - 用户管理: 7.data-security/1.authentication/2.management-user.md
           - 内置角色权限: 7.data-security/1.authentication/3.role-list.md
           - OpenLDAP 验证: 7.data-security/1.authentication/4.ldap.md
-#      - 备份恢复:
-#          - 什么是 BR: 7.data-security/2.backup-restore/1.what-is-br.md
-#          - 编译 BR: 7.data-security/2.backup-restore/2.compile-br.md
-#          - 使用 BR 备份数据: 7.data-security/2.backup-restore/3.br-backup-data.md
-#          - 使用 BR 恢复数据: 7.data-security/2.backup-restore/4.br-restore-data.md
       - 管理快照: 7.data-security/3.manage-snapshot.md
       - SSL 加密: 7.data-security/4.ssl.md
 
+  - 备份恢复(BR):
+      - 什么是 BR: nebula-br/1.what-is-br.md
+      - 编译 BR: nebula-br/2.compile-br.md
+      - 使用 BR 备份数据: nebula-br/3.br-backup-data.md
+      - 使用 BR 恢复数据: nebula-br/4.br-restore-data.md
+  
   - 最佳实践:
       - Compaction: 8.service-tuning/compaction.md
       - Storage 负载均衡: 8.service-tuning/load-balance.md
@@ -354,26 +353,27 @@ nav:
 
   - 客户端:
     - 客户端介绍: 14.client/1.nebula-client.md
+    - Nebula Console: nebula-console.md
     - Nebula CPP: 14.client/3.nebula-cpp-client.md
     - Nebula Java: 14.client/4.nebula-java-client.md
     - Nebula Python: 14.client/5.nebula-python-client.md
     - Nebula Go: 14.client/6.nebula-go-client.md
 
-  - Nebula Graph Cloud:
-    - 什么是 Nebula Graph Cloud: nebula-cloud/1.what-is-cloud.md
-    - 创建订阅: nebula-cloud/2.how-to-create-subsciption.md
-    - 配置Solution: nebula-cloud/3.how-to-set-solution.md
-    - Cloud Solution 角色身份说明: nebula-cloud/4.user-role-description.md
-    - Solution 操作:
-      - Solution: nebula-cloud/5.solution/5.0.introduce-solution.md
-      - 配套的应用（Dashboard/Studio/Explorer）: nebula-cloud/5.solution/5.1.supporting-application.md
-      - Private Link: nebula-cloud/5.solution/5.2.connection-configuration-and-use.md
-      - 管理角色权限: nebula-cloud/5.solution/5.3.role-and-authority-management.md
-    - 价格: nebula-cloud/6.pricing.md
-    - 用户服务条款: nebula-cloud/7.terms-and-conditions.md
-    - 隐私政策条款: nebula-cloud/8.privacy-policy.md
+  - Nebula Graph Cloud: nebula-cloud.md
 
-  - Nebula Console: nebula-console.md
+#  - Nebula Graph Cloud:
+#    - 什么是 Nebula Graph Cloud: nebula-cloud/1.what-is-cloud.md
+#    - 创建订阅: nebula-cloud/2.how-to-create-subsciption.md
+#    - 配置Solution: nebula-cloud/3.how-to-set-solution.md
+#    - Cloud Solution 角色身份说明: nebula-cloud/4.user-role-description.md
+#    - Solution 操作:
+#      - Solution: nebula-cloud/5.solution/5.0.introduce-solution.md
+#      - 配套的应用（Dashboard/Studio/Explorer）: nebula-cloud/5.solution/5.1.supporting-application.md
+#      - Private Link: nebula-cloud/5.solution/5.2.connection-configuration-and-use.md
+#      - 管理角色权限: nebula-cloud/5.solution/5.3.role-and-authority-management.md
+#    - 价格: nebula-cloud/6.pricing.md
+#    - 用户服务条款: nebula-cloud/7.terms-and-conditions.md
+#    - 隐私政策条款: nebula-cloud/8.privacy-policy.md
 
   - Nebula Graph Studio:
     - Studio 版本更新说明: nebula-studio/about-studio/st-ug-release-note.md
@@ -436,18 +436,20 @@ nav:
       - 常见问题 FAQ: nebula-dashboard-ent/8.faq.md
 
   - Nebula Explorer:
-      - 什么是 Nebula Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
-      - 安装与登录:
-        - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
-        - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
-        - 清除连接: nebula-explorer/deploy-connect/ex-ug-reset-connection.md
-      - 操作指南:
-        - 页面概览: nebula-explorer/operation-guide/ex-ug-page-overview.md
-        - 查询探索: nebula-explorer/operation-guide/ex-ug-query-exploration.md
-        - 图探索拓展: nebula-explorer/operation-guide/ex-ug-graph-exploration.md
-        - 画布操作: nebula-explorer/operation-guide/ex-ug-canvas.md
-        - 关系列表: nebula-explorer/operation-guide/ex-ug-relationship-list.md
-        - 快捷键: nebula-explorer/operation-guide/ex-ug-shortcuts.md
+    - 什么是 Nebula Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
+    - 安装与登录:
+      - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
+      - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
+    - 页面概览: nebula-explorer/ex-ug-page-overview.md
+    - 开始探索: nebula-explorer/ex-ug-query-exploration.md
+    - 节点筛选: nebula-explorer/node-filtering.md
+    - 探索拓展: nebula-explorer/ex-ug-graph-exploration.md
+    - 画布功能: 
+      - 画布概览: nebula-explorer/canvas-operations/canvas-overview.md
+      - 可视化模式: nebula-explorer/canvas-operations/visualization-mode.md
+      - 画布快照: nebula-explorer/canvas-operations/canvas-snapshot.md
+    - 控制台: nebula-explorer/explorer-console.md
+    - 基本操作和快捷键: nebula-explorer/ex-ug-shortcuts.md
 
   - Nebula Importer:
     - 使用 Nebula Importer: nebula-importer/use-importer.md
@@ -468,7 +470,7 @@ nav:
       - 导入 ORC 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-orc.md
       - 导入 Parquet 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-parquet.md
       - 导入 HBase 数据: nebula-exchange/use-exchange/ex-ug-import-from-hbase.md
-      - 导入 MySQL 数据: nebula-exchange/use-exchange/ex-ug-import-from-mysql.md
+      - 导入 MySQL/PostgreSQL 数据: nebula-exchange/use-exchange/ex-ug-import-from-mysql.md
       - 导入 ClickHouse 数据: nebula-exchange/use-exchange/ex-ug-import-from-clickhouse.md
       - 导入 Neo4j 数据: nebula-exchange/use-exchange/ex-ug-import-from-neo4j.md
       - 导入 Hive 数据: nebula-exchange/use-exchange/ex-ug-import-from-hive.md
@@ -479,25 +481,25 @@ nav:
       - 导出 Nebula Graph 数据: nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
     - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
 
-  - Nebula Operator:
-      - 什么是 Nebula Operator: nebula-operator/1.introduction-to-nebula-operator.md
-      - 使用流程: nebula-operator/6.get-started-with-operator.md
-      - 部署 Nebula Operator: nebula-operator/2.deploy-nebula-operator.md
-      - 部署 Nebula Graph集群: 
-        - 使用 Kubectl 部署 Nebula Graph 集群: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
-        - 使用 Helm 部署 Nebula Graph 集群: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
-      - 配置 Nebula Graph 集群:
-        - 自定义 Nebula Graph 集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
-        - 回收 PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
-        - 均衡扩容后的 Storage 数据: nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
-      - 升级 Nebula Graph 集群: nebula-operator/9.upgrade-nebula-cluster.md   
-      - 连接 Nebula Graph 数据库: nebula-operator/4.connect-to-nebula-graph-service.md
-      - 故障自愈: nebula-operator/5.operator-failover.md
-      - 常见问题: nebula-operator/7.operator-faq.md
+#   - Nebula Operator:
+#       - 什么是 Nebula Operator: nebula-operator/1.introduction-to-nebula-operator.md
+#       - 使用流程: nebula-operator/6.get-started-with-operator.md
+#       - 部署 Nebula Operator: nebula-operator/2.deploy-nebula-operator.md
+#       - 部署 Nebula Graph集群: 
+#         - 使用 Kubectl 部署 Nebula Graph 集群: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
+#         - 使用 Helm 部署 Nebula Graph 集群: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
+#       - 配置 Nebula Graph 集群:
+#         - 自定义 Nebula Graph 集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
+#         - 回收 PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
+# #banlance-3.1  notice Exclude       - 均衡扩容后的 Storage 数据: nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
+#       - 升级 Nebula Graph 集群: nebula-operator/9.upgrade-nebula-cluster.md   
+#       - 连接 Nebula Graph 数据库: nebula-operator/4.connect-to-nebula-graph-service.md
+#       - 故障自愈: nebula-operator/5.operator-failover.md
+#       - 常见问题: nebula-operator/7.operator-faq.md
 
   - Nebula Algorithm: nebula-algorithm.md
 
-  - Nebula Plato: nebula-plato.md
+  - Nebula Analytics: nebula-analytics.md
 
   - Nebula Spark Connector: nebula-spark-connector.md
       
@@ -545,10 +547,13 @@ plugins:
 # Exclude files with unix-style wildcards (globs)
       glob:
 # Exclude all files in a directory. The path starts with the directory name in docs-2.0, such as `20.appendix/*`.
-        - 7.data-security/2.backup-restore/*
         - nebula-flink/*
         - CHANGELOG.md
         - spark-connector/*
+        - nebula-operator/*
+        - 4.deployment-and-installation/5.zone.md
+        - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
+        - nebula-cloud/*
 # Exclude the file with the following file name.
 #        - abc.md
 # Exclude files with regular expressions (regexes)
@@ -556,8 +561,8 @@ plugins:
 #      - '.*\.(tmp|bin|tar)$'
 
   - with-pdf:
-      copyright: 2021 vesoft Inc.
-      cover_subtitle: master sinnce 2.6.1
+      copyright: 2022 vesoft Inc.
+      cover_subtitle: v3.0.0
       author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
       cover: true
       back_cover: true

@@ -2,10 +2,6 @@
 
 `SAMPLE`子句用于在结果集中均匀取样并返回指定数量的数据。
 
-!!! compatibility "历史版本兼容性"
-
-    `SAMPLE`是 Nebula Graph 2.6.0 新增的子句。
-
 `SAMPLE`仅能在`GO`语句中使用，语法如下：
 
 ```ngql

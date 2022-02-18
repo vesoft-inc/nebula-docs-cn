@@ -2,6 +2,20 @@
 
 [Nebula Algorithm](https://github.com/vesoft-inc/nebula-algorithm) （简称 Algorithm）是一款基于 [GraphX](https://spark.apache.org/graphx/) 的 Spark 应用程序，通过提交 Spark 任务的形式使用完整的算法工具对 Nebula Graph 数据库中的数据执行图计算，也可以通过编程形式调用 lib 库下的算法针对 DataFrame 执行图计算。
 
+## 版本兼容性
+
+Nebula Algorithm 版本和 Nebula Graph 内核的版本对应关系如下。
+
+|Algorithm client 版本|Nebula Graph 版本|
+|:---|:---|
+|3.0-SNAPSHOT         |  nightly       |
+|{{algorithm.release}}|  {{nebula.release}}  |
+|  2.6.x              |  2.6.x  |
+|  2.5.0              |  2.5.0、2.5.1  |
+|  2.1.0              |  2.0.0、2.0.1  |
+
+
+
 ## 前提条件
 
 在使用 Algorithm 之前，用户需要确认以下信息：
@@ -22,6 +36,27 @@
 
 - 图计算会输出点的数据集，算法结果会以DataFrame形式作为点的属性存储。用户可以根据业务需求，自行对算法结果做进一步操作，例如统计、筛选。
 
+- 如果将算法结果写入到 Nebula Graph 中，请确保对应图空间中的 Tag 有对应算法结果名称的属性。各项算法对应的属性如下。
+
+  |        算法         |     属性名称      |属性数据类型|
+  |:------------------------:|:-----------------------:|:-----------:|
+  |         pagerank         |         pagerank        |double/string|
+  |          louvain         |          louvain        | int/string  |
+  |          kcore           |           kcore         | int/string  |
+  |     labelpropagation     |           lpa           | int/string  |
+  |   connectedcomponent     |            cc           | int/string  |
+  |stronglyconnectedcomponent|            scc          | int/string  |
+  |         betweenness      |         betweenness     |double/string|
+  |        shortestpath      |        shortestpath     |   string    |
+  |        degreestatic      |degree,inDegree,outDegree| int/string  |
+  |        trianglecount     |       trianglecount     | int/string  |
+  |  clusteringcoefficient   |    clustercoefficient   |double/string|
+  |         closeness        |         closeness       |double/string|
+  |            hanp          |            hanp         | int/string  |
+  |            bfs           |            bfs          |    string   |
+  |         jaccard          |          jaccard        |    string   |
+  |        node2vec          |          node2vec       |    string   |
+
 ## 支持算法
 
 Nebula Algorithm 支持的图计算算法如下。
@@ -32,14 +67,19 @@ Nebula Algorithm 支持的图计算算法如下。
  |         Louvain          |  社区发现  | 社团挖掘、层次化聚类|
  |          KCore           |    K 核    |社区发现、金融风控|
  |     LabelPropagation     |  标签传播  |资讯传播、广告推荐、社区发现|
+ |         Hanp             |标签传播进阶版|社区发现、推荐       |
  |    ConnectedComponent    |  联通分量  |社区发现、孤岛发现|
  |StronglyConnectedComponent| 强联通分量  |社区发现|
  |       ShortestPath       |  最短路径   |路径规划、网络规划|
  |       TriangleCount      | 三角形计数  |网络结构分析|
  |  GraphTriangleCount      | 全图三角形计数 |网络结构及紧密程度分析|
  |   BetweennessCentrality  | 介数中心性  |关键节点挖掘，节点影响力计算|
+ |        Closeness         | 接近中心性  |关键节点挖掘、节点影响力计算|
  |        DegreeStatic      |   度统计   |图结构分析|
  | ClusteringCoefficient    | 聚集系数    |推荐、电信诈骗分析|
+ |       Jaccard            | 杰卡德相似度计算| 相似度计算、推荐|
+ |         BFS              | 广度优先遍历| 层序遍历、最短路径规划|
+ |       Node2Vec           |     -     | 图分类         |
 
 ## 实现方法
 
@@ -75,11 +115,11 @@ Nebula Algorithm 实现图计算的流程如下：
   $ mvn clean package -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
   ```
 
-编译完成后，在目录`nebula-algorithm/target`下生成类似文件`nebula-algorithm-{{algorithm.release}}.jar`。
+编译完成后，在目录`nebula-algorithm/target`下生成类似文件`nebula-algorithm-3.x.x.jar`。
 
 ### Maven 远程仓库下载
 
-[下载地址](https://repo1.maven.org/maven2/com/vesoft/nebula-algorithm/{{algorithm.release}}/)
+[下载地址](https://repo1.maven.org/maven2/com/vesoft/nebula-algorithm/)
 
 ## 使用方法
 
@@ -207,15 +247,16 @@ Nebula Algorithm 实现图计算的流程如下：
       }
 
       algorithm: {
-      # 需要执行的算法，可选值为：pagerank、louvain、connectedcomponent、
-      # labelpropagation、shortestpaths、degreestatic、kcore、
-      # stronglyconnectedcomponent、trianglecount、betweenness
+      # 需要执行的算法，可选值为：
+      # pagerank、louvain、connectedcomponent、labelpropagation、shortestpaths、
+      # degreestatic、kcore、stronglyconnectedcomponent、trianglecount、
+      # betweenness、graphtriangleCount。
       executeAlgo: pagerank
  
       # PageRank 参数
       pagerank: {
           maxIter: 10
-          resetProb: 0.15  # 默认为 0.15
+          resetProb: 0.15  
       }
  
       # Louvain 参数
@@ -225,38 +266,9 @@ Nebula Algorithm 实现图计算的流程如下：
           tol: 0.5
       }
 
-     # ConnectedComponent/StronglyConnectedComponent 参数
-     connectedcomponent: {
-         maxIter: 20
-     }
+      # ...
 
-     # LabelPropagation 参数
-     labelpropagation: {
-         maxIter: 20
-     }
-
-      # ShortestPath 参数
-      shortestpaths: {
-          # several vertices to compute the shortest path to all vertices.
-          landmarks: "1"
-      }
-
-      # DegreeStatic 参数
-      degreestatic: {}
-
-      # KCore 参数
-      kcore:{
-          maxIter:10
-          degree:1
-      }
-
-      # TriangleCount 参数
-      trianglecount:{}
- 
-      # BetweennessCentrality 参数
-      betweenness:{
-          maxIter:5
-      }
+  }
   }
   ```
 
@@ -269,7 +281,7 @@ Nebula Algorithm 实现图计算的流程如下：
   示例：
 
   ```bash
-  ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.algorithm.Main /root/nebula-algorithm/target/nebula-algorithm-{{algorithm.release}}.jar -p /root/nebula-algorithm/src/main/resources/application.conf
+  ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.algorithm.Main /root/nebula-algorithm/target/nebula-algorithm-3.0-SNAPSHOT.jar -p /root/nebula-algorithm/src/main/resources/application.conf
   ```
 
 ## 视频

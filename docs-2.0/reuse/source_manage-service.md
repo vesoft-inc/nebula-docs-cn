@@ -85,7 +85,7 @@ $ sudo /usr/local/nebula/scripts/nebula.service stop all
 在`nebula-docker-compose/`目录内执行如下命令停止 Nebula Graph 服务：
 
 ```bash
-nebula-docker-compose]$ docker-compose down
+[nebula-docker-compose]$ docker-compose down
 Stopping nebula-docker-compose_graphd_1    ... done
 Stopping nebula-docker-compose_graphd2_1   ... done
 Stopping nebula-docker-compose_storaged0_1 ... done
@@ -144,7 +144,7 @@ Nebula Graph 服务由 Meta 服务、Graph 服务和 Storage 服务共同提供�
 在`nebula-docker-compose`目录内执行如下命令查看 Nebula Graph 服务状态：
 
 ```bash
-nebula-docker-compose]$ docker-compose ps
+[nebula-docker-compose]$ docker-compose ps
             Name                             Command                  State                                             Ports
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 nebula-docker-compose_graphd1_1     /usr/local/nebula/bin/nebu ...   Up (healthy)   0.0.0.0:49223->19669/tcp, 0.0.0.0:49222->19670/tcp, 0.0.0.0:49224->9669/tcp
@@ -185,7 +185,7 @@ a74054c6ae25   vesoft/nebula-graphd:nightly     "/usr/local/nebula/b…"   36 mi
 最后登录容器排查问题
 
 ```bash
-nebula-docker-compose]$ docker exec -it 2a6c56c405f5 bash
+[nebula-docker-compose]$ docker exec -it 2a6c56c405f5 bash
 [root@2a6c56c405f5 nebula]#
 ```
 

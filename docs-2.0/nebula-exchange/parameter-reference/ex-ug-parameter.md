@@ -1,6 +1,6 @@
 # 配置说明
 
-本文介绍使用 Nebula Exchange 时如何修改配置文件 [`application.conf`](https://github.com/vesoft-inc/nebula-exchange/blob/master/nebula-exchange/src/main/resources/application.conf)。
+本文介绍使用 Nebula Exchange 时如何修改配置文件 [`application.conf`](https://github.com/vesoft-inc/nebula-exchange/blob/master/nebula-exchange_spark_2.4/src/main/resources/application.conf)。
 
 修改配置文件之前，建议根据数据源复制并修改文件名称，便于区分。例如数据源为 CSV 文件，可以复制为`csv_application.conf`。
 
@@ -131,15 +131,15 @@
 |`tags.database`|string|-|是|Neo4j 中保存源数据的数据库名。|
 |`tags.check_point_path`|string|`/tmp/test`|否|设置保存导入进度信息的目录，用于断点续传。如果未设置，表示不启用断点续传。|
 
-### MySQL 源特有参数
+### MySQL/PostgreSQL 源特有参数
 
 |参数|数据类型|默认值|是否必须|说明|
 |:---|:---|:---|:---|:---|
-|`tags.host`|string|-|是|MySQL 服务器地址。|
-|`tags.port`|string|-|是|MySQL 服务器端口。|
+|`tags.host`|string|-|是|MySQL/PostgreSQL 服务器地址。|
+|`tags.port`|string|-|是|MySQL/PostgreSQL 服务器端口。|
 |`tags.database`|string|-|是|数据库名称。|
 |`tags.table`|string|-|是|需要作为数据源的表名称。|
-|`tags.user`|string|-|是|拥有读取权限的 MySQL 用户名。|
+|`tags.user`|string|-|是|拥有读取权限的 MySQL/PostgreSQL 用户名。|
 |`tags.password`|string|-|是|用户名对应密码。|
 |`tags.sentence`|string|-|是|查询数据源的语句。例如`"select teamid, name from basketball.team order by teamid;"`。|
 
@@ -184,6 +184,7 @@
 |参数|数据类型|默认值|是否必须|说明|
 |:---|:---|:---|:---|:---|
 |`tags.path`|string|-|是|指定需要生成 SST 文件的源文件的路径。|
+|`tags.repartitionWithNebula`|bool|`false`|否|生成 SST 文件时是否要基于 Nebula Graph 中图空间的 partition 进行数据重分区。开启该功能可减少 DOWNLOAD 和 INGEST SST 文件需要的时间。|
 
 ### Nebula Graph 源特有参数
 
@@ -217,6 +218,13 @@
 |`edges.ranking`|int|-|否|rank 值的列。没有指定时，默认所有 rank 值为`0`。|
 |`edges.batch`|int|`256`|是|单批次写入 Nebula Graph 的最大边数量。|
 |`edges.partition`|int|`32`|是|Spark 分片数量。|
+
+### 生成 SST 时的特有参数
+
+|参数|数据类型|默认值|是否必须|说明|
+|:---|:---|:---|:---|:---|
+|`edges.path`|string|-|是|指定需要生成 SST 文件的源文件的路径。|
+|`edges.repartitionWithNebula`|bool|`false`|否|生成 SST 文件时是否要基于 Nebula Graph 中图空间的 partition 进行数据重分区。开启该功能可减少 DOWNLOAD 和 INGEST SST 文件需要的时间。|
 
 ### Nebula Graph 源特有参数
 

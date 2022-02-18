@@ -3,7 +3,7 @@
 Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云服务版 Studio 只能在 Nebula Graph Cloud Service 上使用。当在 Nebula Graph Cloud Service 上创建 Nebula Graph 实例时即自动完成云服务版本 Studio 的部署，一键直连即可使用，不需要自己部署。详细信息参考 [《Nebula Graph Cloud Service 用户手册》](https://cloud-docs.nebula-graph.com.cn/cn/posts/manage-instances/dbaas-ug-connect-nebulastudio/ "点击前往 Nebula Graph Cloud Service 用户手册")。
 -->
 
-本文介绍如何在本地通过 Docker、RPM 和 tar 包部署 Studio。
+本文介绍如何在本地通过 Docker、RPM、DEB 和 tar 包部署 Studio。
 
 !!! Note
 
@@ -17,24 +17,13 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
 - Nebula Graph 服务已经部署并启动。详细信息，参考 [Nebula Graph 安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
 
-- 使用的 Linux 发行版为 CentOS ，安装有 lsof 和版本为 v10.16.0 + 以上的 [Node.js](https://nodejs.org/zh-cn/)。
-  
-  !!! note
-
-        `node` 及 `npm` 命令需要安装在 `/usr/bin/`目录下，以防出现 RPM 安装时 node 命令找不到的情况。
-        例如 nodejs12 默认目录为`/opt/rh/rh-nodejs12`，用户可以使用以下命令建立软连接：
-
-        ```bash
-        $ sudo ln -s /opt/rh/rh-nodejs12/root/usr/bin/node /usr/bin/node
-        $ sudo ln -s /opt/rh/rh-nodejs12/root/usr/bin/npm /usr/bin/npm
-        ```
+- 使用的 Linux 发行版为 CentOS ，安装有 lsof。
 
 - 确保在安装开始前，以下端口处于未被使用状态。
   
   | 端口号 | 说明 |
   | ---- | ---- |
   | 7001 | Studio 提供 web 服务使用。 |
-  | 8080 | Nebula HTTP Gateway Client 进行 HTTP 通信使用。 |
 
 ### 安装
 
@@ -46,17 +35,20 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
 2. 使用`sudo rpm -i <rpm>`命令安装 RPM 包。
 
-   例如，安装 Studio {{studio.release}} 版本需要运行以下命令：
+   例如，安装 Studio {{studio.release}} 版本需要运行以下命令，默认安装路径为`/usr/local/nebula-graph-studio`：
 
    ```bash
    $ sudo rpm -i nebula-graph-studio-{{studio.release}}.x86_64.rpm
+   ```
+   也可以使用以下命令安装到指定路径：
+   ```bash
+   $ sudo rpm -i nebula-graph-studio-{{studio.release}}.x86_64.rpm --prefix=<path> 
    ```
 
    当屏幕返回以下信息时，表示 PRM 版 Studio 已经成功启动。
 
    ```bash
-   egg started on http://0.0.0.0:7001
-   nohup: 把输出追加到"nohup.out"
+   Created symlink from /etc/systemd/system/multi-user.target.wants/nebula-graph-studio.service to /usr/lib/systemd/system/nebula-graph-studio.service.
    ```
 
 3. 启动成功后，在浏览器地址栏输入 `http://ip address:7001`。
@@ -95,20 +87,19 @@ $ lsof -i:7001
 如果端口被占用，且无法结束该端口上进程，用户可以通过以下命令修改 Studio 服务启动端口，并重新启动服务。
 ```bash
 //修改 studio 服务启动端口
-$ vi config/config.default.js
+$ vi config/example-config.yaml
 
 //修改
-...
-    config.cluster = {
-        listen: {
-            port: 7001, // 修改这个端口号，改成任意一个当前可用的即可
-            hostname: '0.0.0.0',
-        },
-    };
-...
+web:
+#  task_id_path:
+#  upload_dir:
+#  tasks_dir:
+#  sqlitedb_file_path:
+#  ip:
+  port: 7001 // 修改这个端口号，改成任意一个当前可用的即可
 
-//重新启动 npm
-$ npm run start
+//重启服务
+$ systemctl restart nebula-graph-studio.service
 ```
 
 ## tar 包部署 Studio
@@ -119,16 +110,13 @@ $ npm run start
 
 - Nebula Graph 服务已经部署并启动。详细信息，参考 [Nebula Graph 安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
 
-- 使用的 Linux 上安装有版本为 v10.12.0 以上的 Node.js。
-
 - 确保在安装开始前，以下端口处于未被使用状态。
 
    | 端口号 | 说明 |
    | ---- | ---- |
    | 7001 | Studio 提供的 web 服务 |
-   | 8080 | Nebula-http-gateway，Client 的 HTTP 服务 |
 
-### 安装
+### 安装部署
 
 1. 根据需要下载 tar 包，建议选择最新版本。
 
@@ -142,31 +130,18 @@ $ npm run start
    tar -xvf nebula-graph-studio-{{studio.release}}.x86_64.tar.gz
    ```
 
-### 部署
-
-!!! Note
-
-    根目录 nebula-graph-studio 下一共有两个安装包：nebula-graph-studio 和 nebula-http-gateway。用户需要在同一台机器上分别部署并启动服务，才能完成 Studio 的部署。
-
-1. 部署 nebula-http-gateway 并启动。
-
-   ```bash
-   $ cd nebula-http-gateway
-   $ nohup ./nebula-httpd &
-   ```
-
-2. 部署 nebula-graph-studio 并启动。
+3. 部署 nebula-graph-studio 并启动。
    
    ```bash
    $ cd nebula-graph-studio
-   $ npm run start
+   $ ./server
    ```
 
   !!! caution
 
-        Studio {{studio.release}} 版本不需要依赖于 nebula-importer，故安装部署方式与 Studio v3.0.0 不同。
+        Studio {{studio.release}} 版本不需要依赖于 nebula-importer 和 nebula-http-gateway，故安装部署方式与 Studio v3.1.0 不同。
 
-3. 启动成功后，在浏览器地址栏输入 `http://ip address:7001`。
+4. 启动成功后，在浏览器地址栏输入 `http://ip address:7001`。
    
    如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Studio。
 
@@ -176,9 +151,54 @@ $ npm run start
 
 用户可以采用 `kill pid` 的方式来关停服务：
 ```bash
-$ kill $(lsof -t -i :8080) # stop nebula-http-gateway
-$ cd nebula-graph-studio
-$ npm run stop # stop nebula-graph-studio
+$ kill $(lsof -t -i :7001) # stop nebula-graph-studio
+```
+
+## DEB 部署 Studio
+
+### 前提条件
+
+在通过 DEB 部署安装 Studio 之前，用户需要确认以下信息：
+
+- Nebula Graph 服务已经部署并启动。详细信息，参考 [Nebula Graph 安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
+
+- 使用的 Linux 发行版为 Ubuntu。
+
+- 确保在安装开始前，以下端口处于未被使用状态。
+
+   | 端口号 | 说明 |
+   | ---- | ---- |
+   | 7001 | Studio 提供的 web 服务 |
+
+
+### 安装
+
+1. 根据需要选择并下载 DEB 包，建议选择最新版本。常用下载链接如下：
+
+   | 安装包 | 检验和 | Nebula 版本 |
+   | ----- | ----- | ----- |
+   | [nebula-graph-studio-{{studio.release}}.x86_64.deb](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}.x86_64.deb) |  [nebula-graph-studio-{{studio.release}}.x86_64.deb.sha256](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}.x86_64.deb.sha256) | {{ nebula.release }} |
+
+2. 使用`sudo dpkg -i <deb>`命令安装 DEB 包。
+
+   例如，安装 Studio {{studio.release}} 版本需要运行以下命令：
+
+   ```bash
+   $ sudo dpkg -i nebula-graph-studio-{{studio.release}}.x86_64.deb
+   ```
+
+3. 启动成功后，在浏览器地址栏输入 `http://ip address:7001`。
+   
+   如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Studio。
+
+   ![Nebula Graph Studio 登录界面](../figs/st-ug-001-1.png "Nebula Graph Studio 登录界面")
+
+### 卸载
+
+用户可以使用以下的命令卸载 Studio。
+
+```bash
+$ sudo dpkg -r nebula-graph-studio-{{studio.release}}.x86_64
 ```
 
 ## Docker 部署 Studio
@@ -194,7 +214,6 @@ $ npm run stop # stop nebula-graph-studio
    | 端口号 | 说明 |
    | ---- | ---- |
    | 7001 | Studio 提供的 web 服务 |
-   | 8080 | Nebula-http-gateway，Client 的 HTTP 服务 |
 
 - （可选）在中国大陆从 Docker Hub 拉取 Docker 镜像的速度可能比较慢，用户可以使用 `registry-mirrors` 参数配置加速镜像。例如，如果要使用 Docker 中国区官方镜像、网易镜像和中国科技大学的镜像，则按以下格式配置 `registry-mirrors` 参数：
 
@@ -218,7 +237,7 @@ $ npm run stop # stop nebula-graph-studio
 
    | 安装包 | Nebula Graph 版本 |
    | ----- | ----- |
-   | [nebula-graph-studio-v{{studio.release}}.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/nebula-graph-studio-v{{studio.release}}.tar.gz) | {{nebula.release}} |
+   | [nebula-graph-studio-v{{studio.release}}.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-v{{studio.release}}.tar.gz) | {{nebula.release}} |
 
 2. 创建`nebula-graph-studio-v{{studio.release}}`目录，并将安装包解压至目录中。
 
@@ -247,9 +266,7 @@ $ npm run stop # stop nebula-graph-studio
    当屏幕返回以下信息时，表示 Docker 版 Studio 已经成功启动。
 
    ```bash
-   Creating docker_client_1   ... done
    Creating docker_web_1      ... done
-   Creating docker_nginx_1    ... done
    ```
 
 6. 启动成功后，在浏览器地址栏输入 `http://ip address:7001`。

@@ -10,7 +10,7 @@
 
 | 文档                                                         | 视频                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [什么是 Nebula Graph](https://docs.nebula-graph.com.cn/{{nebula.release}}/1.introduction/1.what-is-nebula-graph/) | [Nebula Graph 介绍](https://www.bilibili.com/video/BV1kf4y1v7LM)、[万亿级别的图数据库 Nebula Graph](https://www.bilibili.com/video/BV1aK4y1e7Q4?spm_id_from=333.999.0.0) 、[Nebula v2.x 讲解](https://www.bilibili.com/video/BV14U4y157zc?spm_id_from=333.999.0.0)、[吴敏博士带你了解硬核 v2.5.0](https://www.bilibili.com/video/BV14b4y1S7BS)|
+| [什么是 Nebula Graph](https://docs.nebula-graph.com.cn/{{nebula.release}}/1.introduction/1.what-is-nebula-graph/) | [Nebula Graph 介绍](https://www.bilibili.com/video/BV1kf4y1v7LM)、[万亿级别的图数据库 Nebula Graph](https://www.bilibili.com/video/BV1aK4y1e7Q4?spm_id_from=333.999.0.0)|
 
 
 ### 1.2 图相关术语
@@ -42,8 +42,8 @@
   | 文档                                                         | 视频                                                         |
   | ------------------------------------------------------------ | ------------------------------------------------------------ |
   | [Meta 服务](https://docs.nebula-graph.com.cn/{{nebula.release}}/1.introduction/3.nebula-graph-architecture/2.meta-service/) | -                                                            |
-  | [Graph 服务](https://docs.nebula-graph.com.cn/{{nebula.release}}/1.introduction/3.nebula-graph-architecture/3.graph-service/) | [Nebula Graph Query Engine](https://www.bilibili.com/video/BV1xV411n7DD) |
-  | [Storage 服务](https://docs.nebula-graph.com.cn/{{nebula.release}}/1.introduction/3.nebula-graph-architecture/4.storage-service/) | [Nebula Graph Storage](https://www.bilibili.com/video/BV16b4y1Q77k) |
+  | [Graph 服务](https://docs.nebula-graph.com.cn/{{nebula.release}}/1.introduction/3.nebula-graph-architecture/3.graph-service/) | - |
+  | [Storage 服务](https://docs.nebula-graph.com.cn/{{nebula.release}}/1.introduction/3.nebula-graph-architecture/4.storage-service/) | - |
   
 
 
@@ -55,7 +55,7 @@
   | ------------------------------------------------------------ | ------------------------------------------------------------ |
   | [使用 RPM/DEB 包](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb/) | -                                                            |
   | [使用 TAR 包](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/2.compile-and-install-nebula-graph/4.install-nebula-graph-from-tar/) | -                                                            |
-  | [使用 Docker](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose/) | [使用 Docker Compose 部署 Nebula Graph 2.0 和 Web Studio](https://www.bilibili.com/video/BV1T54y1b7pa) |
+  | [使用 Docker](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose/) | - |
   | [使用源码](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code/) | [图数据库入门教程（零）通过编译源码来安装 Nebula Graph](https://www.bilibili.com/video/BV1YJ411i7Jn?spm_id_from=333.999.0.0)                                                             |
   |-|[如何选择部署方式？](https://www.bilibili.com/video/BV1vy4y1K7S5)|
 
@@ -89,8 +89,7 @@
 
   | 文档                                                         |
   | ------------------------------------------------------------ |
-  | [升级 v2.0.x 至当前版本](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest/) |
-  | [升级 v2.0.0-GA 以下版本至当前版本](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest/) |
+  | [升级 Nebula Graph](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest/) |
 
 ### 3.3 配置Nebula
 
@@ -137,11 +136,13 @@
   | ------------------------------------------------------------ |
   |[创建快照](https://docs.nebula-graph.com.cn/{{nebula.release}}/7.data-security/3.manage-snapshot/#_5)|
 
+<!--
 - 资源隔离
 
   | 文档 |
   | ------------------------------------------------------------ |
   |[Group & Zone](https://docs.nebula-graph.com.cn/{{nebula.release}}/7.data-security/5.zone/)|
+-->
 
 - SSL 加密
 
@@ -187,12 +188,12 @@
   | ------------------------------------------------------------ |
   | [Nebula Bench](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-bench/) |
 
-- 集群运维
+<!-- - 集群运维
 
   | 文档  |视频|
   | -------- |---------|
   | [Nebula Operator](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-operator/1.introduction-to-nebula-operator/) |[Nebula Operator](https://www.bilibili.com/video/BV1rP4y1x7fX)、[ 云原生的演进](https://www.bilibili.com/video/BV1A5411N7vs)|
-
+ -->
 - 图算法 
 
   | 文档   |视频|

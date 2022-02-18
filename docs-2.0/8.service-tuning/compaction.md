@@ -118,9 +118,10 @@ Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Mov
 
 ### 全量`Compaction`操作会耗费多长时间？
 
-如果已经设置读写速率限制，例如`rate_limit`限制为 20MB/S 时，用户可以通过 `硬盘使用量/rate_limit` 预估需要耗费的时间。如果没有设置读写速率限制，根据经验，速率大约为 50MB/S。
+如果已经设置读写速率限制，例如`rocksdb_rate_limit`限制为 20MB/S 时，用户可以通过 `硬盘使用量/rocksdb_rate_limit` 预估需要耗费的时间。
+如果没有设置读写速率限制，根据经验，速率大约为 50MB/S。
 
-### 可以动态调整`rate_limit`吗？
+### 可以动态调整`rocksdb_rate_limit`吗？
 
 不可以。
 

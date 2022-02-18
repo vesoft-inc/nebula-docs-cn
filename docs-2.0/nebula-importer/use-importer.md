@@ -30,7 +30,7 @@ Importer 适用于将本地 CSV 文件的内容导入至 Nebula Graph 中。
 
 - Nebula Graph 中已创建 Schema，包括图空间、Tag 和 Edge type，或者通过参数`clientSettings.postStart.commands`设置。
 
-- 运行 Importer 的机器已部署 Golang 环境。详情请参见 [Golang 环境搭建](https://github.com/vesoft-inc/nebula-importer/blob/release-v2.0.0-ga/docs/golang-install.md)。
+- 运行 Importer 的机器已部署 Golang 环境。详情请参见 [Golang 环境搭建](https://github.com/vesoft-inc/nebula-importer/blob/{{importer.branch}}/docs/golang-install.md)。
 
 ## 操作步骤
 
@@ -57,10 +57,7 @@ Importer 适用于将本地 CSV 文件的内容导入至 Nebula Graph 中。
   !!! note
   
         请使用正确的分支。 
-        Nebula Graph 1.x 和 2.x 的 rpc 协议不同，因此：
-
-      - Nebula Importer v1 分支只能连接 Nebula Graph 1.x。
-      - Nebula Importer master 分支和 v2 分支可以连接 Nebula Graph 2.x。
+        Nebula Graph 2.x 和 3.x 的 rpc 协议不同。
 
 2. 进入目录`nebula-importer`。
 
@@ -127,7 +124,7 @@ $ docker run --rm -ti \
 
 - `<config_file>`：本地 yaml 配置文件的绝对路径。
 - `<csv_data_dir>`：本地 CSV 数据文件的绝对路径。
-- `<version>`：Nebula Graph 2.x 请填写`v2`。
+- `<version>`：Nebula Graph 3.x 请填写`v3`。
 
 !!! note
     建议使用相对路径。如果使用本地绝对路径，请检查路径映射到 Docker 中的路径。
@@ -145,14 +142,14 @@ Nebula Importer 通过`nebula-importer/examples/v2/example.yaml`配置文件来�
 示例配置如下：
 
 ```yaml
-version: v2
+version: v3
 description: example
 removeTempFiles: false
 ```
 
 |参数|默认值|是否必须|说明|
 |:---|:---|:---|:---|
-|`version`|v2|是|目标 Nebula Graph 的版本。|
+|`version`|v3|是|目标 Nebula Graph 的版本。|
 |`description`|example|否|配置文件的描述。|
 |`removeTempFiles`|false|否|是否删除临时生成的日志和错误数据文件。|
 
@@ -229,7 +226,7 @@ files:
 |`files.limit`|-|否|读取数据的行数限制。|
 |`files.inOrder`|-|否|是否按顺序在文件中插入数据行。如果为`false`，可以避免数据倾斜导致的导入速率降低。|
 |`files.type`|-|是|文件类型。|
-|`files.csv.withHeader`|`false`|是|是否有表头。详情请参见[关于 CSV 文件表头](#csvheader)。|
+|`files.csv.withHeader`|`false`|是|是否有表头。详情请参见[关于 CSV 文件表头](#csv_header)。|
 |`files.csv.withLabel`|`false`|是|是否有 LABEL。详情请参见[有表头配置说明](config-with-header.md)。|
 |`files.csv.delimiter`|`","`|是|指定 csv 文件的分隔符。只支持一个字符的字符串分隔符。|
 

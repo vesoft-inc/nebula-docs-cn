@@ -1,6 +1,6 @@
 # 使用限制
 
-本文描述 Exchange 2.x 的一些使用限制。
+本文描述 Exchange 3.x 的一些使用限制。
 
 ## 版本兼容性
 
@@ -8,21 +8,19 @@ Nebula Exchange 版本（即 JAR 包版本）和 Nebula Graph 内核的版本对
 
 |Exchange client 版本|Nebula Graph 版本|
 |:---|:---|
-|2.5-SNAPSHOT|nightly|
-|{{exchange.release}}|2.6.0、{{nebula.release}}|
-|2.5.1|2.5.0、2.5.1|
-|2.5.0|2.5.0、2.5.1|
+|3.0-SNAPSHOT|nightly|
+|{{exchange.release}}|{{nebula.release}}|
+|2.6.x|2.6.x       |  
+|2.5.x|2.5.x       |
 |2.1.0|2.0.0、2.0.1|
 |2.0.1|2.0.0、2.0.1|
 |2.0.0|2.0.0、2.0.1|
 
 JAR 包有两种获取方式：[自行编译](../ex-ug-compile.md)或者从 maven 仓库下载。
 
-如果正在使用 Nebula Graph 1.x，请使用 [Nebula Exchange 1.x](https://github.com/vesoft-inc/nebula-java/tree/v1.0/tools "Click to go to GitHub")。
-
 ## 使用环境
 
-Exchange 2.x 支持以下操作系统：
+Exchange 3.x 支持以下操作系统：
 
 - CentOS 7
 - macOS
@@ -48,6 +46,7 @@ Exchange 2.x 支持以下操作系统：
   | Parquet 文件 | 支持 | 支持 | 支持 |
   | HBase | 支持 | 支持 | 支持 |
   | MySQL | 支持 | 支持 | 支持 |
+  | PostgreSQL | 支持 | 支持 | 支持 |
   | ClickHouse | 支持 | 支持 | 支持 |
   | Neo4j | 不支持 | 支持 | 不支持 |
   | Hive | 支持 | 支持 | 支持 |
