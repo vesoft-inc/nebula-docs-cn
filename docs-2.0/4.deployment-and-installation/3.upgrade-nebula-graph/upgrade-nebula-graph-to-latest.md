@@ -134,7 +134,7 @@
   ```
 
   - `old_storage_data_path`代表数据的存储路径，由 Storage 服务配置文件中的`data_path`参数定义。
-  - `data_backup_path`代表自定义的数据备份路径。##当前版本该设置不生效，升级数据格式时不会将原有数据备份到该路径。##
+  - `data_backup_path`代表自定义的数据备份路径。**当前版本该设置不生效，升级数据格式时不会将原有数据备份到该路径。**
   - `meta_server_ip`和`port`分别代表 Meta 服务各节点的 IP 地址和端口号。
   - `2:3`代表从 Nebula Graph 2.x 版本升级到 3.x 版本。
 
