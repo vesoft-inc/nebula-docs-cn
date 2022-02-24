@@ -39,7 +39,7 @@ extra_css:
   - css/version-select.css
   - stylesheets/extra.css
 extra:
-  google_analytics:
+  analytics:
     provider: google
     property: UA-60523578-15
   nebula:
