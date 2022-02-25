@@ -543,38 +543,38 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
 
-# # Plugins
-# plugins:
-#   - search
-#   - macros:
-#       include_dir: docs-2.0/reuse/
-#   - git-revision-date-localized
+# Plugins
+plugins:
+  - search
+  - macros:
+      include_dir: docs-2.0/reuse/
+  - git-revision-date-localized
 
-#   - exclude:
-# # Exclude files with unix-style wildcards (globs)
-#       glob:
-# # Exclude all files in a directory. The path starts with the directory name in docs-2.0, such as `20.appendix/*`.
-#         - nebula-flink/*
-#         - CHANGELOG.md
-#         - spark-connector/*
-#         - nebula-operator/*
-#         - 4.deployment-and-installation/5.zone.md
-#         - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
-#         - nebula-cloud/*
-# # Exclude the file with the following file name.
-# #        - abc.md
-# # Exclude files with regular expressions (regexes)
-# #    regex:
-# #      - '.*\.(tmp|bin|tar)$'
+  - exclude:
+# Exclude files with unix-style wildcards (globs)
+      glob:
+# Exclude all files in a directory. The path starts with the directory name in docs-2.0, such as `20.appendix/*`.
+        - nebula-flink/*
+        - CHANGELOG.md
+        - spark-connector/*
+        - nebula-operator/*
+        - 4.deployment-and-installation/5.zone.md
+        - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
+        - nebula-cloud/*
+# Exclude the file with the following file name.
+#        - abc.md
+# Exclude files with regular expressions (regexes)
+#    regex:
+#      - '.*\.(tmp|bin|tar)$'
 
-#   - with-pdf:
-#       copyright: 2022 vesoft Inc.
-#       cover_subtitle: v3.0.0
-#       author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
-#       cover: true
-#       back_cover: true
-#       cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
-#       output_path: pdf/NebulaGraph-CN.pdf
+  - with-pdf:
+      copyright: 2022 vesoft Inc.
+      cover_subtitle: v3.0.0
+      author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
+      cover: true
+      back_cover: true
+      cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
+      output_path: pdf/NebulaGraph-CN.pdf
 
 extra_javascript:
   - js/version-select.js
