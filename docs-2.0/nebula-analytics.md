@@ -20,7 +20,7 @@ Nebula Analytics 版本和 Nebula Graph 内核的版本对应关系如下。
 
 |Analytics client 版本|Nebula Graph 版本|
 |:---|:---|
-|{{nebula-analytics.release}}|{{nebula.release}}|
+|{{plato.release}}|{{nebula.release}}|
 
 ## 支持算法
 
@@ -57,7 +57,7 @@ sudo rpm -i nebula-analytics-1.0.0-centos.x86_64.rpm  --prefix /home/xxx/nebula-
 1. 克隆仓库`analytics`。
 
   ```bash
-  $ git clone -b {{nebula-analytics.branch}} https://github.com/vesoft-inc/nebula-analytics.git
+  $ git clone -b {{plato.branch}} https://github.com/vesoft-inc/nebula-analytics.git
   ```
 
 2. 进入目录`nebula-analytics`。

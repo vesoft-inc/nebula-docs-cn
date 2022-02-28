@@ -74,7 +74,7 @@ extra:
   algorithm:
     release: 3.0.0
     branch: v3.0.0
-  nebula-analytics:
+  plato:
     release: 1.0.0
     branch: v1.0.0
   sparkconnector:
