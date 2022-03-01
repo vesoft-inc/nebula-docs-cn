@@ -134,7 +134,7 @@ ROW                                COLUMN+CELL
       cores: 1
       maxResultSize: 1G
     }
-    cores {
+    cores: {
       max: 16
     }
   }
@@ -153,11 +153,11 @@ ROW                                COLUMN+CELL
     pswd: nebula
     # 填写 Nebula Graph 中需要写入数据的图空间名称。
     space: basketballplayer
-    connection {
+    connection: {
       timeout: 3000
       retry: 3
     }
-    execution {
+    execution: {
       retry: 3
     }
     error: {
