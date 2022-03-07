@@ -47,7 +47,7 @@ extra:
     provider: google
     property: UA-60523578-15
   nebula:
-    release: 3.0.0
+    release: master
     nightly: nightly
     master: master
     base20: 2.0
