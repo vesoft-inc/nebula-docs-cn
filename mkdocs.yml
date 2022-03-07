@@ -43,13 +43,16 @@ extra_css:
   - css/version-select.css
   - stylesheets/extra.css
 extra:
+  analytics:
+    provider: google
+    property: UA-60523578-15
   nebula:
-    release: master
+    release: 3.0.0
     nightly: nightly
     master: master
     base20: 2.0
     base200: 2.0.0
-    branch: master
+    branch: v3.0.0
   version:
     method: mike
   social:
@@ -75,7 +78,7 @@ extra:
   algorithm:
     release: 3.0.0
     branch: v3.0.0
-  analytics:
+  plato:
     release: 1.0.0
     branch: v1.0.0
   sparkconnector:
@@ -125,6 +128,9 @@ extra:
 nav:
   - 前言: README.md
   - 简介:
+      - 图: 1.introduction/0-0-graph.md
+      - 图数据库: 1.introduction/0-1-graph-database.md
+      - 相关技术: 1.introduction/0-2.relates.md
       - 什么是 Nebula Graph: 1.introduction/1.what-is-nebula-graph.md
       - 数据模型: 1.introduction/2.data-model.md
       - 路径: 1.introduction/2.1.path.md
@@ -518,6 +524,7 @@ nav:
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
       - 导入工具选择: 20.appendix/write-tools.md
       - 社区参与: 15.contribution/how-to-contribute.md
+      - 年表: 20.appendix/history.md
       - 思维导图: 20.appendix/mind-map.md
 
   - English Docs: https://docs.nebula-graph.io/
@@ -566,7 +573,7 @@ plugins:
 
   - with-pdf:
       copyright: 2022 vesoft Inc.
-      cover_subtitle: master sinnce 3.0.0
+      cover_subtitle: master since 3.0.0
       author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
       cover: true
       back_cover: true
@@ -580,7 +587,3 @@ extra_javascript:
   - js/init.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
-
-google_analytics:
-  - UA-60523578-15
-  - auto

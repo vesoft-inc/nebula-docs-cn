@@ -20,7 +20,7 @@
 
 - 必须在原服务器上原地升级，不能修改原机器的 IP 地址、配置文件，不可更改集群拓扑。
 
-- 硬盘空间要求：各机器硬盘剩余空间都需要是原数据目录的**三倍以上**。
+- 硬盘空间要求：各机器硬盘剩余空间都需要是原数据目录的**三倍**。
 
 - 已知会造成数据丢失的 4 种场景，和 alter schema 以及 default value 相关，参见 [github known issues](https://github.com/vesoft-inc/nebula-graph/issues/857)。
 
@@ -66,6 +66,9 @@
         编译源码或者下载RPM/DEB包也可以获取新版二进制文件。
 
 - 根据 Storage 和 Meta 服务配置中`data_path`参数的值找到数据文件的位置，并备份数据。默认路径为`nebula/data/storage`和`nebula/data/meta`。
+
+  !!! danger
+        升级时不会自动备份原有数据。务必手动备份数据，防止丢失。
 
 - 备份配置文件。
 
@@ -117,8 +120,8 @@
 
 5. 使用`bin`目录下的新版 db_upgrader 文件升级数据格式。
 
-  !!! caution
-        本步骤会备份 Storage 服务中保存的数据，但为防止备份失败，升级数据格式前，务必按照本文**升级准备**部分的说明备份数据。
+  !!! danger
+        本步骤不会备份 Storage 服务中保存的数据。升级数据格式前，务必按照本文**升级准备**部分的说明备份数据。
 
   命令语法：
 
@@ -131,7 +134,7 @@
   ```
 
   - `old_storage_data_path`代表数据的存储路径，由 Storage 服务配置文件中的`data_path`参数定义。
-  - `data_backup_path`代表自定义的数据备份路径。
+  - `data_backup_path`代表自定义的数据备份路径。**当前版本该设置不生效，升级数据格式时不会将原有数据备份到任何路径。**
   - `meta_server_ip`和`port`分别代表 Meta 服务各节点的 IP 地址和端口号。
   - `2:3`代表从 Nebula Graph 2.x 版本升级到 3.x 版本。
 

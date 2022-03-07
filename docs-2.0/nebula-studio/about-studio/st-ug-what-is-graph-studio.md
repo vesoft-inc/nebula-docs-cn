@@ -35,7 +35,9 @@ Studio 具备以下功能：
 
 ## 身份验证
 
+<!--
 对于云服务版 Studio，只有操作权限为 **ROOT** 和 **USER** 的 Nebula Graph Cloud 用户可以登录 Studio。详细信息参考 [配套的应用（Dashboard/Studio/Explorer）](../../nebula-cloud/5.solution/5.1.supporting-application.md)。
+-->
 
 因为 Nebula Graph 默认不启用身份验证，所以，一般情况下用户可以使用 `root` 账号和任意密码登录 Studio。
 

@@ -141,12 +141,12 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
     pswd: nebula
     space: basketballplayer
 
-    connection {
+    connection: {
       timeout: 3000
       retry: 3
     }
 
-    execution {
+    execution: {
       retry: 3
     }
 

@@ -10,3 +10,4 @@ weasyprint==52.5
 mkdocs-with-pdf
 qrcode
 mkdocs-exclude
+

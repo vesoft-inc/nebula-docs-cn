@@ -212,7 +212,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
     }
 
     # 客户端连接参数
-    connection {
+    connection: {
       # socket 连接、执行的超时时间，单位：毫秒。
       timeout: 30000
     }

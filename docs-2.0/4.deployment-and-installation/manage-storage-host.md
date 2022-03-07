@@ -10,6 +10,10 @@
 ADD HOSTS <ip>:<port> [,<ip>:<port> ...];
 ```
 
+!!! note
+
+    增加 Storage 主机在**下一个**心跳周期之后才能生效，为确保数据同步，请等待 2 个心跳周期（20 秒），然后执行`SHOW HOSTS`查看是否在线。
+
 ## 删除 Storage 主机
 
 从集群中删除 Storage 主机。
