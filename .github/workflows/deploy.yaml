@@ -70,6 +70,9 @@ jobs:
           script: |
             mkdir -p /usr/web/nebula-docs/
             tar -xzf /usr/web/nebula-docs.tar.gz -C /usr/web/nebula-docs/
+            mkdir -p /usr/web/nebula-docs/site/pdf/
+            cp -f /usr/web/nebula-docs/3.0.0/pdf/NebulaGraph-CN.pdf /usr/web/nebula-docs/site/pdf/NebulaGraph-book.pdf
+            
 #            pip3 install --upgrade pip
 #            pip3 install -r /usr/web/nebula-docs/requirement.txt
       # - name: Deploy
