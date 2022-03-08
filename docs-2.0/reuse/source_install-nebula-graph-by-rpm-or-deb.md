@@ -118,8 +118,10 @@ RPM 和 DEB 是 Linux 系统下常见的两种安装包格式，本文介绍如�
   ```bash
   $ sudo rpm -ivh --prefix=<installation_path> <package_name>
   ```
+  
+  `--prefix`为可选项，用于指定安装路径。如不设置，系统会将 Nebula Graph 安装到默认路径`/usr/local/nebula/`。
 
-  例如在默认路径下安装{{nebula.release}}版本的 RPM 包：
+  例如，要在默认路径下安装{{nebula.release}}版本的 RPM 包，运行如下命令：
 
   ```bash
   sudo rpm -ivh nebula-graph-{{nebula.release}}.el7.x86_64.rpm
@@ -128,18 +130,17 @@ RPM 和 DEB 是 Linux 系统下常见的两种安装包格式，本文介绍如�
 - 安装 DEB 包
 
   ```bash
-  $ sudo dpkg -i --instdir==<installation_path> <package_name>
+  $ sudo dpkg -i <package_name>
   ```
 
-  例如在默认路径下安装{{nebula.release}}版本的 DEB 包：
+  !!! note
+        使用 DEB 包安装 Nebula Graph 时不支持自定义安装路径。默认安装路径为`/usr/local/nebula/`。
+
+  例如安装{{nebula.release}}版本的 DEB 包：
 
   ```bash
   sudo dpkg -i nebula-graph-{{nebula.release}}.ubuntu1804.amd64.deb
   ```
-
-!!! Note
-
-    如果不设置安装路径，默认安装路径为`/usr/local/nebula/`。
 
 ## 后续操作
 
