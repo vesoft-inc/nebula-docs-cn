@@ -39,3 +39,5 @@ Nebula Graph 在各行各业都有应用，本文介绍部分实践案例。更�
 - [基于 Nebula Graph 的 Betweenness Centrality 算法](https://nebula-graph.com.cn/posts/introduction-to-betweenness-centrality-algorithm/)
 
 - [无依赖单机尝鲜 Nebula Exchange 的 SST 导入](https://nebula-graph.com.cn/posts/import-sst-data-without-dependence/)
+
+- [logrotate 在 Nebula Graph 的日志滚动实践](https://discuss.nebula-graph.com.cn/t/topic/7803)
