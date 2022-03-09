@@ -170,6 +170,7 @@ $ kill $(lsof -t -i :7001) # stop nebula-graph-studio
    | ---- | ---- |
    | 7001 | Studio 提供的 web 服务 |
 
+- 确保系统中存在`/usr/lib/systemd/system`目录。如没有该目录，需手动创建。
 
 ### 安装
 
