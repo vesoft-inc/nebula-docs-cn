@@ -14,13 +14,13 @@ Nebula Graph 企业版需要用户设置 License 才可以正常启动并使用�
 
 - License 快过期时，请及时发送邮件至`inquiry@vesoft.com`申请续期。
 
-- License 的过期缓冲为 7 天：
+- License 的过期缓冲为 3 天：
 
-  - 过期 3 天前和过期当天，服务启动时会打印日志进行提醒。
+  - 过期 7 天前和过期当天，服务启动时会打印日志进行提醒。
 
-  - 过期后仍可继续使用 7 天。
+  - 过期后仍可继续使用 3 天。
 
-  - 过期 7 天后，服务无法启动，并会打印日志进行提醒。
+  - 过期 3 天后，服务无法启动，并会打印日志进行提醒。
 
 ## License 说明
 
@@ -56,7 +56,7 @@ License 文件包含生效时间、过期时间等信息。说明如下。
 |`version`|版本支持的信息。|
 |`licenseType`|License 类型。包括`enterprise`、`samll_bussiness`、`pro`、`individual`。预留参数。|
 
-## 设置 License
+## 设置 Nebula Graph 企业版 License
 
 1. 发送邮件至`inquiry@vesoft.com`申请 Nebula Graph 企业版安装包。
 
