@@ -22,7 +22,7 @@ Nebula Graph 企业版需要用户设置 License 才可以正常启动并使用�
 
   - 过期 3 天后，服务无法启动，并会打印日志进行提醒。
 
-## License 说明
+## Nebula Graph 企业版 License 说明
 
 用户可以用`cat`等命令查看 License 文件（`nebula.license`）内容，示例文件内容如下：
 
@@ -56,7 +56,7 @@ License 文件包含生效时间、过期时间等信息。说明如下。
 |`version`|版本支持的信息。|
 |`licenseType`|License 类型。包括`enterprise`、`samll_bussiness`、`pro`、`individual`。预留参数。|
 
-## 设置 License
+## 设置 Nebula Graph 企业版 License
 
 1. 发送邮件至`inquiry@vesoft.com`申请 Nebula Graph 企业版安装包。
 
