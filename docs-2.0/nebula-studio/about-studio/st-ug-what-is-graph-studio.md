@@ -1,6 +1,6 @@
-# 什么是 Nebula Graph Studio
+# 什么是 Nebula Studio
 
-Nebula Graph Studio（简称 Studio）是一款可以通过 Web 访问的开源图数据库可视化工具，搭配 [Nebula Graph](../../README.md) 内核使用，提供构图、数据导入、编写 nGQL 查询等一站式服务。用户可以在 Nebula Graph GitHub 仓库中查看最新源码，详情参见 [nebula-studio](https://github.com/vesoft-inc/nebula-studio)。
+Nebula Studio（简称 Studio）是一款可以通过 Web 访问的开源图数据库可视化工具，搭配 [Nebula Graph](../../README.md) 内核使用，提供构图、数据导入、编写 nGQL 查询等一站式服务。用户可以在 Nebula Graph GitHub 仓库中查看最新源码，详情参见 [nebula-studio](https://github.com/vesoft-inc/nebula-studio)。
 
 ## 发行版本
 
@@ -19,7 +19,7 @@ Nebula Graph Studio（简称 Studio）是一款可以通过 Web 访问的开源�
 
 Studio 可以方便管理管理 Nebula Graph 图数据，具备以下功能：
 
-  - 使用 **Schema** 管理功能，用户可以使用图形界面完成图空间、标签、边类型、索引的创建，查看图空间的统计数据，快速上手 Nebula Graph。
+  - 使用 **Schema** 管理功能，用户可以使用图形界面完成图空间、Tag（标签）、Edge Type（边类型）、索引的创建，查看图空间的统计数据，快速上手 Nebula Graph。
   - 使用 **导入** 功能，通过简单的配置，用户即能批量导入点和边数据，并能实时查看数据导入日志。
   - 使用 **控制台** 功能，用户可以使用 nGQL 语句创建 Schema，并对数据执行增删改查操作。
 
