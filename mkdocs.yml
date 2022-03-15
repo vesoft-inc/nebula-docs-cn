@@ -75,6 +75,9 @@ extra:
   algorithm:
     release: 2.5.1
     branch: v2.5
+  plato:
+    release: 0.9.0
+    branch: v0.9.0
   sparkconnector:
     release: 2.6.1
     branch: v2.6
@@ -487,6 +490,8 @@ nav:
       - 常见问题: nebula-operator/7.operator-faq.md
 
   - Nebula Algorithm: nebula-algorithm.md
+
+  - Nebula Analytics: nebula-analytics.md
 
   - Nebula Spark Connector: nebula-spark-connector.md
       
