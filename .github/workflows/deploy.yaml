@@ -37,9 +37,7 @@ jobs:
           mike list
       - name: Mike Deploy 3.0.0
         run: |
-          #mike delete v3.0.0 -p
           mike deploy 3.0.0 -p --rebase
-          mike set-default 3.0.0 -p --rebase
           mike list
       - name: show git branch
         run: | 
