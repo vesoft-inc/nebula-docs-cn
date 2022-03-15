@@ -45,7 +45,6 @@ Nebula Graph 企业版需要用户设置 License 才可以正常启动并使用�
 }
 ----------License Content End----------
 
-
 ----------License Key Start----------
 cofFcOxxxxxxxxxxxxxhnZgaxrQ==
 ----------License Key End----------
