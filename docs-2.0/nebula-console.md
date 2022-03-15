@@ -1,12 +1,6 @@
 # Nebula Console
 
-Nebula Console 是 Nebula Graph 的原生命令行客户端，用于连接 Nebula Graph 集群并执行查询，同时支持管理参数、导出命令的执行结果、导入测试数据集等。
-
-使用 Nebula Console 连接 Nebula Graph 请参见[步骤 3：连接 Nebula Graph](2.quick-start/3.connect-to-nebula-graph.md)。
-
-!!! note
-
-    命令不区分大小写。
+Nebula Console 是 Nebula Graph 的原生命令行客户端，用于连接 Nebula Graph 集群并执行查询，同时支持管理参数、导出命令的执行结果、导入测试数据集等功能。
 
 ## 获取 Nebula Console
 
