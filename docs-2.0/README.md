@@ -1,6 +1,6 @@
 # 欢迎阅读 Nebula Graph {{ nebula.release }} 文档
 
-!!! Note "确认正在阅读最新的版本"
+!!! Note "查看版本[新功能](20.appendix/releasenote.md)"
 
     本文档更新时间{{ now().year }}-{{ now().month }}-{{ now().day }}，[GitHub commit](https://github.com/vesoft-inc/nebula-docs/commits/v{{nebula.release}}) {{ git.short_commit }}。
 
