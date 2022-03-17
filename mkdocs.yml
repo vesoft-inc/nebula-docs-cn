@@ -389,10 +389,8 @@ nav:
     - Studio 版本更新说明: nebula-studio/about-studio/st-ug-release-note.md
     - 认识 Nebula Graph Studio:
       - 什么是 Nebula Graph Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
-      - 名词解释: nebula-studio/about-studio/st-ug-terms.md
       - 使用限制: nebula-studio/about-studio/st-ug-limitations.md
       - 版本更新: nebula-studio/about-studio/st-ug-check-updates.md
-      - 快捷键: nebula-studio/about-studio/st-ug-shortcuts.md
     - 安装与登录:
       - 部署 Studio: nebula-studio/deploy-connect/st-ug-deploy.md
       - 使用 Helm 部署 Studio: nebula-studio/deploy-connect/st-ug-deploy-by-helm.md
@@ -402,17 +400,12 @@ nav:
       - 规划 Schema: nebula-studio/quick-start/st-ug-plan-schema.md
       - 创建 Schema: nebula-studio/quick-start/st-ug-create-schema.md
       - 导入数据: nebula-studio/quick-start/st-ug-import-data.md
-      - 查询图数据: nebula-studio/quick-start/st-ug-explore.md
-    - 操作指南:
-      - 管理 Schema:
+      - 控制台界面: nebula-studio/use-console/st-ug-console.md
+      - 管理Schema:
         - 操作图空间: nebula-studio/manage-schema/st-ug-crud-space.md
         - 操作 Tag: nebula-studio/manage-schema/st-ug-crud-tag.md
         - 操作 Edge type: nebula-studio/manage-schema/st-ug-crud-edge-type.md
         - 操作索引: nebula-studio/manage-schema/st-ug-crud-index.md
-      - 使用控制台:
-        - 控制台界面: nebula-studio/use-console/st-ug-console.md
-        - 导入图探索: nebula-studio/use-console/st-ug-open-in-explore.md
-        - 查看子图: nebula-studio/use-console/st-ug-visualize-subgraph.md
     - 故障排查:
       - 连接数据库错误: nebula-studio/troubleshooting/st-ug-config-server-errors.md
       - 无法访问 Studio: nebula-studio/troubleshooting/st-ug-connection-errors.md
