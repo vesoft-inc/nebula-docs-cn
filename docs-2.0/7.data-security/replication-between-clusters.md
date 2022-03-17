@@ -50,21 +50,23 @@ drainer：机器IP地址为`192.168.10.104`，只启动 drainer 服务。
 
   - listener 修改：`nebula-metad-listener.conf`、`nebula-storaged-listener.conf`。
 
-  - drainer 修改：`nebula-drainerd.conf`
+  - drainer 修改：`nebula-drainerd.conf`。
 
-  修改配置文件的一些重点内容如下：
+  !!! note
+
+        修改配置文件的一些注意事项如下：
   
-  - 所有配置文件里都需要用真实的机器 IP 地址替换`local_ip`的`127.0.0.1`。
+        - 所有配置文件里都需要用真实的机器 IP 地址替换`local_ip`的`127.0.0.1`。
 
-  - 所有`nebula-graphd.conf`配置文件里设置`enable_authorize=true`
+        - 所有`nebula-graphd.conf`配置文件里设置`enable_authorize=true`。
 
-  - 主从集群填写各自的`meta_server_addrs`。
+        - 主从集群填写各自的`meta_server_addrs`。
 
-  - listener 的配置文件里`meta_server_addrs`填写主集群的机器 IP，`meta_sync_listener`填写 listener 机器的 IP。
+        - listener 的配置文件里`meta_server_addrs`填写主集群的机器 IP，`meta_sync_listener`填写 listener 机器的 IP。
 
-  - drainer 的配置文件里`meta_server_addrs`填写从集群的机器 IP。
+        - drainer 的配置文件里`meta_server_addrs`填写从集群的机器 IP。
 
-  更多配置说明，请参见[配置管理](../5.configurations-and-logs/1.configurations/1.configurations.md)。
+        更多配置说明，请参见[配置管理](../5.configurations-and-logs/1.configurations/1.configurations.md)。
 
 2. 在所有机器的 Nebula Graph 安装目录内启动对应的服务：
 
@@ -72,11 +74,11 @@ drainer：机器IP地址为`192.168.10.104`，只启动 drainer 服务。
 
   - listener 启动命令：
 
-    - Meta listener：`sudo bin/nebula-metad --flagfile etc/nebula-metad-listener.conf`
+    - Meta listener：`sudo bin/nebula-metad --flagfile etc/nebula-metad-listener.conf`。
 
-    - Storage listener：`sudo bin/nebula-storaged --flagfile etc/nebula-storaged-listener.conf`
+    - Storage listener：`sudo bin/nebula-storaged --flagfile etc/nebula-storaged-listener.conf`。
 
-  - drainer 启动命令：`sudo scripts/nebula-drainerd.service start`
+  - drainer 启动命令：`sudo scripts/nebula-drainerd.service start`。
 
 3. 登录主集群增加 Storage 主机，检查 listener 服务状态。
 
