@@ -76,7 +76,9 @@ drainer：机器IP地址为`192.168.10.104`，只启动 drainer 服务。
 
         更多配置说明，请参见[配置管理](../5.configurations-and-logs/1.configurations/1.configurations.md)。
 
-2. 在所有机器的 Nebula Graph 安装目录内启动对应的服务：
+2. 在主从集群和 listener 服务的机器上放置 License 文件，路径为安装目录的`share/resources/`内。
+
+3. 在所有机器的 Nebula Graph 安装目录内启动对应的服务：
 
   - 主、从集群启动命令：`sudo scripts/nebula.service start all`。
 
@@ -88,7 +90,7 @@ drainer：机器IP地址为`192.168.10.104`，只启动 drainer 服务。
 
   - drainer 启动命令：`sudo scripts/nebula-drainerd.service start`。
 
-3. 登录主集群增加 Storage 主机，检查 listener 服务状态。
+4. 登录主集群增加 Storage 主机，检查 listener 服务状态。
 
   ```
   nebula> ADD HOSTS 192.168.10.101:9779;
@@ -114,7 +116,7 @@ drainer：机器IP地址为`192.168.10.104`，只启动 drainer 服务。
   +------------------+------+----------+-----------------+--------------+----------------------+
   ```
 
-4. 登录从集群增加 Storage 主机，检查 drainer 服务状态。  
+5. 登录从集群增加 Storage 主机，检查 drainer 服务状态。  
 
   ```
   nebula> ADD HOSTS 192.168.10.102:9779;
