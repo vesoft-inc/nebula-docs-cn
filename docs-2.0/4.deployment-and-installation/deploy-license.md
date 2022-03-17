@@ -29,7 +29,7 @@ Nebula Graph 企业版需要用户设置 License 才可以正常启动并使用�
 ```bash
 ----------License Content Start----------
 {
-  "vendor": "Vesoft_Inc",
+  "vendor": "vesoft",
   "organization": "doc",
   "issuedDate": "2022-03-06T16:00:00.000Z",
   "expirationDate": "2022-05-31T15:59:59.000Z",
