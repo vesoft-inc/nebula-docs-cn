@@ -343,7 +343,7 @@ nav:
           - 内置角色权限: 7.data-security/1.authentication/3.role-list.md
           - OpenLDAP 验证: 7.data-security/1.authentication/4.ldap.md
       - 管理快照: 7.data-security/3.manage-snapshot.md
-      - 集群间数据异步复制: 7.data-security/replication-between-clusters.md
+      - 集群间数据同步: 7.data-security/replication-between-clusters.md
       - SSL 加密: 7.data-security/4.ssl.md
 
   - 备份恢复(BR):
@@ -351,7 +351,7 @@ nav:
       - 编译 BR: nebula-br/2.compile-br.md
       - 使用 BR 备份数据: nebula-br/3.br-backup-data.md
       - 使用 BR 恢复数据: nebula-br/4.br-restore-data.md
-  
+
   - 最佳实践:
       - Compaction: 8.service-tuning/compaction.md
       - Storage 负载均衡: 8.service-tuning/load-balance.md
