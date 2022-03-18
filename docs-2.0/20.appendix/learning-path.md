@@ -8,9 +8,9 @@
 
 ### 1.1 什么是 Nebula Graph？
 
-| 文档                                                         | 视频                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [什么是 Nebula Graph](https://docs.nebula-graph.com.cn/{{nebula.release}}/1.introduction/1.what-is-nebula-graph/) | [Nebula Graph 介绍](https://www.bilibili.com/video/BV1kf4y1v7LM)、[万亿级别的图数据库 Nebula Graph](https://www.bilibili.com/video/BV1aK4y1e7Q4?spm_id_from=333.999.0.0)|
+| 文档                                                         | 视频                                                         | PPT |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | -- | 
+| [什么是 Nebula Graph](https://docs.nebula-graph.com.cn/{{nebula.release}}/1.introduction/1.what-is-nebula-graph/) | [Nebula Graph 介绍](https://www.bilibili.com/video/BV1kf4y1v7LM)、[万亿级别的图数据库 Nebula Graph](https://www.bilibili.com/video/BV1aK4y1e7Q4?spm_id_from=333.999.0.0)| [Nebula Graph 3年回顾](https://mp.weixin.qq.com/s/25TfLXR89kg0BpiMAbQ_Iw) |
 
 
 ### 1.2 图相关术语
