@@ -1,6 +1,6 @@
-# 什么是 Nebula Graph Studio
+# 什么是 Nebula Studio
 
-Nebula Graph Studio（简称 Studio）是一款可以通过 Web 访问的开源图数据库可视化工具，搭配 [Nebula Graph](../../README.md) 内核使用，提供构图、数据导入、编写 nGQL 查询、图探索等一站式服务。用户可以在 Nebula Graph GitHub 仓库中查看最新源码，详情参见 [nebula-studio](https://github.com/vesoft-inc/nebula-studio)。
+Nebula Studio（简称 Studio）是一款可以通过 Web 访问的开源图数据库可视化工具，搭配 [Nebula Graph](../../README.md) 内核使用，提供构图、数据导入、编写 nGQL 查询等一站式服务。用户可以在 Nebula Graph GitHub 仓库中查看最新源码，详情参见 [nebula-studio](https://github.com/vesoft-inc/nebula-studio)。
 
 ## 发行版本
 
@@ -17,20 +17,17 @@ Nebula Graph Studio（简称 Studio）是一款可以通过 Web 访问的开源�
 
 ## 产品功能
 
-Studio 具备以下功能：
+Studio 可以方便管理管理 Nebula Graph 图数据，具备以下功能：
 
-- GUI 设计，方便管理 Nebula Graph 图数据：
-  - 使用 **Schema** 管理功能，用户可以使用图形界面完成 Schema（模式）创建，快速上手 Nebula Graph。
-  - 使用 **控制台** 功能，用户可以使用 nGQL 语句创建 Schema，并对数据执行增删改查操作。
+  - 使用 **Schema** 管理功能，用户可以使用图形界面完成图空间、Tag（标签）、Edge Type（边类型）、索引的创建，查看图空间的统计数据，快速上手 Nebula Graph。
   - 使用 **导入** 功能，通过简单的配置，用户即能批量导入点和边数据，并能实时查看数据导入日志。
-- 图探索，支持可视化展示图数据，使更容易发现数据之间的关联性，提高数据分析和解读的效率。
+  - 使用 **控制台** 功能，用户可以使用 nGQL 语句创建 Schema，并对数据执行增删改查操作。
 
 ## 适用场景
 
 如果有以下任一需求，都可以使用 Studio：
 
-- 有一份数据集，想进行可视化图探索或者数据分析。用户可以使用 Docker Compose 部署 Nebula Graph，再使用 Studio 完成可视化操作。
-- 已经安装部署了 Nebula Graph 数据库，并且已经导入数据集，想使用 GUI 工具执行 nGQL 语句查询、可视化图探索或者数据分析。
+- 已经安装部署了 Nebula Graph 数据库，想使用 GUI 工具创建 Schema、导入数据、执行 nGQL 语句查询。
 - 刚开始学习 nGQL（Nebula Graph Query Language），但是不习惯用命令行工具，更希望使用 GUI 工具查看语句输出的结果。
 
 ## 身份验证
@@ -42,8 +39,3 @@ Studio 具备以下功能：
 因为 Nebula Graph 默认不启用身份验证，所以，一般情况下用户可以使用 `root` 账号和任意密码登录 Studio。
 
 当 Nebula Graph 启用了身份验证后，用户只能使用指定的账号和密码登录 Studio。关于 Nebula Graph 的身份验证功能，参考 [Nebula Graph 用户手册](../../7.data-security/1.authentication/1.authentication.md "点击前往 Nebula Graph 官网")。
-
-## 视频
-
-* [图解 Nebula Studio 图探索功能](https://www.bilibili.com/video/BV1QN411Z7Vh)（3 分 23 秒）
-<iframe src="//player.bilibili.com/player.html?aid=503286771&bvid=BV1QN411Z7Vh&cid=344349765&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
