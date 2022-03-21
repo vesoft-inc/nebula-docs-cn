@@ -243,6 +243,7 @@ nav:
           - USE SPACE: 3.ngql-guide/9.space-statements/2.use-space.md
           - SHOW SPACES: 3.ngql-guide/9.space-statements/3.show-spaces.md
           - DESCRIBE SPACE: 3.ngql-guide/9.space-statements/4.describe-space.md
+          - CLEAR SPACE: 3.ngql-guide/9.space-statements/6.clear-space.md
           - DROP SPACE: 3.ngql-guide/9.space-statements/5.drop-space.md
 
       - Tag 语句:
