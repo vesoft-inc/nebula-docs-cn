@@ -390,17 +390,15 @@ nav:
     - 认识 Nebula Graph Studio:
       - 什么是 Nebula Graph Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
       - 使用限制: nebula-studio/about-studio/st-ug-limitations.md
-      - 版本更新: nebula-studio/about-studio/st-ug-check-updates.md
     - 安装与登录:
       - 部署 Studio: nebula-studio/deploy-connect/st-ug-deploy.md
       - 使用 Helm 部署 Studio: nebula-studio/deploy-connect/st-ug-deploy-by-helm.md
       - 连接数据库: nebula-studio/deploy-connect/st-ug-connect.md
-      - 清除连接: nebula-studio/deploy-connect/st-ug-reset-connection.md
     - 快速开始:
       - 规划 Schema: nebula-studio/quick-start/st-ug-plan-schema.md
       - 创建 Schema: nebula-studio/quick-start/st-ug-create-schema.md
       - 导入数据: nebula-studio/quick-start/st-ug-import-data.md
-      - 控制台界面: nebula-studio/use-console/st-ug-console.md
+      - 控制台界面: nebula-studio/quick-start/st-ug-console.md
       - 管理Schema:
         - 操作图空间: nebula-studio/manage-schema/st-ug-crud-space.md
         - 操作 Tag: nebula-studio/manage-schema/st-ug-crud-tag.md

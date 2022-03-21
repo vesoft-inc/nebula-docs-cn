@@ -53,3 +53,18 @@
 - 如果已拥有 GOD 或者 ADMIN 权限的账号登录，可以使用 [**控制台**](../quick-start/st-ug-create-schema.md)或者 [**Schema**](../manage-schema/st-ug-crud-space.md) 页面管理 Schema。
 - 如果已拥有 GOD、ADMIN、DBA 或者 USER 权限的账号登录，可以[批量导入数据](../quick-start/st-ug-import-data.md)或者在 **控制台** 页面上运行 nGQL 语句插入数据。
 - 如果已拥有 GOD、ADMIN、DBA、USER 或者 GUEST 权限的账号登录，可以在 **控制台** 页面上运行 nGQL 语句读取数据。
+
+!!! note
+
+    账号权限参见 [内置角色权限](../../7.data-security/1.authentication/3.role-list.md)。
+
+### 清除连接
+<!--
+使用云服务版 Studio 时，用户不能清除连接。
+-->
+
+如果需要重新连接 Nebula Graph 数据库，可以清除当前连接后再重新配置数据库。
+
+当 Studio 还连接在某个 Nebula Graph 数据库时，在工具栏中，选择 **设置** > **清除连接**。之后，如果浏览器上显示 **配置数据库** 页面，表示 Studio 已经成功断开了与 Nebula Graph 数据库的连接。
+
+![reset](../figs/st-ug-005.png)

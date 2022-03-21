@@ -12,7 +12,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 
 - Studio 已经连接到 Nebula Graph 数据库。
 - 当前登录的账号拥有创建或删除图空间的权限，即：
-  - 如果 Nebula Graph 未开启身份验证，用户以默认用户名 `user` 账号和默认密码 `password` 登录。
+  - 如果 Nebula Graph 未开启身份验证，用户以默认用户名 `user` 账号和任意密码登录。
   - 如果 Nebula Graph 已开启身份验证，用户以 `root` 账号及其密码登录。
 
 ## 创建图空间
