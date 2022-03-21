@@ -40,13 +40,13 @@ Nebula Graph 支持在集群间进行数据同步，即主集群 A 的数据可�
 
 ### 示例环境
 
-主集群A：机器IP地址为`192.168.10.101`，只启动 Graph、Meta、Storage 服务。
+主集群A：机器 IP 地址为`192.168.10.101`，只启动 Graph、Meta、Storage 服务。
 
-从集群B：机器IP地址为`192.168.10.102`，只启动 Graph、Meta、Storage 服务。
+从集群B：机器 IP 地址为`192.168.10.102`，只启动 Graph、Meta、Storage 服务。
 
-listener：机器IP地址为`192.168.10.103`，只启动 Meta-listener、Storage-listener 服务。
+listener：机器 IP 地址为`192.168.10.103`，只启动 Meta listener、Storage listener 服务。
 
-drainer：机器IP地址为`192.168.10.104`，只启动 drainer 服务。
+drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
 ### 1.搭建主从集群、listener 和 drainer 服务
 
@@ -60,7 +60,7 @@ drainer：机器IP地址为`192.168.10.104`，只启动 drainer 服务。
 
   !!! note
 
-        修改配置文件的一些注意事项如下：
+        修改配置文件时，必须修改的参数如下：
   
         - 所有配置文件里都需要用真实的机器 IP 地址替换`local_ip`的`127.0.0.1`。
 
@@ -159,7 +159,7 @@ drainer：机器IP地址为`192.168.10.104`，只启动 drainer 服务。
 3. 设置 listener 服务。
 
   ```
-  //设置 listener 服务。
+  //设置 listener 服务，待同步的图空间名称为replication_basketballplayer（下文将在从集群中创建）。
   nebula> ADD LISTENER SYNC META 192.168.10.103:9559 STORAGE 192.168.10.103:9789 TO SPACE replication_basketballplayer;
   //查看 listener 状态。
   nebula> SHOW LISTENER SYNC;
@@ -273,7 +273,7 @@ drainer：机器IP地址为`192.168.10.104`，只启动 drainer 服务。
 
 !!! note
 
-  在切换主从之前需要新的主集群搭建启动 listener 服务（示例IP为`192.168.10.105`），新的从集群搭建启动 drainer 服务（示例IP为`192.168.10.106`）。
+  在切换主从之前需要为新的主集群搭建并启动 listener 服务（示例 IP 为`192.168.10.105`），为新的从集群搭建并启动 drainer 服务（示例 IP 为`192.168.10.106`）。
 
 1. 登录主集群，取消 drainer 和 listener 服务。
 
