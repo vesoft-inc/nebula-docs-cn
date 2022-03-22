@@ -2,7 +2,7 @@
 
 本文介绍 Nebula Graph 学习路径，用户可以通过路径中的文档及视频由浅入深地学习图数据库 Nebula Graph。
 
- ![learning path](learning-path.png)
+ ![learning path](https://docs-cdn.nebula-graph.com.cn/figures/learning-path.png)
 
 ## 1. 关于 Nebula Graph
 

@@ -20,7 +20,7 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
 
 整个过程如下图所示。
 
-![Nebula Graph&reg; Exchange 从 Neo4j 数据库中导出数据再并行导入 Nebula Graph 数据库中](../figs/ex-ug-002.png "Nebula Graph&reg; Exchange 迁移 Neo4j 数据")
+![Nebula Graph&reg; Exchange 从 Neo4j 数据库中导出数据再并行导入 Nebula Graph 数据库中](https://docs-cdn.nebula-graph.com.cn/figures/ex-ug-002.png "Nebula Graph&reg; Exchange 迁移 Neo4j 数据")
 
 ## 数据集
 

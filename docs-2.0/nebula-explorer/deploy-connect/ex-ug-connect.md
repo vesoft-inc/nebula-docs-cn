@@ -41,6 +41,6 @@
 
 ## 断开连接
 
-在页面左侧工具栏中，选择设置![icon](../figs/nav-setup.png)图标 > 清空连接。
+在页面左侧工具栏中，选择设置![icon](https://docs-cdn.nebula-graph.com.cn/figures/nav-setup.png)图标 > 清空连接。
 
 如果浏览器上显示**配置数据库**页面，表示 Explorer 已经成功断开了与 Nebula Graph 数据库的连接。

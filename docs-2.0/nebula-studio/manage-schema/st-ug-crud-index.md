@@ -40,7 +40,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
   - **描述**：输入对索引的描述，最大为 256 字节。默认无描述。本示例为 `follow_index`。
 
 6. 完成设置后，在 **对应的 nGQL **面板，用户能看到与上述配置等价的 nGQL 语句。  
-![为 Edge type action 创建索引](../figs/st-ug-023.png "创建索引")
+![为 Edge type action 创建索引](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-023.png "创建索引")
 
 7. 确认无误后，点击 **创建** 按钮。
 
@@ -86,6 +86,6 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 
 3. 在 **当前图空间** 里确认图空间名称。用户也可以通过选择图空间名称切换图空间。
 
-4. 点击 **索引** 页签，找到需要修改的索引，并在 **操作** 列中，点击 ![表示删除的图标](../figs/alert-delete.png) 图标。
+4. 点击 **索引** 页签，找到需要修改的索引，并在 **操作** 列中，点击 ![表示删除的图标](https://docs-cdn.nebula-graph.com.cn/figures/alert-delete.png) 图标。
 
 5. 在弹出的对话框中点击 **确认**。

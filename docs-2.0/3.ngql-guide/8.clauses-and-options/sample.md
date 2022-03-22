@@ -14,7 +14,7 @@
 * `SAMPLE [1,2,4]`中的`1`表示系统在第一步时自动选择 1 条边继续遍历，`2`表示在第二步时选择 2 条边继续遍历，`4`表示在第三步时选择 4 条边继续遍历。如果某一步没有匹配的边或者匹配到的边数量小于指定数量，则按实际数量返回。
 * 因为`GO 1 TO 3 STEPS`表示返回第一到第三步的所有遍历结果，因此下图中所有红色边和它们的原点与目的点都会被这条`GO`语句匹配上，而黄色边表示`GO`语句遍历时没有选择的路径。如果不是`GO 1 TO 3 STEPS`而是`GO 3 STEPS`，则只会匹配上第三步的红色边和它们两端的点。
 
-![SAMPLE in GO](sample_in_go.png)
+![SAMPLE in GO](https://docs-cdn.nebula-graph.com.cn/figures/sample_in_go.png)
 
 在 basketballplayer 数据集中的执行示例如下：
 

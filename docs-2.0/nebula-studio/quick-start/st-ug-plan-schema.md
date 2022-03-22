@@ -21,4 +21,4 @@
 
 下图说明示例中 **player** 类点与 **team** 类点之间如何发生关系（**serve**/**follow**）。
 
-![球员和球员、球员和球队之间的关系](../figs/st-ug-006-1.png "示例中 player 与 team 的关系")
+![球员和球员、球员和球队之间的关系](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-006-1.png "示例中 player 与 team 的关系")
