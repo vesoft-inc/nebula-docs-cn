@@ -110,8 +110,8 @@ sudo rpm -i nebula-analytics-1.0.0-centos.x86_64.rpm  --prefix /home/xxx/nebula-
       --space=baskeyballplayer  
 
       # 读取 Nebula Graph 设置
-      # Nebula Graph 的 metad leader服务地址，例如为192.168.8.101。
-      --meta_server_addrs=192.168.8.101:9559
+      # Nebula Graph 的 metad 服务地址。
+      --meta_server_addrs=192.168.8.100:9559, 192.168.8.101:9559, 192.168.8.102:9559
       # 要读取的边的名称。
       --edges=LIKES  
       # 要读取的作为边的权重属性的名称。可以是属性名，也可以是 _rank。
