@@ -1,6 +1,6 @@
 # Storage 负载均衡
 
-用户可以使用`BALANCE`语句平衡分片和 Raft leader 的分布，或者清空某些 Storage 服务器方便进行维护。详情请参见 [BALANCE](../3.ngql-guide/18.operation-and-maintenance-statements/2.balance-syntax.md)。
+用户可以使用`BALANCE`语句平衡分片和 Raft leader 的分布，或者清空某些 Storage 服务器方便进行维护。详情请参见 [BALANCE](../synchronization-and-migration/2.balance-syntax.md)。
 
 !!! compatibility "历史版本兼容性"
 
@@ -88,7 +88,7 @@
   +------------------+------+-----------+----------+--------------+-----------------------------------+------------------------+---------+
   ```
 
-如果有子任务失败，请重启作业，详情参见[作业管理](../3.ngql-guide/18.operation-and-maintenance-statements/4.job-statements.md)。如果重做负载均衡仍然不能解决问题，请到 [Nebula Graph 社区](https://discuss.nebula-graph.com.cn/)寻求帮助。
+如果有子任务失败，请重启作业，详情参见[作业管理](../3.ngql-guide/4.job-statements.md)。如果重做负载均衡仍然不能解决问题，请到 [Nebula Graph 社区](https://discuss.nebula-graph.com.cn/)寻求帮助。
 
 ## 停止负载均衡作业
 

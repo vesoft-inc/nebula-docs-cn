@@ -293,14 +293,10 @@ nav:
           - GET SUBGRAPH: 3.ngql-guide/16.subgraph-and-path/1.get-subgraph.md
           - FIND PATH: 3.ngql-guide/16.subgraph-and-path/2.find-path.md
 
-      - 查询调优:
+      - 查询调优与终止:
           - EXPLAIN和PROFILE: 3.ngql-guide/17.query-tuning-statements/1.explain-and-profile.md
-
-      - 运维:
-        # - CONFIG syntax: 3.ngql-guide/18.operation-and-maintenance-statements/1.configs-syntax.md
-        - BALANCE: 3.ngql-guide/18.operation-and-maintenance-statements/2.balance-syntax.md
-        - 作业管理: 3.ngql-guide/18.operation-and-maintenance-statements/4.job-statements.md
-        - 终止查询: 3.ngql-guide/18.operation-and-maintenance-statements/6.kill-query.md
+          - 终止查询: 3.ngql-guide/17.query-tuning-statements/6.kill-query.md
+      - 作业管理: 3.ngql-guide/4.job-statements.md
 
   - 安装部署:
       - 准备资源: 4.deployment-and-installation/1.resource-preparations.md
@@ -342,15 +338,19 @@ nav:
           - 用户管理: 7.data-security/1.authentication/2.management-user.md
           - 内置角色权限: 7.data-security/1.authentication/3.role-list.md
           - OpenLDAP 验证: 7.data-security/1.authentication/4.ldap.md
-      - 管理快照: 7.data-security/3.manage-snapshot.md
-      - 集群间数据同步: 7.data-security/replication-between-clusters.md
       - SSL 加密: 7.data-security/4.ssl.md
 
-  - 备份恢复(BR):
-      - 什么是 BR: nebula-br/1.what-is-br.md
-      - 编译 BR: nebula-br/2.compile-br.md
-      - 使用 BR 备份数据: nebula-br/3.br-backup-data.md
-      - 使用 BR 恢复数据: nebula-br/4.br-restore-data.md
+  - 备份与恢复:
+      - Nebula BR:
+        - 什么是 BR: backup-and-restore/nebula-br/1.what-is-br.md
+        - 编译 BR: backup-and-restore/nebula-br/2.compile-br.md
+        - 使用 BR 备份数据: backup-and-restore/nebula-br/3.br-backup-data.md
+        - 使用 BR 恢复数据: backup-and-restore/nebula-br/4.br-restore-data.md
+      - 管理快照: backup-and-restore/3.manage-snapshot.md
+
+  - 同步与迁移:
+      - 负载均衡: synchronization-and-migration/2.balance-syntax.md
+      - 集群间数据同步: synchronization-and-migration/replication-between-clusters.md
 
   - 最佳实践:
       - Compaction: 8.service-tuning/compaction.md

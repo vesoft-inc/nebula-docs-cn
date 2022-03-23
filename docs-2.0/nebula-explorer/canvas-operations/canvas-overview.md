@@ -48,7 +48,7 @@ Explorer 支持 6 种布局方式展示画布上的数据之间的关系。
 
 全屏展示画布中的图，收起缩略图，缩小或放大画布中的图等。同时在缩略图的左下角显示了画布中的图占总图的百分比。
 
-![](thumbnail.png)
+![](https://docs-cdn.nebula-graph.com.cn/figures/thumbnail.png)
 
 ## 数据概览
 

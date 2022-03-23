@@ -4,7 +4,7 @@
 
 ## 支持版本
 
-Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参考[版本更新](../about-studio/st-ug-check-updates.md)。
+Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参考[版本更新](../about-studio/st-ug-release-note.md)。
 
 ## 前提条件
 
@@ -83,7 +83,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 
 !!! danger
 
-    删除 Tag 前先确认[影响](../../3.ngql-guide/10.tag-statements/2.drop-tag.md)，已删除的数据如未[备份](../../nebula-br/1.what-is-br.md)无法恢复。
+    删除 Tag 前先确认[影响](../../3.ngql-guide/10.tag-statements/2.drop-tag.md)，已删除的数据如未[备份](../../backup-and-restore/nebula-br/1.what-is-br.md)无法恢复。
 
 按以下步骤使用 **Schema** 删除 Tag：
 
