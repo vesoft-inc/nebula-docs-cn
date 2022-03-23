@@ -8,7 +8,7 @@ Nebula Graph 支持在集群间进行数据同步，即主集群 A 的数据可�
 
 ## 背景
 
-![replication between clusters](replication-between-clusters.png)
+![replication between clusters](https://docs-cdn.nebula-graph.com.cn/figures/replication-between-clusters.png)
 
 在集群间数据同步方案中，如果主集群 A 的图空间 a 和从集群 B 的图空间 b 建立了同步关系，任何向图空间 a 写入的数据，都会被发送到 Meta listener 或 Storage listener。listener 再将数据发送到 drainer。drainer 接收并存储数据，然后通过从集群的 Meta client 或 Storage client 发送数据至从集群的对应分片。
 
