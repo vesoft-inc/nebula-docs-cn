@@ -212,7 +212,7 @@ RETURN movie.title AS title
 
 2. 新项目 JanusGraph 项目在 2017 年 1 月启动后，其社区迅速活跃起来，短短一年时间就超越了 Titan 过去 5 年累计的 pull request 数量。而与此同时，Titan 开源项目就此停滞。
 
-![Image](https://docs-cdn.nebula-graph.io/figures/titan-janus-dev.png)
+![Image](https://docs-cdn.nebula-graph.com.cn/books/images/titan-janus-dev.png)
 
 #### 同期知名产品 OrientDB, TigerGraph, ArangoDB, 和 DGraph
 
