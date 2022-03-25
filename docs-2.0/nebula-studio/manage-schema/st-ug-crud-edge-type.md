@@ -43,7 +43,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
   4. （可选）Tag 未设置索引时，用户可以设置 TTL：在 **设置 TTL（存活时间）** 模块左上角，点击勾选框，在列表中设置 `TTL_COL` 和 `TTL_DURATION` 参数信息。关于这两个参数的详细信息，参考 [TTL 配置](../../3.ngql-guide/8.clauses-and-options/ttl-options.md "点击前往 Nebula Graph 网站")。
 
 6. 完成设置后，在 **对应的 nGQL 语句** 面板上，用户能看到与上述配置等价的 nGQL 语句。  
-![定义 Edge type action 的属性](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-022.png "定义 Edge type")
+![定义 Edge type action 的属性](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-004-cn.png "定义 Edge type")
 
 7. 确认无误后，点击 **创建** 按钮。
 

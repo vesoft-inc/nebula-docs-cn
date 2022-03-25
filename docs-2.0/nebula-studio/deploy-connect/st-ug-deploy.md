@@ -55,7 +55,7 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
    
    如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Studio。
 
-   ![Nebula Graph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-001-1.png "Nebula Graph Studio 登录界面")
+   ![Nebula Graph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-000-cn.png "Nebula Graph Studio 登录界面")
 
 ### 卸载
 
@@ -145,8 +145,7 @@ $ systemctl restart nebula-graph-studio.service
    
    如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Studio。
 
-   ![Nebula Graph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-001-1.png "Nebula Graph Studio 登录界面")
-
+   ![Nebula Graph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-000-cn.png "Nebula Graph Studio 登录界面")
 ### 停止服务
 
 用户可以采用 `kill pid` 的方式来关停服务：
@@ -192,7 +191,7 @@ $ kill $(lsof -t -i :7001) # stop nebula-graph-studio
    
    如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Studio。
 
-   ![Nebula Graph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-001-1.png "Nebula Graph Studio 登录界面")
+   ![Nebula Graph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-000-cn.png "Nebula Graph Studio 登录界面")
 
 ### 卸载
 
@@ -278,7 +277,7 @@ $ sudo dpkg -r nebula-graph-studio-{{studio.release}}.x86_64
 
    如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Studio。
 
-   ![Nebula Graph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-001-1.png "Nebula Graph Studio 登录界面")
+   ![Nebula Graph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-000-cn.png "Nebula Graph Studio 登录界面")
 
 ## 后续操作
 

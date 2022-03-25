@@ -36,13 +36,13 @@
      - 如果已启用身份验证，但是未创建账号信息，用户只能以 GOD 角色登录，必须填写 `root` 及对应的密码 `nebula`。
      - 如果已启用身份验证，同时又创建了不同的用户并分配了角色，不同角色的用户使用自己的账号和密码登录。
 
-      ![Nebula Graph Studio 的登录页面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-001-1.png "配置数据库")
+      ![Nebula Graph Studio 的登录页面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-000-cn.png "配置数据库")
 
 2. 完成设置后，点击 **连接** 按钮。  
 
   如果能看到如下图所示的界面，表示已经成功连接到 Nebula Graph 数据库。
 
-  ![Studio 进入控制台页面，表示成功连接到 Nebula Graph](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-003-1.png)
+  ![Studio 进入控制台页面，表示成功连接到 Nebula Graph](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-003-cn.png)
 
 一次连接会话持续 30 分钟。如果超过 30 分钟没有操作，会话即断开，用户需要重新登录数据库。
 
@@ -67,4 +67,4 @@
 
 当 Studio 还连接在某个 Nebula Graph 数据库时，在工具栏中，选择 **设置** > **清除连接**。之后，如果浏览器上显示 **配置数据库** 页面，表示 Studio 已经成功断开了与 Nebula Graph 数据库的连接。
 
-![reset](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-005.png)
+![reset](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-000-cn.png)

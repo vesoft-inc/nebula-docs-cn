@@ -46,7 +46,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 
 6. 完成设置后，在 **对应的 nGQL ** 面板，用户能看到与上述配置等价的 nGQL 语句。
   
-   ![create tag](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-017.png)
+   ![create tag](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-008-cn.png)
 
 7. 确认无误后，点击 **创建** 按钮。
 

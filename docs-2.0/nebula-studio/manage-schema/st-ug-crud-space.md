@@ -42,7 +42,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 4. 配置确认无误后，点击 **创建** 按钮。
   如果页面回到 **图空间列表**，而且列表中显示刚创建的图空间信息，表示图空间创建成功。
 
-![带有示例配置信息的图空间创建页面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-015.png "图空间创建页面")
+![带有示例配置信息的图空间创建页面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-006-cn.png "图空间创建页面")
 
 ## 删除图空间
 
@@ -55,7 +55,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 
 2. 在图空间列表里，找到需要删除的图空间，并在 **操作** 列中，点击 ![表示删除的图标](https://docs-cdn.nebula-graph.com.cn/figures/alert-delete.png "删除") 图标。
 
-  ![在图空间列表中删除指定的图空间](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-016.png "删除图空间")
+  ![在图空间列表中删除指定的图空间](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-007-cn.png "删除图空间")
 
 3. 在弹出的对话框中点击 **确认**。
   删除成功后，页面回到 **图空间列表**。

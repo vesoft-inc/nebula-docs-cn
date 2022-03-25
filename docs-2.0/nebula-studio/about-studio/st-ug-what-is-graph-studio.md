@@ -56,4 +56,4 @@ Studio 处于持续开发状态中。用户可以通过 [Studio 发布版本更�
 
 成功连接 Studio 后，用户可以在页面右上角点击版本号，再点击 **新发布**，前往查看 Studio 的版本更新记录。
 
-![在页面右上角点击头像，并在弹出菜单里点击“新发布”](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-014-1.png)
+![在页面右上角点击头像，并在弹出菜单里点击“新发布”](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-001-cn.png)

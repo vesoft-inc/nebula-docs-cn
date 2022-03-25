@@ -38,7 +38,7 @@
 
 2. 在 **当前 Space** 中选择一个图空间。在本示例中，选择 **basketballplayer**。
 
-   ![在当前 Space 中选择一个图空间](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-007-1.png "选择图空间")
+   ![在当前 Space 中选择一个图空间](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-009-cn.png "选择图空间")
 
 3. 在命令行中，依次输入以下语句，并点击右侧的**运行**按钮。
 

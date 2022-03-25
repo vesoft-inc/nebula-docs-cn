@@ -34,7 +34,7 @@
 4. 启动成功后，在浏览器地址栏输入`http://{address-of-node}:{30070}/`。
    如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Studio。
 
-   ![Nebula Graph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-001-1.png "Nebula Graph Studio 登录界面")
+   ![Nebula Graph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-000-cn.png "Nebula Graph Studio 登录界面")
 
 ## 卸载
 
