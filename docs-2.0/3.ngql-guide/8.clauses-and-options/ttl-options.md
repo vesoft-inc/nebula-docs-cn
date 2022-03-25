@@ -74,8 +74,8 @@ nebula> INSERT VERTEX t1(a) values "101":(now());
 # 创建 Tag 并设置 TTL 选项。
 nebula> CREATE TAG IF NOT EXISTS t2(a int, b int, c string) ttl_duration= 100, ttl_col = "a";
 
-# 插入点。过期时间戳为 1612778164774（1612778164674 + 100）。
-nebula> INSERT VERTEX t2(a, b, c) values "102":(1612778164674, 30, "Hello");
+# 插入点。过期时间戳为 1648197238（1648197138 + 100）。
+nebula> INSERT VERTEX t2(a, b, c) values "102":(1648197138, 30, "Hello");
 ```
 
 ## 删除存活时间
