@@ -7,7 +7,7 @@
 - 路径查询
 - 查看属性
 
-![query_exploration](https://docs-cdn.nebula-graph.com.cn/figures/exploration_query.gif)
+![query_exploration](https://docs-cdn.nebula-graph.com.cn/figures/exploration_query_cn.gif)
 
 ## 前提条件
 
@@ -15,7 +15,7 @@
 
 ## 拓展
 
-在左侧导航栏，单击![expand](https://docs-cdn.nebula-graph.com.cn/figures/nav-expand.png)图标，打开**拓展**窗口。用户可以双击某一点，对该点进行拓展。也可以右键框选画布中的多个点，在操作栏中修改边类型，选择边的流入流出方向，修改点的颜色，规定拓展步数和自定义过滤条件。
+在左侧导航栏，单击![expand](https://docs-cdn.nebula-graph.com.cn/figures/nav-expand_cn.png)图标，打开**拓展**窗口。用户可以双击某一点，对该点进行拓展。也可以右键框选画布中的多个点，在操作栏中修改边类型，选择边的流入流出方向，修改点的颜色，规定拓展步数和自定义过滤条件。
 
 | 参数     | 描述                                                         |
 | -------- | ------------------------------------------------------------ |
@@ -32,14 +32,14 @@
 
 ## 共同邻居
 
-在左侧导航栏，单击![commonneighbor](https://docs-cdn.nebula-graph.com.cn/figures/nav-commonNeighbor.png)图标，打开**共同邻居**窗口。用户可以选中画布中的两个点或多个点，查询它们的共同邻居。选中的点无共同邻居时，默认返回**没有相应数据**。
+在左侧导航栏，单击![commonneighbor](https://docs-cdn.nebula-graph.com.cn/figures/nav-commonNeighbor_cn.png)图标，打开**共同邻居**窗口。用户可以选中画布中的两个点或多个点，查询它们的共同邻居。选中的点无共同邻居时，默认返回**没有相应数据**。
 
 关于如何选中两个点或者多个点的操作，参见[常规操作](ex-ug-shortcuts.md)。
 
 
 ## 路径查询
 
-在左侧导航栏，单击![findpath](https://docs-cdn.nebula-graph.com.cn/figures/nav-findPath.png)图标，打开**路径查询**窗口。**用户可以选中画布中的两个点，默认框选的第一个点为起点，第二个点为终点。**用户可自定义边的类型和方向，规定拓展步数，选择查询路径。
+在左侧导航栏，单击![findpath](https://docs-cdn.nebula-graph.com.cn/figures/nav-findPath_cn.png)图标，打开**路径查询**窗口。**用户可以选中画布中的两个点，默认框选的第一个点为起点，第二个点为终点。**用户可自定义边的类型和方向，规定拓展步数，选择查询路径。
 
 | 参数     | 描述                                                         |
 | -------- | ------------------------------------------------------------ |
@@ -51,7 +51,7 @@
 
 ## 查看属性
 
-在左侧导航栏，单击![propertyview](https://docs-cdn.nebula-graph.com.cn/figures/nav-propertyView.png)图标，打开**查看属性**窗口。用户可以选择在画布中展示或隐藏点或边的属性。
+在左侧导航栏，单击![propertyview](https://docs-cdn.nebula-graph.com.cn/figures/nav-propertyView_cn.png)图标，打开**查看属性**窗口。用户可以选择在画布中展示或隐藏点或边的属性。
 
 !!! note
 
