@@ -19,4 +19,4 @@
 3. （可选）重复第二步骤，添加多个筛选条件。
 4. 打开**启动筛选**开关。
 
-![](https://docs-cdn.nebula-graph.com.cn/figures/node-filtering.png)
+![](https://docs-cdn.nebula-graph.com.cn/figures/node-filtering_cn.png)
