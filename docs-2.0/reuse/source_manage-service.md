@@ -1,29 +1,39 @@
-Nebula Graph 使用脚本`nebula.service`管理服务，包括启动、停止、重启、中止和查看。
+Nebula Graph 使用脚本`nebula.service`管理服务，包括启动、停止、重启、中止和查看，为方便实用，脚本也集成至 Systemd 中。
 
-`nebula.service`的默认路径是`/usr/local/nebula/scripts`，如果修改过安装路径，请使用实际路径。
+!!! note
+  
+  `nebula.service`的默认路径是`/usr/local/nebula/scripts`，如果修改过安装路径，请使用实际路径。
 
 ## 语法
 
-```bash
-$ sudo /usr/local/nebula/scripts/nebula.service
-[-v] [-c <config_file_path>]
-<start|stop|restart|kill|status>
-<metad|graphd|storaged|all>
-```
+- 执行脚本
 
-|参数|说明|
-|:---|:---|
-|`-v`|显示详细调试信息。|
-|`-c`|指定配置文件路径，默认路径为`/usr/local/nebula/etc/`。|
-|`start`|启动服务。|
-|`stop`|停止服务。|
-|`restart`|重启服务。|
-|`kill`|中止服务。|
-|`status`|查看服务状态。|
-|`metad`|管理 Meta 服务。|
-|`graphd`|管理 Graph 服务。|
-|`storaged`|管理 Storage 服务。|
-|`all`|管理所有服务。|
+  ```bash
+  $ sudo /usr/local/nebula/scripts/nebula.service
+  [-v] [-c <config_file_path>]
+  <start|stop|restart|kill|status>
+  <metad|graphd|storaged|all>
+  ```
+
+  |参数|说明|
+  |:---|:---|
+  |`-v`|显示详细调试信息。|
+  |`-c`|指定配置文件路径，默认路径为`/usr/local/nebula/etc/`。|
+  |`start`|启动服务。|
+  |`stop`|停止服务。|
+  |`restart`|重启服务。|
+  |`kill`|中止服务。|
+  |`status`|查看服务状态。|
+  |`metad`|管理 Meta 服务。|
+  |`graphd`|管理 Graph 服务。|
+  |`storaged`|管理 Storage 服务。|
+  |`all`|管理所有服务。|
+
+- 使用 Systemd
+
+  ```bash
+  $ sudo systemctl <start|stop|restart|kill|status> <nebula|metad|graphd|storaged>
+  ```
 
 ## 启动 Nebula Graph 服务
 
