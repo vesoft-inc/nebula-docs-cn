@@ -1,4 +1,4 @@
-Nebula Graph 支持通过脚本或 systemd管理服务。本文详细介绍这两种方式。
+Nebula Graph 支持通过脚本或 systemd 管理服务。本文详细介绍这两种方式。
 
 !!! note
 
