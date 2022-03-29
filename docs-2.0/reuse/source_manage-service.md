@@ -1,5 +1,9 @@
 Nebula Graph 支持通过脚本或 systemd 管理服务。本文详细介绍这两种方式。
 
+!!! enterpriseonly
+
+  仅企业版支持使用 systemd 管理服务。
+  
 !!! note
 
   当前两种方式互不兼容，建议选择使用其中一种。
