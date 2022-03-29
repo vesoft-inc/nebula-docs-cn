@@ -2,7 +2,7 @@ site_name: Nebula Graph Database 手册
 site_description: Documentation for Nebula Graph Database
 site_author: Nebula Graph
 site_url: https://docs.nebula-graph.com.cn/
-edit_uri: 'edit/v3.0.1/docs-2.0/'
+edit_uri: 'edit/v3.0.2/docs-2.0/'
 docs_dir: docs-2.0
 
 # repository
@@ -43,12 +43,12 @@ extra:
     provider: google
     property: UA-60523578-15
   nebula:
-    release: 3.0.1
+    release: 3.0.2
     nightly: nightly
     master: master
     base20: 2.0
     base200: 2.0.0
-    branch: v3.0.1
+    branch: v3.0.2
   version:
     method: mike
   social:
@@ -566,7 +566,7 @@ plugins:
 
   - with-pdf:
       copyright: 2022 vesoft Inc.
-      cover_subtitle: v3.0.1
+      cover_subtitle: v3.0.2
       author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
       cover: true
       back_cover: true
