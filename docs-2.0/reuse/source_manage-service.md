@@ -2,11 +2,11 @@ Nebula Graph 支持通过脚本或 systemd 管理服务。本文详细介绍这�
 
 !!! enterpriseonly
 
-  仅企业版支持使用 systemd 管理服务。
+    仅企业版支持使用 systemd 管理服务。
   
 !!! note
 
-  当前两种方式互不兼容，建议选择使用其中一种。
+    当前两种方式互不兼容，建议选择使用其中一种。
 
 ## 使用脚本管理服务
 
@@ -14,7 +14,7 @@ Nebula Graph 支持通过脚本或 systemd 管理服务。本文详细介绍这�
 
 !!! note
   
-  `nebula.service`的默认路径是`/usr/local/nebula/scripts`，如果修改过安装路径，请使用实际路径。
+    `nebula.service`的默认路径是`/usr/local/nebula/scripts`，如果修改过安装路径，请使用实际路径。
 
 ### 语法
 
@@ -45,9 +45,9 @@ $ sudo /usr/local/nebula/scripts/nebula.service
 
 !!! note
 
-  安装 Nebula Graph 后，systemd 所需的`.service`文件在安装目录的`etc/unit`目录内，使用 RPM/DEB 包安装的 Nebula Graph，会自动将这些`.service`文件放入`/usr/lib/systemd/system`目录内，并且`ExecStart`也会根据指定的 Nebula Graph 安装路径进行生成，因此可以直接使用`systemctl`命令。
+    安装 Nebula Graph 后，systemd 所需的`.service`文件在安装目录的`etc/unit`目录内，使用 RPM/DEB 包安装的 Nebula Graph，会自动将这些`.service`文件放入`/usr/lib/systemd/system`目录内，并且`ExecStart`也会根据指定的 Nebula Graph 安装路径进行生成，因此可以直接使用`systemctl`命令。
   
-  其他方式安装 Nebula Graph，需要用户手动将`.service`文件移动到`/usr/lib/systemd/system`目录内，并修改`.service`文件内的`ExecStart`的文件路径，才可以正常使用`systemctl`命令。
+    其他方式安装 Nebula Graph，需要用户手动将`.service`文件移动到`/usr/lib/systemd/system`目录内，并修改`.service`文件内的`ExecStart`的文件路径，才可以正常使用`systemctl`命令。
 
 ### 语法
 
