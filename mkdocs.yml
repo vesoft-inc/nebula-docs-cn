@@ -328,6 +328,7 @@ nav:
           - Linux 内核配置: 5.configurations-and-logs/1.configurations/6.kernel-config.md
       - 日志:
           - 日志配置: 5.configurations-and-logs/2.log-management/logs.md
+          - 审计日志（企业版）: 5.configurations-and-logs/2.log-management/audit-log.md
 
   - 监控:
       - 查询 Nebula Graph 监控指标: 6.monitor-and-metrics/1.query-performance-metrics.md
@@ -520,6 +521,7 @@ nav:
       - 常见问题 FAQ: 20.appendix/0.FAQ.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
       - 导入工具选择: 20.appendix/write-tools.md
+      - 错误码说明: 20.appendix/error-code.md
       - 社区参与: 15.contribution/how-to-contribute.md
       - 年表: 20.appendix/history.md
       - 思维导图: 20.appendix/mind-map.md
