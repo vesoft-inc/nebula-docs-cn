@@ -129,6 +129,11 @@ $ sudo /usr/local/nebula/scripts/nebula.service status all
     [INFO] nebula-storaged(02b2091): Running as 26709, Listening on 9779
     ```
 
+  !!! note
+
+        正常启动 Nebula Graph 后，`nebula-storaged`进程的端口显示红色。这是因为`nebula-storaged`在启动流程中会等待`nebula-metad`添加当前 Storage 服务，当前 Storage 服务收到 Ready 信号后才会正式启动服务。从 3.0.0 版本开始，在配置文件中添加的 Storage 节点无法直接读写，配置文件的作用仅仅是将 Storage 节点注册至 Meta 服务中。必须使用ADD HOSTS命令后，才能正常读写 Storage 节点。更多信息，参见[管理 Storage 主机](../4.deployment-and-installation/manage-storage-host.md)。
+
+
 - 如果返回类似如下结果，表示 Nebula Graph 服务异常，可以根据异常服务信息进一步排查，或者在 [Nebula Graph 社区](https://discuss.nebula-graph.com.cn/)寻求帮助。
 
     ```bash
