@@ -283,7 +283,7 @@ sudo /usr/local/nebula/scripts/nebula.service start <metad|graphd|storaged|all>
 
 ### 4. 检查集群
 
-安装原生 CLI 客户端 [Nebula Console](../../2.quick-start/3.connect-to-nebula-graph.md#_1)，然后连接任何一个已启动 graphd 进程的机器，执行命令`SHOW HOSTS`检查集群状态。例如：
+安装原生 CLI 客户端 [Nebula Console](../../2.quick-start/3.connect-to-nebula-graph.md#_1)，然后连接任何一个已启动 graphd 进程的机器，添加 Storage 主机，然后执行命令`SHOW HOSTS`检查集群状态。例如：
 
 ```bash
 $ ./nebula-console --addr 192.168.10.111 --port 9669 -u root -p nebula
@@ -291,6 +291,7 @@ $ ./nebula-console --addr 192.168.10.111 --port 9669 -u root -p nebula
 2021/05/25 01:41:19 [INFO] connection pool is initialized successfully
 Welcome to Nebula Graph!
 
+> ADD HOSTS 192.168.10.111:9779, 192.168.10.112:9779, 192.168.10.113:9779, 192.168.10.114:9779, 192.168.10.115:9779;
 > SHOW HOSTS;
 +------------------+------+-----------+----------+--------------+----------------------+------------------------+---------+
 | Host             | Port | HTTP port | Status   | Leader count | Leader distribution  | Partition distribution | Version |

@@ -24,7 +24,7 @@ Nebula Explorer （简称 Explorer）是一款可以通过 Web 访问的可视�
 
 - [易于使用](../ex-ug-shortcuts.md)：使用简洁的可视化交互方式，无需构思 nGQL 语句，轻松实现图探索。
 
-- [灵活性强](../ex-ug-query-exploration.md)：支持通过 VID、Tag、Subgraph 等方式查询数据。
+- [灵活性强](../ex-ug-query-exploration.md)：支持通过可视化、VID、Tag、Subgraph 等方式查询数据。
 
 - [探索拓展](../ex-ug-graph-exploration.md)：支持对多个点进行拓展操作、查询多个点的共同邻居、查询起点到终点之间的路径等操作。
 

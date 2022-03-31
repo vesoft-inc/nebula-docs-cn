@@ -444,9 +444,13 @@ nav:
       - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
       - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
     - 页面概览: nebula-explorer/ex-ug-page-overview.md
+    - 创建 Schema: nebula-explorer/10.create-schema.md
+    - 导入数据: nebula-explorer/11.import-data.md
+    - 选择图空间: nebula-explorer/13.choose-graphspace.md
     - 开始探索: nebula-explorer/ex-ug-query-exploration.md
     - 节点筛选: nebula-explorer/node-filtering.md
     - 探索拓展: nebula-explorer/ex-ug-graph-exploration.md
+    - 可视化查询: nebula-explorer/12.query-visually.md
     - 画布功能: 
       - 画布概览: nebula-explorer/canvas-operations/canvas-overview.md
       - 可视化模式: nebula-explorer/canvas-operations/visualization-mode.md
