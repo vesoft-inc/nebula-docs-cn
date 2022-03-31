@@ -501,26 +501,26 @@ ${SPARK_HOME}/bin/spark-submit  --master "local" --conf spark.sql.shuffle.partit
 2. 执行命令下载 SST 文件：
 
   ```ngql
-  nebula> DOWNLOAD HDFS "hdfs://<hadoop_address>:<hadoop_port>/<sst_file_path>";
+  nebula> SUBMIT JOB DOWNLOAD HDFS "hdfs://<hadoop_address>:<hadoop_port>/<sst_file_path>";
   ```
 
   示例：
 
   ```ngql
-  nebula> DOWNLOAD HDFS "hdfs://*.*.*.*:9000/sst";
+  nebula> SUBMIT JOB DOWNLOAD HDFS "hdfs://*.*.*.*:9000/sst";
   ```
 
 2. 执行命令导入 SST 文件：
 
   ```ngql
-  nebula> INGEST;
+  nebula> SUBMIT JOB INGEST;
   ```
 
 !!! note
 
     - 如果需要重新下载，请在 Nebula Graph 安装路径内的`data/storage/nebula`目录内，将对应 Space ID 目录内的`download`文件夹删除，然后重新下载 SST 文件。如果图空间是多副本，保存副本的所有机器都需要删除`download`文件夹。
 
-    - 如果导入时出现问题需要重新导入，重新执行`INGEST;`即可。
+    - 如果导入时出现问题需要重新导入，重新执行`SUBMIT JOB INGEST;`即可。
 
 ### 步骤 6：（可选）验证数据
 
