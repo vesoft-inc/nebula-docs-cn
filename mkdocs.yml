@@ -146,7 +146,8 @@ nav:
       - 步骤1：安装 Nebula Graph: 2.quick-start/2.install-nebula-graph.md
       - 步骤2：启动 Nebula Graph: 2.quick-start/5.start-stop-service.md
       - 步骤3：连接 Nebula Graph: 2.quick-start/3.connect-to-nebula-graph.md
-      - 步骤4：使用常用命令: 2.quick-start/4.nebula-graph-crud.md
+      - 步骤4：注册 Storage 服务: 2.quick-start/3.1add-storage-hosts.md
+      - 步骤5：使用常用命令: 2.quick-start/4.nebula-graph-crud.md
       - nGQL 命令汇总: 2.quick-start/6.cheatsheet-for-ngql-command.md
 
   - nGQL 指南:
