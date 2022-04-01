@@ -48,6 +48,7 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
    当屏幕返回以下信息时，表示 PRM 版 Studio 已经成功启动。
 
    ```bash
+   Start installing Nebula Studio now...
    Nebula Studio has been installed.
    Nebula Studio started automatically.
    ```
