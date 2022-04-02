@@ -26,13 +26,14 @@
 在页面右上方：
 
 - 单击![snapshot](https://docs-cdn.nebula-graph.com.cn/figures/graph-snapshot_cn.png)创建快照。更多信息，参见[画布快照](canvas-snapshot.md)。
-- 单击![PNG](https://docs-cdn.nebula-graph.com.cn/figures/topbar-exportPNG_cn.png)以图片形式存储画布数据。
-- 单击![CSV](https://docs-cdn.nebula-graph.com.cn/figures/topbar-exportCSV_cn.png)以 CSV 文件的方式存储画布数据。
 
+- 单击![data_output](https://docs-cdn.nebula-graph.com.cn/figures/explorer-btn-output.png)，然后单击**导出 CSV** 以 CSV 文件的方式存储画布数据。
+
+- 单击![data_output](https://docs-cdn.nebula-graph.com.cn/figures/explorer-btn-output.png)，然后单击**导出 PNG** 以图片形式存储画布数据。
 
 ## 搜索框
 
-在页面左上方的搜索框中，输入 VID 或者 Tag 的属性值定位目标点。
+在页面右上方，单击![canvas_search](https://docs-cdn.nebula-graph.com.cn/figures/explorer-canvas-search.png)，然后在搜索框中输入 VID 或者 Tag 的属性值定位目标点。
 
 ## 多布局
 
