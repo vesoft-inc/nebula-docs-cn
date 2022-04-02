@@ -43,7 +43,7 @@
   
   !!! caution
 
-        Studio 通过 **导入模板** 导入数据与 [Nebula Importer](../../nebula-importer/use-importer.md) 大致相同，但是 **导入模板** 中配置文件的所有文件路径仅保留文件名。并且请确保在导入 YAML 文件之前上传所有 CSV 数据文件。
+        Studio 通过**导入模板**导入数据与 [Nebula Importer](../../nebula-importer/use-importer.md) 大致相同，但是**导入模板**中配置文件的所有文件路径仅保留文件名。并且请确保在导入 YAML 文件之前上传所有 CSV 数据文件。
 
   - 选择图空间。
   - 填写任务名称。
