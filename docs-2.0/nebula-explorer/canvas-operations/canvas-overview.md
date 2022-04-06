@@ -64,6 +64,6 @@ Explorer 支持 6 种布局方式展示画布上的数据之间的关系。
 
 - 支持上传图片以个性化标记画布中的点的样式，上传的图片被存在浏览器中。如果需要永久保存上传的图片，可以将当前画布中的数据创建为快照，具体操作，参见[数据快照](canvas-snapshot.md)。
 
-  ![](../figs/upload-logo.png)
+  ![upload_logo](https://docs-cdn.nebula-graph.com.cn/figures/upload-logo_cn.png)
 
 
