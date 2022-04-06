@@ -6,18 +6,17 @@ Explorer 支持 **2D** 和 **3D** 两种可视化模式探索数据。2D 模式�
 
     3D 模式下，不可进行图数据的操作。
 
-![visualizaiton_mode](https://docs-cdn.nebula-graph.com.cn/figures/visualization_cn.gif)
+![visualizaiton_mode](https://docs-cdn.nebula-graph.com.cn/figures/visualization-22-04-06_cn.gif)
 
 ## 2D 模式
 
 2D 模式下可对画布上的数据进行探索操作：
 
-![2D](https://docs-cdn.nebula-graph.com.cn/figures/2d-mode_cn.png)
+![2D](https://docs-cdn.nebula-graph.com.cn/figures/2d-mode-22-04-06_cn.png)
 
 | 参数       | 说明                                                         |
 | ---------- | ------------------------------------------------------------ |
-| 出入度权重 | 根据画布中所有点的出边和入边的条数，自动调整点的大小。       |
-| 重置出入度 | 重置画布中的点至原始大小。                                   |
+| 出入度权重 | 出入度权重：根据画布中所有点的出边和入边的条数，自动调整点的大小。<br />重置出入度：重置画布中的点至原始大小。      |
 | 信息检测   | 孤立点：检测画布中所有的无边点。<br />悬挂边：检测画布中与度数为1的点关联的边（包含关联点）。<br />环检测：检测由边和点连接在一起形成循环的路径。 |
 | 编辑   | 隐藏：隐藏画布中选中的点边。<br />隐藏其他：隐藏画布中未选择的所有点边。<br />撤销：撤销上一步新增或隐藏的操作。<br />重做：恢复上一步撤销的操作。 |
 

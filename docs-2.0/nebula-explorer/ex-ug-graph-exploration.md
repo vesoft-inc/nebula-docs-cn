@@ -7,7 +7,7 @@
 - 路径查询
 - 查看属性
 
-![query_exploration](https://docs-cdn.nebula-graph.com.cn/figures/exploration_query_cn.gif)
+![query_exploration](https://docs-cdn.nebula-graph.com.cn/figures/exploration-query-22-04-06_cn.gif)
 
 ## 前提条件
 

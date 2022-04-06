@@ -4,7 +4,7 @@
 
 Nebula Explorer 由顶部导航栏、左侧导航栏、和画布三大模块组成。
 
-<!-- 需要修改![explorer-overview](https://docs-cdn.nebula-graph.com.cn/figures/explorer-overview_cn.png) -->
+![explorer-overview](https://docs-cdn.nebula-graph.com.cn/figures/explorer-overview_cn.png)
 
 ## 顶部导航栏
 
@@ -14,7 +14,7 @@ Nebula Explorer 由顶部导航栏、左侧导航栏、和画布三大模块组�
 | **Visual Query**                                             | 可视化构造场景进行数据查询。详情参见[可视化查询](12.query-visually.md)。           |
 | ![create_schema](https://docs-cdn.nebula-graph.com.cn/figures/studio-nav-schema.png) | 对 Nebula Graph 图空间进行管理。详情参见[创建 Schema](10.create-schema.md)。       |
 | ![import_data](https://docs-cdn.nebula-graph.com.cn/figures/studio-btn-download.png) | 将数据批量导入 Nebula Graph。详情参见[导入数据](11.import-data.md)。          |
-| ![Console](https://docs-cdn.nebula-graph.com.cn/figures/nav-console.png) | 对 Nebula Graph 内的数据使用 nGQL 进行查询操作。详情参见[控制台](explorer-console.md)。 |
+| ![Console](https://docs-cdn.nebula-graph.com.cn/figures/nav-console2.png) | 对 Nebula Graph 内的数据使用 nGQL 进行查询操作。详情参见[控制台](explorer-console.md)。 |
 | ![language](https://docs-cdn.nebula-graph.com.cn/figures/navbar-language.png) | 选择 Nebula Explorer 页面的语言，支持中文和英文。    |
 | ![help](https://docs-cdn.nebula-graph.com.cn/figures/navbar-help.png) | 帮助页面，指导和帮忙用户使用 Nebula Graph。          |
 | ![clear_connection](https://docs-cdn.nebula-graph.com.cn/figures/image-icon10.png) | 显示内核版本并可以断开与 Nebula Explorer 的连接。    |
