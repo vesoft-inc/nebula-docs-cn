@@ -1,5 +1,9 @@
 本文介绍如何使用原生命令行客户端 Nebula Console 连接 Nebula Graph。
 
+!!! caution
+
+    首次连接到 Nebula Graph 后，必须先[注册 Storage 服务](../2.quick-start/3.1add-storage-hosts.md)，才能正常查询数据。
+
 Nebula Graph 支持多种类型的客户端，包括命令行客户端、可视化界面客户端和流行编程语言客户端。详情参见[客户端列表](../14.client/1.nebula-client.md)。
 
 ## 前提条件

@@ -17,6 +17,7 @@
 ## 操作步骤
 
 在导入数据之前，用户需要先上传文件后再创建导入任务。
+
 ### 上传文件
 
 按照以下步骤导入数据：
@@ -26,7 +27,7 @@
 
   !!! Note
 
-        一次可以选择多个 CSV 文件，本文使用的 CSV 文件可以在[规划 Schema ](st-ug-plan-schema.md) 中下载。
+        一次可以选择多个 CSV 文件，本文使用的 CSV 文件可以在[规划 Schema](st-ug-plan-schema.md) 中下载。
 
 3. 上传结束后，可以在文件列表的 **操作** 列，点击 ![detail](https://docs-cdn.nebula-graph.com.cn/figures/detail.png) 图标预览文件内容，或点击 ![delete](https://docs-cdn.nebula-graph.com.cn/figures/alert-delete.png) 图标删除上传的文件。
 
@@ -39,6 +40,11 @@
 1. 在顶部导航栏里，点击 **导入** 页签。
 2. 在标签页内点击 **导入数据** 按钮。
 3. 在 **导入数据** 页面，点击 **导入模版** 直接通过配置文件导入数据或点击 **+ 创建导入任务** 按钮，完成以下任务：
+  
+  !!! caution
+
+        Studio 通过**导入模板**导入数据与 [Nebula Importer](../../nebula-importer/use-importer.md) 大致相同，但是**导入模板**中配置文件的所有文件路径仅保留文件名。并且请确保在导入 YAML 文件之前上传所有 CSV 数据文件。
+
   - 选择图空间。
   - 填写任务名称。
   - （可选）填写批处理量。

@@ -1,14 +1,28 @@
-Nebula Graph 使用脚本`nebula.service`管理服务，包括启动、停止、重启、中止和查看。
+Nebula Graph 支持通过脚本或 systemd 管理服务。本文详细介绍这两种方式。
 
-`nebula.service`的默认路径是`/usr/local/nebula/scripts`，如果修改过安装路径，请使用实际路径。
+!!! enterpriseonly
 
-## 语法
+    仅企业版支持使用 systemd 管理服务。
+  
+!!! danger
+
+    这两种方式互不兼容，选择使用其中一种。
+
+## 使用脚本管理服务
+
+使用脚本`nebula.service`管理服务，包括启动、停止、重启、中止和查看。
+
+!!! note
+  
+    `nebula.service`的默认路径是`/usr/local/nebula/scripts`，如果修改过安装路径，请使用实际路径。
+
+### 语法
 
 ```bash
 $ sudo /usr/local/nebula/scripts/nebula.service
 [-v] [-c <config_file_path>]
-<start|stop|restart|kill|status>
-<metad|graphd|storaged|all>
+<start | stop | restart | kill | status>
+<metad | graphd | storaged | all>
 ```
 
 |参数|说明|
@@ -25,11 +39,38 @@ $ sudo /usr/local/nebula/scripts/nebula.service
 |`storaged`|管理 Storage 服务。|
 |`all`|管理所有服务。|
 
+## 使用 systemd 管理服务
+
+为方便使用，Nebula Graph 支持用 systemd 管理服务，通过`systemctl`启动、停止、重启和查看服务。
+
+!!! note
+
+    安装 Nebula Graph 后，systemd 所需的`.service`文件在安装目录的`etc/unit`目录内，使用 RPM/DEB 包安装的 Nebula Graph，会自动将这些`.service`文件放入`/usr/lib/systemd/system`目录内，并且`ExecStart`也会根据指定的 Nebula Graph 安装路径进行生成，因此可以直接使用`systemctl`命令。
+  
+    其他方式安装 Nebula Graph，需要用户手动将`.service`文件移动到`/usr/lib/systemd/system`目录内，并修改`.service`文件内的`ExecStart`的文件路径，才可以正常使用`systemctl`命令。
+
+### 语法
+
+```bash
+$ systemctl <start | stop | restart | status > <nebula | nebula-metad | nebula-graphd | nebula-storaged>
+```
+
+|参数|说明|
+|:---|:---|
+|`start`|启动服务。|
+|`stop`|停止服务。|
+|`restart`|重启服务。|
+|`status`|查看服务状态。|
+|`nebula`|管理所有服务。|
+|`nebula-metad`|管理 Meta 服务。|
+|`nebula-graphd`|管理 Graph 服务。|
+|`nebula-storaged`|管理 Storage 服务。|
+
 ## 启动 Nebula Graph 服务
 
 ### 非容器部署
 
-对于使用 RPM 或 DEB 文件安装的 Nebula Graph，执行如下命令启动服务：
+对于非容器部署的 Nebula Graph，执行如下命令启动服务：
 
 ```bash
 $ sudo /usr/local/nebula/scripts/nebula.service start all
@@ -39,6 +80,18 @@ $ sudo /usr/local/nebula/scripts/nebula.service start all
 [INFO] Done
 [INFO] Starting nebula-storaged...
 [INFO] Done
+```
+
+或者：
+
+```bash
+$ systemctl start nebula
+```
+
+如果需要设置开机自动启动，命令如下：
+
+```bash
+$ systemctl enable nebula
 ```
 
 ### 容器部署
@@ -78,6 +131,12 @@ $ sudo /usr/local/nebula/scripts/nebula.service stop all
 [INFO] Done
 [INFO] Stopping nebula-storaged...
 [INFO] Done
+```
+
+或者：
+
+```bash
+$ systemctl stop nebula
 ```
 
 ### 容器部署
@@ -141,6 +200,26 @@ $ sudo /usr/local/nebula/scripts/nebula.service status all
     [INFO] nebula-graphd: Exited
     [INFO] nebula-storaged: Running as 25646, Listening on 9779
     ```
+
+也可以使用`systemctl`命令查看 Nebula Graph 服务状态：
+
+```bash
+$ systemctl status nebula
+● nebula.service
+   Loaded: loaded (/usr/lib/systemd/system/nebula.service; disabled; vendor preset: disabled)
+   Active: active (exited) since 一 2022-03-28 04:13:24 UTC; 1h 47min ago
+  Process: 21772 ExecStart=/usr/local/ent-nightly/scripts/nebula.service start all (code=exited, status=0/SUCCESS)
+ Main PID: 21772 (code=exited, status=0/SUCCESS)
+    Tasks: 325
+   Memory: 424.5M
+   CGroup: /system.slice/nebula.service
+           ├─21789 /usr/local/ent-nightly/bin/nebula-metad --flagfile /usr/local/ent-nightly/etc/nebula-metad.conf
+           ├─21827 /usr/local/ent-nightly/bin/nebula-graphd --flagfile /usr/local/ent-nightly/etc/nebula-graphd.conf
+           └─21900 /usr/local/ent-nightly/bin/nebula-storaged --flagfile /usr/local/ent-nightly/etc/nebula-storaged.conf
+
+3月 28 04:13:24 xxxxxx systemd[1]: Started nebula.service.
+...
+```
 
 Nebula Graph 服务由 Meta 服务、Graph 服务和 Storage 服务共同提供，这三种服务的配置文件都保存在安装目录的`etc`目录内，默认路径为`/usr/local/nebula/etc/`，用户可以检查相应的配置文件排查问题。
 

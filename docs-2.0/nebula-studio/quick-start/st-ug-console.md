@@ -2,7 +2,7 @@
 
 Studio 的控制台界面如下图所示。
 
-![控制台界面截图](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-055.png "控制台")
+![控制台界面截图](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-015-cn.png)
 
 下表列出了控制台界面上的各种功能。
 
@@ -18,8 +18,8 @@ Studio 的控制台界面如下图所示。
 |  8  |  输入框   |  在输入框中输入 nGQL 语句后，点击 ![play](https://docs-cdn.nebula-graph.com.cn/figures/studio-btn-play.png) 按钮运行语句。用户可以同时输入多个语句同时运行，语句之间以 `;` 分隔。 |
 |  9  |  语句运行状态   |  运行 nGQL 语句后，这里显示语句运行状态。如果语句运行成功，语句以绿色显示。如果语句运行失败，语句以红色显示。   |
 |  10  | 收藏 | 点击![save](https://docs-cdn.nebula-graph.com.cn/figures/studio-btn-save.png) 按钮，将语句存入收藏夹中，已收藏的语句该按钮以黄色展示。|
-|  11  |  导出 CSV 文件 |  运行 nGQL 语句返回结果后，点击 ![download](https://docs-cdn.nebula-graph.com.cn/figures/studio-btn-download.png) 按钮即能将结果以 CSV 文件的形式导出。   |
+|  11  |  导出 CSV 文件或 PNG 格式图片 |  运行 nGQL 语句返回结果后，返回结果为表格形式时，点击 ![download](https://docs-cdn.nebula-graph.com.cn/figures/studio-btn-download.png) 按钮即能将结果以 CSV 文件的形式导出。切换到可视化窗口，点击 ![download](https://docs-cdn.nebula-graph.com.cn/figures/studio-btn-download.png) 按钮即能将结果以 CSV 文件或 PNG 图片的形式导出。   |
 |  12  |  展开/隐藏执行结果  | 点击 ![up](https://docs-cdn.nebula-graph.com.cn/figures/studio-btn-up.png) 按钮，隐藏此条 nGQL 语句返回的结果或点击 ![down](https://docs-cdn.nebula-graph.com.cn/figures/studio-btn-down.png)按钮，展开此条 nGQL 语句返回的结果. |
 |  13  |  关闭执行结果  | 点击 ![close](https://docs-cdn.nebula-graph.com.cn/figures/studio-btn-close.png)按钮，关闭此条 nGQL 语句返回的结果。 |
 |  14  |  表格窗口 |  显示语句运行结果。如果语句会返回结果，窗口会以表格形式呈现返回的结果。 |
-|  15  |  可视化窗口 | 显示语句运行结果。如果语句会返回完整的点边结果，窗口会以可视化形式呈现返回的结果。 |
+|  15  |  可视化窗口 | 显示语句运行结果。如果语句会返回完整的点边结果，窗口会以可视化形式呈现返回的结果。点击右方 ![expand](https://docs-cdn.nebula-graph.com.cn/figures/studio-btn-back.png)按钮，展开数据概览面板。 |

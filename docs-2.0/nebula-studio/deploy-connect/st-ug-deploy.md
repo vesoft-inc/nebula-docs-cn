@@ -48,7 +48,9 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
    当屏幕返回以下信息时，表示 PRM 版 Studio 已经成功启动。
 
    ```bash
-   Created symlink from /etc/systemd/system/multi-user.target.wants/nebula-graph-studio.service to /usr/lib/systemd/system/nebula-graph-studio.service.
+   Start installing Nebula Studio now...
+   Nebula Studio has been installed.
+   Nebula Studio started automatically.
    ```
 
 3. 启动成功后，在浏览器地址栏输入 `http://ip address:7001`。
@@ -63,6 +65,11 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
 ```bash
 $ sudo rpm -e nebula-graph-studio-{{studio.release}}.x86_64
+```
+
+当屏幕返回以下信息时，表示 PRM 版 Studio 已经卸载。
+```bash
+Nebula Studio removed, bye~
 ```
 
 ### 异常处理

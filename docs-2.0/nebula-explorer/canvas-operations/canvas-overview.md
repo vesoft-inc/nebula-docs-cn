@@ -65,7 +65,8 @@ Explorer 支持 6 种布局方式展示画布上的数据之间的关系。
 
 - 支持上传图片以个性化标记画布中的点的样式，上传的图片被存在浏览器中。如果需要永久保存上传的图片，可以将当前画布中的数据创建为快照，具体操作，参见[数据快照](canvas-snapshot.md)。
 
-  ![upload-logo](https://docs-cdn.nebula-graph.com.cn/figures/upload-logo_cn.png)
+  ![upload_logo](https://docs-cdn.nebula-graph.com.cn/figures/upload-logo_cn.png)
+
 
 选中画布中的点和边，然后在画布左下角单击**选中的点 {number}，选中的边 {number}**查看选中的点或边的数据信息并以 CSV 文件方式导出数据。
 
