@@ -32,12 +32,12 @@ Nebula Explorer 由顶部导航栏、左侧导航栏、和画布三大模块组�
 | ----- | ---- |
 | ![query](https://docs-cdn.nebula-graph.com.cn/figures/nav-query2_cn.png) | 输入 VID、Tag 和子图等信息后，匹配的数据会显示到画布上。更多信息，参见[查询方式](ex-ug-query-exploration.md)。     |
 | ![filter](https://docs-cdn.nebula-graph.com.cn/figures/nav-filter_cn.png) | 对画布中显示的点进行过滤。更多信息，参见[节点筛选](node-filtering.md)。     |
-| ![expand](https://docs-cdn.nebula-graph.com.cn/figures/nav-expand_cn.png) | 选择页面上的节点并进行自定义拓展，包括方向、步数、过滤条件等。    |
-| ![commonNeighbor](https://docs-cdn.nebula-graph.com.cn/figures/nav-commonNeighbor_cn.png) | 选择页面上至少两个点并查看它们的共同邻居。     |
-| ![findPath](https://docs-cdn.nebula-graph.com.cn/figures/nav-findPath_cn.png) | 查询起点到终点之间的所有路径、最短路径和非循环路径。     |
-| ![propertyView](https://docs-cdn.nebula-graph.com.cn/figures/nav-propertyView_cn.png) | 选择是否显画布中的点或边的属性值。     |
+| ![expand](https://docs-cdn.nebula-graph.com.cn/figures/nav-expand_cn.png) | 选择页面上的节点并进行自定义拓展，包括方向、步数、过滤条件等。更多信息，参见[探索拓展](ex-ug-graph-exploration.md)。    |
+| ![commonNeighbor](https://docs-cdn.nebula-graph.com.cn/figures/nav-commonNeighbor_cn.png) | 选择页面上至少两个点并查看它们的共同邻居。更多信息，参见[探索拓展](ex-ug-graph-exploration.md)。     |
+| ![findPath](https://docs-cdn.nebula-graph.com.cn/figures/nav-findPath_cn.png) | 查询起点到终点之间的所有路径、最短路径和非循环路径。更多信息，参见[探索拓展](ex-ug-graph-exploration.md)。     |
+| ![propertyView](https://docs-cdn.nebula-graph.com.cn/figures/nav-propertyView_cn.png) | 选择是否显画布中的点或边的属性值。更多信息，参见[探索拓展](ex-ug-graph-exploration.md)。     |
 | ![snapshot](https://docs-cdn.nebula-graph.com.cn/figures/snapshot-history_cn.png) | 查看历史快照信息。更多信息，参见[画布快照](canvas-operations/canvas-snapshot.md)。     |
-| ![graphSpace](https://docs-cdn.nebula-graph.com.cn/figures/nav-graphSpace_cn.png) | 查看所有图空间，单击图空间可创建相应图空间的画布。     |
+| ![graphSpace](https://docs-cdn.nebula-graph.com.cn/figures/nav-graphSpace_cn.png) | 查看所有图空间，单击图空间可创建相应图空间的画布。更多信息，参见[选择图空间](13.choose-graphspace.md)。     |
 | ![Help](https://docs-cdn.nebula-graph.com.cn/figures/nav-help_cn.png) | 查看 Explorer 操作文档、论坛内容等。     |
 | ![Setup](https://docs-cdn.nebula-graph.com.cn/figures/nav-setup2.png) | 查看用户名和快捷键、修改语言设置、限制返回结果数量、清除 Explorer 链接等。|
 
