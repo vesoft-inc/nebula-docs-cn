@@ -1,5 +1,7 @@
 # 运行日志
 
+运行日志通常提供给 DBA 或开发人员查看，当系统出现故障，DBA 或开发人员可以根据运行日志定位问题。
+
 Nebula Graph 默认使用 [glog](https://github.com/google/glog) 打印运行日志，使用 [gflags](https://gflags.github.io/gflags/) 控制日志级别，并在运行时通过 HTTP 接口动态修改日志级别，方便跟踪问题。
 
 ## 运行日志目录
