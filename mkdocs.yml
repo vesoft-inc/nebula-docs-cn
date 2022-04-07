@@ -53,7 +53,7 @@ extra:
     master: master
     base20: 2.0
     base200: 2.0.0
-    branch: v3.0.0
+    branch: release-3.1
   version:
     method: mike
   social:
@@ -63,9 +63,9 @@ extra:
     base111b: 1.1.1-beta
     base220: 2.2.1
     base300: 3.0.0
-    release: 3.2.1
+    release: 3.3.0
   explorer:
-    release: 2.2.0
+    release: 3.0.0
   exchange_ent:
     release: 3.0.0
     branch: v3.0.0
@@ -74,13 +74,13 @@ extra:
     branch: v3.0.0
     tag: v3.0.0
   importer:
-    release: 3.0.0
+    release: 3.1.0
     branch: v3.0.0
   algorithm:
     release: 3.0.0
     branch: v3.0.0
   plato:
-    release: 1.0.0
+    release: 1.1.0
     branch: v1.0.0
   sparkconnector:
     release: 3.0.0
@@ -91,21 +91,21 @@ extra:
     branch: v3.0.0
     tag: v3.0.0
   dockercompose:
-    release: 3.0.0
+    release: 3.1.0
     branch: v3.0.0
   common:
     release: 2.5.0
   dashboard:
-    release: 1.1.0
+    release: 3.0.0
     base100: 1.0.0
     branch: v1.1.0
   dashboard_ent:
-    release: 1.1.0
-  console:
     release: 3.0.0
+  console:
+    release: 3.1.0
     branch: v3.0.0
   br:
-    release: 0.6.0
+    release: 0.7.0
   cpp:
     release: 3.0.0
     branch: v3.0.0
@@ -125,7 +125,8 @@ extra:
   operator:
     release: 0.9.0
     branch: v0.9.0
-
+  exporter:
+    release: 3.0.0
 nav:
   - 前言: README.md
   - 简介:
