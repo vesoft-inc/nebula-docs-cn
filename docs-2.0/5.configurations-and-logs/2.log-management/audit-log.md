@@ -4,7 +4,7 @@ Nebula Graph 的审计日志功能可以将 Graph 服务接受到的所有操作
 
 !!! enterpriseonly
 
-  仅企业版支持本功能。
+    仅企业版支持本功能。
 
 ## 日志类别
 
@@ -21,11 +21,11 @@ Nebula Graph 的审计日志功能可以将 Graph 服务接受到的所有操作
 
 ## 设置审计日志
 
-使用审计日志需要修改集群内的所有 Graph 服务的配置，即修改所有 Graph 服务各自对应的配置文件`nebula-graphd.conf`，默认路径为`/usr/local/nebula/etc/nebula-graphd.conf`。
+使用审计日志需要修改集群内的所有 Graph 服务的配置（`nebula-graphd.conf`），默认路径为`/usr/local/nebula/etc/nebula-graphd.conf`。
 
 !!! note
 
-  修改配置后，需要重启 Graph 服务才能生效。
+    修改配置后，需要重启 Graph 服务才能生效。
 
 与审计日志相关的参数说明如下。
 
