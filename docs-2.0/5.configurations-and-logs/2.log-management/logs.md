@@ -2,7 +2,8 @@
 
 Nebula Graph 默认使用 [glog](https://github.com/google/glog) 打印日志，使用 [gflags](https://gflags.github.io/gflags/) 控制日志级别，并在运行时通过 HTTP 接口动态修改日志级别，方便跟踪问题。
 
-Nebula Graph 企业版还支持审计日志 
+Nebula Graph 企业版还支持[审计日志](audit-log.md)。
+
 ## 日志目录
 
 日志的默认目录为`/usr/local/nebula/logs/`。
