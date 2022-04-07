@@ -330,7 +330,7 @@ nav:
           - Storage 服务配置: 5.configurations-and-logs/1.configurations/4.storage-config.md
           - Linux 内核配置: 5.configurations-and-logs/1.configurations/6.kernel-config.md
       - 日志:
-          - 日志配置: 5.configurations-and-logs/2.log-management/logs.md
+          - 运行日志: 5.configurations-and-logs/2.log-management/logs.md
           - 审计日志（企业版）: 5.configurations-and-logs/2.log-management/audit-log.md
 
   - 监控:
