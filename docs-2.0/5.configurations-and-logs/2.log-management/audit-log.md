@@ -88,12 +88,12 @@ Nebula Graph 的审计日志功能可以将 Graph 服务接受到的所有操作
 |`TIMESTAMP`| 日志生成时间。 |
 |`TERMINAL`| 保留字段，暂不支持。|
 |`CONNECTION_ID`| 连接的会话ID。 |
-|`CONNECTION_STATUS`| 连接的状态码。`0`表示成功，其他数字代表不同的错误信息。详情参见[错误码](../../20.appendix/error-code.md)。 |
+|`CONNECTION_STATUS`| 连接的状态码。`0`表示成功，其他数字代表不同的错误信息。|
 |`CONNECTION_MESSAGE`| 如果连接出错，会显示报错信息。|
 |`USER`| 连接的用户名。 |
 |`CLIENT_HOST`| 客户端的 IP 地址。 |
 |`HOST`| 连接的机器的 IP 地址。 |
 |`SPACE`| 执行查询的图空间。|
 |`QUERY`| 查询语句。|
-|`QUERY_STATUS`| 查询状态。|
+|`QUERY_STATUS`| 查询状态。`0`表示成功，其他数字代表不同的错误信息。|
 |`QUERY_MESSAGE`| 如果查询出错，会显示报错信息。|
