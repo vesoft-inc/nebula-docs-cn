@@ -20,12 +20,34 @@ Nebula Graph 支持多种类型的客户端，包括命令行客户端、可视�
 
 ## 操作步骤
 
-1. 进入 Nebula Graph 安装路径的 `bin` 目录中，找到 Nebula Console 的二进制文件。
+1. 在 Nebula Console [下载页面](https://github.com/vesoft-inc/nebula-console/releases "the nebula-console Releases page")，确认需要的版本，单击 **Assets**。
 
   !!! note
-        `bin` 目录中仅有 Linux 系统可用的二进制文件，Windows系统二进制文件的获取方式参见[获取 Nebula Console](../nebula-console.md)。
 
-2. 执行如下命令连接 Nebula Graph。
+        建议选择**最新**版本。
+
+2. 在 **Assets** 区域找到机器运行所需的二进制文件，下载文件到机器上。
+
+
+3. （可选）为方便使用，重命名文件为`nebula-console`。
+
+  !!! note
+
+        在 Windows 系统中，请重命名为`nebula-console.exe`。
+
+4. 在运行 Nebula Console 的机器上执行如下命令，为用户授予 nebula-console 文件的执行权限。
+
+  !!! note
+
+       Windows 系统请跳过此步骤。
+
+    ```bash
+    $ chmod 111 nebula-console
+    ```
+
+5. 在命令行界面中，切换工作目录至 nebula-console 文件所在目录。
+
+6. 执行如下命令连接 Nebula Graph。
 
   - Linux 或 macOS
 

@@ -4,9 +4,9 @@ Nebula Console 是 Nebula Graph 的原生命令行客户端，用于连接 Nebul
 
 ## 获取 Nebula Console
 
-Nebula Console 有多种获取方式：
+Nebula Console 的获取方式如下：
 
-- 直接从 Nebula Graph 安装路径的 `bin` 目录中获取二进制文件 `nebula-console`。
+<!-- - 直接从 Nebula Graph 安装路径的 `bin` 目录中获取二进制文件 `nebula-console`。-->
 
 - 从 [GitHub 发布页](https://github.com/vesoft-inc/nebula-console/releases "the nebula-console Releases page")下载二进制文件。
 
@@ -212,9 +212,3 @@ nebula> :QUIT;
 
 Bye root!
 ```
-
-## 常见问题
-
-### 如何通过源码安装 Nebula Console？
-
-下载和编译 Nebula Console 的最新源码，请参见 [GitHub nebula console](https://github.com/vesoft-inc/nebula-console#build-nebula-graph-console) 页面的说明。
