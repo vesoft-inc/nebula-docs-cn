@@ -53,11 +53,11 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 
 1. 在顶部导航栏里，点击 **Schema** 页签。
 
-2. 在图空间列表里，找到需要删除的图空间，并在 **操作** 列中，点击 ![表示删除的图标](https://docs-cdn.nebula-graph.com.cn/figures/alert-delete.png "删除") 图标。
+2. 在图空间列表里，找到需要删除的图空间，并在 **操作** 列中，点击操作列表中右方的 ![表示删除的图标](https://docs-cdn.nebula-graph.com.cn/figures/studio-more.svg) 图标。
 
   ![在图空间列表中删除指定的图空间](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-007-cn.png "删除图空间")
 
-3. 在弹出的对话框中点击 **确认**。
+3. 在弹出的对话框中点击 **删除图空间** 并 **确认**。
   删除成功后，页面回到 **图空间列表**。
 
 ## 后续操作
