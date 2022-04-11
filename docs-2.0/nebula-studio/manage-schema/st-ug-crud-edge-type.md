@@ -47,7 +47,7 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
 
 7. 确认无误后，点击 **创建** 按钮。
 
-   如果 Edge Type 创建成功，**标签** 面板会显示这个 Tag 的属性列表。
+   如果 Edge Type 创建成功，**标签** 面板会显示这个 Edge Type 的属性列表。
 
 ## 修改 Edge type
 
@@ -74,8 +74,6 @@ Studio v{{ studio.release }} 及以后版本。请更新版本，详细操作参
     !!! note
 
         TTL 与索引的共存问题，详情请见 [TTL](../../3.ngql-guide/8.clauses-and-options/ttl-options.md)。
-
-6. 完成设置后，在 **对应的 nGQL 语句** 面板上，用户能看到修改后的 nGQL 语句。
 
 ## 删除 Edge type
 
