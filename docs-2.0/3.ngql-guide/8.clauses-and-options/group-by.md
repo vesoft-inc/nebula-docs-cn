@@ -2,31 +2,23 @@
 
 `GROUP BY`子句可以用于聚合数据。
 
-## OpenCypher兼容性
+## openCypher 兼容性
 
-本文操作仅适用于原生nGQL。
+本文操作仅适用于原生 nGQL。
 
-用户也可以使用OpenCypher兼容语句的[count()](../6.functions-and-expressions/7.count.md)函数聚合数据。
+用户也可以使用 openCypher 方式的 [count()](../6.functions-and-expressions/7.count.md) 函数聚合数据。
 
 ```ngql
-nebula>  MATCH (v:player)<-[:follow]-(:player) RETURN v.name AS Name, count(*) as cnt ORDER BY cnt DESC
-+----------------------+--------------+
-| Name                 | Follower_Num |
-+----------------------+--------------+
-| "Tim Duncan"         | 10           |
-+----------------------+--------------+
-| "LeBron James"       | 6            |
-+----------------------+--------------+
-| "Tony Parker"        | 5            |
-+----------------------+--------------+
-| "Manu Ginobili"      | 4            |
-+----------------------+--------------+
-| "Chris Paul"         | 4            |
-+----------------------+--------------+
-| "Tracy McGrady"      | 3            |
-+----------------------+--------------+
-| "Dwyane Wade"        | 3            |
-+----------------------+--------------+
+nebula>  MATCH (v:player)<-[:follow]-(:player) RETURN v.player.name AS Name, count(*) as cnt ORDER BY cnt DESC;
++----------------------+-----+
+| Name                 | cnt |
++----------------------+-----+
+| "Tim Duncan"         | 10  |
+| "LeBron James"       | 6   |
+| "Tony Parker"        | 5   |
+| "Chris Paul"         | 4   |
+| "Manu Ginobili"      | 4   |
++----------------------+-----+
 ...
 ```
 
@@ -44,42 +36,33 @@ nebula>  MATCH (v:player)<-[:follow]-(:player) RETURN v.name AS Name, count(*) a
 ## 示例
 
 ```ngql
-# 查找所有连接到player100的点，并根据他们的姓名进行分组，返回姓名的出现次数。
+# 查找所有连接到 player100 的点，并根据他们的姓名进行分组，返回姓名的出现次数。
 nebula> GO FROM "player100" OVER follow BIDIRECT \
-        YIELD $$.player.name as Name \
+        YIELD properties($$).name as Name \
         | GROUP BY $-.Name \
         YIELD $-.Name as Player, count(*) AS Name_Count;
 +---------------------+------------+
 | Player              | Name_Count |
 +---------------------+------------+
+| "Shaquille O'Neal"  | 1          |
 | "Tiago Splitter"    | 1          |
-+---------------------+------------+
-| "Aron Baynes"       | 1          |
-+---------------------+------------+
-| "Boris Diaw"        | 1          |
-+---------------------+------------+
 | "Manu Ginobili"     | 2          |
-+---------------------+------------+
-| "Dejounte Murray"   | 1          |
-+---------------------+------------+
-| "Danny Green"       | 1          |
-+---------------------+------------+
-| "Tony Parker"       | 2          |
-+---------------------+------------+
-| "Shaquille O'Neal"   | 1         |
-+---------------------+------------+
+| "Boris Diaw"        | 1          |
 | "LaMarcus Aldridge" | 1          |
-+---------------------+------------+
+| "Tony Parker"       | 2          |
 | "Marco Belinelli"   | 1          |
+| "Dejounte Murray"   | 1          |
+| "Danny Green"       | 1          |
+| "Aron Baynes"       | 1          |
 +---------------------+------------+
 ```
 
 ## 用函数进行分组和计算
 
 ```ngql
-# 查找所有连接到player100的点，并根据起始点进行分组，返回degree的总和。
+# 查找所有连接到 player100 的点，并根据起始点进行分组，返回 degree 的总和。
 nebula> GO FROM "player100" OVER follow \
-        YIELD follow._src AS player, follow.degree AS degree \
+        YIELD src(edge) AS player, properties(edge).degree AS degree \
         | GROUP BY $-.player \
         YIELD sum($-.degree);
 +----------------+

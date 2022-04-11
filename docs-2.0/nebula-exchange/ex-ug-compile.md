@@ -1,89 +1,83 @@
-# 编译Exchange
+# 获取 Nebula Exchange
 
-本文介绍如何编译Nebula Exchange。用户也可以直接[下载](https://repo1.maven.org/maven2/com/vesoft/nebula-exchange/2.0.0/)编译完成的`.jar`文件。
+本文介绍如何获取 Nebula Exchange 的 JAR 文件。
 
-## 前提条件
+## 直接下载 JAR 文件
 
-安装[Maven](https://maven.apache.org/download.cgi)。
+社区版 Exchange 的 JAR 文件可以直接[下载](https://github.com/vesoft-inc/nebula-exchange/releases)。
 
-## 编译流程
+要下载企业版 Exchange，需先[获取 Nebula Graph 企业版套餐](https://nebula-graph.com.cn/pricing/)。
 
-1. 克隆仓库`nebula-java`。
+## 编译源代码获取 JAR 文件
 
-   ```bash
-   git clone -b v2.0.0-ga https://github.com/vesoft-inc/nebula-java.git
-   ```
+社区版 Exchange 的 JAR 文件还可以通过编译源代码获取。下文介绍如何编译 Exchange 源代码。
 
-2. 切换到目录`nebula-java`。
+!!! enterpriseonly
 
-   ```bash
-   cd nebula-java
-   ```
+    企业版 Exchange 仅能在 Nebula Graph 企业版套餐中获取。
 
-3. 安装Nebula Java Client 2.0.0。
+### 前提条件
 
-   ```bash
-   mvn clean install -Dmaven.test.skip=true -Dgpg.skip -Dmaven.javadoc.skip=true
-   ```
+- 安装 [Maven](https://maven.apache.org/download.cgi)。
+- 根据数据源安装需要的 Spark 版本，从各数据源导出数据支持的 Spark 版本参见[软件依赖](about-exchange/ex-ug-limitations.md)。
 
-  !!! note
-  
-        安装后在本地Maven仓库会生成JAR文件，例如`com/vesoft/client/2.0.0/client-2.0.0.jar`。
+### 操作步骤
 
-4. 返回根目录克隆仓库`nebula-spark-utils`。
+1. 在根目录克隆仓库`nebula-exchange`。
 
-   ```bash
-   cd ~ && git clone -b {{exchange.release}} https://github.com/vesoft-inc/nebula-spark-utils.git
-   ```
+  ```bash
+  git clone -b {{exchange.branch}} https://github.com/vesoft-inc/nebula-exchange.git
+  ```
 
-5. 切换到目录`nebula-exchange`。
+2. 切换到目录`nebula-exchange`。
 
-   ```bash
-   cd nebula-spark-utils/nebula-exchange
-   ```
+  ```bash
+  cd nebula-exchange
+  ```
 
-6. 打包Nebula Exchange {{exchange.release}}。
+3. 根据 Exchange 使用环境中的 Spark 版本打包 Exchange。
 
-   ```bash
-   mvn clean package -Dmaven.test.skip=true -Dgpg.skip -Dmaven.javadoc.skip=true
-   ```
+  - Spark 2.2：
 
-  !!! note
-  
-        如果报错`Could not resolve dependencies for project xxx`，请修改Maven安装目录下`libexec/conf/settings.xml`文件的`mirror`部分：
-        ```text
-        <mirror>
-        <id>alimaven</id>
-        <mirrorOf>central</mirrorOf>
-        <name>aliyun maven</name>
-        <url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
-        </mirror>
-        ```
+    ```bash
+    mvn clean package -Dmaven.test.skip=true -Dgpg.skip -Dmaven.javadoc.skip=true \
+    -pl nebula-exchange_spark_2.2 -am -Pscala-2.11 -Pspark-2.2
+    ```
 
-编译成功后，用户可以在当前目录里查看到类似如下目录结构。
+  - Spark 2.4：
 
-```text
-.
-├── README-CN.md
-├── README.md
-├── pom.xml
-├── src
-│   ├── main
-│   └── test
-└── target
-    ├── classes
-    ├── classes.timestamp
-    ├── maven-archiver
-    ├── nebula-exchange-2.x.y-javadoc.jar
-    ├── nebula-exchange-2.x.y-sources.jar
-    ├── nebula-exchange-2.x.y.jar
-    ├── original-nebula-exchange-2.x.y.jar
-    └── site
-```
+    ```bash
+    mvn clean package -Dmaven.test.skip=true -Dgpg.skip -Dmaven.javadoc.skip=true \
+    -pl nebula-exchange_spark_2.4 -am -Pscala-2.11 -Pspark-2.4
+    ```
 
-在`target`目录下，用户可以找到`exchange-2.x.y.jar`文件。
+  - Spark 3.0：
+
+    ```bash
+    mvn clean package -Dmaven.test.skip=true -Dgpg.skip -Dmaven.javadoc.skip=true \
+    -pl nebula-exchange_spark_3.0 -am -Pscala-2.12 -Pspark-3.0
+    ```
+
+编译成功后，可以在`nebula-exchange_spark_x.x/target/`目录里找到`nebula-exchange_spark_x.x-{{exchange.branch}}.jar`文件。`x.x`代表 Spark 版本，例如`2.4`。
 
 !!! note
-    JAR文件版本号会因Nebula Java Client的发布版本而变化。用户可以在[Releases页面](https://github.com/vesoft-inc/nebula-java/releases)查看最新版本。
+    JAR 文件版本号会因 Nebula Java Client 的发布版本而变化。用户可以在 [Releases 页面](https://github.com/vesoft-inc/nebula-java/releases)查看最新版本。
 
-迁移数据时，用户可以参考配置文件[`target/classes/application.conf`](https://github.com/vesoft-inc/nebula-spark-utils/blob/master/nebula-exchange/src/main/resources/application.conf)。
+迁移数据时，用户可以参考配置文件 [`target/classes/application.conf`](https://github.com/vesoft-inc/nebula-exchange/blob/master/nebula-exchange_spark_2.4/src/main/resources/application.conf)。
+
+### 下载依赖包失败
+
+如果编译时下载依赖包失败：
+
+- 检查网络设置，确认网络正常。
+
+- 修改 Maven 安装目录下`libexec/conf/settings.xml`文件的`mirror`部分：
+
+  ```text
+  <mirror>
+   <id>alimaven</id>
+   <mirrorOf>central</mirrorOf>
+   <name>aliyun maven</name>
+   <url>http://maven.aliyun.com/nexus/content/repositories/central/</url>
+  </mirror>
+  ```
