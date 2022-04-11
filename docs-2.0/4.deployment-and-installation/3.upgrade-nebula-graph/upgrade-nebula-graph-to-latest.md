@@ -20,7 +20,7 @@
 
 - 必须在原服务器上原地升级，不能修改原机器的 IP 地址、配置文件，不可更改集群拓扑。
 
-- 硬盘空间要求：各机器硬盘剩余空间都需要是原数据目录的**三倍**。
+- 硬盘空间要求：各机器硬盘剩余空间都需要是原数据目录的**二倍**。其中一倍空间用于容纳手动备份的数据，另一倍空间用于容纳复制到`dst_db_path`的 WAL，以及原有数据中新增的用于支持无 tag 点的 key。
 
 - 已知会造成数据丢失的 4 种场景，和 alter schema 以及 default value 相关，参见 [github known issues](https://github.com/vesoft-inc/nebula-graph/issues/857)。
 
