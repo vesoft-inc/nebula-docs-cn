@@ -63,7 +63,7 @@ License 文件包含生效时间、过期时间等信息。说明如下。
 |`product`| 产品类型。Nebula Graph 的产品类型为`nebula_graph`。|
 |`version`| 版本支持的信息。|
 |`licenseType`| License 类型。包括`enterprise`、`samll_bussiness`、`pro`、`individual`。预留参数。|
-|`gracePeriod`| 证书过期后的可继续使用的缓冲时间，超过缓冲期后停止服务。试用版的 License 过期后无缓冲期，因此其文件中无此参数。 |
+|`gracePeriod`| 证书过期后可继续使用服务的缓冲时间，超过缓冲期后停止服务。试用版的 License 过期后无缓冲期，因此其文件中无此参数。 |
 |`graphdSpec`| 集群中 Graph 服务的数量限制。Nebula Graph 会实时监测当前活动的 Graph 服务数量，超过限制的 Graph 服务无法连接集群。|
 |`storagedSpec`| 集群中 Storage 服务的数量限制。Nebula Graph 会实时监测当前活动的 Storage 服务数量，超过限制的 Storage 服务无法连接集群。|
 |`clusterCode`| 用户的硬件信息，也是集群的唯一标识码。试用版的 License 中无此参数。 |
