@@ -115,7 +115,7 @@ Nebula Graph将启动一个负载均衡任务，迁移`192.168.8.100:9779`中的
 
 !!! note
 
-    该命令仅迁移分片，不会将 Storage 服务从集群中移除。
+    该命令仅迁移分片，不会将 Storage 服务从集群中删除。删除 Storage 服务请参见[管理 Storage 主机](../4.deployment-and-installation/manage-storage-host.md)。
 
 <!-- balance-3.1
 !!! danger
