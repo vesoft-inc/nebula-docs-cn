@@ -16,7 +16,7 @@
 
 ### 示例
 
-以横向扩容 Nebula Graph 为例，集群中增加新的 Storage 服务器后，新服务器上没有分片。
+以横向扩容 Nebula Graph 为例，集群中增加新的 Storage 主机后，新主机上没有分片。
 
 1. 执行命令`SHOW HOSTS`检查分片的分布。
 
@@ -96,7 +96,7 @@
 
 ### 迁移分片
 
-迁移指定的 Storage 服务中的分片来缩小集群规模，可以使用命令`BALANCE DATA REMOVE <ip:port> [,<ip>:<port> ...]`。
+迁移指定的 Storage 主机中的分片来缩小集群规模，可以使用命令`BALANCE DATA REMOVE <ip:port> [,<ip>:<port> ...]`。
 
 例如需要迁移`192.168.8.100:9779`中的分片，请执行如下命令：
 
@@ -115,7 +115,7 @@ Nebula Graph将启动一个负载均衡任务，迁移`192.168.8.100:9779`中的
 
 !!! note
 
-    该命令仅迁移分片，不会将 Storage 服务从集群中删除。删除 Storage 服务请参见[管理 Storage 主机](../4.deployment-and-installation/manage-storage-host.md)。
+    该命令仅迁移分片，不会将 Storage 主机从集群中删除。删除 Storage 主机请参见[管理 Storage 主机](../4.deployment-and-installation/manage-storage-host.md)。
 
 <!-- balance-3.1
 !!! danger
