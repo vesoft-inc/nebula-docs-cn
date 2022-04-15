@@ -433,6 +433,7 @@ nav:
         - 集群监控: nebula-dashboard-ent/4.cluster-operator/2.monitor.md
         - 监控告警: nebula-dashboard-ent/9.alerts.md
         - 集群信息: nebula-dashboard-ent/4.cluster-operator/3.cluster-information.md
+        - 集群诊断: nebula-dashboard-ent/4.cluster-operator/7.cluster-diagnosis.md
         - 集群操作: nebula-dashboard-ent/4.cluster-operator/4.manage.md
         - 操作记录: nebula-dashboard-ent/4.cluster-operator/5.operation-record.md
         - 其他设置: nebula-dashboard-ent/4.cluster-operator/6.settings.md
