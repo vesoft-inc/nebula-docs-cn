@@ -188,12 +188,12 @@
   | ------------------------------------------------------------ |
   | [Nebula Bench](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-bench/) |
 
-<!-- - 集群运维
+- 集群运维
 
   | 文档  |视频|
   | -------- |---------|
   | [Nebula Operator](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-operator/1.introduction-to-nebula-operator/) |[Nebula Operator](https://www.bilibili.com/video/BV1rP4y1x7fX)、[ 云原生的演进](https://www.bilibili.com/video/BV1A5411N7vs)|
- -->
+
 - 图算法 
 
   | 文档   |视频|
