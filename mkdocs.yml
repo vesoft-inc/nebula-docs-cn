@@ -528,6 +528,8 @@ nav:
       - 社区参与: 15.contribution/how-to-contribute.md
       - 年表: 20.appendix/history.md
       - 思维导图: 20.appendix/mind-map.md
+      - 错误码: 20.appendix/error-code.md
+
 
   - English Docs: https://docs.nebula-graph.io/
   - PDF: ./pdf/NebulaGraph-CN.pdf
