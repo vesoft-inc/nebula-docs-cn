@@ -8,7 +8,7 @@
 
 * Edge type，以及每种 Edge type 的属性。
 
-用户可以下载 Nebula Graph 示例数据集 [basketballplayer](https://docs-cdn.nebula-graph.com.cn/dataset/dataset.zip "点击下载") ，本文将通过该实例说明如何规划 Schema。
+用户可以下载 Nebula Graph 示例数据集 [basketballplayer](https://docs-cdn.nebula-graph.com.cn/dataset/dataset.zip "点击下载") ，本文将通过该示例说明如何规划 Schema。
 
 下表列出了 Schema 要素。
 

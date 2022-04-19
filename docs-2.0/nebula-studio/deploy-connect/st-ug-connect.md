@@ -25,7 +25,7 @@
 
 1. 在 Studio 的 **配置数据库** 页面上，输入以下信息：
 
-   - **Host**：填写 Nebula Graph 的 Graph 服务本机 IP 地址及端口。格式为 `ip:port`。如果端口未修改，则使用默认端口 `9669`。
+   - **Host**：填写 Nebula Graph 的 Graph 服务本机 IP 地址及端口。格式为`ip:port`。默认端口为`9669`。
 
     !!! Note
 
@@ -50,21 +50,21 @@
 
 成功连接 Nebula Graph 数据库后，根据账号的权限，用户可以选择执行以下操作：
 
-- 如果已拥有 GOD 或者 ADMIN 权限的账号登录，可以使用 [**控制台**](../quick-start/st-ug-create-schema.md)或者 [**Schema**](../manage-schema/st-ug-crud-space.md) 页面管理 Schema。
-- 如果已拥有 GOD、ADMIN、DBA 或者 USER 权限的账号登录，可以[批量导入数据](../quick-start/st-ug-import-data.md)或者在 **控制台** 页面上运行 nGQL 语句插入数据。
-- 如果已拥有 GOD、ADMIN、DBA、USER 或者 GUEST 权限的账号登录，可以在 **控制台** 页面上运行 nGQL 语句读取数据。
+- 拥有 GOD 或者 ADMIN 权限的账号，可以使用[**控制台**](../quick-start/st-ug-create-schema.md)或者 [**Schema**](../manage-schema/st-ug-crud-space.md) 页面管理 Schema、[批量导入数据](../quick-start/st-ug-import-data.md)、在**控制台**页面上执行 nGQL 语句。
+- 拥有 DBA 或者 USER 权限的账号，可以[批量导入数据](../quick-start/st-ug-import-data.md)、在**控制台**页面上执行 nGQL 语句。
+- 拥有 GUEST 权限的账号，仅可以在 **控制台** 页面上执行 nGQL 语句查询数据。
 
 !!! note
 
     账号权限参见 [内置角色权限](../../7.data-security/1.authentication/3.role-list.md)。
 
-### 清除连接
+### 登出
 <!--
 使用云服务版 Studio 时，用户不能清除连接。
 -->
 
-如果需要重新连接 Nebula Graph 数据库，可以清除当前连接后再重新配置数据库。
+如果需要重新连接 Nebula Graph 数据库，可以登出后重新配置数据库。
 
-当 Studio 还连接在某个 Nebula Graph 数据库时，在工具栏中，选择 **设置** > **清除连接**。之后，如果浏览器上显示 **配置数据库** 页面，表示 Studio 已经成功断开了与 Nebula Graph 数据库的连接。
+在页面右上角单击用户头像，单击 **登出**，如果浏览器上显示 **配置数据库** 页面，表示 Studio 已经成功断开了与 Nebula Graph 数据库的连接。
 
 ![reset](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-000-cn.png)

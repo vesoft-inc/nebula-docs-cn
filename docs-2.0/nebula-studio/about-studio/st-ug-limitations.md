@@ -1,6 +1,6 @@
 # 使用限制
 
-本文描述了在使用 Studio 时可能会受到的限制。
+本文描述使用 Studio 的限制。
 
 ## Nebula Graph 版本支持
 
@@ -15,6 +15,7 @@
 | 2.5.x | 3.0.0 |
 | 2.6.x | 3.1.x |
 | 3.0.0 | 3.2.x |
+|{{nebula.release}}| {{studio.release}}|
 
 ## 系统架构
 

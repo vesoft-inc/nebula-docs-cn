@@ -1,6 +1,6 @@
 # 创建 Schema
 
-在 Nebula Graph 中，用户必须先有 Schema，再向其中写入点数据和边数据。本文描述如何使用 Nebula Graph 的 **控制台** 或 **Schema** 功能创建 Schema。
+在 Nebula Graph 中，用户必须先有 Schema，才能向其中写入点数据和边数据。本文描述如何使用 Nebula Graph 的**控制台**或 **Schema** 功能创建 Schema。
 
 !!! Note
 
@@ -14,25 +14,23 @@
 
 - 账号拥有 GOD、ADMIN 或 DBA 权限。详细信息，参考 [Nebula Graph 内置角色](../../7.data-security/1.authentication/3.role-list.md)。
 
-- 已经规划好了 Schema 的要素。
+- 已经规划 Schema 的要素。
 
-- 已经创建了图空间。
+- 已经创建图空间。
 
 !!! Note
 
-    本示例假设已经创建了图空间。如果账号拥有 GOD 权限，也可以在 **控制台** 或 **Schema** 上创建一个图空间。
+    本示例已经创建图空间。如果账号拥有 GOD 权限，也可以在 **控制台** 或 **Schema** 上创建一个图空间。
 
 ## 使用 Schema 管理功能创建 Schema
 
-按以下步骤使用 **Schema** 创建 Schema：
+按以下步骤使用 **Schema** 管理功能创建 Schema：
 
 1. 创建 Tag。详细信息，参考[操作 Tag](../manage-schema/st-ug-crud-tag.md)。
 
 2. 创建 Edge type。详细信息，参考[操作 Edge type](../manage-schema/st-ug-crud-edge-type.md)。
 
 ## 使用控制台创建 Schema
-
-按以下步骤使用 **控制台** 创建 Schema：
 
 1. 在顶部导航栏里，点击 **控制台** 页签。
 

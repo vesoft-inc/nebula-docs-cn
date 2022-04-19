@@ -17,7 +17,7 @@ Nebula Studio（简称 Studio）是一款可以通过 Web 访问的开源图数�
 
 ## 产品功能
 
-Studio 可以方便管理管理 Nebula Graph 图数据，具备以下功能：
+Studio 可以方便管理 Nebula Graph 图数据，具备以下功能：
 
 - 使用 **Schema** 管理功能，用户可以使用图形界面完成图空间、Tag（标签）、Edge Type（边类型）、索引的创建，查看图空间的统计数据，快速上手 Nebula Graph。
   
@@ -38,13 +38,13 @@ Studio 可以方便管理管理 Nebula Graph 图数据，具备以下功能：
 对于云服务版 Studio，只有操作权限为 **ROOT** 和 **USER** 的 Nebula Graph Cloud 用户可以登录 Studio。详细信息参考 [配套的应用（Dashboard/Studio/Explorer）](../../nebula-cloud/5.solution/5.1.supporting-application.md)。
 -->
 
-因为 Nebula Graph 默认不启用身份验证，所以，一般情况下用户可以使用 `root` 账号和任意密码登录 Studio。
+因为 Nebula Graph 默认不启用身份验证，所以用户可以使用 `root` 账号和任意密码登录 Studio。
 
-当 Nebula Graph 启用了身份验证后，用户只能使用指定的账号和密码登录 Studio。关于 Nebula Graph 的身份验证功能，参考 [Nebula Graph 用户手册](../../7.data-security/1.authentication/1.authentication.md "点击前往 Nebula Graph 官网")。
+当 Nebula Graph 启用了身份验证后，用户只能使用指定的账号和密码登录 Studio。关于 Nebula Graph 的身份验证功能，参考 [身份验证](../../7.data-security/1.authentication/1.authentication.md "点击前往 Nebula Graph 官网")。
 
 ## 版本更新
 
-Studio 处于持续开发状态中。用户可以通过 [Studio 发布版本更新](../about-studio/st-ug-release-note.md)查看最新发布的功能。
+Studio 处于持续开发状态中。用户可以通过 [Studio 版本更新说明](../about-studio/st-ug-release-note.md)查看最新发布的功能。
 
 <!-- 
 
@@ -54,6 +54,6 @@ Studio 处于持续开发状态中。用户可以通过 [Studio 发布版本更�
 
 -->
 
-成功连接 Studio 后，用户可以在页面右上角点击版本号，再点击 **新发布**，前往查看 Studio 的版本更新记录。
+成功连接 Studio 后，用户可以在页面右上角点击用户头像，再点击 **更新日志**，查看 Studio 的版本更新说明。
 
 ![在页面右上角点击头像，并在弹出菜单里点击“新发布”](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-001-cn.png)
