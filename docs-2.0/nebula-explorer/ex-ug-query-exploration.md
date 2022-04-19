@@ -33,7 +33,7 @@
 
 !!! note
 
-使用 **Tag 查询** 方式查询数据，确保对应的图空间中已存在相应的 Tag 和索引。更多信息，参见[创建 Tag](../3.ngql-guide/10.tag-statements/1.create-tag.md) 和[创建索引](../3.ngql-guide/14.native-index-statements/1.create-native-index.md)。
+    使用 **Tag 查询** 方式查询数据，确保对应的图空间中已存在相应的 Tag 和索引。更多信息，参见[创建 Tag](../3.ngql-guide/10.tag-statements/1.create-tag.md) 和[创建索引](../3.ngql-guide/14.native-index-statements/1.create-native-index.md)。
 
 用户可以对输出的结果进行数量上的限制和对结果进行过滤。
 
