@@ -75,13 +75,13 @@ extra:
     tag: v3.0.0
   importer:
     release: 3.1.0
-    branch: v3.0.0
+    branch: release-3.1
   algorithm:
     release: 3.0.0
     branch: v3.0.0
   plato:
     release: 1.1.0
-    branch: v1.0.0
+    branch: release-1.1
   sparkconnector:
     release: 3.0.0
     branch: v3.0.0
@@ -92,17 +92,17 @@ extra:
     tag: v3.0.0
   dockercompose:
     release: 3.1.0
-    branch: v3.0.0
+    branch: release-3.1
   common:
     release: 2.5.0
   dashboard:
     release: 3.0.0
     base100: 1.0.0
-    branch: v1.1.0
+    branch: release-3.0
   dashboard_ent:
     release: 3.0.0
   console:
-    release: 3.1.0
+    release: 3.0.0
     branch: v3.0.0
   br:
     release: 0.7.0
@@ -113,20 +113,21 @@ extra:
     release: 3.0.0
     branch: v3.0.0
   python:
-    release: 3.0.0
-    branch: v3.0.0
+    release: 3.1.0
+    branch: release-3.1
   go:
     release: 3.0.0
     branch: release-v3.0.0
   bench:
-    release: 1.0.0
-    branch: master
-    tag: v1.0.0
+    release: 1.1.0
+    branch: release-1.1
+    tag: v1.1.0
   operator:
     release: 1.1.0
-    branch: v0.9.0
+    branch: release-1.1
   exporter:
     release: 3.0.0
+    branch: release-3.1
 nav:
   - 前言: README.md
   - 简介:
