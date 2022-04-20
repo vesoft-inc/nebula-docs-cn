@@ -12,7 +12,7 @@ TTL（Time To Live）指定属性的存活时间，超时后，该属性就会�
 
 - TTL 和 INDEX 共存问题：
 
-    + 如果一个 Tag 的其中一属性已有 INDEX，则不能为其设置 TTL，也不能为该 Tag 的其他属性设置 TTL。    
+    + 如果一个 Tag/Edge type 的其中一属性已有 INDEX，则不能为其设置 TTL，也不能为该 Tag 的其他属性设置 TTL。    
 
     + 如果已有 TTL，可以再添加 INDEX。
 
