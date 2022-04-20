@@ -8,38 +8,42 @@
 
 用户可以按以下顺序排查问题。
 
-### 第 1 步。确认系统架构
+### 1.确认系统架构
 
 需要确认部署 Studio 服务的机器是否为 x86_64 架构。目前 Studio 仅支持 x86_64 系统架构。
 
-### 第 2 步。检查 Studio 服务是否正常启动
+### 2.检查 Studio 服务是否正常启动
   
-运行 `docker-compose ps` 查看服务是否已经正常启动。  
+- 使用RPM或DEB包部署的Studio，使用`systemctl status nebula-graph-studio`查看运行状态。
 
-如果服务正常，返回结果如下。其中，`State` 列应全部显示为 `Up`。
+- 使用tar包部署的Studio，使用`sudo lsof -i:7001`查看端口状态。
 
-```bash
-     Name                          Command               State               Ports
-------------------------------------------------------------------------------------------------------
-nebula-web-docker_client_1     ./nebula-go-api                  Up      0.0.0.0:32782->8080/tcp
-nebula-web-docker_importer_1   nebula-importer --port=569 ...   Up      0.0.0.0:32783->5699/tcp
-nebula-web-docker_nginx_1      /docker-entrypoint.sh ngin ...   Up      0.0.0.0:7001->7001/tcp, 80/tcp
-nebula-web-docker_web_1        docker-entrypoint.sh npm r ...   Up      0.0.0.0:32784->7001/tcp
-```
+- 使用Docker-compose包部署的Studio，使用`docker-compose ps`查看运行状态。  
 
-如果没有返回以上结果，则先停止 Studio 重新启动。详细信息，参考[部署 Studio](../deploy-connect/st-ug-deploy.md)。
+    如果服务正常，返回结果如下。其中，`State` 列应全部显示为 `Up`。
 
-!!! Note
+    ```bash
+         Name                          Command               State               Ports
+    ------------------------------------------------------------------------------------------------------
+    nebula-web-docker_client_1     ./nebula-go-api                  Up      0.0.0.0:32782->8080/tcp
+    nebula-web-docker_importer_1   nebula-importer --port=569 ...   Up      0.0.0.0:32783->5699/tcp
+    nebula-web-docker_nginx_1      /docker-entrypoint.sh ngin ...   Up      0.0.0.0:7001->7001/tcp, 80/tcp
+    nebula-web-docker_web_1        docker-entrypoint.sh npm r ...   Up      0.0.0.0:32784->7001/tcp
+    ```
 
-    如果之前使用 `docker-compose up -d` 启动 Studio，必须运行 `docker-compose down` 命令停止 Studio。
+  !!! Note
 
-### 第 3 步。确认访问地址
+        如果之前使用 `docker-compose up -d` 启动 Studio，必须运行 `docker-compose down` 命令停止 Studio。
+
+如果服务没有正常运行，请重新启动 Studio。详细信息，参考[部署 Studio](../deploy-connect/st-ug-deploy.md)。
+
+### 3.确认访问地址
 
 如果 Studio 与浏览器在同一台机器上，用户可以在浏览器里使用 `localhost:7001`、`127.0.0.1:7001` 或者 `0.0.0.0:7001` 访问 Studio。
   
 如果两者不在同一台机器上，必须在浏览器里输入 `<studio_server_ip>:7001`。其中，`studio_server_ip` 是指部署 Studio 服务的机器的 IP 地址。
 
-### 第 4 步。确认网络连通性
+### 4.确认网络连通性
 
 运行 `curl <studio_server_ip>:7001 -I` 确认是否正常。如果返回 `HTTP/1.1 200 OK`，表示网络连通正常。
 
