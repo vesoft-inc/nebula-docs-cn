@@ -14,11 +14,11 @@
 
 ### 2.检查 Studio 服务是否正常启动
   
-- 使用RPM或DEB包部署的Studio，使用`systemctl status nebula-graph-studio`查看运行状态。
+- 使用 RPM 或 DEB 包部署的 Studio，使用`systemctl status nebula-graph-studio`查看运行状态。
 
-- 使用tar包部署的Studio，使用`sudo lsof -i:7001`查看端口状态。
+- 使用 tar 包部署的 Studio，使用`sudo lsof -i:7001`查看端口状态。
 
-- 使用Docker-compose包部署的Studio，使用`docker-compose ps`查看运行状态。  
+- 使用 Docker-compose 部署的 Studio，使用`docker-compose ps`查看运行状态。  
 
     如果服务正常，返回结果如下。其中，`State` 列应全部显示为 `Up`。
 
