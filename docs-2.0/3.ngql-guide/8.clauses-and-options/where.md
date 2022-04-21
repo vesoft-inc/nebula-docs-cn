@@ -10,9 +10,7 @@
 
 ## openCypher 兼容性
 
-- 不支持在`WHERE`子句中使用 Pattern（TODO: planning），例如`WHERE (v)-->(v2)`。
-
-- [过滤 Rank](#rank) 是原生 nGQL 功能。如需在 openCypher 兼容语句中直接获取 Rank 值，可以使用 rank() 函数，例如`MATCH (:player)-[e:follow]->() RETURN rank(e);`。
+[过滤 Rank](#rank) 是原生 nGQL 功能。如需在 openCypher 兼容语句中直接获取 Rank 值，可以使用 rank() 函数，例如`MATCH (:player)-[e:follow]->() RETURN rank(e);`。
 
 ## 基础用法
 
