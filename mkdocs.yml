@@ -568,7 +568,6 @@ plugins:
         - nebula-flink/*
         - CHANGELOG.md
         - spark-connector/*
-        - nebula-operator/*
         - 4.deployment-and-installation/5.zone.md
         - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
         - nebula-cloud/*
