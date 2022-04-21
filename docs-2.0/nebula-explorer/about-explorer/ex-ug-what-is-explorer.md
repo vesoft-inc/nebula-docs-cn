@@ -41,3 +41,8 @@ Nebula Graph 默认不启用身份验证，一般情况下用户可以使用`roo
 Nebula Graph 启用了身份验证后，用户只能使用指定的账号和密码登录 Explorer。
 
 关于 Nebula Graph 的身份验证功能，参考 [Nebula Graph 用户手册](../../7.data-security/1.authentication/1.authentication.md "点击前往 Nebula Graph 官网")。
+
+## 视频
+
+* [Nebula Explore Demo Show](https://www.bilibili.com/video/BV1VL4y1V7C2/)（2 分 54 秒）
+<iframe src="//player.bilibili.com/player.html?aid=853353222&bvid=BV1VL4y1V7C2&cid=581214591&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
