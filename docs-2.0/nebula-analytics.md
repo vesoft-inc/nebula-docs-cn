@@ -37,12 +37,15 @@ Nebula Analytics 支持的图计算算法如下。
 |  KCore                | K核              | 节点重要度   |
 |  DegreeCentrality     | 度中心性          | 节点重要度   |
 |  DegreeWithTime        | 基于边的时间范围统计邻居 | 节点重要度  |
+|  BetweennessCentrality | 中介中心性        |  节点重要度  |
+|  ClosenessCentrality   | 接近中心性        |  节点重要度  |
 |  TriangleCount        | 三角计数          | 图特征      |
 |  LPA                   | 标签传播          |  社区发现    |
 |  HANP                  | 标签传播进阶版   |  社区发现    |
 |  WCC                   | 联通分量          |  社区发现    |
 |  LOUVAIN               | 社区发现          |  社区发现   |
 |  Clustering Coefficient| 聚集系数          |  聚类       |
+|  Jaccard               | 杰卡德相似度      |  相似度     |
 
 ## 安装 Nebula Analytics
 
