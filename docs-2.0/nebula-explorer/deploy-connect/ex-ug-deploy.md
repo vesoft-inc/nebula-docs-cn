@@ -50,30 +50,30 @@
    例如，安装 Explorer 需要运行以下命令，默认安装路径为`/usr/local/nebula-explorer`：
 
    ```bash
-   $ sudo rpm -i nebula-explorer-<version>.x86_64.rpm
+   sudo rpm -i nebula-explorer-<version>.x86_64.rpm
    ```
 
    也可以使用以下命令安装到指定路径：
    ```bash
-   $ sudo rpm -i nebula-explorer-xxx.rpm --prefix=<path> 
+   sudo rpm -i nebula-explorer-xxx.rpm --prefix=<path> 
    ```
 
 3. 拷贝 License 至安装路径下。
 
    ```bash
-   $ cp -r <license> <explorer_path>
+   cp -r <license> <explorer_path>
    ```
 
    例如：
    ```bash
-   $ cp -r nebula.license /usr/local/nebula-explorer
+   cp -r nebula.license /usr/local/nebula-explorer
    ```
 
 4. 添加 License 后需要使用以下命令停止并重启服务。
 
    ```bash
-   $ systemctl stop nebula-explorer #停止服务
-   $ systemctl start nebula-explorer #启动服务
+   systemctl stop nebula-explorer #停止服务
+   systemctl start nebula-explorer #启动服务
    ```
 
 ### 启停服务
@@ -81,16 +81,16 @@
 支持使用 systemctl 服务控制项目启停。
 
 ```bash
-$ systemctl status nebula-explorer #查看服务状态
-$ systemctl stop nebula-explorer #停止服务
-$ systemctl start nebula-explorer #启动服务
+systemctl status nebula-explorer #查看服务状态
+systemctl stop nebula-explorer #停止服务
+systemctl start nebula-explorer #启动服务
 ```
 也可以在安装目录下使用以下命令，手动启动或停止服务。
 
 ```bash
-$ cd ./scripts/rpm
-$ bash ./start.sh #启动服务
-$ bash ./stop.sh #停止服务
+cd ./scripts/rpm
+bash ./start.sh #启动服务
+bash ./stop.sh #停止服务
 ```
 
 ### 卸载
@@ -98,7 +98,7 @@ $ bash ./stop.sh #停止服务
 使用以下的命令卸载 Explorer。
 
 ```bash
-$ sudo rpm -e nebula-explorer-<version>.x86_64
+sudo rpm -e nebula-explorer-<version>.x86_64
 ```
 
 ## 使用 DEB 包部署
@@ -180,25 +180,25 @@ sudo rpm -e nebula-explorer-<version>.x86_64
 2. 使用 `tar -xvf` 解压 tar 包。
 
    ```bash
-   $ tar -xvf nebula-graph-explorer-<version>.tar.gz
+   tar -xvf nebula-graph-explorer-<version>.tar.gz
    ```
 
 3. 拷贝 License 至`nebula-explorer`目录下。
 
    ```bash
-   $ cp -r <license> <explorer_path>
+   cp -r <license> <explorer_path>
    ```
 
    例如：
    ```bash
-   $ cp -r nebula.license /usr/local/nebula-explorer
+   cp -r nebula.license /usr/local/nebula-explorer
    ```
 
 4. 进入`nebula-explorer`文件夹，启动 Explorer。
 
   ```bash
-  $ cd nebula-explorer
-  $ ./nebula-httpd &
+  cd nebula-explorer
+  ./nebula-httpd &
   ```
 
 ### 停止服务
@@ -206,7 +206,7 @@ sudo rpm -e nebula-explorer-<version>.x86_64
 用户可以采用`kill pid`的方式来关停服务：
 
 ```bash
-$ kill $(lsof -t -i :7002)
+kill $(lsof -t -i :7002)
 ```
 
 ## 后续操作
