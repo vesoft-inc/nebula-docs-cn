@@ -164,7 +164,7 @@ sudo systemctl stop nebula-explorer.service
 使用以下的命令卸载 Explorer。
 
 ```bash
-sudo rpm -e nebula-explorer-<version>.x86_64
+sudo dpkg -r nebula-explorer
 ```
 
 ## TAR 包部署
