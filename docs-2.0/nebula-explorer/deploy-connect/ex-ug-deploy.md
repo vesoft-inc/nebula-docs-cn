@@ -164,7 +164,7 @@ sudo systemctl stop nebula-explorer.service
 使用以下的命令卸载 Explorer。
 
 ```bash
-sudo rpm -e nebula-explorer-<version>.x86_64
+sudo dpkg -r nebula-explorer
 ```
 
 ## TAR 包部署
@@ -180,25 +180,25 @@ sudo rpm -e nebula-explorer-<version>.x86_64
 2. 使用 `tar -xvf` 解压 tar 包。
 
    ```bash
-   $ tar -xvf nebula-graph-explorer-<version>.tar.gz
+   tar -xvf nebula-graph-explorer-<version>.tar.gz
    ```
 
 3. 拷贝 License 至`nebula-explorer`目录下。
 
    ```bash
-   $ cp -r <license> <explorer_path>
+   cp -r <license> <explorer_path>
    ```
 
    例如：
    ```bash
-   $ cp -r nebula.license /usr/local/nebula-explorer
+   cp -r nebula.license /usr/local/nebula-explorer
    ```
 
 4. 进入`nebula-explorer`文件夹，启动 Explorer。
 
   ```bash
-  $ cd nebula-explorer
-  $ ./nebula-httpd &
+  cd nebula-explorer
+  ./nebula-httpd &
   ```
 
 ### 停止服务
@@ -206,7 +206,7 @@ sudo rpm -e nebula-explorer-<version>.x86_64
 用户可以采用`kill pid`的方式来关停服务：
 
 ```bash
-$ kill $(lsof -t -i :7002)
+kill $(lsof -t -i :7002)
 ```
 
 ## 后续操作
