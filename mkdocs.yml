@@ -44,7 +44,7 @@ extra:
     property: UA-60523578-15
   # branch represents code names (git clone). release represents version number used in texts.
   nebula:
-    release: master
+    release: 3.1.0
     nightly: nightly
     master: master
     base20: 2.0
