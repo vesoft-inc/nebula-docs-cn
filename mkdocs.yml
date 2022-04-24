@@ -117,7 +117,7 @@ extra:
     branch: release-3.1
   go:
     release: 3.1.0
-    branch: release-v3.1.0
+    branch: release-v3.1
   bench:
     release: 1.1.0
     branch: release-1.1
