@@ -20,15 +20,11 @@ theme:
   favicon: 'assets/images/favicon.ico'
   # Change color in `stylesheets > extra.css`
   palette:
-    - scheme: default
-      primary: teal
-      accent: light green
+    - scheme: nebula
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
     - scheme: slate
-      primary: deep orange
-      accent: red
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
@@ -93,8 +89,6 @@ extra:
   dockercompose:
     release: 3.1.0
     branch: release-3.1
-  common:
-    release: 2.5.0
   dashboard:
     release: 3.0.0
     base100: 1.0.0
