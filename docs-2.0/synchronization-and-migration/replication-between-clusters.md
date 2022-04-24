@@ -70,17 +70,17 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
         修改配置文件时需要注意：
   
-        - 将配置文件的后缀`.default`或`.production`删除。
-  
-        - 所有配置文件里都需要用真实的机器 IP 地址替换`local_ip`的`127.0.0.1`。
+      - 将配置文件的后缀`.default`或`.production`删除。
 
-        - 所有`nebula-graphd.conf`配置文件里设置`enable_authorize=true`。
+      - 所有配置文件里都需要用真实的机器 IP 地址替换`local_ip`的`127.0.0.1`。
 
-        - 主从集群填写各自集群的`meta_server_addrs`，注意不要错填其他集群的地址。
+      - 所有`nebula-graphd.conf`配置文件里设置`enable_authorize=true`。
 
-        - listener 的配置文件里`meta_server_addrs`填写主集群的机器 IP，`meta_sync_listener`填写 listener 机器的 IP。
+      - 主从集群填写各自集群的`meta_server_addrs`，注意不要错填其他集群的地址。
 
-        - drainer 的配置文件里`meta_server_addrs`填写从集群的机器 IP。
+      - listener 的配置文件里`meta_server_addrs`填写主集群的机器 IP，`meta_sync_listener`填写 listener 机器的 IP。
+
+      - drainer 的配置文件里`meta_server_addrs`填写从集群的机器 IP。
 
         更多配置说明，请参见[配置管理](../5.configurations-and-logs/1.configurations/1.configurations.md)。
 
@@ -170,13 +170,13 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
   ```
   //设置 listener 服务，待同步的图空间名称为replication_basketballplayer（下文将在从集群中创建）。
-  nebula> ADD LISTENER SYNC META 192.168.10.103:9559 STORAGE 192.168.10.103:9789 TO SPACE replication_basketballplayer;
+  nebula> ADD LISTENER SYNC META 192.168.10.103:9569 STORAGE 192.168.10.103:9789 TO SPACE replication_basketballplayer;
   //查看 listener 状态。
   nebula> SHOW LISTENER SYNC;
   +--------+--------+------------------------+--------------------------------+----------+
   | PartId | Type   | Host                   | SpaceName                      | Status   |
   +--------+--------+------------------------+--------------------------------+----------+
-  | 0      | "SYNC" | ""192.168.10.103":9559" | "replication_basketballplayer" | "ONLINE" |
+  | 0      | "SYNC" | ""192.168.10.103":9569" | "replication_basketballplayer" | "ONLINE" |
   | 1      | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
   | 2      | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
   | 3      | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
