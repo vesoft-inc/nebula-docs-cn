@@ -42,7 +42,7 @@
 - 修复`id(n) == $var`，`id(n) IN [$var]`， `id(n) == $var.foo.bar`， `id(n) IN $var.foo.bar`参数化的缺陷。[#4024](https://github.com/vesoft-inc/nebula/pull/4024) 
 - 修复`MATCH...WHERE`中出现错误路径方向的缺陷。[#4091](https://github.com/vesoft-inc/nebula/pull/4091) 
 - 修复`WHERE`子句同时引用多`MATCH`变量结果显示不正确的缺陷。 [#4143](https://github.com/vesoft-inc/nebula/pull/4143) 
-- 修复优化规则。[#4146](https://github.com/vesoft-inc/nebula/pull/4146) 
+- 修复优化规则的缺陷。[#4146](https://github.com/vesoft-inc/nebula/pull/4146) 
 - 修复节点处理 Raft 快照失败的缺陷。[#4019](https://github.com/vesoft-inc/nebula/pull/4019) 
 - 修复节点接收快照后无法接受更多日志的缺陷。[#3909]( https://github.com/vesoft-inc/nebula/pull/3909)
 - 修复快照中不包含不带 Tag 的点的缺陷。[#4189](https://github.com/vesoft-inc/nebula/pull/4189) 
