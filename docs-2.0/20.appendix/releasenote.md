@@ -28,6 +28,7 @@
 - 新增`KILL QUERY`的权限检查。当启用身份验证时，具有 GOD 角色的用户可以终止所有查询，而具有其他角色的用户只能终止自己的查询。[#3896](https://github.com/vesoft-inc/nebula/pull/3896) 
 - 新增 distcc、sccache 等编译方式的支持。[#3896](https://github.com/vesoft-inc/nebula/pull/3896) 
 - meta dump 工具支持更多可 dump 的表。[#3870](https://github.com/vesoft-inc/nebula/pull/3870) 
+- 存储层将写操作（INSERT VERTEX 或者 EDGE）的并发控制，从报错并要求客户端重试，改为内部排队，以便客户端更简单适配。[#3926](https://github.com/vesoft-inc/nebula/pull/3926)
 
 ## 缺陷修复
 
