@@ -10,8 +10,8 @@
 
 /* nebula 白天主题色 */
 [data-md-color-scheme="nebula"]{
-  --md-primary-fg-color: #A3D49C; /* 导航栏页面颜色 */
-  --md-accent-fg-color: #EA618E; /* 选中/悬浮颜色 */
+  --md-primary-fg-color: #E8383D; /* 导航栏页面颜色 */
+  --md-accent-fg-color: #49BDF0; /* 选中/悬浮颜色 */
 
   --md-code-fg-color:  rgb(12, 21, 26); /* 代码段字体色 */
   --md-code-bg-color:  #eaebec;/* 代码段背景色 */

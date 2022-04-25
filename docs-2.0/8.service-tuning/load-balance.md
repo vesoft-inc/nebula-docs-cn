@@ -69,7 +69,7 @@
 
   !!! Note
 
-        `BALANCE DATA`不会均衡 leader 的分布。均衡 leader 请参见[均衡leader分布](#leader)。
+        `BALANCE DATA`不会均衡 leader 的分布。均衡 leader 请参见[均衡 leader 分布](#leader)。
 
   ```ngql
   nebula> SHOW HOSTS;
