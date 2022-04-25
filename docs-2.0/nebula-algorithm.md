@@ -36,50 +36,33 @@ Nebula Algorithm 版本和 Nebula Graph 内核的版本对应关系如下。
 
 - 图计算会输出点的数据集，算法结果会以DataFrame形式作为点的属性存储。用户可以根据业务需求，自行对算法结果做进一步操作，例如统计、筛选。
 
-- 如果将算法结果写入到 Nebula Graph 中，请确保对应图空间中的 Tag 有对应算法结果名称的属性。各项算法对应的属性如下。
-
-  |        算法         |     属性名称      |属性数据类型|
-  |:------------------------:|:-----------------------:|:-----------:|
-  |         pagerank         |         pagerank        |double/string|
-  |          louvain         |          louvain        | int/string  |
-  |          kcore           |           kcore         | int/string  |
-  |     labelpropagation     |           lpa           | int/string  |
-  |   connectedcomponent     |            cc           | int/string  |
-  |stronglyconnectedcomponent|            scc          | int/string  |
-  |         betweenness      |         betweenness     |double/string|
-  |        shortestpath      |        shortestpath     |   string    |
-  |        degreestatic      |degree,inDegree,outDegree| int/string  |
-  |        trianglecount     |       trianglecount     | int/string  |
-  |  clusteringcoefficient   |    clustercoefficient   |double/string|
-  |         closeness        |         closeness       |double/string|
-  |            hanp          |            hanp         | int/string  |
-  |            bfs           |            bfs          |    string   |
-  |         jaccard          |          jaccard        |    string   |
-  |        node2vec          |          node2vec       |    string   |
-
 ## 支持算法
 
 Nebula Algorithm 支持的图计算算法如下。
 
- |           算法名          |说明|应用场景|
- |:------------------------|:-----------|:----|
- |         PageRank         |  页面排序  | 网页排序、重点节点挖掘|
- |         Louvain          |  社区发现  | 社团挖掘、层次化聚类|
- |          KCore           |    K 核    |社区发现、金融风控|
- |     LabelPropagation     |  标签传播  |资讯传播、广告推荐、社区发现|
- |         Hanp             |标签传播进阶版|社区发现、推荐       |
- |    ConnectedComponent    |  联通分量  |社区发现、孤岛发现|
- |StronglyConnectedComponent| 强联通分量  |社区发现|
- |       ShortestPath       |  最短路径   |路径规划、网络规划|
- |       TriangleCount      | 三角形计数  |网络结构分析|
+ |           算法名          |说明|应用场景|属性名称      |属性数据类型|
+ |:------------------------|:-----------|:----|:---|:---|
+ |         PageRank         |  页面排序  | 网页排序、重点节点挖掘|  pagerank        |double/string|
+ |         Louvain          |  社区发现  | 社团挖掘、层次化聚类| louvain        | int/string  |
+ |          KCore           |    K 核    |社区发现、金融风控|          kcore         | int/string  |
+ |     LabelPropagation     |  标签传播  |资讯传播、广告推荐、社区发现|         lpa           | int/string  |
+ |         Hanp             |标签传播进阶版|社区发现、推荐       |         hanp         | int/string  |
+ |    ConnectedComponent    |  联通分量  |社区发现、孤岛发现|     cc           | int/string  |
+ |StronglyConnectedComponent| 强联通分量  |社区发现|          scc          | int/string  |
+ |       ShortestPath       |  最短路径   |路径规划、网络规划|      shortestpath     |   string    |
+ |       TriangleCount      | 三角形计数  |网络结构分析|      trianglecount     | int/string  |
  |  GraphTriangleCount      | 全图三角形计数 |网络结构及紧密程度分析|
- |   BetweennessCentrality  | 中介中心性  |关键节点挖掘，节点影响力计算|
- |   ClosenessCentrality    | 接近中心性  |关键节点挖掘、节点影响力计算|
- |        DegreeStatic      |   度统计   |图结构分析|
- | ClusteringCoefficient    | 聚集系数    |推荐、电信诈骗分析|
- |       Jaccard            | 杰卡德相似度计算| 相似度计算、推荐|
- |         BFS              | 广度优先遍历| 层序遍历、最短路径规划|
- |       Node2Vec           |     -     | 图分类         |
+ |   BetweennessCentrality  | 中介中心性  |关键节点挖掘，节点影响力计算|       betweenness     |double/string|
+ |   ClosenessCentrality    | 接近中心性  |关键节点挖掘、节点影响力计算|       closeness       |double/string|
+ |        DegreeStatic      |   度统计   |图结构分析|degree,inDegree,outDegree| int/string  |
+ | ClusteringCoefficient    | 聚集系数    |推荐、电信诈骗分析|   clustercoefficient   |double/string|
+ |       Jaccard            | 杰卡德相似度计算| 相似度计算、推荐|     jaccard        |    string   |
+ |         BFS              | 广度优先遍历| 层序遍历、最短路径规划|      bfs          |    string   |
+ |       Node2Vec           |     -     | 图分类         |       node2vec       |    string   |
+
+!!! note
+
+    如果需要将算法结果写入到 Nebula Graph 中，请确保对应图空间中的 Tag 有和上表对应的属性名称和数据类型。
 
 ## 实现方法
 
