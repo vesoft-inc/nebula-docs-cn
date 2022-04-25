@@ -573,7 +573,7 @@ plugins:
 
   - with-pdf:
       copyright: 2022 vesoft Inc.
-      cover_subtitle: master since 3.0.0
+      cover_subtitle: 3.1.0
       author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
       cover: true
       back_cover: true
