@@ -1,6 +1,6 @@
 # 使用限制
 
-本文描述 Exchange 3.x 的一些使用限制。
+本文描述 Exchange {{exchange.release}} 的一些使用限制。
 
 ## 版本兼容性
 
