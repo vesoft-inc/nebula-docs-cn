@@ -41,7 +41,7 @@ jobs:
         run: |
           #mike delete v3.1.0 -p
           mike deploy 3.1.0 -p --rebase
-          # mike set-default 3.1.0 -p --rebase
+          mike set-default 3.1.0 -p --rebase
           mike list
       - name: show git branch
         run: | 
