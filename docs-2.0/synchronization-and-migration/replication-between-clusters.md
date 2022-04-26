@@ -277,6 +277,14 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
   +-------------+
   ```
 
+## 停止/重启数据同步
+
+数据同步时，listener 会持续发送 WAL 给 drainer。
+
+如果需要停止数据同步，可以使用`stop sync`命令。此时 listener 会停止向 drainer 发送 WAL。
+
+如果需要重启数据同步，可以使用`restart sync`命令。此时 listener 会向 drainer 发送停止期间堆积的 WAL。如果 listener 上的 WAL 丢失， listener 会从主集群拉取快照重新进行同步。
+
 ## 切换主从集群
 
 如果因为业务需要进行数据迁移，或者灾备恢复后需要切换主从集群，需要手动进行切换。
