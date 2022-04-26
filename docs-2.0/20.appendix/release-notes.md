@@ -9,7 +9,7 @@
 - 优化路径以减少冗余路径和时间复杂度。[#4126](https://github.com/vesoft-inc/nebula/pull/4162) 
 - 优化获取属性的方式进而优化`MATCH`语句的性能。[#3750](https://github.com/vesoft-inc/nebula/pull/3750) 
 - 优化`GO`、`YIELD`子句，减少不必要的属性读取。[#3974](https://github.com/vesoft-inc/nebula/pull/3974) 
-- 支持获取属性时 Filter 及 Limit 下推。 [#3844](https://github.com/vesoft-inc/nebula/pull/3844) [#3839](https://github.com/vesoft-inc/nebula/pull/3839) 
+- 支持获取属性时 Filter 及`LIMIT`下推。 [#3844](https://github.com/vesoft-inc/nebula/pull/3844) [#3839](https://github.com/vesoft-inc/nebula/pull/3839) 
 - 支持`LOOKUP`聚合下推。[#3504](https://github.com/vesoft-inc/nebula/pull/3504) 
 - `maxHop`在匹配可变长度路径中是可选的。[#3881](https://github.com/vesoft-inc/nebula/pull/3881) 
 - 使用`DROP SPACE`之后图空间将进行物理删除。[#3913](https://github.com/vesoft-inc/nebula/pull/3913) 
@@ -28,7 +28,7 @@
 - 新增`KILL QUERY`的权限检查。当启用身份验证时，具有 GOD 角色的用户可以终止所有查询，而具有其他角色的用户只能终止自己的查询。[#3896](https://github.com/vesoft-inc/nebula/pull/3896) 
 - 新增 distcc、sccache 等编译方式的支持。[#3896](https://github.com/vesoft-inc/nebula/pull/3896) 
 - meta dump 工具支持更多可 dump 的表。[#3870](https://github.com/vesoft-inc/nebula/pull/3870) 
-- 存储层将写操作（INSERT VERTEX 或者 EDGE）的并发控制，从报错并要求客户端重试，改为内部排队，以便客户端更简单适配。[#3926](https://github.com/vesoft-inc/nebula/pull/3926)
+- 存储层将写操作（`INSERT VERTEX`或者`INSERT EDGE`）的并发控制，从报错并要求客户端重试，改为内部排队，以便客户端更简单适配。[#3926](https://github.com/vesoft-inc/nebula/pull/3926)
 
 ## 缺陷修复
 
@@ -39,8 +39,8 @@
 - 修复获取`profile`查询的 JSON 结果导致的崩溃问题。[#3998](https://github.com/vesoft-inc/nebula/pull/3998) 
 - 修复 Lambda 函数中的`async`接口运行完毕且`threadManager`中的任务未执行时的崩溃问题。[#4000](https://github.com/vesoft-inc/nebula/pull/4000) 
 - 修复`GROUP BY`输出的缺陷。[#4128](https://github.com/vesoft-inc/nebula/pull/4128) 
-- 修复`SHOW HOSTS`有时不能不显示版本的缺陷。[#4116](https://github.com/vesoft-inc/nebula/pull/4116) 
-- 修复`id(n) == $var`，`id(n) IN [$var]`， `id(n) == $var.foo.bar`， `id(n) IN $var.foo.bar`参数化的缺陷。[#4024](https://github.com/vesoft-inc/nebula/pull/4024) 
+- 修复`SHOW HOSTS`有时不能显示版本的缺陷。[#4116](https://github.com/vesoft-inc/nebula/pull/4116) 
+- 修复`id(n) == $var`，`id(n) IN [$var]`，`id(n) == $var.foo.bar`，`id(n) IN $var.foo.bar`参数化的缺陷。[#4024](https://github.com/vesoft-inc/nebula/pull/4024) 
 - 修复`MATCH...WHERE`中出现错误路径方向的缺陷。[#4091](https://github.com/vesoft-inc/nebula/pull/4091) 
 - 修复`WHERE`子句同时引用多`MATCH`变量结果显示不正确的缺陷。 [#4143](https://github.com/vesoft-inc/nebula/pull/4143) 
 - 修复优化规则的缺陷。[#4146](https://github.com/vesoft-inc/nebula/pull/4146) 
