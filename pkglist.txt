@@ -1,4 +1,6 @@
+pango1.0-tools
 libpango-1.0-0
+libpangoft2-1.0-0
 font-manager
 fonts-noto-cjk
 language-pack-zh*

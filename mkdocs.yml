@@ -2,7 +2,7 @@ site_name: Nebula Graph Database 手册
 site_description: Documentation for Nebula Graph Database
 site_author: Nebula Graph
 site_url: https://docs.nebula-graph.com.cn/
-edit_uri: 'edit/master/docs-2.0/'
+edit_uri: 'edit/v3.1.0/docs-2.0/'
 docs_dir: docs-2.0
 
 # repository
@@ -20,15 +20,11 @@ theme:
   favicon: 'assets/images/favicon.ico'
   # Change color in `stylesheets > extra.css`
   palette:
-    - scheme: default
-      primary: teal
-      accent: light green
+    - scheme: nebula
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
     - scheme: slate
-      primary: deep orange
-      accent: red
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
@@ -48,7 +44,7 @@ extra:
     property: UA-60523578-15
   # branch represents code names (git clone). release represents version number used in texts.
   nebula:
-    release: master
+    release: 3.1.0
     nightly: nightly
     master: master
     base20: 2.0
@@ -76,12 +72,13 @@ extra:
   importer:
     release: 3.1.0
     branch: release-3.1
+    tag: v3.1.0
   algorithm:
     release: 3.0.0
     branch: v3.0.0
   plato:
-    release: 1.1.0
-    branch: release-1.1
+    release: 3.1.0
+    branch: release-3.1
   sparkconnector:
     release: 3.0.0
     branch: v3.0.0
@@ -93,19 +90,17 @@ extra:
   dockercompose:
     release: 3.1.0
     branch: release-3.1
-  common:
-    release: 2.5.0
   dashboard:
-    release: 3.0.0
+    release: 1.1.0
     base100: 1.0.0
-    branch: release-3.0
+    branch: v1.1.0
   dashboard_ent:
     release: 3.0.0
   console:
     release: 3.0.0
     branch: v3.0.0
   br:
-    release: 0.7.0
+    release: 0.6.0
   cpp:
     release: 3.0.0
     branch: v3.0.0
@@ -117,18 +112,18 @@ extra:
     branch: release-3.1
   go:
     release: 3.1.0
-    branch: release-v3.1
+    branch: release-3.1
   bench:
-    release: 1.1.0
-    branch: release-1.1
-    tag: v1.1.0
+    release: 1.2.0
+    branch: release-1.2
+    tag: v1.2.0
   operator:
     release: 1.1.0
     branch: release-1.1
     upgrade_from: 3.0.0
     upgrade_to: 3.1.x
   exporter:
-    release: 3.0.0
+    release: 3.1.0
     branch: release-3.1
 nav:
   - 前言: README.md
@@ -579,7 +574,7 @@ plugins:
 
   - with-pdf:
       copyright: 2022 vesoft Inc.
-      cover_subtitle: master since 3.0.0
+      cover_subtitle: 3.1.0
       author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
       cover: true
       back_cover: true
