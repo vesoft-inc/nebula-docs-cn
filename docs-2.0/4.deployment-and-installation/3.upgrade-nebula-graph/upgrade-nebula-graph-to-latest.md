@@ -171,7 +171,7 @@
   nebula> MATCH (v) RETURN v LIMIT 5;
   ```
 
-  也可根据 {{nebula.release}} 版本的新功能测试，新功能列表参见[发布说明](../../20.appendix/releasenote.md)。
+  也可根据 {{nebula.release}} 版本的新功能测试，新功能列表参见[发布说明](../../20.appendix/release-notes.md)。
 
 ## 升级失败回滚
 
@@ -227,4 +227,4 @@ A： Nebula Graph 2.5.0 版本调整了 Job 的定义，详情参见 [Pull reque
 
 Q: 有哪些语法不兼容 ?
 
-A: 参见[Release Note](../../20.appendix/releasenote.md) Incompatibility 部分。
+A: 参见[Release Note](../../20.appendix/release-notes.md) Incompatibility 部分。
