@@ -38,7 +38,7 @@ Importer 适用于将本地 CSV 文件的内容导入至 Nebula Graph 中。
 
 ### 下载二进制包运行
 
-1. 在[Release](https://github.com/vesoft-inc/nebula-importer/releases/tag/{{importer.branch}})页面下载二进制包，并添加执行权限。
+1. 在[Release](https://github.com/vesoft-inc/nebula-importer/releases/tag/{{importer.tag}})页面下载二进制包，并添加执行权限。
 
 2. 启动服务。
 
