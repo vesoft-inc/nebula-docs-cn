@@ -192,10 +192,6 @@ $ sudo dpkg -r nebula-graph-studio-{{studio.release}}.x86_64
    $ ./server
    ```
 
-  !!! caution
-
-        Studio {{studio.release}} 版本不需要依赖于 nebula-importer 和 nebula-http-gateway，故安装部署方式与 Studio 3.1.0 不同。
-
 4. 启动成功后，在浏览器地址栏输入 `http://<ip address>:7001`。
    
    如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Studio。

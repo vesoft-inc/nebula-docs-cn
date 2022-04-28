@@ -1,28 +1,3 @@
-img:hover {
-  cursor: pointer;
-}
-.max {
-  width: auto;
-  position: fixed;
-  top: calc(50vh);
-  z-index: 100;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  max-width: calc(100vw);
-}
-.min {
-  width: auto;
-}
-.dialog-bg{
-  position: absolute;
-  width: calc(100vw);
-  height: calc(100vh);
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0,0,0,0.4);
-}
 @media only screen and (max-width:76.1875em) {
   #version-selector {
     padding: .6rem .8rem;
