@@ -14,7 +14,7 @@ Importer 适用于将本地 CSV 文件的内容导入至 Nebula Graph 中。
 
 ## 更新说明
 
-[Release](https://github.com/vesoft-inc/nebula-importer/releases/tag/{{importer.tag}})
+[Release notes](https://github.com/vesoft-inc/nebula-importer/releases/tag/{{importer.tag}})
 
 ## 前提条件
 
