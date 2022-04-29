@@ -183,9 +183,11 @@ $ sudo /usr/local/nebula/scripts/nebula.service status all
 - 如果返回如下结果，表示 Nebula Graph 服务正常运行。
 
     ```bash
-    [INFO] nebula-metad(02b2091): Running as 26601, Listening on 9559
-    [INFO] nebula-graphd(02b2091): Running as 26644, Listening on 9669
-    [INFO] nebula-storaged(02b2091): Running as 26709, Listening on 9779
+    [INFO] nebula-metad(33fd35e): Running as 29020, Listening on 9559
+    [INFO] nebula-graphd(33fd35e): Running as 29095, Listening on 9669
+    [WARN] nebula-storaged after v3.0.0 will not start service until it is added to cluster.
+    [WARN] See Manage Storage hosts:ADD HOSTS in https://docs.nebula-graph.io/
+    [INFO] nebula-storaged(33fd35e): Running as 29147, Listening on 9779
     ```
 
   !!! note
