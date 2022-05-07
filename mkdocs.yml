@@ -60,7 +60,9 @@ markdown_extensions:
 
 # Plugins
 plugins:
-  - search
+# Chinese search support
+  - search:
+      separator: '[\\s\\u200b\\-]'
   - macros:
       include_dir: docs-2.0/reuse/
   - git-revision-date-localized
