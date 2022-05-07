@@ -240,18 +240,18 @@ $ kill $(lsof -t -i :7001) # stop nebula-graph-studio
 
    | 安装包 | 适用 Nebula 版本 |
    | ----- | ----- |
-   | [nebula-graph-studio-v{{studio.release}}.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-v{{studio.release}}.tar.gz) | {{nebula.release}} |
+   | [nebula-graph-studio-v{{studio.release}}.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}.tar.gz) | {{nebula.release}} |
 
 2. 创建`nebula-graph-studio-v{{studio.release}}`目录，并将安装包解压至目录中。
 
    ```bash
-   mkdir nebula-graph-studio-v{{studio.release}} && tar -zxvf nebula-graph-studio-v{{studio.release}}.tar.gz -C nebula-graph-studio-v{{studio.release}}
+   mkdir nebula-graph-studio-v{{studio.release}} && tar -zxvf nebula-graph-studio-v{{studio.release}}.tar.gz -C nebula-graph-studio-{{studio.release}}
    ```
 
 3. 解压后进入 `nebula-graph-studio-v{{studio.release}}` 目录。
 
    ```bash
-   cd nebula-graph-studio-v{{studio.release}}
+   cd nebula-graph-studio-{{studio.release}}
    ```
 
 4. 拉取 Studio 的 Docker 镜像。
