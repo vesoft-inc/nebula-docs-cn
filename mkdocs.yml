@@ -55,6 +55,8 @@ markdown_extensions:
       base_path: docs-2.0/reuse/
   - pymdownx.arithmatex:
       generic: true
+  - pymdownx.caret
+  - pymdownx.tilde
 
 # Plugins
 plugins:
