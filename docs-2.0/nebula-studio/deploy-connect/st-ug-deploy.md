@@ -240,7 +240,7 @@ $ kill $(lsof -t -i :7001) # stop nebula-graph-studio
 
    | 安装包 | 适用 Nebula 版本 |
    | ----- | ----- |
-   | [nebula-graph-studio-v{{studio.release}}.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}.tar.gz) | {{nebula.release}} |
+   | [nebula-graph-studio-{{studio.release}}.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}.tar.gz) | {{nebula.release}} |
 
 2. 创建`nebula-graph-studio-v{{studio.release}}`目录，并将安装包解压至目录中。
 
