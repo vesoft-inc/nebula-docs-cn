@@ -52,9 +52,9 @@
    sudo rpm -i nebula-explorer-<version>.x86_64.rpm
    ```
 
-   也可以使用以下命令安装到指定路径：
+   也可以使用`--prefix`选项安装到指定路径：
    ```bash
-   sudo rpm -i nebula-explorer-xxx.rpm --prefix=<path> 
+   sudo rpm -i nebula-explorer-<version>.x86_64.rpm --prefix=<path> 
    ```
 
 3. 拷贝 License 至安装路径下。
@@ -68,11 +68,10 @@
    cp -r nebula.license /usr/local/nebula-explorer
    ```
 
-4. 添加 License 后需要使用以下命令停止并重启服务。
+4. 执行以下命令启动服务。
 
    ```bash
-   systemctl stop nebula-explorer #停止服务
-   systemctl start nebula-explorer #启动服务
+   systemctl start nebula-explorer
    ```
 
 ### 启停服务
