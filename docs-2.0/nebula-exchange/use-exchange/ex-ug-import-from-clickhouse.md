@@ -305,7 +305,7 @@ ${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.excha
 
 ### 步骤 4：（可选）验证数据
 
-用户可以在 Nebula Graph 客户端（例如 Nebula Graph Studio）中执行查询语句，确认数据是否已导入。例如：
+用户可以在 Nebula Graph 客户端（例如 Nebula Studio）中执行查询语句，确认数据是否已导入。例如：
 
 ```ngql
 GO FROM "player100" OVER follow;
