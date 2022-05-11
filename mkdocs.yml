@@ -31,6 +31,7 @@ theme:
   features:
     - navigation.top
     - header.autohide
+    - content.tabs.link
   language: 'zh'
 
 extra_css:
@@ -57,12 +58,12 @@ markdown_extensions:
       generic: true
   - pymdownx.caret
   - pymdownx.tilde
+  - pymdownx.superfences
+  - pymdownx.tabbed
 
 # Plugins
 plugins:
-# Chinese search support
-  - search:
-      separator: '[\\s\\u200b\\-]'
+  - search
   - macros:
       include_dir: docs-2.0/reuse/
   - git-revision-date-localized
@@ -210,9 +211,9 @@ extra:
     branch: release-3.1
     tag: v3.1.0
   gateway:
-    release: 3.1.0
+    release: 3.1.2
     branch: release-3.1
-    tag: v3.1.0
+    tag: v3.1.2
 
 
 nav:
@@ -480,10 +481,10 @@ nav:
 #    - 用户服务条款: nebula-cloud/7.terms-and-conditions.md
 #    - 隐私政策条款: nebula-cloud/8.privacy-policy.md
 
-  - Nebula Graph Studio:
+  - Nebula Studio:
     - Studio 版本更新说明: nebula-studio/about-studio/st-ug-release-note.md
-    - 认识 Nebula Graph Studio:
-      - 什么是 Nebula Graph Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
+    - 认识 Nebula Studio:
+      - 什么是 Nebula Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
       - 使用限制: nebula-studio/about-studio/st-ug-limitations.md
     - 安装与登录:
       - 部署 Studio: nebula-studio/deploy-connect/st-ug-deploy.md

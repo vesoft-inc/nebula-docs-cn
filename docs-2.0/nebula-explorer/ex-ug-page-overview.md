@@ -39,7 +39,7 @@ Nebula Explorer 由顶部导航栏、左侧导航栏、和画布三大模块组�
 | ![snapshot](https://docs-cdn.nebula-graph.com.cn/figures/snapshot-history_cn.png) | 查看历史快照信息。更多信息，参见[画布快照](canvas-operations/canvas-snapshot.md)。     |
 | ![graphSpace](https://docs-cdn.nebula-graph.com.cn/figures/nav-graphSpace_cn.png) | 查看所有图空间，单击图空间可创建相应图空间的画布。更多信息，参见[选择图空间](13.choose-graphspace.md)。     |
 | ![Help](https://docs-cdn.nebula-graph.com.cn/figures/nav-help_cn.png) | 查看 Explorer 操作文档、论坛内容等。     |
-| ![Setup](https://docs-cdn.nebula-graph.com.cn/figures/nav-setup2.png) | 查看用户名和快捷键、修改语言设置、限制返回结果数量、清除 Explorer 链接等。|
+| ![Setup](https://docs-cdn.nebula-graph.com.cn/figures/nav-setup2.png) | 查看用户名、版本、快捷键，限制查询最大返回数量。|
 
 ## 画布
 

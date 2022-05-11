@@ -25,7 +25,7 @@
   $ cd nebula-studio
   ```
 
-3. 更新并安装 Nebula Graph Studio chart，命名为`my-studio`。
+3. 更新并安装 Nebula Studio chart，命名为`my-studio`。
 
   ```bash
   $ helm upgrade --install my-studio --set service.type=NodePort --set service.port={30070} deployment/helm
@@ -34,7 +34,7 @@
 4. 启动成功后，在浏览器地址栏输入`http://<node_address>:30070`。
    如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Studio。
 
-   ![Nebula Graph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-000-cn.png "Nebula Graph Studio 登录界面")
+   ![Nebula Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-000-cn.png "Nebula Studio 登录界面")
 
 ## 卸载
 
@@ -46,7 +46,7 @@ $ helm uninstall my-studio
 
 进入 Studio 登录界面后，用户需要连接 Nebula Graph。详细信息，参考[连接数据库](st-ug-connect.md)。
 
-## Nebula Graph Studio chart 配置参数说明
+## Nebula Studio chart 配置参数说明
 
 | 参数 | 默认值 | 描述 |
 |:---|:---|:---|

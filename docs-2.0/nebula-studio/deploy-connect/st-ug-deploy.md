@@ -1,6 +1,6 @@
 # 部署 Studio
 <!--
-Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云服务版 Studio 只能在 Nebula Graph Cloud Service 上使用。当在 Nebula Graph Cloud Service 上创建 Nebula Graph 实例时即自动完成云服务版本 Studio 的部署，一键直连即可使用，不需要自己部署。详细信息参考 [《Nebula Graph Cloud Service 用户手册》](https://cloud-docs.nebula-graph.com.cn/cn/posts/manage-instances/dbaas-ug-connect-nebulastudio/ "点击前往 Nebula Graph Cloud Service 用户手册")。
+Nebula Studio（ 以下简称 Studio ）支持云端或本地部署。云服务版 Studio 只能在 Nebula Graph Cloud Service 上使用。当在 Nebula Graph Cloud Service 上创建 Nebula Graph 实例时即自动完成云服务版本 Studio 的部署，一键直连即可使用，不需要自己部署。详细信息参考 [《Nebula Graph Cloud Service 用户手册》](https://cloud-docs.nebula-graph.com.cn/cn/posts/manage-instances/dbaas-ug-connect-nebulastudio/ "点击前往 Nebula Graph Cloud Service 用户手册")。
 -->
 
 本文介绍如何在本地通过 RPM、DEB、tar 包和 Docker 部署 Studio。
@@ -57,7 +57,7 @@ Nebula Graph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
    
    如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Studio。
 
-   ![Nebula Graph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-000-cn.png "Nebula Graph Studio 登录界面")
+   ![Nebula Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-000-cn.png "Nebula Studio 登录界面")
 
 ### 卸载
 
@@ -147,7 +147,7 @@ $ systemctl restart nebula-graph-studio.service
    
    如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Studio。
 
-   ![Nebula Graph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-000-cn.png "Nebula Graph Studio 登录界面")
+   ![Nebula Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-000-cn.png "Nebula Studio 登录界面")
 
 ### 卸载
 
@@ -196,7 +196,7 @@ $ sudo dpkg -r nebula-graph-studio-{{studio.release}}.x86_64
    
    如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Studio。
 
-   ![Nebula Graph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-000-cn.png "Nebula Graph Studio 登录界面")
+   ![Nebula Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-000-cn.png "Nebula Studio 登录界面")
 ### 停止服务
 
 用户可以采用 `kill <pid>` 的方式来关停服务：
@@ -242,13 +242,13 @@ $ kill $(lsof -t -i :7001) # stop nebula-graph-studio
    | ----- | ----- |
    | [nebula-graph-studio-{{studio.release}}.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}.tar.gz) | {{nebula.release}} |
 
-2. 创建`nebula-graph-studio-v{{studio.release}}`目录，并将安装包解压至目录中。
+2. 创建`nebula-graph-studio-{{studio.release}}`目录，并将安装包解压至目录中。
 
    ```bash
-   mkdir nebula-graph-studio-v{{studio.release}} && tar -zxvf nebula-graph-studio-v{{studio.release}}.tar.gz -C nebula-graph-studio-{{studio.release}}
+   mkdir nebula-graph-studio-{{studio.release}} && tar -zxvf nebula-graph-studio-{{studio.release}}.tar.gz -C nebula-graph-studio-{{studio.release}}
    ```
 
-3. 解压后进入 `nebula-graph-studio-v{{studio.release}}` 目录。
+3. 解压后进入 `nebula-graph-studio-{{studio.release}}` 目录。
 
    ```bash
    cd nebula-graph-studio-{{studio.release}}
@@ -280,7 +280,7 @@ $ kill $(lsof -t -i :7001) # stop nebula-graph-studio
 
    如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Studio。
 
-   ![Nebula Graph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-000-cn.png "Nebula Graph Studio 登录界面")
+   ![Nebula Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-000-cn.png "Nebula Studio 登录界面")
 
 ## 后续操作
 
