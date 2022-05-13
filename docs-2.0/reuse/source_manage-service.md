@@ -41,13 +41,17 @@ $ sudo /usr/local/nebula/scripts/nebula.service
 
 ## 使用 systemd 管理服务
 
-为方便使用，Nebula Graph 支持用 systemd 管理服务，通过`systemctl`启动、停止、重启和查看服务。
+为方便使用，Nebula Graph 企业版支持用 systemd 管理服务，通过`systemctl`启动、停止、重启和查看服务。
 
 !!! note
 
-    安装 Nebula Graph 后，systemd 所需的`.service`文件在安装目录的`etc/unit`目录内，使用 RPM/DEB 包安装的 Nebula Graph，会自动将这些`.service`文件放入`/usr/lib/systemd/system`目录内，并且`ExecStart`也会根据指定的 Nebula Graph 安装路径进行生成，因此可以直接使用`systemctl`命令。
-  
-    其他方式安装 Nebula Graph，需要用户手动将`.service`文件移动到`/usr/lib/systemd/system`目录内，并修改`.service`文件内的`ExecStart`的文件路径，才可以正常使用`systemctl`命令。
+    - 安装 Nebula Graph 企业版后，systemd 所需的`.service`文件在安装目录的`etc/unit`目录内，使用 RPM/DEB 包安装的 Nebula Graph，会自动将这些`.service`文件放入`/usr/lib/systemd/system`目录内，并且`ExecStart`也会根据指定的 Nebula Graph 安装路径进行生成，因此可以直接使用`systemctl`命令。
+
+    - 对于使用企业版 Dashboard 安装的企业版 Nebula Graph，不支持使用`systemctl`管理服务。
+    
+    - 对于其他方式安装的企业版 Nebula Graph，需要用户手动将`.service`文件移动到`/usr/lib/systemd/system`目录内，并修改`.service`文件内的`ExecStart`的文件路径，才可以正常使用`systemctl`命令。
+    
+
 
 ### 语法
 
@@ -183,9 +187,11 @@ $ sudo /usr/local/nebula/scripts/nebula.service status all
 - 如果返回如下结果，表示 Nebula Graph 服务正常运行。
 
     ```bash
-    [INFO] nebula-metad(02b2091): Running as 26601, Listening on 9559
-    [INFO] nebula-graphd(02b2091): Running as 26644, Listening on 9669
-    [INFO] nebula-storaged(02b2091): Running as 26709, Listening on 9779
+    [INFO] nebula-metad(33fd35e): Running as 29020, Listening on 9559
+    [INFO] nebula-graphd(33fd35e): Running as 29095, Listening on 9669
+    [WARN] nebula-storaged after v3.0.0 will not start service until it is added to cluster.
+    [WARN] See Manage Storage hosts:ADD HOSTS in https://docs.nebula-graph.io/
+    [INFO] nebula-storaged(33fd35e): Running as 29147, Listening on 9779
     ```
 
   !!! note

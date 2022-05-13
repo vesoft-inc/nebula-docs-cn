@@ -14,7 +14,7 @@ Importer 适用于将本地 CSV 文件的内容导入至 Nebula Graph 中。
 
 ## 更新说明
 
-[Release](https://github.com/vesoft-inc/nebula-importer/releases/tag/{{importer.branch}})
+[Release notes](https://github.com/vesoft-inc/nebula-importer/releases/tag/{{importer.tag}})
 
 ## 前提条件
 
@@ -38,7 +38,7 @@ Importer 适用于将本地 CSV 文件的内容导入至 Nebula Graph 中。
 
 ### 下载二进制包运行
 
-1. 在[Release](https://github.com/vesoft-inc/nebula-importer/releases/tag/{{importer.branch}})页面下载二进制包，并添加执行权限。
+1. 在[Release](https://github.com/vesoft-inc/nebula-importer/releases/tag/{{importer.tag}})页面下载二进制包，并添加执行权限。
 
 2. 启动服务。
 
@@ -88,7 +88,7 @@ Importer 适用于将本地 CSV 文件的内容导入至 Nebula Graph 中。
 1. 克隆仓库。
 
    ```bash
-   $ git clone -b {{importer.release}} https://github.com/vesoft-inc/nebula-importer.git
+   $ git clone -b {{importer.branch}} https://github.com/vesoft-inc/nebula-importer.git
    ```
 
 2. 使用如下的命令下载并打包依赖的源码。

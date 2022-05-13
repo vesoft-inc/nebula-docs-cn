@@ -6,7 +6,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
@@ -18,30 +18,21 @@ jobs:
           python-version: '3.8'
           architecture: 'x64'
 
-      - name: apt install
-        run: |
-          sudo apt update -y
-          sudo apt install -y $(cat pkglist.txt)
-      - name: Install dependencies
-        run: |
-          pip install --upgrade pip
-          pip install -r ./requirements.txt
-      - name: set LANG
-        run: sh lang-zh.sh	  
-
+      - name : prepare
+        run: sh ./prepare.sh
+ 
       - name: Git Config
         run: git config user.name whitewum && git config user.email min.wu@vesoft.com
 
-      - name: mike list delete
-        run: |
-          mike list
-      - name: Mike Deploy master
+      - name: mike 
         run: |
           mike deploy master -p --rebase
           mike list
+
       - name: show git branch
         run: | 
           git branch
+          git checkout .
           git checkout gh-pages
       - name: Compress
         run: |
@@ -57,7 +48,6 @@ jobs:
           port: ${{ secrets.PORT }}
           source: nebula-docs.tar.gz
           target: /usr/web
-
       - name: UnCompress
         uses: appleboy/ssh-action@master
         with:
@@ -68,6 +58,9 @@ jobs:
           script: |
             mkdir -p /usr/web/nebula-docs/
             tar -xzf /usr/web/nebula-docs.tar.gz -C /usr/web/nebula-docs/
+            mkdir -p /usr/web/nebula-docs/site/pdf/
+            cp -f /usr/web/nebula-docs/3.1.0/pdf/NebulaGraph-CN.pdf /usr/web/nebula-docs/site/pdf/NebulaGraph-book.pdf
+            
 #            pip3 install --upgrade pip
 #            pip3 install -r /usr/web/nebula-docs/requirement.txt
       # - name: Deploy

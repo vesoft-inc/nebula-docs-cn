@@ -105,7 +105,7 @@ nebula> MATCH (v:player) \
 在`WITH`子句中设置别名，并通过`RETURN`子句输出结果。
 
 ```ngql
-nebula> WITH [1, 2, 3] AS list  RETURN 3 IN list AS r;
+nebula> WITH [1, 2, 3] AS `list` RETURN 3 IN `list` AS r;
 +------+
 | r    |
 +------+

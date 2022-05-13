@@ -43,7 +43,6 @@ Nebula Graph 的审计日志功能可以将 Graph 服务接受到的所有操作
 | `audit_log_es_batch_size`      | `1000`  | 仅在`audit_log_handler=es`时生效。每次发送至 Elasticsearch 服务器的日志条数。  |
 | `audit_log_exclude_spaces`      | -  | 不需要记录日志的图空间列表。多个图空间用英文逗号（,）分隔。  |
 | `audit_log_categories`      | `login,exit`  | 需要记录日志的分类列表。多个类别用英文逗号（,）分隔。  |
-|       |   |   |
 
 ## 审计日志格式
 

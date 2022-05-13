@@ -1,23 +1,23 @@
-site_name: Nebula Graph Database 手册
-site_description: Documentation for Nebula Graph Database
-site_author: Nebula Graph
-site_url: https://docs.nebula-graph.com.cn/
-edit_uri: 'edit/master/docs-2.0/'
-docs_dir: docs-2.0
-
-# repository
-repo_name: 'vesoft-inc/nebula-docs-cn'
-repo_url: 'https://github.com/vesoft-inc/nebula-docs-cn'
-
-# Copyright
+site_name: Nebula Graph Database 手册 
+site_description: Documentation for Nebula Graph Database 
+site_author: Nebula Graph 
+site_url: https://docs.nebula-graph.com.cn/ 
+repo_name: 'vesoft-inc/nebula-docs-cn' 
+repo_url: 'https://github.com/vesoft-inc/nebula-docs-cn' 
+docs_dir: docs-2.0 
 copyright: Copyright &copy; 2022 Nebula Graph - 浙ICP备20010487号
+ 
+# modify when release: 
+edit_uri: 'edit/master/docs-2.0/'  
 
 # Configuration
 theme:
-  name: 'material'
-  custom_dir: overrides
+  name: material
+  custom_dir: material
+  static_templates:
+    - 404.html
   logo: 'https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png'
-  favicon: 'assets/images/favicon.ico'
+  favicon: 'icon/favicon.ico'
   # Change color in `stylesheets > extra.css`
   palette:
     - scheme: default
@@ -35,18 +35,88 @@ theme:
   features:
     - navigation.top
     - header.autohide
+    - content.tabs.link
   language: 'zh'
 
 extra_css:
-  - 'stylesheets/logo.css'
+  - stylesheets/logo.css
   - stylesheets/note.css
-  - css/version-select.css
   - stylesheets/extra.css
+  - css/version-select.css
+
+# Extensions
+markdown_extensions:
+  - footnotes
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+#      toc_depth: 3
+      permalink: true
+      separator: "_"
+  - mdx_truly_sane_lists
+  - pymdownx.superfences
+  - pymdownx.snippets:
+      base_path: docs-2.0/reuse/
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.caret
+  - pymdownx.tilde
+  - pymdownx.superfences
+  - pymdownx.tabbed
+
+# Plugins
+plugins:
+  - search
+  - macros:
+      include_dir: docs-2.0/reuse/
+  - git-revision-date-localized
+# modify when release: 
+  - exclude:
+# Exclude files with unix-style wildcards (globs)
+      glob:
+# Exclude all files in a directory. The path starts with the directory name in docs-2.0, such as `20.appendix/*`.
+        - nebula-flink/*
+        - CHANGELOG.md
+        - spark-connector/*
+        - 4.deployment-and-installation/5.zone.md
+        - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
+        - nebula-cloud/*
+# Exclude the file with the following file name.
+#        - abc.md
+# Exclude files with regular expressions (regexes)
+#    regex:
+#      - '.*\.(tmp|bin|tar)$'
+
+# modify when release: 
+  - with-pdf:
+      copyright: 2022 vesoft Inc.
+      cover_subtitle: master
+      author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
+      cover: true
+      back_cover: true
+      cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
+      output_path: pdf/NebulaGraph-CN.pdf
+
+extra_javascript:
+  - js/version-select.js      
+  - js/config.js
+  - js/jquery.js
+  - js/init.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+# modify when release: 
 extra:
   analytics:
     provider: google
     property: UA-60523578-15
   # branch represents code names (git clone). release represents version number used in texts.
+  version:
+    method: mike
+  social:
+    - icon: 'fontawesome/brands/github'
+      link: 'https://github.com/vesoft-inc/nebula-docs-cn'
   nebula:
     release: master
     nightly: nightly
@@ -54,21 +124,21 @@ extra:
     base20: 2.0
     base200: 2.0.0
     branch: release-3.1
-  version:
-    method: mike
-  social:
-    - icon: 'fontawesome/brands/github'
-      link: 'https://github.com/vesoft-inc/nebula-docs-cn'
+    tag: master
   studio:
     base111b: 1.1.1-beta
     base220: 2.2.1
     base300: 3.0.0
-    release: 3.3.0
+    release: 3.3.1
+    tag: v3.3.0
   explorer:
     release: 3.0.0
+    branch: reelase-3.0
+    tag: v3.0.0
   exchange_ent:
     release: 3.0.0
     branch: v3.0.0
+    tag: v3.0.0
   exchange:
     release: 3.0.0
     branch: v3.0.0
@@ -76,12 +146,15 @@ extra:
   importer:
     release: 3.1.0
     branch: release-3.1
+    tag: v3.1.0
   algorithm:
     release: 3.0.0
     branch: v3.0.0
+    tag: v3.0.0
   plato:
-    release: 1.1.0
-    branch: release-1.1
+    release: 3.1.0
+    branch: release-3.1
+    tag: v3.1.0
   sparkconnector:
     release: 3.0.0
     branch: v3.0.0
@@ -93,43 +166,60 @@ extra:
   dockercompose:
     release: 3.1.0
     branch: release-3.1
-  common:
-    release: 2.5.0
+    tag: v3.1.0
   dashboard:
-    release: 3.0.0
+    release: 1.1.0
+    tag: v1.1.0
     base100: 1.0.0
-    branch: release-3.0
+    branch: v1.1.0
   dashboard_ent:
     release: 3.0.0
+    tag: v3.0.0
+    branch: release-3.0
   console:
     release: 3.0.0
     branch: v3.0.0
+    tag: v3.0.0
   br:
-    release: 0.7.0
+    release: 0.6.0
+    branch: master
+    tag: v0.6.0
   cpp:
     release: 3.0.0
     branch: v3.0.0
+    tag: v3.0.0
   java:
     release: 3.0.0
     branch: v3.0.0
+    tag: v3.0.0
   python:
     release: 3.1.0
     branch: release-3.1
+    tag: v3.1.0
   go:
     release: 3.1.0
-    branch: release-v3.1
+    branch: release-3.1
+    tag: v3.1.0
   bench:
-    release: 1.1.0
-    branch: release-1.1
-    tag: v1.1.0
+    release: 1.2.0
+    branch: release-1.2
+    tag: v1.2.0
   operator:
     release: 1.1.0
+    tag: v1.1.0
     branch: release-1.1
     upgrade_from: 3.0.0
     upgrade_to: 3.1.x
   exporter:
-    release: 3.0.0
+    release: 3.1.0
     branch: release-3.1
+    tag: v3.1.0
+  gateway:
+    release: 3.1.2
+    branch: release-3.1
+    tag: v3.1.2
+
+
 nav:
   - 前言: README.md
   - 简介:
@@ -148,11 +238,11 @@ nav:
 
   - 快速入门:
       - 快速入门流程: 2.quick-start/1.quick-start-workflow.md
-      - 步骤1：安装 Nebula Graph: 2.quick-start/2.install-nebula-graph.md
-      - 步骤2：启动 Nebula Graph: 2.quick-start/5.start-stop-service.md
-      - 步骤3：连接 Nebula Graph: 2.quick-start/3.connect-to-nebula-graph.md
-      - 步骤4：注册 Storage 服务: 2.quick-start/3.1add-storage-hosts.md
-      - 步骤5：使用常用命令: 2.quick-start/4.nebula-graph-crud.md
+      - 步骤1:安装 Nebula Graph: 2.quick-start/2.install-nebula-graph.md
+      - 步骤2:启动 Nebula Graph: 2.quick-start/5.start-stop-service.md
+      - 步骤3:连接 Nebula Graph: 2.quick-start/3.connect-to-nebula-graph.md
+      - 步骤4:注册 Storage 服务: 2.quick-start/3.1add-storage-hosts.md
+      - 步骤5:使用常用命令: 2.quick-start/4.nebula-graph-crud.md
       - nGQL 命令汇总: 2.quick-start/6.cheatsheet-for-ngql-command.md
 
   - nGQL 指南:
@@ -313,6 +403,7 @@ nav:
           - 使用 tar.gz 文件安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/4.install-nebula-graph-from-tar.md
           - 使用 Docker Compose 部署: 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
           - 使用 RPM/DEB 包部署多机集群: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
+          - 使用生态工具安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/6.deploy-nebula-graph-with-peripherals.md
       - 安装存算合并版 Nebula Graph: 4.deployment-and-installation/standalone-deployment.md
       - 设置企业版 License: 4.deployment-and-installation/deploy-license.md      
       - 管理服务: 4.deployment-and-installation/manage-service.md
@@ -394,10 +485,10 @@ nav:
 #    - 用户服务条款: nebula-cloud/7.terms-and-conditions.md
 #    - 隐私政策条款: nebula-cloud/8.privacy-policy.md
 
-  - Nebula Graph Studio:
+  - Nebula Studio:
     - Studio 版本更新说明: nebula-studio/about-studio/st-ug-release-note.md
-    - 认识 Nebula Graph Studio:
-      - 什么是 Nebula Graph Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
+    - 认识 Nebula Studio:
+      - 什么是 Nebula Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
       - 使用限制: nebula-studio/about-studio/st-ug-limitations.md
     - 安装与登录:
       - 部署 Studio: nebula-studio/deploy-connect/st-ug-deploy.md
@@ -523,7 +614,7 @@ nav:
   - Nebula Bench: nebula-bench.md
 
   - 附录:
-      - Release Note: 20.appendix/releasenote.md
+      - Release Note: 20.appendix/release-note.md
       - 学习路径: 20.appendix/learning-path.md
       - 常见问题 FAQ: 20.appendix/0.FAQ.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
@@ -536,60 +627,3 @@ nav:
 
   - English Docs: https://docs.nebula-graph.io/
   - PDF: ./pdf/NebulaGraph-CN.pdf
-
-# Extensions
-markdown_extensions:
-  - footnotes
-  - admonition
-  - codehilite:
-      guess_lang: false
-  - toc:
-#      toc_depth: 3
-      permalink: true
-      separator: "_"
-  - mdx_truly_sane_lists
-  - pymdownx.superfences
-  - pymdownx.snippets:
-      base_path: docs-2.0/reuse/
-  - pymdownx.arithmatex:
-      generic: true
-
-# Plugins
-plugins:
-  - search
-  - macros:
-      include_dir: docs-2.0/reuse/
-  - git-revision-date-localized
-
-  - exclude:
-# Exclude files with unix-style wildcards (globs)
-      glob:
-# Exclude all files in a directory. The path starts with the directory name in docs-2.0, such as `20.appendix/*`.
-        - nebula-flink/*
-        - CHANGELOG.md
-        - spark-connector/*
-        - 4.deployment-and-installation/5.zone.md
-        - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
-        - nebula-cloud/*
-# Exclude the file with the following file name.
-#        - abc.md
-# Exclude files with regular expressions (regexes)
-#    regex:
-#      - '.*\.(tmp|bin|tar)$'
-
-  - with-pdf:
-      copyright: 2022 vesoft Inc.
-      cover_subtitle: master since 3.0.0
-      author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
-      cover: true
-      back_cover: true
-      cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
-      output_path: pdf/NebulaGraph-CN.pdf
-
-extra_javascript:
-  - js/version-select.js
-  - js/config.js
-  - js/jquery.js
-  - js/init.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
