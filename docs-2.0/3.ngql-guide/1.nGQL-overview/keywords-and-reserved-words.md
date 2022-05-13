@@ -14,7 +14,7 @@
 
 ```ngql
 nebula> CREATE TAG TAG(name string);
-[ERROR (-1004)]: SyntaxError: syntax error near `TAG'
+[ERROR (-7)]: SyntaxError: syntax error near `TAG'
 
 nebula> CREATE TAG `TAG` (name string);
 Execution succeeded
@@ -106,7 +106,6 @@ PROP
 REBUILD
 RECOVER
 REMOVE
-RESTART
 RETURN
 REVERSELY
 REVOKE

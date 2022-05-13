@@ -88,14 +88,16 @@ nebula> GO 3 STEPS FROM "player100" \
 | "Manu Ginobili" | 41           |
 +-----------------+--------------+
 
-nebula> GO 3 STEPS FROM "player102" OVER * BIDIRECT\
+nebula> GO 3 STEPS FROM "player102" OVER * \
         YIELD dst(edge) \
         LIMIT [rand32(5),rand32(5),rand32(5)];
 +-------------+
 | dst(EDGE)   |
 +-------------+
+| "team204"   |
+| "team215"   |
 | "player100" |
-| "player100" |
+| "player102" |
 +-------------+
 ```
 
