@@ -201,6 +201,10 @@ nebula> MATCH (v:player) \
 nebula> MATCH (v:player) \
         WHERE v.player.name STARTS WITH "t" \
         RETURN v.player.name, v.player.age;
++---------------+--------------+
+| v.player.name | v.player.age |
++---------------+--------------+
++---------------+--------------+
 Empty set (time spent 5080/6474 us)
 ```
 

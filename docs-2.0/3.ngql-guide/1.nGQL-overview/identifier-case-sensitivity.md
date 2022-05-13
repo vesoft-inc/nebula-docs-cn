@@ -7,7 +7,7 @@
 ```ngql
 nebula> CREATE SPACE IF NOT EXISTS my_space (vid_type=FIXED_STRING(30));
 nebula> use MY_SPACE;
-[ERROR (-8)]: SpaceNotFound:
+[ERROR (-1005)]: SpaceNotFound: 
 ```
 
 ## 关键字不区分大小写

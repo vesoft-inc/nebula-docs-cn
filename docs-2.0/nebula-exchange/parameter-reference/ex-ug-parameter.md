@@ -141,7 +141,7 @@
 |`tags.table`|string|-|是|需要作为数据源的表名称。|
 |`tags.user`|string|-|是|拥有读取权限的 MySQL/PostgreSQL 用户名。|
 |`tags.password`|string|-|是|用户名对应密码。|
-|`tags.sentence`|string|-|是|查询数据源的语句。例如`"select teamid, name from basketball.team order by teamid;"`。|
+|`tags.sentence`|string|-|是|查询数据源的语句。例如`"select teamid, name from team order by teamid"`。|
 
 ### ClickHouse 源特有参数
 
