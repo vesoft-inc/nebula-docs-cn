@@ -31,12 +31,8 @@
 
 7. 2021.8 发布 v2.5.0
 
-  ![image](https://docs-cdn.nebula-graph.com.cn/books/images/2.5.0.png)
-
 8. 2021.10 发布 v2.6.0
-
-  更多信息，参见[Releases](https://github.com/vesoft-inc/nebula/releases)。
 
 9. 2022.2 发布 v3.0.0
 
-  更多信息，参见[Releases](https://github.com/vesoft-inc/nebula/releases)。
+10. 2022.4 发布 v3.1.0

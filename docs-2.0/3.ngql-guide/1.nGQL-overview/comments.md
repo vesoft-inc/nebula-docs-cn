@@ -2,10 +2,11 @@
 
 本文介绍 nGQL 中的注释方式。
 
-## 历史版本兼容性
 
-* Nebula Graph 1.x 支持四种注释方式：`#`、`--`、`//`、`/* */`。
-* Nebula Graph 2.x 中，`--`不再是注释符。
+!!! compatibility "历史版本兼容性"
+    
+    - Nebula Graph 1.x 支持四种注释方式：`#`、`--`、`//`、`/* */`。
+    - Nebula Graph 2.x 中，`--`不再是注释符。
 
 ## Examples
 

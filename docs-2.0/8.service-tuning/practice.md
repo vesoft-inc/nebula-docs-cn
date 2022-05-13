@@ -30,7 +30,7 @@ Nebula Graph 在各行各业都有应用，本文介绍部分实践案例。更�
 
 - [基于 Nebula Importer 批量导入工具性能验证方案总结](https://nebula-graph.com.cn/posts/nebula-importer-practice/)
 
-- [详解 Nebula 2.0 性能测试和 Nebula Importer 数据导入调优](https://nebula-graph.com.cn/posts/v2.0-benchmark-and-nebula-importer-optimize/)
+- [详解 Nebula 3.0 性能报告](https://nebula-graph.com.cn/posts/nebula-graph-v3.0.0-benchmark-report/)
 
 - [Nebula Graph 支持 JDBC 协议](https://nebula-graph.com.cn/posts/what-is-nebula-jdbc/)
 

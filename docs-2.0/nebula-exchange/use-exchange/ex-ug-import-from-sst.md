@@ -26,7 +26,7 @@ Exchange 支持两种数据导入模式：
 
   !!! caution
   
-        虽然导入速度快，但是导入期间（大约 10 秒）会阻塞对应空间的写操作，建议在业务低峰期进行导入。
+        导入期间（大约 10 秒）会阻塞对应空间的写操作，并且之后数小时内可能有历史数据整理，建议在业务低峰期进行导入。
 
 - 适合数据源数据量较大的场景，导入速度快。
 
@@ -224,7 +224,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
       output: /tmp/errors
     }
 
-    # 使用谷歌的 RateLimiter 来限制发送到 NebulaGraph 的请求。
+    # 使用Google Guava RateLimiter 来限制发送到 Nebula Graph 的请求。
     rate: {
       # RateLimiter 的稳定吞吐量。
       limit: 1024
@@ -524,7 +524,7 @@ ${SPARK_HOME}/bin/spark-submit  --master "local" --conf spark.sql.shuffle.partit
 
 ### 步骤 6：（可选）验证数据
 
-用户可以在 Nebula Graph 客户端（例如 Nebula Graph Studio）中执行查询语句，确认数据是否已导入。例如：
+用户可以在 Nebula Graph 客户端（例如 Nebula Studio）中执行查询语句，确认数据是否已导入。例如：
 
 ```ngql
 GO FROM "player100" OVER follow;

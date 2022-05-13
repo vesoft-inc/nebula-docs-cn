@@ -191,7 +191,7 @@ mysql> desc serve;
       table:"player"
       user:"test"
       password:"123456"
-      sentence:"select playerid, age, name from basketball order by playerid;"
+      sentence:"select playerid, age, name from player order by playerid"
 
       # 在 fields 里指定 player 表中的列名称，其对应的 value 会作为 Nebula Graph 中指定属性。
       # fields 和 nebula.fields 里的配置必须一一对应。
@@ -224,7 +224,7 @@ mysql> desc serve;
       table:"team"
       user:"test"
       password:"123456"
-      sentence:"select teamid, name from basketball order by teamid;"
+      sentence:"select teamid, name from team order by teamid"
 
       fields: [name]
       nebula.fields: [name]
@@ -259,7 +259,7 @@ mysql> desc serve;
       table:"follow"
       user:"test"
       password:"123456"
-      sentence:"select src_player,dst_player,degree from basketball order by src_player;"
+      sentence:"select src_player,dst_player,degree from follow order by src_player"
 
       # 在 fields 里指定 follow 表中的列名称，其对应的 value 会作为 Nebula Graph 中指定属性。
       # fields 和 nebula.fields 里的配置必须一一对应。
@@ -301,7 +301,7 @@ mysql> desc serve;
       table:"serve"
       user:"test"
       password:"123456"
-      sentence:"select playerid,teamid,start_year,end_year from basketball order by playerid;"
+      sentence:"select playerid,teamid,start_year,end_year from serve order by playerid"
       fields: [start_year,end_year]
       nebula.fields: [start_year,end_year]
       source: {
@@ -343,7 +343,7 @@ ${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.excha
 
 ### 步骤 4：（可选）验证数据
 
-用户可以在 Nebula Graph 客户端（例如 Nebula Graph Studio）中执行查询语句，确认数据是否已导入。例如：
+用户可以在 Nebula Graph 客户端（例如 Nebula Studio）中执行查询语句，确认数据是否已导入。例如：
 
 ```ngql
 GO FROM "player100" OVER follow;
