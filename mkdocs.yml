@@ -20,11 +20,15 @@ theme:
   favicon: 'icon/favicon.ico'
   # Change color in `stylesheets > extra.css`
   palette:
-    - scheme: nebula
+    - scheme: default
+      primary: teal
+      accent: light green
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to dark mode
     - scheme: slate
+      primary: deep orange
+      accent: red
       toggle:
         icon: material/toggle-switch
         name: Switch to light mode
