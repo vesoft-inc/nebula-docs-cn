@@ -52,7 +52,7 @@ Nebula Analytics 支持的图计算算法如下。
 在多个机器安装由多个 Nebula Analytics 服务构成的集群时，需要安装路径相同，并设置节点间 SSH 免密登录。
 
 ```bash
-sudo rpm -i nebula-analytics-3.1.0-centos.x86_64.rpm  --prefix /home/xxx/nebula-analytics
+sudo rpm -i nebula-analytics-{{plato.release}}-centos.x86_64.rpm  --prefix /home/xxx/nebula-analytics
 ```
 
 <!--
