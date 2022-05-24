@@ -108,13 +108,13 @@ nGQL 没有严格的构建格式要求，但根据恰当而统一的风格创建
   不推荐：
 
   ```ngql
-  go from "player100" over Follow
+  match (V:player) return V limit 5
   ```
   
   推荐：
     
   ```ngql
-  GO FROM "player100" OVER follow
+  MATCH (v:player) RETURN v LIMIT 5
   ```
 
 ## Pattern
@@ -202,13 +202,13 @@ nGQL 没有严格的构建格式要求，但根据恰当而统一的风格创建
   不推荐：
 
   ```ngql
-  FETCH PROP ON player "player100"
+  FETCH PROP ON player "player100" YIELD properties(vertex)
   ```
 
   推荐：
 
   ```ngql
-  FETCH PROP ON player "player100";
+  FETCH PROP ON player "player100" YIELD properties(vertex);
   ```
 
 2. 使用管道符（|）分隔的复合语句，仅在最后一行末用英文分号结尾。在管道符前使用英文分号会导致语句执行失败。
