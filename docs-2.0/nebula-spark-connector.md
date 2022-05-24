@@ -22,7 +22,7 @@ Nebula Spark Connector 适用于以下场景：
 
 - Nebula Graph 与其他数据源之间迁移数据。
 
-- 结合 [Nebula Algorithm](nebula-algorithm.md) 进行图计算。
+- 结合 [Nebula Algorithm](graph-computing/nebula-algorithm.md) 进行图计算。
 
 ## 特性
 
