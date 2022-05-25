@@ -104,7 +104,7 @@ extra_javascript:
 
 # modify when release: 
 extra:
-  google_analytics:
+  analytics:
     provider: google
     property: UA-60523578-15
   # branch represents code names (git clone). release represents version number used in texts.
