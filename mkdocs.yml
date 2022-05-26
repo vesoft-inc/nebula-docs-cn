@@ -13,11 +13,9 @@ edit_uri: 'edit/v3.1.0/docs-2.0/'
 # Configuration
 theme:
   name: material
-  custom_dir: material
-  static_templates:
-    - 404.html
+  custom_dir: overrides
   logo: 'https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png'
-  favicon: 'icon/favicon.ico'
+  favicon: 'assets/images/favicon.ico'
   # Change color in `stylesheets > extra.css`
   palette:
     - scheme: nebula
