@@ -162,10 +162,10 @@ extra:
     branch: release-3.1
     tag: v3.1.0
   dashboard:
-    release: 1.1.0
-    tag: v1.1.0
+    release: 1.1.1
+    tag: v1.1.1
     base100: 1.0.0
-    branch: v1.1.0
+    branch: v1.1.1
   dashboard_ent:
     release: 3.0.0
     tag: v3.0.0
