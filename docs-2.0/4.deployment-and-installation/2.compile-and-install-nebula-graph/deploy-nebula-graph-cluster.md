@@ -27,7 +27,13 @@ Nebula Graph 不提供官方的集群部署工具，用户可以使用 RPM 或 D
 
 - [使用源码安装 Nebula Graph](1.install-nebula-graph-by-compiling-the-source-code.md)
 
-### 2. 修改配置文件
+### 2.（企业版）设置 License。
+
+- 如果部署企业版 Nebula Graph，需要设置 License。详情请参见[设置 Nebula Graph 企业版 License](../../4.deployment-and-installation/deploy-license.md)。
+
+- 如果部署社区版 Nebula Graph，略过此步骤。
+
+### 3. 修改配置文件
 
 修改每个服务器上的 Nebula Graph 配置文件。
 
@@ -255,7 +261,7 @@ Nebula Graph 的所有配置文件均位于安装目录的`etc`目录内，包�
     --port=9779
     ```
 
-### 3. 启动集群
+### 4. 启动集群
 
 依次启动**各个服务器**上的对应进程。
 
@@ -281,7 +287,7 @@ sudo /usr/local/nebula/scripts/nebula.service start <metad|graphd|storaged|all>
 
     - `/usr/local/nebula`是 Nebula Graph 的默认安装路径，如果修改过安装路径，请使用实际路径。更多启停服务的内容，请参见[管理 Nebula Graph 服务](../../2.quick-start/5.start-stop-service.md)。
 
-### 4. 检查集群
+### 5. 检查集群
 
 安装原生 CLI 客户端 [Nebula Console](../../2.quick-start/3.connect-to-nebula-graph.md#_1)，然后连接任何一个已启动 graphd 进程的机器，添加 Storage 主机，然后执行命令`SHOW HOSTS`检查集群状态。例如：
 
