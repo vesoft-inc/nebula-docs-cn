@@ -530,9 +530,10 @@ nav:
         - 集群操作: nebula-dashboard-ent/4.cluster-operator/4.manage.md
         - 操作记录: nebula-dashboard-ent/4.cluster-operator/5.operation-record.md
         - 其他设置: nebula-dashboard-ent/4.cluster-operator/6.settings.md
-      - 权限管理: nebula-dashboard-ent/5.account-management.md
-      - 全局配置: nebula-dashboard-ent/6.global-config.md
       - 任务中心: nebula-dashboard-ent/10.tasks.md
+      - 权限管理: nebula-dashboard-ent/5.account-management.md
+      - 安装包管理: nebula-docs-cn/docs-2.0/nebula-dashboard-ent/11.manage-package.md
+      - 全局配置: nebula-dashboard-ent/6.global-config.md
       - 监控指标说明: nebula-dashboard-ent/7.monitor-parameter.md
       - 常见问题 FAQ: nebula-dashboard-ent/8.faq.md
 
