@@ -184,7 +184,7 @@
 |参数|数据类型|默认值|是否必须|说明|
 |:---|:---|:---|:---|:---|
 |`tags.path`|string|-|是|指定需要生成 SST 文件的源文件的路径。|
-|`tags.repartitionWithNebula`|bool|`false`|否|生成 SST 文件时是否要基于 Nebula Graph 中图空间的 partition 进行数据重分区。开启该功能可减少 DOWNLOAD 和 INGEST SST 文件需要的时间。|
+|`tags.repartitionWithNebula`|bool|`false`|否|生成 SST 文件时是否要基于 Nebula Graph 中图空间的 partition 进行数据重分区。开启该功能可减少 DOWNLOAD 和 INGEST SST 文件需要的时间。当图空间的分片数量（partition_num）大于`1`时，请设置为`true`，否则可能会导致生成的数据文件中只包含无 Tag 的点。|
 
 ### Nebula Graph 源特有参数
 
