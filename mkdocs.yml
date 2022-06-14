@@ -108,6 +108,12 @@ extra_javascript:
 
 # modify when release: 
 extra:
+  # Language selector.
+  alternate:
+    - name: English
+      link: https://docs.nebula-graph.io/
+      lang: en
+  # Google Analytics.
   analytics:
     provider: google
     property: UA-60523578-15
