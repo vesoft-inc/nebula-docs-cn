@@ -18,7 +18,7 @@ Nebula Analytics 是一款高性能图计算框架工具，支持对 Nebula Grap
 
 Nebula Analytics 版本和 Nebula Graph 内核的版本对应关系如下。
 
-|Analytics client 版本|Nebula Graph 版本|
+|Nebula Analytics 版本|Nebula Graph 版本|
 |:---|:---|
 |{{plato.release}}|{{nebula.release}}|
 |1.0.x|3.0.x|
