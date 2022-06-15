@@ -90,7 +90,7 @@ License 文件包含生效时间、过期时间等信息。说明如下。
 
   !!! note
 
-        当用户的 License 超过到期后的缓冲期，Graph 和 Storage 服务会自动停止。为了确保服务正常运行，请及时更新 License。
+        当用户的 License 过期时间超过到期后的缓冲期，Graph 和 Storage 服务会自动停止。为了确保服务正常运行，请及时更新 License。
 
 ## 查看 Nebula Graph 企业版 License
 
