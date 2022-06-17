@@ -531,6 +531,7 @@ nav:
         - 集群信息: nebula-dashboard-ent/4.cluster-operator/3.cluster-information.md
         - 集群诊断: nebula-dashboard-ent/4.cluster-operator/7.cluster-diagnosis.md
         - 集群操作: nebula-dashboard-ent/4.cluster-operator/4.manage.md
+        - 备份与恢复: nebula-dashboard-ent/4.cluster-operator/8.backup-and-restore.md
         - 操作记录: nebula-dashboard-ent/4.cluster-operator/5.operation-record.md
         - 其他设置: nebula-dashboard-ent/4.cluster-operator/6.settings.md
       - 权限管理: nebula-dashboard-ent/5.account-management.md
