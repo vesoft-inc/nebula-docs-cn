@@ -260,4 +260,4 @@
 
 考试用书[《开源分布式图数据库 Nebula Graph 完全指南》](https://docs.nebula-graph.com.cn/site/pdf/NebulaGraph-book.pdf)
 
-单击[Nebula Graph （第N期） 个人技能认证](https://discuss.nebula-graph.com.cn/t/topic/5253)查看考试入口及考试开放和截止时间。
+单击[Nebula Graph 个人技能认证](https://discuss.nebula-graph.com.cn/t/topic/8728)查看考试说明及入口。

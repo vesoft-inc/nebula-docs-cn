@@ -60,10 +60,10 @@ nGQL 支持的 TTL 选项如下。
 nebula> CREATE TAG IF NOT EXISTS t1 (a timestamp);
 
 # ALTER 修改 Tag，添加 TTL 选项。
-nebula> ALTER TAG t1 ttl_col = "a", ttl_duration = 5;
+nebula> ALTER TAG t1 TTL_COL = "a", TTL_DURATION = 5;
 
 # 插入点，插入后 5 秒过期。
-nebula> INSERT VERTEX t1(a) values "101":(now());
+nebula> INSERT VERTEX t1(a) VALUES "101":(now());
 ```
 
 ### Tag 或 Edge type 不存在
@@ -72,10 +72,10 @@ nebula> INSERT VERTEX t1(a) values "101":(now());
 
 ```ngql
 # 创建 Tag 并设置 TTL 选项。
-nebula> CREATE TAG IF NOT EXISTS t2(a int, b int, c string) ttl_duration= 100, ttl_col = "a";
+nebula> CREATE TAG IF NOT EXISTS t2(a int, b int, c string) TTL_DURATION= 100, TTL_COL = "a";
 
 # 插入点。过期时间戳为 1648197238（1648197138 + 100）。
-nebula> INSERT VERTEX t2(a, b, c) values "102":(1648197138, 30, "Hello");
+nebula> INSERT VERTEX t2(a, b, c) VALUES "102":(1648197138, 30, "Hello");
 ```
 
 ## 删除存活时间
@@ -91,11 +91,11 @@ nebula> INSERT VERTEX t2(a, b, c) values "102":(1648197138, 30, "Hello");
 - 设置`ttl_col`为空字符串。
 
     ```ngql
-    nebula> ALTER TAG t1 ttl_col = "";
+    nebula> ALTER TAG t1 TTL_COL = "";
     ```
 
 - 设置`ttl_duration`为`0`。本操作可以保留 TTL 选项，属性永不过期，且属性的 Schema 无法修改。
 
     ```ngql
-    nebula> ALTER TAG t1 ttl_duration = 0;
+    nebula> ALTER TAG t1 TTL_DURATION = 0;
     ```
