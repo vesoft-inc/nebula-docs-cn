@@ -82,6 +82,16 @@ License 文件包含生效时间、过期时间等信息。说明如下。
 
         周边工具的 License 文件上传位置，请参见[具体周边工具](../20.appendix/6.eco-tool-version.md)的说明文档。
 
+## 续期 Nebula Graph 企业版 License
+
+1. 发送邮件至`inqury@vesoft.com`申请新的 Nebula Graph 企业版 License。
+2. 在所有包含 Meta 服务的机器上，路径为每个 Meta 服务安装目录的`share/resources/`内，使用新的 License 文件`nebula.license`替换旧的 License 文件。
+3. 重启 Storage 和 Graph 服务。关于重启操作，参见[启动服务](manage-service.md)。如果用户的 License 的过期时间在到期后的缓冲期内（默认 14 天），则无需重启 Storage 和 Graph 服务。
+
+  !!! note
+
+        当用户的 License 过期时间超过到期后的缓冲期，Graph 和 Storage 服务会自动停止。为了确保服务正常运行，请及时更新 License。
+
 ## 查看 Nebula Graph 企业版 License
 
 - 直接查看 License 文件
