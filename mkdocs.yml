@@ -168,8 +168,8 @@ extra:
     base100: 1.0.0
     branch: v1.1.1
   dashboard_ent:
-    release: 3.0.0
-    tag: v3.0.0
+    release: 3.0.4
+    tag: v3.0.4
     branch: release-3.0
   console:
     release: 3.0.0
