@@ -480,7 +480,7 @@ nav:
         - 配套的应用（Dashboard/Studio/Explorer）: nebula-cloud/nebula-cloud-on-azure/5.solution/5.1.supporting-application.md
         - Private Link: nebula-cloud/nebula-cloud-on-azure/5.solution/5.2.connection-configuration-and-use.md
         - 管理角色权限: nebula-cloud/nebula-cloud-on-azure/5.solution/5.3.role-and-authority-management.md
-      - 价格: nebula-cloud/nebula-cloud-on-azure/6.pricing.md
+#      - 价格: nebula-cloud/nebula-cloud-on-azure/6.pricing.md
       - 用户服务条款: nebula-cloud/nebula-cloud-on-azure/7.terms-and-conditions.md
       - 隐私政策条款: nebula-cloud/nebula-cloud-on-azure/8.privacy-policy.md
     - Nebula Graph Cloud 阿里云版:
