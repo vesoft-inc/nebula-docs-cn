@@ -16,19 +16,21 @@ PageRank（页面排序）算法根据点之间的关系（边）计算点的相
 
 参数说明如下。
 
+<!--
 - Nebula Algorithm
 
   |参数|默认值|说明|
   |:--|:--|:--|
   |`maxIter`|`10`|最大迭代次数。|
   |`resetProb`|`0.15`||
+-->
 
 - Nebula Analytics
 
   |参数|默认值|说明|
   |:--|:--|:--|
   |`ITERATIONS`|`10`|最大迭代次数。|
-  |`IS_DIRECTED`|`true`|是否考虑边的方向。如果设置为`true`，系统会自动添加反向边。|
+  |`IS_DIRECTED`|`true`|是否考虑边的方向。如果设置为`false`，系统会自动添加反向边。|
   |`EPS`|`0.0001`|收敛精度，两轮迭代的结果差值之和小于这个值，结束迭代。|
   |`DAMPING`|`0.85`|阻尼系数，访问页面后的跳转概率。|
 
@@ -38,29 +40,33 @@ KCore 算法用于计算出没有小于 K 度的点组成的子图，通常使�
 
 参数说明如下。
 
+<!--
 - Nebula Algorithm
 
   |参数|默认值|说明|
   |:--|:--|:--|
   |`maxIter`|`10`|最大迭代次数。|
   |`degree`|`1`||
+-->
 
 - Nebula Analytics
 
   |参数|默认值|说明|
   |:--|:--|:--|
-  |`TYPE`|`vertex`|计算类型。取值：`vertex`、`subgraph`|
+  |`TYPE`|`vertex`|计算类型。取值：`vertex`、`subgraph`。`vertex`表示为每个点计算核数。|
   |`VERTICES`|`0`|点的数量。如果设置为`0`，系统会自动计算。|
   |`EDGES`|`0`|边的数量。如果设置为`0`，系统会自动计算。|
   |`KMIN`|`1`|范围计算时设置 K 的最小值。仅在`TYPE`=`subgraph`时生效。|
   |`KMAX`|`1000000`|范围计算时设置 K 的最大值。仅在`TYPE`=`subgraph`时生效。|
+  |`ITERATIONS`|`10`|最大迭代次数。|
 
-### DegreeCentrality
+### DegreeCentrality（NStepDegree）
 
 DegreeCentrality（度中心性） 算法用于查找图中的流行点。度中心性测量来自点的传入或传出（或两者）关系的数量，具体取决于关系投影的方向。一个点的度越大就意味着这个点的度中心性越高，该点在网络中就越重要。
 
 参数说明如下。
 
+<!--
 - Nebula Algorithm（这里叫DegreeStatic？？？？？？？？？）
 
   |参数|默认值|说明|
@@ -69,16 +75,16 @@ DegreeCentrality（度中心性） 算法用于查找图中的流行点。度中
   |``|``||
   |``|``||
   |``|``||
+-->
 
 - Nebula Analytics
 
   |参数|默认值|说明|
   |:--|:--|:--|
-  |`ITERATIONS`|`10`|最大迭代次数。|
+  |`IS_DIRECTED`|`true`|是否考虑边的方向。如果设置为`false`，系统会自动添加反向边。|
   |`STEP`|`3`|计算度数。`-1`表示无穷大。|
   |`BITS`|`6`|用于基数估计的 hyperloglog 位宽。|
   |`TYPE`|`both`|计算的边的方向。取值：`in`、`out`、`both`。|
-  |`ACTIVES`|`ALL`||
 
 ### DegreeWithTime
 
@@ -103,11 +109,13 @@ BetweennessCentrality（中介中心性）算法是一种检测点对图中信�
 
 参数说明如下。
 
+<!--
 - Nebula Algorithm
 
   |参数|默认值|说明|
   |:--|:--|:--|
   |`maxIter`|`5`|最大迭代次数。|
+-->
 
 - Nebula Analytics
 
@@ -124,6 +132,7 @@ ClosenessCentrality（紧密中心性）算法用于计算一个点到所有其�
 
 参数说明如下。
 
+<!--
 - Nebula Algorithm
 
   |参数|默认值|说明|
@@ -132,6 +141,7 @@ ClosenessCentrality（紧密中心性）算法用于计算一个点到所有其�
   |``|``||
   |``|``||
   |``|``||
+-->
 
 - Nebula Analytics
 
@@ -166,11 +176,13 @@ SSSP（单源最短路径）算法用于计算给定的一个点（起始点）�
 
 参数说明如下。
 
+<!--
 - Nebula Algorithm
 
   |参数|默认值|说明|
   |:--|:--|:--|
   |`sourceid`|-|起始点的 VID。|
+-->
 
 - Nebula Analytics
 
@@ -184,6 +196,7 @@ BFS（广度优先遍历）算法是一种基础的图遍历算法，它给定�
 
 参数说明如下。
 
+<!--
 - Nebula Algorithm
 
   |参数|默认值|说明|
@@ -192,6 +205,7 @@ BFS（广度优先遍历）算法是一种基础的图遍历算法，它给定�
   |``|``||
   |``|``||
   |``|``||
+-->
 
 - Nebula Analytics
 
@@ -199,6 +213,7 @@ BFS（广度优先遍历）算法是一种基础的图遍历算法，它给定�
   |:--|:--|:--|
   |`ROOT`|-|起始点的 VID。|
 
+<!--
 ### Node2Vec
 
 Node2Vec算法在 DeepWalk 的基础上提出了更加合理的图特征学习方法，提出了用于网络中可伸缩特征学习的半监督算法，使用 SGD 优化一个自定义的基于图的目标函数，该方法可以最大化的在 D 维特征空间保留节点的网络领域信息；在随机游走的基础上设计了一种二阶随机游走的过程，相当于对 DeepWalk 算法的一种扩展，它保留了邻居节点的图特征。适用于节点功能相似性比较、节点结构相似性比较、社团聚类等场景。
@@ -225,6 +240,7 @@ Node2Vec算法在 DeepWalk 的基础上提出了更加合理的图特征学习�
 |`degree`|`30`||
 |`embSeparate`|`","`||
 |`modelPath`|`"hdfs://127.0.0.1:9000/model"`||
+-->
 
 ## 社区发现算法
 
@@ -234,6 +250,7 @@ LPA（标签传播）算法是一种基于图的半监督学习方法，其基�
 
 参数说明如下。
 
+<!--
 - Nebula Algorithm
 
   |参数|默认值|说明|
@@ -242,6 +259,7 @@ LPA（标签传播）算法是一种基于图的半监督学习方法，其基�
   |``|``||
   |``|``||
   |``|``||
+-->
 
 - Nebula Analytics
 
@@ -257,6 +275,7 @@ HANP（Hop Attenuation & Node Preference）算法是LPA算法的优化算法，�
 
 参数说明如下。
 
+<!--
 - Nebula Algorithm
 
   |参数|默认值|说明|
@@ -264,6 +283,7 @@ HANP（Hop Attenuation & Node Preference）算法是LPA算法的优化算法，�
   |`hopAttenuation`|`0.1`|衰减因子。|
   |`maxIter`|`10`|最大迭代次数。|
   |`preference`|`1.0`||
+-->
 
 - Nebula Analytics
 
@@ -283,11 +303,13 @@ ConnectedComponent（联通分量）算法用于计算出图中的一个子图�
 
 参数说明如下。
 
+<!--
 - Nebula Algorithm
 
   |参数|默认值|说明|
   |:--|:--|:--|
   |`maxIter`|`10`|最大迭代次数。|
+-->
 
 - Nebula Analytics
 
@@ -302,6 +324,7 @@ Louvain 算法是基于模块度的社区发现算法，该算法在效率和效
 
 参数说明如下。
 
+<!--
 - Nebula Algorithm
 
   |参数|默认值|说明|
@@ -309,6 +332,7 @@ Louvain 算法是基于模块度的社区发现算法，该算法在效率和效
   |`maxIter`|`20`|最大迭代次数。|
   |`internalIter`|`10`||
   |`tol`|`0.5`||
+-->
 
 - Nebula Analytics
 
@@ -327,6 +351,7 @@ TriangleCount（三角计数）算法用于统计图中三角形个数。三角�
 
 参数说明如下。
 
+<!--
 - Nebula Algorithm
 
   |参数|默认值|说明|
@@ -335,6 +360,7 @@ TriangleCount（三角计数）算法用于统计图中三角形个数。三角�
   |``|``||
   |``|``||
   |``|``||
+-->
 
 - Nebula Analytics
 
@@ -352,6 +378,7 @@ ClusteringCoefficient（聚集系数）算法用于计算图中节点的聚集�
 
 参数说明如下。
 
+<!--
 - Nebula Algorithm
 
   |参数|默认值|说明|
@@ -360,6 +387,7 @@ ClusteringCoefficient（聚集系数）算法用于计算图中节点的聚集�
   |``|``||
   |``|``||
   |``|``||
+-->
 
 - Nebula Analytics
 
@@ -377,6 +405,7 @@ Jaccard（杰卡德相似度）算法用于计算两个点（或集合）的相�
 
 参数说明如下。
 
+<!--
 - Nebula Algorithm
 
   |参数|默认值|说明|
@@ -385,6 +414,7 @@ Jaccard（杰卡德相似度）算法用于计算两个点（或集合）的相�
   |``|``||
   |``|``||
   |``|``||
+-->
 
 - Nebula Analytics
 
