@@ -1,12 +1,19 @@
 # 算法简介
 
-图计算可以检测图结构，例如图中社区的检测、图的划分等，也可以揭示各个点之间关联关系的内在特征，例如点的中心性、相似性等。
+图计算可以检测图结构，例如图中社区的检测、图的划分等，也可以揭示各个点之间关联关系的内在特征，例如点的中心性、相似性等。本文介绍相关算法和参数。
 
+<!--
 Nebula Graph 支持多种图计算工具，本文介绍这些工具支持的算法和参数。
+-->
+!!! note
 
+    本文仅介绍 Nebula Analytics 的参数，Nebula Algorithm 的参数请先参见对应的[算法文件](https://github.com/vesoft-inc/nebula-algorithm/tree/{{algorithm.branch}}/example/src/main/scala/com/vesoft/nebula/algorithm)。
+
+<!--
 !!! note
 
     不同图计算工具支持的算法不同，参数也不同。详情参见下文说明。
+-->
 
 ## 节点重要度算法
 
@@ -64,10 +71,14 @@ KCore 算法用于计算出没有小于 K 度的点组成的子图，通常使�
 
 DegreeCentrality（度中心性） 算法用于查找图中的流行点。度中心性测量来自点的传入或传出（或两者）关系的数量，具体取决于关系投影的方向。一个点的度越大就意味着这个点的度中心性越高，该点在网络中就越重要。
 
+!!! note
+
+    Nebula Analytics 仅粗略估算度中心性。
+
 参数说明如下。
 
 <!--
-- Nebula Algorithm（这里叫DegreeStatic？？？？？？？？？）
+- Nebula Algorithm（这里叫DegreeStatic？）
 
   |参数|默认值|说明|
   |:--|:--|:--|
@@ -91,7 +102,7 @@ DegreeCentrality（度中心性） 算法用于查找图中的流行点。度中
 DegreeWithTime 算法是基于边的时间范围统计邻居，查找出图中的流行点。
 
 !!! note
-    
+
     仅 Nebula Analytics 支持该算法。
 
 参数说明如下。
@@ -99,7 +110,7 @@ DegreeWithTime 算法是基于边的时间范围统计邻居，查找出图中�
 |参数|默认值|说明|
 |:--|:--|:--|
 |`ITERATIONS`|`10`|最大迭代次数。|
-|`TYPE`|`both`|计算的边的方向。取值：`in`、`out`、`both`。|
+|`IS_DIRECTED`|`true`|是否考虑边的方向。如果设置为`false`，系统会自动添加反向边。|
 |`BEGIN_TIME`|-|起始时间。|
 |`END_TIME`|-|结束时间。|
 
@@ -122,9 +133,9 @@ BetweennessCentrality（中介中心性）算法是一种检测点对图中信�
   |参数|默认值|说明|
   |:--|:--|:--|
   |`ITERATIONS`|`10`|最大迭代次数。|
-  |`IS_DIRECTED`|`false`|是否考虑边的方向。如果设置为`true`，系统会自动添加反向边。|
-  |`CHOSEN`|`-1`||
-  |`CONSTANT`|`2`||
+  |`IS_DIRECTED`|`true`|是否考虑边的方向。如果设置为`false`，系统会自动添加反向边。|
+  |`CHOSEN`|`-1`| 选取的点ID，`-1`表示随机选。|
+  |`CONSTANT`|`2`|系数。|
 
 ### ClosenessCentrality
 
@@ -148,8 +159,8 @@ ClosenessCentrality（紧密中心性）算法用于计算一个点到所有其�
   |参数|默认值|说明|
   |:--|:--|:--|
   |`ITERATIONS`|`10`|最大迭代次数。|
-  |`IS_DIRECTED`|`false`|是否考虑边的方向。如果设置为`true`，系统会自动添加反向边。|
-  |`NUM_SAMPLES`|`10`|要测试的点数量。|
+  |`IS_DIRECTED`|`true`|是否考虑边的方向。如果设置为`false`，系统会自动添加反向边。|
+  |`NUM_SAMPLES`|`10`|采样的点数量。|
 
 ## 路径算法
 
@@ -158,17 +169,14 @@ ClosenessCentrality（紧密中心性）算法用于计算一个点到所有其�
 APSP（全图最短路径）算法用于寻找图中两点之间的所有最短路径。
 
 !!! note
-    
+
     仅 Nebula Analytics 支持该算法。
 
 参数说明如下。
 
 |参数|默认值|说明|
 |:--|:--|:--|
-|``|``||
-|``|``||
-|``|``||
-|``|``||
+|`WEIGHT`|-|边的最大权重。|
 
 ### SSSP
 
@@ -188,7 +196,8 @@ SSSP（单源最短路径）算法用于计算给定的一个点（起始点）�
 
   |参数|默认值|说明|
   |:--|:--|:--|
-  |`SOURCE`|-|起始点的 VID。|
+  |`WEIGHT`|-|边的最大权重。|
+  |`ROOT`|-|起始点的 VID。|
 
 ### BFS
 
@@ -211,6 +220,8 @@ BFS（广度优先遍历）算法是一种基础的图遍历算法，它给定�
 
   |参数|默认值|说明|
   |:--|:--|:--|
+  |`WEIGHT`|-|边的最大权重。|
+  |`IS_DIRECTED`|`true`|是否考虑边的方向。如果设置为`false`，系统会自动添加反向边。|
   |`ROOT`|-|起始点的 VID。|
 
 <!--
@@ -265,9 +276,9 @@ LPA（标签传播）算法是一种基于图的半监督学习方法，其基�
 
   |参数|默认值|说明|
   |:--|:--|:--|
-  |`ITERATIONS`|`20`|最大迭代次数。|
-  |`IS_DIRECTED`|`true`|是否考虑边的方向。如果设置为`true`，系统会自动添加反向边。|
-  |`IS_CALC_MODULARITY`|`false`||
+  |`ITERATIONS`|`10`|最大迭代次数。|
+  |`IS_DIRECTED`|`true`|是否考虑边的方向。如果设置为`false`，系统会自动添加反向边。|
+  |`IS_CALC_MODULARITY`|`false`|是否计算模块度。|
 
 ### HANP
 
@@ -290,15 +301,16 @@ HANP（Hop Attenuation & Node Preference）算法是LPA算法的优化算法，�
   |参数|默认值|说明|
   |:--|:--|:--|
   |`ITERATIONS`|`10`|最大迭代次数。|
-  |`PREFERENCE`|`1.0`|起始分值？？？？官方描述为is any arbitrary comparable characteristic for any node.|
-  |`HOP_ATT`|`0.1`|衰减因子。|
+  |`IS_DIRECTED`|`true`|是否考虑边的方向。如果设置为`false`，系统会自动添加反向边。|
+  |`PREFERENCE`|`1.0`|对邻居节点度的偏向性。`m>0`表示偏向节点度高的邻居，`m<0`表示偏向节点度低的邻居，`m=0`表示不考虑邻居节点度。|
+  |`HOP_ATT`|`0.1`|衰减因子。取值范围`0`~`1`。值越大衰减的越快，可以传递的次数越少。|
 
 ### ConnectedComponent
 
 ConnectedComponent（联通分量）算法用于计算出图中的一个子图，当中所有节点都相互连接。考虑路径方向的为强联通分量（strongly connected component），不考虑路径方向的为弱联通分量（weakly connected component）。
 
 !!! note
-    
+
     Nebula Analytics 仅支持弱联通分量。
 
 参数说明如下。
@@ -315,8 +327,8 @@ ConnectedComponent（联通分量）算法用于计算出图中的一个子图�
 
   |参数|默认值|说明|
   |:--|:--|:--|
-  |`IS_DIRECTED`|`false`|是否考虑边的方向。|
-  |`IS_CALC_MODULARITY`|`false`||
+  |`IS_DIRECTED`|`true`|是否考虑边的方向。如果设置为`false`，系统会自动添加反向边。|
+  |`IS_CALC_MODULARITY`|`false`|是否计算模块度。|
 
 ### Louvain
 
@@ -338,10 +350,10 @@ Louvain 算法是基于模块度的社区发现算法，该算法在效率和效
 
   |参数|默认值|说明|
   |:--|:--|:--|
-  |`IS_DIRECTED`|`true`|是否考虑边的方向。如果设置为`true`，系统会自动添加反向边。|
-  |`OUTER_ITERATION`|`20`||
-  |`INNER_ITERATION`|`10`||
-  |`IS_CALC_MODULARITY`|`false`||
+  |`IS_DIRECTED`|`true`|是否考虑边的方向。如果设置为`false`，系统会自动添加反向边。|
+  |`OUTER_ITERATION`|`20`|第一阶段最大迭代次数。|
+  |`INNER_ITERATION`|`10`|第二阶段最大迭代次数。|
+  |`IS_CALC_MODULARITY`|`false`|是否计算模块度。|
 
 ## 图特征算法
 
@@ -367,8 +379,8 @@ TriangleCount（三角计数）算法用于统计图中三角形个数。三角�
   |参数|默认值|说明|
   |:--|:--|:--|
   |`OPT`|`3`|计算类型。取值：`1`（统计整个图）、`2`（通过每个点统计）、`3`（列出所有三角形）。|
-  |`REMOVED_DUPLICATION_EDGE`|`true`||
-  |`REMOVED_SELF_EDGE`|`true`||
+  |`REMOVED_DUPLICATION_EDGE`|`true`|是否排除重复边。|
+  |`REMOVED_SELF_EDGE`|`true`|是否排除自环边。|
 
 ## 聚类算法
 
@@ -393,9 +405,9 @@ ClusteringCoefficient（聚集系数）算法用于计算图中节点的聚集�
 
   |参数|默认值|说明|
   |:--|:--|:--|
-  |`TYPE`|`local`|聚集类型。取值：`local`、`global`。|
-  |`REMOVED_DUPLICATION_EDGE`|``||
-  |`REMOVED_SELF_EDGE`|``||
+  |`TYPE`|`local`|聚集类型。取值：`local`（为每个点计算聚集系数）、`global`（为全图计算聚集系数）。|
+  |`REMOVED_DUPLICATION_EDGE`|`true`|是否排除重复边。|
+  |`REMOVED_SELF_EDGE`|`true`|是否排除自环边。|
 
 ## 相似度算法
 
@@ -420,7 +432,6 @@ Jaccard（杰卡德相似度）算法用于计算两个点（或集合）的相�
 
   |参数|默认值|说明|
   |:--|:--|:--|
-  |`IS_DIRECTED`|`false`|是否考虑边的方向。如果设置为`true`，系统会自动添加反向边。|
-  |`IDS1`|-|若干个 VID 构成的集合A。多个 VID 之间用英文逗号（,）隔开。|
-  |`IDS2`|-|若干个 VID 构成的集合B。多个 VID 之间用英文逗号（,）隔开。|
-  |`REMOVED_SELF_EDGE`|`true`||
+  |`IDS1`|-|若干个 VID 构成的集合A。多个 VID 之间用英文逗号（,）隔开。不可为空。|
+  |`IDS2`|-|若干个 VID 构成的集合B。多个 VID 之间用英文逗号（,）隔开。可以为空，为空时表示所有点。|
+  |`REMOVED_SELF_EDGE`|`true`|是否排除自环边。|
