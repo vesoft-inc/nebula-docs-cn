@@ -43,7 +43,7 @@ Nebula Algorithm 支持的图计算算法如下。
  |           算法名          |说明|应用场景|属性名称      |属性数据类型|
  |:------------------------|:-----------|:----|:---|:---|
  |         PageRank         |  页面排序  | 网页排序、重点节点挖掘|  pagerank        |double/string|
- |         Louvain          |  社区发现  | 社团挖掘、层次化聚类| louvain        | int/string  |
+ |         Louvain          |  鲁汶     | 社团挖掘、层次化聚类| louvain        | int/string  |
  |          KCore           |    K 核    |社区发现、金融风控|          kcore         | int/string  |
  |     LabelPropagation     |  标签传播  |资讯传播、广告推荐、社区发现|         lpa           | int/string  |
  |         Hanp             |标签传播进阶版|社区发现、推荐       |         hanp         | int/string  |

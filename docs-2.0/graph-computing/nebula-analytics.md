@@ -43,7 +43,7 @@ Nebula Analytics 支持的图计算算法如下。
 |  LPA                   | 标签传播          |  社区发现    |
 |  HANP                  | 标签传播进阶版   |  社区发现    |
 |  WCC                   | 弱联通分量          |  社区发现    |
-|  LOUVAIN               | 社区发现          |  社区发现   |
+|  LOUVAIN               | 鲁汶            |  社区发现   |
 |  Clustering Coefficient| 聚集系数          |  聚类       |
 |  Jaccard               | 杰卡德相似度      |  相似度     |
 
