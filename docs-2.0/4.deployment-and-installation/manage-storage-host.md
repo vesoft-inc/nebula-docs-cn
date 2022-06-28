@@ -7,7 +7,8 @@
 向集群中增加 Storage 主机。
 
 ```ngql
-ADD HOSTS <hostname_or_ip>:<port> [,<hostname_or_ip>:<port> ...];
+ADD HOSTS <ip>:<port> [,<ip>:<port> ...];
+ADD HOSTS "<hostname>":<port> [,"<hostname>":<port> ...];
 ```
 
 !!! note
@@ -16,7 +17,7 @@ ADD HOSTS <hostname_or_ip>:<port> [,<hostname_or_ip>:<port> ...];
     
     - IP地址和端口请和配置文件中的设置保持一致，例如单机部署的默认为`127.0.0.1:9779`。
     
-    - 如果 hostname 部分带有 `-` ，需要用引号包裹，例如 `ADD HOSTS "foo-bar":9779`。
+    - 使用域名时，需要用引号包裹，例如 `ADD HOSTS "foo-bar":9779`。
 
 ## 删除 Storage 主机
 
@@ -27,5 +28,6 @@ ADD HOSTS <hostname_or_ip>:<port> [,<hostname_or_ip>:<port> ...];
     无法直接删除正在使用的 Storage 主机，需要先删除关联的图空间，才能删除 Storage 主机。
 
 ```ngql
-DROP HOSTS <hostname_or_ip>:<port> [,<hostname_or_ip>:<port> ...];
+DROP HOSTS <ip>:<port> [,<ip>:<port> ...];
+DROP HOSTS "<hostname>":<port> [,"<hostname>":<port> ...];
 ```
