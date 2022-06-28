@@ -603,9 +603,15 @@ nav:
       - 故障自愈: nebula-operator/5.operator-failover.md
       - 常见问题: nebula-operator/7.operator-faq.md
 
-  - Nebula Algorithm: nebula-algorithm.md
+  - 图计算:
 
-  - Nebula Analytics: nebula-analytics.md
+    - 算法简介: graph-computing/algorithm-description.md
+
+    - Nebula Algorithm: graph-computing/nebula-algorithm.md
+
+    - Nebula Analytics: graph-computing/nebula-analytics.md
+
+    - Nebula Explorer 工作流: graph-computing/use-explorer.md
 
   - Nebula Spark Connector: nebula-spark-connector.md
       
