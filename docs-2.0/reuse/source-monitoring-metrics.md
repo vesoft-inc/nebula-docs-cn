@@ -116,6 +116,8 @@
 | `num_get_prop_errors`          | GetPropProcessor 执行时出错的次数。                  |
 | `num_delete_vertices`          | 删除点的次数。                  |
 | `num_lookup`                   | LookupProcessor 执行的次数。                  |
+| `num_sync_data`                | Storage 同步 Drainer 数据的次数。              |
+| `num_sync_data_errors`         | Storage 同步 Drainer 数据出错的次数。              |
 
 
 

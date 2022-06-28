@@ -8,6 +8,7 @@
 
 ```ngql
 ADD HOSTS <ip>:<port> [,<ip>:<port> ...];
+ADD HOSTS "<hostname>":<port> [,"<hostname>":<port> ...];
 ```
 
 !!! note
@@ -15,6 +16,8 @@ ADD HOSTS <ip>:<port> [,<ip>:<port> ...];
     - 增加 Storage 主机在**下一个**心跳周期之后才能生效，为确保数据同步，请等待 2 个心跳周期（20 秒），然后执行`SHOW HOSTS`查看是否在线。
     
     - IP地址和端口请和配置文件中的设置保持一致，例如单机部署的默认为`127.0.0.1:9779`。
+
+    - 使用域名时，需要用引号包裹，例如 `ADD HOSTS "foo-bar":9779`。
 
 ## 删除 Storage 主机
 
@@ -26,4 +29,5 @@ ADD HOSTS <ip>:<port> [,<ip>:<port> ...];
 
 ```ngql
 DROP HOSTS <ip>:<port> [,<ip>:<port> ...];
+DROP HOSTS "<hostname>":<port> [,"<hostname>":<port> ...];
 ```
