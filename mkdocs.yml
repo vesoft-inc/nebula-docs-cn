@@ -612,6 +612,8 @@ nav:
     - Nebula Analytics: graph-computing/nebula-analytics.md
 
     - Nebula Explorer 工作流: graph-computing/use-explorer.md
+    
+    - Dag Controller: graph-computing/0.deploy-controller-analytics.md
 
   - Nebula Spark Connector: nebula-spark-connector.md
       
