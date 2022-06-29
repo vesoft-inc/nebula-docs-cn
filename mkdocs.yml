@@ -563,7 +563,6 @@ nav:
       - 画布快照: nebula-explorer/canvas-operations/canvas-snapshot.md
     - 工作流:
       - 工作流简介: nebula-explorer/workflow/workflows.md
-      - 部署依赖服务: nebula-explorer/workflow/0.deploy-controller-analytics.md
       - 资源配置: nebula-explorer/workflow/1.repare-resources.md
       - 工作流示例: nebula-explorer/workflow/2.create-workflow.md
       - 工作流管理: nebula-explorer/workflow/3.workflow-management.md
