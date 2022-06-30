@@ -54,13 +54,13 @@
 
 - 修复恢复数据时机器丢失 key 的缺陷。 [#4311](https://github.com/vesoft-inc/nebula/pull/4311)
 
-- 修正使用相同语句返回相同顶点不同属性时，结果显示`BAD TYPE`的缺陷。 [#4151](https://github.com/vesoft-inc/nebula/pull/4151)
+- 修复使用相同语句返回相同顶点不同属性时，结果显示`BAD TYPE`的缺陷。 [#4151](https://github.com/vesoft-inc/nebula/pull/4151)
 
 - 修复无索引时，语句`MATCH p=(:team)-->() RETURN p LIMIT 1`的报错信息缺陷。 [#4053](https://github.com/vesoft-inc/nebula/pull/4053)
 
 - 增强运算符`AND`和`OR`的报错信息。 [#4304](https://github.com/vesoft-inc/nebula/pull/4304)
 
-- 修正索引条件下没有统计信息的缺陷。 [#4353](https://github.com/vesoft-inc/nebula/pull/4353)
+- 修复索引条件下没有统计信息的缺陷。 [#4353](https://github.com/vesoft-inc/nebula/pull/4353)
 
 ## 历史版本
 
