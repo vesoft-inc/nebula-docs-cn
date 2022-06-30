@@ -28,7 +28,7 @@
 
 - 优化查询子图的循环条件。 [#4226](https://github.com/vesoft-inc/nebula/pull/4226)
 
-- 通过 Traverse 和 AppendVertices 操作符减少移动数据时的数据复制量。 [#4176](https://github.com/vesoft-inc/nebula/pull/4176)
+- 减少移动数据时 Traverse 和 AppendVertices 操作符的数据复制量。 [#4176](https://github.com/vesoft-inc/nebula/pull/4176)
 
 - 改善优化规则，去除无效的项目操作符。 [#4157](https://github.com/vesoft-inc/nebula/pull/4157)
 
