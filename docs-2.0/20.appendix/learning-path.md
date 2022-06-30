@@ -163,6 +163,13 @@
  
 ### 3.7 周边工具
 
+- 云
+
+  |Cloud 版本|文档|视频| 
+  |---------|---------|--------|
+  |Azure 版|[Nebula Graph Cloud Azure云版](https://docs.nebula-graph.com.cn/2.6.2/nebula-cloud/1.what-is-cloud/)|-|
+  |阿里云版|[Nebula Graph Cloud 阿里云版](../nebula-cloud/nebula-cloud-on-alibabacloud/1.create-service-instance.md)|[Nebula Graph Cloud 阿里云版介绍](https://www.bilibili.com/video/BV1BY411K7QJ)|
+
 - 可视化
 
   | 可视化工具     | 文档                                                         | 视频                                                         |
@@ -181,7 +188,13 @@
   | 数据导入       | [Nebula Flink Connector](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-flink-connector/) | -                                                            |
   | 数据导入       | [Nebula Exchange 社区版](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-exchange/about-exchange/ex-ug-what-is-exchange/) | [Nebula Graph 数据导入工具——Exchange](https://www.bilibili.com/video/BV1Pq4y177D9)、[Exchange 导入 SST 数据](https://www.bilibili.com/video/BV1y34y1o7Di?)  |
   | 数据导出       | [Nebula Exchange 企业版](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-exchange/about-exchange/ex-ug-what-is-exchange/) | -                                                            |
-  
+
+- 备份与恢复
+
+  | 文档                    |     视频                               |
+  | ------------------------|------------------------------------ |
+  |[Nebula BR](../backup-and-restore/nebula-br/1.what-is-br.md)|[Nebula Graph 容灾备份工具 nebula-br](https://www.bilibili.com/video/BV11L4y1g7rD)|
+
 - 性能测试
 
   | 文档                                                         |
@@ -260,4 +273,4 @@
 
 考试用书[《开源分布式图数据库 Nebula Graph 完全指南》](https://docs.nebula-graph.com.cn/site/pdf/NebulaGraph-book.pdf)
 
-单击[Nebula Graph （第N期） 个人技能认证](https://discuss.nebula-graph.com.cn/t/topic/5253)查看考试入口及考试开放和截止时间。
+单击[Nebula Graph 个人技能认证](https://discuss.nebula-graph.com.cn/t/topic/8728)查看考试说明及入口。

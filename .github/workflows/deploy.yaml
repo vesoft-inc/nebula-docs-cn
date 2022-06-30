@@ -2,7 +2,7 @@ name: Publish docs via GitHub Pages
 on:
   push:
     branches:
-      - master
+      - v3.1.0
 
 jobs:
   deploy:
@@ -36,7 +36,7 @@ jobs:
           git checkout gh-pages
       - name: Compress
         run: |
-          tar -vczf nebula-docs.tar.gz master versions.json *.html
+          tar -vczf nebula-docs.tar.gz 3.1.0 versions.json *.html
           
       - name: Transfer
         # uses: garygrossgarten/github-action-scp@release
