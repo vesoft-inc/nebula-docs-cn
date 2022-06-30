@@ -6,8 +6,7 @@
 
 - 增加 [Elasticsearch 查询函数](../3.ngql-guide/6.functions-and-expressions/17.ES-function.md)，支持向独立部署的 Elasticsearch 发送 GET 请求读取数据。 [#924](https://github.com/vesoft-inc/nebula-ent/pull/924)
 
-- 增加 [extract() 函数](../3.ngql-guide/6.functions-and-expressions/2.string.md
-)。 [#4098](https://github.com/vesoft-inc/nebula/pull/4098)
+- 增加 [extract() 函数](../3.ngql-guide/6.functions-and-expressions/2.string.md)。 [#4098](https://github.com/vesoft-inc/nebula/pull/4098)
 
 ### 优化
 
