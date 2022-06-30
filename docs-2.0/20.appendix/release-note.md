@@ -12,11 +12,11 @@
 
 - 优化配置文件，增加部分配置。 [#4310](https://github.com/vesoft-inc/nebula/pull/4310)
 
-- 移除无用的 AppendVertices 操作符。 [#4277](https://github.com/vesoft-inc/nebula/pull/4277)
+- 增加优化规则，移除无用的 AppendVertices 操作符。 [#4277](https://github.com/vesoft-inc/nebula/pull/4277)
 
-- 增加边过滤的下推优化规则。 [#4270](https://github.com/vesoft-inc/nebula/pull/4270)
+- 增加优化规则，优化边过滤的下推。 [#4270](https://github.com/vesoft-inc/nebula/pull/4270)
 
-- 增加点属性过滤的下推优化规则。 [#4260](https://github.com/vesoft-inc/nebula/pull/4260)
+- 增加优化规则，优化点属性过滤的下推。 [#4260](https://github.com/vesoft-inc/nebula/pull/4260)
 
 - 剔除点的预测过滤器。 [#4249](https://github.com/vesoft-inc/nebula/pull/4249)
 
