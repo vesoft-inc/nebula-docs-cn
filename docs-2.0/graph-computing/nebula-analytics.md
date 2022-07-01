@@ -8,7 +8,9 @@ Nebula Analytics 是一款高性能图计算框架工具，支持对 Nebula Grap
 
 ## 适用场景
 
-支持将数据源为 Nebula Graph 集群、HDFS 上的 CSV 文件或本地 CSV 文件中的数据导入 Nebula Analytics，并将图计算结果输出至 Nebula Graph 集群、HDFS 上的 CSV 文件或本地 CSV 文件。
+Nebula Analytics 支持将数据源为 Nebula Graph 集群、HDFS 上的 CSV 文件或本地 CSV 文件中的数据导入 Nebula Analytics，并将图计算结果输出至 Nebula Graph 集群、HDFS 上的 CSV 文件或本地 CSV 文件。
+
+Nebula Analytics 还支持结合 Dag Controller 进行复杂的图计算。详情参见[Dag Controller](0.deploy-controller-analytics.md)。
 
 ## 使用限制
 
@@ -21,6 +23,7 @@ Nebula Analytics 版本和 Nebula Graph 内核的版本对应关系如下。
 |Nebula Analytics 版本|Nebula Graph 版本|
 |:---|:---|
 |{{plato.release}}|{{nebula.release}}|
+|3.1.0|3.1.0|
 |1.0.x|3.0.x|
 |0.9.0|2.6.x|
 
