@@ -484,7 +484,7 @@ nav:
 ##      - Cloud Solution 角色身份说明: nebula-cloud/nebula-cloud-on-azure/4.user-role-description.md
 ##      - Solution 操作:
 ##        - Solution: nebula-cloud/nebula-cloud-on-azure/5.solution/5.0.introduce-solution.md
-##        - 配套的应用（Dashboard/Studio/Explorer）: nebula-cloud/nebula-cloud-on-azure/5.solution/5.1.supporting-application.#md
+##        - 配套的应用（Dashboard/Studio/Explorer）: nebula-cloud/nebula-cloud-on-azure/5.solution/5.1.supporting-application.md
 ##        - Private Link: nebula-cloud/nebula-cloud-on-azure/5.solution/5.2.connection-configuration-and-use.md
 ##        - 管理角色权限: nebula-cloud/nebula-cloud-on-azure/5.solution/5.3.role-and-authority-management.md
 ##      - 价格: nebula-cloud/nebula-cloud-on-azure/6.pricing.md
