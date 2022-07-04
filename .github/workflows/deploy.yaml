@@ -26,6 +26,7 @@ jobs:
 
       - name: mike 
         run: |
+          git fetch origin gh-pages --depth=1 # fix mike's CI update
           mike deploy master -p --rebase
           mike list
 
