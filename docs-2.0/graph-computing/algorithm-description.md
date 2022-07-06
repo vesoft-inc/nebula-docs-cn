@@ -15,6 +15,14 @@ Nebula Graph 支持多种图计算工具，本文介绍这些工具支持的算�
     不同图计算工具支持的算法不同，参数也不同。详情参见下文说明。
 -->
 
+!!! note
+
+    执行图计算时不仅需要设置算法的参数，对数据源也有要求。数据源需要包含起点和终点，部分算法还需要包含权重。
+
+    - 如果数据源来自 HDFS，需要指定 CSV 文件，包含`src`和`dst`列，部分算法还需要包含`weight`列。
+
+    - 如果数据源来自 Nebula Graph，需要指定边类型，该类型的边提供`src`和`dst`列，指定边类型的某个属性可以提供`weight`列。
+
 ## 节点重要度算法
 
 ### PageRank
@@ -74,14 +82,20 @@ KCore 算法用于计算出没有小于 K 度的点组成的子图，通常使�
     |`TYPE`|`vertex`|计算类型。取值：`vertex`、`subgraph`。`vertex`表示为每个点计算核心度，`subgraph`表示计算邻居。|
     |`KMIN`|`1`|范围计算时设置 K 的最小值。仅在`TYPE`=`subgraph`时生效。|
     |`KMAX`|`1000000`|范围计算时设置 K 的最大值。仅在`TYPE`=`subgraph`时生效。|
-    |`ITERATIONS`|`10`|最大迭代次数。|
 
-  - 输出参数
+  - `TYPE=vertex`时的输出参数
 
     |参数|类型|说明|
     |:--|:--|:--|
     |`VID`|创建图空间时`vid_type`决定| 点 ID。|
-    |`VALUE`|当`TYPE`=`vertex`时，int<br>当`TYPE`=`subgraph`时，与`VID`类型相同| 当`TYPE`=`vertex`时，输出点的核心度。<br>当`TYPE`=`subgraph`时，输出点的邻居。|
+    |`VALUE`|int| 输出点的核心度。|
+
+  - `TYPE=subgraph`时的输出参数
+
+    |参数|类型|说明|
+    |:--|:--|:--|
+    |`VID`|创建图空间时`vid_type`决定| 点 ID。|
+    |`VALUE`|与`VID`类型相同| 输出点的邻居。|
 
 ### DegreeCentrality（NStepDegree）
 
@@ -114,14 +128,28 @@ DegreeCentrality（度中心性） 算法用于查找图中的流行点。度中
     |`BITS`|`6`|用于基数估计的 hyperloglog 位宽。|
     |`TYPE`|`both`|计算的边的方向。取值：`in`、`out`、`both`。|
 
-  - 输出参数
+  - `TYPE=both`时的输出参数
 
     |参数|类型|说明|
     |:--|:--|:--|
     |`VID`|创建图空间时`vid_type`决定| 点 ID。|
-    |`BOTH_DEGREE`|int| 当`TYPE`=`both`时，输出点的双向度中心性。|
-    |`OUT_DEGREE`|int| 当`TYPE`=`both`或`out`时，输出点的出方向度中心性。|
-    |`IN_DEGREE`|int| 当`TYPE`=`both`或`in`时，输出点的入方向度中心性。|
+    |`BOTH_DEGREE`|int| 输出点的双向度中心性。|
+    |`OUT_DEGREE`|int| 输出点的出方向度中心性。|
+    |`IN_DEGREE`|int| 输出点的入方向度中心性。|
+
+  - `TYPE=out`时的输出参数
+
+    |参数|类型|说明|
+    |:--|:--|:--|
+    |`VID`|创建图空间时`vid_type`决定| 点 ID。|
+    |`OUT_DEGREE`|int| 输出点的出方向度中心性。|
+
+  - `TYPE=in`时的输出参数
+
+    |参数|类型|说明|
+    |:--|:--|:--|
+    |`VID`|创建图空间时`vid_type`决定| 点 ID。|
+    |`IN_DEGREE`|int| 输出点的入方向度中心性。|
 
 ### DegreeWithTime
 
@@ -141,14 +169,28 @@ DegreeWithTime 算法是基于边的时间范围统计邻居，查找出图中�
   |`BEGIN_TIME`|-|起始时间。格式为`yyyy-MM-dd HH:mm:ss.SSS`。|
   |`END_TIME`|-|结束时间。格式为`yyyy-MM-dd HH:mm:ss.SSS`。|
 
-- 输出参数
+- `TYPE=both`时的输出参数
 
   |参数|类型|说明|
   |:--|:--|:--|
   |`VID`|创建图空间时`vid_type`决定| 点 ID。|
-  |`BOTH_DEGREE`|int| 当`TYPE`=`both`时，输出点的双向流行度。|
-  |`OUT_DEGREE`|int| 当`TYPE`=`both`或`out`时，输出点的出方向流行度。|
-  |`IN_DEGREE`|int| 当`TYPE`=`both`或`in`时，输出点的入方向流行度。|
+  |`BOTH_DEGREE`|int| 输出点的双向流行度。|
+  |`OUT_DEGREE`|int| 输出点的出方向流行度。|
+  |`IN_DEGREE`|int| 输出点的入方向流行度。|
+
+- `TYPE=out`时的输出参数
+
+  |参数|类型|说明|
+  |:--|:--|:--|
+  |`VID`|创建图空间时`vid_type`决定| 点 ID。|
+  |`OUT_DEGREE`|int| 输出点的出方向流行度。|
+
+- `TYPE=in`时的输出参数
+
+  |参数|类型|说明|
+  |:--|:--|:--|
+  |`VID`|创建图空间时`vid_type`决定| 点 ID。|
+  |`IN_DEGREE`|int| 输出点的入方向流行度。|
 
 ### BetweennessCentrality
 
@@ -227,12 +269,6 @@ APSP（全图最短路径）算法用于寻找图中两点之间的所有最短�
 
 参数说明如下。
 
-- 传入参数
-
-  |参数|默认值|说明|
-  |:--|:--|:--|
-  |`WEIGHT`|-|边的最大权重。|
-
 - 输出参数
 
   |参数|类型|说明|
@@ -261,7 +297,6 @@ SSSP（单源最短路径）算法用于计算给定的一个点（起始点）�
 
     |参数|默认值|说明|
     |:--|:--|:--|
-    |`WEIGHT`|-|边的最大权重。|
     |`ROOT`|-|起始点的 VID。|
 
   - 输出参数
@@ -294,7 +329,6 @@ BFS（广度优先遍历）算法是一种基础的图遍历算法，它给定�
 
     |参数|默认值|说明|
     |:--|:--|:--|
-    |`WEIGHT`|-|边的最大权重。|
     |`IS_DIRECTED`|`true`|是否考虑边的方向。如果设置为`false`，系统会自动添加反向边。|
     |`ROOT`|-|起始点的 VID。|
 
@@ -501,13 +535,26 @@ TriangleCount（三角计数）算法用于统计图中三角形个数。三角�
     |`REMOVED_DUPLICATION_EDGE`|`true`|是否排除重复边。|
     |`REMOVED_SELF_EDGE`|`true`|是否排除自环边。|
 
-  - 输出参数
+  - `OPT=1`时的输出参数
 
     |参数|类型|说明|
     |:--|:--|:--|
-    |`VID`|创建图空间时`vid_type`决定|当`OPT`=`2`时，输出每个点的 ID。|
-    |`COUNT`|int| 当`OPT`=`1`时，输出全图的三角形数量。<br>当`OPT`=`2`时，输出每个点的三角形数量。|
-    |`VID1`、`VID2`、`VID3`|与`VID`类型相同| 当`OPT`=`3`时，输出构成三角形的点的 ID。|
+    |`COUNT`|int| 输出全图的三角形数量。|
+
+  - `OPT=2`时的输出参数
+
+    |参数|类型|说明|
+    |:--|:--|:--|
+    |`VID`|创建图空间时`vid_type`决定|输出每个点的 ID。|
+    |`COUNT`|int| 输出每个点的三角形数量。|
+
+  - `OPT=3`时的输出参数
+
+    |参数|类型|说明|
+    |:--|:--|:--|
+    |`VID1`|与`VID`类型相同| 输出构成三角形的点 A 的 ID。|
+    |`VID2`|与`VID`类型相同| 输出构成三角形的点 B 的 ID。|
+    |`VID3`|与`VID`类型相同| 输出构成三角形的点 C 的 ID。|
 
 ## 聚类算法
 
@@ -538,12 +585,19 @@ ClusteringCoefficient（聚集系数）算法用于计算图中节点的聚集�
     |`REMOVED_DUPLICATION_EDGE`|`true`|是否排除重复边。|
     |`REMOVED_SELF_EDGE`|`true`|是否排除自环边。|
 
-  - 输出参数
+  - `TYPE=local`时的输出参数
 
     |参数|类型|说明|
     |:--|:--|:--|
     |`VID`|创建图空间时`vid_type`决定| 点的 ID。|
-    |`VALUE`|double| 当`TYPE`=`local`时，输出每个点的聚集系数。<br>当`TYPE`=`global`时，输出全图的聚集系数。|
+    |`VALUE`|double| 输出每个点的聚集系数。|
+
+  - `TYPE=global`时的输出参数
+
+    |参数|类型|说明|
+    |:--|:--|:--|
+    |`VID`|创建图空间时`vid_type`决定| 点的 ID。|
+    |`VALUE`|double| 输出全图的聚集系数。只有一行数据。|
 
 ## 相似度算法
 
