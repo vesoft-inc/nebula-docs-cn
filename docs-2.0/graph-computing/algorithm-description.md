@@ -18,8 +18,6 @@ Nebula Graph 支持多种图计算工具，本文介绍这些工具支持的算�
 !!! note
 
     执行图计算时不仅需要设置算法的参数，对数据源也有要求。数据源需要包含起点和终点。PageRank、DegreeWithTime、SSSP、APSP、LPA、HANP、Louvain 算法还需要包含权重（weight）。
- 
-
 
     - 如果数据源来自 HDFS，需要指定 CSV 文件，包含`src`和`dst`列，部分算法还需要包含`weight`列。
 
