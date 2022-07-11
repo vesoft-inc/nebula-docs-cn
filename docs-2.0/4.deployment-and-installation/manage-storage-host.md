@@ -2,6 +2,10 @@
 
 从 3.0.0 版本开始，在配置文件中添加的 Storage 主机无法直接读写，配置文件的作用仅仅是将 Storage 主机注册至 Meta 服务中。必须使用`ADD HOSTS`命令后，才能正常读写 Storage 主机。
 
+!!! note
+
+    Nebula Graph Cloud 上建立的集群会自动添加 Storage 主机，用户无需手动执行`ADD HOSTS`。
+
 ## 增加 Storage 主机
 
 向集群中增加 Storage 主机。
