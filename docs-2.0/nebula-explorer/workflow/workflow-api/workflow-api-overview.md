@@ -1,15 +1,24 @@
 # 工作流 API 概览
 
-Nebula Explorer 提供 API 接口使用工作流的部分功能。API 接口说明如下。
+Nebula Explorer 提供 API 接口使用工作流的部分功能。
 
-|接口|说明|
-|:--|:--|
-|get_workflow_jobs|查看指定 workflow 的作业列表。|
-|post_jobs|创建作业。|
-|get_jobs|获取所有作业列表。|
-|get_job_id|获取指定作业详情。|
-|post_job_cancel|取消作业运行。|
-|get_task_id|获取指定任务的运行结果数据。|
+当前支持的 API 接口如下：
+
+- 新增作业。
+- 获取所有作业列表。
+- 查询指定作业详情。
+- 取消作业运行。
+- 获取指定任务的运行结果数据。
+
+## 请求方式
+
+在 URL 中指定 API 和请求参数，从而实现对应的功能。请求参数包含路径参数、Headers 参数和 Body 参数。
+
+示例如下：
+
+```http
+
+```
 
 ## 请求结果
 
@@ -51,20 +60,13 @@ Nebula Explorer 提供 API 接口使用工作流的部分功能。API 接口说�
 |50104000 | `ErrNotImplemented`  |   |
 |90004000 | `ErrUnknown`  | 未知错误  |
 
-## 公共请求参数
+### 任务状态码
 
-|参数 |类型 |是否必须 |说明 |
-|:---|:--- |:---   |:---|
-| explorer_token |  | 是 | 登录状态校验。登录 Explorer 在xxx页面获取。  |
-| version |  |  | Explorer 版本。 |
-|  |  |  |  |
-
-## API 示例
-
-- 请求示例
-
-```http
-https://192.168.10.100:7002/api-analytics/jobs?page=1&pageSize=10&filter={}
-```
-
-- 返回示例
+|状态码|说明|
+|:---|:---|
+|0  | 准备中|
+|1  | 执行中|
+|2  | 执行成功|
+|3  | 执行失败|
+|4  | 已中断|
+|5  | 暂停中|

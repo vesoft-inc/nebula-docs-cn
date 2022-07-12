@@ -602,8 +602,8 @@ nav:
       - 工作流管理: nebula-explorer/workflow/3.workflow-management.md
       - 作业管理: nebula-explorer/workflow/4.jobs-management.md
       - 工作流 API:
-        - 查看作业: nebula-explorer/workflow/workflow-api/api-get-jobs.md
-        - 创建作业: nebula-explorer/workflow/workflow-api/api-post-jobs.md
+        - 新增作业: nebula-explorer/workflow/workflow-api/api-post-jobs.md
+        - 获取所有作业列表: nebula-explorer/workflow/workflow-api/api-get-jobs.md
     - 基本操作和快捷键: nebula-explorer/ex-ug-shortcuts.md
 
   - Nebula Importer:
