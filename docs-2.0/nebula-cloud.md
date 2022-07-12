@@ -1,6 +1,6 @@
 # Nebula Graph Cloud
 
-Nebula Graph Cloud（简称 Cloud ）是一套集成了 Nebula Graph 数据库和数据服务的云上服务，支持一键部署 Nebula Graph 和相关可视化产品。用户可以在几分钟内创建一个图数据库，并快速扩展计算、存储等资源。
+Nebula Graph Cloud（简称 Cloud）是一套集成了 Nebula Graph 数据库和数据服务的云上服务，支持一键部署 Nebula Graph 和相关可视化产品。用户可以在几分钟内创建一个图数据库，并快速扩展计算、存储等资源。
 
 Cloud 支持：
 
