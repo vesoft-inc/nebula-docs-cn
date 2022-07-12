@@ -242,8 +242,10 @@ extra:
     branch: release-3.1
     tag: v3.1.2
   cloud:
-    azureRelease: 2.6.2 # Azure云兼容的最新内核版本
-    aliyunRelease: 3.1.0 # 阿里云兼容的最新内核版本
+    azureRelease: 3.1.1 # Azure云兼容的最新内核版本
+    aliyunRelease: 3.1.1 # 阿里云兼容的最新内核版本
+    azureLatestRelease: 3.1.0 # 支持Azure云的最新文档版本
+    aliyunLatestRelease: 3.1.0 # 支持阿里云的最新文档版本
   ent:
     ent_begin: <!-- # 文档包含企业版时需补全该注释（<!-- -->），只包含社区版时只保留注释头（<!--）
     ent_end: --> #文档包含企业版时需补全该注释（<!-- -->），只包含社区版时只保留注释尾（-->）
@@ -496,7 +498,7 @@ nav:
     - Nebula Python: 14.client/5.nebula-python-client.md
     - Nebula Go: 14.client/6.nebula-go-client.md
 
-#  - Nebula Graph Cloud: nebula-cloud.md
+  - Nebula Graph Cloud: nebula-cloud.md
 
 #ent
 #  - Nebula Graph Cloud:
