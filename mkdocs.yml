@@ -176,8 +176,6 @@ extra:
     release: 3.2.0
     branch: release-3.2
     tag: v3.2.0
-  dag:
-    release: 1.0.0
   sparkconnector:
     release: 3.0.0
     branch: v3.0.0
