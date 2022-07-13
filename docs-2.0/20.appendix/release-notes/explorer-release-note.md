@@ -10,7 +10,7 @@
 - 优化
   - 适配 Nebula Graph 3.2.0。
   - 支持持久化存储画布快照。将快照数据改为保存在服务端，以免用户清空浏览器数据等情况下快照丢失。
-  - 支持在鸟瞰模式下[设置点边的最大展示数量]((../../nebula-explorer/canvas-operations/visualization-mode.md))。
+  - 支持在鸟瞰模式下[设置点边的最大展示数量](../../nebula-explorer/canvas-operations/visualization-mode.md)。
   - 2D 模式切换至 3D 模式时，默认增加 Z 轴上的分布，避免 3D 模式下的扁平感。
 
 - 缺陷修复：
