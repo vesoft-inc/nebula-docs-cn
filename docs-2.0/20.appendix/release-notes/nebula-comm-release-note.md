@@ -44,7 +44,7 @@
 
 - 修复重启后独立守护进程退出的缺陷。 [#4269](https://github.com/vesoft-inc/nebula/pull/4269)
 
-- 修复 GraphViz 在线工具由于两次 JSON 转换导致 Join 点格式的解释结果不正确的缺陷。 [#4280](https://github.com/vesoft-inc/nebula/pull/4280)
+- 修复 Graphviz 在线工具由于两次 JSON 转换导致 Join 点格式的解释结果不正确的缺陷。 [#4280](https://github.com/vesoft-inc/nebula/pull/4280)
 
 - 修复属性查找的缺陷，不允许在 Schema 中使用英文句号（.）。 [#4194](https://github.com/vesoft-inc/nebula/pull/4194)
 
