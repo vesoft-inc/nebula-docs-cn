@@ -146,12 +146,12 @@ extra:
     base111b: 1.1.1-beta
     base220: 2.2.1
     base300: 3.0.0
-    release: 3.3.2
-    tag: v3.3.0
+    release: 3.4.0
+    tag: v3.4.0
   explorer:
-    release: 3.0.0
-    branch: reelase-3.0
-    tag: v3.0.0
+    release: 3.1.0
+    branch: reelase-3.1
+    tag: v3.1.0
   exchange_ent:
     release: 3.0.0
     branch: v3.0.0
@@ -187,18 +187,18 @@ extra:
     branch: v3.0.0
     tag: v3.0.0
   dockercompose:
-    release: 3.1.0
-    branch: release-3.1
-    tag: v3.1.0
+    release: 3.2.0
+    branch: release-3.2
+    tag: v3.2.0
   dashboard:
-    release: 1.1.1
-    tag: v1.1.1
+    release: 3.0.0
+    tag: v3.0.0
     base100: 1.0.0
-    branch: v1.1.1
-  dashboard_ent:
-    release: 3.0.4
-    tag: v3.0.4
     branch: release-3.0
+  dashboard_ent:
+    release: 3.1.0
+    tag: v3.1.0
+    branch: release-3.1
   console:
     release: 3.0.0
     branch: v3.0.0
@@ -519,7 +519,6 @@ nav:
 #      - 删除服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/3.delete-service-instance.md
 
   - Nebula Studio:
-    - Studio 版本更新说明: nebula-studio/about-studio/st-ug-release-note.md
     - 认识 Nebula Studio:
       - 什么是 Nebula Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
       - 使用限制: nebula-studio/about-studio/st-ug-limitations.md
@@ -668,7 +667,13 @@ nav:
   - Nebula Bench: nebula-bench.md
 
   - 附录:
-      - Release Note: 20.appendix/release-note.md
+      - Release Note:
+        - Nebula Graph 社区版: 20.appendix/release-notes/nebula-comm-release-note.md
+        - Nebula Graph 企业版: 20.appendix/release-notes/nebula-ent-release-note.md
+        - Nebula Studio: 20.appendix/release-notes/studio-release-note.md
+        - Nebula Dashboard 社区版: 
+        - Nebula Dashboard 企业版: 
+        - Nebula Explorer: 
       - 学习路径: 20.appendix/learning-path.md
 #ent      - 关于 License: 20.appendix/8.about-license.md
       - 常见问题 FAQ: 20.appendix/0.FAQ.md

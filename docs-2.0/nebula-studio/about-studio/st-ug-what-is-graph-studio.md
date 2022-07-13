@@ -48,7 +48,7 @@ Studio 可以方便管理 Nebula Graph 图数据，具备以下功能：
 
 ## 版本更新
 
-Studio 处于持续开发状态中。用户可以通过 [Studio 版本更新说明](../about-studio/st-ug-release-note.md)查看最新发布的功能。
+Studio 处于持续开发状态中。用户可以通过 [Studio 版本更新说明](../../20.appendix/release-notes/studio-release-note.md)查看最新发布的功能。
 
 <!-- 
 

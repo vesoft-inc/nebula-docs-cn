@@ -1,6 +1,6 @@
 # 欢迎阅读 Nebula Graph {{ nebula.release }} 文档
 
-!!! Note "[查看版本发布说明](20.appendix/release-note.md)"
+!!! Note "[查看版本发布说明](20.appendix/release-notes/nebula-comm-release-note.md)"
 
     本文档更新时间{{ now().year }}-{{ now().month }}-{{ now().day }}，GitHub commit [{{ git.short_commit }}](https://github.com/vesoft-inc/nebula-docs/commits/v{{nebula.release}})。
 
@@ -19,7 +19,7 @@ Nebula Graph 是一款开源的、分布式的、易扩展的原生图数据库�
 
 - [Nebula
 Graph 完全指南](https://docs.nebula-graph.com.cn/site/pdf/NebulaGraph-book.pdf)与[摘要版本](https://arxiv.org/abs/2206.07278)
-- [发布说明](20.appendix/release-note.md)
+- [发布说明](20.appendix/release-notes/nebula-comm-release-note.md)
 - [论坛](https://discuss.nebula-graph.com.cn/)
 - [项目主页](https://nebula-graph.com.cn/)
 - [系列视频](https://space.bilibili.com/472621355)
