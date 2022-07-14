@@ -14,11 +14,56 @@ Nebula Explorer 提供 API 接口使用工作流的部分功能。
 
 在 URL 中指定 API 和请求参数，从而实现对应的功能。请求参数包含路径参数、Headers 参数和 Body 参数。
 
-示例如下：
+格式如下：
 
 ```http
-
+curl -i -X <request_method> -H <header> -d '{"address":"192.168.8.240","port":9669}' http://192.168.8.145:7002/api-open/v1/connect
 ```
+
+- `-X`：请求方法。当前只需要使用`GET`和`POST`。
+
+- `-H`：请求标头。可以用于指定内容格式、指定账号密码等。
+
+- `-d`：将 POST 请求中的指定数据发送到 HTTP 服务器。
+
+## 获取授权 Token
+
+使用 API 时，需要做 Token 信息校验。请使用如下命令获取 Token 信息。
+
+```http
+curl -i -X POST -H "Content-Type: application/json" -H "Authorization: Bearer <account_base64_encode>" -d '{"address":"<nebula_address>","port":<nebula_port>}' http://<explorer_address>:<explorer_port>/api-open/v1/connect
+```
+
+- `<account_base64_encode>`：base64 编码后的 Nebula Graph 账号和密码。编码前格式为`账号:密码`，下文示例为`root:123`，编码后为`cm9vdDoxMjM=`。
+- `<nebula_address>`：Nebula Graph 访问地址。
+- `<nebula_port>`：Nebula Graph 访问端口。
+- `<explorer_address>`：Nebula Explorer 访问地址。
+- `<explorer_port>`：Nebula Explorer 访问端口。
+
+示例：
+
+```http
+curl -i -X POST -H "Content-Type: application/json" -H "Authorization: Bearer cm9vdDoxMjM=" -d '{"address":"192.168.8.111","port":9669}' http://192.168.8.145:7002/api-open/v1/connect
+```
+
+返回结果：
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+Set-Cookie: explorer_token=eyJhbxxx; Path=/; # Max-Age=259200; HttpOnly
+Traceparent: 00-1c3f55cdbf81e13a2331ed88155ce0bf-2b97474943563f20-# 00
+Date: Thu, 14 Jul 2022 06:47:01 GMT
+Content-Length: 54
+
+{"code":0,"data":{"success":true},"message":"Success"}
+```
+
+需要关注的参数如下：
+
+- `explorer_token`：Token 信息。
+
+- `Max-Age`：Token 有效时间。单位：秒。默认为 259200 秒，即 3 天。可以在安装目录内的`config/app-config.yaml`文件内修改默认有效时间。
 
 ## 请求结果
 
@@ -47,17 +92,16 @@ Nebula Explorer 提供 API 接口使用工作流的部分功能。
 
 |错误码|信息|说明|
 |:---|:---|:---|
-|40004000 | `ErrBadRequest`  |  请求错误。 |
-|40004001 | `ErrParam`  | 参数错误。  |
-|40104000 | `ErrUnauthorized`  | 认证失败。  |
-|40104001 | `ErrSession`  |   |
-|40304000 | `ErrForbidden`  |   |
-|40404000 | `ErrNotFound`  |   |
-|50004000 | `ErrInternalServer`  |   |
-|50004001 | `ErrInternalDatabase`  |   |
-|50004002 | `ErrInternalController`  |   |
-|50004003 | `ErrInternalLicense`  |   |
-|50104000 | `ErrNotImplemented`  |   |
+|40004000 | `ErrBadRequest`  |  请求异常 |
+|40004001 | `ErrParam`  | 请求参数异常  |
+|40104000 | `ErrUnauthorized`  | 请求未授权  |
+|40104001 | `ErrSession`  | 登录会话异常  |
+|40304000 | `ErrForbidden`  | 请求被拒绝  |
+|40404000 | `ErrNotFound`  | 请求资源不存在  |
+|50004000 | `ErrInternalServer`  | 内部服务异常  |
+|50004001 | `ErrInternalDatabase`  | 数据库异常  |
+|50004002 | `ErrInternalController`  | 控制器异常  |
+|50004003 | `ErrInternalLicense`  | 证书校验异常  |
 |90004000 | `ErrUnknown`  | 未知错误  |
 
 ### 任务状态码
