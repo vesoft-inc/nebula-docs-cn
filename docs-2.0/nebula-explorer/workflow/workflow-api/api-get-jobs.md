@@ -58,7 +58,6 @@ curl -i -X GET -H "Content-Type: application/json" -H "Cookie: "explorer_token=e
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - `workflowId` | string   | `4216617528` | 工作流 ID。 |
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - `workflowName` | string | `workflow_q745a` | 工作流名称。 |
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - `status`      | number  | `2`  | 作业状态码。详情参见[工作流 API 概览](workflow-api-overview.md)。 |
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - `tasks`      | object | -| 任务详情。 |  
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - `runBeginTime` | number | `1657847358000` | 作业开始执行时间。 |
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - `runEndTime` | number | `1657847364000` | 作业执行结束时间。 |
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - `createTime` | number  | `1657847355906`  | 作业创建时间。 |
@@ -84,7 +83,6 @@ curl -i -X GET -H "Content-Type: application/json" -H "Cookie: "explorer_token=e
         "workflowId": "4216617528",
         "workflowName": "workflow_q745a",
         "status": 2,
-        "tasks": null,
         "runBeginTime": 1657847358000,
         "runEndTime": 1657847364000,
         "createTime": 1657847355906
@@ -95,7 +93,6 @@ curl -i -X GET -H "Content-Type: application/json" -H "Cookie: "explorer_token=e
         "workflowId": "4216617528",
         "workflowName": "workflow_q745a",
         "status": 2,
-        "tasks": null,
         "runBeginTime": 1657848157000,
         "runEndTime": 1657848163000,
         "createTime": 1657848156290

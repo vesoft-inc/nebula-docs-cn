@@ -25,6 +25,10 @@
 
 ### Body 参数
 
+!!! note
+
+    自定义的传入参数需要用户自行保证参数的合理性和正确性，否则作业会执行失败。
+
 |参数|类型|是否必填|默认值|示例|说明|
 |:---|:---|:---|:---|:---|:---|
 |`input`|object|可选|-|-| 自定义的传入参数。|
@@ -33,8 +37,12 @@
 
 ### 请求示例
 
+以下图为例，在 nGQL 语句使用自定义参数`name`。在创建作业时传入参数值`Tim Duncan`。
+
+![api-postjob](https://docs-cdn.nebula-graph.com.cn/figures/api-postjob-220715-cn.png)
+
 ```http
-curl -i -X POST -H "Content-Type: application/json" -H "Cookie: "explorer_token=eyJhbxxx"" -d '{"address":"192.168.8.111","port":9669}' http://192.168.8.145:7002/api-open/v1/workflows/4216617528/jobs
+curl -i -X POST -H "Content-Type: application/json" -H "Cookie: "explorer_token=eyJhbxxx"" -d '{"input":{"query_1":{"name":"Tim Duncan"}}}' http://192.168.8.145:7002/api-open/v1/workflows/4216617528/jobs
 ```
 
 ## 返回参数
