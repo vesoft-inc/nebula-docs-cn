@@ -4,27 +4,31 @@ Nebula Explorer 提供 API 接口使用工作流的部分功能。
 
 当前支持的 API 接口如下：
 
-- 新增作业。
-- 获取所有作业列表。
+- [新增作业](api-post-jobs.md)
+- [获取所有作业列表](api-get-jobs.md)
 - 查询指定作业详情。
 - 取消作业运行。
 - 获取指定任务的运行结果数据。
 
 ## 请求方式
 
-在 URL 中指定 API 和请求参数，从而实现对应的功能。请求参数包含路径参数、Headers 参数和 Body 参数。
+支持使用 curl 调用 API 接口实现对应的功能。
 
 格式如下：
 
 ```http
-curl -i -X <request_method> -H <header> -d '{"address":"192.168.8.240","port":9669}' http://192.168.8.145:7002/api-open/v1/connect
+curl <options> http://<explorer_address>:<explorer_port>/<api_path>?{<body>}
 ```
 
-- `-X`：请求方法。当前只需要使用`GET`和`POST`。
+- `<options>`：curl 支持大量选项，工作流使用较多的是`-X`、`-H`、`-d`。关于选项的详细说明，参见 [curl 官方文档](https://curl.se/docs/manpage.html)。
 
-- `-H`：请求标头。可以用于指定内容格式、指定账号密码等。
+- `<explorer_address>`：Nebula Explorer 访问地址。
 
-- `-d`：将 POST 请求中的指定数据发送到 HTTP 服务器。
+- `<explorer_port>`：Nebula Explorer 访问端口。
+
+- `<api_path>`：API 的调用路径。例如`api-open/v1/jobs`。
+
+- `<body>`：调用 API 时传入的 Body 参数。
 
 ## 获取授权 Token
 
