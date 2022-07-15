@@ -29,7 +29,7 @@
        Explorer 默认使用的端口号为 7002，用户可以在安装目录下的 `conf/app.conf` 文件中修改 `httpport`，并重启服务。
 
 - 使用的 Linux 发行版为 CentOS。
-- 准备 License。
+- [准备 License](3.explorer-license.md)。
 
   !!! enterpriseonly
 

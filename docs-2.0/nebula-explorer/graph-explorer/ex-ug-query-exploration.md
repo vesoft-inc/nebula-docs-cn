@@ -8,7 +8,7 @@
 
 !!! compatibility "历史版本兼容性"
 
-    针对 3.0.0 以下版本的 Nebula Graph，需要创建索引后才可以使用查询功能。更多信息，参见[创建索引](../3.ngql-guide/14.native-index-statements/1.create-native-index.md)。
+    针对 3.0.0 以下版本的 Nebula Graph，需要创建索引后才可以使用查询功能。更多信息，参见[创建索引](../../3.ngql-guide/14.native-index-statements/1.create-native-index.md)。
 
 ## 操作步骤
 
@@ -38,7 +38,7 @@
 
 !!! note
 
-    请确保对应的图空间中已存在相应的 Tag 和索引，否则无法选择。详情参见[创建 Tag](../3.ngql-guide/10.tag-statements/1.create-tag.md) 和[创建索引](../3.ngql-guide/14.native-index-statements/1.create-native-index.md)。
+    请确保对应的图空间中已存在相应的 Tag 和索引，否则无法选择。详情参见[创建 Tag](../../3.ngql-guide/10.tag-statements/1.create-tag.md) 和[创建索引](../../3.ngql-guide/14.native-index-statements/1.create-native-index.md)。
 
 下图为查询 10 个年龄大于 30 岁，且不等于 40 岁的球员的示例。
 
