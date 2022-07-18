@@ -6,10 +6,10 @@ Nebula Explorer 提供 API 接口使用工作流的部分功能。
 
 - [新增作业](api-post-jobs.md)
 - [获取所有作业列表](api-get-jobs.md)
-- 获取指定工作流的作业列表
-- 查询指定作业详情
-- 取消作业运行
-- 获取指定任务的运行结果数据
+- [获取指定工作流的作业列表](api-get-workflow-jobs.md)
+- [查询指定作业详情](api-desc-job.md)
+- [取消作业运行](api-cancel-job.md)
+- [获取指定任务的运行结果数据](api-desc-task.md)
 
 ## 请求方式
 
