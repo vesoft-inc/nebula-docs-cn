@@ -64,6 +64,14 @@
 
 - 修复删除全文索引时崩溃的问题。 [#4384](https://github.com/vesoft-inc/nebula/pull/4384)
 
+- 修复当发送 PUT 请求，请求体为空时，服务崩溃的问题。[#4405](https://github.com/vesoft-inc/nebula/pull/4405)
+
+- 修复当在有索引的基础上删除点和边时，语句中的 VID 的长度超出定义的长度时，Storage 服务崩溃的问题。[#4406](https://github.com/vesoft-inc/nebula/pull/4406)
+
+- 修复集群中 Storage 和 Graph 服务时区不一致的问题。[#4391](https://github.com/vesoft-inc/nebula/pull/4391)
+
+- 修复删除全文索引时服务崩溃的问题。[#4384](https://github.com/vesoft-inc/nebula/pull/4384)
+
 ## 历史版本
 
 [历史版本](https://nebula-graph.com.cn/tags/release-note/)
