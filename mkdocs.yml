@@ -127,9 +127,9 @@ extra:
     release: 3.3.2
     tag: v3.3.0
   explorer:
-    release: 3.1.0
-    branch: reelase-3.1
-    tag: v3.1.0
+    release: 3.0.0
+    branch: reelase-3.0
+    tag: v3.0.0
   exchange_ent:
     release: 3.0.0
     branch: v3.0.0
@@ -147,13 +147,9 @@ extra:
     branch: v3.0.0
     tag: v3.0.0
   plato:
-    release: 3.2.0
-    branch: release-3.2
-    tag: v3.2.0
-  dag:
-    release: 3.2.0
-    branch: release-3.2
-    tag: v3.2.0
+    release: 3.1.0
+    branch: release-3.1
+    tag: v3.1.0
   sparkconnector:
     release: 3.0.0
     branch: v3.0.0
@@ -549,29 +545,19 @@ nav:
     - 安装与登录:
       - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
       - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
-      - Nebula Explorer License（企业版）: nebula-explorer/deploy-connect/3.explorer-license.md
     - 页面概览: nebula-explorer/ex-ug-page-overview.md
-    - 数据库管理:
-      - Schema 管理: nebula-explorer/db-management/10.create-schema.md
-      - 数据导入: nebula-explorer/db-management/11.import-data.md
-      - 控制台: nebula-explorer/db-management/explorer-console.md
-    - 图探索:
-      - 选择图空间: nebula-explorer/graph-explorer/13.choose-graphspace.md
-      - 开始探索: nebula-explorer/graph-explorer/ex-ug-query-exploration.md
-      - 节点筛选: nebula-explorer/graph-explorer/node-filtering.md
-      - 探索拓展: nebula-explorer/graph-explorer/ex-ug-graph-exploration.md
-      - 图计算: nebula-explorer/graph-explorer/graph-algorithm.md
+    - 创建 Schema: nebula-explorer/10.create-schema.md
+    - 导入数据: nebula-explorer/11.import-data.md
+    - 选择图空间: nebula-explorer/13.choose-graphspace.md
+    - 开始探索: nebula-explorer/ex-ug-query-exploration.md
+    - 节点筛选: nebula-explorer/node-filtering.md
+    - 探索拓展: nebula-explorer/ex-ug-graph-exploration.md
     - 可视化查询: nebula-explorer/12.query-visually.md
     - 画布功能: 
       - 画布概览: nebula-explorer/canvas-operations/canvas-overview.md
       - 可视化模式: nebula-explorer/canvas-operations/visualization-mode.md
       - 画布快照: nebula-explorer/canvas-operations/canvas-snapshot.md
-    - 工作流:
-      - 工作流简介: nebula-explorer/workflow/workflows.md
-      - 资源配置: nebula-explorer/workflow/1.prepare-resources.md
-      - 工作流示例: nebula-explorer/workflow/2.create-workflow.md
-      - 工作流管理: nebula-explorer/workflow/3.workflow-management.md
-      - 作业管理: nebula-explorer/workflow/4.jobs-management.md
+    - 控制台: nebula-explorer/explorer-console.md
     - 基本操作和快捷键: nebula-explorer/ex-ug-shortcuts.md
 
   - Nebula Importer:
@@ -620,17 +606,9 @@ nav:
       - 故障自愈: nebula-operator/5.operator-failover.md
       - 常见问题: nebula-operator/7.operator-faq.md
 
-  - 图计算:
+  - Nebula Algorithm: nebula-algorithm.md
 
-    - 算法简介: graph-computing/algorithm-description.md
-
-    - Nebula Algorithm: graph-computing/nebula-algorithm.md
-
-    - Nebula Analytics: graph-computing/nebula-analytics.md
-
-    - Nebula Explorer 工作流: graph-computing/use-explorer.md
-    
-    - Dag Controller: graph-computing/0.deploy-controller-analytics.md
+  - Nebula Analytics: nebula-analytics.md
 
   - Nebula Spark Connector: nebula-spark-connector.md
       

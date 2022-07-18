@@ -43,17 +43,17 @@ Nebula Algorithm 支持的图计算算法如下。
  |           算法名          |说明|应用场景|属性名称      |属性数据类型|
  |:------------------------|:-----------|:----|:---|:---|
  |         PageRank         |  页面排序  | 网页排序、重点节点挖掘|  pagerank        |double/string|
- |         Louvain          |  鲁汶     | 社团挖掘、层次化聚类| louvain        | int/string  |
+ |         Louvain          |  社区发现  | 社团挖掘、层次化聚类| louvain        | int/string  |
  |          KCore           |    K 核    |社区发现、金融风控|          kcore         | int/string  |
  |     LabelPropagation     |  标签传播  |资讯传播、广告推荐、社区发现|         lpa           | int/string  |
  |         Hanp             |标签传播进阶版|社区发现、推荐       |         hanp         | int/string  |
- |    ConnectedComponent    |  弱联通分量  |社区发现、孤岛发现|     cc           | int/string  |
+ |    ConnectedComponent    |  联通分量  |社区发现、孤岛发现|     cc           | int/string  |
  |StronglyConnectedComponent| 强联通分量  |社区发现|          scc          | int/string  |
  |       ShortestPath       |  最短路径   |路径规划、网络规划|      shortestpath     |   string    |
  |       TriangleCount      | 三角形计数  |网络结构分析|      trianglecount     | int/string  |
  |  GraphTriangleCount      | 全图三角形计数 |网络结构及紧密程度分析|  count  | int |
  |   BetweennessCentrality  | 中介中心性  |关键节点挖掘，节点影响力计算|       betweenness     |double/string|
- |   ClosenessCentrality    | 紧密中心性  |关键节点挖掘、节点影响力计算|       closeness       |double/string|
+ |   ClosenessCentrality    | 接近中心性  |关键节点挖掘、节点影响力计算|       closeness       |double/string|
  |        DegreeStatic      |   度统计   |图结构分析|degree,inDegree,outDegree| int/string  |
  | ClusteringCoefficient    | 聚集系数    |推荐、电信诈骗分析|   clustercoefficient   |double/string|
  |       Jaccard            | 杰卡德相似度计算| 相似度计算、推荐|     jaccard        |    string   |
