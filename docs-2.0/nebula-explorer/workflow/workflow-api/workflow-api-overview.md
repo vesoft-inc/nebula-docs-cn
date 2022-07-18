@@ -17,7 +17,7 @@ Nebula Explorer 提供 API 接口使用工作流的部分功能。
 
 格式如下：
 
-```http
+```bash
 curl <options> http://<explorer_address>:<explorer_port>/<api_path>?{<body>}
 ```
 
@@ -39,7 +39,7 @@ curl <options> http://<explorer_address>:<explorer_port>/<api_path>?{<body>}
 curl -i -X POST -H "Content-Type: application/json" -H "Authorization: Bearer <account_base64_encode>" -d '{"address":"<nebula_address>","port":<nebula_port>}' http://<explorer_address>:<explorer_port>/api-open/v1/connect
 ```
 
-- `<account_base64_encode>`：base64 编码后的 Nebula Graph 账号和密码。编码前格式为`账号:密码`，下文示例为`root:123`，编码后为`cm9vdDoxMjM=`。
+- `<account_base64_encode>`：Base64 编码后的 Nebula Graph 账号和密码。编码前格式为`账号:密码`，下文示例为`root:123`，编码后为`cm9vdDoxMjM=`。
 - `<nebula_address>`：Nebula Graph 访问地址。
 - `<nebula_port>`：Nebula Graph 访问端口。
 - `<explorer_address>`：Nebula Explorer 访问地址。
@@ -61,7 +61,13 @@ Traceparent: 00-1c3f55cdbf81e13a2331ed88155ce0bf-2b97474943563f20-# 00
 Date: Thu, 14 Jul 2022 06:47:01 GMT
 Content-Length: 54
 
-{"code":0,"data":{"success":true},"message":"Success"}
+{
+  "code": 0,
+  "data": {
+    "success": true
+  },
+  "message": "Success"
+}
 ```
 
 需要关注的参数如下：
@@ -76,9 +82,9 @@ Content-Length: 54
 
   ```http
   {
-    code: 200,
-    message: 'success',
-    data: ResponseData
+    code: 0,
+    message: 'Success',
+    data: <ResponseData> //根据接口返回相应结果。
   }
   ```
 
@@ -87,7 +93,7 @@ Content-Length: 54
   ```http
   {
     code: 40004000,
-    message: 'ErrBadRequest',
+    message: '<ErrBadRequest>',  //返回具体报错信息。
   }
   ```
 

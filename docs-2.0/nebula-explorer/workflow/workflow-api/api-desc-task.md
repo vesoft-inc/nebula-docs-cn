@@ -16,7 +16,7 @@
 
 |参数|类型|是否必填|默认值|示例|说明|
 |:---|:---|:---|:---|:---|:---|
-|`job_id`|number|必填|-|`29987`|作业 ID。可以通过其他 API 查询到，或者在作业列表页面查看。|
+|`job_id`|number|必填|-|`29987`|作业 ID。可以通过 API [获取所有作业列表](api-get-jobs.md)查询，或者在作业列表页面查看。|
 |`task_id`|number|必填|-|`8c171f70fb6f11ecac7e6da0662c195b`|作业 ID。可以通过其他 API 查询到，或者在指定作业页面单击组件，在右上角查看。|
 
 ### Headers 参数
@@ -34,7 +34,7 @@
 
 ### 请求示例
 
-```http
+```bash
 curl -i -X GET -H "Content-Type: application/x-www-form-urlencoded" -H "Cookie: "explorer_token=eyJhbxxx"" http://192.168.8.145:7002/api-open/v1/jobs/29987/tasks/8c171f70fb6f11ecac7e6da0662c195b/sample_result?limit=1000
 ```
 
@@ -42,7 +42,7 @@ curl -i -X GET -H "Content-Type: application/x-www-form-urlencoded" -H "Cookie: 
 
 |参数|类型|示例|说明|
 |:---|:---|:---|:---|
-|`code`                      | number | `0`       |              |
+|`code`                      | number | `0`       | 请求结果码。请求成功返回`0`，请求不成功返回对应的错误码。详情参见[工作流 API 概览](workflow-api-overview.md)。             |
 |`message`                   | string | `Success` | 执行结果信息。 |
 |`data`                       | object | -        | 返回的数据列表。 |
 |&nbsp;&nbsp;&nbsp; - `items`|list|-|详细结果列表。|

@@ -38,7 +38,7 @@
 
     `jobs?`后的内容为 Body 参数，`filter`的内容是进过 URL 编码的结果。原始内容为：`{ "status": 2,  "orderByCreateTime": "asc"}`。
 
-```http
+```bash
 curl -i -X GET -H "Content-Type: application/json" -H "Cookie: "explorer_token=eyJhbxxx"" http://192.168.8.145:7002/api-open/v1/jobs?filter=%7B%20%22status%22%3A%202%2C%20%20%22orderByCreateTime%22%3A%20%22asc%22%7D&pageSize=10&page=1
 ```
 
@@ -46,7 +46,7 @@ curl -i -X GET -H "Content-Type: application/json" -H "Cookie: "explorer_token=e
 
 |参数|类型|示例|说明|
 |:---|:---|:---|:---|
-|`code`                      | number | `0`       |              |
+|`code`                      | number | `0`       | 请求结果码。请求成功返回`0`，请求不成功返回对应的错误码。详情参见[工作流 API 概览](workflow-api-overview.md)。             |
 |`message`                   | string | `Success` | 执行结果信息。 |
 |`data`                       | object | -        | 返回的数据列表。 |
 |&nbsp;&nbsp;&nbsp;- `total`  | number | `2`      |记录总数。 |

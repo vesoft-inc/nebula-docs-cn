@@ -41,7 +41,7 @@
 
 ![api-postjob](https://docs-cdn.nebula-graph.com.cn/figures/api-postjob-220715-cn.png)
 
-```http
+```bash
 curl -i -X POST -H "Content-Type: application/json" -H "Cookie: "explorer_token=eyJhbxxx"" -d '{"input":{"query_1":{"name":"Tim Duncan"}}}' http://192.168.8.145:7002/api-open/v1/workflows/4216617528/jobs
 ```
 
@@ -49,7 +49,7 @@ curl -i -X POST -H "Content-Type: application/json" -H "Cookie: "explorer_token=
 
 |参数|类型|示例|说明|
 |:---|:---|:---|:---|
-|`code`    | number | `0`       |              |
+|`code`    | number | `0`       |  请求结果码。请求成功返回`0`，请求不成功返回对应的错误码。详情参见[工作流 API 概览](workflow-api-overview.md)。            |
 |`message`   | string | `Success` | 执行结果信息。 |
 |`data`    | object | -        | 返回的数据列表。 |
 |&nbsp;&nbsp;&nbsp;- `id`|string|`107`|新增作业的 ID。|
