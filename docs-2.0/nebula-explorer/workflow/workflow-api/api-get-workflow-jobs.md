@@ -29,7 +29,7 @@
 |:---|:---|:---|:---|:---|:---|
 |`filter` | object| 可选|-|-| 过滤器的设置。|
 |&nbsp;&nbsp;&nbsp;- `name` |string |可选 |-|`workflow_q745a_20220715092236`| 作业名称。 |
-|&nbsp;&nbsp;&nbsp;- `status` |number |可选 |-|`2`| 任务状态码。详情参见[工作流 API 概览](workflow-api-overview.md)。|
+|&nbsp;&nbsp;&nbsp;- `status` |number |可选 |-|`2`| 作业状态码。详情参见[工作流 API 概览](workflow-api-overview.md)。|
 |&nbsp;&nbsp;&nbsp;- `fromCreateTime` | number| 可选|-|`1657848036000`| 起始时间戳。基于作业的创建时间进行过滤。|
 |&nbsp;&nbsp;&nbsp;- `toCreateTime` |number |可选 |-|`1657848157000`|结束时间戳。基于作业的创建时间进行过滤。|
 |&nbsp;&nbsp;&nbsp;- `orderByCreateTime` | string| 可选|`desc`|-| 排序方式。支持`desc`和`asc`。 |

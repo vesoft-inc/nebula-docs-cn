@@ -50,7 +50,7 @@ curl -i -X GET -H "Content-Type: application/json" -H "Cookie: "explorer_token=e
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - `name`      | string | `BFS`| 任务名称。 |  
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - `runBeginTime` | datetime | `2022-07-12T10:33:35+08:00` | 任务开始执行时间。 |
 |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - `runEndTime` | datetime | `2022-07-12T10:33:38+08:00` | 任务执行结束时间。 |
-|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - `status` | number  | `2`  | 任务状态。 |
+|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - `status` | number  | `2`  | 任务状态码。详情参见[工作流 API 概览](workflow-api-overview.md)。 |
 
 ### 返回示例
 
