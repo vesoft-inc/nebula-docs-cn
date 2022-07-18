@@ -23,7 +23,7 @@
 
 |参数|类型|是否必填|默认值|示例|说明|
 |:---|:---|:---|:---|:---|:---|
-|`Content-Type`|string|必填|-|`application/json`|内容类型。|
+|`Content-Type`|string|必填|-|`application/x-www-form-urlencoded`|内容类型。|
 |`explorer_token`|string|必填|-|`eyJhbxxx`|授权 Token，用于验证账号信息。如何获取授权 Token 请参见[工作流 API 概览](workflow-api-overview.md)。|
 
 ### Body 参数
@@ -35,7 +35,7 @@
 ### 请求示例
 
 ```http
-curl -i -X GET -H "Content-Type: application/json" -H "Cookie: "explorer_token=eyJhbxxx"" http://192.168.8.145:7002/api-open/v1/jobs/29987/tasks/8c171f70fb6f11ecac7e6da0662c195b/sample_result?limit=1000
+curl -i -X GET -H "Content-Type: application/x-www-form-urlencoded" -H "Cookie: "explorer_token=eyJhbxxx"" http://192.168.8.145:7002/api-open/v1/jobs/29987/tasks/8c171f70fb6f11ecac7e6da0662c195b/sample_result?limit=1000
 ```
 
 ## 返回参数
