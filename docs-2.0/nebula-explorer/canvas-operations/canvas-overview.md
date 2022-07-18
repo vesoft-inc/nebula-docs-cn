@@ -4,7 +4,7 @@
 
 画布概览图如下：
 
-![canvas](https://docs-cdn.nebula-graph.com.cn/figures/canvas-overview-22-04-06_cn.png)
+![canvas](https://docs-cdn.nebula-graph.com.cn/figures/canvas-overview-220712-cn.png)
 
 ## 顶部页签
 
