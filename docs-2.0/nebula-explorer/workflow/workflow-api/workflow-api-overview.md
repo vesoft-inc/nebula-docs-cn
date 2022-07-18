@@ -35,7 +35,7 @@ curl <options> http://<explorer_address>:<explorer_port>/<api_path>?{<body>}
 
 使用 API 时，需要做 Token 信息校验。请使用如下命令获取 Token 信息。
 
-```http
+```bash
 curl -i -X POST -H "Content-Type: application/json" -H "Authorization: Bearer <account_base64_encode>" -d '{"address":"<nebula_address>","port":<nebula_port>}' http://<explorer_address>:<explorer_port>/api-open/v1/connect
 ```
 
@@ -47,7 +47,7 @@ curl -i -X POST -H "Content-Type: application/json" -H "Authorization: Bearer <a
 
 示例：
 
-```http
+```bash
 curl -i -X POST -H "Content-Type: application/json" -H "Authorization: Bearer cm9vdDoxMjM=" -d '{"address":"192.168.8.111","port":9669}' http://192.168.8.145:7002/api-open/v1/connect
 ```
 
