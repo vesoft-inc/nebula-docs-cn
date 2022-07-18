@@ -127,9 +127,9 @@ extra:
     release: 3.3.2
     tag: v3.3.0
   explorer:
-    release: 3.0.0
-    branch: reelase-3.0
-    tag: v3.0.0
+    release: 3.1.0
+    branch: reelase-3.1
+    tag: v3.1.0
   exchange_ent:
     release: 3.0.0
     branch: v3.0.0
