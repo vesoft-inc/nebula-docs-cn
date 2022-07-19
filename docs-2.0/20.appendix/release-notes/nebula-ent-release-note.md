@@ -2,9 +2,9 @@
 
 ## 功能
 
-- 增加 [Elasticsearch 查询函数](../3.ngql-guide/6.functions-and-expressions/17.ES-function.md)，支持向独立部署的 Elasticsearch 发送 GET 请求读取数据。
+- 增加 [Elasticsearch 查询函数](../../3.ngql-guide/6.functions-and-expressions/17.ES-function.md)，支持向独立部署的 Elasticsearch 发送 GET 请求读取数据。
 
-- 增加 [extract() 函数](../3.ngql-guide/6.functions-and-expressions/2.string.md)。
+- 增加 [extract() 函数](../../3.ngql-guide/6.functions-and-expressions/2.string.md)。
 
 ## 优化
 
