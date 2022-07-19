@@ -4,7 +4,7 @@
 
 !!! enterpriseonly
 
-    仅企业版 Exchange 支持导出 Nebula Graph 数据到 CSV 文件。
+    仅企业版 Exchange 支持导出 Nebula Graph 数据，且仅能导出到 CSV 文件。
 
 ## 环境准备
 
