@@ -603,6 +603,10 @@ nav:
       - 工作流 API:
         - 新增作业: nebula-explorer/workflow/workflow-api/api-post-jobs.md
         - 获取所有作业列表: nebula-explorer/workflow/workflow-api/api-get-jobs.md
+        - 获取指定工作流的作业列表: nebula-explorer/workflow/workflow-api/api-get-workflow-jobs.md
+        - 查询指定作业详情: nebula-explorer/workflow/workflow-api/api-desc-job.md
+        - 取消作业运行: nebula-explorer/workflow/workflow-api/api-cancel-job.md
+        - 获取指定任务的运行结果数据: nebula-explorer/workflow/workflow-api/api-desc-task.md
     - 基本操作和快捷键: nebula-explorer/ex-ug-shortcuts.md
 
   - Nebula Importer:
