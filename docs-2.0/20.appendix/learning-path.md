@@ -168,7 +168,7 @@
   |Cloud 版本|文档|视频| 
   |---------|---------|--------|
   |Azure 版|[Nebula Graph Cloud Azure云版](https://docs.nebula-graph.com.cn/2.6.2/nebula-cloud/1.what-is-cloud/)|-|
-  |阿里云版|[Nebula Graph Cloud 阿里云版](../nebula-cloud/nebula-cloud-on-alibabacloud/1.create-service-instance.md)|[Nebula Graph Cloud 阿里云版介绍](https://www.bilibili.com/video/BV1BY411K7QJ)|
+  |阿里云版|[Nebula Graph Cloud 阿里云版](https://docs.nebula-graph.com.cn/{{aliyunLatestRelease}}/nebula-cloud/nebula-cloud-on-alibabacloud/1.create-service-instance/)|[Nebula Graph Cloud 阿里云版介绍](https://www.bilibili.com/video/BV1BY411K7QJ)|
 
 - 可视化
 

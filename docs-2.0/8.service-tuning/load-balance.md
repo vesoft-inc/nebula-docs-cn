@@ -84,8 +84,6 @@
 
 如果有子任务失败，请执行`RECOVER JOB <job_id>`。如果重做负载均衡仍然不能解决问题，请到[Nebula Graph社区](https://discuss.nebula-graph.com.cn/)寻求帮助。
 
-{{ ent.ent_end }}
-
 ### 停止负载均衡作业
 
 停止负载均衡作业，请执行命令`STOP JOB <job_id>`。
@@ -253,6 +251,7 @@ nebula> SHOW HOSTS;
   ```
 -->
 
+{{ ent.ent_end }}
 ## 均衡 leader 分布
 
 用户可以使用命令`BALANCE LEADER`均衡 leader 分布。

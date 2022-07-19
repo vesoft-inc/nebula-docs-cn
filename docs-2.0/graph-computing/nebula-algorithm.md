@@ -20,7 +20,7 @@ Nebula Algorithm 版本和 Nebula Graph 内核的版本对应关系如下。
 
 在使用 Algorithm 之前，用户需要确认以下信息：
 
-- Nebula Graph 服务已经部署并启动。详细信息，参考 [Nebula Graph 安装部署](4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
+- Nebula Graph 服务已经部署并启动。详细信息，参考 [Nebula Graph 安装部署](../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
 
 - Spark 版本为 2.4.x。
 
