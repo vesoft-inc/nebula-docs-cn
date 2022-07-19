@@ -76,7 +76,7 @@ plugins:
         - spark-connector/*
         - 4.deployment-and-installation/5.zone.md
         - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
-        发布包含企业版功能的文档版本时，注释以下页面
+        # 发布包含企业版功能的文档版本时，注释以下页面
         # begin
         - 3.ngql-guide/6.functions-and-expressions/17.ES-function.md
         - 4.deployment-and-installation/deploy-license.md
