@@ -2,7 +2,7 @@ name: Publish docs via GitHub Pages
 on:
   push:
     branches:
-      - master
+      - v3.2.0
 
 jobs:
   deploy:
@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0 # fetch all commits/branches
+          fetch-depth: 1 # fetch all commits/branches
 
       - name: Setup Python
         uses: actions/setup-python@v1
@@ -27,7 +27,8 @@ jobs:
       - name: mike 
         run: |
           git fetch origin gh-pages --depth=1 # fix mike's CI update
-          mike deploy master -p --rebase
+          mike deploy 3.2.0 -p --rebase
+          mike set-default 3.2.0 -p --rebase
           mike list
 
       - name: show git branch
@@ -37,7 +38,7 @@ jobs:
           git checkout gh-pages
       - name: Compress
         run: |
-          tar -vczf nebula-docs.tar.gz master versions.json *.html
+          tar -vczf nebula-docs.tar.gz 3.2.0 versions.json *.html
           
       - name: Transfer
         # uses: garygrossgarten/github-action-scp@release
@@ -60,7 +61,7 @@ jobs:
             mkdir -p /usr/web/nebula-docs/
             tar -xzf /usr/web/nebula-docs.tar.gz -C /usr/web/nebula-docs/
             mkdir -p /usr/web/nebula-docs/site/pdf/
-            cp -f /usr/web/nebula-docs/master/pdf/NebulaGraph-CN.pdf /usr/web/nebula-docs/site/pdf/NebulaGraph-book.pdf
+            cp -f /usr/web/nebula-docs/3.2.0/pdf/NebulaGraph-CN.pdf /usr/web/nebula-docs/site/pdf/NebulaGraph-book.pdf
             
 #            pip3 install --upgrade pip
 #            pip3 install -r /usr/web/nebula-docs/requirement.txt
