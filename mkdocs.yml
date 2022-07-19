@@ -180,9 +180,9 @@ extra:
     branch: master
     tag: v0.6.1
   cpp:
-    release: 3.0.0
-    branch: v3.0.0
-    tag: v3.0.0
+    release: 3.0.2
+    branch: v3.0.2
+    tag: v3.0.2
   java:
     release: 3.0.0
     branch: v3.0.0
