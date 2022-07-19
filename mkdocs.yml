@@ -98,15 +98,15 @@ plugins:
 #    regex:
 #      - '.*\.(tmp|bin|tar)$'
 
-# # modify when release: 
-#   - with-pdf:
-#       copyright: 2022 vesoft Inc.
-#       cover_subtitle: v3.2.0
-#       author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
-#       cover: true
-#       back_cover: true
-#       cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
-#       output_path: pdf/NebulaGraph-CN.pdf
+# modify when release: 
+  - with-pdf:
+      copyright: 2022 vesoft Inc.
+      cover_subtitle: v3.2.0
+      author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
+      cover: true
+      back_cover: true
+      cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
+      output_path: pdf/NebulaGraph-CN.pdf
 
 extra_javascript:
   - js/version-select.js      
