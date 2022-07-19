@@ -147,6 +147,7 @@ extra:
     base220: 2.2.1
     base300: 3.0.0
     release: 3.4.0
+    branch: release-3.4
     tag: v3.4.0
   explorer:
     release: 3.1.0
@@ -161,9 +162,9 @@ extra:
     branch: v3.0.0
     tag: v3.0.0
   importer:
-    release: 3.1.0
-    branch: release-3.1
-    tag: v3.1.0
+    release: 3.2.0
+    branch: release-3.2
+    tag: v3.2.0
   algorithm:
     release: 3.0.0
     branch: v3.0.0
@@ -189,26 +190,26 @@ extra:
     branch: release-3.2
     tag: v3.2.0
   dashboard:
-    release: 3.0.0
-    tag: v3.0.0
+    release: 3.1.0
+    tag: v3.1.0
     base100: 1.0.0
-    branch: release-3.0
+    branch: release-3.1
   dashboard_ent:
     release: 3.1.0
     tag: v3.1.0
     branch: release-3.1
   console:
-    release: 3.0.0
-    branch: v3.0.0
-    tag: v3.0.0
+    release: 3.2.0
+    branch: release-3.2
+    tag: v3.2.0
   br:
     release: 0.6.1
     branch: master
     tag: v0.6.1
   cpp:
-    release: 3.0.0
-    branch: v3.0.0
-    tag: v3.0.0
+    release: 3.0.2
+    branch: v3.0.2
+    tag: v3.0.2
   java:
     release: 3.0.0
     branch: v3.0.0
@@ -218,27 +219,27 @@ extra:
     branch: release-3.1
     tag: v3.1.0
   go:
-    release: 3.1.0
-    branch: release-3.1
-    tag: v3.1.0
+    release: 3.2.0
+    branch: release-3.2
+    tag: v3.2.0
   bench:
     release: 1.2.0
     branch: release-1.2
     tag: v1.2.0
   operator:
-    release: 1.1.0
-    tag: v1.1.0
-    branch: release-1.1
+    release: 1.2.0
+    tag: v1.2.0
+    branch: release-1.2
     upgrade_from: 3.0.0
     upgrade_to: 3.1.x
   exporter:
-    release: 3.1.0
-    branch: release-3.1
-    tag: v3.1.0
+    release: 3.2.0
+    branch: release-3.2
+    tag: v3.2.0
   gateway:
-    release: 3.1.2
-    branch: release-3.1
-    tag: v3.1.2
+    release: 3.2.0
+    branch: release-3.2
+    tag: v3.2.0
   cloud:
     azureRelease: 3.1.1 # Azure云兼容的最新内核版本
     aliyunRelease: 3.1.1 # 阿里云兼容的最新内核版本
