@@ -205,9 +205,9 @@ extra:
     branch: master
     tag: v0.6.1
   cpp:
-    release: 3.0.0
-    branch: v3.0.0
-    tag: v3.0.0
+    release: 3.0.2
+    branch: v3.0.2
+    tag: v3.0.2
   java:
     release: 3.0.0
     branch: v3.0.0
@@ -225,9 +225,9 @@ extra:
     branch: release-1.2
     tag: v1.2.0
   operator:
-    release: 1.1.0
-    tag: v1.1.0
-    branch: release-1.1
+    release: 1.2.0
+    tag: v1.2.0
+    branch: release-1.2
     upgrade_from: 3.0.0
     upgrade_to: 3.1.x
   exporter:
