@@ -2,7 +2,7 @@
 
 ## 功能
 
-- 增加 [extract() 函数](../3.ngql-guide/6.functions-and-expressions/2.string.md)。
+- 增加 [extract() 函数](../../3.ngql-guide/6.functions-and-expressions/2.string.md)。
 
 ## 优化
 
