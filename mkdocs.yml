@@ -172,9 +172,9 @@ extra:
     base100: 1.0.0
     branch: v1.1.1
   dashboard_ent:
-    release: 3.0.4
-    tag: v3.0.4
-    branch: release-3.0
+    release: 3.1.0
+    tag: v3.1.0
+    branch: release-3.1
   console:
     release: 3.0.0
     branch: v3.0.0
@@ -184,9 +184,9 @@ extra:
     branch: master
     tag: v0.6.1
   cpp:
-    release: 3.0.0
-    branch: v3.0.0
-    tag: v3.0.0
+    release: 3.0.2
+    branch: v3.0.2
+    tag: v3.0.2
   java:
     release: 3.0.0
     branch: v3.0.0
@@ -524,8 +524,9 @@ nav:
       - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
 
   - Nebula Dashboard（企业版）:
-      - 什么是 Nebula Dashboard: nebula-dashboard-ent/1.what-is-dashboard-ent.md
-      - 部署 Dashboard: nebula-dashboard-ent/2.deploy-connect-dashboard-ent.md
+      - 什么是 Nebula Dashboard 企业版: nebula-dashboard-ent/1.what-is-dashboard-ent.md
+      - 部署 Nebula Dashboard 企业版: nebula-dashboard-ent/2.deploy-connect-dashboard-ent.md
+      - Nebula Dashboard 企业版 License: nebula-dashboard-ent/11.dashboard-ent-license.md
       - 创建及导入集群:
         - 创建集群: nebula-dashboard-ent/3.create-import-dashboard/1.create-cluster.md
         - 导入集群: nebula-dashboard-ent/3.create-import-dashboard/2.import-cluster.md
@@ -536,11 +537,13 @@ nav:
         - 集群信息: nebula-dashboard-ent/4.cluster-operator/3.cluster-information.md
         - 集群诊断: nebula-dashboard-ent/4.cluster-operator/7.cluster-diagnosis.md
         - 集群操作: nebula-dashboard-ent/4.cluster-operator/4.manage.md
+        - 备份与恢复: nebula-dashboard-ent/4.cluster-operator/8.backup-and-restore.md
         - 操作记录: nebula-dashboard-ent/4.cluster-operator/5.operation-record.md
         - 其他设置: nebula-dashboard-ent/4.cluster-operator/6.settings.md
-      - 权限管理: nebula-dashboard-ent/5.account-management.md
-      - 全局配置: nebula-dashboard-ent/6.global-config.md
       - 任务中心: nebula-dashboard-ent/10.tasks.md
+      - 权限管理: nebula-dashboard-ent/5.account-management.md
+      - 安装包管理: nebula-dashboard-ent/11.manage-package.md
+      - 全局配置: nebula-dashboard-ent/6.global-config.md
       - 监控指标说明: nebula-dashboard-ent/7.monitor-parameter.md
       - 常见问题 FAQ: nebula-dashboard-ent/8.faq.md
 
