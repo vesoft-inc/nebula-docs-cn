@@ -80,7 +80,9 @@ Exchange {{exchange.release}} 支持将以下格式或来源的数据转换为 N
 
 除了用 nGQL 语句的形式导入数据，Exchange 还支持将数据源的数据生成 SST 文件，然后通过 Console [导入 SST 文件](../use-exchange/ex-ug-import-from-sst.md)。
 
+{{ ent.ent_begin }}
 此外，企业版 Exchange 支持以 Nebula Graph 为源，将数据[导出到 CSV 文件](../use-exchange/ex-ug-export-from-nebula.md)。
+{{ ent.ent_end }}
 
 ## 更新说明
 
