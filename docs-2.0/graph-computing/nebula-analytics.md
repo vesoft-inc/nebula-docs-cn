@@ -4,7 +4,7 @@ Nebula Analytics 是一款高性能图计算框架工具，支持对 Nebula Grap
 
 !!! enterpriseonly
 
-    仅企业版支持本功能。
+    如需获取 Nebula Analytics 安装包，请发送邮件至 inquiry@vesoft.com。
 
 ## 适用场景
 

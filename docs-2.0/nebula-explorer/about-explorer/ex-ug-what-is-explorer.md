@@ -4,7 +4,7 @@ Nebula Explorer （简称 Explorer）是一款可以通过 Web 访问的可视�
 
 !!! enterpriseonly
 
-    Explorer 仅在企业版提供。
+    如需获取 Nebula Explorer 安装包，请发送邮件至 inquiry@vesoft.com。
 
 !!! Note
 
