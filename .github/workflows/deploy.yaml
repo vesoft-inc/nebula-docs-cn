@@ -37,7 +37,7 @@ jobs:
           git checkout gh-pages
       - name: Compress
         run: |
-         # sed -i 's/{\"version\": \"3.2.0-huizhi\", \"title": "3.2.0-huizhi\", \"aliases\": \[\]},//g' versions.json
+          sed -i 's/{\"version\": \"3.2.0-huizhi\", \"title": "3.2.0-huizhi\", \"aliases\": \[\]},//g' versions.json
           tar -vczf nebula-docs.tar.gz 3.2.0-huizhi versions.json *.html
           # not public this branch; but push to web service
           

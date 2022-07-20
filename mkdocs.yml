@@ -676,7 +676,7 @@ nav:
 
   - 附录:
       - Release Note:
-        - Nebula Graph 社区版: 20.appendix/release-notes/nebula-comm-release-note.md
+#        - Nebula Graph 社区版: 20.appendix/release-notes/nebula-comm-release-note.md
         - Nebula Graph 企业版: 20.appendix/release-notes/nebula-ent-release-note.md
         - Nebula Studio: 20.appendix/release-notes/studio-release-note.md
         - Nebula Dashboard 社区版: 20.appendix/release-notes/dashboard-comm-release-note.md
