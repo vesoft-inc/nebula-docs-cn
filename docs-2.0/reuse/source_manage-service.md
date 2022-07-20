@@ -1,13 +1,16 @@
-Nebula Graph 支持通过脚本或 systemd 管理服务。
+Nebula Graph 支持通过脚本管理服务。
+
+{{ ent.ent_begin }}
 
 !!! enterpriseonly
 
-    仅企业版支持使用 systemd 管理服务。
-  
+    企业版还支持使用 systemd 管理服务。
+
 !!! danger
 
     这两种方式互不兼容，选择使用其中一种。
 
+{{ ent.ent_end }}
 ## 使用脚本管理服务
 
 使用脚本`nebula.service`管理服务，包括启动、停止、重启、中止和查看。
