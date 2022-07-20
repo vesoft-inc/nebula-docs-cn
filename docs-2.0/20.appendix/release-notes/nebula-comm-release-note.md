@@ -1,10 +1,8 @@
 # Nebula Graph 社区版 {{ nebula.release }} release notes
 
-## 功能
-
-- 增加 [extract() 函数](../../3.ngql-guide/6.functions-and-expressions/2.string.md)。
-
 ## 优化
+
+- 支持 [extract() 函数](../../3.ngql-guide/6.functions-and-expressions/2.string.md)。
 
 - 优化配置文件，增加部分配置。 [#4310](https://github.com/vesoft-inc/nebula/pull/4310)
 
@@ -29,6 +27,7 @@
 - 改善优化规则，去除无效的项目操作符。 [#4157](https://github.com/vesoft-inc/nebula/pull/4157)
 
 - 使用 Arena Allocator 优化内存分配。 [#4239](https://github.com/vesoft-inc/nebula/pull/4239)
+
 
 ## 缺陷修复
 
