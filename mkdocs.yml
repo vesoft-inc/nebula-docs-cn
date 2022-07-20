@@ -84,7 +84,6 @@ plugins:
         - 7.data-security/1.authentication/4.ldap.md
         - nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
         - synchronization-and-migration/replication-between-clusters.md
-        - 20.appendix/8.about-license/
         - 20.appendix/release-notes/nebula-ent-release-note.md
         # end
         
