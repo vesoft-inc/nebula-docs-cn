@@ -77,13 +77,14 @@ plugins:
         - 4.deployment-and-installation/5.zone.md
         - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
         - nebula-cloud/*
+        - nebula-cloud.md
 # Exclude the file with the following file name.
 #        - abc.md
 # Exclude files with regular expressions (regexes)
 #    regex:
 #      - '.*\.(tmp|bin|tar)$'
 
-# modify when release: 
+# modify when release:
   - with-pdf:
       copyright: 2022 vesoft Inc.
       cover_subtitle: v3.0.1
@@ -94,13 +95,14 @@ plugins:
       output_path: pdf/NebulaGraph-CN.pdf
 
 extra_javascript:
+  - js/version-select.js
   - js/config.js
   - js/jquery.js
   - js/init.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
-# modify when release: 
+# modify when release:
 extra:
   analytics:
     provider: google
@@ -425,8 +427,6 @@ nav:
     - Nebula Python: 14.client/5.nebula-python-client.md
     - Nebula Go: 14.client/6.nebula-go-client.md
 
-  - Nebula Graph Cloud: nebula-cloud.md
-
 #  - Nebula Graph Cloud:
 #    - 什么是 Nebula Graph Cloud: nebula-cloud/1.what-is-cloud.md
 #    - 创建订阅: nebula-cloud/2.how-to-create-subsciption.md
@@ -437,7 +437,7 @@ nav:
 #      - 配套的应用（Dashboard/Studio/Explorer）: nebula-cloud/5.solution/5.1.supporting-application.md
 #      - Private Link: nebula-cloud/5.solution/5.2.connection-configuration-and-use.md
 #      - 管理角色权限: nebula-cloud/5.solution/5.3.role-and-authority-management.md
-#    - 价格: nebula-cloud/6.pricing.md
+##    - 价格: nebula-cloud/6.pricing.md
 #    - 用户服务条款: nebula-cloud/7.terms-and-conditions.md
 #    - 隐私政策条款: nebula-cloud/8.privacy-policy.md
 
