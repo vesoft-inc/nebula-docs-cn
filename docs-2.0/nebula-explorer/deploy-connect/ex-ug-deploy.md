@@ -178,7 +178,7 @@ sudo dpkg -r nebula-explorer
 2. 使用 `tar -xvf` 解压 tar 包。
 
    ```bash
-   tar -xvf nebula-graph-explorer-<version>.tar.gz
+   tar -xvf nebula-explorer-<version>.tar.gz
    ```
 
 3. 拷贝 License 至`nebula-explorer`目录下。
@@ -196,7 +196,7 @@ sudo dpkg -r nebula-explorer
 
   ```bash
   cd nebula-explorer
-  ./nebula-httpd &
+  nohup ./nebula-explorer-server &
   ```
 
 ### 停止服务
