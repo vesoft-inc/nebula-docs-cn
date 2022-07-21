@@ -2,7 +2,7 @@ name: Publish docs via GitHub Pages
 on:
   push:
     branches:
-      - v3.2.0-huizhi
+      - v3.2.0e-beta
 
 jobs:
   deploy:
@@ -27,7 +27,7 @@ jobs:
       - name: mike 
         run: |
           git fetch origin gh-pages --depth=1 # fix mike's CI update
-          mike deploy 3.2.0-huizhi -p --rebase
+          mike deploy 3.2.0e-beta -p --rebase
           mike list
 
       - name: show git branch
@@ -37,8 +37,8 @@ jobs:
           git checkout gh-pages
       - name: Compress
         run: |
-          sed -i 's/{\"version\": \"3.2.0-huizhi\", \"title": "3.2.0-huizhi\", \"aliases\": \[\]},//g' versions.json
-          tar -vczf nebula-docs.tar.gz 3.2.0-huizhi versions.json *.html
+          sed -i 's/{\"version\": \"3.2.0e-beta\", \"title": "3.2.0e-beta\", \"aliases\": \[\]},//g' versions.json
+          tar -vczf nebula-docs.tar.gz 3.2.0e-beta versions.json *.html
           # not public this branch; but push to web service
           
       - name: Transfer
@@ -62,7 +62,7 @@ jobs:
             mkdir -p /usr/web/nebula-docs/
             tar -xzf /usr/web/nebula-docs.tar.gz -C /usr/web/nebula-docs/
             mkdir -p /usr/web/nebula-docs/site/pdf/
-            cp -f /usr/web/nebula-docs/3.2.0-huizhi/pdf/NebulaGraph-CN.pdf /usr/web/nebula-docs/site/pdf/NebulaGraph-book.pdf
+            cp -f /usr/web/nebula-docs/3.2.0e-beta/pdf/NebulaGraph-CN.pdf /usr/web/nebula-docs/site/pdf/NebulaGraph-book.pdf
             
 #            pip3 install --upgrade pip
 #            pip3 install -r /usr/web/nebula-docs/requirement.txt

@@ -8,7 +8,7 @@ docs_dir: docs-2.0
 copyright: Copyright &copy; 2022 Nebula Graph - 浙ICP备20010487号
  
 # modify when release: 
-edit_uri: 'edit/v3.2.0-huizhi/docs-2.0/'  
+edit_uri: 'edit/v3.2.0e-beta/docs-2.0/'  
 
 # Configuration
 theme:
@@ -102,7 +102,7 @@ plugins:
 # modify when release: 
   - with-pdf:
       copyright: 2022 vesoft Inc.
-      cover_subtitle: v3.2.0-huizhi
+      cover_subtitle: v3.2.0e-beta
       author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
       cover: true
       back_cover: true
