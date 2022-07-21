@@ -83,7 +83,7 @@ plugins:
 #    regex:
 #      - '.*\.(tmp|bin|tar)$'
 
-# modify when release: 
+# modify when release:
   - with-pdf:
       copyright: 2022 vesoft Inc.
       cover_subtitle: v3.1.0
@@ -94,14 +94,14 @@ plugins:
       output_path: pdf/NebulaGraph-CN.pdf
 
 extra_javascript:
-  - js/version-select.js      
+  - js/version-select.js
   - js/config.js
   - js/jquery.js
   - js/init.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
-# modify when release: 
+# modify when release:
 extra:
   analytics:
     provider: google
@@ -477,14 +477,14 @@ nav:
     - 什么是 Nebula Graph Cloud: nebula-cloud/1.what-is-cloud.md
 #    - Nebula Graph Cloud Azure版:
 #      - 创建订阅: nebula-cloud/nebula-cloud-on-azure/2.how-to-create-subsciption.md
-#      - 配置Solution: nebula-cloud/nebula-cloud-on-azure/3.how-to-set-solution.md
+#      - 配置 Solution: nebula-cloud/nebula-cloud-on-azure/3.how-to-set-solution.md
 #      - Cloud Solution 角色身份说明: nebula-cloud/nebula-cloud-on-azure/4.user-role-description.md
 #      - Solution 操作:
 #        - Solution: nebula-cloud/nebula-cloud-on-azure/5.solution/5.0.introduce-solution.md
 #        - 配套的应用（Dashboard/Studio/Explorer）: nebula-cloud/nebula-cloud-on-azure/5.solution/5.1.supporting-application.md
 #        - Private Link: nebula-cloud/nebula-cloud-on-azure/5.solution/5.2.connection-configuration-and-use.md
 #        - 管理角色权限: nebula-cloud/nebula-cloud-on-azure/5.solution/5.3.role-and-authority-management.md
-#      - 价格: nebula-cloud/nebula-cloud-on-azure/6.pricing.md
+##      - 价格: nebula-cloud/nebula-cloud-on-azure/6.pricing.md
 #      - 用户服务条款: nebula-cloud/nebula-cloud-on-azure/7.terms-and-conditions.md
 #      - 隐私政策条款: nebula-cloud/nebula-cloud-on-azure/8.privacy-policy.md
     - Nebula Graph Cloud 阿里云版:
