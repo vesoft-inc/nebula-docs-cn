@@ -39,7 +39,7 @@ theme:
 extra_css:
   - stylesheets/logo.css
   - stylesheets/note.css
-  #- css/version-select.css
+  - css/version-select.css
   - stylesheets/extra.css
 
 # Extensions
