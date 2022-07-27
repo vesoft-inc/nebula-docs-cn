@@ -5,10 +5,6 @@ Nebula Studio（ 以下简称 Studio ）支持云端或本地部署。云服务�
 
 本文介绍如何在本地通过 RPM、DEB、tar 包和 Docker 部署 Studio。
 
-!!! Note
-
-    用户也可以[在线试用](https://playground.nebula-graph.com.cn/explore)部分 Studio 功能。
-
 ## RPM 部署 Studio
 
 ### 前提条件
@@ -154,7 +150,7 @@ $ systemctl restart nebula-graph-studio.service
 用户可以使用以下的命令卸载 Studio。
 
 ```bash
-$ sudo dpkg -r nebula-graph-studio-{{studio.release}}.x86_64
+$ sudo dpkg -r nebula-graph-studio
 ```
 
 ## tar 包部署 Studio

@@ -83,7 +83,7 @@ plugins:
 #    regex:
 #      - '.*\.(tmp|bin|tar)$'
 
-# modify when release: 
+# modify when release:
   - with-pdf:
       copyright: 2022 vesoft Inc.
       cover_subtitle: v3.1.0
@@ -94,14 +94,14 @@ plugins:
       output_path: pdf/NebulaGraph-CN.pdf
 
 extra_javascript:
-  - js/version-select.js      
+  - js/version-select.js
   - js/config.js
   - js/jquery.js
   - js/init.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
-# modify when release: 
+# modify when release:
 extra:
   analytics:
     provider: google
@@ -127,9 +127,9 @@ extra:
     release: 3.3.2
     tag: v3.3.0
   explorer:
-    release: 3.0.0
-    branch: reelase-3.0
-    tag: v3.0.0
+    release: 3.1.0
+    branch: reelase-3.1
+    tag: v3.1.0
   exchange_ent:
     release: 3.0.0
     branch: v3.0.0
@@ -147,9 +147,13 @@ extra:
     branch: v3.0.0
     tag: v3.0.0
   plato:
-    release: 3.1.0
-    branch: release-3.1
-    tag: v3.1.0
+    release: 3.2.0
+    branch: release-3.2
+    tag: v3.2.0
+  dag:
+    release: 3.2.0
+    branch: release-3.2
+    tag: v3.2.0
   sparkconnector:
     release: 3.0.0
     branch: v3.0.0
@@ -163,26 +167,26 @@ extra:
     branch: release-3.1
     tag: v3.1.0
   dashboard:
-    release: 1.1.1
-    tag: v1.1.1
+    release: 1.1.2
+    tag: v1.1.2
     base100: 1.0.0
-    branch: v1.1.1
+    branch: v1.1.2
   dashboard_ent:
-    release: 3.0.0
-    tag: v3.0.0
-    branch: release-3.0
+    release: 3.1.0
+    tag: v3.1.0
+    branch: release-3.1
   console:
     release: 3.0.0
     branch: v3.0.0
     tag: v3.0.0
   br:
-    release: 0.6.0
+    release: 0.6.1
     branch: master
-    tag: v0.6.0
+    tag: v0.6.1
   cpp:
-    release: 3.0.0
-    branch: v3.0.0
-    tag: v3.0.0
+    release: 3.0.2
+    branch: v3.0.2
+    tag: v3.0.2
   java:
     release: 3.0.0
     branch: v3.0.0
@@ -411,7 +415,7 @@ nav:
 
       - 升级版本:
           - 升级 Nebula Graph 版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
-#          - 升级 v2.0.x 至当前版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
+          - 升级 v3.0.x 至当前版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-300-to-latest.md
       - 卸载 Nebula Graph: 4.deployment-and-installation/4.uninstall-nebula-graph.md
 
   - 配置与日志:
@@ -471,18 +475,18 @@ nav:
 
   - Nebula Graph Cloud:
     - 什么是 Nebula Graph Cloud: nebula-cloud/1.what-is-cloud.md
-    - Nebula Graph Cloud Azure版:
-      - 创建订阅: nebula-cloud/nebula-cloud-on-azure/2.how-to-create-subsciption.md
-      - 配置Solution: nebula-cloud/nebula-cloud-on-azure/3.how-to-set-solution.md
-      - Cloud Solution 角色身份说明: nebula-cloud/nebula-cloud-on-azure/4.user-role-description.md
-      - Solution 操作:
-        - Solution: nebula-cloud/nebula-cloud-on-azure/5.solution/5.0.introduce-solution.md
-        - 配套的应用（Dashboard/Studio/Explorer）: nebula-cloud/nebula-cloud-on-azure/5.solution/5.1.supporting-application.md
-        - Private Link: nebula-cloud/nebula-cloud-on-azure/5.solution/5.2.connection-configuration-and-use.md
-        - 管理角色权限: nebula-cloud/nebula-cloud-on-azure/5.solution/5.3.role-and-authority-management.md
-#      - 价格: nebula-cloud/nebula-cloud-on-azure/6.pricing.md
-      - 用户服务条款: nebula-cloud/nebula-cloud-on-azure/7.terms-and-conditions.md
-      - 隐私政策条款: nebula-cloud/nebula-cloud-on-azure/8.privacy-policy.md
+#    - Nebula Graph Cloud Azure版:
+#      - 创建订阅: nebula-cloud/nebula-cloud-on-azure/2.how-to-create-subsciption.md
+#      - 配置 Solution: nebula-cloud/nebula-cloud-on-azure/3.how-to-set-solution.md
+#      - Cloud Solution 角色身份说明: nebula-cloud/nebula-cloud-on-azure/4.user-role-description.md
+#      - Solution 操作:
+#        - Solution: nebula-cloud/nebula-cloud-on-azure/5.solution/5.0.introduce-solution.md
+#        - 配套的应用（Dashboard/Studio/Explorer）: nebula-cloud/nebula-cloud-on-azure/5.solution/5.1.supporting-application.md
+#        - Private Link: nebula-cloud/nebula-cloud-on-azure/5.solution/5.2.connection-configuration-and-use.md
+#        - 管理角色权限: nebula-cloud/nebula-cloud-on-azure/5.solution/5.3.role-and-authority-management.md
+##      - 价格: nebula-cloud/nebula-cloud-on-azure/6.pricing.md
+#      - 用户服务条款: nebula-cloud/nebula-cloud-on-azure/7.terms-and-conditions.md
+#      - 隐私政策条款: nebula-cloud/nebula-cloud-on-azure/8.privacy-policy.md
     - Nebula Graph Cloud 阿里云版:
       - 创建服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/1.create-service-instance.md
       - 使用服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/2.use-cloud-services.md
@@ -520,8 +524,9 @@ nav:
       - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
 
   - Nebula Dashboard（企业版）:
-      - 什么是 Nebula Dashboard: nebula-dashboard-ent/1.what-is-dashboard-ent.md
-      - 部署 Dashboard: nebula-dashboard-ent/2.deploy-connect-dashboard-ent.md
+      - 什么是 Nebula Dashboard 企业版: nebula-dashboard-ent/1.what-is-dashboard-ent.md
+      - 部署 Nebula Dashboard 企业版: nebula-dashboard-ent/2.deploy-connect-dashboard-ent.md
+      - Nebula Dashboard 企业版 License: nebula-dashboard-ent/11.dashboard-ent-license.md
       - 创建及导入集群:
         - 创建集群: nebula-dashboard-ent/3.create-import-dashboard/1.create-cluster.md
         - 导入集群: nebula-dashboard-ent/3.create-import-dashboard/2.import-cluster.md
@@ -532,11 +537,13 @@ nav:
         - 集群信息: nebula-dashboard-ent/4.cluster-operator/3.cluster-information.md
         - 集群诊断: nebula-dashboard-ent/4.cluster-operator/7.cluster-diagnosis.md
         - 集群操作: nebula-dashboard-ent/4.cluster-operator/4.manage.md
+        - 备份与恢复: nebula-dashboard-ent/4.cluster-operator/8.backup-and-restore.md
         - 操作记录: nebula-dashboard-ent/4.cluster-operator/5.operation-record.md
         - 其他设置: nebula-dashboard-ent/4.cluster-operator/6.settings.md
-      - 权限管理: nebula-dashboard-ent/5.account-management.md
-      - 全局配置: nebula-dashboard-ent/6.global-config.md
       - 任务中心: nebula-dashboard-ent/10.tasks.md
+      - 权限管理: nebula-dashboard-ent/5.account-management.md
+      - 安装包管理: nebula-dashboard-ent/11.manage-package.md
+      - 全局配置: nebula-dashboard-ent/6.global-config.md
       - 监控指标说明: nebula-dashboard-ent/7.monitor-parameter.md
       - 常见问题 FAQ: nebula-dashboard-ent/8.faq.md
 
@@ -545,19 +552,37 @@ nav:
     - 安装与登录:
       - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
       - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
+      - Nebula Explorer License（企业版）: nebula-explorer/deploy-connect/3.explorer-license.md
     - 页面概览: nebula-explorer/ex-ug-page-overview.md
-    - 创建 Schema: nebula-explorer/10.create-schema.md
-    - 导入数据: nebula-explorer/11.import-data.md
-    - 选择图空间: nebula-explorer/13.choose-graphspace.md
-    - 开始探索: nebula-explorer/ex-ug-query-exploration.md
-    - 节点筛选: nebula-explorer/node-filtering.md
-    - 探索拓展: nebula-explorer/ex-ug-graph-exploration.md
+    - 数据库管理:
+      - Schema 管理: nebula-explorer/db-management/10.create-schema.md
+      - 数据导入: nebula-explorer/db-management/11.import-data.md
+      - 控制台: nebula-explorer/db-management/explorer-console.md
+    - 图探索:
+      - 选择图空间: nebula-explorer/graph-explorer/13.choose-graphspace.md
+      - 开始探索: nebula-explorer/graph-explorer/ex-ug-query-exploration.md
+      - 节点筛选: nebula-explorer/graph-explorer/node-filtering.md
+      - 探索拓展: nebula-explorer/graph-explorer/ex-ug-graph-exploration.md
+      - 图计算: nebula-explorer/graph-explorer/graph-algorithm.md
     - 可视化查询: nebula-explorer/12.query-visually.md
     - 画布功能: 
       - 画布概览: nebula-explorer/canvas-operations/canvas-overview.md
       - 可视化模式: nebula-explorer/canvas-operations/visualization-mode.md
       - 画布快照: nebula-explorer/canvas-operations/canvas-snapshot.md
-    - 控制台: nebula-explorer/explorer-console.md
+    - 工作流:
+      - 工作流简介: nebula-explorer/workflow/workflows.md
+      - 资源配置: nebula-explorer/workflow/1.prepare-resources.md
+      - 工作流示例: nebula-explorer/workflow/2.create-workflow.md
+      - 工作流管理: nebula-explorer/workflow/3.workflow-management.md
+      - 作业管理: nebula-explorer/workflow/4.jobs-management.md
+      - 工作流 API:
+        - API 概览: nebula-explorer/workflow/workflow-api/workflow-api-overview.md
+        - 新增作业: nebula-explorer/workflow/workflow-api/api-post-jobs.md
+        - 获取所有作业列表: nebula-explorer/workflow/workflow-api/api-get-jobs.md
+        - 获取指定工作流的作业列表: nebula-explorer/workflow/workflow-api/api-get-workflow-jobs.md
+        - 查询指定作业详情: nebula-explorer/workflow/workflow-api/api-desc-job.md
+        - 取消作业运行: nebula-explorer/workflow/workflow-api/api-cancel-job.md
+        - 获取指定任务的运行结果数据: nebula-explorer/workflow/workflow-api/api-desc-task.md
     - 基本操作和快捷键: nebula-explorer/ex-ug-shortcuts.md
 
   - Nebula Importer:
@@ -606,9 +631,17 @@ nav:
       - 故障自愈: nebula-operator/5.operator-failover.md
       - 常见问题: nebula-operator/7.operator-faq.md
 
-  - Nebula Algorithm: nebula-algorithm.md
+  - 图计算:
 
-  - Nebula Analytics: nebula-analytics.md
+    - 算法简介: graph-computing/algorithm-description.md
+
+    - Nebula Algorithm: graph-computing/nebula-algorithm.md
+
+    - Nebula Analytics: graph-computing/nebula-analytics.md
+
+    - Nebula Explorer 工作流: graph-computing/use-explorer.md
+    
+    - Dag Controller: graph-computing/0.deploy-controller-analytics.md
 
   - Nebula Spark Connector: nebula-spark-connector.md
       

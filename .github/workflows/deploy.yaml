@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 0 # fetch all commits/branches
+          fetch-depth: 1 # fetch all commits/branches
 
       - name: Setup Python
         uses: actions/setup-python@v1
@@ -26,8 +26,8 @@ jobs:
 
       - name: mike 
         run: |
+          git fetch origin gh-pages --depth=1 # fix mike's CI update
           mike deploy 3.1.0 -p --rebase
-          mike set-default 3.1.0 -p --rebase
           mike list
 
       - name: show git branch

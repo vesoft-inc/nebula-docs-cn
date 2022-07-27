@@ -7,7 +7,8 @@
 
 | Nebula Graph 版本 | Explorer 版本 |
 | --- | --- |
-| 3.0.0 ~ 3.1.x | 3.0.0  |
+| 3.1.0 ~ 3.1.0| 3.1.0|
+| 3.0.0 ~ 3.1.0 | 3.0.0  |
 | 2.5.x ~ 3.0.0| 2.2.0|
 | 2.6.x | 2.1.0 |
 | 2.5.x | 2.0.0 |
@@ -29,11 +30,11 @@
        Explorer 默认使用的端口号为 7002，用户可以在安装目录下的 `conf/app.conf` 文件中修改 `httpport`，并重启服务。
 
 - 使用的 Linux 发行版为 CentOS。
-- 准备 License。
+- [准备 License](3.explorer-license.md)。
 
   !!! enterpriseonly
 
-        License 仅在企业版提供，申请 License 需填写 [Nebula Explorer 试用申请](https://wj.qq.com/s2/9414111/81f4)。
+        License 仅在企业版提供，申请 License 需填写 [Nebula Explorer 试用申请](https://wj.qq.com/s2/10158890/69a8)。
 
 ## RPM 部署
 ### 安装
@@ -42,7 +43,7 @@
 
   !!! enterpriseonly
 
-        用户可以[在线申请](https://wj.qq.com/s2/9414111/81f4)试用 Explorer 企业版；如需购买，通过邮箱(inquiry@vesoft.com)联系销售人员。点击[定价](https://nebula-graph.com.cn/pricing/)查看更多。
+        用户可以[在线申请](https://wj.qq.com/s2/10158890/69a8)试用 Explorer 企业版；如需购买，通过邮箱(inquiry@vesoft.com)联系销售人员。点击[定价](https://nebula-graph.com.cn/pricing/)查看更多。
 
 2. 使用`sudo rpm -i <rpm>`命令安装 RPM 包。
 
@@ -107,7 +108,7 @@ sudo rpm -e nebula-explorer-<version>.x86_64
 
   !!! enterpriseonly
 
-        用户可以[在线申请](https://wj.qq.com/s2/9414111/81f4)试用 Explorer 企业版；如需购买，通过邮箱(inquiry@vesoft.com)联系销售人员。点击[定价](https://nebula-graph.com.cn/pricing/)查看更多。
+        用户可以[在线申请](https://wj.qq.com/s2/10158890/69a8)试用 Explorer 企业版；如需购买，通过邮箱(inquiry@vesoft.com)联系销售人员。点击[定价](https://nebula-graph.com.cn/pricing/)查看更多。
 
 
 2. 使用`sudo dpkg -i <package_name>`命令安装 DEB 包。
@@ -178,7 +179,7 @@ sudo dpkg -r nebula-explorer
 2. 使用 `tar -xvf` 解压 tar 包。
 
    ```bash
-   tar -xvf nebula-graph-explorer-<version>.tar.gz
+   tar -xvf nebula-explorer-<version>.tar.gz
    ```
 
 3. 拷贝 License 至`nebula-explorer`目录下。
@@ -196,7 +197,7 @@ sudo dpkg -r nebula-explorer
 
   ```bash
   cd nebula-explorer
-  ./nebula-httpd &
+  nohup ./nebula-explorer-server &
   ```
 
 ### 停止服务
