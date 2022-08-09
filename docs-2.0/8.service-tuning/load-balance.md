@@ -7,6 +7,7 @@
     `BALANCE`命令通过创建和执行一组子任务来迁移数据和均衡分片分布，**禁止**停止集群中的任何机器或改变机器的 IP 地址，直到所有子任务完成，否则后续子任务会失败。
 
 {{ ent.ent_begin }}
+
 ## 均衡分片分布
 
 !!! enterpriseonly
@@ -126,7 +127,7 @@ nebula> SHOW HOSTS;
 
     该命令仅迁移分片，不会将 Storage 主机从集群中删除。删除 Storage 主机请参见[管理 Storage 主机](../4.deployment-and-installation/manage-storage-host.md)。
 
-<!-- balance-3.1
+/* 下面是注释内容
 !!! danger
 
     `BALANCE`命令通过创建和执行一组子任务来迁移数据和均衡分片分布，不要停止集群中的任何机器或改变机器的 IP 地址，直到所有子任务完成，否则后续子任务会失败。
@@ -249,9 +250,10 @@ nebula> SHOW HOSTS;
   ```ngql
   nebula> DROP HOSTS 192.168.10.104:9779,192.168.10.105:9779;
   ```
--->
+*/
 
 {{ ent.ent_end }}
+
 ## 均衡 leader 分布
 
 用户可以使用命令`BALANCE LEADER`均衡 leader 分布。

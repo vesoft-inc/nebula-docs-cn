@@ -159,16 +159,16 @@
   | [系统建模](https://docs.nebula-graph.com.cn/{{nebula.release}}/8.service-tuning/3.system-design/) |-|
   | [Compaction 策略](https://docs.nebula-graph.com.cn/{{nebula.release}}/8.service-tuning/compaction/) |-|
 
-
- 
 ### 3.7 周边工具
 
+<!--
 - 云
 
   |Cloud 版本|文档|视频| 
   |---------|---------|--------|
-  |Azure 版|[Nebula Graph Cloud Azure云版](https://docs.nebula-graph.com.cn/2.6.2/nebula-cloud/1.what-is-cloud/)|-|
+  |Azure 版|[Nebula Graph Cloud Azure云版](https://docs.nebula-graph.com.cn/3.1.0/nebula-cloud/1.what-is-cloud/)|-|
   |阿里云版|[Nebula Graph Cloud 阿里云版](https://docs.nebula-graph.com.cn/{{aliyunLatestRelease}}/nebula-cloud/nebula-cloud-on-alibabacloud/1.create-service-instance/)|[Nebula Graph Cloud 阿里云版介绍](https://www.bilibili.com/video/BV1BY411K7QJ)|
+-->
 
 - 可视化
 

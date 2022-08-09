@@ -144,7 +144,7 @@ $ systemctl restart nebula-graph-studio.service
 用户可以使用以下的命令卸载 Studio。
 
 ```bash
-$ sudo dpkg -r nebula-graph-studio-{{studio.release}}.x86_64
+$ sudo dpkg -r nebula-graph-studio
 ```
 
 ## tar 包部署 Studio

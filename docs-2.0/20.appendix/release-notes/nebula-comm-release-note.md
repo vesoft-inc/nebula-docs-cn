@@ -1,10 +1,8 @@
 # Nebula Graph 社区版 {{ nebula.release }} release notes
 
-## 功能
-
-- 增加 [extract() 函数](../../3.ngql-guide/6.functions-and-expressions/2.string.md)。
-
 ## 优化
+
+- 支持 [extract() 函数](../../3.ngql-guide/6.functions-and-expressions/2.string.md)。
 
 - 优化配置文件，增加部分配置。 [#4310](https://github.com/vesoft-inc/nebula/pull/4310)
 
@@ -16,7 +14,7 @@
 
 - 剔除点的预测过滤器。 [#4249](https://github.com/vesoft-inc/nebula/pull/4249)
 
-- 减少移动数据时连接操作的数据复制量。 [#4283](https://github.com/vesoft-inc/nebula/pull/4283)
+- 减少连接操作的数据复制量。 [#4283](https://github.com/vesoft-inc/nebula/pull/4283)
 
 - 通过下标获取属性值，减少属性查询的时间。 [#4242](https://github.com/vesoft-inc/nebula/pull/4242)
 
@@ -24,11 +22,12 @@
 
 - 优化查询子图的循环条件。 [#4226](https://github.com/vesoft-inc/nebula/pull/4226)
 
-- 减少移动数据时 Traverse 和 AppendVertices 操作符的数据复制量。 [#4176](https://github.com/vesoft-inc/nebula/pull/4176)
+- 减少 Traverse 和 AppendVertices 操作符的数据复制量。 [#4176](https://github.com/vesoft-inc/nebula/pull/4176)
 
 - 改善优化规则，去除无效的项目操作符。 [#4157](https://github.com/vesoft-inc/nebula/pull/4157)
 
 - 使用 Arena Allocator 优化内存分配。 [#4239](https://github.com/vesoft-inc/nebula/pull/4239)
+
 
 ## 缺陷修复
 
@@ -42,7 +41,7 @@
 
 - 修复查找具有 NULL 属性的索引时 Storage 服务崩溃的问题。 [#4234](https://github.com/vesoft-inc/nebula/pull/4234)
 
-- 修复重启后独立守护进程退出的缺陷。 [#4269](https://github.com/vesoft-inc/nebula/pull/4269)
+- 修复存算合并版 Nebula Graph 重启后守护进程退出的缺陷。 [#4269](https://github.com/vesoft-inc/nebula/pull/4269)
 
 - 修复 Graphviz 在线工具由于两次 JSON 转换导致 Join 点格式的解释结果不正确的缺陷。 [#4280](https://github.com/vesoft-inc/nebula/pull/4280)
 

@@ -6,4 +6,4 @@ Nebula Explorer 提供 Workflow 功能进行可视化图计算。
 
 !!! enterpriseonly
 
-    Explorer 仅在企业版提供。
+    如需获取 Nebula Explorer 安装包，请发送邮件至 inquiry@vesoft.com。
