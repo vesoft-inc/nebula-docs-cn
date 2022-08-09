@@ -4,8 +4,8 @@
 
 /* nebula 黑夜主题色 */
 :root{
-  --md-primary-fg-color:#a27e7e; /* 导航栏页面颜色 */
-  --md-accent-fg-color: #FA8072; /* 选中/悬浮颜色 */
+  --md-primary-fg-color: #FF0000; /* 导航栏页面颜色 */
+  --md-accent-fg-color: #49BDF0; /* 选中/悬浮颜色 */
 }
 
 /* nebula 白天主题色 */
