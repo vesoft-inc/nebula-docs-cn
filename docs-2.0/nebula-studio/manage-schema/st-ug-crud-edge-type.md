@@ -1,12 +1,12 @@
 # 操作 Edge type
 
-在 Nebula Graph 数据库中创建图空间后，用户可能需要创建 Edge type（边类型）。用户可以选择使用 **控制台** 或者 **Schema** 操作 Edge type。本文仅说明如何使用 **Schema** 操作 Edge type。
+在 NebulaGraph 数据库中创建图空间后，用户可能需要创建 Edge type（边类型）。用户可以选择使用 **控制台** 或者 **Schema** 操作 Edge type。本文仅说明如何使用 **Schema** 操作 Edge type。
 
 ## 前提条件
 
 在 Studio 上操作 Edge type 之前，用户必须确认以下信息：
 
-- Studio 已经连接到 Nebula Graph 数据库。
+- Studio 已经连接到 NebulaGraph 数据库。
 
 - 图空间已经创建。
 
@@ -36,7 +36,7 @@
     - （可选）输入默认值。
     - （可选）输入属性备注。
 
-  4. **设置TTL（存活时间）**（可选）：Edge type 未设置索引时，用户可以设置 TTL。勾选**设置TTL（存活时间）**，设置`TTL_COL`和`TTL_DURATION`（单位：秒）。详情参考 [TTL 配置](../../3.ngql-guide/8.clauses-and-options/ttl-options.md "点击前往 Nebula Graph 网站")。
+  4. **设置TTL（存活时间）**（可选）：Edge type 未设置索引时，用户可以设置 TTL。勾选**设置TTL（存活时间）**，设置`TTL_COL`和`TTL_DURATION`（单位：秒）。详情参考 [TTL 配置](../../3.ngql-guide/8.clauses-and-options/ttl-options.md "点击前往 NebulaGraph 网站")。
 
 6. 完成设置后，在 **对应的 nGQL 语句** 面板上，用户能看到与上述配置等价的 nGQL 语句。  
 
@@ -64,9 +64,9 @@
    - 如果要修改属性：在 **定义属性** 区域，找到需要修改的属性，在右侧点击 **编辑**，修改后点击 **确认**。
    - 如果要删除属性：在 **定义属性** 区域，找到需要删除的属性，在右侧点击 **删除**，然后点击 **确认**。
    - 如果要添加属性：在 **定义属性** 区域，点击 **+ 添加属性**，设置属性信息，点击 **确认**。详细说明参考[创建边类型](#_2) 。
-   - 如果要修改 TTL 信息：在 **设置 TTL** 区域，点击 **编辑**，修改后点击 **确认**。详情参考 [TTL 配置](../../3.ngql-guide/8.clauses-and-options/ttl-options.md "点击前往 Nebula Graph 网站")。
+   - 如果要修改 TTL 信息：在 **设置 TTL** 区域，点击 **编辑**，修改后点击 **确认**。详情参考 [TTL 配置](../../3.ngql-guide/8.clauses-and-options/ttl-options.md "点击前往 NebulaGraph 网站")。
    - 如果要删除已经配置的 TTL 信息：在 **设置 TTL** 区域，取消勾选 **设置TTL（存活时间）**，然后点击 **确定**。
-   - 如果要配置 TTL 信息：在 **设置 TTL** 区域，勾选 **设置TTL（存活时间）**，设置`TTL_COL`和`TTL_DURATION`（单位：秒），点击 **确认**。详情参考 [TTL 配置](../../3.ngql-guide/8.clauses-and-options/ttl-options.md "点击前往 Nebula Graph 网站")。
+   - 如果要配置 TTL 信息：在 **设置 TTL** 区域，勾选 **设置TTL（存活时间）**，设置`TTL_COL`和`TTL_DURATION`（单位：秒），点击 **确认**。详情参考 [TTL 配置](../../3.ngql-guide/8.clauses-and-options/ttl-options.md "点击前往 NebulaGraph 网站")。
 
     !!! note
 

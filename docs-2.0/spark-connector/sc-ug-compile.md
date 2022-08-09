@@ -1,6 +1,6 @@
-# 编译 Nebula Spark Connector
+# 编译 NebulaGraph Spark Connector
 
-按以下步骤编译 Nebula Spark Connector v1.x：
+按以下步骤编译 NebulaGraph Spark Connector v1.x：
 
 1. 克隆 `nebula-java` 源代码。
 
@@ -8,14 +8,14 @@
    git clone -b v1.0 https://github.com/vesoft-inc/nebula-java.git
    ```
 
-2. 切换到 `nebula-java` 目录，并打包 Nebula Java 1.x。
+2. 切换到 `nebula-java` 目录，并打包 NebulaGraph Java 1.x。
 
    ```bash
    cd nebula-java
    mvn clean install -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.test.skip=true
    ```
 
-3. 进入 `tools/nebula-spark` 目录，并编译 Nebula Spark Connector v1.x。
+3. 进入 `tools/nebula-spark` 目录，并编译 NebulaGraph Spark Connector v1.x。
 
    ```bash
    cd nebula-java/tools/nebula-spark
@@ -42,4 +42,4 @@
 
 !!! Note
 
-    JAR 文件版本号会因 Nebula Java Client 的发布版本而异。用户可以在 [nebula-java 仓库的 Releases 页面](https://github.com/vesoft-inc/nebula-java/releases "点击前往 GitHub 网站") 查看最新的 v1.x 版本。
+    JAR 文件版本号会因 NebulaGraph Java Client 的发布版本而异。用户可以在 [nebula-java 仓库的 Releases 页面](https://github.com/vesoft-inc/nebula-java/releases "点击前往 GitHub 网站") 查看最新的 v1.x 版本。

@@ -1,8 +1,8 @@
 # 页面概览
 
-本文介绍 Nebula Explorer 的基本组成，帮忙用户了解 Nebula Explorer 的各功能。
+本文介绍 NebulaGraph Explorer 的基本组成，帮忙用户了解 NebulaGraph Explorer 的各功能。
 
-Nebula Explorer 由顶部导航栏、左侧导航栏、和画布三大模块组成。
+NebulaGraph Explorer 由顶部导航栏、左侧导航栏、和画布三大模块组成。
 
 ![explorer-overview](https://docs-cdn.nebula-graph.com.cn/figures/ex-overview-220622-cn.png)
 
@@ -13,12 +13,12 @@ Nebula Explorer 由顶部导航栏、左侧导航栏、和画布三大模块组�
 | **Explorer**                                                 | 可视化探索及分析数据。详情参见[开始探索](graph-explorer/ex-ug-query-exploration.md)、[节点筛选](graph-explorer/node-filtering.md)、[探索拓展](graph-explorer/ex-ug-graph-exploration.md)、[图计算](graph-explorer/graph-algorithm.md)。     |
 | **Visual Query**                                             | 可视化构造场景进行数据查询。详情参见[可视化查询](12.query-visually.md)。           |
 | **Workflow**                                                 | 可视化构造自定义工作流进行复杂图计算。详情参见[工作流简介](workflow/workflows.md)。|
-| ![create_schema](https://docs-cdn.nebula-graph.com.cn/figures/studio-nav-schema.png) | 对 Nebula Graph 图空间进行管理。详情参见[创建 Schema](db-management/10.create-schema.md)。       |
-| ![import_data](https://docs-cdn.nebula-graph.com.cn/figures/studio-btn-download.png) | 将数据批量导入 Nebula Graph。详情参见[导入数据](db-management/11.import-data.md)。          |
-| ![Console](https://docs-cdn.nebula-graph.com.cn/figures/nav-console2.png) | 对 Nebula Graph 内的数据使用 nGQL 进行查询操作。详情参见[控制台](db-management/explorer-console.md)。 |
-| ![language](https://docs-cdn.nebula-graph.com.cn/figures/navbar-language.png) | 选择 Nebula Explorer 页面的语言，支持中文和英文。    |
-| ![help](https://docs-cdn.nebula-graph.com.cn/figures/navbar-help.png) | 帮助页面，指导和帮忙用户使用 Nebula Graph。          |
-| ![clear_connection](https://docs-cdn.nebula-graph.com.cn/figures/image-icon10.png) | 显示内核版本并可以断开与 Nebula Explorer 的连接。    |
+| ![create_schema](https://docs-cdn.nebula-graph.com.cn/figures/studio-nav-schema.png) | 对 NebulaGraph 图空间进行管理。详情参见[创建 Schema](db-management/10.create-schema.md)。       |
+| ![import_data](https://docs-cdn.nebula-graph.com.cn/figures/studio-btn-download.png) | 将数据批量导入 NebulaGraph。详情参见[导入数据](db-management/11.import-data.md)。          |
+| ![Console](https://docs-cdn.nebula-graph.com.cn/figures/nav-console2.png) | 对 NebulaGraph 内的数据使用 nGQL 进行查询操作。详情参见[控制台](db-management/explorer-console.md)。 |
+| ![language](https://docs-cdn.nebula-graph.com.cn/figures/navbar-language.png) | 选择 NebulaGraph Explorer 页面的语言，支持中文和英文。    |
+| ![help](https://docs-cdn.nebula-graph.com.cn/figures/navbar-help.png) | 帮助页面，指导和帮忙用户使用 NebulaGraph。          |
+| ![clear_connection](https://docs-cdn.nebula-graph.com.cn/figures/image-icon10.png) | 显示内核版本并可以断开与 NebulaGraph Explorer 的连接。    |
 
 
 ## 左侧导航栏

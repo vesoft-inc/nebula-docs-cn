@@ -1,26 +1,26 @@
-# Nebula Spark Connector Reader 应用示例
+# NebulaGraph Spark Connector Reader 应用示例
 
-本文以一个示例说明如何使用 Nebula Spark Connector Reader 读取 Nebula Graph 的点和边数据。
+本文以一个示例说明如何使用 NebulaGraph Spark Connector Reader 读取 NebulaGraph 的点和边数据。
 
 ## 前提条件
 
-使用 Nebula Spark Connector Reader 前，用户需要确认以下信息：
+使用 NebulaGraph Spark Connector Reader 前，用户需要确认以下信息：
 
 - 机器上已经安装了以下软件：
   - Apache Spark&trade; 2.3.0 及更高版本
   - Scala
   - Java：1.8
 
-- 已经成功编译 Nebula Spark Connector Reader，并已经将 `nebula-spark-1.x.y.jar` 复制到本地 Maven 库。详细信息参考[编译 Nebula Spark Connector](../sc-ug-compile.md)
+- 已经成功编译 NebulaGraph Spark Connector Reader，并已经将 `nebula-spark-1.x.y.jar` 复制到本地 Maven 库。详细信息参考[编译 NebulaGraph Spark Connector](../sc-ug-compile.md)
 
-- 已经获取 Nebula Graph 数据库的以下信息：
+- 已经获取 NebulaGraph 数据库的以下信息：
   - 图空间名称和分区数量（如果创建图空间时未设置分区数量，则默认使用 100）
   - Tag 和 Edge type 的名称以及属性
   - Meta 服务所在机器的 IP 地址及端口号
 
 ## 操作步骤
 
-参考以下步骤使用 Nebula Spark Connector Reader：
+参考以下步骤使用 NebulaGraph Spark Connector Reader：
 
 1. 在 Maven 项目的 `pom.xml` 文件中加入 `nebula-spark` 依赖。
 
@@ -34,7 +34,7 @@
 
     !!! Note
 
-       `<version>` 建议配置为最新发布的 Nebula Java Client 版本号。用户可以在 [nebula-java 仓库的 Releases 页面](https://github.com/vesoft-inc/nebula-java/releases "点击前往 GitHub 网站") 查看最新的 v1.x 版本。
+       `<version>` 建议配置为最新发布的 NebulaGraph Java Client 版本号。用户可以在 [nebula-java 仓库的 Releases 页面](https://github.com/vesoft-inc/nebula-java/releases "点击前往 GitHub 网站") 查看最新的 v1.x 版本。
 
 1. 构建 `SparkSession` 类。这是 Spark SQL 的编码入口。
 
@@ -52,17 +52,17 @@
 
     其中，关于 `.master()` 的设置，参考 [Spark 配置的 Master URLs](https://spark.apache.org/docs/latest/submitting-applications.html#master-urls "点击前往 Spark 文档中心")。
 
-2. 按以下说明修改配置，利用 Spark 读取 Nebula Graph 的点或者边数据，得到 DataFrame。
+2. 按以下说明修改配置，利用 Spark 读取 NebulaGraph 的点或者边数据，得到 DataFrame。
 
     ```shell
-    // 读取 Nebula Graph 的点数据
+    // 读取 NebulaGraph 的点数据
     val vertexDataset: Dataset[Row] =
           sparkSession.read
             .nebula("127.0.0.1:45500", "spaceName", "100")
             .loadVerticesToDF("tag", "*")
     vertexDataset.show()
 
-    // 读取 Nebula Graph 的边数据
+    // 读取 NebulaGraph 的边数据
     val edgeDataset: Dataset[Row] =
           sparkSession.read
             .nebula("127.0.0.1:45500", "spaceName", "100")
@@ -74,18 +74,18 @@
 
     - `nebula(<address: String>, <space: String>, <partitionNum: String>)`，所有参数均为必需参数。
 
-      - `<address: String>`：配置为 Nebula Graph 数据库 metad 服务所在的服务器地址及端口，如果有多个 metad 服务复本，则配置为多个地址，以英文逗号分隔，例如 `"ip1:45500,ip2:45500"`。默认端口号为 45500。
-      - `<space: String>`: 配置为 Nebula Graph 的图空间名称。
-      - `<partitionNum: String>`：设置 Spark 的分区数量。建议设置为 Nebula Graph 中创建图空间时指定的 `partitionNum`，以确保一个 Spark 分区读取 Nebula Graph 图空间中一个分区的数据。如果在创建 Nebula Graph 图空间时未指定分区数量，则使用默认值 100。
+      - `<address: String>`：配置为 NebulaGraph 数据库 metad 服务所在的服务器地址及端口，如果有多个 metad 服务复本，则配置为多个地址，以英文逗号分隔，例如 `"ip1:45500,ip2:45500"`。默认端口号为 45500。
+      - `<space: String>`: 配置为 NebulaGraph 的图空间名称。
+      - `<partitionNum: String>`：设置 Spark 的分区数量。建议设置为 NebulaGraph 中创建图空间时指定的 `partitionNum`，以确保一个 Spark 分区读取 NebulaGraph 图空间中一个分区的数据。如果在创建 NebulaGraph 图空间时未指定分区数量，则使用默认值 100。
 
     - `loadVerticesToDF(<tag: String>, <fields: String>)`，所有参数均为必需参数。
 
-      - `<tag: String>`：配置为指定 Nebula Graph 图空间中某个 Tag 的名称。
+      - `<tag: String>`：配置为指定 NebulaGraph 图空间中某个 Tag 的名称。
       - `<fields: String>`：配置为指定 Tag 的属性名称，不允许为空。如果一个 Tag 有多个属性，则以英文逗号分隔。如果指定了属性名称，表示只读取指定的属性。如果配置为 `*`，表示读取指定 Tag 的所有属性。
 
     - `loadEdgesToDF(<edge: String>, <fields: String>)`，所有参数均为必需参数。
 
-      - `<edge: String>`：配置为指定 Nebula Graph 图空间中某个 Edge type 的名称。
+      - `<edge: String>`：配置为指定 NebulaGraph 图空间中某个 Edge type 的名称。
       - `<fields: String>`：配置为指定 Edge type 的属性名称，不允许为空。如果一个 Edge type 有多个属性，则以英文逗号分隔。如果指定了属性名称，表示只读取指定的属性，如果配置为 `*` 表示读取指定 Edge type 的所有属性。
 
 以下为读取结果示例。

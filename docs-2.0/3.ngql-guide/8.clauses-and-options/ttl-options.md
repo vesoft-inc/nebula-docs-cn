@@ -34,7 +34,7 @@ TTL（Time To Live）指定属性的存活时间，超时后，该属性就会�
 
 属性过期后，对应的过期数据仍然存储在硬盘上，但是查询时会过滤过期数据。
 
-Nebula Graph 自动删除过期数据后，会在下一次 [Compaction](../../8.service-tuning/compaction.md) 过程中回收硬盘空间。
+NebulaGraph 自动删除过期数据后，会在下一次 [Compaction](../../8.service-tuning/compaction.md) 过程中回收硬盘空间。
 
 !!! Note
 

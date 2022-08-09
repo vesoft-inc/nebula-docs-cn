@@ -6,9 +6,9 @@
 
 导入数据之前，需要确认以下信息：
 
-- Studio 已经连接到 Nebula Graph 数据库。
+- Studio 已经连接到 NebulaGraph 数据库。
 
-- Nebula Graph 数据库里已经创建 Schema。
+- NebulaGraph 数据库里已经创建 Schema。
 
 - CSV 文件符合 Schema 要求。
 
@@ -41,7 +41,7 @@
   
   !!! caution
 
-        用户也可以点击 **导入模版** ，下载示例配置文件`example.yaml`，配置后再上传配置文件。配置方式与 [Nebula Importer](../../nebula-importer/use-importer.md) 大致相同，但是所有文件路径仅保留文件名。并且请确保在导入配置文件之前已上传所有 CSV 数据文件。
+        用户也可以点击 **导入模版** ，下载示例配置文件`example.yaml`，配置后再上传配置文件。配置方式与 [NebulaGraph Importer](../../nebula-importer/use-importer.md) 大致相同，但是所有文件路径仅保留文件名。并且请确保在导入配置文件之前已上传所有 CSV 数据文件。
 
   - 选择图空间。
   - 填写任务名称。
@@ -58,7 +58,7 @@
 
 4. 完成设置后，点击 **导入** 按钮。
 
-5. 用户输入 Nebula 账号的密码后方可导入数据。
+5. 用户输入 NebulaGraph 账号的密码后方可导入数据。
   ![输入密码](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-014-cn.png)
 
 6. 导入数据后可以在 **导入数据** 页签内查看日志、下载日志、下载配置文件、删除任务等操作。

@@ -190,7 +190,7 @@ nGQL 没有严格的构建格式要求，但根据恰当而统一的风格创建
     字符串中需要嵌套单引号或双引号时，用反斜线（\）转义。例如：
 
     ```ngql
-    RETURN "\"Nebula Graph is amazing,\" the user says.";
+    RETURN "\"NebulaGraph is amazing,\" the user says.";
     ```
 
 <!--## 空格 TODO-->

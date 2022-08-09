@@ -2,7 +2,7 @@
 
 在 openCypher 中，有增加标签（`SET label`）和移除标签（`REMOVE label`）的功能，可以用于加速查询或者标记过程。
 
-在 Nebula Graph 中，可以通过 Tag 变相实现相同操作，创建 Tag 并将 Tag 插入到已有的点上，就可以根据 Tag 名称快速查找点，也可以通过`DELETE TAG`删除某些点上不再需要的 Tag。
+在 NebulaGraph 中，可以通过 Tag 变相实现相同操作，创建 Tag 并将 Tag 插入到已有的点上，就可以根据 Tag 名称快速查找点，也可以通过`DELETE TAG`删除某些点上不再需要的 Tag。
 
 ## 示例
 

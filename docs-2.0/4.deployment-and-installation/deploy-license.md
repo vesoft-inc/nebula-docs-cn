@@ -1,6 +1,6 @@
-# 设置 Nebula Graph 企业版 License
+# 设置 NebulaGraph 企业版 License
 
-Nebula Graph 企业版需要用户设置 License 才可以正常启动并使用企业版功能，本文介绍如何设置企业版的 License 文件。
+NebulaGraph 企业版需要用户设置 License 才可以正常启动并使用企业版功能，本文介绍如何设置企业版的 License 文件。
 
 !!! enterpriseonly
 
@@ -8,7 +8,7 @@ Nebula Graph 企业版需要用户设置 License 才可以正常启动并使用�
 
 ## 注意事项
 
-- 没有设置 License 时，Nebula Graph 企业版无法启动。
+- 没有设置 License 时，NebulaGraph 企业版无法启动。
 
 - 请勿修改 License 文件，否则会导致 License 失效。
 
@@ -22,7 +22,7 @@ Nebula Graph 企业版需要用户设置 License 才可以正常启动并使用�
 
   - 过期 14 天后，服务无法启动，并会打印日志进行提醒。
 
-## Nebula Graph 企业版 License 说明
+## NebulaGraph 企业版 License 说明
 
 License 文件（`nebula.license`）内容示例如下：
 
@@ -60,19 +60,19 @@ License 文件包含生效时间、过期时间等信息。说明如下。
 |`organization`| 用户名称。|
 |`issuedDate`| License 生效时间。|
 |`expirationDate`| License 过期时间。|
-|`product`| 产品类型。Nebula Graph 的产品类型为`nebula_graph`。|
+|`product`| 产品类型。NebulaGraph 的产品类型为`nebula_graph`。|
 |`version`| 版本支持的信息。|
 |`licenseType`| License 类型。包括`enterprise`、`samll_bussiness`、`pro`、`individual`。预留参数。|
 |`gracePeriod`| 证书过期后可继续使用服务的缓冲时间（单位天），超过缓冲期后停止服务。试用版的 License 过期后无缓冲期，默认值为 0。 |
-|`graphdSpec`| 集群中 Graph 服务的数量限制。Nebula Graph 会实时监测当前活动的 Graph 服务数量，超过限制的 Graph 服务无法连接集群。|
-|`storagedSpec`| 集群中 Storage 服务的数量限制。Nebula Graph 会实时监测当前活动的 Storage 服务数量，超过限制的 Storage 服务无法连接集群。|
+|`graphdSpec`| 集群中 Graph 服务的数量限制。NebulaGraph 会实时监测当前活动的 Graph 服务数量，超过限制的 Graph 服务无法连接集群。|
+|`storagedSpec`| 集群中 Storage 服务的数量限制。NebulaGraph 会实时监测当前活动的 Storage 服务数量，超过限制的 Storage 服务无法连接集群。|
 |`clusterCode`| 用户的硬件信息，也是集群的唯一标识码。试用版的 License 中无此参数。 |
 
-## 设置 Nebula Graph 企业版 License
+## 设置 NebulaGraph 企业版 License
 
-1. 发送邮件至`inquiry@vesoft.com`申请 Nebula Graph 企业版安装包。
+1. 发送邮件至`inquiry@vesoft.com`申请 NebulaGraph 企业版安装包。
 
-2. 安装 Nebula Graph 企业版。安装方式与社区版相同，请参见[使用 RPM 或 DEB 包安装 Nebula Graph](2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)。
+2. 安装 NebulaGraph 企业版。安装方式与社区版相同，请参见[使用 RPM 或 DEB 包安装 NebulaGraph](2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)。
 
 3. 发送邮件至`inquiry@vesoft.com`申请 License 文件`nebula.license`。
 
@@ -82,9 +82,9 @@ License 文件包含生效时间、过期时间等信息。说明如下。
 
         周边工具的 License 文件上传位置，请参见[具体周边工具](../20.appendix/6.eco-tool-version.md)的说明文档。
 
-## 续期 Nebula Graph 企业版 License
+## 续期 NebulaGraph 企业版 License
 
-1. 发送邮件至`inqury@vesoft.com`申请新的 Nebula Graph 企业版 License。
+1. 发送邮件至`inqury@vesoft.com`申请新的 NebulaGraph 企业版 License。
 2. 在所有包含 Meta 服务的机器上，路径为每个 Meta 服务安装目录的`share/resources/`内，使用新的 License 文件`nebula.license`替换旧的 License 文件。
 3. 重启 Storage 和 Graph 服务。关于重启操作，参见[启动服务](manage-service.md)。如果用户的 License 的过期时间在到期后的缓冲期内（默认 14 天），则无需重启 Storage 和 Graph 服务。
 
@@ -92,7 +92,7 @@ License 文件包含生效时间、过期时间等信息。说明如下。
 
         当用户的 License 过期时间超过到期后的缓冲期，Graph 和 Storage 服务会自动停止。为了确保服务正常运行，请及时更新 License。
 
-## 查看 Nebula Graph 企业版 License
+## 查看 NebulaGraph 企业版 License
 
 - 直接查看 License 文件
 
@@ -100,8 +100,8 @@ License 文件包含生效时间、过期时间等信息。说明如下。
 
 - 通过 HTTP 接口查看 License 文件
 
-  当 Nebula Graph 正常运行时，可以请求 Meta 服务的 HTTP 接口（默认为19559）获取 License 文件内容。例如`curl -G "http://192.168.10.101:19559/license"`。
+  当 NebulaGraph 正常运行时，可以请求 Meta 服务的 HTTP 接口（默认为19559）获取 License 文件内容。例如`curl -G "http://192.168.10.101:19559/license"`。
 
 ## 下一步
 
-[启动 Nebula Graph](manage-service.md)
+[启动 NebulaGraph](manage-service.md)

@@ -2,13 +2,13 @@
     max-width: initial;
   }
 
-/* nebula 黑夜主题色 */
+/* NebulaGraph 黑夜主题色 */
 :root{
   --md-primary-fg-color: #FF0000; /* 导航栏页面颜色 */
   --md-accent-fg-color: #49BDF0; /* 选中/悬浮颜色 */
 }
 
-/* nebula 白天主题色 */
+/* NebulaGraph 白天主题色 */
 [data-md-color-scheme="nebula"]{
   --md-primary-fg-color: #F7A7A0; /* 导航栏页面颜色 */
   --md-accent-fg-color: #7DBB7C; /* 选中/悬浮颜色 */

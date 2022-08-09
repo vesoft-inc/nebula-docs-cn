@@ -74,7 +74,7 @@ nebula-exchange-3.0.0.jar \
 
 ### Q：运行时报错`com.facebook.thrift.protocol.TProtocolException: Expected protocol id xxx`
 
-请检查 Nebula Graph 服务端口配置是否正确。
+请检查 NebulaGraph 服务端口配置是否正确。
 
 - 如果是源码、RPM 或 DEB 安装，请配置各个服务的配置文件中`--port`对应的端口号。
 
@@ -105,9 +105,9 @@ nebula-exchange-3.0.0.jar \
 
 ### Q：运行时报错`Exception in thread "main" com.facebook.thrift.protocol.TProtocolException: The field 'code' has been assigned the invalid value -4`
 
-检查 Exchange 版本与 Nebula Graph 版本是否匹配，详细信息可参考[使用限制](../nebula-exchange/about-exchange/ex-ug-limitations.md)。
+检查 Exchange 版本与 NebulaGraph 版本是否匹配，详细信息可参考[使用限制](../nebula-exchange/about-exchange/ex-ug-limitations.md)。
 
-### Q：将 Hive 中的数据导入 Nebula Graph 时出现乱码如何解决？
+### Q：将 Hive 中的数据导入 NebulaGraph 时出现乱码如何解决？
 
 如果 Hive 中数据的属性值包含中文字符，可能出现该情况。解决方案是在导入命令中的 JAR 包路径前加上以下选项：
 
@@ -177,11 +177,11 @@ Spark 日志提示 `Hive Schema version 1.2.0 does not match metastore's schema 
 
 ### Q：哪些配置项影响导入性能？
 
-- batch：每次发送给 Nebula Graph 服务的 nGQL 语句中包含的数据条数。
+- batch：每次发送给 NebulaGraph 服务的 nGQL 语句中包含的数据条数。
 
 - partition：Spark 数据的分区数，表示数据导入的并发数。
 
-- nebula.rate：向 Nebula Graph 发送请求前先去令牌桶获取令牌。
+- nebula.rate：向 NebulaGraph 发送请求前先去令牌桶获取令牌。
 
     - limit：表示令牌桶的大小。
 
@@ -191,18 +191,18 @@ Spark 日志提示 `Hive Schema version 1.2.0 does not match metastore's schema 
 
 ## 其他问题
 
-### Q：Exchange 支持哪些版本的 Nebula Graph？
+### Q：Exchange 支持哪些版本的 NebulaGraph？
 
 请参见 Exchange 的[使用限制](about-exchange/ex-ug-limitations.md)。
 
 ### Q：Exchange 与 Spark Writer 有什么关系？
 
-Exchange 是在 Spark Writer 基础上开发的 Spark 应用程序，二者均适用于在分布式环境中将集群的数据批量迁移到 Nebula Graph 中，但是后期的维护工作将集中在 Exchange 上。与 Spark Writer 相比，Exchange 有以下改进：
+Exchange 是在 Spark Writer 基础上开发的 Spark 应用程序，二者均适用于在分布式环境中将集群的数据批量迁移到 NebulaGraph 中，但是后期的维护工作将集中在 Exchange 上。与 Spark Writer 相比，Exchange 有以下改进：
 
 - 支持更丰富的数据源，如 MySQL、Neo4j、Hive、HBase、Kafka、Pulsar 等。
 
-- 修复了 Spark Writer 的部分问题。例如 Spark 读取 HDFS 里的数据时，默认读取到的源数据均为 String 类型，可能与 Nebula Graph 定义的 Schema 不同，所以 Exchange 增加了数据类型的自动匹配和类型转换，当 Nebula Graph 定义的 Schema 中数据类型为非 String 类型（如 double）时，Exchange 会将 String 类型的源数据转换为对应的类型（如 double）。
+- 修复了 Spark Writer 的部分问题。例如 Spark 读取 HDFS 里的数据时，默认读取到的源数据均为 String 类型，可能与 NebulaGraph 定义的 Schema 不同，所以 Exchange 增加了数据类型的自动匹配和类型转换，当 NebulaGraph 定义的 Schema 中数据类型为非 String 类型（如 double）时，Exchange 会将 String 类型的源数据转换为对应的类型（如 double）。
 
 ### Q：Exchange 传输数据的性能如何？
 
-Exchange 的性能测试数据和测试方法参见 [Nebula Exchange test result](https://github.com/vesoft-inc/nebula-exchange/blob/{{exchange.branch}}/bench/exchange-test.md)。
+Exchange 的性能测试数据和测试方法参见 [NebulaGraph Exchange test result](https://github.com/vesoft-inc/nebula-exchange/blob/{{exchange.branch}}/bench/exchange-test.md)。

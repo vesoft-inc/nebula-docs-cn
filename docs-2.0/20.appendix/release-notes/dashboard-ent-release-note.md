@@ -1,4 +1,4 @@
-# Nebula Dashboard 企业版更新说明
+# NebulaGraph Dashboard 企业版更新说明
 
 ## 企业版 v3.1.1
 
@@ -8,13 +8,13 @@
 ## 企业版 v3.1.0
 
 - 功能
-  - 支持[升级集群的 Nebula Graph 版本](../../nebula-dashboard-ent/4.cluster-operator/4.manage.md)。
+  - 支持[升级集群的 NebulaGraph 版本](../../nebula-dashboard-ent/4.cluster-operator/4.manage.md)。
   - 支持[全量备份和恢复](../../nebula-dashboard-ent/4.cluster-operator/8.backup-and-restore.md)。
   - 支持[管理安装包](../../nebula-dashboard-ent/11.manage-package.md)。
   - 部署 Dashboard 时，支持[使用 SQLite 数据库](../../nebula-dashboard-ent/2.deploy-connect-dashboard-ent.md)。
 
 - 优化
-  - 适配 Nebula Graph 3.2.0。
+  - 适配 NebulaGraph 3.2.0。
   - 监控
     - 支持全局配置监控时间范围。
     - 支持全局配置监控刷新频率。

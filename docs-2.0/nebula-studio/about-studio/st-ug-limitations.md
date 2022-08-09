@@ -2,13 +2,13 @@
 
 本文描述使用 Studio 的限制。
 
-## Nebula Graph 版本支持
+## NebulaGraph 版本支持
 
 !!! Note
 
-    Studio 版本发布节奏独立于 Nebula Graph 内核，其命名方式也不参照内核命名规则，两者兼容对应关系如下表。
+    Studio 版本发布节奏独立于 NebulaGraph 内核，其命名方式也不参照内核命名规则，两者兼容对应关系如下表。
 
-| Nebula Graph 版本 | Studio 版本 |
+| NebulaGraph 版本 | Studio 版本 |
 | --- | --- |
 | 1.x | 1.x|
 | 2.0 & 2.0.1 | 2.x |

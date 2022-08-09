@@ -1,4 +1,4 @@
-# Nebula Graph 社区版 {{ nebula.release }} release notes
+# NebulaGraph 社区版 {{ nebula.release }} release notes
 
 ## 优化
 

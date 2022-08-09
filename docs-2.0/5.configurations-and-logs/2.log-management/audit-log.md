@@ -1,6 +1,6 @@
 # 审计日志
 
-Nebula Graph 的审计日志功能可以将 Graph 服务接受到的所有操作进行分类存储，然后提供给终端用户查看，终端用户可以根据需要，追踪指定类型的操作。
+NebulaGraph 的审计日志功能可以将 Graph 服务接受到的所有操作进行分类存储，然后提供给终端用户查看，终端用户可以根据需要，追踪指定类型的操作。
 
 !!! enterpriseonly
 
@@ -50,7 +50,7 @@ Nebula Graph 的审计日志功能可以将 Graph 服务接受到的所有操作
 
 !!! note
 
-    如果在 Nebula Graph 运行过程中删除审计日志目录，日志不会继续打印，但是不会影响程序运行。重启服务审计日志打印可以恢复正常。
+    如果在 NebulaGraph 运行过程中删除审计日志目录，日志不会继续打印，但是不会影响程序运行。重启服务审计日志打印可以恢复正常。
 
 ```bash
 <AUDIT_RECORD
@@ -103,5 +103,5 @@ Nebula Graph 的审计日志功能可以将 Graph 服务接受到的所有操作
 
 ## 视频
 
-* [Nebula Graph 的审计日志](https://www.bilibili.com/video/BV17F41157JB)（3 分 53 秒）
+* [NebulaGraph 的审计日志](https://www.bilibili.com/video/BV17F41157JB)（3 分 53 秒）
 <iframe src="//player.bilibili.com/player.html?aid=299493340&bvid=BV17F41157JB&cid=731096973&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>

@@ -5,8 +5,8 @@
 
 !!! compatibility "历史版本兼容性"
     
-    - Nebula Graph 1.x 支持四种注释方式：`#`、`--`、`//`、`/* */`。
-    - Nebula Graph 2.x 中，`--`不再是注释符。
+    - NebulaGraph 1.x 支持四种注释方式：`#`、`--`、`//`、`/* */`。
+    - NebulaGraph 2.x 中，`--`不再是注释符。
 
 ## Examples
 

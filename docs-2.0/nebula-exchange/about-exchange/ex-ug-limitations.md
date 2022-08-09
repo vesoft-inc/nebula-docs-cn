@@ -4,9 +4,9 @@
 
 ## 版本兼容性
 
-Nebula Exchange 版本（即 JAR 包版本）和 Nebula Graph 内核的版本对应关系如下。
+NebulaGraph Exchange 版本（即 JAR 包版本）和 NebulaGraph 内核的版本对应关系如下。
 
-|Exchange client 版本|Nebula Graph 版本|
+|Exchange client 版本|NebulaGraph 版本|
 |:---|:---|
 |3.0-SNAPSHOT|nightly|
 |{{exchange.release}}|{{nebula.release}}|
@@ -53,7 +53,7 @@ Exchange 3.x 支持以下操作系统：
   | MaxCompute | 不支持 | 支持 | 不支持 |
   | Pulsar | 不支持 | 支持 | 未测试 |
   | Kafka | 不支持 | 支持 | 未测试 |
-  | Nebula Graph | 不支持 | 支持 | 不支持 |
+  | NebulaGraph | 不支持 | 支持 | 不支持 |
 
 在以下使用场景，还需要部署 Hadoop Distributed File System (HDFS)：
 

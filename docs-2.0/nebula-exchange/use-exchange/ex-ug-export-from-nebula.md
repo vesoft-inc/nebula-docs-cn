@@ -1,10 +1,10 @@
-# 导出 Nebula Graph 数据
+# 导出 NebulaGraph 数据
 
-本文以一个示例说明如何使用 Exchange 将 Nebula Graph 中的数据导出到 CSV 文件中。
+本文以一个示例说明如何使用 Exchange 将 NebulaGraph 中的数据导出到 CSV 文件中。
 
 !!! enterpriseonly
 
-    仅企业版 Exchange 支持导出 Nebula Graph 数据，且仅能导出到 CSV 文件。
+    仅企业版 Exchange 支持导出 NebulaGraph 数据，且仅能导出到 CSV 文件。
 
 ## 环境准备
 
@@ -30,11 +30,11 @@ CentOS 7.9.2009
 | Hadoop | 2.10.1 |
 | Scala | 2.12.11 |
 | Spark | 2.4.7 |
-| Nebula Graph | {{nebula.release}} |
+| NebulaGraph | {{nebula.release}} |
 
 ### 数据集
 
-在本示例中，作为数据源的 Nebula Graph 存储着 [basketballplayer 数据集](https://docs.nebula-graph.io/2.0/basketballplayer-2.X.ngql)，其中的 Schema 要素如下表所示。
+在本示例中，作为数据源的 NebulaGraph 存储着 [basketballplayer 数据集](https://docs.nebula-graph.io/2.0/basketballplayer-2.X.ngql)，其中的 Schema 要素如下表所示。
 
 | 要素  | 名称 | 属性 |
 | :--- | :--- | :--- |
@@ -45,11 +45,11 @@ CentOS 7.9.2009
 
 ## 操作步骤
 
-1. 从 [Nebula Graph 企业版套餐](https://nebula-graph.com.cn/pricing/) 中获取企业版 Exchange 的 JAR 文件。
+1. 从 [NebulaGraph 企业版套餐](https://nebula-graph.com.cn/pricing/) 中获取企业版 Exchange 的 JAR 文件。
 
 2. 修改配置文件。
   
-  企业版 Exchange 提供了导出 Nebula Graph 数据专用的配置文件模板`export_application.conf`，其中各配置项的说明参见 [Exchange 配置](../parameter-reference/ex-ug-parameter.md)。本示例使用的配置文件核心内容如下：
+  企业版 Exchange 提供了导出 NebulaGraph 数据专用的配置文件模板`export_application.conf`，其中各配置项的说明参见 [Exchange 配置](../parameter-reference/ex-ug-parameter.md)。本示例使用的配置文件核心内容如下：
   
   ```conf
   ...
@@ -72,7 +72,7 @@ CentOS 7.9.2009
         # define properties to export from NebulaGraph tag data
         # if return.fields is configured as empty list, then export all properties
         return.fields:[]
-        # nebula space partition number
+        # NebulaGraph space partition number
         partition:10
       }
   
@@ -98,7 +98,7 @@ CentOS 7.9.2009
         # define properties to export from NebulaGraph edge data
         # if return.fields is configured as empty list, then export all properties
         return.fields:[]
-        # nebula space partition number
+        # NebulaGraph space partition number
         partition:10
       }
   
@@ -108,7 +108,7 @@ CentOS 7.9.2009
   }
   ```
 
-3. 使用如下命令导出 Nebula Graph 中的数据。
+3. 使用如下命令导出 NebulaGraph 中的数据。
   
   ```bash
   <spark_install_path>/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange nebula-exchange-x.y.z.jar_path> -c <export_application.conf_path>

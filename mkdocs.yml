@@ -1,11 +1,11 @@
-site_name: Nebula Graph Database 手册 
-site_description: Documentation for Nebula Graph Database 
-site_author: Nebula Graph 
+site_name: NebulaGraph Database 手册 
+site_description: Documentation for NebulaGraph Database 
+site_author: NebulaGraph 
 site_url: https://docs.nebula-graph.com.cn/ 
 repo_name: 'vesoft-inc/nebula-docs-cn' 
 repo_url: 'https://github.com/vesoft-inc/nebula-docs-cn' 
 docs_dir: docs-2.0 
-copyright: Copyright &copy; 2022 Nebula Graph - 浙ICP备20010487号
+copyright: Copyright &copy; 2022 NebulaGraph - 浙ICP备20010487号
  
 # modify when release: 
 edit_uri: 'edit/master/docs-2.0/'  
@@ -254,7 +254,7 @@ nav:
       - 图: 1.introduction/0-0-graph.md
       - 图数据库: 1.introduction/0-1-graph-database.md
       - 相关技术: 1.introduction/0-2.relates.md
-      - 什么是 Nebula Graph: 1.introduction/1.what-is-nebula-graph.md
+      - 什么是 NebulaGraph: 1.introduction/1.what-is-nebula-graph.md
       - 数据模型: 1.introduction/2.data-model.md
       - 路径: 1.introduction/2.1.path.md
       - VID: 1.introduction/3.vid.md
@@ -266,9 +266,9 @@ nav:
 
   - 快速入门:
       - 快速入门流程: 2.quick-start/1.quick-start-workflow.md
-      - 步骤1:安装 Nebula Graph: 2.quick-start/2.install-nebula-graph.md
-      - 步骤2:启动 Nebula Graph: 2.quick-start/5.start-stop-service.md
-      - 步骤3:连接 Nebula Graph: 2.quick-start/3.connect-to-nebula-graph.md
+      - 步骤1:安装 NebulaGraph: 2.quick-start/2.install-nebula-graph.md
+      - 步骤2:启动 NebulaGraph: 2.quick-start/5.start-stop-service.md
+      - 步骤3:连接 NebulaGraph: 2.quick-start/3.connect-to-nebula-graph.md
       - 步骤4:注册 Storage 服务: 2.quick-start/3.1add-storage-hosts.md
       - 步骤5:使用常用命令: 2.quick-start/4.nebula-graph-crud.md
       - nGQL 命令汇总: 2.quick-start/6.cheatsheet-for-ngql-command.md
@@ -430,17 +430,17 @@ nav:
           - 使用 Docker Compose 部署: 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
           - 使用 RPM/DEB 包部署多机集群: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
           - 使用生态工具安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/6.deploy-nebula-graph-with-peripherals.md
-      - 安装存算合并版 Nebula Graph: 4.deployment-and-installation/standalone-deployment.md
-#ent      - 设置 Nebula Graph 企业版 License: 4.deployment-and-installation/deploy-license.md      
+      - 安装存算合并版 NebulaGraph: 4.deployment-and-installation/standalone-deployment.md
+#ent      - 设置 NebulaGraph 企业版 License: 4.deployment-and-installation/deploy-license.md      
       - 管理服务: 4.deployment-and-installation/manage-service.md
       - 连接服务: 4.deployment-and-installation/connect-to-nebula-graph.md
       - 管理 Storage 主机: 4.deployment-and-installation/manage-storage-host.md
 #      - 管理逻辑机架（Zone）: 4.deployment-and-installation/5.zone.md
 
       - 升级版本:
-          - 升级 Nebula Graph 版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
+          - 升级 NebulaGraph 版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
 #          - 升级 v2.0.x 至当前版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
-      - 卸载 Nebula Graph: 4.deployment-and-installation/4.uninstall-nebula-graph.md
+      - 卸载 NebulaGraph: 4.deployment-and-installation/4.uninstall-nebula-graph.md
 
   - 配置与日志:
       - 配置:
@@ -454,7 +454,7 @@ nav:
 #ent          - 审计日志（企业版）: 5.configurations-and-logs/2.log-management/audit-log.md
 
   - 监控:
-      - 查询 Nebula Graph 监控指标: 6.monitor-and-metrics/1.query-performance-metrics.md
+      - 查询 NebulaGraph 监控指标: 6.monitor-and-metrics/1.query-performance-metrics.md
       - RocksDB 统计数据: 6.monitor-and-metrics/2.rocksdb-statistics.md
 
   - 数据安全:
@@ -466,7 +466,7 @@ nav:
       - SSL 加密: 7.data-security/4.ssl.md
 
   - 备份与恢复:
-      - Nebula BR:
+      - NebulaGraph BR:
         - 什么是 BR: backup-and-restore/nebula-br/1.what-is-br.md
         - 编译 BR: backup-and-restore/nebula-br/2.compile-br.md
         - 使用 BR 备份数据: backup-and-restore/nebula-br/3.br-backup-data.md
@@ -489,18 +489,18 @@ nav:
 
   - 客户端:
     - 客户端介绍: 14.client/1.nebula-client.md
-    - Nebula Console: nebula-console.md
-    - Nebula CPP: 14.client/3.nebula-cpp-client.md
-    - Nebula Java: 14.client/4.nebula-java-client.md
-    - Nebula Python: 14.client/5.nebula-python-client.md
-    - Nebula Go: 14.client/6.nebula-go-client.md
+    - NebulaGraph Console: nebula-console.md
+    - NebulaGraph CPP: 14.client/3.nebula-cpp-client.md
+    - NebulaGraph Java: 14.client/4.nebula-java-client.md
+    - NebulaGraph Python: 14.client/5.nebula-python-client.md
+    - NebulaGraph Go: 14.client/6.nebula-go-client.md
 
-  - Nebula Graph Cloud: nebula-cloud.md
+  - NebulaGraph Cloud: nebula-cloud.md
 
 #ent
-#  - Nebula Graph Cloud:
-#    - 什么是 Nebula Graph Cloud: nebula-cloud/1.what-is-cloud.md
-#    - Nebula Graph Cloud Azure版:
+#  - NebulaGraph Cloud:
+#    - 什么是 NebulaGraph Cloud: nebula-cloud/1.what-is-cloud.md
+#    - NebulaGraph Cloud Azure版:
 #      - 创建订阅: nebula-cloud/nebula-cloud-on-azure/2.how-to-create-subsciption.md
 #      - 配置Solution: nebula-cloud/nebula-cloud-on-azure/3.how-to-set-solution.md
 #      - Cloud Solution 角色身份说明: nebula-cloud/nebula-cloud-on-azure/4.user-role-description.md
@@ -512,14 +512,14 @@ nav:
 #      - 价格: nebula-cloud/nebula-cloud-on-azure/6.pricing.md
 #      - 用户服务条款: nebula-cloud/nebula-cloud-on-azure/7.terms-and-conditions.md
 #      - 隐私政策条款: nebula-cloud/nebula-cloud-on-azure/8.privacy-policy.md
-#    - Nebula Graph Cloud 阿里云版:
+#    - NebulaGraph Cloud 阿里云版:
 #      - 创建服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/1.create-service-instance.md
 #      - 使用服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/2.use-cloud-services.md
 #      - 删除服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/3.delete-service-instance.md
 
-  - Nebula Studio:
-    - 认识 Nebula Studio:
-      - 什么是 Nebula Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
+  - NebulaGraph Studio:
+    - 认识 NebulaGraph Studio:
+      - 什么是 NebulaGraph Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
       - 使用限制: nebula-studio/about-studio/st-ug-limitations.md
     - 安装与登录:
       - 部署 Studio: nebula-studio/deploy-connect/st-ug-deploy.md
@@ -540,17 +540,17 @@ nav:
       - 无法访问 Studio: nebula-studio/troubleshooting/st-ug-connection-errors.md
       - Studio 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
 
-  - Nebula Dashboard（社区版）:
-      - 什么是Nebula Dashboard: nebula-dashboard/1.what-is-dashboard.md
+  - NebulaGraph Dashboard（社区版）:
+      - 什么是NebulaGraph Dashboard: nebula-dashboard/1.what-is-dashboard.md
       - 部署 Dashboard: nebula-dashboard/2.deploy-dashboard.md
       - 连接 Dashboard: nebula-dashboard/3.connect-dashboard.md
       - Dashboard 页面介绍: nebula-dashboard/4.use-dashboard.md
       - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
 
-  - Nebula Dashboard（企业版）:
-      - 什么是 Nebula Dashboard 企业版: nebula-dashboard-ent/1.what-is-dashboard-ent.md
-      - 部署 Nebula Dashboard 企业版: nebula-dashboard-ent/2.deploy-connect-dashboard-ent.md
-      - Nebula Dashboard 企业版 License: nebula-dashboard-ent/11.dashboard-ent-license.md
+  - NebulaGraph Dashboard（企业版）:
+      - 什么是 NebulaGraph Dashboard 企业版: nebula-dashboard-ent/1.what-is-dashboard-ent.md
+      - 部署 NebulaGraph Dashboard 企业版: nebula-dashboard-ent/2.deploy-connect-dashboard-ent.md
+      - NebulaGraph Dashboard 企业版 License: nebula-dashboard-ent/11.dashboard-ent-license.md
       - 创建及导入集群:
         - 创建集群: nebula-dashboard-ent/3.create-import-dashboard/1.create-cluster.md
         - 导入集群: nebula-dashboard-ent/3.create-import-dashboard/2.import-cluster.md
@@ -571,12 +571,12 @@ nav:
       - 监控指标说明: nebula-dashboard-ent/7.monitor-parameter.md
       - 常见问题 FAQ: nebula-dashboard-ent/8.faq.md
 
-  - Nebula Explorer:
-    - 什么是 Nebula Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
+  - NebulaGraph Explorer:
+    - 什么是 NebulaGraph Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
     - 安装与登录:
       - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
       - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
-      - Nebula Explorer License（企业版）: nebula-explorer/deploy-connect/3.explorer-license.md
+      - NebulaGraph Explorer License（企业版）: nebula-explorer/deploy-connect/3.explorer-license.md
     - 页面概览: nebula-explorer/ex-ug-page-overview.md
     - 数据库管理:
       - Schema 管理: nebula-explorer/db-management/10.create-schema.md
@@ -608,20 +608,20 @@ nav:
         - 获取指定任务的运行结果数据: nebula-explorer/workflow/workflow-api/api-desc-task.md
     - 基本操作和快捷键: nebula-explorer/ex-ug-shortcuts.md
 
-  - Nebula Importer:
-    - 使用 Nebula Importer: nebula-importer/use-importer.md
+  - NebulaGraph Importer:
+    - 使用 NebulaGraph Importer: nebula-importer/use-importer.md
     - 有表头配置说明: nebula-importer/config-with-header.md
     - 无表头配置说明: nebula-importer/config-without-header.md
 
-  - Nebula Exchange:
-    - 认识 Nebula Exchange:
-      - 什么是 Nebula Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
+  - NebulaGraph Exchange:
+    - 认识 NebulaGraph Exchange:
+      - 什么是 NebulaGraph Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
       - 使用限制: nebula-exchange/about-exchange/ex-ug-limitations.md
-    - 获取 Nebula Exchange: nebula-exchange/ex-ug-compile.md
+    - 获取 NebulaGraph Exchange: nebula-exchange/ex-ug-compile.md
     - 参数说明:
       - 导入命令参数: nebula-exchange/parameter-reference/ex-ug-para-import-command.md
       - 配置参数: nebula-exchange/parameter-reference/ex-ug-parameter.md
-    - 使用 Nebula Exchange:
+    - 使用 NebulaGraph Exchange:
       - 导入 CSV 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-csv.md
       - 导入 JSON 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-json.md
       - 导入 ORC 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-orc.md
@@ -635,22 +635,22 @@ nav:
       - 导入 Pulsar 数据: nebula-exchange/use-exchange/ex-ug-import-from-pulsar.md
       - 导入 Kafka 数据: nebula-exchange/use-exchange/ex-ug-import-from-kafka.md
       - 导入 SST 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-sst.md
-      - 导出 Nebula Graph 数据: nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
+      - 导出 NebulaGraph 数据: nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
     - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
 
-  - Nebula Operator:
-      - 什么是 Nebula Operator: nebula-operator/1.introduction-to-nebula-operator.md
+  - NebulaGraph Operator:
+      - 什么是 NebulaGraph Operator: nebula-operator/1.introduction-to-nebula-operator.md
       - 使用流程: nebula-operator/6.get-started-with-operator.md
-      - 部署 Nebula Operator: nebula-operator/2.deploy-nebula-operator.md
-      - 部署 Nebula Graph集群: 
-        - 使用 Kubectl 部署 Nebula Graph 集群: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
-        - 使用 Helm 部署 Nebula Graph 集群: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
-      - 配置 Nebula Graph 集群:
-        - 自定义 Nebula Graph 集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
+      - 部署 NebulaGraph Operator: nebula-operator/2.deploy-nebula-operator.md
+      - 部署 NebulaGraph集群: 
+        - 使用 Kubectl 部署 NebulaGraph 集群: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
+        - 使用 Helm 部署 NebulaGraph 集群: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
+      - 配置 NebulaGraph 集群:
+        - 自定义 NebulaGraph 集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
         - 回收 PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
         - 均衡扩容后的 Storage 数据: nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
-      - 升级 Nebula Graph 集群: nebula-operator/9.upgrade-nebula-cluster.md   
-      - 连接 Nebula Graph 数据库: nebula-operator/4.connect-to-nebula-graph-service.md
+      - 升级 NebulaGraph 集群: nebula-operator/9.upgrade-nebula-cluster.md   
+      - 连接 NebulaGraph 数据库: nebula-operator/4.connect-to-nebula-graph-service.md
       - 故障自愈: nebula-operator/5.operator-failover.md
       - 常见问题: nebula-operator/7.operator-faq.md
 
@@ -658,28 +658,28 @@ nav:
 
     - 算法简介: graph-computing/algorithm-description.md
 
-    - Nebula Algorithm: graph-computing/nebula-algorithm.md
+    - NebulaGraph Algorithm: graph-computing/nebula-algorithm.md
 
-#ent    - Nebula Analytics: graph-computing/nebula-analytics.md
+#ent    - NebulaGraph Analytics: graph-computing/nebula-analytics.md
 
-#ent    - Nebula Explorer 工作流: graph-computing/use-explorer.md
+#ent    - NebulaGraph Explorer 工作流: graph-computing/use-explorer.md
     
 #ent    - Dag Controller: graph-computing/0.deploy-controller-analytics.md
 
-  - Nebula Spark Connector: nebula-spark-connector.md
+  - NebulaGraph Spark Connector: nebula-spark-connector.md
       
-  - Nebula Flink Connector: nebula-flink-connector.md
+  - NebulaGraph Flink Connector: nebula-flink-connector.md
 
-  - Nebula Bench: nebula-bench.md
+  - NebulaGraph Bench: nebula-bench.md
 
   - 附录:
       - Release Note:
-        - Nebula Graph 社区版: 20.appendix/release-notes/nebula-comm-release-note.md
-        - Nebula Graph 企业版: 20.appendix/release-notes/nebula-ent-release-note.md
-        - Nebula Studio: 20.appendix/release-notes/studio-release-note.md
-        - Nebula Dashboard 社区版: 20.appendix/release-notes/dashboard-comm-release-note.md
-        - Nebula Dashboard 企业版: 20.appendix/release-notes/dashboard-ent-release-note.md
-        - Nebula Explorer: 20.appendix/release-notes/explorer-release-note.md
+        - NebulaGraph 社区版: 20.appendix/release-notes/nebula-comm-release-note.md
+        - NebulaGraph 企业版: 20.appendix/release-notes/nebula-ent-release-note.md
+        - NebulaGraph Studio: 20.appendix/release-notes/studio-release-note.md
+        - NebulaGraph Dashboard 社区版: 20.appendix/release-notes/dashboard-comm-release-note.md
+        - NebulaGraph Dashboard 企业版: 20.appendix/release-notes/dashboard-ent-release-note.md
+        - NebulaGraph Explorer: 20.appendix/release-notes/explorer-release-note.md
       - 学习路径: 20.appendix/learning-path.md
 #ent      - 关于 License: 20.appendix/8.about-license.md
       - 常见问题 FAQ: 20.appendix/0.FAQ.md

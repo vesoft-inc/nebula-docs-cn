@@ -1,6 +1,6 @@
 # 集群间数据同步
 
-Nebula Graph 支持在集群间进行数据同步，即主集群 A 的数据可以近实时地复制到从集群 B 中，方便用户进行异地灾备或分流，降低数据丢失的风险，保证数据安全。
+NebulaGraph 支持在集群间进行数据同步，即主集群 A 的数据可以近实时地复制到从集群 B 中，方便用户进行异地灾备或分流，降低数据丢失的风险，保证数据安全。
 
 !!! enterpriseonly
 
@@ -58,7 +58,7 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
 ### 1.搭建主从集群、listener 和 drainer 服务
 
-1. 在所有机器上安装 Nebula Graph，修改配置文件：
+1. 在所有机器上安装 NebulaGraph，修改配置文件：
 
   - 主、从集群修改：`nebula-graphd.conf`、`nebula-metad.conf`、`nebula-storaged.conf`。
 
@@ -86,7 +86,7 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
 2. 在主从集群和 listener 服务的机器上放置 License 文件，路径为安装目录的`share/resources/`内。
 
-3. 在所有机器的 Nebula Graph 安装目录内启动对应的服务：
+3. 在所有机器的 NebulaGraph 安装目录内启动对应的服务：
 
   - 主、从集群启动命令：`sudo scripts/nebula.service start all`。
 

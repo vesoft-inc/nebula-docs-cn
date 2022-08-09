@@ -1,12 +1,12 @@
-# 获取 Nebula Exchange
+# 获取 NebulaGraph Exchange
 
-本文介绍如何获取 Nebula Exchange 的 JAR 文件。
+本文介绍如何获取 NebulaGraph Exchange 的 JAR 文件。
 
 ## 直接下载 JAR 文件
 
 社区版 Exchange 的 JAR 文件可以直接[下载](https://github.com/vesoft-inc/nebula-exchange/releases)。
 
-要下载企业版 Exchange，需先[获取 Nebula Graph 企业版套餐](https://nebula-graph.com.cn/pricing/)。
+要下载企业版 Exchange，需先[获取 NebulaGraph 企业版套餐](https://nebula-graph.com.cn/pricing/)。
 
 ## 编译源代码获取 JAR 文件
 
@@ -14,7 +14,7 @@
 
 !!! enterpriseonly
 
-    企业版 Exchange 仅能在 Nebula Graph 企业版套餐中获取。
+    企业版 Exchange 仅能在 NebulaGraph 企业版套餐中获取。
 
 ### 前提条件
 
@@ -61,7 +61,7 @@
 编译成功后，可以在`nebula-exchange_spark_x.x/target/`目录里找到`nebula-exchange_spark_x.x-{{exchange.branch}}.jar`文件。`x.x`代表 Spark 版本，例如`2.4`。
 
 !!! note
-    JAR 文件版本号会因 Nebula Java Client 的发布版本而变化。用户可以在 [Releases 页面](https://github.com/vesoft-inc/nebula-java/releases)查看最新版本。
+    JAR 文件版本号会因 NebulaGraph Java Client 的发布版本而变化。用户可以在 [Releases 页面](https://github.com/vesoft-inc/nebula-java/releases)查看最新版本。
 
 迁移数据时，用户可以参考配置文件 [`target/classes/application.conf`](https://github.com/vesoft-inc/nebula-exchange/blob/master/nebula-exchange_spark_2.4/src/main/resources/application.conf)。
 

@@ -153,7 +153,7 @@ Cypher 启发了一系列后续的图查询语言，包括
 
 [^GSQL]: https://docs.tigergraph.com/dev/gsql-ref
 
-2019 年，Nebula Graph 以 openCypher 为基础发布其扩展的图语言 Nebula Graph Query Language, nGQL。
+2019 年，NebulaGraph 以 openCypher 为基础发布其扩展的图语言 NebulaGraph Query Language, nGQL。
 
 ![Image](https://docs-cdn.nebula-graph.com.cn/books/images/langhis.jpg "图语言的历史")
 
@@ -240,6 +240,6 @@ Oracle graph[^Oracle] 是关系型数据库巨头 Oracle 在图技术与图数�
 
 [^Oracle]: https://www.oracle.com/database/graph/
 
-#### 新一代开源分布式图数据库 Nebula Graph
+#### 新一代开源分布式图数据库 NebulaGraph
 
-在下一章，我们将正式介绍新一代开源分布式图数据库 Nebula Graph。
+在下一章，我们将正式介绍新一代开源分布式图数据库 NebulaGraph。
