@@ -146,9 +146,9 @@ extra:
     base111b: 1.1.1-beta
     base220: 2.2.1
     base300: 3.0.0
-    release: 3.4.0
+    release: 3.4.1
     branch: release-3.4
-    tag: v3.4.0
+    tag: v3.4.1
   explorer:
     release: 3.1.0
     branch: release-3.1
