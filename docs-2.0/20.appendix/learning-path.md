@@ -1,16 +1,16 @@
-# Nebula Graph 学习路径
+# NebulaGraph 学习路径
 
-本文介绍 Nebula Graph 学习路径，用户可以通过路径中的文档及视频由浅入深地学习图数据库 Nebula Graph。
+本文介绍 NebulaGraph 学习路径，用户可以通过路径中的文档及视频由浅入深地学习图数据库 NebulaGraph。
 
  ![learning path](https://docs-cdn.nebula-graph.com.cn/figures/learning-path.png)
 
-## 1. 关于 Nebula Graph
+## 1. 关于 NebulaGraph
 
-### 1.1 什么是 Nebula Graph？
+### 1.1 什么是 NebulaGraph？
 
 | 文档                                                         | 视频                                                         | PPT |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | -- | 
-| [什么是 Nebula Graph](https://docs.nebula-graph.com.cn/{{nebula.release}}/1.introduction/1.what-is-nebula-graph/) | [Nebula Graph 介绍](https://www.bilibili.com/video/BV1kf4y1v7LM)、[万亿级别的图数据库 Nebula Graph](https://www.bilibili.com/video/BV1aK4y1e7Q4?spm_id_from=333.999.0.0)| [Nebula Graph 3年回顾](https://mp.weixin.qq.com/s/25TfLXR89kg0BpiMAbQ_Iw) |
+| [什么是 NebulaGraph](https://docs.nebula-graph.com.cn/{{nebula.release}}/1.introduction/1.what-is-nebula-graph/) | [NebulaGraph 介绍](https://www.bilibili.com/video/BV1kf4y1v7LM)、[万亿级别的图数据库 NebulaGraph](https://www.bilibili.com/video/BV1aK4y1e7Q4?spm_id_from=333.999.0.0)| [NebulaGraph 3年回顾](https://mp.weixin.qq.com/s/25TfLXR89kg0BpiMAbQ_Iw) |
 
 
 ### 1.2 图相关术语
@@ -49,27 +49,27 @@
 
 ## 2. 快速入门
 
-### 2.1 安装 Nebula Graph
+### 2.1 安装 NebulaGraph
 
   | 文档                                                         | 视频                                                         |
   | ------------------------------------------------------------ | ------------------------------------------------------------ |
   | [使用 RPM/DEB 包](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb/) | -                                                            |
   | [使用 TAR 包](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/2.compile-and-install-nebula-graph/4.install-nebula-graph-from-tar/) | -                                                            |
   | [使用 Docker](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose/) | - |
-  | [使用源码](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code/) | [图数据库入门教程（零）通过编译源码来安装 Nebula Graph](https://www.bilibili.com/video/BV1YJ411i7Jn?spm_id_from=333.999.0.0)                                                             |
+  | [使用源码](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code/) | [图数据库入门教程（零）通过编译源码来安装 NebulaGraph](https://www.bilibili.com/video/BV1YJ411i7Jn?spm_id_from=333.999.0.0)                                                             |
   |-|[如何选择部署方式？](https://www.bilibili.com/video/BV1vy4y1K7S5)|
 
-### 2.2 启动 Nebula Graph
+### 2.2 启动 NebulaGraph
 
   | 文档                                                         |
   | ------------------------------------------------------------ |
-  | [启停 Nebula Graph](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/5.start-stop-service/) |
+  | [启停 NebulaGraph](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/5.start-stop-service/) |
 
-### 2.3 连接 Nebula Graph
+### 2.3 连接 NebulaGraph
 
   | 文档
   | ------------------------------------------------------------ |
-  | [连接 Nebula Graph](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/3.connect-to-nebula-graph/) |
+  | [连接 NebulaGraph](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/3.connect-to-nebula-graph/) |
 
 ### 2.4 使用 nGQL 命令
 
@@ -83,13 +83,13 @@
 
   | 文档 |
   | ------------------------------------------------------------ |
-  | [使用 RPM/DEB 包部署 Nebula Graph 多机集群](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster/) |  
+  | [使用 RPM/DEB 包部署 NebulaGraph 多机集群](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster/) |  
 
 ### 3.2 升级集群版本
 
   | 文档                                                         |
   | ------------------------------------------------------------ |
-  | [升级 Nebula Graph](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest/) |
+  | [升级 NebulaGraph](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest/) |
 
 ### 3.3 配置Nebula
 
@@ -166,8 +166,8 @@
 
   |Cloud 版本|文档|视频| 
   |---------|---------|--------|
-  |Azure 版|[Nebula Graph Cloud Azure云版](https://docs.nebula-graph.com.cn/3.1.0/nebula-cloud/1.what-is-cloud/)|-|
-  |阿里云版|[Nebula Graph Cloud 阿里云版](https://docs.nebula-graph.com.cn/{{aliyunLatestRelease}}/nebula-cloud/nebula-cloud-on-alibabacloud/1.create-service-instance/)|[Nebula Graph Cloud 阿里云版介绍](https://www.bilibili.com/video/BV1BY411K7QJ)|
+  |Azure 版|[NebulaGraph Cloud Azure云版](https://docs.nebula-graph.com.cn/3.1.0/nebula-cloud/1.what-is-cloud/)|-|
+  |阿里云版|[NebulaGraph Cloud 阿里云版](https://docs.nebula-graph.com.cn/{{aliyunLatestRelease}}/nebula-cloud/nebula-cloud-on-alibabacloud/1.create-service-instance/)|[NebulaGraph Cloud 阿里云版介绍](https://www.bilibili.com/video/BV1BY411K7QJ)|
 -->
 
 - 可视化
@@ -185,7 +185,7 @@
   | 数据导入       | [Nebula Importer](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-importer/use-importer/) | [Nebula Importer](https://www.bilibili.com/video/BV1ny4y1u7i4) |
   | 数据导入       | [Nebula Spark Connector](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-spark-connector/) | -                                                            |
   | 数据导入       | [Nebula Flink Connector](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-flink-connector/) | -                                                            |
-  | 数据导入       | [Nebula Exchange 社区版](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-exchange/about-exchange/ex-ug-what-is-exchange/) | [Nebula Graph 数据导入工具——Exchange](https://www.bilibili.com/video/BV1Pq4y177D9)、[Exchange 导入 SST 数据](https://www.bilibili.com/video/BV1y34y1o7Di?)  |
+  | 数据导入       | [Nebula Exchange 社区版](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-exchange/about-exchange/ex-ug-what-is-exchange/) | [NebulaGraph 数据导入工具——Exchange](https://www.bilibili.com/video/BV1Pq4y177D9)、[Exchange 导入 SST 数据](https://www.bilibili.com/video/BV1y34y1o7Di?)  |
   | 数据导出       | [Nebula Exchange 企业版](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-exchange/about-exchange/ex-ug-what-is-exchange/) | -                                                            |
 
 
@@ -193,7 +193,7 @@
 
   | 文档                    |     视频                               |
   | ------------------------|------------------------------------ |
-  |[Nebula BR](../backup-and-restore/nebula-br/1.what-is-br.md)|[Nebula Graph 容灾备份工具 nebula-br](https://www.bilibili.com/video/BV11L4y1g7rD)|
+  |[Nebula BR](../backup-and-restore/nebula-br/1.what-is-br.md)|[NebulaGraph 容灾备份工具 nebula-br](https://www.bilibili.com/video/BV11L4y1g7rD)|
 
 - 性能测试
 
@@ -236,13 +236,13 @@
   | 文档 & 视频                                                         |
   | ------------------------------------------------------------ |
   | [LDBC 数据导入及 nGQL 实践](https://nebula-graph.com.cn/posts/query-graph-with-ldbc-dataset/) |
-  | [基于 Nebula Graph 的 Betweenness Centrality 算法](https://nebula-graph.com.cn/posts/introduction-to-betweenness-centrality-algorithm/) |
+  | [基于 NebulaGraph 的 Betweenness Centrality 算法](https://nebula-graph.com.cn/posts/introduction-to-betweenness-centrality-algorithm/) |
   | [百亿级图数据在快手安全情报的应用与挑战](https://nebula-graph.com.cn/posts/kuaishou-security-intelligence-platform-with-nebula-graph/) |
   | [美团图数据库平台建设及业务实践](https://nebula-graph.com.cn/posts/meituan-graph-database-platform-practice/) |
   | [Akulaku 的智能风控实践](https://nebula-graph.com.cn/posts/intelligent-risk-control-practice-akulaku/) |
-  | [微信使用 Nebula Graph 的定制化开发](https://nebula-graph.com.cn/posts/nebula-graph-for-social-networking/) |
-  | [知乎使用 Nebula Graph 实践](https://mp.weixin.qq.com/s/K2QinpR5Rplw1teHpHtf4w) |
-  |[Nebula Graph 在微众银行的数据治理业务的实践](https://www.bilibili.com/video/BV1Pr4y1F7kA)|
+  | [微信使用 NebulaGraph 的定制化开发](https://nebula-graph.com.cn/posts/nebula-graph-for-social-networking/) |
+  | [知乎使用 NebulaGraph 实践](https://mp.weixin.qq.com/s/K2QinpR5Rplw1teHpHtf4w) |
+  |[NebulaGraph 在微众银行的数据治理业务的实践](https://www.bilibili.com/video/BV1Pr4y1F7kA)|
   |[图数据库在安全风控场景的应用 @BOSS 直聘](https://www.bilibili.com/video/BV1Rh41117G9)|
   |[更多文档](https://nebula-graph.com.cn/posts/)   、[视频](https://space.bilibili.com/472621355/channel/series)                |
 ## 6. 常见问题
@@ -252,28 +252,28 @@
   | [常见问题 FAQ](https://docs.nebula-graph.com.cn/{{nebula.release}}/20.appendix/0.FAQ/#faq) |
 ## 7. 实操作业
 
- 用户可以通过完成以下实操作业来检测是否玩转 Nebula Graph。
+ 用户可以通过完成以下实操作业来检测是否玩转 NebulaGraph。
 
   | 作业内容                                                | 参考                                                         |
   | ------------------------------------------------------- | ------------------------------------------------------------ |
-  | 编译内核                                                | [使用源码安装 Nebula Graph](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code/)                                                             |
+  | 编译内核                                                | [使用源码安装 NebulaGraph](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code/)                                                             |
   | 部署可视化工具 Studio、Dashboard、Explorer             | [部署 Studio](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-studio/deploy-connect/st-ug-deploy/)、[部署 Dashboard](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-dashboard/2.deploy-dashboard/)、[部署 Explorer](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-explorer/deploy-connect/ex-ug-deploy/)                                                            |
-  | 使用 K6 压测 Nebula Graph                               | [K6 在 Nebula Graph 上的压测实践](https://nebula-graph.com.cn/posts/practice-k6-at-nebula-graph/) |
+  | 使用 K6 压测 NebulaGraph                               | [K6 在 NebulaGraph 上的压测实践](https://nebula-graph.com.cn/posts/practice-k6-at-nebula-graph/) |
   | 导入 LDBC 数据                                          | [LDBC 数据导入及 nGQL 实践](https://mp.weixin.qq.com/s/tbLGuuX6vNzLIw6o8ZGKpw)                                                           |
   | 查询 LDBC 数据（点查、K度邻居查询、路径查询、子图查询） | [LDBC](chrome-extension://gfbliohnnapiefjpjlpjnehglfpaknnc/pages/pdf_viewer.html?r=http://ldbcouncil.org/ldbc_snb_docs/ldbc-snb-specification.pdf) 和 [interactive-short-1.cypher](https://github.com/ldbc/ldbc_snb_interactive/blob/main/cypher/queries/interactive-short-1.cypher) |
 
 
 ## 8. 通过 CI/CP 考试
 
-图数据库 Nebula Graph 提供2个不同等级的图数据库技能认证考试：
+图数据库 NebulaGraph 提供2个不同等级的图数据库技能认证考试：
 
-- Nebula Graph Certified Insider (NGCI)：通过该考试证明用户对图数据库及 Nebula Graph 有基础的了解，是合格的 Nebula Graph 使用者。
+- NebulaGraph Certified Insider (NGCI)：通过该考试证明用户对图数据库及 NebulaGraph 有基础的了解，是合格的 NebulaGraph 使用者。
 
-- Nebula Graph Certified Professional (NGCP)：通过该考试证明用户对图数据库及 Nebula Graph 有深入的了解，是 Nebula Graph 专业人士。
+- NebulaGraph Certified Professional (NGCP)：通过该考试证明用户对图数据库及 NebulaGraph 有深入的了解，是 NebulaGraph 专业人士。
 
-考试用书[《开源分布式图数据库 Nebula Graph 完全指南》](https://docs.nebula-graph.com.cn/site/pdf/NebulaGraph-book.pdf)
+考试用书[《开源分布式图数据库 NebulaGraph 完全指南》](https://docs.nebula-graph.com.cn/site/pdf/NebulaGraph-book.pdf)
 
-单击[Nebula Graph 个人技能认证](https://discuss.nebula-graph.com.cn/t/topic/8728)查看考试说明及入口。
+单击[NebulaGraph 个人技能认证](https://discuss.nebula-graph.com.cn/t/topic/8728)查看考试说明及入口。
 
 ### 视频
 

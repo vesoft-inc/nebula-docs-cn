@@ -1,20 +1,20 @@
-# 欢迎阅读 Nebula Graph {{ nebula.release }} 文档
+# 欢迎阅读 NebulaGraph {{ nebula.release }} 文档
 
 
 !!! caution
 
-    该版本文档仅包括 Nebula Graph {{ nebula.release }} 社区版内容和对应版本的周边工具内容。Nebula Graph {{ nebula.release }} 未发布企业版（[企业版发布周期通常为 6 个月](20.appendix/6.eco-tool-version.md)）。详情查看[版本发布说明](20.appendix/release-notes/nebula-comm-release-note.md)。
+    该版本文档仅包括 NebulaGraph {{ nebula.release }} 社区版内容和对应版本的周边工具内容。NebulaGraph {{ nebula.release }} 未发布企业版（[企业版发布周期通常为 6 个月](20.appendix/6.eco-tool-version.md)）。详情查看[版本发布说明](20.appendix/release-notes/nebula-comm-release-note.md)。
 
 !!! Note
     
     本文档更新时间{{ now().year }}-{{ now().month }}-{{ now().day }}，GitHub commit [{{ git.short_commit }}](https://github.com/vesoft-inc/nebula-docs/commits/v{{nebula.release}})。该版本主色系为"深粉色"，色号为 #F7A7A0。
 
     
-Nebula Graph 是一款开源的、分布式的、易扩展的原生图数据库，能够承载数千亿个点和数万亿条边的超大规模数据集，并且提供毫秒级查询。
+NebulaGraph 是一款开源的、分布式的、易扩展的原生图数据库，能够承载数千亿个点和数万亿条边的超大规模数据集，并且提供毫秒级查询。
 
 ## 快速开始
 * [学习路径](20.appendix/learning-path.md)与[获取认证](https://academic.nebula-graph.io/?lang=ZH_CN)
-* [什么是 Nebula Graph](1.introduction/1.what-is-nebula-graph.md)
+* [什么是 NebulaGraph](1.introduction/1.what-is-nebula-graph.md)
 * [快速开始](2.quick-start/1.quick-start-workflow.md)
 * [部署要求](4.deployment-and-installation/1.resource-preparations.md)
 * [nGQL 命令汇总](2.quick-start/6.cheatsheet-for-ngql-command.md)
@@ -70,4 +70,4 @@ Graph 完全指南](https://docs.nebula-graph.com.cn/site/pdf/NebulaGraph-book.p
     
 ## 修改文档中的错误
  
-Nebula Graph 文档以 Markdown 语言编写。单击文档标题右上侧的铅笔图标即可提交修改建议。
+NebulaGraph 文档以 Markdown 语言编写。单击文档标题右上侧的铅笔图标即可提交修改建议。
