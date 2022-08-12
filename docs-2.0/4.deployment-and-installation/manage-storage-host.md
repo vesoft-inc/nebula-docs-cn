@@ -25,7 +25,7 @@ ADD HOSTS "<hostname>":<port> [,"<hostname>":<port> ...];
     
     - 使用域名时，需要用引号包裹，例如 `ADD HOSTS "foo-bar":9779`。
 
-    - 使用域名时，需要用引号包裹，例如 `ADD HOSTS "foo-bar":9779`。
+    - 确保新增的 Storage 主机没有被其他集群使用过，否则会导致添加 Storage 节点失败。
 
 ## 删除 Storage 主机
 
