@@ -220,6 +220,7 @@ extra:
   cloud:
     azureRelease: 2.6.2 # Azure云兼容的最新内核版本
     aliyunRelease: 3.1.2 # 阿里云兼容的最新内核版本
+    awsRelease: 3.1.2 # AWS云兼容的最新内核版本
 
 
 nav:
@@ -475,7 +476,7 @@ nav:
 
   - Nebula Graph Cloud:
     - 什么是 Nebula Graph Cloud: nebula-cloud/1.what-is-cloud.md
-#    - Nebula Graph Cloud Azure版:
+#    - Nebula Graph Cloud Azure 版:
 #      - 创建订阅: nebula-cloud/nebula-cloud-on-azure/2.how-to-create-subsciption.md
 #      - 配置 Solution: nebula-cloud/nebula-cloud-on-azure/3.how-to-set-solution.md
 #      - Cloud Solution 角色身份说明: nebula-cloud/nebula-cloud-on-azure/4.user-role-description.md
@@ -491,6 +492,11 @@ nav:
       - 创建服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/1.create-service-instance.md
       - 使用服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/2.use-cloud-services.md
       - 删除服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/3.delete-service-instance.md
+    - Nebula Graph Cloud AWS 版:
+      - 概览: nebula-cloud/nebula-cloud-on-aws/1.aws-overview.md
+      - 部署架构: nebula-cloud/nebula-cloud-on-aws/2.aws-architecture.md
+      - 部署准备: nebula-cloud/nebula-cloud-on-aws/3.aws-planning-deployment.md
+      - 部署步骤: nebula-cloud/nebula-cloud-on-aws/4.aws-deployment-steps.md
 
   - Nebula Studio:
     - Studio 版本更新说明: nebula-studio/about-studio/st-ug-release-note.md
