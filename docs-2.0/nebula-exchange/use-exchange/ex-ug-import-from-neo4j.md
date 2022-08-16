@@ -197,7 +197,7 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
       password:neo4j
       # bolt 3 does not support `select database`, please do not config database
       # database:neo4j
-      exec: "match (n:team) return n.id as id,n.name as name"
+      exec: "match (n:team) return n.id as id,n.name as name order by id(n)"
       fields: [name]
       nebula.fields: [name]
       vertex: {
