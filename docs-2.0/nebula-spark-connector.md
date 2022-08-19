@@ -254,7 +254,7 @@ df.write.nebula(config, nebulaWriteVertexConfig).writeVertices()
   |`withUser`  |否|  NebulaGraph 用户名。若未开启[身份验证](7.data-security/1.authentication/1.authentication.md)，无需配置用户名和密码。  |
   |`withPasswd`  |否|  NebulaGraph 用户名对应的密码。  |
   |`withBatch`  |是| 一次写入的数据行数，默认值为`512`。当`withWriteMode`为`update`时，该参数的最大值为`512`。  |
-  |`withWriteMode`|否|写入模式。可选值为`insert`和`update`。默认为`insert`。|
+  |`withWriteMode`|否|写入模式。可选值为`insert`、`update`和`delete`。默认为`insert`。|
 
 ### 示例代码
 
