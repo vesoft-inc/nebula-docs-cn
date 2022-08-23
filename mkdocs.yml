@@ -89,6 +89,7 @@ plugins:
         - nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
         - synchronization-and-migration/replication-between-clusters.md
         - 20.appendix/8.about-license/
+        - backup-and-restore/nebula-br-ent/*
         # end
         
 
@@ -204,6 +205,12 @@ extra:
     release: 0.6.1
     branch: master
     tag: v0.6.1
+  br_ent:
+    release: 0.7.0
+    tag: v0.7.0
+  agent:
+    release: 0.2.0
+    tag: v0.2.0
   cpp:
     release: 3.0.2
     branch: v3.0.2
@@ -466,11 +473,16 @@ nav:
       - SSL 加密: 7.data-security/4.ssl.md
 
   - 备份与恢复:
-      - NebulaGraph BR:
-        - 什么是 BR: backup-and-restore/nebula-br/1.what-is-br.md
+      - NebulaGraph BR（社区版）:
+        - BR（社区版）概述: backup-and-restore/nebula-br/1.what-is-br.md
         - 编译 BR: backup-and-restore/nebula-br/2.compile-br.md
         - 使用 BR 备份数据: backup-and-restore/nebula-br/3.br-backup-data.md
         - 使用 BR 恢复数据: backup-and-restore/nebula-br/4.br-restore-data.md
+      - NebulaGraph BR（企业版）:
+        - BR（企业版）概述: backup-and-restore/nebula-br-ent/1.br-ent-overview.md
+        - 安装 BR: backup-and-restore/nebula-br-ent/2.install-tools.md
+        - 使用 BR 备份数据: backup-and-restore/nebula-br-ent/3.backup-data.md
+        - 使用 BR 恢复数据: backup-and-restore/nebula-br-ent/4.restore-data.md
       - 管理快照: backup-and-restore/3.manage-snapshot.md
 
   - 同步与迁移:
