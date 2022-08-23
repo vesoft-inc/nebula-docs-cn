@@ -2,8 +2,8 @@
 
 | 参数                                           | 说明                                      |
 | ---------------------------------------------- | ----------------------------------------- |
-| `num_active_queries`                             | 活跃查询语句数的变化数。<br>计算公式：时间范围内开始执行的语句数减去执行完毕的语句数。               |
-| `num_active_sessions`                            | 活跃会话数的变化数。<br>计算公式：时间范围内登录的会话数减去登出的会话数。<br>例如查询num_active_sessions.sum.5，过去 5 秒中登录了 10 个会话数，登出了 30 个会话数，那么该指标值就是`-20`（10-30）。          |
+| `num_active_queries`                             | 活跃的查询语句数的变化数。<br>计算公式：时间范围内开始执行的语句数减去执行完毕的语句数。               |
+| `num_active_sessions`                            | 活跃的会话数的变化数。<br>计算公式：时间范围内登录的会话数减去登出的会话数。<br>例如查询num_active_sessions.sum.5，过去 5 秒中登录了 10 个会话数，登出了 30 个会话数，那么该指标值就是`-20`（10-30）。          |
 | `num_aggregate_executors`                        | 聚合（Aggregate）算子执行时间。               |
 | `num_auth_failed_sessions_bad_username_password` | 因用户名密码错误导验证失败的会话数量。    |
 | `num_auth_failed_sessions_out_of_max_allowed`    | 因为超过`FLAG_OUT_OF_MAX_ALLOWED_CONNECTIONS`参数导致的验证登录的失败的 session 数量。|
