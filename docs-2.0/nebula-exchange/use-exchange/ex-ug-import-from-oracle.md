@@ -78,7 +78,7 @@ oracle> desc serve;
 
 - 已经安装 Spark。
 
-- 了解 NebulaGraph 中创建 Schema 的信息，包括 Tag 和 Edge type 的名称、属性等。
+- 了解 NebulaGraph 中创建的 Schema 信息，包括 Tag 和 Edge type 的名称、属性等。
 
 - 已经安装并开启 Hadoop 服务。
 
