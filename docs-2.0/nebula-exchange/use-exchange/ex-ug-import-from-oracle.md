@@ -97,7 +97,7 @@ oracle> desc serve;
     | Edge Type | `follow` | `degree int` |
     | Edge Type | `serve` | `start_year int, end_year int` |
 
-2. 在 NebulaGraph 中创建一个图空间** basketballplayer**，并创建一个 Schema，如下所示。
+2. 在 NebulaGraph 中创建一个图空间 **basketballplayer**，并创建一个 Schema，如下所示。
 
     ```ngql
     ## 创建图空间
