@@ -43,7 +43,7 @@ oracle> desc serve;
 | TEAMID     |  -    | VARCHAR2(30)  |
 | START_YEAR |  -    | NUMBER        |
 | END_YEAR   |  -    | NUMBER        |
-+-----------+-------+---------------+ 
++------------+-------+---------------+ 
 ```
 
 ## 环境配置
