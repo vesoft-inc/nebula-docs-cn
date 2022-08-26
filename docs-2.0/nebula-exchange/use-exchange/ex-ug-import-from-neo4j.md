@@ -195,8 +195,9 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
       server: "bolt://192.168.*.*:7687"
       user: neo4j
       password:neo4j
-      database:neo4j
-      exec: "match (n:team) return n.id as id,n.name as name"
+      # bolt 3 does not support `select database`, please do not config database
+      # database:neo4j
+      exec: "match (n:team) return n.id as id,n.name as name order by id(n)"
       fields: [name]
       nebula.fields: [name]
       vertex: {
@@ -245,7 +246,8 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
       server: "bolt://192.168.*.*:7687"
       user: neo4j
       password:neo4j
-      database:neo4j
+      # bolt 3 does not support `select database`, please do not config database
+      #database:neo4j
       exec: "match (a:player)-[r:serve]->(b:team) return a.id as src, b.id as dst, r.start_year as start_year, r.end_year as end_year  order by id(r)"
       fields: [start_year,end_year]
       nebula.fields: [start_year,end_year]
