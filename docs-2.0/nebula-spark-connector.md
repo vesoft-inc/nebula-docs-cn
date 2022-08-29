@@ -257,7 +257,7 @@ df.write.nebula(config, nebulaWriteVertexConfig).writeVertices()
 
 ### 使用 PySpark
 
-NebulaGraph Spark Connecotr 支持 PySpark，具体例子请参考项目的 [GitHub README](https://github.com/vesoft-inc/nebula-spark-connector/blob/master/README_CN.md#pyspark-%E4%B8%AD%E4%BD%BF%E7%94%A8-nebula-spark-connector)
+NebulaGraph Spark Connector 支持 PySpark，使用示例参见 [GitHub README](https://github.com/vesoft-inc/nebula-spark-connector/blob/master/README_CN.md#pyspark-%E4%B8%AD%E4%BD%BF%E7%94%A8-nebula-spark-connector)。
 
 ### 示例代码
 
