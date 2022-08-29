@@ -1,5 +1,10 @@
 # NebulaGraph Dashboard 企业版更新说明
 
+## 企业版 v3.1.2
+
+- 缺陷修复
+  - 修复 nebula-stats-exporter 服务启动异常的问题。
+
 ## 企业版 v3.1.1
 
 - 缺陷修复

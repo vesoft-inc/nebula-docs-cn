@@ -188,13 +188,13 @@ extra:
     branch: release-3.2
     tag: v3.2.0
   dashboard:
-    release: 3.0.0
-    tag: v3.0.0
+    release: 3.1.0
+    tag: v3.1.0
     base100: 1.0.0
     branch: release-3.0
   dashboard_ent:
-    release: 3.1.0
-    tag: v3.1.0
+    release: 3.1.2
+    tag: v3.1.2
     branch: release-3.1
   console:
     release: 3.0.0
