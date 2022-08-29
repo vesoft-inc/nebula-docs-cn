@@ -3,7 +3,7 @@
 ## 企业版 v3.1.2
 
 - 缺陷修复
-  - 修复 nebula-stats-exporter 服务启动异常的问题。
+  - 修复 DEB 和 RPM 包中 nebula-stats-exporter 服务启动异常的问题。
 
 ## 企业版 v3.1.1
 
