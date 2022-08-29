@@ -255,6 +255,10 @@ df.write.nebula(config, nebulaWriteVertexConfig).writeVertices()
   |`withBatch`  |是| 一次写入的数据行数，默认值为`512`。当`withWriteMode`为`update`时，该参数的最大值为`512`。  |
   |`withWriteMode`|否|写入模式。可选值为`insert`和`update`。默认为`insert`。|
 
+### 使用 PySpark
+
+NebulaGraph Spark Connecotr 支持 PySpark，具体例子请参考项目的 [GitHub README](https://github.com/vesoft-inc/nebula-spark-connector/blob/master/README_CN.md#pyspark-%E4%B8%AD%E4%BD%BF%E7%94%A8-nebula-spark-connector)
+
 ### 示例代码
 
 详细的使用方式参见 [示例代码](https://github.com/vesoft-inc/nebula-spark-connector/tree/{{sparkconnector.branch}}/example/src/main/scala/com/vesoft/nebula/examples/connector)。
