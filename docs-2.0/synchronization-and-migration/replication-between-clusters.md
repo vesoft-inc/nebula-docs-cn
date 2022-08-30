@@ -319,7 +319,7 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
   ```
   nebula> SIGN IN DRAINER SERVICE(192.168.10.106:9889);
-  nebula> ADD LISTENER SYNC META 192.168.10.105:9559 STORAGE 192.168.10.105:9789 TO SPACE basketballplayer;
+  nebula> ADD LISTENER SYNC META 192.168.10.105:9569 STORAGE 192.168.10.105:9789 TO SPACE basketballplayer;
   nebula> REMOVE DRAINER;
   ```
 
