@@ -303,7 +303,7 @@ nebula> INSERT VERTEX player(name,age) VALUES "player103":("Rudy Gay", 32);
 nebula> INSERT VERTEX player(name,age) VALUES "player104":("Marco Belinelli", 32);
 
 // 查看当前集群数据同步的状态（返回结果表示数据正在发送给从集群中）。
-nebula> SHOW SYNC STATUS
+nebula> SHOW SYNC STATUS;
 +--------+-------------+-----------+--------------+
 | PartId | Sync Status | LogId Lag | Time Latency |
 +--------+-------------+-----------+--------------+
@@ -325,7 +325,7 @@ nebula> SHOW SYNC STATUS
 | 15     | "ONLINE"    | 0         | 0            |
 +--------+-------------+-----------+--------------+
 // 再次查看当前集群数据同步的状态（返回结果表示数据已完全被发送至从集群）。
-nebula> SHOW SYNC STATUS
+nebula> SHOW SYNC STATUS;
 +--------+-------------+-----------+--------------+
 | PartId | Sync Status | LogId Lag | Time Latency |
 +--------+-------------+-----------+--------------+
