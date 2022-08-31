@@ -281,9 +281,85 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
 数据同步时，listener 会持续发送 WAL 给 drainer。
 
-如果需要停止数据同步，可以使用`stop sync`命令。此时 listener 会停止向 drainer 发送 WAL。
+如果需要停止数据同步，可以使用`STOP SYNC`命令。此时 listener 会停止向 drainer 发送 WAL。
 
-如果需要重启数据同步，可以使用`restart sync`命令。此时 listener 会向 drainer 发送停止期间堆积的 WAL。如果 listener 上的 WAL 丢失， listener 会从主集群拉取快照重新进行同步。
+如果需要重启数据同步，可以使用`RESTART SYNC`命令。此时 listener 会向 drainer 发送停止期间堆积的 WAL。如果 listener 上的 WAL 丢失， listener 会从主集群拉取快照重新进行同步。
+
+## 查看集群间数据同步状态
+
+当用户向主集群中写入数据时，可以查看集群间数据同步的状态，以判断数据同步是否正常。
+
+### 查看主集群发送数据的状态
+
+在主集群中执行`SHOW SYNC STATUS`命令可查看主集群给从集群发送数据的状态。`SHOW SYNC STATUS`实时获取集群间数据同步状态的信息，只有当主集群写入成功了，才往从集群发送同步数据。
+
+示例如下：
+
+```ngql
+// 在主集群中写入数据。
+nebula> INSERT VERTEX player(name,age) VALUES "player102":("LaMarcus Aldridge", 33);
+nebula> INSERT VERTEX player(name,age) VALUES "player102":("LaMarcus Aldridge", 33);
+nebula> INSERT VERTEX player(name,age) VALUES "player103":("Rudy Gay", 32);
+nebula> INSERT VERTEX player(name,age) VALUES "player104":("Marco Belinelli", 32);
+
+// 查看当前集群数据同步的状态（返回结果表示数据正在发送给从集群中）。
+nebula> SHOW SYNC STATUS
++--------+-------------+-----------+--------------+
+| PartId | Sync Status | LogId Lag | Time Latency |
++--------+-------------+-----------+--------------+
+| 0      | "ONLINE"    | 0         | 0            |
+| 1      | "ONLINE"    | 0         | 0            |
+| 2      | "ONLINE"    | 0         | 0            |
+| 3      | "ONLINE"    | 0         | 0            |
+| 4      | "ONLINE"    | 0         | 0            |
+| 5      | "ONLINE"    | 1         | 46242122     |
+| 6      | "ONLINE"    | 0         | 0            |
+| 7      | "ONLINE"    | 0         | 0            |
+| 8      | "ONLINE"    | 0         | 0            |
+| 9      | "ONLINE"    | 0         | 0            |
+| 10     | "ONLINE"    | 0         | 0            |
+| 11     | "ONLINE"    | 0         | 0            |
+| 12     | "ONLINE"    | 0         | 0            |
+| 13     | "ONLINE"    | 0         | 0            |
+| 14     | "ONLINE"    | 0         | 0            |
+| 15     | "ONLINE"    | 0         | 0            |
++--------+-------------+-----------+--------------+
+// 再次查看当前集群数据同步的状态（返回结果表示数据已完全被发送至从集群）。
+nebula> SHOW SYNC STATUS
++--------+-------------+-----------+--------------+
+| PartId | Sync Status | LogId Lag | Time Latency |
++--------+-------------+-----------+--------------+
+| 0      | "ONLINE"    | 0         | 0            |
+| 1      | "ONLINE"    | 0         | 0            |
+| 2      | "ONLINE"    | 0         | 0            |
+| 3      | "ONLINE"    | 0         | 0            |
+| 4      | "ONLINE"    | 0         | 0            |
+| 5      | "ONLINE"    | 0         | 0            |
+| 6      | "ONLINE"    | 0         | 0            |
+| 7      | "ONLINE"    | 0         | 0            |
+| 8      | "ONLINE"    | 0         | 0            |
+| 9      | "ONLINE"    | 0         | 0            |
+| 10     | "ONLINE"    | 0         | 0            |
+| 11     | "ONLINE"    | 0         | 0            |
+| 12     | "ONLINE"    | 0         | 0            |
+| 13     | "ONLINE"    | 0         | 0            |
+| 14     | "ONLINE"    | 0         | 0            |
+| 15     | "ONLINE"    | 0         | 0            |
++--------+-------------+-----------+--------------+
+```
+
+执行`SHOW SYNC STATUS`命令，返回结果中的参数说明如下：
+
+| 参数   | 说明   |
+|:---    |:---   |
+| PartId | 分片 ID。当值为`0`时，表示相应图空间中 Meta listener 同步的分片 ID。当为其他值时，表示相应图空间中 Storage listener 同步的分片ID。 |
+| Sync Status | 表示 listener 的状态。<br>当值为`ONLINE`时，listener 持续发送 WAL 给 drainer。<br>当值为`OFFLINE`时，listener 停止发送 WAL 给 drainer。|
+| LogId Lag | 表示的 Log ID 间隔，也就主集群还有多少条 Log 往从集群同步。当值为`0`时，表示主集群中没有 Log 需要同步。|
+| Time Latency | 需要同步最后一条 Log 的 WAL 中的时间戳与已经同步的最后一条 Log 的 WAL 中的时间戳差值。当值为`0`时，表示数据已经同步至从集群。 |
+
+<!-- ### 查看从集群接收数据的状态
+
+执行`SHOW DRAINER SYNC STATUS`查看从集群接收同步数据到从集群 Meta 和 Storage的状态。 -->
 
 ## 切换主从集群
 
