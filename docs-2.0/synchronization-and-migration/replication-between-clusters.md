@@ -357,9 +357,42 @@ nebula> SHOW SYNC STATUS;
 | LogId Lag | 表示的 Log ID 间隔，也就主集群还有多少条 Log 往从集群同步。当值为`0`时，表示主集群中没有 Log 需要同步。|
 | Time Latency | 需要同步最后一条 Log 的 WAL 中的时间戳与已经同步的最后一条 Log 的 WAL 中的时间戳差值。当值为`0`时，表示数据已经发送至从集群。 |
 
-<!-- ### 查看从集群接收数据的状态
+### 查看从集群接收数据的状态
 
-执行`SHOW DRAINER SYNC STATUS`查看从集群接收同步数据到从集群 Meta 和 Storage的状态。 -->
+在从集群中，执行`SHOW DRAINER SYNC STATUS`查看从集群同步接收的数据至从集群 Meta 和 Storage 的状态。
+
+```ngql
+nebula> SHOW DRAINER SYNC STATUS;
++--------+-------------+-----------+--------------+
+| PartId | Sync Status | LogId Lag | Time Latency |
++--------+-------------+-----------+--------------+
+| 0      | "ONLINE"    | 0         | 0            |
+| 1      | "ONLINE"    | 0         | 0            |
+| 2      | "ONLINE"    | 0         | 0            |
+| 3      | "ONLINE"    | 0         | 0            |
+| 4      | "ONLINE"    | 0         | 0            |
+| 5      | "ONLINE"    | 0         | 0            |
+| 6      | "ONLINE"    | 0         | 0            |
+| 7      | "ONLINE"    | 0         | 0            |
+| 8      | "ONLINE"    | 0         | 0            |
+| 9      | "ONLINE"    | 0         | 0            |
+| 10     | "ONLINE"    | 0         | 0            |
+| 11     | "ONLINE"    | 0         | 0            |
+| 12     | "ONLINE"    | 0         | 0            |
+| 13     | "ONLINE"    | 0         | 0            |
+| 14     | "ONLINE"    | 0         | 0            |
+| 15     | "ONLINE"    | 0         | 0            |
++--------+-------------+-----------+--------------+
+```
+执行`SHOW DRAINER SYNC STATUS`命令，返回结果中的参数说明如下：
+
+| 参数   | 说明   |
+|:---    |:---   |
+| PartId | 表示 drainer 同步数据至备份图空间对应的分片 ID。当值为`0`时，表示同步的 Meta 所在的分片 ID。当为其他值时，表示同步的 Storage 所在的分片ID。 |
+| Sync Status | 表示 drainer 的状态。<br>当值为`ONLINE`时，drainer 持续发送 WAL 给对应的分片。<br>当值为`OFFLINE`时，drainer 停止发送 WAL 给对应分片。|
+| LogId Lag | 表示的 Log ID 间隔，也就从集群还有多少条 Log 往分片中同步。当值为`0`时，表示从集群中没有 Log 需要同步。|
+| Time Latency | 需要同步最后一条 Log 的 WAL 中的时间戳与已经同步的最后一条 Log 的 WAL 中的时间戳差值。当值为`0`时，表示数据已经同步至从集群备份图空间对应的分片中。 |
+
 
 ## 切换主从集群
 
