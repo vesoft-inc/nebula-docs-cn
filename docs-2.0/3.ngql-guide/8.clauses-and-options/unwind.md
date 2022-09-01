@@ -136,7 +136,7 @@ UNWIND <list> AS <alias> <RETURN clause>;
 - `FETCH`语句中使用`UNWIND`。
 
   ```ngql
-  //查询 player101 点的所有 Tag，并将结果转换为行。
+  // 查询 player101 点的所有 Tag，并将结果转换为行。
   nebula> CREATE TAG hero(like string, height int);
           INSERT VERTEX hero(like, height) VALUES "player101":("deep", 182);
           FETCH PROP ON * "player101" \
