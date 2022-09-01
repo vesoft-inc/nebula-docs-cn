@@ -4,10 +4,6 @@
 
 `UNWIND`可以作为单独语句或语句中的子句使用。
 
-## openCypher 兼容性
-
-nGQL 语句中兼容 openCypher 的`UNWIND`。
-
 ## UNWIND 语句
 
 ```ngql 
@@ -33,11 +29,11 @@ UNWIND <list> AS <alias> <RETURN clause>;
 
 ### 语法
 
-- nGQL 语句中使用`UNWIND`子句。
+- 原生 nGQL 语句中使用`UNWIND`子句。
 
   !!! note
 
-        在 nGQL 原生语句中使用`UNWIND`子句时，需要用在管道符`|`之后，并使用`$-`作为变量前缀。如果`UNWIND`后使用语句或子句，需要使用管道符`|`并且使用`$-`作为变量前缀。
+        在原生 nGQL 语句中使用`UNWIND`子句时，需要用在管道符`|`之后，并使用`$-`作为变量前缀。如果`UNWIND`后使用语句或子句，需要使用管道符`|`并且使用`$-`作为变量前缀。
 
   ```ngql
   <statement> | UNWIND $-.<var> AS <alias> <|> <clause>;
@@ -59,12 +55,8 @@ UNWIND <list> AS <alias> <RETURN clause>;
       
       原生 nGQL 语句不支持`WITH DISTINCT`。  
 
-  1. 拆分列表`[1,1,2,2,3,3]`。
-  2. 删除重复行。
-  3. 排序行。
-  4. 将行转换为列表。
-
   ```ngql
+  // 拆分列表`[1,1,2,2,3,3]`，删除重复行，排序行，将行转换为列表。
   nebula> WITH [1,1,2,2,3,3] AS n \
           UNWIND n AS r \
           WITH DISTINCT r AS r \
@@ -79,12 +71,8 @@ UNWIND <list> AS <alias> <RETURN clause>;
 
 - `MATCH`语句中使用`UNWIND`。
 
-  1. 将匹配路径上的顶点输出到列表中。
-  2. 拆分列表。
-  3. 删除重复行。
-  4. 将行转换为列表。
-
   ```ngql
+  // 将匹配路径上的顶点输出到列表中，拆分列表，删除重复行，将行转换为列表。
   nebula> MATCH p=(v:player{name:"Tim Duncan"})--(v2) \
           WITH nodes(p) AS n \
           UNWIND n AS r \
@@ -136,7 +124,7 @@ UNWIND <list> AS <alias> <RETURN clause>;
 - `FETCH`语句中使用`UNWIND`。
 
   ```ngql
-  //查询 player101 点的所有 Tag，并将结果转换为行。
+  // 查询 player101 点的所有 Tag，并将结果转换为行。
   nebula> CREATE TAG hero(like string, height int);
           INSERT VERTEX hero(like, height) VALUES "player101":("deep", 182);
           FETCH PROP ON * "player101" \
@@ -153,7 +141,8 @@ UNWIND <list> AS <alias> <RETURN clause>;
 
   ```ngql
   // 查询从点 player100 开始、0~2 跳、serve 类型的出边和入边的子图，并将结果转换为行。
-  GET SUBGRAPH 2 STEPS FROM "player100" BOTH serve YIELD edges as e | UNWIND $-.e as a | YIELD $-.a AS a;
+  nebula> GET SUBGRAPH 2 STEPS FROM "player100" BOTH serve \
+          YIELD edges as e | UNWIND $-.e as a | YIELD $-.a AS a;
   +----------------------------------------------+
   | a                                            |
   +----------------------------------------------+
@@ -180,9 +169,10 @@ UNWIND <list> AS <alias> <RETURN clause>;
 
 - `FIND PATH`语句中使用`UNWIND`。
 
-  ```
+  ```ngql
   // 找出 player101 到 team204 延 serve 类型边的最短路径上的所有点，并将结果转换为行。
-  FIND SHORTEST PATH FROM "player101" TO "team204" OVER serve YIELD path as p | YIELD nodes($-.p) AS nodes | UNWIND $-.nodes AS a | YIELD $-.a AS a;
+  nebula> FIND SHORTEST PATH FROM "player101" TO "team204" OVER serve \
+          YIELD path as p | YIELD nodes($-.p) AS nodes | UNWIND $-.nodes AS a | YIELD $-.a AS a;
   +---------------+
   | a             |
   +---------------+
