@@ -180,7 +180,7 @@ UNWIND <list> AS <alias> <RETURN clause>;
 
 - `FIND PATH`语句中使用`UNWIND`。
 
-  ```
+  ```ngql
   // 找出 player101 到 team204 延 serve 类型边的最短路径上的所有点，并将结果转换为行。
   FIND SHORTEST PATH FROM "player101" TO "team204" OVER serve YIELD path as p | YIELD nodes($-.p) AS nodes | UNWIND $-.nodes AS a | YIELD $-.a AS a;
   +---------------+
