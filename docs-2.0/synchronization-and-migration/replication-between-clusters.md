@@ -283,7 +283,7 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
 如果需要停止数据同步，可以使用`STOP SYNC`命令。此时 listener 会停止向 drainer 同步数据。
 
-如果需要重启数据同步，可以使用`RESTART SYNC`命令。此时 listener 会向 drainer 发送停止期间堆积的 WAL。如果 listener 上的 WAL 丢失， listener 会从主集群拉取快照重新进行同步。
+如果需要重启数据同步，可以使用`RESTART SYNC`命令。此时 listener 会向 drainer 发送停止期间堆积的数据。如果 listener 上的 WAL 丢失， listener 会从主集群拉取快照重新进行同步。
 
 ## 查看集群间数据同步状态
 
@@ -302,7 +302,7 @@ nebula> INSERT VERTEX player(name,age) VALUES "player102":("LaMarcus Aldridge", 
 nebula> INSERT VERTEX player(name,age) VALUES "player103":("Rudy Gay", 32);
 nebula> INSERT VERTEX player(name,age) VALUES "player104":("Marco Belinelli", 32);
 
-// 查看当前集群数据同步的状态（返回结果表示数据正在发送给从集群中）。
+// 查看当前集群数据同步的状态（返回结果表示正在发送数据给从集群中）。
 nebula> SHOW SYNC STATUS;
 +--------+-------------+-----------+--------------+
 | PartId | Sync Status | LogId Lag | Time Latency |
@@ -352,10 +352,10 @@ nebula> SHOW SYNC STATUS;
 
 | 参数   | 说明   |
 |:---    |:---   |
-| PartId | 分片 ID。当值为`0`时，表示相应图空间中 Meta listener 同步的分片 ID。当为其他值时，表示相应图空间中 Storage listener 同步的分片ID。 |
-| Sync Status | 表示 listener 的状态。<br>当值为`ONLINE`时，listener 持续发送 WAL 给 drainer。<br>当值为`OFFLINE`时，listener 停止发送 WAL 给 drainer。|
-| LogId Lag | 表示的 Log ID 间隔，也就主集群还有多少条 Log 往从集群同步。当值为`0`时，表示主集群中没有 Log 需要同步。|
-| Time Latency | 需要同步最后一条 Log 的 WAL 中的时间戳与已经同步的最后一条 Log 的 WAL 中的时间戳差值。当值为`0`时，表示数据已经发送至从集群。 |
+| PartId | 主集群中图空间对应的分片 ID。当值为`0`时，表示相应图空间中 Meta listener 同步的分片 ID。当为其他值时，表示相应图空间中 Storage listener 同步的分片ID。 |
+| Sync Status | 表示 listener 的状态。<br>当值为`ONLINE`时，listener 持续发送数据给 drainer。<br>当值为`OFFLINE`时，listener 停止发送数据给 drainer。|
+| LogId Lag | 表示的 Log ID 间隔，也就是主集群对应分片还有多少条 Log 往从集群发送。<br>当值为`0`时，表示主集群对应分片中没有 Log 需要发送。|
+| Time Latency | 主集群的对应分片中需要发送最后一条 Log 的 WAL 中的时间戳与已经发送的最后一条 Log 的 WAL 中的时间戳差值。<br>当值为`0`时，表示数据已经发送至从集群。 |
 
 ### 查看从集群接收数据的状态
 
@@ -388,10 +388,10 @@ nebula> SHOW DRAINER SYNC STATUS;
 
 | 参数   | 说明   |
 |:---    |:---   |
-| PartId | 表示 drainer 同步数据至备份图空间对应的分片 ID。当值为`0`时，表示同步的 Meta 所在的分片 ID。当为其他值时，表示同步的 Storage 所在的分片ID。 |
-| Sync Status | 表示 drainer 的状态。<br>当值为`ONLINE`时，drainer 持续发送 WAL 给对应的分片。<br>当值为`OFFLINE`时，drainer 停止发送 WAL 给对应分片。|
-| LogId Lag | 表示的 Log ID 间隔，也就从集群还有多少条 Log 往分片中同步。当值为`0`时，表示从集群中没有 Log 需要同步。|
-| Time Latency | 需要同步最后一条 Log 的 WAL 中的时间戳与已经同步的最后一条 Log 的 WAL 中的时间戳差值。当值为`0`时，表示数据已经同步至从集群备份图空间对应的分片中。 |
+| PartId | 主集群中图空间对应的分片 ID。当值为`0`时，表示要同步的 Meta 所在的分片 ID。当为其他值时，表示要同步的 Storage 所在的分片ID。|
+| Sync Status | 表示 drainer 的状态。<br>当值为`ONLINE`时，drainer 持续发送 WAL 给从集群的`metaClient`/`storageClient`进行同步。<br>当值为`OFFLINE`时，drainer 停止发送 WAL 给从集群的`metaClient`/`storageClient`进行同步。|
+| LogId Lag | 表示的 Log ID 间隔，也就是从集群 drainer 中对应分片还有多少条 Log 往从集群的`metaClient`/`storageClient`进行同步。<br>当值为`0`时，表示从集群的 drainer 中对应的分片没有 Log 需要同步。|
+| Time Latency | 从集群 drainer 中对应分片接收到的最新 Log 的 WAL 中的时间戳与已经同步给从集群的最后一条 Log 的 WAL 中的时间戳差值。<br>当值为`0`时，表示 drainer 中对应分片数据已经同步至从集群中。|
 
 
 ## 切换主从集群
