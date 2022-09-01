@@ -279,7 +279,7 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
 ## 停止/重启数据同步
 
-数据同步时，listener 会持续发送 WAL 给 drainer。
+数据同步时，listener 会持续发送数据给 drainer。
 
 如果需要停止数据同步，可以使用`STOP SYNC`命令。此时 listener 会停止向 drainer 同步数据。
 
