@@ -51,7 +51,7 @@ UNWIND <list> AS <alias> <RETURN clause>;
 
 ### 示例
 
-- 在`UNWIND`语句中使用`WITH DISTINCT`可以将列表中的重复项忽略，返回去重后的结果。
+- 在`UNWIND`子句中使用`WITH DISTINCT`可以将列表中的重复项忽略，返回去重后的结果。
 
   !!! note
       
