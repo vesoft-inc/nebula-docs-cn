@@ -1,4 +1,4 @@
-[![Publish docs via GitHub Pages](https://github.com/vesoft-inc/nebula-docs-cn/actions/workflows/deploy.yaml/badge.svg?branch=v3.0.1)](https://github.com/vesoft-inc/nebula-docs-cn/actions/workflows/deploy.yaml)
+[![Publish docs via GitHub Pages](https://github.com/vesoft-inc/nebula-docs-cn/actions/workflows/deploy.yaml/badge.svg?branch=master)](https://github.com/vesoft-inc/nebula-docs-cn/actions/workflows/deploy.yaml)
 
 # NebulaGraph 文档
 
