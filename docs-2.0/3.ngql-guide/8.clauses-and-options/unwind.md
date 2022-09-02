@@ -6,11 +6,13 @@
 
 ## UNWIND 语句
 
+### 语法
+
 ```ngql 
 UNWIND <list> AS <alias> <RETURN clause>;
 ```
 
-## 示例
+### 示例
 
 - 拆分列表。
 
