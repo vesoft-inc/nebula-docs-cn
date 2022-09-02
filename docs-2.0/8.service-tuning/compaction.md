@@ -88,10 +88,10 @@ nebula> SHOW JOB <job_id>;
 - 白天时设置`disable_auto_compactions`为`false`，提升短时间内的读取性能。
 -->
 
-- 为控制`Compaction`的读写速率，请在配置文件`nebula-storaged.conf`中设置如下参数：
+- 为控制`Compaction`的写入速率，请在配置文件`nebula-storaged.conf`中设置如下参数（注：此参数限制全部写入，包括正常写入和 Compaction）：
 
     ```bash
-    # 读写速率限制为 20MB/S。
+    # 写入速度限制为 20MB/S。
     --rocksdb_rate_limit=20 (in MB/s)
     ```
 
