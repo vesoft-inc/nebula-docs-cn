@@ -35,7 +35,7 @@ UNWIND <list> AS <alias> <RETURN clause>;
 
   !!! note
 
-        在原生 nGQL 语句中使用`UNWIND`子句时，需要用在管道符`|`之后，并使用`$-`作为变量前缀。如果`UNWIND`后使用语句或子句，需要使用管道符`|`并且使用`$-`作为变量前缀。
+        在原生 nGQL 语句中使用`UNWIND`子句时，需要用在管道符`|`之后，并使用`$-`引用管道符之前的变量。如果`UNWIND`后使用语句或子句，需要使用管道符`|`并且使用`$-`引用管道符之前的变量。
 
   ```ngql
   <statement> | UNWIND $-.<var> AS <alias> <|> <clause>;
