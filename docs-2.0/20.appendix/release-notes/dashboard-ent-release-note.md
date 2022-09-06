@@ -1,5 +1,10 @@
 # Nebula Dashboard 企业版更新说明
 
+## 企业版 v3.1.3
+
+- 功能
+  - 支持 [SSH 密钥](../../nebula-dashboard-ent/4.cluster-operator/4.manage.md)方式添加节点。
+
 ## 企业版 v3.1.2
 
 - 缺陷修复
