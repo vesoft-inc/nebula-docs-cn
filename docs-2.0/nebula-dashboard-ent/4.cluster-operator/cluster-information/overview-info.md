@@ -1,37 +1,32 @@
-# 集群信息
+# 信息总览
 
-本文主要介绍 Dashboard 的集群信息，包括信息总览和集群诊断。用户可以通过**信息总览**查看 NebulaGraph 内核相关信息，通过**集群诊断**查看集群的诊断信息并根据诊断报告做出相应的调整。
+用户可以在**信息总览**页面查看 NebulaGraph 内核相关信息，包括 Storage 服务信息、Storage Leader 分布、NebulaGraph 各个服务的版本信息及所在节点信息、分片的分布情况及详细信息。
 
-在 Dashboard 顶部导航栏，单击**集群管理**，单击目标集群右侧**详情**，在左侧导航栏的**集群监控**下包含**信息总览**和**集群诊断**。
+## 入口
 
-## 信息总览
+1. 在 Dashboard 企业版顶部导航栏，单击**集群管理**。
+2. 单击目标集群右侧**详情**。
+3. 在左侧导航栏，单击**集群信息**->**信息总览**。
 
 !!! note
 
     在查看集群信息之前，用户需要选择任意一个在线的 Graph 服务地址，输入登录 NebulaGraph 的账号（非 Dashboard 登录账号）和对应密码。
 
-!!! caution
-
-    用户需要保证 NebulaGraph 服务已经部署并启动。详细信息，参见 [NebulaGraph 安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 NebulaGraph 安装部署")。
-
 ![coreinfo](https://docs-cdn.nebula-graph.com.cn/figures/clustercore-info_2022-04-11_cn.png)
 
-用户可以在**信息总览**页面查看 NebulaGraph 内核相关信息，包括 Storage 服务信息、Storage Leader 分布、NebulaGraph 各个服务的版本信息及所在节点信息、分片的分布情况及详细信息。
-
-
-### Storage Leader 分布
+## Storage Leader 分布
 
 显示 Leader 数量及 Leader 的分布。
 
-- 单击右上角的 **Balance Leader** 按钮可以快速在 NebulaGraph 集群中均衡分布 Leader。关于 Leader 的详细信息，参见 [Storage 服务](../../1.introduction/3.nebula-graph-architecture/4.storage-service.md)。
+- 单击右上角的 **Balance Leader** 按钮可以快速在 NebulaGraph 集群中均衡分布 Leader。关于 Leader 的详细信息，参见 [Storage 服务](../../../1.introduction/3.nebula-graph-architecture/4.storage-service.md)。
 
 - 单击右上角的**详情**，查看 Leader 分布的详细信息。
 
-### 版本
+## 版本
 
 显示 NebulaGraph 所有服务版本及服务地址。单击右上角的**详情**，查看更多信息。
 
-### 服务信息
+## 服务信息
 
 展示 Storage 服务的基本信息。参数说明如下：
 
@@ -47,7 +42,7 @@
 
 单击右上角的**详情**，查看更多信息。
 
-### Partition 分布
+## Partition 分布
 
 左上方选择指定图空间：
 
@@ -60,7 +55,7 @@
  -->
 单击右上角的**详情**，查看更多信息。
 
-### 分片信息
+## 分片信息
 
 显示分片信息。用户需要在左上角选择图空间，查看分片信息。参数说明如下：
 
@@ -86,8 +81,3 @@
 | `Status` | 显示作业或任务的状态。状态说明参见[作业状态](../../3.ngql-guide/4.job-statements.md#_2)。 |
 |`Start Time`|显示作业或任务开始执行的时间。|
 | `Stop Time` | 显示作业或任务结束执行的时间，结束后的状态包括`FINISHED`、`FAILED`或`STOPPED`。 | -->
-
-
-## 集群诊断
-
-用户可以在**集群诊断**页面，单击**开始诊断**自动生成最近一天的诊断报告，便于分析集群出现的问题。详情参见[集群诊断](7.cluster-diagnosis.md)。

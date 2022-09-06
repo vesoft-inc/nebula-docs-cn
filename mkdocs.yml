@@ -78,17 +78,18 @@ plugins:
         - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
         # 仅发布包含企业版功能的文档版本时，注释以下页面
         # begin
-        - 3.ngql-guide/6.functions-and-expressions/17.ES-function.md
-        - 4.deployment-and-installation/deploy-license.md
-        - 5.configurations-and-logs/2.log-management/audit-log.md
-        - 7.data-security/1.authentication/4.ldap.md
-        - graph-computing/0.deploy-controller-analytics.md
-        - graph-computing/nebula-analytics.md
-        - graph-computing/use-explorer.md
-        - nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
-        - nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
-        - synchronization-and-migration/replication-between-clusters.md
-        - 20.appendix/8.about-license/
+#       - 3.ngql-guide/6.functions-and-expressions/17.ES-function.md
+#       - 4.deployment-and-installation/deploy-license.md
+#       - 5.configurations-and-logs/2.log-management/audit-log.md
+#       - 7.data-security/1.authentication/4.ldap.md
+#       - graph-computing/0.deploy-controller-analytics.md
+#       - graph-computing/nebula-analytics.md
+#       - graph-computing/use-explorer.md
+#       - nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
+#       - nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
+#       - synchronization-and-migration/replication-between-clusters.md
+#       - 20.appendix/8.about-license/
+#       - nebula-dashboard-ent/4.cluster-operator/operator/scale.md
         # end
         
 
@@ -244,8 +245,8 @@ extra:
     azureLatestRelease: 3.1.0 # 支持Azure云的最新文档版本
     aliyunLatestRelease: 3.1.0 # 支持阿里云的最新文档版本
   ent:
-    ent_begin: <!-- # 文档包含企业版时需补全该注释（<!-- -->），只包含社区版时只保留注释头（<!--）
-    ent_end: --> #文档包含企业版时需补全该注释（<!-- -->），只包含社区版时只保留注释尾（-->）
+    ent_begin: <!-- --> # 文档包含企业版时需补全该注释（<!-- -->），只包含社区版时只保留注释头（<!--）
+    ent_end: <!-- --> #文档包含企业版时需补全该注释（<!-- -->），只包含社区版时只保留注释尾（-->）
 
 
 nav:
@@ -557,17 +558,28 @@ nav:
       - 集群管理:
         - 集群总览: nebula-dashboard-ent/4.cluster-operator/1.overview.md
         - 集群监控: nebula-dashboard-ent/4.cluster-operator/2.monitor.md
-        - 监控告警: nebula-dashboard-ent/9.alerts.md
-        - 集群信息: nebula-dashboard-ent/4.cluster-operator/3.cluster-information.md
-        - 集群诊断: nebula-dashboard-ent/4.cluster-operator/7.cluster-diagnosis.md
-        - 集群操作: nebula-dashboard-ent/4.cluster-operator/4.manage.md
-        - 备份与恢复: nebula-dashboard-ent/4.cluster-operator/8.backup-and-restore.md
+        - 通知: nebula-dashboard-ent/4.cluster-operator/9.notification.md
+        - 集群信息: 
+          - 信息总览: nebula-dashboard-ent/4.cluster-operator/cluster-information/overview-info.md
+          - 集群诊断: nebula-dashboard-ent/4.cluster-operator/cluster-information/cluster-diagnosis.md
+          - 备份恢复: nebula-dashboard-ent/4.cluster-operator/cluster-information/backup-and-restore.md
+        - 集群操作: 
+          - 节点管理: nebula-dashboard-ent/4.cluster-operator/operator/node.md
+          - 扩缩容: nebula-dashboard-ent/4.cluster-operator/operator/scale.md
+          - 服务管理: nebula-dashboard-ent/4.cluster-operator/operator/service.md
+          - 更新配置: nebula-dashboard-ent/4.cluster-operator/operator/update-config.md
+          - 成员管理: nebula-dashboard-ent/4.cluster-operator/operator/member-management.md
+          - 版本升级: nebula-dashboard-ent/4.cluster-operator/operator/version-upgrade.md
         - 操作记录: nebula-dashboard-ent/4.cluster-operator/5.operation-record.md
         - 其他设置: nebula-dashboard-ent/4.cluster-operator/6.settings.md
-      - 任务中心: nebula-dashboard-ent/10.tasks.md
       - 权限管理: nebula-dashboard-ent/5.account-management.md
-      - 安装包管理: nebula-dashboard-ent/11.manage-package.md
-      - 全局配置: nebula-dashboard-ent/6.global-config.md
+      - 任务中心: nebula-dashboard-ent/10.tasks.md
+      - 平台设置:
+        - 系统设置: nebula-dashboard-ent/system-settings/system-settings.md
+        - 通知设置: nebula-dashboard-ent/system-settings/notification-endpoint.md
+        - 单点登录: nebula-dashboard-ent/system-settings/single-sign-on.md
+        - 安装包管理: nebula-dashboard-ent/system-settings/manage-package.md
+        - 其他设置: nebula-dashboard-ent/system-settings/other-settings.md
       - 监控指标说明: nebula-dashboard-ent/7.monitor-parameter.md
       - 常见问题 FAQ: nebula-dashboard-ent/8.faq.md
 

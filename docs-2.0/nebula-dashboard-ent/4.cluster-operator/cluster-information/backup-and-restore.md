@@ -8,7 +8,7 @@
 
   !!! note
 
-        如需备份至本地，请参见[备份与恢复](../../backup-and-restore/nebula-br/1.what-is-br.md)。
+        如需备份至本地，请参见[备份与恢复](../../../backup-and-restore/nebula-br/1.what-is-br.md)。
 
 - 目前仅支持数据的全量备份和全量恢复，不支持增量备份和增量恢复。
 - 不支持图空间级别数据的备份和恢复。
@@ -18,12 +18,12 @@
 
 ## 前提条件
 
-- [使用 Dashboard 创建 NebulaGraph 集群](../3.create-import-dashboard/1.create-cluster.md)。
+- [使用 Dashboard 创建 NebulaGraph 集群](../../3.create-import-dashboard/1.create-cluster.md)。
 - 开通兼容 S3 协议的云存储服务并创建存储桶。具体操作，参见对应云存储服务的文档。
   
 ## 操作步骤
 
-### 操作入口
+### 入口
 
 1. 在 NebulaGraph Dashboard 企业版顶部导航栏，单击**集群管理**。
 2. 在目标集群右侧**详情**。
