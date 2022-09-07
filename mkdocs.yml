@@ -497,6 +497,13 @@ nav:
       - 部署架构: nebula-cloud/nebula-cloud-on-aws/2.aws-architecture.md
       - 部署准备: nebula-cloud/nebula-cloud-on-aws/3.aws-planning-deployment.md
       - 部署步骤: nebula-cloud/nebula-cloud-on-aws/4.aws-deployment-steps.md
+      - 连接服务: nebula-cloud/nebula-cloud-on-aws/5.aws-connect-to-services.md
+    - Nebula Graph Cloud GCP 版:
+      - 概览: nebula-cloud/nebula-cloud-on-gcp/1.gcp-overview.md
+      - 部署架构: nebula-cloud/nebula-cloud-on-gcp/2.gcp-architecture.md
+      - 部署准备: nebula-cloud/nebula-cloud-on-gcp/3.gcp-planning-deployment.md
+      - 部署步骤: nebula-cloud/nebula-cloud-on-gcp/4.gcp-deployment-steps.md
+      - 连接服务: nebula-cloud/nebula-cloud-on-gcp/5.gcp-connect-to-services.md
 
   - Nebula Studio:
     - Studio 版本更新说明: nebula-studio/about-studio/st-ug-release-note.md
