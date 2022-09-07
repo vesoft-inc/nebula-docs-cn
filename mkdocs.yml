@@ -321,7 +321,8 @@ nav:
           - 条件表达式函数: 3.ngql-guide/6.functions-and-expressions/5.conditional-expressions.md
           - 谓词函数: 3.ngql-guide/6.functions-and-expressions/8.predicate.md
           - geo 函数: 3.ngql-guide/6.functions-and-expressions/14.geo.md
-#ent          - Elasticsearch 查询函数: 3.ngql-guide/6.functions-and-expressions/17.ES-function.md
+#ent
+          - Elasticsearch 查询函数: 3.ngql-guide/6.functions-and-expressions/17.ES-function.md
           - 自定义函数: 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
 
       - 通用查询语句:
@@ -432,7 +433,8 @@ nav:
           - 使用 RPM/DEB 包部署多机集群: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
           - 使用生态工具安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/6.deploy-nebula-graph-with-peripherals.md
       - 安装存算合并版 NebulaGraph: 4.deployment-and-installation/standalone-deployment.md
-#ent      - 设置 NebulaGraph 企业版 License: 4.deployment-and-installation/deploy-license.md      
+#ent
+      - 设置 NebulaGraph 企业版 License: 4.deployment-and-installation/deploy-license.md      
       - 管理服务: 4.deployment-and-installation/manage-service.md
       - 连接服务: 4.deployment-and-installation/connect-to-nebula-graph.md
       - 管理 Storage 主机: 4.deployment-and-installation/manage-storage-host.md
@@ -452,7 +454,8 @@ nav:
           - Linux 内核配置: 5.configurations-and-logs/1.configurations/6.kernel-config.md
       - 日志:
           - 运行日志: 5.configurations-and-logs/2.log-management/logs.md
-#ent          - 审计日志（企业版）: 5.configurations-and-logs/2.log-management/audit-log.md
+#ent
+          - 审计日志（企业版）: 5.configurations-and-logs/2.log-management/audit-log.md
 
   - 监控:
       - 查询 NebulaGraph 监控指标: 6.monitor-and-metrics/1.query-performance-metrics.md
@@ -463,7 +466,8 @@ nav:
           - 身份验证: 7.data-security/1.authentication/1.authentication.md
           - 用户管理: 7.data-security/1.authentication/2.management-user.md
           - 内置角色权限: 7.data-security/1.authentication/3.role-list.md
-#ent          - OpenLDAP 验证: 7.data-security/1.authentication/4.ldap.md
+#ent
+          - OpenLDAP 验证: 7.data-security/1.authentication/4.ldap.md
       - SSL 加密: 7.data-security/4.ssl.md
 
   - 备份与恢复:
@@ -476,7 +480,8 @@ nav:
 
   - 同步与迁移:
       - 负载均衡: synchronization-and-migration/2.balance-syntax.md
-#ent      - 集群间数据同步: synchronization-and-migration/replication-between-clusters.md
+#ent
+      - 集群间数据同步: synchronization-and-migration/replication-between-clusters.md
 
   - 最佳实践:
       - Compaction: 8.service-tuning/compaction.md
@@ -660,7 +665,8 @@ nav:
       - 配置 NebulaGraph 集群:
         - 自定义 NebulaGraph 集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
         - 回收 PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
-#ent        - 均衡扩容后的 Storage 数据: nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
+#ent
+        - 均衡扩容后的 Storage 数据: nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
       - 升级 NebulaGraph 集群: nebula-operator/9.upgrade-nebula-cluster.md   
       - 连接 NebulaGraph 数据库: nebula-operator/4.connect-to-nebula-graph-service.md
       - 故障自愈: nebula-operator/5.operator-failover.md
@@ -672,11 +678,14 @@ nav:
 
     - NebulaGraph Algorithm: graph-computing/nebula-algorithm.md
 
-#ent    - NebulaGraph Analytics: graph-computing/nebula-analytics.md
+#ent
+    - NebulaGraph Analytics: graph-computing/nebula-analytics.md
 
-#ent    - NebulaGraph Explorer 工作流: graph-computing/use-explorer.md
+#ent
+    - NebulaGraph Explorer 工作流: graph-computing/use-explorer.md
     
-#ent    - Dag Controller: graph-computing/0.deploy-controller-analytics.md
+#ent
+    - Dag Controller: graph-computing/0.deploy-controller-analytics.md
 
   - NebulaGraph Spark Connector: nebula-spark-connector.md
       
@@ -693,7 +702,8 @@ nav:
         - NebulaGraph Dashboard 企业版: 20.appendix/release-notes/dashboard-ent-release-note.md
         - NebulaGraph Explorer: 20.appendix/release-notes/explorer-release-note.md
       - 学习路径: 20.appendix/learning-path.md
-#ent      - 关于 License: 20.appendix/8.about-license.md
+#ent
+      - 关于 License: 20.appendix/8.about-license.md
       - 常见问题 FAQ: 20.appendix/0.FAQ.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
       - 导入工具选择: 20.appendix/write-tools.md
