@@ -143,6 +143,17 @@
 |`tags.password`|string|-|是|用户名对应密码。|
 |`tags.sentence`|string|-|是|查询数据源的语句。例如`"select teamid, name from team order by teamid"`。|
 
+### Oracle 源特有参数
+
+|参数|数据类型|默认值|是否必须|说明|
+|:---|:---|:---|:---|:---|
+|`tags.url`|string|-|是|Oracle 数据库连接地址。|
+|`tags.driver`|string|-|是|Oracle 驱动地址。|
+|`tags.user`|string|-|是|拥有读取权限的 Oracle 用户名。|
+|`tags.password`|string|-|是|用户名对应密码。|
+|`tags.table`|string|-|是|需要作为数据源的表名称。|
+|`tags.sentence`|string|-|是|查询数据源的语句。例如`"select playerid, name, age from player"`。|
+
 ### ClickHouse 源特有参数
 
 |参数|数据类型|默认值|是否必须|说明|

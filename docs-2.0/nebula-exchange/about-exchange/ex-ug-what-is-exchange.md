@@ -71,6 +71,7 @@ Exchange {{exchange.release}} 支持将以下格式或来源的数据转换为 N
 - 关系型数据库：
   - [MySQL](../use-exchange/ex-ug-import-from-mysql.md)
   - [PostgreSQL](../use-exchange/ex-ug-import-from-mysql.md)
+  - [Oracle](../use-exchange/ex-ug-import-from-oracle.md)
 
 - 列式数据库：[ClickHouse](../use-exchange/ex-ug-import-from-clickhouse.md)
 
