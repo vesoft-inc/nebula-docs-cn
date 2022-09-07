@@ -204,6 +204,7 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 5. 进入图空间`replication_basketballplayer`，设置 drainer 服务。
 
   ```
+  nebula> USE replication_basketballplayer;
   //设置 drainer 服务。
   nebula> ADD DRAINER 192.168.10.104:9889;
   //查看 drainer 状态。
@@ -215,14 +216,13 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
   +-------------------------+----------+
   ```
 
-6. 修改图空间为只读。
+6. 修改图空间`replication_basketballplayer`为只读。
 
   !!! note
 
         修改为只读是防止误操作导致数据不一致。只影响该图空间，其他图空间仍然可以读写。
 
   ```
-  nebula> USE replication_basketballplayer;
   //设置当前图空间为只读。
   nebula> SET VARIABLES read_only=true;
   //查看当前图空间的读写属性。
