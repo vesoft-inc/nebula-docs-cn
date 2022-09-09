@@ -5,7 +5,7 @@ NebulaGraph Dashboard 企业版支持普通账户、LDAP 账户和 OAuth2.0 账�
 !!! note
 
     - 配置完成后，请参见[权限管理](../5.account-management.md)创建账户和邀请激活。
-    - 可以在左侧导航栏里通过滑块快速开关 LDAP 或 OAuth2.0 登录方式。
+    - 可以在左侧导航栏里通过开关快速开启或关闭 LDAP 或 OAuth2.0 登录方式。
 
 ## LDAP 设置
 

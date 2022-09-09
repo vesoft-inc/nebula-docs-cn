@@ -1,10 +1,10 @@
 # 欢迎阅读 NebulaGraph {{ nebula.release }} 文档
 
-
+<!--
 !!! caution
 
     该版本文档仅包括 NebulaGraph {{ nebula.release }} 社区版内容和对应版本的周边工具内容。NebulaGraph {{ nebula.release }} 未发布企业版（[企业版发布周期通常为 6 个月](20.appendix/6.eco-tool-version.md)）。详情查看[版本发布说明](20.appendix/release-notes/nebula-comm-release-note.md)。
-
+-->
 !!! Note
     
     本文档更新时间{{ now().year }}-{{ now().month }}-{{ now().day }}，GitHub commit [{{ git.short_commit }}](https://github.com/vesoft-inc/nebula-docs/commits/v{{nebula.release}})。该版本主色系为"深粉色"，色号为 #F7A7A0。
