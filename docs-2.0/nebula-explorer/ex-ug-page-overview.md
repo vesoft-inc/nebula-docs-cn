@@ -20,7 +20,6 @@ NebulaGraph Explorer 由顶部导航栏、左侧导航栏、和画布三大模�
 | ![help](https://docs-cdn.nebula-graph.com.cn/figures/navbar-help.png) | 帮助页面，指导和帮忙用户使用 NebulaGraph。          |
 | ![clear_connection](https://docs-cdn.nebula-graph.com.cn/figures/image-icon10.png) | 显示内核版本并可以断开与 NebulaGraph Explorer 的连接。    |
 
-
 ## 左侧导航栏
 
 !!! note
@@ -37,7 +36,8 @@ NebulaGraph Explorer 由顶部导航栏、左侧导航栏、和画布三大模�
 | ![commonNeighbor](https://docs-cdn.nebula-graph.com.cn/figures/nav-commonNeighbor_cn.png) | 选择页面上至少两个点并查看它们的共同邻居。更多信息，参见[探索拓展](graph-explorer/ex-ug-graph-exploration.md)。     |
 | ![findPath](https://docs-cdn.nebula-graph.com.cn/figures/nav-findPath_cn.png) | 查询起点到终点之间的所有路径、最短路径和非循环路径。更多信息，参见[探索拓展](graph-explorer/ex-ug-graph-exploration.md)。     |
 | ![propertyView](https://docs-cdn.nebula-graph.com.cn/figures/nav-propertyView_cn.png) | 选择是否显画布中的点或边的属性值。更多信息，参见[探索拓展](graph-explorer/graph-algorithm.md)。     |
-| ![graph-algorithm](https://docs-cdn.nebula-graph.com.cn/figures/rightclickmenu-graphCalculation.png)| 基于画布中的点边进行图计算。更多信息，参见[图计算](graph-explorer/ex-ug-graph-exploration.md)|
+| ![graph-algorithm](https://docs-cdn.nebula-graph.com.cn/figures/rightclickmenu-graphCalculation.png)| 基于画布中的点边进行图计算。更多信息，参见[图计算](graph-explorer/ex-ug-graph-exploration.md)。|
+| ![propertyCalculation](https://docs-cdn.nebula-graph.com.cn/figures/icon-nav-propertyCalculation.png)| 基于画布中已聚合的边进行属性计算。更多信息，参见[属性计算](graph-explorer/property-calculation.md)。 |
 | ![snapshot](https://docs-cdn.nebula-graph.com.cn/figures/snapshot-history_cn.png) | 查看历史快照信息。更多信息，参见[画布快照](canvas-operations/canvas-snapshot.md)。     |
 | ![graphSpace](https://docs-cdn.nebula-graph.com.cn/figures/nav-graphSpace_cn.png) | 查看所有图空间，单击图空间可创建相应图空间的画布。更多信息，参见[选择图空间](graph-explorer/13.choose-graphspace.md)。     |
 | ![Help](https://docs-cdn.nebula-graph.com.cn/figures/nav-help_cn.png) | 查看 Explorer 操作文档、论坛内容等。     |
