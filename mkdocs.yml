@@ -616,6 +616,7 @@ nav:
       - 节点筛选: nebula-explorer/graph-explorer/node-filtering.md
       - 探索拓展: nebula-explorer/graph-explorer/ex-ug-graph-exploration.md
       - 图计算: nebula-explorer/graph-explorer/graph-algorithm.md
+      - 属性计算: nebula-explorer/graph-explorer/property-calculation.md
     - 可视化查询: nebula-explorer/12.query-visually.md
     - 画布功能: 
       - 画布概览: nebula-explorer/canvas-operations/canvas-overview.md
