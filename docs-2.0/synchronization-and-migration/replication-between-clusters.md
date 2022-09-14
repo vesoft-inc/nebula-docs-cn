@@ -293,6 +293,10 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
     在切换主从之前需要为新的主集群搭建并启动 listener 服务（示例 IP 为`192.168.10.105`），为新的从集群搭建并启动 drainer 服务（示例 IP 为`192.168.10.106`）。
 
+!!! caution
+
+    在切换主从集群之前，请勿往主集群中写入数据，同时确保主集群中的数据已经同步至从集群中。
+
 1. 登录主集群，取消 drainer 和 listener 服务。
 
   ```
@@ -319,8 +323,7 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
   ```
   nebula> SIGN IN DRAINER SERVICE(192.168.10.106:9889);
-  nebula> ADD LISTENER SYNC META 192.168.10.105:9559 STORAGE 192.168.10.105:9789 TO SPACE basketballplayer;
-  nebula> REMOVE DRAINER;
+  nebula> ADD LISTENER SYNC META 192.168.10.105:9569 STORAGE 192.168.10.105:9789 TO SPACE basketballplayer;
   ```
 
 5. 登录之前的主集群，将其更改为从集群。
