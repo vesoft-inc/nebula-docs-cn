@@ -17,6 +17,7 @@
 - VID 查询
 - Tag 查询
 - 子图查询
+- 模板查询
 
 ### VID 查询
 
@@ -55,3 +56,10 @@
 下图为 VID 值为 `Kings`和`Suns`，步数为`2` ，边类型为`server`和`like`的入边的示例。
 
 ![tag](https://docs-cdn.nebula-graph.com.cn/figures/query_subgraph_cn.png)
+
+### 模板查询
+
+用户可以选择已创建的模板，并填写模板参数值。
+
+- 返回结果为点时，画布上会展示这些点。
+- 返回结果不为点时，会用表格形式展示结果。例如返回球员姓名、年龄等。
