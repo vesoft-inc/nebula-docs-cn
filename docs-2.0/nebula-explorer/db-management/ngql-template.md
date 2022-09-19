@@ -8,13 +8,13 @@ NebulaGraph 数据库里已经创建 Schema。
 
 ## 入口
 
-在顶部导航栏里，点击 ![Temple](https://docs-cdn.nebula-graph.com.cn/figures/icon-navbar-queryTemple.png) 图标。
+在顶部导航栏里，点击 ![Template](https://docs-cdn.nebula-graph.com.cn/figures/icon-navbar-queryTemplate.png) 图标。
 
 ## 新建模板
 
 1. 单击 **+ 新模板**，设置如下参数。
 
-  ![new temple](https://docs-cdn.nebula-graph.com.cn/figures/ex-temple-220916-cn.png)
+  ![new template](https://docs-cdn.nebula-graph.com.cn/figures/ex-template-220916-cn.png)
 
   |参数|示例|说明|
   |:---|:---|:---|
