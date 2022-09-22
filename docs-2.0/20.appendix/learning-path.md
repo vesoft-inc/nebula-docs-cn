@@ -4,7 +4,7 @@
 
  ![learning path](https://docs-cdn.nebula-graph.com.cn/figures/learning-path.png)
 
-完成 NebulaGraph 学习后，参加[技能认证](https://www.bilibili.com/video/BV1Ga411x7RE)考试还可以获取认证证书。详情参见下文【通过 CI/CP 考试】。
+完成 NebulaGraph 学习后，参加[技能认证](https://www.bilibili.com/video/BV1Ga411x7RE)考试还可以获取认证证书。详情参见下文**通过 CI/CP 考试**。
 
 <iframe src="//player.bilibili.com/player.html?aid=215181639&bvid=BV1Ga411x7RE&cid=752738115&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
 
