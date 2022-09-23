@@ -76,7 +76,7 @@ plugins:
         - 4.deployment-and-installation/5.zone.md
         - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
         - nebula-cloud.md
-#        - nebula-cloud/*
+        - nebula-cloud/nebula-cloud-on-azure/azure-fully-managed/*
 # Exclude the file with the following file name.
 #        - abc.md
 # Exclude files with regular expressions (regexes)
@@ -218,7 +218,7 @@ extra:
     branch: release-3.1
     tag: v3.1.2
   cloud:
-    azureRelease: 2.6.2 # Azure云兼容的最新内核版本
+    azureRelease: 3.1.2 # Azure云兼容的最新内核版本
     aliyunRelease: 3.1.2 # 阿里云兼容的最新内核版本
     awsRelease: 3.1.2 # AWS云兼容的最新内核版本
 
@@ -498,6 +498,13 @@ nav:
       - 部署架构: nebula-cloud/nebula-cloud-on-aws/2.aws-architecture.md
       - 部署准备: nebula-cloud/nebula-cloud-on-aws/3.aws-planning-deployment.md
       - 部署步骤: nebula-cloud/nebula-cloud-on-aws/4.aws-deployment-steps.md
+      - 连接服务: nebula-cloud/nebula-cloud-on-aws/5.aws-connect-to-services.md
+    - Nebula Graph Cloud Azure 版:
+      - 概览: nebula-cloud/nebula-cloud-on-azure/azure-self-managed/1.azure-overview.md
+      - 部署架构: nebula-cloud/nebula-cloud-on-azure/azure-self-managed/2.azure-architecture.md
+      - 部署准备: nebula-cloud/nebula-cloud-on-azure/azure-self-managed/3.azure-planning-deployment.md
+      - 部署步骤: nebula-cloud/nebula-cloud-on-azure/azure-self-managed/4.azure-deployment-steps.md
+      - 连接服务: nebula-cloud/nebula-cloud-on-azure/azure-self-managed/5.azure-connect-to-services.md
 
   - Nebula Studio:
     - Studio 版本更新说明: nebula-studio/about-studio/st-ug-release-note.md
