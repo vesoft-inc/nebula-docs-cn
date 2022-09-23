@@ -4,6 +4,10 @@
 
  ![learning path](https://docs-cdn.nebula-graph.com.cn/figures/learning-path.png)
 
+完成 NebulaGraph 学习后，参加[技能认证](https://www.bilibili.com/video/BV1Ga411x7RE)考试还可以获取认证证书。详情参见下文**通过 CI/CP 考试**。
+
+<iframe src="//player.bilibili.com/player.html?aid=215181639&bvid=BV1Ga411x7RE&cid=752738115&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
+
 ## 1. 关于 NebulaGraph
 
 ### 1.1 什么是 NebulaGraph？
@@ -11,7 +15,6 @@
 | 文档                                                         | 视频                                                         | PPT |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | -- | 
 | [什么是 NebulaGraph](https://docs.nebula-graph.com.cn/{{nebula.release}}/1.introduction/1.what-is-nebula-graph/) | [NebulaGraph 介绍](https://www.bilibili.com/video/BV1kf4y1v7LM)、[万亿级别的图数据库 NebulaGraph](https://www.bilibili.com/video/BV1aK4y1e7Q4?spm_id_from=333.999.0.0)| [NebulaGraph 3年回顾](https://mp.weixin.qq.com/s/25TfLXR89kg0BpiMAbQ_Iw) |
-
 
 ### 1.2 图相关术语
 
@@ -76,6 +79,8 @@
   | 文档|
   | ------------------------------------------------------------ |
   | [nGQL 命令汇总](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/6.cheatsheet-for-ngql-command/) |  
+
+
 
 ## 3. 进阶操作
 
@@ -275,7 +280,11 @@
 
 单击[NebulaGraph 个人技能认证](https://discuss.nebula-graph.com.cn/t/topic/8728)查看考试说明及入口。
 
-### 视频
 
-* [技能认证](https://www.bilibili.com/video/BV1Ga411x7RE)（3 分 13 秒）
-<iframe src="//player.bilibili.com/player.html?aid=215181639&bvid=BV1Ga411x7RE&cid=752738115&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
+## 参考文档
+
+- 有关 NebulaGraph 的原理介绍，参见[开源分布式图数库论文](https://arxiv.org/pdf/2206.07278.pdf)。
+
+- 有关 [NebulaGraph 索引](../3.ngql-guide/14.native-index-statements/README.md)原理的介绍，参见[开源分布式图数库论文](https://arxiv.org/pdf/2206.07278.pdf)中的 2.4 节。
+
+- 有关 NebulaGraph 语言的概述，参见[开源分布式图数库论文](https://arxiv.org/pdf/2206.07278.pdf)中的 2.8 节。

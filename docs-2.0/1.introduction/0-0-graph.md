@@ -1,3 +1,11 @@
+* [第一课：图的概念](https://www.bilibili.com/video/BV1CK411f7Fw)（03 分 45 秒）
+
+ <iframe src="//player.bilibili.com/player.html?aid=472862441&bvid=BV1CK411f7Fw&cid=825343516&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
+
+ * [第二课：图的结构](https://www.bilibili.com/video/BV1CK411f7Fw)（02 分 24 秒）
+
+ <iframe src="//player.bilibili.com/player.html?aid=815684900&bvid=BV1ZG4y1q7J7&cid=837334766&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
+
 # 图
 
 当前，从计算机行业巨头（例如 Amazon 和 Facebook）到小型研究团队，都投入了大量的资源探索图数据库在解决各种数据关系问题上的潜力。当然你也可以选择像他们这样进行尝试，现在可供选择的数据库有很多。那么图数据库究竟是什么？它可以做些什么？作为一类数据库，它在数据库领域里处于什么位置呢？要回答这些问题，我们首先得了解图。
