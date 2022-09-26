@@ -302,10 +302,10 @@ Welcome to NebulaGraph!
 +------------------+------+-----------+----------+--------------+----------------------+------------------------+---------+
 | Host             | Port | HTTP port | Status   | Leader count | Leader distribution  | Partition distribution | Version |
 +------------------+------+-----------+----------+--------------+----------------------+------------------------+---------+
-| "192.168.10.111" | 9779 | 19669     | "ONLINE" | 0            | "No valid partition" | "No valid partition"   | "3.1.0" |
-| "192.168.10.112" | 9779 | 19669     | "ONLINE" | 0            | "No valid partition" | "No valid partition"   | "3.1.0" |
-| "192.168.10.113" | 9779 | 19669     | "ONLINE" | 0            | "No valid partition" | "No valid partition"   | "3.1.0" |
-| "192.168.10.114" | 9779 | 19669     | "ONLINE" | 0            | "No valid partition" | "No valid partition"   | "3.1.0" |
-| "192.168.10.115" | 9779 | 19669     | "ONLINE" | 0            | "No valid partition" | "No valid partition"   | "3.1.0" |
+| "192.168.10.111" | 9779 | 19779     | "ONLINE" | 0            | "No valid partition" | "No valid partition"   | "3.1.0" |
+| "192.168.10.112" | 9779 | 19779     | "ONLINE" | 0            | "No valid partition" | "No valid partition"   | "3.1.0" |
+| "192.168.10.113" | 9779 | 19779     | "ONLINE" | 0            | "No valid partition" | "No valid partition"   | "3.1.0" |
+| "192.168.10.114" | 9779 | 19779     | "ONLINE" | 0            | "No valid partition" | "No valid partition"   | "3.1.0" |
+| "192.168.10.115" | 9779 | 19779     | "ONLINE" | 0            | "No valid partition" | "No valid partition"   | "3.1.0" |
 +------------------+------+-----------+----------+--------------+----------------------+------------------------+---------+
 ```
