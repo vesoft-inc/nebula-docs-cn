@@ -476,6 +476,4 @@ nebula> SHOW DRAINER SYNC STATUS;
 
 ### 如何判断数据同步进度？
 
-<!--show sync-->
-
-暂无工具进行直接判断。
+用户可以执行`SHOW SYNC STATUS`查看主集群发送数据的状态，执行`SHOW DRAINER SYNC STATUS`查看从集群接收数据的状态。如果同时满足主集群所有数据都发送成功，并且从集群所有数据都接收成功，则说明数据同步完成。
