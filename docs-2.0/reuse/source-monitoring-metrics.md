@@ -118,7 +118,6 @@
 | `num_sync_data_errors`         | Storage 同步 Drainer 数据出错的次数。              |
 | `sync_data_latency_us`         | Storage 同步 Drainer 数据的延迟时间。             |
 
-
 ### 图空间级别监控指标
 
 | 参数                                           | 说明                                      |
@@ -146,3 +145,16 @@
 | `num_rpc_sent_to_storaged_failed` |  Graphd 服务发给 Storaged 服务的 RPC 请求失败的数量。                           |
 | `num_rpc_sent_to_storaged`     |  Graphd 服务发给 Storaged 服务的 RPC 请求数量。                           |
 | `slow_query_latency_us`        |  慢查询延迟时间。                           |
+
+### 单进程指标
+
+Graph、Meta 和 Storage 服务都有自身的单进程指标。
+
+| 参数                                           | 说明                                      |
+| ---------------------------------------------- | ----------------------------------------- |
+| `context_switches_total`           |  上下文切换数量。                   |
+| `cpu_seconds_total`           |  基于用户时间和系统时间的 CPU 使用量。                   |
+| `memory_bytes_gauge`           |  使用的内存字节数。                   |
+| `open_filedesc_gauge`           |  文件描述符的数量。                   |
+| `read_bytes_total`           |   读取的字节数量。                  |
+| `write_bytes_total`           |  写入的字节数量。                  |
