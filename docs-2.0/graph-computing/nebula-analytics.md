@@ -40,6 +40,7 @@ NebulaGraph Analytics 支持的图计算算法如下。
 |  BetweennessCentrality | 中介中心性        |  节点重要度  |
 |  ClosenessCentrality   | 紧密中心性        |  节点重要度  |
 |  TriangleCount        | 三角计数          | 图特征      |
+|  Node2Vec              | 图神经网络        | 图特征       |
 |  LPA                   | 标签传播          |  社区发现    |
 |  HANP                  | 标签传播进阶版   |  社区发现    |
 |  WCC                   | 弱联通分量          |  社区发现    |

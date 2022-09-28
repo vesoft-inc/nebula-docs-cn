@@ -26,7 +26,7 @@
 
 单击 **+** 号可以增加更多 Edge type 的属性计算。
 
-![propertycalculation](https://docs-cdn.nebula-graph.com.cn/figures/propertycalculation-220913-cn.png)
+![propertycalculation](https://docs-cdn.nebula-graph.com.cn/figures/propertycalculation-220928-cn.png)
 
 ### 方式 2
 
