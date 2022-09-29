@@ -216,7 +216,7 @@
 
   | 文档   |视频|
   | ------- |------ |
-  | [Nebula Algorithm](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-algorithm/) |[Nebula Algorithm 介绍](https://www.bilibili.com/video/BV1fB4y1T7XK)|
+  | [Nebula Algorithm](../graph-computing/nebula-algorithm.md) |[Nebula Algorithm 介绍](https://www.bilibili.com/video/BV1fB4y1T7XK)|
 
 - 客户端
 
