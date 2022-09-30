@@ -4,7 +4,7 @@
 
 !!! Note
 
-    用户也可以使用 nebula-console 创建 Schema。详细信息，参考 [NebulaGraph 使用手册](../../README.md)和 [NebulaGraph 快速开始](../../2.quick-start/1.quick-start-workflow.md)。
+    用户也可以使用 nebula-console 创建 Schema。详细信息，参考 [NebulaGraph 使用手册](../../README.md)和 [NebulaGraph 快速开始](../../2.quick-start/1.quick-start-overview.md)。
 
 ## 前提条件
 

@@ -6,7 +6,7 @@ NebulaGraph v3.0.x 升级至 v{{nebula.release}}，只需要使用 v{{nebula.rel
 
 1. 下载 [RPM/DEB 包](https://github.com/vesoft-inc/nebula-graph/releases/tag/v{{nebula.release}})。
 
-2. 停止所有 NebulaGraph 服务。详情请参见[管理 NebulaGraph 服务](../../2.quick-start/5.start-stop-service.md)。建议更新前备份配置文件。
+2. 停止所有 NebulaGraph 服务。详情请参见[管理 NebulaGraph 服务](../../2.quick-start/3.quick-start-on-premise/5.start-stop-service.md)。建议更新前备份配置文件。
 
 3. 执行如下命令升级：
 
@@ -28,7 +28,7 @@ NebulaGraph v3.0.x 升级至 v{{nebula.release}}，只需要使用 v{{nebula.rel
       $ sudo dpkg -i <package_name>
       ```
 
-4. 在每台服务器上启动所需的服务。详情请参见[管理 NebulaGraph 服务](../../2.quick-start/5.start-stop-service.md#_1)。
+4. 在每台服务器上启动所需的服务。详情请参见[管理 NebulaGraph 服务](../../2.quick-start/3.quick-start-on-premise/5.start-stop-service.md#_1)。
 
 ## 编译新版本源码升级步骤
 

@@ -99,7 +99,7 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
     nebula> CREATE EDGE serve(start_year int, end_year int);
     ```
 
-更多信息，请参见[快速开始](../../2.quick-start/1.quick-start-workflow.md)。
+更多信息，请参见[快速开始](../../2.quick-start/1.quick-start-overview.md)。
 
 ### 步骤 2：配置源数据
 

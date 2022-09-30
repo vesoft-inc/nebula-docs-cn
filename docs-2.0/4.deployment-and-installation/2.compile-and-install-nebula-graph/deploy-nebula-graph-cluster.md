@@ -285,11 +285,11 @@ sudo /usr/local/nebula/scripts/nebula.service start <metad|graphd|storaged|all>
 
     - 当需都启动 graphd、storaged 和 metad 时，可以用 all 代替。
 
-    - `/usr/local/nebula`是 NebulaGraph 的默认安装路径，如果修改过安装路径，请使用实际路径。更多启停服务的内容，请参见[管理 NebulaGraph 服务](../../2.quick-start/5.start-stop-service.md)。
+    - `/usr/local/nebula`是 NebulaGraph 的默认安装路径，如果修改过安装路径，请使用实际路径。更多启停服务的内容，请参见[管理 NebulaGraph 服务](../../2.quick-start/3.quick-start-on-premise/5.start-stop-service.md)。
 
 ### 检查集群
 
-安装原生 CLI 客户端 [NebulaGraph Console](../../2.quick-start/3.connect-to-nebula-graph.md#_1)，然后连接任何一个已启动 graphd 进程的机器，添加 Storage 主机，然后执行命令`SHOW HOSTS`检查集群状态。例如：
+安装原生 CLI 客户端 [NebulaGraph Console](../../2.quick-start/3.quick-start-on-premise/3.connect-to-nebula-graph.md#_1)，然后连接任何一个已启动 graphd 进程的机器，添加 Storage 主机，然后执行命令`SHOW HOSTS`检查集群状态。例如：
 
 ```bash
 $ ./nebula-console --addr 192.168.10.111 --port 9669 -u root -p nebula
