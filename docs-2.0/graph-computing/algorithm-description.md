@@ -339,6 +339,18 @@ BFS（广度优先遍历）算法是一种基础的图遍历算法，它给定�
     |`ROOT`|创建图空间时`vid_type`决定| 起始点的 ID。|
     |`VISITED`|int| 输出`ROOT`访问过的点数量。|
 
+### ShortestPath
+
+ShortestPath（最短路径）算法用于寻找图中起点和终点任意两两之间的最短路径，适用于路径设计、网络规划等场景。
+
+- NebulaGraph Analytics
+
+  - 输出参数
+
+    |参数|类型|说明|
+    |:--|:--|:--|
+    |`VALUE`|list| 返回最短路径中的点。格式为`src, vid1,vid2...dst`。同时有多个最短路径时，只返回一条。|
+
 ## 社区发现算法
 
 ### LPA
@@ -477,6 +489,34 @@ Louvain 算法是基于模块度的社区发现算法，该算法在效率和效
     |`VID`|创建图空间时`vid_type`决定| 点的 ID。|
     |`LABEL`|与`VID`类型相同| 输出标签相同的点的 ID。|
 
+### InfoMap
+
+InfoMap 算法使用双层编码方式将有向图进行社区分类。不同社区内部节点的编码复用，可以大幅缩短描述的信息长度。在实现方式上，该算法包含了 PageRank 算法，用于将随机游走转变为随机冲浪。
+
+!!! note
+
+    仅 NebulaGraph Analytics 支持该算法。
+
+- NebulaGraph Analytics
+
+  - 传入参数
+
+    |参数|默认值|说明|
+    |:--|:--|:--|
+    |`pagerank_iter`|`10`| 内部 PageRank 算法的最大迭代次数。|
+    |`pagerank_threshold`|`0.0001`|内部 PageRank 算法的收敛精度。|
+    |`teleport_prob`|`0.15`| 穿越概率。|
+    |`inner_iter`|`3`| 内层迭代次数。|
+    |`outer_iter`|`2`| 外层迭代次数。|
+    |`comm_info_num`|`100`| 输出的社群数量。|
+
+  - 输出参数
+
+    |参数|类型|说明|
+    |:--|:--|:--|
+    |`VID`|创建图空间时`vid_type`决定| 点的 ID。|
+    |`LABEL`|与`VID`类型相同| 输出标签相同的点的 ID。|
+
 ## 图特征算法
 
 ### TriangleCount
@@ -570,6 +610,51 @@ Node2Vec算法在 DeepWalk 的基础上提出了更加合理的图特征学习�
   - 输出参数
 
     输出多个列，同一列中的点是有关联的。
+
+### Tree_stat
+
+Tree_stat 算法用于统计图空间中指定根节点的子图的宽度或深度。
+
+!!! note
+
+    仅 NebulaGraph Analytics 支持该算法。
+
+- NebulaGraph Analytics
+
+  - 传入参数
+
+    |参数|默认值|说明|
+    |:--|:--|:--|
+    |`root`|`100`| 根节点的 VID。|
+    |`stat`|`width,depth`|统计宽度或深度。多个值用逗号分隔。|
+
+  - 输出参数
+
+    |参数|类型|说明|
+    |:--|:--|:--|
+    |`VALUE`|list| 返回一行统计数据，格式与参数`stat`一致。|
+
+### HyperANF
+
+HyperANF 算法用于评估图中任意两点的平均距离。
+
+!!! note
+
+    仅 NebulaGraph Analytics 支持该算法。
+
+- NebulaGraph Analytics
+
+  - 传入参数
+
+    |参数|默认值|说明|
+    |:--|:--|:--|
+    |`bits`|`6`| HyperLogLog 计数器的 bit 位长度，取值范围：6~16。|
+
+  - 输出参数
+
+    |参数|类型|说明|
+    |:--|:--|:--|
+    |`VALUE`|double| 平均距离。|
 
 ## 聚类算法
 

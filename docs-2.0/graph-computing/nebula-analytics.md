@@ -33,20 +33,24 @@ NebulaGraph Analytics 支持的图计算算法如下。
 |  APSP                 | 全图最短路径      |  路径       |
 |  SSSP                 | 单源最短路径      | 路径        |
 |  BFS                  | 广度优先遍历      |  路径       |
+|  ShortestPath         | 最短路径          |  路径        |
 |  PageRank             | 页面排序          | 节点重要度   |
 |  KCore                | K核              | 节点重要度   |
 |  DegreeCentrality     | 度中心性          | 节点重要度   |
 |  DegreeWithTime        | 基于边的时间范围统计邻居 | 节点重要度  |
 |  BetweennessCentrality | 中介中心性        |  节点重要度  |
 |  ClosenessCentrality   | 紧密中心性        |  节点重要度  |
-|  TriangleCount        | 三角计数          | 图特征      |
+|  TriangleCount         | 三角计数          | 图特征      |
 |  Node2Vec              | 图神经网络        | 图特征       |
+|  Tree_stat             | 树结构统计        | 图特征       |
+|  HyperANF              | 图平均距离估算     | 图特征      |
 |  LPA                   | 标签传播          |  社区发现    |
-|  HANP                  | 标签传播进阶版   |  社区发现    |
-|  WCC                   | 弱联通分量          |  社区发现    |
-|  LOUVAIN               | 鲁汶            |  社区发现   |
+|  HANP                  | 标签传播进阶版     |  社区发现    |
+|  WCC                   | 弱联通分量         |  社区发现    |
+|  LOUVAIN               | 鲁汶              |  社区发现   |
+|  InfoMap               | 社区分类          | 社区发现    |
 |  Clustering Coefficient| 聚集系数          |  聚类       |
-|  Jaccard               | 杰卡德相似度      |  相似度     |
+|  Jaccard               | 杰卡德相似度       |  相似度     |
 
 ## 安装 NebulaGraph Analytics
 
