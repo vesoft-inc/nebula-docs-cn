@@ -583,6 +583,7 @@ nav:
         - 集群信息: 
           - 信息总览: nebula-dashboard-ent/4.cluster-operator/cluster-information/overview-info.md
           - 集群诊断: nebula-dashboard-ent/4.cluster-operator/cluster-information/cluster-diagnosis.md
+          - 集群作业管理: nebula-dashboard-ent/4.cluster-operator/cluster-information/job-management.md
           - 备份恢复: nebula-dashboard-ent/4.cluster-operator/cluster-information/backup-and-restore.md
         - 集群操作: 
           - 节点管理: nebula-dashboard-ent/4.cluster-operator/operator/node.md
