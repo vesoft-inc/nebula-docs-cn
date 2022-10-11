@@ -266,7 +266,7 @@ schema:
 |`files.schema.vertex.vid.index`|-|否|点 ID 对应 CSV 文件中列的序号。|
 |`files.schema.vertex.tags.name`|-|是|Tag 名称。|
 |`files.schema.vertex.tags.props.name`|-|是|Tag 属性名称，必须和 NebulaGraph 中的 Tag 属性一致。|
-|`files.schema.vertex.tags.props.type`|-|是|属性数据类型，支持`bool`、`int`、`float`、`double`、`timestamp`和`string`。|
+|`files.schema.vertex.tags.props.type`|-|是|属性数据类型，支持`bool`、`int`、`float`、`double`、`timestamp`、`string`和`geo`。|
 |`files.schema.vertex.tags.props.index`|-|否|属性对应 CSV 文件中列的序号。|
 
 !!! note
@@ -306,7 +306,7 @@ schema:
 |`files.schema.edge.dstVID.index`|-|否|边的目的点 ID 对应 CSV 文件中列的序号。|
 |`files.schema.edge.rank.index`|-|否|边的 rank 值对应 CSV 文件中列的序号。|
 |`files.schema.edge.props.name`|-|是|Edge type 属性名称，必须和 NebulaGraph 中的 Edge type 属性一致。|
-|`files.schema.edge.props.type`|-|是|属性类型，支持`bool`、`int`、`float`、`double`、`timestamp`和`string`。|
+|`files.schema.edge.props.type`|-|是|属性类型，支持`bool`、`int`、`float`、`double`、`timestamp`、`string`和`geo`。|
 |`files.schema.edge.props.index`|-|否|属性对应 CSV 文件中列的序号。|
 
 ## 关于 CSV 文件表头（header）
