@@ -403,53 +403,57 @@ nebula> SHOW DRAINER SYNC STATUS;
     在切换主从之前需要为新的主集群搭建并启动 listener 服务（示例 IP 为`192.168.10.105`），为新的从集群搭建并启动 drainer 服务（示例 IP 为`192.168.10.106`）。
 
    
-1. 登录主集群并设置图空间为只读，防止有新的数据写入主集群，导致数据不一致。
+1. 登录旧的主集群并设置图空间为只读，防止有新的数据写入旧的主集群，而导致数据不一致。
 
   ```
   nebula> USE basketballplayer;
   nebula> SET VARIABLES read_only=true;
   ```
 
-2. 查看主集群中的图空间的数据是否已经同步至从集群中，确保主集群中的数据已经同步至从集群中。
+2. 查看旧的主集群中的图空间的数据是否已经同步至旧的从集群中，确保旧的主集群中的数据已经同步至旧的从集群中。
 
-  1. 在主集群中查看主集群同步数据的状态。
+  1. 在旧的主集群中查看旧的主集群同步数据的状态。
 
   ```
   nebula> SHOW SYNC STATUS;
   ```
 
-  2. 登录从集群并查看从集群同步数据的状态。
+  2. 登录旧的从集群并查看旧的从集群同步数据的状态。
 
   ```
   nebula> USE replication_basketballplayer;
   nebula> SHOW DRAINER SYNC STATUS;
   ```
 
-  当主从集群返回结果中的`LogId Lag`和`Time Latency`对应的值都为`0`时，表示主集群中的数据已经被同步至从集群中。
+  当旧的主从集群返回结果中的`LogId Lag`和`Time Latency`对应的值都为`0`时，表示旧的主集群中的数据已经被同步至旧的从集群中。
 
-3. 在从集群中设置图空间为可读写。
+3. 在旧的从集群中设置图空间为可读写。
 
   ```
   nebula> SET VARIABLES read_only=false;
   ```
+  
+  !!! note
 
-4. 在从集群中移除 drainer 服务。
+        如果有业务在等待写数据，此时，可在旧的从集群（新的主集群）中进行业务数据的写入操作。
+
+4. 在旧的从集群中移除 drainer 服务。
 
   ```
   nebula> REMOVE DRAINER;
   ```
 
-5. 登录主集群，修改图空间为可读写并移除 drainer 和 listener 服务。
+5. 登录旧的主集群，修改图空间为可读写并移除 drainer 和 listener 服务。
 
   ```
   nebula> USE basketballplayer;
-  //需先修改主集群图空间为可读写，否则无法设置 drainer 服务。
+  //需先修改旧的主集群图空间为可读写，否则无法设置 drainer 服务。
   nebula> SET VARIABLES read_only=false;
   nebula> SIGN OUT DRAINER SERVICE;
   nebula> REMOVE LISTENER SYNC;
   ```
 
-6. 在主集群中将主集群更改为从集群。
+6. 在旧的主集群中将旧的主集群更改为新的从集群。
 
   !!! note
 
@@ -462,7 +466,7 @@ nebula> SHOW DRAINER SYNC STATUS;
   nebula> SET VARIABLES read_only=true;
   ```
 
-7. 登录之前的从集群，将之前的从集群更改为主集群。
+7. 登录旧的从集群，将旧的从集群更改为新的主集群。
 
   !!! note
 
