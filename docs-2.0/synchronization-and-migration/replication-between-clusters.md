@@ -398,52 +398,70 @@ nebula> SHOW DRAINER SYNC STATUS;
 
 如果因为业务需要进行数据迁移，或者灾备恢复后需要切换主从集群，需要手动进行切换。
 
-!!! note
+!!! caution
 
     在切换主从之前需要为新的主集群搭建并启动 listener 服务（示例 IP 为`192.168.10.105`），为新的从集群搭建并启动 drainer 服务（示例 IP 为`192.168.10.106`）。
 
-!!! caution
-
-    在切换主从集群之前，请勿往主集群中写入数据，同时确保主集群中的数据已经同步至从集群中。
-
-1. 登录主集群，取消 drainer 和 listener 服务。
+   
+1. 登录主集群并设置图空间为只读，防止有新的数据写入主集群，导致数据不一致。
 
   ```
   nebula> USE basketballplayer;
+  nebula> SET VARIABLES read_only=true;
+  ```
+
+2. 查看主集群中的图空间的数据是否已经同步至从集群中，确保主集群中的数据已经同步至从集群中。
+
+  1. 在主集群中查看主集群同步数据的状态。
+
+  ```
+  nebula> SHOW SYNC STATUS;
+  ```
+
+  2. 登录从集群并查看从集群同步数据的状态。
+
+  ```
+  nebula> USE replication_basketballplayer;
+  nebula> SHOW DRAINER SYNC STATUS;
+  ```
+
+  当主从集群返回结果中的`LogId Lag`和`Time Latency`都为`0`时，表示主集群中的数据已经同步至从集群中。
+
+3. 在从集群中设置图空间为可读写。
+
+  ```
+  nebula> SET VARIABLES read_only=false;
+  ```
+
+4. 在从集群中移除 drainer 服务。
+
+  ```
+  nebula> REMOVE DRAINER;
+  ```
+
+5. 在主集群中移除 drainer 和 listener 服务。
+
+  ```
+  //需先修改主集群图空间为可读写，否则无法设置 drainer 服务。
+  nebula> SET VARIABLES read_only=false;
   nebula> SIGN OUT DRAINER SERVICE;
   nebula> REMOVE LISTENER SYNC;
   ```
 
-2. 设置图空间为只读，防止有新的数据写入主集群，导致数据不一致。
+6. 将主集群更改为从集群。
 
   ```
-  nebula> SET VARIABLES read_only=true;
+  nebula> ADD DRAINER 192.168.10.106:9889;
   ```
 
-3. 登录从集群，设置图空间为可读写，取消 drainer。
-
-  ```
-  nebula> USE replication_basketballplayer;
-  nebula> SET VARIABLES read_only=false;
-  nebula> REMOVE DRAINER;
-  ```
-
-4. 将从集群更改为主集群。
+7. 将从集群更改为主集群。
 
   ```
   nebula> SIGN IN DRAINER SERVICE(192.168.10.106:9889);
   nebula> ADD LISTENER SYNC META 192.168.10.105:9569 STORAGE 192.168.10.105:9789 TO SPACE basketballplayer;
   ```
 
-5. 登录之前的主集群，将其更改为从集群。
-
-  ```
-  nebula> USE basketballplayer;
-  //修改图空间为可读写，否则无法设置 drainer 服务。
-  nebula> SET VARIABLES read_only=false;
-  nebula> ADD DRAINER 192.168.10.106:9889;
-  nebula> SET VARIABLES read_only=true;
-  ```
+  至此主从集群切换完成。
 
 ## 常见问题
 
