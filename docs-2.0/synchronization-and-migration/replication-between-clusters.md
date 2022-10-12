@@ -425,7 +425,7 @@ nebula> SHOW DRAINER SYNC STATUS;
   nebula> SHOW DRAINER SYNC STATUS;
   ```
 
-  当主从集群返回结果中的`LogId Lag`和`Time Latency`都为`0`时，表示主集群中的数据已经同步至从集群中。
+  当主从集群返回结果中的`LogId Lag`和`Time Latency`对应的值都为`0`时，表示主集群中的数据已经被同步至从集群中。
 
 3. 在从集群中设置图空间为可读写。
 
@@ -439,7 +439,7 @@ nebula> SHOW DRAINER SYNC STATUS;
   nebula> REMOVE DRAINER;
   ```
 
-5. 在主集群中移除 drainer 和 listener 服务。
+5. 在主集群中修改图空间为可读写并移除 drainer 和 listener 服务。
 
   ```
   //需先修改主集群图空间为可读写，否则无法设置 drainer 服务。
@@ -450,11 +450,19 @@ nebula> SHOW DRAINER SYNC STATUS;
 
 6. 将主集群更改为从集群。
 
+  !!! note
+
+        确保已为新的从集群搭建并启动 drainer 服务。
+
   ```
   nebula> ADD DRAINER 192.168.10.106:9889;
   ```
 
 7. 将从集群更改为主集群。
+
+  !!! note
+
+        确保已为新的主集群搭建并启动 Meta listener 和 Storage listener 服务。
 
   ```
   nebula> SIGN IN DRAINER SERVICE(192.168.10.106:9889);
