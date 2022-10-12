@@ -439,16 +439,17 @@ nebula> SHOW DRAINER SYNC STATUS;
   nebula> REMOVE DRAINER;
   ```
 
-5. 在主集群中修改图空间为可读写并移除 drainer 和 listener 服务。
+5. 登录主集群，修改图空间为可读写并移除 drainer 和 listener 服务。
 
   ```
+  nebula> USE basketballplayer;
   //需先修改主集群图空间为可读写，否则无法设置 drainer 服务。
   nebula> SET VARIABLES read_only=false;
   nebula> SIGN OUT DRAINER SERVICE;
   nebula> REMOVE LISTENER SYNC;
   ```
 
-6. 将主集群更改为从集群。
+6. 在主集群中执行以下命令将主集群更改为从集群。
 
   !!! note
 
@@ -458,13 +459,14 @@ nebula> SHOW DRAINER SYNC STATUS;
   nebula> ADD DRAINER 192.168.10.106:9889;
   ```
 
-7. 将从集群更改为主集群。
+7. 登录之前的从集群，将之前的从集群更改为主集群。
 
   !!! note
 
         确保已为新的主集群搭建并启动 Meta listener 和 Storage listener 服务。
 
   ```
+  nebula> USE replication_basketballplayer;
   nebula> SIGN IN DRAINER SERVICE(192.168.10.106:9889);
   nebula> ADD LISTENER SYNC META 192.168.10.105:9569 STORAGE 192.168.10.105:9789 TO SPACE basketballplayer;
   ```
