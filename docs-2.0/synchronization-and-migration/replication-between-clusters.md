@@ -449,14 +449,17 @@ nebula> SHOW DRAINER SYNC STATUS;
   nebula> REMOVE LISTENER SYNC;
   ```
 
-6. 在主集群中执行以下命令将主集群更改为从集群。
+6. 在主集群中将主集群更改为从集群。
 
   !!! note
 
         确保已为新的从集群搭建并启动 drainer 服务。
 
   ```
+  //添加新的 drainer 服务。
   nebula> ADD DRAINER 192.168.10.106:9889;
+  //设置图空间为只读。
+  nebula> SET VARIABLES read_only=true;
   ```
 
 7. 登录之前的从集群，将之前的从集群更改为主集群。
