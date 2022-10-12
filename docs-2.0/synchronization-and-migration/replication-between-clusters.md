@@ -443,7 +443,7 @@ nebula> SHOW DRAINER SYNC STATUS;
   nebula> REMOVE DRAINER;
   ```
 
-5. 登录旧的主集群，修改图空间为可读写并移除 drainer 和 listener 服务。
+5. 登录旧的主集群，修改图空间为可读写并移除之前注册的 drainer 服务和之前添加的 listener 服务。
 
   ```
   nebula> USE basketballplayer;
