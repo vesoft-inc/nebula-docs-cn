@@ -39,6 +39,10 @@
 
         一次连接会话持续 30 分钟。如果超过 30 分钟没有操作，会话即断开，用户需要重新登录数据库。
 
+首次登录会显示欢迎页，根据使用流程展示相关功能，并且支持自动下载并导入测试数据集。
+
+想要再次访问欢迎页，在 ![help](https://docs-cdn.nebula-graph.com.cn/figures/navbar-help.png) 下选择**新手引导**。
+
 ## 断开连接
 
 在页面右上角，选择![icon](https://docs-cdn.nebula-graph.com.cn/figures/image-icon10.png)图标 > 清空连接。
