@@ -1,6 +1,6 @@
 # 审计日志
 
-NebulaGraph 企业版的审计日志功能可以将 Graph 服务接受到的所有操作进行分类存储。为便于用户查看审计日志，NebulaGraph Dashboard 企业版支持直接查看审计日志。
+NebulaGraph 企业版的审计日志功能可以将 Graph 服务接受到的所有操作进行分类存储。为便于用户查看审计日志，NebulaGraph Dashboard 企业版支持快速查看审计日志。
 
 ## 入口
 
