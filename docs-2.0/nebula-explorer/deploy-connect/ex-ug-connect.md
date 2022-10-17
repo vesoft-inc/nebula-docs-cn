@@ -12,7 +12,7 @@
 
 - NebulaGraph 数据库登录账号信息，包括用户名和密码。
 
-## OAuth 认证设置
+## OAuth2.0 认证设置
 
 !!! note
 
