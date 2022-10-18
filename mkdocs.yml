@@ -613,6 +613,7 @@ nav:
       - NebulaGraph Explorer License（企业版）: nebula-explorer/deploy-connect/3.explorer-license.md
     - 页面概览: nebula-explorer/ex-ug-page-overview.md
     - 数据库管理:
+      - Schema 草图: nebula-explorer/db-management/sketch.md
       - Schema 管理: nebula-explorer/db-management/10.create-schema.md
       - 数据导入: nebula-explorer/db-management/11.import-data.md
       - 控制台: nebula-explorer/db-management/explorer-console.md
