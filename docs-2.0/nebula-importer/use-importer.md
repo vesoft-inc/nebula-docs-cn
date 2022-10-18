@@ -203,10 +203,11 @@ clientSettings:
 示例配置如下：
 
 ```yaml
+workingDir: ./data/
 logPath: ./err/test.log
 files:
-  - path: ./student_without_header.csv
-    failDataPath: ./err/studenterr.csv
+  - path: ./student.csv
+    failDataPath: ./err/student.csv
     batchSize: 128
     limit: 10
     inOrder: false
@@ -219,6 +220,7 @@ files:
 
 |参数|默认值|是否必须|说明|
 |:---|:---|:---|:---|
+|`workingDir`|-|否|在多个目录包含具有相同文件结构的数据，使用此参数在多个目录之间切换。例如，下面配置的 `path` 和 `failDataPath` 的值会自动更改为 `./data/student.csv` 和 `./data/err/student.csv`。参数可以是绝对的或相对的。|
 |`logPath`|-|否|导入过程中的错误等日志信息输出的文件路径。|
 |`files.path`|-|是|数据文件的存放路径，如果使用相对路径，则会将路径和当前配置文件的目录拼接。可以使用星号（\*）进行模糊匹配，导入多个名称相似的文件，但是文件的结构需要相同。|
 |`files.failDataPath`|-|是|插入失败的数据文件存放路径，以便后面补写数据。|
@@ -243,30 +245,32 @@ schema:
   type: vertex
   vertex:
     vid:
-      type: string
-      index: 0
+      index: 1
+      function: hash
+      prefix: abc
     tags:
       - name: student
         props:
-          - name: name
-            type: string
-            index: 1
           - name: age
             type: int
             index: 2
+          - name: name
+            type: string
+            index: 1
           - name: gender
             type: string
-            index: 3
 ```
 
 |参数|默认值|是否必须|说明|
 |:---|:---|:---|:---|
 |`files.schema.type`|-|是|Schema 的类型，可选值为`vertex`和`edge`。|
-|`files.schema.vertex.vid.type`|-|否|点 ID 的数据类型，可选值为`int`和`string`。|
 |`files.schema.vertex.vid.index`|-|否|点 ID 对应 CSV 文件中列的序号。|
+|`files.schema.vertex.vid.function`|-|否|生成 VID 的函数。目前，我们只支持 `hash` 函数。|
+|`files.schema.vertex.vid.type`|-|否|点 ID 的数据类型，可选值为`int`和`string`。|
+|`files.schema.vertex.vid.prefix`|-|否|给 原始vid 添加的前缀，当同时指定了 `function` 时, 生成 VID 的方法是先添加 `prefix` 前缀, 再用 `function`生成 VID。|
 |`files.schema.vertex.tags.name`|-|是|Tag 名称。|
 |`files.schema.vertex.tags.props.name`|-|是|Tag 属性名称，必须和 NebulaGraph 中的 Tag 属性一致。|
-|`files.schema.vertex.tags.props.type`|-|是|属性数据类型，支持`bool`、`int`、`float`、`double`、`timestamp`、`string`和`geo`。|
+|`files.schema.vertex.tags.props.type`|-|是|属性数据类型，支持`bool`、 `int`、 `float`、 `double`、 `string`、 `time`、 `timestamp`、 `date`、 `datetime`、 `geography`、 `geography(point)`、 `geography(linestring)` 和 `geography(polygon)`。|
 |`files.schema.vertex.tags.props.index`|-|否|属性对应 CSV 文件中列的序号。|
 
 !!! note
@@ -281,18 +285,17 @@ schema:
   type: edge
   edge:
     name: follow
-    withRanking: true
     srcVID:
-      type: string
       index: 0
+      function: hash
     dstVID:
-      type: string
       index: 1
+      function: 
     rank:
       index: 2
     props:
-      - name: degree
-        type: double
+      - name: grade
+        type: int
         index: 3
 ```
 
@@ -300,10 +303,10 @@ schema:
 |:---|:---|:---|:---|
 |`files.schema.type`|-|是|Schema 的类型，可选值为`vertex`和`edge`。|
 |`files.schema.edge.name`|-|是|Edge type 名称。|
-|`files.schema.edge.srcVID.type`|-|否|边的起始点 ID 的数据类型。|
 |`files.schema.edge.srcVID.index`|-|否|边的起始点 ID 对应 CSV 文件中列的序号。|
-|`files.schema.edge.dstVID.type`|-|否|边的目的点 ID 的数据类型。|
+|`files.schema.edge.srcVID.function`|-|否|生成 VID 的函数。目前，我们只支持 `hash` 函数。|
 |`files.schema.edge.dstVID.index`|-|否|边的目的点 ID 对应 CSV 文件中列的序号。|
+|`files.schema.edge.dstVID.function`|-|否|生成 VID 的函数。目前，我们只支持 `hash` 函数。|
 |`files.schema.edge.rank.index`|-|否|边的 rank 值对应 CSV 文件中列的序号。|
 |`files.schema.edge.props.name`|-|是|Edge type 属性名称，必须和 NebulaGraph 中的 Edge type 属性一致。|
 |`files.schema.edge.props.type`|-|是|属性类型，支持`bool`、`int`、`float`、`double`、`timestamp`、`string`和`geo`。|
