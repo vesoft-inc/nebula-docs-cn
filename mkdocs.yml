@@ -480,7 +480,6 @@ nav:
       - 黑匣子:
         - 黑匣子介绍: 6.monitor-and-metrics/3.bbox/3.1.bbox.md
         - Nebula-BBox 工具: 6.monitor-and-metrics/3.bbox/3.2.bbox-reviewer.md
-        - 黑匣子指标: 6.monitor-and-metrics/3.bbox/3.3.bbox-metrics.md
 
   - 数据安全:
       - 验证和授权:
