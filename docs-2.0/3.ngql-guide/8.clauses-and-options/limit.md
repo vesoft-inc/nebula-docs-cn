@@ -134,17 +134,6 @@ nebula> MATCH (v:player) RETURN v.player.name AS Name, v.player.age AS Age \
 | "Giannis Antetokounmpo" | 24  |
 | "Kyle Anderson"         | 25  |
 +-------------------------+-----+
-
-nebula> MATCH (v:player) RETURN v.player.name AS Name, v.player.age AS Age \
-        ORDER BY Age LIMIT rand32(5);
-+-------------------------+-----+
-| Name                    | Age |
-+-------------------------+-----+
-| "Luka Doncic"           | 20  |
-| "Ben Simmons"           | 22  |
-| "Kristaps Porzingis"    | 23  |
-| "Giannis Antetokounmpo" | 24  |
-+-------------------------+-----+
 ```
 
 ### 单独使用 SKIP

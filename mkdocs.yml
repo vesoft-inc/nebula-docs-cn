@@ -635,6 +635,7 @@ nav:
         - 取消作业运行: nebula-explorer/workflow/workflow-api/api-cancel-job.md
         - 获取指定任务的运行结果数据: nebula-explorer/workflow/workflow-api/api-desc-task.md
     - 基本操作和快捷键: nebula-explorer/ex-ug-shortcuts.md
+    - 常见问题 FAQ: nebula-explorer/faq.md
 
   - NebulaGraph Importer:
     - 使用 NebulaGraph Importer: nebula-importer/use-importer.md
@@ -695,9 +696,6 @@ nav:
 
 #ent
     - NebulaGraph Explorer 工作流: graph-computing/use-explorer.md
-    
-#ent
-    - Dag Controller: graph-computing/0.deploy-controller-analytics.md
 
   - NebulaGraph Spark Connector: nebula-spark-connector.md
       

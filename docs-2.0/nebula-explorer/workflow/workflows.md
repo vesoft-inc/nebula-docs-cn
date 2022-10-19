@@ -19,7 +19,7 @@ Nebula Explorer 提供多种**组件**（Component），包括图查询组件和
 
 ## 注意事项
 
-- 使用工作流需要额外部署 Dag Controller 和 Nebula Analytics。详情参见[部署依赖服务](../../graph-computing/0.deploy-controller-analytics.md)。
+- 使用工作流需要额外部署 Dag Controller 和 Nebula Analytics。详情参见[NebulaGraph Analytics](../..//graph-computing/nebula-analytics.md)和[部署 Explorer](../deploy-connect/ex-ug-deploy.md)。
 
 - 图查询组件的输入只能是查询语言。
 
