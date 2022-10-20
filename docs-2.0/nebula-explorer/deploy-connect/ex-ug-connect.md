@@ -34,7 +34,7 @@ OAuth 部分的配置说明如下。
 |`UsernameKey` | `email`| 用户名字段。 |
 |`Organization` |  `vesoft company`       |  组织名称。             |
 |`TokenName`|`oauth_token`|Cookie 里的 Token 名称。|
-|`Scope`| `email`| OAuth 的权限范围。权限范围需要是厂商 OAuth2.0 平台配置的 scope 的子集，否则请求会失败。请求的 scope 需要能获取到 `UsernameKey`的值。|
+|`Scope`| `email`| OAuth 的权限范围。权限范围需要是厂商 OAuth2.0 平台配置的 scope 的子集，否则请求会失败。请求的 scope 需要能获取到`UsernameKey`的值。|
 |`AvatarKey`|`picture`|用户信息里的 Avatar Key。|
 
 配置完成后重启 Explorer 服务，登录页面会先展示 OAuth 认证页面，通过后才能继续连接数据库。
