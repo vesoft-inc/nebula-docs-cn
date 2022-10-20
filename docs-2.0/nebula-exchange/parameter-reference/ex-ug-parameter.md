@@ -69,6 +69,10 @@
 |`nebula.rate.limit`|int|`1024`|否|导入数据时令牌桶的令牌数量限制。|
 |`nebula.rate.timeout`|int|`1000`|否|令牌桶中拿取令牌的超时时间，单位：毫秒。|
 
+!!! note
+
+    NebulaGraph 默认不支持无 Tag 的点。如果需要导入无 Tag 的点，需要先在集群内开启[支持无 Tag 点](../..//3.ngql-guide/12.vertex-statements/1.insert-vertex.md)，然后在 Exchange 的配置文件内新增`nebula.enableTagless`参数，值为`true`。
+
 ## 点配置
 
 对于不同的数据源，点的配置也有所不同，有很多通用参数，也有部分特有参数，配置时需要配置通用参数和不同数据源的特有参数。
@@ -195,7 +199,7 @@
 |参数|数据类型|默认值|是否必须|说明|
 |:---|:---|:---|:---|:---|
 |`tags.path`|string|-|是|指定需要生成 SST 文件的源文件的路径。|
-|`tags.repartitionWithNebula`|bool|`false`|否|生成 SST 文件时是否要基于 NebulaGraph 中图空间的 partition 进行数据重分区。开启该功能可减少 DOWNLOAD 和 INGEST SST 文件需要的时间。当图空间的分片数量（partition_num）大于`1`时，请设置为`true`，否则可能会导致生成的数据文件中只包含无 Tag 的点。|
+|`tags.repartitionWithNebula`|bool|`true`|否|生成 SST 文件时是否要基于 NebulaGraph 中图空间的 partition 进行数据重分区。开启该功能可减少 DOWNLOAD 和 INGEST SST 文件需要的时间。当图空间的分片数量（partition_num）大于`1`时，请设置为`true`，否则可能会导致生成的数据文件中只包含无 Tag 的点。|
 
 {{ ent.ent_begin }}
 ### NebulaGraph 源特有参数
@@ -238,7 +242,7 @@
 |参数|数据类型|默认值|是否必须|说明|
 |:---|:---|:---|:---|:---|
 |`edges.path`|string|-|是|指定需要生成 SST 文件的源文件的路径。|
-|`edges.repartitionWithNebula`|bool|`false`|否|生成 SST 文件时是否要基于 NebulaGraph 中图空间的 partition 进行数据重分区。开启该功能可减少 DOWNLOAD 和 INGEST SST 文件需要的时间。|
+|`edges.repartitionWithNebula`|bool|`true`|否|生成 SST 文件时是否要基于 NebulaGraph 中图空间的 partition 进行数据重分区。开启该功能可减少 DOWNLOAD 和 INGEST SST 文件需要的时间。|
 
 ### NebulaGraph 源特有参数
 
