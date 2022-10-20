@@ -75,8 +75,15 @@
 
     ```bash
     nebula: {
-
+        address:{
+          graph:["127.0.0.1:9669"]
+          meta:["127.0.0.1:9559"]
+        }
+        user: root
+        pswd: nebula
+        space: test
         enableTagless: true
+        ......
 
      }
     ```
