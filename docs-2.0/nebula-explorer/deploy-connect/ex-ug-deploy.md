@@ -267,7 +267,7 @@ Dag Controller 可以结合 NebulaGraph Analytics 进行复杂的图计算。例
   ssh-add ~/.ssh/id_rsa
   ```
 
-3. 配置`dag-ctrl-api.yaml`文件，路径为`dag-ctrl/etc/dag-ctrl-api.yaml`。配置 NebulaGraph Analytics 机器的用户名及端口，如果有多台机器，请确保使用相同用户名。
+3. 配置`dag-ctrl-api.yaml`文件，路径为`dag-ctrl/etc/dag-ctrl-api.yaml`。配置 NebulaGraph Analytics 机器的用户名及端口，如果有多台机器，请确保使用相同用户名和端口。
 
   ```yaml
   # 配置名称。
