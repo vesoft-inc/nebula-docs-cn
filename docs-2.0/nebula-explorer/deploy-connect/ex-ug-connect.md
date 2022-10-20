@@ -29,7 +29,7 @@ OAuth 部分的配置说明如下。
 |`ClientSecret` | `GOCxxx-xaytomFexxx` | 应用的 ClientSecret。 |
 |`RedirectURL` | `http://dashboard.vesoft-inc.com/login` |重定向到 Dashboard 的 URL。   |
 |`AuthURL` | `https://accounts.google.com/o/oauth2/auth` | 认证 URL。  |
-|`TokenURL` | `https://oauth2.googleapis.com/token`| 获取 access_token 的URL。 |
+|`TokenURL` | `https://oauth2.googleapis.com/token`| 获取 access_token 的 URL。 |
 |`UserInfoURL` | `https://www.googleapis.com/oauth2/v1/userinfo`| 获取用户信息的 URL。 |
 |`UsernameKey` | `email`| 用户名字段。 |
 |`Organization` |  `vesoft company`       |  组织名称。             |
