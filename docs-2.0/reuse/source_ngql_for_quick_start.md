@@ -288,7 +288,6 @@ nebula> CREATE EDGE serve(start_year int, end_year int);
     +-------------+
     | "player100" |
     | "player102" |
-    | "player125" |
     +-------------+
     ```
 
@@ -301,7 +300,6 @@ nebula> CREATE EDGE serve(start_year int, end_year int);
     | Teammate        | Age |
     +-----------------+-----+
     | "Tim Duncan"    | 42  |
-    | "Manu Ginobili" | 41  |
     +-----------------+-----+
     ```
 
@@ -322,10 +320,7 @@ nebula> CREATE EDGE serve(start_year int, end_year int);
     +-----------------+---------------------+
     | Team            | Player              |
     +-----------------+---------------------+
-    | "Spurs"         | "Tim Duncan"        |
     | "Trail Blazers" | "LaMarcus Aldridge" |
-    | "Spurs"         | "LaMarcus Aldridge" |
-    | "Spurs"         | "Manu Ginobili"     |
     +-----------------+---------------------+
     ```
 
@@ -348,10 +343,7 @@ nebula> CREATE EDGE serve(start_year int, end_year int);
     +-----------------+---------------------+
     | Team            | Player              |
     +-----------------+---------------------+
-    | "Spurs"         | "Tim Duncan"        |
     | "Trail Blazers" | "LaMarcus Aldridge" |
-    | "Spurs"         | "LaMarcus Aldridge" |
-    | "Spurs"         | "Manu Ginobili"     |
     +-----------------+---------------------+
     ```
 
