@@ -19,6 +19,19 @@ interface IProps {
   onClose: ()=> void
 }
 
+const locales = {
+  'site-cn': {
+    search: '搜索',
+    close: '关闭',
+    loadMore: '加载更多',
+  },
+  'site-en': {
+    search: 'Search',
+    close: 'Close',
+    loadMore: 'LoadMore',
+  }
+}
+
 const Search = (props: IProps) => {
   const { algoliaAppID, algoliaSecret, indexName } = props
   const searchClient = algoliasearch(algoliaAppID, algoliaSecret, {});
@@ -28,7 +41,7 @@ const Search = (props: IProps) => {
       <div className={styles.container}>
         <SearchBox {...props} />
         <Index indexName={indexName}>
-          <Items />
+          <Items indexName={indexName} />
         </Index>
       </div>
     </InstantSearch>
@@ -41,6 +54,7 @@ const SearchBox = (props: any) => {
   const { query, refine, clear } = useSearchBox(props);
   const [value, setValue] = useState(query);
   const [isMobile, setIsMobile] = useState(false);
+  const locale = locales[props.indexName]
   const { refine: refineType } = useMenu({
     attribute: 'type',
     sortBy: ['name'],
@@ -76,7 +90,7 @@ const SearchBox = (props: any) => {
       ) : (
         <Icon className={styles.searchIcon} icon="#icon-algolia-search" />
       )}
-      <input type="text" value={value} onChange={onChange} placeholder="Search" autoFocus />
+      <input type="text" value={value} onChange={onChange} placeholder={locale.search} autoFocus />
       {isMobile ? (
         <Icon className={styles.close} icon="#icon-algolia-close" onClick={onClose} />
       ) : (
@@ -90,7 +104,7 @@ const SearchBox = (props: any) => {
             }}
           />
           <span className={styles.close} onClick={onClose}>
-            Close
+            {locale.close}
           </span>
         </>
       )}
@@ -98,9 +112,12 @@ const SearchBox = (props: any) => {
   );
 };
 
-const Items = () => {
+const Items = (props: {
+  indexName: string
+}) => {
   const { results } = useInstantSearch();
   const { hits, showMore, isLastPage } = useInfiniteHits();
+  const locale = locales[props.indexName]
 
   if (!results.query) return null;
 
@@ -113,7 +130,7 @@ const Items = () => {
               <Highlight attribute="title" hit={hit} />
             </div>
             <div className={styles.type}>
-              <span>{hit.type as string}</span>
+              {/* <span>{hit.type as string}</span> */}
               <span>
                 <Highlight attribute="url" hit={hit}></Highlight>
               </span>
@@ -126,7 +143,7 @@ const Items = () => {
       })}
       {isLastPage ? null : (
         <div className={styles.showMore} onClick={showMore}>
-          loadMore
+          {locale.loadMore}
         </div>
       )}
     </div>
