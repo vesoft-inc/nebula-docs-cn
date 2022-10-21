@@ -307,25 +307,11 @@ Dag Controller 可以结合 NebulaGraph Analytics 进行复杂的图计算。例
   # Explorer 和 Dag Controller 通信的密钥。无需修改。
   RsaPriKey: |
     -----BEGIN RSA PRIVATE KEY-----
-    MIICXAIBAAKBgQDcR0keIMmmV+7nre3xswsKoVHL02E0KWpDw4oS5FvnuCG+JAQn
-    fOC3W3SO3M4ojpNXujYzBKp7I7OoTmdLUz16xO3ihzEfb8CCVtPDtKchsNu+Q0kC
-    1Wz+ZJpVrNFv6Rn5zvrId2qWnixxfOqs5BZkukOqY2Bk8N4wkMumzj9BdwIDAQAB
-    AoGAV/9uWUfV5sr4GLul88mH3q5FY/zEtzbYScvi69soT/CCIlh3BGNhzj4N2Uii
-    XxdeC0zLfCQgCuNfURxJLZFKXHQ3CNO7JYt+Lcmj2KBkkS0hS0LBuZ7uqPYQ5hN+
-    ZBj8oVREkZFhdv23F4Iwvm/6PwcBkEkJ3rjH3jcUIl6bonECQQD52p3IXJxdpuWq
-    FX4rI5eqnfDyh4MAclOXf4D9t9++J8YgawGfvR0keGnMPWtEt66gpPx0++vjvDCk
-    guznmrqpAkEA4bJtDZBCHlDJeE6VcPqNa5swTGoeYw1OJZGJC/KuAbvwsXd61AKy
-    V81D3Jjzbg/rY17B2mKPBqxrFN6XKXTPHwJAby5sJduoLTh2XHBB+5pUBDVSIepR
-    TiKRtgmj8cMfyjNSw9w6FcYGsNLwaVUvZZ3DFHM2cCwmNOnqT1p/ZzSAOQJAXENb
-    b0sErG3sHmFJmBjkzRNwyBwtdeKPiq4W7ypy1cSlnXaxYJAFpf0Ee96OzPR3DnVD
-    G+pke57qW2qvMsRMkwJBANWIWbF3oSEtA8YnzOSiiHWtvAiTF/ablQQ8iybm2lhy
-    qp4ks45ROPNhaY3/GaIIiSYXaSIzqO71/Tn4em+N1k8=
+    MIICXAIBAAKBgQDcR0keIMmmV...
     -----END RSA PRIVATE KEY-----  
   RsaPubKey: |
     -----BEGIN RSA PUBLIC KEY-----
-    MIGJAoGBANxHSR4gyaZX7uet7fGzCwqhUcvTYTQpakPDihLkW+e4Ib4kBCd84Ldb
-    dI7cziiOk1e6NjMEqnsjs6hOZ0tTPXrE7eKHMR9vwIJW08O0pyGw275DSQLVbP5k
-    mlWs0W/pGfnO+sh3apaeLHF86qzkFmS6Q6pjYGTw3jCQy6bOP0F3AgMBAAE=
+    MIGJAoGBANxHSR4gyaZX7uet7...
     -----END RSA PUBLIC KEY-----
   ```
 
