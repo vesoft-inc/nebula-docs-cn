@@ -61,7 +61,7 @@ markdown_extensions:
 
 # Plugins
 plugins:
-  - search
+  - search # 这个是原有的 mkdocs 搜索插件， 如果想使用algolia搜索，请注释掉这个插件
   - macros:
       include_dir: docs-2.0/reuse/
   - git-revision-date-localized
@@ -112,6 +112,8 @@ extra_javascript:
   - js/init.js
   - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  # js about docs search logic
+  - https://www-cdn.nebula-graph.com.cn/nebula-docs/nebula-docs.63e9fa8b25682f28e6c5.js
 
 # modify when release:
 extra:

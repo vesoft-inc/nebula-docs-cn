@@ -1,4 +1,6 @@
 site/
 *.DS_Store
 vim*
+app/node_modules
+app/dist/
 

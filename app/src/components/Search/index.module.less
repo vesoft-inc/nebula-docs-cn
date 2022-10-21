@@ -1,0 +1,111 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 820px;
+  overflow: hidden;
+  background-color: #fff;
+  .hits {
+    height: 100%;
+    margin-top: 10px;
+    padding: 2px;
+    overflow: auto;
+    .item {
+      display: block;
+      padding: 18px 27px;
+      border-bottom: 1px solid #f2f2f2;
+    }
+    .title {
+      color: #000;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .type {
+      color: #bdbdbd;
+      font-size: 12px;
+      line-height: 30px;
+      > span:first-child {
+        margin-right: 20px;
+        color: #0d8bff;
+        text-transform: capitalize;
+      }
+    }
+    .content {
+      color: #4f4f4f;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 200%;
+    }
+    .showMore {
+      padding: 10px 0;
+      color: #0d8bff;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 20px;
+    border-bottom: 1px solid #f2f2f2;
+    > input {
+      flex: 1;
+      height: 30px;
+      padding: 20px;
+      font-size: 16px;
+      border: none;
+      &:focus {
+        outline: none;
+      }
+    }
+    .searchIcon {
+      font-size: 30px;
+      fill: #666;
+    }
+    .searchLoading {
+      font-size: 30px;
+      animation: spin 1s linear infinite;
+      fill: #666;
+    }
+    .clear {
+      font-size: 30px;
+      cursor: pointer;
+      fill: #000;
+    }
+    .close {
+      margin-left: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      fill: #000;
+    }
+  }
+  .tabs {
+    padding-left: 20px;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .container {
+    width: auto;
+    padding-bottom: 5px;
+    .search {
+      .close {
+        white-space: nowrap;
+        fill: #000;
+      }
+
+      border-bottom: none;
+      box-shadow: 0 4px 4px rgb(0 0 0 / 10%);
+    }
+  }
+}
