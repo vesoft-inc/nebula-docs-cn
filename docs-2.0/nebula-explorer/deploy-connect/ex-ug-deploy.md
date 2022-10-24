@@ -278,8 +278,8 @@ Dag Controller 可以结合 NebulaGraph Analytics 进行复杂的图计算。例
   Timeout: 60000    # HTTP 接口请求的超时时间。
   RPC_HDFS_PASSWORD: "123456"  # 保留参数。
 
-  Log:              # 日志打印相关参数。详情参见 https://go-zero.dev/cn/docs/blog/tool/logx/。
-    Mode: file      # 保存模式。可选值为
+  Log:              # 日志打印相关参数。详情参见 https://go-zero.dev/cn/docs/blog/tool/logx/
+    Mode: file      # 保存模式。
     KeepDays: 7     # 保存时长。
     Path: logs      # 保存目录。
     Level: info     # 保存级别。
