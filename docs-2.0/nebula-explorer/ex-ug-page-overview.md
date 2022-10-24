@@ -17,9 +17,10 @@ NebulaGraph Explorer 由顶部导航栏、左侧导航栏、和画布三大模�
 | ![import_data](https://docs-cdn.nebula-graph.com.cn/figures/studio-btn-download.png) | 将数据批量导入 NebulaGraph。详情参见[导入数据](db-management/11.import-data.md)。          |
 | ![Console](https://docs-cdn.nebula-graph.com.cn/figures/nav-console2.png) | 对 NebulaGraph 内的数据使用 nGQL 进行查询操作。详情参见[控制台](db-management/explorer-console.md)。 |
 | ![Template](https://docs-cdn.nebula-graph.com.cn/figures/icon-navbar-queryTemplate.png)| nGQL 语句的模板列表。详情参见[查询语句模板](db-management/ngql-template.md)。|
+| ![db_user_management](https://docs-cdn.nebula-graph.com.cn/figures/db_user_management_221024.png) | 数据库用户管理。详情参见[数据库用户管理](db-management/dbuser_management.md)。   |
 | ![language](https://docs-cdn.nebula-graph.com.cn/figures/navbar-language.png) | 选择 NebulaGraph Explorer 页面的语言，支持中文和英文。    |
 | ![help](https://docs-cdn.nebula-graph.com.cn/figures/navbar-help.png) | 帮助页面，指导和帮忙用户使用 NebulaGraph。          |
-| ![clear_connection](https://docs-cdn.nebula-graph.com.cn/figures/image-icon10.png) | 显示内核版本并可以断开与 NebulaGraph Explorer 的连接。    |
+| ![clear_connection](https://docs-cdn.nebula-graph.com.cn/figures/session_221024.png) | 显示连接信息和版本信息。支持修改密码和退出登录。    |
 
 ## 左侧导航栏
 

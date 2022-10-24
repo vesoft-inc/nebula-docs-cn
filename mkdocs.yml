@@ -629,6 +629,7 @@ nav:
       - 数据导入: nebula-explorer/db-management/11.import-data.md
       - 控制台: nebula-explorer/db-management/explorer-console.md
       - 查询语句模板: nebula-explorer/db-management/ngql-template.md
+      - 数据库用户管理: nebula-explorer/db-management/dbuser_management.md
     - 图探索:
       - 选择图空间: nebula-explorer/graph-explorer/13.choose-graphspace.md
       - 开始探索: nebula-explorer/graph-explorer/ex-ug-query-exploration.md
