@@ -1,6 +1,6 @@
 # 内联框架
 
-NebulaGraph Explorer 支持内联框架（iFrame），可以将画布嵌入至第三方页面中使用。本文介绍如何嵌入画布。
+NebulaGraph Explorer 支持内联框架（iframe），可以将画布嵌入至第三方页面中使用。本文介绍如何嵌入画布。
 
 ## 前提条件
 
@@ -22,7 +22,10 @@ NebulaGraph Explorer 支持内联框架（iFrame），可以将画布嵌入至�
 
   # 修改 IframeMode.Enable为 true。
   IframeMode:
-  Enable: true 
+    Enable: true
+  # 可以设置窗口的 URI 白名单，默认无限制。
+    # Origins:
+    #  - "http://192.168.8.8"
   ```
 
 2. 在`config`文件夹内使用`openssl`命令生成自签名证书。示例如下。
@@ -40,37 +43,25 @@ NebulaGraph Explorer 支持内联框架（iFrame），可以将画布嵌入至�
   - `-out`：指定生成的证书请求或者自签名证书名称。
   - `-keyout`：指定自动生成的密钥名称。
 
-3. 在第三方页面中嵌入 Explorer。这部分内容由用户自行开发，本文仅提供示例核心代码介绍必须传递的参数。
+3. 用户自行开发，在第三方页面中通过 iframe 方式嵌入 Explorer。
+4. 在父页面通过 postMessage 方法传递登录消息，格式如下：
 
-  ```html
-  function Iframe1() {
-    const iframeRef = useRef();
-    const onIframeLoad = useCallback(() => {
-      setTimeout(() => {
-        iframeRef.current?.contentWindow.postMessage({
-          type: 'NebulaGraphExploreLogin',
-          data: { authorization: 'cm9vdDoxMjM=', host: '192.168.10.100:9669', space: 'basketballplayer' }
-        }, '*');
-      }, 500);
-    }, []);
-
-  function Iframe2() {
-    const iframeRef = useRef();
-    const onIframeLoad = useCallback(() => {
-      setTimeout(() => {
-        iframeRef.current?.contentWindow.postMessage({
-          type: 'NebulaGraphExploreLogin',
-          data: { authorization: 'cm9vdDoxMjM=', host: '192.168.10.100:9669', space: 'test1' }
-        }, '*');
-      }, 500);
-    }, []);
+  ```json
+  { type: 'NebulaGraphExploreLogin', 
+    data: { 
+      authorization: 'cm9vdDoxMjM=', 
+      host: '192.168.8.240:9669', 
+      space: 'basketballplayer' 
+      } }
   ```
 
-  - `authorization`：Base64 编码后的 NebulaGraph 账号和密码。编码前格式为`账号:密码`，示例为`root:123`，编码后为`cm9vdDoxMjM=`。
-  - `host`：NebulaGraph 的 Graph 服务地址。
-  - `space`：目标图空间名称。
+  - type：方法类型必须为`NebulaGraphExploreLogin`。
+  - data：
+    - `authorization`：Base64 编码后的 NebulaGraph 账号和密码。编码前格式为`账号:密码`，示例为`root:123`，编码后为  `cm9vdDoxMjM=`。
+    - `host`：NebulaGraph 的 Graph 服务地址。
+    - `space`：目标图空间名称。
 
-4. 启动 Explorer 服务。
+5. 启动 Explorer 服务。
 
   !!! note
 
@@ -80,6 +71,6 @@ NebulaGraph Explorer 支持内联框架（iFrame），可以将画布嵌入至�
   ./scripts/start.sh
   ```
 
-5. 访问第三方页面，检查是否可以查看到嵌入的 Explorer 页面。示例页面中第一个页面展示`basketballplayer`图空间，第二个页面展示`test1`图空间。
+6. 访问第三方页面，检查是否可以查看到嵌入的 Explorer 页面。示例页面中第一个页面展示`basketballplayer`图空间，第二个页面展示`test1`图空间。
 
-  ![iFrame_example](https://docs-cdn.nebula-graph.com.cn/figures/explorer_iframe_example_221025.png)
+  ![iframe_example](https://docs-cdn.nebula-graph.com.cn/figures/explorer_iframe_example_221025.png)
