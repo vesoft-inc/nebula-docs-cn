@@ -654,6 +654,7 @@ nav:
         - 查询指定作业详情: nebula-explorer/workflow/workflow-api/api-desc-job.md
         - 取消作业运行: nebula-explorer/workflow/workflow-api/api-cancel-job.md
         - 获取指定任务的运行结果数据: nebula-explorer/workflow/workflow-api/api-desc-task.md
+    - 内联框架: nebula-explorer/iframe.md
     - 基本操作和快捷键: nebula-explorer/ex-ug-shortcuts.md
     - 常见问题 FAQ: nebula-explorer/faq.md
 
