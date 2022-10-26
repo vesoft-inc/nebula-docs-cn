@@ -44,12 +44,13 @@ NebulaGraph Explorer 支持内联框架（iframe），可以将画布嵌入至�
   - `-keyout`：指定自动生成的密钥名称。
 
 3. 用户自行开发，在第三方页面中通过 iframe 方式嵌入 Explorer。
+
 4. 在父页面通过 postMessage 方法传递登录消息，格式如下：
 
   ```json
   { type: 'NebulaGraphExploreLogin', 
     data: { 
-      authorization: 'cm9vdDoxMjM=', 
+      authorization: 'WyJyb290IiwibmVidWxhIl0=', 
       host: '192.168.8.240:9669', 
       space: 'basketballplayer' 
       } }
@@ -57,7 +58,7 @@ NebulaGraph Explorer 支持内联框架（iframe），可以将画布嵌入至�
 
   - type：方法类型必须为`NebulaGraphExploreLogin`。
   - data：
-    - `authorization`：Base64 编码后的 NebulaGraph 账号和密码。编码前格式为`账号:密码`，示例为`root:123`，编码后为  `cm9vdDoxMjM=`。
+    - `authorization`：NebulaGraph 账号和密码组成数组并序列化，然后进行 Base64 编码。数组格式为`['账号', '密码']`，示例为`['root', 'nebula']`，编码后为`WyJyb290IiwibmVidWxhIl0=`。
     - `host`：NebulaGraph 的 Graph 服务地址。
     - `space`：目标图空间名称。
 
@@ -71,6 +72,6 @@ NebulaGraph Explorer 支持内联框架（iframe），可以将画布嵌入至�
   ./scripts/start.sh
   ```
 
-6. 访问第三方页面，检查是否可以查看到嵌入的 Explorer 页面。示例页面中第一个页面展示`basketballplayer`图空间，第二个页面展示`test1`图空间。
+6. 访问第三方页面，检查是否可以查看到嵌入的 Explorer 页面。示例页面中第一个页面展示`basketballplayer`图空间，第二个和第三个页面展示其他图空间。
 
   ![iframe_example](https://docs-cdn.nebula-graph.com.cn/figures/explorer_iframe_example_221025.png)
