@@ -1,6 +1,10 @@
 # 使用 RPM/DEB 包部署 NebulaGraph 多机集群
 
-NebulaGraph 不提供官方的集群部署工具，用户可以使用 RPM 或 DEB 文件手动部署集群。本文提供了部署集群的示例。
+本文介绍通过 RPM 或 DEB 文件部署集群的示例。
+
+!!! note
+
+    用户还可以通过官方工具部署 NebulaGraph 多机集群。详情参见[使用生态工具安装集群](6.deploy-nebula-graph-with-peripherals.md)。
 
 ## 部署方案
 
