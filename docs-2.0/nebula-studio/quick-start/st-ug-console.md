@@ -15,7 +15,7 @@
 |  5  |  清空输入框  | 点击 ![clear](https://docs-cdn.nebula-graph.com.cn/figures/studio-btn-clear.png) 按钮，清空输入框中已经输入的内容。   |
 |  6  |  运行  |  在输入框中输入 nGQL 语句后，点击 ![play](https://docs-cdn.nebula-graph.com.cn/figures/studio-btn-play.png) 按钮即开始运行语句。   |
 |  7  |  自定义参数展示   | 点击 ![查询](https://docs-cdn.nebula-graph.com.cn/figures/down.png)按钮可展开自定义参数，用于参数化查询，详情信息可见[管理参数](../../nebula-console.md)。|
-|  8  |  输入框   |  在输入框中输入 nGQL 语句后，点击 ![play](https://docs-cdn.nebula-graph.com.cn/figures/studio-btn-play.png) 按钮运行语句。用户可以同时输入多个语句同时运行，语句之间以 `;` 分隔。 |
+|  8  |  输入框   |  在输入框中输入 nGQL 语句后，点击 ![play](https://docs-cdn.nebula-graph.com.cn/figures/studio-btn-play.png) 按钮运行语句。用户可以同时输入多个语句同时运行，语句之间以 `;` 分隔。支持用`//`添加注释。 |
 |  9  |  语句运行状态   |  运行 nGQL 语句后，这里显示语句运行状态。如果语句运行成功，语句以绿色显示。如果语句运行失败，语句以红色显示。   |
 |  10  | 添加到收藏夹 | 点击![save](https://docs-cdn.nebula-graph.com.cn/figures/studio-btn-save.png) 按钮，将语句存入收藏夹中，已收藏的语句该按钮以黄色展示。|
 |  11  |  导出 CSV 文件或 PNG 格式图片 |  运行 nGQL 语句返回结果后，返回结果为表格形式时，点击 ![download](https://docs-cdn.nebula-graph.com.cn/figures/studio-btn-download.png) 按钮即能将结果以 CSV 文件的形式导出。切换到可视化窗口，点击 ![download](https://docs-cdn.nebula-graph.com.cn/figures/studio-btn-download.png) 按钮即能将结果以 CSV 文件或 PNG 图片的形式导出。   |
