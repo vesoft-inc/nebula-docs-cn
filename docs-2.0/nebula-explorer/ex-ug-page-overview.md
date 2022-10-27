@@ -4,7 +4,7 @@
 
 NebulaGraph Explorer 由顶部导航栏、左侧导航栏、和画布三大模块组成。
 
-![explorer-overview](https://docs-cdn.nebula-graph.com.cn/figures/ex-overview-220622-cn.png)
+![explorer-overview](https://docs-cdn.nebula-graph.com.cn/figures/ex-overview-221027-cn.png)
 
 ## 顶部导航栏
 
