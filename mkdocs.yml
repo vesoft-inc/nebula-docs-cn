@@ -149,12 +149,12 @@ extra:
     base111b: 1.1.1-beta
     base220: 2.2.1
     base300: 3.0.0
-    release: 3.4.0
-    tag: v3.4.0
+    release: 3.5.0
+    tag: v3.5.0
   explorer:
-    release: 3.1.0
-    branch: release-3.1
-    tag: v3.1.0
+    release: 3.2.0
+    branch: release-3.2
+    tag: v3.2.0
   exchange_ent:
     release: 3.0.0
     branch: v3.0.0
@@ -172,34 +172,34 @@ extra:
     branch: v3.0.0
     tag: v3.0.0
   plato:
-    release: 3.2.0
-    branch: release-3.2
-    tag: v3.2.0
+    release: 3.3.0
+    branch: release-3.3
+    tag: v3.3.0
   dag:
     release: 3.2.0
     branch: release-3.2
     tag: v3.2.0
   sparkconnector:
-    release: 3.0.0
-    branch: v3.0.0
-    tag: v3.0.0
+    release: 3.3.0
+    branch: v3.3.0
+    tag: v3.3.0
   flinkconnector:
-    release: 3.0.0
-    branch: v3.0.0
-    tag: v3.0.0
+    release: 3.3.0
+    branch: v3.3.0
+    tag: v3.3.0
   dockercompose:
     release: 3.2.0
     branch: release-3.2
     tag: v3.2.0
   dashboard:
-    release: 3.1.0
-    tag: v3.1.0
+    release: 3.2.0
+    tag: v3.2.0
     base100: 1.0.0
-    branch: release-3.0
+    branch: release-3.2
   dashboard_ent:
-    release: 3.1.2
-    tag: v3.1.2
-    branch: release-3.1
+    release: 3.2.0
+    tag: v3.2.0
+    branch: release-3.2
   console:
     release: 3.0.0
     branch: v3.0.0
@@ -241,9 +241,9 @@ extra:
     upgrade_from: 3.0.0
     upgrade_to: 3.1.x
   exporter:
-    release: 3.1.0
-    branch: release-3.1
-    tag: v3.1.0
+    release: 3.2.0
+    branch: release-3.2
+    tag: v3.2.0
   gateway:
     release: 3.1.2
     branch: release-3.1
