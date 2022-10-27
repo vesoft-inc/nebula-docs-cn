@@ -52,7 +52,7 @@ Dag Controller 包含图查询组件和图计算组件。图查询是发送请�
 
 可能是因为如下原因：
 
-- 未配置 NebulaGraph Analytics。请按本文档配置 NebulaGraph Analytics。
+- 未配置 NebulaGraph Analytics。请检查 Analytics 环境变量、算法路径是否正确，例如 Analytics 地址配置错误；是否未配置各节点的 SSH 免密登录；各个服务的用户不统一。
 
 - 已配置 NebulaGraph Analytics，但是无法与 Dag Controller 联通。例如 地址错误、未配置 SSH、两个服务的启动用户不一致（导致 SSH 登录失败）等。
 
