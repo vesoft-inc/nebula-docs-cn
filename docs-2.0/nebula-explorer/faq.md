@@ -50,11 +50,23 @@ Dag Controller 包含图查询组件和图计算组件。图查询是发送请�
 
 ## 任务运行失败，报错`There are 0 NebulaGraph Analytics available. clusterSize should be less than or equal to it`怎么办？
 
-可能是因为如下原因：
+按如下流程排查：
 
-- 未配置 NebulaGraph Analytics。请检查 Analytics 环境变量、算法路径是否正确，例如 Analytics 地址配置错误；是否未配置各节点的 SSH 免密登录；各个服务的用户不统一。
+1. 检查节点间 SSH 免密登录配置是否配置成功。可以在 Dag Controller 机器上执行`ssh <user_name>@<node_ip>`命令看能否成功登录。
 
-- 已配置 NebulaGraph Analytics，但是无法与 Dag Controller 联通。例如 地址错误、未配置 SSH、两个服务的启动用户不一致（导致 SSH 登录失败）等。
+  !!! note
+
+        Dag Controller 和 Analytics 在同一台机器时，也需要配置免密登录。
+
+2. 检查 Dag Controller 的配置文件。
+
+  - 检查`etc/dag-ctrl-api.yaml`中的 SSH 用户和启动 Dag Controller 服务的用户、配置 SSH 免密登录的用户是不是一致。
+
+  - 检查`etc/tasks.yaml`中的算法路径是否正确。
+
+  - 检查`scripts/set_env.sh`中的 Hadoop 和 Java 的路径是否正确。
+
+3. 修改上述配置后需要重启 Dag Controller 使配置生效。
 
 ## 任务运行失败，报错`broadcast.hpp:193] Check failed: (size_t)recv_bytes >= sizeof(chunk_tail_t) recv message too small: 0`怎么办？
 
