@@ -42,21 +42,23 @@
 
   如果能看到如下图所示的界面，表示已经成功连接到 NebulaGraph 数据库。
 
-  ![Studio 进入控制台页面，表示成功连接到 NebulaGraph](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-003-cn.png)
+  首次登录会显示欢迎页，根据使用流程展示相关功能，并且支持自动下载并导入测试数据集。
 
 一次连接会话持续 30 分钟。如果超过 30 分钟没有操作，会话即断开，用户需要重新登录数据库。
 
 ## 后续操作
 
-成功连接 NebulaGraph 数据库后，根据账号的权限，用户可以选择执行以下操作：
+成功连接 NebulaGraph 数据库后，用户可以执行以下操作：
 
-- 拥有 GOD 或者 ADMIN 权限的账号，可以使用[**控制台**](../quick-start/st-ug-create-schema.md)或者 [**Schema**](../manage-schema/st-ug-crud-space.md) 页面管理 Schema、[批量导入数据](../quick-start/st-ug-import-data.md)、在**控制台**页面上执行 nGQL 语句。
-- 拥有 DBA 或者 USER 权限的账号，可以[批量导入数据](../quick-start/st-ug-import-data.md)、在**控制台**页面上执行 nGQL 语句。
-- 拥有 GUEST 权限的账号，仅可以在 **控制台** 页面上执行 nGQL 语句查询数据。
+- 使用[**控制台**](../quick-start/st-ug-create-schema.md)或者 [**Schema**](../manage-schema/st-ug-crud-space.md) 页面管理 Schema。
+- [批量导入数据](../quick-start/st-ug-import-data.md)。
+- 在 **控制台** 页面上执行 nGQL 语句查询数据。
+- 在 **Schema 草图**页面图形化设计 Schema。
+
 
 !!! note
 
-    账号权限参见 [内置角色权限](../../7.data-security/1.authentication/3.role-list.md)。
+    账号的权限决定了能执行哪些操作。详情参见[内置角色权限](../../7.data-security/1.authentication/3.role-list.md)。
 
 ### 登出
 <!--
