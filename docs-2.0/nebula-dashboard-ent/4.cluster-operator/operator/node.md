@@ -18,6 +18,10 @@
 
 - SSH 密钥：单击**上传**，选择节点的私钥文件。需要提前在待添加节点上生成密钥文件，并将私钥发送给当前电脑（非 Dashboard 机器）。如果设置了短密码（passphrase），也需要填写。
 
+!!! note
+
+    节点添加后，数据不会自动负载均衡。请在[信息总览](../cluster-information/overview-info.md)页面选择图空间执行`Balance Data`和`Balance Leader`操作。
+
 ## 节点其他操作
 
 在节点列表中，单击 ![plus](https://docs-cdn.nebula-graph.com.cn/figures/Plus_cn.png) 按钮，查看对应节点的服务名、服务类型、服务状态、运行路径等信息。
