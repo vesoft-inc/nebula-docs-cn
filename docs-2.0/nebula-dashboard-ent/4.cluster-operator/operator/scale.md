@@ -43,7 +43,7 @@
 
     - 集群中每种类型的服务至少要有一个，且单个节点上仅能部署一个同类型服务。
 
-    - 移除 Storage 服务时需要移除节点上存储的数据。请在[信息总览](../cluster-information/overview-info.md)页面执行`Balance Data Remove`操作。
+    - 移除 Storage 服务时需要迁移节点上存储的数据。请在[信息总览](../cluster-information/overview-info.md)页面执行`Balance Data Remove`操作。
 
 在该示例中，新增了节点为`192.168.8.143`和`192.168.8.167`的 Storage 服务，删除了节点为`192.168.8.169`的 Graph 服务。虚线框并置灰服务名表示移除的服务，实线框表示添加的服务。
 
