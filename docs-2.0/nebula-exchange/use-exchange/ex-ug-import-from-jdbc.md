@@ -95,7 +95,7 @@ mysql> desc serve;
     | Edge Type | `follow` | `degree int` |
     | Edge Type | `serve` | `start_year int, end_year int` |
 
-2. 使用 NebulaGraph Console 创建一个图空间** basketballplayer**，并创建一个 Schema，如下所示。
+2. 使用 NebulaGraph Console 创建一个图空间 **basketballplayer**，并创建一个 Schema，如下所示。
 
     ```ngql
     ## 创建图空间
