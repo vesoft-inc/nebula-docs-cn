@@ -1,38 +1,33 @@
 # NebulaGraph Dashboard 企业版更新说明
 
-## 企业版 v3.1.2
-
-- 缺陷修复
-  - 修复 DEB 和 RPM 包中 nebula-stats-exporter 服务启动异常的问题。
-
-## 企业版 v3.1.1
-
-- 缺陷修复
-  - 修复 License 上传校验的问题。
-
-## 企业版 v3.1.0
+## 企业版 v3.2.0
 
 - 功能
-  - 支持[升级集群的 NebulaGraph 版本](../../nebula-dashboard-ent/4.cluster-operator/operator/version-upgrade.md)。
-  - 支持[全量备份和恢复](../../nebula-dashboard-ent/4.cluster-operator/cluster-information/backup-and-restore.md)。
-  - 支持[管理安装包](../../nebula-dashboard-ent/system-settings/manage-package.md)。
-  - 部署 Dashboard 时，支持[使用 SQLite 数据库](../../nebula-dashboard-ent/2.deploy-connect-dashboard-ent.md)。
+
+  - 集群安全：
+    - 单点登录方式新增 [OAuth2.0 认证](../..//nebula-dashboard-ent/5.account-management.md)。
 
 - 优化
-  - 适配 NebulaGraph 3.2.0。
-  - 监控
-    - 支持全局配置监控时间范围。
-    - 支持全局配置监控刷新频率。
-    - 支持监控集群内所有磁盘使用量。
-    - 支持展示指定维度的所有监控指标。
-  - 告警
-    - 支持[静默告警消息](../../nebula-dashboard-ent/4.cluster-operator/9.notification.md)。
-  - 配置
-    - 支持通过文件`config.yaml`修改服务的端口号。
-    - 支持在更新配置页搜索配置名。
-  - 优化系统报错信息。
+
+  - 监控：
+    - 新增服务单进程指标监控。
+    - 磁盘监控优化。
+    - 新增部分 Storage 监控指标。
+  - 告警：
+    - 支持配置[多条件告警](../..//nebula-dashboard-ent/4.cluster-operator/9.notification.md)，条件同时满足时触发告警。
+    - 磁盘告警优化。
+  - 安全：
+    - 支持 [SSH 密钥连接](../../nebula-dashboard-ent/4.cluster-operator/operator/node.md)方式。
+  - 易用性：
+    - 包结构调整。保证通过 Dashboard 安装的 NebulaGraph 集群和单独安装部署的集群包结构一致。
+    - 新增展示各节点操作系统信息。
+    - 支持修改 prometheus 和 alertmanager 端口号。
+    - 支持搜索监控指标及查看指标详情。
+    - 支持服务运行日志分片以及设置日志保留天数。
 
 - 缺陷修复
-  - 修复诊断报告中无法获取负载和流量信息的问题。
-  - 修复指标仪表盘框选不正常的问题。
-  - 修复批量导入节点时，无法识别 CSV 文件中 Alias 列的中文的问题。
+
+  - 修复在服务管理页面查看监控页面时不跳转的问题。
+  - 修复服务监控页面无法设置基线的问题。
+  - 修复导入集群时授权失败的问题。
+  - 修复集群诊断报告语言无法根据平台全局语言自动切换的问题。
