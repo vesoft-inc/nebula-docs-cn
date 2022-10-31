@@ -94,6 +94,8 @@ Exchange {{exchange.release}} 支持将以下格式或来源的数据转换为 N
 
 - 发布/订阅消息平台：[Apache Pulsar 2.4.5](../use-exchange/ex-ug-import-from-pulsar.md)
 
+- [JDBC 数据源](../use-exchange/ex-ug-import-from-jdbc.md)
+
 除了用 nGQL 语句的形式导入数据，Exchange 还支持将数据源的数据生成 SST 文件，然后通过 Console [导入 SST 文件](../use-exchange/ex-ug-import-from-sst.md)。
 
 此外，企业版 Exchange 支持以 NebulaGraph 为源，将数据[导出到 CSV 文件](../use-exchange/ex-ug-export-from-nebula.md)。
