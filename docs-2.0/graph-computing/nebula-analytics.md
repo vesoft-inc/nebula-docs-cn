@@ -18,11 +18,12 @@ NebulaGraph Analytics 是一款高性能图计算框架工具，支持对 Nebula
 
 NebulaGraph Analytics 版本和 NebulaGraph 内核的版本对应关系如下。
 
-|NebulaGraph Analytics 版本|NebulaGraph 版本|
+|NebulaGraph 版本|NebulaGraph Analytics 版本|
 |:---|:---|
-|{{plato.release}}|{{nebula.release}}、3.1.0|
-|1.0.x|3.0.x|
-|0.9.0|2.6.x|
+|3.3.0      | 3.3.0 |
+|3.1.0~3.2.x| 3.2.0 |
+|3.0.x      | 1.0.x |
+|2.6.x      | 0.9.0 |
 
 ## 支持算法
 

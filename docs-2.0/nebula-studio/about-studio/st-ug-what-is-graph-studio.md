@@ -46,6 +46,23 @@ Studio 可以方便管理 NebulaGraph 图数据，具备以下功能：
 
 当 NebulaGraph 启用了身份验证后，用户只能使用指定的账号和密码登录 Studio。关于 NebulaGraph 的身份验证功能，参考 [身份验证](../../7.data-security/1.authentication/1.authentication.md "点击前往 NebulaGraph 官网")。
 
+
+## 版本兼容性
+
+!!! Note
+
+    Studio 版本发布节奏独立于 NebulaGraph 内核，其命名方式也不参照内核命名规则，两者兼容对应关系如下表。
+
+| NebulaGraph 版本 | Studio 版本 |
+| --- | --- |
+| 3.0.0 ～ 3.2.0| 3.4.1、3.4.0|
+| 3.1.0 | 3.3.2 |
+| 3.0.0 | 3.2.x |
+| 2.6.x | 3.1.x |
+| 2.6.x | 3.1.x |
+| 2.0 & 2.0.1 | 2.x |
+| 1.x | 1.x|
+
 ## 版本更新
 
 Studio 处于持续开发状态中。用户可以通过 [Studio 版本更新说明](../../20.appendix/release-notes/studio-release-note.md)查看最新发布的功能。

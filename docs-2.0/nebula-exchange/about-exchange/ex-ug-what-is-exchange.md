@@ -49,6 +49,21 @@ Exchange 具有以下优点：
 
 - 易于使用：采用 HOCON（Human-Optimized Config Object Notation）配置文件格式，具有面向对象风格，便于理解和操作。
 
+## 版本兼容性
+
+NebulaGraph Exchange 版本（即 JAR 包版本）和 NebulaGraph 内核的版本对应关系如下。
+
+|NebulaGraph 版本|Exchange client 版本|
+|:---|:---|
+|nightly     |3.0-SNAPSHOT|
+|3.3.0       |3.3.0       |
+|3.0.0~3.2.x |3.0.0       |
+|2.6.x       |2.6.x       |
+|2.5.x       |2.5.x       |
+|2.0.0、2.0.1|2.1.0、2.0.1、2.0.0|
+
+JAR 包有两种获取方式：[自行编译](../ex-ug-compile.md)或者从 maven 仓库下载。
+
 ## 数据源
 
 Exchange {{exchange.release}} 支持将以下格式或来源的数据转换为 NebulaGraph 能识别的点和边数据，然后通过 nGQL 语句的形式导入 NebulaGraph：

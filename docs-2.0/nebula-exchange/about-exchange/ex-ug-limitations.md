@@ -2,22 +2,6 @@
 
 本文描述 Exchange {{exchange.release}} 的一些使用限制。
 
-## 版本兼容性
-
-NebulaGraph Exchange 版本（即 JAR 包版本）和 NebulaGraph 内核的版本对应关系如下。
-
-|Exchange client 版本|NebulaGraph 版本|
-|:---|:---|
-|3.0-SNAPSHOT|nightly|
-|{{exchange.release}}|{{nebula.release}}|
-|2.6.x|2.6.x       |  
-|2.5.x|2.5.x       |
-|2.1.0|2.0.0、2.0.1|
-|2.0.1|2.0.0、2.0.1|
-|2.0.0|2.0.0、2.0.1|
-
-JAR 包有两种获取方式：[自行编译](../ex-ug-compile.md)或者从 maven 仓库下载。
-
 ## 使用环境
 
 Exchange 3.x 支持以下操作系统：

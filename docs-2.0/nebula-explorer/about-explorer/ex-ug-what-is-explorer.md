@@ -44,6 +44,20 @@ NebulaGraph 启用了身份验证后，用户只能使用指定的账号和密�
 
 关于 NebulaGraph 的身份验证功能，参考 [NebulaGraph 用户手册](../../7.data-security/1.authentication/1.authentication.md "点击前往 NebulaGraph 官网")。
 
+## 版本兼容性
+
+NebulaGraph 的版本和 Explorer 版本对应关系如下。
+
+| NebulaGraph 版本 | Explorer 版本 |
+| --- | --- |
+| 3.3.0 | 3.2.0|
+| 3.1.0 ~ 3.2.0| 3.1.0|
+| 3.0.0 ~ 3.1.0 | 3.0.0  |
+| 2.5.x ~ 3.0.0| 2.2.0|
+| 2.6.x | 2.1.0 |
+| 2.5.x | 2.0.0 |
+
+
 ## 视频
 
 * [NebulaGraph Explore Demo Show](https://www.bilibili.com/video/BV1VL4y1V7C2/)（2 分 54 秒）
