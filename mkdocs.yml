@@ -714,6 +714,7 @@ nav:
 
 #ent
 #ent    - NebulaGraph Analytics: graph-computing/nebula-analytics.md
+#ent    - NebulaGraph Analytics License: graph-computing/analytics-ent-license.md
 
 #ent
 #ent    - NebulaGraph Explorer 工作流: graph-computing/use-explorer.md

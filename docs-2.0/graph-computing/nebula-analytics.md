@@ -2,9 +2,10 @@
 
 NebulaGraph Analytics 是一款高性能图计算框架工具，支持对 NebulaGraph 数据库中的数据执行图分析。
 
-!!! enterpriseonly
+## 前提条件
 
-    如需获取 Nebula Analytics 安装包，请发送邮件至 inquiry@vesoft.com。
+- 获取 Nebula Analytics 安装包。请发送邮件至 inquiry@vesoft.com。
+- [准备 Nebula Analytics License](analytics-ent-license.md)。
 
 ## 适用场景
 
@@ -55,11 +56,13 @@ NebulaGraph Analytics 支持的图计算算法如下。
 
 ## 安装 NebulaGraph Analytics
 
-在多个机器安装由多个 NebulaGraph Analytics 服务构成的集群时，需要安装路径相同，并设置节点间 SSH 免密登录。
+1. 在多个机器安装由多个 NebulaGraph Analytics 服务构成的集群时，需要安装路径相同，并设置节点间 SSH 免密登录。
 
-```bash
-sudo rpm -i nebula-analytics-{{plato.release}}-centos.x86_64.rpm  --prefix /home/xxx/nebula-analytics
-```
+  ```bash
+  sudo rpm -i nebula-analytics-{{plato.release}}-centos.x86_64.rpm  --prefix /home/xxx/nebula-analytics
+  ```
+
+2. 拷贝 License 至所有机器的 NebulaGraph Analytics 安装路径的`scripts`目录内。
 
 <!--
 ### 编译安装
