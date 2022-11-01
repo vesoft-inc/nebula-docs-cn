@@ -7,7 +7,7 @@ RPM 和 DEB 是 Linux 系统下常见的两种安装包格式，本文介绍如�
 {{ ent.ent_begin }}
 !!! enterpriseonly
 
-    企业版请发送邮件至 inquiry@vesoft.com。
+    企业版请[联系我们](https://www.nebula-graph.com.cn/contact)。
 
 {{ ent.ent_end }}
 

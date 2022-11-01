@@ -6,7 +6,7 @@ NebulaGraph Dashboard 企业版支持管理 NebulaGraph 安装包，可以下载
 
 - 只有`admin`角色的用户可以管理安装包。
 
-- 不支持下载企业版安装包。请发送邮件至 **inquiry@vesoft.com** 申请企业版安装包，然后手动上传。
+- 不支持下载企业版安装包。请[联系我们](https://www.nebula-graph.com.cn/contact)申请企业版安装包，然后手动上传。
 
 ## 入口
 

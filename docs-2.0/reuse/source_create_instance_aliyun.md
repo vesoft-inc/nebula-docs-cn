@@ -3,7 +3,7 @@
 
 !!! caution
 
-    通过 NebulaGraph Cloud 阿里云版创建的 NebulaGraph、NebulaGraph Dashboard 和 NebulaGraph Explorer 服务都是企业版，试用期 3 天。如需长期使用，发送邮件[申请正式许可证](mailto:inquiry@vesoft.com)，之后[续期许可证](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/deploy-license/#nebulagraph_license_3)。
+    通过 NebulaGraph Cloud 阿里云版创建的 NebulaGraph、NebulaGraph Dashboard 和 NebulaGraph Explorer 服务都是企业版，试用期 3 天。如需长期使用，[联系我们](https://www.nebula-graph.com.cn/contact)申请正式许可证，之后[续期许可证](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/deploy-license/#nebulagraph_license_3)。
 
 ## 前提条件
 

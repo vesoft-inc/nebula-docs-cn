@@ -37,7 +37,7 @@ Explorer 从 3.2.0 版本开始内置了 Dag Controller 安装包，用于提供
 
   !!! enterpriseonly
 
-        用户可以[在线申请](https://wj.qq.com/s2/10158890/69a8)试用 Explorer 企业版；如需购买，通过邮箱(inquiry@vesoft.com)联系销售人员。点击[定价](https://nebula-graph.com.cn/pricing/)查看更多。
+        用户可以[在线申请](https://wj.qq.com/s2/10158890/69a8)试用 Explorer 企业版；如需购买，请[联系我们](https://www.nebula-graph.com.cn/contact)。点击[定价](https://nebula-graph.com.cn/pricing/)查看更多。
 
 2. 使用`sudo rpm -i <rpm>`命令安装 RPM 包。
 
@@ -112,7 +112,7 @@ sudo rpm -e nebula-explorer-<version>.x86_64
 
   !!! enterpriseonly
 
-        用户可以[在线申请](https://wj.qq.com/s2/10158890/69a8)试用 Explorer 企业版；如需购买，通过邮箱(inquiry@vesoft.com)联系销售人员。点击[定价](https://nebula-graph.com.cn/pricing/)查看更多。
+        用户可以[在线申请](https://wj.qq.com/s2/10158890/69a8)试用 Explorer 企业版；如需购买，请[联系我们](https://www.nebula-graph.com.cn/contact)。点击[定价](https://nebula-graph.com.cn/pricing/)查看更多。
 
 
 2. 使用`sudo dpkg -i <package_name>`命令安装 DEB 包。
