@@ -709,15 +709,10 @@ nav:
   - 图计算:
 
     - 算法简介: graph-computing/algorithm-description.md
-
     - NebulaGraph Algorithm: graph-computing/nebula-algorithm.md
-
-#ent
-#ent    - NebulaGraph Analytics: graph-computing/nebula-analytics.md
-#ent    - NebulaGraph Analytics License: graph-computing/analytics-ent-license.md
-
-#ent
-#ent    - NebulaGraph Explorer 工作流: graph-computing/use-explorer.md
+    - NebulaGraph Analytics: graph-computing/nebula-analytics.md
+    - NebulaGraph Analytics License: graph-computing/analytics-ent-license.md
+    - NebulaGraph Explorer 工作流: graph-computing/use-explorer.md
 
   - NebulaGraph Spark Connector: nebula-spark-connector.md
       
