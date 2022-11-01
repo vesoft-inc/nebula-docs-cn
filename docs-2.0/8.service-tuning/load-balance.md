@@ -127,6 +127,8 @@ nebula> SHOW HOSTS;
 
     该命令仅迁移分片，不会将 Storage 主机从集群中删除。删除 Storage 主机请参见[管理 Storage 主机](../4.deployment-and-installation/manage-storage-host.md)。
 
+{{ ent.ent_end }}
+
 <!-- 下面是注释内容
 !!! danger
 
@@ -251,9 +253,6 @@ nebula> SHOW HOSTS;
   nebula> DROP HOSTS 192.168.10.104:9779,192.168.10.105:9779;
   ```
 -->
-
-{{ ent.ent_end }}
-
 ## 均衡 leader 分布
 
 用户可以使用命令`BALANCE LEADER`均衡 leader 分布。
