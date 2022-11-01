@@ -66,6 +66,8 @@ License 文件包含生效时间、过期时间等信息。说明如下。
 |`version`| 版本支持的信息。|
 |`licenseType`| License 类型（预留参数）。包括`enterprise`、`samll_bussiness`、`pro`、`individual`。|
 |`gracePeriod`| 证书过期后可继续使用服务的缓冲时间（单位天），超过缓冲期后停止服务。试用版的 License 过期后无缓冲期，默认值为 0。 |
+|`nodes`|集群中 Analytics 服务的数量限制。|
+|`vcpu`|集群中 Analytics 服务的总线程数量限制。|
 |`clusterCode`| 用户的硬件信息，也是集群的唯一标识码。试用版的 License 中无此参数。 |
 
 ## 使用方式
