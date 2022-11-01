@@ -144,7 +144,7 @@ extra:
     base20: 2.0
     base200: 2.0.0
     branch: release-3.3
-    tag: V3.3.0
+    tag: v3.3.0
   studio:
     base111b: 1.1.1-beta
     base220: 2.2.1
