@@ -213,7 +213,7 @@ mysql> desc serve;
       numPartitions:5             # 可选
 
 
-      fetchSize:2           # 每次往返要获取的行数
+      fetchSize:2           # 每次请求数据库要读取的行数。
 
       # 在 fields 里指定 player 表中的列名称，其对应的 value 会作为 NebulaGraph 中指定属性。
       # fields 和 nebula.fields 里的配置必须一一对应。
