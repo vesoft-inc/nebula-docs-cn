@@ -27,6 +27,10 @@ NebulaGraph Dashboard 企业版支持普通账户、LDAP 账户和 OAuth2.0 账�
 
 ## OAuth2.0 设置
 
+!!! caution
+
+    该功能仍处于测试中，后续会继续进行调整优化。
+
 ### 入口
 
 1. 在 Dashboard 企业版顶部导航栏，单击**平台设置**。
