@@ -5,7 +5,7 @@
 - 功能
 
   - 集群安全：
-    - 单点登录方式新增 [OAuth2.0 认证](../..//nebula-dashboard-ent/5.account-management.md)。
+    - （测试功能）单点登录方式新增 [OAuth2.0 认证](../..//nebula-dashboard-ent/5.account-management.md)。
 
 - 优化
 
