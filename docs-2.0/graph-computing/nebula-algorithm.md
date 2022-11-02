@@ -254,6 +254,10 @@ NebulaGraph Algorithm 实现图计算的流程如下：
   }
   ```
 
+  !!! note
+
+        当配置为 `sink: nebula` 的时候，意味着算法运算结果将被写回 NebulaGraph 集群，这对写回到的 TAG 中的属性名有隐含的约定，具体算法写回的属性名称请参考 [GitHub README](https://github.com/vesoft-inc/nebula-algorithm)
+
 2. 提交图计算任务。
 
   ```bash
