@@ -198,9 +198,9 @@ extra:
     tag: v3.2.0
     branch: release-3.2
   console:
-    release: 3.3.0
+    release: 3.3.1
     branch: release-3.3
-    tag: v3.3.0
+    tag: v3.3.1
   br:
     release: 0.6.1
     branch: master
