@@ -13,6 +13,7 @@ NebulaGraph Explorer 由顶部导航栏、左侧导航栏、和画布三大模�
 | **Explorer**                                                 | 可视化探索及分析数据。详情参见[开始探索](graph-explorer/ex-ug-query-exploration.md)、[节点筛选](graph-explorer/node-filtering.md)、[探索拓展](graph-explorer/ex-ug-graph-exploration.md)、[图计算](graph-explorer/graph-algorithm.md)。     |
 | **Visual Query**                                             | 可视化构造场景进行数据查询。详情参见[可视化查询](12.query-visually.md)。           |
 | **Workflow**                                                 | 可视化构造自定义工作流进行复杂图计算。详情参见[工作流简介](workflow/workflows.md)。|
+| ![Schema_drafting](https://docs-cdn.nebula-graph.com.cn/figures/schema_drafting_221110.png) | 在画板上自行设计 Schema，可以直观展示点边关系。详情参见[Schema 草图](db-management/draft.md)。|
 | ![create_schema](https://docs-cdn.nebula-graph.com.cn/figures/studio-nav-schema.png) | 对 NebulaGraph 图空间进行管理。详情参见[创建 Schema](db-management/10.create-schema.md)。       |
 | ![import_data](https://docs-cdn.nebula-graph.com.cn/figures/studio-btn-download.png) | 将数据批量导入 NebulaGraph。详情参见[导入数据](db-management/11.import-data.md)。          |
 | ![Console](https://docs-cdn.nebula-graph.com.cn/figures/nav-console2.png) | 对 NebulaGraph 内的数据使用 nGQL 进行查询操作。详情参见[控制台](db-management/explorer-console.md)。 |
