@@ -243,12 +243,11 @@ Dag Controller 可以结合 NebulaGraph Analytics 进行复杂的图计算。例
 
   按同样方法设置 A 免密登录机器 B-2、B-3 等，以及集群 B 内所有机器的互相免密登录。
 
-2. 添加以下内容至`~/.bash_profile`文件内，执行`source ~/.bash_profile`使其生效。
+2. 在 Dag Controller 机器上执行`eval $(ssh-agent)`启动 ssh agent，然后执行`ssh-add ~/.ssh/id_rsa`将私钥交给 ssh-agent 管理。
 
-  ```
-  eval $(ssh-agent)
-  ssh-add ~/.ssh/id_rsa
-  ```
+  !!! note
+
+        ssh-agent是密钥管理器，用来管理多个密钥，并为其他需要使用 SSH 密钥对的程序提供代理。
 
 3. 配置`dag-ctrl-api.yaml`文件，路径为`dag-ctrl/etc/dag-ctrl-api.yaml`。配置 NebulaGraph Analytics 机器的用户名及端口，如果有多台机器，请确保使用相同用户名和端口。
 
