@@ -117,7 +117,7 @@ extra:
     - icon: 'fontawesome/brands/github'
       link: 'https://github.com/vesoft-inc/nebula-docs-cn'
   studio:
-    release: 3.2.3
+    release: 3.2.5
   explorer:
     release: 2.2.0
   exchange_ent:
