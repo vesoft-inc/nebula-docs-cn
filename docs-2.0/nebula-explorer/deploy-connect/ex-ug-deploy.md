@@ -25,6 +25,12 @@
 
         License 仅在企业版提供，申请 License 需填写 [Nebula Explorer 试用申请](https://wj.qq.com/s2/10158890/69a8)。
 
+- 如果需要使用图计算，需要部署 HDFS。namenode 默认使用 8020 端口，datanode 默认使用 50010 端口。
+
+  !!! caution
+
+       如果 HDFS 端口不通，可能会提示连接超时。
+
 ## 注意事项
 
 Explorer 从 3.2.0 版本开始内置了 Dag Controller 安装包，用于提供图计算服务。用户可以自行决定是否启动 Dag Controller 服务。如果没有启动 Dag Controller 服务， Explorer 中的 **Workflow** 菜单将显示为灰色无法点击。
