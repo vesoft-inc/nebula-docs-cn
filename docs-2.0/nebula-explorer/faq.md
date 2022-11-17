@@ -70,11 +70,11 @@ Dag Controller 包含图查询组件和图计算组件。图查询是发送请�
 
 ## 任务运行失败，报错`no available namenodes: dial tcp xx.xx.xx.xx:8020: connect: connection timed out`怎么办？
 
-请检查 HDFS 的 namenode 端口是否开放。
+请检查 HDFS 的 namenode 端口 8020 是否开放。
 
 ## 任务运行失败，报错`org.apache.hadoop.net.ConnectTimeoutException: 60000 millis timeout`怎么办？
 
-请检查 HDFS 的 datanode 端口是否开放。
+请检查 HDFS 的 datanode 端口 50010 是否开放。
 
 如果没有开放端口，还可能报类似如下错误：
 
