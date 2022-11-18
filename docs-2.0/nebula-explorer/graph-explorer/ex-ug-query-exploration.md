@@ -61,6 +61,8 @@
 
 用户可以选择已创建的查询语句模板，并填写模板参数值。
 
+![query_template](https://docs-cdn.nebula-graph.com.cn/figures/query_template_221118_cn.png)
+
 - 返回结果为点时，画布上会展示这些点。
 - 返回结果不为点时，会用表格形式展示结果。例如返回球员姓名、年龄等。
 
