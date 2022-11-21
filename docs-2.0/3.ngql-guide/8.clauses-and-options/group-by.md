@@ -33,6 +33,9 @@ nebula>  MATCH (v:player)<-[:follow]-(:player) RETURN v.player.name AS Name, cou
 ```
 `aggregation_function()`函数支持`avg()`、`sum()`、`max()`、`min()`、`count()`、`collect()`、`std()`。
 
+!!! note
+
+    nGQL 语法同时兼容 openCypher 语法中 `Group BY` 的隐式用法。即当涉及聚合函数的时候，可隐式使用 `GROUP BY`，也就是不写出 `GROUP BY` 关键词也能起到聚合数据的作用。
 ## 示例
 
 ```ngql
