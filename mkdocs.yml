@@ -79,19 +79,20 @@ plugins:
         - nebula-dashboard-ent/4.cluster-operator/cluster-information/job-management.md
         # 仅发布包含企业版功能的文档版本时，注释以下页面
         # begin
-#       - 3.ngql-guide/6.functions-and-expressions/17.ES-function.md
-#       - 4.deployment-and-installation/deploy-license.md
-#       - 5.configurations-and-logs/2.log-management/audit-log.md
-#       - 7.data-security/1.authentication/4.ldap.md
-#       - graph-computing/0.deploy-controller-analytics.md
-#       - graph-computing/nebula-analytics.md
-#       - graph-computing/use-explorer.md
-#       - nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
-#       - nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
-#       - synchronization-and-migration/replication-between-clusters.md
-#       - 20.appendix/8.about-license/
-#       - nebula-dashboard-ent/4.cluster-operator/operator/scale.md
-#       - 6.monitor-and-metrics/3.bbox
+        - 3.ngql-guide/6.functions-and-expressions/17.ES-function.md
+        - 4.deployment-and-installation/deploy-license.md
+        - 5.configurations-and-logs/2.log-management/audit-log.md
+        - 7.data-security/1.authentication/4.ldap.md
+        - graph-computing/0.deploy-controller-analytics.md
+        - graph-computing/nebula-analytics.md
+        - graph-computing/use-explorer.md
+        - nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
+        - nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
+        - synchronization-and-migration/replication-between-clusters.md
+        - 20.appendix/8.about-license/
+        - nebula-dashboard-ent/4.cluster-operator/operator/scale.md
+        - 6.monitor-and-metrics/3.bbox
+        - backup-and-restore/nebula-br-ent/*
         # end
         
 
@@ -202,9 +203,9 @@ extra:
     branch: release-3.3
     tag: v3.3.1
   br:
-    release: 0.6.1
-    branch: master
-    tag: v0.6.1
+    release: 3.3.0
+    branch: release-3.3
+    tag: v3.3.0
   br_ent:
     release: 0.7.0
     tag: v0.7.0
@@ -495,11 +496,12 @@ nav:
         - 编译 BR: backup-and-restore/nebula-br/2.compile-br.md
         - 使用 BR 备份数据: backup-and-restore/nebula-br/3.br-backup-data.md
         - 使用 BR 恢复数据: backup-and-restore/nebula-br/4.br-restore-data.md
-      - NebulaGraph BR（企业版）:
-        - BR（企业版）概述: backup-and-restore/nebula-br-ent/1.br-ent-overview.md
-        - 安装 BR: backup-and-restore/nebula-br-ent/2.install-tools.md
-        - 使用 BR 备份数据: backup-and-restore/nebula-br-ent/3.backup-data.md
-        - 使用 BR 恢复数据: backup-and-restore/nebula-br-ent/4.restore-data.md
+#ent
+#ent      - NebulaGraph BR（企业版）:
+#ent        - BR（企业版）概述: backup-and-restore/nebula-br-ent/1.br-ent-overview.md
+#ent        - 安装 BR: backup-and-restore/nebula-br-ent/2.install-tools.md
+#ent        - 使用 BR 备份数据: backup-and-restore/nebula-br-ent/3.backup-data.md
+#ent        - 使用 BR 恢复数据: backup-and-restore/nebula-br-ent/4.restore-data.md
       - 快照: backup-and-restore/3.manage-snapshot.md
 
   - 同步与迁移:
