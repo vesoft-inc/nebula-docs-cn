@@ -553,7 +553,6 @@ nav:
       - 使用限制: nebula-studio/about-studio/st-ug-limitations.md
     - 安装与登录:
       - 部署 Studio: nebula-studio/deploy-connect/st-ug-deploy.md
-      - 使用 Helm 部署 Studio: nebula-studio/deploy-connect/st-ug-deploy-by-helm.md
       - 连接数据库: nebula-studio/deploy-connect/st-ug-connect.md
     - 快速开始:
       - 规划 Schema: nebula-studio/quick-start/st-ug-plan-schema.md
