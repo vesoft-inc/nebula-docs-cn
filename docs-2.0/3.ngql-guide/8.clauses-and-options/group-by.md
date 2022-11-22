@@ -33,7 +33,7 @@ nebula>  MATCH (v:player)<-[:follow]-(:player) RETURN v.player.name AS Name, cou
 ```
 `aggregation_function()`函数支持`avg()`、`sum()`、`max()`、`min()`、`count()`、`collect()`、`std()`。
 
-### 示例
+## 示例
 
 ```ngql
 # 查找所有连接到 player100 的点，并根据他们的姓名进行分组，返回姓名的出现次数。
@@ -73,7 +73,7 @@ nebula> GO FROM "player100" OVER follow \
 `sum()`函数详情请参见[内置数学函数](../6.functions-and-expressions/1.math.md)。
 
 
-### 隐式分组
+## 隐式分组
 
 在上述 nGQL 语句中明确写出`GROUP BY`并起到分组字段作用的用法称为`GROUP BY`显示用法；而在 openCypher 语句中`GROUP BY`的用法是隐式的，即在语句中不用写出`GROUP BY`也可起到分组字段的作用。nGQL 语句中显示地`GROUP BY`用法与 openCypher 语句中的隐式地`GROUP BY`用法相同，并且 nGQL 语句兼容 openCypher 的用法，即也支持隐式地使用`GROUP BY`。有关`GROUP BY`的隐式用法，请参见[Implicit Group By](https://neo4j.com/docs/cypher-manual/current/functions/aggregating/#grouping-keys)。
 
