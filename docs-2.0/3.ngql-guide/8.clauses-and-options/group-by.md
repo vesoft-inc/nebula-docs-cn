@@ -35,7 +35,7 @@ nebula>  MATCH (v:player)<-[:follow]-(:player) RETURN v.player.name AS Name, cou
 
 !!! note
 
-    nGQL 语法同时兼容 openCypher 语法中 `GROUP BY` 的隐式用法。即当涉及聚合函数的时候，默认隐式使用 `GROUP BY`；如果不写出 `GROUP BY` 关键词，没有聚合函数的 YIELD 列也是被隐式地 `GROUP BY`。例如：查询 34 岁以上的球员中完全重叠服役的区间。
+    nGQL 语法同时兼容 openCypher 语法中 `GROUP BY` 的隐式用法。即当涉及聚合函数的时候，默认隐式使用 `GROUP BY`；如果不写出 `GROUP BY` 关键词，没有聚合函数的 YIELD 列也是被隐式地 `GROUP BY`。例如：查询 34 岁以上的球员中完全重叠服役的区间的语句如下。
 
     ```ngql
     nebula> LOOKUP ON player WHERE player.age > 34 YIELD id(vertex) AS v |
