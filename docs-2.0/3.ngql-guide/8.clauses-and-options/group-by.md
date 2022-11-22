@@ -83,7 +83,7 @@ nebula> GO FROM "player100" OVER follow \
 nebula> LOOKUP ON player WHERE player.age > 34 YIELD id(vertex) AS v | \
         GO FROM $-.v OVER serve YIELD serve.start_year AS start_year, serve.end_year AS end_year | \
         YIELD $-.start_year, $-.end_year, count(*) AS count | \
-        ORDER BY $-.count DESC | LIMIT 5
+        ORDER BY $-.count DESC | LIMIT 5;
 +---------------+-------------+-------+
 | $-.start_year | $-.end_year | count |
 +---------------+-------------+-------+
