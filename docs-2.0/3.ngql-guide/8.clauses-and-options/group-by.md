@@ -80,9 +80,10 @@ nebula> GO FROM "player100" OVER follow \
 例如：查询 34 岁以上的球员中完全重叠服役的区间。
 
 ```ngql
-nebula> LOOKUP ON player WHERE player.age > 34 YIELD id(vertex) AS v |
-        GO FROM $-.v OVER serve YIELD serve.start_year AS start_year, serve.end_year AS end_year | 
-        YIELD $-.start_year, $-.end_year, count(*) AS count | ORDER BY $-.count DESC | LIMIT 5
+nebula> LOOKUP ON player WHERE player.age > 34 YIELD id(vertex) AS v | \
+        GO FROM $-.v OVER serve YIELD serve.start_year AS start_year, serve.end_year AS end_year | \
+        YIELD $-.start_year, $-.end_year, count(*) AS count | \
+        ORDER BY $-.count DESC | LIMIT 5
 +---------------+-------------+-------+
 | $-.start_year | $-.end_year | count |
 +---------------+-------------+-------+
