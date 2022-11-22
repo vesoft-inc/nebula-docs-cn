@@ -83,9 +83,6 @@ plugins:
         - 4.deployment-and-installation/deploy-license.md
         - 5.configurations-and-logs/2.log-management/audit-log.md
         - 7.data-security/1.authentication/4.ldap.md
-        - graph-computing/0.deploy-controller-analytics.md
-        - graph-computing/nebula-analytics.md
-        - graph-computing/use-explorer.md
         - nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
         - nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
         - synchronization-and-migration/replication-between-clusters.md
@@ -596,7 +593,8 @@ nav:
 #          - 集群作业管理: nebula-dashboard-ent/4.cluster-operator/cluster-information/job-management.md
         - 集群操作: 
           - 节点管理: nebula-dashboard-ent/4.cluster-operator/operator/node.md
-          - 扩缩容: nebula-dashboard-ent/4.cluster-operator/operator/scale.md
+#ent
+#ent          - 扩缩容: nebula-dashboard-ent/4.cluster-operator/operator/scale.md
           - 服务管理: nebula-dashboard-ent/4.cluster-operator/operator/service.md
           - 更新配置: nebula-dashboard-ent/4.cluster-operator/operator/update-config.md
           - 成员管理: nebula-dashboard-ent/4.cluster-operator/operator/member-management.md
@@ -687,7 +685,8 @@ nav:
       - 导入 Kafka 数据: nebula-exchange/use-exchange/ex-ug-import-from-kafka.md
       - 导入通用 JDBC 数据: nebula-exchange/use-exchange/ex-ug-import-from-jdbc.md
       - 导入 SST 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-sst.md
-      - 导出 NebulaGraph 数据: nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
+#ent
+#ent      - 导出 NebulaGraph 数据: nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
     - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
 
   - NebulaGraph Operator:
