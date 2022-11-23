@@ -183,6 +183,9 @@ extra:
     release: 0.6.1
     branch: master
     tag: v0.6.1
+  agent:
+    release: 0.2.0
+    tag: v0.2.0
   cpp:
     release: 3.0.2
     branch: v3.0.2
@@ -445,7 +448,7 @@ nav:
   - 备份与恢复:
       - Nebula BR:
         - 什么是 BR: backup-and-restore/nebula-br/1.what-is-br.md
-        - 编译 BR: backup-and-restore/nebula-br/2.compile-br.md
+        - 安装 BR: backup-and-restore/nebula-br/2.compile-br.md
         - 使用 BR 备份数据: backup-and-restore/nebula-br/3.br-backup-data.md
         - 使用 BR 恢复数据: backup-and-restore/nebula-br/4.br-restore-data.md
       - 管理快照: backup-and-restore/3.manage-snapshot.md
