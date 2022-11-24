@@ -183,7 +183,7 @@ extra:
     release: 0.6.1
     branch: master
     tag: v0.6.1
-  agent
+  agent:
     release: 0.2.0
     tag: v0.2.0
   cpp:
