@@ -149,17 +149,21 @@
 
 ## FAQ
 
-Q：升级过程中是否可以通过客户端写入数据？
+### 升级过程中是否可以通过客户端写入数据？
 
-A：不可以。升级过程中需要停止所有服务。
+不可以。升级过程中需要停止所有服务。
 
-Q：如果某台机器只有 Graph 服务，没有 Storage 服务，如何升级？
+### 升级过程中出现`Space 0 not found`。
 
-A：只需要升级 Graph 服务对应的二进制文件和配置文件。
+当升级过程中出现`Space 0 not found`告警信息时，用户可以忽略这个信息。升级过程会从磁盘读取所有 Space ID，而`0`（路径为`<nebula_storagepath>/data/storage/nebula/0`）并不会存在磁盘上。Space `0` 用来存储 Storage 服务的元信息，并不包含用户数据，因此不会影响升级。
 
-Q：操作报错 `Permission denied`。
+### 如果某台机器只有 Graph 服务，没有 Storage 服务，如何升级？
 
-A：部分命令需要有 sudo 权限。
+只需要升级 Graph 服务对应的二进制文件和配置文件。
+
+### 操作报错 `Permission denied`。
+
+部分命令需要有 sudo 权限。
 
 <!--
 Q：是否有 gflags 发生改变？
@@ -167,13 +171,13 @@ Q：是否有 gflags 发生改变？
 A: 有部分 glags 改变了，详情参见版本发布说明和配置说明文档。
 -->
 
-Q：是否有工具或者办法验证新旧版本数据是否一致？
+### 是否有工具或者办法验证新旧版本数据是否一致？
 
-A：没有。如果只是检查数据量，可以在升级完成后再次运行`SUBMIT JOB STATS`和`SHOW STATS`统计数据量，并与升级之前做对比。
+没有。如果只是检查数据量，可以在升级完成后再次运行`SUBMIT JOB STATS`和`SHOW STATS`统计数据量，并与升级之前做对比。
 
-Q: Storage `OFFLINE`并且`Leader count`是`0`怎么处理？
+### Storage `OFFLINE`并且`Leader count`是`0`怎么处理？
 
-A：运行以下命令手动添加 Storage 主机：
+运行以下命令手动添加 Storage 主机：
 
 ```ngql
 ADD HOSTS <ip>:<port>[, <ip>:<port> ...];
@@ -189,10 +193,10 @@ ADD HOSTS 192.168.10.100:9779, 192.168.10.101:9779, 192.168.10.102:9779;
 
 如果添加 Storage 主机后问题仍然存在，在[论坛](https://discuss.nebula-graph.com.cn/)或 [GitHub](https://github.com/vesoft-inc/nebula/issues) 提问。
 
-Q：为什么升级后用`SHOW JOBS`查询到的 Job 的 ID 与升级前一样，但 Job 名称等信息不同了？
+### 为什么升级后用`SHOW JOBS`查询到的 Job 的 ID 与升级前一样，但 Job 名称等信息不同了？
 
-A： NebulaGraph 2.5.0 版本调整了 Job 的定义，详情参见 [Pull request](https://github.com/vesoft-inc/nebula-common/pull/562/files)。如果是从 2.5.0 之前的版本升级，会出现该问题。
+NebulaGraph 2.5.0 版本调整了 Job 的定义，详情参见 [Pull request](https://github.com/vesoft-inc/nebula-common/pull/562/files)。如果是从 2.5.0 之前的版本升级，会出现该问题。
 
-Q: 有哪些语法不兼容 ?
+### 有哪些语法不兼容 ?
 
 A: 参见[Release Note](../../20.appendix/release-notes/nebula-comm-release-note.md) Incompatibility 部分。
