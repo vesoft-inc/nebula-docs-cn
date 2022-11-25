@@ -155,7 +155,7 @@
 
 ### 升级过程中出现`Space 0 not found`。
 
-当升级过程中出现`Space 0 not found`告警信息时，用户可以忽略这个信息。因为升级过程会从磁盘读取所有 Space ID，而`0`（路径为`<nebula_storagepath>/data/storage/nebula/0`）并不会存在磁盘上，所以 localCache 里不会有 Space `0`相关数据。之所以可以忽略是因为 Space `0` 不含用户数据，它只用来存 JobManager 的 Task 状态。
+当升级过程中出现`Space 0 not found`告警信息时，用户可以忽略这个信息。升级过程会从磁盘读取所有 Space ID，而`0`（路径为`<nebula_storagepath>/data/storage/nebula/0`）并不会存在磁盘上。Space `0` 用来存储 Storage 服务的元信息，并不包含用户数据，因此不会影响升级。
 
 ### 如果某台机器只有 Graph 服务，没有 Storage 服务，如何升级？
 
