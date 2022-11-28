@@ -16,7 +16,6 @@
 NebulaGraph 是一款开源的、分布式的、易扩展的原生图数据库，能够承载数千亿个点和数万亿条边的超大规模数据集，并且提供毫秒级查询。
 
 
-
 ## 快速开始
 * [学习路径](20.appendix/learning-path.md)与[获取认证](https://academic.nebula-graph.io/?lang=ZH_CN)
 * [什么是 NebulaGraph](1.introduction/1.what-is-nebula-graph.md)
@@ -35,6 +34,7 @@ NebulaGraph 是一款开源的、分布式的、易扩展的原生图数据库�
 - [NebulaGraph Dashboard](20.appendix/release-notes/dashboard-comm-release-note.md)
 - [NebulaGraph Dashboard 企业版](20.appendix/release-notes/dashboard-ent-release-note.md)
 - [NebulaGraph Explorer](20.appendix/release-notes/explorer-release-note.md)
+
 
 ## 其他资料
 
