@@ -1,8 +1,10 @@
 # Nebula Graph {{ nebula.release }} release notes
 
-## 优化
+## 变更
 
 - 默认不支持插入无 Tag 的点。如需使用无 Tag 的点，在集群内所有 Graph 服务的配置文件（`nebula-graphd.conf`）中新增`--graph_use_vertex_key=true`；在所有 Storage 服务的配置文件（`nebula-storaged.conf`）中新增`--use_vertex_key=true`。
+
+## 优化
 
 - 支持查询[集群间同步进度](../synchronization-and-migration/replication-between-clusters.md)。
 
