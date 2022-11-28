@@ -118,45 +118,12 @@
   !!! note
         如果启动异常，放弃本次升级，并在[论坛](https://discuss.nebula-graph.com.cn/)或 [GitHub](https://github.com/vesoft-inc/nebula/issues) 提问。
 
-5. 使用`bin`目录下的新版 db_upgrader 文件升级数据格式。
-
-  !!! danger
-        本步骤不会备份 Storage 服务中保存的数据。升级数据格式前，务必按照本文**升级准备**部分的说明备份数据。
-
-  命令语法：
-
-  ```
-  <nebula_install_path>/bin/db_upgrader \
-  --src_db_path=<old_storage_data_path> \
-  --dst_db_path=<data_backup_path> \
-  --upgrade_meta_server=<meta_server_ip>:<port>[, <meta_server_ip>:<port> ...] \
-  --upgrade_version=2:3
-  ```
-
-  - `old_storage_data_path`代表数据的存储路径，由 Storage 服务配置文件中的`data_path`参数定义。
-  - `data_backup_path`代表自定义的数据备份路径。**当前版本该设置不生效，升级数据格式时不会将原有数据备份到任何路径。**
-  - `meta_server_ip`和`port`分别代表 Meta 服务各节点的 IP 地址和端口号。
-  - `2:3`代表从 Nebula Graph 2.x 版本升级到 3.x 版本。
-
-  本文示例：
-
-  ```
-  <nebula_install_path>/bin/db_upgrader \
-  --src_db_path=/usr/local/nebula/data/storage \
-  --dst_db_path=/home/vesoft/nebula/data-backup \
-  --upgrade_meta_server=192.168.8.132:9559 \
-  --upgrade_version=2:3
-  ```
-
-  !!! note
-        如果出现异常，放弃本次升级，并在[论坛](https://discuss.nebula-graph.com.cn/)或 [GitHub](https://github.com/vesoft-inc/nebula/issues) 提问。
-
-6. 启动所有 Graph 和 Storage 服务。
+5. 启动所有 Graph 和 Storage 服务。
 
   !!! note
         如果启动异常，放弃本次升级，并在[论坛](https://discuss.nebula-graph.com.cn/)或 [GitHub](https://github.com/vesoft-inc/nebula/issues) 提问。
 
-7. 连接新版 Nebula Graph，验证服务是否可用、数据是否正常。连接方法参见[连接服务](../connect-to-nebula-graph.md)。
+6. 连接新版 Nebula Graph，验证服务是否可用、数据是否正常。连接方法参见[连接服务](../connect-to-nebula-graph.md)。
 
   目前尚无有效方式判断升级是否完全成功，可用于测试的参考命令如下：
 

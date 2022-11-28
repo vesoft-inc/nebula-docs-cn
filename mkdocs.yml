@@ -8,7 +8,7 @@ docs_dir: docs-2.0
 copyright: Copyright &copy; 2022 Nebula Graph - 浙ICP备20010487号
  
 # modify when release: 
-edit_uri: 'edit/v3.1.0/docs-2.0/'  
+edit_uri: 'edit/v3.1.3/docs-2.0/'  
 
 # Configuration
 theme:
@@ -86,7 +86,7 @@ plugins:
 # modify when release:
   - with-pdf:
       copyright: 2022 vesoft Inc.
-      cover_subtitle: v3.1.0
+      cover_subtitle: v3.1.3
       author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
       cover: true
       back_cover: true
@@ -113,13 +113,13 @@ extra:
     - icon: 'fontawesome/brands/github'
       link: 'https://github.com/vesoft-inc/nebula-docs-cn'
   nebula:
-    release: 3.1.0
+    release: 3.1.3
     nightly: nightly
     master: master
     base20: 2.0
     base200: 2.0.0
     branch: release-3.1
-    tag: v3.1.0
+    tag: v3.1.3
   studio:
     base111b: 1.1.1-beta
     base220: 2.2.1
@@ -628,6 +628,7 @@ nav:
       - 导入 MaxCompute 数据: nebula-exchange/use-exchange/ex-ug-import-from-maxcompute.md
       - 导入 Pulsar 数据: nebula-exchange/use-exchange/ex-ug-import-from-pulsar.md
       - 导入 Kafka 数据: nebula-exchange/use-exchange/ex-ug-import-from-kafka.md
+      - 导入通用 JDBC 数据: nebula-exchange/use-exchange/ex-ug-import-from-jdbc.md
       - 导入 SST 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-sst.md
       - 导出 Nebula Graph 数据: nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
     - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md

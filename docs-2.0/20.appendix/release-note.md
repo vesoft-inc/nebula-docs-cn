@@ -2,55 +2,54 @@
 
 ## 优化
 
-- 支持在表达式中使用模式，如：`MATCH (v:player) WHERE (v)-[:like]->() RETURN v`。[#3997](https://github.com/vesoft-inc/nebula/pull/3997) 
-- 支持用`CLEAR SPACE`清除图空间数据并保留 Schema 信息。[#3989](https://github.com/vesoft-inc/nebula/pull/3989) 
-- 支持在匹配模式中重复点的别名，如：`MATCH (v)-->(v)`。[#3929](https://github.com/vesoft-inc/nebula/pull/3929) 
-- 优化`SUBGRAPH`和`FIND PATH`从而提高性能。[#3871](https://github.com/vesoft-inc/nebula/pull/3871) [#4095](https://github.com/vesoft-inc/nebula/pull/4095) 
-- 优化路径以减少冗余路径和时间复杂度。[#4126](https://github.com/vesoft-inc/nebula/pull/4162) 
-- 优化获取属性的方式进而优化`MATCH`语句的性能。[#3750](https://github.com/vesoft-inc/nebula/pull/3750) 
-- 优化`GO`、`YIELD`子句，减少不必要的属性读取。[#3974](https://github.com/vesoft-inc/nebula/pull/3974) 
-- 支持获取属性时 Filter 及`LIMIT`下推。 [#3844](https://github.com/vesoft-inc/nebula/pull/3844) [#3839](https://github.com/vesoft-inc/nebula/pull/3839) 
-- `maxHop`在匹配可变长度路径中是可选的。[#3881](https://github.com/vesoft-inc/nebula/pull/3881) 
-- 使用`DROP SPACE`之后图空间将进行物理删除。[#3913](https://github.com/vesoft-inc/nebula/pull/3913) 
-- 优化日期时间/日期/时间中数字解析。[#3797](https://github.com/vesoft-inc/nebula/pull/3797) 
-- 添加`toSet`函数，将`LIST`或`SET`转换为`SET`。[#3594](https://github.com/vesoft-inc/nebula/pull/3594) 
-- 支持使用 nGQL 来显示服务的 HTTP 端口，并禁用 HTTP2 端口。[#3808](https://github.com/vesoft-inc/nebula/pull/3808) 
-- 限制单用户、单机器连接数据库的会话数量。[#3729](https://github.com/vesoft-inc/nebula/pull/3729) 
-- 优化存储启动时的等待机制，保证与 Meta 服务及时连接。[#3971](https://github.com/vesoft-inc/nebula/pull/3971) 
-- 当节点存在多条路径，某条数据路径对应磁盘故障时，不再需要重建整个节点。[#4131](https://github.com/vesoft-inc/nebula/pull/4131)
-- 优化 Job 管理。[#3976](https://github.com/vesoft-inc/nebula/pull/3976) [#4045](https://github.com/vesoft-inc/nebula/pull/4045) [#4001](https://github.com/vesoft-inc/nebula/pull/4001)  
-- 支持在作业管理中管理`DOWNLOAD`、`INGEST SST`文件。[#3994](https://github.com/vesoft-inc/nebula/pull/3994)
-- 支持显示失败作业的错误码。[#4067](https://github.com/vesoft-inc/nebula/pull/4067) 
-- 支持禁用 OS 页面缓存，只在共享环境中使用块缓存和 Nebula 存储缓存，以避免应用程序之间的内存占用干扰。[#3890](https://github.com/vesoft-inc/nebula/pull/3890) 
-- 更新 KV 分离阈值的默认值（从 0 到 100）。[#3879](https://github.com/vesoft-inc/nebula/pull/3879) 
-- 支持 gflag 设置表达式深度上限，方便调整适配不同的机器环境。[#3722](https://github.com/vesoft-inc/nebula/pull/3722) 
-- 新增`KILL QUERY`的权限检查。当启用身份验证时，具有 GOD 角色的用户可以终止所有查询，而具有其他角色的用户只能终止自己的查询。[#3896](https://github.com/vesoft-inc/nebula/pull/3896) 
-- 新增 distcc、sccache 等编译方式的支持。[#3896](https://github.com/vesoft-inc/nebula/pull/3896) 
-- meta dump 工具支持更多可 dump 的表。[#3870](https://github.com/vesoft-inc/nebula/pull/3870) 
-- 存储层将写操作（`INSERT VERTEX`或者`INSERT EDGE`）的并发控制，从报错并要求客户端重试，改为内部排队，以便客户端更简单适配。[#3926](https://github.com/vesoft-inc/nebula/pull/3926)
+- 默认不支持插入无 Tag 的点。如需使用无 Tag 的点，在集群内所有 Graph 服务的配置文件（`nebula-graphd.conf`）中新增`--graph_use_vertex_key=true`；在所有 Storage 服务的配置文件（`nebula-storaged.conf`）中新增`--use_vertex_key=true`。
+
+- 支持查询[集群间同步进度](../synchronization-and-migration/replication-between-clusters.md)。
+
+- 增强`AtomicLogBuffer`的内存使用，避免重建索引和数据同步时的 OOM 问题。
+
+- 统一配置文件的示例和描述。
+
+- 调整心跳日志的级别。
 
 ## 缺陷修复
 
-- 修复`LOOKUP`中使用函数调用作为过滤器的一部分导致的服务崩溃问题。[#4111](https://github.com/vesoft-inc/nebula/pull/4111) 
-- 修复`IN`表达式中的属性没有索引绑定时的崩溃问题。[#3986](https://github.com/vesoft-inc/nebula/pull/3986) 
-- 修复并发扫描点或者边时导致 Storage 服务崩溃的问题。[#4190](https://github.com/vesoft-inc/nebula/pull/4190) 
-- 修复`MATCH`语句的聚合子句中，使用模式表达式时崩溃的问题。[#4180](https://github.com/vesoft-inc/nebula/pull/4180) 
-- 修复获取`profile`查询的 JSON 结果导致的崩溃问题。[#3998](https://github.com/vesoft-inc/nebula/pull/3998) 
-- 修复 Lambda 函数中的`async`接口运行完毕且`threadManager`中的任务未执行时的崩溃问题。[#4000](https://github.com/vesoft-inc/nebula/pull/4000) 
-- 修复`GROUP BY`输出的缺陷。[#4128](https://github.com/vesoft-inc/nebula/pull/4128) 
-- 修复`SHOW HOSTS`有时不能显示版本的缺陷。[#4116](https://github.com/vesoft-inc/nebula/pull/4116) 
-- 修复`id(n) == $var`，`id(n) IN [$var]`，`id(n) == $var.foo.bar`，`id(n) IN $var.foo.bar`参数化的缺陷。[#4024](https://github.com/vesoft-inc/nebula/pull/4024) 
-- 修复`MATCH...WHERE`中出现错误路径方向的缺陷。[#4091](https://github.com/vesoft-inc/nebula/pull/4091) 
-- 修复`WHERE`子句同时引用多`MATCH`变量结果显示不正确的缺陷。 [#4143](https://github.com/vesoft-inc/nebula/pull/4143) 
-- 修复优化规则的缺陷。[#4146](https://github.com/vesoft-inc/nebula/pull/4146) 
-- 修复节点处理 Raft 快照失败的缺陷。[#4019](https://github.com/vesoft-inc/nebula/pull/4019) 
-- 修复节点接收快照后无法接受更多日志的缺陷。[#3909]( https://github.com/vesoft-inc/nebula/pull/3909)
-- 修复快照中不包含不带 Tag 的点的缺陷。[#4189](https://github.com/vesoft-inc/nebula/pull/4189) 
-- 修复同一个 Tag 或者 Edge 的版本超过 255 后读取最新版本的 Schema 失败的缺陷。[#4023](https://github.com/vesoft-inc/nebula/pull/4023) 
-- 修复`SHOW STATS`不统计不带 Tag 的点的缺陷。[#3967](https://github.com/vesoft-inc/nebula/pull/3967) 
-- 修复有时时间戳获取错误的缺陷。[#3958](https://github.com/vesoft-inc/nebula/pull/3958) 
-- 修复可以为`root`用户分配图空间中的其他角色的缺陷。[#3868](https://github.com/vesoft-inc/nebula/pull/3868) 
-- 修复词法分析器中的列索引重复计数的缺陷。[#3626](https://github.com/vesoft-inc/nebula/pull/3626) 
+- 修复 Web 服务收到特殊攻击消息时崩溃的问题。
+- 修复删除全文索引导致的崩溃问题。
+- 修复并发 map 导致的崩溃问题。
+- 修复 Raft 在某些场景下的崩溃问题。
+- 修复删除点或边导致的崩溃问题。
+- 修复表达式的语法错误导致崩溃的问题。
+- 修复`LOOKUP`语句导致崩溃的问题。
+- 修复复合`MATCH`语句导致崩溃的问题。
+- 修复多`MATCH`语句优化阶段崩溃的问题。
+- 修复收集变量类型导致崩溃的问题。
+- 修复 Web 服务崩溃的问题。
+- 修复表达式非法导致崩溃的问题。
+- 修复只有图空间路径没有分区路径时 Storage 服务崩溃的问题。
+- 修复`BALANCE LEADER`任务执行器的死锁问题。
+- 修复构建`BALANCE`计划时无限循环的问题。
+- 修复重建全文索引失败的问题。
+- 修复使用 logrotate 的问题。
+- 修复数据恢复时机器密钥丢失的问题。
+- 修复备份时 Zone 丢失的问题。
+- 修复取消快照 future 时主机无法停止的问题。
+- 修复缓存大小溢出和死锁的问题。
+- 修复 MetaDaemon 缺少`RETURN`子句的问题。
+- 修复 Raft 的脑裂问题。
+- 修复 Meta listener 无法让 License 生效的问题。
+- 修复 Meta listener 不清理数据的问题。
+- 修复 drainer 同步脏数据的问题。
+- 修复 drainer 守护进程无法正常退出的问题。
+- 修复审计日志无法异步使用的问题。
+- 修复多`MATCH`语句并发异常的问题。
+- 修复无法正常重新执行重建 Tag 索引任务的问题。
+- 修复停止执行中的任务后，重建 Tag 索引任务总是失败的问题。
+- 修复由于 UTF8 字符被截断导致 ElasticSearch 写入错误的问题。
+- 修复写入 ElasticSearch 前删除截断文本的问题。
+- 修复使用 ElasticSearch 保存审计日志时，没有记录 DML 和 DQL 类型的审计日志的问题。
+- 修复当`ENABLE_BREAKPAD`启用时，如果日志目录不存在，会导致服务无法启动的问题。
+- 修复如果 GOD 角色的用户名不为`root`，Meta 服务初始化时会自动创建`root`用户的问题。
 
 ## 历史版本
 

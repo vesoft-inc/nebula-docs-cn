@@ -1,6 +1,6 @@
 # 集群间数据同步
 
-Nebula Graph 支持在集群间进行数据同步，即主集群 A 的数据可以近实时地复制到从集群 B 中，方便用户进行异地灾备或分流，降低数据丢失的风险，保证数据安全。
+NebulaGraph 支持在集群间进行数据同步，即主集群 A 的数据可以近实时地复制到从集群 B 中，方便用户进行异地灾备或分流，降低数据丢失的风险，保证数据安全。
 
 !!! enterpriseonly
 
@@ -58,7 +58,7 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
 ### 1.搭建主从集群、listener 和 drainer 服务
 
-1. 在所有机器上安装 Nebula Graph，修改配置文件：
+1. 在所有机器上安装 NebulaGraph，修改配置文件：
 
   - 主、从集群修改：`nebula-graphd.conf`、`nebula-metad.conf`、`nebula-storaged.conf`。
 
@@ -86,7 +86,7 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
 2. 在主从集群和 listener 服务的机器上放置 License 文件，路径为安装目录的`share/resources/`内。
 
-3. 在所有机器的 Nebula Graph 安装目录内启动对应的服务：
+3. 在所有机器的 NebulaGraph 安装目录内启动对应的服务：
 
   - 主、从集群启动命令：`sudo scripts/nebula.service start all`。
 
@@ -106,21 +106,21 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
   +------------------+------+----------+-----------+--------------+----------------------+
   | Host             | Port | Status   | Role      | Git Info Sha | Version              |
   +------------------+------+----------+-----------+--------------+----------------------+
-  | "192.168.10.101" | 9779 | "ONLINE" | "STORAGE" | "xxxxxxx"    | "ent-3.1.0"          |
+  | "192.168.10.101" | 9779 | "ONLINE" | "STORAGE" | "xxxxxxx"    | "ent-3.1.3"          |
   +------------------+------+----------+-----------+--------------+----------------------+
 
   nebula> SHOW HOSTS STORAGE LISTENER;
   +------------------+------+----------+--------------------+--------------+----------------------+
   | Host             | Port | Status   | Role               | Git Info Sha | Version              |
   +------------------+------+----------+--------------------+--------------+----------------------+
-  | "192.168.10.103" | 9789 | "ONLINE" | "STORAGE_LISTENER" | "xxxxxxx"    | "ent-3.1.0"          |
+  | "192.168.10.103" | 9789 | "ONLINE" | "STORAGE_LISTENER" | "xxxxxxx"    | "ent-3.1.3"          |
   +------------------+------+----------+--------------------+--------------+----------------------+
 
   nebula> SHOW HOSTS META LISTENER;
   +------------------+------+----------+-----------------+--------------+----------------------+
   | Host             | Port | Status   | Role            | Git Info Sha | Version              |
   +------------------+------+----------+-----------------+--------------+----------------------+
-  | "192.168.10.103" | 9569 | "ONLINE" | "META_LISTENER" | "xxxxxxx"    |  "ent-3.1.0"         |
+  | "192.168.10.103" | 9569 | "ONLINE" | "META_LISTENER" | "xxxxxxx"    |  "ent-3.1.3"         |
   +------------------+------+----------+-----------------+--------------+----------------------+
   ```
 
@@ -132,14 +132,14 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
   +------------------+------+----------+-----------+--------------+----------------------+
   | Host             | Port | Status   | Role      | Git Info Sha | Version              |
   +------------------+------+----------+-----------+--------------+----------------------+
-  | "192.168.10.102" | 9779 | "ONLINE" | "STORAGE" | "xxxxxxx"    | "ent-3.1.0"          |
+  | "192.168.10.102" | 9779 | "ONLINE" | "STORAGE" | "xxxxxxx"    | "ent-3.1.3"          |
   +------------------+------+----------+-----------+--------------+----------------------+
 
   nebula> SHOW HOSTS DRAINER;
   +------------------+------+----------+-----------+--------------+----------------------+
   | Host             | Port | Status   | Role      | Git Info Sha | Version              |
   +------------------+------+----------+-----------+--------------+----------------------+
-  | "192.168.10.104" | 9889 | "ONLINE" | "DRAINER" | "xxxxxxx"    | "ent-3.1.0"          |
+  | "192.168.10.104" | 9889 | "ONLINE" | "DRAINER" | "xxxxxxx"    | "ent-3.1.3"          |
   +------------------+------+----------+-----------+--------------+----------------------+
   ```
 
@@ -279,11 +279,120 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
 ## 停止/重启数据同步
 
-数据同步时，listener 会持续发送 WAL 给 drainer。
+数据同步时，listener 会持续发送数据给 drainer。
 
-如果需要停止数据同步，可以使用`stop sync`命令。此时 listener 会停止向 drainer 发送 WAL。
+如果需要停止数据同步，可以使用`STOP SYNC`命令。此时 listener 会停止向 drainer 同步数据。
 
-如果需要重启数据同步，可以使用`restart sync`命令。此时 listener 会向 drainer 发送停止期间堆积的 WAL。如果 listener 上的 WAL 丢失， listener 会从主集群拉取快照重新进行同步。
+如果需要重启数据同步，可以使用`RESTART SYNC`命令。此时 listener 会向 drainer 发送停止期间堆积的数据。如果 listener 上的 WAL 丢失，listener 会从主集群拉取快照重新进行同步。
+
+## 查看集群间数据同步状态
+
+用户向主集群中写入数据时，可以查看集群间数据同步的状态，以判断数据同步是否正常。
+
+### 查看主集群同步数据的状态
+
+在主集群中执行`SHOW SYNC STATUS`命令可查看主集群给从集群发送数据的状态。`SHOW SYNC STATUS`实时获取集群间数据同步状态的信息，只有当主集群写入成功了，才往从集群发送同步数据。
+
+示例如下：
+
+```ngql
+// 在主集群中写入数据。
+nebula> INSERT VERTEX player(name,age) VALUES "player102":("LaMarcus Aldridge", 33);
+nebula> INSERT VERTEX player(name,age) VALUES "player102":("LaMarcus Aldridge", 33);
+nebula> INSERT VERTEX player(name,age) VALUES "player103":("Rudy Gay", 32);
+nebula> INSERT VERTEX player(name,age) VALUES "player104":("Marco Belinelli", 32);
+
+// 查看当前集群数据同步的状态（返回结果表示正在发送数据给从集群中）。
+nebula> SHOW SYNC STATUS;
++--------+-------------+-----------+--------------+
+| PartId | Sync Status | LogId Lag | Time Latency |
++--------+-------------+-----------+--------------+
+| 0      | "ONLINE"    | 0         | 0            |
+| 1      | "ONLINE"    | 0         | 0            |
+| 2      | "ONLINE"    | 0         | 0            |
+| 3      | "ONLINE"    | 0         | 0            |
+| 4      | "ONLINE"    | 0         | 0            |
+| 5      | "ONLINE"    | 1         | 46242122     |
+| 6      | "ONLINE"    | 0         | 0            |
+| 7      | "ONLINE"    | 0         | 0            |
+| 8      | "ONLINE"    | 0         | 0            |
+| 9      | "ONLINE"    | 0         | 0            |
+| 10     | "ONLINE"    | 0         | 0            |
+| 11     | "ONLINE"    | 0         | 0            |
+| 12     | "ONLINE"    | 0         | 0            |
+| 13     | "ONLINE"    | 0         | 0            |
+| 14     | "ONLINE"    | 0         | 0            |
+| 15     | "ONLINE"    | 0         | 0            |
++--------+-------------+-----------+--------------+
+// 再次查看当前集群数据同步的状态（返回结果表示数据已完全同步至从集群，没有需要待同步的数据）。
+nebula> SHOW SYNC STATUS;
++--------+-------------+-----------+--------------+
+| PartId | Sync Status | LogId Lag | Time Latency |
++--------+-------------+-----------+--------------+
+| 0      | "ONLINE"    | 0         | 0            |
+| 1      | "ONLINE"    | 0         | 0            |
+| 2      | "ONLINE"    | 0         | 0            |
+| 3      | "ONLINE"    | 0         | 0            |
+| 4      | "ONLINE"    | 0         | 0            |
+| 5      | "ONLINE"    | 0         | 0            |
+| 6      | "ONLINE"    | 0         | 0            |
+| 7      | "ONLINE"    | 0         | 0            |
+| 8      | "ONLINE"    | 0         | 0            |
+| 9      | "ONLINE"    | 0         | 0            |
+| 10     | "ONLINE"    | 0         | 0            |
+| 11     | "ONLINE"    | 0         | 0            |
+| 12     | "ONLINE"    | 0         | 0            |
+| 13     | "ONLINE"    | 0         | 0            |
+| 14     | "ONLINE"    | 0         | 0            |
+| 15     | "ONLINE"    | 0         | 0            |
++--------+-------------+-----------+--------------+
+```
+
+执行`SHOW SYNC STATUS`命令，返回结果中的参数说明如下：
+
+| 参数   | 说明   |
+|:---    |:---   |
+| PartId | 主集群中图空间对应的分片 ID。当值为`0`时，表示图空间中 Meta listener 同步 Meta 数据所在的分片 ID。当为其他值时，表示相应图空间中 Storage listener 同步 Storage 数据所在的分片ID。 |
+| Sync Status | 表示 listener 的状态。<br>当值为`ONLINE`时，listener 持续发送数据给 drainer。<br>当值为`OFFLINE`时，listener 停止发送数据给 drainer。|
+| LogId Lag | 表示的 Log ID 间隔，也就是主集群对应分片还有多少条 Log 往从集群发送。<br>当值为`0`时，表示主集群对应分片中没有 Log 需要发送。|
+| Time Latency | 主集群的对应分片中需要发送最后一条 Log 的 WAL 中的时间戳与已经发送的最后一条 Log 的 WAL 中的时间戳差值。<br>当值为`0`时，表示数据已经发送至从集群。<br>单位：毫秒（ms）。 |
+
+### 查看从集群同步数据的状态
+
+在从集群中，执行`SHOW DRAINER SYNC STATUS`查看从集群同步接收的数据至从集群 Meta 和 Storage 的状态。
+
+```ngql
+nebula> SHOW DRAINER SYNC STATUS;
++--------+-------------+-----------+--------------+
+| PartId | Sync Status | LogId Lag | Time Latency |
++--------+-------------+-----------+--------------+
+| 0      | "ONLINE"    | 0         | 0            |
+| 1      | "ONLINE"    | 0         | 0            |
+| 2      | "ONLINE"    | 0         | 0            |
+| 3      | "ONLINE"    | 0         | 0            |
+| 4      | "ONLINE"    | 0         | 0            |
+| 5      | "ONLINE"    | 0         | 0            |
+| 6      | "ONLINE"    | 0         | 0            |
+| 7      | "ONLINE"    | 0         | 0            |
+| 8      | "ONLINE"    | 0         | 0            |
+| 9      | "ONLINE"    | 0         | 0            |
+| 10     | "ONLINE"    | 0         | 0            |
+| 11     | "ONLINE"    | 0         | 0            |
+| 12     | "ONLINE"    | 0         | 0            |
+| 13     | "ONLINE"    | 0         | 0            |
+| 14     | "ONLINE"    | 0         | 0            |
+| 15     | "ONLINE"    | 0         | 0            |
++--------+-------------+-----------+--------------+
+```
+执行`SHOW DRAINER SYNC STATUS`命令，返回结果中的参数说明如下：
+
+| 参数   | 说明   |
+|:---    |:---   |
+| PartId | 主集群中图空间对应的分片 ID。当值为`0`时，表示要同步的 Meta 所在的分片 ID。当为其他值时，表示要同步的 Storage 所在的分片ID。|
+| Sync Status | 表示 drainer 的状态。<br>当值为`ONLINE`时，drainer 持续发送 WAL 给从集群的`metaClient`/`storageClient`进行同步。<br>当值为`OFFLINE`时，drainer 停止发送 WAL 给从集群的`metaClient`/`storageClient`进行同步。|
+| LogId Lag | 表示的 Log ID 间隔，也就是从集群 drainer 中对应分片还有多少条 Log 往从集群的`metaClient`/`storageClient`进行同步。<br>当值为`0`时，表示从集群的 drainer 中对应的分片没有 Log 需要同步。|
+| Time Latency | 从集群 drainer 中对应分片接收到的最新 Log 的 WAL 中的时间戳与已经同步给从集群的最后一条 Log 的 WAL 中的时间戳差值。<br>当值为`0`时，表示 drainer 中对应分片数据已经同步至从集群中。<br>单位：毫秒（ms）。|
+
 
 ## 切换主从集群
 
@@ -293,45 +402,83 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
     在切换主从之前需要为新的主集群搭建并启动 listener 服务（示例 IP 为`192.168.10.105`），为新的从集群搭建并启动 drainer 服务（示例 IP 为`192.168.10.106`）。
 
-1. 登录主集群，取消 drainer 和 listener 服务。
+   
+1. 登录旧的主集群并设置图空间为只读，防止有新的数据写入旧的主集群，而导致数据不一致。
 
   ```
   nebula> USE basketballplayer;
+  nebula> SET VARIABLES read_only=true;
+  ```
+
+2. 查看旧的主集群中的图空间的数据是否已经同步至旧的从集群中，确保旧的主集群中的数据已经同步至旧的从集群中。
+
+  1. 在旧的主集群中查看旧的主集群同步数据的状态。
+
+  ```
+  nebula> SHOW SYNC STATUS;
+  ```
+
+  2. 登录旧的从集群并查看旧的从集群同步数据的状态。
+
+  ```
+  nebula> USE replication_basketballplayer;
+  nebula> SHOW DRAINER SYNC STATUS;
+  ```
+
+  当旧的主从集群返回结果中的`LogId Lag`和`Time Latency`对应的值都为`0`时，表示旧的主集群中的数据已经被同步至旧的从集群中。
+
+3. 在旧的从集群中设置图空间为可读写。
+
+  ```
+  nebula> SET VARIABLES read_only=false;
+  ```
+  
+  !!! note
+
+        如果有业务在等待写数据，此时，可在旧的从集群（新的主集群）中进行业务数据的写入操作。
+
+4. 在旧的从集群中移除 drainer 服务。
+
+  ```
+  nebula> REMOVE DRAINER;
+  ```
+
+5. 登录旧的主集群，修改图空间为可读写并移除之前注册的 drainer 服务和之前添加的 listener 服务。
+
+  ```
+  nebula> USE basketballplayer;
+  //需先修改旧的主集群图空间为可读写，否则无法设置 drainer 服务。
+  nebula> SET VARIABLES read_only=false;
   nebula> SIGN OUT DRAINER SERVICE;
   nebula> REMOVE LISTENER SYNC;
   ```
 
-2. 设置图空间为只读，防止有新的数据写入主集群，导致数据不一致。
+6. 在旧的主集群中将旧的主集群更改为新的从集群。
+
+  !!! note
+
+        确保已为新的从集群搭建并启动 drainer 服务。
 
   ```
+  //添加新的 drainer 服务。
+  nebula> ADD DRAINER 192.168.10.106:9889;
+  //设置图空间为只读。
   nebula> SET VARIABLES read_only=true;
   ```
 
-3. 登录从集群，设置图空间为可读写，取消 drainer。
+7. 登录旧的从集群，将旧的从集群更改为新的主集群。
+
+  !!! note
+
+        确保已为新的主集群搭建并启动 Meta listener 和 Storage listener 服务。
 
   ```
   nebula> USE replication_basketballplayer;
-  nebula> SET VARIABLES read_only=false;
-  nebula> REMOVE DRAINER;
-  ```
-
-4. 将从集群更改为主集群。
-
-  ```
   nebula> SIGN IN DRAINER SERVICE(192.168.10.106:9889);
   nebula> ADD LISTENER SYNC META 192.168.10.105:9569 STORAGE 192.168.10.105:9789 TO SPACE basketballplayer;
-  nebula> REMOVE DRAINER;
   ```
 
-5. 登录之前的主集群，将其更改为从集群。
-
-  ```
-  nebula> USE basketballplayer;
-  //修改图空间为可读写，否则无法设置 drainer 服务。
-  nebula> SET VARIABLES read_only=false;
-  nebula> ADD DRAINER 192.168.10.106:9889;
-  nebula> SET VARIABLES read_only=true;
-  ```
+  至此主从集群切换完成。
 
 ## 常见问题
 
@@ -364,6 +511,4 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
 ### 如何判断数据同步进度？
 
-<!--show sync-->
-
-暂无工具进行直接判断。
+用户可以执行`SHOW SYNC STATUS`查看主集群发送数据的状态，执行`SHOW DRAINER SYNC STATUS`查看从集群接收数据的状态。如果同时满足主集群中的所有数据都发送成功，并且从集群成功接收所有数据，则说明数据同步完成。

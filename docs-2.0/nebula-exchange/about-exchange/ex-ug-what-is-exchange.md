@@ -49,6 +49,34 @@ Exchange 具有以下优点：
 
 - 易于使用：采用 HOCON（Human-Optimized Config Object Notation）配置文件格式，具有面向对象风格，便于理解和操作。
 
+## 版本兼容性
+
+NebulaGraph Exchange 版本（即 JAR 包版本）、NebulaGraph 内核版本和 Spark 版本对应关系如下。
+
+| Exchange 版本 | NebulaGraph 版本 | Spark 版本 |
+|:----------|:-----------|:-------|
+|nebula-exchange_spark_3.0-3.0-SNAPSHOT.jar|  nightly       |3.3.x、3.2.x、3.1.x、3.0.x |
+|nebula-exchange_spark_2.4-3.0-SNAPSHOT.jar|  nightly       |2.4.x |
+|nebula-exchange_spark_2.2-3.0-SNAPSHOT.jar|  nightly       |2.2.x |
+|nebula-exchange_spark_3.0-3.3.0.jar       |  3.x.x         |3.3.x、3.2.x、3.1.x、3.0.x|
+|nebula-exchange_spark_2.4-3.3.0.jar       |  3.x.x         |2.4.x |
+|nebula-exchange_spark_2.2-3.3.0.jar       |  3.x.x         |2.2.x |
+|nebula-exchange_spark_3.0-3.0.0.jar       |  3.x.x         |3.3.x、3.2.x、3.1.x、3.0.x|
+|nebula-exchange_spark_2.4-3.0.0.jar       |  3.x.x         |2.4.x |
+|nebula-exchange_spark_2.2-3.0.0.jar       |  3.x.x         |2.2.x |
+|nebula-exchange-2.6.3.jar                 |  2.6.1、2.6.0  |2.4.x |
+|nebula-exchange-2.6.2.jar                 |  2.6.1、2.6.0  |2.4.x |
+|nebula-exchange-2.6.1.jar                 |  2.6.1、2.6.0  |2.4.x |
+|nebula-exchange-2.6.0.jar                 |  2.6.1、2.6.0  |2.4.x |
+|nebula-exchange-2.5.2.jar                 |  2.5.1、2.5.0  |2.4.x |
+|nebula-exchange-2.5.1.jar                 |  2.5.1、2.5.0  |2.4.x |
+|nebula-exchange-2.5.0.jar                 |  2.5.1、2.5.0  |2.4.x |
+|nebula-exchange-2.1.0.jar                 |  2.0.1、2.0.0  |2.4.x |
+|nebula-exchange-2.0.1.jar                 |  2.0.1、2.0.0  |2.4.x |
+|nebula-exchange-2.0.0.jar                 |  2.0.1、2.0.0  |2.4.x |
+
+JAR 包有两种获取方式：[自行编译](../ex-ug-compile.md)或者从 maven 仓库下载。
+
 ## 数据源
 
 Exchange {{exchange.release}} 支持将以下格式或来源的数据转换为 Nebula Graph 能识别的点和边数据，然后通过 nGQL 语句的形式导入 Nebula Graph：
@@ -77,6 +105,8 @@ Exchange {{exchange.release}} 支持将以下格式或来源的数据转换为 N
 - 流处理软件平台：[Apache Kafka&reg;](../use-exchange/ex-ug-import-from-kafka.md)
 
 - 发布/订阅消息平台：[Apache Pulsar 2.4.5](../use-exchange/ex-ug-import-from-pulsar.md)
+
+- [JDBC 数据源](../use-exchange/ex-ug-import-from-jdbc.md)
 
 除了用 nGQL 语句的形式导入数据，Exchange 还支持将数据源的数据生成 SST 文件，然后通过 Console [导入 SST 文件](../use-exchange/ex-ug-import-from-sst.md)。
 
