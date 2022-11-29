@@ -74,7 +74,6 @@ plugins:
         - CHANGELOG.md
         - spark-connector/*
         - 4.deployment-and-installation/5.zone.md
-        - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
         - nebula-cloud.md
         - nebula-cloud/nebula-cloud-on-azure/azure-fully-managed/*
 # Exclude the file with the following file name.
