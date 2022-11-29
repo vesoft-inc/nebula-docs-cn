@@ -18,6 +18,12 @@ RPM 和 DEB 是 Linux 系统下常见的两种安装包格式，本文介绍如�
 
 ## 下载安装包
 
+!!! note
+
+    - 当前仅支持在 Linux 系统下安装 NebulaGraph，且仅支持 CentOS 7.x、CentOS 8.x、Ubuntu 16.04、Ubuntu 18.04、Ubuntu 20.04 操作系统。
+  
+    - 如果用户使用的是国产化的 Linux 操作系统，请[安装企业版 NebulaGraph](https://www.nebula-graph.com.cn/contact)。  
+
 ### 阿里云 OSS 下载
 
 - 下载 release 版本
