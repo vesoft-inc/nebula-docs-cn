@@ -322,7 +322,7 @@ nav:
           - 聚合函数: 3.ngql-guide/6.functions-and-expressions/15.aggregating.md
           - 字符串函数: 3.ngql-guide/6.functions-and-expressions/2.string.md
           - 日期时间函数: 3.ngql-guide/6.functions-and-expressions/3.date-and-time.md
-          - Schema 函数: 3.ngql-guide/6.functions-and-expressions/4.schema.md
+          - Schema 相关函数: 3.ngql-guide/6.functions-and-expressions/4.schema.md
           - 列表函数: 3.ngql-guide/6.functions-and-expressions/6.list.md
           - 类型转换函数: 3.ngql-guide/6.functions-and-expressions/16.type-conversion.md
           - 条件表达式函数: 3.ngql-guide/6.functions-and-expressions/5.conditional-expressions.md
