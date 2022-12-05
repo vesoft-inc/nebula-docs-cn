@@ -8,9 +8,9 @@ NebulaGraph v3.x 升级至 v{{nebula.release}}，只需要使用 v{{nebula.relea
 
 2. 停止所有 NebulaGraph 服务。详情请参见[管理 NebulaGraph 服务](../../2.quick-start/3.quick-start-on-premise/5.start-stop-service.md)。建议更新前备份配置文件。
 
-!!! caution
+  !!! caution
 
-    如果用户需要保留无 Tag 的点，在集群内所有 Graph 服务的配置文件（`nebula-graphd.conf`）中新增`--graph_use_vertex_key=true`；在所有 Storage 服务的配置文件（`nebula-storaged.conf`）中新增`--use_vertex_key=true`。
+        如果用户需要保留无 Tag 的点，在集群内所有 Graph 服务的配置文件（`nebula-graphd.conf`）中新增`--graph_use_vertex_key=true`；在所有 Storage 服务的配置文件（`nebula-storaged.conf`）中新增`--use_vertex_key=true`。
 
 3. 执行如下命令升级：
 

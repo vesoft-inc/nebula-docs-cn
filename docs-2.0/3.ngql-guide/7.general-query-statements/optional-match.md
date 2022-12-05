@@ -1,5 +1,9 @@
 # OPTIONAL MATCH
 
+!!! caution
+
+    目前 `OPTIONAL MATCH` 为 Beta 功能，后续可能会有一定优化调整。
+
 `OPTIONAL MATCH`通常与`MATCH`语句一起使用，作为`MATCH`语句的可选项去匹配命中的模式，如果没有命中对应的模式，对应的列返回`NULL`。
 
 ## openCypher 兼容性

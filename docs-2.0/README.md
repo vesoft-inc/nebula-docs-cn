@@ -7,13 +7,14 @@
 -->
 !!! Note
     
-    本文档更新时间{{ now().year }}-{{ now().month }}-{{ now().day }}，GitHub commit [{{ git.short_commit }}](https://github.com/vesoft-inc/nebula-docs/commits/v{{nebula.release}})。该版本主色系为"深粉色"，色号为 #F7A7A0。
+    本文档更新时间{{ now().year }}-{{ now().month }}-{{ now().day }}，GitHub commit [{{ git.short_commit }}](https://github.com/vesoft-inc/nebula-docs/commits/v{{nebula.release}})。该版本主色系为"海后红"，色号为 #C65467。
 
 !!! Compatibility
 
     在 NebulaGraph 3.2 的版本中，允许存在无 Tag 的点，但从 NebulaGraph 3.3.0 开始默认不支持无 Tag 的点。
     
 NebulaGraph 是一款开源的、分布式的、易扩展的原生图数据库，能够承载数千亿个点和数万亿条边的超大规模数据集，并且提供毫秒级查询。
+
 
 ## 快速开始
 * [学习路径](20.appendix/learning-path.md)与[获取认证](https://academic.nebula-graph.io/?lang=ZH_CN)
@@ -24,12 +25,22 @@ NebulaGraph 是一款开源的、分布式的、易扩展的原生图数据库�
 * [FAQ](20.appendix/0.FAQ.md)
 * [生态工具](20.appendix/6.eco-tool-version.md)
 
+
+## 最新发布
+
+- [NebulaGraph 社区版 {{ nebula.release }}](20.appendix/release-notes/nebula-comm-release-note.md)
+<!-- - [NebulaGraph 企业版 {{ nebula.release }}](20.appendix/release-notes/nebula-ent-release-note.md)。 -->
+- [NebulaGraph Studio](20.appendix/release-notes/studio-release-note.md)
+- [NebulaGraph Dashboard](20.appendix/release-notes/dashboard-comm-release-note.md)
+- [NebulaGraph Dashboard 企业版](20.appendix/release-notes/dashboard-ent-release-note.md)
+- [NebulaGraph Explorer](20.appendix/release-notes/explorer-release-note.md)
+
+
 ## 其他资料
 
 
 - [Nebula
 Graph 完全指南](https://docs.nebula-graph.com.cn/site/pdf/NebulaGraph-book.pdf)与[摘要版本](https://arxiv.org/abs/2206.07278)
-- [发布说明](20.appendix/release-notes/nebula-comm-release-note.md)
 - [论坛](https://discuss.nebula-graph.com.cn/)
 - [项目主页](https://nebula-graph.com.cn/)
 - [系列视频](https://space.bilibili.com/472621355)

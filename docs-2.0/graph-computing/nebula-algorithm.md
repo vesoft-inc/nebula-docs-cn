@@ -133,9 +133,6 @@ NebulaGraph Algorithm 实现图计算的流程如下：
   如果用户的节点 ID 是 String 类型，可以参考 PageRank 的[示例](https://github.com/vesoft-inc/nebula-algorithm/blob/master/example/src/main/scala/com/vesoft/nebula/algorithm/PageRankExample.scala)。示例中进行了 ID 转换，将 String 类型编码为 Long 类型， 并在算法结果中将 Long 类型 ID 解码为原始的 String 类型。
 
 ### 直接提交算法包
-  
-!!! note
-    使用封装好的算法包有一定的局限性，例如落库到 NebulaGraph 时，落库的图空间中创建的 Tag 的属性名称必须和代码内预设的名称保持一致。如果用户有开发能力，推荐使用第一种方法。
 
 1. 设置[配置文件](https://github.com/vesoft-inc/nebula-algorithm/blob/{{algorithm.branch}}/nebula-algorithm/src/main/resources/application.conf)。
 
@@ -253,6 +250,10 @@ NebulaGraph Algorithm 实现图计算的流程如下：
       }
   }
   ```
+
+  !!! note
+
+        当配置为 `sink: nebula` 的时候，意味着算法运算结果将被写回 NebulaGraph 集群，这对写回到的 TAG 中的属性名有隐含的约定。详情参考本文**支持算法**部分。
 
 2. 提交图计算任务。
 

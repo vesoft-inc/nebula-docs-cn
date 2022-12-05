@@ -10,7 +10,7 @@ Explorer 支持 Schema 草图功能。用户可以在画板上自行设计 Schem
 
 ## 入口
 
-在顶部导航栏里，点击 ![Template](https://docs-cdn.nebula-graph.com.cn/figures/sketch_cion_221018.png) 图标。
+在顶部导航栏里，单击 ![Template](https://docs-cdn.nebula-graph.com.cn/figures/sketch_cion_221018.png) 图标。
 
 ## 设计 Schema
 

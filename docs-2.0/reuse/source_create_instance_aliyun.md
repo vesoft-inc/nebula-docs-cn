@@ -1,14 +1,12 @@
-
 在使用 NebulaGraph Cloud 阿里云版服务前，要先在阿里云控制台创建服务实例。
 
 !!! caution
 
-    通过 NebulaGraph Cloud 阿里云版创建的 NebulaGraph、NebulaGraph Dashboard 和 NebulaGraph Explorer 服务都是企业版，试用期 3 天。如需长期使用，[联系我们](https://www.nebula-graph.com.cn/contact)申请正式许可证，之后[续期许可证](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/deploy-license/#nebulagraph_license_3)。
+    通过 NebulaGraph Cloud 阿里云版创建的 NebulaGraph、Nebula Dashboard 和 Nebula Explorer 等服务都是企业版，试用期 14 天。如需长期使用，发送邮件[申请正式许可证](mailto:inquiry@vesoft.com)，之后[续期许可证](../../4.deployment-and-installation/deploy-license.md#nebula_graph_license_3)。
 
-## 前提条件
+## 账号与权限
 
 - 准备[阿里云账号](https://help.aliyun.com/document_detail/324606.html)。
-
 - 如果使用 RAM 用户创建实例，需为其添加以下权限：
 
   - AliyunECSFullAccess
@@ -17,67 +15,102 @@
   - AliyunCloudMonitorFullAccess
   - AliyunComputeNestUserFullAccess
 
-## 操作步骤
+## 资源与费用
 
-1. 登录[创建服务实例](https://computenest.console.aliyun.com/user/cn-hangzhou/serviceInstanceCreate?ServiceId=service-39f4f251e9484369a778)页面。
+NebulaGraph Cloud 阿里云版支持免费试用和付费使用。两种使用方式有不同的资源归属和费用消耗。
 
-2. 选中**同意授权并创建关联角色**。
+付费版服务实例创建在用户的阿里云账号下，资源费用由用户承担。实例内 NebulaGraph 相关服务的许可证到期后，其中的数据仍然保留在用户的阿里云资源中，直到资源被用户删除。
 
-  ![选中同意授权并创建关联角色](https://docs-cdn.nebula-graph.com.cn/figures/authorize-compute-nest_cn_2022.05.30.png)
+免费试用版服务实例使用的资源属于阿里云，资源费用由阿里云承担。实例内 NebulaGraph 相关服务的许可证到期后，其中的数据仍然保留在试用的阿里云资源中，直到资源过期或被用户删除。资源的试用时间为 30 天，到期后资源内保存的数据不保留。
 
-3. 选择要创建实例的**地域**。
+!!! note
 
-4. 进行**基本信息配置**。
-  
-  1. 选择 **NebulaGraph版本**。默认为 **3.1.0**。
-  当前仅能选择 **3.1.0**。
-  
-  2. 设置 **NebulaGraph集群名**。默认为`nebula`。
-  
-  3. 设置实例密码。
-  
-    - 密码长度为 8-30 个字符。
-    - 密码中必须包含大写字母、小写字母、数字、特殊符号中的三种。
-    - 特殊符号包括：()`~!@#$%^&*_-+=|{}[]:;'<>,.?/
+    基础版套餐将所有 NebulaGraph 服务节点部署在同一台 ECS 服务器上。
 
-5. 进行**付费模式设置**，指定 ECS 服务器的付费方式。默认为**按量付费**。
+## 创建付费版服务实例
+
+1. 登录阿里云计算巢[推荐服务](https://computenest.console.aliyun.com/user/cn-hangzhou/recommendService)页面，搜索 **NebulaGraph**。
+
+2. 在 **NebulaGraph 集群版**卡片上，单击**云市场购买**。
+
+3. 在云市场的 **NebulaGraph Enterprise** 产品页，选择**套餐版本**和**购买时长**（即 NebulaGraph 服务的许可证有效期），并单击**立即购买**。
+
+  !!! caution
+
+        当前云市场显示的部分价格并非实际售价，购买时需通过右侧的钉钉客服确认实际价格。
+
+4. 在**确认订单**页面，选择要创建实例的**地域**。
+
+5. 在**付费模式设置**区域，指定 ECS 服务器的付费方式。默认为**按量付费**。
 
   - **按量付费**：按照计费周期计费，在每个结算周期生成账单并从账户中扣除相应费用。详情参见[按量付费](https://help.aliyun.com/document_detail/40653.html)。
 
-  - **预付费，包年包月**：先付费后使用。详情参见[包年包月](https://help.aliyun.com/document_detail/56220.html)。
-  
-    选择包年包月模式需要指定**购买时长周期**和**购买时长**。**购买时长周期**当前仅支持 **Month**，即按月购买，**购买时间**选择范围为 1-60 月。
-  
-6. 进行**基础设施配置**。
+  - **包年包月**：先付费后使用。详情参见[包年包月](https://help.aliyun.com/document_detail/56220.html)。选择包年包月模式需要指定**购买时长周期**和**购买时长**。**购买时长周期**当前仅支持 **Month**，即按月购买。
 
-  1. 选择**专有网络VPC实例ID**。
+6. 在**套餐选择**区域，根据需要选择套餐版本。
+
+  <!-- 选择自定义套餐可单击编辑按钮调整集群配置。 -->
+
+7. 在 **NebulaGraph 配置**区域，完成数据盘和 ECS 服务器密码设置。
   
+8. 在**基础设施配置**区域，完成以下设置。
+
+  1. 选择**专有网络 VPC 实例 ID**。
+
     如果下拉列表为空，先单击其右侧的**新建专有网络**，完成专有网络创建。
 
   2. 选择**交换机可用区**。
 
-  3. 选择**业务网络交换机的实例ID**。
-  
+  3. 选择**业务网络交换机的实例 ID**。
+
     如果下拉列表为空，先单击其右侧的**新建交换机**，完成交换机创建。
 
-7. 进行**集群节点配置**，根据业务需求配置 NebulaGraph 内核服务的节点。
+9.  在**温馨提示**区域，选中**我同意告知服务商我的联系方式**，以便购买后发放许可证。
 
-  NebulaGraph 内核包含 Graph、Meta、Storage 服务，因此需要为这些服务分别选择**节点数量**、**节点实例类型**、**数据盘类型**和**数据盘空间**。
+10. 在页面底部，单击**我已接受协议，前往支付**。
 
-  !!! caution
-        建议按照页面推荐信息配置集群节点以提升服务的可用性，例如配置 3 个 Meta 节点和至少 3 个 Storage 节点。
+11. 在**支付**页面，选择支付方式，之后单击页面底部的**支付**。
 
-8. 进行**可视化产品配置**，选择要部署的可视化产品。
+12. 在**支付完成**页面，单击**管理控制台**。
+
+13. 在**已购买的服务**页面，单击要创建的实例右侧的**立即进入计算巢部署或查看部署详情**。
+
+14. 在计算巢的**服务实例详情**页面，单击**基本信息**区域**状态**右侧的**部署**，并在弹出的对话框中单击**确定部署**。
+
+15. 监控实例状态，直到部署完成。平均部署耗时为 10 分钟。
+
+## 创建免费版试用版服务实例
+
+!!! danger
+    免费试用实例不可在生产环境中使用。
+
+1. 登录阿里云计算巢[推荐服务](https://computenest.console.aliyun.com/user/cn-hangzhou/recommendService)页面，搜索 **NebulaGraph**。
+
+2. 在 **NebulaGraph 集群版**卡片上，单击**免费试用**。
+
+3. 系统会为首次创建 NebulaGraph 服务实例的用户弹出申请对话框。在**申请权限**对话框中填写申请人信息。带有红色星号（*）的为必填项。
+
+  申请通过后才能继续执行以下步骤。
+
+4. 设置**服务实例名称**。
+
+5. 选择要创建实例的**地域**。
+
+6. 在**套餐选择**区域，根据需要选择套餐版本。
+
+  <!-- 选择自定义套餐可单击编辑按钮调整集群配置。 -->
+
+7. 在 **NebulaGraph 配置**区域，完成数据盘相关设置。
   
-  可选用的产品包括 [Dashboard](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-dashboard-ent/1.what-is-dashboard-ent/) 和 [Explorer](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-explorer/about-explorer/ex-ug-what-is-explorer/)，默认都处于**开启**状态，此时需要为其选择**实例类型**。选中**关闭**表示不部署相应产品。
+8.  在**基础设施配置**区域，选择**交换机可用区**。
 
-9. 根据需要配置**标签和资源组**。详情参见[什么是资源管理](https://help.aliyun.com/document_detail/94475.html)。
+9.  根据需要配置**标签和资源组**。详情参见[什么是资源管理](https://help.aliyun.com/document_detail/94475.html)。
 
 10. 完成**权限确认**，并选中**我同意授权服务商（杭州悦数科技有限公司）获取上述权限以提供代运维服务**。
 
-11. 在页面底部，选中**我已阅读并同意《计算巢服务协议》**，并单击**创建**。
+11. 在页面底部，选中**我已阅读并同意《计算巢服务协议》**，并单击**开始免费试用**。
 
-12. 在**创建**对话框，完成**信息确认**并**支付费用**。
+12. 在**创建**对话框，完成信息确认并单击**确定**。
 
 13. 在**提交成功**页面，单击去列表查看。
 

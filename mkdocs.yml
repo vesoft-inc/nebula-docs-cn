@@ -8,14 +8,14 @@ docs_dir: docs-2.0
 copyright: Copyright &copy; 2022 NebulaGraph - 浙ICP备20010487号
  
 # modify when release: 
-edit_uri: 'edit/master/docs-2.0/'  
+edit_uri: 'edit/v3.3.0/docs-2.0/'  
 
 # Configuration
 theme:
   name: material
   custom_dir: overrides
   logo: 'https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png'
-  favicon: 'assets/images/favicon.ico'
+  favicon: 'https://docs-cdn.nebula-graph.com.cn/figures/favicon.ico'
   # Change color in `stylesheets > extra.css`
   palette:
     - scheme: nebula
@@ -61,7 +61,7 @@ markdown_extensions:
 
 # Plugins
 plugins:
-  - search # 这个是原有的 mkdocs 搜索插件， 如果想使用algolia搜索，请注释掉这个插件
+  # - search # 这个是原有的 mkdocs 搜索插件， 如果想使用algolia搜索，请注释掉这个插件
   - macros:
       include_dir: docs-2.0/reuse/
   - git-revision-date-localized
@@ -79,19 +79,17 @@ plugins:
         - nebula-dashboard-ent/4.cluster-operator/cluster-information/job-management.md
         # 仅发布包含企业版功能的文档版本时，注释以下页面
         # begin
-#       - 3.ngql-guide/6.functions-and-expressions/17.ES-function.md
-#       - 4.deployment-and-installation/deploy-license.md
-#       - 5.configurations-and-logs/2.log-management/audit-log.md
-#       - 7.data-security/1.authentication/4.ldap.md
-#       - graph-computing/0.deploy-controller-analytics.md
-#       - graph-computing/nebula-analytics.md
-#       - graph-computing/use-explorer.md
-#       - nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
-#       - nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
-#       - synchronization-and-migration/replication-between-clusters.md
-#       - 20.appendix/8.about-license/
-#       - nebula-dashboard-ent/4.cluster-operator/operator/scale.md
-#       - 6.monitor-and-metrics/3.bbox
+        - 3.ngql-guide/6.functions-and-expressions/17.ES-function.md
+        - 4.deployment-and-installation/deploy-license.md
+        - 5.configurations-and-logs/2.log-management/audit-log.md
+        - 7.data-security/1.authentication/4.ldap.md
+        - nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
+        - nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
+        - synchronization-and-migration/replication-between-clusters.md
+        - 20.appendix/8.about-license/
+        - nebula-dashboard-ent/4.cluster-operator/operator/scale.md
+        - 6.monitor-and-metrics/3.bbox
+        - backup-and-restore/nebula-br-ent/*
         # end
         
 
@@ -104,7 +102,7 @@ plugins:
 # modify when release: 
   - with-pdf:
       copyright: 2022 vesoft Inc.
-      cover_subtitle: master
+      cover_subtitle: v3.3.0
       author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
       cover: true
       back_cover: true
@@ -131,7 +129,7 @@ extra:
   # Google Analytics.
   analytics:
     provider: google
-    property: UA-60523578-7
+    property: UA-60523578-15
   # branch represents code names (git clone). release represents version number used in texts.
   version:
     method: mike
@@ -194,17 +192,17 @@ extra:
     base100: 1.0.0
     branch: release-3.2
   dashboard_ent:
-    release: 3.2.0
-    tag: v3.2.0
+    release: 3.2.3
+    tag: v3.2.3
     branch: release-3.2
   console:
+    release: 3.3.1
+    branch: release-3.3
+    tag: v3.3.1
+  br:
     release: 3.3.0
     branch: release-3.3
     tag: v3.3.0
-  br:
-    release: 0.6.1
-    branch: master
-    tag: v0.6.1
   br_ent:
     release: 0.7.0
     tag: v0.7.0
@@ -281,12 +279,6 @@ nav:
       - 步骤 1：创建云服务实例: 2.quick-start/2.quick-start-on-cloud/1.create-instance-on-cloud.md
       - 步骤 2：连接 NebulaGraph: 2.quick-start/2.quick-start-on-cloud/2.connect-to-nebulagraph-on-cloud.md
       - 步骤 3：管理数据: 2.quick-start/2.quick-start-on-cloud/3.how-to-query-on-cloud.md
-    - 本地部署: 
-      - 步骤 1：安装 NebulaGraph: 2.quick-start/3.quick-start-on-premise/2.install-nebula-graph.md
-      - 步骤 2：启动 NebulaGraph: 2.quick-start/3.quick-start-on-premise/5.start-stop-service.md
-      - 步骤 3：连接 NebulaGraph: 2.quick-start/3.quick-start-on-premise/3.connect-to-nebula-graph.md
-      - 步骤 4：注册 Storage 服务: 2.quick-start/3.quick-start-on-premise/3.1add-storage-hosts.md
-      - 步骤 5：使用基本 nGQL 命令: 2.quick-start/3.quick-start-on-premise/4.nebula-graph-crud.md
     - nGQL 命令汇总: 2.quick-start/6.cheatsheet-for-ngql-command.md
 
   - nGQL 指南:
@@ -330,7 +322,7 @@ nav:
           - 聚合函数: 3.ngql-guide/6.functions-and-expressions/15.aggregating.md
           - 字符串函数: 3.ngql-guide/6.functions-and-expressions/2.string.md
           - 日期时间函数: 3.ngql-guide/6.functions-and-expressions/3.date-and-time.md
-          - Schema 函数: 3.ngql-guide/6.functions-and-expressions/4.schema.md
+          - Schema 相关函数: 3.ngql-guide/6.functions-and-expressions/4.schema.md
           - 列表函数: 3.ngql-guide/6.functions-and-expressions/6.list.md
           - 类型转换函数: 3.ngql-guide/6.functions-and-expressions/16.type-conversion.md
           - 条件表达式函数: 3.ngql-guide/6.functions-and-expressions/5.conditional-expressions.md
@@ -439,26 +431,32 @@ nav:
       - 作业管理: 3.ngql-guide/4.job-statements.md
 
   - 安装部署:
-      - 准备资源: 4.deployment-and-installation/1.resource-preparations.md
-      - 编译与安装:
-          - 使用源码安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md
-          - 使用 RPM/DEB 包安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md
-          - 使用 tar.gz 文件安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/4.install-nebula-graph-from-tar.md
-          - 使用 Docker Compose 部署: 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
-          - 使用 RPM/DEB 包部署多机集群: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
-          - 使用生态工具安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/6.deploy-nebula-graph-with-peripherals.md
-      - 安装存算合并版 NebulaGraph: 4.deployment-and-installation/standalone-deployment.md
+    - 本地部署: 
+      - 步骤 1：安装 NebulaGraph: 2.quick-start/3.quick-start-on-premise/2.install-nebula-graph.md
+      - 步骤 2：启动 NebulaGraph: 2.quick-start/3.quick-start-on-premise/5.start-stop-service.md
+      - 步骤 3：连接 NebulaGraph: 2.quick-start/3.quick-start-on-premise/3.connect-to-nebula-graph.md
+      - 步骤 4：注册 Storage 服务: 2.quick-start/3.quick-start-on-premise/3.1add-storage-hosts.md
+      - 步骤 5：使用基本 nGQL 命令: 2.quick-start/3.quick-start-on-premise/4.nebula-graph-crud.md
+    - 准备资源: 4.deployment-and-installation/1.resource-preparations.md
+    - 编译与安装:
+      - 使用源码安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md
+      - 使用 RPM/DEB 包安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md
+      - 使用 tar.gz 文件安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/4.install-nebula-graph-from-tar.md
+      - 使用 Docker Compose 部署: 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
+      - 使用 RPM/DEB 包部署多机集群: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
+      - 使用生态工具安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/6.deploy-nebula-graph-with-peripherals.md
+    - 安装存算合并版 NebulaGraph: 4.deployment-and-installation/standalone-deployment.md
 #ent
 #ent      - 设置 NebulaGraph 企业版 License: 4.deployment-and-installation/deploy-license.md      
-      - 管理服务: 4.deployment-and-installation/manage-service.md
-      - 连接服务: 4.deployment-and-installation/connect-to-nebula-graph.md
-      - 管理 Storage 主机: 4.deployment-and-installation/manage-storage-host.md
-#      - 管理逻辑机架（Zone）: 4.deployment-and-installation/5.zone.md
+    - 管理服务: 4.deployment-and-installation/manage-service.md
+    - 连接服务: 4.deployment-and-installation/connect-to-nebula-graph.md
+    - 管理 Storage 主机: 4.deployment-and-installation/manage-storage-host.md
+#    - 管理逻辑机架（Zone）: 4.deployment-and-installation/5.zone.md
 
-      - 升级版本:
-          - 升级 NebulaGraph 版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
-          - 升级 v3.0.x 至当前版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-300-to-latest.md
-      - 卸载 NebulaGraph: 4.deployment-and-installation/4.uninstall-nebula-graph.md
+    - 升级版本:
+      - 升级 NebulaGraph 版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
+      - 升级 v3.0.x 至当前版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-300-to-latest.md
+    - 卸载 NebulaGraph: 4.deployment-and-installation/4.uninstall-nebula-graph.md
 
   - 配置与日志:
       - 配置:
@@ -492,14 +490,15 @@ nav:
   - 备份与恢复:
       - NebulaGraph BR（社区版）:
         - BR（社区版）概述: backup-and-restore/nebula-br/1.what-is-br.md
-        - 编译 BR: backup-and-restore/nebula-br/2.compile-br.md
+        - 安装 BR: backup-and-restore/nebula-br/2.compile-br.md
         - 使用 BR 备份数据: backup-and-restore/nebula-br/3.br-backup-data.md
         - 使用 BR 恢复数据: backup-and-restore/nebula-br/4.br-restore-data.md
-      - NebulaGraph BR（企业版）:
-        - BR（企业版）概述: backup-and-restore/nebula-br-ent/1.br-ent-overview.md
-        - 安装 BR: backup-and-restore/nebula-br-ent/2.install-tools.md
-        - 使用 BR 备份数据: backup-and-restore/nebula-br-ent/3.backup-data.md
-        - 使用 BR 恢复数据: backup-and-restore/nebula-br-ent/4.restore-data.md
+#ent
+#ent      - NebulaGraph BR（企业版）:
+#ent        - BR（企业版）概述: backup-and-restore/nebula-br-ent/1.br-ent-overview.md
+#ent        - 安装 BR: backup-and-restore/nebula-br-ent/2.install-tools.md
+#ent        - 使用 BR 备份数据: backup-and-restore/nebula-br-ent/3.backup-data.md
+#ent        - 使用 BR 恢复数据: backup-and-restore/nebula-br-ent/4.restore-data.md
       - 快照: backup-and-restore/3.manage-snapshot.md
 
   - 同步与迁移:
@@ -553,7 +552,6 @@ nav:
       - 使用限制: nebula-studio/about-studio/st-ug-limitations.md
     - 安装与登录:
       - 部署 Studio: nebula-studio/deploy-connect/st-ug-deploy.md
-      - 使用 Helm 部署 Studio: nebula-studio/deploy-connect/st-ug-deploy-by-helm.md
       - 连接数据库: nebula-studio/deploy-connect/st-ug-connect.md
     - 快速开始:
       - 规划 Schema: nebula-studio/quick-start/st-ug-plan-schema.md
@@ -593,14 +591,15 @@ nav:
           - 信息总览: nebula-dashboard-ent/4.cluster-operator/cluster-information/overview-info.md
           - 集群诊断: nebula-dashboard-ent/4.cluster-operator/cluster-information/cluster-diagnosis.md
 #          - 集群作业管理: nebula-dashboard-ent/4.cluster-operator/cluster-information/job-management.md
-          - 备份恢复: nebula-dashboard-ent/4.cluster-operator/cluster-information/backup-and-restore.md
         - 集群操作: 
           - 节点管理: nebula-dashboard-ent/4.cluster-operator/operator/node.md
-          - 扩缩容: nebula-dashboard-ent/4.cluster-operator/operator/scale.md
+#ent
+#ent          - 扩缩容: nebula-dashboard-ent/4.cluster-operator/operator/scale.md
           - 服务管理: nebula-dashboard-ent/4.cluster-operator/operator/service.md
           - 更新配置: nebula-dashboard-ent/4.cluster-operator/operator/update-config.md
           - 成员管理: nebula-dashboard-ent/4.cluster-operator/operator/member-management.md
           - 版本升级: nebula-dashboard-ent/4.cluster-operator/operator/version-upgrade.md
+          - 备份恢复: nebula-dashboard-ent/4.cluster-operator/operator/backup-and-restore.md
         - 操作记录: nebula-dashboard-ent/4.cluster-operator/5.operation-record.md
         - 其他设置: nebula-dashboard-ent/4.cluster-operator/6.settings.md
       - 权限管理: nebula-dashboard-ent/5.account-management.md
@@ -686,7 +685,8 @@ nav:
       - 导入 Kafka 数据: nebula-exchange/use-exchange/ex-ug-import-from-kafka.md
       - 导入通用 JDBC 数据: nebula-exchange/use-exchange/ex-ug-import-from-jdbc.md
       - 导入 SST 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-sst.md
-      - 导出 NebulaGraph 数据: nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
+#ent
+#ent      - 导出 NebulaGraph 数据: nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
     - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
 
   - NebulaGraph Operator:
@@ -723,7 +723,8 @@ nav:
   - 附录:
       - Release Note:
         - NebulaGraph 社区版: 20.appendix/release-notes/nebula-comm-release-note.md
-        - NebulaGraph 企业版: 20.appendix/release-notes/nebula-ent-release-note.md
+#ent
+#ent        - NebulaGraph 企业版: 20.appendix/release-notes/nebula-ent-release-note.md
         - NebulaGraph Studio: 20.appendix/release-notes/studio-release-note.md
         - NebulaGraph Dashboard 社区版: 20.appendix/release-notes/dashboard-comm-release-note.md
         - NebulaGraph Dashboard 企业版: 20.appendix/release-notes/dashboard-ent-release-note.md

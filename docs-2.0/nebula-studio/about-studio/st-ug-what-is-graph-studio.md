@@ -8,10 +8,7 @@ NebulaGraph Studio（简称 Studio）是一款可以通过 Web 访问的开源�
 
 ## 发行版本
 
-可以使用以下方式安装部署 Studio：
-
-- 用户可以使用 Docker 服务、RPM 服务、tar 包和 DEB 包安装部署 Studio，并连接到 NebulaGraph 数据库。详细信息参考 [部署 Studio](../deploy-connect/st-ug-deploy.md)。
-- 使用 Helm 安装部署：在 Kubernetes 集群里使用 Helm 安装并部署 Studio，并连接到 NebulaGraph 数据库。详细信息参考[使用 Helm 部署 NebulaGraph Studio](../deploy-connect/st-ug-deploy-by-helm.md)。
+用户可以使用 RPM 包、DEB 包、tar 包和 Docker 服务安装部署 Studio，在 Kubernetes 集群里还支持使用 Helm 安装部署 Studio。详细信息参考 [部署 Studio](../deploy-connect/st-ug-deploy.md)。
 
 <!--
 - 云服务版本：用户可以在 NebulaGraph Cloud Service 上创建 NebulaGraph 数据库实例，并一键直连云服务版 Studio。详细信息参考 [NebulaGraph Cloud Service 用户手册](https://cloud-docs.nebula-graph.com.cn/cn/posts/manage-instances/dbaas-ug-connect-nebulastudio/ "点击前往 NebulaGraph Cloud Service 用户手册")。

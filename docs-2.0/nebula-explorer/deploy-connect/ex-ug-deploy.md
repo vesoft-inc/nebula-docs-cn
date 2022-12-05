@@ -25,6 +25,12 @@
 
         License 仅在企业版提供，申请 License 需填写 [Nebula Explorer 试用申请](https://wj.qq.com/s2/10158890/69a8)。
 
+- 如果需要使用图计算，需要部署 HDFS。namenode 默认使用 8020 端口，datanode 默认使用 50010 端口。
+
+  !!! caution
+
+       如果 HDFS 端口不通，可能会提示连接超时。
+
 ## 注意事项
 
 Explorer 从 3.2.0 版本开始内置了 Dag Controller 安装包，用于提供图计算服务。用户可以自行决定是否启动 Dag Controller 服务。如果没有启动 Dag Controller 服务， Explorer 中的 **Workflow** 菜单将显示为灰色无法点击。
@@ -104,7 +110,7 @@ sudo ./dag-ctrl/scripts/stop.sh #停止 Dag Controller 服务
 sudo rpm -e nebula-explorer-<version>.x86_64
 ```
 
-## 使用 DEB 包部署
+## DEB 部署
 
 ### 安装
 
@@ -149,7 +155,7 @@ sudo rpm -e nebula-explorer-<version>.x86_64
    sudo ./lib/start.sh
 
    # （可选）启动 Dag Controller。
-   sudo ./dag-ctrl/lib/start.sh
+   sudo ./dag-ctrl/scripts/start.sh
    ```
 
 ### 查看服务状态
@@ -227,12 +233,6 @@ Dag Controller 是一款任务编排调度工具，可以编排调度有向无�
 
 Dag Controller 可以结合 NebulaGraph Analytics 进行复杂的图计算。例如 Dag Controller 将算法调用请求发送给 NebulaGraph Analytics ，NebulaGraph Analytics 保存结果至 NebulaGraph 或 HDFS，Dag Controller 再将上次的计算结果作为下一个算法任务的输入创建新的任务。
 
-### 前提条件
-
-- 已部署 2.2.x 或以上版本的 [HDFS](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/ClusterSetup.html)。
-
-- 已安装 1.8 版本的 JDK。
-
 ### 配置步骤
 
 1. 配置 Dag Controller 机器 SSH 免密登录 NebulaGraph Analytics 机器，以及 NebulaGraph Analytics 集群内所有节点间的 SSH 相互免密登录。
@@ -249,12 +249,11 @@ Dag Controller 可以结合 NebulaGraph Analytics 进行复杂的图计算。例
 
   按同样方法设置 A 免密登录机器 B-2、B-3 等，以及集群 B 内所有机器的互相免密登录。
 
-2. 添加以下内容至`~/.bash_profile`文件内，执行`source ~/.bash_profile`使其生效。
+2. 在 Dag Controller 机器上执行`eval $(ssh-agent)`启动 ssh-agent，然后执行`ssh-add ~/.ssh/id_rsa`将私钥交给 ssh-agent 管理。
 
-  ```
-  eval $(ssh-agent)
-  ssh-add ~/.ssh/id_rsa
-  ```
+  !!! note
+
+        ssh-agent是密钥管理器，用来管理多个密钥，并为其他需要使用 SSH 密钥对的程序提供代理。
 
 3. 配置`dag-ctrl-api.yaml`文件，路径为`dag-ctrl/etc/dag-ctrl-api.yaml`。配置 NebulaGraph Analytics 机器的用户名及端口，如果有多台机器，请确保使用相同用户名和端口。
 
@@ -265,7 +264,6 @@ Dag Controller 可以结合 NebulaGraph Analytics 进行复杂的图计算。例
   Host: 0.0.0.0     # Dag Controller 服务的 IP。
   Port: 9002        # Dag Controller 服务的端口。
   Timeout: 60000    # HTTP 接口请求的超时时间。
-  RPC_HDFS_PASSWORD: "123456"  # 保留参数。
 
   Log:              # 日志打印相关参数。详情参见 https://go-zero.dev/cn/docs/blog/tool/logx/
     Mode: file      # 保存模式。

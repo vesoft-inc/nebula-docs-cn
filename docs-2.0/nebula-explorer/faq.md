@@ -68,6 +68,20 @@ Dag Controller 包含图查询组件和图计算组件。图查询是发送请�
 
 3. 修改上述配置后需要重启 Dag Controller 使配置生效。
 
+## 任务运行失败，报错`no available namenodes: dial tcp xx.xx.xx.xx:8020: connect: connection timed out`怎么办？
+
+请检查 HDFS 的 namenode 端口 8020 是否开放。
+
+## 任务运行失败，报错`org.apache.hadoop.net.ConnectTimeoutException: 60000 millis timeout`怎么办？
+
+请检查 HDFS 的 datanode 端口 50010 是否开放。
+
+如果没有开放端口，还可能报类似如下错误：
+
+- `Check failed: false close hdfs-file failed`
+- `org.apache.hadoop.ipc.RemoteException(java.io.IOException): File /analytics/xx/tasks/analytics_xxx/xxx.csv could only be replicated to 0 nodes instead of minReplication`
+
+
 ## 任务运行失败，报错`broadcast.hpp:193] Check failed: (size_t)recv_bytes >= sizeof(chunk_tail_t) recv message too small: 0`怎么办？
 
 任务要处理的数据量过小，但是配置的计算节点数与进程数太多。需要在提交作业时设置较小的`clusterSize`和`processes`。

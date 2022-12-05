@@ -5,7 +5,13 @@ NebulaGraph Analytics 是一款高性能图计算框架工具，支持对 Nebula
 ## 前提条件
 
 - [联系我们](https://www.nebula-graph.com.cn/contact)获取 Nebula Analytics 安装包。
+
 - [准备 Nebula Analytics License](analytics-ent-license.md)。
+
+- 已部署 2.2.x 或以上版本的 [HDFS](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/ClusterSetup.html)。
+
+- 已安装 1.8 版本的 JDK。
+
 
 ## 适用场景
 
@@ -56,13 +62,28 @@ NebulaGraph Analytics 支持的图计算算法如下。
 
 ## 安装 NebulaGraph Analytics
 
-1. 在多个机器安装由多个 NebulaGraph Analytics 服务构成的集群时，需要安装路径相同，并设置节点间 SSH 免密登录。
+1. 安装 NebulaGraph Analytics。
 
-  ```bash
-  sudo rpm -i nebula-analytics-{{plato.release}}-centos.x86_64.rpm  --prefix /home/xxx/nebula-analytics
+  ```
+  $ sudo rpm -ivh <analytics_package_name> --prefix <install_path>
+  $ sudo chown <user>:<user> -R <install path>
   ```
 
-2. 拷贝 License 至所有机器的 NebulaGraph Analytics 安装路径的`scripts`目录内。
+  例如：
+
+  ```
+  $ sudo rpm -ivh nebula-analytics-{{plato.release}}-centos.x86_64.rpm --prefix=/home/vesoft/nebula-analytics
+  $ sudo chown vesoft:vesoft -R /home/vesoft/nebula-analytics
+  ```
+
+2. 配置`set_env.sh`文件，路径为`nebula-analytics/scripts/set_env.sh`。配置正确的 Hadoop 路径和 JDK 路径。如果有多台机器，请确保路径一致。
+
+  ```
+  export HADOOP_HOME=<hadoop_path>
+  export JAVA_HOME=<java_path>
+  ```
+
+3. 拷贝 License 至所有机器的 NebulaGraph Analytics 安装路径的`scripts`目录内。
 
 <!--
 ### 编译安装

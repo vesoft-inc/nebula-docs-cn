@@ -33,7 +33,7 @@
 
 - 修复聚合表达式类型推导的错误。 [#4706](https://github.com/vesoft-inc/nebula/pull/4706)
 
-- 修复了 `OPTIONAL MATCH` 语句的错误结果。 [#4670](https://github.com/vesoft-inc/nebula/pull/4670)
+- 修复了 `OPTIONAL MATCH` 语句的错误结果为给出错误消息，因为 `OPTIONAL MATCH` 语句中 `WHERE` 子句不支持引用其他 `MATCH` 语句定义的变量。 [#4670](https://github.com/vesoft-inc/nebula/pull/4670)
 
 - 修复了 `LOOKUP` 语句中参数表达式的缺陷。 [#4664](https://github.com/vesoft-inc/nebula/pull/4664)
 

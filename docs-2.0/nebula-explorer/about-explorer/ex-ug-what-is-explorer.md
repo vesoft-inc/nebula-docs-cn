@@ -4,11 +4,8 @@ NebulaGraph Explorer （简称 Explorer）是一款可以通过 Web 访问的可
 
 !!! enterpriseonly
 
-    如需获取 Nebula Explorer 安装包，请[联系我们](https://www.nebula-graph.com.cn/contact)。
-
-!!! Note
-
-    用户可以[在线试用 Explorer](https://explorer.nebula-graph.com.cn/) 部分功能。
+    - 如需购买 Nebula Explorer，请[联系我们](https://www.nebula-graph.com.cn/contact)。
+    - 新用户可以[申请 30 天试用](https://wj.qq.com/s2/10158890/69a8)。你也可以[在线体验 Explorer](https://explorer.nebula-graph.com.cn/) 部分功能。
 
 ## 适用场景
 

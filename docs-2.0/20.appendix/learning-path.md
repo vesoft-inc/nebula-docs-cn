@@ -139,7 +139,7 @@
 
   | 文档 |
   | ------------------------------------------------------------ |
-  |[创建快照](https://docs.nebula-graph.com.cn/{{nebula.release}}/7.data-security/3.manage-snapshot/#_5)|
+  |[创建快照](https://docs.nebula-graph.com.cn/{{nebula.release}}/backup-and-restore/3.manage-snapshot/#_5)|
 
 <!--
 - 资源隔离

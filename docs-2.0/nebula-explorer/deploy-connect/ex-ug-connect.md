@@ -16,7 +16,7 @@
 
 !!! caution
 
-    该功能仍处于测试中，后续会继续进行调整优化。
+    当前 OAuth2.0 认证设置为 Beta 功能，后续可能会有一定优化调整。
 
 !!! note
 
@@ -53,7 +53,8 @@ OAuth 部分的配置说明如下。
 
     !!! Note
 
-        即使 NebulaGraph 数据库与 Explorer 部署在同一台机器上，用户也必须在 **Host** 字段填写这台机器的本机 IP 地址，而不是 `127.0.0.1` 或者 `localhost`。
+        - 即使 NebulaGraph 数据库与 Explorer 部署在同一台机器上，用户也必须在 **Host** 字段填写这台机器的本机 IP 地址，而不是 `127.0.0.1` 或者 `localhost`。
+        - 在新的标签页连接另一个 NebulaGraph 数据库时，会覆盖旧标签页的会话。如果需要同时登录多个 NebulaGraph 数据库，可以用不同的浏览器或者无痕模式。
 
    - **用户名**和**密码**：根据 NebulaGraph 的[身份验证](../../7.data-security/1.authentication/1.authentication.md)设置填写登录账号和密码。
      - 如果未启用身份验证，可以填写默认用户名 `root` 和任意密码。

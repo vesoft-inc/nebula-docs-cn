@@ -82,6 +82,10 @@
     nebula> CREATE SPACE basketballplayer(partition_num=15, replica_factor=1, vid_type=fixed_string(30));
     ```
 
+  !!! note
+
+        如果报错提示`[ERROR (-1005)]: Host not enough!`，请检查是否已[添加 Storage 主机](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/3.quick-start-on-premise/3.1add-storage-hosts/)。
+
 2. 执行命令`SHOW HOSTS`检查分片的分布情况，确保平衡分布。
 
     ```ngql

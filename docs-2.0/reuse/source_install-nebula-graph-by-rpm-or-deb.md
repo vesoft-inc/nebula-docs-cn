@@ -2,7 +2,8 @@ RPM 和 DEB 是 Linux 系统下常见的两种安装包格式，本文介绍如�
 
 !!! note
 
-    部署 NebulaGraph 集群的方式参见[使用 RPM/DEB 包部署集群](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster/)。<!--这里用外链。-->
+    部署 NebulaGraph 集群的方式参见[使用 RPM/DEB 包部署集群](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/3.quick-start-on-premise/3.1add-storage-hosts/)。<!--这里用外链。-->
+
 
 {{ ent.ent_begin }}
 !!! enterpriseonly
@@ -16,6 +17,12 @@ RPM 和 DEB 是 Linux 系统下常见的两种安装包格式，本文介绍如�
 安装 wget
 
 ## 下载安装包
+
+!!! note
+
+    - 当前仅支持在 Linux 系统下安装 NebulaGraph，且仅支持 CentOS 7.x、CentOS 8.x、Ubuntu 16.04、Ubuntu 18.04、Ubuntu 20.04 操作系统。
+  
+    - 如果用户使用的是国产化的 Linux 操作系统，请[安装企业版 NebulaGraph](https://www.nebula-graph.com.cn/contact)。  
 
 ### 阿里云 OSS 下载
 
@@ -152,5 +159,5 @@ RPM 和 DEB 是 Linux 系统下常见的两种安装包格式，本文介绍如�
 
 {{ ent.ent_end }}
 
-- [启动 NebulaGraph](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/5.start-stop-service/)<!--这里用外链。-->
-- [连接 NebulaGraph](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/3.connect-to-nebula-graph/)<!--这里用外链。-->
+- [启动 NebulaGraph](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/3.quick-start-on-premise/5.start-stop-service/)<!--这里用外链。-->
+- [连接 NebulaGraph](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/3.quick-start-on-premise/3.connect-to-nebula-graph/)<!--这里用外链。-->

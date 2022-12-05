@@ -40,4 +40,6 @@ NebulaGraph 数据库里已经创建 Schema。
 
 ## 使用模板
 
-除了在模板列表页面单击 ![console](https://docs-cdn.nebula-graph.com.cn/figures/nav-console2.png) 自动跳转至控制台并输入模板，还支持在图探索页面使用模板。详情参见[开始探索](../graph-explorer/ex-ug-query-exploration.md)。
+- （推荐）在图探索页面使用模板。详情参见[开始探索](../graph-explorer/ex-ug-query-exploration.md)。
+
+- 在模板列表页面单击 ![console](https://docs-cdn.nebula-graph.com.cn/figures/nav-console2.png) 自动跳转至控制台并输入模板语句，需要自行修改参数化的文本。

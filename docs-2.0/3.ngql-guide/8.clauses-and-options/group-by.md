@@ -57,8 +57,6 @@ nebula> GO FROM "player100" OVER follow BIDIRECT \
 +---------------------+------------+
 ```
 
-## 用函数进行分组和计算
-
 ```ngql
 # 查找所有连接到 player100 的点，并根据起始点进行分组，返回 degree 的总和。
 nebula> GO FROM "player100" OVER follow \
@@ -73,3 +71,26 @@ nebula> GO FROM "player100" OVER follow \
 ```
 
 `sum()`函数详情请参见[内置数学函数](../6.functions-and-expressions/1.math.md)。
+
+
+## 隐式分组
+
+在上述 nGQL 语句中明确写出`GROUP BY`并起到分组字段作用的用法称为`GROUP BY`显示用法；而在 openCypher 语句中`GROUP BY`的用法是隐式的，即在语句中不用写出`GROUP BY`也可起到分组字段的作用。nGQL 语句中显示地`GROUP BY`用法与 openCypher 语句中的隐式地`GROUP BY`用法相同，并且 nGQL 语句兼容 openCypher 的用法，即也支持隐式地使用`GROUP BY`。有关`GROUP BY`的隐式用法，请参见[how-to-make-group-by-in-a-cypher-query](https://stackoverflow.com/questions/52722671/how-to-make-group-by-in-a-cypher-query)。
+
+例如：查询 34 岁以上的球员中完全重叠服役的区间。
+
+```ngql
+nebula> LOOKUP ON player WHERE player.age > 34 YIELD id(vertex) AS v | \
+        GO FROM $-.v OVER serve YIELD serve.start_year AS start_year, serve.end_year AS end_year | \
+        YIELD $-.start_year, $-.end_year, count(*) AS count | \
+        ORDER BY $-.count DESC | LIMIT 5;
++---------------+-------------+-------+
+| $-.start_year | $-.end_year | count |
++---------------+-------------+-------+
+| 2018          | 2019        | 3     |
+| 1998          | 2004        | 2     |
+| 2012          | 2013        | 2     |
+| 2007          | 2012        | 2     |
+| 2010          | 2011        | 2     |
++---------------+-------------+-------+ 
+```

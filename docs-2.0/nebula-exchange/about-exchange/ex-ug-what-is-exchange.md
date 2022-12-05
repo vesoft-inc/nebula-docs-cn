@@ -51,16 +51,29 @@ Exchange 具有以下优点：
 
 ## 版本兼容性
 
-NebulaGraph Exchange 版本（即 JAR 包版本）和 NebulaGraph 内核的版本对应关系如下。
+NebulaGraph Exchange 版本（即 JAR 包版本）、NebulaGraph 内核版本和 Spark 版本对应关系如下。
 
-|NebulaGraph 版本|Exchange client 版本|
-|:---|:---|
-|nightly     |3.0-SNAPSHOT|
-|3.3.0       |3.3.0       |
-|3.0.0 ~ 3.2.x |3.0.0       |
-|2.6.x       |2.6.x       |
-|2.5.x       |2.5.x       |
-|2.0.0、2.0.1|2.1.0、2.0.1、2.0.0|
+| Exchange 版本 | NebulaGraph 版本 | Spark 版本 |
+|:----------|:-----------|:-------|
+|nebula-exchange_spark_3.0-3.0-SNAPSHOT.jar|  nightly       |3.3.x、3.2.x、3.1.x、3.0.x |
+|nebula-exchange_spark_2.4-3.0-SNAPSHOT.jar|  nightly       |2.4.x |
+|nebula-exchange_spark_2.2-3.0-SNAPSHOT.jar|  nightly       |2.2.x |
+|nebula-exchange_spark_3.0-3.3.0.jar       |  3.x.x         |3.3.x、3.2.x、3.1.x、3.0.x|
+|nebula-exchange_spark_2.4-3.3.0.jar       |  3.x.x         |2.4.x |
+|nebula-exchange_spark_2.2-3.3.0.jar       |  3.x.x         |2.2.x |
+|nebula-exchange_spark_3.0-3.0.0.jar       |  3.x.x         |3.3.x、3.2.x、3.1.x、3.0.x|
+|nebula-exchange_spark_2.4-3.0.0.jar       |  3.x.x         |2.4.x |
+|nebula-exchange_spark_2.2-3.0.0.jar       |  3.x.x         |2.2.x |
+|nebula-exchange-2.6.3.jar                 |  2.6.1、2.6.0  |2.4.x |
+|nebula-exchange-2.6.2.jar                 |  2.6.1、2.6.0  |2.4.x |
+|nebula-exchange-2.6.1.jar                 |  2.6.1、2.6.0  |2.4.x |
+|nebula-exchange-2.6.0.jar                 |  2.6.1、2.6.0  |2.4.x |
+|nebula-exchange-2.5.2.jar                 |  2.5.1、2.5.0  |2.4.x |
+|nebula-exchange-2.5.1.jar                 |  2.5.1、2.5.0  |2.4.x |
+|nebula-exchange-2.5.0.jar                 |  2.5.1、2.5.0  |2.4.x |
+|nebula-exchange-2.1.0.jar                 |  2.0.1、2.0.0  |2.4.x |
+|nebula-exchange-2.0.1.jar                 |  2.0.1、2.0.0  |2.4.x |
+|nebula-exchange-2.0.0.jar                 |  2.0.1、2.0.0  |2.4.x |
 
 JAR 包有两种获取方式：[自行编译](../ex-ug-compile.md)或者从 maven 仓库下载。
 
@@ -98,7 +111,12 @@ Exchange {{exchange.release}} 支持将以下格式或来源的数据转换为 N
 
 除了用 nGQL 语句的形式导入数据，Exchange 还支持将数据源的数据生成 SST 文件，然后通过 Console [导入 SST 文件](../use-exchange/ex-ug-import-from-sst.md)。
 
+{{ ent.ent_begin }} 
+
 此外，企业版 Exchange 支持以 NebulaGraph 为源，将数据[导出到 CSV 文件](../use-exchange/ex-ug-export-from-nebula.md)。
+
+ {{ ent.ent_end }}
+
 
 ## 更新说明
 
