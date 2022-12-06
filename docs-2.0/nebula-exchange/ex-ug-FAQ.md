@@ -46,9 +46,9 @@
 
 ## 执行问题
 
-### Q：Yarn-Cluster 模式下如何提交？
+### Q：报错`java.lang.ClassNotFoundException: com.vesoft.nebula.exchange.Exchange`
 
-在 Yarn-Cluster 模式下提交任务，请参考如下命令：
+在 Yarn-Cluster 模式下提交任务，请参考如下命令，**尤其是示例中的两个**`--conf`：
 
 ```bash
 $SPARK_HOME/bin/spark-submit --class com.vesoft.nebula.exchange.Exchange \

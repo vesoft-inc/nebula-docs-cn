@@ -19,9 +19,9 @@
 !!! note
     JAR 文件版本号以实际编译得到的 JAR 文件名称为准。
 
-!!! note
+!!! faq
 
-    如果使用 [yarn-cluster 模式](https://spark-reference-doc-cn.readthedocs.io/zh_CN/latest/deploy-guide/running-on-yarn.html)提交任务，请参考如下示例：
+    如果使用 [yarn-cluster 模式](https://spark-reference-doc-cn.readthedocs.io/zh_CN/latest/deploy-guide/running-on-yarn.html)提交任务，请参考如下示例，，**尤其是示例中的两个**`--conf`。
 
     ```bash
     $SPARK_HOME/bin/spark-submit     --master yarn-cluster \
