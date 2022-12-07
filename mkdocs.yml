@@ -151,9 +151,9 @@ extra:
     release: 3.5.0
     tag: v3.5.0
   explorer:
-    release: 3.2.0
+    release: 3.2.1
     branch: release-3.2
-    tag: v3.2.0
+    tag: v3.2.1
   exchange_ent:
     release: 3.0.0
     branch: v3.0.0
