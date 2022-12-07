@@ -194,7 +194,7 @@ DegreeWithTime 算法是基于边的时间范围统计邻居，查找出图中�
 
 ### BetweennessCentrality
 
-BetweennessCentrality（中介中心性）算法是一种检测点对图中信息流的影响量的方法，用于查找从图的一部分到另一部分时作为桥梁的点。每个点都会根据通过该点的最短路径的数量获得一个分数，即中介中心性分数。
+BetweennessCentrality（介数中心性）算法是一种检测点对图中信息流的影响量的方法，用于查找从图的一部分到另一部分时作为桥梁的点。每个点都会根据通过该点的最短路径的数量获得一个分数，即介数中心性分数。
 
 参数说明如下。
 
@@ -222,7 +222,7 @@ BetweennessCentrality（中介中心性）算法是一种检测点对图中信�
     |参数|类型|说明|
     |:--|:--|:--|
     |`VID`|创建图空间时`vid_type`决定| 点 ID。|
-    |`VALUE`|double| 点的中介中心性分数。|
+    |`VALUE`|double| 点的介数中心性分数。|
 
 ### ClosenessCentrality
 
