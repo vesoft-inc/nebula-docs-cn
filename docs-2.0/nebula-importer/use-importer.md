@@ -142,14 +142,14 @@ NebulaGraph Importer 通过`nebula-importer/examples/v2/example.yaml`配置文�
 示例配置如下：
 
 ```yaml
-version: v3
+version: v2
 description: example
 removeTempFiles: false
 ```
 
 |参数|默认值|是否必须|说明|
 |:---|:---|:---|:---|
-|`version`|v3|是|目标 NebulaGraph 的版本。|
+|`version`|v2|是|配置文件的版本。|
 |`description`|example|否|配置文件的描述。|
 |`removeTempFiles`|false|否|是否删除临时生成的日志和错误数据文件。|
 
