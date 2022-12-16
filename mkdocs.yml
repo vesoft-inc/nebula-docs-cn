@@ -494,7 +494,7 @@ nav:
     - Nebula Graph Cloud 阿里云版:
       - 创建服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/1.create-service-instance.md
       - 使用服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/2.use-cloud-services.md
-      - 扩缩容服务: nebula-cloud/nebula-cloud-on-alibabacloud/4.scaling-services
+      - 扩缩容服务: nebula-cloud/nebula-cloud-on-alibabacloud/4.scaling-services.md
       - 删除服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/3.delete-service-instance.md
     - Nebula Graph Cloud AWS 版:
       - 概览: nebula-cloud/nebula-cloud-on-aws/1.aws-overview.md
