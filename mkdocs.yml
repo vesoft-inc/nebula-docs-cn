@@ -109,8 +109,8 @@ extra:
     release: 2.6.1
     branch: v2.6.1
   python:
-    release: 2.6.0
-    branch: v2.6.0
+    release: 2.6.1
+    branch: v2.6.1
   go:
     release: 2.6.0
     branch: v2.6.0
