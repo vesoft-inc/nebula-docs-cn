@@ -14,7 +14,7 @@ edit_uri: 'edit/master/docs-2.0/'
 theme:
   name: material
   custom_dir: overrides
-  logo: 'https://cloud-cdn.nebula-graph.com.cn/vesoft-nebula-logo-white.png'
+  logo: 'https://docs-cdn.nebula-graph.com.cn/figures/vesoft-nebula-logo-white22-12-21.png'
   favicon: 'assets/images/favicon.ico'
   # Change color in `stylesheets > extra.css`
   palette:
