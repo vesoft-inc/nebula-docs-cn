@@ -32,7 +32,7 @@ NebulaGraph 的审计日志功能可以将 Graph 服务接受到的所有操作�
 |参数|预设值|说明|
 |:--|:--|:--|
 | `enable_audit` | `false` | 是否开启审计日志。 |
-| `audit_log_handler` | `file` | 审计日志的存储方案。可选值为`file`（本地文件）和`es`（Elasticsearch），并且支持的 Elasticsearch 版本为 7.x 和 8.x。|
+| `audit_log_handler` | `file` | 审计日志的存储方案。可选值为`file`（本地文件）和`es`（Elasticsearch），支持的 Elasticsearch 版本为 7.x 和 8.x。|
 | `audit_log_file` | `./logs/audit/audit.log` | 仅在`audit_log_handler=file`时生效。审计日志的存储路径，支持相对路径或绝对路径。 |
 | `audit_log_strategy` | `synchronous` | 仅在`audit_log_handler=file`时生效。审计日志的同步方案。可选值为`asynchronous`和`synchronous`。设置为`asynchronous`时，日志事件使用内存缓冲，不会阻塞主线程，但是可能会因为缓存不够而导致日志缺失；设置为`synchronous`时，日志事件每次都刷新并同步到文件中。 |
 | `audit_log_max_buffer_size` | `1048576` |仅在`audit_log_handler=file`、`audit_log_strategy=asynchronous`时生效。审计日志的缓存大小。单位：字节。  |
