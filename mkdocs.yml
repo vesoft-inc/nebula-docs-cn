@@ -610,7 +610,6 @@ nav:
         - 通知设置: nebula-dashboard-ent/system-settings/notification-endpoint.md
         - 单点登录: nebula-dashboard-ent/system-settings/single-sign-on.md
         - 安装包管理: nebula-dashboard-ent/system-settings/manage-package.md
-        - 其他设置: nebula-dashboard-ent/system-settings/other-settings.md
       - 监控指标说明: nebula-dashboard-ent/7.monitor-parameter.md
       - 常见问题 FAQ: nebula-dashboard-ent/8.faq.md
 
