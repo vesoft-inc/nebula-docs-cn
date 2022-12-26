@@ -553,7 +553,6 @@ nav:
       - 使用限制: nebula-studio/about-studio/st-ug-limitations.md
     - 安装与登录:
       - 部署 Studio: nebula-studio/deploy-connect/st-ug-deploy.md
-      - 使用 Helm 部署 Studio: nebula-studio/deploy-connect/st-ug-deploy-by-helm.md
       - 连接数据库: nebula-studio/deploy-connect/st-ug-connect.md
     - 快速开始:
       - 规划 Schema: nebula-studio/quick-start/st-ug-plan-schema.md
@@ -593,7 +592,6 @@ nav:
           - 信息总览: nebula-dashboard-ent/4.cluster-operator/cluster-information/overview-info.md
           - 集群诊断: nebula-dashboard-ent/4.cluster-operator/cluster-information/cluster-diagnosis.md
 #          - 集群作业管理: nebula-dashboard-ent/4.cluster-operator/cluster-information/job-management.md
-          - 备份恢复: nebula-dashboard-ent/4.cluster-operator/cluster-information/backup-and-restore.md
         - 集群操作: 
           - 节点管理: nebula-dashboard-ent/4.cluster-operator/operator/node.md
           - 扩缩容: nebula-dashboard-ent/4.cluster-operator/operator/scale.md
@@ -601,6 +599,7 @@ nav:
           - 更新配置: nebula-dashboard-ent/4.cluster-operator/operator/update-config.md
           - 成员管理: nebula-dashboard-ent/4.cluster-operator/operator/member-management.md
           - 版本升级: nebula-dashboard-ent/4.cluster-operator/operator/version-upgrade.md
+          - 备份恢复: nebula-dashboard-ent/4.cluster-operator/operator/backup-and-restore.md
         - 操作记录: nebula-dashboard-ent/4.cluster-operator/5.operation-record.md
         - 其他设置: nebula-dashboard-ent/4.cluster-operator/6.settings.md
       - 权限管理: nebula-dashboard-ent/5.account-management.md
