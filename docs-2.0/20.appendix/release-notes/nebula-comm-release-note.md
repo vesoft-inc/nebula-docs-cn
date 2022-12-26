@@ -18,7 +18,7 @@
 
 - 优化 job manager。 [#4446](https://github.com/vesoft-inc/nebula/pull/4446) [#4442](https://github.com/vesoft-inc/nebula/pull/4442) [#4444](https://github.com/vesoft-inc/nebula/pull/4444) [#4460](https://github.com/vesoft-inc/nebula/pull/4460) [#4500](https://github.com/vesoft-inc/nebula/pull/4500) [#4633](https://github.com/vesoft-inc/nebula/pull/4633) [#4654](https://github.com/vesoft-inc/nebula/pull/4654) [#4663](https://github.com/vesoft-inc/nebula/pull/4663) [#4722](https://github.com/vesoft-inc/nebula/pull/4722) [#4742](https://github.com/vesoft-inc/nebula/pull/4742)
 
-- 添加实验功能的 flag，`TOSS` 的 `enable_toss` 和 `BALANCE DATA` 的 `enable_data_balance`。 [#4728](https://github.com/vesoft-inc/nebula/pull/4728)
+- 添加实验功能的 flag，<!--`TOSS` 的 `enable_toss` 和 -->`BALANCE DATA` 的 `enable_data_balance`。 [#4728](https://github.com/vesoft-inc/nebula/pull/4728)
 
 - 启动进程时统计日志打印到控制台。 [#4550](https://github.com/vesoft-inc/nebula/pull/4550)
 
