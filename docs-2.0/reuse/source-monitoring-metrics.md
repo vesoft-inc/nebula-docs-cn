@@ -50,7 +50,6 @@
 
 | 参数                         | 说明                                                |
 | ---------------------------- | --------------------------------------------------- |
-| `add_edges_atomic_latency_us`  | 启用TOSS后，原子性添加边的延迟时间。                                    |
 | `add_edges_latency_us`         | 添加边的延迟时间。                                  |
 | `add_vertices_latency_us`      | 添加点的延迟时间。                                  |
 | `commit_log_latency_us`        | Raft 协议中 Commit 日志的延迟时间。                 |
@@ -120,6 +119,7 @@
 | `num_sync_data`                | Storage 同步 Drainer 数据的次数。              |
 | `num_sync_data_errors`         | Storage 同步 Drainer 数据出错的次数。              |
 | `sync_data_latency_us`         | Storage 同步 Drainer 数据的延迟时间。             |
+<!-- | `add_edges_atomic_latency_us`  | 启用TOSS后，原子性添加边的延迟时间。                                    | -->
 
 ### 图空间级别监控指标
 
