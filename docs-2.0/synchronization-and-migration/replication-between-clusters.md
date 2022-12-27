@@ -515,4 +515,4 @@ nebula> SHOW DRAINER SYNC STATUS;
 
 ### WAL 日志文件过期了对集群数据同步有影响吗？
 
-有影响。如果 WAL 日志文件过期了（超过了`--wal-ttl`设置的时间），listener 会从主集群拉取快照进行同步，但是快照以拉取文件的方式无法同步数据。用户可以通过手动在 Meta 和 Storage 服务的配置文件中添加`--snapshot_send_files=false`配置以解决问题。更新文件中的配置后，需要重启服务。关于配置文件的详细信息，参见[配置文件简介](../5.configurations-and-logs/1.configurations/1.configurations.md)。
+如果 WAL 日志文件过期了（超过了`--wal-ttl`设置的时间），数据会不同步。用户可以通过手动在 Meta 和 Storage 服务的配置文件中添加`--snapshot_send_files=false`配置以解决问题。更新文件中的配置后，需要重启服务。关于配置文件的详细信息，参见[配置文件简介](../5.configurations-and-logs/1.configurations/1.configurations.md)。
