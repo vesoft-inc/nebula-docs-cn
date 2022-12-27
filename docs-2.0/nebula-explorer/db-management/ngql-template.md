@@ -21,7 +21,7 @@ NebulaGraph 数据库里已经创建 Schema。
   |模板名称|`test`|模板的名称。|
   |图空间|`basketballplayer`|模板适用的图空间。|
   |描述|`返回指定球员的邻居名称`|描述模板的作用。|
-  |查询模板|`MATCH (v:player{name:"${name}"})--(v2:player) RETURN v2.player.name AS Name;`|nGQL 语句模板。可以选中需要参数化的文本，在右侧单击 **+ 文本参数化**，设置参数名称和描述。示例中`${name}`为参数化的文本，实际使用时可以填写`Tim Duncan`等名称。|
+  |查询模板|`MATCH (v:player{name:"${name}"})--(v2:player) RETURN v2.player.name AS Name;`|nGQL 语句模板。可以选中需要参数化的文本，在右侧单击 **+ 文本参数化**，设置参数名称和描述。示例中`${name}`为参数化的文本，实际使用时可以填写`Tim Duncan`等名称。<br>可以在单行使用`//`添加注释。|
   |输入|-|显示参数化的文本内容。可以编辑或删除参数化的文本。|
 
   !!! note
