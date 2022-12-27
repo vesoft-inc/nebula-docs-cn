@@ -86,9 +86,9 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
         更多配置说明，请参见[配置管理](../5.configurations-and-logs/1.configurations/1.configurations.md)。
 
-1. 在主从集群和 listener 服务的机器上放置 License 文件，路径为安装目录的`share/resources/`内。
+2. 在主从集群和 listener 服务的机器上放置 License 文件，路径为安装目录的`share/resources/`内。
 
-2. 在所有机器的 NebulaGraph 安装目录内启动对应的服务：
+3. 在所有机器的 NebulaGraph 安装目录内启动对应的服务：
 
   - 主、从集群启动命令：`sudo scripts/nebula.service start all`。
 
