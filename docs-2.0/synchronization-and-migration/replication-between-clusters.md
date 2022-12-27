@@ -512,3 +512,7 @@ nebula> SHOW DRAINER SYNC STATUS;
 ### 如何判断数据同步进度？
 
 用户可以执行`SHOW SYNC STATUS`查看主集群发送数据的状态，执行`SHOW DRAINER SYNC STATUS`查看从集群接收数据的状态。如果同时满足主集群中的所有数据都发送成功，并且从集群成功接收所有数据，则说明数据同步完成。
+
+### WAL 日志文件过期了对集群数据同步有影响吗？
+
+有影响。如果 WAL 日志文件过期了（超过了`--wal-ttl`设置的时间），会导致集群间数据不同步。用户可以通过手动在 Meta 和 Storage 服务的配置文件中添加`--snapshot_send_files=false`配置以解决问题。更新文件中的配置后，需要重启服务。关于配置文件的详细信息，参见[配置文件简介](../5.configurations-and-logs/1.configurations/1.configurations.md)。
