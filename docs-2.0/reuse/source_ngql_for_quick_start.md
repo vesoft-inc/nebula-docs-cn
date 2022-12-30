@@ -237,7 +237,7 @@ nebula> CREATE EDGE serve(start_year int, end_year int);
 - `GO`
 
     ```ngql
-    GO [[<M> TO] <N> STEPS ] FROM <vertex_list>
+    GO [[<M> TO] <N> {STEP|STEPS}] FROM <vertex_list>
     OVER <edge_type_list> [{REVERSELY | BIDIRECT}]
     [ WHERE <conditions> ]
     YIELD [DISTINCT] <return_list>
