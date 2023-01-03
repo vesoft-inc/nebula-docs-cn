@@ -52,7 +52,7 @@ NebulaGraph Explorer 支持管理数据库用户，包括创建用户、删除�
     仅`root`用户可以查看**用户列表**。
 
 - 查看：查看用户在各个空间内的权限。
-- 修改密码：修改用户对应的密码。修改时不需要提供旧密码。非`root`用户无法查看**用户列表**，可以在页面右上角的![clear_connection](https://docs-cdn.nebula-graph.com.cn/figures/session_221024.png)图标内修改密码。
+- 编辑：修改用户对应的密码和 IP 白名单。修改时不需要提供旧密码。非`root`用户无法查看**用户列表**，可以在页面右上角的![clear_connection](https://docs-cdn.nebula-graph.com.cn/figures/session_221024.png)图标内修改密码。
 - 删除用户：仅`root`用户可以删除其他用户。
 - 搜索账号：通过关键字搜索账号。
 
