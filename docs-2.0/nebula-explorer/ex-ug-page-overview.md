@@ -19,7 +19,7 @@ NebulaGraph Explorer 由顶部导航栏、左侧导航栏、和画布三大模�
 | ![Console](https://docs-cdn.nebula-graph.com.cn/figures/nav-console2.png) | 对 NebulaGraph 内的数据使用 nGQL 进行查询操作。详情参见[控制台](db-management/explorer-console.md)。 |
 | ![Template](https://docs-cdn.nebula-graph.com.cn/figures/icon-navbar-queryTemplate.png)| nGQL 语句的模板列表。详情参见[查询语句模板](db-management/ngql-template.md)。|
 | ![db_user_management](https://docs-cdn.nebula-graph.com.cn/figures/db_user_management_221024.png) | 数据库用户管理。详情参见[数据库用户管理](db-management/dbuser_management.md)。   |
-| ![setting](https://docs-cdn.nebula-graph.com.cn/figures/navbar-setting-0105.png) | 全局设置。可以设置 Explorer 页面的语言、开启 Beta 功能、画布查询的点边最大返回数量等。    |
+| ![setting](https://docs-cdn.nebula-graph.com.cn/figures/navbar-setting-0105.png) | 全局设置。可以设置 Explorer 页面的语言、开启 Beta 功能、画布查询结果最大数量等。    |
 | ![help](https://docs-cdn.nebula-graph.com.cn/figures/navbar-help.png) | 帮助页面，指导和帮忙用户使用 NebulaGraph。          |
 | ![feedback](https://docs-cdn.nebula-graph.com.cn/figures/navbar-feedback-230105.png) | 反馈页面。可以反馈故障、提交建议、参与调研或联系 NebulaGraph 团队。          |
 | ![clear_connection](https://docs-cdn.nebula-graph.com.cn/figures/session_221024.png) | 显示连接信息和版本信息。支持修改密码和退出登录。    |
