@@ -436,6 +436,7 @@ nav:
       - 查询调优与终止:
           - EXPLAIN和PROFILE: 3.ngql-guide/17.query-tuning-statements/1.explain-and-profile.md
           - 终止查询: 3.ngql-guide/17.query-tuning-statements/6.kill-query.md
+          - 终止会话: 3.ngql-guide/17.query-tuning-statements/2.kill-session.md
       - 作业管理: 3.ngql-guide/4.job-statements.md
 
   - 安装部署:
