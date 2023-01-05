@@ -19,6 +19,8 @@ Nebula Explorer 提供多种**组件**（Component），包括图查询组件和
 
 ## 注意事项
 
+- 需要在 ![setting](https://docs-cdn.nebula-graph.com.cn/figures/navbar-setting-0105.png) 里开启工作流才能显示 Workflow 页面。
+
 - 使用工作流需要额外部署 Dag Controller 和 Nebula Analytics。详情参见[NebulaGraph Analytics](../..//graph-computing/nebula-analytics.md)和[部署 Explorer](../deploy-connect/ex-ug-deploy.md)。
 
 - 图查询组件的输入只能是查询语言。
