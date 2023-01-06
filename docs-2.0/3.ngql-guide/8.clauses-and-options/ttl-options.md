@@ -29,7 +29,7 @@ nGQL 支持的 TTL 选项如下。
 
 !!! caution 
 
-    - 当给值为`NULL`的属性名设置 TTL 时，TTL 功能不会生效，即该属性永不过期。
+    - 当为一个 Tag 或 Edge type 的属性设置 TTL 并该属性的值为`NULL`时，TTL 功能不会生效，即该属性永不过期。
       
     - 如果为一个 Tag 或 Edge type 新增默认值为`now()`的属性并且该属性设置了 TTL，该 Tag 或 Edge type 相关的历史数据不会过期，因为历史数据的该属性值为当前时间戳。
 
