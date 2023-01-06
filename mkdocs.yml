@@ -8,7 +8,7 @@ docs_dir: docs-2.0
 copyright: Copyright &copy; 2022 NebulaGraph - 浙ICP备20010487号
  
 # modify when release: 
-edit_uri: 'edit/master/docs-2.0/'  
+edit_uri: 'https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/'  
 
 # Configuration
 theme:
