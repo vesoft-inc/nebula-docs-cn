@@ -170,9 +170,13 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
   !!! caution
   
-        主集群中只有`root`用户可以注册 drainer 服务。
+        主集群中只有 God 角色用户可以注册 drainer 服务。
 
-3. 设置 listener 服务。
+  !!! note
+
+        注册多个 drainer 服务的命令示例：`SIGN IN DRAINER SERVICE(192.168.8.x:9889),(192.168.8.x:9889)`
+
+1. 设置 listener 服务。
 
   ```
   //设置 listener 服务，待同步的图空间名称为replication_basketballplayer（下文将在从集群中创建）。
@@ -201,7 +205,12 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
   +--------+--------+------------------------+--------------------------------+----------+
   ```
 
-4. 登录从集群，创建图空间`replication_basketballplayer`。
+  !!! note
+
+        - 添加多个 listener 服务的命令示例：`ADD LISTENER SYNC META 192.168.10.xxx:9569 STORAGE 192.168.10.xxx:9789,192.168.10.xxx:9789 TO SPACE <replication_space_name>`
+        - 只有 DBA、Admin、God 角色用户可以执行添加 listener 操作。
+
+1. 登录从集群，创建图空间`replication_basketballplayer`。
 
   ```
   nebula> CREATE SPACE replication_basketballplayer(partition_num=15, replica_factor=1, vid_type=fixed_string(30));
@@ -222,7 +231,12 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
   +-------------------------+----------+
   ```
 
-6. 修改图空间`replication_basketballplayer`为只读。
+  !!! note
+
+        - 添加多个 drainer 服务的命令示例：`ADD DRAINER 192.168.8.5:9889,192.168.8.5:9889`
+        - 只有 DBA、Admin、God 角色用户可以执行添加 drainer 操作。
+
+1. 修改图空间`replication_basketballplayer`为只读。
 
   !!! note
 
@@ -415,6 +429,10 @@ nebula> SHOW DRAINER SYNC STATUS;
   nebula> USE basketballplayer;
   nebula> SET VARIABLES read_only=true;
   ```
+
+  !!! note
+  
+        只有 GOD 角色用户可以执行`SET VARIABLES read_only=true`。
 
 2. 查看旧的主集群中的图空间的数据是否已经同步至旧的从集群中，确保旧的主集群中的数据已经同步至旧的从集群中。
 
