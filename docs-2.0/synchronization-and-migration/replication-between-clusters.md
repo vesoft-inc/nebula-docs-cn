@@ -38,6 +38,8 @@ NebulaGraph 支持在集群间进行数据同步，即主集群 A 的数据可�
 
 - 从集群中数据如果不为空，数据同步时可能会导致数据冲突或者数据不一致。建议保持从集群数据为空。
 
+- 集群同步操作中各命令需要的用户角色权限不同，建议使用具备 God 权限的`root`用户进行集群数据同步操作。
+
 ## 操作步骤
 
 ### 准备工作
@@ -168,15 +170,11 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
   +-----------+------------------+------+
   ```
 
-  !!! caution
-  
-        主集群中只有 God 角色用户可以注册 drainer 服务。
-
   !!! note
 
         注册多个 drainer 服务的命令示例：`SIGN IN DRAINER SERVICE(192.168.8.x:9889),(192.168.8.x:9889)`
 
-1. 设置 listener 服务。
+3. 设置 listener 服务。
 
   ```
   //设置 listener 服务，待同步的图空间名称为replication_basketballplayer（下文将在从集群中创建）。
@@ -207,10 +205,9 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
   !!! note
 
-        - 添加多个 listener 服务的命令示例：`ADD LISTENER SYNC META 192.168.10.xxx:9569 STORAGE 192.168.10.xxx:9789,192.168.10.xxx:9789 TO SPACE <replication_space_name>`
-        - 只有 DBA、Admin、God 角色用户可以执行添加 listener 操作。
+        添加多个 listener 服务的命令示例：`ADD LISTENER SYNC META 192.168.10.xxx:9569 STORAGE 192.168.10.xxx:9789,192.168.10.xxx:9789 TO SPACE <replication_space_name>`
 
-1. 登录从集群，创建图空间`replication_basketballplayer`。
+4. 登录从集群，创建图空间`replication_basketballplayer`。
 
   ```
   nebula> CREATE SPACE replication_basketballplayer(partition_num=15, replica_factor=1, vid_type=fixed_string(30));
@@ -233,10 +230,9 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
   !!! note
 
-        - 添加多个 drainer 服务的命令示例：`ADD DRAINER 192.168.8.5:9889,192.168.8.5:9889`
-        - 只有 DBA、Admin、God 角色用户可以执行添加 drainer 操作。
+        添加多个 drainer 服务的命令示例：`ADD DRAINER 192.168.8.5:9889,192.168.8.5:9889`
 
-1. 修改图空间`replication_basketballplayer`为只读。
+6. 修改图空间`replication_basketballplayer`为只读。
 
   !!! note
 
@@ -253,6 +249,18 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
   | "read_only" | "bool" | true  |
   +-------------+--------+-------+
   ```
+
+执行以上命令需要的用户角色权限不同，不同命令所需的角色权限如下（打勾代表有权限）：
+
+| 命令                                 | God  | Admin | DBA  | User | Guest |
+| ------------------------------------ | ---- | ----- | ---- | ---- | ----- |
+| `SIGN IN / SIGN OUT DRAINER SERVICE` | √    |       |      |      |       |
+| `ADD / REMOVE LISTENER SYNC`         | √    | √     | √    |      |       |
+| `SHOW DRAINER CLIENTS`               | √    | √     | √    | √    | √     |
+| `SHOW LISTENER SYNC`                 | √    | √     | √    | √    | √     |
+| `ADD / REMOVE DRAINER`               | √    | √     | √    |      |       |
+| `SET VARIABLES read_only`            | √    |       |      |      |       |
+| `SHOW DRAINERS`                      | √    | √     | √    | √    | √     |
 
 ### 3.验证数据
 
@@ -429,10 +437,6 @@ nebula> SHOW DRAINER SYNC STATUS;
   nebula> USE basketballplayer;
   nebula> SET VARIABLES read_only=true;
   ```
-
-  !!! note
-  
-        只有 GOD 角色用户可以执行`SET VARIABLES read_only=true`。
 
 2. 查看旧的主集群中的图空间的数据是否已经同步至旧的从集群中，确保旧的主集群中的数据已经同步至旧的从集群中。
 
