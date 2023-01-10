@@ -2,18 +2,21 @@ site_name: NebulaGraph Database 手册
 site_description: Documentation for NebulaGraph Database 
 site_author: NebulaGraph 
 site_url: https://docs.nebula-graph.com.cn/ 
-repo_name: 'vesoft-inc/nebula-docs-cn' 
-repo_url: 'https://github.com/vesoft-inc/nebula-docs-cn' 
+repo_name: 'vesoft-inc/nebula' 
+repo_url: 'https://github.com/vesoft-inc/nebula' 
 docs_dir: docs-2.0 
 copyright: Copyright &copy; 2022 NebulaGraph - 浙ICP备20010487号
  
 # modify when release: 
-edit_uri: 'edit/master/docs-2.0/'  
+edit_uri: 'https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/'  
 
 # Configuration
 theme:
   name: material
   custom_dir: overrides
+# git repo icon
+  icon:
+    repo: fontawesome/brands/github
   logo: 'https://docs-cdn.nebula-graph.com.cn/figures/vesoft-nebula-logo-white22-12-21.png'
   favicon: 'https://docs-cdn.nebula-graph.com.cn/figures/favicon.ico'
   # Change color in `stylesheets > extra.css`
@@ -436,6 +439,7 @@ nav:
       - 查询调优与终止:
           - EXPLAIN和PROFILE: 3.ngql-guide/17.query-tuning-statements/1.explain-and-profile.md
           - 终止查询: 3.ngql-guide/17.query-tuning-statements/6.kill-query.md
+          - 终止会话: 3.ngql-guide/17.query-tuning-statements/2.kill-session.md
       - 作业管理: 3.ngql-guide/4.job-statements.md
 
   - 安装部署:

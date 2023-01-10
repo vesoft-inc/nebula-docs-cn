@@ -122,6 +122,10 @@
 
 ### 图空间级别监控指标
 
+!!! note
+
+    图空间级别监控指标是动态创建的, 只有当图空间内触发该行为时，对应的指标才会创建，用户才能查询到。
+
 | 参数                                           | 说明                                      |
 | ---------------------------------------------- | ----------------------------------------- |
 | `num_active_queries`           | 当前正在执行的查询数。                    |
@@ -136,7 +140,6 @@
 | `num_aggregate_executors`      | 聚合（Aggregate）算子执行时间。               |
 | `num_sort_executors`           | 排序（Sort）算子执行时间。                    |
 | `num_indexscan_executors`      | 索引扫描（IndexScan）算子执行时间。           |
-| `num_oom_queries`              | 导致内存耗尽的语句数量。|
 | `num_auth_failed_sessions_bad_username_password` |  因用户名密码错误导验证失败的会话数量。  |
 | `num_auth_failed_sessions`     | 登录验证失败的会话数量。                            |
 | `num_opened_sessions`          | 服务端建立过的会话数量。                           |

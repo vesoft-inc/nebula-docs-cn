@@ -108,7 +108,7 @@ Nebula Console 可以保存参数，用于参数化查询。
 
 ### 导出执行结果
 
-导出命令执行的返回结果，可以保存为 CSV 文件或 DOT 文件。
+导出命令执行的返回结果，可以保存为 CSV 文件、 DOT 文件或者 Profile/Explain 结果。
 
 !!! note
 
@@ -135,6 +135,32 @@ Nebula Console 可以保存参数，用于参数化查询。
   ```ngql
   nebula> :dot a.dot;
   nebula> PROFILE FORMAT="dot" GO FROM "player100" OVER follow;
+  ```
+
+- 导出 PROFILE/EXPLAIN 结果到文件命令如下：
+
+  ```ngql
+  nebula> :profile <file_name>;
+  ```
+  或者
+
+  ```ngql
+  nebula> :explain <file_name>;
+  ```
+
+!!! note
+
+    相比于 Studio 中的截图、CSV 文件，因为保有更多信息量和拥有更好的可读性，经由此命令输出的文本文件内容是首推的在 GitHub issue、论坛中报告执行计划、图查询调优的方式。
+
+  示例：
+
+  ```ngql
+  nebula> :profile profile.log
+  nebula> PROFILE GO FROM "player102" OVER serve YIELD dst(edge);
+  nebula> :profile profile.dot
+  nebula> PROFILE FORMAT="dot" GO FROM "player102" OVER serve YIELD dst(edge);
+  nebula> :explain explain.log
+  nebula> EXPLAIN GO FROM "player102" OVER serve YIELD dst(edge);
   ```
 
 ### 加载测试数据集
