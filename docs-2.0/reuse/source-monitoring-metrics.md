@@ -151,6 +151,8 @@
 | `num_rpc_sent_to_storaged`     |  Graphd 服务发给 Storaged 服务的 RPC 请求数量。                           |
 | `slow_query_latency_us`        |  慢查询延迟时间。                           |
 
+{{ent.ent_begin}} 
+
 ### 单进程指标
 
 Graph、Meta 和 Storage 服务都有自身的单进程指标。
@@ -163,3 +165,5 @@ Graph、Meta 和 Storage 服务都有自身的单进程指标。
 | `open_filedesc_gauge`           |  文件描述符的数量。                   |
 | `read_bytes_total`           |   读取的字节数量。                  |
 | `write_bytes_total`           |  写入的字节数量。                  |
+
+ {{ent.ent_end}}
