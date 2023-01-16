@@ -1,4 +1,4 @@
-Nebula Graph 支持通过脚本管理服务。
+NebulaGraph 支持通过脚本管理服务。
 
 {{ ent.ent_begin }}
 
@@ -45,15 +45,15 @@ $ sudo /usr/local/nebula/scripts/nebula.service
 {{ ent.ent_begin }}
 ## 使用 systemd 管理服务
 
-为方便使用，Nebula Graph 企业版支持用 systemd 管理服务，通过`systemctl`启动、停止、重启和查看服务。
+为方便使用，NebulaGraph 企业版支持用 systemd 管理服务，通过`systemctl`启动、停止、重启和查看服务。
 
 !!! note
 
-    - 安装 Nebula Graph 企业版后，systemd 所需的`.service`文件在安装目录的`etc/unit`目录内，使用 RPM/DEB 包安装的 Nebula Graph，会自动将这些`.service`文件放入`/usr/lib/systemd/system`目录内，并且`ExecStart`也会根据指定的 Nebula Graph 安装路径进行生成，因此可以直接使用`systemctl`命令。
+    - 安装 NebulaGraph 企业版后，systemd 所需的`.service`文件在安装目录的`etc/unit`目录内，使用 RPM/DEB 包安装的 NebulaGraph，会自动将这些`.service`文件放入`/usr/lib/systemd/system`目录内，并且`ExecStart`也会根据指定的 NebulaGraph 安装路径进行生成，因此可以直接使用`systemctl`命令。
 
-    - 对于使用企业版 Dashboard 安装的企业版 Nebula Graph，不支持使用`systemctl`管理服务。
+    - 对于使用企业版 Dashboard 安装的企业版 NebulaGraph，不支持使用`systemctl`管理服务。
     
-    - 对于其他方式安装的企业版 Nebula Graph，需要用户手动将`.service`文件移动到`/usr/lib/systemd/system`目录内，并修改`.service`文件内的`ExecStart`的文件路径，才可以正常使用`systemctl`命令。
+    - 对于其他方式安装的企业版 NebulaGraph，需要用户手动将`.service`文件移动到`/usr/lib/systemd/system`目录内，并修改`.service`文件内的`ExecStart`的文件路径，才可以正常使用`systemctl`命令。
     
 ### 语法
 
@@ -74,11 +74,11 @@ $ systemctl <start | stop | restart | status > <nebula | nebula-metad | nebula-g
 
 {{ ent.ent_end }}
 
-## 启动 Nebula Graph 服务
+## 启动 NebulaGraph 服务
 
 ### 非容器部署
 
-对于非容器部署的 Nebula Graph，执行如下命令启动服务：
+对于非容器部署的 NebulaGraph，执行如下命令启动服务：
 
 ```bash
 $ sudo /usr/local/nebula/scripts/nebula.service start all
@@ -106,7 +106,7 @@ $ systemctl enable nebula
 
 ### 容器部署
 
-对于使用 Docker Compose 部署的 Nebula Graph，在`nebula-docker-compose/`目录内执行如下命令启动服务：
+对于使用 Docker Compose 部署的 NebulaGraph，在`nebula-docker-compose/`目录内执行如下命令启动服务：
 
 ```bash
 [nebula-docker-compose]$ docker-compose up -d
@@ -123,7 +123,7 @@ Creating nebula-docker-compose_graphd2_1   ... done
 Creating nebula-docker-compose_graphd_1    ... done
 ```
 
-## 停止 Nebula Graph 服务
+## 停止 NebulaGraph 服务
 
 !!! danger
 
@@ -131,7 +131,7 @@ Creating nebula-docker-compose_graphd_1    ... done
 
 ### 非容器部署
   
-执行如下命令停止 Nebula Graph 服务：
+执行如下命令停止 NebulaGraph 服务：
 
 ```bash
 $ sudo /usr/local/nebula/scripts/nebula.service stop all
@@ -153,7 +153,7 @@ $ systemctl stop nebula
 
 ### 容器部署
 
-在`nebula-docker-compose/`目录内执行如下命令停止 Nebula Graph 服务：
+在`nebula-docker-compose/`目录内执行如下命令停止 NebulaGraph 服务：
 
 ```bash
 [nebula-docker-compose]$ docker-compose down
@@ -180,19 +180,19 @@ Removing network nebula-docker-compose_nebula-net
 
 !!! Note
 
-    命令`docker-compose down -v`将会**删除**所有本地 Nebula Graph 的数据。如果使用的是 developing 或 nightly 版本，并且有一些兼容性问题，请尝试这个命令。
+    命令`docker-compose down -v`将会**删除**所有本地 NebulaGraph 的数据。如果使用的是 developing 或 nightly 版本，并且有一些兼容性问题，请尝试这个命令。
 
-## 查看 Nebula Graph 服务
+## 查看 NebulaGraph 服务
 
 ### 非容器部署
 
-执行如下命令查看 Nebula Graph 服务状态：
+执行如下命令查看 NebulaGraph 服务状态：
 
 ```bash
 $ sudo /usr/local/nebula/scripts/nebula.service status all
 ```
 
-- 如果返回如下结果，表示 Nebula Graph 服务正常运行。
+- 如果返回如下结果，表示 NebulaGraph 服务正常运行。
 
     ```bash
     [INFO] nebula-metad(33fd35e): Running as 29020, Listening on 9559
@@ -204,10 +204,10 @@ $ sudo /usr/local/nebula/scripts/nebula.service status all
 
   !!! note
 
-        正常启动 Nebula Graph 后，`nebula-storaged`进程的端口显示红色。这是因为`nebula-storaged`在启动流程中会等待`nebula-metad`添加当前 Storage 服务，当前 Storage 服务收到 Ready 信号后才会正式启动服务。从 3.0.0 版本开始，在配置文件中添加的 Storage 节点无法直接读写，配置文件的作用仅仅是将 Storage 节点注册至 Meta 服务中。必须使用`ADD HOSTS`命令后，才能正常读写 Storage 节点。更多信息，参见[管理 Storage 主机](../4.deployment-and-installation/manage-storage-host.md)。
+        正常启动 NebulaGraph 后，`nebula-storaged`进程的端口显示红色。这是因为`nebula-storaged`在启动流程中会等待`nebula-metad`添加当前 Storage 服务，当前 Storage 服务收到 Ready 信号后才会正式启动服务。从 3.0.0 版本开始，在配置文件中添加的 Storage 节点无法直接读写，配置文件的作用仅仅是将 Storage 节点注册至 Meta 服务中。必须使用`ADD HOSTS`命令后，才能正常读写 Storage 节点。更多信息，参见[管理 Storage 主机](../4.deployment-and-installation/manage-storage-host.md)。
 
 
-- 如果返回类似如下结果，表示 Nebula Graph 服务异常，可以根据异常服务信息进一步排查，或者在 [Nebula Graph 社区](https://discuss.nebula-graph.com.cn/)寻求帮助。
+- 如果返回类似如下结果，表示 NebulaGraph 服务异常，可以根据异常服务信息进一步排查，或者在 [NebulaGraph 社区](https://discuss.nebula-graph.com.cn/)寻求帮助。
 
     ```bash
     [INFO] nebula-metad: Running as 25600, Listening on 9559
@@ -216,7 +216,7 @@ $ sudo /usr/local/nebula/scripts/nebula.service status all
     ```
 
 {{ ent.ent_begin }}
-也可以使用`systemctl`命令查看 Nebula Graph 服务状态：
+也可以使用`systemctl`命令查看 NebulaGraph 服务状态：
 
 ```bash
 $ systemctl status nebula
@@ -237,11 +237,11 @@ $ systemctl status nebula
 ```
 {{ ent.ent_end }}
 
-Nebula Graph 服务由 Meta 服务、Graph 服务和 Storage 服务共同提供，这三种服务的配置文件都保存在安装目录的`etc`目录内，默认路径为`/usr/local/nebula/etc/`，用户可以检查相应的配置文件排查问题。
+NebulaGraph 服务由 Meta 服务、Graph 服务和 Storage 服务共同提供，这三种服务的配置文件都保存在安装目录的`etc`目录内，默认路径为`/usr/local/nebula/etc/`，用户可以检查相应的配置文件排查问题。
 
 ### 容器部署
 
-在`nebula-docker-compose`目录内执行如下命令查看 Nebula Graph 服务状态：
+在`nebula-docker-compose`目录内执行如下命令查看 NebulaGraph 服务状态：
 
 ```bash
 [nebula-docker-compose]$ docker-compose ps
@@ -291,4 +291,4 @@ a74054c6ae25   vesoft/nebula-graphd:nightly     "/usr/local/nebula/b…"   36 mi
 
 ## 下一步
 
-[连接 Nebula Graph](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/3.connect-to-nebula-graph/)<!--这里用外链。-->
+[连接 NebulaGraph](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/3.connect-to-nebula-graph/)<!--这里用外链。-->

@@ -1,6 +1,6 @@
 # 导入工具选择
 
-有多种方式可以写入 Nebula Graph {{ nebula.release }}：
+有多种方式可以写入 NebulaGraph {{ nebula.release }}：
 
 - 使用[命令行 -f 的方式](../2.quick-start/3.connect-to-nebula-graph.md)导入：可以导入少量准备好的 nGQL 文件，适合少量手工测试数据准备；
 - 使用 [studio 导入](../nebula-studio/quick-start/st-ug-import-data.md)：可以用过浏览器导入本机多个 csv 文件，格式有限制； 

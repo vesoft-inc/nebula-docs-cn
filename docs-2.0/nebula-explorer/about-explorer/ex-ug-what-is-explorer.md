@@ -1,10 +1,10 @@
-# 什么是 Nebula Explorer
+# 什么是 NebulaGraph Explorer
 
-Nebula Explorer （简称 Explorer）是一款可以通过 Web 访问的可视化图探索工具，搭配 Nebula Graph 内核使用，用于与图数据进行可视化交互。即使没有图数据操作经验，用户也可以快速成为图专家。
+NebulaGraph Explorer （简称 Explorer）是一款可以通过 Web 访问的可视化图探索工具，搭配 NebulaGraph 内核使用，用于与图数据进行可视化交互。即使没有图数据操作经验，用户也可以快速成为图专家。
 
 !!! enterpriseonly
 
-    如需获取 Nebula Explorer 安装包，请发送邮件至 inquiry@vesoft.com。
+    如需获取 NebulaGraph Explorer 安装包，请发送邮件至 inquiry@vesoft.com。
 
 !!! Note
 
@@ -36,13 +36,13 @@ Nebula Explorer （简称 Explorer）是一款可以通过 Web 访问的可视�
 
 ## 身份验证
 
-Nebula Graph 默认不启用身份验证，一般情况下用户可以使用`root`账号和任意密码登录 Explorer。
+NebulaGraph 默认不启用身份验证，一般情况下用户可以使用`root`账号和任意密码登录 Explorer。
 
-Nebula Graph 启用了身份验证后，用户只能使用指定的账号和密码登录 Explorer。
+NebulaGraph 启用了身份验证后，用户只能使用指定的账号和密码登录 Explorer。
 
-关于 Nebula Graph 的身份验证功能，参考 [Nebula Graph 用户手册](../../7.data-security/1.authentication/1.authentication.md "点击前往 Nebula Graph 官网")。
+关于 NebulaGraph 的身份验证功能，参考 [NebulaGraph 用户手册](../../7.data-security/1.authentication/1.authentication.md "点击前往 NebulaGraph 官网")。
 
 ## 视频
 
-* [Nebula Explore Demo Show](https://www.bilibili.com/video/BV1VL4y1V7C2/)（2 分 54 秒）
+* [NebulaGraph Explore Demo Show](https://www.bilibili.com/video/BV1VL4y1V7C2/)（2 分 54 秒）
 <iframe src="//player.bilibili.com/player.html?aid=853353222&bvid=BV1VL4y1V7C2&cid=581214591&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>

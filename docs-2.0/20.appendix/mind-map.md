@@ -1,6 +1,6 @@
 # 思维导图
 
-以下给出 Nebula Graph 结构框架的思维导图，用户可以[点击](https://www.mubucm.com/doc/34QEdbrFRwZ) 并查看大图。
+以下给出 NebulaGraph 结构框架的思维导图，用户可以[点击](https://www.mubucm.com/doc/34QEdbrFRwZ) 并查看大图。
 
 ![nebula graph](https://docs-cdn.nebula-graph.com.cn/figures/Unknown-2.png)
 

@@ -1,6 +1,6 @@
 # 集群间数据同步
 
-Nebula Graph 支持在集群间进行数据同步，即主集群 A 的数据可以近实时地复制到从集群 B 中，方便用户进行异地灾备或分流，降低数据丢失的风险，保证数据安全。
+NebulaGraph 支持在集群间进行数据同步，即主集群 A 的数据可以近实时地复制到从集群 B 中，方便用户进行异地灾备或分流，降低数据丢失的风险，保证数据安全。
 
 !!! enterpriseonly
 
@@ -58,7 +58,7 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
 ### 1.搭建主从集群、listener 和 drainer 服务
 
-1. 在所有机器上安装 Nebula Graph，修改配置文件：
+1. 在所有机器上安装 NebulaGraph，修改配置文件：
 
   - 主、从集群修改：`nebula-graphd.conf`、`nebula-metad.conf`、`nebula-storaged.conf`。
 
@@ -86,7 +86,7 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
 2. 在主从集群和 listener 服务的机器上放置 License 文件，路径为安装目录的`share/resources/`内。
 
-3. 在所有机器的 Nebula Graph 安装目录内启动对应的服务：
+3. 在所有机器的 NebulaGraph 安装目录内启动对应的服务：
 
   - 主、从集群启动命令：`sudo scripts/nebula.service start all`。
 
@@ -293,6 +293,10 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
     在切换主从之前需要为新的主集群搭建并启动 listener 服务（示例 IP 为`192.168.10.105`），为新的从集群搭建并启动 drainer 服务（示例 IP 为`192.168.10.106`）。
 
+!!! caution
+
+    在切换主从集群之前，请勿往主集群中写入数据，同时确保主集群中的数据已经同步至从集群中。
+
 1. 登录主集群，取消 drainer 和 listener 服务。
 
   ```
@@ -319,8 +323,7 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
   ```
   nebula> SIGN IN DRAINER SERVICE(192.168.10.106:9889);
-  nebula> ADD LISTENER SYNC META 192.168.10.105:9559 STORAGE 192.168.10.105:9789 TO SPACE basketballplayer;
-  nebula> REMOVE DRAINER;
+  nebula> ADD LISTENER SYNC META 192.168.10.105:9569 STORAGE 192.168.10.105:9789 TO SPACE basketballplayer;
   ```
 
 5. 登录之前的主集群，将其更改为从集群。
@@ -341,7 +344,7 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
 ### 从集群中已经有 data 了，数据同步会有影响吗？
 
-仍然会进行全量数据同步。如果从集群中的数据是主集群数据的子集，最终会数据一致；如果不是主集群数据的子集，从集群不会进行反向同步，而且这部分数据会保留，请确保主从集群数据不会冲突。
+仍然会进行全量数据同步。如果从集群中的数据是主集群数据的子集，最终会数据一致；如果不是主集群数据的子集，从集群不会进行反向同步，而且这部分数据可能会受到影响，请确保主从集群数据不会冲突；建议保持从集群数据为空。
 
 ### 从集群中已经有 Schema 了，数据同步会有影响吗？
 

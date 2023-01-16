@@ -1,4 +1,4 @@
-# Nebula Graph 企业版 {{ nebula.release }} release notes
+# NebulaGraph 企业版 {{ nebula.release }} release notes
 
 ## 功能
 

@@ -4,13 +4,13 @@
 
 !!! Note
 
-    一般在创建了 Tag 或者 Edge type 之后即可创建索引，但是，索引会影响写性能，所以，建议先导入数据，再批量重建索引。关于索引的详细信息，参考 [索引介绍](../../3.ngql-guide/14.native-index-statements/README.md "点击前往 Nebula Graph 网站")。
+    一般在创建了 Tag 或者 Edge type 之后即可创建索引，但是，索引会影响写性能，所以，建议先导入数据，再批量重建索引。关于索引的详细信息，参考 [索引介绍](../../3.ngql-guide/14.native-index-statements/README.md "点击前往 NebulaGraph 网站")。
 
 ## 前提条件
 
 在 Studio 上操作索引之前，用户必须确认以下信息：
 
-- Studio 已经连接到 Nebula Graph 数据库。
+- Studio 已经连接到 NebulaGraph 数据库。
 - 图空间、Tag 和 Edge type 已经创建。
 - 当前登录的账号拥有 GOD、ADMIN 或者 DBA 的权限。
 
@@ -34,7 +34,7 @@
 
     !!! Note
 
-        索引属性的顺序会影响 `LOOKUP` 语句的查询结果。详细信息，参考 [LOOKUP](../../3.ngql-guide/7.general-query-statements/5.lookup.md "点击前往 Nebula Graph 网站")。
+        索引属性的顺序会影响 `LOOKUP` 语句的查询结果。详细信息，参考 [LOOKUP](../../3.ngql-guide/7.general-query-statements/5.lookup.md "点击前往 NebulaGraph 网站")。
 
 6. 完成设置后，在 **对应的 nGQL** 面板，用户能看到与上述配置等价的 nGQL 语句。  
 

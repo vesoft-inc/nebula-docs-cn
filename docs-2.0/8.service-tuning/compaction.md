@@ -2,15 +2,15 @@
 
 本文介绍 Compaction 的相关信息。
 
-Nebula Graph 中，`Compaction`是最重要的后台操作，对性能有极其重要的影响。
+NebulaGraph 中，`Compaction`是最重要的后台操作，对性能有极其重要的影响。
 
-`Compaction`操作会读取硬盘上的数据，然后重组数据结构和索引，然后再写回硬盘，可以成倍提升读取性能。将大量数据写入 Nebula Graph 后，为了提高读取性能，需要手动触发`Compaction`操作（全量`Compaction`）。
+`Compaction`操作会读取硬盘上的数据，然后重组数据结构和索引，然后再写回硬盘，可以成倍提升读取性能。将大量数据写入 NebulaGraph 后，为了提高读取性能，需要手动触发`Compaction`操作（全量`Compaction`）。
 
 !!! Note
 
     `Compaction`操作会长时间占用硬盘的 IO，建议在业务低峰期（例如凌晨）执行该操作。
 
-Nebula Graph 有两种类型的`Compaction`操作：自动`Compaction`和全量`Compaction`。
+NebulaGraph 有两种类型的`Compaction`操作：自动`Compaction`和全量`Compaction`。
 
 ## 自动`Compaction`
 
@@ -74,7 +74,7 @@ nebula> SHOW JOB <job_id>;
 
 ## 操作建议
 
-为保证 Nebula Graph 的性能，请参考如下操作建议：
+为保证 NebulaGraph 的性能，请参考如下操作建议：
 
 <!--
 - 数据写入时为避免浪费 IO，请在大量数据写入前关闭自动`Compaction`。详情请参见[关闭自动`Compaction`](#compaction_2)。
@@ -88,10 +88,10 @@ nebula> SHOW JOB <job_id>;
 - 白天时设置`disable_auto_compactions`为`false`，提升短时间内的读取性能。
 -->
 
-- 为控制`Compaction`的读写速率，请在配置文件`nebula-storaged.conf`中设置如下参数：
+- 为控制`Compaction`的写入速率，请在配置文件`nebula-storaged.conf`中设置如下参数（注：此参数限制全部写入，包括正常写入和 Compaction）：
 
     ```bash
-    # 读写速率限制为 20MB/S。
+    # 写入速度限制为 20MB/S。
     --rocksdb_rate_limit=20 (in MB/s)
     ```
 

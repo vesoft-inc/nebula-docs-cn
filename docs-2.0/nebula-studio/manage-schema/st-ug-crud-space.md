@@ -1,15 +1,15 @@
 # 操作图空间
 
-Studio 连接到 Nebula Graph 数据库后，用户可以创建或删除图空间。用户可以使用 **控制台** 或者 **Schema** 操作图空间。本文仅说明如何使用 **Schema** 操作图空间。
+Studio 连接到 NebulaGraph 数据库后，用户可以创建或删除图空间。用户可以使用 **控制台** 或者 **Schema** 操作图空间。本文仅说明如何使用 **Schema** 操作图空间。
 
 ## 前提条件
 
 操作图空间之前，用户需要确保以下信息：
 
-- Studio 已经连接到 Nebula Graph 数据库。
+- Studio 已经连接到 NebulaGraph 数据库。
 - 当前登录的账号拥有创建或删除图空间的权限，即：
-  - 如果 Nebula Graph 未开启身份验证，用户以默认用户名 `user` 账号和任意密码登录。
-  - 如果 Nebula Graph 已开启身份验证，用户以 `root` 账号及其密码登录。
+  - 如果 NebulaGraph 未开启身份验证，用户以默认用户名 `user` 账号和任意密码登录。
+  - 如果 NebulaGraph 已开启身份验证，用户以 `root` 账号及其密码登录。
 
 ## 创建图空间
 

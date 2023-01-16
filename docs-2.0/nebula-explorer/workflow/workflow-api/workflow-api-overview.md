@@ -1,6 +1,6 @@
 # 工作流 API 概览
 
-Nebula Explorer 提供 API 接口使用工作流的部分功能。
+NebulaGraph Explorer 提供 API 接口使用工作流的部分功能。
 
 当前支持的 API 接口如下：
 
@@ -23,9 +23,9 @@ curl <options> http://<explorer_address>:<explorer_port>/<api_path>?{<body>}
 
 - `<options>`：curl 支持大量选项，工作流使用较多的是`-X`、`-H`、`-d`。关于选项的详细说明，参见 [curl 官方文档](https://curl.se/docs/manpage.html)。
 
-- `<explorer_address>`：Nebula Explorer 访问地址。
+- `<explorer_address>`：NebulaGraph Explorer 访问地址。
 
-- `<explorer_port>`：Nebula Explorer 访问端口。
+- `<explorer_port>`：NebulaGraph Explorer 访问端口。
 
 - `<api_path>`：API 的调用路径。例如`api-open/v1/jobs`。
 
@@ -39,11 +39,11 @@ curl <options> http://<explorer_address>:<explorer_port>/<api_path>?{<body>}
 curl -i -X POST -H "Content-Type: application/json" -H "Authorization: Bearer <account_base64_encode>" -d '{"address":"<nebula_address>","port":<nebula_port>}' http://<explorer_address>:<explorer_port>/api-open/v1/connect
 ```
 
-- `<account_base64_encode>`：Base64 编码后的 Nebula Graph 账号和密码。编码前格式为`账号:密码`，下文示例为`root:123`，编码后为`cm9vdDoxMjM=`。
-- `<nebula_address>`：Nebula Graph 访问地址。
-- `<nebula_port>`：Nebula Graph 访问端口。
-- `<explorer_address>`：Nebula Explorer 访问地址。
-- `<explorer_port>`：Nebula Explorer 访问端口。
+- `<account_base64_encode>`：Base64 编码后的 NebulaGraph 账号和密码。编码前格式为`账号:密码`，下文示例为`root:123`，编码后为`cm9vdDoxMjM=`。
+- `<nebula_address>`：NebulaGraph 访问地址。
+- `<nebula_port>`：NebulaGraph 访问端口。
+- `<explorer_address>`：NebulaGraph Explorer 访问地址。
+- `<explorer_port>`：NebulaGraph Explorer 访问端口。
 
 示例：
 

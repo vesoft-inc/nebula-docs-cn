@@ -2,9 +2,9 @@
 
 本文介绍如何在本地通过 RPM 和 TAR 包部署 Explorer。
 
-## Nebula Graph 版本支持
+## NebulaGraph 版本支持
 
-| Nebula Graph 版本 | Explorer 版本 |
+| NebulaGraph 版本 | Explorer 版本 |
 | --- | --- |
 | 3.1.0 ~ 3.2.0| 3.1.0|
 | 3.0.0 ~ 3.1.0 | 3.0.0  |
@@ -16,7 +16,7 @@
 
 在部署 Explorer 之前，用户需要确认以下信息：
 
-- Nebula Graph 服务已经部署并启动。详细信息参考 [Nebula Graph 安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 Nebula Graph 安装部署")。
+- NebulaGraph 服务已经部署并启动。详细信息参考 [NebulaGraph 安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 NebulaGraph 安装部署")。
 
 - 以下端口未被使用。
 
@@ -33,7 +33,7 @@
 
   !!! enterpriseonly
 
-        License 仅在企业版提供，申请 License 需填写 [Nebula Explorer 试用申请](https://wj.qq.com/s2/10158890/69a8)。
+        License 仅在企业版提供，申请 License 需填写 [NebulaGraph Explorer 试用申请](https://wj.qq.com/s2/10158890/69a8)。
 
 ## RPM 部署
 ### 安装
@@ -213,10 +213,10 @@ kill $(lsof -t -i :7002)
 
 在浏览器窗口中看到以下登录界面表示已经成功部署并启动了 Explorer。
 
-![Nebula Explorer 登录页面](https://docs-cdn.nebula-graph.com.cn/figures/explorer_deploy_cn.png)
+![NebulaGraph Explorer 登录页面](https://docs-cdn.nebula-graph.com.cn/figures/explorer_deploy_cn.png)
 
 !!! note
 
-    首次登录 Nebula Explorer 的时候，页面显示*最终用户许可协议*的内容，请仔细阅读并单击**同意**。
+    首次登录 NebulaGraph Explorer 的时候，页面显示*最终用户许可协议*的内容，请仔细阅读并单击**同意**。
 
-进入 Explorer 登录界面后，用户需要连接 Nebula Graph。详细信息，参考[连接数据库](../deploy-connect/ex-ug-connect.md)。
+进入 Explorer 登录界面后，用户需要连接 NebulaGraph。详细信息，参考[连接数据库](../deploy-connect/ex-ug-connect.md)。

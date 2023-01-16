@@ -22,7 +22,7 @@
 
 ### 示例
 
-以横向扩容 Nebula Graph 为例，集群中增加新的 Storage 主机后，新主机上没有分片。
+以横向扩容 NebulaGraph 为例，集群中增加新的 Storage 主机后，新主机上没有分片。
 
 1. 执行命令`SHOW HOSTS`检查分片的分布。
 
@@ -83,7 +83,7 @@
   +-----------------+------+-----------+----------+--------------+----------------------+------------------------+-------------+
   ```
 
-如果有子任务失败，请执行`RECOVER JOB <job_id>`。如果重做负载均衡仍然不能解决问题，请到[Nebula Graph社区](https://discuss.nebula-graph.com.cn/)寻求帮助。
+如果有子任务失败，请执行`RECOVER JOB <job_id>`。如果重做负载均衡仍然不能解决问题，请到[NebulaGraph社区](https://discuss.nebula-graph.com.cn/)寻求帮助。
 
 ### 停止负载均衡作业
 
@@ -104,7 +104,7 @@
 !!! note
   
     - 可以恢复执行失败的作业。
-    - 对于停止的作业，Nebula Graph 会判断该作业的开始时间（start time）之后是否有相同类型的失败作业（failed job）或完成作业（finished job），如果有的话，无法恢复停止的作业。例如当有`stopped job1 -> finished job2 -> stopped job3`时，只能恢复 job3，无法恢复 job1。
+    - 对于停止的作业，NebulaGraph 会判断该作业的开始时间（start time）之后是否有相同类型的失败作业（failed job）或完成作业（finished job），如果有的话，无法恢复停止的作业。例如当有`stopped job1 -> finished job2 -> stopped job3`时，只能恢复 job3，无法恢复 job1。
 
 ### 迁移分片
 
@@ -136,7 +136,7 @@ nebula> SHOW HOSTS;
 
 ### 示例
 
-以横向扩容 Nebula Graph 为例，Zone 中增加新的 Storage 服务器后，新服务器上没有分片。
+以横向扩容 NebulaGraph 为例，Zone 中增加新的 Storage 服务器后，新服务器上没有分片。
 
 1. 将新增的 3 台 Storage 服务器加入集群，分别加入图空间`basketballplayer`所属的 Zone。关于 Zone 的介绍请参见[管理逻辑机架（Zone）](../4.deployment-and-installation/5.zone.md)。
 
@@ -209,7 +209,7 @@ nebula> SHOW HOSTS;
   +------------------+------+-----------+----------+--------------+-----------------------------------+------------------------+---------+
   ```
 
-如果有子任务失败，请重启作业，详情参见[作业管理](../3.ngql-guide/4.job-statements.md)。如果重做负载均衡仍然不能解决问题，请到 [Nebula Graph 社区](https://discuss.nebula-graph.com.cn/)寻求帮助。
+如果有子任务失败，请重启作业，详情参见[作业管理](../3.ngql-guide/4.job-statements.md)。如果重做负载均衡仍然不能解决问题，请到 [NebulaGraph 社区](https://discuss.nebula-graph.com.cn/)寻求帮助。
 
 ## 停止负载均衡作业
 
@@ -282,4 +282,4 @@ nebula> SHOW HOSTS;
 
 !!! caution
 
-    在 Nebula Graph {{ nebula.release }} 中，Leader 切换会导致短时的大量请求错误（Storage Error `E_RPC_FAILURE`），处理方法见 [FAQ](../20.appendix/0.FAQ.md)。
+    在 NebulaGraph {{ nebula.release }} 中，Leader 切换会导致短时的大量请求错误（Storage Error `E_RPC_FAILURE`），处理方法见 [FAQ](../20.appendix/0.FAQ.md)。

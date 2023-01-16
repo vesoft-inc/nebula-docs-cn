@@ -2,7 +2,7 @@
 
 既然已经讨论了什么是图，接下来让我们进一步认识基于图论和属性图模型发展起来的图数据库。
 
-不同的图数据库在术语方面可能会略有不同，但是归根结底都是在讲点、边和属性。至于更多的功能，例如标签、索引、约束、TTL、长任务、存储过程和UDF等这些高级功能，在不同图数据库中，会存在明显的差异。
+不同的图数据库在术语方面可能会略有不同，但归根结底都是在讲点、边和属性。至于更多的功能，例如标签、索引、约束、TTL、长任务、存储过程和UDF等这些高级功能，在不同图数据库中，会存在明显的差异。
 
 图数据库用图来存储数据，而图是最接近高度灵活、高性能的数据结构之一。图数据库是一种专门用于存储和检索庞大信息网的存储引擎，它能够高效地将数据存储为点和边，并允许对这些点边结构进行高性能的检索和查询。我们也可以为这些点和边添加属性。
 
@@ -153,7 +153,7 @@ Cypher 启发了一系列后续的图查询语言，包括
 
 [^GSQL]: https://docs.tigergraph.com/dev/gsql-ref
 
-2019 年，Nebula Graph 以 openCypher 为基础发布其扩展的图语言 Nebula Graph Query Language, nGQL。
+2019 年，NebulaGraph 以 openCypher 为基础发布其扩展的图语言 NebulaGraph Query Language, nGQL。
 
 ![Image](https://docs-cdn.nebula-graph.com.cn/books/images/langhis.jpg "图语言的历史")
 
@@ -240,6 +240,6 @@ Oracle graph[^Oracle] 是关系型数据库巨头 Oracle 在图技术与图数�
 
 [^Oracle]: https://www.oracle.com/database/graph/
 
-#### 新一代开源分布式图数据库 Nebula Graph
+#### 新一代开源分布式图数据库 NebulaGraph
 
-在下一章，我们将正式介绍新一代开源分布式图数据库 Nebula Graph。
+在下一章，我们将正式介绍新一代开源分布式图数据库 NebulaGraph。

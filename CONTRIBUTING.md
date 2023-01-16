@@ -1,6 +1,6 @@
-# Nebula Graph 中文文档贡献指南
+# NebulaGraph 中文文档贡献指南
 
-**Nebula Graph** 欢迎帮助我们改善文档。
+**NebulaGraph** 欢迎帮助我们改善文档。
 
 ## 可贡献的内容
 
@@ -14,7 +14,7 @@
 
 ## 必须遵循的 Markdown 规范
 
-在贡献之前，请知悉有关 **Nebula Graph** 文档维护的 Markdown 规范。
+在贡献之前，请知悉有关 **NebulaGraph** 文档维护的 Markdown 规范。
 
 - [Markdown 规范](https://github.com/DavidAnson/markdownlint/blob/master/doc/Rules.md)
 

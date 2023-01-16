@@ -2,17 +2,17 @@
 
 运行日志通常提供给 DBA 或开发人员查看，当系统出现故障，DBA 或开发人员可以根据运行日志定位问题。
 
-Nebula Graph 默认使用 [glog](https://github.com/google/glog) 打印运行日志，使用 [gflags](https://gflags.github.io/gflags/) 控制日志级别，并在运行时通过 HTTP 接口动态修改日志级别，方便跟踪问题。
+NebulaGraph 默认使用 [glog](https://github.com/google/glog) 打印运行日志，使用 [gflags](https://gflags.github.io/gflags/) 控制日志级别，并在运行时通过 HTTP 接口动态修改日志级别，方便跟踪问题。
 
 ## 运行日志目录
 
 运行日志的默认目录为`/usr/local/nebula/logs/`。
 
-如果在 Nebula Graph 运行过程中删除运行日志目录，日志不会继续打印，但是不会影响业务。重启服务可以恢复正常。
+如果在 NebulaGraph 运行过程中删除运行日志目录，日志不会继续打印，但是不会影响业务。重启服务可以恢复正常。
 
 ## 配置说明
 
-- `minloglevel`：最小日志级别，即不会记录低于这个级别的日志。可选值为`0`（INFO）、`1`（WARNING）、`2`（ERROR）、`3`（FATAL）。建议在调试时设置为`0`，生产环境中设置为`1`。如果设置为`4`，Nebula Graph 不会记录任何日志。
+- `minloglevel`：最小日志级别，即不会记录低于这个级别的日志。可选值为`0`（INFO）、`1`（WARNING）、`2`（ERROR）、`3`（FATAL）。建议在调试时设置为`0`，生产环境中设置为`1`。如果设置为`4`，NebulaGraph 不会记录任何日志。
 
 - `v`：日志详细级别，值越大，日志记录越详细。可选值为`0`、`1`、`2`、`3`。
 
@@ -69,7 +69,7 @@ $ curl -X PUT -H "Content-Type: application/json" -d '{"minloglevel":0,"v":3}' "
 
 ```
 
-如果在 Nebula Graph 运行时修改了运行日志级别，重启服务后会恢复为配置文件中设置的级别，如果需要永久修改，请修改[配置文件](../1.configurations/1.configurations.md)。
+如果在 NebulaGraph 运行时修改了运行日志级别，重启服务后会恢复为配置文件中设置的级别，如果需要永久修改，请修改[配置文件](../1.configurations/1.configurations.md)。
 
 ## RocksDB 运行日志
 
