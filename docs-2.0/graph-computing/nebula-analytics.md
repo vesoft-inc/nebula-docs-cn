@@ -80,7 +80,7 @@ NebulaGraph Analytics 支持的图计算算法如下。
 
   !!! note
 
-        进程管理器和 MPICH 库使用的 TCP 端口范围默认为 10000 到 10100。如需调整，修改`set_env.sh`文件中环境变量`MPIR_CVAR_CH3_PORT_RANGE`的值。
+        MPICH 进程管理器和 MPICH 库使用的 TCP 端口范围默认为 10000 到 10100。如需调整，修改`set_env.sh`文件中环境变量`MPIR_CVAR_CH3_PORT_RANGE`的值。
 
   ```
   export HADOOP_HOME=<hadoop_path>
