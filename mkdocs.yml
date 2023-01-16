@@ -584,6 +584,7 @@ nav:
   - NebulaGraph Dashboard（企业版）:
       - 什么是 NebulaGraph Dashboard 企业版: nebula-dashboard-ent/1.what-is-dashboard-ent.md
       - 部署 NebulaGraph Dashboard 企业版: nebula-dashboard-ent/2.deploy-connect-dashboard-ent.md
+      - 连接 Dashboard: nebula-dashboard-ent/3.connect-dashboard.md
       - NebulaGraph Dashboard 企业版 License: nebula-dashboard-ent/11.dashboard-ent-license.md
       - 创建及导入集群:
         - 创建集群: nebula-dashboard-ent/3.create-import-dashboard/1.create-cluster.md

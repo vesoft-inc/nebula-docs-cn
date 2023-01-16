@@ -316,14 +316,4 @@ Dag Controller 可以结合 NebulaGraph Analytics 进行复杂的图计算。例
 
 ## 后续操作
 
-启动成功后，在浏览器地址栏输入 `http://<ip_address>:7002`。
-
-在浏览器窗口中看到以下登录界面表示已经成功部署并启动了 Explorer。
-
-![Nebula Explorer 登录页面](https://docs-cdn.nebula-graph.com.cn/figures/explorer_deploy_cn.png)
-
-!!! note
-
-    首次登录 Nebula Explorer 的时候，页面显示*最终用户许可协议*的内容，请仔细阅读并单击**同意**。
-
-进入 Explorer 登录界面后，用户需要连接 NebulaGraph。详细信息，参考[连接数据库](../deploy-connect/ex-ug-connect.md)。
+[连接 Explorer](ex-ug-connect.md)
