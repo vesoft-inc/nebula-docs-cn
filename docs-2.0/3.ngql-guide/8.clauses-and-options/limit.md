@@ -80,13 +80,13 @@ nebula> GO 3 STEPS FROM "player100" \
         OVER * \
         YIELD properties($$).name AS NAME, properties($$).age AS Age \
         LIMIT [3,3,3];
-+-----------------+--------------+
-| NAME            | Age          |
-+-----------------+--------------+
-| "Spurs"         | UNKNOWN_PROP |
-| "Tony Parker"   | 36           |
-| "Manu Ginobili" | 41           |
-+-----------------+--------------+
++-----------------+----------+
+| NAME            | Age      |
++-----------------+----------+
+| "Tony Parker"   | 36       |
+| "Manu Ginobili" | 41       |
+| "Spurs"         | __NULL__ |
++-----------------+----------+
 
 nebula> GO 3 STEPS FROM "player102" OVER * BIDIRECT\
         YIELD dst(edge) \

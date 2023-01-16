@@ -23,26 +23,26 @@ nebula> GO 3 STEPS FROM "player100" \
         OVER * \
         YIELD properties($$).name AS NAME, properties($$).age AS Age \
         SAMPLE [1,2,3];
-+-----------------+--------------+
-| NAME            | Age          |
-+-----------------+--------------+
-| "Spurs"         | UNKNOWN_PROP |
-| "Tony Parker"   | 36           |
-| "Manu Ginobili" | 41           |
-+-----------------+--------------+
++-----------------+----------+
+| NAME            | Age      |
++-----------------+----------+
+| "Tony Parker"   | 36       |
+| "Manu Ginobili" | 41       |
+| "Spurs"         | __NULL__ |
++-----------------+----------+
 
 nebula> GO 1 TO 3 STEPS FROM "player100" \
         OVER * \
         YIELD properties($$).name AS NAME, properties($$).age AS Age \
         SAMPLE [2,2,2];
-+---------------------+-----+
-| NAME                | Age |
-+---------------------+-----+
-| "Manu Ginobili"     | 41  |
-| "Tony Parker"       | 36  |
-| "Tim Duncan"        | 42  |
-| "LaMarcus Aldridge" | 33  |
-| "Tony Parker"       | 36  |
-| "Tim Duncan"        | 42  |
-+---------------------+-----+
++-----------------+----------+
+| NAME            | Age      |
++-----------------+----------+
+| "Manu Ginobili" | 41       |
+| "Spurs"         | __NULL__ |
+| "Tim Duncan"    | 42       |
+| "Spurs"         | __NULL__ |
+| "Manu Ginobili" | 41       |
+| "Spurs"         | __NULL__ |
++-----------------+----------+
 ```
