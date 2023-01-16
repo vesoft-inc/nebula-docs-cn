@@ -78,6 +78,10 @@ NebulaGraph Analytics 支持的图计算算法如下。
 
 2. 配置`set_env.sh`文件，路径为`nebula-analytics/scripts/set_env.sh`。配置正确的 Hadoop 路径和 JDK 路径。如果有多台机器，请确保路径一致。
 
+  !!! note
+
+        进程管理器和 MPICH 库使用的 TCP 端口范围默认为 10000 到 10100。如需调整，修改`set_env.sh`文件中环境变量`MPIR_CVAR_CH3_PORT_RANGE`的值。
+
   ```
   export HADOOP_HOME=<hadoop_path>
   export JAVA_HOME=<java_path>
