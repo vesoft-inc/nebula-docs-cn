@@ -595,7 +595,9 @@ nav:
         - 集群信息: 
           - 信息总览: nebula-dashboard-ent/4.cluster-operator/cluster-information/overview-info.md
           - 集群诊断: nebula-dashboard-ent/4.cluster-operator/cluster-information/cluster-diagnosis.md
-#          - 集群作业管理: nebula-dashboard-ent/4.cluster-operator/cluster-information/job-management.md
+          - 作业管理: nebula-dashboard-ent/4.cluster-operator/cluster-information/job-management.md
+          - 审计日志: nebula-dashboard-ent/4.cluster-operator/cluster-information/audit-log.md
+          - 运行日志: nebula-dashboard-ent/4.cluster-operator/cluster-information/runtime-log.md
         - 集群操作: 
           - 节点管理: nebula-dashboard-ent/4.cluster-operator/operator/node.md
           - 扩缩容: nebula-dashboard-ent/4.cluster-operator/operator/scale.md
