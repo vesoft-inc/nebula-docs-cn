@@ -30,7 +30,7 @@ jobs:
           git config --global url."https://${GH_BOT_PAT}:x-oauth-basic@github.com/".insteadOf "https://github.com/"
             export GOPRIVATE="github.com/vesoft-inc"
       - name: auto cherry pick
-        uses: xigongdaEricyang/cherry-pick-robot@with-python
+        uses: xigongdaEricyang/cherry-pick-robot@for-doc
         with:
             repo_token: ${{ secrets.GITHUB_TOKEN }}
             pr_label: ${{ github.event.inputs.pr_label }}
