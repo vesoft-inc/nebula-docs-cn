@@ -2,8 +2,8 @@ name: Auto Cherry Pick
 on:
   workflow_dispatch:
     inputs:
-      pr_label:
-        description: "Cherry pick label such as 'cherry-pick-v3.2'"
+      branch_from:
+        description: "which branch you want to cherry pick, eg: v3.1.0"
         required: true
 
 defaults:
@@ -33,6 +33,6 @@ jobs:
         uses: xigongdaEricyang/cherry-pick-robot@for-doc
         with:
             repo_token: ${{ secrets.GITHUB_TOKEN }}
-            pr_label: ${{ github.event.inputs.pr_label }}
+            from_branch: ${{ github.event.inputs.branch_from }}
             #pr_num: ${{ github.event.pull_request.number }}
             auto_merge: false
