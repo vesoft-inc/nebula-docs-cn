@@ -12,7 +12,7 @@
 
 ## 使用限制
 
-`OPTIONAL MATCH`语句中暂不支持使用`WHERE`子句。
+`OPTIONAL MATCH`子句中暂不支持使用`WHERE`子句。
 
 ## 示例
 
