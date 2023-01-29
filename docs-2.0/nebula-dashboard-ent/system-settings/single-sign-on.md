@@ -25,6 +25,14 @@ NebulaGraph Dashboard 企业版支持普通账户、LDAP 账户和 OAuth2.0 账�
 |`User Filter` | `&(objectClass=*)` | 查询条件。 |
 |`Email Key` | `mail`| LDAP 数据库存放邮箱信息的字段名。 |
 
+### 使用说明
+
+开启 LDAP 后有 2 种 LDAP 账号的注册方法：
+
+- [邮箱邀请](../5.account-management.md)：在**权限管理**页面创建账号时可以通过邮箱邀请别人进行注册，优点是可以设置账号的角色权限。
+
+- 自动注册：在登录页面选择 LDAP 方式输入未注册账号登录时，Dashboard 会自动注册该账号，但是[角色权限](../5.account-management.md)为`user`。
+
 ## OAuth2.0 设置
 
 !!! caution
@@ -49,3 +57,7 @@ NebulaGraph Dashboard 企业版支持普通账户、LDAP 账户和 OAuth2.0 账�
 |`Username Key` | `email`| 用户名字段。 |
 |`Organization` |  `vesoft company`       |  组织名称。             |
 |`OAuth权限范围`| `email`| OAuth 的权限范围。权限范围需要是厂商 OAuth2.0 平台配置的 scope 的子集，否则请求会失败。请求的 scope 需要能获取到 `Username Key`的值。|
+
+### 使用说明
+
+开启 OAuth2.0 后，在**权限管理**页面创建账号时可以通过邮箱[邀请](../5.account-management.md)别人进行注册。
