@@ -20,4 +20,4 @@
 
 - 单击 ![nav](https://docs-cdn.nebula-graph.com.cn/figures/nav-dashboard_cn.png) 图标，可快速查看[服务监控信息](../2.monitor.md)。
 
-- 进行数据同步时，可以在**其他依赖服务**页面查看及管理相关的服务。关于数据同步的详情，参见[集群间数据同步](../../../synchronization-and-migration/replication-between-clusters.md)。
+- 进行数据同步时，可以在**依赖服务**页面查看及管理相关的服务。关于数据同步的详情，参见[集群间数据同步](../../../synchronization-and-migration/replication-between-clusters.md)。
