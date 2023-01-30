@@ -79,7 +79,6 @@ plugins:
         - spark-connector/*
         - 4.deployment-and-installation/5.zone.md
         - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
-        - nebula-dashboard-ent/4.cluster-operator/cluster-information/job-management.md
         # 仅发布包含企业版功能的文档版本时，注释以下页面
         # begin
 #       - 3.ngql-guide/6.functions-and-expressions/17.ES-function.md
@@ -568,6 +567,7 @@ nav:
         - 操作 Tag: nebula-studio/manage-schema/st-ug-crud-tag.md
         - 操作 Edge type: nebula-studio/manage-schema/st-ug-crud-edge-type.md
         - 操作索引: nebula-studio/manage-schema/st-ug-crud-index.md
+        - 查看 Schema: nebula-studio/manage-schema/st-ug-view-schema.md
       - Schema 草图: nebula-studio/quick-start/draft.md
     - 故障排查:
       - 连接数据库错误: nebula-studio/troubleshooting/st-ug-config-server-errors.md

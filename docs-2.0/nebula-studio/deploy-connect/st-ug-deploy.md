@@ -53,7 +53,7 @@ NebulaGraph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
    
    如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Studio。
 
-   ![NebulaGraph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-000-cn.png "NebulaGraph Studio 登录界面")
+   ![NebulaGraph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/studio_login_230130_cn.png "NebulaGraph Studio 登录界面")
 
 ### 卸载
 
@@ -137,7 +137,7 @@ $ systemctl restart nebula-graph-studio.service
    
    如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Studio。
 
-   ![NebulaGraph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-000-cn.png "NebulaGraph Studio 登录界面")
+   ![NebulaGraph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/studio_login_230130_cn.png "NebulaGraph Studio 登录界面")
 
 ### 卸载
 
@@ -186,7 +186,7 @@ $ sudo dpkg -r nebula-graph-studio
    
    如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Studio。
 
-   ![NebulaGraph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-000-cn.png "NebulaGraph Studio 登录界面")
+   ![NebulaGraph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/studio_login_230130_cn.png "NebulaGraph Studio 登录界面")
 ### 停止服务
 
 用户可以采用 `kill <pid>` 的方式来关停服务：
@@ -271,7 +271,7 @@ $ kill $(lsof -t -i :7001) # stop nebula-graph-studio
 
    如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Studio。
 
-   ![NebulaGraph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-000-cn.png "NebulaGraph Studio 登录界面")
+   ![NebulaGraph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/studio_login_230130_cn.png "NebulaGraph Studio 登录界面")
 
 ## Helm 部署 Studio
 
@@ -323,7 +323,7 @@ $ kill $(lsof -t -i :7001) # stop nebula-graph-studio
 4. 启动成功后，在浏览器地址栏输入`http://<node_address>:30070`。
    如果在浏览器窗口中能看到以下登录界面，表示已经成功部署并启动 Studio。
 
-   ![NebulaGraph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-000-cn.png "NebulaGraph Studio 登录界面")
+   ![NebulaGraph Studio 登录界面](https://docs-cdn.nebula-graph.com.cn/figures/studio_login_230130_cn.png "NebulaGraph Studio 登录界面")
 
 ### 卸载
 
