@@ -231,7 +231,7 @@ files:
 |`files.type`|-|是|文件类型。|
 |`files.csv.withHeader`|`false`|是|是否有表头。详情请参见[关于 CSV 文件表头](#csv_header)。|
 |`files.csv.withLabel`|`false`|是|是否有 LABEL。详情请参见[有表头配置说明](config-with-header.md)。|
-|`files.csv.delimiter`|`","`|是|指定 csv 文件的分隔符。只支持一个字符的字符串分隔符。|
+|`files.csv.delimiter`|`","`|是|指定 csv 文件的分隔符。只支持一个字符的字符串分隔符。使用特殊字符做分隔符时需要进行转义。例如当分隔符为十六进制`0x03`即`Ctrl+C`时，转义的写法为：`"\x03"`或`"\u0003"`。关于 yaml 格式特殊字符转义的细节请参见[更多](https://yaml.org/spec/1.2.2/#escaped-characters)|
 |`files.csv.lazyQuotes`|`false`|否|LazyQuotes设置为真时，一个引号可能会出现在非引号字段中，一个非双引号可能会出现在引号字段中。|
 
 #### Schema 配置
