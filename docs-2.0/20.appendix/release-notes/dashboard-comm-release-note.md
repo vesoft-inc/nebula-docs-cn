@@ -9,3 +9,4 @@
 - 优化
   - 调整目录结构，简化[部署步骤](../../nebula-dashboard/2.deploy-dashboard.md)。
   - 机器的概览页面显示监控指标名称。
+  - 优化`num_queries`等监控指标的计算方式，调整为时序聚合显示。
