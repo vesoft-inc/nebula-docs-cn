@@ -1,38 +1,46 @@
 # NebulaGraph Explorer 版本更新说明
 
-## v3.2.1
-
-- 缺陷修复
-  - 修复连接不存在的地址时超时并报 HTTP 错误`500`的问题。
-  - 修复随机导入节点时画布上无法显示节点属性的问题。
-
-## v3.2.0
+## v3.4.0
 
 - 功能
-  - 支持[边聚合](../..//nebula-explorer/canvas-operations/visualization-mode.md)。对画布上起点、终点、边类型相同的边进行聚合，使得哪些点之间存在大量关系一目了然。并支持对聚合边的属性进行计算。
-  - 支持 [Schema 草图](../../nebula-explorer/db-management/draft.md)。直接在画板上通过拖拽方式设计 Schema，点边关系更加直观，并支持一键应用至图空间。
-  - 支持 [iFrame 模式](../../nebula-explorer/iframe.md)。支持使用内联框架将画布嵌入至第三方页面中使用。
-  - 支持[自定义图标库及点边样式](../../nebula-explorer/canvas-operations/canvas-overview.md)。Explorer 内置十种行业分类图标，并支持上传图片作为图标。
-  - 支持[查询语句模板](../../nebula-explorer/db-management/ngql-template.md)。直接设计查询语句模板或在控制台将 nGQL 语句制作为模版，后续可直接调用模版，填入参数即可查询。
-  - 支持[数据库用户管理](../../nebula-explorer/db-management/dbuser_management.md)。可视化管理数据库用户，包括创建用户、授权用户等操作。
-  - 工作流添加 [node2vec 算法](../../graph-computing/algorithm-description.md)。
-  - （测试功能）支持 [OAuth 2.0 认证](../../nebula-explorer/deploy-connect/ex-ug-connect.md)。用户通过 OAuth2.0 认证登录 Explorer，保证数据安全。
+
+  - 支持查看 Schema 的[创建语句](../../nebula-explorer/db-management/10.create-schema.md)。
+  - 全局设置页面增加 Beta 功能开关。
+  - 新增产品反馈页面。
 
 - 优化
-  - 安装包[内置 Dag Controller](../../nebula-explorer/deploy-connect/ex-ug-deploy.md)。
-  - 欢迎页改版，内置 demo 数据集。
-  - 增加节点拖动动效。
-  - 控制台支持使用`//`添加注释。
-  - 收藏夹内容支持在服务端保存。
-  - 图空间列表支持搜索图空间名。
-  - 工作流对于缺失的入参，会提示手动输入。
-  - 帮助页整合，提供介绍视频。
-  - 工作流支持页面配置资源。
-  - 新增白屏崩溃兜底页。
-  - 优化页面加载速度。
+
+  - 优化慢查询，取消超时限制。
+  - 切换页面后控制台保留历史记录。
+  - 控制台支持使用`#`添加注释。
+  - 创建模版时支持使用`#`或`//`添加注释。
+  - 更新全局设置页面。
+  - 支持可视化修改 IP 白名单。
+  - 画布中默认展示 VID。
+  - 浏览器兼容提示。
+  - 连接信息展示内核版本。
+  - 内置数据集增加索引。
+  - 优化登录页。
+  - 优化 Workflow：
+    - 增加算法说明。
+    - 优化图算法的参数配置。
+    - 优化结果的展示。
+  - 优化交互：
+    - 节点筛选
+    - Tag 查询
+    - 路径查询
+  - 优化展示：
+    - 优化 Schema 统计信息展示。
+    - 优化力导向图布局。
+    - 优化可视化查询结果导入画布后的布局。
+    - 优化悬挂边上的点的展示。
+    - 优化控制台界面。
+  - 优化提示：
+    - 优化引导提示。
+    - 优化报错提示。
 
 - 缺陷修复
-  - 修复右键菜单点击后无法自动收起问题。
-  - 修复添加筛选条件时，画布自动缩放问题。
-  - 修复大数据量下切换至 3D 模式时展示结果抖动问题。
-  - 修复无法导入 Int8/16/32 和 fixed_string 类型数据的问题。
+  - 修复无法查看导入任务日志的问题。
+  - 修复`demo_basketballplayer`数据集中缺失部分边数据的问题。
+  - 修复页面崩溃的问题。
+  - 修复 Workflow 中图计算结果导入画布后无法展示点的详细信息的问题。
