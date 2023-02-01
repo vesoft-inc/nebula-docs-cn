@@ -1,9 +1,11 @@
 # NebulaGraph Dashboard 社区版更新说明
 
-## 社区版 v3.2.0
+## 社区版 v3.4.0
 
-- 新增服务单进程指标监控。
-- 磁盘监控优化。
-- 新增部分 Storage 监控指标。
-- 管理页面新增集群信息总览。
-- 支持搜索监控指标及查看指标详情。
+- 功能
+  - 内置 [dashboard.service](../../nebula-dashboard/2.deploy-dashboard.md) 脚本，支持一键管理 Dashboard 服务和查看 Dashboard 版本。
+  - 支持查看 Meta 服务的配置。
+
+- 优化
+  - 调整目录结构。
+  - 机器的概览页面显示监控指标名称。
