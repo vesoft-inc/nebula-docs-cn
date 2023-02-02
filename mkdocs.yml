@@ -79,6 +79,7 @@ plugins:
         - spark-connector/*
         - 4.deployment-and-installation/5.zone.md
         - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
+
         # 仅发布包含企业版功能的文档版本时，注释以下页面
         # begin
 #       - 3.ngql-guide/6.functions-and-expressions/17.ES-function.md
@@ -95,7 +96,8 @@ plugins:
 #       - nebula-dashboard-ent/4.cluster-operator/operator/scale.md
 #       - 6.monitor-and-metrics/3.bbox
         # end
-        
+        # comm.begin
+        # comm.end
 
 # Exclude the file with the following file name.
 #        - abc.md
@@ -125,6 +127,10 @@ extra_javascript:
 
 # modify when release: 
 extra:
+  # For conditional rendering
+  # Valid options: enterprise, community, both
+  # enterprise means this version is for the Enterprise only. And so on in a similar fashion
+  database_edition: community
   # Language selector.
   alternate:
     - name: English
