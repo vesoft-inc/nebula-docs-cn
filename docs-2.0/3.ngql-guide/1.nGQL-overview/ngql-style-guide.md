@@ -202,7 +202,7 @@ nGQL 没有严格的构建格式要求，但根据恰当而统一的风格创建
   不推荐：
 
   ```ngql
-  FETCH PROP ON player "player100" YIELD properties(vertex);
+  FETCH PROP ON player "player100" YIELD properties(vertex)
   ```
 
   推荐：
