@@ -1,7 +1,7 @@
 # Rules for processing the markdown files in the docs-2.0 directory:
 # - If database_edition is enterprise, the content between {{ ent.ent_begin }} and {{ ent.ent_end }} is kept and the content between {{ comm.comm_begin }} and {{ comm.comm_end }} is removed. 
 # - If database_edition is community, the content between {{ comm.comm_begin }} and {{ comm.comm_end }} is kept and the content between {{ ent.ent_begin }} and {{ ent.ent_end }} is removed. 
-# - If database_edition is both, both types of content are removed.
+# - If database_edition is both, both types of content are kept.
 
 import os
 import re
