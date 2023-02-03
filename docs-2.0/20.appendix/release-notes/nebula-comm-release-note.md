@@ -1,76 +1,67 @@
 # NebulaGraph 社区版 {{ nebula.release }} release notes
 
+## 功能
+
+- 支持[终止会话](../../3.ngql-guide/17.query-tuning-statements/2.kill-session.md)。[#5146](https://github.com/vesoft-inc/nebula/pull/5146) 
+- 支持 [Memory Tracker](../../5.configurations-and-logs/1.configurations/4.storage-config.md)，优化内存管理。[#5082](https://github.com/vesoft-inc/nebula/pull/5082)
+
 ## 优化
 
-- 优化了 k-hop 查询性能。[#4560](https://github.com/vesoft-inc/nebula/pull/4560) [#4736](https://github.com/vesoft-inc/nebula/pull/4736)  [#4566](https://github.com/vesoft-inc/nebula/pull/4566) [#4582](https://github.com/vesoft-inc/nebula/pull/4582) [#4558](https://github.com/vesoft-inc/nebula/pull/4558) [#4556](https://github.com/vesoft-inc/nebula/pull/4556) [#4555](https://github.com/vesoft-inc/nebula/pull/4555) [#4516](https://github.com/vesoft-inc/nebula/pull/4516) [#4531](https://github.com/vesoft-inc/nebula/pull/4531) [#4522](https://github.com/vesoft-inc/nebula/pull/4522) [#4754](https://github.com/vesoft-inc/nebula/pull/4754) [#4762](https://github.com/vesoft-inc/nebula/pull/4762)
+- 优化作业管理。 [#5212](https://github.com/vesoft-inc/nebula/pull/5212) [#5093](https://github.com/vesoft-inc/nebula/pull/5093) [#5099](https://github.com/vesoft-inc/nebula/pull/5099) [#4872](https://github.com/vesoft-inc/nebula/pull/4872)
 
-- 优化 `GO` 语句 JOIN 性能。 [#4599](https://github.com/vesoft-inc/nebula/pull/4599) [#4750](https://github.com/vesoft-inc/nebula/pull/4750)
+- 修改 Graph 服务配置参数`session_reclaim_interval_secs`的默认值更改为 60 秒。 [#5246](https://github.com/vesoft-inc/nebula/pull/5246)
 
-- 支持 `GET SUBGRAPH` 过滤点。 [#4357](https://github.com/vesoft-inc/nebula/pull/4357)
+- 调整配置文件中`stderrthreshold`的默认级别。 [#5188](https://github.com/vesoft-inc/nebula/pull/5188) 
 
-- 支持 `GetNeighbors` 过滤点。 [#4671](https://github.com/vesoft-inc/nebula/pull/4671)
+- 优化全文索引。 [#5077](https://github.com/vesoft-inc/nebula/pull/5077) [#4900](https://github.com/vesoft-inc/nebula/pull/4900) [#4925](https://github.com/vesoft-inc/nebula/pull/4925) 
 
-- 优化了 `FIND SHORTEST PATH` 的循环处理。 [#4672](https://github.com/vesoft-inc/nebula/pull/4672)
+- 限制优化器中计划树的最大深度以避免堆栈溢出。 [#5050](https://github.com/vesoft-inc/nebula/pull/5050)
 
-- 支持时间戳和日期时间相互转换。 [#4626](https://github.com/vesoft-inc/nebula/pull/4526)
-
-- 支持模式表达式引用局部定义变量。 [#4498](https://github.com/vesoft-inc/nebula/pull/4498)
-
-- 优化 job manager。 [#4446](https://github.com/vesoft-inc/nebula/pull/4446) [#4442](https://github.com/vesoft-inc/nebula/pull/4442) [#4444](https://github.com/vesoft-inc/nebula/pull/4444) [#4460](https://github.com/vesoft-inc/nebula/pull/4460) [#4500](https://github.com/vesoft-inc/nebula/pull/4500) [#4633](https://github.com/vesoft-inc/nebula/pull/4633) [#4654](https://github.com/vesoft-inc/nebula/pull/4654) [#4663](https://github.com/vesoft-inc/nebula/pull/4663) [#4722](https://github.com/vesoft-inc/nebula/pull/4722) [#4742](https://github.com/vesoft-inc/nebula/pull/4742)
-
-- 添加实验功能的 flag，`BALANCE DATA` 的 `enable_data_balance`。 [#4728](https://github.com/vesoft-inc/nebula/pull/4728)
-
-- 启动进程时统计日志打印到控制台。 [#4550](https://github.com/vesoft-inc/nebula/pull/4550)
-
-- 支持 `JSON_EXTRACT` 函数。 [#4743](https://github.com/vesoft-inc/nebula/pull/4743)
-
+- 优化模式表达式作为谓词时的处理方案。 [#4916](https://github.com/vesoft-inc/nebula/pull/4916)
 
 ## 缺陷修复
 
-- 修复了收集变量类型引起的崩溃。 [#4724](https://github.com/vesoft-inc/nebula/pull/4724)
+- 修复查询计划生成与优化时的问题。 [#4863](https://github.com/vesoft-inc/nebula/pull/4863) [#4813](https://github.com/vesoft-inc/nebula/pull/4813)
 
-- 修复了多 `MATCH` 优化阶段的崩溃问题。 [#4780](https://github.com/vesoft-inc/nebula/pull/4780)
+- 修复索引相关的缺陷：
 
-- 修复聚合表达式类型推导的错误。 [#4706](https://github.com/vesoft-inc/nebula/pull/4706)
+  - 全文索引： [#5214](https://github.com/vesoft-inc/nebula/pull/5214) [#5260](https://github.com/vesoft-inc/nebula/pull/5260)
+  - 字符串索引： [5126](https://github.com/vesoft-inc/nebula/pull/5126)
 
-- 修复了 `OPTIONAL MATCH` 语句的错误结果为给出错误消息，因为 `OPTIONAL MATCH` 语句中 `WHERE` 子句不支持引用其他 `MATCH` 语句定义的变量。 [#4670](https://github.com/vesoft-inc/nebula/pull/4670)
+- 修复查询语句的缺陷：
 
-- 修复了 `LOOKUP` 语句中参数表达式的缺陷。 [#4664](https://github.com/vesoft-inc/nebula/pull/4664)
+  - 变量： [#5192](https://github.com/vesoft-inc/nebula/pull/5192)
+  - 过滤条件和表达式： [#4952](https://github.com/vesoft-inc/nebula/pull/4952) [#4893](https://github.com/vesoft-inc/nebula/pull/4893) [#4863](https://github.com/vesoft-inc/nebula/pull/4863)
+  - 点或边的属性： [#5230](https://github.com/vesoft-inc/nebula/pull/5230) [#4846](https://github.com/vesoft-inc/nebula/pull/4846) [#4841](https://github.com/vesoft-inc/nebula/pull/4841) [#5238](https://github.com/vesoft-inc/nebula/pull/5238)
+  - 函数与聚合： [#5135](https://github.com/vesoft-inc/nebula/pull/5135) [#5121](https://github.com/vesoft-inc/nebula/pull/5121) [#4884](https://github.com/vesoft-inc/nebula/pull/4884)
+  - 使用非法的数据类型： [#5242](https://github.com/vesoft-inc/nebula/pull/5242)
+  - 子句与算子： [#5241](https://github.com/vesoft-inc/nebula/pull/5241) [#4965](https://github.com/vesoft-inc/nebula/pull/4965)
 
-- 修复 `LOOKUP` 中 `YIELD DISTINCT` 返回不同结果集的缺陷。 [#4651](https://github.com/vesoft-inc/nebula/pull/4651)
+- 修复 DDL 和 DML 语句相关的缺陷：
 
-- 修复 `ColumnExpression` 编解码不匹配的缺陷。 [#4413](https://github.com/vesoft-inc/nebula/pull/4413)
+  - ALTER TAG： [#5105](https://github.com/vesoft-inc/nebula/pull/5105) [#5136](https://github.com/vesoft-inc/nebula/pull/5136)
+  - UPDATE： [#4933](https://github.com/vesoft-inc/nebula/pull/4933)
 
-- 修复 `GO` 语句中 `id($$)` 过滤器不正确的缺陷。  [#4768](https://github.com/vesoft-inc/nebula/pull/4768)
+- 修复其它功能的缺陷：
 
-- 修复了 `MATCH` 语句中 `IN` 表达式相关谓词的索引选取扫描的缺陷。 [#4748](https://github.com/vesoft-inc/nebula/pull/4748)
+  - TTL： [#4961](https://github.com/vesoft-inc/nebula/pull/4961)
+  - 身份验证： [#4885](https://github.com/vesoft-inc/nebula/pull/4885)
+  - 服务： [#4896](https://github.com/vesoft-inc/nebula/pull/4896)
 
-- 修复了 `MATCH` 语句中优化器处理的错误。 [#4771](https://github.com/vesoft-inc/nebula/pull/4771)
+## 变更
 
-- 修复了 `MATCH` 语句中使用 `pattern` 表达式作为过滤器时错误输出的缺陷。 [#4778](https://github.com/vesoft-inc/nebula/pull/4778)
+- 新增的属性名不能与已存在或被删除的属性名同名，否则新增属性会失败。 [#5130](https://github.com/vesoft-inc/nebula/pull/5130)
+- 限制修改 Schema 时的类型转换。 [#5098](https://github.com/vesoft-inc/nebula/pull/5098)
+- 创建`NOT NULL`类型的属性时，必须指定默认值。 [#5105](https://github.com/vesoft-inc/nebula/pull/5105)
+- 在配置文件中添加多线程查询参数`query_concurrently`，默认值为`true`。 [#5119](https://github.com/vesoft-inc/nebula/pull/5119)
+- 从配置文件中改移除 KV 分离存储功能参数`kv_separation`，默认关闭该功能。 [#5119](https://github.com/vesoft-inc/nebula/pull/5119)
+- 修改配置文件中`local_config`的默认值为`true`。 [#5119](https://github.com/vesoft-inc/nebula/pull/5119)
+- 统一使用`v.tag.property`的方式获取属性值，需要指明 Tag。使用`v.property`的方式访问`v`点上某个 Tag 的属性在之前的版本中被错误地允许。 [#5230](https://github.com/vesoft-inc/nebula/pull/5230)
+- 删除命令`SHOW HOSTS`中的`HTTP port`列。 [#5056](https://github.com/vesoft-inc/nebula/pull/5056)
+- 禁用`OPTIONAL MATCH <pattern> WHERE <condition>`形式的查询。 [#5273](https://github.com/vesoft-inc/nebula/pull/5273)
+- 禁用 TOSS。 [#5119](https://github.com/vesoft-inc/nebula/pull/5119)
+- 重命名 Listener 的 pid 文件名和 log 目录名。 [#5119](https://github.com/vesoft-inc/nebula/pull/5119)
 
-- 修复 Tag、Edge、Tag 索引、Edge 索引显示数据不正确的缺陷。 [#4616](https://github.com/vesoft-inc/nebula/pull/4616)
-
-- 修复了日期时间格式的缺陷。 [#4524](https://github.com/vesoft-inc/nebula/pull/4524)
-
-- 修复 datetime 点返回值发生变化的缺陷。 [#4448](https://github.com/vesoft-inc/nebula/pull/4448)
-
-- 修复开启 `enable_breakpad` 时，日志目录不存在时启动服务失败的缺陷。 [#4623](https://github.com/vesoft-inc/nebula/pull/4623)
-
-- 修复了 metad 停止后，状态仍然在线的缺陷。 [#4610](https://github.com/vesoft-inc/nebula/pull/4610)
-
-- 修复了日志文件损坏的缺陷。 [#4409](https://github.com/vesoft-inc/nebula/pull/4409)
-
-- 修复了 `ENABLE_CCACHE` 选项不起作用的缺陷。 [#4648](https://github.com/vesoft-inc/nebula/pull/4648)
-
-- 全文索引名称中不支持大写字母。 [#4628](https://github.com/vesoft-inc/nebula/pull/4628)
-
-- 禁用 `COUNT(DISTINCT *)` 。 [#4553](https://github.com/vesoft-inc/nebula/pull/4553)
-
-### 变更
-
-- 默认不支持无 Tag 的点。 [#4629](https://github.com/vesoft-inc/nebula/pull/4629) 
-  
 ## 历史版本
 
 [历史版本](https://nebula-graph.com.cn/tags/release-note/)
