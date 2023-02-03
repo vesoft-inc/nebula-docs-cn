@@ -124,7 +124,7 @@ nebula> $var1 = GO FROM "player101" OVER follow \
 | "player125" |
 +-------------+
 
-# 查找 player 钟年龄大于 30 且小于 32 的点，返回去掉重复属性的值。
+# 查找 player 中年龄大于 30 且小于 32 的点，返回去掉重复属性的值。
 nebula> LOOKUP ON player  \
         WHERE player.age < 32 and player.age >30  \
         YIELD DISTINCT properties(vertex).age as v;
