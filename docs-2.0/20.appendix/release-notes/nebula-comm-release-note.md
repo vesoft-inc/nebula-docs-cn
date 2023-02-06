@@ -25,28 +25,28 @@
 
 - 修复索引相关的缺陷：
 
-  - 全文索引： [#5214](https://github.com/vesoft-inc/nebula/pull/5214) [#5260](https://github.com/vesoft-inc/nebula/pull/5260)
-  - 字符串索引： [5126](https://github.com/vesoft-inc/nebula/pull/5126)
+  - 全文索引 [#5214](https://github.com/vesoft-inc/nebula/pull/5214) [#5260](https://github.com/vesoft-inc/nebula/pull/5260)
+  - 字符串索引 [5126](https://github.com/vesoft-inc/nebula/pull/5126)
 
 - 修复查询语句的缺陷：
 
-  - 变量： [#5192](https://github.com/vesoft-inc/nebula/pull/5192)
-  - 过滤条件和表达式： [#4952](https://github.com/vesoft-inc/nebula/pull/4952) [#4893](https://github.com/vesoft-inc/nebula/pull/4893) [#4863](https://github.com/vesoft-inc/nebula/pull/4863)
-  - 点或边的属性： [#5230](https://github.com/vesoft-inc/nebula/pull/5230) [#4846](https://github.com/vesoft-inc/nebula/pull/4846) [#4841](https://github.com/vesoft-inc/nebula/pull/4841) [#5238](https://github.com/vesoft-inc/nebula/pull/5238)
-  - 函数与聚合： [#5135](https://github.com/vesoft-inc/nebula/pull/5135) [#5121](https://github.com/vesoft-inc/nebula/pull/5121) [#4884](https://github.com/vesoft-inc/nebula/pull/4884)
-  - 使用非法的数据类型： [#5242](https://github.com/vesoft-inc/nebula/pull/5242)
-  - 子句与算子： [#5241](https://github.com/vesoft-inc/nebula/pull/5241) [#4965](https://github.com/vesoft-inc/nebula/pull/4965)
+  - 变量 [#5192](https://github.com/vesoft-inc/nebula/pull/5192)
+  - 过滤条件和表达式 [#4952](https://github.com/vesoft-inc/nebula/pull/4952) [#4893](https://github.com/vesoft-inc/nebula/pull/4893) [#4863](https://github.com/vesoft-inc/nebula/pull/4863)
+  - 点或边的属性 [#5230](https://github.com/vesoft-inc/nebula/pull/5230) [#4846](https://github.com/vesoft-inc/nebula/pull/4846) [#4841](https://github.com/vesoft-inc/nebula/pull/4841) [#5238](https://github.com/vesoft-inc/nebula/pull/5238)
+  - 函数与聚合 [#5135](https://github.com/vesoft-inc/nebula/pull/5135) [#5121](https://github.com/vesoft-inc/nebula/pull/5121) [#4884](https://github.com/vesoft-inc/nebula/pull/4884)
+  - 使用非法的数据类型 [#5242](https://github.com/vesoft-inc/nebula/pull/5242)
+  - 子句与算子 [#5241](https://github.com/vesoft-inc/nebula/pull/5241) [#4965](https://github.com/vesoft-inc/nebula/pull/4965)
 
 - 修复 DDL 和 DML 语句相关的缺陷：
 
-  - ALTER TAG： [#5105](https://github.com/vesoft-inc/nebula/pull/5105) [#5136](https://github.com/vesoft-inc/nebula/pull/5136)
-  - UPDATE： [#4933](https://github.com/vesoft-inc/nebula/pull/4933)
+  - ALTER TAG [#5105](https://github.com/vesoft-inc/nebula/pull/5105) [#5136](https://github.com/vesoft-inc/nebula/pull/5136)
+  - UPDATE [#4933](https://github.com/vesoft-inc/nebula/pull/4933)
 
 - 修复其它功能的缺陷：
 
-  - TTL： [#4961](https://github.com/vesoft-inc/nebula/pull/4961)
-  - 身份验证： [#4885](https://github.com/vesoft-inc/nebula/pull/4885)
-  - 服务： [#4896](https://github.com/vesoft-inc/nebula/pull/4896)
+  - TTL [#4961](https://github.com/vesoft-inc/nebula/pull/4961)
+  - 身份验证 [#4885](https://github.com/vesoft-inc/nebula/pull/4885)
+  - 服务 [#4896](https://github.com/vesoft-inc/nebula/pull/4896)
 
 ## 变更
 
