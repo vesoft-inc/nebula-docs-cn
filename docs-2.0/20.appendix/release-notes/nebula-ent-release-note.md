@@ -2,73 +2,87 @@
 
 ## 功能
 
-- 增加 [Elasticsearch 查询函数](../../3.ngql-guide/6.functions-and-expressions/17.ES-function.md)，支持向独立部署的 Elasticsearch 发送 GET 请求读取数据。
-
-- 增加 [extract() 函数](../../3.ngql-guide/6.functions-and-expressions/2.string.md)。
+- 支持[增量备份](../../backup-and-restore/nebula-br-ent/1.br-ent-overview.md)。
+- 支持 Tag/Edge type 级别的[细粒度权限管理](../../7.data-security/1.authentication/3.role-list.md)。
+- 支持[终止会话](../../3.ngql-guide/17.query-tuning-statements/2.kill-session.md)。
+- 支持 [Memory Tracker](../../5.configurations-and-logs/1.configurations/4.storage-config.md)，优化内存管理。
+- 支持[黑匣子监控工具](../../6.monitor-and-metrics/3.bbox/3.1.bbox.md)。
+- 支持 [json_extract](../../3.ngql-guide/6.functions-and-expressions/2.string.md) 函数。
+- 支持 [extract](../../3.ngql-guide/6.functions-and-expressions/2.string.md) 函数。
 
 ## 优化
 
-- 优化配置文件，增加部分配置。 [#4310](https://github.com/vesoft-inc/nebula/pull/4310)
-
-- 增加优化规则，移除无用的 AppendVertices 操作符。 [#4277](https://github.com/vesoft-inc/nebula/pull/4277)
-
-- 增加优化规则，优化边过滤的下推。 [#4270](https://github.com/vesoft-inc/nebula/pull/4270)
-
-- 增加优化规则，优化点属性过滤的下推。 [#4260](https://github.com/vesoft-inc/nebula/pull/4260)
-
-- 剔除点的预测过滤器。 [#4249](https://github.com/vesoft-inc/nebula/pull/4249)
-
-- 减少移动数据时连接操作的数据复制量。 [#4283](https://github.com/vesoft-inc/nebula/pull/4283)
-
-- 通过下标获取属性值，减少属性查询的时间。 [#4242](https://github.com/vesoft-inc/nebula/pull/4242)
-
-- 优化查询最短路径的性能。 [#4071](https://github.com/vesoft-inc/nebula/pull/4071)
-
-- 优化查询子图的循环条件。 [#4226](https://github.com/vesoft-inc/nebula/pull/4226)
-
-- 减少移动数据时 Traverse 和 AppendVertices 操作符的数据复制量。 [#4176](https://github.com/vesoft-inc/nebula/pull/4176)
-
-- 改善优化规则，去除无效的项目操作符。 [#4157](https://github.com/vesoft-inc/nebula/pull/4157)
-
-- 使用 Arena Allocator 优化内存分配。 [#4239](https://github.com/vesoft-inc/nebula/pull/4239)
+- 支持`GET SUBGRAPH`时过滤点。
+- 支持`GetNeighbors`过滤点。
+- 支持时间戳和日期时间相互转换。
+- 支持模式表达式引用局部定义变量。
+- 优化作业管理。
+- 优化全文索引。
+- 优化模式表达式作为谓词时的处理方案。
+- 优化 GO 语句的 JOIN 性能。
+- 优化 k-hop 查询性能。
+- 优化查询最短路径的性能。
+- 优化点属性过滤的下推。
+- 优化边过滤的下推。
+- 优化查询子图的循环条件。
+- 优化属性裁剪的规则从而提升性能。
+- 移除无效的 Project 操作符。
+- 移除无效的 AppendVertices 操作符。
+- 减少连接操作的数据复制量。
+- 减少 Traverse 和 AppendVertices 操作符的数据复制量。
+- 修改 Graph 服务配置参数`session_reclaim_interval_secs`的默认值更改为 60 秒。
+- 调整配置文件中`stderrthreshold`的默认级别。
+- 通过下标获取属性值，减少属性查询的时间。
+- 限制优化器中计划树的最大深度以避免堆栈溢出。
 
 ## 缺陷修复
 
-- 修复 Web 服务在接收一些特殊攻击消息时崩溃的问题。 [#4334](https://github.com/vesoft-inc/nebula/pull/4334)
+- 修复索引相关的缺陷：
 
-- 修复并发扫描属性时 Storage 服务崩溃的问题。 [#4268](https://github.com/vesoft-inc/nebula/pull/4268)
+  - 全文索引
+  - 字符串索引
 
-- 修复插入超过限制长度的边时 Storage 服务崩溃的问题。 [#4305](https://github.com/vesoft-inc/nebula/pull/4305)
+- 修复查询语句的缺陷：
 
-- 修复启用查询并发模式时服务崩溃的问题。 [#4288](https://github.com/vesoft-inc/nebula/pull/4288)
+  - 变量
+  - 过滤条件和表达式
+  - 点或边的属性
+  - 参数
+  - 函数与聚合
+  - 使用非法的数据类型
+  - 时区、日期、时间等
+  - 子句与算子
+  - 查询计划生成与优化
 
-- 修复查找具有 NULL 属性的索引时 Storage 服务崩溃的问题。 [#4234](https://github.com/vesoft-inc/nebula/pull/4234)
+- 修复 DDL 和 DML 语句相关的缺陷：
 
-- 修复重启后独立守护进程退出的缺陷。 [#4269](https://github.com/vesoft-inc/nebula/pull/4269)
+  - ALTER TAG 
+  - UPDATE
 
-- 修复 GraphViz 在线工具由于两次 JSON 转换导致 Join 点格式的解释结果不正确的缺陷。 [#4280](https://github.com/vesoft-inc/nebula/pull/4280)
+- 修复其它功能的缺陷：
 
-- 修复属性查找的缺陷，不允许在 Schema 中使用英文句号（.）。 [#4194](https://github.com/vesoft-inc/nebula/pull/4194)
+  - TTL
+  - 数据同步
+  - 身份验证
+  - 服务
+  - 日志
+  - 监控和统计
 
-- 修复恢复数据时机器丢失 key 的缺陷。 [#4311](https://github.com/vesoft-inc/nebula/pull/4311)
+## 变更
 
-- 修复使用相同语句返回相同顶点不同属性时，结果显示`BAD TYPE`的缺陷。 [#4151](https://github.com/vesoft-inc/nebula/pull/4151)
-
-- 修复无索引时，语句`MATCH p=(:team)-->() RETURN p LIMIT 1`的报错信息缺陷。 [#4053](https://github.com/vesoft-inc/nebula/pull/4053)
-
-- 增强运算符`AND`和`OR`的报错信息。 [#4304](https://github.com/vesoft-inc/nebula/pull/4304)
-
-- 修复索引条件下没有统计信息的缺陷。 [#4353](https://github.com/vesoft-inc/nebula/pull/4353)
-
-- 修复集群内时区不同的缺陷。 [#4391](https://github.com/vesoft-inc/nebula/pull/4391)
-
-- 修复删除全文索引时崩溃的问题。 [#4384](https://github.com/vesoft-inc/nebula/pull/4384)
-
-- 修复当发送 PUT 请求，请求体为空时，服务崩溃的问题。[#4405](https://github.com/vesoft-inc/nebula/pull/4405)
-
-- 修复当在有索引的基础上删除点和边时，语句中的 VID 的长度超出定义的长度时，Storage 服务崩溃的问题。[#4406](https://github.com/vesoft-inc/nebula/pull/4406)
-
-
+- 如果您打算从 3.1 升级到 3.4 版本，请按照[升级文档](../../4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent-from-3.x-3.4.md)的指导进行操作。
+- 新增的属性名不能与已存在或被删除的属性名同名，否则新增属性会失败。
+- 限制修改 Schema 时的类型转换。
+- 创建`NOT NULL`类型的属性时，必须指定默认值。
+- 在配置文件中添加多线程查询参数`query_concurrently`，默认值为`true`。
+- 从配置文件中改移除 KV 分离存储功能参数`kv_separation`，默认关闭该功能。
+- 修改配置文件中`local_config`的默认值为`true`。
+- 统一使用`v.tag.property`的方式获取属性值，需要指明 Tag。使用`v.property`的方式访问`v`点上某个 Tag 的属性在之前的版本中被错误地允许。
+- 删除命令`SHOW HOSTS`中的`HTTP port`列。
+- 禁用`OPTIONAL MATCH <pattern> WHERE <condition>`形式的查询。
+- 禁用 TOSS。
+- 禁用`COUNT(DISTINCT *)`形式的函数。
+- 重命名 Listener 的 pid 文件名和 log 目录名。
 
 ## 历史版本
 
