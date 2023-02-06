@@ -45,7 +45,7 @@
     示例：
 
     ```bash
-    sudo ./bin/db_upgrader --src_db_path=/usr/local/nebula-ent-3.1.0/data/storage --dst_db_path=/usr/local/nebula-ent-3.4/data/storage
+    sudo ./bin/db_upgrader --max_concurrent_parts=20 --src_db_path=/usr/local/nebula-ent-3.1.0/data/storage --dst_db_path=/usr/local/nebula-ent-3.4/data/storage
     ```
 
     如果有多个源数据目录，请分别指定不同的源数据目录和目标数据目录并执行命令。例如，有两个源数据目录`/usr/local/nebula-ent-3.1.0/data/storage`和`/usr/local/nebula-ent-3.1.0/data2/storage`，则执行以下命令：
