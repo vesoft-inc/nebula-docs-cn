@@ -80,8 +80,8 @@
 - 统一使用`v.tag.property`的方式获取属性值，需要指明 Tag。使用`v.property`的方式访问`v`点上某个 Tag 的属性在之前的版本中被错误地允许。
 - 删除命令`SHOW HOSTS`中的`HTTP port`列。
 - 禁用`OPTIONAL MATCH <pattern> WHERE <condition>`形式的查询。
-- 禁用 TOSS。
 - 禁用`COUNT(DISTINCT *)`形式的函数。
+- 禁用 TOSS。
 - 重命名 Listener 的 pid 文件名和 log 目录名。
 
 ## 历史版本
