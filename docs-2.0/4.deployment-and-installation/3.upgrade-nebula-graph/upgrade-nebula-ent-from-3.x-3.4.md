@@ -6,14 +6,14 @@
 
 - 此升级操作仅适用于升级企业版 NebulaGraph 3.x 至 3.4.0。<!--因为企业版 NebulaGraph 3.4 中一个分片对应一个 RocksDB 实例不同于 3.4 之前的一个图空间对应一个 RocksDB 实例。--> 如果您的企业版 NebulaGraph 版本低于 3.x，请先升级到企业版 3.x 再升级到 3.4.0。具体操作请参见[升级企业版 NebulaGraph 2.x 至 3.x](upgrade-nebula-graph-to-latest.md)。
 
-- 仅支持单机的升级操作，即执行升级操作的集群 IP 地址必须与原集群相同。
+- 执行升级操作的集群 IP 地址必须与原集群相同。
   
 - 机器硬盘剩余空间至少需为原数据目录的 1.5 倍。
   
 
 ## 升级步骤
 
-1. [联系我们获取](https://www.nebula-graph.com.cn/contact)并安装企业版 NebulaGraph v3.4.0 的安装装包。
+1. [联系我们获取](https://www.nebula-graph.com.cn/contact)并安装企业版 NebulaGraph v3.4.0 的安装包。
    
   !!! note
 
@@ -21,7 +21,7 @@
    
   !!! caution
 
-        请确保 3.4.0 集群的 meta 服务和 storage 服务的配置文件中的`--data_path`参数的值与 3.x 集群的配置文件中的`--data_path`参数的值相同。否则，升级后的集群无法启动。
+        请确保 3.4.0 集群的 Meta 服务和 Storage 服务的配置文件中的`--data_path`参数的值与 3.x 集群的配置文件中的`--data_path`参数的值相同。否则，升级后的集群无法启动。
 
 2. 停止企业版 NebulaGraph v3.x 服务。详情请参见[管理 NebulaGraph 服务](../../2.quick-start/3.quick-start-on-premise/5.start-stop-service.md)。
   运行命令后可继续运行`nebula.service status all`命令以确认所有服务都已停止。
@@ -79,9 +79,9 @@
 
   服务升级完成后，会在 v3.4.0 的安装目录下生成`data`目录，其中包含升级后的数据文件。
 
-1. 上传 License 文件至 v3.4.0 的安装目录下的`share/resources`内。
+4. 上传 License 文件至 v3.4.0 的安装目录下的`share/resources`内。
 
-2. 启动和连接企业版 NebulaGraph v3.4.0 服务后，验证数据是否正确。参考命令如下：
+5. 启动和连接企业版 NebulaGraph v3.4.0 服务后，验证数据是否正确。参考命令如下：
    
   ```
   nebula> SHOW HOSTS;
