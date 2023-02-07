@@ -466,7 +466,7 @@ nav:
       - 升级版本:
           - 升级 v2.x 至 v3.4（社区版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
           - 升级 v3.x 至 v3.4（社区版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-300-to-latest.md
-          - 升级 v3.x 至 v3.4 (企业版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent-from-3.x-3.4.md
+          - 升级 v3.x 至 v3.4（企业版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent-from-3.x-3.4.md
       - 卸载 NebulaGraph: 4.deployment-and-installation/4.uninstall-nebula-graph.md
 
   - 配置与日志:
