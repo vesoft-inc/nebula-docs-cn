@@ -38,7 +38,7 @@ jobs:
           git checkout gh-pages
       - name: Compress
         run: |
-          tar -vczf nebula-docs.tar.gz 3.3.0 versions.json *.html
+          tar -vczf nebula-docs.tar.gz 3.4.0 versions.json *.html
           
       - name: Transfer
         # uses: garygrossgarten/github-action-scp@release
