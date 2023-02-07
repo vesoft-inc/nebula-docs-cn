@@ -1,6 +1,6 @@
 # 升级企业版 NebulaGraph 3.x 至 3.4.0  
 
-本文以升级企业版 NebulaGraph 3.1.0 为例，介绍如何升级企业版 NebulaGraph 3.x 至 3.4.0。
+本文以企业版 NebulaGraph 3.1.0 为例，介绍如何升级至 3.4.0。
 
 ## 升级说明
 
