@@ -21,7 +21,7 @@
    
   !!! caution
 
-        请确保 3.4.0 集群的 Meta 服务和 Storage 服务的配置文件中的`--data_path`参数的值与 3.x 集群的配置文件中的`--data_path`参数的值相同。否则，升级后的集群无法启动。
+        请确保 3.4.0 集群的 Meta 服务和 Storage 服务的配置文件中的`--data_path`参数设置的存储路径数量与 3.x 集群的配置文件中的`--data_path`参数配置的路径数量相同。否则，升级后的集群无法启动。
 
 2. 停止企业版 NebulaGraph v3.x 服务。详情请参见[管理 NebulaGraph 服务](../../2.quick-start/3.quick-start-on-premise/5.start-stop-service.md)。
   运行命令后可继续运行`nebula.service status all`命令以确认所有服务都已停止。
@@ -30,7 +30,7 @@
 
   - 升级 Storage 服务：
 
-    语法：
+    命令：
 
     ```bash
     sudo ./bin/db_upgrader  --max_concurrent_parts=<num> --src_db_path=<source_storage_data_path> --dst_db_path=<destination_storage_data_path>
@@ -58,7 +58,7 @@
 
   - 升级 Meta 服务：
 
-    语法：
+    命令：
 
     ```bash
     sudo ./bin/meta_upgrader --src_meta_path=<source_meta_data_path> --dst_meta_path=<destination_meta_data_path>
@@ -66,8 +66,8 @@
 
     | 参数            | 说明                         |
     | :-------------- | :--------------------------- |
-    | `--src_meta_path` | 指定源 Meta 数据目录的绝对路径。下述示例源数据的目录为`/usr/local/nebula-ent-3.1.0/data/storage`。  |
-    | `--dst_meta_path` | 指定目标 Meta 数据目录的绝对路径。本文示例的目标数据目录为`/usr/local/nebula-ent-3.4/data/storage`。|
+    | `--src_meta_path` | 指定源 Meta 数据目录的绝对路径。下述示例源数据的目录为`/usr/local/nebula-ent-3.1.0/data/meta`。  |
+    | `--dst_meta_path` | 指定目标 Meta 数据目录的绝对路径。本文示例的目标数据目录为`/usr/local/nebula-ent-3.4/data/meta`。|
 
     示例：
 
