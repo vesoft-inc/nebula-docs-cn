@@ -8,8 +8,7 @@ Dashboard 可以管理指定图空间中的作业，包括查看、停止、恢�
 
 ## 前提条件
 
-- NebulaGraph 企业版 3.4.0 及以上版本支持作业管理。
-- NebulaGraph 社区版 3.3.0 及以上版本支持作业管理。
+NebulaGraph 集群版本需要为企业版 3.4.0 及以上或 NebulaGraph 社区版 3.3.0 及以上。
 
 ## 入口
 
