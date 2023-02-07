@@ -87,4 +87,4 @@
 
 ## 历史版本
 
-[历史版本](https://nebula-graph.com.cn/tags/release-note/)
+[历史版本](https://www.nebula-graph.com.cn/tags/%E5%8F%91%E7%89%88%E8%AF%B4%E6%98%8E)
