@@ -4,7 +4,7 @@
 
 ## 升级说明
 
-- 此升级操作仅适用于升级企业版 NebulaGraph 3.x 至 3.4.0。<!--因为企业版 NebulaGraph 3.4 中一个分片对应一个 RocksDB 实例不同于 3.4 之前的一个图空间对应一个 RocksDB 实例。--> 如果您的企业版 NebulaGraph 版本低于 3.0.0，请先升级到企业版 3.x 再升级到 3.4.0。具体操作请参见[升级 NebulaGraph 2.x 至 3.x](upgrade-nebula-graph-to-latest.md)。
+- 此升级操作仅适用于升级企业版 NebulaGraph 3.x 至 3.4.0。<!--因为企业版 NebulaGraph 3.4 中一个分片对应一个 RocksDB 实例不同于 3.4 之前的一个图空间对应一个 RocksDB 实例。--> 如果您的企业版 NebulaGraph 版本低于 3.0.0，请先升级到企业版 3.x 再升级到 3.4.0。具体操作请参见[升级 NebulaGraph 2.x 至 3.1.0](https://docs.nebula-graph.io/3.1.0/4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest/)。
 
 - 执行升级操作的集群 IP 地址必须与原集群相同。
   
