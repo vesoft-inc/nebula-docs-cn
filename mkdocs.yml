@@ -464,9 +464,9 @@ nav:
 #      - 管理逻辑机架（Zone）: 4.deployment-and-installation/5.zone.md
 
       - 升级版本:
-          - 升级 v2.x 至 3.x: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
-          - 升级 v3.x 至 3.4（社区版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-300-to-latest.md
-          - 升级 v3.x 至 3.4 (企业版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent-from-3.x-3.4.md
+          - 升级 v2.x 至 v3.4（社区版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
+          - 升级 v3.x 至 v3.4（社区版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-300-to-latest.md
+          - 升级 v3.x 至 v3.4 (企业版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent-from-3.x-3.4.md
       - 卸载 NebulaGraph: 4.deployment-and-installation/4.uninstall-nebula-graph.md
 
   - 配置与日志:
@@ -581,7 +581,7 @@ nav:
       - Studio 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
 
   - NebulaGraph Dashboard（社区版）:
-      - 什么是NebulaGraph Dashboard: nebula-dashboard/1.what-is-dashboard.md
+      - 什么是 NebulaGraph Dashboard: nebula-dashboard/1.what-is-dashboard.md
       - 部署 Dashboard: nebula-dashboard/2.deploy-dashboard.md
       - 连接 Dashboard: nebula-dashboard/3.connect-dashboard.md
       - Dashboard 页面介绍: nebula-dashboard/4.use-dashboard.md
