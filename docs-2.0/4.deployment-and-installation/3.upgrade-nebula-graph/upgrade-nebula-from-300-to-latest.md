@@ -2,6 +2,12 @@
 
 NebulaGraph v3.x 升级至 v{{nebula.release}}，只需要使用 v{{nebula.release}}的 RPM/DEB 包进行升级操作即可，或者[编译 v{{nebula.release}}](../2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md) 之后重新安装。
 
+
+!!! caution
+
+    在升级部署了全文索引的 NebulaGraph 前，需要手动删除 ES 中的全文索引，升级后再重新创建全文索引。否则，升级后可能会出现数据不一致的情况。用户可通过 cURL 命令手动删除 ES 中全文索引。命令为`curl -XDELETE -u <es_username>:<es_password> '<es_access_ip>/<fullindex_name>'`，例如`curl -XDELETE -u elastic:elastic 'http://192.168.8.223:9200/nebula_index_2534'`。
+   
+
 ## RPM/DEB 包升级步骤
 
 1. 下载 [RPM/DEB 包](https://github.com/vesoft-inc/nebula-graph/releases/tag/v{{nebula.release}})。

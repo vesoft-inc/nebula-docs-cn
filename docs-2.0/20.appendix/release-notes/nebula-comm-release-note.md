@@ -62,6 +62,14 @@
 - 禁用 TOSS。 [#5119](https://github.com/vesoft-inc/nebula/pull/5119)
 - 重命名 Listener 的 pid 文件名和 log 目录名。 [#5119](https://github.com/vesoft-inc/nebula/pull/5119)
 
+
+## 升级说明
+
+如果用户打算升级到该版本，请按照升级文档进行操作。
+
+- [升级 NebulaGraph v2.x 至 v3.4.0](../../4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md)
+- [升级 NebulaGraph v3.x 至 v3.4.0](../../4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-300-to-latest.md)
+
 ## 历史版本
 
 [历史版本](https://www.nebula-graph.com.cn/tags/%E5%8F%91%E7%89%88%E8%AF%B4%E6%98%8E)
