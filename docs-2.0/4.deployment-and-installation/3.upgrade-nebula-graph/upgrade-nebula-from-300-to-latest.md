@@ -5,7 +5,7 @@ NebulaGraph v3.x 升级至 v{{nebula.release}}，只需要使用 v{{nebula.relea
 
 !!! caution
 
-    在升级部署了全文索引的 NebulaGraph 前，需要手动删除 ES 中的全文索引，升级后再重新创建全文索引。否则，升级后可能会出现数据不一致的情况。用户可通过 cURL 命令手动删除 ES 中全文索引。命令为`curl -XDELETE -u <es_username>:<es_password> '<es_access_ip>/<fullindex_name>'`，例如`curl -XDELETE -u elastic:elastic 'http://192.168.8.223:9200/nebula_index_2534'`。
+    在升级部署了全文索引的 NebulaGraph 前，需要手动删除 ES 中的全文索引，升级后再重新创建全文索引。否则，升级后可能会出现数据不一致的情况。用户可通过 cURL 命令手动删除 ES 中全文索引。命令为`curl -XDELETE -u <es_username>:<es_password> '<es_access_ip>:<prot>/<fullindex_name>'`，例如`curl -XDELETE -u elastic:elastic 'http://192.168.8.223:9200/nebula_index_2534'`。
    
 
 ## RPM/DEB 包升级步骤
