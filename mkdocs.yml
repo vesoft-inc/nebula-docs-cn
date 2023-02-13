@@ -91,10 +91,13 @@ plugins:
 #       - graph-computing/use-explorer.md
 #       - nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
 #       - nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
+#       - nebula-operator/10.backup-restore-using-operator.md
 #       - synchronization-and-migration/replication-between-clusters.md
 #       - 20.appendix/8.about-license/
 #       - nebula-dashboard-ent/4.cluster-operator/operator/scale.md
-#       - 6.monitor-and-metrics/3.bbox
+#       - 6.monitor-and-metrics/3.bbox/
+#       - backup-and-restore/nebula-br-ent/
+#
         # ent.end
         # comm.begin
         # comm.end
@@ -504,6 +507,7 @@ nav:
         - 安装 BR: backup-and-restore/nebula-br/2.compile-br.md
         - 使用 BR 备份数据: backup-and-restore/nebula-br/3.br-backup-data.md
         - 使用 BR 恢复数据: backup-and-restore/nebula-br/4.br-restore-data.md
+#ent
       - NebulaGraph BR（企业版）:
         - BR（企业版）概述: backup-and-restore/nebula-br-ent/1.br-ent-overview.md
         - 安装 BR: backup-and-restore/nebula-br-ent/2.install-tools.md
@@ -705,16 +709,18 @@ nav:
 #       - 什么是 NebulaGraph Operator: nebula-operator/1.introduction-to-nebula-operator.md
 #       - 使用流程: nebula-operator/6.get-started-with-operator.md
 #       - 部署 NebulaGraph Operator: nebula-operator/2.deploy-nebula-operator.md
-#       - 部署 NebulaGraph集群: 
+#       - 部署 NebulaGraph: 
 #         - 使用 Kubectl 部署 NebulaGraph 集群: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
 #         - 使用 Helm 部署 NebulaGraph 集群: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
-#       - 配置 NebulaGraph 集群:
+#       - 配置 NebulaGraph:
 #         - 自定义 NebulaGraph 集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
 #         - 回收 PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
 # #ent
 #         - 均衡扩容后的 Storage 数据: nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
-#       - 升级 NebulaGraph 集群: nebula-operator/9.upgrade-nebula-cluster.md   
-#       - 连接 NebulaGraph 数据库: nebula-operator/4.connect-to-nebula-graph-service.md
+#       - 升级 NebulaGraph: nebula-operator/9.upgrade-nebula-cluster.md   
+#       - 连接 NebulaGraph: nebula-operator/4.connect-to-nebula-graph-service.md
+# #ent
+#       - 备份与恢复: nebula-operator/10.backup-restore-using-operator.md
 #       - 故障自愈: nebula-operator/5.operator-failover.md
 #       - 常见问题: nebula-operator/7.operator-faq.md
 
