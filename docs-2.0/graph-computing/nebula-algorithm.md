@@ -56,7 +56,8 @@ NebulaGraph Algorithm 支持的图计算算法如下。
  |        DegreeStatic      |   度统计   |图结构分析|degree,inDegree,outDegree| int/string  |
  | ClusteringCoefficient    | 聚集系数    |推荐、电信诈骗分析|   clustercoefficient   |double/string|
  |       Jaccard            | 杰卡德相似度计算| 相似度计算、推荐|     jaccard        |    string   |
- |         BFS              | 广度优先遍历| 层序遍历、最短路径规划|      bfs          |    string   |
+ |         BFS              | 广度优先遍历| 层序遍历、最短路径规划 |      bfs          |    string   |
+ |         DFS              | 深度优先遍历| 层序遍历、最短路径规划 |      dfs          |    string   |
  |       Node2Vec           |     -     | 图分类         |       node2vec       |    string   |
 
 !!! note
