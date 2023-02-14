@@ -725,6 +725,10 @@ nav:
     - NebulaGraph Analytics License: graph-computing/analytics-ent-license.md
     - NebulaGraph Explorer 工作流: graph-computing/use-explorer.md
 
+  - 图数据科学:
+    - 什么是 GDS: graph-data-science/gds-overview.md
+    - 部署及使用 GDS: graph-data-science/gds-deploy.md
+
   - NebulaGraph Spark Connector: nebula-spark-connector.md
       
   - NebulaGraph Flink Connector: nebula-flink-connector.md
