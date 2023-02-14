@@ -37,7 +37,3 @@
   ![jupyter](https://docs-cdn.nebula-graph.com.cn/figures/gds_230214.png)
 
 默认有`pagerank_example.ipynb`可供参考，这是 PageRank 算法的示例笔记。
-
-## 内置脚本
-
-`~/.nebula-up`目录内置了部分脚本方便用户导入数据、备份恢复、执行 nGQL 等，详情参见 [Nebula-Up Readme](https://github.com/wey-gu/nebula-up)。
