@@ -28,10 +28,12 @@ NebulaGraph Data Science （简称 GDS）是一款数据挖掘工具，由 Jupyt
 |NebulaGraph Flink Connector Playground|❌|
 |NebulaGraph + DGL(Deep Graph Library)|✅|
 
+系统对组件或脚本的支持情况，请参见 [Nebula-Up](https://github.com/wey-gu/nebula-up)。
+
 ## 注意事项
 
 待补充
 
 ## 贡献
 
-如果你有好的组件、笔记，欢迎贡献到[Nebula-Up](https://github.com/wey-gu/nebula-up)。
+如果你有好的组件、笔记，欢迎贡献到 [Nebula-Up](https://github.com/wey-gu/nebula-up)。
