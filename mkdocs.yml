@@ -75,29 +75,28 @@ plugins:
 # Exclude all files in a directory. The path starts with the directory name in docs-2.0, such as `20.appendix/*`.
         - nebula-flink/*
         - CHANGELOG.md
-        - nebula-cloud/*
+        # - nebula-cloud/*
+        - nebula-cloud.md
+        - nebula-cloud/nebula-cloud-on-azure/*
         - spark-connector/*
         - 4.deployment-and-installation/5.zone.md
         - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
-
-        # 仅发布包含企业版功能的文档版本时，注释以下页面
         # ent.begin
-#       - 3.ngql-guide/6.functions-and-expressions/17.ES-function.md
-#       - 4.deployment-and-installation/deploy-license.md
-#       - 5.configurations-and-logs/2.log-management/audit-log.md
-#       - 7.data-security/1.authentication/4.ldap.md
-#       - graph-computing/0.deploy-controller-analytics.md
-#       - graph-computing/nebula-analytics.md
-#       - graph-computing/use-explorer.md
-#       - nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
-#       - nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
-#       - nebula-operator/10.backup-restore-using-operator.md
-#       - synchronization-and-migration/replication-between-clusters.md
-#       - 20.appendix/8.about-license/
-#       - nebula-dashboard-ent/4.cluster-operator/operator/scale.md
-#       - 6.monitor-and-metrics/3.bbox/
-#       - backup-and-restore/nebula-br-ent/
-#
+        - 3.ngql-guide/6.functions-and-expressions/17.ES-function.md
+        - 4.deployment-and-installation/deploy-license.md
+        - 5.configurations-and-logs/2.log-management/audit-log.md
+        - 7.data-security/1.authentication/4.ldap.md
+        - graph-computing/0.deploy-controller-analytics.md
+        - graph-computing/nebula-analytics.md
+        - graph-computing/use-explorer.md
+        - nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
+        - nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
+        - nebula-operator/10.backup-restore-using-operator.md
+        - synchronization-and-migration/replication-between-clusters.md
+        - 20.appendix/8.about-license/
+        - nebula-dashboard-ent/4.cluster-operator/operator/scale.md
+        - 6.monitor-and-metrics/3.bbox/
+        - backup-and-restore/nebula-br-ent/
         # ent.end
         # comm.begin
         # comm.end
@@ -262,9 +261,9 @@ extra:
     tag: v3.4.0
   cloud:
     azureRelease: 3.1.1 # Azure云兼容的最新内核版本
-    aliyunRelease: 3.1.1 # 阿里云兼容的最新内核版本
+    aliyunRelease: 3.4.0 # 阿里云兼容的最新内核版本
     azureLatestRelease: 3.1.0 # 支持Azure云的最新文档版本
-    aliyunLatestRelease: 3.1.0 # 支持阿里云的最新文档版本
+    aliyunLatestRelease: 3.4.0 # 支持阿里云的最新文档版本
   ent:
     ent_begin: <!-- -->       #文档包含企业版时需补全该注释（<!-- -->），只包含社区版时只保留注释头（<!--）
     ent_end: <!-- -->      #文档包含企业版时需补全该注释（<!-- -->），只包含社区版时只保留注释尾（-->）
@@ -538,11 +537,16 @@ nav:
     - NebulaGraph Python: 14.client/5.nebula-python-client.md
     - NebulaGraph Go: 14.client/6.nebula-go-client.md
 
-  - NebulaGraph Cloud: nebula-cloud.md
+#  - NebulaGraph Cloud: nebula-cloud.md
 
 #ent
-#  - NebulaGraph Cloud:
-#    - 什么是 NebulaGraph Cloud: nebula-cloud/1.what-is-cloud.md
+  - NebulaGraph Cloud:
+    - 什么是 NebulaGraph Cloud: nebula-cloud/1.what-is-cloud.md
+    - Nebula Graph Cloud 阿里云版:
+      - 创建服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/1.create-service-instance.md
+      - 使用服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/2.use-cloud-services.md
+      - 扩缩容服务: nebula-cloud/nebula-cloud-on-alibabacloud/4.scaling-services.md
+      - 删除服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/3.delete-service-instance.md
 #    - NebulaGraph Cloud Azure版:
 #      - 创建订阅: nebula-cloud/nebula-cloud-on-azure/2.how-to-create-subsciption.md
 #      - 配置Solution: nebula-cloud/nebula-cloud-on-azure/3.how-to-set-solution.md
@@ -555,10 +559,6 @@ nav:
 #      - 价格: nebula-cloud/nebula-cloud-on-azure/6.pricing.md
 #      - 用户服务条款: nebula-cloud/nebula-cloud-on-azure/7.terms-and-conditions.md
 #      - 隐私政策条款: nebula-cloud/nebula-cloud-on-azure/8.privacy-policy.md
-#    - NebulaGraph Cloud 阿里云版:
-#      - 创建服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/1.create-service-instance.md
-#      - 使用服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/2.use-cloud-services.md
-#      - 删除服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/3.delete-service-instance.md
 
   - NebulaGraph Studio:
     - 认识 NebulaGraph Studio:
