@@ -116,7 +116,7 @@ Exchange {{exchange.release}} 支持将以下格式或来源的数据转换为 N
 
 {{ ent.ent_begin }} 
 
-此外，企业版 Exchange 支持以 NebulaGraph 为源，将数据[导出到 CSV 文件或另一个 NebulaGraph](../use-exchange/ex-ug-export-from-nebula.md)。
+此外，企业版 Exchange 支持以 NebulaGraph 为源，将数据[导出到 CSV 文件或另一个图空间](../use-exchange/ex-ug-export-from-nebula.md)。
 
  {{ ent.ent_end }}
 

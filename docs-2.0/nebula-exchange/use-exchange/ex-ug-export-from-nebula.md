@@ -1,6 +1,6 @@
 # 导出 NebulaGraph 数据
 
-Exchange 支持将 NebulaGraph 中的数据导出到 CSV 文件或另一个 NebulaGraph 数据库中，本文介绍具体的操作步骤。
+Exchange 支持将 NebulaGraph 中的数据导出到 CSV 文件或另一个图空间（不同 NebulaGraph 集群也支持）中。本文介绍具体的操作步骤。
 
 !!! enterpriseonly
 
@@ -76,8 +76,8 @@ CentOS 7.9.2009
     nebula: {
       address:{
         graph:["127.0.0.1:9669"]
-        # if your NebulaGraph server is in virtual network like k8s, please config the leader address   of meta.
-        # use `SHOW meta leader` to see your meta leader's address
+
+        # the address of any of the meta services
         meta:["127.0.0.1:9559"]
       }
       user: root
@@ -117,14 +117,10 @@ CentOS 7.9.2009
           sink: csv
         }
   
-        metaAddress:"127.0.0.1:9559"
-        space:"test"
-        label:"person"
         # config the fields you want to export from nebula
         fields: [nebula-field-0, nebula-field-1, nebula-field-2]
         noFields:false  # default false, if true, just export id
         partition: 60
-        limit:10000
         # config the path to save your csv file. if your file in not in hdfs, config "file:///path/  test.csv"
         path: "hdfs://ip:port/path/person"
         separator: ","
@@ -141,14 +137,10 @@ CentOS 7.9.2009
           source: nebula
           sink: csv
         }
-        metaAddress:"127.0.0.1:9559"
-        space:"test"
-        label:"friend"
         # config the fields you want to export from nebula
         fields: [nebula-field-0, nebula-field-1, nebula-field-2]
         noFields:false  # default false, if true, just export id
         partition: 60
-        limit:10000
         # config the path to save your csv file. if your file in not in hdfs, config "file:///path/  test.csv"
         path: "hdfs://ip:port/path/friend"
         separator: ","
@@ -158,7 +150,7 @@ CentOS 7.9.2009
   }
   ```
 
-  - 导出到另一个 NebulaGraph：
+  - 导出到另一个图空间：
 
   ```conf
   # Use the command to submit the exchange job:
@@ -182,8 +174,8 @@ CentOS 7.9.2009
     nebula: {
       address:{
         graph:["127.0.0.1:9669"]
-        # if your NebulaGraph server is in virtual network like k8s, please config the leader address   of meta.
-        # use `SHOW meta leader` to see your meta leader's address
+
+        # the address of any of the meta services
         meta:["127.0.0.1:9559"]
       }
       user: root
@@ -229,7 +221,7 @@ CentOS 7.9.2009
         fields: [source_nebula-field-0, source_nebula-field-1, source_nebula-field-2]
         nebula.fields: [target_nebula-field-0, target_nebula-field-1, target_nebula-field-2]
         limit:10000
-        vertex: _vertexId  # must `be _vertexId`
+        vertex: _vertexId  # must be `_vertexId`
         batch: 2000
         partition: 60
       }
@@ -260,7 +252,7 @@ CentOS 7.9.2009
   }
   ```
 
-3. 使用如下命令导出 NebulaGraph 中的数据。
+1. 使用如下命令导出 NebulaGraph 中的数据。
   
   !!! note
 
@@ -269,7 +261,7 @@ CentOS 7.9.2009
   ```bash
   <spark_install_path>/bin/spark-submit --master "spark://<master_ip>:7077" \
   --driver-memory=2G --executor-memory=30G \
-  --num-executors=3 --executor-cores=20 \
+  --total-executor-cores=60 --executor-cores=20 \
   --class com.vesoft.nebula.exchange.Exchange nebula-exchange-x.y.z.jar_path> \
   -c <conf_file_path>
   ```
@@ -279,7 +271,7 @@ CentOS 7.9.2009
   ```bash
   $ ./spark-submit --master "spark://192.168.10.100:7077" \
   --driver-memory=2G --executor-memory=30G \
-  --num-executors=3 --executor-cores=20 \
+  --total-executor-cores=60 --executor-cores=20 \
   --class com.vesoft.nebula.exchange.Exchange ~/exchange-ent/nebula-exchange-ent-{{exchange.release}}.jar \
   -c ~/exchange-ent/export_to_csv.conf
   ```
@@ -306,6 +298,6 @@ CentOS 7.9.2009
     -rw-r--r--   3 nebula supergroup        119 2021-11-05 07:36 /vertex/player/    part-00009-17293020-ba2e-4243-b834-34495c0536b3-c000.csv
     ```
   
-  - 导出到另一个 NebulaGraph：
+  - 导出到另一个图空间：
 
-    登录新的 NebulaGraph，通过`SUBMIT JOB STATS`和`SHOW STATS`命令查看统计信息，确认是否导出成功。
+    登录新的图空间，通过`SUBMIT JOB STATS`和`SHOW STATS`命令查看统计信息，确认是否导出成功。
