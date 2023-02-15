@@ -77,7 +77,8 @@ CentOS 7.9.2009
       address:{
         graph:["127.0.0.1:9669"]
 
-        # the address of any of the meta services
+        # the address of any of the meta services.
+        # if your NebulaGraph server is in virtual network like k8s, please config the leader address of meta.
         meta:["127.0.0.1:9559"]
       }
       user: root
@@ -175,7 +176,8 @@ CentOS 7.9.2009
       address:{
         graph:["127.0.0.1:9669"]
 
-        # the address of any of the meta services
+        # the address of any of the meta services.
+        # if your NebulaGraph server is in virtual network like k8s, please config the leader address of meta.
         meta:["127.0.0.1:9559"]
       }
       user: root

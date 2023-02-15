@@ -193,6 +193,8 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
   nebula: {
     address:{
       graph:["127.0.0.1:9669"]
+      #任意一个 Meta 服务的地址。
+      #如果您的 NebulaGraph 在虚拟网络中，如k8s，请配置 Leader Meta的地址。
       meta:["127.0.0.1:9559"]
     }
     user: root

@@ -151,6 +151,8 @@ oracle> desc serve;
       # 如果有多个地址，格式为 "ip1:port","ip2:port","ip3:port"。
       # 不同地址之间以英文逗号 (,) 隔开。
       graph:["127.0.0.1:9669"]
+      #任意一个 Meta 服务的地址。
+      #如果您的 NebulaGraph 在虚拟网络中，如k8s，请配置 Leader Meta的地址。
       meta:["127.0.0.1:9559"]
     }
     # 填写的账号必须拥有 NebulaGraph 相应图空间的写数据权限。

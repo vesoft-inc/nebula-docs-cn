@@ -135,6 +135,8 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
   nebula: {
     address:{
       graph:["127.0.0.1:9669"]
+      #任意一个 Meta 服务的地址。
+      #如果您的 NebulaGraph 在虚拟网络中，如k8s，请配置 Leader Meta的地址。
       meta:["127.0.0.1:9559"]
     }
     user: root
