@@ -526,6 +526,7 @@ nav:
       - 系统建模: 8.service-tuning/3.system-design.md
       - 执行计划: 8.service-tuning/4.plan.md
       - 超级节点(稠密点): 8.service-tuning/super-node.md
+      - 启用 AutoFDO: 8.service-tuning/enable_autofdo_for_nebulagraph.md
       - 实践案例: 8.service-tuning/practice.md
 
 
