@@ -38,7 +38,7 @@ $ cmake -DCMAKE_INSTALL_PREFIX=/usr/local/nebula -DENABLE_TESTING=OFF -DCMAKE_BU
 
 ## 准备测试数据
 
-在测试环境中，我们使用 [NebulaGraph Bench](https://github.com/nebula-contrib/NebulaGraph-Bench) 来准备测试数据，并通过运行 **FindShortestPath**、**Go1Step**、**Go2Step**、**Go3Step**、**InsertPersonScenario** 这5个场景来收集性能数据。
+在测试环境中，我们使用 [NebulaGraph Bench](https://github.com/nebula-contrib/NebulaGraph-Bench) 来准备测试数据，并通过运行 **FindShortestPath**、**Go1Step**、**Go2Step**、**Go3Step**、**InsertPersonScenario** 这5个场景脚本来收集性能数据。
 
 !!! note
 
@@ -92,7 +92,7 @@ create_gcov --binary=$NEBULA_HOME/bin/nebula-graphd \
 -gcov_version=1
 ```
 
-按照上面 **FindShortestPath** 的例子，为 **Go1Step**、**Go2Step**、**Go3Step**、**InsertPersonScenario** 这4个场景也创建收集 Gcov 文件。
+按照上面 **FindShortestPath** 的例子，为 **Go1Step**、**Go2Step**、**Go3Step**、**InsertPersonScenario** 这4个场景也创建 Gcov 文件。
 
 ### 合并性能数据
 
