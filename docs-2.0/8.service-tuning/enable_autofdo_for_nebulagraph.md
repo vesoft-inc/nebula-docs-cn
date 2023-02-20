@@ -26,9 +26,9 @@ AutoFDO 可以对优化过的程序进行性能分析，并使用性能信息来
 
   或者你可以从[源代码](https://github.com/google/autofdo.git)编译 **autofdo tool**。
 
-### 调试版本的 NebulaGraph 二进制文件
+### 编译 NebulaGraph 二进制文件
 
-关于如何从源码编译 NebulaGraph，请参考[使用源码安装 NebulaGraph](../4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)
+关于如何从源码编译 NebulaGraph，请参考[使用源码安装 NebulaGraph](../4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)。
 
 在配置步骤中，将`CMAKE_BUILD_TYPE=Release`替换为`CMAKE_BUILD_TYPE=RelWithDebInfo`：
 
