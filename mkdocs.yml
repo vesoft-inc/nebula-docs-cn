@@ -141,7 +141,7 @@ extra:
   # Google Analytics.
   analytics:
     provider: google
-    property: UA-60523578-7
+    property: UA-60523578-15
   # branch represents code names (git clone). release represents version number used in texts.
   version:
     method: mike
