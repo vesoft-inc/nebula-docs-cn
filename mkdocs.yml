@@ -64,7 +64,7 @@ markdown_extensions:
 
 # Plugins
 plugins:
-#  - search # 这个是原有的 mkdocs 搜索插件， 如果想使用algolia搜索，请注释掉这个插件
+  - search # 这个是原有的 mkdocs 搜索插件， 如果想使用algolia搜索，请注释掉这个插件
   - macros:
       include_dir: docs-2.0/reuse/
   - git-revision-date-localized

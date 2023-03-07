@@ -28,7 +28,6 @@ jobs:
         run: |
           git fetch origin gh-pages --depth=1 # fix mike's CI update
           mike deploy 3.4.0 -p --rebase
-          mike set-default 3.4.0 -p --rebase
           mike list
 
       - name: show git branch
