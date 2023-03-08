@@ -386,6 +386,8 @@ LPA（标签传播）算法是一种基于图的半监督学习方法，其基�
     |`ITERATIONS`|`10`|最大迭代次数。|
     |`IS_DIRECTED`|`true`|是否考虑边的方向。如果设置为`false`，系统会自动添加反向边。|
     |`IS_CALC_MODULARITY`|`false`|是否计算模块度。|
+    |`IS_OUTPUT_MODULARITY`|`false`|是否计算并输出模块度。设置为`true`时，默认输出到文件的第三列，也可以通过选项`--nebula_output_props`和`--nebula_output_types`输出到 NebulaGraph 中。使用 Explorer 时暂不支持输出到 NebulaGraph 中。|
+    |`IS_STAT_COMMUNITY`|`false`|是否统计社区的数量。|
 
   - 输出参数
 
@@ -420,6 +422,8 @@ HANP（Hop Attenuation & Node Preference）算法是LPA算法的优化算法，�
     |`IS_DIRECTED`|`true`|是否考虑边的方向。如果设置为`false`，系统会自动添加反向边。|
     |`PREFERENCE`|`1.0`|对邻居节点度的偏向性。`m>0`表示偏向节点度高的邻居，`m<0`表示偏向节点度低的邻居，`m=0`表示不考虑邻居节点度。|
     |`HOP_ATT`|`0.1`|衰减因子。取值范围`0`~`1`。值越大衰减的越快，可以传递的次数越少。|
+    |`IS_OUTPUT_MODULARITY`|`false`|是否计算并输出模块度。设置为`true`时，默认输出到文件的第三列，也可以通过选项`--nebula_output_props`和`--nebula_output_types`输出到 NebulaGraph 中。使用 Explorer 时暂不支持输出到 NebulaGraph 中。|
+    |`IS_STAT_COMMUNITY`|`false`|是否统计社区的数量。|
 
   - 输出参数
 
@@ -454,6 +458,8 @@ ConnectedComponent（联通分量）算法用于计算出图中的一个子图�
     |:--|:--|:--|
     |`IS_DIRECTED`|`true`|是否考虑边的方向。如果设置为`false`，系统会自动添加反向边。|
     |`IS_CALC_MODULARITY`|`false`|是否计算模块度。|
+    |`IS_OUTPUT_MODULARITY`|`false`|是否计算并输出模块度。设置为`true`时，默认输出到文件的第三列，也可以通过选项`--nebula_output_props`和`--nebula_output_types`输出到 NebulaGraph 中。使用 Explorer 时暂不支持输出到 NebulaGraph 中。|
+    |`IS_STAT_COMMUNITY`|`false`|是否统计社区的数量。|
 
   - 输出参数
 
@@ -488,6 +494,8 @@ Louvain 算法是基于模块度的社区发现算法，该算法在效率和效
     |`OUTER_ITERATION`|`20`|第一阶段最大迭代次数。|
     |`INNER_ITERATION`|`10`|第二阶段最大迭代次数。|
     |`IS_CALC_MODULARITY`|`false`|是否计算模块度。|
+    |`IS_OUTPUT_MODULARITY`|`false`|是否计算并输出模块度。设置为`true`时，默认输出到文件的第三列，也可以通过选项`--nebula_output_props`和`--nebula_output_types`输出到 NebulaGraph 中。使用 Explorer 时暂不支持输出到 NebulaGraph 中。|
+    |`IS_STAT_COMMUNITY`|`false`|是否统计社区的数量。|
 
   - 输出参数
 
