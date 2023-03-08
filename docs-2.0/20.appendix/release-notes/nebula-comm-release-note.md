@@ -2,7 +2,7 @@
 
 ## 缺陷修复
 
-- 修复参数表达式 encode 到存储层执行导致崩溃的问题。 [#5336](https://github.com/vesoft-inc/nebula/pull/5336)
+- 修复参数表达式编码到存储层执行时导致崩溃的问题。 [#5336](https://github.com/vesoft-inc/nebula/pull/5336)
 
 - 修复一些列表函数的崩溃问题。 [#5383](https://github.com/vesoft-inc/nebula/pull/5383)
 
