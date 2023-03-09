@@ -9,7 +9,7 @@ NebulaGraph Algorithm 版本和 NebulaGraph 内核的版本对应关系如下。
 |NebulaGraph 版本|NebulaGraph Algorithm 版本|
 |:---|:---|
 |  nightly         |  3.0-SNAPSHOT |
-| 3.0.0 ~ 3.3.x      |  3.0.0        |
+| 3.0.0 ~ 3.4.x      |  3.x.0        |
 | 2.6.x            |  2.6.x        | 
 | 2.5.0、2.5.1      |  2.5.0        | 
 | 2.0.0、2.0.1      |  2.1.0        |
@@ -29,11 +29,13 @@ NebulaGraph Algorithm 版本和 NebulaGraph 内核的版本对应关系如下。
 
 ## 使用限制
 
-- 直接提交算法包时，点 ID 的数据必须为整数，即点 ID 可以是 INT 类型，或者是 String 类型但数据本身为整数。
-
 - 对于非整数的 String 类型数据，推荐使用调用算法接口的方式，可以使用 SparkSQL 的`dense_rank`函数进行编码，将 String 类型转换为 Long 类型。
 
 - 图计算会输出点的数据集，算法结果会以DataFrame形式作为点的属性存储。用户可以根据业务需求，自行对算法结果做进一步操作，例如统计、筛选。
+  
+!!! compatibility
+
+    Algorithm v3.1.0 版本之前，直接提交算法包时，点 ID 的数据必须为整数，即点 ID 可以是 INT 类型，或者是 String 类型但数据本身为整数。
 
 ## 支持算法
 
