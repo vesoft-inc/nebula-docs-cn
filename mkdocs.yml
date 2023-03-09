@@ -187,9 +187,9 @@ extra:
     branch: release-3.4
     tag: v3.4.0
   sparkconnector:
-    release: 3.3.0
-    branch: release-3.3
-    tag: v3.3.0
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
   flinkconnector:
     release: 3.3.0
     branch: release-3.3
