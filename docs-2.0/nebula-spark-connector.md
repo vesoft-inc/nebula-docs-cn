@@ -72,45 +72,37 @@ NebulaGraph Spark Connector {{sparkconnector.release}}版本特性如下：
 
 ### 编译打包
 
-!!! note
-
-     安装 Spark 2.4.x 或 2.2.x。
-
 1. 克隆仓库`nebula-spark-connector`。
 
   ```bash
   $ git clone -b {{sparkconnector.branch}} https://github.com/vesoft-inc/nebula-spark-connector.git
   ```
 
-2. 编译打包。不同版本的 Spark 步骤略有不同。
+2. 进入目录`nebula-spark-connector`。
 
-  - Spark 2.4.x
+3. 编译打包。不同版本的 Spark 命令略有不同。
 
-    1. 进入目录`nebula-spark-connector`。
-        
-      ```bash
-      cd nebula-spark-connector/nebula-spark-connector
-      ```
+  !!! note
 
-    2. 编译打包。
+        需已安装对应版本 Spark。
 
-      ```bash
-      $ mvn clean package -Dmaven.test.skip=true -Dgpg.skip -Dmaven.javadoc.skip=true
-      ```
+  - Spark 2.4
 
-  - Spark 2.2.x
+    ```bash
+    $ mvn clean package -Dmaven.test.skip=true -Dgpg.skip -Dmaven.javadoc.skip=true -pl nebula-spark-connector -am -Pscala-2.11 -Pspark-2.4
+    ```
 
-    1. 进入目录`nebula-spark-connector_2.2`。
-        
-      ```bash
-      cd nebula-spark-connector/nebula-spark-connector_2.2
-      ```
+  - Spark 2.2
 
-    2. 编译打包。
+    ```bash
+    $ mvn clean package -Dmaven.test.skip=true -Dgpg.skip -Dmaven.javadoc.skip=true -pl nebula-spark-connector_2.2 -am -Pscala-2.11 -Pspark-2.2
+    ```
 
-      ```bash
-      $ mvn clean package -Dmaven.test.skip=true -Dgpg.skip -Dmaven.javadoc.skip=true
-      ```
+  - Spark 3.x
+
+    ```bash
+    $ mvn clean package -Dmaven.test.skip=true -Dgpg.skip -Dmaven.javadoc.skip=true -pl nebula-spark-connector_3.0 -am -Pscala-2.12 -Pspark-3.0
+    ```
 
 编译完成后，在目录的文件夹`target`下生成类似文件`nebula-spark-connector-{{sparkconnector.release}}-SHANPSHOT.jar`。
 
