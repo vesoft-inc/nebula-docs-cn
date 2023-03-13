@@ -312,7 +312,7 @@ $ kill $(lsof -t -i :7001) # stop nebula-graph-studio
   |:---|:---|:---|
   | replicaCount | 0 | Deployment 的副本数。 |
   | image.nebulaStudio.name | vesoft/nebula-graph-studio | nebula-graph-studio 镜像的仓库地址。 |
-  | image.nebulaStudio.version | v3.2.0 | nebula-graph-studio 的版本。 |
+  | image.nebulaStudio.version | {{studio.tag}} | nebula-graph-studio 的版本。 |
   | service.type | ClusterIP | 服务类型，必须为`NodePort`，`ClusterIP`或`LoadBalancer`其中之一。 |
   | service.port | 7001 | nebula-graph-studio 中 web 服务的端口。 |
   | service.nodePort | 32701 | Kubernetes 集群外部访问 nebula-studio 的代理端口。 |

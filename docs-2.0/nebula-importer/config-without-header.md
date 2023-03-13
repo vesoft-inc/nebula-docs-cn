@@ -34,8 +34,7 @@
 ## 配置示例
 
 ```yaml
-# 连接的 NebulaGraph 版本，连接 3.x 时设置为 v3。
-version: v3
+version: v2
 
 description: example
 

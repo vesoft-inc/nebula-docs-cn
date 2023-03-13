@@ -193,6 +193,8 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
   nebula: {
     address:{
       graph:["127.0.0.1:9669"]
+      #任意一个 Meta 服务的地址。
+      #如果您的 NebulaGraph 在虚拟网络中，如k8s，请配置 Leader Meta的地址。
       meta:["127.0.0.1:9559"]
     }
     user: root
@@ -527,7 +529,7 @@ ${SPARK_HOME}/bin/spark-submit  --master "local" --conf spark.sql.shuffle.partit
 用户可以在 NebulaGraph 客户端（例如 NebulaGraph Studio）中执行查询语句，确认数据是否已导入。例如：
 
 ```ngql
-GO FROM "player100" OVER follow;
+LOOKUP ON player YIELD id(vertex);
 ```
 
 用户也可以使用命令 [`SHOW STATS`](../../3.ngql-guide/7.general-query-statements/6.show/14.show-stats.md) 查看统计数据。

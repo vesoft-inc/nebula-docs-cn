@@ -5,7 +5,7 @@ site_url: https://docs.nebula-graph.com.cn/
 repo_name: 'vesoft-inc/nebula' 
 repo_url: 'https://github.com/vesoft-inc/nebula' 
 docs_dir: docs-2.0 
-copyright: Copyright &copy; 2022 NebulaGraph - 浙ICP备20010487号
+copyright: Copyright &copy; 2023 NebulaGraph - 浙ICP备20010487号
  
 # modify when release: 
 edit_uri: 'https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/'  
@@ -75,27 +75,29 @@ plugins:
 # Exclude all files in a directory. The path starts with the directory name in docs-2.0, such as `20.appendix/*`.
         - nebula-flink/*
         - CHANGELOG.md
-        - nebula-cloud/*
+        # - nebula-cloud/*
+        - nebula-cloud.md
+        - nebula-cloud/nebula-cloud-on-azure/*
         - spark-connector/*
         - 4.deployment-and-installation/5.zone.md
         - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
-
-        # 仅发布包含企业版功能的文档版本时，注释以下页面
-        # begin
-#       - 3.ngql-guide/6.functions-and-expressions/17.ES-function.md
-#       - 4.deployment-and-installation/deploy-license.md
-#       - 5.configurations-and-logs/2.log-management/audit-log.md
-#       - 7.data-security/1.authentication/4.ldap.md
-#       - graph-computing/0.deploy-controller-analytics.md
-#       - graph-computing/nebula-analytics.md
-#       - graph-computing/use-explorer.md
-#       - nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
-#       - nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
-#       - synchronization-and-migration/replication-between-clusters.md
-#       - 20.appendix/8.about-license/
-#       - nebula-dashboard-ent/4.cluster-operator/operator/scale.md
-#       - 6.monitor-and-metrics/3.bbox
-        # end
+        # ent.begin
+        - 3.ngql-guide/6.functions-and-expressions/17.ES-function.md
+        - 4.deployment-and-installation/deploy-license.md
+        - 5.configurations-and-logs/2.log-management/audit-log.md
+        - 7.data-security/1.authentication/4.ldap.md
+        - graph-computing/0.deploy-controller-analytics.md
+        - graph-computing/nebula-analytics.md
+        - graph-computing/use-explorer.md
+        - nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
+        - nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
+        - nebula-operator/10.backup-restore-using-operator.md
+        - synchronization-and-migration/replication-between-clusters.md
+        - 20.appendix/8.about-license/
+        - nebula-dashboard-ent/4.cluster-operator/operator/scale.md
+        - 6.monitor-and-metrics/3.bbox/
+        - backup-and-restore/nebula-br-ent/
+        # ent.end
         # comm.begin
         # comm.end
 
@@ -107,7 +109,7 @@ plugins:
 
 # modify when release: 
   - with-pdf:
-      copyright: 2022 vesoft Inc.
+      copyright: 2023 vesoft Inc.
       cover_subtitle: master
       author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
       cover: true
@@ -130,9 +132,7 @@ extra:
   # For conditional rendering
   # Valid options: enterprise, community, both
   # enterprise means this version is for the Enterprise only. And so on in a similar fashion
-  database_edition: community
-  # Modify doc_version to automatically update the parameters for releasing a new version
-  doc_version: master
+  database_edition: both
   # Language selector.
   alternate:
     - name: English
@@ -149,121 +149,121 @@ extra:
     - icon: 'fontawesome/brands/github'
       link: 'https://github.com/vesoft-inc/nebula-docs-cn'
   nebula:
-    release: 3.4.0
+    release: 3.4.1
     nightly: nightly
     master: master
     base20: 2.0
     base200: 2.0.0
-    branch: release-3.3
-    tag: v3.3.0
+    branch: release-3.4
+    tag: v3.4.1
   studio:
     base111b: 1.1.1-beta
     base220: 2.2.1
     base300: 3.0.0
-    release: 3.5.0
-    tag: v3.5.0
+    release: 3.6.0
+    tag: v3.6.0
   explorer:
-    release: 3.2.0
-    branch: release-3.2
-    tag: v3.2.0
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
   exchange_ent:
-    release: 3.0.0
-    branch: v3.0.0
-    tag: v3.0.0
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
   exchange:
-    release: 3.3.0
-    branch: release-3.3
-    tag: v3.3.0
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
   importer:
-    release: 3.1.0
-    branch: release-3.1
-    tag: v3.1.0
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
   algorithm:
     release: 3.0.0
     branch: v3.0.0
     tag: v3.0.0
   plato:
-    release: 3.3.0
-    branch: release-3.3
-    tag: v3.3.0
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
   sparkconnector:
-    release: 3.3.0
-    branch: release-3.3
-    tag: v3.3.0
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
   flinkconnector:
     release: 3.3.0
     branch: release-3.3
     tag: v3.3.0
   dockercompose:
-    release: 3.2.0
-    branch: release-3.2
-    tag: v3.2.0
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
   dashboard:
-    release: 3.2.0
-    tag: v3.2.0
+    release: 3.4.0
+    tag: v3.4.0
     base100: 1.0.0
-    branch: release-3.2
+    branch: release-3.4
   dashboard_ent:
-    release: 3.2.0
-    tag: v3.2.0
-    branch: release-3.2
+    release: 3.4.1
+    tag: v3.4.1
+    branch: release-3.4
   console:
-    release: 3.3.0
-    branch: release-3.3
-    tag: v3.3.0
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
   br:
-    release: 0.6.1
-    branch: master
-    tag: v0.6.1
+    release: 3.3.0
+    branch: release-3.3
+    tag: v3.3.0
   br_ent:
-    release: 0.7.0
-    tag: v0.7.0
+    release: 3.4.0
+    tag: v3.4.0
   agent:
-    release: 0.2.0
-    tag: v0.2.0
+    release: 3.4.0
+    tag: v3.4.0
   cpp:
-    release: 3.3.0
-    branch: release-3.3
-    tag: v3.3.0
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
   java:
-    release: 3.3.0
-    branch: release-3.3
-    tag: v3.3.0
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
   python:
-    release: 3.3.0
-    branch: release-3.3
-    tag: v3.3.0
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
   go:
-    release: 3.3.0
-    branch: release-3.3
-    tag: v3.3.0
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
   bench:
     release: 1.2.0
     branch: release-1.2
     tag: v1.2.0
   operator:
-    release: 1.3.0
-    tag: v1.3.0
-    branch: release-1.3
+    release: 1.4.0
+    tag: v1.4.0
+    branch: release-1.4
     upgrade_from: 3.0.0
-    upgrade_to: 3.3.x
+    upgrade_to: 3.4.0
   exporter:
     release: 3.3.0
     branch: release-3.3
     tag: v3.3.0
   gateway:
-    release: 3.1.2
-    branch: release-3.1
-    tag: v3.1.2
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
   bbox:
-    release: 3.3.0
-    branch: release-3.3
-    tag: v3.3.0
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
   cloud:
     azureRelease: 3.1.1 # Azure云兼容的最新内核版本
-    aliyunRelease: 3.1.1 # 阿里云兼容的最新内核版本
+    aliyunRelease: 3.4.0 # 阿里云兼容的最新内核版本
     azureLatestRelease: 3.1.0 # 支持Azure云的最新文档版本
-    aliyunLatestRelease: 3.1.0 # 支持阿里云的最新文档版本
+    aliyunLatestRelease: 3.4.0 # 支持阿里云的最新文档版本
   ent:
     ent_begin: <!-- -->       #文档包含企业版时需补全该注释（<!-- -->），只包含社区版时只保留注释头（<!--）
     ent_end: <!-- -->      #文档包含企业版时需补全该注释（<!-- -->），只包含社区版时只保留注释尾（-->）
@@ -506,6 +506,7 @@ nav:
         - 安装 BR: backup-and-restore/nebula-br/2.compile-br.md
         - 使用 BR 备份数据: backup-and-restore/nebula-br/3.br-backup-data.md
         - 使用 BR 恢复数据: backup-and-restore/nebula-br/4.br-restore-data.md
+#ent
       - NebulaGraph BR（企业版）:
         - BR（企业版）概述: backup-and-restore/nebula-br-ent/1.br-ent-overview.md
         - 安装 BR: backup-and-restore/nebula-br-ent/2.install-tools.md
@@ -525,6 +526,7 @@ nav:
       - 系统建模: 8.service-tuning/3.system-design.md
       - 执行计划: 8.service-tuning/4.plan.md
       - 超级节点(稠密点): 8.service-tuning/super-node.md
+      - 启用 AutoFDO: 8.service-tuning/enable_autofdo_for_nebulagraph.md
       - 实践案例: 8.service-tuning/practice.md
 
 
@@ -536,11 +538,16 @@ nav:
     - NebulaGraph Python: 14.client/5.nebula-python-client.md
     - NebulaGraph Go: 14.client/6.nebula-go-client.md
 
-  - NebulaGraph Cloud: nebula-cloud.md
+#  - NebulaGraph Cloud: nebula-cloud.md
 
 #ent
-#  - NebulaGraph Cloud:
-#    - 什么是 NebulaGraph Cloud: nebula-cloud/1.what-is-cloud.md
+  - NebulaGraph Cloud:
+    - 什么是 NebulaGraph Cloud: nebula-cloud/1.what-is-cloud.md
+    - Nebula Graph Cloud 阿里云版:
+      - 创建服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/1.create-service-instance.md
+      - 使用服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/2.use-cloud-services.md
+      - 扩缩容服务: nebula-cloud/nebula-cloud-on-alibabacloud/4.scaling-services.md
+      - 删除服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/3.delete-service-instance.md
 #    - NebulaGraph Cloud Azure版:
 #      - 创建订阅: nebula-cloud/nebula-cloud-on-azure/2.how-to-create-subsciption.md
 #      - 配置Solution: nebula-cloud/nebula-cloud-on-azure/3.how-to-set-solution.md
@@ -553,10 +560,6 @@ nav:
 #      - 价格: nebula-cloud/nebula-cloud-on-azure/6.pricing.md
 #      - 用户服务条款: nebula-cloud/nebula-cloud-on-azure/7.terms-and-conditions.md
 #      - 隐私政策条款: nebula-cloud/nebula-cloud-on-azure/8.privacy-policy.md
-#    - NebulaGraph Cloud 阿里云版:
-#      - 创建服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/1.create-service-instance.md
-#      - 使用服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/2.use-cloud-services.md
-#      - 删除服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/3.delete-service-instance.md
 
   - NebulaGraph Studio:
     - 认识 NebulaGraph Studio:
@@ -660,6 +663,7 @@ nav:
       - 工作流管理: nebula-explorer/workflow/3.workflow-management.md
       - 作业管理: nebula-explorer/workflow/4.jobs-management.md
       - 工作流 API:
+        - API 概览: nebula-explorer/workflow/workflow-api/workflow-api-overview.md
         - 新增作业: nebula-explorer/workflow/workflow-api/api-post-jobs.md
         - 获取所有作业列表: nebula-explorer/workflow/workflow-api/api-get-jobs.md
         - 获取指定工作流的作业列表: nebula-explorer/workflow/workflow-api/api-get-workflow-jobs.md
@@ -706,16 +710,18 @@ nav:
       - 什么是 NebulaGraph Operator: nebula-operator/1.introduction-to-nebula-operator.md
       - 使用流程: nebula-operator/6.get-started-with-operator.md
       - 部署 NebulaGraph Operator: nebula-operator/2.deploy-nebula-operator.md
-      - 部署 NebulaGraph集群: 
+      - 部署 NebulaGraph: 
         - 使用 Kubectl 部署 NebulaGraph 集群: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
         - 使用 Helm 部署 NebulaGraph 集群: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
-      - 配置 NebulaGraph 集群:
+      - 配置 NebulaGraph:
         - 自定义 NebulaGraph 集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
         - 回收 PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
 #ent
         - 均衡扩容后的 Storage 数据: nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
-      - 升级 NebulaGraph 集群: nebula-operator/9.upgrade-nebula-cluster.md   
-      - 连接 NebulaGraph 数据库: nebula-operator/4.connect-to-nebula-graph-service.md
+      - 升级 NebulaGraph: nebula-operator/9.upgrade-nebula-cluster.md   
+      - 连接 NebulaGraph: nebula-operator/4.connect-to-nebula-graph-service.md
+#ent
+      - 备份与恢复: nebula-operator/10.backup-restore-using-operator.md
       - 故障自愈: nebula-operator/5.operator-failover.md
       - 常见问题: nebula-operator/7.operator-faq.md
 
@@ -752,4 +758,4 @@ nav:
       - 思维导图: 20.appendix/mind-map.md
       - 错误码: 20.appendix/error-code.md
 
-  - PDF: ./pdf/NebulaGraph-CN.pdf
+#  - PDF: ./pdf/NebulaGraph-CN.pdf

@@ -27,6 +27,7 @@ NebulaGraph Analytics 版本和 NebulaGraph 内核的版本对应关系如下。
 
 |NebulaGraph 版本|NebulaGraph Analytics 版本|
 |:---|:---|
+|3.4.0 ~ 3.4.1| 3.4.0 |
 |3.3.0      | 3.3.0 |
 |3.1.0 ~ 3.2.x| 3.2.0 |
 |3.0.x      | 1.0.x |
@@ -62,7 +63,7 @@ NebulaGraph Analytics 支持的图计算算法如下。
 
 ## 安装 NebulaGraph Analytics
 
-1. 安装 NebulaGraph Analytics。
+1. 安装 NebulaGraph Analytics。在多个机器安装由多个 NebulaGraph Analytics 服务构成的集群时，需要安装路径相同，并设置节点间 SSH 免密登录。
 
   ```
   $ sudo rpm -ivh <analytics_package_name> --prefix <install_path>

@@ -25,14 +25,12 @@ Dashboard 企业版支持升级现有 NebulaGraph 集群的版本。
   !!! note
   
         如果没有找到合适的版本，单击**包管理中心**，下载或上传所需的版本安装包。详情参见[安装包管理](../../system-settings/manage-package.md)。
-        
-{{ent.ent_begin}}        
+            
 5. 单击**上传证书**上传 Dashboard 企业版 License（如升级社区版 NebulaGraph 集群，忽略此步）。
 
   !!! enterpriseonly
   
         此步骤仅针对升级企业版 NebulaGraph 集群。
-{{ent.ent_end}}
 
 6. 单击**下一步**，进行升级检查，然后再单击**下一步**。
 

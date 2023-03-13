@@ -58,10 +58,13 @@ NebulaGraph Exchange 版本（即 JAR 包版本）、NebulaGraph 内核版本和
 |nebula-exchange_spark_3.0-3.0-SNAPSHOT.jar|  nightly       |3.3.x、3.2.x、3.1.x、3.0.x |
 |nebula-exchange_spark_2.4-3.0-SNAPSHOT.jar|  nightly       |2.4.x |
 |nebula-exchange_spark_2.2-3.0-SNAPSHOT.jar|  nightly       |2.2.x |
-|nebula-exchange_spark_3.0-3.3.0.jar       |  3.x.x         |3.3.x、3.2.x、3.1.x、3.0.x|
+|nebula-exchange_spark_3.0-3.4.0.jar       | 3.x.x          |3.3.x、3.2.x、3.1.x、3.0.x |
+|nebula-exchange_spark_2.4-3.4.0.jar       |  3.x.x         |2.4.x |
+|nebula-exchange_spark_2.2-3.4.0.jar       |  3.x.x         |2.2.x |
+|nebula-exchange_spark_3.0-3.3.0.jar       |  3.x.x         |3.3.x、3.2.x、3.1.x、3.0.x |
 |nebula-exchange_spark_2.4-3.3.0.jar       |  3.x.x         |2.4.x |
 |nebula-exchange_spark_2.2-3.3.0.jar       |  3.x.x         |2.2.x |
-|nebula-exchange_spark_3.0-3.0.0.jar       |  3.x.x         |3.3.x、3.2.x、3.1.x、3.0.x|
+|nebula-exchange_spark_3.0-3.0.0.jar       |  3.x.x         |3.3.x、3.2.x、3.1.x、3.0.x |
 |nebula-exchange_spark_2.4-3.0.0.jar       |  3.x.x         |2.4.x |
 |nebula-exchange_spark_2.2-3.0.0.jar       |  3.x.x         |2.2.x |
 |nebula-exchange-2.6.3.jar                 |  2.6.1、2.6.0  |2.4.x |
@@ -113,7 +116,7 @@ Exchange {{exchange.release}} 支持将以下格式或来源的数据转换为 N
 
 {{ ent.ent_begin }} 
 
-此外，企业版 Exchange 支持以 NebulaGraph 为源，将数据[导出到 CSV 文件](../use-exchange/ex-ug-export-from-nebula.md)。
+此外，企业版 Exchange 支持以 NebulaGraph 为源，将数据[导出到 CSV 文件或另一个图空间](../use-exchange/ex-ug-export-from-nebula.md)。
 
  {{ ent.ent_end }}
 
