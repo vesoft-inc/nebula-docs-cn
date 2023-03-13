@@ -1,5 +1,11 @@
 # NebulaGraph Dashboard 企业版更新说明
 
+## 企业版 v3.4.2
+
+- 优化
+
+  内置 NebulaGraph 企业版 v3.4.1 安装包。
+
 ## 企业版 v3.4.1
 
 - 缺陷修复

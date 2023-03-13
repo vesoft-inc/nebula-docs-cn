@@ -204,8 +204,8 @@ extra:
     base100: 1.0.0
     branch: release-3.4
   dashboard_ent:
-    release: 3.4.1
-    tag: v3.4.1
+    release: 3.4.2
+    tag: v3.4.2
     branch: release-3.4
   console:
     release: 3.4.0
