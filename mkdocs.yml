@@ -216,8 +216,8 @@ extra:
     branch: release-3.3
     tag: v3.3.0
   br_ent:
-    release: 3.4.0
-    tag: v3.4.0
+    release: 3.4.1
+    tag: v3.4.1
   agent:
     release: 3.4.0
     tag: v3.4.0
