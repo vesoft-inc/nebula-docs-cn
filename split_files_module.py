@@ -22,8 +22,11 @@ def split_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
+    def replace_code_blocks(match):
+        return match.group(0).replace("#", "\ufeff#")
+
     code_block_pattern = r'```.*?```'
-    content = re.sub(code_block_pattern, '', content, flags=re.DOTALL)
+    content = re.sub(code_block_pattern, replace_code_blocks, content, flags=re.DOTALL)
 
     section_pattern = r"(^#{1,6} .*)"
     sections = re.split(section_pattern, content, flags=re.MULTILINE)
@@ -32,7 +35,7 @@ def split_file(file_path):
     for idx in range(1, len(sections), 2):
         title = sections[idx].strip()
         body = sections[idx + 1].strip()
-        split_content = f"{title}\n\n{body}"
+        split_content = f"{title}\n\n{body}".replace("\ufeff#", "#")
         
         split_file_path = f"{file_path[:-3]}_{idx//2+1}.md"
         with open(split_file_path, 'w', encoding='utf-8') as split_f:
