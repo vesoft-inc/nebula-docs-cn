@@ -10,14 +10,14 @@ def copy_markdown_files(src_path: str, dest_path: str) -> None:
 
     if not src_path.exists() or not src_path.is_dir():
         raise ValueError(f"源目录 '{src_path}' 不存在或不是一个有效目录")
-    
+
     if not dest_path.exists():
         dest_path.mkdir(parents=True, exist_ok=True)
 
     for root, _, files in os.walk(src_path):
         root_path = Path(root)
         relative_path = root_path.relative_to(src_path)
-        target_path = dest_path / relative_path
+        target_path = dest_path / src_path / relative_path
 
         if not target_path.exists():
             target_path.mkdir(parents=True, exist_ok=True)
