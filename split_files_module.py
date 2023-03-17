@@ -32,10 +32,16 @@ def split_file(file_path):
     sections = re.split(section_pattern, content, flags=re.MULTILINE)
 
     split_file_paths = []
+    parent_sections = ["", "", "", "", "", ""]
     for idx in range(1, len(sections), 2):
         title = sections[idx].strip()
         body = sections[idx + 1].strip()
-        split_content = f"{title}\n\n{body}".replace("\ufeff#", "#")
+
+        level = title.count("#") - 1
+        parent_sections[level] = title
+        parent_titles = "\n\n".join(parent_sections[:level + 1 if idx != 1 else level])
+
+        split_content = f"{parent_titles}\n\n{body}".replace("\ufeff#", "#").strip()
         
         split_file_path = f"{file_path[:-3]}_{idx//2+1}.md"
         with open(split_file_path, 'w', encoding='utf-8') as split_f:
