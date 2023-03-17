@@ -39,9 +39,9 @@ def split_file(file_path):
 
         level = title.count("#") - 1
         parent_sections[level] = title
-        parent_titles = "\n\n".join(parent_sections[:level + 1 if idx != 1 else level])
+        parent_titles = "\n\n".join(parent_sections[:level + 1 if idx != 1 else level]) if idx != 1 else ""
 
-        split_content = f"{parent_titles}\n\n{body}".replace("\ufeff#", "#").strip()
+        split_content = f"{parent_titles}\n\n{title}\n\n{body}".replace("\ufeff#", "#").strip()
         
         split_file_path = f"{file_path[:-3]}_{idx//2+1}.md"
         with open(split_file_path, 'w', encoding='utf-8') as split_f:
