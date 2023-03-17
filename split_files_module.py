@@ -22,8 +22,9 @@ def split_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
 
-    # Add your logic for splitting the content here
-    # Split the content by sections
+    code_block_pattern = r'```.*?```'
+    content = re.sub(code_block_pattern, '', content, flags=re.DOTALL)
+
     section_pattern = r"(^#{1,6} .*)"
     sections = re.split(section_pattern, content, flags=re.MULTILINE)
 
