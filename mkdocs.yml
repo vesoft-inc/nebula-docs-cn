@@ -170,7 +170,7 @@ extra:
     branch: release-3.4
     tag: v3.4.1
     # ent.begin
-    name: 星云图数据库
+    name: 悦数图数据库
     # ent.end
     # comm.begin
     name: NebulaGraph
