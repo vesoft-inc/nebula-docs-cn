@@ -110,12 +110,12 @@ ps：如果2.x（x<5）来做到3.4的升级，升级过程不会报错，因为
 
         从 3.0.0 开始，支持插入无 Tag 的点。如果用户需要保留无 Tag 的点，在集群内所有 Graph 服务的配置文件（`nebula-graphd.conf`）中新增`--graph_use_vertex_key=true`；在所有 Storage 服务的配置文件（`nebula-storaged.conf`）中新增`--use_vertex_key=true`。
 
-1. 在**升级准备**中下载的包的目的路径下，用此处`bin`目录中的新版二进制文件替换 NebulaGraph 安装路径下`bin`目录中的旧版二进制文件。
+2. 在**升级准备**中下载的包的目的路径下，用此处`bin`目录中的新版二进制文件替换 NebulaGraph 安装路径下`bin`目录中的旧版二进制文件。
 
   !!! note
         每台部署了 NebulaGraph 服务的机器上都要更新相应服务的二进制文件。
 
-2. 编辑所有 Graph 服务的配置文件，修改以下参数以适应新版本的取值范围。如参数值已在规定范围内，忽略该步骤。
+3. 编辑所有 Graph 服务的配置文件，修改以下参数以适应新版本的取值范围。如参数值已在规定范围内，忽略该步骤。
    <!-- 在3.0.0后可忽略该步骤，因为3.0.0及之后配置文件中改了该字段的默认值。 -->
 
   - 为`session_idle_timeout_secs`参数设置一个在 [1,604800] 区间的值，推荐值为 28800。
@@ -123,7 +123,7 @@ ps：如果2.x（x<5）来做到3.4的升级，升级过程不会报错，因为
 
   这些参数在 2.x 版本中的默认值不在新版本的取值范围内，如不修改会升级失败。详细参数说明参见[Graph 服务配置](../../5.configurations-and-logs/1.configurations/3.graph-config.md)。
 
-3. 启动所有 Meta 服务。
+4. 启动所有 Meta 服务。
 
   ```
   <nebula_install_path>/scripts/nebula-metad.service start
