@@ -107,6 +107,7 @@ plugins:
         # comm.end
         # ent.begin
         - backup-and-restore/nebula-br/*
+        - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
         - nebula-studio/*
         - nebula-dashboard/
         - 20.appendix/release-notes/nebula-comm-release-note.md
