@@ -1,10 +1,16 @@
-# 升级 NebulaGraph 2.x 至 {{nebula.release}} 版本
+# 升级 NebulaGraph 至 {{nebula.release}} 版本
 
-本文以 NebulaGraph 2.6.1 版本升级到 {{nebula.release}} 版本为例，介绍 NebulaGraph 2.x 版本升级到 3.x 版本的方法。
+本文以 NebulaGraph 2.6.1 版本升级到 {{nebula.release}} 版本为例，介绍 NebulaGraph 2.x、3.x 版本升级到 {{nebula.release}} 版本的方法。
+
+
+<!-- 
+- 3.0.0版本默认开启无tag点，升级2.x至3.0.0需要升级工具。
+- 针对版本间的升级3.0.0到3.2.x，不需要升级工具，此时需要单独的版本间的升级文档。
+- 在3.3.0版本默认关闭无tag点，数据结构无变化，此时升级2.x至3.x不要升级工具，也不需要单独的版本间的升级文档。-->
 
 ## 适用版本
 
-本文适用于将 NebulaGraph 从 2.0.0 及之后的 2.x 版本升级到 {{nebula.release}} 版本。不适用于 2.0.0 之前的历史版本（含 1.x 版本）。如需升级历史版本，将其根据最新的 2.x 版本文档升级到最新的 2.x 版本，然后根据本文的说明升级到 3.x 版本。
+本文适用于将 NebulaGraph 从 2.0.0 及之后的 2.x、3.x 版本升级到 {{nebula.release}} 版本。不适用于 2.0.0 之前的历史版本（含 1.x 版本）。如需升级历史版本，将其根据最新的 2.x 版本文档升级到最新的 2.x 版本，然后根据本文的说明升级到 3.x 版本。
 
 !!! caution
 
@@ -52,10 +58,11 @@
 
 ## 升级准备
 
-- 根据操作系统和架构下载 NebulaGraph {{nebula.release}} 版本的 TAR 文件并解压，升级过程中需要其中的二进制文件。TAR 包下载地址参见 [Download 页面](https://nebula-graph.io/download/)。
+- 根据操作系统和架构下载 NebulaGraph {{nebula.release}} 版本的包文件并解压，升级过程中需要其中的二进制文件。下载地址参见 [Download 页面](https://nebula-graph.io/download/)。
 
   !!! note
-        编译源码或者下载RPM/DEB包也可以获取新版二进制文件。
+
+        编译源码或者下载 RPM/DEB、TAR 包都可以获取新版二进制文件。
 
 - 根据 Storage 和 Meta 服务配置中`data_path`参数的值找到数据文件的位置，并备份数据。默认路径为`nebula/data/storage`和`nebula/data/meta`。
 
@@ -81,23 +88,28 @@
 
   `storaged` 进程 flush 数据要等待约 1 分钟。运行命令后可继续运行`nebula.service status all`命令以确认所有服务都已停止。启动和停止服务的详细说明参见[管理服务](../manage-service.md)。
 
-  !!! Note
+  !!! note
 
         如果超过 20 分钟不能停止服务，放弃本次升级，在[论坛](https://discuss.nebula-graph.com.cn/)或 [GitHub](https://github.com/vesoft-inc/nebula/issues) 提问。
 
-2. 在**升级准备**中解压 TAR 包的目的路径下，用此处`bin`目录中的新版二进制文件替换 NebulaGraph 安装路径下`bin`目录中的旧版二进制文件。
+  !!! caution
+
+        从 3.0.0 开始，支持插入无 Tag 的点。如果用户需要保留无 Tag 的点，在集群内所有 Graph 服务的配置文件（`nebula-graphd.conf`）中新增`--graph_use_vertex_key=true`；在所有 Storage 服务的配置文件（`nebula-storaged.conf`）中新增`--use_vertex_key=true`。
+
+1. 在**升级准备**中下载的包的目的路径下，用此处`bin`目录中的新版二进制文件替换 NebulaGraph 安装路径下`bin`目录中的旧版二进制文件。
 
   !!! note
         每台部署了 NebulaGraph 服务的机器上都要更新相应服务的二进制文件。
 
 3. 编辑所有 Graph 服务的配置文件，修改以下参数以适应新版本的取值范围。如参数值已在规定范围内，忽略该步骤。
+   <!-- 在3.0.0后可忽略该步骤，因为3.0.0及之后配置文件中改了该字段的默认值。 -->
 
   - 为`session_idle_timeout_secs`参数设置一个在 [1,604800] 区间的值，推荐值为 28800。
   - 为`client_idle_timeout_secs`参数设置一个在 [1,604800] 区间的值，推荐值为 28800。
 
   这些参数在 2.x 版本中的默认值不在新版本的取值范围内，如不修改会升级失败。详细参数说明参见[Graph 服务配置](../../5.configurations-and-logs/1.configurations/3.graph-config.md)。
 
-4. 启动所有 Meta 服务。
+1. 启动所有 Meta 服务。
 
   ```
   <nebula_install_path>/scripts/nebula-metad.service start
