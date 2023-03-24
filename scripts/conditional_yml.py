@@ -1,3 +1,19 @@
+# This script processes the 'mkdocs.yml' file based on the value of 'database_edition' in the following manner:
+
+# 1. If the value of 'database_edition' is 'enterprise':
+#    - Remove the text between '# exclude.ent.begin' and '# exclude.ent.end'
+#    - Keep the text between '# exclude.comm.begin' and '# exclude.comm.end'
+#    - Keep the text between '# nav.ent.begin' and '# nav.ent.end'
+#    - Remove the text between '# nav.comm.begin' and '# nav.comm.end'
+
+# 2. If the value of 'database_edition' is 'community':
+#    - Keep the text between '# exclude.ent.begin' and '# exclude.ent.end'
+#    - Remove the text between '# exclude.comm.begin' and '# exclude.comm.end'
+#    - Remove the text between '# nav.ent.begin' and '# nav.ent.end'
+#    - Keep the text between '# nav.comm.begin' and '# nav.comm.end'
+
+# 3. If the value of 'database_edition' is 'both', no changes are made to the file content.
+
 import re
 import yaml
 
