@@ -129,9 +129,10 @@ nebula> MATCH (v:player{name:"Tim Duncan"}) \
 
 ## 返回属性
 
-使用语法`{<vertex_name>|<edge_name>}.<property>`返回点或边的属性。
+使用语法`<vertex_name>.<tag_name>.<property_name>`返回点的属性；使用语法`<edge_name>.<property_name>`返回边的属性。
 
 ```ngql
+// 返回点的属性
 nebula> MATCH (v:player) \
         RETURN v.player.name, v.player.age \
         LIMIT 3;
@@ -143,6 +144,20 @@ nebula> MATCH (v:player) \
 | "David West"     | 38           |
 +------------------+--------------+
 ```
+
+```ngql
+// 返回边的属性
+nebula> MATCH (v:player{name:"Tim Duncan"})-[e]->() \
+        RETURN e.start_year, e.degree \
++--------------+----------+
+| e.start_year | e.degree |
++--------------+----------+
+| __NULL__     | 95       |
+| __NULL__     | 95       |
+| 1997         | __NULL__ |
++--------------+----------+
+```
+
 
 使用`properties()`函数返回点或边的所有属性。
 

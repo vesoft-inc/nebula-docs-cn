@@ -111,7 +111,7 @@ plugins:
   - with-pdf:
       copyright: 2023 vesoft Inc.
       cover_subtitle: master
-      author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
+      author: 吴敏，周瑶，梁振亚，黄凤仙
       cover: true
       back_cover: true
       cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
@@ -206,8 +206,8 @@ extra:
     base100: 1.0.0
     branch: release-3.4
   dashboard_ent:
-    release: 3.4.1
-    tag: v3.4.1
+    release: 3.4.2
+    tag: v3.4.2
     branch: release-3.4
   console:
     release: 3.4.0
@@ -218,8 +218,8 @@ extra:
     branch: release-3.3
     tag: v3.3.0
   br_ent:
-    release: 3.4.0
-    tag: v3.4.0
+    release: 3.4.1
+    tag: v3.4.1
   agent:
     release: 3.4.0
     tag: v3.4.0
@@ -468,9 +468,9 @@ nav:
 #      - 管理逻辑机架（Zone）: 4.deployment-and-installation/5.zone.md
 
       - 升级版本:
-          - 升级 v2.x 至 v3.4（社区版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
-          - 升级 v3.x 至 v3.4（社区版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-300-to-latest.md
-          - 升级 v3.x 至 v3.4（企业版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent-from-3.x-3.4.md
+          - 升级 NebulaGraph 至 v3.4（社区版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
+          # - 升级 v3.x 至 v3.4（社区版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-300-to-latest.md
+          - 升级 NebulaGraph 至 v3.4（企业版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent-from-3.x-3.4.md
       - 卸载 NebulaGraph: 4.deployment-and-installation/4.uninstall-nebula-graph.md
 
   - 配置与日志:
@@ -715,15 +715,17 @@ nav:
       - 部署 NebulaGraph: 
         - 使用 Kubectl 部署 NebulaGraph 集群: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
         - 使用 Helm 部署 NebulaGraph 集群: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
+      - 连接 NebulaGraph: nebula-operator/4.connect-to-nebula-graph-service.md
       - 配置 NebulaGraph:
         - 自定义 NebulaGraph 集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
         - 回收 PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
 #ent
         - 均衡扩容后的 Storage 数据: nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
-      - 升级 NebulaGraph: nebula-operator/9.upgrade-nebula-cluster.md   
-      - 连接 NebulaGraph: nebula-operator/4.connect-to-nebula-graph-service.md
-#ent
-      - 备份与恢复: nebula-operator/10.backup-restore-using-operator.md
+        - 管理集群日志: nebula-operator/8.custom-cluster-configurations/8.4.manage-running-logs.md
+      - 升级 NebulaGraph: nebula-operator/9.upgrade-nebula-cluster.md  
+      - 配置滚动更新策略: nebula-operator/11.rolling-update-strategy.md
+#ent  
+      - 备份与恢复: nebula-operator/10.backup-restore-using-operator.md    
       - 故障自愈: nebula-operator/5.operator-failover.md
       - 常见问题: nebula-operator/7.operator-faq.md
 

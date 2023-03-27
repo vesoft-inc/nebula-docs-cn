@@ -15,7 +15,7 @@
 
 ```ngql
 <YIELD clause>
-ORDER BY <expression> [ASC | DESC] [, <expression> [ASC | DESC] ...];
+| ORDER BY <expression> [ASC | DESC] [, <expression> [ASC | DESC] ...];
 ```
 
 !!! compatibility

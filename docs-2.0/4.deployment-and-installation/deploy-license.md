@@ -88,10 +88,6 @@ License 文件包含生效时间、过期时间等信息。说明如下。
 
 2. 在所有包含 Meta 服务的机器上，路径为每个 Meta 服务安装目录的`share/resources/`内，使用新的 License 文件`nebula.license`替换旧的 License 文件。
 
-  !!! note
-
-        建议使用`cp`、`scp`命令替换 License 文件或使用 vi 等工具编辑原文件的内容实现替换。如果使用`mv`命令，替换后需要重启所有 Meta 服务器。
-
 3. 重启 Storage 和 Graph 服务。关于重启操作，参见[启动服务](manage-service.md)。如果用户的 License 的过期时间在到期后的缓冲期内（默认 14 天），则无需重启 Storage 和 Graph 服务。
 
   !!! note
