@@ -48,10 +48,10 @@ def generate_prompt_completion_dataset(output, gpt3_api_key, model, max_tokens, 
     return dataset_file
 
 # test example
-output = 'output'
+output = '../../output'
 gpt3_api_key = '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'
 model = 'gpt-3.5-turbo'
 max_tokens = 4096
 temperature = 0.7
-dataset_dir = 'dataset'
+dataset_dir = '../../dataset'
 prompt_completion_dataset = generate_prompt_completion_dataset(output, gpt3_api_key, model, max_tokens, temperature, dataset_dir)
