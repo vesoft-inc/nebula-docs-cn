@@ -15,8 +15,9 @@ def read_to_be_split_files(output_dir):
                 continue
             if start:
                 # Convert relative paths to absolute paths
-                absolute_path = os.path.join(output_dir, os.path.normpath(line.strip()))
-                to_be_split_files.append(absolute_path)
+                relative_path = line.strip()
+                absolute_path = Path(output_dir).joinpath(relative_path).resolve()
+                to_be_split_files.append(str(absolute_path))
 
     return to_be_split_files
 
