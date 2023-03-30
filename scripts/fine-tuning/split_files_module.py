@@ -14,7 +14,9 @@ def read_to_be_split_files(output_dir):
                 start = True
                 continue
             if start:
-                to_be_split_files.append(line.strip())
+                # Convert relative paths to absolute paths
+                absolute_path = os.path.join(output_dir, os.path.normpath(line.strip()))
+                to_be_split_files.append(absolute_path)
 
     return to_be_split_files
 
@@ -42,8 +44,9 @@ def split_file(file_path):
         parent_titles = "\n\n".join(parent_sections[:level + 1 if idx != 1 else level]) if idx != 1 else ""
 
         split_content = f"{parent_titles}\n\n{title}\n\n{body}".replace("\ufeff#", "#").strip()
-        
-        split_file_path = f"{file_path[:-3]}_{idx//2+1}.md"
+
+        # Construct the split file path in a platform-independent manner
+        split_file_path = os.path.join(os.path.dirname(file_path), f"{Path(file_path).stem}_{idx//2+1}.md")
         with open(split_file_path, 'w', encoding='utf-8') as split_f:
             split_f.write(split_content)
         split_file_paths.append(split_file_path)
@@ -69,4 +72,6 @@ def process_split_files(output_dir):
 
 # Example usage:
 output_dir = '../../output'
-process_split_files(output_dir)
+# Convert relative path to absolute path
+absolute_output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), output_dir)
+process_split_files(absolute_output_dir)
