@@ -9,6 +9,7 @@ def generate_prompt_completion_dataset(output, gpt3_api_key, model, max_tokens, 
     if not os.path.exists(output):
         raise ValueError(f"Output directory '{output}' does not exist.")
     files = os.listdir(output)
+    print(f"Processing files: {files}")
     if len(files) == 0:
         raise ValueError(f"Output directory '{output}' is empty.")
     files = sorted([os.path.join(output, f) for f in files if f.endswith('.md')])
@@ -33,6 +34,11 @@ def generate_prompt_completion_dataset(output, gpt3_api_key, model, max_tokens, 
             completions.append((text.strip(), response.choices[0].text.strip()))
         else:
             completions.append((text.strip(), ""))
+
+        # Debug prints
+        print(f"File: {file}")
+        print(f"Prompt: {prompt + text}")
+        print(f"Completion: {response.choices[0].text.strip() if len(response.choices) > 0 else ''}")
     
     # Create the dataset directory if it doesn't exist
     if not os.path.exists(dataset_dir):
@@ -50,8 +56,10 @@ def generate_prompt_completion_dataset(output, gpt3_api_key, model, max_tokens, 
 # test example
 output = '../../output'
 gpt3_api_key = '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'
-model = 'gpt-3.5-turbo'
+model = 'text-davinci-002'
 max_tokens = 4096
 temperature = 0.7
 dataset_dir = '../../dataset'
+
+# Generate the prompt-completion dataset
 prompt_completion_dataset = generate_prompt_completion_dataset(output, gpt3_api_key, model, max_tokens, temperature, dataset_dir)
