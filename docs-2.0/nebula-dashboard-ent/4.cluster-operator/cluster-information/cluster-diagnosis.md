@@ -24,13 +24,14 @@
 
 2. 确认**诊断公式**的配置。用户可以自行调整公式。
 
-  公式中的 weight 函数为：`weight(value>conditionValue , weightValue)`，其中的蓝色字体支持修改。函数值的计算公式为`(value - conditionValue)/(maxValue - conditionValue) * weightValue`。
+  公式中的 weight 函数为：`weight(value>conditionValue , weightValue)`，其中的蓝色字体支持修改。函数值的计算公式为`(value - conditionValue * timeRange)/((maxValue - conditionValue) * timeRange) * weightValue`。
   
   - value：当前指标值。
-  - maxValue：最大指标值。
   - conditionValue：满足条件的最低值。
+  - timeRange：时间范围天数。对于 avg 类型的指标，该参数值为 1。
+  - maxValue：最大指标值。百分比类型指标最大值为 100，其余类型最大值为 conditionValue 的 2 倍。
   
-  例如`weight(max_avg_cpu_usage > 60%, 30)`，当`max_avg_cpu_usage = 75%`时，计算公式为`(75 - 60)/(100-60) * 30 = 11.25`。
+  例如`weight(hit_memory_times > 10 * days, 10)`，当时间范围选择 2 天、`hit_memory_times = 40`时，计算公式为`(40 - 10 * 2)/((10*2 - 10) * 2) * 10 = 10`。
 
 3. 单击**开始诊断**。
 
