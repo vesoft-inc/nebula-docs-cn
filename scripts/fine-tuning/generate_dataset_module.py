@@ -1,7 +1,7 @@
 import openai
 import os
 
-def generate_prompt_completion_dataset(output, gpt3_api_key, model, max_tokens, temperature):
+def generate_prompt_completion_dataset(output, gpt3_api_key, model, max_tokens, temperature, dataset_dir):
     # Load API key and model
     openai.api_key = gpt3_api_key
 
@@ -35,7 +35,7 @@ def generate_prompt_completion_dataset(output, gpt3_api_key, model, max_tokens, 
             completions.append((text.strip(), ""))
     
     # Write the prompt-completion pairs to a file in JSONL format
-    dataset_file = 'prompt_completion_dataset.jsonl'
+    dataset_file = os.path.join(dataset_dir, 'prompt_completion_dataset.jsonl')
     with open(dataset_file, 'w', encoding='utf-8') as f:
         for prompt, completion in completions:
             f.write(f'{{"prompt": "{prompt}", "completion": "{completion}"}}\n')
@@ -44,9 +44,10 @@ def generate_prompt_completion_dataset(output, gpt3_api_key, model, max_tokens, 
     return dataset_file
 
 # test example
-
 output = 'output'
 gpt3_api_key = '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'
 model = 'gpt-3.5-turbo'
 max_tokens = 4096
 temperature = 0.7
+dataset_dir = 'dataset'
+prompt_completion_dataset = generate_prompt_completion_dataset(output, gpt3_api_key, model, max_tokens, temperature, dataset_dir)
