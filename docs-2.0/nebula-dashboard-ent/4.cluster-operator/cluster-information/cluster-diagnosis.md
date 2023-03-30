@@ -24,6 +24,14 @@
 
 2. 确认**诊断公式**的配置。用户可以自行调整公式。
 
+  公式中的 weight 函数为：`weight(value>conditionValue , weightValue)`，其中的蓝色字体支持修改。函数值的计算公式为`(value - conditionValue)/(maxValue - conditionValue) * weightValue`。
+  
+  - value：当前指标值。
+  - maxValue：最大指标值。
+  - conditionValue：满足条件的最低值。
+  
+  例如`weight(max_avg_cpu_usage > 60%, 30)`，当`max_avg_cpu_usage = 75%`时，计算公式为`(75 - 60)/(100-60) * 30 = 11.25`。
+
 3. 单击**开始诊断**。
 
   ![diagnosepage](https://docs-cdn.nebula-graph.com.cn/figures/cluster_diagnose_230327_cn.png)
