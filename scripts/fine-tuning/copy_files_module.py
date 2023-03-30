@@ -17,7 +17,7 @@ def copy_markdown_files(src_path: str, dest_path: str) -> None:
     for root, _, files in os.walk(src_path):
         root_path = Path(root)
         relative_path = root_path.relative_to(src_path)
-        target_path = dest_path / src_path / relative_path
+        target_path = dest_path / src_path.name / relative_path
 
         if not target_path.exists():
             target_path.mkdir(parents=True, exist_ok=True)
@@ -44,7 +44,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-# test examples
-src_directory = 'docs-2.0/3.ngql-guide/7.general-query-statements'
-dest_directory = '../../output'
