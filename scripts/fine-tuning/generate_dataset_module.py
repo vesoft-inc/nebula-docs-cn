@@ -11,7 +11,7 @@ def generate_prompt_completion_dataset(output, gpt3_api_key, model, max_tokens, 
     files = os.listdir(output)
     if len(files) == 0:
         raise ValueError(f"Output directory '{output}' is empty.")
-    files = sorted([os.path.join(output, f) for f in files if f.endswith('.md')])
+    files = sorted([os.path.join(output, f) for f in files])
 
     # Send each chunk of text to GPT-3.5 to generate prompt completions
     completions = []
@@ -33,10 +33,6 @@ def generate_prompt_completion_dataset(output, gpt3_api_key, model, max_tokens, 
             completions.append((text.strip(), response.choices[0].text.strip()))
         else:
             completions.append((text.strip(), ""))
-    
-    # Create the dataset directory if it doesn't exist
-    if not os.path.exists(dataset_dir):
-        os.makedirs(dataset_dir)
     
     # Write the prompt-completion pairs to a file in JSONL format
     dataset_file = os.path.join(dataset_dir, 'prompt_completion_dataset.jsonl')
