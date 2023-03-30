@@ -44,3 +44,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# test examples
+src_directory = 'docs-2.0/3.ngql-guide/7.general-query-statements'
+dest_directory = '../../output'

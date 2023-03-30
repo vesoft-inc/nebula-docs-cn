@@ -33,5 +33,5 @@ def process_directory(output_dir, encoding_name='cl100k_base', max_token_count=1
     token_counts = count_tokens_in_files(output_dir, encoding)
     write_token_counts_to_file(token_counts, output_dir, max_token_count)
 # Example usage:
-output_dir = 'output'
+output_dir = '../../output'
 process_directory(output_dir)

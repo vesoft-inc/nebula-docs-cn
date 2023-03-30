@@ -68,5 +68,5 @@ def process_split_files(output_dir):
     write_split_files_to_file(split_files, output_dir)
 
 # Example usage:
-output_dir = 'output'
+output_dir = '../../output'
 process_split_files(output_dir)
