@@ -1,28 +1,28 @@
-../../output\7.general-query-statements\2.match.md: 7636 tokens
-../../output\7.general-query-statements\3.go.md: 2553 tokens
-../../output\7.general-query-statements\4.fetch.md: 2108 tokens
-../../output\7.general-query-statements\5.lookup.md: 2589 tokens
-../../output\7.general-query-statements\optional-match.md: 625 tokens
-../../output\7.general-query-statements\6.show\1.show-charset.md: 249 tokens
-../../output\7.general-query-statements\6.show\10.show-roles.md: 252 tokens
-../../output\7.general-query-statements\6.show\11.show-snapshots.md: 253 tokens
-../../output\7.general-query-statements\6.show\12.show-spaces.md: 109 tokens
-../../output\7.general-query-statements\6.show\14.show-stats.md: 855 tokens
-../../output\7.general-query-statements\6.show\15.show-tags-edges.md: 143 tokens
-../../output\7.general-query-statements\6.show\16.show-users.md: 140 tokens
-../../output\7.general-query-statements\6.show\17.show-sessions.md: 1229 tokens
-../../output\7.general-query-statements\6.show\18.show-queries.md: 942 tokens
-../../output\7.general-query-statements\6.show\19.show-meta-leader.md: 222 tokens
-../../output\7.general-query-statements\6.show\2.show-collation.md: 197 tokens
-../../output\7.general-query-statements\6.show\4.show-create-space.md: 171 tokens
-../../output\7.general-query-statements\6.show\5.show-create-tag-edge.md: 297 tokens
-../../output\7.general-query-statements\6.show\6.show-hosts.md: 857 tokens
-../../output\7.general-query-statements\6.show\7.show-index-status.md: 230 tokens
-../../output\7.general-query-statements\6.show\8.show-indexes.md: 236 tokens
-../../output\7.general-query-statements\6.show\9.show-parts.md: 667 tokens
+../../output/7.general-query-statements/2.match.md: 7636 tokens
+../../output/7.general-query-statements/3.go.md: 2553 tokens
+../../output/7.general-query-statements/4.fetch.md: 2108 tokens
+../../output/7.general-query-statements/5.lookup.md: 2589 tokens
+../../output/7.general-query-statements/optional-match.md: 625 tokens
+../../output/7.general-query-statements/6.show/1.show-charset.md: 249 tokens
+../../output/7.general-query-statements/6.show/10.show-roles.md: 252 tokens
+../../output/7.general-query-statements/6.show/11.show-snapshots.md: 253 tokens
+../../output/7.general-query-statements/6.show/12.show-spaces.md: 109 tokens
+../../output/7.general-query-statements/6.show/14.show-stats.md: 855 tokens
+../../output/7.general-query-statements/6.show/15.show-tags-edges.md: 143 tokens
+../../output/7.general-query-statements/6.show/16.show-users.md: 140 tokens
+../../output/7.general-query-statements/6.show/17.show-sessions.md: 1229 tokens
+../../output/7.general-query-statements/6.show/18.show-queries.md: 942 tokens
+../../output/7.general-query-statements/6.show/19.show-meta-leader.md: 222 tokens
+../../output/7.general-query-statements/6.show/2.show-collation.md: 197 tokens
+../../output/7.general-query-statements/6.show/4.show-create-space.md: 171 tokens
+../../output/7.general-query-statements/6.show/5.show-create-tag-edge.md: 297 tokens
+../../output/7.general-query-statements/6.show/6.show-hosts.md: 857 tokens
+../../output/7.general-query-statements/6.show/7.show-index-status.md: 230 tokens
+../../output/7.general-query-statements/6.show/8.show-indexes.md: 236 tokens
+../../output/7.general-query-statements/6.show/9.show-parts.md: 667 tokens
 
 Files to be split:
-../../output\7.general-query-statements\2.match.md
-../../output\7.general-query-statements\3.go.md
-../../output\7.general-query-statements\4.fetch.md
-../../output\7.general-query-statements\5.lookup.md
+../../output/7.general-query-statements/2.match.md
+../../output/7.general-query-statements/3.go.md
+../../output/7.general-query-statements/4.fetch.md
+../../output/7.general-query-statements/5.lookup.md
