@@ -24,7 +24,7 @@
 
 2. 确认**诊断公式**的配置。用户可以自行调整公式。
 
-  公式中的 weight 函数为：`weight(value>conditionValue , weightValue)`，其中的蓝色字体支持修改。函数值的计算公式为`(value - conditionValue * timeRange)/((maxValue - conditionValue) * timeRange) * weightValue`。
+  公式中的 weight 函数为：`weight(value>conditionValue , weightValue)`，其中的蓝色字体内容支持修改。函数值的计算公式为`(value - conditionValue * timeRange)/((maxValue - conditionValue) * timeRange) * weightValue`。
   
   - value：当前指标值。
   - conditionValue：满足条件的最低值。
