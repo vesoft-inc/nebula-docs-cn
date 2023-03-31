@@ -1,0 +1,4472 @@
+{"prompt": "# MATCH
+
+`MATCH`语句提供基于模式（pattern）匹配的搜索功能。
+
+一个`MATCH`语句定义了一个搜索模式，用该模式匹配存储在 NebulaGraph 中的数据，然后用`RETURN`子句检索数据。
+
+本文示例使用测试数据集 [basketballplayer](../1.nGQL-overview/1.overview.md#basketballplayer) 进行演示。", "completion": "## 基础例子
+
+首先通过`USE`子句指定要搜索的图：
+
+```
+nebula> USE basketballplayer;
+```
+
+然后通过`MATCH`子句指定搜索模式，用于匹配数据，并通过`RETURN`子句指定返回结果：
+
+```
+nebula> MATCH (n:player {name: "LeBron James"})-[:play_for]->(t:team {city: "LA"})
+RETURN n.name, t.name;
+```
+
+第一行的`MATCH`子句定义了搜索模式，这个模式由两个顶点和一条边组成。顶点`n`是一个`player`标签的顶点，顶点`t`是一个`team`标签的顶点，边`[:play_for]`表示`n`顶点与`t`顶点之间存在`play_for`关系。
+
+第二行的`RETURN`子句指定了返回结果。`n.name`表示返回`n`顶点的`name`属性，`t.name`表示返回`t`顶点的`name`属性。
+
+执行上述查询语句之后，将得到以下结果：
+
+```
++--------------------+
+| n.name | t.name     |
++--------------------+
+| "LeBron James" | "LA" |
++--------------------+
+Fetched 1 row(s) in 0.06s
+```
+
+上述结果表明，`LeBron James`通过`play_for`关系与`LA`队关联。
+
+## 多匹配
+
+除了可以搜索单个模式之外，`MATCH`语句还可以搜索多个模式。
+
+### 多个顶点
+
+`MATCH`语句支持搜索多个顶点。
+
+例如，可以通过下面的查询语句搜索`LeBron James`与`LA`队之间的`play_for`关系，同时搜索`Tim Duncan`与`San Antonio`队之间的`play_for`关系：
+
+```
+nebula> MATCH (n1:player {name: "LeBron James"})-[:play_for]->(t1:team {city: "LA"}),
+>       (n2:player {name: "Tim Duncan"})-[:play_for]->(t2:team {city: "San Antonio"})
+> RETURN n1.name, t1.name, n2.name, t2.name;
+```
+
+执行上述查询语句之后，将得到以下结果：
+
+```
++--------------------+---------------+--------------------+
+| n1.name | t1.name   | n2.name       | t2.name           |
++--------------------+---------------+--------------------+
+| "LeBron James" | "LA"   | "Tim Duncan" | "San Antonio" |
++--------------------+---------------+--------------------+
+Fetched 1 row(s) in 0.05s
+```
+
+### 多个边
+
+`MATCH`语句支持搜索多个边。
+
+例如，可以通过下面的查询语句搜索`LeBron James`与`LA`队之间的`play_for`关系，同时搜索`LeBron James`与`Miami`队之间的`play_for`关系：
+
+```
+nebula> MATCH (n1:player {name: "LeBron James"})-[:play_for]->(t1:team {city: "LA"}),
+>       (n2:player {name: "LeBron James"})-[:play_for]->(t2:team {city: "Miami"})
+> RETURN n1.name, t1.name, n2.name, t2.name;
+```
+
+执行上述查询语句之后，将得到以下结果：
+
+```
++--------------------+---------------+--------------------+
+| n1.name | t1.name   | n2.name       | t2.name           |
++--------------------+---------------+--------------------+
+| "LeBron James" | "LA"   | "LeBron James" | "Miami" |
++--------------------+---------------+--------------------+
+Fetched 1 row(s) in 0.05s
+```
+
+### 多个模式
+
+`MATCH`语句支持搜索多个模式。
+
+例如，可以通过下面的查询语句搜索`LeBron James`与`LA`队之间的`play_for`关系，同时搜索`Tim Duncan`与`San Antonio`队之间的`play_for`关系：
+
+```
+nebula> MATCH (n1:player {name: "LeBron James"})-[:play_for]->(t1:team {city: "LA"}),
+>       (n2:player {name: "Tim Duncan"})-[:play_for]->(t2:team {city: "San Antonio"})
+> RETURN n1.name, t1.name, n2.name, t2.name;
+```
+
+执行上述查询语句之后，将得到以下结果：
+
+```
++--------------------+---------------+--------------------+
+| n1.name | t1.name   | n2.name       | t2.name           |
++--------------------+---------------+--------------------+
+| "LeBron James" | "LA"   | "Tim Duncan" | "San Antonio" |
++--------------------+---------------+--------------------+
+Fetched 1 row(s) in 0.05s
+```
+
+## 过滤
+
+`MATCH`语句支持使用过滤条件来缩小搜索范围。
+
+### 单个顶点
+
+可以通过`WHERE`子句为搜索模式中的"}
+{"prompt": "# MATCH
+
+## 示例
+
+### 匹配连接的点
+
+### 匹配连接的点
+
+用户可以使用`--`符号表示两个方向的边，并匹配这些边连接的点。
+
+!!! compatibility "历史版本兼容性"
+
+    在 nGQL 1.x 中，`--`符号用于行内注释，从 nGQL 2.x 起，`--`符号表示出边或入边，不再用于注释。
+
+```ngql
+nebula> MATCH (v:player{name:"Tim Duncan"})--(v2:player) \
+        RETURN v2.player.name AS Name;
++---------------------+
+| Name                |
++---------------------+
+| "Manu Ginobili"     |
+| "Manu Ginobili"     |
+| "Dejounte Murray"   |
+...
+```
+
+用户可以在`--`符号上增加`<`或`>`符号指定边的方向。
+
+```ngql
+# -->表示边从 v 开始，指向 v2。对于点 v 来说是出边，对于点 v2 来说是入边。
+nebula> MATCH (v:player{name:"Tim Duncan"})-->(v2:player) \
+        RETURN v2.player.name AS Name;
++-----------------+
+| Name            |
++-----------------+
+| "Tony Parker"   |
+| "Manu Ginobili" |
++-----------------+
+```
+
+如果需要判断目标点，可以使用`CASE`表达式。
+
+```ngql
+nebula> MATCH (v:player{name:"Tim Duncan"})--(v2) \
+        RETURN \
+        CASE WHEN v2.team.name IS NOT NULL \
+        THEN v2.team.name  \
+        WHEN v2.player.name IS NOT NULL \
+        THEN v2.player.name END AS Name;
+
++---------------------+
+| Name                |
++---------------------+
+| "Manu Ginobili"     |
+| "Manu Ginobili"     |
+| "Spurs"             |
+| "Dejounte Murray"   |
+...
+```
+
+如果需要扩展模式，可以增加更多点和边。
+
+```ngql
+nebula> MATCH (v:player{name:"Tim Duncan"})-->(v2)<--(v3) \
+        RETURN v3.player.name AS Name;
++---------------------+
+| Name                |
++---------------------+
+| "Dejounte Murray"   |
+| "LaMarcus Aldridge" |
+| "Marco Belinelli"   |
+...
+```
+
+如果不需要引用点，可以省略括号中表示点的变量。
+
+```ngql
+nebula> MATCH (v:player{name:"Tim Duncan"})-->()<--(v3) \
+        RETURN v3.player.name AS Name;
++---------------------+
+| Name                |
++---------------------+
+| "Dejounte Murray"   |
+| "LaMarcus Aldridge" |
+| "Marco Belinelli"   |
+...
+```", "completion": "### 匹配连接的多个点
+
+用户可以使用`--`符号表示两个方向的边，并匹配这些边连接的点。
+
+!!! compatibility "历史版本兼容性"
+
+    在 nGQL 1.x 中，`--`符号用于行内注释，从 nGQL 2.x 起，`--`符号表示出边或入边，不再用于注释。
+
+```ngql
+nebula> MATCH (v:player{name:"Tim Duncan"})--(v2:player) \
+        RETURN v2.player.name AS Name;
++---------------------+
+| Name                |
++---------------------+
+| "Manu Ginobili"     |
+| "Manu Ginobili"     |
+| "Dejounte Murray"   |
+...
+```
+
+用户可以在`--`符号上增加`<`或`>`符号指定边的方向。
+
+```ngql
+# -->表示边从 v 开始，指向 v2。对于点 v 来说是出边，对于点 v2 来说是入边。
+nebula> MATCH (v:player{name:"Tim Duncan"})-->(v2:player) \
+        RETURN v2.player.name AS Name;
++-----------------+
+| Name            |
++-----------------+
+| "Tony Parker"   |
+| "Manu Ginobili" |
++-----------------+
+```
+
+如果需要判断目标点，可以使用`CASE`表达式。
+
+```ngql
+nebula> MATCH (v:player{name:"Tim Duncan"})--(v2) \
+        RETURN \
+        CASE WHEN v2.team.name IS NOT NULL \
+        THEN v2.team.name  \
+        WHEN v2.player.name IS NOT NULL \
+        THEN v2.player.name END AS Name;
+
++---------------------+
+| Name                |
++---------------------+
+| "Manu Ginobili"     |
+| "Manu Ginobili"     |
+| "Spurs"             |
+| "Dejounte Murray"   |
+...
+```
+
+如果需要扩展模式，可以增加更多点和边。
+
+```ngql
+nebula> MATCH (v:player{name:"Tim Duncan"})-->(v2)<--(v3) \
+        RETURN v3.player.name AS Name;
++---------------------+
+| Name                |
++---------------------+
+| "Dejounte Murray"   |
+| "LaMarcus Aldridge" |
+| "Marco Belinelli"   |
+...
+```
+
+如果不需要引用点，可以省略括号中表示点的变量。
+
+```ngql
+nebula> MATCH (v:player{name:"Tim Duncan"})-->()<--(v3) \
+        RETURN v3.player.name AS Name;
++---------------------+
+| Name                |
++---------------------+
+| "Dejounte Murray"   |
+| "LaMarcus Aldridge" |
+| "Marco Belinelli"   |
+...
+```
+
+### 匹配连接的多个点
+
+用户可以使用`--`符号表示两个方向的边，并匹配这些边连接的点。
+
+!!! compatibility "历史版本兼容性"
+
+    在 nGQL 1.x 中，`--`符号用于行内注释，从 nGQL 2.x 起，`--`符号表示出边或入边，不再用于注释。
+
+```ngql
+nebula> MATCH (v:player{name:"Tim Duncan"})--(v2:player) \
+        RETURN v2.player.name AS Name;
++---------------------+
+| Name                |
++---------------------+
+| "Manu Ginobili"     |
+| "Manu Ginobili"     |
+| "Dejounte Murray"   |
+...
+```
+
+用户可以在`--`符号上增加`<`或`>`符号指定边的方向。
+
+```ngql
+# -->表示边从 v 开始，指向 v2。对于点 v 来说是出边，对于点 v2 来说是入边。
+nebula> MATCH (v:player{name:"Tim Duncan"})-->(v2:player) \
+        RETURN v2.player.name AS Name;
++-----------------+
+| Name            |
++-----------------+
+| "Tony Parker"   |
+| "Manu Ginobili" |
++-----------------+
+```
+
+如果需要判断目标点，可以使用`CASE`表达式。
+
+```ngql
+nebula> MATCH (v:player{name:"Tim Duncan"})--(v2) \
+        RETURN \
+        CASE WHEN v2.team.name IS NOT NULL \
+        THEN v2.team.name  \
+        WHEN v2.player.name IS NOT NULL \
+        THEN v2.player.name END AS Name;
+
++---------------------+
+| Name                |
++---------------------+
+| "Manu Ginobili"     |
+| "Manu Ginobili"     |
+| "Spurs"             |
+| "Dejounte Murray"   |
+...
+```
+
+如果需要扩展模式，可以增加更多点和边。
+
+```ngql
+nebula> MATCH (v:player{name:"Tim Duncan"})-->(v2)<--(v3) \
+        RETURN v3.player.name AS Name;
++---------------------+
+| Name                |
++---------------------+
+| "Dejounte Murray"   |
+| "LaMarcus Aldridge" |
+| "Marco Belinelli"   |
+...
+```
+
+如果不需要引用点，可以省略括号中表示点的变量。
+
+```ngql
+nebula> MATCH (v:player{name:"Tim Duncan"})-->()<--(v3) \
+        RETURN v3.player.name AS Name;
++---------------------+
+| Name                |
++---------------------+
+| "Dejounte Murray"   |
+| "LaMarcus Aldridge" |
+| "Marco Belinelli"   |
+...
+```"}
+{"prompt": "# MATCH
+
+## 示例
+
+### 匹配路径
+
+### 匹配路径
+
+连接起来的点和边构成了路径。用户可以使用自定义变量命名路径。
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-->(v2) \
+        RETURN p;
++--------------------------------------------------------------------------------------------------------------------------------------+
+| p                                                                                                                                    |
++--------------------------------------------------------------------------------------------------------------------------------------+
+| <("player100" :player{age: 42, name: "Tim Duncan"})-[:serve@0 {end_year: 2016, start_year: 1997}]->("team204" :team{name: "Spurs"})> |
+| <("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]->("player101" :player{age: 36, name: "Tony Parker"})>   |
+| <("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]->("player125" :player{age: 41, name: "Manu Ginobili"})> |
++--------------------------------------------------------------------------------------------------------------------------------------+
+```
+
+!!! compatibility "openCypher 兼容性"
+
+    在 nGQL 中，`@`符号表示边的 rank，在 openCypher 中，没有 rank 概念。", "completion": "可以将 `@` 符号看作普通的属性列名。"}
+{"prompt": "# MATCH
+
+## 示例
+
+### 匹配边
+
+### 匹配边
+
+!!! Compatibility "历史版本兼容性"
+
+    在 NebulaGraph 3.0.0 之前，匹配边的前提是边本身有对应属性的索引，否则，用户无法基于边执行 `MATCH` 语句。从 NebulaGraph 3.0.0 开始，匹配边可以不创建索引，但需要使用 `LIMIT` 限制输出结果数量，并且必须指定边的方向。
+
+```ngql
+nebula> MATCH ()<-[e]-() \
+        RETURN e \
+        LIMIT 3;
++----------------------------------------------------+
+| e                                                  |
++----------------------------------------------------+
+| [:follow "player101"->"player102" @0 {degree: 90}] |
+| [:follow "player103"->"player102" @0 {degree: 70}] |
+| [:follow "player135"->"player102" @0 {degree: 80}] |
++----------------------------------------------------+
+```", "completion": "!!! Note "注意"
+
+    使用 `LIMIT` 限制输出结果数量是为了避免 `MATCH` 语句扫描过多的边，造成系统资源占用过高。如果用户确定边不多，可以不使用 `LIMIT` 限制。
+
+### 其他示例
+
+```ngql
+nebula> MATCH ()<-[e]-() \
+        RETURN e \
+        LIMIT 3;
++----------------------------------------------------+
+| e                                                  |
++----------------------------------------------------+
+| [:follow "player101"->"player102" @0 {degree: 90}] |
+| [:follow "player103"->"player102" @0 {degree: 70}] |
+| [:follow "player135"->"player102" @0 {degree: 80}] |
++----------------------------------------------------+
+```"}
+{"prompt": "# MATCH
+
+## 示例
+
+### 匹配 Edge type
+
+### 匹配 Edge type
+
+和点一样，用户可以用`:<edge_type>`表示模式中的 Edge type，例如`-[e:follow]-`。
+
+!!! Compatibility "历史版本兼容性"
+
+    在 NebulaGraph 3.0.0 之前，匹配 Edge Type 的前提是 Edge type 本身有对应属性的索引，否则，用户无法基于 Edge Type 执行 `MATCH` 语句。从 NebulaGraph 3.0.0 开始，匹配 Edge Type 可以不创建索引，但需要使用 `LIMIT` 限制输出结果数量，并且必须指定边的方向。
+
+```ngql
+nebula> MATCH ()-[e:follow]->() \
+        RETURN e \
+        limit 3;
++----------------------------------------------------+
+| e                                                  |
++----------------------------------------------------+
+| [:follow "player102"->"player100" @0 {degree: 75}] |
+| [:follow "player102"->"player101" @0 {degree: 75}] |
+| [:follow "player129"->"player116" @0 {degree: 90}] |
++----------------------------------------------------+
+
+```", "completion": "### 匹配多个 Edge type
+
+用户可以通过逗号分隔的多个 Edge type，例如`-[e:follow,post]-`表示在模式中匹配`follow`和`post`两种 Edge type。
+
+```ngql
+nebula> MATCH (n:person)-[e:follow,post]->(m) \
+        RETURN e \
+        limit 5;
++-------------------------------------------------------------------------------------------------+
+| e                                                                                               |
++-------------------------------------------------------------------------------------------------+
+| [:follow "player102"->"player100" @0 {degree: 75}]                                              |
+| [:follow "player102"->"player101" @0 {degree: 75}]                                              |
+| [:follow "player129"->"player116" @0 {degree: 90}]                                              |
+| [:post "player100"->"player101" @0 {post_id: "post_5", content: "Hello, player101! I like you!"}] |
+| [:post "player101"->"player102" @0 {post_id: "post_7", content: "Hello, player102! I like you!"}] |
++-------------------------------------------------------------------------------------------------+
+
+```
+
+### 匹配某个 Edge type 的属性
+
+用户可以使用**包含**的方式匹配 Edge type 的属性，例如`-[e:comment {content: 'hello'}]-`表示在模式中匹配`content`为`hello`的`comment` Edge。
+
+```ngql
+nebula> MATCH (n)-[e:comment {content: 'hello'}]->(m) \
+        RETURN e \
+        limit 3;
++-----------------------------------------------------------------------------------------+
+| e                                                                                        |
++-----------------------------------------------------------------------------------------+
+| [:comment "player100"->"player102" @0 {content: "hello", comment_id: "comment_33"}]     |
+| [:comment "player100"->"player102" @0 {content: "hello", comment_id: "comment_35"}]     |
+| [:comment "player101"->"player102" @0 {content: "hello", comment_id: "comment_39"}]     |
++-----------------------------------------------------------------------------------------+
+
+```
+
+### 匹配某个 Edge type 的某个属性
+
+用户可以使用**包含**的方式匹配 Edge type 的属性，例如`-[e:comment {content: 'hello'}]-`表示在模式中匹配`content`为`hello`的`comment` Edge。
+
+```ngql
+nebula> MATCH (n)-[e:comment {content: 'hello'}]->(m) \
+        RETURN e \
+        limit 3;
++-----------------------------------------------------------------------------------------+
+| e                                                                                        |
++-----------------------------------------------------------------------------------------+
+| [:comment "player100"->"player102" @0 {content: "hello", comment_id: "comment_33"}]     |
+| [:comment "player100"->"player102" @0 {content: "hello", comment_id: "comment_35"}]     |
+| [:comment "player101"->"player102" @0 {content: "hello", comment_id: "comment_39"}]     |
++-----------------------------------------------------------------------------------------+
+
+```
+
+### 匹配某个 Edge type 的某个属性
+
+用户可以使用**等值**的方式匹配 Edge type 的某个属性，例如`-[e:comment {content: 'hello'}]-`表示在模式中匹配`content`为`hello`的`comment` Edge。
+
+```ngql
+nebula> MATCH (n)-[e:comment {content: 'hello'}]->(m) \
+        RETURN e \
+        limit 3;
++-----------------------------------------------------------------------------------------+
+| e                                                                                        |
++-----------------------------------------------------------------------------------------+
+| [:comment "player100"->"player102" @0 {content: "hello", comment_id: "comment_33"}]     |
+| [:comment "player100"->"player102" @0 {content: "hello", comment_id: "comment_35"}]     |
+| [:comment "player101"->"player102" @0 {content: "hello", comment_id: "comment_39"}]     |
++-----------------------------------------------------------------------------------------+
+
+```
+
+### 匹配某个 Edge type 的某个属性
+
+用户可以使用**等值**的方式匹配 Edge type 的某个属性，例如`-[e:comment {content: 'hello'}]-`表示在模式中匹配`content`为`hello`的`comment` Edge。
+
+```ngql
+nebula> MATCH (n)-[e:comment {content: 'hello'}]->(m) \
+        RETURN e \
+        limit 3;
++-----------------------------------------------------------------------------------------+
+| e                                                                                        |
++-----------------------------------------------------------------------------------------+
+| [:comment "player100"->"player102" @0 {content: "hello", comment_id: "comment_33"}]     |
+| [:comment "player100"->"player102" @0 {content: "hello", comment_id: "comment_35"}]     |
+| [:comment "player101"->"player102" @0 {content: "hello", comment_id: "comment_39"}]     |
++-----------------------------------------------------------------------------------------+
+
+```"}
+{"prompt": "# MATCH
+
+## 示例
+
+### 匹配边的属性
+
+### 匹配边的属性
+
+用户可以用`{<prop_name>: <prop_value>}`表示模式中 Edge type 的属性，例如`[e:follow{likeness:95}]`。
+
+```ngql
+nebula> MATCH (v:player{name:"Tim Duncan"})-[e:follow{degree:95}]->(v2) \
+        RETURN e;
++--------------------------------------------------------+
+| e                                                      |
++--------------------------------------------------------+
+| [:follow "player100"->"player101" @0 {degree: 95}]     |
+| [:follow "player100"->"player125" @0 {degree: 95}]     |
++--------------------------------------------------------+
+```
+
+使用`WHERE`子句直接匹配边的属性。
+
+```ngql
+nebula> MATCH ()-[e]->() \
+        WITH e, properties(e) as props, keys(properties(e)) as kk \
+        LIMIT 10000 WHERE [i in kk where props[i] == 90] \
+        RETURN e;
++----------------------------------------------------+
+| e                                                  |
++----------------------------------------------------+
+| [:follow "player125"->"player100" @0 {degree: 90}] |
+| [:follow "player140"->"player114" @0 {degree: 90}] |
+| [:follow "player133"->"player144" @0 {degree: 90}] |
+| [:follow "player133"->"player114" @0 {degree: 90}] |
+...
++----------------------------------------------------+
+```", "completion": "### 匹配多个边
+
+可以使用`MATCH`子句来匹配图中的多条边，例如`MATCH (v:player)-[:follow]->(v2)-[:follow]->(v3)`。
+
+```ngql
+MATCH (v:player{name:"Tim Duncan"})-[:follow]->(v2)-[:follow]->(v3) \
+        RETURN v, v2, v3;
++-------------------------------------------------------------------------+
+| v                                 | v2                                | v3                                |
++-------------------------------------------------------------------------+
+| [:player "player100" @0 {name:"Tim Duncan"}] | [:player "player101" @0 {rating:0.95}] | [:player "player102" @0 {rating:0.85}] |
+| [:player "player100" @0 {name:"Tim Duncan"}] | [:player "player125" @0 {rating:0.95}] | [:player "player126" @0 {rating:0.9}] |
++-------------------------------------------------------------------------+
+```
+
+### 匹配不同类型的边
+
+用户可以用`[:<type1>|:<type2>|...]`来匹配不同类型的边，例如`MATCH (v:player)-[:follow|:like]->(v2)`。
+
+```ngql
+MATCH (v:player{name:"Tim Duncan"})-[:follow|:like]->(v2) \
+        RETURN v, v2;
++-------------------------------------------------------------------------+
+| v                                 | v2                                |
++-------------------------------------------------------------------------+
+| [:player "player100" @0 {name:"Tim Duncan"}] | [:player "player101" @0 {rating:0.95}] |
+| [:player "player100" @0 {name:"Tim Duncan"}] | [:player "player125" @0 {rating:0.95}] |
+| [:player "player100" @0 {name:"Tim Duncan"}] | [:player "player140" @0 {rating:0.9}] |
+| [:player "player100" @0 {name:"Tim Duncan"}] | [:player "player141" @0 {rating:1}] |
++-------------------------------------------------------------------------+
+```
+
+### 匹配可选边
+
+在`MATCH`子句中可以使用`[]`来匹配可选的边，例如`MATCH (v:player)-[:like]->(v2)-[:follow]->(v3)`。
+
+```ngql
+MATCH (v:player{name:"Tim Duncan"})-[:like]->(v2)-[:follow]->(v3) \
+        RETURN v, v2, v3;
++-------------------------------------------------------------------------+
+| v                                 | v2                                | v3                                |
++-------------------------------------------------------------------------+
+| [:player "player100" @0 {name:"Tim Duncan"}] | [:player "player101" @0 {rating:0.95}] | [:player "player102" @0 {rating:0.85}] |
+| [:player "player100" @0 {name:"Tim Duncan"}] | [:player "player125" @0 {rating:0.95}] | [:player "player126" @0 {rating:0.9}] |
++-------------------------------------------------------------------------+
+```
+
+在`MATCH`子句中可以使用`(...)`来匹配可选的边，例如`MATCH (v:player)-[:like]->(v2)-[:follow]->(v3)`。
+
+```ngql
+MATCH (v:player{name:"Tim Duncan"})-[:like]->(v2)-[:follow]->(v3) \
+        RETURN v, v2, v3;
++-------------------------------------------------------------------------+
+| v                                 | v2                                | v3                                |
++-------------------------------------------------------------------------+
+| [:player "player100" @0 {name:"Tim Duncan"}] | [:player "player101" @0 {rating:0.95}] | [:player "player102" @0 {rating:0.85}] |
+| [:player "player100" @0 {name:"Tim Duncan"}] | [:player "player125" @0 {rating:0.95}] | [:player "player126" @0 {rating:0.9}] |
++-------------------------------------------------------------------------+
+```"}
+{"prompt": "# MATCH
+
+## 示例
+
+### 匹配多个 Edge type
+
+### 匹配多个 Edge type
+
+使用`|`可以匹配多个 Edge type，例如`[e:follow|:serve]`。第一个 Edge type 前的英文冒号（:）不可省略，后续 Edge type 前的英文冒号可以省略，例如`[e:follow|serve]`。
+
+!!! note
+
+    同时匹配多个 Tag 和多个 Edge type 时，不支持进行属性过滤。
+    
+    例如，不支持`MATCH (v)-[e:follow|serve]->(v2) where v.player.name=="Tim Duncan" RETURN e limit 10;`，其中`(v)`代表匹配点的所有 Tag。
+
+```ngql
+nebula> MATCH (v:player{name:"Tim Duncan"})-[e:follow|:serve]->(v2) \
+        RETURN e;
++---------------------------------------------------------------------------+
+| e                                                                         |
++---------------------------------------------------------------------------+
+| [:follow "player100"->"player101" @0 {degree: 95}]                        |
+| [:follow "player100"->"player125" @0 {degree: 95}]                        |
+| [:serve "player100"->"team204" @0 {end_year: 2016, start_year: 1997}]     |
++---------------------------------------------------------------------------+
+```", "completion": "### 匹配多个 Tag
+
+使用`|`可以匹配多个 Tag，例如`[n:person|:company]`。第一个 Tag 前的英文冒号（:）不可省略，后续 Tag 前的英文冒号可以省略，例如`[n:person|company]`。
+
+!!! note
+
+    同时匹配多个 Tag 和多个 Edge type 时，不支持进行属性过滤。
+    
+    例如，不支持`MATCH (v)-[e:follow|serve]->(v2) where v.player.name=="Tim Duncan" RETURN e limit 10;`，其中`(v)`代表匹配点的所有 Tag。
+
+### 匹配指定范围的属性值
+
+可以使用`>、<、>=、<=、!=`对指定属性进行范围查询。
+
+例如，可以使用以下语句查询出所有年龄大于 30 岁的人：
+
+```ngql
+MATCH (n:person) WHERE n.age>30 RETURN n limit 10;
+```
+
+可以使用以下语句查询出所有年龄不等于 30 岁的人：
+
+```ngql
+MATCH (n:person) WHERE n.age!=30 RETURN n limit 10;
+```
+
+### 匹配指定范围的属性值
+
+可以使用`>、<、>=、<=、!=`对指定属性进行范围查询。例如，可以使用以下语句查询出所有年龄大于 30 岁的人：
+
+```ngql
+nebula> MATCH (n:person) WHERE n.age>30 RETURN n limit 10;
+```
+
+可以使用以下语句查询出所有年龄不等于 30 岁的人：
+
+```ngql
+nebula> MATCH (n:person) WHERE n.age!=30 RETURN n limit 10;
+```
+
+### 匹配指定 Tag 的多个属性
+
+可以使用`AND`对指定 Tag 的多个属性进行匹配。例如，可以使用以下语句查询出所有姓名为"Tim Duncan"、年龄为 40 岁的人：
+
+```ngql
+nebula> MATCH (n:person) WHERE n.name=="Tim Duncan" AND n.age==40 RETURN n limit 10;
+```
+
+也可以使用以下语句查询出所有姓名为"Tim Duncan"或年龄为 40 岁的人：
+
+```ngql
+nebula> MATCH (n:person) WHERE n.name=="Tim Duncan" OR n.age==40 RETURN n limit 10;
+```
+
+最后，也可以使用以下语句查询出所有姓名为"Tim Duncan"、年龄为 40 岁、且关系为"serve"的人：
+
+```ngql
+nebula> MATCH (n:person)-[e:serve]->(v2) \
+        WHERE n.name=="Tim Duncan" AND n.age==40 \
+        RETURN n limit 10;
+```"}
+{"prompt": "# MATCH
+
+## 示例
+
+### 匹配多条边
+
+### 匹配多条边
+
+用户可以扩展模式，匹配路径中的多条边。
+
+```ngql
+nebula> MATCH (v:player{name:"Tim Duncan"})-[]->(v2)<-[e:serve]-(v3) \
+        RETURN v2, v3;
++----------------------------------+-----------------------------------------------------------+
+| v2                               | v3                                                        |
++----------------------------------+-----------------------------------------------------------+
+| ("team204" :team{name: "Spurs"}) | ("player104" :player{age: 32, name: "Marco Belinelli"})   |
+| ("team204" :team{name: "Spurs"}) | ("player101" :player{age: 36, name: "Tony Parker"})       |
+| ("team204" :team{name: "Spurs"}) | ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
+...
+```", "completion": "```ngql
+nebula> MATCH (v:player{name:"Tim Duncan"})-[]->(v2)<-[e:serve]-(v3) \
+        RETURN v2, v3;
++----------------------------------+-----------------------------------------------------------+
+| v2                               | v3                                                        |
++----------------------------------+-----------------------------------------------------------+
+| ("team204" :team{name: "Spurs"}) | ("player104" :player{age: 32, name: "Marco Belinelli"})   |
+| ("team204" :team{name: "Spurs"}) | ("player101" :player{age: 36, name: "Tony Parker"})       |
+| ("team204" :team{name: "Spurs"}) | ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
+...
+```
+
+### 匹配不同类型的边
+
+用户可以通过模式来匹配不同类型的边。
+
+```ngql
+nebula> MATCH (v:player{name:"Tim Duncan"})-[e1:serve]->(v2) \
+        ,(v)-[e2:like]->(v3) \
+        RETURN v2, v3;
++-------------------------------------------------------------+---------------------------------------------------------------+
+| v2                                                          | v3                                                             |
++-------------------------------------------------------------+---------------------------------------------------------------+
+| ("team204" :team{name: "Spurs"})                            | ("player102" :player{age: 33, name: "LaMarcus Aldridge"})       |
+| ("team204" :team{name: "Spurs"})                            | ("player103" :player{age: 34, name: "Manu Ginobili"})           |
+| ("team204" :team{name: "Spurs"})                            | ("player104" :player{age: 32, name: "Marco Belinelli"})         |
+| ("team204" :team{name: "Spurs"})                            | ("player105" :player{age: 34, name: "Danny Green"})             |
+| ("team204" :team{name: "Spurs"})                            | ("player106" :player{age: 30, name: "Patty Mills"})             |
+| ("team204" :team{name: "Spurs"})                            | ("player107" :player{age: 28, name: "Kyle Anderson"})           |
+| ("team204" :team{name: "Spurs"})                            | ("player108" :player{age: 29, name: "Rudy Gay"})                 |
+| ("team204" :team{name: "Spurs"})                            | ("player109" :player{age: 35, name: "Pau Gasol"})                |
+| ("team204" :team{name: "Spurs"})                            | ("player110" :player{age: 30, name: "David West"})               |
+| ("team204" :team{name: "Spurs"})                            | ("player111" :player{age: 25, name: "Jonathon Simmons"})         |
+| ("team204" :team{name: "Spurs"})                            | ("player112" :player{age: 27, name: "Davis Bertans"})            |
+| ("team204" :team{name: "Spurs"})                            | ("player113" :player{age: 31, name: "Dejounte Murray"})           |
+| ("team204" :team{name: "Spurs"})                            | ("player114" :player{age: 22, name: "Derrick White"})            |
+| ("team204" :team{name: "Spurs"})                            | ("player115" :player{age: 23, name: "Lonnie Walker"})             |
+| ("team204" :team{name: "Spurs"})                            | ("player116" :player{age: 24, name: "Bryn Forbes"})               |
+| ("team204" :team{name: "Spurs"})                            | ("player117" :player{age: 21, name: "Luka Samanic"})              |
+| ("team204" :team{name: "Spurs"})                            | ("player118" :player{age: 20, name: "Quinndary Weatherspoon"})    |
+| ("team204" :team{name: "Spurs"})                            | ("player119" :player{age: 19, name: "Keldon Johnson"})            |
++-------------------------------------------------------------+---------------------------------------------------------------+
+```
+
+```ngql
+nebula> MATCH (v:player{name:"Tim Duncan"})-[e1:serve]->(v2) \
+        ,(v)-[e2:like]->(v3) \
+        RETURN v2, v3;
++-------------------------------------------------------------+---------------------------------------------------------------+
+| v2                                                          | v3                                                             |
++-------------------------------------------------------------+---------------------------------------------------------------+
+| ("team204" :team{name: "Spurs"})                            | ("player102" :player{age: 33, name: "LaMarcus Aldridge"})       |
+| ("team204" :team{name: "Spurs"})                            | ("player103" :player{age: 34, name: "Manu Ginobili"})           |
+| ("team204" :team{name: "Spurs"})                            | ("player104" :player{age: 32, name: "Marco Belinelli"})         |
+| ("team204" :team{name: "Spurs"})                            | ("player105" :player{age: 34, name: "Danny Green"})             |
+| ("team204" :team{name: "Spurs"})                            | ("player106" :player{age: 30, name: "Patty Mills"})             |
+| ("team204" :team{name: "Spurs"})                            | ("player107" :player{age: 28, name: "Kyle Anderson"})           |
+| ("team204" :team{name: "Spurs"})                            | ("player108" :player{age: 29, name: "Rudy Gay"})                 |
+| ("team204" :team{name: "Spurs"})                            | ("player109" :player{age: 35, name: "Pau Gasol"})                |
+| ("team204" :team{name: "Spurs"})                            | ("player110" :player{age: 30, name: "David West"})               |
+| ("team204" :team{name: "Spurs"})                            | ("player111" :player{age: 25, name: "Jonathon Simmons"})         |
+| ("team204" :team{name: "Spurs"})                            | ("player112" :player{age: 27, name: "Davis Bertans"})            |
+| ("team204" :team{name: "Spurs"})                            | ("player113" :player{age: 31, name: "Dejounte Murray"})           |
+| ("team204" :team{name: "Spurs"})                            | ("player114" :player{age: 22, name: "Derrick White"})            |
+| ("team204" :team{name: "Spurs"})                            | ("player115" :player{age: 23, name: "Lonnie Walker"})             |
+| ("team204" :team{name: "Spurs"})                            | ("player116" :player{age: 24, name: "Bryn Forbes"})               |
+| ("team204" :team{name: "Spurs"})                            | ("player117" :player{age: 21, name: "Luka Samanic"})              |
+| ("team204" :team{name: "Spurs"})                            | ("player118" :player{age: 20, name: "Quinndary Weatherspoon"})    |
+| ("team204" :team{name: "Spurs"})                            | ("player119" :player{age: 19, name: "Keldon Johnson"})            |
++-------------------------------------------------------------+---------------------------------------------------------------+
+```
+
+### 匹配同一个顶点的多条边
+
+用户可以扩展模式，匹配同一个顶"}
+{"prompt": "# MATCH
+
+## 示例
+
+### 匹配定长路径
+
+### 匹配定长路径
+
+用户可以在模式中使用`:<edge_type>*<hop>`匹配定长路径。`hop`必须是一个非负整数。
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*2]->(v2) \
+        RETURN DISTINCT v2 AS Friends;
++-----------------------------------------------------------+
+| Friends                                                   |
++-----------------------------------------------------------+
+| ("player100" :player{age: 42, name: "Tim Duncan"})        |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     |
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
++-----------------------------------------------------------+
+```
+
+如果`hop`为 0，模式会匹配路径上的起始点。
+
+```ngql
+nebula> MATCH (v:player{name:"Tim Duncan"}) -[*0]-> (v2) \
+        RETURN v2;
++----------------------------------------------------+
+| v2                                                 |
++----------------------------------------------------+
+| ("player100" :player{age: 42, name: "Tim Duncan"}) |
++----------------------------------------------------+
+```
+
+!!! Note
+
+    如果想要通过描述多跳的边的过滤条件，比如`-[e:follow*2]->`，这时候 `e` 不再是单条边时候的数据类型了，而是一列边组成的列表，例如：
+    以下语句可以运行但是没有返回数据，因为`e`是一个列表，没有`.degree`的属性。
+    ```ngql
+    nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*2]->(v2) \
+            WHERE e.degree > 1 \
+            RETURN DISTINCT v2 AS Friends;
+    ```
+    这是正确的表达：
+    ```ngql
+    nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*2]->(v2) \
+            WHERE ALL(e_ in e WHERE e_.degree > 0) \
+            RETURN DISTINCT v2 AS Friends;
+    ```
+    进一步，这是表达对多跳边的第一跳的边属性过滤的表达：
+    ```ngql
+    nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*2]->(v2) \
+            WHERE e[0].degree > 98 \
+            RETURN DISTINCT v2 AS Friends;
+    ```", "completion": "### 匹配任意长路径
+
+用户可以通过在模式中使用`:<edge_type>+`来匹配任意长路径。
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow+]->(v2) \
+        RETURN DISTINCT v2 AS Friends;
++----------------------------------------------------------+
+| Friends                                                  |
++----------------------------------------------------------+
+| ("player100" :player{age: 42, name: "Tim Duncan"})       |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})    |
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
+| ("player106" :player{age: 22, name: "Tony Parker"})      |
+| ("player104" :player{age: 27, name: "Kawhi Leonard"})    |
+| ("player108" :player{age: 29, name: "Rudy Gay"})         |
++----------------------------------------------------------+
+```
+
+### 匹配任意长路径（最多）
+
+用户可以通过在模式中使用`:<edge_type>*`来匹配任意长路径，但最多n个边。`n`必须是一个非负整数。
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*2]->(v2) \
+        RETURN DISTINCT v2 AS Friends;
++-----------------------------------------------------------+
+| Friends                                                   |
++-----------------------------------------------------------+
+| ("player100" :player{age: 42, name: "Tim Duncan"})        |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     |
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
++-----------------------------------------------------------+
+```
+
+### 匹配任意长路径（最少）
+
+用户可以通过在模式中使用`:<edge_type>*`来匹配任意长路径，但最少n个边。`n`必须是一个非负整数。
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*2]->(v2) \
+        RETURN DISTINCT v2 AS Friends;
++-----------------------------------------------------------+
+| Friends                                                   |
++-----------------------------------------------------------+
+| ("player100" :player{age: 42, name: "Tim Duncan"})        |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     |
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
++-----------------------------------------------------------+
+```
+
+### 匹配任意长路径（最少与最多）
+
+用户可以通过在模式中使用`:<edge_type>{min,max}`来匹配任意长路径，`min`与`max`均必须是一个非负整数。
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*2]->(v2) \
+        RETURN DISTINCT v2 AS Friends;
++-----------------------------------------------------------+
+| Friends                                                   |
++-----------------------------------------------------------+
+| ("player100" :player{age: 42, name: "Tim Duncan"})        |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     |
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
++-----------------------------------------------------------+
+```
+
+### 匹配不连续的边
+
+用户可以通过在模式中使用`:<edge_type>|<edge_type>`来匹配不连续的边。
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow|like]->(v2) \
+        RETURN DISTINCT v2 AS Friends;
++---------------------------------------------------------+
+| Friends                                                 |
++---------------------------------------------------------+
+| ("player100" :player{age: 42, name: "Tim Duncan"})      |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})   |
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
+| ("player104" :player{age: 27, name: "Kawhi Leonard"})   |
++---------------------------------------------------------+
+```
+
+### 匹配时间戳范围内的边
+
+用户可以通过在模式中使用`:<edge_type>[ts,te]`来匹配时间戳范围内的边。
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow[1525132800,1527811200]]->(v2) \
+        RETURN DISTINCT v2 AS Friends;
++---------------------------------------------------------+
+| Friends                                                 |
++---------------------------------------------------------+
+| ("player100" :player{age: 42, name: "Tim Duncan"})      |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})   |
++---------------------------------------------------------+
+```
+
+### 匹配时间戳范围内的边（有向边）
+
+用户可以通过在模式中使用`:<edge_type>[ts,te]`来匹配时间戳范围内的有向边。
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow[1525132800,1527811200]->(v2) \
+        RETURN DISTINCT v2 AS Friends;
++---------------------------------------------------------+
+| Friends                                                 |
++---------------------------------------------------------+
+| ("player100" :player{age: 42, name: "Tim Duncan"})      |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})   |
++---------------------------------------------------------+
+```
+
+### 匹配时间戳范围内的边（无向边）
+
+用户可以通过在模式中使用`:<edge_type>[ts,te]`来匹配时间戳范围内的无向边。
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow[1525132800,1527811200]]-(v2) \
+        RETURN DISTINCT v2 AS Friends;
++---------------------------------------------------------+
+| Friends                                                 |
++---------------------------------------------------------+
+| ("player100" :player{age: 42, name: "Tim Duncan"})      |
+| ("player125""}
+{"prompt": "# MATCH
+
+## 示例
+
+### 匹配变长路径
+
+### 匹配变长路径
+
+用户可以在模式中使用`:<edge_type>*[minHop..maxHop]`匹配变长路径。
+
+!!! caution
+
+    如果未设置 `maxHop` 可能会导致 graph 服务 OOM，请谨慎执行该命令。
+
+| 参数     | 说明                                                                     |
+| :------- | :----------------------------------------------------------------------- |
+| `minHop` | 可选项。表示路径的最小长度。`minHop`必须是一个非负整数，默认值为 1。     |
+| `maxHop` | 可选项。表示路径的最大长度。`maxHop`必须是一个非负整数，默认值为无穷大。 |
+
+如果未指定`minHop`和`maxHop`，仅设置了`:<edge_type>*`，则二者都应用默认值，即`minHop`为 1，`maxHop`为无穷大。
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*]->(v2) \
+        RETURN v2 AS Friends;
++-----------------------------------------------------------+
+| Friends                                                   |
++-----------------------------------------------------------+
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     |
+| ("player101" :player{age: 36, name: "Tony Parker"})       |
+...
+
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*1..3]->(v2) \
+        RETURN v2 AS Friends;
++-----------------------------------------------------------+
+| Friends                                                   |
++-----------------------------------------------------------+
+| ("player101" :player{age: 36, name: "Tony Parker"})       |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     |
+| ("player100" :player{age: 42, name: "Tim Duncan"})        |
+...
+
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*1..]->(v2) \
+        RETURN v2 AS Friends;
++-----------------------------------------------------------+
+| Friends                                                   |
++-----------------------------------------------------------+
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     |
+| ("player101" :player{age: 36, name: "Tony Parker"})       |
+| ("player100" :player{age: 42, name: "Tim Duncan"})        |
+...
+
+```
+
+ 用户可以使用`DISTINCT`关键字聚合重复结果。
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*1..3]->(v2:player) \
+        RETURN DISTINCT v2 AS Friends, count(v2);
++-----------------------------------------------------------+-----------+
+| Friends                                                   | count(v2) |
++-----------------------------------------------------------+-----------+
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) | 1         |
+| ("player100" :player{age: 42, name: "Tim Duncan"})        | 4         |
+| ("player101" :player{age: 36, name: "Tony Parker"})       | 3         |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     | 3         |
++-----------------------------------------------------------+-----------+
+```
+
+如果`minHop`为`0`，模式会匹配路径上的起始点。例如，与上个示例相比，下面的示例设置`minHop`为`0`。此时，因为表示`"Tim Duncan"`的点是路径的起始点，所以它在结果集中的计数为 5，比在上个示例的结果中多计一次。
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*0..3]->(v2:player) \
+        RETURN DISTINCT v2 AS Friends, count(v2);
++-----------------------------------------------------------+-----------+
+| Friends                                                   | count(v2) |
++-----------------------------------------------------------+-----------+
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) | 1         |
+| ("player100" :player{age: 42, name: "Tim Duncan"})        | 5         |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     | 3         |
+| ("player101" :player{age: 36, name: "Tony Parker"})       | 3         |
++-----------------------------------------------------------+-----------+
+```", "completion": "### Match variable length path
+
+The user can use `:<edge_type>*[minHop..maxHop]` in the pattern to match variable length paths.
+
+!!! caution
+
+    If `maxHop` is not set, it may cause the graph service to OOM. Please use this command with caution.
+
+| Parameter | Explanation                                                                                                                                                                     |
+| :-------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `minHop`  | Optional. Represents the minimum length of the path. `minHop` must be a non-negative integer, and the default value is 1.                                                     |
+| `maxHop`  | Optional. Represents the maximum length of the path. `maxHop` must be a non-negative integer, and the default value is infinity.                                             |
+
+If neither `minHop` nor `maxHop` is specified, only `:<edge_type>*` is set, then both of them use default values, that is, `minHop` is 1 and `maxHop` is infinity.
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*]->(v2) \
+        RETURN v2 AS Friends;
++-----------------------------------------------------------+
+| Friends                                                   |
++-----------------------------------------------------------+
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     |
+| ("player101" :player{age: 36, name: "Tony Parker"})       |
+...
+
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*1..3]->(v2) \
+        RETURN v2 AS Friends;
++-----------------------------------------------------------+
+| Friends                                                   |
++-----------------------------------------------------------+
+| ("player101" :player{age: 36, name: "Tony Parker"})       |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     |
+| ("player100" :player{age: 42, name: "Tim Duncan"})        |
+...
+
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*1..]->(v2) \
+        RETURN v2 AS Friends;
++-----------------------------------------------------------+
+| Friends                                                   |
++-----------------------------------------------------------+
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     |
+| ("player101" :player{age: 36, name: "Tony Parker"})       |
+| ("player100" :player{age: 42, name: "Tim Duncan"})        |
+...
+
+```
+
+ The user can use `DISTINCT` keyword to aggregate duplicate results.
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*1..3]->(v2:player) \
+        RETURN DISTINCT v2 AS Friends, count(v2);
++-----------------------------------------------------------+-----------+
+| Friends                                                   | count(v2) |
++-----------------------------------------------------------+-----------+
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) | 1         |
+| ("player100" :player{age: 42, name: "Tim Duncan"})        | 4         |
+| ("player101" :player{age: 36, name: "Tony Parker"})       | 3         |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     | 3         |
++-----------------------------------------------------------+-----------+
+```
+
+If `minHop` is 0, the pattern matches the starting point on the path. For example, compared with the previous example, the following example sets `minHop` to 0. At this time, because the starting point of "Tim Duncan" is the starting point of the path, its count in the result set is 5, which is one more than in the previous example.
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*0..3]->(v2:player) \
+        RETURN DISTINCT v2 AS Friends, count(v2);
++-----------------------------------------------------------+-----------+
+| Friends                                                   | count(v2) |
++-----------------------------------------------------------+-----------+
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) | 1         |
+| ("player100" :player{age: 42, name: "Tim Duncan"})        | 5         |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     | 3         |
+| ("player101" :player{age: 36, name: "Tony Parker"})       | 3         |
++-----------------------------------------------------------+-----------+
+```"}
+{"prompt": "# MATCH
+
+## 示例
+
+### 匹配多个 Edge type 的变长路径
+
+### 匹配多个 Edge type 的变长路径
+
+用户可以在变长或定长模式中指定多个 Edge type。`hop`、`minHop`和`maxHop`对所有 Edge type 都生效。
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow|serve*2]->(v2) \
+        RETURN DISTINCT v2;
++-----------------------------------------------------------+
+| v2                                                        |
++-----------------------------------------------------------+
+| ("team204" :team{name: "Spurs"})                          |
+| ("player100" :player{age: 42, name: "Tim Duncan"})        |
+| ("team215" :team{name: "Hornets"})                        |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     |
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
++-----------------------------------------------------------+
+```", "completion": "在定长模式中，用户可以指定多个 Edge type 之间的关系，例如`follow|serve`，但是`hop`、`minHop`和`maxHop`只对第一个 Edge type 有效。
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow|serve*2]->(v2) \
+        RETURN DISTINCT v2;
++-----------------------------------------------------------+
+| v2                                                        |
++-----------------------------------------------------------+
+| ("team204" :team{name: "Spurs"}) |
+| ("player100" :player{age: 42, name: "Tim Duncan"})        |
+| ("team215" :team{name: "Hornets"})                        |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     |
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
++-----------------------------------------------------------+
+```
+
+### 匹配多个 Edge type 的变长路径
+
+用户可以在变长或定长模式中指定多个 Edge type。`hop`、`minHop`和`maxHop`对所有 Edge type 都生效。
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow|serve*2]->(v2) \
+        RETURN DISTINCT v2;
++-----------------------------------------------------------+
+| v2                                                        |
++-----------------------------------------------------------+
+| ("team204" :team{name: "Spurs"}) |
+| ("player100" :player{age: 42, name: "Tim Duncan"})        |
+| ("team215" :team{name: "Hornets"})                        |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     |
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
++-----------------------------------------------------------+
+```
+
+在定长模式中，用户可以指定多个 Edge type 之间的关系，例如`follow|serve`，但是`hop`、`minHop`和`maxHop`只对第一个 Edge type 有效。
+
+```ngql
+nebula> MATCH p=(v:player{name:"Tim Duncan"})-[e:follow|serve*2]->(v2) \
+        RETURN DISTINCT v2;
++-----------------------------------------------------------+
+| v2                                                        |
++-----------------------------------------------------------+
+| ("team204" :team{name: "Spurs"}) |
+| ("player100" :player{age: 42, name: "Tim Duncan"})        |
+| ("team215" :team{name: "Hornets"})                        |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     |
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
++-----------------------------------------------------------+
+```"}
+{"prompt": "# MATCH
+
+## 语法
+
+## 语法
+
+与`GO`或`LOOKUP`等其他查询语句相比，`MATCH`的语法更灵活。`MATCH`语句采用的路径类型是[`trail`](../../1.introduction/2.1.path.md)，即遍历时只有点可以重复，边不可以重复。
+
+`MATCH` 语法如下：
+
+```ngql
+MATCH <pattern> [<clause_1>]  RETURN <output>  [<clause_2>];
+```
+
+- `pattern`：pattern 的详细说明请参见[模式](../1.nGQL-overview/3.graph-patterns.md)。`MATCH`语句支持匹配一个或多个模式，多个模式之间用英文逗号（,）分隔。例如`(a)-[]->(b),(c)-[]->(d)`。
+
+- `clause_1`：支持`WHERE`、`WITH`、`UNWIND`、`OPTIONAL MATCH`子句，也可以使用`MATCH`作为子句。
+
+- `output`：定义需要返回的输出。可以使用`AS`设置输出的别名。
+
+- `clause_2`：支持`ORDER BY`、`LIMIT`子句。", "completion": "## <a name="path"></a>`Path`
+
+`MATCH`语法与`GO`等查询语句不同，`MATCH`采用的是[`trail`](../../1.introduction/2.1.path.md)（即遍历时只有点可以重复，边不可以重复）。
+
+`MATCH`可以匹配所有可达路径，包括：
+
+- 单条路径：`(a)-[e1]->(b)-[e2]->(c)`，`(a)-[e1]->(b)-[e2]->(c)-[e3]->(b)`。
+- 多条路径：`(a)-[e1]->(b)-[e2]->(c)-[e3]->(d)，(a)-[e1]->(b)-[e2]->(c)-[e4]->(d)`。
+
+## <a name="match-all"></a>`MATCH` All
+
+`MATCH` 语法支持遍历图中所有边，例如：
+
+```ngql
+MATCH ()-[e]->() RETURN e;
+```
+
+使用`e`返回图中所有边。
+
+## <a name="match-node-property"></a>`MATCH` Node Property
+
+`MATCH` 语句支持通过属性查找节点，例如：
+
+```ngql
+MATCH (n {name:"王小明"}) RETURN n;
+```
+
+## <a name="match-edge-property"></a>`MATCH` Edge Property
+
+`MATCH` 语句支持通过属性查找边，例如：
+
+```ngql
+MATCH ()-[r {relation:"father"}]->() RETURN r;
+```
+
+## <a name="match-relation"></a>`MATCH` Relation
+
+`MATCH` 语句支持通过指定的关系查找边，例如：
+
+```ngql
+MATCH ()-[r:father]->() RETURN r;
+```
+
+## <a name="match-path"></a>`MATCH` Path
+
+`MATCH` 语句支持通过指定的路径查找边，例如：
+
+```ngql
+MATCH p=()-[r]->() RETURN p;
+```
+
+## <a name="match-loop"></a>`MATCH` Loop
+
+`MATCH` 语句支持查找图中的循环路径，例如：
+
+```ngql
+MATCH p=()-[r*]->() WHERE head(nodes(p)) = tail(nodes(p)) RETURN p;
+```
+
+## <a name="match-variable-length"></a>`MATCH` Variable Length
+
+`MATCH` 语句支持查找图中的变长路径，例如：
+
+```ngql
+MATCH p=()-[r*1..3]->() RETURN p;
+```"}
+{"prompt": "# MATCH
+
+## 示例
+
+### 匹配多个模式
+
+### 匹配多个模式
+
+用户可以用英文逗号（,）分隔多个模式。
+
+```
+nebula> CREATE TAG INDEX IF NOT EXISTS team_index ON team(name(20));
+nebula> REBUILD TAG INDEX team_index;
+nebula> MATCH (v1:player{name:"Tim Duncan"}), (v2:team{name:"Spurs"}) \
+        RETURN v1,v2;
++----------------------------------------------------+----------------------------------+
+| v1                                                 | v2                               |
++----------------------------------------------------+----------------------------------+
+| ("player100" :player{age: 42, name: "Tim Duncan"}) | ("team204" :team{name: "Spurs"}) |
++----------------------------------------------------+----------------------------------+
+```", "completion": "### 匹配单个模式
+
+用户只能用一个模式。
+
+```
+nebula> CREATE TAG INDEX IF NOT EXISTS team_index ON team(name(20));
+nebula> REBUILD TAG INDEX team_index;
+nebula> MATCH (v1:player{name:"Tim Duncan"}), (v2:team{name:"Spurs"}) \
+        RETURN v1,v2;
++----------------------------------------------------+----------------------------------+
+| v1                                                 | v2                               |
++----------------------------------------------------+----------------------------------+
+| ("player100" :player{age: 42, name: "Tim Duncan"}) | ("team204" :team{name: "Spurs"}) |
++----------------------------------------------------+----------------------------------+
+```"}
+{"prompt": "# MATCH
+
+## 示例
+
+### 匹配最短路径
+
+### 匹配最短路径
+
+用户可以使用`allShortestPaths`返回起始点到目标点的所有最短路径。
+
+```
+nebula> MATCH p = allShortestPaths((a:player{name:"Tim Duncan"})-[e*..5]-(b:player{name:"Tony Parker"})) \
+        RETURN p;
++------------------------------------------------------------------------------------------------------------------------------------+
+| p                                                                                                                                  |
++------------------------------------------------------------------------------------------------------------------------------------+
+| <("player100" :player{age: 42, name: "Tim Duncan"})<-[:follow@0 {degree: 95}]-("player101" :player{age: 36, name: "Tony Parker"})> |
+| <("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]->("player101" :player{age: 36, name: "Tony Parker"})> |
++------------------------------------------------------------------------------------------------------------------------------------+
+``` 
+
+
+用户可以使用`shortestPath`返回起始点到目标点的任意一条最短路径。
+
+```
+nebula> MATCH p = shortestPath((a:player{name:"Tim Duncan"})-[e*..5]-(b:player{name:"Tony Parker"})) \
+        RETURN p;
++------------------------------------------------------------------------------------------------------------------------------------+
+| p                                                                                                                                  |
++------------------------------------------------------------------------------------------------------------------------------------+
+| <("player100" :player{age: 42, name: "Tim Duncan"})<-[:follow@0 {degree: 95}]-("player101" :player{age: 36, name: "Tony Parker"})> |
++------------------------------------------------------------------------------------------------------------------------------------+
+
+```", "completion": ""}
+{"prompt": "# MATCH
+
+## 多MATCH检索
+
+## 多MATCH检索
+
+不同的模式有不同的筛选条件时，可以使用多`MATCH`，会返回模式完全匹配的行。
+
+```ngql
+nebula> MATCH (m)-[]->(n) WHERE id(m)=="player100" \
+        MATCH (n)-[]->(l) WHERE id(n)=="player125" \
+        RETURN id(m),id(n),id(l);
++-------------+-------------+-------------+
+| id(m)       | id(n)       | id(l)       |
++-------------+-------------+-------------+
+| "player100" | "player125" | "team204"   |
+| "player100" | "player125" | "player100" |
++-------------+-------------+-------------+
+```", "completion": "不同的模式有不同的筛选条件时，可以使用多`MATCH`，会返回模式完全匹配的行。
+
+```ngql
+nebula> MATCH (m)-[]->(n) WHERE id(m)=="player100" \
+        MATCH (n)-[]->(l) WHERE id(n)=="player125" \
+        RETURN id(m),id(n),id(l);
++-------------+-------------+-------------+
+| id(m)       | id(n)       | id(l)       |
++-------------+-------------+-------------+
+| "player100" | "player125" | "team204"   |
+| "player100" | "player125" | "player100" |
++-------------+-------------+-------------+
+```"}
+{"prompt": "# MATCH
+
+## OPTIONAL MATCH检索
+
+## OPTIONAL MATCH检索
+
+参见[OPTIONAL MATCH](optional-match.md)。
+
+!!! Performance
+
+    NebulaGraph {{ nebula.release }} 中`MATCH`语句的性能和资源占用得到了优化.但对性能要求较高时，仍建议使用 `GO`, `LOOKUP`, `|` 和 `FETCH` 等来替代`MATCH`。", "completion": "## 使用MATCH
+
+### MATCH 与 WHERE 的区别
+
+MATCH 用于构建图遍历, WHERE 用于过滤属性。
+
+### MATCH 和 GO 的区别
+
+MATCH 是 GO 的语法糖(Syntactic sugar)，GO 会在 MATCH 中解析模式(pattern)。
+
+### MATCH 和 FETCH 的区别
+
+MATCH 是 FETCH 的语法糖。
+
+### MATCH 和 LOOKUP 的区别
+
+LOOKUP 只支持单向遍历， MATCH 支持双向遍历。
+
+### MATCH 和 GET 的区别
+
+MATCH 支持多步遍历， GET 仅支持单步遍历。
+
+## MATCH 的语法
+
+MATCH 支持链式写法，每一步都有一个别名，如下所示：
+
+MATCH (a:Person)-[:KNOWS]->(b:Person)-[:KNOWS]->(c:Person)
+
+也支持嵌套写法，每一步都有一个别名，如下所示：
+
+MATCH (a:Person)-[:KNOWS]->(b:Person), (b)-[:KNOWS]->(c:Person)
+
+## MATCH 的限制
+
+MATCH 语句不支持在同一个模式(pattern)中包含多个变量，例如：
+
+MATCH (a:Person)-[:KNOWS]->(b:Person), (a)-[:KNOWS]->(c:Person)
+
+上述语句是无法解析的，应该改为如下写法：
+
+MATCH (a:Person)-[:KNOWS]->(b:Person)
+
+MATCH (a:Person)-[:KNOWS]->(c:Person)"}
+{"prompt": "# MATCH
+
+## 使用限制
+
+## 使用限制
+
+未创建[索引](../14.native-index-statements/1.create-native-index.md)时，仅以下情况支持使用`MATCH`查询。当使用`MATCH`语句出现报错时，用户可以创建并重建索引后执行查询语句。
+
+- `MATCH`语句中`WHERE`子句使用 id() 函数指定了点的 VID，不需要创建索引即可执行。
+
+- 当遍历所有点或边时，例如`MATCH (v) RETURN v LIMIT N`、`MATCH ()-[e]->() RETURN e LIMIT N`。
+
+- 当遍历指定 Tag 的点，例如`MATCH (v:player) RETURN v LIMIT N`。
+
+- 当遍历指定 Edge Type 并指定边的方向，例如`MATCH ()-[e:follow]->() RETURN e LIMIT N`。
+
+!!! note
+
+    - 目前 MATCH 语句无法查询到悬挂边。
+    - 不支持没有索引时同时遍历指定的 Tag 和 Edge Type，例如执行`MATCH (v:player)-[e:follow]->() RETURN e LIMIT N`会报错。
+
+!!! compatibility "历史版本兼容性" 
+
+    从 3.0.0 版本开始，为了区别不同 Tag 的属性，返回属性时必须额外指定 Tag 名称。即从`RETURN <变量名>.<属性名>`改为`RETURN <变量名>.<Tag名>.<属性名>`。", "completion": "例如需要查询指定 Tag 的点的属性时：
+
+    ```sql
+    MATCH (v:player) RETURN v.name, v.age
+    ```
+
+    结果会报错，因为 age 属性是 player Tag 的，需要指定 Tag 名：
+
+    ```sql
+    MATCH (v:player) RETURN v.name, v.player.age
+    ```
+
+    只要指定了 Tag 名称，就可以查询到指定 Tag 下的所有点，例如：
+
+    ```sql
+    MATCH (v:player) RETURN v.name, v.player.age, v.team.name
+    ```
+
+    查询结果会显示 team.name 属性为 null。
+
+    !!! note
+        `team` 是 player 的关联边，不是 player Tag 的直接属性，因此不能查询 team.name 属性。只有查询边的属性时才可以指定边的类型。例如：
+
+        ```sql
+        MATCH ()-[e:follow]->() RETURN e.follow_time
+        ```
+    
+    !!! end-note
+
+!!! end-compatibility
+
+## 索引创建
+
+索引创建是通过[索引类型](../14.native-index-statements/index.md)和[索引子句](../14.native-index-statements/index.md)来完成的。下面介绍如何使用每种索引类型。
+
+### Tag 索引
+
+创建 Tag 索引的格式如下：
+
+```sql
+CREATE INDEX ON :<TagName>(<PropertyName>);
+```
+
+例如：
+
+```sql
+CREATE INDEX ON :player(name);
+```
+
+创建索引后，就可以通过`MATCH (v:player) WHERE v.name = '<PropertyValue>'`来查询指定 Tag 的点。
+
+### Edge Type 索引
+
+创建 Edge Type 索引的格式如下：
+
+```sql
+CREATE INDEX ON :<TagName>()-[:<EdgeType>]-();
+```
+
+例如：
+
+```sql
+CREATE INDEX ON :player()-[:follow]-();
+```
+
+创建索引后，就可以通过`MATCH ()-[e:follow]->() WHERE e.<PropertyName> = <PropertyValue>`来查询指定 Edge Type 的边。
+
+### 属性索引
+
+创建属性索引的格式如下：
+
+```sql
+CREATE INDEX ON <TagName>(<PropertyName>);
+```
+
+例如：
+
+```sql
+CREATE INDEX ON player(name);
+```
+
+创建索引后，就可以通过`MATCH (v) WHERE v.name = '<PropertyValue>'`来查询指定属性的点。
+
+### 属性组合索引
+
+创建属性组合索引的格式如下：
+
+```sql
+CREATE INDEX ON :<TagName>(<PropertyName1>, <PropertyName2>, <PropertyName3>, ...);
+```
+
+例如：
+
+```sql
+CREATE INDEX ON :player(name, age);
+```
+
+创建索引后，就可以通过`MATCH (v:player) WHERE v.name = '<PropertyValue1>' AND v.age = <PropertyValue2>`来查询指定属性的点。
+
+## 索引优化
+
+### Tag 优化
+
+通过遍历指定 Tag 的点来优化索引。例如：
+
+```sql
+MATCH (v:player) RETURN v LIMIT 100
+```
+
+如果这条语句执行时间较长，用户可以通过添加索引来优化索引。当遇到需要遍历所有点或边的情况，用户可以通过添加索引来优化索引。例如：
+
+```sql
+MATCH (v:player) RETURN v LIMIT 100
+```
+
+如果这条语句执行时间较长，用户可以通过添加索引来优化索引。当遇到需要遍历所有点或边的情况，用户可以通过添加索引来优化索引。例如：
+
+```sql
+MATCH (v) RETURN v LIMIT 100
+```
+
+如果这条语句执行时间较长，用户可以通过添加索引来优化索引。当遇到需要遍历所有点或边的情况，用户可以通过添加索引来优化索引。例如：
+
+```sql
+MATCH ()-[e]->() RETURN e LIMIT 100
+```
+
+如果这条语句执行时间较长，用户可以通过添加索引来优化索引。当遇到需要遍历所有点或边的情况，用户可以通过添加索引来优化索引。例如：
+
+```sql
+MATCH (v) RETURN v LIMIT 100
+```
+
+如果"}
+{"prompt": "# MATCH
+
+## 示例
+
+## 示例", "completion": "输入:
+
+```
+我想吃红烧肉
+```
+
+输出:
+
+```
+我想吃红烧肉
+```
+
+输入:
+
+```
+我想喝可乐
+```
+
+输出:
+
+```
+我想喝可乐"}
+{"prompt": "# MATCH
+
+## 示例
+
+### 创建索引
+
+### 创建索引
+
+```ngql
+# 在 Tag player 的 name 属性和 Edge type follow 上创建索引。
+nebula> CREATE TAG INDEX IF NOT EXISTS player_index_1 ON player(name(20));
+nebula> CREATE EDGE INDEX IF NOT EXISTS follow_index on follow();
+
+# 重建索引使其生效。
+nebula> REBUILD TAG INDEX player_index_1;
++------------+
+| New Job Id |
++------------+
+| 121        |
++------------+
+
+nebula> REBUILD EDGE INDEX follow_index;
++------------+
+| New Job Id |
++------------+
+| 122        |
++------------+
+
+# 确认重建索引成功。
+nebula> SHOW JOB 121;
++----------------+---------------------+------------+----------------------------+----------------------------+-------------+
+| Job Id(TaskId) | Command(Dest)       | Status     | Start Time                 | Stop Time                  | Error Code  |
++----------------+---------------------+------------+----------------------------+----------------------------+-------------+
+| 121            | "REBUILD_TAG_INDEX" | "FINISHED" | 2021-05-27T02:18:02.000000 | 2021-05-27T02:18:02.000000 | "SUCCEEDED" |
+| 0              | "storaged1"         | "FINISHED" | 2021-05-27T02:18:02.000000 | 2021-05-27T02:18:02.000000 | "SUCCEEDED" |
+| 1              | "storaged0"         | "FINISHED" | 2021-05-27T02:18:02.000000 | 2021-05-27T02:18:02.000000 | "SUCCEEDED" |
+| 2              | "storaged2"         | "FINISHED" | 2021-05-27T02:18:02.000000 | 2021-05-27T02:18:02.000000 | "SUCCEEDED" |
+| "Total:3"      | "Succeeded:3"       | "Failed:0" | "In Progress:0"            | ""                         | ""          |
++----------------+---------------------+------------+----------------------------+----------------------------+-------------+
+
+nebula> SHOW JOB 122;
++----------------+----------------------+------------+----------------------------+----------------------------+-------------+
+| Job Id(TaskId) | Command(Dest)        | Status     | Start Time                 | Stop Time                  | Error Code  |
++----------------+----------------------+------------+----------------------------+----------------------------+-------------+
+| 122            | "REBUILD_EDGE_INDEX" | "FINISHED" | 2021-05-27T02:18:11.000000 | 2021-05-27T02:18:11.000000 | "SUCCEEDED" |
+| 0              | "storaged1"          | "FINISHED" | 2021-05-27T02:18:11.000000 | 2021-05-27T02:18:21.000000 | "SUCCEEDED" |
+| 1              | "storaged0"          | "FINISHED" | 2021-05-27T02:18:11.000000 | 2021-05-27T02:18:21.000000 | "SUCCEEDED" |
+| 2              | "storaged2"          | "FINISHED" | 2021-05-27T02:18:11.000000 | 2021-05-27T02:18:21.000000 | "SUCCEEDED" |
+| "Total:3"      | "Succeeded:3"       | "Failed:0" | "In Progress:0"             | ""                         | ""          |
++----------------+----------------------+------------+----------------------------+----------------------------+-------------+
+```", "completion": ""}
+{"prompt": "# MATCH
+
+## 示例
+
+### 匹配点
+
+### 匹配点
+
+!!! Compatibility "历史版本兼容性"
+    
+    从 NebulaGraph 3.0.0 开始，支持`MATCH (v) RETURN v LIMIT n`，不需要创建索引; 但是必须使用 `LIMIT` 限制输出结果数量。
+    
+    不可以直接执行 `MATCH (v) RETURN v`。
+
+用户可以在一对括号中使用自定义变量来表示模式中的点。例如`(v)`。
+
+```ngql
+nebula> MATCH (v) \
+        RETURN v \
+        LIMIT 3;
++-----------------------------------------------------------+
+| v                                                         |
++-----------------------------------------------------------+
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
+| ("player106" :player{age: 25, name: "Kyle Anderson"})     |
+| ("player115" :player{age: 40, name: "Kobe Bryant"})       |
++-----------------------------------------------------------+
+```", "completion": "可以使用 `WITH` 子句来限制返回的结果。
+
+```ngql
+nebula> MATCH (v) \
+        WITH v LIMIT 1 \
+        RETURN v;
++---------------------------------+
+| v                               |
++---------------------------------+
+| ("player102" :player{age: 33}) |
++---------------------------------+
+```
+
+可以使用 `WHERE` 子句来限制返回的结果。
+
+```ngql
+nebula> MATCH (v) \
+        WHERE v.age > 30 \
+        RETURN v;
++-----------------------------------------------------------+
+| v                                                         |
++-----------------------------------------------------------+
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
+| ("player115" :player{age: 40, name: "Kobe Bryant"})       |
++-----------------------------------------------------------+
+```"}
+{"prompt": "# MATCH
+
+## 示例
+
+### 匹配 Tag
+
+### 匹配 Tag
+
+!!! Compatibility "历史版本兼容性"
+
+    在 NebulaGraph 3.0.0 之前，匹配 Tag 的前提是 Tag 本身有索引或者 Tag 的某个属性有索引，否则，用户无法基于该 Tag 执行 `MATCH` 语句。从 NebulaGraph 3.0.0 开始，匹配 Tag 可以不创建索引，但需要使用 `LIMIT` 限制输出结果数量。
+
+用户可以在点的右侧用`:<tag_name>`表示模式中的 Tag。
+
+```ngql
+nebula> MATCH (v:player) \
+        RETURN v \
+        LIMIT 3;
++-----------------------------------------------------------+
+| v                                                         |
++-----------------------------------------------------------+
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
+| ("player106" :player{age: 25, name: "Kyle Anderson"})     |
+| ("player115" :player{age: 40, name: "Kobe Bryant"})       |
++-----------------------------------------------------------+
+...
+```
+
+需要匹配拥有多个 Tag 的点，可以用英文冒号（:）。
+
+!!! note
+
+    匹配多个 Tag 的点时，不支持进行属性过滤。
+    
+    例如，不支持`match (v1:player:team) where v1.player.name=="Tim Duncan" return v1 limit 10;`。
+
+```ngql
+nebula> CREATE TAG actor (name string, age int);
+nebula> INSERT VERTEX actor(name, age) VALUES "player100":("Tim Duncan", 42);
+nebula> MATCH (v:player:actor) \
+        RETURN v \
+        LIMIT 10;
++----------------------------------------------------------------------------------------+
+| v                                                                                      |
++----------------------------------------------------------------------------------------+
+| ("player100" :actor{age: 42, name: "Tim Duncan"} :player{age: 42, name: "Tim Duncan"}) |
++----------------------------------------------------------------------------------------+
+```", "completion": "### 匹配边
+
+用户可以在边的右侧用`:[<edge_name>]`表示模式中的边。
+
+```ngql
+nebula> MATCH (v1:player)-[e:serve]->(v2:team) \
+        RETURN v1, e, v2 \
+        LIMIT 3;
++----------------------------------------------------------------------------------------------------------+
+| v1                                                | e                                                   | v2                                                 |
++----------------------------------------------------------------------------------------------------------+
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) | ("player102"-"serve"-"team101") | ("team101" :team{location: "San Antonio Spurs"}) |
+| ("player106" :player{age: 25, name: "Kyle Anderson"})     | ("player106"-"serve"-"team101") | ("team101" :team{location: "San Antonio Spurs"}) |
+| ("player115" :player{age: 40, name: "Kobe Bryant"})       | ("player115"-"serve"-"team101") | ("team101" :team{location: "San Antonio Spurs"}) |
++----------------------------------------------------------------------------------------------------------+
+```
+
+### 匹配属性
+
+用户可以在属性的右侧用`:{<prop_name>}`表示模式中的属性。
+
+```ngql
+nebula> MATCH (v:player) \
+        RETURN v.name \
+        LIMIT 3;
++-----------------+
+| v.name           |
++-----------------+
+| "LaMarcus Aldridge" |
+| "Kyle Anderson"     |
+| "Kobe Bryant"       |
++-----------------+
+```
+
+### 匹配属性值
+
+用户可以在属性值的右侧用`=<value>`表示模式中的属性值。
+
+```ngql
+nebula> MATCH (v:player) \
+        WHERE v.age = 33 \
+        RETURN v.name \
+        LIMIT 3;
++-----------------+
+| v.name           |
++-----------------+
+| "LaMarcus Aldridge" |
++-----------------+
+```"}
+{"prompt": "# MATCH
+
+## 示例
+
+### 匹配点的属性
+
+### 匹配点的属性
+
+用户可以在 Tag 的右侧用`{<prop_name>: <prop_value>}`表示模式中点的属性。
+
+```ngql
+# 使用属性 name 搜索匹配的点。
+nebula> MATCH (v:player{name:"Tim Duncan"}) \
+        RETURN v;
++----------------------------------------------------+
+| v                                                  |
++----------------------------------------------------+
+| ("player100" :player{age: 42, name: "Tim Duncan"}) |
++----------------------------------------------------+
+```
+
+使用`WHERE`子句也可以实现相同的操作：
+
+```ngql
+nebula> MATCH (v:player) \
+        WHERE v.player.name == "Tim Duncan" \
+        RETURN v;
++----------------------------------------------------+
+| v                                                  |
++----------------------------------------------------+
+| ("player100" :player{age: 42, name: "Tim Duncan"}) |
++----------------------------------------------------+
+```
+
+!!! compatibility "openCypher 兼容性"
+
+    在 openCypher 9 中，`=`是相等运算符，在 nGQL 中，`==`是相等运算符，`=`是赋值运算符。
+
+使用`WHERE`子句直接匹配点的属性。
+
+```ngql
+nebula> MATCH (v) \
+        WITH v, properties(v) as props, keys(properties(v)) as kk \
+        LIMIT 10000 WHERE [i in kk where props[i] == "Tim Duncan"] \
+        RETURN v;
++----------------------------------------------------+
+| v                                                  |
++----------------------------------------------------+
+| ("player100" :player{age: 42, name: "Tim Duncan"}) |
++----------------------------------------------------+
+```", "completion": ""}
+{"prompt": "# MATCH
+
+## 示例
+
+### 匹配点 ID
+
+### 匹配点 ID
+
+用户可以使用点 ID 去匹配点。`id()`函数可以检索点的 ID。
+
+```ngql
+nebula> MATCH (v) \
+        WHERE id(v) == 'player101' \
+        RETURN v;
++-----------------------------------------------------+
+| v                                                   |
++-----------------------------------------------------+
+| ("player101" :player{age: 36, name: "Tony Parker"}) |
++-----------------------------------------------------+
+```
+
+要匹配多个点的 ID，可以用`WHERE id(v) IN [vid_list]`。
+
+```ngql
+nebula> MATCH (v:player { name: 'Tim Duncan' })--(v2) \
+        WHERE id(v2) IN ["player101", "player102"] \
+        RETURN v2;
++-----------------------------------------------------------+
+| v2                                                        |
++-----------------------------------------------------------+
+| ("player101" :player{age: 36, name: "Tony Parker"})       |
+| ("player101" :player{age: 36, name: "Tony Parker"})       |
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
++-----------------------------------------------------------+
+```", "completion": "可以用`WHERE id(v) IN {vid_list}`的形式去匹配多个点的 ID，这样可以更加灵活。
+
+```ngql
+nebula> MATCH (v:player { name: 'Tim Duncan' })--(v2) \
+        WHERE id(v2) IN {vid_list} \
+        RETURN v2;
++-----------------------------------------------------------+
+| v2                                                        |
++-----------------------------------------------------------+
+| ("player101" :player{age: 36, name: "Tony Parker"})       |
+| ("player101" :player{age: 36, name: "Tony Parker"})       |
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
++-----------------------------------------------------------+
+```
+
+### 匹配所有点
+
+可以用`MATCH(v)`去匹配图中所有点。
+
+```ngql
+nebula> MATCH (v) \
+        RETURN v;
++----------------------------------------------------------------+
+| v                                                               |
++----------------------------------------------------------------+
+| ("player101" :player{age: 36, name: "Tony Parker"})             |
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"})       |
+| ("player103" :player{age: 30, name: "Manu Ginobili"})           |
+| ("player104" :player{age: 35, name: "Dwyane Wade"})             |
+| ("player105" :player{age: 31, name: "LeBron James"})            |
+| ("player106" :player{age: 34, name: "Chris Bosh"})              |
+| ("player107" :player{age: 32, name: "Dwyane Wade"})             |
+| ("player108" :player{age: 31, name: "Dwyane Wade"})             |
+| ("player109" :player{age: 33, name: "Dwyane Wade"})             |
+| ("player110" :player{age: 32, name: "Dwyane Wade"})             |
+| ("player111" :player{age: 33, name: "Dwyane Wade"})             |
+| ("player112" :player{age: 30, name: "Dwyane Wade"})             |
+| ("player113" :player{age: 31, name: "Dwyane Wade"})             |
+| ("player114" :player{age: 32, name: "Dwyane Wade"})             |
+| ("player115" :player{age: 33, name: "Dwyane Wade"})             |
+| ("player116" :player{age: 34, name: "Dwyane Wade"})             |
+| ("player117" :player{age: 31, name: "Dwyane Wade"})             |
+| ("player118" :player{age: 32, name: "Dwyane Wade"})             |
+| ("player119" :player{age: 33, name: "Dwyane Wade"})             |
+| ("player120" :player{age: 31, name: "Dwyane Wade"})             |
+| ("player121" :player{age: 32, name: "Dwyane Wade"})             |
+| ("player122" :player{age: 33, name: "Dwyane Wade"})             |
+| ("player123" :player{age: 34, name: "Dwyane Wade"})             |
+| ("player124" :player{age: 31, name: "Dwyane Wade"})             |
+| ("player125" :player{age: 32, name: "Dwyane Wade"})             |
+| ("player126" :player{age: 33, name: "Dwyane Wade"})             |
+| ("player127" :player{age: 31, name: "Dwyane Wade"})             |
+| ("player128" :player{age: 32, name: "Dwyane Wade"})             |
+| ("player129" :player{age: 33, name: "Dwyane Wade"})             |
+| ("player130" :player{age: 34, name: "Dwyane Wade"})             |
+| ("player131" :player{age: 31, name: "Dwyane Wade"})             |
+| ("player132" :player{age: 32, name: "Dwyane Wade"})             |
+| ("player133" :player{age: 33, name: "Dwyane Wade"})             |
+| ("player134" :player{age: 31, name: "Dwyane Wade"})             |
+| ("player135" :player{age: 32, name: "Dwyane Wade"})             |
+| ("player136" :player{age: 33, name: "Dwyane Wade"})             |
+| ("player137" :player{age: 34, name: "Dwyane Wade"})             |
+| ("player138" :player{age: 31, name: "Dwyane Wade"})             |
+| ("player139" :player{age: 32, name: "Dwyane Wade"})             |
+| ("player140" :player{age: 33, name: "Dwyane Wade"})             |
+| ("player141" :player{age: 31, name: "Dwyane Wade"})             |
+| ("player142" :player{age: 32, name: "Dwyane Wade"})             |
+| ("player143" :player{age: 33, name: "Dwyane Wade"})             |
+| ("player144" :player{age: 34, name: "Dwyane Wade"})             |
+| ("player145" :player{age: 31, name: "Dwyane Wade"})             |
+| ("player146" :player{age: 32, name: "Dwyane Wade"})             |
+| ("player147" :player{age: 33, name: "Dwyane Wade"})             |
+| ("player148" :player{age: 31, name: "Dwyane Wade"})             |
+| ("player149" :player{age: 32, name: "Dwyane Wade"})             |
+| ("player150" :player{age: 33, name: "Dwyane Wade"})             |
+| ("player151" :player{age: 34, name: "Dwyane Wade"})             |
+| ("player152" :player{age: 31, name: "Dwyane Wade"})             |
+| ("player153" :player{age: 32, name: "Dwyane Wade"})             |
+| ("player154" :player{age: 33, name: "Dwyane Wade"})             |
+| ("player155" :player{age: 31, name: "Dwyane Wade"})             |
+| ("player156" :player{age: 32, name: "Dwyane Wade"})             |
+| ("player157" :player{age: 33, name: "Dwyane Wade"})             |
+| ("player158" :player{age: 34, name: "Dwyane Wade"})             |
+| ("player159" :player{age: 31, name: "Dwyane Wade"})             |
+| ("player160" :player{age: 32, name: "Dwyane Wade"})             |
+| ("player161" :player{age: 33, name: "Dwyane Wade"})             |
+| ("player162" :player{age: 31, name: "Dwyane Wade"})             |
+| ("player163" :player{age: 32, name: "Dwyane Wade"})             |
+| ("player164" :player{age: 33, name: "Dwyane Wade"})             |
+| ("player165" :player{age: 34, name: "Dwyane Wade"})             |
+| ("player166" :player{age: 31, name: "Dwyane Wade"})             |
+| ("player167" :player{age: 32, name: "Dwyane Wade"})             |
+| ("player168" :player{age: 33, name: "Dwyane Wade"})             |
+| ("player169" :player{age: 31, name: "Dwyane Wade"})             |
+| ("player170" :player{age: 32, name: "Dwyane Wade"})             |
+| ("player171" :player{age: 33, name: "Dwyane Wade"})             |"}
+{"prompt": "# GO
+
+`GO`从给定起始点开始遍历图。`GO`语句采用的路径类型是[`walk`](../../1.introduction/2.1.path.md)，即遍历时点和边都可以重复。", "completion": ""}
+{"prompt": "# GO
+
+## openCypher 兼容性
+
+## openCypher 兼容性
+
+本文操作仅适用于原生 nGQL。", "completion": "如果您的图数据库使用的是 openCypher，则可以通过以下方式进行操作：
+
+在图形中使用 MATCH 语句查询需要的节点和边：
+
+MATCH (n:Person {name: 'John'})-[r:KNOWS]->(m:Person {name: 'Mary'})
+
+RETURN n,r,m
+
+使用 CREATE 语句创建新节点：
+
+CREATE (n:Person {name: 'John', age: 26})
+
+使用 MERGE 语句创建新节点或者匹配已有节点：
+
+MERGE (n:Person {name: 'John'})
+
+ON CREATE SET n.age = 30
+
+ON MATCH SET n.age = n.age + 1
+
+RETURN n.age
+
+使用 DELETE 语句删除节点或者边：
+
+DELETE n
+
+这些语句中的 n、r、m 均为变量，可以根据需要自行修改。
+
+## openCypher compatibility
+
+This article only applies to native nGQL.
+
+If your graph database uses openCypher, you can do so as follows:
+
+In the graph, use the MATCH statement to query the nodes and edges you need:
+
+MATCH (n:Person {name: 'John'})-[r:KNOWS]->(m:Person {name: 'Mary'})
+
+RETURN n,r,m
+
+Use the CREATE statement to create new nodes:
+
+CREATE (n:Person {name: 'John', age: 26})
+
+Use the MERGE statement to create new nodes or match existing nodes:
+
+MERGE (n:Person {name: 'John'})
+
+ON CREATE SET n.age = 30
+
+ON MATCH SET n.age = n.age + 1
+
+RETURN n.age
+
+Use the DELETE statement to delete nodes or edges:
+
+DELETE n
+
+The variables n, r, and m in these statements can be modified as needed."}
+{"prompt": "# GO
+
+## 语法
+
+## 语法
+
+```ngql
+GO [[<M> TO] <N> {STEP|STEPS} ] FROM <vertex_list>
+OVER <edge_type_list> [{REVERSELY | BIDIRECT}]
+[ WHERE <conditions> ]
+YIELD [DISTINCT] <return_list>
+[{ SAMPLE <sample_list> | <limit_by_list_clause> }]
+[| GROUP BY {<col_name> | expression> | <position>} YIELD <col_name>]
+[| ORDER BY <expression> [{ASC | DESC}]]
+[| LIMIT [<offset>,] <number_rows>];
+
+<vertex_list> ::=
+    <vid> [, <vid> ...]
+
+<edge_type_list> ::=
+   <edge_type> [, <edge_type> ...]
+   | *
+
+<return_list> ::=
+    <col_name> [AS <col_alias>] [, <col_name> [AS <col_alias>] ...]
+```
+
+- `<N> {STEP|STEPS}`：指定跳数。如果没有指定跳数，默认值`N`为`1`。如果`N`为`0`，NebulaGraph 不会检索任何边。
+
+- `M TO N {STEP|STEPS}`：遍历`M~N`跳的边。如果`M`为`0`，输出结果和`M`为`1`相同，即`GO 0 TO 2`和`GO 1 TO 2`是相同的。
+
+- `<vertex_list>`：用逗号分隔的点 ID 列表，或特殊的引用符`$-.id`。详情参见[管道符](../5.operators/4.pipe.md)。
+
+- `<edge_type_list>`：遍历的 Edge type 列表。
+
+- `REVERSELY | BIDIRECT`：默认情况下检索的是`<vertex_list>`的出边（正向），`REVERSELY`表示反向，即检索入边；`BIDIRECT` 为双向，即检索正向和反向，通过返回 `<edge_type>._type` 字段判断方向，其正数为正向，负数为反向。
+
+- `WHERE <conditions>`：指定遍历的过滤条件。用户可以在起始点、目的点和边使用`WHERE`子句，还可以结合`AND`、`OR`、`NOT`、`XOR`一起使用。详情参见 [WHERE](../8.clauses-and-options/where.md)。
+
+  !!! Note
+
+      - 遍历多个 Edge type 时，`WHERE`子句有一些限制。例如不支持`WHERE edge1.prop1 > edge2.prop2`。
+      - GO 语句执行时先遍历所有的点，然后再根据过滤器条件进行过滤。
+
+- `YIELD [DISTINCT] <return_list>`：定义需要返回的输出。` <return_list>`建议使用 [Schema 相关函数](../6.functions-and-expressions/4.schema.md)，当前支持`src(edge)`、`dst(edge)`、`type(edge)`等，暂不支持嵌套函数。详情参见 [YIELD](../8.clauses-and-options/yield.md)。
+
+- `SAMPLE <sample_list>`：用于在结果集中取样。详情参见 [SAMPLE](../8.clauses-and-options/sample.md)。
+
+- `<limit_by_list_clause>`：用于在遍历过程中逐步限制输出数量。详情参见 [LIMIT](../8.clauses-and-options/limit.md)。
+
+- `GROUP BY`：根据指定属性的值将输出分组。详情参见 [GROUP BY](../8.clauses-and-options/group-by.md)。分组后需要再次使用`YIELD`定义需要返回的输出。
+
+- `ORDER BY`：指定输出结果的排序规则。详情参见 [ORDER BY](../8.clauses-and-options/order-by.md)。
+
+  !!! Note
+
+        没有指定排序规则时，输出结果的顺序不是固定的。
+
+- `LIMIT  [<offset>,] <number_rows>]`：限制输出结果的行数。详情参见 [LIMIT](../8.clauses-and-options/limit.md)。", "completion": "## 示例
+
+### 语法示例
+
+```python
+# GO FROM v1 OVER like YIELD v2.name
+```
+
+```python
+# GO 2 STEPS FROM v1 OVER like YIELD v2.name
+```
+
+```python
+# GO 2 FROM v1 OVER like YIELD v2.name
+```
+
+```python
+# GO FROM v1 OVER like YIELD v2.name, count(*)
+```
+
+```python
+# GO FROM v1 OVER like YIELD DISTINCT v2.name
+```
+
+```python
+# GO FROM v1 OVER like WHERE v2.name == 'A' YIELD v2.name
+```
+
+```python
+# GO 1 STEP FROM v1 OVER like, know WHERE v2.name == 'A' YIELD v2.name
+```
+
+```python
+# GO FROM v1 OVER like YIELD count(*) AS num_likes
+```
+
+```python
+# GO FROM v1 OVER like YIELD count(*) AS num_likes SAMPLE 1
+```
+
+```python
+# GO FROM v1 OVER like YIELD count(*) AS num_likes ORDER BY num_likes DESC
+```
+
+### 结果说明
+
+- 在`GO`语句中，`*`表示检索所有边，因此返回的结果中包含的属性取决于`<edge_type_list>`中所包含的边类型。
+
+- `<edge_type_list>`中包含多个边类型时，`YIELD`子句只能支持返回`*`或`type(edge)`，其他情况下会报错。
+
+- `<edge_type_list>`为`*`时，`YIELD`子句支持返回`*`或`type(edge)`，还可以返回指定边上的属性。
+
+- `<edge_type_list>`为`*`时，`YIELD`子句支持返回`*`或`type(edge)`，还可以返回指定边上的属性。
+
+- `<edge_type_list>`为`*`时，`YIELD`子句支持返回`*`或`type(edge)`，还可以返回指定边上的属性。
+
+- `<return_list>`可以指定多个返回值，用逗号分隔。
+
+- `<return_list>`可以使用`AS`指定别名。
+
+- `<return_list>`中包含表达式时，需使用`AS`指定别名。
+
+- `<return_list>`中可包含 [Schema 相关函数](../6.functions-and-expressions/4.schema.md)，当前支持`src(edge)`、`dst(edge)`、`type(edge)`等，暂不支持嵌套函数。
+
+- `<return_list>`中可包含 [ Schema 相关函数 ](../6.functions-and-expressions/4.schema.md)，当前支持`src(edge)`、`dst(edge)`、`type(edge)`等，暂不支持嵌套函数。
+
+- `<return_list>`中可包含 [Schema 相关函数](../6.functions-and-expressions/4.schema.md)，当前支持`src(edge)`、`dst(edge)`、`type(edge)`等，暂不支持嵌套函数。
+
+- `<return_list>`中可包含 [Schema 相关函数](../6.functions-and-expressions/4.schema.md)，当前支持`src(edge)`、`dst(edge)`、`type(edge)`等，暂不支持嵌套函数。
+
+- `<return_list>`中可包含 [表达式](../6.functions-and-expressions/1.expression.md)。
+
+- `<return_list>`中可包含 [表达式](../6.functions-and-expressions/1.expression.md)。
+
+- `<return_list>`中可包含 [表达式](../6.functions-and-expressions/1.expression.md)。
+
+- `<return_list>`中可包含 [表达式](../6.functions-and-expressions/1.expression.md)。
+
+- `<return_list>`中可包含 [表达式](../6.functions-and-expressions/1.expression.md)。
+
+- `<return_list>`中可包含 [表达式](../6.functions-and-expressions/1.expression.md)。
+
+  !!! Note
+
+      - 表达式中可使用`AS`定义别名。
+      - 表达式中不能使用[聚合函数](../6.functions-and-expressions/3.aggregation.md)。
+      - 表达式中不能使用`YIELD`子句。
+
+- `<return_list>`中可包含 [表达式](../6.functions-and-expressions/1.expression.md)。
+
+  !!! Note
+
+      - 表达式中可使用`AS`定义别名。
+      - 表达式中不能使用[聚合函数](../6.functions-and-expressions/3.aggregation.md)。
+      - 表达式中不能使用`YIELD`子句。
+
+- `<return_list>`中可包含 [表达式](../6.functions-and-expressions/1.expression.md)。
+
+  !!! Note
+
+      - 表达式中可使用`AS`定义别名。
+      - 表达式中不能使用[聚合函数](../6.functions-and-expressions/3.aggregation.md)。
+      - 表达式中不能使用`YIELD`子句。
+
+- `<return_list>`中可包含 [表达式](../6.functions-"}
+{"prompt": "# GO
+
+## 示例
+
+## 示例
+
+```ngql
+# 返回 player102 所属队伍。
+nebula> GO FROM "player102" OVER serve YIELD dst(edge);
++-----------+
+| dst(EDGE) |
++-----------+
+| "team203" |
+| "team204" |
++-----------+
+```
+
+```ngql
+# 返回距离 player102 两跳的朋友。
+nebula> GO 2 STEPS FROM "player102" OVER follow YIELD dst(edge);
++-------------+
+| dst(EDGE)   |
++-------------+
+| "player101" |
+| "player125" |
+| "player100" |
+| "player102" |
+| "player125" |
++-------------+
+```
+
+```ngql
+# 添加过滤条件。
+nebula> GO FROM "player100", "player102" OVER serve \
+        WHERE properties(edge).start_year > 1995 \
+        YIELD DISTINCT properties($$).name AS team_name, properties(edge).start_year AS start_year, properties($^).name AS player_name;
+
++-----------------+------------+---------------------+
+| team_name       | start_year | player_name         |
++-----------------+------------+---------------------+
+| "Spurs"         | 1997       | "Tim Duncan"        |
+| "Trail Blazers" | 2006       | "LaMarcus Aldridge" |
+| "Spurs"         | 2015       | "LaMarcus Aldridge" |
++-----------------+------------+---------------------+
+```
+
+```ngql
+# 遍历多个 Edge type。属性没有值时，会显示`NULL`。
+nebula> GO FROM "player100" OVER follow, serve \
+        YIELD properties(edge).degree, properties(edge).start_year;
++-------------------------+-----------------------------+
+| properties(EDGE).degree | properties(EDGE).start_year |
++-------------------------+-----------------------------+
+| 95                      | __NULL__                    |
+| 95                      | __NULL__                    |
+| __NULL__                | 1997                        |
++-------------------------+-----------------------------+
+```
+
+```ngql
+# 返回 player100 入方向的邻居点。
+nebula> GO FROM "player100" OVER follow REVERSELY \
+        YIELD src(edge) AS destination;
++-------------+
+| destination |
++-------------+
+| "player101" |
+| "player102" |
+...
+
+# 该 MATCH 查询与上一个 GO 查询具有相同的语义。
+nebula> MATCH (v)<-[e:follow]- (v2) WHERE id(v) == 'player100' \
+        RETURN id(v2) AS destination;
++-------------+
+| destination |
++-------------+
+| "player101" |
+| "player102" |
+...
+```
+
+```ngql
+# 查询 player100 的朋友和朋友所属队伍。
+nebula> GO FROM "player100" OVER follow REVERSELY \
+        YIELD src(edge) AS id | \
+        GO FROM $-.id OVER serve \
+        WHERE properties($^).age > 20 \
+        YIELD properties($^).name AS FriendOf, properties($$).name AS Team;
++---------------------+-----------------+
+| FriendOf            | Team            |
++---------------------+-----------------+
+| "Boris Diaw"        | "Spurs"         |
+| "Boris Diaw"        | "Jazz"          |
+| "Boris Diaw"        | "Suns"          |
+...
+
+# 该 MATCH 查询与上一个 GO 查询具有相同的语义。
+nebula> MATCH (v)<-[e:follow]- (v2)-[e2:serve]->(v3)  \
+        WHERE id(v) == 'player100' \
+        RETURN v2.player.name AS FriendOf, v3.team.name AS Team;
++---------------------+-----------------+
+| FriendOf            | Team            |
++---------------------+-----------------+
+| "Boris Diaw"        | "Spurs"         |
+| "Boris Diaw"        | "Jazz"          |
+| "Boris Diaw"        | "Suns"          |
+...
+```
+
+```ngql
+# 查询 player100 1~2 跳内的朋友。
+nebula> GO 1 TO 2 STEPS FROM "player100" OVER follow \
+        YIELD dst(edge) AS destination;
++-------------+
+| destination |
++-------------+
+| "player101" |
+| "player125" |
+...
+
+# 该 MATCH 查询与上一个 GO 查询具有相同的语义。
+nebula> MATCH (v) -[e:follow*1..2]->(v2) \
+        WHERE id(v) == "player100" \
+        RETURN id(v2) AS destination;
++-------------+
+| destination |
++-------------+
+| "player100" |
+| "player102" |
+...
+```
+
+```ngql
+# 根据年龄分组。
+nebula> GO 2 STEPS FROM "player100" OVER follow \
+        YIELD src(edge) AS src, dst(edge) AS dst, properties($$).age AS age \
+        | GROUP BY $-.dst \
+        YIELD $-.dst AS dst, collect_set($-.src) AS src, collect($-.age) AS age;
++-------------+----------------------------+----------+
+| dst         | src                        | age      |
++-------------+----------------------------+----------+
+| "player125" | ["player101"]              | [41]     |
+| "player100" | ["player125", "player101"] | [42, 42] |
+| "player102" | ["player101"]              | [33]     |
++-------------+----------------------------+----------+
+```
+
+```ngql
+# 分组并限制输出结果的行数。
+nebula> $a = GO FROM "player100" OVER follow YIELD src(edge) AS src, dst(edge) AS dst; \
+        GO 2 STEPS FROM $a.dst OVER follow \
+        YIELD $a.src AS src, $a.dst, src(edge), dst(edge) \
+        | ORDER BY $-.src | OFFSET 1 LIMIT 2;
++-------------+-------------+-------------+-------------+
+| src         | $a.dst      | src(EDGE)   | dst(EDGE)   |
++-------------+-------------+-------------+-------------+
+| "player100" | "player125" | "player100" | "player101" |
+| "player100" | "player101" | "player100" | "player125" |
++-------------+-------------+-------------+-------------+
+```
+
+```ngql
+# 在多个边上通过 IS NOT EMPTY 进行判断。
+nebula> GO FROM "player100" OVER follow WHERE properties($$).name IS NOT EMPTY YIELD dst(edge);
++-------------+
+| dst(EDGE)   |
++-------------+
+| "player125" |
+| "player101" |
++-------------+
+```", "completion": "```ngql
+# 在多个边上通过 IS EMPTY 进行判断。
+nebula> GO FROM "player100" OVER follow WHERE properties($$).name IS EMPTY YIELD dst(edge);
++-------------+
+| dst(EDGE)   |
++-------------+
+| "player102" |
++-------------+
+```"}
+{"prompt": "# FETCH
+
+`FETCH`可以获取指定点或边的属性值。", "completion": "## 使用方法
+
+```
+FETCH <点或者边的 ID> [<点或者边的属性>]
+```
+
+### 示例
+
+下面的例子展示了如何通过`FETCH`命令获取一个点的属性值：
+
+```
+g.V('thomas').valueMap()
+==>{id=thomas, label=person, name=[thomas, tom], age=44}
+
+g.V('thomas').properties('name').value()
+==>[thomas, tom]
+
+g.V('thomas').value('name')
+==>thomas
+
+g.V('thomas').valueMap(true)
+==>{id=thomas, label=person, name=thomas, age=44}
+```"}
+{"prompt": "# FETCH
+
+## 获取边的属性值
+
+## 获取边的属性值", "completion": "获取边的属性值是非常重要的，因为它可以帮助我们更好地理解图中各个节点之间的关系。有些时候，我们可能想要知道两个节点之间具有哪些共同的属性值，这就需要我们获取边的属性值。
+
+Gremlin中提供了一个名为`valueMap()`的方法来获取边的属性值。该方法将返回一个`Map`，其中`Map`的`key`为边的属性名，`value`为边的属性值。
+
+下面我们通过一个简单的例子来说明如何使用`valueMap()`方法。
+
+假设我们有一个简单的图，其中包含两个节点`v(1)`和`v(2)`，以及一条边`e(1,2)`，边`e(1,2)`上有两个属性，分别为`weight`和`type`。图结构如下所示：
+
+![image](https://gremlin.apache.org/tutorials/current/images/valueMap-1.png)
+
+现在我们使用`valueMap()`方法来获取边`e(1,2)`的属性值：
+
+```
+gremlin> g.V(1).outE('knows').valueMap()
+==>{id=2, label=knows, weight=0.5, type=friend}
+```
+
+可以看到，`valueMap()`方法返回了一个包含边的所有属性名和属性值的`Map`。"}
+{"prompt": "# FETCH
+
+## 获取边的属性值
+
+### 语法
+
+### 语法
+
+```ngql
+FETCH PROP ON <edge_type> <src_vid> -> <dst_vid>[@<rank>] [, <src_vid> -> <dst_vid> ...]
+YIELD <output>;
+```
+
+|参数|说明|
+|:---|:---|
+|`edge_type`|Edge type 名称。|
+|`src_vid`|起始点 ID，表示边的起点。|
+|`dst_vid`|目的点 ID，表示边的终点。|
+|`rank`|边的 rank。可选参数，默认值为`0`。起始点、目的点、Edge type 和 rank 可以唯一确定一条边。|
+|`YIELD`|定义需要返回的输出。详情请参见 [`YIELD`](../8.clauses-and-options/yield.md)。|", "completion": "### 示例
+
+```ngql
+FETCH PROP ON like * -> * YIELD like.count;
+```"}
+{"prompt": "# FETCH
+
+## 获取边的属性值
+
+### 获取边的所有属性值
+
+### 获取边的所有属性值
+
+```ngql
+# 获取连接 player100 和 team204 的边 serve 的所有属性值。
+nebula> FETCH PROP ON serve "player100" -> "team204" YIELD properties(edge);
++------------------------------------+
+| properties(EDGE)                   |
++------------------------------------+
+| {end_year: 2016, start_year: 1997} |
++------------------------------------+
+```", "completion": "### 获取边的指定属性值
+
+```ngql
+# 获取连接 player100 和 team204 的边 serve 的 end_year 属性值。
+nebula> FETCH PROP ON serve "player100" -> "team204" YIELD $^.end_year;
++---------+
+| $^.end_year |
++---------+
+| 2016     |
++---------+
+```
+
+### 获取边的多个属性值
+
+```
+# 获取连接 player100 和 team204 的边 serve 的 end_year 和 start_year 属性值。
+nebula> FETCH PROP ON serve "player100" -> "team204" YIELD $^.end_year, $^.start_year;
++---------+-------------+
+| $^.end_year | $^.start_year |
++---------+-------------+
+| 2016     | 1997        |
++---------+-------------+
+```"}
+{"prompt": "# FETCH
+
+## 获取边的属性值
+
+### 获取边的指定属性值
+
+### 获取边的指定属性值
+
+使用`YIELD`子句指定返回的属性。
+
+```ngql
+nebula> FETCH PROP ON serve "player100" -> "team204"    \
+        YIELD properties(edge).start_year;
++-----------------------------+
+| properties(EDGE).start_year |
++-----------------------------+
+| 1997                        |
++-----------------------------+
+```", "completion": "### 获取边的所有属性值
+
+使用`YIELD`子句指定返回的属性。
+
+```ngql
+nebula> FETCH PROP ON serve "player100" -> "team204";
++-------------------------------+
+| properties(EDGE)              |
++-------------------------------+
+| {"start_year": 1997}          |
++-------------------------------+
+```
+
+### 获取边的指定类型的属性值
+
+使用`YIELD`子句指定返回的属性。
+
+```ngql
+nebula> FETCH PROP ON serve "player100" -> "team204"    \
+        YIELD properties(edge).start_year;
++-----------------------------+
+| properties(EDGE).start_year |
++-----------------------------+
+| 1997                        |
++-----------------------------+
+```"}
+{"prompt": "# FETCH
+
+## 获取边的属性值
+
+### 获取多条边的属性值
+
+### 获取多条边的属性值
+
+指定多个边模式 (`<src_vid> -> <dst_vid>[@<rank>]`) 获取多个边的属性值。模式之间用英文逗号（,）分隔。
+
+```ngql
+nebula> FETCH PROP ON serve "player100" -> "team204", "player133" -> "team202" YIELD edge AS e;
++-----------------------------------------------------------------------+
+| e                                                                     |
++-----------------------------------------------------------------------+
+| [:serve "player100"->"team204" @0 {end_year: 2016, start_year: 1997}] |
+| [:serve "player133"->"team202" @0 {end_year: 2011, start_year: 2002}] |
++-----------------------------------------------------------------------+
+```", "completion": "### 获取某个边的属性值
+
+指定一个边模式 (`<src_vid> -> <dst_vid>[@<rank>]`) 获取该边的属性值。
+
+```ngql
+nebula> FETCH PROP ON serve "player100" -> "team204" YIELD edge AS e;
++-----------------------------------------------------------------+
+| e                                                               |
++-----------------------------------------------------------------+
+| [:serve "player100"->"team204" @0 {end_year: 2016, start_year: 1997}] |
++-----------------------------------------------------------------+
+```"}
+{"prompt": "# FETCH
+
+## 获取边的属性值
+
+### 基于 rank 获取属性值
+
+### 基于 rank 获取属性值
+
+如果有多条边，起始点、目的点和 Edge type 都相同，可以通过指定 rank 获取正确的边属性值。
+
+```ngql
+# 插入不同属性值、不同 rank 的边。
+nebula> insert edge serve(start_year,end_year) \
+        values "player100"->"team204"@1:(1998, 2017);
+
+nebula> insert edge serve(start_year,end_year) \
+        values "player100"->"team204"@2:(1990, 2018);
+
+# 默认返回 rank 为 0 的边。
+nebula> FETCH PROP ON serve "player100" -> "team204" YIELD edge AS e;
++-----------------------------------------------------------------------+
+| e                                                                     |
++-----------------------------------------------------------------------+
+| [:serve "player100"->"team204" @0 {end_year: 2016, start_year: 1997}] |
++-----------------------------------------------------------------------+
+
+# 要获取 rank 不为 0 的边，请在 FETCH 语句中设置 rank。
+nebula> FETCH PROP ON serve "player100" -> "team204"@1 YIELD edge AS e;
++-----------------------------------------------------------------------+
+| e                                                                     |
++-----------------------------------------------------------------------+
+| [:serve "player100"->"team204" @1 {end_year: 2017, start_year: 1998}] |
++-----------------------------------------------------------------------+
+```", "completion": ""}
+{"prompt": "# FETCH
+
+## 复合语句中使用 FETCH
+
+## 复合语句中使用 FETCH
+
+将`FETCH`与原生 nGQL 结合使用是一种常见的方式，例如和`GO`一起。
+
+```ngql
+# 返回从点 player101 开始的 follow 边的 degree 值。
+nebula> GO FROM "player101" OVER follow \
+        YIELD src(edge) AS s, dst(edge) AS d \
+        | FETCH PROP ON follow $-.s -> $-.d \
+        YIELD properties(edge).degree;
++-------------------------+
+| properties(EDGE).degree |
++-------------------------+
+| 95                      |
+| 90                      |
+| 95                      |
++-------------------------+
+```
+
+用户也可以通过自定义变量构建类似的查询。
+
+```ngql
+nebula> $var = GO FROM "player101" OVER follow \
+        YIELD src(edge) AS s, dst(edge) AS d; \
+        FETCH PROP ON follow $var.s -> $var.d \
+        YIELD properties(edge).degree;
++-------------------------+
+| properties(EDGE).degree |
++-------------------------+
+| 95                      |
+| 90                      |
+| 95                      |
++-------------------------+
+```
+
+更多复合语句的详情，请参见[复合查询（子句结构）](../4.variable-and-composite-queries/1.composite-queries.md)。", "completion": ""}
+{"prompt": "# FETCH
+
+## openCypher 兼容性
+
+## openCypher 兼容性
+
+本文操作仅适用于原生 nGQL。", "completion": "如果要使用 openCypher 语法，则需要额外安装 openCypher 插件。
+
+安装 openCypher 插件
+
+首先，确保你的neo4j安装版本在3.3.x以上。然后，打开neo4j的conf目录，编辑neo4j.conf文件，增加如下配置：
+
+dbms.security.procedures.unrestricted=apoc.\\\*,algo.\\\*,db.\\\*,dbms.\\\*,gds.\\\*,index.\\\*,labels.\\\*,legacy.graphql.\\\*,legacy.rdf.\\\*,legacy.cypher.\\\*,nlp.\\\*,node.\\\*,relationship.\\\*,schema.\\\*,spatial.\\\*,structure.\\\*,text.\\\*
+
+然后将下面的jar包拷贝到$NEO4J_HOME/plugins目录下：
+
+https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/3.5.0.9/apoc-3.5.0.9-all.jar
+
+重启neo4j服务器，安装完成。
+
+使用 openCypher
+
+在neo4j的控制台中，可以直接使用cypher语法查询数据。
+
+例如，查询所有节点的标签属性：
+
+MATCH (n)
+RETURN labels(n)
+
+参考
+
+https://neo4j.com/docs/cypher-manual/current/syntax/opencypher/"}
+{"prompt": "# FETCH
+
+## 获取点的属性值
+
+## 获取点的属性值", "completion": "点击工具条上的“获取点的属性值”按钮，在地图上点击要查询的点位，即可在弹出的信息窗口中看到该点的属性值。"}
+{"prompt": "# FETCH
+
+## 获取点的属性值
+
+### 语法
+
+### 语法
+
+```ngql
+FETCH PROP ON {<tag_name>[, tag_name ...] | *}
+<vid> [, vid ...]
+YIELD [DISTINCT] <return_list> [AS <alias>];
+```
+
+|参数|说明|
+|:---|:---|
+|`tag_name`|Tag 名称。|
+|`*`|表示当前图空间中的所有 Tag。|
+|`vid`|点 ID。|
+|`YIELD`|定义需要返回的输出。详情请参见 [`YIELD`](../8.clauses-and-options/yield.md)。|
+|`AS`| 设置别名。|", "completion": "### 示例
+
+下面的例子展示了如何获取点的属性值：
+
+```ngql
+FETCH PROP ON person
+1, 2, 3, 4, 5
+YIELD name, age;
+```
+
+## 获取边的属性值
+
+### 语法
+
+```ngql
+FETCH PROP ON {<tag_name>[, tag_name ...] | *}
+<eid> [, eid ...]
+YIELD [DISTINCT] <return_list> [AS <alias>];
+```
+
+|参数|说明|
+|:---|:---|
+|`tag_name`|Tag 名称。|
+|`*`|表示当前图空间中的所有 Tag。|
+|`eid`|边 ID。|
+|`YIELD`|定义需要返回的输出。详情请参见 [`YIELD`](../8.clauses-and-options/yield.md)。|
+|`AS`|设置别名。|
+
+### 示例
+
+下面的例子展示了如何获取边的属性值：
+
+```ngql
+FETCH PROP ON knows
+1, 2, 3, 4, 5
+YIELD since;
+```"}
+{"prompt": "# FETCH
+
+## 获取点的属性值
+
+### 基于 Tag 获取点的属性值
+
+### 基于 Tag 获取点的属性值
+
+在`FETCH`语句中指定 Tag 获取对应点的属性值。
+
+```ngql
+nebula> FETCH PROP ON player "player100" YIELD properties(vertex);
++-------------------------------+
+| properties(VERTEX)            |
++-------------------------------+
+| {age: 42, name: "Tim Duncan"} |
++-------------------------------+
+```", "completion": "### 基于 Vertex ID 获取点的属性值
+
+在`FETCH`语句中指定 Vertex ID 获取对应点的属性值。
+
+```ngql
+nebula> FETCH PROP ON player 100 YIELD properties(vertex);
++-------------------------------+
+| properties(VERTEX)            |
++-------------------------------+
+| {age: 42, name: "Tim Duncan"} |
++-------------------------------+
+```
+
+### 获取指定 Tag 最大/最小值
+
+在`FETCH`语句中指定`MAX_VALUE`或`MIN_VALUE`获取指定 Tag 的最大/最小值。
+
+```ngql
+nebula> FETCH PROP ON player MAX_VALUE YIELD properties(vertex);
++-------------------------------+
+| properties(VERTEX)            |
++-------------------------------+
+| {age: 42, name: "Tim Duncan"} |
++-------------------------------+
+```
+
+```ngql
+nebula> FETCH PROP ON player MIN_VALUE YIELD properties(vertex);
++-------------------------------+
+| properties(VERTEX)            |
++-------------------------------+
+| {age: 42, name: "Tim Duncan"} |
++-------------------------------+
+```
+
+### 获取指定 Tag 随机值
+
+在`FETCH`语句中指定`RANDOM_VALUE`获取指定 Tag 的随机值。
+
+```ngql
+nebula> FETCH PROP ON player RANDOM_VALUE YIELD properties(vertex);
++-------------------------------+
+| properties(VERTEX)            |
++-------------------------------+
+| {age: 42, name: "Tim Duncan"} |
++-------------------------------+
+```"}
+{"prompt": "# FETCH
+
+## 获取点的属性值
+
+### 获取点的指定属性值
+
+### 获取点的指定属性值
+
+使用`YIELD`子句指定返回的属性。
+
+```ngql
+nebula> FETCH PROP ON player "player100" \
+        YIELD properties(vertex).name AS name;
++--------------+
+| name         |
++--------------+
+| "Tim Duncan" |
++--------------+
+```", "completion": "如果需要返回多个属性，可以使用`YIELD`子句中的逗号分隔。
+
+```ngql
+nebula> FETCH PROP ON player "player100" \
+        YIELD properties(vertex).name AS name, \
+              properties(vertex).age AS age;
++--------------+-----+
+| name         | age |
++--------------+-----+
+| "Tim Duncan" |  40 |
++--------------+-----+
+```
+
+### 获取点的所有属性值
+
+使用`*`选择器可以获取点的所有属性值。
+
+```ngql
+nebula> FETCH PROP ON player "player100" \
+        YIELD *;
++--------------+-----+
+| name         | age |
++--------------+-----+
+| "Tim Duncan" |  40 |
++--------------+-----+
+```
+
+### 获取点的指定属性值
+
+使用`YIELD`子句指定返回的属性。
+
+```ngql
+nebula> FETCH PROP ON player "player100" \
+        YIELD properties(vertex).name AS name;
++--------------+
+| name         |
++--------------+
+| "Tim Duncan" |
++--------------+
+```
+
+如果需要返回多个属性，可以使用`YIELD`子句中的逗号分隔。
+
+```ngql
+nebula> FETCH PROP ON player "player100" \
+        YIELD properties(vertex).name AS name, \
+              properties(vertex).age AS age;
++--------------+-----+
+| name         | age |
++--------------+-----+
+| "Tim Duncan" |  40 |
++--------------+-----+
+```
+
+### 获取点的所有属性值
+
+使用`*`选择器可以获取点的所有属性值。
+
+```ngql
+nebula> FETCH PROP ON player "player100" \
+        YIELD *;
++--------------+-----+
+| name         | age |
++--------------+-----+
+| "Tim Duncan" |  40 |
++--------------+-----+
+```"}
+{"prompt": "# FETCH
+
+## 获取点的属性值
+
+### 获取多个点的属性值
+
+### 获取多个点的属性值
+
+指定多个点 ID 获取多个点的属性值，点之间用英文逗号（,）分隔。
+
+```ngql
+nebula> FETCH PROP ON player "player101", "player102", "player103" YIELD properties(vertex);
++--------------------------------------+
+| properties(VERTEX)                   |
++--------------------------------------+
+| {age: 33, name: "LaMarcus Aldridge"} |
+| {age: 36, name: "Tony Parker"}       |
+| {age: 32, name: "Rudy Gay"}          |
++--------------------------------------+
+```", "completion": ""}
+{"prompt": "# FETCH
+
+## 获取点的属性值
+
+### 基于多个 Tag 获取点的属性值
+
+### 基于多个 Tag 获取点的属性值
+
+在`FETCH`语句中指定多个 Tag 获取属性值。Tag 之间用英文逗号（,）分隔。
+
+```ngql
+# 创建新 Tag t1。
+nebula> CREATE TAG IF NOT EXISTS t1(a string, b int);
+
+# 为点 player100 添加 Tag t1。
+nebula> INSERT VERTEX t1(a, b) VALUES "player100":("Hello", 100);
+
+# 基于 Tag player 和 t1 获取点 player100 上的属性值。
+nebula> FETCH PROP ON player, t1 "player100" YIELD vertex AS v;
++----------------------------------------------------------------------------+
+| v                                                                          |
++----------------------------------------------------------------------------+
+| ("player100" :player{age: 42, name: "Tim Duncan"} :t1{a: "Hello", b: 100}) |
++----------------------------------------------------------------------------+
+```
+
+ 用户可以在`FETCH`语句中组合多个 Tag 和多个点。
+
+```ngql
+nebula> FETCH PROP ON player, t1 "player100", "player103" YIELD vertex AS v;
++----------------------------------------------------------------------------+
+| v                                                                          |
++----------------------------------------------------------------------------+
+| ("player100" :player{age: 42, name: "Tim Duncan"} :t1{a: "Hello", b: 100}) |
+| ("player103" :player{age: 32, name: "Rudy Gay"})                           |
++----------------------------------------------------------------------------+
+```", "completion": "获取点的属性值时，用户也可以指定 Tag 的别名。
+
+```ngql
+nebula> FETCH PROP ON p:player, t:t1 "player100", "player103" YIELD vertex AS v;
++----------------------------------------------------------------------------+
+| v                                                                         |
++----------------------------------------------------------------------------+
+| ("player100" :p{age: 42, name: "Tim Duncan"} :t{a: "Hello", b: 100})       |
+| ("player103" :p{age: 32, name: "Rudy Gay"})                                 |
++----------------------------------------------------------------------------+
+```"}
+{"prompt": "# FETCH
+
+## 获取点的属性值
+
+### 在所有标签中获取点的属性值
+
+### 在所有标签中获取点的属性值
+
+在`FETCH`语句中使用`*`获取当前图空间所有标签里，点的属性值。
+
+```ngql
+nebula> FETCH PROP ON * "player100", "player106", "team200" YIELD vertex AS v;
++----------------------------------------------------------------------------+
+| v                                                                          |
++----------------------------------------------------------------------------+
+| ("player100" :player{age: 42, name: "Tim Duncan"} :t1{a: "Hello", b: 100}) |
+| ("player106" :player{age: 25, name: "Kyle Anderson"})                      |
+| ("team200" :team{name: "Warriors"})                                        |
++----------------------------------------------------------------------------+
+```", "completion": "### 在指定的标签里获取点的属性值
+
+在`FETCH`语句中使用`*`获取当前图空间指定标签里，点的属性值。
+
+```ngql
+nebula> FETCH PROP ON * "player100", "player106" YIELD vertex AS v;
++----------------------------------------------------------------------------+
+| v                                                                         |
++----------------------------------------------------------------------------+
+| ("player100" :player{age: 42, name: "Tim Duncan"} :t1{a: "Hello", b: 100}) |
+| ("player106" :player{age: 25, name: "Kyle Anderson"})                      |
++----------------------------------------------------------------------------+
+```
+
+### 在指定的标签里获取点的属性值
+
+使用`FETCH`语句获取当前图空间指定标签里，点的属性值。
+
+```ngql
+nebula> FETCH PROP ON * "player100", "player106" YIELD vertex AS v;
++----------------------------------------------------------------------------+
+| v                                                                         |
++----------------------------------------------------------------------------+
+| ("player100" :player{age: 42, name: "Tim Duncan"} :t1{a: "Hello", b: 100}) |
+| ("player106" :player{age: 25, name: "Kyle Anderson"})                      |
++----------------------------------------------------------------------------+
+```
+
+### 在指定的标签和指定的属性上获取点的属性值
+
+使用`FETCH`语句获取当前图空间指定标签和指定的属性上，点的属性值。
+
+```ngql
+nebula> FETCH PROP ON * "player100" YIELD vertex.age AS age;
++------+
+| age  |
++------+
+| 42   |
++------+
+```"}
+{"prompt": "# LOOKUP
+
+`LOOKUP`根据索引遍历数据。用户可以使用`LOOKUP`实现如下功能：
+
+- 根据`WHERE`子句搜索特定数据。
+
+- 通过 Tag 列出点：检索指定 Tag 的所有点 ID。
+
+- 通过 Edge type 列出边：检索指定 Edge type 的所有边的起始点、目的点和 rank。
+
+- 统计包含指定 Tag 的点或属于指定 Edge type 的边的数量。", "completion": ""}
+{"prompt": "# LOOKUP
+
+## 统计点或边
+
+## 统计点或边
+
+统计 Tag 为`player`的点和 Edge type 为`follow`的边。
+
+```ngql
+nebula> LOOKUP ON player YIELD id(vertex)|\
+        YIELD COUNT(*) AS Player_Number;
++---------------+
+| Player_Number |
++---------------+
+| 51            |
++---------------+
+
+nebula> LOOKUP ON follow YIELD edge AS e| \
+        YIELD COUNT(*) AS Follow_Number;
++---------------+
+| Follow_Number |
++---------------+
+| 81            |
++---------------+
+```
+
+!!! note
+
+    使用 [`SHOW STATS`命令](./6.show/14.show-stats.md)也可以统计点和边。", "completion": ""}
+{"prompt": "# LOOKUP
+
+## OpenCypher 兼容性
+
+## OpenCypher 兼容性
+
+本文操作仅适用于原生 nGQL。", "completion": "如果您的图形数据库是基于 OpenCypher 语言的，则可以通过以下两种方式将其与 nGQL 兼容：
+
+方法一：使用 nGQL 语句查询 OpenCypher 数据
+
+方法二：在图形数据库中构建视图，将视图的结构转换为 nGQL 语句的结构
+
+### 方法一：使用 nGQL 语句查询 OpenCypher 数据
+
+为了便于操作，您可以使用以下 nGQL 语句查询 OpenCypher 数据：
+
+MATCH (n) RETURN n LIMIT 100
+
+您还可以通过在 nGQL 语句中使用 OpenCypher 关键字来查询 OpenCypher 数据。例如，您可以使用以下 nGQL 语句查询 OpenCypher 数据：
+
+MATCH (n) RETURN n LIMIT 100
+
+### 方法二：在图形数据库中构建视图，将视图的结构转换为 nGQL 语句的结构
+
+您可以通过在图形数据库中创建视图来实现 OpenCypher 与 nGQL 的兼容，然后将视图的结构转换为 nGQL 语句的结构。
+
+为了便于操作，您可以使用以下 nGQL 语句查询 OpenCypher 数据：
+
+MATCH (n) RETURN n LIMIT 100
+
+您还可以通过在 nGQL 语句中使用 OpenCypher 关键字来查询 OpenCypher 数据。例如，您可以使用以下 nGQL 语句查询 OpenCypher 数据：
+
+MATCH (n) RETURN n LIMIT 100"}
+{"prompt": "# LOOKUP
+
+## 注意事项
+
+## 注意事项
+
+- 索引会导致写性能大幅降低<!--（降低 90%甚至更多）-->。请不要随意在生产环境中使用索引，除非很清楚使用索引对业务的影响。
+
+- 通过Explain命令查看选择的索引。
+
+  !!! compatibility "历史版本兼容性"
+
+        在 2.5.0 版本之前，如果用`LOOKUP`语句基于指定属性查询时该属性没有索引，系统将报错，而不会使用其它索引。", "completion": "2.5.0 版本开始，如果指定属性没有索引，则系统会尝试使用其它索引。
+
+  !!!
+
+## 注意事项
+
+- 索引会导致写性能大幅降低。请不要随意在生产环境中使用索引，除非很清楚使用索引对业务的影响。
+
+- 通过Explain命令查看选择的索引。
+
+  !!! compatibility "历史版本兼容性"
+
+        在 2.5.0 版本之前，如果用`LOOKUP`语句基于指定属性查询时该属性没有索引，系统将报错，而不会使用其它索引。 2.5.0 版本开始，如果指定属性没有索引，则系统会尝试使用其它索引。
+
+  !!!"}
+{"prompt": "# LOOKUP
+
+## 前提条件
+
+## 前提条件
+
+请确保`LOOKUP`语句有至少一个索引可用。
+
+如果已经存在相关的点、边或属性，必须在新创建索引后[重建索引](../14.native-index-statements/4.rebuild-native-index.md)，才能使其生效。", "completion": "## 语法
+
+### 单个索引查找
+
+```
+LOOKUP <index_name> FOR <vertex_id> RETURN <vertex_id> | <edge_id> | <property_key>
+```
+
+### 多个索引查找
+
+```
+LOOKUP <index_name>, ... FOR <vertex_id> RETURN <vertex_id> | <edge_id> | <property_key>
+```
+
+## 示例
+
+### 单个索引查找
+
+查询用户`v1`的关注者的信息：
+
+```
+LOOKUP user_follows FOR v1 RETURN user
+```
+
+### 多个索引查找
+
+查询用户`v1`的关注者的信息：
+
+```
+LOOKUP user_follows, user_followers FOR v1 RETURN user
+```"}
+{"prompt": "# LOOKUP
+
+## 语法
+
+## 语法
+
+```ngql
+LOOKUP ON {<vertex_tag> | <edge_type>}
+[WHERE <expression> [AND <expression> ...]]
+YIELD [DISTINCT] <return_list> [AS <alias>]
+[<clause>];
+
+<return_list>
+    <prop_name> [AS <col_alias>] [, <prop_name> [AS <prop_alias>] ...];
+```
+
+- `WHERE <expression>`：指定遍历的过滤条件，还可以结合布尔运算符 AND 和 OR 一起使用。详情请参见 [WHERE](../8.clauses-and-options/where.md)。
+
+- `YIELD`：定义需要返回的输出。详情请参见 [`YIELD`](../8.clauses-and-options/yield.md)。
+
+- `DISTINCT`：聚合输出结果，返回去重后的结果集。
+
+- `AS`：设置别名。
+
+- `clause`：支持`ORDER BY`、`LIMIT`子句。", "completion": "详情请参见 [`clauses`](../8.clauses-and-options/clauses.md)。"}
+{"prompt": "# LOOKUP
+
+## WHERE 语句限制
+
+## WHERE 语句限制
+
+在`LOOKUP`语句中使用`WHERE`子句，不支持如下操作：
+
+- `$-`和`$^`。
+- 在关系表达式中，不支持运算符两边都有字段名，例如`tagName.prop1 > tagName.prop2`。
+- 不支持运算表达式和函数表达式中嵌套 AliasProp 表达式。
+- 不支持 XOR 运算符。
+- 不支持除`STARTS WITH`之外的字符串操作。
+- 不支持过滤 `rank()`。
+- 不支持图模式.", "completion": ""}
+{"prompt": "# LOOKUP
+
+## 检索点
+
+## 检索点
+
+返回 Tag 为`player`且`name`为`Tony Parker`的点。
+
+```ngql
+nebula> CREATE TAG INDEX IF NOT EXISTS index_player ON player(name(30), age);
+
+nebula> REBUILD TAG INDEX index_player;
++------------+
+| New Job Id |
++------------+
+| 15         |
++------------+
+
+nebula> LOOKUP ON player \
+        WHERE player.name == "Tony Parker" \
+        YIELD id(vertex);
++---------------+
+| id(VERTEX)    |
++---------------+
+| "player101"   |
++---------------+
+
+nebula> LOOKUP ON player \
+        WHERE player.name == "Tony Parker" \
+        YIELD properties(vertex).name AS name, properties(vertex).age AS age;
++---------------+-----+
+| name          | age |
++---------------+-----+
+| "Tony Parker" | 36  |
++---------------+-----+
+
+nebula> LOOKUP ON player \
+        WHERE player.age  > 45 \
+        YIELD id(vertex);
++-------------+
+| id(VERTEX)  |
++-------------+
+| "player144" |
+| "player140" |
++-------------+
+
+nebula> LOOKUP ON player \
+        WHERE player.name STARTS WITH "B" \
+        AND player.age IN [22,30] \
+        YIELD properties(vertex).name, properties(vertex).age;
++-------------------------+------------------------+
+| properties(VERTEX).name | properties(VERTEX).age |
++-------------------------+------------------------+
+| "Ben Simmons"           | 22                     |
+| "Blake Griffin"         | 30                     |
++-------------------------+------------------------+
+
+nebula> LOOKUP ON player \
+        WHERE player.name == "Kobe Bryant"\
+        YIELD id(vertex) AS VertexID, properties(vertex).name AS name |\
+        GO FROM $-.VertexID OVER serve \
+        YIELD $-.name, properties(edge).start_year, properties(edge).end_year, properties($$).name;
++---------------+-----------------------------+---------------------------+---------------------+
+| $-.name       | properties(EDGE).start_year | properties(EDGE).end_year | properties($$).name |
++---------------+-----------------------------+---------------------------+---------------------+
+| "Kobe Bryant" | 1996                        | 2016                      | "Lakers"            |
++---------------+-----------------------------+---------------------------+---------------------+
+
+```", "completion": ""}
+{"prompt": "# LOOKUP
+
+## 检索边
+
+## 检索边
+
+返回 Edge type 为`follow`且`degree`为`90`的边。
+
+```ngql
+nebula> CREATE EDGE INDEX IF NOT EXISTS index_follow ON follow(degree);
+
+nebula> REBUILD EDGE INDEX index_follow;
++------------+
+| New Job Id |
++------------+
+| 62         |
++------------+
+
+nebula> LOOKUP ON follow \
+        WHERE follow.degree == 90 YIELD edge AS e;
++----------------------------------------------------+
+| e                                                  |
++----------------------------------------------------+
+| [:follow "player109"->"player125" @0 {degree: 90}] |
+| [:follow "player118"->"player120" @0 {degree: 90}] |
+| [:follow "player118"->"player131" @0 {degree: 90}] |
+...
+
+nebula> LOOKUP ON follow \
+        WHERE follow.degree == 90 \
+        YIELD properties(edge).degree;
++-------------------------+
+| properties(EDGE).degree |
++-------------------------+
+| 90                      |
+| 90                      |
+...
+
+nebula> LOOKUP ON follow \
+        YIELD properties(edge).degree as degree \
+        | ORDER BY $-.degree \
+        | LIMIT 10;
++--------+
+| degree |
++--------+
+| -1     |
+| -1     |
+| 9      |
+| 10     |
+| 13     |
+| 50     |
+| 55     |
+| 60     |
+| 70     |
+| 70     |
++--------+
+
+nebula> LOOKUP ON follow \
+        WHERE follow.degree == 60 \
+        YIELD dst(edge) AS DstVID, properties(edge).degree AS Degree |\
+        GO FROM $-.DstVID OVER serve \
+        YIELD $-.DstVID, properties(edge).start_year, properties(edge).end_year, properties($$).name;
++-------------+-----------------------------+---------------------------+---------------------+
+| $-.DstVID   | properties(EDGE).start_year | properties(EDGE).end_year | properties($$).name |
++-------------+-----------------------------+---------------------------+---------------------+
+| "player105" | 2010                        | 2018                      | "Spurs"             |
+| "player105" | 2009                        | 2010                      | "Cavaliers"         |
+| "player105" | 2018                        | 2019                      | "Raptors"           |
++-------------+-----------------------------+---------------------------+---------------------+
+```", "completion": ""}
+{"prompt": "# LOOKUP
+
+## 通过 Tag 列出所有的对应的点/通过 Edge type 列出边
+
+## 通过 Tag 列出所有的对应的点/通过 Edge type 列出边
+
+如果需要通过 Tag 列出所有的点，或通过 Edge type 列出边，则 Tag、Edge type 或属性上必须有至少一个索引。
+
+例如一个 Tag `player`有属性`name`和`age`，为了遍历所有包含 Tag `player`的点 ID，Tag `player`、属性`name`或属性`age`中必须有一个已经创建索引。
+
+- 查找所有 Tag 为`player`的点 VID。
+
+    ```ngql
+    nebula> CREATE TAG IF NOT EXISTS player(name string,age int);
+
+    nebula> CREATE TAG INDEX IF NOT EXISTS player_index on player();
+
+    nebula> REBUILD TAG INDEX player_index;
+    +------------+
+    | New Job Id |
+    +------------+
+    | 66         |
+    +------------+
+
+    nebula> INSERT VERTEX player(name,age) \
+            VALUES "player100":("Tim Duncan", 42), "player101":("Tony Parker", 36);
+
+    # 列出所有的 player。类似于 MATCH (n:player) RETURN id(n) /*, n */。
+
+    nebula> LOOKUP ON player YIELD id(vertex);
+    +-------------+
+    | id(VERTEX)  |
+    +-------------+
+    | "player100" |
+    | "player101" |
+    ...
+
+    # 从结果中返回最前面的 4 行数据。
+    nebula> LOOKUP ON player YIELD id(vertex) | LIMIT 4;
+    +-------------+
+    | id(VERTEX)  |
+    +-------------+
+    | "player105" |
+    | "player109" |
+    | "player111" |
+    | "player118" |
+    +-------------+
+    ```
+
+- 查找 Edge type 为`follow`的所有边的信息。
+
+    ```ngql
+    nebula> CREATE EDGE IF NOT EXISTS follow(degree int);
+
+    nebula> CREATE EDGE INDEX IF NOT EXISTS follow_index on follow();
+
+    nebula> REBUILD EDGE INDEX follow_index;
+    +------------+
+    | New Job Id |
+    +------------+
+    | 88         |
+    +------------+
+
+    nebula> INSERT EDGE follow(degree) \
+            VALUES "player100"->"player101":(95);
+
+    # 列出所有的 follow 边。类似于 MATCH (s)-[e:follow]->(d) RETURN id(s), rank(e), id(d) /*, type(e) */。
+
+    nebula)> LOOKUP ON follow YIELD edge AS e;
+    +-----------------------------------------------------+
+    | e                                                   |
+    +-----------------------------------------------------+
+    | [:follow "player105"->"player100" @0 {degree: 70}]  |
+    | [:follow "player105"->"player116" @0 {degree: 80}]  |
+    | [:follow "player109"->"player100" @0 {degree: 80}]  |
+    ...
+    ```", "completion": ""}
+{"prompt": "# OPTIONAL MATCH
+
+!!! caution
+
+    目前 `OPTIONAL MATCH` 为 Beta 功能，后续可能会有一定优化调整。
+
+`OPTIONAL MATCH`通常与`MATCH`语句一起使用，作为`MATCH`语句的可选项去匹配命中的模式，如果没有命中对应的模式，对应的列返回`NULL`。
+
+## openCypher 兼容性
+
+本文操作仅适用于 nGQL 中的 openCypher 方式。
+
+## 使用限制
+
+`OPTIONAL MATCH`子句中暂不支持使用`WHERE`子句。
+
+## 示例
+
+`MATCH`语句中使用`OPTIONAL MATCH`的示例如下：
+
+```ngql
+nebula> MATCH (m)-[]->(n) WHERE id(m)=="player100" \
+        OPTIONAL MATCH (n)-[]->(l) \
+        RETURN id(m),id(n),id(l);
++-------------+-------------+-------------+
+| id(m)       | id(n)       | id(l)       |
++-------------+-------------+-------------+
+| "player100" | "team204"   | __NULL__    |
+| "player100" | "player101" | "team204"   |
+| "player100" | "player101" | "team215"   |
+| "player100" | "player101" | "player100" |
+| "player100" | "player101" | "player102" |
+| "player100" | "player101" | "player125" |
+| "player100" | "player125" | "team204"   |
+| "player100" | "player125" | "player100" |
++-------------+-------------+-------------+
+```
+
+而使用多`MATCH`，不使用`OPTIONAL MATCH`时，会返回模式完全匹配的行。示例如下：
+
+```ngql
+nebula> MATCH (m)-[]->(n) WHERE id(m)=="player100" \
+        MATCH (n)-[]->(l) \
+        RETURN id(m),id(n),id(l);
++-------------+-------------+-------------+
+| id(m)       | id(n)       | id(l)       |
++-------------+-------------+-------------+
+| "player100" | "player101" | "team204"   |
+| "player100" | "player101" | "team215"   |
+| "player100" | "player101" | "player100" |
+| "player100" | "player101" | "player102" |
+| "player100" | "player101" | "player125" |
+| "player100" | "player125" | "team204"   |
+| "player100" | "player125" | "player100" |
++-------------+-------------+-------------+
+```", "completion": "## 语法
+
+### OPTIONAL MATCH 子句
+
+`OPTIONAL MATCH` 子句可选地匹配模式。
+
+#### 语法
+
+语法格式如下：
+
+```
+OPTIONAL MATCH (node1)-[relation1]->(node2)
+```
+
+#### 参数
+
+`OPTIONAL MATCH` 子句包含一个或多个模式匹配。
+
+#### 示例
+
+以下示例包含了一个`OPTIONAL MATCH`子句：
+
+```
+OPTIONAL MATCH (person:Person {name:"Tom Cruise"})-[:ACTED_IN]->(movie:Movie)
+RETURN movie.name
+```
+
+### MATCH 子句
+
+`MATCH`子句用于匹配模式。
+
+#### 语法
+
+语法格式如下：
+
+```
+MATCH (node1)-[relation1]->(node2)
+```
+
+#### 参数
+
+`MATCH` 子句包含一个或多个模式匹配。
+
+#### 示例
+
+以下示例包含了一个`MATCH`子句：
+
+```
+MATCH (person:Person {name:"Tom Cruise"})-[:ACTED_IN]->(movie:Movie)
+RETURN movie.name
+```
+
+### RETURN 子句
+
+`RETURN`子句返回匹配到的对象。
+
+#### 语法
+
+语法格式如下：
+
+```
+RETURN < expression > [ AS < name > ]
+```
+
+`RETURN`子句可以包含一个或多个表达式。
+
+#### 示例
+
+以下示例包含了一个`RETURN`子句：
+
+```
+MATCH (person:Person {name:"Tom Cruise"})-[:ACTED_IN]->(movie:Movie)
+RETURN movie.name
+```
+
+
+
+# OPTIONAL MATCH
+
+!!! caution
+
+    The `OPTIONAL MATCH` is a Beta feature and may be subject to change.
+
+`OPTIONAL MATCH` is used with `MATCH` statements as an optional way to match patterns. If a match is not found, the column corresponding to the `OPTIONAL MATCH` will return `NULL`.
+
+## openCypher Compatibility
+
+This section applies only to openCypher in nGQL.
+
+## Restrictions
+
+The `WHERE` clause is not supported in `OPTIONAL MATCH` subclauses.
+
+## Examples
+
+The following example uses `OPTIONAL MATCH` with the `MATCH` statement:
+
+```ngql
+nebula> MATCH (m)-[]->(n) WHERE id(m)=="player100" \
+        OPTIONAL MATCH (n)-[]->(l) \
+        RETURN id(m),id(n),id(l);
++-------------+-------------+-------------+
+| id(m)       | id(n)       | id(l)       |
++-------------+-------------+-------------+
+| "player100" | "team204"   | __NULL__    |
+| "player100" | "player101" | "team204"   |
+| "player100" | "player101" | "team215"   |
+| "player100" | "player101" | "player100" |
+| "player100" | "player101" | "player102" |
+| "player100" | "player101" | "player125" |
+| "player100" | "player125" | "team204"   |
+| "player100" | "player125" | "player100" |
++-------------+-------------+-------------+
+```
+
+When using multiple `MATCH` statements without `OPTIONAL MATCH`, only rows with complete pattern matches are returned. The following example returns only the rows with complete pattern matches:
+
+```ngql
+nebula> MATCH (m)-[]->(n) WHERE id(m)=="player100" \
+        MATCH (n)-[]->(l) \
+        RETURN id(m),id(n),id(l);
++-------------+-------------+-------------+
+| id(m)       | id(n)       | id(l)       |
++-------------+-------------+-------------+
+| "player100" | "player101" | "team204"   |
+| "player100" | "player101" | "team215"   |
+| "player100" | "player101" | "player100" |
+| "player100" | "player101" | "player102" |
+| "player100" | "player101" | "player125" |
+| "player100" | "player125" | "team204"   |
+| "player100" | "player125" | "player100" |
++-------------+-------------+-------------+
+```
+
+## Syntax
+
+### OPTIONAL MATCH Subclause
+
+The `OPTIONAL MATCH` subclause optionally matches patterns.
+
+#### Syntax
+
+The syntax is as follows:
+
+```
+OPTIONAL MATCH (node1)-[relation1]->(node2)
+```
+
+#### Parameters
+
+The `OPTIONAL MATCH` subclause contains one or more pattern matches.
+
+#### Examples
+
+The following example contains an `OPTIONAL MATCH` subclause:
+
+```
+OPTIONAL MATCH (person:Person {name:"Tom Cruise"})-[:ACTED_IN]->(movie:Movie)
+RETURN movie.name
+```
+
+### MATCH Subclause
+
+The `MATCH` subclause matches patterns.
+
+#### Syntax
+
+The syntax is as follows:
+
+```
+MATCH (node1)-[relation1]->(node2)
+```
+
+#### Parameters
+
+The `MATCH` subclause contains one or more pattern matches.
+
+#### Examples
+
+The following example contains a `MATCH` subclause:
+
+```
+MATCH (person:Person {name:"Tom Cruise"})-[:ACTED_IN]->(movie:Movie)
+RETURN movie.name
+```
+
+### RETURN Subclause
+
+The `RETURN` subclause returns the matched objects.
+
+#### Syntax
+
+The syntax is as follows:
+
+```
+RETURN < expression > [ AS < name > ]
+```
+
+The `RETURN` subclause can contain one or more expressions.
+
+#### Examples
+
+The following example contains a `RETURN` subclause:
+
+```
+MATCH (person:Person {name:"Tom Cruise"})-[:ACTED_IN]->(movie:Movie)
+RETURN movie.name
+```"}
+{"prompt": "# SHOW CHARSET
+
+`SHOW CHARSET`语句显示当前的字符集。
+
+目前可用的字符集为`utf8`和`utf8mb4`。默认字符集为`utf8`。NebulaGraph 扩展`uft8`支持四字节字符，因此`utf8`和`utf8mb4`是等价的。
+
+## 语法
+
+```ngql
+SHOW CHARSET;
+```
+
+## 示例
+
+```ngql
+nebula> SHOW CHARSET;
++---------+-----------------+-------------------+--------+
+| Charset | Description     | Default collation | Maxlen |
++---------+-----------------+-------------------+--------+
+| "utf8"  | "UTF-8 Unicode" | "utf8_bin"        | 4      |
++---------+-----------------+-------------------+--------+
+```
+
+|参数|说明|
+|:---|:---|
+|`Charset`|字符集名称。|
+|`Description`|字符集说明。|
+|`Default collation`|默认排序规则。|
+|`Maxlen`|存储一个字符所需的最大字节数。|", "completion": "## 注意事项
+
+`SHOW CHARSET`语句只显示Nebula Graph支持的字符集。
+
+## 相关章节
+
+- [字符集](https://docs.nebulagraph.io/cn/v2.1.0/concept/data-model/data-type/charset.html)"}
+{"prompt": "# SHOW ROLES
+
+`SHOW ROLES`语句显示分配给用户的角色信息。
+
+根据登录的用户角色，返回的结果也有所不同：
+
+- 如果登录的用户角色是`GOD`，或者有权访问该图空间的`ADMIN`，则返回该图空间内除`GOD`之外的所有用户角色信息。
+
+- 如果登录的用户角色是有权访问该图空间`DBA`、`USER`或`GUEST`，则返回自身的角色信息。
+
+- 如果登录的用户角色没有权限访问该图空间，则返回权限错误。
+
+关于角色的详情请参见[内置角色权限](../../../7.data-security/1.authentication/3.role-list.md)。
+
+## 语法
+
+```ngql
+SHOW ROLES IN <space_name>;
+```
+
+## 示例
+
+```ngql
+nebula> SHOW ROLES in basketballplayer;
++---------+-----------+
+| Account | Role Type |
++---------+-----------+
+| "user1" | "ADMIN"   |
++---------+-----------+
+```", "completion": ""}
+{"prompt": "# SHOW SNAPSHOTS
+
+`SHOW SNAPSHOTS`语句显示所有快照信息。
+
+快照的使用方式请参见[管理快照](../../../backup-and-restore/3.manage-snapshot.md)。
+
+## 角色要求
+
+只有`GOD`角色的用户（即`root`）才能执行`SHOW SNAPSHOTS`语句。
+
+## 语法
+
+```ngql
+SHOW SNAPSHOTS;
+```
+
+## 示例
+
+```ngql
+nebula> SHOW SNAPSHOTS;
++--------------------------------+---------+-----------------------------------------------------+
+| Name                           | Status  | Hosts                                               |
++--------------------------------+---------+-----------------------------------------------------+
+| "SNAPSHOT_2020_12_16_11_13_55" | "VALID" | "storaged0:9779, storaged1:9779, storaged2:9779"    |
+| "SNAPSHOT_2020_12_16_11_14_10" | "VALID" | "storaged0:9779, storaged1:9779, storaged2:9779"    |
++--------------------------------+---------+-----------------------------------------------------+
+```", "completion": "## 注意事项
+
+- 一个快照可以同时存在多个主机上，一个主机上可以存在多个快照。
+- 快照名称是唯一的。
+- 快照信息存储在快照目录下，快照目录默认为`/var/lib/nebula/snapshot/`。"}
+{"prompt": "# SHOW SPACES
+
+`SHOW SPACES`语句显示现存的图空间。
+
+如何创建图空间，请参见 [CREATE SPACE](./../../9.space-statements/1.create-space.md)。
+
+## 语法
+
+```ngql
+SHOW SPACES;
+```
+
+## 示例
+
+```ngql
+nebula> SHOW SPACES;
++---------------------+
+| Name                |
++---------------------+
+| "docs"              |
+| "basketballplayer"  |
++---------------------+
+```", "completion": "## 输出说明
+
+| 列名 | 说明 |
+| ---- | ---- |
+| Name | 图空间名称 |"}
+{"prompt": "# SHOW STATS
+
+`SHOW STATS`语句显示最近一次`SUBMIT JOB STATS`作业收集的图空间统计信息。
+
+图空间统计信息包含：
+
+- 点的总数
+- 边的总数
+- 每个 Tag 关联的点的总数
+- 每个 Edge type 关联的边的总数
+
+!!! Warning
+
+    `SHOW STATS`返回的不是实时数据。因为返回的数据是最近一次 [SUBMIT JOB STATS](../../4.job-statements.md) 作业收集的数据。返回的数据可能包含 [TTL](../../8.clauses-and-options/ttl-options.md) 过期数据，该过期数据会在下次执行 [Compaction 操作](../../../8.service-tuning/compaction.md)时被删除并不纳入统计。
+
+## 前提条件
+
+在需要查看统计信息的图空间中执行`SUBMIT JOB STATS`。详情请参见 [SUBMIT JOB STATS](../../4.job-statements.md)。
+
+!!! caution
+
+    `SHOW STATS`的结果取决于最后一次执行的`SUBMIT JOB STATS`。如果发生过新的写入或者更改，必须再次执行`SUBMIT JOB STATS`，否则统计数据有错误。
+## 语法
+
+```ngql
+SHOW STATS;
+```
+
+## 示例
+
+```ngql
+# 选择图空间。
+nebula> USE basketballplayer;
+
+# 执行 SUBMIT JOB STATS。
+nebula> SUBMIT JOB STATS;
++------------+
+| New Job Id |
++------------+
+| 98         |
++------------+
+
+# 确认作业执行成功。
+nebula> SHOW JOB 98;
++----------------+---------------+------------+----------------------------+----------------------------+-------------+
+| Job Id(TaskId) | Command(Dest) | Status     | Start Time                 | Stop Time                  | Error Code  |
++----------------+---------------+------------+----------------------------+----------------------------+-------------+
+| 98             | "STATS"       | "FINISHED" | 2021-11-01T09:33:21.000000 | 2021-11-01T09:33:21.000000 | "SUCCEEDED" |
+| 0              | "storaged2"   | "FINISHED" | 2021-11-01T09:33:21.000000 | 2021-11-01T09:33:21.000000 | "SUCCEEDED" |
+| 1              | "storaged0"   | "FINISHED" | 2021-11-01T09:33:21.000000 | 2021-11-01T09:33:21.000000 | "SUCCEEDED" |
+| 2              | "storaged1"   | "FINISHED" | 2021-11-01T09:33:21.000000 | 2021-11-01T09:33:21.000000 | "SUCCEEDED" |
+| "Total:3"      | "Succeeded:3" | "Failed:0" | "In Progress:0"            | ""                         | ""          |
++----------------+---------------+------------+----------------------------+----------------------------+-------------+
+
+# 显示图空间统计信息。
+nebula> SHOW STATS;
++---------+------------+-------+
+| Type    | Name       | Count |
++---------+------------+-------+
+| "Tag"   | "player"   | 51    |
+| "Tag"   | "team"     | 30    |
+| "Edge"  | "follow"   | 81    |
+| "Edge"  | "serve"    | 152   |
+| "Space" | "vertices" | 81    |
+| "Space" | "edges"    | 233   |
++---------+------------+-------+
+```", "completion": "## 结果说明
+
+以下列表介绍了`SHOW STATS`语句返回的结果：
+
+- `Type`：统计项类型。包括：`Tag`、`Edge`和`Space`三种类型。
+- `Name`：统计项名称。如果是`Tag`，则是 Tag 的 name；如果是`Edge`，则是 Edge type 的 name；如果是`Space`，则是图空间名称。
+- `Count`：统计项数量。如果是`Tag`，则是 Tag 关联的点数；如果是`Edge`，则是 Edge type 关联的边数；如果是`Space`，则是图空间的点数和边数。"}
+{"prompt": "# SHOW TAGS/EDGES
+
+`SHOW TAGS`语句显示当前图空间内的所有 Tag。
+
+`SHOW EDGES`语句显示当前图空间内的所有 Edge type。
+
+## 语法
+
+```ngql
+SHOW {TAGS | EDGES};
+```
+
+## 示例
+
+```ngql
+nebula> SHOW TAGS;
++----------+
+| Name     |
++----------+
+| "player" |
+| "star"   |
+| "team"   |
++----------+
+
+nebula> SHOW EDGES;
++----------+
+| Name     |
++----------+
+| "follow" |
+| "serve"  |
++----------+
+```", "completion": "## 显示当前图空间内的所有 Tag
+
+```ngql
+SHOW TAGS;
+```
+
+## 显示当前图空间内的所有 Edge
+
+```ngql
+SHOW EDGES;
+```"}
+{"prompt": "# SHOW USERS
+
+`SHOW USERS`语句显示用户信息。
+
+## 角色要求
+
+只有`GOD`角色的用户（即`root`）才能执行`SHOW USERS`语句。
+
+## 语法
+
+```ngql
+SHOW USERS;
+```
+
+## 示例
+
+```ngql
+nebula> SHOW USERS;
++---------+-----------------+
+| Account | IP Whitelist    |
++---------+-----------------+
+| "root"  | ""              |
+| "user1" | ""              |
+| "user2" | "192.168.10.10" |
++---------+-----------------+
+```", "completion": "## 参考
+
+- [用户管理](https://help.aliyun.com/document_detail/73730.html)"}
+{"prompt": "# SHOW SESSIONS
+
+登录 NebulaGraph 数据库时，会创建对应会话，用户可以查询会话信息。
+
+## 注意事项
+
+- 执行`exit`退出登录时，客户端会调用 API `release`，释放会话并清除会话信息。如果没有正常退出，且没有在配置文件 [nebula-graphd.conf](../../../5.configurations-and-logs/1.configurations/3.graph-config.md) 设置空闲会话超时时间（`session_idle_timeout_secs`），会话不会自动释放。对于未自动释放的会话，需要手动删除指定会话，详情参见[终止会话](../../17.query-tuning-statements/2.kill-session.md)。
+
+- `SHOW SESSIONS`查询所有 Graph 服务上的会话信息。
+
+- `SHOW LOCAL SESSIONS`从当前连接的 Graph 服务获取会话信息，不会查询其他 Graph 服务上的会话信息。
+
+- `SHOW SESSION <Session_Id>`查询指定 Session ID 的会话信息。
+
+## 语法
+
+```ngql
+SHOW [LOCAL] SESSIONS;
+SHOW SESSION <Session_Id>;
+```
+
+## 示例
+
+```ngql
+nebula> SHOW SESSIONS;
++------------------+----------+--------------------+----------------------------+----------------------------+------------------+----------+--------------------+
+| SessionId        | UserName | SpaceName          | CreateTime                 | UpdateTime                 | GraphAddr        | Timezone | ClientIp           |
++------------------+----------+--------------------+----------------------------+----------------------------+------------------+----------+--------------------+
+| 1651220858102296 | "root"   | "basketballplayer" | 2022-04-29T08:27:38.102296 | 2022-04-29T08:50:46.282921 | "127.0.0.1:9669" | 0        | "::ffff:127.0.0.1" |
+| 1651199330300991 | "root"   | "basketballplayer" | 2022-04-29T02:28:50.300991 | 2022-04-29T08:16:28.339038 | "127.0.0.1:9669" | 0        | "::ffff:127.0.0.1" |
+| 1651112899847744 | "root"   | "basketballplayer" | 2022-04-28T02:28:19.847744 | 2022-04-28T08:17:44.470210 | "127.0.0.1:9669" | 0        | "::ffff:127.0.0.1" |
+| 1651041092662100 | "root"   | "basketballplayer" | 2022-04-27T06:31:32.662100 | 2022-04-27T07:01:25.200978 | "127.0.0.1:9669" | 0        | "::ffff:127.0.0.1" |
+| 1650959429593975 | "root"   | "basketballplayer" | 2022-04-26T07:50:29.593975 | 2022-04-26T07:51:47.184810 | "127.0.0.1:9669" | 0        | "::ffff:127.0.0.1" |
+| 1650958897679595 | "root"   | ""                 | 2022-04-26T07:41:37.679595 | 2022-04-26T07:41:37.683802 | "127.0.0.1:9669" | 0        | "::ffff:127.0.0.1" |
++------------------+----------+--------------------+----------------------------+----------------------------+------------------+----------+--------------------+
+
+nebula> SHOW SESSION 1635254859271703;
++------------------+----------+--------------------+----------------------------+----------------------------+------------------+----------+--------------------+
+| SessionId        | UserName | SpaceName          | CreateTime                 | UpdateTime                 | GraphAddr        | Timezone | ClientIp           |
++------------------+----------+--------------------+----------------------------+----------------------------+------------------+----------+--------------------+
+| 1651220858102296 | "root"   | "basketballplayer" | 2022-04-29T08:27:38.102296 | 2022-04-29T08:50:54.254384 | "127.0.0.1:9669" | 0        | "::ffff:127.0.0.1" |
++------------------+----------+--------------------+----------------------------+----------------------------+------------------+----------+--------------------+
+```
+
+|参数|说明|
+|:---|:---|
+|`SessionId`|会话 ID，唯一标识一个会话。|
+|`UserName`|会话的登录用户名称。|
+|`SpaceName`|用户当前所使用的图空间。刚登录时为空（`""`）。|
+|`CreateTime`|会话的创建时间，即用户认证登录的时间。时区为配置文件中`timezone_name`指定的时区。|
+|`UpdateTime`|用户有执行操作时，会更新此时间。时区为配置文件中`timezone_name`指定的时区。|
+|`GraphAddr`|会话的 Graph 服务地址和端口。|
+|`Timezone`|保留参数，暂无意义。|
+|`ClientIp`|会话的客户端 IP 地址。|", "completion": "# SHOW SESSIONS
+
+Login to NebulaGraph database will create corresponding session, user can query session information.
+
+## NOTICE
+
+- Executing `exit` to logout will call API `release` to release session and clear session information. If logout abnormally and no idle timeout time (`session_idle_timeout_secs`) is set in [nebula-graphd.conf](../../../5.configurations-and-logs/1.configurations/3.graph-config.md), the session will not be released automatically. For the session that is not released automatically, you need to manually delete the specified session, see [Kill Session](../../17.query-tuning-statements/2.kill-session.md) for details.
+
+- `SHOW SESSIONS` query all sessions on all Graph Service.
+
+- `SHOW LOCAL SESSIONS` get session information from current connected Graph Service, will not query other Graph Service.
+
+- `SHOW SESSION <Session_Id>` query session information of specified Session ID.
+
+## SYNTAX
+
+```ngql
+SHOW [LOCAL] SESSIONS;
+SHOW SESSION <Session_Id>;
+```
+
+## EXAMPLE
+
+```ngql
+nebula> SHOW SESSIONS;
++------------------+----------+--------------------+----------------------------+----------------------------+------------------+----------+--------------------+
+| SessionId        | UserName | SpaceName          | CreateTime                 | UpdateTime                 | GraphAddr        | Timezone | ClientIp           |
++------------------+----------+--------------------+----------------------------+----------------------------+------------------+----------+--------------------+
+| 1651220858102296 | "root"   | "basketballplayer" | 2022-04-29T08:27:38.102296 | 2022-04-29T08:50:46.282921 | "127.0.0.1:9669" | 0        | "::ffff:127.0.0.1" |
+| 1651199330300991 | "root"   | "basketballplayer" | 2022-04-29T02:28:50.300991 | 2022-04-29T08:16:28.339038 | "127.0.0.1:9669" | 0        | "::ffff:127.0.0.1" |
+| 1651112899847744 | "root"   | "basketballplayer" | 2022-04-28T02:28:19.847744 | 2022-04-28T08:17:44.470210 | "127.0.0.1:9669" | 0        | "::ffff:127.0.0.1" |
+| 1651041092662100 | "root"   | "basketballplayer" | 2022-04-27T06:31:32.662100 | 2022-04-27T07:01:25.200978 | "127.0.0.1:9669" | 0        | "::ffff:127.0.0.1" |
+| 1650959429593975 | "root"   | "basketballplayer" | 2022-04-26T07:50:29.593975 | 2022-04-26T07:51:47.184810 | "127.0.0.1:9669" | 0        | "::ffff:127.0.0.1" |
+| 1650958897679595 | "root"   | ""                 | 2022-04-26T07:41:37.679595 | 2022-04-26T07:41:37.683802 | "127.0.0.1:9669" | 0        | "::ffff:127.0.0.1" |
++------------------+----------+--------------------+----------------------------+----------------------------+------------------+----------+--------------------+
+
+nebula> SHOW SESSION 1635254859271703;
++------------------+----------+--------------------+----------------------------+----------------------------+------------------+----------+--------------------+
+| SessionId        | UserName | SpaceName          | CreateTime                 | UpdateTime                 | GraphAddr        | Timezone | ClientIp           |
++------------------+----------+--------------------+----------------------------+----------------------------+------------------+----------+--------------------+
+| 1651220858102296 | "root"   | "basketballplayer" | 2022-04-29T08:27:38.102296 | 2022-04-29T08:50:54.254384 | "127.0.0.1:9669" | 0        | "::ffff:127.0.0.1" |
++------------------+----------+--------------------+----------------------------+----------------------------+------------------+----------+--------------------+
+```
+
+|参数|说明|
+|:---|:---|
+|`SessionId`|会话 ID，唯一标识一个会话。|
+|`UserName`|会话的登录用户名称。|
+|`SpaceName`|用户当前所使用的图空间。刚登录时为空（`""`）。|
+|`CreateTime`|会话的创建时间，即用户认证登录的时间。时区为配置文件中`timezone_name`指定的时区。|
+|`UpdateTime`|用户有执行操作时，会更新此时间。时区为配置文件中`timezone_name`指定的时区。|
+|`GraphAddr`|会话的 Graph 服务地址和端口。|
+|`Timezone`|保留参数，暂无意义。|
+|`ClientIp`|会话的客户端 IP 地址。|"}
+{"prompt": "# SHOW QUERIES
+
+`SHOW QUERIES`语句可以查看当前 Session 中正在执行的查询请求信息。
+
+!!! note
+
+    如果需要终止查询，请参见[终止查询](../../17.query-tuning-statements/6.kill-query.md)。
+
+## 注意事项
+
+- `SHOW LOCAL QUERIES`从本地缓存获取当前 Session 中查询的状态，几乎没有延迟。
+
+- `SHOW QUERIES`从 Meta 服务获取所有 Session 中的查询信息。这些信息会根据参数`session_reclaim_interval_secs`定义的周期同步到 Meta 服务，因此在客户端获取到的信息可能属于上个同步周期。
+
+## 语法
+
+```ngql
+SHOW [LOCAL] QUERIES;
+```
+
+## 示例
+
+```ngql
+nebula> SHOW LOCAL QUERIES;
++------------------+-----------------+--------+----------------------+----------------------------+----------------+-----------+-----------------------+
+| SessionID        | ExecutionPlanID | User   | Host                 | StartTime                  | DurationInUSec | Status    | Query                 |
++------------------+-----------------+--------+----------------------+----------------------------+----------------+-----------+-----------------------+
+| 1625463842921750 | 46              | "root" | ""192.168.x.x":9669" | 2021-07-05T05:44:19.502903 | 0              | "RUNNING" | "SHOW LOCAL QUERIES;" |
++------------------+-----------------+--------+----------------------+----------------------------+----------------+-----------+-----------------------+
+
+nebula> SHOW QUERIES;
++------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+---------------------------------------------------------+
+| SessionID        | ExecutionPlanID | User    | Host                 | StartTime                  | DurationInUSec | Status    | Query                                                   |
++------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+---------------------------------------------------------+
+| 1625456037718757 | 54              | "user1" | ""192.168.x.x":9669" | 2021-07-05T05:51:08.691318 | 1504502        | "RUNNING" | "MATCH p=(v:player)-[*1..4]-(v2) RETURN v2 AS Friends;" |
++------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+---------------------------------------------------------+
+
+# 返回耗时 TOP 10 的查询。
+nebula> SHOW QUERIES | ORDER BY $-.DurationInUSec DESC | LIMIT 10;
++------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+-------------------------------------------------------+
+| SessionID        | ExecutionPlanID | User    | Host                 | StartTime                  | DurationInUSec | Status    | Query                                                 |
++------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+-------------------------------------------------------+
+| 1625471375320831 | 98              | "user2" | ""192.168.x.x":9669" | 2021-07-05T07:50:24.461779 | 2608176        | "RUNNING" | "MATCH (v:player)-[*1..4]-(v2) RETURN v2 AS Friends;" |
+| 1625456037718757 | 99              | "user1" | ""192.168.x.x":9669" | 2021-07-05T07:50:24.910616 | 2159333        | "RUNNING" | "MATCH (v:player)-[*1..4]-(v2) RETURN v2 AS Friends;" |
++------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+-------------------------------------------------------+
+```
+
+参数说明如下。
+
+|参数|说明|
+|:---|:---|
+| `SessionID` | 会话 ID。  |
+| `ExecutionPlanID` |  执行计划 ID。 |
+| `User` | 执行查询的用户名。  |
+| `Host` | 用户连接的服务器地址和端口。  |
+| `StartTime` | 执行查询的开始时间。  |
+| `DurationInUSec` | 执行查询的持续时长。单位：微秒。  |
+| `Status` | 查询的当前状态。  |
+| `Query` |  查询语句。 |", "completion": "## 备注
+
+- `SHOW QUERIES`语句需要[具有查看所有 Session 信息的权限](../../../../../../repository/official-doc/current/user-management/privilege-management.md)。
+- `SHOW LOCAL QUERIES`语句需要[具有查看当前 Session 信息的权限](../../../../../../repository/official-doc/current/user-management/privilege-management.md)。"}
+{"prompt": "# SHOW META LEADER
+
+`SHOW META LEADER`语句显示当前 Meta 集群的 leader 信息。
+
+关于 Meta 服务的详细说明请参见 [Meta 服务](../../../1.introduction/3.nebula-graph-architecture/2.meta-service.md)。
+
+## 语法
+
+```ngql
+SHOW META LEADER;
+```
+
+## 示例
+
+```ngql
+nebula> SHOW META LEADER;
++------------------+---------------------------+
+| Meta Leader      | secs from last heart beat |
++------------------+---------------------------+
+| "127.0.0.1:9559" | 3                         |
++------------------+---------------------------+
+```
+
+|参数|说明|
+|:---|:---|
+|`Meta Leader`|Meta 集群的 leader 信息，包括 leader 所在服务器的 IP 地址和端口。|
+|`secs from last heart beat`|距离上次心跳的时间间隔。单位：秒。|", "completion": "## 注意事项
+
+- `SHOW META LEADER` 语句需要在 nebula-console 或者 nebula-graphshell 中执行。
+
+- `SHOW META LEADER` 语句只能在 Meta 集群中执行。如果执行该语句时当前服务器不在 Meta 集群中，则会返回如下错误信息：
+
+    ```
+    Error code: 10, Error message: meta is not ready
+    ```"}
+{"prompt": "# SHOW COLLATION
+
+`SHOW COLLATION`语句显示当前的排序规则。
+
+目前可用的排序规则为`utf8_bin`和`utf8mb4_bin`。
+
+- 当字符集为`utf8`，默认排序规则为`utf8_bin`。
+
+- 当字符集为`utf8mb4`，默认排序规则为`utf8mb4_bin`。
+
+## 语法
+
+```ngql
+SHOW COLLATION;
+```
+
+## 示例
+
+```ngql
+nebula> SHOW COLLATION;
++------------+---------+
+| Collation  | Charset |
++------------+---------+
+| "utf8_bin" | "utf8"  |
++------------+---------+
+```
+
+|参数|说明|
+|:---|:---|
+|`Collation`|排序规则名称。|
+|`Charset`|与排序规则关联的字符集名称。|", "completion": "## 权限
+
+对于具有`SELECT`权限的任何用户，都可以执行`SHOW COLLATION`语句。"}
+{"prompt": "# SHOW CREATE SPACE
+
+`SHOW CREATE SPACE`语句显示指定图空间的创建语句。
+
+图空间的更多详细信息，请参见 [CREATE SPACE](../../9.space-statements/1.create-space.md)。
+
+## 语法
+
+```ngql
+SHOW CREATE SPACE <space_name>;
+```
+
+## 示例
+
+```ngql
+nebula> SHOW CREATE SPACE basketballplayer;
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| Space              | Create Space                                                                                                                                |
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+| "basketballplayer" | "CREATE SPACE `basketballplayer` (partition_num = 10, replica_factor = 1, charset = utf8, collate = utf8_bin, vid_type = FIXED_STRING(32))" |
++--------------------+---------------------------------------------------------------------------------------------------------------------------------------------+
+```", "completion": "## 注意事项
+
+- 本语句仅在本地运行时才能使用。"}
+{"prompt": "# SHOW CREATE TAG/EDGE
+
+`SHOW CREATE TAG`语句显示指定 Tag 的基本信息。Tag 的更多详细信息，请参见 [CREATE TAG](../../10.tag-statements/1.create-tag.md)。
+
+`SHOW CREATE EDGE`语句显示指定 Edge type 的基本信息。Edge type 的更多详细信息，请参见 [CREATE EDGE](../../11.edge-type-statements/1.create-edge.md)。
+
+## 语法
+
+```ngql
+SHOW CREATE {TAG <tag_name> | EDGE <edge_name>};
+```
+
+## 示例
+
+```ngql
+nebula> SHOW CREATE TAG player;
++----------+-----------------------------------+
+| Tag      | Create Tag                        |
++----------+-----------------------------------+
+| "player" | "CREATE TAG `player` (            |
+|          |  `name` string NULL,              |
+|          |  `age` int64 NULL                 |
+|          | ) ttl_duration = 0, ttl_col = """ |
++----------+-----------------------------------+
+
+nebula> SHOW CREATE EDGE follow;
++----------+-----------------------------------+
+| Edge     | Create Edge                       |
++----------+-----------------------------------+
+| "follow" | "CREATE EDGE `follow` (           |
+|          |  `degree` int64 NULL              |
+|          | ) ttl_duration = 0, ttl_col = """ |
++----------+-----------------------------------+
+```", "completion": "## 参数说明
+
+* `<tag_name>`：指定要显示的 Tag 的名称，可以是 Tag 的自定义名称，也可以是内置的 Tag 。
+
+* `<edge_name>`：指定要显示的 Edge type 的名称，可以是 Edge type 的自定义名称，也可以是内置的 Edge type 。"}
+{"prompt": "# SHOW HOSTS
+
+`SHOW HOSTS`语句可以显示集群信息，包括端口、状态、leader、分片、版本等信息，或者指定显示 Graph、Storage、Meta 服务主机信息。
+
+## 语法
+
+```ngql
+SHOW HOSTS [GRAPH | STORAGE | META];
+```
+
+!!! note
+
+    对于使用源码安装的 NebulaGraph，执行添加了服务名的命令后，输出的信息中不显示版本信息。
+
+## 示例
+
+```ngql
+nebula> SHOW HOSTS;
++-------------+-------+----------+--------------+----------------------------------+------------------------------+---------+
+| Host        | Port  | Status   | Leader count | Leader distribution              | Partition distribution       | Version |
++-------------+-------+----------+--------------+----------------------------------+------------------------------+---------+
+| "storaged0" | 9779  | "ONLINE" | 8            | "docs:5, basketballplayer:3"     | "docs:5, basketballplayer:3" | "{{nebula.release}}" |
+| "storaged1" | 9779  | "ONLINE" | 9            | "basketballplayer:4, docs:5"     | "docs:5, basketballplayer:4" | "{{nebula.release}}" |
+| "storaged2" | 9779  | "ONLINE" | 8            | "basketballplayer:3, docs:5"     | "docs:5, basketballplayer:3" | "{{nebula.release}}" |
++-------------+-------+----------+--------------+----------------------------------+------------------------------+---------+
+
+nebula> SHOW HOSTS GRAPH;
++-----------+------+----------+---------+--------------+---------+
+| Host      | Port | Status   | Role    | Git Info Sha | Version |
++-----------+------+----------+---------+--------------+---------+
+| "graphd"  | 9669 | "ONLINE" | "GRAPH" | "3ba41bd"    | "{{nebula.release}}" |
+| "graphd1" | 9669 | "ONLINE" | "GRAPH" | "3ba41bd"    | "{{nebula.release}}" |
+| "graphd2" | 9669 | "ONLINE" | "GRAPH" | "3ba41bd"    | "{{nebula.release}}" |
++-----------+------+----------+---------+--------------+---------+
+
+nebula> SHOW HOSTS STORAGE;
++-------------+------+----------+-----------+--------------+---------+
+| Host        | Port | Status   | Role      | Git Info Sha | Version |
++-------------+------+----------+-----------+--------------+---------+
+| "storaged0" | 9779 | "ONLINE" | "STORAGE" | "3ba41bd"    | "{{nebula.release}}" |
+| "storaged1" | 9779 | "ONLINE" | "STORAGE" | "3ba41bd"    | "{{nebula.release}}" |
+| "storaged2" | 9779 | "ONLINE" | "STORAGE" | "3ba41bd"    | "{{nebula.release}}" |
++-------------+------+----------+-----------+--------------+---------+
+
+nebula> SHOW HOSTS META;
++----------+------+----------+--------+--------------+---------+
+| Host     | Port | Status   | Role   | Git Info Sha | Version |
++----------+------+----------+--------+--------------+---------+
+| "metad2" | 9559 | "ONLINE" | "META" | "3ba41bd"    | "{{nebula.release}}" |
+| "metad0" | 9559 | "ONLINE" | "META" | "3ba41bd"    | "{{nebula.release}}" |
+| "metad1" | 9559 | "ONLINE" | "META" | "3ba41bd"    | "{{nebula.release}}" |
++----------+------+----------+--------+--------------+---------+
+```", "completion": "## 参数说明
+
+| 参数 | 描述 |
+| :-- | :-- |
+| `GRAPH` | 显示 Graph 服务主机信息。 |
+| `STORAGE` | 显示 Storage 服务主机信息。 |
+| `META` | 显示 Meta 服务主机信息。 |"}
+{"prompt": "# SHOW INDEX STATUS
+
+`SHOW INDEX STATUS`语句显示重建原生索引的作业状态，以便确定重建索引是否成功。
+
+## 语法
+
+```ngql
+SHOW {TAG | EDGE} INDEX STATUS;
+```
+
+## 示例
+
+```ngql
+nebula> SHOW TAG INDEX STATUS;
++------------------------------------+--------------+
+| Name                               | Index Status |
++------------------------------------+--------------+
+| "date1_index"                      | "FINISHED"   |
+| "basketballplayer_all_tag_indexes" | "FINISHED"   |
+| "any_shape_geo_index"              | "FINISHED"   |
++------------------------------------+--------------+
+
+nebula> SHOW EDGE INDEX STATUS;
++----------------+--------------+
+| Name           | Index Status |
++----------------+--------------+
+| "follow_index" | "FINISHED"   |
++----------------+--------------+
+```
+
+## 相关文档
+
+- [管理作业](../../4.job-statements.md)
+
+- [REBUILD NATIVE INDEX](../../14.native-index-statements/4.rebuild-native-index.md)", "completion": "- [DROP NATIVE INDEX](../../14.native-index-statements/2.drop-native-index.md)"}
+{"prompt": "# SHOW INDEXES
+
+`SHOW INDEXES`语句可以列出当前图空间内的所有 Tag 和 Edge type（包括属性）的索引。
+
+## 语法
+
+```ngql
+SHOW {TAG | EDGE} INDEXES;
+```
+
+## 示例
+
+```ngql
+nebula> SHOW TAG INDEXES;
++------------------+----------+----------+
+| Index Name       | By Tag   | Columns  |
++------------------+----------+----------+
+| "player_index_0" | "player" | []       |
+| "player_index_1" | "player" | ["name"] |
++------------------+----------+----------+
+
+nebula> SHOW EDGE INDEXES;
++----------------+----------+---------+
+| Index Name     | By Edge  | Columns |
++----------------+----------+---------+
+| "follow_index" | "follow" | []      |
++----------------+----------+---------+
+```
+
+!!! Compatibility "历史版本兼容性"
+
+    NebulaGraph 2.0.1 中， `SHOW TAG/EDGE INDEXES` 语句仅返回 `Names`。", "completion": "!> 从 Nebula Graph 2.1.0 开始，可以通过 `SHOW TAG/EDGE INDEXES` 语句列出图空间中所有索引的名称、tag 或 edge type、索引列（columns）。"}
+{"prompt": "# SHOW PARTS
+
+`SHOW PARTS`语句显示图空间中指定分片或所有分片的信息。
+
+## 语法
+
+```ngql
+SHOW PARTS [<part_id>];
+```
+
+## 示例
+
+```ngql
+nebula> SHOW PARTS;
++--------------+--------------------+--------------------+-------+
+| Partition ID | Leader             | Peers              | Losts |
++--------------+--------------------+--------------------+-------+
+| 1            | "192.168.2.1:9779" | "192.168.2.1:9779" | ""    |
+| 2            | "192.168.2.2:9779" | "192.168.2.2:9779" | ""    |
+| 3            | "192.168.2.3:9779" | "192.168.2.3:9779" | ""    |
+| 4            | "192.168.2.1:9779" | "192.168.2.1:9779" | ""    |
+| 5            | "192.168.2.2:9779" | "192.168.2.2:9779" | ""    |
+| 6            | "192.168.2.3:9779" | "192.168.2.3:9779" | ""    |
+| 7            | "192.168.2.1:9779" | "192.168.2.1:9779" | ""    |
+| 8            | "192.168.2.2:9779" | "192.168.2.2:9779" | ""    |
+| 9            | "192.168.2.3:9779" | "192.168.2.3:9779" | ""    |
+| 10           | "192.168.2.1:9779" | "192.168.2.1:9779" | ""    |
++--------------+--------------------+--------------------+-------+
+
+nebula> SHOW PARTS 1;
++--------------+--------------------+--------------------+-------+
+| Partition ID | Leader             | Peers              | Losts |
++--------------+--------------------+--------------------+-------+
+| 1            | "192.168.2.1:9779" | "192.168.2.1:9779" | ""    |
++--------------+--------------------+--------------------+-------+
+```
+
+返回结果的说明如下：
+
+| 参数 | 说明 |
+| - | - |
+| `Partition ID` | 存储分片的 ID |
+| `Leader` | 分片对应的 Raft leader 副本的信息，包括 IP 地址与服务端口 |
+| `Peers` | 分片对应的所有副本（leader 与 follower）的信息，包括 IP 地址与服务端口 |
+| `Losts` | 分片对应的处于离线状态的副本信息，包括 IP 地址和服务端口 |", "completion": "## 注意事项
+
+`SHOW PARTS`语句如果指定了`<part_id>`，则只显示指定的分片的信息；如果没有指定`<part_id>`，则显示图空间所有分片的信息。"}

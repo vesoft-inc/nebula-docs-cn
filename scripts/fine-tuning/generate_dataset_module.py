@@ -29,19 +29,23 @@ def generate_prompt_completion_dataset(output, gpt3_api_key, model, max_tokens, 
                 prompt = "Transform the following content to prompt-completion so that we can fine-tune GPT-3 with it. "
                 
                 # Send the prompt to OpenAI's API to generate a completion
-                response = openai.Completion.create(
-                    engine=model,
-                    prompt=prompt + text,
-                    max_tokens=max_tokens,
-                    n=1,
-                    temperature=temperature,
-                    stop=None,
-                    frequency_penalty=0,
-                    presence_penalty=0
-                )
+                response = None
+                try:
+                    response = openai.Completion.create(
+                        engine=model,
+                        prompt=prompt + text,
+                        max_tokens=max_tokens,
+                        n=1,
+                        temperature=temperature,
+                        stop=None,
+                        frequency_penalty=0,
+                        presence_penalty=0
+                    )
+                except openai.error.InvalidRequestError as e:
+                    print(f"Skipping '{file}': {e}")
                 
                 # Extract the completion text from the response
-                if len(response.choices) > 0:
+                if response is not None and len(response.choices) > 0:
                     completion = response.choices[0].text.strip()
                 else:
                     completion = ""
@@ -52,11 +56,12 @@ def generate_prompt_completion_dataset(output, gpt3_api_key, model, max_tokens, 
     # Return the path to the generated prompt-completion dataset file
     return dataset_file
 
+
 # test example
 output = '../../output'
 gpt3_api_key = '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'
 model = 'text-davinci-002'
-max_tokens = 4096
+max_tokens = 2000
 temperature = 0.7
 dataset_dir = '../../dataset'
 
