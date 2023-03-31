@@ -5,14 +5,17 @@ def generate_prompt_completion_dataset(output, gpt3_api_key, model, max_tokens, 
     # Load API key and model
     openai.api_key = gpt3_api_key
 
-    # Load the split Markdown files from the output directory
+# Load the split Markdown files from the output directory
     if not os.path.exists(output):
         raise ValueError(f"Output directory '{output}' does not exist.")
-    files = os.listdir(output)
-    print(f"Processing files: {files}")
+    files = []
+    for root, _, filenames in os.walk(output):
+        for filename in filenames:
+            if filename.endswith('.md'):
+                files.append(os.path.join(root, filename))
     if len(files) == 0:
-        raise ValueError(f"Output directory '{output}' is empty.")
-    files = sorted([os.path.join(output, f) for f in files if f.endswith('.md')])
+        raise ValueError(f"No Markdown files found in directory '{output}' or its subdirectories.")
+    files = sorted(files)
 
     # Send each chunk of text to GPT-3.5 to generate prompt completions
     completions = []
@@ -35,11 +38,6 @@ def generate_prompt_completion_dataset(output, gpt3_api_key, model, max_tokens, 
         else:
             completions.append((text.strip(), ""))
 
-        # Debug prints
-        print(f"File: {file}")
-        print(f"Prompt: {prompt + text}")
-        print(f"Completion: {response.choices[0].text.strip() if len(response.choices) > 0 else ''}")
-    
     # Create the dataset directory if it doesn't exist
     if not os.path.exists(dataset_dir):
         os.makedirs(dataset_dir)
