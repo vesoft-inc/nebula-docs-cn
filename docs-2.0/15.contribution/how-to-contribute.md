@@ -18,7 +18,7 @@
 
 ## 修改单篇文档
 
-NebulaGraph 文档以 Markdown 语言编写。单击文档标题右侧的铅笔图标即可提交修改建议。
+{{nebula.name}}文档以 Markdown 语言编写。单击文档标题右侧的铅笔图标即可提交修改建议。
 
 该方法仅适用于修改单篇文档。
 
@@ -28,11 +28,11 @@ NebulaGraph 文档以 Markdown 语言编写。单击文档标题右侧的铅笔�
 
 ### Step 1：通过 GitHub fork 仓库
 
-NebulaGraph 项目有很多[仓库](https://github.com/vesoft-inc)，以 [NebulaGraph 仓库](https://github.com/vesoft-inc/nebula)为例：
+{{nebula.name}}项目有很多[仓库](https://github.com/vesoft-inc)，以 [NebulaGraph 仓库](https://github.com/vesoft-inc/nebula)为例：
 
 1. 访问 [github.com/vesoft-inc/nebula](https://github.com/vesoft-inc/nebula)。
 
-2. 在右上角单击按钮`Fork`，然后单击用户名，即可 fork 出 NebulaGraph 仓库。
+2. 在右上角单击按钮`Fork`，然后单击用户名，即可 fork 出{{nebula.name}}仓库。
 
 ### Step 2：将分支克隆到本地
 
@@ -75,7 +75,7 @@ NebulaGraph 项目有很多[仓库](https://github.com/vesoft-inc)，以 [Nebula
 
 4. （可选）定义 pre-commit hook。
 
-  请将 NebulaGraph 的 pre-commit hook 连接到`.git`目录。
+  请将{{nebula.name}}的 pre-commit hook 连接到`.git`目录。
 
   hook 将检查 commit，包括格式、构建、文档生成等。
 
@@ -124,7 +124,7 @@ NebulaGraph 项目有很多[仓库](https://github.com/vesoft-inc)，以 [Nebula
 
 - 代码风格
 
-  **NebulaGraph** 采用`cpplint`来确保代码符合 Google 的代码风格指南。检查器将在提交代码之前执行。
+  {{nebula.name}}采用`cpplint`来确保代码符合 Google 的代码风格指南。检查器将在提交代码之前执行。
 
 - 单元测试要求
 
@@ -132,7 +132,7 @@ NebulaGraph 项目有很多[仓库](https://github.com/vesoft-inc)，以 [Nebula
 
 - 构建代码时开启单元测试
 
-  详情请参见[使用源码安装 NebulaGraph](../4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)。
+  详情请参见[使用源码安装{{nebula.name}}](../4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)。
 
   !!! Note
 
@@ -193,7 +193,7 @@ pull request 创建后，至少需要两人审查。审查人员将进行彻底�
 
 ### Step 1：确认项目捐赠
 
-通过邮件、微信、Slack 等方式联络 NebulaGraph 官方人员，确认捐赠项目一事。项目将被捐赠至 [NebulaGraph Contrib](https://github.com/nebula-contrib) 组织下。
+通过邮件、微信、Slack 等方式联络{{nebula.name}}官方人员，确认捐赠项目一事。项目将被捐赠至 [{{nebula.name}} Contrib](https://github.com/nebula-contrib) 组织下。
 
 * 邮件地址：info@vesoft.com
 
@@ -203,10 +203,10 @@ pull request 创建后，至少需要两人审查。审查人员将进行彻底�
 
 ### Step 2：获取项目接收人信息
 
-由 NebulaGraph 官方人员给出 NebulaGraph Contrib 的项目接收者 ID。
+由{{nebula.name}}官方人员给出{{nebula.name}} Contrib 的项目接收者 ID。
 
 ### Step 3：捐赠项目
 
-由您将项目转移至本次捐赠的项目接受人，并由项目接收者将该项目转移至 [NebulaGraph Contrib](https://github.com/nebula-contrib) 组织下。捐赠后，您将以 Maintain 角色继续主导社区项目的发展。
+由您将项目转移至本次捐赠的项目接受人，并由项目接收者将该项目转移至 [{{nebula.name}} Contrib](https://github.com/nebula-contrib) 组织下。捐赠后，您将以 Maintain 角色继续主导社区项目的发展。
 
 GitHub 上转移仓库的操作，请参见 [Transferring a repository owned by your user account](https://docs.github.com/en/enterprise-server@3.0/github/administering-a-repository/managing-repository-settings/transferring-a-repository#transferring-a-repository-owned-by-your-user-account)。 

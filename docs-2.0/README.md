@@ -1,4 +1,4 @@
-# 欢迎阅读 NebulaGraph {{ nebula.release }} 文档
+# 欢迎阅读{{nebula.name}} {{ nebula.release }} 文档
 
 !!! Note
     
@@ -32,7 +32,9 @@ NebulaGraph 是一款开源的、分布式的、易扩展的原生图数据库�
 ## 其他资料
 
 - [学习路径](https://academic.nebula-graph.io/?lang=ZH_CN)
+{{ comm.comm_begin }}
 - [引用 NebulaGraph](https://arxiv.org/abs/2206.07278)
+{{ comm.comm_end }}
 - [论坛](https://discuss.nebula-graph.com.cn/)
 - [主页](https://nebula-graph.com.cn/)
 - [系列视频](https://space.bilibili.com/472621355)
@@ -76,4 +78,4 @@ NebulaGraph 是一款开源的、分布式的、易扩展的原生图数据库�
     
 ## 修改文档中的错误
  
-NebulaGraph 文档以 Markdown 语言编写。单击文档标题右上侧的铅笔图标即可提交修改建议。
+{{nebula.name}}文档以 Markdown 语言编写。单击文档标题右上侧的铅笔图标即可提交修改建议。

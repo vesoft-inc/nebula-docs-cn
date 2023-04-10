@@ -1,9 +1,16 @@
 [![Publish docs via GitHub Pages](https://github.com/vesoft-inc/nebula-docs-cn/actions/workflows/deploy.yaml/badge.svg?branch=master)](https://github.com/vesoft-inc/nebula-docs-cn/actions/workflows/deploy.yaml)
 
-# NebulaGraph 文档
+# {{nebula.name}} 文档
 
+{{ ent.ent_begin }}
 - [中文](https://docs.nebula-graph.com.cn/)
 - [English](https://docs.nebula-graph.io)
+{{ ent.ent_end }}
+
+{{ comm.comm_begin }}
+- [中文](https://docs.nebula-graph.com.cn/)
+- [English](https://docs.nebula-graph.io)
+{{ comm.comm_end }}
 
 ## 贡献文档
 
