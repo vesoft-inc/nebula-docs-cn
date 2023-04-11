@@ -1,10 +1,10 @@
-# 使用 RPM/DEB 包部署 NebulaGraph 多机集群
+# 使用 RPM/DEB 包部署{{nebula.name}}多机集群
 
 本文介绍通过 RPM 或 DEB 文件部署集群的示例。
 
 !!! note
 
-    用户还可以通过官方工具部署 NebulaGraph 多机集群。详情参见[使用生态工具安装集群](6.deploy-nebula-graph-with-peripherals.md)。
+    用户还可以通过官方工具部署{{nebula.name}}多机集群。详情参见[使用生态工具安装集群](6.deploy-nebula-graph-with-peripherals.md)。
 
 ## 部署方案
 
@@ -23,25 +23,25 @@
 
 ## 手动部署流程
 
-### 安装 NebulaGraph
+### 安装{{nebula.name}}
 
-在集群的每一台服务器上都安装 NebulaGraph，安装后暂不需要启动服务。安装方式请参见：
+在集群的每一台服务器上都安装{{nebula.name}}，安装后暂不需要启动服务。安装方式请参见：
 
-- [使用 RPM 或 DEB 包安装 NebulaGraph](2.install-nebula-graph-by-rpm-or-deb.md)
+- [使用 RPM 或 DEB 包安装{{nebula.name}}](2.install-nebula-graph-by-rpm-or-deb.md)
 
-- [使用源码安装 NebulaGraph](1.install-nebula-graph-by-compiling-the-source-code.md)
+- [使用源码安装{{nebula.name}}](1.install-nebula-graph-by-compiling-the-source-code.md)
 
 {{ ent.ent_begin }}
-### （企业版）设置 License。
+### 设置 License。
 
-如果部署企业版 NebulaGraph，需要设置 License。详情请参见[设置 NebulaGraph 企业版 License](../../4.deployment-and-installation/deploy-license.md)。
+如果部署{{nebula.name}}，需要设置 License。详情请参见[设置{{nebula.name}} License](../../4.deployment-and-installation/deploy-license.md)。
 
 {{ ent.ent_end }}
 ### 修改配置文件
 
-修改每个服务器上的 NebulaGraph 配置文件。
+修改每个服务器上的{{nebula.name}}配置文件。
 
-NebulaGraph 的所有配置文件均位于安装目录的`etc`目录内，包括`nebula-graphd.conf`、`nebula-metad.conf`和`nebula-storaged.conf`，用户可以只修改所需服务的配置文件。各个机器需要修改的配置文件如下。
+{{nebula.name}}的所有配置文件均位于安装目录的`etc`目录内，包括`nebula-graphd.conf`、`nebula-metad.conf`和`nebula-storaged.conf`，用户可以只修改所需服务的配置文件。各个机器需要修改的配置文件如下。
 
 | 机器名称 |待修改配置文件    |
 | :----- |:---------------|
@@ -277,7 +277,7 @@ NebulaGraph 的所有配置文件均位于安装目录的`etc`目录内，包括
 | D      | graphd、storaged |
 | E      | graphd、storaged |
 
-启动 NebulaGraph 进程的命令如下：
+启动{{nebula.name}}进程的命令如下：
 
 ```bash
 sudo /usr/local/nebula/scripts/nebula.service start <metad|graphd|storaged|all>
@@ -289,7 +289,7 @@ sudo /usr/local/nebula/scripts/nebula.service start <metad|graphd|storaged|all>
 
     - 当需都启动 graphd、storaged 和 metad 时，可以用 all 代替。
 
-    - `/usr/local/nebula`是 NebulaGraph 的默认安装路径，如果修改过安装路径，请使用实际路径。更多启停服务的内容，请参见[管理 NebulaGraph 服务](../../2.quick-start/3.quick-start-on-premise/5.start-stop-service.md)。
+    - `/usr/local/nebula`是{{nebula.name}}的默认安装路径，如果修改过安装路径，请使用实际路径。更多启停服务的内容，请参见[管理{{nebula.name}}服务](../../2.quick-start/3.quick-start-on-premise/5.start-stop-service.md)。
 
 ### 检查集群
 

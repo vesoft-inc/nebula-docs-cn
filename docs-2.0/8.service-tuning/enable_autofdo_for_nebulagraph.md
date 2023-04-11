@@ -1,6 +1,6 @@
 # 启用 AutoFDO
 
-AutoFDO 可以对优化过的程序进行性能分析，并使用性能信息来指导编译器再次优化程序。本文将帮助您为 NebulaGraph 启用AutoFDO。
+AutoFDO 可以对优化过的程序进行性能分析，并使用性能信息来指导编译器再次优化程序。本文将帮助您为{{nebula.name}}启用AutoFDO。
 
 关于 AutoFDO 的更多信息，请参见 [AutoFDO Wiki](https://gcc.gnu.org/wiki/AutoFDO)。
 
@@ -26,9 +26,9 @@ AutoFDO 可以对优化过的程序进行性能分析，并使用性能信息来
 
   或者你可以从[源代码](https://github.com/google/autofdo.git)编译 **autofdo tool**。
 
-### 编译 NebulaGraph 二进制文件
+### 编译{{nebula.name}}二进制文件
 
-关于如何从源码编译 NebulaGraph，请参考[使用源码安装 NebulaGraph](../4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)。
+关于如何从源码编译{{nebula.name}}，请参考[使用源码安装{{nebula.name}}](../4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)。
 
 在配置步骤中，将`CMAKE_BUILD_TYPE=Release`替换为`CMAKE_BUILD_TYPE=RelWithDebInfo`：
 
@@ -111,9 +111,9 @@ profile_merger ~/FindShortestPath-graphd.gcov \
 
 合并后的配置文件名称为`fbdata.afdo`。
 
-## 使用合并的性能数据文件重新编译 NebulaGraph 二进制文件
+## 使用合并的性能数据文件重新编译{{nebula.name}}二进制文件
 
-使用编译选项`-fauto-profile`重新编译 NebulaGraph 二进制文件。
+使用编译选项`-fauto-profile`重新编译{{nebula.name}}二进制文件。
 
 ```diff
 diff --git a/cmake/nebula/GeneralCompilerConfig.cmake b/cmake/nebula/GeneralCompilerConfig.cmake
