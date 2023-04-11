@@ -1,6 +1,6 @@
 # 集群间数据同步
 
-NebulaGraph 支持在集群间进行数据同步，即主集群 A 的数据可以近实时地复制到从集群 B 中，方便用户进行异地灾备或分流，降低数据丢失的风险，保证数据安全。
+{{nebula.name}}支持在集群间进行数据同步，即主集群 A 的数据可以近实时地复制到从集群 B 中，方便用户进行异地灾备或分流，降低数据丢失的风险，保证数据安全。
 
 !!! enterpriseonly
 
@@ -24,7 +24,7 @@ NebulaGraph 支持在集群间进行数据同步，即主集群 A 的数据可�
 
 ## 注意事项
 
-- 主从集群必须是同一个 NebulaGraph 版本，否则数据同步会失败。
+- 主从集群的数据库版本必须相同，否则数据同步会失败。
 
 - 数据同步的基本单位是图空间，即只可以设置从一个图空间到另一个图空间的数据同步。
 
@@ -95,7 +95,7 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
 2. 在主从集群和 listener 服务的机器上放置 License 文件，路径为安装目录的`share/resources/`内。
 
-3. 在所有机器的 NebulaGraph 安装目录内启动对应的服务：
+3. 在所有机器的{{nebula.name}}安装目录内启动对应的服务：
 
   - 主、从集群启动命令：`sudo scripts/nebula.service start all`。
 
@@ -182,7 +182,7 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 3. 设置 listener 服务。
 
   ```
-  //设置 listener 服务，待同步的图空间名称为replication_basketballplayer（下文将在从集群中创建）。
+  //设置 listener 服务，待同步的图空间名称为 replication_basketballplayer（下文将在从集群中创建）。
   nebula> ADD LISTENER SYNC META 192.168.10.103:9569 STORAGE 192.168.10.103:9789 TO SPACE replication_basketballplayer;
   //查看 listener 状态。
   nebula> SHOW LISTENER SYNC;
