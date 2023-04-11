@@ -147,6 +147,8 @@ extra:
   # Valid options: enterprise, community, both
   # enterprise means this version is for the Enterprise only. And so on in a similar fashion
   database_edition: both
+  # Modify doc_version to automatically update the parameters for releasing a new version
+  doc_version: master
   # Language selector.
   alternate:
     - name: English
@@ -176,7 +178,6 @@ extra:
     # nav.comm.begin
     name: NebulaGraph
     # nav.comm.end
-
   studio:
     base111b: 1.1.1-beta
     base220: 2.2.1
@@ -291,7 +292,6 @@ extra:
     aliyunRelease: 3.4.0 # 阿里云兼容的最新内核版本
     azureLatestRelease: 3.1.0 # 支持Azure云的最新文档版本
     aliyunLatestRelease: 3.4.0 # 支持阿里云的最新文档版本
-
 
 nav:
   - 前言: README.md
@@ -499,7 +499,6 @@ nav:
         # nav.ent.begin
           - 升级 NebulaGraph 至 v3.4（企业版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent-from-3.x-3.4.md
         # nav.ent.end
-
       - 卸载 NebulaGraph: 4.deployment-and-installation/4.uninstall-nebula-graph.md
 
   - 配置与日志:
@@ -577,7 +576,6 @@ nav:
     - NebulaGraph Go: 14.client/6.nebula-go-client.md
 
 #  - NebulaGraph Cloud: nebula-cloud.md
-
   # nav.ent.begin
   - NebulaGraph Cloud:
     - 什么是 NebulaGraph Cloud: nebula-cloud/1.what-is-cloud.md
@@ -587,7 +585,6 @@ nav:
       - 扩缩容服务: nebula-cloud/nebula-cloud-on-alibabacloud/4.scaling-services.md
       - 删除服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/3.delete-service-instance.md
   # nav.ent.end
-
 #    - NebulaGraph Cloud Azure版:
 #      - 创建订阅: nebula-cloud/nebula-cloud-on-azure/2.how-to-create-subsciption.md
 #      - 配置Solution: nebula-cloud/nebula-cloud-on-azure/3.how-to-set-solution.md
@@ -649,6 +646,9 @@ nav:
         - 集群总览: nebula-dashboard-ent/4.cluster-operator/1.overview.md
         - 集群监控: nebula-dashboard-ent/4.cluster-operator/2.monitor.md
         - 通知: nebula-dashboard-ent/4.cluster-operator/9.notification.md
+        - 分析诊断:
+          - 慢查询分析: nebula-dashboard-ent/4.cluster-operator/analysis-diagnosis/slow-query-analyst.md
+          - 集群诊断: nebula-dashboard-ent/4.cluster-operator/analysis-diagnosis/cluster-diagnosis.md
         - 集群信息: 
           - 信息总览: nebula-dashboard-ent/4.cluster-operator/cluster-information/overview-info.md
           - 集群诊断: nebula-dashboard-ent/4.cluster-operator/cluster-information/cluster-diagnosis.md
@@ -827,4 +827,4 @@ nav:
       - 思维导图: 20.appendix/mind-map.md
       - 错误码: 20.appendix/error-code.md
 
-  - PDF: ./pdf/NebulaGraph-CN.pdf
+#  - PDF: ./pdf/NebulaGraph-CN.pdf
