@@ -1,7 +1,4 @@
 # 部署 Studio
-<!--
-NebulaGraph Studio（ 以下简称 Studio ）支持云端或本地部署。云服务版 Studio 只能在 NebulaGraph Cloud Service 上使用。当在 NebulaGraph Cloud Service 上创建 NebulaGraph 实例时即自动完成云服务版本 Studio 的部署，一键直连即可使用，不需要自己部署。详细信息参考 [《NebulaGraph Cloud Service 用户手册》](https://cloud-docs.nebula-graph.com.cn/cn/posts/manage-instances/dbaas-ug-connect-nebulastudio/ "点击前往 NebulaGraph Cloud Service 用户手册")。
--->
 
 本文介绍如何在本地通过 RPM、DEB、tar 包和 Docker 部署 Studio。
 
@@ -11,7 +8,7 @@ NebulaGraph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
 在部署 RPM 版 Studio 之前，用户需要确认以下信息：
 
-- NebulaGraph 服务已经部署并启动。详细信息，参考 [NebulaGraph 安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 NebulaGraph 安装部署")。
+- {{nebula.name}}服务已经部署并启动。详细信息，参考 [{{nebula.name}}安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往{{nebula.name}}安装部署")。
 
 - 使用的 Linux 发行版为 CentOS ，已安装 lsof。
 
@@ -25,7 +22,7 @@ NebulaGraph Studio（ 以下简称 Studio ）支持云端或本地部署。云�
 
 1. 根据需要选择并下载 RPM 包，建议选择最新版本。常用下载链接如下：
 
-   | 安装包 | 检验和 | 适用 NebulaGraph 版本 |
+   | 安装包 | 检验和 | 适用{{nebula.name}}版本 |
    | ----- | ----- | ----- |
    | [nebula-graph-studio-{{studio.release}}.x86_64.rpm](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}.x86_64.rpm) |  [nebula-graph-studio-{{studio.release}}.x86_64.rpm.sha256](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}.x86_64.rpm.sha256) | {{ nebula.release }} |
 
@@ -105,7 +102,7 @@ $ systemctl restart nebula-graph-studio.service
 
 在通过 DEB 部署安装 Studio 之前，用户需要确认以下信息：
 
-- NebulaGraph 服务已经部署并启动。详细信息，参考 [NebulaGraph 安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 NebulaGraph 安装部署")。
+- {{nebula.name}}服务已经部署并启动。详细信息，参考 [{{nebula.name}}安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往{{nebula.name}}安装部署")。
 
 - 使用的 Linux 发行版为 Ubuntu。
 
@@ -121,7 +118,7 @@ $ systemctl restart nebula-graph-studio.service
 
 1. 根据需要选择并下载 DEB 包，建议选择最新版本。常用下载链接如下：
 
-   | 安装包 | 检验和 | 适用 NebulaGraph 版本 |
+   | 安装包 | 检验和 | 适用{{nebula.name}}版本 |
    | ----- | ----- | ----- |
    | [nebula-graph-studio-{{studio.release}}.x86_64.deb](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}.x86_64.deb) |  [nebula-graph-studio-{{studio.release}}.x86_64.deb.sha256](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}.x86_64.deb.sha256) | {{ nebula.release }} |
 
@@ -153,7 +150,7 @@ $ sudo dpkg -r nebula-graph-studio
 
 在部署 tar 包安装的 Studio 之前，用户需要确认以下信息：
 
-- NebulaGraph 服务已经部署并启动。详细信息，参考 [NebulaGraph 安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 NebulaGraph 安装部署")。
+- {{nebula.name}}服务已经部署并启动。详细信息，参考 [{{nebula.name}}安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往{{nebula.name}}安装部署")。
 
 - 确保以下端口未被占用。
 
@@ -165,7 +162,7 @@ $ sudo dpkg -r nebula-graph-studio
 
 1. 根据需要下载 tar 包，建议选择最新版本。
 
-   | 安装包 | Studio 版本 |适用 NebulaGraph 版本 |
+   | 安装包 | Studio 版本 |适用{{nebula.name}}版本 |
    | --- | --- |---|
    | [nebula-graph-studio-{{studio.release}}.x86_64.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}.x86_64.tar.gz) | {{studio.release}} | {{ nebula.release }} |
 
@@ -200,7 +197,7 @@ $ kill $(lsof -t -i :7001) # stop nebula-graph-studio
 
 在部署 Docker 版 Studio 之前，用户需要确认以下信息：
 
-- NebulaGraph 服务已经部署并启动。详细信息，参考 [NebulaGraph 安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 NebulaGraph 安装部署")。
+- {{nebula.name}}服务已经部署并启动。详细信息，参考 [{{nebula.name}}安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往{{nebula.name}}安装部署")。
 
 - 在即将运行 Docker 版 Studio 的机器上安装并启动 Docker Compose。详细信息参考 [Docker Compose 文档](https://docs.docker.com/compose/install/ "点击前往 Docker 文档中心")。
 - 确保以下端口未被占用。
@@ -225,11 +222,11 @@ $ kill $(lsof -t -i :7001) # stop nebula-graph-studio
 
 ### 操作步骤
 
-在命令行工具中按以下步骤依次运行命令，部署并启动 Docker 版 Studio，这里我们用 NebulaGraph 版本为 {{nebula.release}} 的进行演示：
+在命令行工具中按以下步骤依次运行命令，部署并启动 Docker 版 Studio，这里我们用{{nebula.name}}版本为 {{nebula.release}} 的进行演示：
 
 1. 下载 Studio 的部署配置文件。
 
-   | 安装包 | 适用 NebulaGraph 版本 |
+   | 安装包 | 适用{{nebula.name}}版本 |
    | ----- | ----- |
    | [nebula-graph-studio-{{studio.release}}.tar.gz](https://oss-cdn.nebula-graph.com.cn/nebula-graph-studio/{{studio.release}}/nebula-graph-studio-{{studio.release}}.tar.gz) | {{nebula.release}} |
 
