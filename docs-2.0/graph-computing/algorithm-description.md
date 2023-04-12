@@ -3,7 +3,7 @@
 图计算可以检测图结构，例如图中社区的检测、图的划分等，也可以揭示各个点之间关联关系的内在特征，例如点的中心性、相似性等。本文介绍相关算法和参数。
 
 <!--
-NebulaGraph 支持多种图计算工具，本文介绍这些工具支持的算法和参数。
+{{nebula.name}}支持多种图计算工具，本文介绍这些工具支持的算法和参数。
 -->
 !!! note
 
@@ -21,7 +21,7 @@ NebulaGraph 支持多种图计算工具，本文介绍这些工具支持的算�
 
     - 如果数据源来自 HDFS，需要指定 CSV 文件，包含`src`和`dst`列，部分算法还需要包含`weight`列。
 
-    - 如果数据源来自 NebulaGraph，需要指定边类型，该类型的边提供`src`和`dst`列，部分算法还需要指定边类型的某个属性作为`weight`列。
+    - 如果数据源来自{{nebula.name}}，需要指定边类型，该类型的边提供`src`和`dst`列，部分算法还需要指定边类型的某个属性作为`weight`列。
 
 ## 节点重要度算法
 
@@ -386,7 +386,7 @@ LPA（标签传播）算法是一种基于图的半监督学习方法，其基�
     |`ITERATIONS`|`10`|最大迭代次数。|
     |`IS_DIRECTED`|`true`|是否考虑边的方向。如果设置为`false`，系统会自动添加反向边。|
     |`IS_CALC_MODULARITY`|`false`|是否计算模块度。|
-    |`IS_OUTPUT_MODULARITY`|`false`|是否计算并输出模块度。设置为`true`时，默认输出到文件的第三列，也可以通过选项`--nebula_output_props`和`--nebula_output_types`输出到 NebulaGraph 中。使用 Explorer 时暂不支持输出到 NebulaGraph 中。|
+    |`IS_OUTPUT_MODULARITY`|`false`|是否计算并输出模块度。设置为`true`时，默认输出到文件的第三列，也可以通过选项`--nebula_output_props`和`--nebula_output_types`输出到{{nebula.name}}中。使用 Explorer 时暂不支持输出到{{nebula.name}}中。|
     |`IS_STAT_COMMUNITY`|`false`|是否统计社区的数量。|
 
   - 输出参数
@@ -422,7 +422,7 @@ HANP（Hop Attenuation & Node Preference）算法是LPA算法的优化算法，�
     |`IS_DIRECTED`|`true`|是否考虑边的方向。如果设置为`false`，系统会自动添加反向边。|
     |`PREFERENCE`|`1.0`|对邻居节点度的偏向性。`m>0`表示偏向节点度高的邻居，`m<0`表示偏向节点度低的邻居，`m=0`表示不考虑邻居节点度。|
     |`HOP_ATT`|`0.1`|衰减因子。取值范围`0`~`1`。值越大衰减的越快，可以传递的次数越少。|
-    |`IS_OUTPUT_MODULARITY`|`false`|是否计算并输出模块度。设置为`true`时，默认输出到文件的第三列，也可以通过选项`--nebula_output_props`和`--nebula_output_types`输出到 NebulaGraph 中。使用 Explorer 时暂不支持输出到 NebulaGraph 中。|
+    |`IS_OUTPUT_MODULARITY`|`false`|是否计算并输出模块度。设置为`true`时，默认输出到文件的第三列，也可以通过选项`--nebula_output_props`和`--nebula_output_types`输出到{{nebula.name}}中。使用 Explorer 时暂不支持输出到{{nebula.name}}中。|
     |`IS_STAT_COMMUNITY`|`false`|是否统计社区的数量。|
 
   - 输出参数
@@ -458,7 +458,7 @@ ConnectedComponent（联通分量）算法用于计算出图中的一个子图�
     |:--|:--|:--|
     |`IS_DIRECTED`|`true`|是否考虑边的方向。如果设置为`false`，系统会自动添加反向边。|
     |`IS_CALC_MODULARITY`|`false`|是否计算模块度。|
-    |`IS_OUTPUT_MODULARITY`|`false`|是否计算并输出模块度。设置为`true`时，默认输出到文件的第三列，也可以通过选项`--nebula_output_props`和`--nebula_output_types`输出到 NebulaGraph 中。使用 Explorer 时暂不支持输出到 NebulaGraph 中。|
+    |`IS_OUTPUT_MODULARITY`|`false`|是否计算并输出模块度。设置为`true`时，默认输出到文件的第三列，也可以通过选项`--nebula_output_props`和`--nebula_output_types`输出到{{nebula.name}}中。使用 Explorer 时暂不支持输出到{{nebula.name}}中。|
     |`IS_STAT_COMMUNITY`|`false`|是否统计社区的数量。|
 
   - 输出参数
@@ -494,7 +494,7 @@ Louvain 算法是基于模块度的社区发现算法，该算法在效率和效
     |`OUTER_ITERATION`|`20`|第一阶段最大迭代次数。|
     |`INNER_ITERATION`|`10`|第二阶段最大迭代次数。|
     |`IS_CALC_MODULARITY`|`false`|是否计算模块度。|
-    |`IS_OUTPUT_MODULARITY`|`false`|是否计算并输出模块度。设置为`true`时，默认输出到文件的第三列，也可以通过选项`--nebula_output_props`和`--nebula_output_types`输出到 NebulaGraph 中。使用 Explorer 时暂不支持输出到 NebulaGraph 中。|
+    |`IS_OUTPUT_MODULARITY`|`false`|是否计算并输出模块度。设置为`true`时，默认输出到文件的第三列，也可以通过选项`--nebula_output_props`和`--nebula_output_types`输出到{{nebula.name}}中。使用 Explorer 时暂不支持输出到{{nebula.name}}中。|
     |`IS_STAT_COMMUNITY`|`false`|是否统计社区的数量。|
 
   - 输出参数

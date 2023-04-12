@@ -4,7 +4,7 @@
 
 !!! enterpriseonly
 
-    仅企业版 NebulaGraph 支持扩缩容。
+    仅企业版{{nebula.name}}支持扩缩容。
 
 ## 入口
 

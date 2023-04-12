@@ -38,7 +38,7 @@ Exchange 3.x 支持以下操作系统：
   | MaxCompute | 不支持 | 支持 | 不支持 |
   | Pulsar | 不支持 | 支持 | 未测试 |
   | Kafka | 不支持 | 支持 | 未测试 |
-  | NebulaGraph | 不支持 | 支持 | 不支持 |
+  | {{nebula.name}} | 不支持 | 支持 | 不支持 |
 
 在以下使用场景，还需要部署 Hadoop Distributed File System (HDFS)：
 

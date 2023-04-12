@@ -1,6 +1,6 @@
 # NebulaGraph Analytics
 
-NebulaGraph Analytics 是一款高性能图计算框架工具，支持对 NebulaGraph 数据库中的数据执行图分析。
+NebulaGraph Analytics 是一款高性能图计算框架工具，支持对{{nebula.name}}数据库中的数据执行图分析。
 
 ## 前提条件
 
@@ -15,17 +15,17 @@ NebulaGraph Analytics 是一款高性能图计算框架工具，支持对 Nebula
 
 ## 适用场景
 
-支持将数据源为 NebulaGraph 集群、HDFS 上的 CSV 文件或本地 CSV 文件中的数据导入 NebulaGraph Analytics，并将图计算结果输出至 NebulaGraph 集群、HDFS 上的 CSV 文件或本地 CSV 文件。
+支持将数据源为{{nebula.name}}集群、HDFS 上的 CSV 文件或本地 CSV 文件中的数据导入 NebulaGraph Analytics，并将图计算结果输出至{{nebula.name}}集群、HDFS 上的 CSV 文件或本地 CSV 文件。
 
 ## 使用限制
 
-输入和输出均为 NebulaGraph 集群时，图计算结果只能输出到数据源所在的图空间。
+输入和输出均为{{nebula.name}}集群时，图计算结果只能输出到数据源所在的图空间。
 
 ## 版本兼容性
 
-NebulaGraph Analytics 版本和 NebulaGraph 内核的版本对应关系如下。
+NebulaGraph Analytics 版本和{{nebula.name}}内核的版本对应关系如下。
 
-|NebulaGraph 版本|NebulaGraph Analytics 版本|
+|{{nebula.name}}版本|NebulaGraph Analytics 版本|
 |:---|:---|
 |3.4.0 ~ 3.4.1| 3.4.0 |
 |3.3.0      | 3.3.0 |
@@ -93,7 +93,7 @@ NebulaGraph Analytics 支持的图计算算法如下。
 <!--
 ### 编译安装
 
-编译安装 NebulaGraph Analytics 的准备工作和编译 NebulaGraph 类似，详情参见[准备资源](4.deployment-and-installation/1.resource-preparations.md)。
+编译安装 NebulaGraph Analytics 的准备工作和编译{{nebula.name}}类似，详情参见[准备资源](4.deployment-and-installation/1.resource-preparations.md)。
 
 1. 克隆仓库`analytics`。
 
@@ -139,17 +139,17 @@ NebulaGraph Analytics 支持的图计算算法如下。
 
 2. 确认数据源和输出路径。配置方法如下：
    
-  - 数据源为 NebulaGraph 集群
+  - 数据源为{{nebula.name}}集群
    
-    1. 修改配置文件`nebula.conf`，设置 NebulaGraph 集群相关信息。
+    1. 修改配置文件`nebula.conf`，设置{{nebula.name}}集群相关信息。
 
       ```bash
-      # 连接 NebulaGraph 时的重试次数。
+      # 连接{{nebula.name}}时的重试次数。
       --retry=3  
       # 要读取或写入的图空间名称。
       --space=baskeyballplayer  
 
-      # 读取 NebulaGraph 设置
+      # 读取{{nebula.name}}设置
       # 要读取的边的名称。
       --edges=LIKES  
       # 要读取的作为边的权重属性的名称。可以是属性名，也可以是 _rank。
@@ -157,20 +157,20 @@ NebulaGraph Analytics 支持的图计算算法如下。
       # 每次扫描读取的行数。
       --read_batch_size=10000  
 
-      # 写回 NebulaGraph 设置
-      # NebulaGraph 的 graphd 服务地址。
+      # 写回{{nebula.name}}设置
+      # {{nebula.name}} 的 graphd 服务地址。
       --graph_server_addrs=192.168.8.100:9669  
-      # NebulaGraph 的登录用户名。
+      # {{nebula.name}} 的登录用户名。
       --user=root  
-      # NebulaGraph 的登录密码。
+      # {{nebula.name}} 的登录密码。
       --password=nebula 
-      # 写回 NebulaGraph 时采用的模式: insert 和 update。
+      # 写回{{nebula.name}}时采用的模式: insert 和 update。
       --mode=insert  
-      # 写回到 NebulaGraph 的 Tag 名称。
+      # 写回到{{nebula.name}}的 Tag 名称。
       --tag=pagerank  
-      # 写回到 NebulaGraph 的 Tag 对应的属性名称。
+      # 写回到{{nebula.name}}的 Tag 对应的属性名称。
       --prop=pr  
-      # 写回到 NebulaGraph 的 Tag 对应的属性的类型。
+      # 写回到{{nebula.name}}的 Tag 对应的属性的类型。
       --type=double 
       # 写回时，每次写入的行数。
       --write_batch_size=1000 
@@ -192,13 +192,13 @@ NebulaGraph Analytics 支持的图计算算法如下。
       # 每个进程的线程数，推荐最大设置为机器的硬件线程数。
       WCORES=4  
       # 数据源路径
-      # 可以通过文件 nebula.conf 设置从 NebulaGraph 读取：
+      # 可以通过文件 nebula.conf 设置从{{nebula.name}}读取：
       INPUT=${INPUT:="nebula:$PROJECT/scripts/nebula.conf"}  
       # 也可以通过本地或 HDFS 上的 CSV 文件读取：
       # #INPUT=${INPUT:="$PROJECT/data/graph/v100_e2150_ua_c3.csv"}
 
       # 图计算结果输出路径
-      # 可以输出至 NebulaGraph 集群，如果数据源也为 NebulaGraph，结果会输出至 nebula.conf 指定的图空间。
+      # 可以输出至{{nebula.name}}集群，如果数据源也为{{nebula.name}}，结果会输出至 nebula.conf 指定的图空间。
       OUTPUT=${OUTPUT:="nebula:$PROJECT/scripts/nebula.conf"}
       # 也可以输出至本地或 HDFS 上的 CSV 文件：
       # OUTPUT=${OUTPUT:='hdfs://192.168.8.100:9000/_test/output'}
@@ -228,13 +228,13 @@ NebulaGraph Analytics 支持的图计算算法如下。
     # 每个进程的线程数，推荐最大设置为机器的硬件线程数。
     WCORES=4  
     # 数据源路径
-    # 可以通过文件 nebula.conf 设置从 NebulaGraph 读取：
+    # 可以通过文件 nebula.conf 设置从{{nebula.name}}读取：
     # INPUT=${INPUT:="nebula:$PROJECT/scripts/nebula.conf"}  
     # 也可以通过本地或 HDFS 上的 CSV 文件读取：
     INPUT=${INPUT:="$PROJECT/data/graph/v100_e2150_ua_c3.csv"}
 
     # 图计算结果输出路径
-    # 可以输出至 NebulaGraph 集群，如果数据源也为 NebulaGraph，结果会输出至 nebula.conf 指定的图空间。
+    # 可以输出至{{nebula.name}}集群，如果数据源也为{{nebula.name}}，结果会输出至 nebula.conf 指定的图空间。
     # OUTPUT=${OUTPUT:="nebula:$PROJECT/scripts/nebula.conf"}
     # 也可以输出至本地或 HDFS 上的 CSV 文件：
     OUTPUT=${OUTPUT:='hdfs://192.168.8.100:9000/_test/output'}
@@ -271,6 +271,6 @@ NebulaGraph Analytics 支持的图计算算法如下。
 
 5. 在输出路径查看计算结果。
 
-  - 输出至 NebulaGraph 集群，请根据`nebula.conf`的设置查看计算结果。
+  - 输出至{{nebula.name}}集群，请根据`nebula.conf`的设置查看计算结果。
 
   - 输出至 HDFS 上的 CSV 文件或本地 CSV 文件，请根据图计算脚本内的`OUTPUT`设置查看计算结果，计算结果为`.gz`格式的压缩文件。
