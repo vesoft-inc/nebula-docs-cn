@@ -18,7 +18,7 @@
 
   ![image](https://www-cdn.nebula-graph.com.cn/nebula-blog/HBase01.png)
 
-  [^Hbasecon]: NebulaGraph 1.x 版本支持 RocksDB 和 HBase 两种主要的后端，但在 NebulaGraph 2.x 版本取消了默认对 HBase 的支持。
+  [^Hbasecon]: {{nebula.name}} 1.x 版本支持 RocksDB 和 HBase 两种主要的后端，但在 {{nebula.name}} 2.x 版本取消了默认对 HBase 的支持。
 
 4. 2020.3 在 v1.0 开发的收尾阶段，启动了 v2.0 项目的研发
 

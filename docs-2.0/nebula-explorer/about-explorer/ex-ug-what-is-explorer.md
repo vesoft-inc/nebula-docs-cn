@@ -39,7 +39,7 @@ NebulaGraph Explorer （简称 Explorer）是一款可以通过 Web 访问的可
 
 {{nebula.name}}启用了身份验证后，用户只能使用指定的账号和密码登录 Explorer。
 
-关于{{nebula.name}}的身份验证功能，参考 [NebulaGraph 用户手册](../../7.data-security/1.authentication/1.authentication.md "点击前往{{nebula.name}}官网")。
+关于{{nebula.name}}的身份验证功能，参考 [{{nebula.name}}用户手册](../../7.data-security/1.authentication/1.authentication.md "点击前往{{nebula.name}}官网")。
 
 ## 版本兼容性
 

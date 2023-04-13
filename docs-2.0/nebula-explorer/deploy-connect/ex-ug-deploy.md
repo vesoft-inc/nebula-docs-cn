@@ -6,7 +6,7 @@
 
 在部署 Explorer 之前，用户需要确认以下信息：
 
-- {{nebula.name}} 服务已经部署并启动。详细信息参考 [NebulaGraph 安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往{{nebula.name}}安装部署")。
+- {{nebula.name}} 服务已经部署并启动。详细信息参考 [{{nebula.name}}安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往{{nebula.name}}安装部署")。
 
 - 以下端口未被使用。
 

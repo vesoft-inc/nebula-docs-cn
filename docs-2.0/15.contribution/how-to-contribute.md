@@ -28,7 +28,7 @@
 
 ### Step 1：通过 GitHub fork 仓库
 
-{{nebula.name}}项目有很多[仓库](https://github.com/vesoft-inc)，以 [NebulaGraph 仓库](https://github.com/vesoft-inc/nebula)为例：
+{{nebula.name}}项目有很多[仓库](https://github.com/vesoft-inc)，以 [{{nebula.name}}仓库](https://github.com/vesoft-inc/nebula)为例：
 
 1. 访问 [github.com/vesoft-inc/nebula](https://github.com/vesoft-inc/nebula)。
 

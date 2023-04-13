@@ -38,7 +38,7 @@
 
 分析数据，按以下步骤在{{nebula.name}}中创建 Schema：
 
-1. 确认 Schema 要素。NebulaGraph 中的 Schema 要素如下表所示。
+1. 确认 Schema 要素。{{nebula.name}}中的 Schema 要素如下表所示。
 
     | 要素  | 名称 | 属性 |
     | :--- | :--- | :--- |

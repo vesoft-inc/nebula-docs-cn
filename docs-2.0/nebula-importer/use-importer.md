@@ -57,7 +57,7 @@ Importer 适用于将本地 CSV 文件的内容导入至{{nebula.name}}中。
   !!! note
   
         请使用正确的分支。 
-        NebulaGraph 2.x 和 3.x 的 rpc 协议不同。
+        {{nebula.name}} 2.x 和 3.x 的 rpc 协议不同。
 
 2. 进入目录`nebula-importer`。
 
@@ -124,14 +124,14 @@ $ docker run --rm -ti \
 
 - `<config_file>`：本地 yaml 配置文件的绝对路径。
 - `<csv_data_dir>`：本地 CSV 数据文件的绝对路径。
-- `<version>`：NebulaGraph 3.x 请填写`v3`。
+- `<version>`：{{nebula.name}} 3.x 请填写`v3`。
 
 !!! note
     建议使用相对路径。如果使用本地绝对路径，请检查路径映射到 Docker 中的路径。
 
 ## 配置文件说明
 
-NebulaGraph Importer 通过`nebula-importer/examples/v2/example.yaml`配置文件来描述待导入文件信息、NebulaGraph 服务器信息等。用户可以参考示例配置文件：[无表头配置](config-without-header.md)/[有表头配置](config-with-header.md)。下文将分类介绍配置文件内的字段。
+NebulaGraph Importer 通过`nebula-importer/examples/v2/example.yaml`配置文件来描述待导入文件信息、{{nebula.name}}服务器信息等。用户可以参考示例配置文件：[无表头配置](config-without-header.md)/[有表头配置](config-with-header.md)。下文将分类介绍配置文件内的字段。
 
 !!! note
 
@@ -184,11 +184,11 @@ clientSettings:
 |参数|默认值|是否必须|说明|
 |:---|:---|:---|:---|
 |`clientSettings.retry`|3|否|nGQL 语句执行失败的重试次数。|
-|`clientSettings.concurrency`|10|否|NebulaGraph 客户端并发数。|
+|`clientSettings.concurrency`|10|否|{{nebula.name}}客户端并发数。|
 |`clientSettings.channelBufferSize`|128|否|每个{{nebula.name}}客户端的缓存队列大小。|
 |`clientSettings.space`|-|是|指定数据要导入的{{nebula.name}}图空间。不要同时导入多个空间，以免影响性能。|
-|`clientSettings.connection.user`|-|是|NebulaGraph 的用户名。|
-|`clientSettings.connection.password`|-|是|NebulaGraph 用户名对应的密码。|
+|`clientSettings.connection.user`|-|是|{{nebula.name}}的用户名。|
+|`clientSettings.connection.password`|-|是|{{nebula.name}}用户名对应的密码。|
 |`clientSettings.connection.address`|-|是|所有 Graph 服务的地址和端口。|
 |`clientSettings.postStart.commands`|-|否|配置连接{{nebula.name}}服务器之后，在插入数据之前执行的一些操作。|
 |`clientSettings.postStart.afterPeriod`|-|否|执行上述`commands`命令后到执行插入数据命令之间的间隔，例如`8s`。|

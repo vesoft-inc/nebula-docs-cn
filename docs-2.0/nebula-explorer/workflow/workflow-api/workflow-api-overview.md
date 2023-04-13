@@ -40,8 +40,8 @@ curl -i -X POST -H "Content-Type: application/json" -H "Authorization: Bearer <a
 ```
 
 - `<account_base64_encode>`：Base64 编码后的{{nebula.name}}账号和密码字符串。以用户名`root`、密码`123`为例，序列化后的字符串为`["root","123"]`，Base64 编码后为`WyJyb290IiwiMTIzIl0=`。
-- `<nebula_address>`：NebulaGraph 访问地址。
-- `<nebula_port>`：NebulaGraph 访问端口。
+- `<nebula_address>`：{{nebula.name}}访问地址。
+- `<nebula_port>`：{{nebula.name}}访问端口。
 - `<explorer_address>`：NebulaGraph Explorer 访问地址。
 - `<explorer_port>`：NebulaGraph Explorer 访问端口。
 

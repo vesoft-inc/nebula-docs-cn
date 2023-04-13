@@ -58,8 +58,8 @@ NebulaGraph Explorer 支持内联框架（iframe），可以将画布嵌入至�
 
   - type：方法类型必须为`NebulaGraphExploreLogin`。
   - data：
-    - `authorization`：NebulaGraph 账号和密码组成数组并序列化，然后进行 Base64 编码。数组格式为`['账号', '密码']`，示例为`['root', 'nebula']`，编码后为`WyJyb290IiwibmVidWxhIl0=`。
-    - `host`：NebulaGraph 的 Graph 服务地址。
+    - `authorization`：{{nebula.name}}账号和密码组成数组并序列化，然后进行 Base64 编码。数组格式为`['账号', '密码']`，示例为`['root', 'nebula']`，编码后为`WyJyb290IiwibmVidWxhIl0=`。
+    - `host`：{{nebula.name}}的 Graph 服务地址。
     - `space`：目标图空间名称。
 
 5. 启动 Explorer 服务。

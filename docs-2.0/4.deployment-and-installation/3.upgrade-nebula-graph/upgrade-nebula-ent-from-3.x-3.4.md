@@ -5,7 +5,7 @@
 ## 升级说明
 
 - 此升级操作仅适用于升级{{nebula.name}} 3.x（x < 4）至 {{nebula.release}}。对于升级 3.4.0 及以上版本至 {{nebula.release}}，可以直接替换二进制文件进行升级。具体操作请参见[升级{{nebula.name}} 至 {{nebula.release}}](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest/)。
-<!--因为企业版 NebulaGraph 3.4 中一个分片对应一个 RocksDB 实例不同于 3.4 之前的一个图空间对应一个 RocksDB 实例。因此企业版3.4.0和之前版本数据格式不兼容--> 
+<!--因为企业版 {{nebula.name}} 3.4 中一个分片对应一个 RocksDB 实例不同于 3.4 之前的一个图空间对应一个 RocksDB 实例。因此企业版3.4.0和之前版本数据格式不兼容--> 
 
   !!! note
 

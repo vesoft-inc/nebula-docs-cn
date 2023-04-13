@@ -79,7 +79,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
 
 开始导入数据之前，用户需要确认以下信息：
 
-- 已经[安装部署 NebulaGraph {{nebula.release}}](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md) 并获取如下信息：
+- 已经[安装部署 {{nebula.name}} {{nebula.release}}](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md) 并获取如下信息：
 
   - Graph 服务和 Meta 服务的的 IP 地址和端口。
 
@@ -113,7 +113,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
 
 分析 CSV 文件中的数据，按以下步骤在{{nebula.name}}中创建 Schema：
 
-1. 确认 Schema 要素。NebulaGraph 中的 Schema 要素如下表所示。
+1. 确认 Schema 要素。{{nebula.name}}中的 Schema 要素如下表所示。
 
     | 要素  | 名称 | 属性 |
     | :--- | :--- | :--- |
@@ -264,7 +264,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
 
       # 指定一个列作为 VID 的源。
       # vertex 的值必须与上述 fields 或者 csv.fields 中的列名保持一致。
-      # 目前，NebulaGraph {{nebula.release}}仅支持字符串或整数类型的 VID。
+      # 目前，{{nebula.name}} {{nebula.release}}仅支持字符串或整数类型的 VID。
       vertex: {
         field:_c0
       }
@@ -312,7 +312,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
 
       # 指定一个列作为 VID 的源。
       # vertex 的值必须与上述 fields 或者 csv.fields 中的列名保持一致。
-      # 目前，NebulaGraph {{nebula.release}}仅支持字符串或整数类型的 VID。
+      # 目前，{{nebula.name}} {{nebula.release}}仅支持字符串或整数类型的 VID。
       vertex: {
         field:_c0
       }
@@ -364,7 +364,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
 
       # 指定一个列作为起始点和目的点的源。
       # vertex 的值必须与上述 fields 或者 csv.fields 中的列名保持一致。
-      # 目前，NebulaGraph {{nebula.release}}仅支持字符串或整数类型的 VID。
+      # 目前，{{nebula.name}} {{nebula.release}}仅支持字符串或整数类型的 VID。
       source: {
         field: _c0
       }
@@ -419,7 +419,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
 
       # 指定一个列作为起始点和目的点的源。
       # vertex 的值必须与上述 fields 或者 csv.fields 中的列名保持一致。
-      # 目前，NebulaGraph {{nebula.release}}仅支持字符串或整数类型的 VID。
+      # 目前，{{nebula.name}} {{nebula.release}}仅支持字符串或整数类型的 VID。
       source: {
         field: _c0
       }

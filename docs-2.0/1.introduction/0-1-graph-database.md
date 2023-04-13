@@ -153,7 +153,7 @@ Cypher 启发了一系列后续的图查询语言，包括
 
 [^GSQL]: https://docs.tigergraph.com/dev/gsql-ref
 
-2019 年，NebulaGraph 以 openCypher 为基础发布其扩展的图语言 NebulaGraph Query Language, nGQL。
+2019 年，{{nebula.name}}以 openCypher 为基础发布其扩展的图语言 NebulaGraph Query Language, nGQL。
 
 ![Image](https://docs-cdn.nebula-graph.com.cn/books/images/langhis.jpg "图语言的历史")
 
