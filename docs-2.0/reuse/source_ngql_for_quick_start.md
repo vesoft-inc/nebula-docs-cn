@@ -6,7 +6,7 @@
 
 ![{{nebula.name}} and graph spaces](https://docs-cdn.nebula-graph.com.cn/docs-2.0/2.quick-start/nebula-graph-instance-and-graph-spaces.png)
 
-为了在图空间中插入数据，需要为图数据库定义一个 Schema。NebulaGraph 的 Schema 是由如下几部分组成。
+为了在图空间中插入数据，需要为图数据库定义一个 Schema。{{nebula.name}}的 Schema 是由如下几部分组成。
 
 | 组成部分 | 说明|
 | :--- | :---  |

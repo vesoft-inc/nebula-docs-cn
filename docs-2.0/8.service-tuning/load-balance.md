@@ -131,7 +131,7 @@ nebula> SHOW HOSTS;
 
 ### 示例
 
-以横向扩容 NebulaGraph 为例，Zone 中增加新的 Storage 服务器后，新服务器上没有分片。
+以横向扩容{{nebula.name}}为例，Zone 中增加新的 Storage 服务器后，新服务器上没有分片。
 
 1. 将新增的 3 台 Storage 服务器加入集群，分别加入图空间`basketballplayer`所属的 Zone。关于 Zone 的介绍请参见[管理逻辑机架（Zone）](../4.deployment-and-installation/5.zone.md)。
 

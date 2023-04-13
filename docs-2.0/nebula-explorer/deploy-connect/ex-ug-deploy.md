@@ -6,7 +6,7 @@
 
 在部署 Explorer 之前，用户需要确认以下信息：
 
-- NebulaGraph 服务已经部署并启动。详细信息参考 [NebulaGraph 安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往 NebulaGraph 安装部署")。
+- {{nebula.name}} 服务已经部署并启动。详细信息参考 [NebulaGraph 安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往{{nebula.name}}安装部署")。
 
 - 以下端口未被使用。
 
@@ -231,7 +231,7 @@ kill $(lsof -t -i :7002)
 
 Dag Controller 是一款任务编排调度工具，可以编排调度有向无环图（DAG）类型的作业，该作业由多个任务组成，且任务之间存在先后关系，组成一个有向无环图（DAG）。
 
-Dag Controller 可以结合 NebulaGraph Analytics 进行复杂的图计算。例如 Dag Controller 将算法调用请求发送给 NebulaGraph Analytics ，NebulaGraph Analytics 保存结果至 NebulaGraph 或 HDFS，Dag Controller 再将上次的计算结果作为下一个算法任务的输入创建新的任务。
+Dag Controller 可以结合 NebulaGraph Analytics 进行复杂的图计算。例如 Dag Controller 将算法调用请求发送给 NebulaGraph Analytics ，NebulaGraph Analytics 保存结果至{{nebula.name}}或 HDFS，Dag Controller 再将上次的计算结果作为下一个算法任务的输入创建新的任务。
 
 ### 配置步骤
 

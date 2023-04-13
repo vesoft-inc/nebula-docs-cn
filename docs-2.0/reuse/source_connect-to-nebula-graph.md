@@ -49,7 +49,7 @@
 
 5. 在命令行界面中，切换工作目录至 nebula-console 文件所在目录。
 
-6. 执行如下命令连接 NebulaGraph。
+6. 执行如下命令连接{{nebula.name}}。
 
   - Linux 或 macOS
 

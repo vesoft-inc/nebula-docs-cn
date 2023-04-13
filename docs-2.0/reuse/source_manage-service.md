@@ -45,7 +45,7 @@ $ sudo /usr/local/nebula/scripts/nebula.service
 {{ ent.ent_begin }}
 ## 使用 systemd 管理服务
 
-为方便使用，NebulaGraph 企业版支持用 systemd 管理服务，通过`systemctl`启动、停止、重启和查看服务。
+为方便使用，{{nebula.name}}企业版支持用 systemd 管理服务，通过`systemctl`启动、停止、重启和查看服务。
 
 !!! note
 

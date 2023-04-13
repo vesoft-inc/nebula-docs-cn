@@ -87,13 +87,13 @@ clientSettings:
   # nGQL 语句执行失败的重试次数。
   retry: 3
 
-  # NebulaGraph 客户端并发数。
+  #{{nebula.name}}客户端并发数。
   concurrency: 10 
 
-  # 每个 NebulaGraph 客户端的缓存队列大小。
+  # 每个{{nebula.name}}客户端的缓存队列大小。
   channelBufferSize: 128
 
-  # 指定数据要导入的 NebulaGraph 图空间。
+  # 指定数据要导入的{{nebula.name}}图空间。
   space: student
 
   # 连接信息。
@@ -103,7 +103,7 @@ clientSettings:
     address: 192.168.11.13:9669
 
   postStart:
-    # 配置连接 NebulaGraph 服务器之后，在插入数据之前执行的一些操作。
+    # 配置连接{{nebula.name}}服务器之后，在插入数据之前执行的一些操作。
     commands: |
       DROP SPACE IF EXISTS student;
       CREATE SPACE IF NOT EXISTS student(partition_num=5, replica_factor=1, vid_type=FIXED_STRING(20));
@@ -115,7 +115,7 @@ clientSettings:
     afterPeriod: 15s
   
   preStop:
-    # 配置断开 NebulaGraph 服务器连接之前执行的一些操作。
+    # 配置断开{{nebula.name}}服务器连接之前执行的一些操作。
     commands: |
 
 # 错误等日志信息输出的文件路径。    

@@ -4,7 +4,7 @@
 
 ## 如果 Graph 服务返回的查询结果数据量过大，会导致 Dag Controller 服务崩溃吗？
 
-Dag Controller 服务仅仅提供调度功能，不会崩溃，但是数据量过大可能会导致 NebulaGraph Analytics 服务读写 HDFS 或者 NebulaGraph 时内存不足而崩溃。
+Dag Controller 服务仅仅提供调度功能，不会崩溃，但是数据量过大可能会导致 NebulaGraph Analytics 服务读写 HDFS 或者{{nebula.name}}时内存不足而崩溃。
 
 ## 如果一个作业中的某个任务失败，能否从失败的任务开始重新执行？
 

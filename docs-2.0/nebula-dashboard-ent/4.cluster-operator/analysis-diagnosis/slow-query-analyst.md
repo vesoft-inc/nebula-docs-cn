@@ -9,7 +9,7 @@
 
 ## 前提条件
 
-NebulaGraph 的 Graph 配置文件中，已设置`enable_record_slow_query`=`true`。详情参见 [Graph 服务配置](../../../5.configurations-and-logs/1.configurations/3.graph-config.md)。
+{{nebula.name}}的 Graph 配置文件中，已设置`enable_record_slow_query`=`true`。详情参见 [Graph 服务配置](../../../5.configurations-and-logs/1.configurations/3.graph-config.md)。
 
 ## 入口
 

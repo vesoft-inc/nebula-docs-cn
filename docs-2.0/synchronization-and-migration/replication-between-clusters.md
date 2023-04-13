@@ -65,7 +65,7 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
 ### 1.搭建主从集群、listener 和 drainer 服务
 
-1. 在所有机器上安装 NebulaGraph，修改配置文件：
+1. 在所有机器上安装{{nebula.name}}，修改配置文件：
 
   - 主、从集群修改：`nebula-graphd.conf`、`nebula-metad.conf`、`nebula-storaged.conf`。
 

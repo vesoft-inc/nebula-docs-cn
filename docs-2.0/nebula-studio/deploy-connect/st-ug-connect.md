@@ -1,6 +1,6 @@
 # 连接数据库
 
-在成功启动 Studio 后，用户需要配置连接 NebulaGraph。本文主要描述 Studio 如何连接{{nebula.name}}。
+在成功启动 Studio 后，用户需要配置连接{{nebula.name}}。本文主要描述 Studio 如何连接{{nebula.name}}。
 
 ## 前提条件
 
@@ -63,9 +63,6 @@
     账号的权限决定了能执行哪些操作。详情参见[内置角色权限](../../7.data-security/1.authentication/3.role-list.md)。
 
 ### 登出
-<!--
-使用云服务版 Studio 时，用户不能清除连接。
--->
 
 如果需要重新连接{{nebula.name}}，可以登出后重新配置数据库。
 

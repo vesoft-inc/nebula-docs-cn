@@ -6,7 +6,7 @@ NebulaGraph Console 是{{nebula.name}}的原生命令行客户端，用于连接
 
 NebulaGraph Console 的获取方式如下：
 
-<!-- - 直接从 NebulaGraph 安装路径的 `bin` 目录中获取二进制文件 `nebula-console`。-->
+<!-- - 直接从{{nebula.name}}安装路径的 `bin` 目录中获取二进制文件 `nebula-console`。-->
 
 - 从 [GitHub 发布页](https://github.com/vesoft-inc/nebula-console/releases "the nebula-console Releases page")下载二进制文件。
 

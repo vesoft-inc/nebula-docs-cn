@@ -4,7 +4,7 @@ NebulaGraph Explorer 支持将常用 nGQL 语句保存为模板，方便自己�
 
 ## 前提条件
 
-NebulaGraph 数据库里已经创建 Schema。
+{{nebula.name}}里已经创建 Schema。
 
 ## 入口
 
