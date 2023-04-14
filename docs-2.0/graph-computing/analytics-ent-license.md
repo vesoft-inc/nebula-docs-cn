@@ -1,6 +1,6 @@
-# NebulaGraph Analytics License
+# {{plato.name}} License
 
-License 是为用户提供的软件授权证书。用户在部署 NebulaGraph Analytics 时，需要设置 License 才能正常启动 NebulaGraph Analytics。本文介绍 NebulaGraph Analytics 的 License 相关信息。
+License 是为用户提供的软件授权证书。用户在部署{{plato.name}}时，需要设置 License 才能正常启动 NebulaGraph Analytics。本文介绍{{plato.name}}的 License 相关信息。
 
 ## 注意事项
 
@@ -20,15 +20,15 @@ License 是为用户提供的软件授权证书。用户在部署 NebulaGraph An
 
 ## 获取方式
 
-[联系我们](https://www.nebula-graph.com.cn/contact)申请 NebulaGraph Analytics License。
+[联系我们](https://www.nebula-graph.com.cn/contact)申请{{plato.name}}License。
 
 !!! note
 
-    填写 [NebulaGraph Analytics 试用申请](https://wj.qq.com/s2/10158890/69a8)可获取 30 天免费试用的 License。
+    填写 [{{plato.name}}试用申请](https://wj.qq.com/s2/10158890/69a8)可获取 30 天免费试用的 License。
 
-## NebulaGraph Analytics License 说明
+## {{plato.name}} License 说明
 
-NebulaGraph Analytics License 是一个名为`nebula.license`的文件，内容示例如下：
+{{plato.name}} License 是一个名为`nebula.license`的文件，内容示例如下：
 
 ```bash
 ----------License Content Start----------
@@ -72,15 +72,15 @@ License 文件包含生效时间、过期时间等信息。说明如下。
 
 ## 使用方式
 
-关于如何使用 NebulaGraph Analytics License，参见[NebulaGraph Analytics](nebula-analytics.md)。
+关于如何使用{{plato.name}}License，参见[{{plato.name}}](nebula-analytics.md)。
 
 ## 续期操作
 
-按照以下操作续期 NebulaGraph Analytics License。
+按照以下操作续期{{plato.name}}License。
 
-1. [联系我们](https://www.nebula-graph.com.cn/contact)申请新的 NebulaGraph Analytics License 文件`nebula.license`。
-2. 在 NebulaGraph Analytics 的安装目录下（例如，`/usr/local/nebula-analytics/scripts/`），使用新的 License 文件替换旧的 License 文件。
+1. [联系我们](https://www.nebula-graph.com.cn/contact)申请新的{{plato.name}}License 文件`nebula.license`。
+2. 在{{plato.name}}的安装目录下（例如，`/usr/local/nebula-analytics/scripts/`），使用新的 License 文件替换旧的 License 文件。
 
 !!! note
 
-    NebulaGraph Analytics License 过期后，用户无法正常使用 Analytics。为了保证业务正常运行，请及时更新 License。
+    {{plato.name}} License 过期后，用户无法正常使用 Analytics。为了保证业务正常运行，请及时更新 License。

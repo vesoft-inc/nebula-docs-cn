@@ -1,6 +1,6 @@
-# NebulaGraph Analytics
+# {{plato.name}}
 
-NebulaGraph Analytics 是一款高性能图计算框架工具，支持对{{nebula.name}}数据库中的数据执行图分析。
+{{plato.name}}是一款高性能图计算框架工具，支持对{{nebula.name}}数据库中的数据执行图分析。
 
 ## 前提条件
 
@@ -15,7 +15,7 @@ NebulaGraph Analytics 是一款高性能图计算框架工具，支持对{{nebul
 
 ## 适用场景
 
-支持将数据源为{{nebula.name}}集群、HDFS 上的 CSV 文件或本地 CSV 文件中的数据导入 NebulaGraph Analytics，并将图计算结果输出至{{nebula.name}}集群、HDFS 上的 CSV 文件或本地 CSV 文件。
+支持将数据源为{{nebula.name}}集群、HDFS 上的 CSV 文件或本地 CSV 文件中的数据导入 {{plato.name}}，并将图计算结果输出至{{nebula.name}}集群、HDFS 上的 CSV 文件或本地 CSV 文件。
 
 ## 使用限制
 
@@ -23,9 +23,9 @@ NebulaGraph Analytics 是一款高性能图计算框架工具，支持对{{nebul
 
 ## 版本兼容性
 
-NebulaGraph Analytics 版本和{{nebula.name}}内核的版本对应关系如下。
+{{plato.name}}版本和{{nebula.name}}内核的版本对应关系如下。
 
-|{{nebula.name}}版本|NebulaGraph Analytics 版本|
+|{{nebula.name}}版本|{{plato.name}}版本|
 |:---|:---|
 |3.4.0 ~ 3.4.1| 3.4.0 |
 |3.3.0      | 3.3.0 |
@@ -35,7 +35,7 @@ NebulaGraph Analytics 版本和{{nebula.name}}内核的版本对应关系如下�
 
 ## 支持算法
 
-NebulaGraph Analytics 支持的图计算算法如下。
+{{plato.name}}支持的图计算算法如下。
 
 |           算法名        |说明             |分类        |
 |:----------------------|:----------------|:-----------|
@@ -61,9 +61,9 @@ NebulaGraph Analytics 支持的图计算算法如下。
 |  Clustering Coefficient| 聚集系数          |  聚类       |
 |  Jaccard               | 杰卡德相似度       |  相似度     |
 
-## 安装 NebulaGraph Analytics
+## 安装 {{plato.name}}
 
-1. 安装 NebulaGraph Analytics。在多个机器安装由多个 NebulaGraph Analytics 服务构成的集群时，需要安装路径相同，并设置节点间 SSH 免密登录。
+1. 安装 {{plato.name}}。在多个机器安装由多个{{plato.name}}服务构成的集群时，需要安装路径相同，并设置节点间 SSH 免密登录。
 
   ```
   $ sudo rpm -ivh <analytics_package_name> --prefix <install_path>
@@ -88,12 +88,12 @@ NebulaGraph Analytics 支持的图计算算法如下。
   export JAVA_HOME=<java_path>
   ```
 
-3. 拷贝 License 至所有机器的 NebulaGraph Analytics 安装路径的`scripts`目录内。
+3. 拷贝 License 至所有机器的{{plato.name}}安装路径的`scripts`目录内。
 
 <!--
 ### 编译安装
 
-编译安装 NebulaGraph Analytics 的准备工作和编译{{nebula.name}}类似，详情参见[准备资源](4.deployment-and-installation/1.resource-preparations.md)。
+编译安装{{plato.name}}的准备工作和编译{{nebula.name}}类似，详情参见[准备资源](4.deployment-and-installation/1.resource-preparations.md)。
 
 1. 克隆仓库`analytics`。
 
@@ -119,7 +119,7 @@ NebulaGraph Analytics 支持的图计算算法如下。
   $ ./3rdtools.sh distclean && ./3rdtools.sh install
   ```
 
-5. 编译 NebulaGraph Analytics
+5. 编译 {{plato.name}}
 
   ```bash
   $ ./build.sh
@@ -131,7 +131,7 @@ NebulaGraph Analytics 支持的图计算算法如下。
 
 安装完成后，用户可以设置不同算法的参数，然后执行脚本，即可获得算法的结果，并导出为指定格式。
 
-1. 选择 NebulaGraph Analytics 集群的任一节点，进入目录`scripts`。
+1. 选择{{plato.name}}集群的任一节点，进入目录`scripts`。
 
   ```bash
   $ cd scripts
@@ -254,10 +254,10 @@ NebulaGraph Analytics 支持的图计算算法如下。
     ITERATIONS=${ITERATIONS:=100}
     ```
 
-3. 修改配置文件`cluster`，设置执行算法的 NebulaGraph Analytics 集群节点和任务分配权重。
+3. 修改配置文件`cluster`，设置执行算法的{{plato.name}}集群节点和任务分配权重。
 
   ```bash
-  # NebulaGraph Analytics 集群节点 IP 地址:任务分配权重
+  # {{plato.name}}集群节点 IP 地址:任务分配权重
   192.168.8.200:1
   192.168.8.201:1
   192.168.8.202:1

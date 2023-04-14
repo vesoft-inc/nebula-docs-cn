@@ -231,13 +231,13 @@ kill $(lsof -t -i :7002)
 
 Dag Controller 是一款任务编排调度工具，可以编排调度有向无环图（DAG）类型的作业，该作业由多个任务组成，且任务之间存在先后关系，组成一个有向无环图（DAG）。
 
-Dag Controller 可以结合 NebulaGraph Analytics 进行复杂的图计算。例如 Dag Controller 将算法调用请求发送给 NebulaGraph Analytics ，NebulaGraph Analytics 保存结果至{{nebula.name}}或 HDFS，Dag Controller 再将上次的计算结果作为下一个算法任务的输入创建新的任务。
+Dag Controller 可以结合{{plato.name}}进行复杂的图计算。例如 Dag Controller 将算法调用请求发送给{{plato.name}}，{{plato.name}}保存结果至{{nebula.name}}或 HDFS，Dag Controller 再将上次的计算结果作为下一个算法任务的输入创建新的任务。
 
 ### 配置步骤
 
-1. 配置 Dag Controller 机器 SSH 免密登录 NebulaGraph Analytics 机器，以及 NebulaGraph Analytics 集群内所有节点间的 SSH 相互免密登录。
+1. 配置 Dag Controller 机器 SSH 免密登录{{plato.name}}机器，以及{{plato.name}}集群内所有节点间的 SSH 相互免密登录。
 
-  例如机器 A（Dag Controller）通过 SSH 免密登录至 NebulaGraph Analytics 集群 B 中的机器 B-1。请在机器 A 上执行如下命令：
+  例如机器 A（Dag Controller）通过 SSH 免密登录至{{plato.name}}集群 B 中的机器 B-1。请在机器 A 上执行如下命令：
 
   ```
   //执行后按提示生成密钥，默认按回车即可。
@@ -255,7 +255,7 @@ Dag Controller 可以结合 NebulaGraph Analytics 进行复杂的图计算。例
 
         ssh-agent是密钥管理器，用来管理多个密钥，并为其他需要使用 SSH 密钥对的程序提供代理。
 
-3. 配置`dag-ctrl-api.yaml`文件，路径为`dag-ctrl/etc/dag-ctrl-api.yaml`。配置 NebulaGraph Analytics 机器的用户名及端口，如果有多台机器，请确保使用相同用户名和端口。
+3. 配置`dag-ctrl-api.yaml`文件，路径为`dag-ctrl/etc/dag-ctrl-api.yaml`。配置{{plato.name}}机器的用户名及端口，如果有多台机器，请确保使用相同用户名和端口。
 
   ```yaml
   # 配置名称。
@@ -272,7 +272,7 @@ Dag Controller 可以结合 NebulaGraph Analytics 进行复杂的图计算。例
     Level: info     # 保存级别。
     Compress: false  # 是否压缩。
 
-  # NebulaGraph Analytics 机器的用户名以及 SSH 端口。
+  # {{plato.name}}机器的用户名以及 SSH 端口。
   SSH:
    UserName: vesoft
    Port: 22  
@@ -306,7 +306,7 @@ Dag Controller 可以结合 NebulaGraph Analytics 进行复杂的图计算。例
 
   !!! note
 
-      - 算法文件在 NebulaGraph Analytics 安装路径下的`scripts`目录内。
+      - 算法文件在{{plato.name}}安装路径下的`scripts`目录内。
       - 如果有多台机器，请确保算法文件路径一致。
       - 其它参数是算法的执行参数，后续在[可视化工作流页面](../workflow/2.create-workflow.md)配置。
 
