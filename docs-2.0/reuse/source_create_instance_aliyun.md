@@ -43,8 +43,8 @@ NebulaGraph Cloud 阿里云版支持如下套餐版本。
 | 套餐版本 | 说明 |
 | - | - |
 | 基础版 | 将所有{{nebula.name}}服务节点部署在 1 台 ECS 服务器上。 |
-| 标准版 | 将 Graph 服务和 Storage 服务分别部署在不同的 ECS 服务器上，每个服务都是单节点（1 台 ECS）。将 Explorer 等生态工具混合部署在 1 台 ECS 服务器上。 |
-| 高可用版 |  将 Graph 服务和 Storage 服务分别部署在不同的 ECS 服务器上，每个服务都包含 3 节点（3 台 ECS）。将 Explorer 等生态工具混合部署在 1 台 ECS 服务器上。 |
+| 标准版 | 将 Graph 服务和 Storage 服务分别部署在不同的 ECS 服务器上，每个服务都是单节点（1 台 ECS）。将{{explorer.name}}等生态工具混合部署在 1 台 ECS 服务器上。 |
+| 高可用版 |  将 Graph 服务和 Storage 服务分别部署在不同的 ECS 服务器上，每个服务都包含 3 节点（3 台 ECS）。将{{explorer.name}}等生态工具混合部署在 1 台 ECS 服务器上。 |
 
 付费版和免费试用版服务实例支持的套餐版本有所不同，详情参见创建实例页面。
 

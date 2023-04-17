@@ -253,6 +253,12 @@ extra:
     release: 3.4.2
     tag: v3.4.2
     branch: release-3.4
+    # nav.ent.begin
+    name: 悦数运维监控
+    # nav.ent.end
+    # nav.comm.begin
+    name: NebulaGraph Dashboard
+    # nav.comm.end
   console:
     release: 3.4.0
     branch: release-3.4
@@ -264,6 +270,12 @@ extra:
   br_ent:
     release: 3.4.1
     tag: v3.4.1
+    # nav.ent.begin
+    name: 悦数备份&恢复
+    # nav.ent.end
+    # nav.comm.begin
+    name: NebulaGraph Backup&Restore
+    # nav.comm.end
   agent:
     release: 3.4.0
     tag: v3.4.0
@@ -305,6 +317,12 @@ extra:
     release: 3.4.0
     branch: release-3.4
     tag: v3.4.0
+    # nav.ent.begin
+    name: 悦数黑匣子
+    # nav.ent.end
+    # nav.comm.begin
+    name: NebulaGraph BlackBox
+    # nav.comm.end
   cloud:
     azureRelease: 3.1.1 # Azure云兼容的最新内核版本
     aliyunRelease: 3.4.0 # 阿里云兼容的最新内核版本
@@ -558,8 +576,8 @@ nav:
       - 查询监控指标: 6.monitor-and-metrics/1.query-performance-metrics.md
       - RocksDB 统计数据: 6.monitor-and-metrics/2.rocksdb-statistics.md
       # nav.ent.begin
-      - 黑匣子:
-        - 黑匣子介绍: 6.monitor-and-metrics/3.bbox/3.1.bbox.md
+      - 悦数黑匣子:
+        - 悦数黑匣子介绍: 6.monitor-and-metrics/3.bbox/3.1.bbox.md
         - Nebula-BBox 工具: 6.monitor-and-metrics/3.bbox/3.2.bbox-reviewer.md
       # nav.ent.end
 
@@ -582,11 +600,11 @@ nav:
         - 使用 BR 恢复数据: backup-and-restore/nebula-br/4.br-restore-data.md
       # nav.comm.end
       # nav.ent.begin
-      - NebulaGraph BR（企业版）:
-        - BR（企业版）概述: backup-and-restore/nebula-br-ent/1.br-ent-overview.md
-        - 安装 BR: backup-and-restore/nebula-br-ent/2.install-tools.md
-        - 使用 BR 备份数据: backup-and-restore/nebula-br-ent/3.backup-data.md
-        - 使用 BR 恢复数据: backup-and-restore/nebula-br-ent/4.restore-data.md
+      - 悦数备份&恢复:
+        - 悦数备份&恢复概述: backup-and-restore/nebula-br-ent/1.br-ent-overview.md
+        - 安装: backup-and-restore/nebula-br-ent/2.install-tools.md
+        - 备份数据: backup-and-restore/nebula-br-ent/3.backup-data.md
+        - 恢复数据: backup-and-restore/nebula-br-ent/4.restore-data.md
       # nav.ent.end
       - 快照: backup-and-restore/3.manage-snapshot.md
 
@@ -674,11 +692,11 @@ nav:
   # nav.comm.end
 
   # nav.ent.begin
-  - NebulaGraph Dashboard（企业版）:
-      - 什么是 NebulaGraph Dashboard 企业版: nebula-dashboard-ent/1.what-is-dashboard-ent.md
-      - 部署 NebulaGraph Dashboard 企业版: nebula-dashboard-ent/2.deploy-connect-dashboard-ent.md
-      - 连接 Dashboard: nebula-dashboard-ent/3.connect-dashboard.md
-      - NebulaGraph Dashboard 企业版 License: nebula-dashboard-ent/11.dashboard-ent-license.md
+  - 悦数运维监控:
+      - 什么是悦数运维监控: nebula-dashboard-ent/1.what-is-dashboard-ent.md
+      - 部署悦数运维监控: nebula-dashboard-ent/2.deploy-connect-dashboard-ent.md
+      - 连接悦数运维监控: nebula-dashboard-ent/3.connect-dashboard.md
+      - 悦数运维监控 License: nebula-dashboard-ent/11.dashboard-ent-license.md
       - 创建及导入集群:
         - 创建集群: nebula-dashboard-ent/3.create-import-dashboard/1.create-cluster.md
         - 导入集群: nebula-dashboard-ent/3.create-import-dashboard/2.import-cluster.md
@@ -717,12 +735,12 @@ nav:
   # nav.ent.end
 
   # nav.ent.begin
-  - NebulaGraph Explorer:
-    - 什么是 NebulaGraph Explorer: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
+  - 悦数图探索:
+    - 什么是悦数图探索: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
     - 安装与登录:
-      - 部署 Explorer: nebula-explorer/deploy-connect/ex-ug-deploy.md
+      - 部署悦数图探索: nebula-explorer/deploy-connect/ex-ug-deploy.md
       - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
-      - NebulaGraph Explorer License（企业版）: nebula-explorer/deploy-connect/3.explorer-license.md
+      - 悦数图探索 License: nebula-explorer/deploy-connect/3.explorer-license.md
     - 页面概览: nebula-explorer/ex-ug-page-overview.md
     - 数据库管理:
       - Schema 草图: nebula-explorer/db-management/draft.md
@@ -841,13 +859,8 @@ nav:
 # nav.ent.begin
     - 悦数图计算: graph-computing/nebula-analytics.md
     - 悦数图计算 License: graph-computing/analytics-ent-license.md
+    - 悦数图探索工作流: graph-computing/use-explorer.md
 # nav.ent.end
-# nav.comm.begin
-    - NebulaGraph Analytics: graph-computing/nebula-analytics.md
-    - NebulaGraph Analytics License: graph-computing/analytics-ent-license.md
-# nav.comm.end
-    - NebulaGraph Explorer 工作流: graph-computing/use-explorer.md
-
   - NebulaGraph Spark Connector: nebula-spark-connector.md
       
   - NebulaGraph Flink Connector: nebula-flink-connector.md
@@ -869,10 +882,10 @@ nav:
         - NebulaGraph Dashboard 社区版: 20.appendix/release-notes/dashboard-comm-release-note.md
         # nav.comm.end
         # nav.ent.begin
-        - NebulaGraph Dashboard 企业版: 20.appendix/release-notes/dashboard-ent-release-note.md
+        - 悦数运维监控: 20.appendix/release-notes/dashboard-ent-release-note.md
         # nav.ent.end
         # nav.ent.begin
-        - NebulaGraph Explorer: 20.appendix/release-notes/explorer-release-note.md
+        - 悦数图探索: 20.appendix/release-notes/explorer-release-note.md
         # nav.ent.end
       - 学习路径: 20.appendix/learning-path.md
       # nav.ent.begin

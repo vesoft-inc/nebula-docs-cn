@@ -4,13 +4,13 @@
 
 ## 入口
 
-1. 在 Dashboard 企业版顶部导航栏，单击**集群管理**。
+1. 在{{dashboard_ent.name}}顶部导航栏，单击**集群管理**。
 2. 单击目标集群右侧**详情**。
 3. 在左侧导航栏，单击**集群信息**->**信息总览**。
 
 !!! note
 
-    在查看集群信息之前，用户需要选择任意一个在线的 Graph 服务地址，输入登录{{nebula.name}}的账号（非 Dashboard 登录账号）和对应密码。
+    在查看集群信息之前，用户需要选择任意一个在线的 Graph 服务地址，输入登录{{nebula.name}}的账号（非{{dashboard_ent.name}}登录账号）和对应密码。
 
 ![coreinfo](https://docs-cdn.nebula-graph.com.cn/figures/clustercore-info_2022-04-11_cn.png)
 

@@ -1,4 +1,4 @@
-# NebulaGraph Explorer 版本更新说明
+# {{explorer.name}}版本更新说明
 
 ## v3.4.0
 

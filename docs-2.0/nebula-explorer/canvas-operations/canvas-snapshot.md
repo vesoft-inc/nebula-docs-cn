@@ -1,6 +1,6 @@
 # 管理快照
 
-Explorer 的快照功能可保存图探索得到的可视化结果，以便再次打开浏览器时还原保存的图数据。
+{{explorer.name}}的快照功能可保存图探索得到的可视化结果，以便再次打开浏览器时还原保存的图数据。
 
 ## 创建快照
 
@@ -19,7 +19,7 @@ Explorer 的快照功能可保存图探索得到的可视化结果，以便再�
     - 目前最多存储 50 个历史快照。
     - 历史快照存储在浏览器本地，清理浏览器可能造成快照数据丢失。
 
-在 Explorer 页面左侧导航栏，单击![snapshot_history](https://docs-cdn.nebula-graph.com.cn/figures/snapshot-history.png)图标进入快照列表页面。用户可切换图空间查看相应图空间的历史快照，还可以导入历史快照至画布，下载历史快照至本地，以及删除快照。
+在{{explorer.name}}页面左侧导航栏，单击![snapshot_history](https://docs-cdn.nebula-graph.com.cn/figures/snapshot-history.png)图标进入快照列表页面。用户可切换图空间查看相应图空间的历史快照，还可以导入历史快照至画布，下载历史快照至本地，以及删除快照。
 
 在目标历史快照右侧的**操作**列下：
 

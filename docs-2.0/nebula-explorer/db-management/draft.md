@@ -1,6 +1,6 @@
 # Schema 草图
 
-Explorer 支持 Schema 草图功能。用户可以在画板上自行设计 Schema，可以直观展示点边关系，设计完成后可以将 Schema 应用到指定图空间。
+{{explorer.name}}支持 Schema 草图功能。用户可以在画板上自行设计 Schema，可以直观展示点边关系，设计完成后可以将 Schema 应用到指定图空间。
 
 ## 功能说明
 

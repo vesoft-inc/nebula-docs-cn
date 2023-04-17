@@ -1,10 +1,10 @@
-# 部署 Explorer
+# 部署{{explorer.name}}
 
-本文介绍如何在本地通过 RPM、DEB 和 TAR 包部署 Explorer。
+本文介绍如何在本地通过 RPM、DEB 和 TAR 包部署{{explorer.name}}。
 
 ## 前提条件
 
-在部署 Explorer 之前，用户需要确认以下信息：
+在部署{{explorer.name}}之前，用户需要确认以下信息：
 
 - {{nebula.name}} 服务已经部署并启动。详细信息参考 [{{nebula.name}}安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往{{nebula.name}}安装部署")。
 
@@ -12,18 +12,18 @@
 
   | 端口号 | 说明 |
   | :---- | :---- |
-  | 7002 | Explorer 提供的 web 服务 |
+  | 7002 | {{explorer.name}}提供的 web 服务 |
 
   !!! caution
 
-       Explorer 默认使用的端口号为 7002，用户可以在安装目录下的 `conf/app.conf` 文件中修改 `httpport`，并重启服务。
+       {{explorer.name}}默认使用的端口号为 7002，用户可以在安装目录下的 `conf/app.conf` 文件中修改 `httpport`，并重启服务。
 
 - 使用的 Linux 发行版为 CentOS。
 - [准备 License](3.explorer-license.md)。
 
   !!! enterpriseonly
 
-        License 仅在企业版提供，申请 License 需填写 [Nebula Explorer 试用申请](https://wj.qq.com/s2/10158890/69a8)。
+        License 仅在企业版提供，申请 License 需填写 [{{explorer.name}}试用申请](https://wj.qq.com/s2/10158890/69a8)。
 
 - 如果需要使用图计算，需要部署 HDFS。namenode 默认使用 8020 端口，datanode 默认使用 50010 端口。
 
@@ -33,7 +33,7 @@
 
 ## 注意事项
 
-Explorer 从 3.2.0 版本开始内置了 Dag Controller 安装包，用于提供图计算服务。用户可以自行决定是否启动 Dag Controller 服务。如果没有启动 Dag Controller 服务， Explorer 中的 **Workflow** 菜单将显示为灰色无法点击。
+{{explorer.name}}从 3.2.0 版本开始内置了 Dag Controller 安装包，用于提供图计算服务。用户可以自行决定是否启动 Dag Controller 服务。如果没有启动 Dag Controller 服务，{{explorer.name}}中的 **Workflow** 菜单将显示为灰色无法点击。
 
 ## RPM 部署
 
@@ -43,11 +43,11 @@ Explorer 从 3.2.0 版本开始内置了 Dag Controller 安装包，用于提供
 
   !!! enterpriseonly
 
-        用户可以[在线申请](https://wj.qq.com/s2/10158890/69a8)试用 Explorer 企业版；如需购买，请[联系我们](https://www.nebula-graph.com.cn/contact)。点击[定价](https://nebula-graph.com.cn/pricing/)查看更多。
+        用户可以[在线申请](https://wj.qq.com/s2/10158890/69a8)试用{{explorer.name}}；如需购买，请[联系我们](https://www.nebula-graph.com.cn/contact)。点击[定价](https://nebula-graph.com.cn/pricing/)查看更多。
 
 2. 使用`sudo rpm -i <rpm>`命令安装 RPM 包。
 
-   例如，安装 Explorer 需要运行以下命令，默认安装路径为`/usr/local/nebula-explorer`：
+   例如，安装{{explorer.name}}需要运行以下命令，默认安装路径为`/usr/local/nebula-explorer`：
 
    ```bash
    sudo rpm -i nebula-explorer-<version>.x86_64.rpm
@@ -76,7 +76,7 @@ Explorer 从 3.2.0 版本开始内置了 Dag Controller 安装包，用于提供
    ```bash
    cd nebula-explorer
 
-   # 启动 Explorer。
+   # 启动{{explorer.name}}。
    sudo ./scripts/start.sh
 
    # （可选）启动 Dag Controller。
@@ -96,15 +96,15 @@ systemctl start nebula-explorer #启动服务
 也可以在安装目录下使用以下命令，手动启动或停止服务。
 
 ```bash
-sudo ./scripts/start.sh #启动 Explorer 服务
-sudo ./scripts/stop.sh #停止 Explorer 服务
+sudo ./scripts/start.sh #启动{{explorer.name}}服务
+sudo ./scripts/stop.sh #停止{{explorer.name}}服务
 sudo ./dag-ctrl/scripts/start.sh #启动 Dag Controller 服务
 sudo ./dag-ctrl/scripts/stop.sh #停止 Dag Controller 服务
 ```
 
 ### 卸载
 
-使用以下的命令卸载 Explorer。
+使用以下的命令卸载{{explorer.name}}。
 
 ```bash
 sudo rpm -e nebula-explorer-<version>.x86_64
@@ -118,12 +118,12 @@ sudo rpm -e nebula-explorer-<version>.x86_64
 
   !!! enterpriseonly
 
-        用户可以[在线申请](https://wj.qq.com/s2/10158890/69a8)试用 Explorer 企业版；如需购买，请[联系我们](https://www.nebula-graph.com.cn/contact)。点击[定价](https://nebula-graph.com.cn/pricing/)查看更多。
+        用户可以[在线申请](https://wj.qq.com/s2/10158890/69a8)试用{{explorer.name}}；如需购买，请[联系我们](https://www.nebula-graph.com.cn/contact)。点击[定价](https://nebula-graph.com.cn/pricing/)查看更多。
 
 
 2. 使用`sudo dpkg -i <package_name>`命令安装 DEB 包。
 
-  例如，安装 Explorer 需要运行以下命令，默认安装路径为`/usr/local/nebula-explorer`：
+  例如，安装{{explorer.name}}需要运行以下命令，默认安装路径为`/usr/local/nebula-explorer`：
 
   ```bash
   sudo dpkg -i nebula-explorer-{{explorer.release}}.x86_64.deb
@@ -131,7 +131,7 @@ sudo rpm -e nebula-explorer-<version>.x86_64
   
   !!! note
 
-        使用 DEB 包安装 Explorer 时不支持自定义安装路径。
+        使用 DEB 包安装{{explorer.name}}时不支持自定义安装路径。
 
 3. 拷贝 License 至`nebula-explorer`目录下。
 
@@ -151,7 +151,7 @@ sudo rpm -e nebula-explorer-<version>.x86_64
    ```bash
    cd nebula-explorer
 
-   # 启动 Explorer。
+   # 启动{{explorer.name}}。
    sudo ./lib/start.sh
 
    # （可选）启动 Dag Controller。
@@ -172,7 +172,7 @@ sudo systemctl stop nebula-explorer.service
 
 ### 卸载
 
-使用以下的命令卸载 Explorer。
+使用以下的命令卸载{{explorer.name}}。
 
 ```bash
 sudo dpkg -r nebula-explorer
@@ -186,7 +186,7 @@ sudo dpkg -r nebula-explorer
 
   !!! enterpriseonly
 
-        Explorer 仅在企业版提供，点击[定价](https://nebula-graph.com.cn/pricing/)查看更多。
+        {{explorer.name}}仅在企业版提供，点击[定价](https://nebula-graph.com.cn/pricing/)查看更多。
 
 2. 使用 `tar -xvf` 解压 tar 包。
 
@@ -212,10 +212,10 @@ sudo dpkg -r nebula-explorer
   ```bash
   cd nebula-explorer
 
-  # 启动 Explorer 和 Dag Controller。
+  # 启动{{explorer.name}}和 Dag Controller。
   sudo ./scripts/start.sh
 
-  # 单独启动 Explorer。
+  # 单独启动{{explorer.name}}。
   sudo nohup ./nebula-explorer-server > explorer.log 2>&1 &
   ```
 
@@ -291,7 +291,7 @@ Dag Controller 可以结合{{plato.name}}进行复杂的图计算。例如 Dag C
   Debug:
     Enable: false  #是否开启 Debug。
 
-  # Explorer 和 Dag Controller 通信的密钥。无需修改。
+  # {{explorer.name}}和 Dag Controller 通信的密钥。无需修改。
   RsaPriKey: |
     -----BEGIN RSA PRIVATE KEY-----
     MIICXAIBAAKBgQDcR0keIMmmV...
@@ -316,4 +316,4 @@ Dag Controller 可以结合{{plato.name}}进行复杂的图计算。例如 Dag C
 
 ## 后续操作
 
-[连接 Explorer](ex-ug-connect.md)
+[连接{{explorer.name}}](ex-ug-connect.md)

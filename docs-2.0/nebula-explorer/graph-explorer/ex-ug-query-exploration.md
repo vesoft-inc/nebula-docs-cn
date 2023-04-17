@@ -12,7 +12,7 @@
 
 ## 操作步骤
 
-在 Explorer 页面左侧单击**开始**图标![query](https://docs-cdn.nebula-graph.com.cn/figures/nav-query2_cn.png)然后查询数据。查询到的数据会显示在画布中。查询方式如下：
+在{{explorer.name}}页面左侧单击**开始**图标![query](https://docs-cdn.nebula-graph.com.cn/figures/nav-query2_cn.png)然后查询数据。查询到的数据会显示在画布中。查询方式如下：
 
 - VID 查询
 - Tag 查询

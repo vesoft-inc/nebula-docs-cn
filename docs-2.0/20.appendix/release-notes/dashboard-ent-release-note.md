@@ -1,13 +1,13 @@
-# NebulaGraph Dashboard 企业版更新说明
+# {{dashboard_ent.name}更新说明
 
-## 企业版 v3.4.2
+## v3.4.2
 
 - 优化
 
   - 支持在备份恢复页面查看数据备份恢复的进度。
   - 内置{{nebula.name}} v3.4.1 安装包。
 
-## 企业版 v3.4.1
+## v3.4.1
 
 - 缺陷修复
 
@@ -15,14 +15,14 @@
   - 修复 goconfig 文件夹权限问题导致无法查看集群导入信息的问题。
   - 修复当许可证过期时间小于`30`天且`gracePeriod`大于`0`时页面提示错误的问题。
 
-## 企业版 v3.4.0
+## v3.4.0
 
 - 功能
   - 支持查看{{nebula.name}}集群[运行日志](../../nebula-dashboard-ent/4.cluster-operator/cluster-information/runtime-log.md)。
   - 支持查看{{nebula.name}}集群[审计日志](../../nebula-dashboard-ent/4.cluster-operator/cluster-information/audit-log.md)。
   - 支持[作业管理](../../nebula-dashboard-ent/4.cluster-operator/cluster-information/job-management.md)。
   - 备份恢复支持[增量备份](../../nebula-dashboard-ent/4.cluster-operator/operator/backup-and-restore.md)。
-  - 内置 [dashboard.service](../../nebula-dashboard-ent/2.deploy-connect-dashboard-ent.md) 脚本，支持一键管理 Dashboard 服务和查看 Dashboard 版本。
+  - 内置 [dashboard.service](../../nebula-dashboard-ent/2.deploy-connect-dashboard-ent.md) 脚本，支持一键管理{{dashboard_ent.name}服务和查看{{dashboard_ent.name}版本。
   - 新增产品反馈页面。
 
 - 优化

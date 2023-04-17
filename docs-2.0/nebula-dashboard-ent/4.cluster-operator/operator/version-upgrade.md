@@ -1,6 +1,6 @@
 # 版本升级
 
-Dashboard 企业版支持升级现有{{nebula.name}}集群的版本。
+{{dashboard_ent.name}}支持升级现有{{nebula.name}}集群的版本。
 
 !!! caution
 
@@ -17,7 +17,7 @@ Dashboard 企业版支持升级现有{{nebula.name}}集群的版本。
 
 ## 操作说明
 
-1. 在 Dashboard 企业版顶部导航栏，单击**集群管理**。
+1. 在{{dashboard_ent.name}}顶部导航栏，单击**集群管理**。
 2. 在目标集群右侧，单击**详情**。
 3. 在左侧导航栏，单击**集群操作**->**版本升级**。
 4. 在**版本升级**页面确认**当前{{nebula.name}}版本**，选择**待升级目标版本**。
@@ -26,7 +26,7 @@ Dashboard 企业版支持升级现有{{nebula.name}}集群的版本。
   
         如果没有找到合适的版本，单击**包管理中心**，下载或上传所需的版本安装包。详情参见[安装包管理](../../system-settings/manage-package.md)。
             
-5. 单击**上传证书**上传 Dashboard 企业版 License（如升级社区版{{nebula.name}}集群，忽略此步）。
+5. 单击**上传证书**上传{{dashboard_ent.name}} License（如升级社区版{{nebula.name}}集群，忽略此步）。
 
   !!! enterpriseonly
   

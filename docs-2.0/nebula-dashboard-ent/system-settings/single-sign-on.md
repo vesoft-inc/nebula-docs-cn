@@ -1,6 +1,6 @@
 # 单点登录
 
-NebulaGraph Dashboard 企业版支持普通账户、LDAP 账户和 OAuth2.0 账户。本文介绍如何在 Dashboard 上配置 LDAP 和 OAuth2.0 协议。
+{{dashboard_ent.name}}支持普通账户、LDAP 账户和 OAuth2.0 账户。本文介绍如何在{{dashboard_ent.name}}上配置 LDAP 和 OAuth2.0 协议。
 
 !!! note
 
@@ -11,7 +11,7 @@ NebulaGraph Dashboard 企业版支持普通账户、LDAP 账户和 OAuth2.0 账�
 
 ### 入口
 
-1. 在 Dashboard 企业版顶部导航栏，单击**平台设置**。
+1. 在{{dashboard_ent.name}}顶部导航栏，单击**平台设置**。
 2. 在左侧导航栏单击**单点登录**->**LDAP**。
 
 ### 设置说明
@@ -31,7 +31,7 @@ NebulaGraph Dashboard 企业版支持普通账户、LDAP 账户和 OAuth2.0 账�
 
 - [邮箱邀请](../5.account-management.md)：在**权限管理**页面创建账号时可以通过邮箱邀请别人进行注册，优点是可以设置账号的角色权限。
 
-- 自动注册：在登录页面选择 LDAP 方式输入未注册账号登录时，Dashboard 会自动注册该账号，但是[角色权限](../5.account-management.md)为`user`。
+- 自动注册：在登录页面选择 LDAP 方式输入未注册账号登录时，{{dashboard_ent.name}}会自动注册该账号，但是[角色权限](../5.account-management.md)为`user`。
 
 ## OAuth2.0 设置
 
@@ -41,7 +41,7 @@ NebulaGraph Dashboard 企业版支持普通账户、LDAP 账户和 OAuth2.0 账�
 
 ### 入口
 
-1. 在 Dashboard 企业版顶部导航栏，单击**平台设置**。
+1. 在{{dashboard_ent.name}}顶部导航栏，单击**平台设置**。
 2. 在左侧导航栏单击**单点登录**->**OAuth2.0**。
 
 ### 设置说明
@@ -50,7 +50,7 @@ NebulaGraph Dashboard 企业版支持普通账户、LDAP 账户和 OAuth2.0 账�
 |:--|:--|:--|
 |`ClientID` | `4953xxx-mmnoge13xx.apps.googleusercontent.com`| 应用的 ClientId。  |
 |`ClientSecret` | `GOCxxx-xaytomFexxx` | 应用的 ClientSecret。 |
-|`RedirectURL` | `http://dashboard.vesoft-inc.com/login` |重定向到 Dashboard 的 URL。   |
+|`RedirectURL` | `http://dashboard.vesoft-inc.com/login` |重定向到{{dashboard_ent.name}}的 URL。   |
 |`AuthURL` | `https://accounts.google.com/o/oauth2/auth` | 认证 URL。  |
 |`TokenURL` | `https://oauth2.googleapis.com/token`| 获取 access_token 的URL。 |
 |`UserInfoURL` | `https://www.googleapis.com/oauth2/v1/userinfo`| 获取用户信息的 URL。 |

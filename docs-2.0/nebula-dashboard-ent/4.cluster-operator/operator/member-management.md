@@ -4,7 +4,7 @@
 
 ## 入口
 
-1. 在 Dashboard 企业版顶部导航栏，单击**集群管理**。
+1. 在{{dashboard_ent.name}}顶部导航栏，单击**集群管理**。
 2. 单击目标集群右侧**详情**。
 3. 在左侧导航栏，单击**集群操作**->**成员管理**。
 
@@ -14,7 +14,7 @@
   
   !!! note
 
-        集群管理员必需是用户创建的 Dashboard 企业版账户。关于如何创建账户，参见[权限管理](../../5.account-management.md)。
+        集群管理员必需是用户创建的{{dashboard_ent.name}}账户。关于如何创建账户，参见[权限管理](../../5.account-management.md)。
 
 - 删除集群管理员：在集群管理员右侧操作列单击![delete](https://docs-cdn.nebula-graph.com.cn/figures/alert_delete_cn.png)，然后单击**确认**。
 
