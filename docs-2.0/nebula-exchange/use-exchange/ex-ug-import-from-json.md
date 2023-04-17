@@ -133,7 +133,7 @@
   # Spark 相关配置
   spark: {
     app: {
-      name: {{nebula.name}} Exchange {{exchange.release}}
+      name: NebulaGraph Exchange {{exchange.release}}
     }
     driver: {
       cores: 1

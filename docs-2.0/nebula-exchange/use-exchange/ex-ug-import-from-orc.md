@@ -20,13 +20,13 @@
 
 - Hadoop：2.9.2 伪分布式部署
 
-- NebulaGraph：{{nebula.release}}。使用 [Docker Compose 部署](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)。
+- {{nebula.name}}：{{nebula.release}}。使用 [Docker Compose 部署](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)。
 
 ## 前提条件
 
 开始导入数据之前，用户需要确认以下信息：
 
-- 已经[安装部署 NebulaGraph](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md) 并获取如下信息：
+- 已经[安装部署{{nebula.name}}](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md) 并获取如下信息：
 
   - Graph 服务和 Meta 服务的的 IP 地址和端口。
 
@@ -161,7 +161,7 @@
         # 指定数据源，使用 ORC。
         source: orc
 
-        # 指定如何将点数据导入 NebulaGraph：Client 或 SST。
+        # 指定如何将点数据导入{{nebula.name}}：Client 或 SST。
         sink: client
       }
 
@@ -200,7 +200,7 @@
         # 指定数据源，使用 ORC。
         source: orc
 
-        # 指定如何将点数据导入 NebulaGraph：Client 或 SST。
+        # 指定如何将点数据导入{{nebula.name}}：Client 或 SST。
         sink: client
       }
 
@@ -243,7 +243,7 @@
         # 指定数据源，使用 ORC。
         source: orc
 
-        # 指定如何将点数据导入 NebulaGraph：Client 或 SST。
+        # 指定如何将点数据导入{{nebula.name}}：Client 或 SST。
         sink: client
       }
 
@@ -288,7 +288,7 @@
         # 指定数据源，使用 ORC。
         source: orc
 
-        # 指定如何将点数据导入 NebulaGraph：Client 或 SST。
+        # 指定如何将点数据导入{{nebula.name}}：Client 或 SST。
         sink: client
       }
 

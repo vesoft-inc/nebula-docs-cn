@@ -159,7 +159,7 @@ scala> sql("select playerid, teamid, start_year, end_year from basketball.serve"
   # Spark 相关配置
   spark: {
     app: {
-      name: {{nebula.name}} Exchange {{exchange.release}}
+      name: NebulaGraph Exchange {{exchange.release}}
     }
     driver: {
       cores: 1

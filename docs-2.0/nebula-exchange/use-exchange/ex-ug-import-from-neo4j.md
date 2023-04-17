@@ -114,7 +114,7 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
   # Spark 相关配置
   spark: {
     app: {
-      name: {{nebula.name}} Exchange {{exchange.release}}
+      name: NebulaGraph Exchange {{exchange.release}}
     }
 
     driver: {

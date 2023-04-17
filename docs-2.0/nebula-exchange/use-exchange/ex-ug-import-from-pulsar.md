@@ -1,6 +1,6 @@
 # 导入 Pulsar 数据
 
-本文简单说明如何使用 Exchange 将存储在 Pulsar 上的数据导入 NebulaGraph。
+本文简单说明如何使用 Exchange 将存储在 Pulsar 上的数据导入{{nebula.name}}。
 
 ## 环境配置
 
@@ -18,7 +18,7 @@
 
 开始导入数据之前，用户需要确认以下信息：
 
-- 已经[安装部署 NebulaGraph](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md) 并获取如下信息：
+- 已经[安装部署{{nebula.name}}](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md) 并获取如下信息：
 
   - Graph 服务和 Meta 服务的的 IP 地址和端口。
 
@@ -135,7 +135,7 @@
       type: {
         # 指定数据源文件格式，设置为 Pulsar。
         source: pulsar
-        # 指定如何将点数据导入 NebulaGraph：Client 或 SST。
+        # 指定如何将点数据导入{{nebula.name}}：Client 或 SST。
         sink: client
       }
       # Pulsar 服务器地址。
@@ -202,7 +202,7 @@
         source: pulsar
 
         # 指定边数据导入{{nebula.name}}的方式，
-        # 指定如何将点数据导入 NebulaGraph：Client 或 SST。
+        # 指定如何将点数据导入{{nebula.name}}：Client 或 SST。
         sink: client
       }
 

@@ -1,6 +1,6 @@
 # 导入 SST 文件数据
 
-本文以一个示例说明如何将数据源的数据生成 SST（Sorted String Table）文件并保存在 HDFS 上，然后导入 NebulaGraph，示例数据源是 CSV 文件。
+本文以一个示例说明如何将数据源的数据生成 SST（Sorted String Table）文件并保存在 HDFS 上，然后导入{{nebula.name}}，示例数据源是 CSV 文件。
 
 ## 注意事项
 
@@ -14,9 +14,9 @@
 
 Exchange 支持两种数据导入模式：
 
-- 直接将数据源的数据通过** nGQL **语句的形式导入 NebulaGraph。
+- 直接将数据源的数据通过** nGQL **语句的形式导入{{nebula.name}}。
 
-- 将数据源的数据生成 SST 文件，然后借助 Console 将 SST 文件导入 NebulaGraph。
+- 将数据源的数据生成 SST 文件，然后借助 Console 将 SST 文件导入{{nebula.name}}。
 
 下文将介绍生成 SST 文件并用其导入数据的适用场景、实现方法、前提条件、操作步骤等内容。
 
@@ -246,7 +246,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
         # 指定数据源，使用 CSV。
         source: csv
 
-        # 指定如何将点数据导入 NebulaGraph：Client 或 SST。
+        # 指定如何将点数据导入{{nebula.name}}：Client 或 SST。
         sink: sst
       }
 
@@ -294,7 +294,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
         # 指定数据源，使用 CSV。
         source: csv
 
-        # 指定如何将点数据导入 NebulaGraph：Client 或 SST。
+        # 指定如何将点数据导入{{nebula.name}}：Client 或 SST。
         sink: sst
       }
 
@@ -346,7 +346,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
         # 指定数据源，使用 CSV。
         source: csv
 
-        # 指定如何将点数据导入 NebulaGraph：Client 或 SST。
+        # 指定如何将点数据导入{{nebula.name}}：Client 或 SST。
         sink: sst
       }
 
@@ -401,7 +401,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
         # 指定数据源，使用 CSV。
         source: csv
 
-        # 指定如何将点数据导入 NebulaGraph：Client 或 SST。
+        # 指定如何将点数据导入{{nebula.name}}：Client 或 SST。
         sink: sst
       }
 
