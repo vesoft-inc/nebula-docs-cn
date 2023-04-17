@@ -7,8 +7,8 @@
 #    - Remove the text between '# nav.comm.begin' and '# nav.comm.end'
 
 # 2. If the value of 'database_edition' is 'community':
-#    - Keep the text between '# exclude.ent.begin' and '# exclude.ent.end'
-#    - Remove the text between '# exclude.comm.begin' and '# exclude.comm.end'
+#    - Keep the text between '# nav.ent.begin' and '# nav.ent.end'
+#    - Remove the text between '# nav.comm.begin' and '# nav.comm.end'
 #    - Remove the text between '# nav.ent.begin' and '# nav.ent.end'
 #    - Keep the text between '# nav.comm.begin' and '# nav.comm.end'
 
