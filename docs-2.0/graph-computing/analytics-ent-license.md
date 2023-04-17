@@ -1,10 +1,10 @@
 # {{plato.name}} License
 
-License 是为用户提供的软件授权证书。用户在部署{{plato.name}}时，需要设置 License 才能正常启动 NebulaGraph Analytics。本文介绍{{plato.name}}的 License 相关信息。
+License 是为用户提供的软件授权证书。用户在部署{{plato.name}}时，需要设置 License 才能正常启动{{plato.name}}。本文介绍{{plato.name}}的 License 相关信息。
 
 ## 注意事项
 
-- 没有设置 License 时，NebulaGraph Analytics 无法启动。
+- 没有设置 License 时，{{plato.name}}无法启动。
 
 - 请勿修改 License，否则会导致 License 失效。
 
@@ -62,12 +62,12 @@ License 文件包含生效时间、过期时间等信息。说明如下。
 |`organization`| 用户名称。|
 |`issuedDate`| License 生效时间。|
 |`expirationDate`| License 过期时间。|
-|`product`| 产品类型。NebulaGraph Analytics 的产品类型为`nebula_graph_analytics`。|
+|`product`| 产品类型。{{plato.name}}的产品类型为`nebula_graph_analytics`。|
 |`version`| 版本支持的信息。|
 |`licenseType`| License 类型（预留参数）。包括`enterprise`、`samll_bussiness`、`pro`、`individual`。|
 |`gracePeriod`| 证书过期后可继续使用服务的缓冲时间（单位天），超过缓冲期后停止服务。试用版的 License 过期后无缓冲期，默认值为 0。 |
-|`nodes`|集群中 Analytics 服务的数量限制。|
-|`vcpu`|集群中 Analytics 服务的总线程数量限制。|
+|`nodes`|集群中{{plato.name}}服务的数量限制。|
+|`vcpu`|集群中{{plato.name}}服务的总线程数量限制。|
 |`clusterCode`| 用户的硬件信息，也是集群的唯一标识码。试用版的 License 中无此参数。 |
 
 ## 使用方式
@@ -83,4 +83,4 @@ License 文件包含生效时间、过期时间等信息。说明如下。
 
 !!! note
 
-    {{plato.name}} License 过期后，用户无法正常使用 Analytics。为了保证业务正常运行，请及时更新 License。
+    {{plato.name}} License 过期后，用户无法正常使用{{plato.name}}。为了保证业务正常运行，请及时更新 License。

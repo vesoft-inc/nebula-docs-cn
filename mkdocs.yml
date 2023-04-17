@@ -1,12 +1,24 @@
+# nav.ent.begin
+site_name: 悦数图数据库手册 
+site_description: Documentation for Yueshu Graph Database
+site_author: 悦数图数据库
+# nav.ent.end
+# nav.comm.begin
 site_name: NebulaGraph Database 手册 
 site_description: Documentation for NebulaGraph Database 
-site_author: NebulaGraph 
+site_author: NebulaGraph
+# nav.comm.end
 site_url: https://docs.nebula-graph.com.cn/ 
 repo_name: 'vesoft-inc/nebula' 
 repo_url: 'https://github.com/vesoft-inc/nebula' 
 docs_dir: docs-2.0 
+# nav.ent.begin
+copyright: Copyright &copy; 2023 悦数图数据库 - 浙ICP备20010487号
+# nav.ent.end
+# nav.comm.begin
 copyright: Copyright &copy; 2023 NebulaGraph - 浙ICP备20010487号
- 
+# nav.comm.end
+
 # modify when release: 
 edit_uri: 'https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/'  
 
@@ -214,6 +226,12 @@ extra:
     release: 3.4.0
     branch: release-3.4
     tag: v3.4.0
+    # nav.ent.begin
+    name: 悦数图计算
+    # nav.ent.end
+    # nav.comm.begin
+    name: NebulaGraph Analytics
+    # nav.comm.end
   sparkconnector:
     release: 3.4.0
     branch: release-3.4
@@ -313,12 +331,24 @@ nav:
     - 入门概览: 2.quick-start/1.quick-start-overview.md
     - 从云开始（免费试用）: 
       - 步骤 1：创建云服务实例: 2.quick-start/2.quick-start-on-cloud/1.create-instance-on-cloud.md
+# nav.ent.begin
+      - 步骤 2：连接悦数图数据库: 2.quick-start/2.quick-start-on-cloud/2.connect-to-nebulagraph-on-cloud.md
+# nav.ent.end
+# nav.comm.begin
       - 步骤 2：连接 NebulaGraph: 2.quick-start/2.quick-start-on-cloud/2.connect-to-nebulagraph-on-cloud.md
+# nav.comm.end
       - 步骤 3：管理数据: 2.quick-start/2.quick-start-on-cloud/3.how-to-query-on-cloud.md
     - 本地部署: 
+# nav.ent.begin
+      - 步骤 1：安装悦数图数据库: 2.quick-start/3.quick-start-on-premise/2.install-nebula-graph.md
+      - 步骤 2：启动悦数图数据库: 2.quick-start/3.quick-start-on-premise/5.start-stop-service.md
+      - 步骤 3：连接悦数图数据库: 2.quick-start/3.quick-start-on-premise/3.connect-to-nebula-graph.md
+# nav.ent.end
+# nav.comm.begin
       - 步骤 1：安装 NebulaGraph: 2.quick-start/3.quick-start-on-premise/2.install-nebula-graph.md
       - 步骤 2：启动 NebulaGraph: 2.quick-start/3.quick-start-on-premise/5.start-stop-service.md
       - 步骤 3：连接 NebulaGraph: 2.quick-start/3.quick-start-on-premise/3.connect-to-nebula-graph.md
+# nav.comm.end
       - 步骤 4：注册 Storage 服务: 2.quick-start/3.quick-start-on-premise/3.1add-storage-hosts.md
       - 步骤 5：使用基本 nGQL 命令: 2.quick-start/3.quick-start-on-premise/4.nebula-graph-crud.md
     - nGQL 命令汇总: 2.quick-start/6.cheatsheet-for-ngql-command.md
@@ -482,7 +512,12 @@ nav:
           - 使用 Docker Compose 部署: 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
           - 使用 RPM/DEB 包部署多机集群: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
           - 使用生态工具安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/6.deploy-nebula-graph-with-peripherals.md
+# nav.ent.begin
+      - 安装存算合并版悦数图数据库: 4.deployment-and-installation/standalone-deployment.md
+# nav.ent.end
+# nav.comm.begin
       - 安装存算合并版 NebulaGraph: 4.deployment-and-installation/standalone-deployment.md
+# nav.comm.end
       # nav.ent.begin
       - 设置 NebulaGraph 企业版 License: 4.deployment-and-installation/deploy-license.md  
       # nav.ent.end    
@@ -497,9 +532,14 @@ nav:
         # nav.comm.end
           - 升级 v3.x 至 v3.4（社区版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-300-to-latest.md
         # nav.ent.begin
-          - 升级 NebulaGraph 至 v3.4（企业版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent-from-3.x-3.4.md
+          - 升级悦数图数据库至 v3.4（企业版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent-from-3.x-3.4.md
         # nav.ent.end
+# nav.ent.begin
+      - 卸载悦数图数据库: 4.deployment-and-installation/4.uninstall-nebula-graph.md
+# nav.ent.end
+# nav.comm.begin
       - 卸载 NebulaGraph: 4.deployment-and-installation/4.uninstall-nebula-graph.md
+# nav.comm.end
 
   - 配置与日志:
       - 配置:
@@ -515,7 +555,7 @@ nav:
           # nav.ent.end
 
   - 监控:
-      - 查询 NebulaGraph 监控指标: 6.monitor-and-metrics/1.query-performance-metrics.md
+      - 查询监控指标: 6.monitor-and-metrics/1.query-performance-metrics.md
       - RocksDB 统计数据: 6.monitor-and-metrics/2.rocksdb-statistics.md
       # nav.ent.begin
       - 黑匣子:
@@ -752,7 +792,7 @@ nav:
       - 导入通用 JDBC 数据: nebula-exchange/use-exchange/ex-ug-import-from-jdbc.md
       - 导入 SST 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-sst.md
       # nav.ent.begin
-      - 导出 NebulaGraph 数据: nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
+      - 导出悦数图数据库数据: nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
       # nav.ent.end
     - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
 
@@ -760,18 +800,33 @@ nav:
       - 什么是 NebulaGraph Operator: nebula-operator/1.introduction-to-nebula-operator.md
       - 使用流程: nebula-operator/6.get-started-with-operator.md
       - 部署 NebulaGraph Operator: nebula-operator/2.deploy-nebula-operator.md
+# nav.ent.begin
+      - 部署悦数图数据库: 
+        - 使用 Kubectl 部署悦数图数据库集群: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
+        - 使用 Helm 部署悦数图数据库集群: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
+      - 连接悦数图数据库: nebula-operator/4.connect-to-nebula-graph-service.md
+      - 配置悦数图数据库:
+        - 自定义悦数图数据库集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
+# nav.ent.end
+# nav.comm.begin
       - 部署 NebulaGraph: 
         - 使用 Kubectl 部署 NebulaGraph 集群: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
         - 使用 Helm 部署 NebulaGraph 集群: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
       - 连接 NebulaGraph: nebula-operator/4.connect-to-nebula-graph-service.md
       - 配置 NebulaGraph:
         - 自定义 NebulaGraph 集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
+# nav.comm.end
         - 回收 PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
         # nav.ent.begin
         - 均衡扩容后的 Storage 数据: nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
         # nav.ent.end
-        - 管理集群日志: nebula-operator/8.custom-cluster-configurations/8.4.manage-running-logs.md
-      - 升级 NebulaGraph: nebula-operator/9.upgrade-nebula-cluster.md  
+        - 管理集群日志: nebula-operator/8.custom-cluster-configurations/8.4.manage-running-logs.md 
+# nav.ent.begin
+      - 升级悦数图数据库: nebula-operator/9.upgrade-nebula-cluster.md
+# nav.ent.end
+# nav.comm.begin
+      - 升级 NebulaGraph: nebula-operator/9.upgrade-nebula-cluster.md
+# nav.comm.end
       - 配置滚动更新策略: nebula-operator/11.rolling-update-strategy.md
       # nav.ent.begin
       - 备份与恢复: nebula-operator/10.backup-restore-using-operator.md 
@@ -783,8 +838,14 @@ nav:
 
     - 算法简介: graph-computing/algorithm-description.md
     - NebulaGraph Algorithm: graph-computing/nebula-algorithm.md
+# nav.ent.begin
+    - 悦数图计算: graph-computing/nebula-analytics.md
+    - 悦数图计算 License: graph-computing/analytics-ent-license.md
+# nav.ent.end
+# nav.comm.begin
     - NebulaGraph Analytics: graph-computing/nebula-analytics.md
     - NebulaGraph Analytics License: graph-computing/analytics-ent-license.md
+# nav.comm.end
     - NebulaGraph Explorer 工作流: graph-computing/use-explorer.md
 
   - NebulaGraph Spark Connector: nebula-spark-connector.md
@@ -799,7 +860,7 @@ nav:
         - NebulaGraph 社区版: 20.appendix/release-notes/nebula-comm-release-note.md
         # nav.comm.end
         # nav.ent.begin
-        - NebulaGraph 企业版: 20.appendix/release-notes/nebula-ent-release-note.md
+        - 悦数图数据库: 20.appendix/release-notes/nebula-ent-release-note.md
         # nav.ent.end
         # nav.comm.begin
         - NebulaGraph Studio: 20.appendix/release-notes/studio-release-note.md

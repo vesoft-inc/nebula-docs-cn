@@ -56,7 +56,7 @@ Dag Controller 包含图查询组件和图计算组件。图查询是发送请�
 
   !!! note
 
-        Dag Controller 和 Analytics 在同一台机器时，也需要配置免密登录。
+        Dag Controller 和{{plato.name}}在同一台机器时，也需要配置免密登录。
 
 2. 检查 Dag Controller 的配置文件。
 
