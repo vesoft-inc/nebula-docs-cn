@@ -14,7 +14,8 @@ RPM 和 DEB 是 Linux 系统下常见的两种安装包格式，本文介绍如�
 
 ## 前提条件
 
-安装 wget
+- 安装`wget`工具。
+- 已安装[许可证管理工具](https://docs.nebula-graph.com.cn/{{nebula.release}}/9.about-license/2.license-management-suite/3.license-manager/)并且[加载授权码](https://docs.nebula-graph.com.cn/{{nebula.release}}/9.about-license/4.generate-and-load-license-key/)。
 
 ## 下载安装包
 
@@ -130,12 +131,14 @@ RPM 和 DEB 是 Linux 系统下常见的两种安装包格式，本文介绍如�
   sudo dpkg -i nebula-graph-{{nebula.release}}.ubuntu1804.amd64.deb
   ```
 
-## 后续操作
-
 {{ ent.ent_begin }}
-- （企业版）[设置 License](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/deploy-license)
+## 配置许可证管理工具地址
+
+在{{nebula.name}}的 Meta 服务配置文件（`nebula-metad.conf`）中，设置`license_manager_url`的值为许可证管理工具所在的主机 IP 和端口号`9119`，例如`192.168.8.100:9119`。
 
 {{ ent.ent_end }}
+
+## 后续操作
 
 - [启动{{nebula.name}}](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/3.quick-start-on-premise/5.start-stop-service/)<!--这里用外链。-->
 - [连接{{nebula.name}}](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/3.quick-start-on-premise/3.connect-to-nebula-graph/)<!--这里用外链。-->

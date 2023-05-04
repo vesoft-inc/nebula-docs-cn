@@ -114,7 +114,6 @@ plugins:
         - 20.appendix/release-notes/nebula-ent-release-note.md
         - 20.appendix/release-notes/dashboard-ent-release-note.md
         - 20.appendix/release-notes/explorer-release-note.md
-        - 20.appendix/8.about-license.md
         - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent-from-3.x-3.4.md
         # exclude.ent.end
         # exclude.comm.begin
@@ -725,6 +724,7 @@ nav:
         - 其他设置: nebula-dashboard-ent/4.cluster-operator/6.settings.md
       - 权限管理: nebula-dashboard-ent/5.account-management.md
       - 任务中心: nebula-dashboard-ent/10.tasks.md
+      - 许可证管理: nebula-dashboard-ent/11.license-manager.md
       - 平台设置:
         - 系统设置: nebula-dashboard-ent/system-settings/system-settings.md
         - 通知设置: nebula-dashboard-ent/system-settings/notification-endpoint.md
@@ -740,7 +740,6 @@ nav:
     - 安装与登录:
       - 部署悦数图探索: nebula-explorer/deploy-connect/ex-ug-deploy.md
       - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
-      - 悦数图探索 License: nebula-explorer/deploy-connect/3.explorer-license.md
     - 页面概览: nebula-explorer/ex-ug-page-overview.md
     - 数据库管理:
       - Schema 草图: nebula-explorer/db-management/draft.md
@@ -889,9 +888,6 @@ nav:
         - 悦数图探索: 20.appendix/release-notes/explorer-release-note.md
         # nav.ent.end
       - 学习路径: 20.appendix/learning-path.md
-      # nav.ent.begin
-      - 关于 License: 20.appendix/8.about-license.md
-      # nav.ent.end
       - 常见问题 FAQ: 20.appendix/0.FAQ.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
       - 导入工具选择: 20.appendix/write-tools.md
