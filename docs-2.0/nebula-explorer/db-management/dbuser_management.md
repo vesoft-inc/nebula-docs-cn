@@ -1,10 +1,10 @@
 # 数据库用户管理
 
-NebulaGraph Explorer 支持管理数据库用户，包括创建用户、删除用户、修改密码等。
+{{explorer.name}}支持管理数据库用户，包括创建用户、删除用户、修改密码等。
 
 ## 前提条件
 
-登录 Explorer 的用户需要拥有相关操作的权限。例如`God`权限的用户可以执行所有操作，`Admin`权限的用户可以将权限内的图空间授权给其他用户。关于角色权限详情，参见[角色权限](../..//7.data-security/1.authentication/3.role-list.md)。
+登录{{explorer.name}}的用户需要拥有相关操作的权限。例如`God`权限的用户可以执行所有操作，`Admin`权限的用户可以将权限内的图空间授权给其他用户。关于角色权限详情，参见[角色权限](../..//7.data-security/1.authentication/3.role-list.md)。
 
 ## 入口
 
@@ -24,7 +24,7 @@ NebulaGraph Explorer 支持管理数据库用户，包括创建用户、删除�
   |:--|:--|
   |账号|用户名。|
   |密码|用户名对应密码。|
-  |IP 白名单|用户只有通过列表内的 IP 才能连接 NebulaGraph。多个 IP 之间用英文逗号（,）分隔。仅 NebulaGraph 企业版支持该参数。|
+  |IP 白名单|用户只有通过列表内的 IP 才能连接 NebulaGraph。多个 IP 之间用英文逗号（,）分隔。仅{{nebula.name}}企业版支持该参数。|
 
   !!! note
 

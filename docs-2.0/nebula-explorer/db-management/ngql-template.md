@@ -1,10 +1,10 @@
 # 查询语句模板
 
-NebulaGraph Explorer 支持将常用 nGQL 语句保存为模板，方便自己或他人使用。nGQL 语句中的文本还支持参数化，可根据需要填写参数值。
+{{explorer.name}}支持将常用 nGQL 语句保存为模板，方便自己或他人使用。nGQL 语句中的文本还支持参数化，可根据需要填写参数值。
 
 ## 前提条件
 
-NebulaGraph 数据库里已经创建 Schema。
+{{nebula.name}}里已经创建 Schema。
 
 ## 入口
 

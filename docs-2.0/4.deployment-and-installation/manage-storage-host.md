@@ -5,7 +5,7 @@
 <!--
 !!! note
 
-    NebulaGraph Cloud 上建立的集群会自动添加 Storage 主机，用户无需手动执行`ADD HOSTS`。
+    {{nebula.name}} Cloud 上建立的集群会自动添加 Storage 主机，用户无需手动执行`ADD HOSTS`。
 -->
 
 ## 增加 Storage 主机

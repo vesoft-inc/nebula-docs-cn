@@ -1,5 +1,6 @@
-# NebulaGraph 年表
+# {{nebula.name}}年表
 
+{{ comm.comm_begin }}
 1. 2018.9.5 由 @[dutor](https://github.com/dutor) 提交了第一行代码。
 
   ![image](https://docs-cdn.nebula-graph.com.cn/books/images/dutor.png)
@@ -17,7 +18,7 @@
 
   ![image](https://www-cdn.nebula-graph.com.cn/nebula-blog/HBase01.png)
 
-  [^Hbasecon]: NebulaGraph 1.x 版本支持 RocksDB 和 HBase 两种主要的后端，但在 NebulaGraph 2.x 版本取消了默认对 HBase 的支持。
+  [^Hbasecon]: {{nebula.name}} 1.x 版本支持 RocksDB 和 HBase 两种主要的后端，但在 {{nebula.name}} 2.x 版本取消了默认对 HBase 的支持。
 
 4. 2020.3 在 v1.0 开发的收尾阶段，启动了 v2.0 项目的研发
 
@@ -42,3 +43,23 @@
 12. 2022.10 发布 v3.3.0
 
 13. 2023.2 发布 v3.4.0
+
+{{ comm.comm_end }}
+
+{{ ent.ent_begin }}
+
+1. 2021.8 发布 v2.5.0
+
+2. 2021.10 发布 v2.6.0
+
+3. 2022.2 发布 v3.0.0
+
+4. 2022.4 发布 v3.1.0
+
+5. 2022.7 发布 v3.2.0
+
+6. 2022.10 发布 v3.3.0
+
+7. 2023.2 发布 v3.4.0
+
+{{ ent.ent_end }}

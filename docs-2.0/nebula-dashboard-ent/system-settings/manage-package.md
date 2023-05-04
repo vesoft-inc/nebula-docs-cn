@@ -1,6 +1,6 @@
 # 安装包管理
 
-NebulaGraph Dashboard 企业版支持管理 NebulaGraph 安装包，可以下载社区版的各个版本，或者手动上传安装包。
+{{dashboard_ent.name}}支持管理{{nebula.name}}安装包，可以下载社区版的各个版本，或者手动上传安装包。
 
 ## 注意事项
 
@@ -10,7 +10,7 @@ NebulaGraph Dashboard 企业版支持管理 NebulaGraph 安装包，可以下载
 
 ## 入口
 
-1. 在 Dashboard 企业版顶部导航栏，单击**平台设置**。
+1. 在{{dashboard_ent.name}}顶部导航栏，单击**平台设置**。
 2. 在左侧导航栏单击**安装包管理**。
 
 ## 操作说明

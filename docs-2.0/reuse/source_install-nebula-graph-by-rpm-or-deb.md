@@ -1,8 +1,8 @@
-RPM 和 DEB 是 Linux 系统下常见的两种安装包格式，本文介绍如何使用 RPM 或 DEB 文件在一台机器上快速安装 NebulaGraph。
+RPM 和 DEB 是 Linux 系统下常见的两种安装包格式，本文介绍如何使用 RPM 或 DEB 文件在一台机器上快速安装{{nebula.name}}。
 
 !!! note
 
-    部署 NebulaGraph 集群的方式参见[使用 RPM/DEB 包部署集群](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/3.quick-start-on-premise/3.1add-storage-hosts/)。<!--这里用外链。-->
+    部署{{nebula.name}}集群的方式参见[使用 RPM/DEB 包部署集群](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/3.quick-start-on-premise/3.1add-storage-hosts/)。<!--这里用外链。-->
 
 
 {{ ent.ent_begin }}
@@ -20,9 +20,9 @@ RPM 和 DEB 是 Linux 系统下常见的两种安装包格式，本文介绍如�
 
 !!! note
 
-    - 当前仅支持在 Linux 系统下安装 NebulaGraph，且仅支持 CentOS 7.x、CentOS 8.x、Ubuntu 16.04、Ubuntu 18.04、Ubuntu 20.04 操作系统。
+    - 当前仅支持在 Linux 系统下安装{{nebula.name}}，且仅支持 CentOS 7.x、CentOS 8.x、Ubuntu 16.04、Ubuntu 18.04、Ubuntu 20.04 操作系统。
   
-    - 如果用户使用的是国产化的 Linux 操作系统，请[安装企业版 NebulaGraph](https://www.nebula-graph.com.cn/contact)。  
+    - 如果用户使用的是国产化的 Linux 操作系统，请[安装企业版{{nebula.name}}](https://www.nebula-graph.com.cn/contact)。  
 
 ### 阿里云 OSS 下载
 
@@ -99,29 +99,7 @@ RPM 和 DEB 是 Linux 系统下常见的两种安装包格式，本文介绍如�
     wget https://oss-cdn.nebula-graph.com.cn/package/nightly/2021.11.24/nebula-graph-2021.11.24-nightly.ubuntu1804.amd64.deb.sha256sum.txt
     ```
 
-<!--
-### GitHub 下载
-
-- 下载 release 版本
-
-   + 登录 [NebulaGraph Releases](https://github.com/vesoft-inc/nebula/releases) 页面，确认需要的版本，单击** Assets**。
-
-   ![Select a NebulaGraph release version](https://github.com/vesoft-inc/nebula-docs/raw/master/docs-2.0/figs/4.deployment-and-installation/2.complie-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb/releases-page.png?raw=true)
-
-   + 在** Assets **区域找到机器运行所需的安装包，下载文件到机器上。
-
-- 下载 nightly 版本
-
-    >**禁止**：nightly 版本通常用于测试新功能、新特性，请**不要**在生产环境中使用 nightly 版本。
-
-   + 登录 [NebulaGraph package](https://github.com/vesoft-inc/nebula/actions/workflows/package.yaml) 页面，单击顶部最新的** package**。
-
-   ![Select a NebulaGraph nightly version](https://github.com/vesoft-inc/nebula-docs/raw/master/docs-2.0/figs/4.deployment-and-installation/2.complie-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb/nightly-page.png?raw=true)
-
-   + 在** Artifacts **区域找到机器运行所需的安装包，下载文件到机器上。
--->
-
-## 安装 NebulaGraph
+## 安装{{nebula.name}}
 
 - 安装 RPM 包
 
@@ -129,7 +107,7 @@ RPM 和 DEB 是 Linux 系统下常见的两种安装包格式，本文介绍如�
   $ sudo rpm -ivh --prefix=<installation_path> <package_name>
   ```
   
-  `--prefix`为可选项，用于指定安装路径。如不设置，系统会将 NebulaGraph 安装到默认路径`/usr/local/nebula/`。
+  `--prefix`为可选项，用于指定安装路径。如不设置，系统会将{{nebula.name}}安装到默认路径`/usr/local/nebula/`。
 
   例如，要在默认路径下安装{{nebula.release}}版本的 RPM 包，运行如下命令：
 
@@ -144,7 +122,7 @@ RPM 和 DEB 是 Linux 系统下常见的两种安装包格式，本文介绍如�
   ```
 
   !!! note
-        使用 DEB 包安装 NebulaGraph 时不支持自定义安装路径。默认安装路径为`/usr/local/nebula/`。
+        使用 DEB 包安装{{nebula.name}}时不支持自定义安装路径。默认安装路径为`/usr/local/nebula/`。
 
   例如安装{{nebula.release}}版本的 DEB 包：
 
@@ -159,5 +137,5 @@ RPM 和 DEB 是 Linux 系统下常见的两种安装包格式，本文介绍如�
 
 {{ ent.ent_end }}
 
-- [启动 NebulaGraph](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/3.quick-start-on-premise/5.start-stop-service/)<!--这里用外链。-->
-- [连接 NebulaGraph](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/3.quick-start-on-premise/3.connect-to-nebula-graph/)<!--这里用外链。-->
+- [启动{{nebula.name}}](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/3.quick-start-on-premise/5.start-stop-service/)<!--这里用外链。-->
+- [连接{{nebula.name}}](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/3.quick-start-on-premise/3.connect-to-nebula-graph/)<!--这里用外链。-->

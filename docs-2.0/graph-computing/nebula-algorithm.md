@@ -1,12 +1,12 @@
 # NebulaGraph Algorithm
 
-[NebulaGraph Algorithm](https://github.com/vesoft-inc/nebula-algorithm) （简称 Algorithm）是一款基于 [GraphX](https://spark.apache.org/graphx/) 的 Spark 应用程序，通过提交 Spark 任务的形式使用完整的算法工具对 NebulaGraph 数据库中的数据执行图计算，也可以通过编程形式调用 lib 库下的算法针对 DataFrame 执行图计算。
+[NebulaGraph Algorithm](https://github.com/vesoft-inc/nebula-algorithm) （简称 Algorithm）是一款基于 [GraphX](https://spark.apache.org/graphx/) 的 Spark 应用程序，通过提交 Spark 任务的形式使用完整的算法工具对{{nebula.name}}数据库中的数据执行图计算，也可以通过编程形式调用 lib 库下的算法针对 DataFrame 执行图计算。
 
 ## 版本兼容性
 
-NebulaGraph Algorithm 版本和 NebulaGraph 内核的版本对应关系如下。
+NebulaGraph Algorithm 版本和{{nebula.name}}内核的版本对应关系如下。
 
-|NebulaGraph 版本|NebulaGraph Algorithm 版本|
+|{{nebula.name}}版本|NebulaGraph Algorithm 版本|
 |:---|:---|
 |  nightly         |  3.0-SNAPSHOT |
 | 3.0.0 ~ 3.4.x      |  3.x.0        |
@@ -19,7 +19,7 @@ NebulaGraph Algorithm 版本和 NebulaGraph 内核的版本对应关系如下。
 
 在使用 Algorithm 之前，用户需要确认以下信息：
 
-- NebulaGraph 服务已经部署并启动。详细信息，参考 [NebulaGraph 安装部署](../4.deployment-and-installation/1.resource-preparations.md "点击前往 NebulaGraph 安装部署")。
+- {{nebula.name}}服务已经部署并启动。详细信息，参考 [{{nebula.name}}安装部署](../4.deployment-and-installation/1.resource-preparations.md "点击前往{{nebula.name}}安装部署")。
 
 - Spark 版本为 2.4.x。
 
@@ -64,13 +64,13 @@ NebulaGraph Algorithm 支持的图计算算法如下。
 
 !!! note
 
-    如果需要将算法结果写入到 NebulaGraph 中，请确保对应图空间中的 Tag 有和上表对应的属性名称和数据类型。
+    如果需要将算法结果写入到{{nebula.name}}中，请确保对应图空间中的 Tag 有和上表对应的属性名称和数据类型。
 
 ## 实现方法
 
 NebulaGraph Algorithm 实现图计算的流程如下：
 
-1. 利用 NebulaGraph Spark Connector 从 NebulaGraph 数据库中读取图数据为 DataFrame。
+1. 利用 NebulaGraph Spark Connector 从{{nebula.name}}中读取图数据为 DataFrame。
 
 2. 将 DataFrame 转换为 GraphX 的图。
 
@@ -126,7 +126,7 @@ NebulaGraph Algorithm 实现图计算的流程如下：
 
   !!! note
 
-        执行算法的 DataFrame 默认第一列是起始点，第二列是目的点，第三列是边权重（非 NebulaGraph 中的 Rank）。
+        执行算法的 DataFrame 默认第一列是起始点，第二列是目的点，第三列是边权重（非{{nebula.name}}中的 Rank）。
 
   ```bash
   val prConfig = new PRConfig(5, 1.0)
@@ -160,23 +160,23 @@ NebulaGraph Algorithm 实现图计算的流程如下：
       hasWeight: false
       }
  
-      # NebulaGraph 相关配置
+      # {{nebula.name}}相关配置
       nebula: {
-      # 数据源。NebulaGraph 作为图计算的数据源时，nebula.read 的配置才生效。
+      # 数据源。{{nebula.name}}作为图计算的数据源时，nebula.read 的配置才生效。
       read: {
           # 所有 Meta 服务的 IP 地址和端口，多个地址用英文逗号（,）分隔。格式："ip1:port1,ip2:port2"。
           # 使用 docker-compose 部署，端口需要填写 docker-compose 映射到外部的端口
           # 可以用`docker-compose ps`查看
           metaAddress: "192.168.*.10:9559"
-          # NebulaGraph 图空间名称
+          # {{nebula.name}}图空间名称
           space: basketballplayer
-          # NebulaGraph Edge type, 多个 labels 时，多个边的数据将合并。
+          # {{nebula.name}} Edge type, 多个 labels 时，多个边的数据将合并。
           labels: ["serve"]
-          # NebulaGraph 每个 Edge type 的属性名称，此属性将作为算法的权重列，请确保和 Edge type 对应。
+          # {{nebula.name}} 每个 Edge type 的属性名称，此属性将作为算法的权重列，请确保和 Edge type 对应。
           weightCols: ["start_year"]
       }
  
-      # 数据落库。图计算结果落库到 NebulaGraph 时，nebula.write 的配置才生效。
+      # 数据落库。图计算结果落库到{{nebula.name}}时，nebula.write 的配置才生效。
       write:{
           # Graph 服务的 IP 地址和端口，多个地址用英文逗号（,）分隔。格式："ip1:port1,ip2:port2"。
           # 使用 docker-compose 部署，端口需要填写 docker-compose 映射到外部的端口
@@ -189,9 +189,9 @@ NebulaGraph Algorithm 实现图计算的流程如下：
           user:root
           pswd:nebula
           # 在提交图计算任务之前需要自行创建图空间及 Tag
-          # NebulaGraph 图空间名称
+          # {{nebula.name}}图空间名称
           space:nb
-          # NebulaGraph Tag 名称，图计算结果会写入该 Tag。Tag 中的属性名称固定如下：
+          # {{nebula.name}} Tag 名称，图计算结果会写入该 Tag。Tag 中的属性名称固定如下：
           # PageRank：pagerank
           # Louvain：louvain
           # ConnectedComponent：cc
@@ -256,7 +256,7 @@ NebulaGraph Algorithm 实现图计算的流程如下：
 
   !!! note
 
-        当配置为 `sink: nebula` 的时候，意味着算法运算结果将被写回 NebulaGraph 集群，这对写回到的 TAG 中的属性名有隐含的约定。详情参考本文**支持算法**部分。
+        当配置为 `sink: nebula` 的时候，意味着算法运算结果将被写回{{nebula.name}}集群，这对写回到的 TAG 中的属性名有隐含的约定。详情参考本文**支持算法**部分。
 
 2. 提交图计算任务。
 

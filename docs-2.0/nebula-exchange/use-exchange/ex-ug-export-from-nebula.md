@@ -1,10 +1,10 @@
-# 导出 NebulaGraph 数据
+# 导出{{nebula.name}}数据
 
-Exchange 支持将 NebulaGraph 中的数据导出到 CSV 文件或另一个图空间（不同 NebulaGraph 集群也支持）中。本文介绍具体的操作步骤。
+Exchange 支持将{{nebula.name}}中的数据导出到 CSV 文件或另一个图空间（不同{{nebula.name}}集群也支持）中。本文介绍具体的操作步骤。
 
 !!! enterpriseonly
 
-    仅企业版 Exchange 支持导出 NebulaGraph 数据。
+    仅企业版 Exchange 支持导出{{nebula.name}}数据。
 
 ## 环境准备
 
@@ -30,11 +30,11 @@ CentOS 7.9.2009
 | Hadoop | 2.10.1 |
 | Scala | 2.12.11 |
 | Spark | 2.4.7 |
-| NebulaGraph | {{nebula.release}} |
+| {{nebula.name}} | {{nebula.release}} |
 
 ### 数据集
 
-在本示例中，作为数据源的 NebulaGraph 存储着 [basketballplayer 数据集](https://docs.nebula-graph.io/2.0/basketballplayer-2.X.ngql)，其中的 Schema 要素如下表所示。
+在本示例中，作为数据源的{{nebula.name}}存储着 [basketballplayer 数据集](https://docs.nebula-graph.io/2.0/basketballplayer-2.X.ngql)，其中的 Schema 要素如下表所示。
 
 | 要素  | 名称 | 属性 |
 | :--- | :--- | :--- |
@@ -45,11 +45,11 @@ CentOS 7.9.2009
 
 ## 操作步骤
 
-1. 从 [NebulaGraph 企业版套餐](https://nebula-graph.com.cn/pricing/) 中获取企业版 Exchange 的 JAR 文件。
+1. 从 [{{nebula.name}}企业版套餐](https://nebula-graph.com.cn/pricing/) 中获取企业版 Exchange 的 JAR 文件。
 
 2. 修改配置文件。
   
-  企业版 Exchange 提供了导出 NebulaGraph 数据专用的配置文件模板`export_to_csv.conf`和`export_to_nebula.conf`，其中各配置项的说明参见 [Exchange 配置](../parameter-reference/ex-ug-parameter.md)。本示例使用的配置文件核心内容如下：
+  企业版 Exchange 提供了导出{{nebula.name}}数据专用的配置文件模板`export_to_csv.conf`和`export_to_nebula.conf`，其中各配置项的说明参见 [Exchange 配置](../parameter-reference/ex-ug-parameter.md)。本示例使用的配置文件核心内容如下：
   
   - 导出到 CSV 文件：
 
@@ -67,7 +67,7 @@ CentOS 7.9.2009
     # Spark config
     spark: {
       app: {
-        name: NebulaGraph Exchange
+        name: {{nebula.name}} Exchange
       }
     }
   
@@ -78,7 +78,7 @@ CentOS 7.9.2009
         graph:["127.0.0.1:9669"]
 
         # the address of any of the meta services.
-        # if your NebulaGraph server is in virtual network like k8s, please config the leader address of meta.
+        # if your {{nebula.name}} server is in virtual network like k8s, please config the leader address of meta.
         meta:["127.0.0.1:9559"]
       }
       user: root
@@ -98,7 +98,7 @@ CentOS 7.9.2009
         output: /tmp/errors
       }
   
-      # use google's RateLimiter to limit the requests send to NebulaGraph
+      # use google's RateLimiter to limit the requests send to {{nebula.name}}
       rate: {
         # the stable throughput of RateLimiter
         limit: 1024
@@ -172,7 +172,7 @@ CentOS 7.9.2009
     # Spark config
     spark: {
       app: {
-        name: NebulaGraph Exchange
+        name: {{nebula.name}} Exchange
       }
     }
   
@@ -182,7 +182,7 @@ CentOS 7.9.2009
         graph:["127.0.0.1:9669"]
 
         # the address of any of the meta services.
-        # if your NebulaGraph server is in virtual network like k8s, please config the leader address of meta.
+        # if your {{nebula.name}} server is in virtual network like k8s, please config the leader address of meta.
         meta:["127.0.0.1:9559"]
       }
       user: root
@@ -202,7 +202,7 @@ CentOS 7.9.2009
         output: /tmp/errors
       }
   
-      # use google's RateLimiter to limit the requests send to NebulaGraph
+      # use google's RateLimiter to limit the requests send to {{nebula.name}}
       rate: {
         # the stable throughput of RateLimiter
         limit: 1024
@@ -224,7 +224,7 @@ CentOS 7.9.2009
         metaAddress:"127.0.0.1:9559"
         space:"test"
         label:"person"
-        # mapping the fields of the original NebulaGraph to the fields of the target NebulaGraph.
+        # mapping the fields of the original {{nebula.name}} to the fields of the target {{nebula.name}}.
         fields: [source_nebula-field-0, source_nebula-field-1, source_nebula-field-2]
         nebula.fields: [target_nebula-field-0, target_nebula-field-1, target_nebula-field-2]
         limit:10000
@@ -259,7 +259,7 @@ CentOS 7.9.2009
   }
   ```
 
-3. 使用如下命令导出 NebulaGraph 中的数据。
+3. 使用如下命令导出 {{nebula.name}} 中的数据。
   
   !!! note
 

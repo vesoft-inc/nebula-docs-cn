@@ -1,21 +1,21 @@
-# 升级企业版 NebulaGraph 3.x 至 {{nebula.release}}  
+# 升级{{nebula.name}}  3.x 至 {{nebula.release}}  
 
-本文以企业版 NebulaGraph 3.1.0 为例，介绍如何升级 v3.x 至 v{{nebula.release}}。
+本文以{{nebula.name}} 3.1.0 为例，介绍如何升级 v3.x 至 v{{nebula.release}}。
 
 ## 升级说明
 
-- 此升级操作仅适用于升级企业版 NebulaGraph 3.x（x < 4）至 {{nebula.release}}。对于升级 3.4.0 及以上版本至 {{nebula.release}}，可以直接替换二进制文件进行升级。具体操作请参见[升级 NebulaGraph 至 {{nebula.release}}](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest/)。
-<!--因为企业版 NebulaGraph 3.4 中一个分片对应一个 RocksDB 实例不同于 3.4 之前的一个图空间对应一个 RocksDB 实例。因此企业版3.4.0和之前版本数据格式不兼容--> 
+- 此升级操作仅适用于升级{{nebula.name}} 3.x（x < 4）至 {{nebula.release}}。对于升级 3.4.0 及以上版本至 {{nebula.release}}，可以直接替换二进制文件进行升级。具体操作请参见[升级{{nebula.name}} 至 {{nebula.release}}](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest/)。
+<!--因为企业版 {{nebula.name}} 3.4 中一个分片对应一个 RocksDB 实例不同于 3.4 之前的一个图空间对应一个 RocksDB 实例。因此企业版3.4.0和之前版本数据格式不兼容--> 
 
   !!! note
 
-        如果您的企业版 NebulaGraph 版本低于 3.0.0，请先升级到企业版 3.1.0 再升级到 {{nebula.release}}。具体操作请参见[升级 NebulaGraph 2.x 至 3.1.0](https://docs.nebula-graph.com.cn/3.1.0/4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest/)。
+        如果您的{{nebula.name}}版本低于 3.0.0，请先升级到 3.1.0 再升级到 {{nebula.release}}。具体操作请参见[升级{{nebula.name}} 2.x 至 3.1.0](https://docs.nebula-graph.com.cn/3.1.0/4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest/)。
 
 - 执行升级操作的集群 IP 地址必须与原集群相同。
   
 - 机器硬盘剩余空间至少需为原数据目录的 1.5 倍。
   
-- 在升级部署了全文索引的 NebulaGraph 前，需要手动删除 Elasticsearch (ES) 中的全文索引。在升级后需要重新使用`SIGN IN`语句登录 ES 并重新创建全文索引。
+- 在升级部署了全文索引的{{nebula.name}}前，需要手动删除 Elasticsearch (ES) 中的全文索引。在升级后需要重新使用`SIGN IN`语句登录 ES 并重新创建全文索引。
 
   !!! note
 
@@ -23,7 +23,7 @@
 
 ## 升级步骤
 
-1. [联系我们获取](https://www.nebula-graph.com.cn/contact)企业版 NebulaGraph v{{nebula.release}} 的安装包并安装。
+1. [联系我们获取](https://www.nebula-graph.com.cn/contact){{nebula.name}} v{{nebula.release}} 的安装包并安装。
    
   !!! note
 
@@ -33,10 +33,10 @@
 
         请确保 {{nebula.release}} 集群的 Meta 服务和 Storage 服务的配置文件中的`--data_path`参数设置的存储路径数量与 3.x 集群的配置文件中的`--data_path`参数配置的路径数量相同。否则，升级后的集群无法启动。
 
-2. 停止企业版 NebulaGraph v3.x 服务。详情请参见[管理 NebulaGraph 服务](../../2.quick-start/3.quick-start-on-premise/5.start-stop-service.md)。
+2. 停止{{nebula.name}} v3.x 服务。详情请参见[管理{{nebula.name}}服务](../../2.quick-start/3.quick-start-on-premise/5.start-stop-service.md)。
   运行命令后可继续运行`nebula.service status all`命令以确认所有服务都已停止。
    
-3. 在企业版 NebulaGraph v{{nebula.release}} 的安装目录下，分别执行以下命令以升级 Storage 和 Meta 服务。<!-- 不需要事先创建`data`目录 -->
+3. 在{{nebula.name}} v{{nebula.release}} 的安装目录下，分别执行以下命令以升级 Storage 和 Meta 服务。<!-- 不需要事先创建`data`目录 -->
 
   - 升级 Storage 服务：
 
@@ -91,8 +91,8 @@
 
 4. 上传 License 文件至 v{{nebula.release}} 的安装目录下的`share/resources`内。
 
-5. 启动和连接企业版 NebulaGraph v{{nebula.release}} 服务后，验证数据是否正确。参考命令如下：
-   
+5. 启动和连接{{nebula.name}} v{{nebula.release}} 服务后，验证数据是否正确。参考命令如下：
+
   ```
   nebula> SHOW HOSTS;
   nebula> SHOW HOSTS storage;
@@ -108,7 +108,7 @@
 
 !!! caution
     
-    Docker Compose 部署的 NebulaGraph 建议重新部署新版本后导入数据。
+    Docker Compose 部署的{{nebula.name}}建议重新部署新版本后导入数据。
 
 
 

@@ -1,6 +1,6 @@
-# 升级 NebulaGraph 至 {{nebula.release}} 版本
+# 升级{{nebula.name}} 至 {{nebula.release}} 版本
 
-本文以 NebulaGraph 2.6.1 版本升级到 {{nebula.release}} 版本为例，介绍 NebulaGraph 2.x、3.x 版本升级到 {{nebula.release}} 版本的方法。
+本文以{{nebula.name}} 2.6.1 版本升级到 {{nebula.release}} 版本为例，介绍{{nebula.name}}2.x、3.x 版本升级到 {{nebula.release}} 版本的方法。
 
 
 <!-- 
@@ -10,14 +10,14 @@
 
 ## 适用版本
 
-本文适用于将 NebulaGraph 从 2.5.0 及之后的 2.x、3.x 版本升级到 {{nebula.release}} 版本。不适用于 2.5.0 之前的历史版本（含 1.x 版本）。如需升级历史版本，将其根据最新的 2.x 版本文档升级到 2.5 版本，然后根据本文的说明升级到 {{nebula.release}} 版本。
+本文适用于将{{nebula.name}} 从 2.5.0 及之后的 2.x、3.x 版本升级到 {{nebula.release}} 版本。不适用于 2.5.0 之前的历史版本（含 1.x 版本）。如需升级历史版本，将其根据最新的 2.x 版本文档升级到 2.5 版本，然后根据本文的说明升级到 {{nebula.release}} 版本。
 
 <!-- 结论：社区版 2.5之前的版本 不支持升级到3.4及以上 ，原因：2.x（x<5）之前的版本和3.x都没记录meta版本号，升级到3.4（记录版本号）时，无法识别是哪种，所以就在手册写禁止2.5之前的升级，而允许3.x的升级，因为2.5和2.6是有记录meta版本号的，所以可以升级至3.x；
 ps：如果2.x（x<5）来做到3.4的升级，升级过程不会报错，因为是按照3.x来做的处理，某些情况下数据可能不正确（这里的某些比较复杂），所以就禁止了 -->
 
 !!! caution
 
-    如需从 2.0.0 之前的版本（含 1.x 版本）升级到 {{nebula.release}}，还需找到 {{nebula.release}} 版本文件中`share/resources`目录下的`date_time_zonespec.csv`文件，将其复制到 NebulaGraph 安装路径下的相同目录内。也可从 [GitHub](https://github.com/vesoft-inc/nebula/blob/master/resources/date_time_zonespec.csv) 下载该文件。
+    如需从 2.0.0 之前的版本（含 1.x 版本）升级到 {{nebula.release}}，还需找到 {{nebula.release}} 版本文件中`share/resources`目录下的`date_time_zonespec.csv`文件，将其复制到{{nebula.name}}安装路径下的相同目录内。也可从 [GitHub](https://github.com/vesoft-inc/nebula/blob/master/resources/date_time_zonespec.csv) 下载该文件。
 
 
 - 不支持轮转热升级，需完全停止整个集群服务。
@@ -40,13 +40,13 @@ ps：如果2.x（x<5）来做到3.4的升级，升级过程不会报错，因为
 
 <!-- - 数据膨胀
   
-  NebulaGraph 3.x 版本扩展了原有的数据格式，每个点多出一个 key，所以升级后数据会占用更大的空间。
+  {{nebula.name}} 3.x 版本扩展了原有的数据格式，每个点多出一个 key，所以升级后数据会占用更大的空间。
   
   新增 key 的格式为： Type 字段（1 字节）+ Partition ID 字段（3 字节）+ VID（大小根据类型而定）。key 的 value 为空。多占用的空间可以根据点的数量和 VID 的数据类型计算。例如，数据集中有 1 亿个点，且 VID 为 INT64，则升级后这个 key 会占用 1 亿 * （1 + 3 + 8）= 12 亿字节，约等于 1.2 GB。 -->
 
 - 客户端兼容
 
-  升级后旧版本客户端将无法连接 NebulaGraph，需将所有客户端都升级到兼容 NebulaGraph {{nebula.release}} 的版本。
+  升级后旧版本客户端将无法连接{{nebula.name}}，需将所有客户端都升级到兼容{{nebula.name}} {{nebula.release}} 的版本。
 
 - 配置变化
 
@@ -64,7 +64,7 @@ ps：如果2.x（x<5）来做到3.4的升级，升级过程不会报错，因为
 
 - 全文索引
 
-  在升级部署了全文索引的 NebulaGraph 前，需要手动删除 Elasticsearch (ES) 中的全文索引。在升级后需要重新使用`SIGN IN`语句登录 ES 并重新创建全文索引。用户可通过 cURL 命令手动删除 ES 中全文索引。命令为`curl -XDELETE -u <es_username>:<es_password> '<es_access_ip>:<port>/<fullindex_name>'`，例如`curl -XDELETE -u elastic:elastic 'http://192.168.8.223:9200/nebula_index_2534'`。如果 ES 没有设置用户名及密码，则无需指定`-u`选项。 
+  在升级部署了全文索引的{{nebula.name}}前，需要手动删除 Elasticsearch (ES) 中的全文索引。在升级后需要重新使用`SIGN IN`语句登录 ES 并重新创建全文索引。用户可通过 cURL 命令手动删除 ES 中全文索引。命令为`curl -XDELETE -u <es_username>:<es_password> '<es_access_ip>:<port>/<fullindex_name>'`，例如`curl -XDELETE -u elastic:elastic 'http://192.168.8.223:9200/nebula_index_2534'`。如果 ES 没有设置用户名及密码，则无需指定`-u`选项。 
 
 !!! caution
 
@@ -72,7 +72,7 @@ ps：如果2.x（x<5）来做到3.4的升级，升级过程不会报错，因为
 
 ## 升级准备
 
-- 根据操作系统和架构下载 NebulaGraph {{nebula.release}} 版本的包文件并解压，升级过程中需要其中的二进制文件。下载地址参见 [Download 页面](https://nebula-graph.io/download/)。
+- 根据操作系统和架构下载{{nebula.name}} {{nebula.release}} 版本的包文件并解压，升级过程中需要其中的二进制文件。下载地址参见 [Download 页面](https://nebula-graph.io/download/)。
 
   !!! note
 
@@ -92,13 +92,13 @@ ps：如果2.x（x<5）来做到3.4的升级，升级过程不会报错，因为
 
 ## 升级步骤
 
-1. 停止所有 NebulaGraph 服务。
+1. 停止所有{{nebula.name}}服务。
 
   ```
   <nebula_install_path>/scripts/nebula.service stop all
   ```
 
-  `nebula_install_path`代表 NebulaGraph 的安装目录。
+  `nebula_install_path`代表{{nebula.name}}的安装目录。
 
   `storaged` 进程 flush 数据要等待约 1 分钟。运行命令后可继续运行`nebula.service status all`命令以确认所有服务都已停止。启动和停止服务的详细说明参见[管理服务](../manage-service.md)。
 
@@ -110,10 +110,10 @@ ps：如果2.x（x<5）来做到3.4的升级，升级过程不会报错，因为
 
         从 3.0.0 开始，支持插入无 Tag 的点。如果用户需要保留无 Tag 的点，在集群内所有 Graph 服务的配置文件（`nebula-graphd.conf`）中新增`--graph_use_vertex_key=true`；在所有 Storage 服务的配置文件（`nebula-storaged.conf`）中新增`--use_vertex_key=true`。
 
-2. 在**升级准备**中下载的包的目的路径下，用此处`bin`目录中的新版二进制文件替换 NebulaGraph 安装路径下`bin`目录中的旧版二进制文件。
+2. 在**升级准备**中下载的包的目的路径下，用此处`bin`目录中的新版二进制文件替换{{nebula.name}}安装路径下`bin`目录中的旧版二进制文件。
 
   !!! note
-        每台部署了 NebulaGraph 服务的机器上都要更新相应服务的二进制文件。
+        每台部署了{{nebula.name}}服务的机器上都要更新相应服务的二进制文件。
 
 3. 编辑所有 Graph 服务的配置文件，修改以下参数以适应新版本的取值范围。如参数值已在规定范围内，忽略该步骤。
    <!-- 在3.0.0后可忽略该步骤，因为3.0.0及之后配置文件中改了该字段的默认值。 -->
@@ -131,7 +131,7 @@ ps：如果2.x（x<5）来做到3.4的升级，升级过程不会报错，因为
 
   启动后，Meta 服务选举 leader。该过程耗时数秒。
 
-  启动后可以任意启动一个 Graph 服务节点，使用 NebulaGraph 连接该节点并运行[`SHOW HOSTS meta`](../../3.ngql-guide/7.general-query-statements/6.show/6.show-hosts.md)和[`SHOW META LEADER`](../../3.ngql-guide/7.general-query-statements/6.show/19.show-meta-leader.md)，如果能够正常返回 Meta 节点的状态，则 Meta 服务启动成功。
+  启动后可以任意启动一个 Graph 服务节点，使用{{nebula.name}}连接该节点并运行[`SHOW HOSTS meta`](../../3.ngql-guide/7.general-query-statements/6.show/6.show-hosts.md)和[`SHOW META LEADER`](../../3.ngql-guide/7.general-query-statements/6.show/19.show-meta-leader.md)，如果能够正常返回 Meta 节点的状态，则 Meta 服务启动成功。
 
   !!! note
         如果启动异常，放弃本次升级，并在[论坛](https://discuss.nebula-graph.com.cn/)或 [GitHub](https://github.com/vesoft-inc/nebula/issues) 提问。
@@ -142,7 +142,7 @@ ps：如果2.x（x<5）来做到3.4的升级，升级过程不会报错，因为
   !!! note
         如果启动异常，放弃本次升级，并在[论坛](https://discuss.nebula-graph.com.cn/)或 [GitHub](https://github.com/vesoft-inc/nebula/issues) 提问。
 
-6. 连接新版 NebulaGraph，验证服务是否可用、数据是否正常。连接方法参见[连接服务](../connect-to-nebula-graph.md)。
+6. 连接新版{{nebula.name}}，验证服务是否可用、数据是否正常。连接方法参见[连接服务](../connect-to-nebula-graph.md)。
 
   目前尚无有效方式判断升级是否完全成功，可用于测试的参考命令如下：
 
@@ -213,7 +213,7 @@ ADD HOSTS 192.168.10.100:9779, 192.168.10.101:9779, 192.168.10.102:9779;
 
 ### 为什么升级后用`SHOW JOBS`查询到的 Job 的 ID 与升级前一样，但 Job 名称等信息不同了？
 
-NebulaGraph 2.5.0 版本调整了 Job 的定义，详情参见 [Pull request](https://github.com/vesoft-inc/nebula-common/pull/562/files)。如果是从 2.5.0 之前的版本升级，会出现该问题。
+{{nebula.name}} 2.5.0 版本调整了 Job 的定义，详情参见 [Pull request](https://github.com/vesoft-inc/nebula-common/pull/562/files)。如果是从 2.5.0 之前的版本升级，会出现该问题。
 
 ### 有哪些语法不兼容 ?
 

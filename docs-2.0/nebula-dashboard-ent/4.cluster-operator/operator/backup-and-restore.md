@@ -1,6 +1,6 @@
-# 使用 NebulaGraph Dashboard 备份和恢复 NebulaGraph 数据
+# 使用{{dashboard_ent.name}}备份和恢复{{nebula.name}}数据
 
-为了防止操作失误或者系统故障导致数据丢失，我们需要经常对数据进行备份，NebulaGraph 提供 Backup & Restore（BR）工具可帮助用户备份和恢复图数据。NebulaGraph Dashboard 企业版集成了 BR 能力并提供简单的 UI，用户只需几步即可进行数据备份和恢复操作。本文介绍如何使用 NebulaGraph Dashboard 备份和恢复 NebulaGraph 数据。
+为了防止操作失误或者系统故障导致数据丢失，我们需要经常对数据进行备份，{{nebula.name}}提供{{br_ent.name}}工具可帮助用户备份和恢复图数据。{{dashboard_ent.name}}集成了{{br_ent.name}}能力并提供简单的 UI，用户只需几步即可进行数据备份和恢复操作。本文介绍如何使用{{dashboard_ent.name}}备份和恢复{{nebula.name}}数据。
 
 ## 使用限制
 
@@ -17,14 +17,14 @@
 
 ## 前提条件
 
-- [使用 Dashboard 创建 NebulaGraph 集群](../../3.create-import-dashboard/1.create-cluster.md)。
+- [使用{{dashboard_ent.name}}创建{{nebula.name}}集群](../../3.create-import-dashboard/1.create-cluster.md)。
 - 开通兼容 S3 协议的云存储服务并创建存储桶。具体操作，参见对应云存储服务的文档。
   
 ## 操作步骤
 
 ### 入口
 
-1. 在 NebulaGraph Dashboard 企业版顶部导航栏，单击**集群管理**。
+1. 在{{dashboard_ent.name}}顶部导航栏，单击**集群管理**。
 2. 在目标集群右侧**详情**。
 3. 在左侧导航栏，单击**集群操作**->**备份恢复**。
 
@@ -63,13 +63,13 @@
 
   环境检查包括：
 
-  - NebulaGraph 需正常运行。
+  - {{nebula.name}}需正常运行。
   - 登录云存储服务的密钥未过期。
   - 业务流量。仅检查用户业务的 QPS 是否为 0，当 QPS 不为 0 时，页面提示用户在业务流量低峰期进行备份操作。
 
   !!! note
 
-        如果 NebulaGraph 运行异常或者云存储服务的登录信息有误，用户将无法提交备份。
+        如果{{nebula.name}}运行异常或者云存储服务的登录信息有误，用户将无法提交备份。
   
 7. 在备份列表中查看创建的备份文件。
 
@@ -108,13 +108,13 @@
 
   环境检查包括：
 
-  - NebulaGraph 需正常运行。
+  - {{nebula.name}}需正常运行。
   - 登录云存储服务的密钥未过期。
   - 业务流量。仅检查用户业务的 QPS 是否为 0，当 QPS 不为 0 时，页面提示用户在业务流量低峰期进行备份操作。
 
   !!! note
 
-        如果 NebulaGraph 运行异常或者云存储服务的登录信息有误，用户将无法提交备份。
+        如果{{nebula.name}}运行异常或者云存储服务的登录信息有误，用户将无法提交备份。
 
 ### 恢复数据
 
@@ -134,7 +134,7 @@
 
   环境检查包括：
 
-  - NebulaGraph 需正常运行。
+  - {{nebula.name}}需正常运行。
   - 登录云存储服务的密钥未过期。
   - 无业务流量的进入。
   

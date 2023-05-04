@@ -1,10 +1,10 @@
 # NebulaGraph Importer
 
-NebulaGraph Importer（简称 Importer）是一款 [NebulaGraph](https://github.com/vesoft-inc/nebula) 的 CSV 文件单机导入工具。Importer 可以读取本地的 CSV 文件，然后导入数据至 NebulaGraph 图数据库中。
+NebulaGraph Importer（简称 Importer）是一款 [NebulaGraph](https://github.com/vesoft-inc/nebula) 的 CSV 文件单机导入工具。Importer 可以读取本地的 CSV 文件，然后导入数据至{{nebula.name}}图数据库中。
 
 ## 适用场景
 
-Importer 适用于将本地 CSV 文件的内容导入至 NebulaGraph 中。
+Importer 适用于将本地 CSV 文件的内容导入至{{nebula.name}}中。
 
 ## 优势
 
@@ -20,7 +20,7 @@ Importer 适用于将本地 CSV 文件的内容导入至 NebulaGraph 中。
 
 在使用 NebulaGraph Importer 之前，请确保：
 
-- 已部署 NebulaGraph 服务。目前有三种部署方式：
+- 已部署{{nebula.name}}服务。目前有三种部署方式：
   
   - [Docker Compose 部署](../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)
   
@@ -28,13 +28,13 @@ Importer 适用于将本地 CSV 文件的内容导入至 NebulaGraph 中。
   
   - [源码编译安装](../4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)
 
-- NebulaGraph 中已创建 Schema，包括图空间、Tag 和 Edge type，或者通过参数`clientSettings.postStart.commands`设置。
+- {{nebula.name}} 中已创建 Schema，包括图空间、Tag 和 Edge type，或者通过参数`clientSettings.postStart.commands`设置。
 
 - 运行 Importer 的机器已部署 Golang 环境。详情请参见 [Golang 环境搭建](https://github.com/vesoft-inc/nebula-importer/blob/{{importer.branch}}/docs/golang-install.md)。
 
 ## 操作步骤
 
-配置 yaml 文件并准备好待导入的 CSV 文件，即可使用本工具向 NebulaGraph 批量写入数据。
+配置 yaml 文件并准备好待导入的 CSV 文件，即可使用本工具向{{nebula.name}}批量写入数据。
 
 ### 下载二进制包运行
 
@@ -57,7 +57,7 @@ Importer 适用于将本地 CSV 文件的内容导入至 NebulaGraph 中。
   !!! note
   
         请使用正确的分支。 
-        NebulaGraph 2.x 和 3.x 的 rpc 协议不同。
+        {{nebula.name}} 2.x 和 3.x 的 rpc 协议不同。
 
 2. 进入目录`nebula-importer`。
 
@@ -124,14 +124,14 @@ $ docker run --rm -ti \
 
 - `<config_file>`：本地 yaml 配置文件的绝对路径。
 - `<csv_data_dir>`：本地 CSV 数据文件的绝对路径。
-- `<version>`：NebulaGraph 3.x 请填写`v3`。
+- `<version>`：{{nebula.name}} 3.x 请填写`v3`。
 
 !!! note
     建议使用相对路径。如果使用本地绝对路径，请检查路径映射到 Docker 中的路径。
 
 ## 配置文件说明
 
-NebulaGraph Importer 通过`nebula-importer/examples/v2/example.yaml`配置文件来描述待导入文件信息、NebulaGraph 服务器信息等。用户可以参考示例配置文件：[无表头配置](config-without-header.md)/[有表头配置](config-with-header.md)。下文将分类介绍配置文件内的字段。
+NebulaGraph Importer 通过`nebula-importer/examples/v2/example.yaml`配置文件来描述待导入文件信息、{{nebula.name}}服务器信息等。用户可以参考示例配置文件：[无表头配置](config-without-header.md)/[有表头配置](config-with-header.md)。下文将分类介绍配置文件内的字段。
 
 !!! note
 
@@ -155,7 +155,7 @@ removeTempFiles: false
 
 ### 客户端配置
 
-客户端配置存储客户端连接 NebulaGraph 相关的配置。
+客户端配置存储客户端连接{{nebula.name}}相关的配置。
 
 示例配置如下：
 
@@ -184,15 +184,15 @@ clientSettings:
 |参数|默认值|是否必须|说明|
 |:---|:---|:---|:---|
 |`clientSettings.retry`|3|否|nGQL 语句执行失败的重试次数。|
-|`clientSettings.concurrency`|10|否|NebulaGraph 客户端并发数。|
-|`clientSettings.channelBufferSize`|128|否|每个 NebulaGraph 客户端的缓存队列大小。|
-|`clientSettings.space`|-|是|指定数据要导入的 NebulaGraph 图空间。不要同时导入多个空间，以免影响性能。|
-|`clientSettings.connection.user`|-|是|NebulaGraph 的用户名。|
-|`clientSettings.connection.password`|-|是|NebulaGraph 用户名对应的密码。|
+|`clientSettings.concurrency`|10|否|{{nebula.name}}客户端并发数。|
+|`clientSettings.channelBufferSize`|128|否|每个{{nebula.name}}客户端的缓存队列大小。|
+|`clientSettings.space`|-|是|指定数据要导入的{{nebula.name}}图空间。不要同时导入多个空间，以免影响性能。|
+|`clientSettings.connection.user`|-|是|{{nebula.name}}的用户名。|
+|`clientSettings.connection.password`|-|是|{{nebula.name}}用户名对应的密码。|
 |`clientSettings.connection.address`|-|是|所有 Graph 服务的地址和端口。|
-|`clientSettings.postStart.commands`|-|否|配置连接 NebulaGraph 服务器之后，在插入数据之前执行的一些操作。|
+|`clientSettings.postStart.commands`|-|否|配置连接{{nebula.name}}服务器之后，在插入数据之前执行的一些操作。|
 |`clientSettings.postStart.afterPeriod`|-|否|执行上述`commands`命令后到执行插入数据命令之间的间隔，例如`8s`。|
-|`clientSettings.preStop.commands`|-|否|配置断开 NebulaGraph 服务器连接之前执行的一些操作。|
+|`clientSettings.preStop.commands`|-|否|配置断开{{nebula.name}}服务器连接之前执行的一些操作。|
 
 ### 文件配置
 
@@ -292,7 +292,7 @@ schema:
 |`files.schema.vertex.vid.type`|-|否|点 ID 的数据类型，可选值为`int`和`string`。|
 |`files.schema.vertex.vid.prefix`|-|否|给 原始vid 添加的前缀，当同时指定了 `function` 时, 生成 VID 的方法是先添加 `prefix` 前缀, 再用 `function`生成 VID。|
 |`files.schema.vertex.tags.name`|-|是|Tag 名称。|
-|`files.schema.vertex.tags.props.name`|-|是|Tag 属性名称，必须和 NebulaGraph 中的 Tag 属性一致。|
+|`files.schema.vertex.tags.props.name`|-|是|Tag 属性名称，必须和{{nebula.name}}中的 Tag 属性一致。|
 |`files.schema.vertex.tags.props.type`|-|是|属性数据类型，支持`bool`、 `int`、 `float`、 `double`、 `string`、 `time`、 `timestamp`、 `date`、 `datetime`、 `geography`、 `geography(point)`、 `geography(linestring)` 和 `geography(polygon)`。|
 |`files.schema.vertex.tags.props.index`|-|否|属性对应 CSV 文件中列的序号。|
 |`files.schema.vertex.tags.props.nullable`|`false`|否|属性是否可以为`NULL`，可选`true`或者`false`。|
@@ -335,7 +335,7 @@ schema:
 |`files.schema.edge.dstVID.index`|-|否|边的目的点 ID 对应 CSV 文件中列的序号。|
 |`files.schema.edge.dstVID.function`|-|否|生成 VID 的函数。目前，我们只支持 `hash` 函数。|
 |`files.schema.edge.rank.index`|-|否|边的 rank 值对应 CSV 文件中列的序号。|
-|`files.schema.edge.props.name`|-|是|Edge type 属性名称，必须和 NebulaGraph 中的 Edge type 属性一致。|
+|`files.schema.edge.props.name`|-|是|Edge type 属性名称，必须和{{nebula.name}}中的 Edge type 属性一致。|
 |`files.schema.edge.props.type`|-|是|属性类型，支持`bool`、`int`、`float`、`double`、`timestamp`、`string`和`geo`。|
 |`files.schema.edge.props.index`|-|否|属性对应 CSV 文件中列的序号。|
 

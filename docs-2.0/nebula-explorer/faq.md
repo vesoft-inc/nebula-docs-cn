@@ -1,10 +1,10 @@
 # 常见问题 FAQ
 
-本文列出了使用 Explorer 时可能遇到的常见问题，用户可以使用文档中心或者浏览器的搜索功能查找相应问题。
+本文列出了使用{{explorer.name}}时可能遇到的常见问题，用户可以使用文档中心或者浏览器的搜索功能查找相应问题。
 
 ## 如果 Graph 服务返回的查询结果数据量过大，会导致 Dag Controller 服务崩溃吗？
 
-Dag Controller 服务仅仅提供调度功能，不会崩溃，但是数据量过大可能会导致 NebulaGraph Analytics 服务读写 HDFS 或者 NebulaGraph 时内存不足而崩溃。
+Dag Controller 服务仅仅提供调度功能，不会崩溃，但是数据量过大可能会导致{{plato.name}}服务读写 HDFS 或者{{nebula.name}}时内存不足而崩溃。
 
 ## 如果一个作业中的某个任务失败，能否从失败的任务开始重新执行？
 
@@ -12,7 +12,7 @@ Dag Controller 服务仅仅提供调度功能，不会崩溃，但是数据量�
 
 ## 如果任务结果保存很慢，或任务间数据传输很慢，如何加速？
 
-Dag Controller 包含图查询组件和图计算组件。图查询是发送请求给 Graph 进程进行查询，因此只能增大 Graph 服务的内存进行加速；图计算是由 NebulaGraph Analytics 提供的分布式节点进行计算，可以增大计算集群规模进行加速。
+Dag Controller 包含图查询组件和图计算组件。图查询是发送请求给 Graph 进程进行查询，因此只能增大 Graph 服务的内存进行加速；图计算是由{{plato.name}}提供的分布式节点进行计算，可以增大计算集群规模进行加速。
 
 ## HDFS 服务器无法连接时，任务状态一直为`running`怎么办？
 
@@ -56,7 +56,7 @@ Dag Controller 包含图查询组件和图计算组件。图查询是发送请�
 
   !!! note
 
-        Dag Controller 和 Analytics 在同一台机器时，也需要配置免密登录。
+        Dag Controller 和{{plato.name}}在同一台机器时，也需要配置免密登录。
 
 2. 检查 Dag Controller 的配置文件。
 

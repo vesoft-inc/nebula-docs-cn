@@ -1,6 +1,6 @@
 # 慢查询分析
 
-在 DBA 的日常工作中，需要对集群的查询语句执行情况进行分析和治理，NebulaGraph Dashboard 支持查看慢查询的情况，包括语句、耗时、类型、执行计划等。
+在 DBA 的日常工作中，需要对集群的查询语句执行情况进行分析和治理，{{dashboard_ent.name}}支持查看慢查询的情况，包括语句、耗时、类型、执行计划等。
 
 ## 功能介绍
 
@@ -9,11 +9,11 @@
 
 ## 前提条件
 
-NebulaGraph 的 Graph 配置文件中，已设置`enable_record_slow_query`=`true`。详情参见 [Graph 服务配置](../../../5.configurations-and-logs/1.configurations/3.graph-config.md)。
+{{nebula.name}}的 Graph 配置文件中，已设置`enable_record_slow_query`=`true`。详情参见 [Graph 服务配置](../../../5.configurations-and-logs/1.configurations/3.graph-config.md)。
 
 ## 入口
 
-1. 在 Dashboard 企业版顶部导航栏，单击**集群管理**。
+1. 在{{dashboard_ent.name}}顶部导航栏，单击**集群管理**。
 2. 单击目标集群右侧的**详情**。
 3. 在左侧导航栏，单击**分析诊断**->**慢查询分析**。
 

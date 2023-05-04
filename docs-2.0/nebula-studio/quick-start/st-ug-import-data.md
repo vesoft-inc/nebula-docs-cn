@@ -6,9 +6,9 @@
 
 导入数据之前，需要确认以下信息：
 
-- Studio 已经连接到 NebulaGraph 数据库。
+- Studio 已经连接到{{nebula.name}}。
 
-- NebulaGraph 数据库里已经创建 Schema。
+-{{nebula.name}}里已经创建 Schema。
 
 - CSV 文件符合 Schema 要求。
 
@@ -58,7 +58,7 @@
 
 4. 完成设置后，点击 **导入** 按钮。
 
-5. 用户输入 NebulaGraph 账号的密码后方可导入数据。
+5. 用户输入{{nebula.name}}账号的密码后方可导入数据。
   ![输入密码](https://docs-cdn.nebula-graph.com.cn/figures/st-ug-014-cn.png)
 
 6. 导入数据后可以在 **导入数据** 页签内查看日志、下载日志、下载配置文件、删除任务等操作。

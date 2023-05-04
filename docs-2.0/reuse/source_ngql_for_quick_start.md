@@ -2,11 +2,11 @@
 
 ### 图空间和 Schema
 
-一个 NebulaGraph 实例由一个或多个图空间组成。每个图空间都是物理隔离的，用户可以在同一个实例中使用不同的图空间存储不同的数据集。
+一个{{nebula.name}}实例由一个或多个图空间组成。每个图空间都是物理隔离的，用户可以在同一个实例中使用不同的图空间存储不同的数据集。
 
-![NebulaGraph and graph spaces](https://docs-cdn.nebula-graph.com.cn/docs-2.0/2.quick-start/nebula-graph-instance-and-graph-spaces.png)
+![{{nebula.name}} and graph spaces](https://docs-cdn.nebula-graph.com.cn/docs-2.0/2.quick-start/nebula-graph-instance-and-graph-spaces.png)
 
-为了在图空间中插入数据，需要为图数据库定义一个 Schema。NebulaGraph 的 Schema 是由如下几部分组成。
+为了在图空间中插入数据，需要为图数据库定义一个 Schema。{{nebula.name}}的 Schema 是由如下几部分组成。
 
 | 组成部分 | 说明|
 | :--- | :---  |
@@ -25,7 +25,7 @@
 
 !!! caution
 
-    NebulaGraph 中执行如下创建和修改操作，是异步实现的。要在**下一个**心跳周期之后才能生效，否则访问会报错。为确保数据同步，后续操作能顺利进行，请等待 2 个心跳周期（20 秒）。
+    在{{nebula.name}}中，下列创建和修改操作是异步实现的。要在**下一个**心跳周期之后才能生效，否则访问会报错。为确保数据同步，后续操作能顺利进行，请等待 2 个心跳周期（20 秒）。
 
 - `CREATE SPACE`
 - `CREATE TAG`
@@ -230,7 +230,7 @@ nebula> CREATE EDGE serve(start_year int, end_year int);
 
 - [LOOKUP](https://docs.nebula-graph.com.cn/{{nebula.release}}/3.ngql-guide/7.general-query-statements/5.lookup/) 语句是基于[索引](#_12)的，和`WHERE`子句一起使用，查找符合特定条件的数据。
 
-- [MATCH](https://docs.nebula-graph.com.cn/{{nebula.release}}/3.ngql-guide/7.general-query-statements/2.match/) 语句是查询图数据最常用的，可以灵活的描述各种图模式，但是它依赖[索引](#_12)去匹配 NebulaGraph 中的数据模型，性能也还需要调优。
+- [MATCH](https://docs.nebula-graph.com.cn/{{nebula.release}}/3.ngql-guide/7.general-query-statements/2.match/) 语句是查询图数据最常用的，可以灵活的描述各种图模式，但是它依赖[索引](#_12)去匹配{{nebula.name}}中的数据模型，性能也还需要调优。
 
 ### nGQL 语法
 

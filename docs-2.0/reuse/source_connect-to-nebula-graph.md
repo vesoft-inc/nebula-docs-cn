@@ -4,21 +4,21 @@
 
 !!! caution
 
-    首次连接到 NebulaGraph 后，必须先[注册 Storage 服务](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/3.quick-start-on-premise/3.1add-storage-hosts/)，才能正常查询数据。
+    首次连接到{{nebula.name}}后，必须先[注册 Storage 服务](https://docs.nebula-graph.com.cn/{{nebula.release}}/2.quick-start/3.quick-start-on-premise/3.1add-storage-hosts/)，才能正常查询数据。
 
-NebulaGraph 支持多种类型的客户端，包括命令行客户端、可视化界面客户端和流行编程语言客户端。详情参见[客户端列表](https://docs.nebula-graph.com.cn/{{nebula.release}}/14.client/1.nebula-client/)。
+{{nebula.name}}支持多种类型的客户端，包括命令行客户端、可视化界面客户端和流行编程语言客户端。详情参见[客户端列表](https://docs.nebula-graph.com.cn/{{nebula.release}}/14.client/1.nebula-client/)。
 
 ## 前提条件
 
-- NebulaGraph 服务已[启动](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/manage-service/)。
+-{{nebula.name}}服务已[启动](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/manage-service/)。
 
-- 运行 Nebula Console 的机器和运行 NebulaGraph 的服务器网络互通。
+- 运行 Nebula Console 的机器和运行{{nebula.name}}的服务器网络互通。
 
-- Nebula Console 的版本兼容 NebulaGraph 的版本。
+- Nebula Console 的版本兼容{{nebula.name}}的版本。
 
   !!! note
   
-        版本相同的 Nebula Console 和 NebulaGraph 兼容程度最高，版本不同的 Nebula Console 连接 NebulaGraph 时，可能会有兼容问题，或者无法连接并报错`incompatible version between client and server`。
+        版本相同的 Nebula Console 和{{nebula.name}}兼容程度最高，版本不同的 Nebula Console 连接{{nebula.name}}时，可能会有兼容问题，或者无法连接并报错`incompatible version between client and server`。
 
 ## 操作步骤
 
@@ -49,7 +49,7 @@ NebulaGraph 支持多种类型的客户端，包括命令行客户端、可视�
 
 5. 在命令行界面中，切换工作目录至 nebula-console 文件所在目录。
 
-6. 执行如下命令连接 NebulaGraph。
+6. 执行如下命令连接{{nebula.name}}。
 
   - Linux 或 macOS
 
@@ -70,14 +70,14 @@ NebulaGraph 支持多种类型的客户端，包括命令行客户端、可视�
   | 参数 | 说明 |
   | - | - |
   | `-h/-help` | 显示帮助菜单。 |
-  | `-addr/-address` | 设置要连接的 Graph 服务的 IP 地址。默认地址为 127.0.0.1。<!-- 如果 NebulaGraph 部署在 [Nebula Cloud](https://docs.nebula-graph.com.cn/2.6.2/nebula-cloud/1.what-is-cloud/) 上，需要创建 [Private Link](https://docs.nebula-graph.com.cn/2.6.2/nebula-cloud/5.solution/5.2.connection-configuration-and-use)，并设置该参数的值为专用终结点的 IP 地址。 -->|
+  | `-addr/-address` | 设置要连接的 Graph 服务的 IP 地址。默认地址为 127.0.0.1。<!-- 如果{{nebula.name}}部署在 [Nebula Cloud](https://docs.nebula-graph.com.cn/2.6.2/nebula-cloud/1.what-is-cloud/) 上，需要创建 [Private Link](https://docs.nebula-graph.com.cn/2.6.2/nebula-cloud/5.solution/5.2.connection-configuration-and-use)，并设置该参数的值为专用终结点的 IP 地址。 -->|
   | `-P/-port` | 设置要连接的 Graph 服务的端口。默认端口为 9669。|
-  | `-u/-user` | 设置 NebulaGraph 账号的用户名。未启用身份认证时，可以使用任意已存在的用户名（默认为`root`）。 |
+  | `-u/-user` | 设置{{nebula.name}}账号的用户名。未启用身份认证时，可以使用任意已存在的用户名（默认为`root`）。 |
   | `-p/-password` | 设置用户名对应的密码。未启用身份认证时，密码可以填写任意字符。 |
   | `-t/-timeout`  | 设置整数类型的连接超时时间。单位为毫秒，默认值为 120。 |
   | `-e/-eval` | 设置字符串类型的 nGQL 语句。连接成功后会执行一次该语句并返回结果，然后自动断开连接。 |
   | `-f/-file` | 设置存储 nGQL 语句的文件的路径。连接成功后会执行该文件内的 nGQL 语句并返回结果，执行完毕后自动断开连接。 |
-  | `-enable_ssl` | 连接 NebulaGraph 时使用 SSL 加密。 |
+  | `-enable_ssl` | 连接{{nebula.name}}时使用 SSL 加密。 |
   | `-ssl_root_ca_path` | 指定 CA 证书的存储路径。 |
   | `-ssl_cert_path` | 指定 CRT 证书的存储路径。 |
   | `-ssl_private_key_path` | 指定私钥文件的存储路径。 |

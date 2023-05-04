@@ -1,15 +1,15 @@
-# 什么是 NebulaGraph Explorer
+# 什么是{{explorer.name}}
 
-NebulaGraph Explorer （简称 Explorer）是一款可以通过 Web 访问的可视化图探索工具，搭配 NebulaGraph 内核使用，用于与图数据进行可视化交互。即使没有图数据操作经验，用户也可以快速成为图专家。 
+{{explorer.name}}是一款可以通过 Web 访问的可视化图探索工具，搭配{{nebula.name}}内核使用，用于与图数据进行可视化交互。即使没有图数据操作经验，用户也可以快速成为图专家。 
 
 !!! enterpriseonly
 
-    - 如需购买 Nebula Explorer，请[联系我们](https://www.nebula-graph.com.cn/contact)。
-    - 新用户可以[申请 30 天试用](https://wj.qq.com/s2/10158890/69a8)。你也可以[在线体验 Explorer](https://explorer.nebula-graph.com.cn/) 部分功能。
+    - 如需购买{{explorer.name}}，请[联系我们](https://www.nebula-graph.com.cn/contact)。
+    - 新用户可以[申请 30 天试用](https://wj.qq.com/s2/10158890/69a8)。你也可以[在线体验{{explorer.name}}](https://explorer.nebula-graph.com.cn/) 部分功能。
 
 ## 适用场景
 
-如果有以下任一需求，都可以使用 Explorer：
+如果有以下任一需求，都可以使用{{explorer.name}}：
 
 - 从复杂关系中快速查找友邻关系、分析可疑目标，需要以可视化的方式展示图数据。
 
@@ -29,23 +29,23 @@ NebulaGraph Explorer （简称 Explorer）是一款可以通过 Web 访问的可
 
 - [数据存储](../canvas-operations/canvas-snapshot.md)：支持保存和导入画布数据。
 
-- [内联框架](../iframe.md)：支持在第三方页面中嵌入 Explorer 画布。
+- [内联框架](../iframe.md)：支持在第三方页面中嵌入{{explorer.name}}画布。
 
 <!-- - 便于筛选：支持基于自定义条件灵活筛选需要展示的数据。-->
 
 ## 身份验证
 
-NebulaGraph 默认不启用身份验证，一般情况下用户可以使用`root`账号和任意密码登录 Explorer。
+{{nebula.name}}默认不启用身份验证，一般情况下用户可以使用`root`账号和任意密码登录{{explorer.name}}。
 
-NebulaGraph 启用了身份验证后，用户只能使用指定的账号和密码登录 Explorer。
+{{nebula.name}}启用了身份验证后，用户只能使用指定的账号和密码登录{{explorer.name}}。
 
-关于 NebulaGraph 的身份验证功能，参考 [NebulaGraph 用户手册](../../7.data-security/1.authentication/1.authentication.md "点击前往 NebulaGraph 官网")。
+关于{{nebula.name}}的身份验证功能，参考 [{{nebula.name}}用户手册](../../7.data-security/1.authentication/1.authentication.md "点击前往{{nebula.name}}官网")。
 
 ## 版本兼容性
 
-NebulaGraph 的版本和 Explorer 版本对应关系如下。
+{{nebula.name}}的版本和{{explorer.name}}版本对应关系如下。
 
-| NebulaGraph 版本 | Explorer 版本 |
+|{{nebula.name}}版本 | {{explorer.name}}版本 |
 | --- | --- |
 | 3.4.0 ~ 3.4.1 | 3.4.0、3.2.1、3.2.0   |
 | 3.3.0 | 3.2.1、3.2.0|

@@ -1,10 +1,19 @@
-# Rules for processing the mkdocs.yml file:
-# - When `database_edition` is `community`, keep all content between tags `# ent.begin` and `# ent.end`, and delete all content between tags `# comm.begin` and `# comm.end`.
-# - When `database_edition` is `enterprise`, keep all content between `# comm.begin` and `# comm.end`, and delete all content between `# ent.begin` and `# ent.end`
-# - When `database_edition` is `both`, delete all content between `# ent.begin` and `# ent.end`, and between `# comm.begin` and `# comm.end`.
-# - Always keep the tags.
+# This script processes the 'mkdocs.yml' file based on the value of 'database_edition' in the following manner:
 
-import os
+# 1. If the value of 'database_edition' is 'enterprise':
+#    - Remove the text between '# exclude.ent.begin' and '# exclude.ent.end'
+#    - Keep the text between '# exclude.comm.begin' and '# exclude.comm.end'
+#    - Keep the text between '# nav.ent.begin' and '# nav.ent.end'
+#    - Remove the text between '# nav.comm.begin' and '# nav.comm.end'
+
+# 2. If the value of 'database_edition' is 'community':
+#    - Keep the text between '# nav.ent.begin' and '# nav.ent.end'
+#    - Remove the text between '# nav.comm.begin' and '# nav.comm.end'
+#    - Remove the text between '# nav.ent.begin' and '# nav.ent.end'
+#    - Keep the text between '# nav.comm.begin' and '# nav.comm.end'
+
+# 3. If the value of 'database_edition' is 'both', no changes are made to the file content.
+
 import re
 import yaml
 
@@ -15,25 +24,30 @@ def process_mkdocs_yml(mkdocs_yml_path, database_edition):
         content = f.read()
     if database_edition == 'enterprise':
         content = re.sub(
-            r'#\s*ent\.begin(.*?)#\s*ent\.end', 
+            r'#\s*exclude\.ent\.begin(.*?)#\s*exclude\.ent\.end', 
             '', content, flags=re.DOTALL)
         content = re.sub(
-            r'#\s*comm\.begin(.*?)#\s*comm\.end', 
+            r'#\s*exclude\.comm\.begin(.*?)#\s*exclude\.comm\.end', 
             '\\1', content, flags=re.DOTALL)
+        content = re.sub(
+            r'#\s*nav\.ent\.begin(.*?)#\s*nav\.ent\.end', 
+            '\\1', content, flags=re.DOTALL)
+        content = re.sub(
+            r'#\s*nav\.comm\.begin(.*?)#\s*nav\.comm\.end', 
+            '', content, flags=re.DOTALL)
     elif database_edition == 'community':
         content = re.sub(
-            r'#\s*ent\.begin(.*?)#\s*ent\.end', 
+            r'#\s*exclude\.ent\.begin(.*?)#\s*exclude\.ent\.end', 
             '\\1', content, flags=re.DOTALL)
         content = re.sub(
-            r'#\s*comm\.begin(.*?)#\s*comm\.end', 
-            '', content, flags=re.DOTALL)
-    elif database_edition == 'both':
-        content = re.sub(
-            r'#\s*ent\.begin(.*?)#\s*ent\.end', 
+            r'#\s*exclude\.comm\.begin(.*?)#\s*exclude\.comm\.end', 
             '', content, flags=re.DOTALL)
         content = re.sub(
-            r'#\s*comm\.begin(.*?)#\s*comm\.end', 
+            r'#\s*nav\.ent\.begin(.*?)#\s*nav\.ent\.end', 
             '', content, flags=re.DOTALL)
+        content = re.sub(
+            r'#\s*nav\.comm\.begin(.*?)#\s*nav\.comm\.end', 
+            '\\1', content, flags=re.DOTALL)
     with open(mkdocs_yml_path, 'w', encoding='utf-8') as f:
         f.write(content)
 

@@ -1,6 +1,6 @@
 # 导入 Neo4j 数据
 
-本文以一个示例说明如何使用 Exchange 将存储在 Neo4j 的数据导入 NebulaGraph。
+本文以一个示例说明如何使用 Exchange 将存储在 Neo4j 的数据导入{{nebula.name}}。
 
 ## 实现方法
 
@@ -16,11 +16,11 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
 
 4. Reader 最后将返回的数据处理成 DataFrame。
 
-至此，Exchange 即完成了对 Neo4j 数据的导出。之后，数据被并行写入 NebulaGraph 数据库中。
+至此，Exchange 即完成了对 Neo4j 数据的导出。之后，数据被并行写入{{nebula.name}}数据库中。
 
 整个过程如下图所示。
 
-![NebulaGraph&reg; Exchange 从 Neo4j 数据库中导出数据再并行导入 NebulaGraph 数据库中](https://docs-cdn.nebula-graph.com.cn/figures/ex-ug-002.png "NebulaGraph&reg; Exchange 迁移 Neo4j 数据")
+![NebulaGraph&reg; Exchange 从 Neo4j 数据库中导出数据再并行导入{{nebula.name}}数据库中](https://docs-cdn.nebula-graph.com.cn/figures/ex-ug-002.png "NebulaGraph&reg; Exchange 迁移 Neo4j 数据")
 
 ## 数据集
 
@@ -41,31 +41,31 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
 
 - Neo4j：3.5.20 Community Edition
 
-- NebulaGraph：{{nebula.release}}。使用 [Docker Compose 部署](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)。
+- {{nebula.name}}：{{nebula.release}}。使用 [Docker Compose 部署](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)。
 
 ## 前提条件
 
 开始导入数据之前，用户需要确认以下信息：
 
-- 已经[安装部署 NebulaGraph](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md) 并获取如下信息：
+- 已经[安装部署{{nebula.name}}](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md) 并获取如下信息：
 
   - Graph 服务和 Meta 服务的的 IP 地址和端口。
 
-  - 拥有 NebulaGraph 写权限的用户名和密码。
+  - 拥有{{nebula.name}}写权限的用户名和密码。
 
 - 已经编译 Exchange。详情请参见[编译 Exchange](../ex-ug-compile.md)。本示例中使用 Exchange {{exchange.release}}。
 
 - 已经安装 Spark。
 
-- 了解 NebulaGraph 中创建 Schema 的信息，包括 Tag 和 Edge type 的名称、属性等。
+- 了解{{nebula.name}}中创建 Schema 的信息，包括 Tag 和 Edge type 的名称、属性等。
 
 ## 操作步骤
 
-### 步骤 1：在 NebulaGraph 中创建 Schema
+### 步骤 1：在{{nebula.name}}中创建 Schema
 
-分析数据，按以下步骤在 NebulaGraph 中创建 Schema：
+分析数据，按以下步骤在{{nebula.name}}中创建 Schema：
 
-1. 确认 Schema 要素。NebulaGraph 中的 Schema 要素如下表所示。
+1. 确认 Schema 要素。{{nebula.name}}中的 Schema 要素如下表所示。
 
     | 要素  | 名称 | 属性 |
     | :--- | :--- | :--- |
@@ -131,12 +131,12 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
     }
   }
 
-  # NebulaGraph 相关配置
+  # {{nebula.name}} 相关配置
   nebula: {
     address:{
       graph:["127.0.0.1:9669"]
       #任意一个 Meta 服务的地址。
-      #如果您的 NebulaGraph 在虚拟网络中，如k8s，请配置 Leader Meta的地址。
+      #如果您的 {{nebula.name}} 在虚拟网络中，如k8s，请配置 Leader Meta的地址。
       meta:["127.0.0.1:9559"]
     }
     user: root
@@ -278,15 +278,15 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
 
 #### tags.vertex 或 edges.vertex 配置说明
 
-NebulaGraph 在创建点和边时会将 ID 作为唯一主键，如果主键已存在则会覆盖该主键中的数据。所以，假如将某个 Neo4j 属性值作为 NebulaGraph 的 ID，而这个属性值在 Neo4j 中是有重复的，就会导致重复 ID，它们对应的数据有且只有一条会存入 NebulaGraph 中，其它的则会被覆盖掉。由于数据导入过程是并发地往 NebulaGraph 中写数据，最终保存的数据并不能保证是 Neo4j 中最新的数据。
+{{nebula.name}}在创建点和边时会将 ID 作为唯一主键，如果主键已存在则会覆盖该主键中的数据。所以，假如将某个 Neo4j 属性值作为{{nebula.name}}的 ID，而这个属性值在 Neo4j 中是有重复的，就会导致重复 ID，它们对应的数据有且只有一条会存入{{nebula.name}}中，其它的则会被覆盖掉。由于数据导入过程是并发地往{{nebula.name}}中写数据，最终保存的数据并不能保证是 Neo4j 中最新的数据。
 
 #### check_point_path 配置说明
 
 如果启用了断点续传功能，为避免数据丢失，在断点和续传之间，数据库不应该改变状态，例如不能添加数据或删除数据，同时，不能更改`partition`数量配置。
 
-### 步骤 4：向 NebulaGraph 导入数据
+### 步骤 4：向{{nebula.name}}导入数据
 
-运行如下命令将文件数据导入到 NebulaGraph 中。关于参数的说明，请参见[导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
+运行如下命令将文件数据导入到{{nebula.name}}中。关于参数的说明，请参见[导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
 ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-{{exchange.release}}.jar_path> -c <neo4j_application.conf_path> 
@@ -306,7 +306,7 @@ ${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.excha
 
 ### 步骤 5：（可选）验证数据
 
-用户可以在 NebulaGraph 客户端（例如 NebulaGraph Studio）中执行查询语句，确认数据是否已导入。例如：
+用户可以在{{nebula.name}}客户端（例如 NebulaGraph Studio）中执行查询语句，确认数据是否已导入。例如：
 
 ```ngql
 LOOKUP ON player YIELD id(vertex);
@@ -314,6 +314,6 @@ LOOKUP ON player YIELD id(vertex);
 
 用户也可以使用命令 [`SHOW STATS`](../../3.ngql-guide/7.general-query-statements/6.show/14.show-stats.md) 查看统计数据。
 
-### 步骤 6：（如有）在 NebulaGraph 中重建索引
+### 步骤 6：（如有）在{{nebula.name}}中重建索引
 
-导入数据后，用户可以在 NebulaGraph 中重新创建并重建索引。详情请参见[索引介绍](../../3.ngql-guide/14.native-index-statements/README.md)。
+导入数据后，用户可以在{{nebula.name}}中重新创建并重建索引。详情请参见[索引介绍](../../3.ngql-guide/14.native-index-statements/README.md)。
