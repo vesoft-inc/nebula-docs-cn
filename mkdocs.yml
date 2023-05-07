@@ -288,13 +288,13 @@ nav:
         - Storage 服务: 1.introduction/3.nebula-graph-architecture/4.storage-service.md
   - 悦数 License: 
     - License 简介: 9.about-license/1.license-overview.md
-    - License 管理套件: 
-      - 套件概述: 9.about-license/2.license-management-suite/1.suite-overview.md
-      - 许可证中心（LC）: 9.about-license/2.license-management-suite/2.license-center.md
-      - 许可证管理工具（LM）: 9.about-license/2.license-management-suite/3.license-manager.md
-    - 购买 License: 9.about-license/3.purchase-license.md
-    - 获取和加载 License: 9.about-license/3.purchase-license.md
-    - 管理 License: 9.about-license/5.manage-license.md
+  #  - License 管理套件: 
+  #   - 套件概述: 9.about-license/2.license-management-suite/1.suite-overview.md
+  #   - 许可证中心（LC）: 9.about-license/2.license-management-suite/2.license-center.md
+  #  - 购买 License: 9.about-license/3.purchase-license.md
+  #  - 获取和加载 License: 9.about-license/3.purchase-license.md
+    - License 管理工具（LM）: 9.about-license/2.license-management-suite/3.license-manager.md
+  #  - 管理 License: 9.about-license/5.manage-license.md
 
   - 快速入门:
     - 入门概览: 2.quick-start/1.quick-start-overview.md
