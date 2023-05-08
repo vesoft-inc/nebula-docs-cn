@@ -82,8 +82,11 @@ jobs:
 
       - name: mike 
         run: |
+          cat mkdocs.yml
           python ./scripts/conditional_render.py
+          cat mkdocs.yml
           python ./scripts/conditional_yml.py
+          cat mkdocs.yml
           git fetch origin gh-pages --depth=1 # fix mike's CI update
           mike deploy ${{ env.ACTIONTEST }}  -p --rebase
           mike list
