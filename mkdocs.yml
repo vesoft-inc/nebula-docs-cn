@@ -155,10 +155,6 @@ extra_javascript:
 
 # modify when release: 
 extra:
-  # For conditional rendering
-  # Valid options: enterprise, community, both
-  # enterprise means this version is for the Enterprise only. And so on in a similar fashion
-  database_edition: community
   # Modify doc_version to automatically update the parameters for releasing a new version
   doc_version: master
   # Language selector.
