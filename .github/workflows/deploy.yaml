@@ -82,6 +82,8 @@ jobs:
 
       - name: mike 
         run: |
+          python ./scripts/conditional_render.py
+          python ./scripts/conditional_yml.py
           git fetch origin gh-pages --depth=1 # fix mike's CI update
           mike deploy ${{ env.ACTIONTEST }}  -p --rebase
           mike list
