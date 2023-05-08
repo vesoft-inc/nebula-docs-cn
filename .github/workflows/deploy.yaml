@@ -5,71 +5,22 @@ on:
       - master
 
 jobs:
-  prepare:
-    runs-on: ubuntu-latest
-    outputs:
-      matrix: ${{ steps.set-matrix.outputs.matrix }}
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0 # fetch all commits/branches
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.8'
-          cache: 'pip'
-      - name: Install dependencies
-        run: pip install pyyaml
-      - name: Set matrix
-        id: set-matrix
-        run: |
-          import yaml
-
-          with open('mkdocs.yml', 'r') as file:
-              mkdocs = yaml.safe_load(file)
-          database_edition = mkdocs.get('database_edition', '')
-          matrix = []
-
-          if database_edition == 'both':
-              matrix = ['enterprise', 'community']
-          elif database_edition in ['enterprise', 'community']:
-              matrix = [database_edition]
-
-          matrix_str = ','.join(matrix)
-          with open(os.environ['GITHUB_OUTPUT'], 'a') as file:
-              file.write(f"matrix={matrix_str}\n")
-        shell: python
-
   deploy:
-    needs: prepare
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        database_edition: ${{fromJson(needs.prepare.outputs.matrix)}}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 1 # fetch all commits/branches
 
       - name: Setup Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v1
         with:
           python-version: '3.8'
-          cache: 'pip'
+          architecture: 'x64'
 
       - name : prepare
         run: sh ./prepare.sh
-
-      - name: Update mkdocs.yml
-        run: |
-          import yaml
-          with open('mkdocs.yml', 'r') as file:
-              mkdocs = yaml.safe_load(file)
-          mkdocs['database_edition'] = ${{ matrix.database_edition }}
-          with open('mkdocs.yml', 'w') as file:
-              yaml.dump(mkdocs, file)
-        shell: python
-
+ 
       - name: Git Config
         run: git config user.name whitewum && git config user.email min.wu@vesoft.com
 
@@ -85,12 +36,8 @@ jobs:
           git checkout gh-pages
       - name: Compress
         run: |
-          if [ "${{ matrix.database_edition }}" = "enterprise" ]; then
-            tar -vczf ent-docs.tar.gz master versions.json *.html
-          else
-            tar -vczf nebula-docs.tar.gz master versions.json *.html
-          fi
-
+          tar -vczf nebula-docs.tar.gz master versions.json *.html
+          
       - name: Transfer
         # uses: garygrossgarten/github-action-scp@release
         uses: appleboy/scp-action@master
@@ -99,10 +46,8 @@ jobs:
           username: ${{ secrets.USER_NAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          source: '${{ matrix.database_edition == "enterprise" ? "ent-docs.tar.gz" : "nebula-docs.tar.gz" }}'
-
+          source: nebula-docs.tar.gz
           target: /usr/web
-
       - name: UnCompress
         uses: appleboy/ssh-action@master
         with:
@@ -111,22 +56,8 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            if [ "${{ matrix.database_edition }}" = "enterprise" ]; then
-              mkdir -p /usr/web/ent-docs/
-              tar -xzf /usr/web/ent-docs.tar.gz -C /usr/web/ent-docs/
-              mkdir -p /usr/web/ent-docs/site/pdf/
-              cp -f /usr/web/ent-docs/master/pdf/NebulaGraph-CN.pdf /usr/web/ent-docs/site/pdf/NebulaGraph-book.pdf
-            else
-              mkdir -p /usr/web/nebula-docs/
-              tar -xzf /usr/web/nebula-docs.tar.gz -C /usr/web/nebula-docs/
-              mkdir -p /usr/web/nebula-docs/site/pdf/
-              cp -f /usr/web/nebula-docs/master/pdf/NebulaGraph-CN.pdf /usr/web/nebula-docs/site/pdf/NebulaGraph-book.pdf
-            fi
+            mkdir -p /usr/web/nebula-docs/
+            tar -xzf /usr/web/nebula-docs.tar.gz -C /usr/web/nebula-docs/
+            mkdir -p /usr/web/nebula-docs/site/pdf/
+            cp -f /usr/web/nebula-docs/master/pdf/NebulaGraph-CN.pdf /usr/web/nebula-docs/site/pdf/NebulaGraph-book.pdf
             
-#            pip3 install --upgrade pip
-#            pip3 install -r /usr/web/nebula-docs/requirement.txt
-      # - name: Deploy
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     github_token: ${{ secrets.DEPLOY_TOKEN }}
-      #     publish_dir: ./site
