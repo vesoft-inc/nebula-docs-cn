@@ -34,7 +34,7 @@ def process_files(file_path, database_edition):
                     f.write(content)
 
 if __name__ == '__main__':
-    yml_path = 'database_conedition.yml'
+    yml_path = 'database_edition.yml'
     with open(yml_path, 'r', encoding='utf-8') as f:
         config = yaml.safe_load(f)
     database_edition = config.get("database_edition", "")
