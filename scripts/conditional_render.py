@@ -34,10 +34,10 @@ def process_files(file_path, database_edition):
                     f.write(content)
 
 if __name__ == '__main__':
-    mkdocs_yml_path = 'mkdocs.yml'
-    with open(mkdocs_yml_path, 'r', encoding='utf-8') as f:
+    yml_path = 'database_conedition.yml'
+    with open(yml_path, 'r', encoding='utf-8') as f:
         config = yaml.safe_load(f)
-    database_edition = config.get("extra", {}).get("database_edition", "")
+    database_edition = config.get("database_edition", "")
     if database_edition not in ['community', 'enterprise', 'both']:
         raise ValueError("Invalid value for database_edition: {}".format(database_edition))
     file_path = 'docs-2.0/'
