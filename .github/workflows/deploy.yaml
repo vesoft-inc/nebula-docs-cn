@@ -27,10 +27,10 @@ jobs:
         id: set-matrix
         run: |
           import yaml, os, json
-          with open('mkdocs.yml', 'r') as file:
+          with open('database_edition.yml', 'r') as file:
               mkdocs = yaml.safe_load(file)
           # Access the `database_edition` variable from the `extra` section
-          database_edition = mkdocs.get('extra', {}).get('database_edition', '')
+          database_edition = mkdocs.get('database_edition', '')
 
           print(f"database_edition: {database_edition}")  # Print the variable for debugging
           matrix = []
@@ -64,16 +64,12 @@ jobs:
       - name : prepare
         run: sh ./prepare.sh
 
-      - name: Update mkdocs.yml
+      - name: Update database_edition.yml
         run: |
           import yaml
-          with open('mkdocs.yml', 'r') as file:
+          with open('database_edition.yml', 'r') as file:
               mkdocs = yaml.safe_load(file)
-          # Access the `database_edition` variable from the `extra` section and set the new value
-          database_edition = mkdocs.setdefault('extra', {}).get('database_edition', '')
-          mkdocs['extra']['database_edition'] = f"${{ matrix.database_edition }}"
-          with open('mkdocs.yml', 'w') as file:
-              yaml.dump(mkdocs, file)
+          database_edition = mkdocs.get('database_edition', '')
         shell: python
 
 
