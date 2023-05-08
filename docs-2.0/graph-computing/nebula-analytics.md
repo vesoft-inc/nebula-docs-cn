@@ -7,7 +7,7 @@
 - [联系我们](https://www.nebula-graph.com.cn/contact)获取{{plato.name}}安装包。
 
 {{ ent.ent_begin }}
-- 已安装[许可证管理工具](../9.about-license/2.license-management-suite/3.license-manager.md)并且[加载授权码](../9.about-license/4.generate-and-load-license-key.md)。
+- 已[加载授权码](../9.about-license/2.license-management-suite/3.license-manager.md)。
 {{ ent.ent_end }}
 
 - 已部署 2.2.x 或以上版本的 [HDFS](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/ClusterSetup.html)。
