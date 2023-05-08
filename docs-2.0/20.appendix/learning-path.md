@@ -180,7 +180,7 @@
   | 可视化工具     | 文档                                                         | 视频                                                         |
   | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
   | 数据可视化     | [Nebula Studio](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-studio/about-studio/st-ug-what-is-graph-studio/) | [Nebula Studio 图探索功能](https://www.bilibili.com/video/BV1QN411Z7Vh)和[Nebula Studio 可视化建模](https://www.bilibili.com/video/BV19A411L77h?spm_id_from=333.999.0.0) |
-  | 数据监控和运维 | [{{dashboard_ent.name}](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-dashboard-ent/1.what-is-dashboard-ent/)和 [Nebula Dashboard 社区版](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-dashboard/1.what-is-dashboard/) | [{{dashboard_ent.name}](https://www.bilibili.com/video/BV1qQ4y1k7gb?)                                                            |
+  | 数据监控和运维 | [{{dashboard_ent.name}}](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-dashboard-ent/1.what-is-dashboard-ent/)和 [Nebula Dashboard 社区版](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-dashboard/1.what-is-dashboard/) | [{{dashboard_ent.name}}](https://www.bilibili.com/video/BV1qQ4y1k7gb?)                                                            |
   | 数据分析       | [{{explorer.name}}](https://docs.nebula-graph.com.cn/{{nebula.release}}/nebula-explorer/about-explorer/ex-ug-what-is-explorer/) | [{{explorer.name}}](https://www.bilibili.com/video/BV1fP4y1h7Fx?)                                                            |
 
 - 数据导入与导出
