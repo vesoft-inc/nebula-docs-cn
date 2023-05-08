@@ -134,14 +134,14 @@ plugins:
 #      - '.*\.(tmp|bin|tar)$'
 
 # modify when release: 
-  - with-pdf:
-      copyright: 2023 vesoft Inc.
-      cover_subtitle: master
-      author: 吴敏，周瑶，梁振亚，黄凤仙
-      cover: true
-      back_cover: true
-      cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
-      output_path: pdf/NebulaGraph-CN.pdf
+#  - with-pdf:
+#      copyright: 2023 vesoft Inc.
+#      cover_subtitle: master
+#      author: 吴敏，梁振亚，黄凤仙，李泓臻
+#      cover: true
+#      back_cover: true
+#      cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
+#      output_path: pdf/NebulaGraph-CN.pdf
 
 extra_javascript:
   - js/version-select.js      
