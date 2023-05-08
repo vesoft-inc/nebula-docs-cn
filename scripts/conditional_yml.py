@@ -50,12 +50,13 @@ def process_mkdocs_yml(mkdocs_yml_path, database_edition):
             '\\1', content, flags=re.DOTALL)
     with open(mkdocs_yml_path, 'w', encoding='utf-8') as f:
         f.write(content)
+        print(content) # debug
 
 if __name__ == '__main__':
     mkdocs_yml_path = 'mkdocs.yml'
     with open(mkdocs_yml_path, 'r', encoding='utf-8') as f:
         config = yaml.safe_load(f)
-    database_edition = config.get("extra", {}).get("database_edition", "both")
+    database_edition = config.get("extra", {}).get("database_edition", "")
     if database_edition not in ['community', 'enterprise', 'both']:
         raise ValueError("Invalid value for database_edition: {}".format(database_edition))
     process_mkdocs_yml(mkdocs_yml_path, database_edition)
