@@ -724,7 +724,7 @@ nav:
         - 其他设置: nebula-dashboard-ent/4.cluster-operator/6.settings.md
       - 权限管理: nebula-dashboard-ent/5.account-management.md
       - 任务中心: nebula-dashboard-ent/10.tasks.md
-      - 许可证管理: nebula-dashboard-ent/11.license-manager.md
+      - License 管理: nebula-dashboard-ent/11.license-manager.md
       - 平台设置:
         - 系统设置: nebula-dashboard-ent/system-settings/system-settings.md
         - 通知设置: nebula-dashboard-ent/system-settings/notification-endpoint.md
