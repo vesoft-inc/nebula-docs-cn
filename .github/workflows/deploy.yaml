@@ -99,7 +99,8 @@ jobs:
           username: ${{ secrets.USER_NAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          source: ${{ matrix.database_edition == 'enterprise' ? 'ent-docs.tar.gz' : 'nebula-docs.tar.gz' }}
+          source: '${{ matrix.database_edition == "enterprise" ? "ent-docs.tar.gz" : "nebula-docs.tar.gz" }}'
+
           target: /usr/web
 
       - name: UnCompress
