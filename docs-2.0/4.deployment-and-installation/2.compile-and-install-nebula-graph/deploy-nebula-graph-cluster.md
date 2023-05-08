@@ -21,7 +21,7 @@
 - 准备 5 台用于部署集群的机器。
 - 在集群中通过 NTP 服务同步时间。
 {{ ent.ent_begin }}
-- 已[加载 License Key](../../9.about-license/2.license-management-suite/3.license-manager.md)。
+- 已[在 LM 中加载 License Key](../../9.about-license/2.license-management-suite/3.license-manager.md)。
 {{ ent.ent_end }}
 
 ## 手动部署流程
