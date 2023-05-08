@@ -63,7 +63,7 @@
 {{ ent.ent_begin }}
 !!! note
 
-    Meta 服务配置文件中，需要设置`license_manager_url`的值为 LM 所在的主机 IP 和端口号`9119`，例如`192.168.8.100:9119`。
+    在所有的 Meta 服务配置文件中，需要设置`license_manager_url`的值为 LM 所在的主机 IP 和端口号`9119`，例如`192.168.8.100:9119`。
 {{ ent.ent_end }}
 
 - 机器 A 配置
