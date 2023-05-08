@@ -16,7 +16,7 @@ RPM 和 DEB 是 Linux 系统下常见的两种安装包格式，本文介绍如�
 
 - 安装`wget`工具。
 {{ ent.ent_begin }}
-- 已[加载 License Key](https://docs.nebula-graph.com.cn/{{nebula.release}}/9.about-license/2.license-management-suite/3.license-manager/)。
+- 已[在 LM 中加载 License Key](https://docs.nebula-graph.com.cn/{{nebula.release}}/9.about-license/2.license-management-suite/3.license-manager/)。
 {{ ent.ent_end }}
 
 ## 下载安装包
