@@ -1,33 +1,89 @@
 name: Publish docs via GitHub Pages
+env:
+  ACTIONTEST: master
+# branch name, like master, 2.4
 on:
   push:
-    branches:
+    branches: # hard code branch name
       - master
 
 jobs:
-  deploy:
+  prepare:
     runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1 # Not fetch all commits/branches
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+      - name : prepare
+        run: pip install -r requirements.txt
+      - name: Set matrix
+        id: set-matrix
+        run: |
+          import yaml, os, json
+          with open('mkdocs.yml', 'r') as file:
+              mkdocs = yaml.safe_load(file)
+          # Access the `database_edition` variable from the `extra` section
+          database_edition = mkdocs.get('extra', {}).get('database_edition', '')
+
+          print(f"database_edition: {database_edition}")  # Print the variable for debugging
+          matrix = []
+          if database_edition == 'both':
+              matrix = ['enterprise', 'community']
+          elif database_edition in ['enterprise', 'community']:
+              matrix = [database_edition]
+          matrix_str = json.dumps(matrix)  # Convert the list to a JSON-formatted string
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as file:
+              file.write(f"matrix={matrix_str}\n")
+        shell: python
+
+  deploy:
+    needs: prepare
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 1  # in case push conflict
+      matrix:
+        database_edition: ${{fromJson(needs.prepare.outputs.matrix)}}
+    steps:
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 1 # fetch all commits/branches
 
       - name: Setup Python
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.8'
-          architecture: 'x64'
+          python-version: '3.10'
+          cache: 'pip'
 
       - name : prepare
         run: sh ./prepare.sh
- 
+
+      - name: Update mkdocs.yml
+        run: |
+          import yaml
+          with open('mkdocs.yml', 'r') as file:
+              mkdocs = yaml.safe_load(file)
+          # Access the `database_edition` variable from the `extra` section and set the new value
+          database_edition = mkdocs.setdefault('extra', {}).get('database_edition', '')
+          mkdocs['extra']['database_edition'] = f"${{ matrix.database_edition }}"
+          with open('mkdocs.yml', 'w') as file:
+              yaml.dump(mkdocs, file)
+        shell: python
+
+
       - name: Git Config
         run: git config user.name whitewum && git config user.email min.wu@vesoft.com
 
       - name: mike 
         run: |
           git fetch origin gh-pages --depth=1 # fix mike's CI update
-          mike deploy master -p --rebase
+          mike deploy ${{ env.ACTIONTEST }}  -p --rebase
           mike list
       - name: show git branch
         run: | 
@@ -36,8 +92,22 @@ jobs:
           git checkout gh-pages
       - name: Compress
         run: |
-          tar -vczf nebula-docs.tar.gz master versions.json *.html
+          if [ "${{ matrix.database_edition }}" = "enterprise" ]; then
+            tar -vczf ent-docs.tar.gz ${{ env.ACTIONTEST }} versions.json *.html
+          else
+            tar -vczf nebula-docs.tar.gz ${{ env.ACTIONTEST }} versions.json *.html
+          fi
           
+      - name: Set source file
+        id: set-source-file
+        run: |
+          if [ "${{ matrix.database_edition }}" = "enterprise" ]; then
+            echo "::set-output name=source_file::ent-docs.tar.gz"
+          else
+            echo "::set-output name=source_file::nebula-docs.tar.gz"
+          fi
+        shell: bash
+        
       - name: Transfer
         # uses: garygrossgarten/github-action-scp@release
         uses: appleboy/scp-action@master
@@ -46,8 +116,9 @@ jobs:
           username: ${{ secrets.USER_NAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          source: nebula-docs.tar.gz
+          source: ${{ steps.set-source-file.outputs.source_file }}
           target: /usr/web
+
       - name: UnCompress
         uses: appleboy/ssh-action@master
         with:
@@ -56,8 +127,15 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            mkdir -p /usr/web/nebula-docs/
-            tar -xzf /usr/web/nebula-docs.tar.gz -C /usr/web/nebula-docs/
-            mkdir -p /usr/web/nebula-docs/site/pdf/
-            cp -f /usr/web/nebula-docs/master/pdf/NebulaGraph-CN.pdf /usr/web/nebula-docs/site/pdf/NebulaGraph-book.pdf
+            if [ "${{ matrix.database_edition }}" = "enterprise" ]; then
+              mkdir -p /usr/web/ent-docs/
+              tar -xzf /usr/web/ent-docs.tar.gz -C /usr/web/ent-docs/
+              mkdir -p /usr/web/ent-docs/site/pdf/
+              #cp -f /usr/web/ent-docs/${{ env.ACTIONTEST }}/pdf/NebulaGraph-CN.pdf /usr/web/ent-docs/site/pdf/NebulaGraph-book.pdf
+            else
+              mkdir -p /usr/web/nebula-docs/
+              tar -xzf /usr/web/nebula-docs.tar.gz -C /usr/web/nebula-docs/
+              mkdir -p /usr/web/nebula-docs/site/pdf/
+              #cp -f /usr/web/nebula-docs/${{ env.ACTIONTEST }}/pdf/NebulaGraph-CN.pdf /usr/web/nebula-docs/site/pdf/NebulaGraph-book.pdf
+            fi
             
