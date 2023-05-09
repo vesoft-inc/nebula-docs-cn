@@ -27,7 +27,7 @@ jobs:
         id: set-matrix
         run: |
           import yaml, os, json
-          with open('database_edition.yml', 'r') as file:
+          with open('./database_edition.yml', 'r') as file:
               mkdocs = yaml.safe_load(file)
           database_edition = mkdocs.get('database_edition', '')
           print(f"database_edition: {database_edition}")  # Print the variable for debugging
@@ -61,13 +61,15 @@ jobs:
 
       - name : prepare
         run: sh ./prepare.sh
-
+      # if 'both', set each file 'community' and 'enterprise' seperately.
       - name: Update database_edition.yml
         run: |
-          import yaml
-          with open('database_edition.yml', 'r') as file:
-              mkdocs = yaml.safe_load(file)
-          database_edition = mkdocs.get('database_edition', '')
+          import yaml 
+          with open('./database_edition.yml', 'r') as file:
+              content = yaml.safe_load(file)
+          content['database_edition'] = f"${{ matrix.database_edition }}"
+          with open('./database_edition.yml', 'w') as file:
+              yaml.dump(content, file) 
         shell: python
       
       - name: Git Config
@@ -75,8 +77,8 @@ jobs:
 
       - name: save tmp files
         run: |
-          cp -f *.json /tmp/
-          cp -f *.yml  /tmp/
+          mv *.json /tmp/ # f"${{ matrix.database_edition }}"_versions.json
+          mv *.yml  /tmp/
           ls /tmp/ -ltr
       - name: mike 
         run: |
@@ -95,10 +97,7 @@ jobs:
         run: | 
           import yaml, json
           new_content = {"version": "${{ env.ACTIONTEST }}", "title": "${{ env.ACTIONTEST }}", "aliases": []}
-          with open('/tmp/database_edition.yml', 'r') as file:
-              mkdocs = yaml.safe_load(file)
-          database_edition = mkdocs.get('database_edition', '')
-          filename = "/tmp/" + database_edition + "_versions.json"
+          filename = "/tmp/" + f"${{ matrix.database_edition }}" + "_versions.json"
           with open(filename, 'r') as infile:
               json_data = json.load(infile)
           found = False
@@ -108,7 +107,7 @@ jobs:
                 break
           if not found:
               json_data.append(new_content)
-          with open('versions.json', 'w') as outfile:
+          with open('./versions.json', 'w') as outfile:
               json.dump(json_data, outfile, indent=2)
         shell: python        
       - name: Compress
