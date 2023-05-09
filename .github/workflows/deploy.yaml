@@ -1,11 +1,11 @@
 name: Publish docs via GitHub Pages
 env:
-  ACTIONTEST: community
+  ACTIONTEST: pdf
 # branch name, like master, 2.4
 on:
   push:
     branches: # hard code branch name
-      - community
+      - pdf
 
 jobs:
   prepare:
@@ -69,7 +69,7 @@ jobs:
               mkdocs = yaml.safe_load(file)
           database_edition = mkdocs.get('database_edition', '')
         shell: python
-
+      
       - name: Git Config
         run: git config user.name whitewum && git config user.email min.wu@vesoft.com
 
@@ -82,6 +82,7 @@ jobs:
         run: |
           python ./scripts/conditional_render.py
           python ./scripts/conditional_yml.py
+          python ./scripts/conditional_pdf.py
           git fetch origin gh-pages --depth=1 # fix mike's CI update
           mike deploy ${{ env.ACTIONTEST }}  -p --rebase
           mike list
