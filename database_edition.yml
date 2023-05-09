@@ -1,1 +1,5 @@
-database_edition: community
+database_edition: both
+# Copy from the folowing words. Not write the word by your self
+# community
+# enterprise
+# both
