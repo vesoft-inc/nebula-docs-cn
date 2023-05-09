@@ -1,11 +1,11 @@
 name: Publish docs via GitHub Pages
 env:
-  ACTIONTEST: pdf
+  ACTIONTEST: master
 # branch name, like master, 2.4
 on:
   push:
     branches: # hard code branch name
-      - pdf
+      - master
 
 jobs:
   prepare:
