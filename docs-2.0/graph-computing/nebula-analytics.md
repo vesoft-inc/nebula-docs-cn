@@ -6,7 +6,9 @@
 
 - [联系我们](https://www.nebula-graph.com.cn/contact)获取{{plato.name}}安装包。
 
-- [准备{{plato.name}} License](analytics-ent-license.md)。
+{{ ent.ent_begin }}
+- 已[加载 License Key](../9.about-license/2.license-management-suite/3.license-manager.md)。
+{{ ent.ent_end }}
 
 - 已部署 2.2.x 或以上版本的 [HDFS](https://hadoop.apache.org/docs/stable/hadoop-project-dist/hadoop-common/ClusterSetup.html)。
 
@@ -88,7 +90,7 @@
   export JAVA_HOME=<java_path>
   ```
 
-3. 拷贝 License 至所有机器的{{plato.name}}安装路径的`scripts`目录内。
+3. 配置`analytics.conf`文件，路径为`nebula-analytics/scripts/analytics.conf`。设置`license_manager_url`的值为许可证管理工具所在的主机 IP 和端口号`9119`，例如`192.168.8.100:9119`。
 
 <!--
 ### 编译安装

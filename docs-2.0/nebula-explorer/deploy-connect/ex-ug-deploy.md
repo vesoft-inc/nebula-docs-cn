@@ -6,6 +6,8 @@
 
 在部署{{explorer.name}}之前，用户需要确认以下信息：
 
+- 已[在 LM 中加载 License Key](../../9.about-license/2.license-management-suite/3.license-manager.md)。
+
 - {{nebula.name}} 服务已经部署并启动。详细信息参考 [{{nebula.name}}安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往{{nebula.name}}安装部署")。
 
 - 以下端口未被使用。
@@ -19,11 +21,6 @@
        {{explorer.name}}默认使用的端口号为 7002，用户可以在安装目录下的 `conf/app.conf` 文件中修改 `httpport`，并重启服务。
 
 - 使用的 Linux 发行版为 CentOS。
-- [准备 License](3.explorer-license.md)。
-
-  !!! enterpriseonly
-
-        License 仅在企业版提供，申请 License 需填写 [{{explorer.name}}试用申请](https://wj.qq.com/s2/10158890/69a8)。
 
 - 如果需要使用图计算，需要部署 HDFS。namenode 默认使用 8020 端口，datanode 默认使用 50010 端口。
 
@@ -58,16 +55,7 @@
    sudo rpm -i nebula-explorer-<version>.x86_64.rpm --prefix=<path> 
    ```
 
-3. 拷贝 License 至安装路径下。
-
-   ```bash
-   sudo cp -r <license> <explorer_path>
-   ```
-
-   例如：
-   ```bash
-   sudo cp -r nebula.license /usr/local/nebula-explorer
-   ```
+3. 进入解压后的文件夹，在`config`目录内修改`app-config.yaml`文件，设置`LicenseManagerURL`的值为 LM 所在的主机 IP 和端口号`9119`，例如`192.168.8.100:9119`。
 
 4. （可选）配置 Dag Controller。参见下文 **配置 Dag Controller** 部分。
 
@@ -133,16 +121,7 @@ sudo rpm -e nebula-explorer-<version>.x86_64
 
         使用 DEB 包安装{{explorer.name}}时不支持自定义安装路径。
 
-3. 拷贝 License 至`nebula-explorer`目录下。
-
-   ```bash
-   sudo cp -r <license> <explorer_path>
-   ```
-
-   例如：
-   ```bash
-   sudo cp -r nebula.license /usr/local/nebula-explorer
-   ```
+3. 进入解压后的文件夹，在`config`目录内修改`app-config.yaml`文件，设置`LicenseManagerURL`的值为 LM 所在的主机 IP 和端口号`9119`，例如`192.168.8.100:9119`。
 
 4. （可选）配置 Dag Controller。参见下文 **配置 Dag Controller** 部分。
 
@@ -194,16 +173,7 @@ sudo dpkg -r nebula-explorer
    tar -xvf nebula-explorer-<version>.tar.gz
    ```
 
-3. 拷贝 License 至`nebula-explorer`目录下。
-
-   ```bash
-   cp -r <license> <explorer_path>
-   ```
-
-   例如：
-   ```bash
-   cp -r nebula.license /usr/local/nebula-explorer
-   ```
+3. 进入解压后的文件夹，在`config`目录内修改`app-config.yaml`文件，设置`LicenseManagerURL`的值为 LM 所在的主机 IP 和端口号`9119`，例如`192.168.8.100:9119`。
 
 4. （可选）配置 Dag Controller。参见下文 **配置 Dag Controller** 部分。
 

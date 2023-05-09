@@ -89,9 +89,7 @@
 
   服务升级完成后，会在 v{{nebula.release}} 的安装目录下生成`data`目录，其中包含升级后的数据文件。
 
-4. 上传 License 文件至 v{{nebula.release}} 的安装目录下的`share/resources`内。
-
-5. 启动和连接{{nebula.name}} v{{nebula.release}} 服务后，验证数据是否正确。参考命令如下：
+4. 启动和连接{{nebula.name}} v{{nebula.release}} 服务后，验证数据是否正确。参考命令如下：
 
   ```
   nebula> SHOW HOSTS;

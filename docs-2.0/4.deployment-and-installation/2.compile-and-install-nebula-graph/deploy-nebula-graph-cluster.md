@@ -20,6 +20,9 @@
 
 - 准备 5 台用于部署集群的机器。
 - 在集群中通过 NTP 服务同步时间。
+{{ ent.ent_begin }}
+- 已[在 LM 中加载 License Key](../../9.about-license/2.license-management-suite/3.license-manager.md)。
+{{ ent.ent_end }}
 
 ## 手动部署流程
 
@@ -31,12 +34,6 @@
 
 - [使用源码安装{{nebula.name}}](1.install-nebula-graph-by-compiling-the-source-code.md)
 
-{{ ent.ent_begin }}
-### 设置 License。
-
-如果部署{{nebula.name}}，需要设置 License。详情请参见[设置{{nebula.name}} License](../../4.deployment-and-installation/deploy-license.md)。
-
-{{ ent.ent_end }}
 ### 修改配置文件
 
 修改每个服务器上的{{nebula.name}}配置文件。
@@ -62,6 +59,12 @@
     - [Graph 服务配置](../../5.configurations-and-logs/1.configurations/3.graph-config.md)
 
     - [Storage 服务配置](../../5.configurations-and-logs/1.configurations/4.storage-config.md)
+
+{{ ent.ent_begin }}
+!!! note
+
+    在所有的 Meta 服务配置文件中，需要设置`license_manager_url`的值为 LM 所在的主机 IP 和端口号`9119`，例如`192.168.8.100:9119`。
+{{ ent.ent_end }}
 
 - 机器 A 配置
 

@@ -2,10 +2,6 @@
 
 {{nebula.name}}支持在集群间进行数据同步，即主集群 A 的数据可以近实时地复制到从集群 B 中，方便用户进行异地灾备或分流，降低数据丢失的风险，保证数据安全。
 
-!!! enterpriseonly
-
-    仅企业版支持本功能。
-
 ## 背景
 
 ![replication between clusters](https://docs-cdn.nebula-graph.com.cn/figures/replication-between-clusters.png)
@@ -51,8 +47,6 @@
 
 - 准备至少 2 台部署服务的机器。主从集群需要分开部署，listener 和 drainer 可以单独部署，也可以分别部署在主从集群所在机器上，但是会增加集群负载。
 
-- 准备企业版 License 文件。
-
 ### 示例环境
 
 主集群A：机器 IP 地址为`192.168.10.101`，只启动 Graph、Meta、Storage 服务。
@@ -79,6 +73,8 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
   
       - 将配置文件的后缀`.default`或`.production`删除。
 
+      - Meta 服务的配置文件（`nebula-metad.conf`）中，设置`license_manager_url`的值为许可证管理工具所在的主机 IP 和端口号`9119`，例如`192.168.8.xxx:9119`。
+
       - 所有配置文件里都需要用真实的机器 IP 地址替换`local_ip`的`127.0.0.1`。
 
       - 所有`nebula-graphd.conf`配置文件里设置`enable_authorize=true`。
@@ -93,9 +89,7 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
         更多配置说明，请参见[配置管理](../5.configurations-and-logs/1.configurations/1.configurations.md)。
 
-2. 在主从集群和 listener 服务的机器上放置 License 文件，路径为安装目录的`share/resources/`内。
-
-3. 在所有机器的{{nebula.name}}安装目录内启动对应的服务：
+2. 在所有机器的{{nebula.name}}安装目录内启动对应的服务：
 
   - 主、从集群启动命令：`sudo scripts/nebula.service start all`。
 
@@ -107,7 +101,7 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
 
   - drainer 启动命令：`sudo scripts/nebula-drainerd.service start`。
 
-4. 登录主集群增加 Storage 主机，检查 listener 服务状态。
+3. 登录主集群增加 Storage 主机，检查 listener 服务状态。
 
   ```
   nebula> ADD HOSTS 192.168.10.101:9779;
@@ -133,7 +127,7 @@ drainer：机器 IP 地址为`192.168.10.104`，只启动 drainer 服务。
   +------------------+------+----------+-----------------+--------------+----------------------+
   ```
 
-5. 登录从集群增加 Storage 主机，检查 drainer 服务状态。  
+4. 登录从集群增加 Storage 主机，检查 drainer 服务状态。  
 
   ```
   nebula> ADD HOSTS 192.168.10.102:9779;
