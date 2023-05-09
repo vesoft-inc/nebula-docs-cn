@@ -99,11 +99,16 @@ jobs:
           filename = "/tmp/" + database_edition + "_versions.json"
           with open(filename, 'r') as infile:
               json_data = json.load(infile)
-          new_content = {"version": "${{ env.ACTIONTEST }}", "title": "${{ env.ACTIONTEST }}", "aliases": []}
-          json_data.append(new_content)
+          found = False
+          for item in json_data:
+            if item['version'] == new_content['version']: # in case duplicate master branch
+                found = True
+                break
+          if not found:
+              new_content = {"version": "${{ env.ACTIONTEST }}", "title": "${{ env.ACTIONTEST }}", "aliases": []}
+              json_data.append(new_content)
           with open('versions.json', 'w') as outfile:
               json.dump(json_data, outfile, indent=2)
-          print(json.dumps(json_data, indent=2))
         shell: python        
       - name: Compress
         run: |
