@@ -77,8 +77,8 @@ jobs:
 
       - name: save tmp files
         run: |
-          mv *.json /tmp/ # f"${{ matrix.database_edition }}"_versions.json
-          mv *.yml  /tmp/
+          cp -f *.json /tmp/ # f"${{ matrix.database_edition }}"_versions.json
+          cp -f *.yml  /tmp/
           ls /tmp/ -ltr
       - name: mike 
         run: |
@@ -97,6 +97,7 @@ jobs:
         run: | 
           import yaml, json
           new_content = {"version": "${{ env.ACTIONTEST }}", "title": "${{ env.ACTIONTEST }}", "aliases": []}
+          # the only place read from /tmp/
           filename = "/tmp/" + f"${{ matrix.database_edition }}" + "_versions.json"
           with open(filename, 'r') as infile:
               json_data = json.load(infile)
