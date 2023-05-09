@@ -77,8 +77,7 @@ jobs:
 
       - name: save tmp files
         run: |
-          cp -f *.json /tmp/ # f"${{ matrix.database_edition }}"_versions.json
-          cp -f *.yml  /tmp/
+          cp -f *versions.json /tmp/ # f"${{ matrix.database_edition }}"_versions.json
           ls /tmp/ -ltr
       - name: mike 
         run: |
