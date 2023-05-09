@@ -93,6 +93,7 @@ jobs:
       - name: replace version.json
         run: | 
           import yaml, json
+          new_content = {"version": "${{ env.ACTIONTEST }}", "title": "${{ env.ACTIONTEST }}", "aliases": []}
           with open('/tmp/database_edition.yml', 'r') as file:
               mkdocs = yaml.safe_load(file)
           database_edition = mkdocs.get('database_edition', '')
@@ -105,7 +106,6 @@ jobs:
                 found = True
                 break
           if not found:
-              new_content = {"version": "${{ env.ACTIONTEST }}", "title": "${{ env.ACTIONTEST }}", "aliases": []}
               json_data.append(new_content)
           with open('versions.json', 'w') as outfile:
               json.dump(json_data, outfile, indent=2)
