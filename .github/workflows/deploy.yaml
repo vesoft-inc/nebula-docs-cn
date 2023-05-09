@@ -29,9 +29,7 @@ jobs:
           import yaml, os, json
           with open('database_edition.yml', 'r') as file:
               mkdocs = yaml.safe_load(file)
-          # Access the `database_edition` variable from the `extra` section
           database_edition = mkdocs.get('database_edition', '')
-
           print(f"database_edition: {database_edition}")  # Print the variable for debugging
           matrix = []
           if database_edition == 'both':
@@ -75,6 +73,11 @@ jobs:
       - name: Git Config
         run: git config user.name whitewum && git config user.email min.wu@vesoft.com
 
+      - name: save tmp files
+        run: |
+          cp -f *.json /tmp/
+          cp -f *.yml  /tmp/
+          ls /tmp/ -ltr
       - name: mike 
         run: |
           python ./scripts/conditional_render.py
@@ -90,25 +93,23 @@ jobs:
       - name: replace version.json
         run: | 
           import yaml, json
-          with open('database_edition.yml', 'r') as file:
+          with open('/tmp/database_edition.yml', 'r') as file:
               mkdocs = yaml.safe_load(file)
           database_edition = mkdocs.get('database_edition', '')
-          filename = database_edition + "_versions.json"
+          filename = "/tmp/" + database_edition + "_versions.json"
           with open(filename, 'r') as infile:
               json_data = json.load(infile)
           new_content = {"version": "${{ env.ACTIONTEST }}", "title": "${{ env.ACTIONTEST }}", "aliases": []}
           json_data.append(new_content)
-          with open(filename, 'w') as outfile:
+          with open('versions.json', 'w') as outfile:
               json.dump(json_data, outfile, indent=2)
           print(json.dumps(json_data, indent=2))
         shell: python        
       - name: Compress
         run: |
           if [ "${{ matrix.database_edition }}" = "enterprise" ]; then
-            cp -f enterprise_versions.json versions.json
             tar -vczf ent-docs.tar.gz ${{ env.ACTIONTEST }} versions.json *.html
           else
-            cp -f community_versions.json versions.json
             tar -vczf nebula-docs.tar.gz ${{ env.ACTIONTEST }} versions.json *.html
           fi
           
