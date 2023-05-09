@@ -588,11 +588,13 @@ nav:
       - SSL 加密: 7.data-security/4.ssl.md
 
   - 备份与恢复:
+      # nav.comm.begin
       - NebulaGraph BR（社区版）:
         - BR（社区版）概述: backup-and-restore/nebula-br/1.what-is-br.md
         - 安装 BR: backup-and-restore/nebula-br/2.compile-br.md
         - 使用 BR 备份数据: backup-and-restore/nebula-br/3.br-backup-data.md
         - 使用 BR 恢复数据: backup-and-restore/nebula-br/4.br-restore-data.md
+      # nav.comm.end
       # nav.ent.begin
       - 悦数备份&恢复:
         - 悦数备份&恢复概述: backup-and-restore/nebula-br-ent/1.br-ent-overview.md
@@ -650,6 +652,7 @@ nav:
 #      - 用户服务条款: nebula-cloud/nebula-cloud-on-azure/7.terms-and-conditions.md
 #      - 隐私政策条款: nebula-cloud/nebula-cloud-on-azure/8.privacy-policy.md
 
+  # nav.comm.begin
   - NebulaGraph Studio:
     - 认识 NebulaGraph Studio:
       - 什么是 NebulaGraph Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
@@ -673,7 +676,7 @@ nav:
       - 连接数据库错误: nebula-studio/troubleshooting/st-ug-config-server-errors.md
       - 无法访问 Studio: nebula-studio/troubleshooting/st-ug-connection-errors.md
       - Studio 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
-  
+    # nav.comm.end
   # nav.comm.begin
   - NebulaGraph Dashboard（社区版）:
       - 什么是 NebulaGraph Dashboard: nebula-dashboard/1.what-is-dashboard.md
