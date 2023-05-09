@@ -72,17 +72,13 @@ jobs:
           database_edition = mkdocs.get('database_edition', '')
         shell: python
 
-
       - name: Git Config
         run: git config user.name whitewum && git config user.email min.wu@vesoft.com
 
       - name: mike 
         run: |
-          cat mkdocs.yml
           python ./scripts/conditional_render.py
-          cat mkdocs.yml
           python ./scripts/conditional_yml.py
-          cat mkdocs.yml
           git fetch origin gh-pages --depth=1 # fix mike's CI update
           mike deploy ${{ env.ACTIONTEST }}  -p --rebase
           mike list
@@ -91,11 +87,28 @@ jobs:
           git branch
           git checkout .
           git checkout gh-pages
+      - name: replace version.json
+        run: | 
+          import yaml, json
+          with open('database_edition.yml', 'r') as file:
+              mkdocs = yaml.safe_load(file)
+          database_edition = mkdocs.get('database_edition', '')
+          filename = database_edition + "_versions.json"
+          with open(filename, 'r') as infile:
+              json_data = json.load(infile)
+          new_content = {"version": "${{ env.ACTIONTEST }}", "title": "${{ env.ACTIONTEST }}", "aliases": []}
+          json_data.append(new_content)
+          with open(filename, 'w') as outfile:
+              json.dump(json_data, outfile, indent=2)
+          print(json.dumps(json_data, indent=2))
+        shell: python        
       - name: Compress
         run: |
           if [ "${{ matrix.database_edition }}" = "enterprise" ]; then
+            cp -f enterprise_versions.json versions.json
             tar -vczf ent-docs.tar.gz ${{ env.ACTIONTEST }} versions.json *.html
           else
+            cp -f community_versions.json versions.json
             tar -vczf nebula-docs.tar.gz ${{ env.ACTIONTEST }} versions.json *.html
           fi
           
