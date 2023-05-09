@@ -1,12 +1,2 @@
-# modify when release: 
-  - PDF: ./pdf/NebulaGraph-CN.pdf
-
-plugins:
-  - with-pdf:
-      copyright: 2023 vesoft Inc.
-      cover_subtitle: master
-      author: 吴敏，周瑶，梁振亚，黄凤仙
-      cover: true
-      back_cover: true
-      cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
-      output_path: pdf/NebulaGraph-CN.pdf
+withpdf: False
+# True or False. case sensitive
