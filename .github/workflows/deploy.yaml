@@ -122,9 +122,9 @@ jobs:
         id: set-source-file
         run: |
           if [ "${{ matrix.database_edition }}" = "enterprise" ]; then
-            echo source_file=ent-docs.tar.gz >> $GITHUB_OUTPUT
+            echo "source_file=ent-docs.tar.gz" >> $GITHUB_OUTPUT
           else
-            echo source_file=nebula-docs.tar.gz >> $GITHUB_OUTPUT
+            echo "source_file=nebula-docs.tar.gz" >> $GITHUB_OUTPUT
           fi
         shell: bash
         
