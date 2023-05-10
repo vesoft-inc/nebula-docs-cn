@@ -343,6 +343,7 @@ nav:
         - Meta 服务: 1.introduction/3.nebula-graph-architecture/2.meta-service.md
         - Graph 服务: 1.introduction/3.nebula-graph-architecture/3.graph-service.md
         - Storage 服务: 1.introduction/3.nebula-graph-architecture/4.storage-service.md
+  # nav.ent.begin
   - 悦数 License: 
     - License 使用指南: 9.about-license/1.license-overview.md
   #  - License 管理套件: 
@@ -352,7 +353,7 @@ nav:
   #  - 获取和加载 License: 9.about-license/4.generate-and-load-license-key.md
     - License 管理服务 LM: 9.about-license/2.license-management-suite/3.license-manager.md
   #  - 管理 License: 9.about-license/5.manage-license.md
-
+  # nav.ent.end
   - 快速入门:
     - 入门概览: 2.quick-start/1.quick-start-overview.md
     - 从云开始（免费试用）: 
@@ -639,7 +640,6 @@ nav:
     - NebulaGraph Go: 14.client/6.nebula-go-client.md
 
 #  - NebulaGraph Cloud: nebula-cloud.md
-  # nav.ent.begin
   - NebulaGraph Cloud:
     - 什么是 NebulaGraph Cloud: nebula-cloud/1.what-is-cloud.md
     - Nebula Graph Cloud 阿里云版:
@@ -647,7 +647,6 @@ nav:
       - 使用服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/2.use-cloud-services.md
       - 扩缩容服务: nebula-cloud/nebula-cloud-on-alibabacloud/4.scaling-services.md
       - 删除服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/3.delete-service-instance.md
-  # nav.ent.end
 #    - NebulaGraph Cloud Azure版:
 #      - 创建订阅: nebula-cloud/nebula-cloud-on-azure/2.how-to-create-subsciption.md
 #      - 配置Solution: nebula-cloud/nebula-cloud-on-azure/3.how-to-set-solution.md
