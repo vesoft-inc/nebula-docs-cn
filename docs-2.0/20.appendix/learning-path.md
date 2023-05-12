@@ -199,13 +199,13 @@
   {{ comm.comm_begin }}
   | 文档                    |     视频                               |
   | ------------------------|------------------------------------ |
-  |[Nebula BR](../backup-and-restore/nebula-br/1.what-is-br.md)|[{{nebula.name}}容灾备份工具 nebula-br](https://www.bilibili.com/video/BV11L4y1g7rD)|
+  |[Nebula BR](https://docs.nebula-graph.com.cn/{{nebula.release}}/backup-and-restore/nebula-br/1.what-is-br/)|[{{nebula.name}}容灾备份工具 nebula-br](https://www.bilibili.com/video/BV11L4y1g7rD)|
   {{ comm.comm_end }}
 
   {{ ent.ent_begin }}
   | 文档                    |     视频                               |
   | ------------------------|------------------------------------ |
-  |[Nebula BR](../backup-and-restore/nebula-br-ent/1.what-is-br.md)|-|
+  |[Nebula BR](https://docs.nebula-graph.com.cn/{{nebula.release}}/backup-and-restore/nebula-br-ent/1.br-ent-overview/)|-|
   {{ ent.ent_end }}
 
 - 性能测试
