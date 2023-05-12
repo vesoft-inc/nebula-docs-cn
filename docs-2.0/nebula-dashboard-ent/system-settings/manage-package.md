@@ -6,7 +6,17 @@
 
 - 只有`admin`角色的用户可以管理安装包。
 
+{{comm.comm_begin}}
+
 - 不支持下载企业版安装包。请[联系我们](https://www.nebula-graph.com.cn/contact)申请企业版安装包，然后手动上传。
+
+{{comm.comm_end}}
+
+{{ent.ent_begin}}
+
+- 不支持下载企业版安装包。请[联系我们](https://yueshu.com.cn/contact)申请企业版安装包，然后手动上传。
+
+{{ent.ent_end}}
 
 ## 入口
 

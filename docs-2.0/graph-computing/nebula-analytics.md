@@ -4,7 +4,8 @@
 
 ## 前提条件
 
-- [联系我们](https://www.nebula-graph.com.cn/contact)获取{{plato.name}}安装包。
+- [联系我们](https://yueshu.com.cn/contact)获取{{plato.name}}安装包。
+
 
 {{ ent.ent_begin }}
 - 已[加载 License Key](../9.about-license/2.license-management-suite/3.license-manager.md)。

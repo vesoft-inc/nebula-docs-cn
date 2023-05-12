@@ -4,7 +4,7 @@
 
 !!! enterpriseonly
 
-    - 如需购买{{explorer.name}}，请[联系我们](https://www.nebula-graph.com.cn/contact)。
+    - 如需购买{{explorer.name}}，请[联系我们](https://yueshu.com.cn/contact)。
     - 新用户可以[申请 30 天试用](https://wj.qq.com/s2/10158890/69a8)。你也可以[在线体验{{explorer.name}}](https://explorer.nebula-graph.com.cn/) 部分功能。
 
 ## 适用场景

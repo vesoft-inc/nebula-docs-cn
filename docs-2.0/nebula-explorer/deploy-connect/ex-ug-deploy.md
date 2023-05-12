@@ -40,7 +40,7 @@
 
   !!! enterpriseonly
 
-        用户可以[在线申请](https://wj.qq.com/s2/10158890/69a8)试用{{explorer.name}}；如需购买，请[联系我们](https://www.nebula-graph.com.cn/contact)。点击[定价](https://nebula-graph.com.cn/pricing/)查看更多。
+        用户可以[在线申请](https://wj.qq.com/s2/10158890/69a8)试用{{explorer.name}}；如需购买，请[联系我们](https://yueshu.com.cn/contact)。
 
 2. 使用`sudo rpm -i <rpm>`命令安装 RPM 包。
 
@@ -55,11 +55,11 @@
    sudo rpm -i nebula-explorer-<version>.x86_64.rpm --prefix=<path> 
    ```
 
-3. 进入解压后的文件夹，在`config`目录内修改`app-config.yaml`文件，设置`LicenseManagerURL`的值为 LM 所在的主机 IP 和端口号`9119`，例如`192.168.8.100:9119`。
+2. 进入解压后的文件夹，在`config`目录内修改`app-config.yaml`文件，设置`LicenseManagerURL`的值为 LM 所在的主机 IP 和端口号`9119`，例如`192.168.8.100:9119`。
 
-4. （可选）配置 Dag Controller。参见下文 **配置 Dag Controller** 部分。
+3. （可选）配置 Dag Controller。参见下文 **配置 Dag Controller** 部分。
 
-5. 进入`nebula-explorer`文件夹，执行以下命令启动服务。
+4. 进入`nebula-explorer`文件夹，执行以下命令启动服务。
 
    ```bash
    cd nebula-explorer
@@ -106,7 +106,7 @@ sudo rpm -e nebula-explorer-<version>.x86_64
 
   !!! enterpriseonly
 
-        用户可以[在线申请](https://wj.qq.com/s2/10158890/69a8)试用{{explorer.name}}；如需购买，请[联系我们](https://www.nebula-graph.com.cn/contact)。点击[定价](https://nebula-graph.com.cn/pricing/)查看更多。
+        用户可以[在线申请](https://wj.qq.com/s2/10158890/69a8)试用{{explorer.name}}；如需购买，请[联系我们](https://yueshu.com.cn/contact)。
 
 
 2. 使用`sudo dpkg -i <package_name>`命令安装 DEB 包。
