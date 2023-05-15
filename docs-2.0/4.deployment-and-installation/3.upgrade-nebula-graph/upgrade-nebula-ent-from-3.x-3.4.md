@@ -27,11 +27,11 @@
 
 1. [联系我们获取](https://www.nebula-graph.com.cn/contact){{nebula.name}} v{{nebula.release}} 的安装包并安装。
    
-   {{ comm.comm_end }}
+  {{ comm.comm_end }}
 
   {{ ent.ent_begin }} 
 
-1. [联系我们获取](https://yueshu.com.cn/contact){{nebula.name}} v{{nebula.release}} 的安装包并安装。
+2. [联系我们获取](https://yueshu.com.cn/contact){{nebula.name}} v{{nebula.release}} 的安装包并安装。
 
    {{ ent.ent_end }}
 
@@ -43,10 +43,10 @@
 
         请确保 {{nebula.release}} 集群的 Meta 服务和 Storage 服务的配置文件中的`--data_path`参数设置的存储路径数量与 3.x 集群的配置文件中的`--data_path`参数配置的路径数量相同。否则，升级后的集群无法启动。
 
-1. 停止{{nebula.name}} v3.x 服务。详情请参见[管理{{nebula.name}}服务](../../2.quick-start/3.quick-start-on-premise/5.start-stop-service.md)。
+3. 停止{{nebula.name}} v3.x 服务。详情请参见[管理{{nebula.name}}服务](../../2.quick-start/3.quick-start-on-premise/5.start-stop-service.md)。
   运行命令后可继续运行`nebula.service status all`命令以确认所有服务都已停止。
    
-1. 在{{nebula.name}} v{{nebula.release}} 的安装目录下，分别执行以下命令以升级 Storage 和 Meta 服务。<!-- 不需要事先创建`data`目录 -->
+4. 在{{nebula.name}} v{{nebula.release}} 的安装目录下，分别执行以下命令以升级 Storage 和 Meta 服务。<!-- 不需要事先创建`data`目录 -->
 
   - 升级 Storage 服务：
 
@@ -99,7 +99,7 @@
 
   服务升级完成后，会在 v{{nebula.release}} 的安装目录下生成`data`目录，其中包含升级后的数据文件。
 
-4. 启动和连接{{nebula.name}} v{{nebula.release}} 服务后，验证数据是否正确。参考命令如下：
+5. 启动和连接{{nebula.name}} v{{nebula.release}} 服务后，验证数据是否正确。参考命令如下：
 
   ```
   nebula> SHOW HOSTS;
