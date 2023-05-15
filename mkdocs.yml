@@ -265,10 +265,10 @@ extra:
     release: 3.4.1
     tag: v3.4.1
     # nav.ent.begin
-    name: 悦数备份&恢复
+    name: Backup&Restore
     # nav.ent.end
     # nav.comm.begin
-    name: NebulaGraph Backup&Restore
+    name: Backup&Restore
     # nav.comm.end
   agent:
     release: 3.4.0
