@@ -2,35 +2,38 @@
 site_name: 悦数图数据库手册 
 site_description: Documentation for Yueshu Graph Database
 site_author: 悦数图数据库
+site_url: https://ent-docs.nebula-graph.com.cn/ 
+docs_dir: docs-2.0 
+copyright: Copyright &copy; 2023 悦数图数据库 - 浙ICP备2020038915号
 # nav.ent.end
 # nav.comm.begin
 site_name: NebulaGraph Database 手册 
 site_description: Documentation for NebulaGraph Database 
 site_author: NebulaGraph
-# nav.comm.end
 site_url: https://docs.nebula-graph.com.cn/ 
 repo_name: 'vesoft-inc/nebula' 
 repo_url: 'https://github.com/vesoft-inc/nebula' 
 docs_dir: docs-2.0 
-# nav.ent.begin
-copyright: Copyright &copy; 2023 悦数图数据库 - 浙ICP备20010487号
-# nav.ent.end
-# nav.comm.begin
-copyright: Copyright &copy; 2023 NebulaGraph - 浙ICP备20010487号
-# nav.comm.end
-
 # modify when release: 
 edit_uri: 'https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/'  
+copyright: Copyright &copy; 2023 NebulaGraph - 浙ICP备20010487号
+# nav.comm.end
 
 # Configuration
 theme:
   name: material
   custom_dir: overrides
+# nav.comm.begin
 # git repo icon
   icon:
     repo: fontawesome/brands/github
   logo: 'https://docs-cdn.nebula-graph.com.cn/figures/vesoft-nebula-logo-white22-12-21.png'
   favicon: 'https://docs-cdn.nebula-graph.com.cn/figures/favicon.ico'
+# nav.comm.end
+# nav.ent.begin
+  logo: 'https://docs-cdn.nebula-graph.com.cn/figures/yueshu-ent-docs-2023-5-15.png'
+  favicon: 'https://docs-cdn.nebula-graph.com.cn/figures/yueshu_favicon_230515.png'
+# nav.ent.end
   # Change color in `stylesheets > extra.css`
   palette:
     - scheme: nebula
@@ -138,7 +141,12 @@ plugins:
       author: 吴敏，梁振亚，黄凤仙，李泓臻
       cover: true
       back_cover: true
+# nav.comm.begin
       cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
+# nav.comm.end
+# nav.ent.begin
+      cover_logo: 'https://docs-cdn.nebula-graph.com.cn/figures/yueshu_favicon_230515.png'
+# nav.ent.end
       output_path: pdf/NebulaGraph-CN.pdf
 # nav.pdf.end
 extra_javascript:
@@ -167,9 +175,11 @@ extra:
   # branch represents code names (git clone). release represents version number used in texts.
   version:
     method: mike
+# nav.comm.begin
   social:
     - icon: 'fontawesome/brands/github'
       link: 'https://github.com/vesoft-inc/nebula-docs-cn'
+# nav.comm.end
   nebula:
     release: 3.4.1
     nightly: nightly
