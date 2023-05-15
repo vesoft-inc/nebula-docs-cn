@@ -8,7 +8,7 @@
 
   !!! note
 
-        如需备份至本地，请参见[备份与恢复](../../../backup-and-restore/nebula-br/1.what-is-br.md)。
+        如需备份至本地，请参见[备份与恢复](../../../backup-and-restore/nebula-br-ent/1.br-ent-overview.md)。
 
 - 不支持图空间级别数据的备份和恢复。
 - 备份数据只能被恢复至原集群，不能跨集群恢复数据。
