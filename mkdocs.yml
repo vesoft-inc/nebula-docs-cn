@@ -653,9 +653,9 @@ nav:
     - NebulaGraph Go: 14.client/6.nebula-go-client.md
 
 #  - NebulaGraph Cloud: nebula-cloud.md
-  - NebulaGraph Cloud:
-    - 什么是 NebulaGraph Cloud: nebula-cloud/1.what-is-cloud.md
-    - Nebula Graph Cloud 阿里云版:
+  - 悦数图数据库（公有云）:
+    - 什么是悦数图数据库（公有云）: nebula-cloud/1.what-is-cloud.md
+    - 悦数图数据库（阿里云版）:
       - 创建服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/1.create-service-instance.md
       - 使用服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/2.use-cloud-services.md
       - 扩缩容服务: nebula-cloud/nebula-cloud-on-alibabacloud/4.scaling-services.md
