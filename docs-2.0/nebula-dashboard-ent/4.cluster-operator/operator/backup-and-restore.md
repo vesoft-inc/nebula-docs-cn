@@ -48,14 +48,14 @@
 
   - Amazon S3 的示例配置如下：
 
-    ![amazon_s3](https://docs-cdn.nebula-graph.com.cn/figures/amazon_s3_2022-06-20_14-29-11.png)
+    ![amazon_s3](https://docs-cdn.nebula-graph.com.cn/figures/amazon_s3_230516_cn.png)
 
   - 阿里云对象存储 OSS 的示例配置如下：
 
-    ![aliyun_oss](https://docs-cdn.nebula-graph.com.cn/figures/br_s3_aliyun_2022-06-20_12-07-37.png)
+    ![aliyun_oss](https://docs-cdn.nebula-graph.com.cn/figures/aliyun_oss_backup_230516_cn.png)
 
   !!! caution
-      备份数据至阿里云 OSS 时，需将备份路径中的`oss`替换为`s3`，例如将`oss://nebula-br-test/`改成`s3://nebula-br-test/`。
+      备份数据至阿里云 OSS 时，需将备份路径中的`oss`替换为`s3`，例如将`oss://br-test/`改成`s3://br-test/`。
   
 4. 在页面右上角，单击**创建备份**。
 5. 在**创建备份**页面，备份方式选择**全量**。
@@ -73,19 +73,17 @@
   
 7. 在备份列表中查看创建的备份文件。
 
-  ![br_list](https://docs-cdn.nebula-graph.com.cn/figures/brlist_221226_cn.png)
-
   !!! note
 
         在上一次备份操作未完成前，不能再次执行备份操作。
 
 8. 检查存储服务中是否有上述创建的备份文件。
-  成功创建的备份会被存储至上述用户设置的存储路径中，例如`s3://nebula-br-test`。
+  成功创建的备份会被存储至上述用户设置的存储路径中，例如`s3://br-test`。
 
   - Amazon S3: 
-  ![br_s3_path](https://docs-cdn.nebula-graph.com.cn/figures/br_s3_2022-06-20_12-07-37.png)
+  ![br_s3_path](https://docs-cdn.nebula-graph.com.cn/figures/br_s3_230516_cn.png)
   - 阿里云 OSS:
-  ![aliyun_oss_backup_cn](https://docs-cdn.nebula-graph.com.cn/figures/aliyun_oss_backup_2022-06-27_13-52-23_cn.png)
+  ![aliyun_oss_backup_cn](https://docs-cdn.nebula-graph.com.cn/figures/aliyun_br_230516_cn.png)
 
   !!! danger
 
@@ -138,8 +136,7 @@
   - 登录云存储服务的密钥未过期。
   - 无业务流量的进入。
   
-1. 在**恢复列表**页面，查看恢复记录。
-  ![restore_list](https://docs-cdn.nebula-graph.com.cn/figures/restorelist_2022-06-27_14-23-24_cn.png)
+4. 在**恢复列表**页面，查看恢复记录。
    
   - 恢复记录不可被删除。 
   - 恢复列表中默认显示 30 天内创建的恢复记录

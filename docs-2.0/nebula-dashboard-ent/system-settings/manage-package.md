@@ -17,8 +17,6 @@
 
 ### 查看安装包
 
-![安装包管理页面](https://docs-cdn.nebula-graph.com.cn/figures/package-manage-22-6-7.png)
-
 界面右侧会显示已有安装包的列表，展示安装包名称、版本、大小和创建时间。
 
 用户可以通过右上角的搜索框进行筛选。

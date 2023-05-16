@@ -50,12 +50,12 @@
 |:--|:--|:--|
 |`ClientID` | `4953xxx-mmnoge13xx.apps.googleusercontent.com`| 应用的 ClientId。  |
 |`ClientSecret` | `GOCxxx-xaytomFexxx` | 应用的 ClientSecret。 |
-|`RedirectURL` | `http://dashboard.vesoft-inc.com/login` |重定向到{{dashboard_ent.name}}的 URL。   |
+|`RedirectURL` | `http://dashboard.yueshu-inc.com/login` |重定向到{{dashboard_ent.name}}的 URL。   |
 |`AuthURL` | `https://accounts.google.com/o/oauth2/auth` | 认证 URL。  |
 |`TokenURL` | `https://oauth2.googleapis.com/token`| 获取 access_token 的URL。 |
 |`UserInfoURL` | `https://www.googleapis.com/oauth2/v1/userinfo`| 获取用户信息的 URL。 |
 |`Username Key` | `email`| 用户名字段。 |
-|`Organization` |  `vesoft company`       |  组织名称。             |
+|`Organization` |  `yueshu company`       |  组织名称。             |
 |`OAuth权限范围`| `email`| OAuth 的权限范围。权限范围需要是厂商 OAuth2.0 平台配置的 scope 的子集，否则请求会失败。请求的 scope 需要能获取到 `Username Key`的值。|
 
 ### 使用说明
