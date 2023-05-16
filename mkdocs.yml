@@ -333,18 +333,14 @@ extra:
     azureLatestRelease: 3.1.0 # 支持Azure云的最新文档版本
     aliyunLatestRelease: 3.4.0 # 支持阿里云的最新文档版本
 
+# nav.ent.begin
 nav:
   - 前言: README.md
   - 简介:
       - 图: 1.introduction/0-0-graph.md
       - 图数据库: 1.introduction/0-1-graph-database.md
       - 相关技术: 1.introduction/0-2.relates.md
-      # nav.ent.begin
       - 什么是悦数图数据库: 1.introduction/1.what-is-nebula-graph.md
-      # nav.ent.end
-      # nav.comm.begin
-      - 什么是 NebulaGraph: 1.introduction/1.what-is-nebula-graph.md
-      # nav.comm.end
       - 数据模型: 1.introduction/2.data-model.md
       - 路径: 1.introduction/2.1.path.md
       - VID: 1.introduction/3.vid.md
@@ -353,7 +349,6 @@ nav:
         - Meta 服务: 1.introduction/3.nebula-graph-architecture/2.meta-service.md
         - Graph 服务: 1.introduction/3.nebula-graph-architecture/3.graph-service.md
         - Storage 服务: 1.introduction/3.nebula-graph-architecture/4.storage-service.md
-  # nav.ent.begin
   - 悦数 License: 
     - License 使用指南: 9.about-license/1.license-overview.md
   #  - License 管理套件: 
@@ -363,29 +358,16 @@ nav:
   #  - 获取和加载 License: 9.about-license/4.generate-and-load-license-key.md
     - License 管理服务 LM: 9.about-license/2.license-management-suite/3.license-manager.md
   #  - 管理 License: 9.about-license/5.manage-license.md
-  # nav.ent.end
   - 快速入门:
     - 入门概览: 2.quick-start/1.quick-start-overview.md
     - 从云开始（免费试用）: 
       - 步骤 1：创建云服务实例: 2.quick-start/2.quick-start-on-cloud/1.create-instance-on-cloud.md
-# nav.ent.begin
       - 步骤 2：连接悦数图数据库: 2.quick-start/2.quick-start-on-cloud/2.connect-to-nebulagraph-on-cloud.md
-# nav.ent.end
-# nav.comm.begin
-      - 步骤 2：连接 NebulaGraph: 2.quick-start/2.quick-start-on-cloud/2.connect-to-nebulagraph-on-cloud.md
-# nav.comm.end
       - 步骤 3：管理数据: 2.quick-start/2.quick-start-on-cloud/3.how-to-query-on-cloud.md
     - 本地部署: 
-# nav.ent.begin
       - 步骤 1：安装悦数图数据库: 2.quick-start/3.quick-start-on-premise/2.install-nebula-graph.md
       - 步骤 2：启动悦数图数据库: 2.quick-start/3.quick-start-on-premise/5.start-stop-service.md
       - 步骤 3：连接悦数图数据库: 2.quick-start/3.quick-start-on-premise/3.connect-to-nebula-graph.md
-# nav.ent.end
-# nav.comm.begin
-      - 步骤 1：安装 NebulaGraph: 2.quick-start/3.quick-start-on-premise/2.install-nebula-graph.md
-      - 步骤 2：启动 NebulaGraph: 2.quick-start/3.quick-start-on-premise/5.start-stop-service.md
-      - 步骤 3：连接 NebulaGraph: 2.quick-start/3.quick-start-on-premise/3.connect-to-nebula-graph.md
-# nav.comm.end
       - 步骤 4：注册 Storage 服务: 2.quick-start/3.quick-start-on-premise/3.1add-storage-hosts.md
       - 步骤 5：使用基本 nGQL 命令: 2.quick-start/3.quick-start-on-premise/4.nebula-graph-crud.md
     - nGQL 命令汇总: 2.quick-start/6.cheatsheet-for-ngql-command.md
@@ -437,9 +419,7 @@ nav:
           - 条件表达式函数: 3.ngql-guide/6.functions-and-expressions/5.conditional-expressions.md
           - 谓词函数: 3.ngql-guide/6.functions-and-expressions/8.predicate.md
           - geo 函数: 3.ngql-guide/6.functions-and-expressions/14.geo.md
-          # nav.ent.begin
           - 自定义函数: 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
-          # nav.ent.end
 
       - 通用查询语句:
           - MATCH: 3.ngql-guide/7.general-query-statements/2.match.md
@@ -549,31 +529,15 @@ nav:
           - 使用 Docker Compose 部署: 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
           - 使用 RPM/DEB 包部署多机集群: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
           - 使用生态工具安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/6.deploy-nebula-graph-with-peripherals.md
-# nav.ent.begin
       - 安装存算合并版悦数图数据库: 4.deployment-and-installation/standalone-deployment.md
-# nav.ent.end
-# nav.comm.begin
-      - 安装存算合并版 NebulaGraph: 4.deployment-and-installation/standalone-deployment.md
-# nav.comm.end
       - 管理服务: 4.deployment-and-installation/manage-service.md
       - 连接服务: 4.deployment-and-installation/connect-to-nebula-graph.md
       - 管理 Storage 主机: 4.deployment-and-installation/manage-storage-host.md
 #      - 管理逻辑机架（Zone）: 4.deployment-and-installation/5.zone.md
-
       - 升级版本:
-        # nav.comm.begin
-          - 升级 NebulaGraph 至 v3.4（社区版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
-        # nav.comm.end
         #  - 升级 v3.x 至 v3.4（社区版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-300-to-latest.md
-        # nav.ent.begin
           - 升级悦数图数据库至 v3.4（企业版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent-from-3.x-3.4.md
-        # nav.ent.end
-# nav.ent.begin
       - 卸载悦数图数据库: 4.deployment-and-installation/4.uninstall-nebula-graph.md
-# nav.ent.end
-# nav.comm.begin
-      - 卸载 NebulaGraph: 4.deployment-and-installation/4.uninstall-nebula-graph.md
-# nav.comm.end
 
   - 配置与日志:
       - 配置:
@@ -584,51 +548,72 @@ nav:
           - Linux 内核配置: 5.configurations-and-logs/1.configurations/6.kernel-config.md
       - 日志:
           - 运行日志: 5.configurations-and-logs/2.log-management/logs.md
-          # nav.ent.begin
           - 审计日志（企业版）: 5.configurations-and-logs/2.log-management/audit-log.md
-          # nav.ent.end
 
   - 监控:
       - 查询监控指标: 6.monitor-and-metrics/1.query-performance-metrics.md
       - RocksDB 统计数据: 6.monitor-and-metrics/2.rocksdb-statistics.md
-      # nav.ent.begin
       - 悦数黑匣子:
         - 悦数黑匣子介绍: 6.monitor-and-metrics/3.bbox/3.1.bbox.md
         - Nebula-BBox 工具: 6.monitor-and-metrics/3.bbox/3.2.bbox-reviewer.md
-      # nav.ent.end
 
   - 数据安全:
       - 验证和授权:
           - 身份验证: 7.data-security/1.authentication/1.authentication.md
           - 用户管理: 7.data-security/1.authentication/2.management-user.md
           - 内置角色权限: 7.data-security/1.authentication/3.role-list.md
-          # nav.ent.begin
           - OpenLDAP 验证: 7.data-security/1.authentication/4.ldap.md
-          # nav.ent.end
       - SSL 加密: 7.data-security/4.ssl.md
 
   - 备份与恢复:
-      # nav.comm.begin
-      - NebulaGraph BR（社区版）:
-        - BR（社区版）概述: backup-and-restore/nebula-br/1.what-is-br.md
-        - 安装 BR: backup-and-restore/nebula-br/2.compile-br.md
-        - 使用 BR 备份数据: backup-and-restore/nebula-br/3.br-backup-data.md
-        - 使用 BR 恢复数据: backup-and-restore/nebula-br/4.br-restore-data.md
-      # nav.comm.end
-      # nav.ent.begin
       - 悦数备份&恢复:
         - 悦数备份&恢复概述: backup-and-restore/nebula-br-ent/1.br-ent-overview.md
         - 安装: backup-and-restore/nebula-br-ent/2.install-tools.md
         - 备份数据: backup-and-restore/nebula-br-ent/3.backup-data.md
         - 恢复数据: backup-and-restore/nebula-br-ent/4.restore-data.md
-      # nav.ent.end
       - 快照: backup-and-restore/3.manage-snapshot.md
 
   - 同步与迁移:
       - 负载均衡: synchronization-and-migration/2.balance-syntax.md
-      # nav.ent.begin
       - 集群间数据同步: synchronization-and-migration/replication-between-clusters.md
-      # nav.ent.end
+
+  - 导入与导出:
+      - 概述: 20.appendix/write-tools.md
+      - NebulaGraph Importer:
+        - 使用 NebulaGraph Importer: nebula-importer/use-importer.md
+        - 有表头配置说明: nebula-importer/config-with-header.md
+        - 无表头配置说明: nebula-importer/config-without-header.md
+
+      - NebulaGraph Exchange:
+        - 认识 NebulaGraph Exchange:
+          - 什么是 NebulaGraph Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
+          - 使用限制: nebula-exchange/about-exchange/ex-ug-limitations.md
+        - 获取 NebulaGraph Exchange: nebula-exchange/ex-ug-compile.md
+        - 参数说明:
+          - 导入命令参数: nebula-exchange/parameter-reference/ex-ug-para-import-command.md
+          - 配置参数: nebula-exchange/parameter-reference/ex-ug-parameter.md
+        - 使用 NebulaGraph Exchange:
+          - 导入 CSV 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-csv.md
+          - 导入 JSON 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-json.md
+          - 导入 ORC 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-orc.md
+          - 导入 Parquet 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-parquet.md
+          - 导入 HBase 数据: nebula-exchange/use-exchange/ex-ug-import-from-hbase.md
+          - 导入 MySQL/PostgreSQL 数据: nebula-exchange/use-exchange/ex-ug-import-from-mysql.md
+          - 导入 Oracle 数据: nebula-exchange/use-exchange/ex-ug-import-from-oracle.md
+          - 导入 ClickHouse 数据: nebula-exchange/use-exchange/ex-ug-import-from-clickhouse.md
+          - 导入 Neo4j 数据: nebula-exchange/use-exchange/ex-ug-import-from-neo4j.md
+          - 导入 Hive 数据: nebula-exchange/use-exchange/ex-ug-import-from-hive.md
+          - 导入 MaxCompute 数据: nebula-exchange/use-exchange/ex-ug-import-from-maxcompute.md
+          - 导入 Pulsar 数据: nebula-exchange/use-exchange/ex-ug-import-from-pulsar.md
+          - 导入 Kafka 数据: nebula-exchange/use-exchange/ex-ug-import-from-kafka.md
+          - 导入通用 JDBC 数据: nebula-exchange/use-exchange/ex-ug-import-from-jdbc.md
+          - 导入 SST 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-sst.md
+          - 导出悦数图数据库数据: nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
+        - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
+
+      - NebulaGraph Spark Connector: nebula-spark-connector.md
+          
+      - NebulaGraph Flink Connector: nebula-flink-connector.md
 
   - 最佳实践:
       - Compaction: 8.service-tuning/compaction.md
@@ -640,7 +625,6 @@ nav:
       - 启用 AutoFDO: 8.service-tuning/enable_autofdo_for_nebulagraph.md
       - 实践案例: 8.service-tuning/practice.md
 
-
   - 客户端:
     - 客户端介绍: 14.client/1.nebula-client.md
     - NebulaGraph Console: nebula-console.md
@@ -650,9 +634,9 @@ nav:
     - NebulaGraph Go: 14.client/6.nebula-go-client.md
 
 #  - NebulaGraph Cloud: nebula-cloud.md
-  - NebulaGraph Cloud:
-    - 什么是 NebulaGraph Cloud: nebula-cloud/1.what-is-cloud.md
-    - Nebula Graph Cloud 阿里云版:
+  - 悦数图数据库（公有云）:
+    - 什么是悦数图数据库（公有云）: nebula-cloud/1.what-is-cloud.md
+    - 悦数图数据库（阿里云版）:
       - 创建服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/1.create-service-instance.md
       - 使用服务实例: nebula-cloud/nebula-cloud-on-alibabacloud/2.use-cloud-services.md
       - 扩缩容服务: nebula-cloud/nebula-cloud-on-alibabacloud/4.scaling-services.md
@@ -670,42 +654,7 @@ nav:
 #      - 用户服务条款: nebula-cloud/nebula-cloud-on-azure/7.terms-and-conditions.md
 #      - 隐私政策条款: nebula-cloud/nebula-cloud-on-azure/8.privacy-policy.md
 
-  # nav.comm.begin
-  - NebulaGraph Studio:
-    - 认识 NebulaGraph Studio:
-      - 什么是 NebulaGraph Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
-      - 使用限制: nebula-studio/about-studio/st-ug-limitations.md
-    - 安装与登录:
-      - 部署 Studio: nebula-studio/deploy-connect/st-ug-deploy.md
-      - 连接数据库: nebula-studio/deploy-connect/st-ug-connect.md
-    - 快速开始:
-      - 规划 Schema: nebula-studio/quick-start/st-ug-plan-schema.md
-      - 创建 Schema: nebula-studio/quick-start/st-ug-create-schema.md
-      - 导入数据: nebula-studio/quick-start/st-ug-import-data.md
-      - 控制台界面: nebula-studio/quick-start/st-ug-console.md
-      - 管理Schema:
-        - 操作图空间: nebula-studio/manage-schema/st-ug-crud-space.md
-        - 操作 Tag: nebula-studio/manage-schema/st-ug-crud-tag.md
-        - 操作 Edge type: nebula-studio/manage-schema/st-ug-crud-edge-type.md
-        - 操作索引: nebula-studio/manage-schema/st-ug-crud-index.md
-        - 查看 Schema: nebula-studio/manage-schema/st-ug-view-schema.md
-      - Schema 草图: nebula-studio/quick-start/draft.md
-    - 故障排查:
-      - 连接数据库错误: nebula-studio/troubleshooting/st-ug-config-server-errors.md
-      - 无法访问 Studio: nebula-studio/troubleshooting/st-ug-connection-errors.md
-      - Studio 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
-    # nav.comm.end
-  # nav.comm.begin
-  - NebulaGraph Dashboard（社区版）:
-      - 什么是 NebulaGraph Dashboard: nebula-dashboard/1.what-is-dashboard.md
-      - 部署 Dashboard: nebula-dashboard/2.deploy-dashboard.md
-      - 连接 Dashboard: nebula-dashboard/3.connect-dashboard.md
-      - Dashboard 页面介绍: nebula-dashboard/4.use-dashboard.md
-      - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
-  # nav.comm.end
-
-  # nav.ent.begin
-  - 悦数运维监控:
+  - 运维监控:
       - 什么是悦数运维监控: nebula-dashboard-ent/1.what-is-dashboard-ent.md
       - 部署悦数运维监控: nebula-dashboard-ent/2.deploy-connect-dashboard-ent.md
       - 连接悦数运维监控: nebula-dashboard-ent/3.connect-dashboard.md
@@ -744,10 +693,8 @@ nav:
         - 安装包管理: nebula-dashboard-ent/system-settings/manage-package.md
       - 监控指标说明: nebula-dashboard-ent/7.monitor-parameter.md
       - 常见问题 FAQ: nebula-dashboard-ent/8.faq.md
-  # nav.ent.end
 
-  # nav.ent.begin
-  - 悦数图探索:
+  - 图探索:
     - 什么是悦数图探索: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
     - 安装与登录:
       - 部署悦数图探索: nebula-explorer/deploy-connect/ex-ug-deploy.md
@@ -790,7 +737,326 @@ nav:
     - 系统设置: nebula-explorer/system-settings.md
     - 基本操作和快捷键: nebula-explorer/ex-ug-shortcuts.md
     - 常见问题 FAQ: nebula-explorer/faq.md
-  # nav.ent.end
+
+  - 图计算:
+
+    - 算法简介: graph-computing/algorithm-description.md
+    - NebulaGraph Algorithm: graph-computing/nebula-algorithm.md
+    - 悦数图计算: graph-computing/nebula-analytics.md
+    - 悦数图探索工作流: graph-computing/use-explorer.md
+
+  - 自动化部署运维:
+      - 什么是 NebulaGraph Operator: nebula-operator/1.introduction-to-nebula-operator.md
+      - 使用流程: nebula-operator/6.get-started-with-operator.md
+      - 部署 NebulaGraph Operator: nebula-operator/2.deploy-nebula-operator.md
+      - 部署悦数图数据库: 
+        - 使用 Kubectl 部署: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
+        - 使用 Helm 部署: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
+      - 连接悦数图数据库: nebula-operator/4.connect-to-nebula-graph-service.md
+      - 配置悦数图数据库:
+        - 自定义集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
+        - 回收 PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
+        - 均衡扩容后的 Storage 数据: nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
+        - 管理集群日志: nebula-operator/8.custom-cluster-configurations/8.4.manage-running-logs.md 
+      - 升级悦数图数据库: nebula-operator/9.upgrade-nebula-cluster.md
+      - 配置滚动更新策略: nebula-operator/11.rolling-update-strategy.md
+      - 备份与恢复: nebula-operator/10.backup-restore-using-operator.md 
+      - 故障自愈: nebula-operator/5.operator-failover.md
+      - 常见问题: nebula-operator/7.operator-faq.md
+
+  - 性能测试: nebula-bench.md
+
+  - 附录:
+      - Release Note:
+        - 悦数图数据库: 20.appendix/release-notes/nebula-ent-release-note.md
+        - 悦数运维监控: 20.appendix/release-notes/dashboard-ent-release-note.md
+        - 悦数图探索: 20.appendix/release-notes/explorer-release-note.md
+      - 学习路径: 20.appendix/learning-path.md
+      - 常见问题 FAQ: 20.appendix/0.FAQ.md
+      - 生态工具概览: 20.appendix/6.eco-tool-version.md
+      - 年表: 20.appendix/history.md
+      - 思维导图: 20.appendix/mind-map.md
+      - 错误码: 20.appendix/error-code.md
+# nav.ent.begin
+
+# nav.comm.begin
+nav:
+  - 前言: README.md
+  - 简介:
+      - 图: 1.introduction/0-0-graph.md
+      - 图数据库: 1.introduction/0-1-graph-database.md
+      - 相关技术: 1.introduction/0-2.relates.md
+      - 什么是 NebulaGraph: 1.introduction/1.what-is-nebula-graph.md
+      - 数据模型: 1.introduction/2.data-model.md
+      - 路径: 1.introduction/2.1.path.md
+      - VID: 1.introduction/3.vid.md
+      - 服务架构:
+        - 架构总览: 1.introduction/3.nebula-graph-architecture/1.architecture-overview.md
+        - Meta 服务: 1.introduction/3.nebula-graph-architecture/2.meta-service.md
+        - Graph 服务: 1.introduction/3.nebula-graph-architecture/3.graph-service.md
+        - Storage 服务: 1.introduction/3.nebula-graph-architecture/4.storage-service.md
+  - 快速入门:
+    - 入门概览: 2.quick-start/1.quick-start-overview.md
+    - 从云开始（免费试用）: 
+      - 步骤 1：创建云服务实例: 2.quick-start/2.quick-start-on-cloud/1.create-instance-on-cloud.md
+      - 步骤 2：连接 NebulaGraph: 2.quick-start/2.quick-start-on-cloud/2.connect-to-nebulagraph-on-cloud.md
+      - 步骤 3：管理数据: 2.quick-start/2.quick-start-on-cloud/3.how-to-query-on-cloud.md
+    - 本地部署: 
+      - 步骤 1：安装 NebulaGraph: 2.quick-start/3.quick-start-on-premise/2.install-nebula-graph.md
+      - 步骤 2：启动 NebulaGraph: 2.quick-start/3.quick-start-on-premise/5.start-stop-service.md
+      - 步骤 3：连接 NebulaGraph: 2.quick-start/3.quick-start-on-premise/3.connect-to-nebula-graph.md
+      - 步骤 4：注册 Storage 服务: 2.quick-start/3.quick-start-on-premise/3.1add-storage-hosts.md
+      - 步骤 5：使用基本 nGQL 命令: 2.quick-start/3.quick-start-on-premise/4.nebula-graph-crud.md
+    - nGQL 命令汇总: 2.quick-start/6.cheatsheet-for-ngql-command.md
+
+  - nGQL 指南:
+      - nGQL 概述:
+        - 什么是 nGQL: 3.ngql-guide/1.nGQL-overview/1.overview.md
+        - 图模式: 3.ngql-guide/1.nGQL-overview/3.graph-patterns.md
+        - 注释: 3.ngql-guide/1.nGQL-overview/comments.md
+        - 大小写区分: 3.ngql-guide/1.nGQL-overview/identifier-case-sensitivity.md
+        - 关键字: 3.ngql-guide/1.nGQL-overview/keywords-and-reserved-words.md
+        - nGQL 风格指南: 3.ngql-guide/1.nGQL-overview/ngql-style-guide.md
+
+      - 数据类型:
+        - 数值: 3.ngql-guide/3.data-types/1.numeric.md
+        - 布尔: 3.ngql-guide/3.data-types/2.boolean.md
+        - 字符串: 3.ngql-guide/3.data-types/3.string.md
+        - 日期时间: 3.ngql-guide/3.data-types/4.date-and-time.md
+        - NULL: 3.ngql-guide/3.data-types/5.null.md
+        - 列表: 3.ngql-guide/3.data-types/6.list.md
+        - 集合: 3.ngql-guide/3.data-types/7.set.md
+        - 映射: 3.ngql-guide/3.data-types/8.map.md
+        - 类型转换: 3.ngql-guide/3.data-types/9.type-conversion.md
+        - 地理位置: 3.ngql-guide/3.data-types/10.geography.md
+
+      - 变量和复合查询:
+        - 复合查询: 3.ngql-guide/4.variable-and-composite-queries/1.composite-queries.md
+        - 自定义变量: 3.ngql-guide/4.variable-and-composite-queries/2.user-defined-variables.md
+        - 引用属性: 3.ngql-guide/4.variable-and-composite-queries/3.property-reference.md
+
+      - 运算符:
+          - 比较符: 3.ngql-guide/5.operators/1.comparison.md
+          - 布尔符: 3.ngql-guide/5.operators/2.boolean.md
+          - 管道符: 3.ngql-guide/5.operators/4.pipe.md
+          - 属性引用符: 3.ngql-guide/5.operators/5.property-reference.md
+          - 集合运算符: 3.ngql-guide/5.operators/6.set.md
+          - 字符串运算符: 3.ngql-guide/5.operators/7.string.md
+          - 列表运算符: 3.ngql-guide/5.operators/8.list.md
+          - 运算符优先级: 3.ngql-guide/5.operators/9.precedence.md
+
+      - 函数和表达式:
+          - 数学函数: 3.ngql-guide/6.functions-and-expressions/1.math.md
+          - 聚合函数: 3.ngql-guide/6.functions-and-expressions/15.aggregating.md
+          - 字符串函数: 3.ngql-guide/6.functions-and-expressions/2.string.md
+          - 日期时间函数: 3.ngql-guide/6.functions-and-expressions/3.date-and-time.md
+          - Schema 函数: 3.ngql-guide/6.functions-and-expressions/4.schema.md
+          - 列表函数: 3.ngql-guide/6.functions-and-expressions/6.list.md
+          - 类型转换函数: 3.ngql-guide/6.functions-and-expressions/16.type-conversion.md
+          - 条件表达式函数: 3.ngql-guide/6.functions-and-expressions/5.conditional-expressions.md
+          - 谓词函数: 3.ngql-guide/6.functions-and-expressions/8.predicate.md
+          - geo 函数: 3.ngql-guide/6.functions-and-expressions/14.geo.md
+
+      - 通用查询语句:
+          - MATCH: 3.ngql-guide/7.general-query-statements/2.match.md
+          - OPTIONAL MATCH: 3.ngql-guide/7.general-query-statements/optional-match.md
+          - LOOKUP: 3.ngql-guide/7.general-query-statements/5.lookup.md
+          - GO: 3.ngql-guide/7.general-query-statements/3.go.md
+          - FETCH: 3.ngql-guide/7.general-query-statements/4.fetch.md
+          - SHOW:
+            - SHOW CHARSET: 3.ngql-guide/7.general-query-statements/6.show/1.show-charset.md
+            - SHOW COLLATION: 3.ngql-guide/7.general-query-statements/6.show/2.show-collation.md
+            - SHOW CREATE SPACE: 3.ngql-guide/7.general-query-statements/6.show/4.show-create-space.md
+            - SHOW CREATE TAG/EDGE: 3.ngql-guide/7.general-query-statements/6.show/5.show-create-tag-edge.md
+            - SHOW HOSTS: 3.ngql-guide/7.general-query-statements/6.show/6.show-hosts.md
+            - SHOW INDEX STATUS: 3.ngql-guide/7.general-query-statements/6.show/7.show-index-status.md
+            - SHOW INDEXES: 3.ngql-guide/7.general-query-statements/6.show/8.show-indexes.md
+            - SHOW PARTS: 3.ngql-guide/7.general-query-statements/6.show/9.show-parts.md
+            - SHOW ROLES: 3.ngql-guide/7.general-query-statements/6.show/10.show-roles.md
+            - SHOW SNAPSHOTS: 3.ngql-guide/7.general-query-statements/6.show/11.show-snapshots.md
+            - SHOW SPACES: 3.ngql-guide/7.general-query-statements/6.show/12.show-spaces.md
+            - SHOW STATS: 3.ngql-guide/7.general-query-statements/6.show/14.show-stats.md
+            - SHOW TAGS/EDGES: 3.ngql-guide/7.general-query-statements/6.show/15.show-tags-edges.md
+            - SHOW USERS: 3.ngql-guide/7.general-query-statements/6.show/16.show-users.md
+            - SHOW SESSIONS: 3.ngql-guide/7.general-query-statements/6.show/17.show-sessions.md
+            - SHOW QUERIES: 3.ngql-guide/7.general-query-statements/6.show/18.show-queries.md
+            - SHOW META LEADER: 3.ngql-guide/7.general-query-statements/6.show/19.show-meta-leader.md
+
+      - 子句和选项:
+          - GROUP BY: 3.ngql-guide/8.clauses-and-options/group-by.md
+          - LIMIT and SKIP: 3.ngql-guide/8.clauses-and-options/limit.md
+          - SAMPLE: 3.ngql-guide/8.clauses-and-options/sample.md
+          - ORDER BY: 3.ngql-guide/8.clauses-and-options/order-by.md
+          - RETURN: 3.ngql-guide/8.clauses-and-options/return.md
+          - TTL: 3.ngql-guide/8.clauses-and-options/ttl-options.md
+          - WHERE: 3.ngql-guide/8.clauses-and-options/where.md
+          - YIELD: 3.ngql-guide/8.clauses-and-options/yield.md
+          - WITH: 3.ngql-guide/8.clauses-and-options/with.md
+          - UNWIND: 3.ngql-guide/8.clauses-and-options/unwind.md
+
+      - 图空间语句:
+          - CREATE SPACE: 3.ngql-guide/9.space-statements/1.create-space.md
+          - USE SPACE: 3.ngql-guide/9.space-statements/2.use-space.md
+          - SHOW SPACES: 3.ngql-guide/9.space-statements/3.show-spaces.md
+          - DESCRIBE SPACE: 3.ngql-guide/9.space-statements/4.describe-space.md
+          - CLEAR SPACE: 3.ngql-guide/9.space-statements/6.clear-space.md
+          - DROP SPACE: 3.ngql-guide/9.space-statements/5.drop-space.md
+
+      - Tag 语句:
+          - CREATE TAG: 3.ngql-guide/10.tag-statements/1.create-tag.md
+          - DROP TAG: 3.ngql-guide/10.tag-statements/2.drop-tag.md
+          - ALTER TAG: 3.ngql-guide/10.tag-statements/3.alter-tag.md
+          - SHOW TAGS: 3.ngql-guide/10.tag-statements/4.show-tags.md
+          - DESCRIBE TAG: 3.ngql-guide/10.tag-statements/5.describe-tag.md
+          - DELETE TAG: 3.ngql-guide/10.tag-statements/6.delete-tag.md
+          - 增加和删除标签: 3.ngql-guide/10.tag-statements/improve-query-by-tag-index.md
+      - Edge type 语句:
+          - CREATE EDGE: 3.ngql-guide/11.edge-type-statements/1.create-edge.md
+          - DROP EDGE: 3.ngql-guide/11.edge-type-statements/2.drop-edge.md
+          - ALTER EDGE: 3.ngql-guide/11.edge-type-statements/3.alter-edge.md
+          - SHOW EDGES: 3.ngql-guide/11.edge-type-statements/4.show-edges.md
+          - DESCRIBE EDGE: 3.ngql-guide/11.edge-type-statements/5.describe-edge.md
+
+      - 点语句:
+          - INSERT VERTEX: 3.ngql-guide/12.vertex-statements/1.insert-vertex.md
+          - DELETE VERTEX: 3.ngql-guide/12.vertex-statements/4.delete-vertex.md
+          - UPDATE VERTEX: 3.ngql-guide/12.vertex-statements/2.update-vertex.md
+          - UPSERT VERTEX: 3.ngql-guide/12.vertex-statements/3.upsert-vertex.md
+
+      - 边语句:
+        - INSERT EDGE: 3.ngql-guide/13.edge-statements/1.insert-edge.md
+        - DELETE EDGE: 3.ngql-guide/13.edge-statements/4.delete-edge.md
+        - UPDATE EDGE: 3.ngql-guide/13.edge-statements/2.update-edge.md
+        - UPSERT EDGE: 3.ngql-guide/13.edge-statements/3.upsert-edge.md
+
+      - 原生索引:
+        - 索引介绍: 3.ngql-guide/14.native-index-statements/README.md
+        - CREATE INDEX: 3.ngql-guide/14.native-index-statements/1.create-native-index.md
+        - SHOW INDEX: 3.ngql-guide/14.native-index-statements/2.show-native-indexes.md
+        - SHOW CREATE INDEX: 3.ngql-guide/14.native-index-statements/2.1.show-create-index.md
+        - DESCRIBE INDEX: 3.ngql-guide/14.native-index-statements/3.describe-native-index.md
+        - REBUILD INDEX: 3.ngql-guide/14.native-index-statements/4.rebuild-native-index.md
+        - SHOW INDEX STATUS: 3.ngql-guide/14.native-index-statements/5.show-native-index-status.md
+        - DROP INDEX: 3.ngql-guide/14.native-index-statements/6.drop-native-index.md
+
+      - 全文索引:
+#        - 索引介绍: 3.ngql-guide/14.native-index-statements/README.md
+        - 全文索引限制: 4.deployment-and-installation/6.deploy-text-based-index/1.text-based-index-restrictions.md
+        - 部署全文索引: 4.deployment-and-installation/6.deploy-text-based-index/2.deploy-es.md
+        - 部署 Raft listener: 4.deployment-and-installation/6.deploy-text-based-index/3.deploy-listener.md
+        - 全文搜索: 3.ngql-guide/15.full-text-index-statements/1.search-with-text-based-index.md
+
+      - 子图和路径:
+          - GET SUBGRAPH: 3.ngql-guide/16.subgraph-and-path/1.get-subgraph.md
+          - FIND PATH: 3.ngql-guide/16.subgraph-and-path/2.find-path.md
+
+      - 查询调优与终止:
+          - EXPLAIN和PROFILE: 3.ngql-guide/17.query-tuning-statements/1.explain-and-profile.md
+          - 终止查询: 3.ngql-guide/17.query-tuning-statements/6.kill-query.md
+          - 终止会话: 3.ngql-guide/17.query-tuning-statements/2.kill-session.md
+      - 作业管理: 3.ngql-guide/4.job-statements.md
+
+  - 安装部署:
+      - 准备资源: 4.deployment-and-installation/1.resource-preparations.md
+      - 编译与安装:
+          - 使用源码安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md
+          - 使用 RPM/DEB 包安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md
+          - 使用 tar.gz 文件安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/4.install-nebula-graph-from-tar.md
+          - 使用 Docker Compose 部署: 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
+          - 使用 RPM/DEB 包部署多机集群: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
+          - 使用生态工具安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/6.deploy-nebula-graph-with-peripherals.md
+      - 安装存算合并版 NebulaGraph: 4.deployment-and-installation/standalone-deployment.md
+      - 管理服务: 4.deployment-and-installation/manage-service.md
+      - 连接服务: 4.deployment-and-installation/connect-to-nebula-graph.md
+      - 管理 Storage 主机: 4.deployment-and-installation/manage-storage-host.md
+#      - 管理逻辑机架（Zone）: 4.deployment-and-installation/5.zone.md
+
+      - 升级版本:
+          - 升级 NebulaGraph 至 v3.4（社区版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
+        #  - 升级 v3.x 至 v3.4（社区版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-300-to-latest.md
+      - 卸载 NebulaGraph: 4.deployment-and-installation/4.uninstall-nebula-graph.md
+
+  - 配置与日志:
+      - 配置:
+          - 配置管理: 5.configurations-and-logs/1.configurations/1.configurations.md
+          - Meta 服务配置: 5.configurations-and-logs/1.configurations/2.meta-config.md
+          - Graph 服务配置: 5.configurations-and-logs/1.configurations/3.graph-config.md
+          - Storage 服务配置: 5.configurations-and-logs/1.configurations/4.storage-config.md
+          - Linux 内核配置: 5.configurations-and-logs/1.configurations/6.kernel-config.md
+      - 日志:
+          - 运行日志: 5.configurations-and-logs/2.log-management/logs.md
+
+  - 监控:
+      - 查询监控指标: 6.monitor-and-metrics/1.query-performance-metrics.md
+      - RocksDB 统计数据: 6.monitor-and-metrics/2.rocksdb-statistics.md
+
+  - 数据安全:
+      - 验证和授权:
+          - 身份验证: 7.data-security/1.authentication/1.authentication.md
+          - 用户管理: 7.data-security/1.authentication/2.management-user.md
+          - 内置角色权限: 7.data-security/1.authentication/3.role-list.md
+      - SSL 加密: 7.data-security/4.ssl.md
+
+  - 备份与恢复:
+      - NebulaGraph BR（社区版）:
+        - BR（社区版）概述: backup-and-restore/nebula-br/1.what-is-br.md
+        - 安装 BR: backup-and-restore/nebula-br/2.compile-br.md
+        - 使用 BR 备份数据: backup-and-restore/nebula-br/3.br-backup-data.md
+        - 使用 BR 恢复数据: backup-and-restore/nebula-br/4.br-restore-data.md
+      - 快照: backup-and-restore/3.manage-snapshot.md
+
+  - 同步与迁移:
+      - 负载均衡: synchronization-and-migration/2.balance-syntax.md
+
+  - 最佳实践:
+      - Compaction: 8.service-tuning/compaction.md
+      - Storage 负载均衡: 8.service-tuning/load-balance.md
+      - 图建模: 8.service-tuning/2.graph-modeling.md
+      - 系统建模: 8.service-tuning/3.system-design.md
+      - 执行计划: 8.service-tuning/4.plan.md
+      - 超级节点(稠密点): 8.service-tuning/super-node.md
+      - 启用 AutoFDO: 8.service-tuning/enable_autofdo_for_nebulagraph.md
+      - 实践案例: 8.service-tuning/practice.md
+
+
+  - 客户端:
+    - 客户端介绍: 14.client/1.nebula-client.md
+    - NebulaGraph Console: nebula-console.md
+    - NebulaGraph CPP: 14.client/3.nebula-cpp-client.md
+    - NebulaGraph Java: 14.client/4.nebula-java-client.md
+    - NebulaGraph Python: 14.client/5.nebula-python-client.md
+    - NebulaGraph Go: 14.client/6.nebula-go-client.md
+
+  - NebulaGraph Studio:
+    - 认识 NebulaGraph Studio:
+      - 什么是 NebulaGraph Studio: nebula-studio/about-studio/st-ug-what-is-graph-studio.md
+      - 使用限制: nebula-studio/about-studio/st-ug-limitations.md
+    - 安装与登录:
+      - 部署 Studio: nebula-studio/deploy-connect/st-ug-deploy.md
+      - 连接数据库: nebula-studio/deploy-connect/st-ug-connect.md
+    - 快速开始:
+      - 规划 Schema: nebula-studio/quick-start/st-ug-plan-schema.md
+      - 创建 Schema: nebula-studio/quick-start/st-ug-create-schema.md
+      - 导入数据: nebula-studio/quick-start/st-ug-import-data.md
+      - 控制台界面: nebula-studio/quick-start/st-ug-console.md
+      - 管理Schema:
+        - 操作图空间: nebula-studio/manage-schema/st-ug-crud-space.md
+        - 操作 Tag: nebula-studio/manage-schema/st-ug-crud-tag.md
+        - 操作 Edge type: nebula-studio/manage-schema/st-ug-crud-edge-type.md
+        - 操作索引: nebula-studio/manage-schema/st-ug-crud-index.md
+        - 查看 Schema: nebula-studio/manage-schema/st-ug-view-schema.md
+      - Schema 草图: nebula-studio/quick-start/draft.md
+    - 故障排查:
+      - 连接数据库错误: nebula-studio/troubleshooting/st-ug-config-server-errors.md
+      - 无法访问 Studio: nebula-studio/troubleshooting/st-ug-connection-errors.md
+      - Studio 常见问题: nebula-studio/troubleshooting/st-ug-faq.md
+
+  - NebulaGraph Dashboard（社区版）:
+      - 什么是 NebulaGraph Dashboard: nebula-dashboard/1.what-is-dashboard.md
+      - 部署 Dashboard: nebula-dashboard/2.deploy-dashboard.md
+      - 连接 Dashboard: nebula-dashboard/3.connect-dashboard.md
+      - Dashboard 页面介绍: nebula-dashboard/4.use-dashboard.md
+      - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
 
   - NebulaGraph Importer:
     - 使用 NebulaGraph Importer: nebula-importer/use-importer.md
@@ -821,93 +1087,49 @@ nav:
       - 导入 Kafka 数据: nebula-exchange/use-exchange/ex-ug-import-from-kafka.md
       - 导入通用 JDBC 数据: nebula-exchange/use-exchange/ex-ug-import-from-jdbc.md
       - 导入 SST 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-sst.md
-      # nav.ent.begin
-      - 导出悦数图数据库数据: nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
-      # nav.ent.end
     - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
 
   - NebulaGraph Operator:
       - 什么是 NebulaGraph Operator: nebula-operator/1.introduction-to-nebula-operator.md
       - 使用流程: nebula-operator/6.get-started-with-operator.md
       - 部署 NebulaGraph Operator: nebula-operator/2.deploy-nebula-operator.md
-# nav.ent.begin
-      - 部署悦数图数据库: 
-        - 使用 Kubectl 部署悦数图数据库集群: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
-        - 使用 Helm 部署悦数图数据库集群: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
-      - 连接悦数图数据库: nebula-operator/4.connect-to-nebula-graph-service.md
-      - 配置悦数图数据库:
-        - 自定义悦数图数据库集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
-# nav.ent.end
-# nav.comm.begin
       - 部署 NebulaGraph: 
         - 使用 Kubectl 部署 NebulaGraph 集群: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
         - 使用 Helm 部署 NebulaGraph 集群: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
       - 连接 NebulaGraph: nebula-operator/4.connect-to-nebula-graph-service.md
       - 配置 NebulaGraph:
         - 自定义 NebulaGraph 集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
-# nav.comm.end
         - 回收 PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
-        # nav.ent.begin
-        - 均衡扩容后的 Storage 数据: nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
-        # nav.ent.end
         - 管理集群日志: nebula-operator/8.custom-cluster-configurations/8.4.manage-running-logs.md 
-# nav.ent.begin
-      - 升级悦数图数据库: nebula-operator/9.upgrade-nebula-cluster.md
-# nav.ent.end
-# nav.comm.begin
       - 升级 NebulaGraph: nebula-operator/9.upgrade-nebula-cluster.md
-# nav.comm.end
       - 配置滚动更新策略: nebula-operator/11.rolling-update-strategy.md
-      # nav.ent.begin
-      - 备份与恢复: nebula-operator/10.backup-restore-using-operator.md 
-      # nav.ent.end   
       - 故障自愈: nebula-operator/5.operator-failover.md
       - 常见问题: nebula-operator/7.operator-faq.md
 
   - 图计算:
-
     - 算法简介: graph-computing/algorithm-description.md
     - NebulaGraph Algorithm: graph-computing/nebula-algorithm.md
-# nav.ent.begin
-    - 悦数图计算: graph-computing/nebula-analytics.md
-    - 悦数图探索工作流: graph-computing/use-explorer.md
-# nav.ent.end
+  
   - NebulaGraph Spark Connector: nebula-spark-connector.md
       
   - NebulaGraph Flink Connector: nebula-flink-connector.md
 
   - NebulaGraph Bench: nebula-bench.md
-
   - 附录:
       - Release Note:
-        # nav.comm.begin
         - NebulaGraph 社区版: 20.appendix/release-notes/nebula-comm-release-note.md
-        # nav.comm.end
-        # nav.ent.begin
-        - 悦数图数据库: 20.appendix/release-notes/nebula-ent-release-note.md
-        # nav.ent.end
-        # nav.comm.begin
         - NebulaGraph Studio: 20.appendix/release-notes/studio-release-note.md
-        # nav.comm.end
-        # nav.comm.begin
         - NebulaGraph Dashboard 社区版: 20.appendix/release-notes/dashboard-comm-release-note.md
-        # nav.comm.end
-        # nav.ent.begin
-        - 悦数运维监控: 20.appendix/release-notes/dashboard-ent-release-note.md
-        # nav.ent.end
-        # nav.ent.begin
-        - 悦数图探索: 20.appendix/release-notes/explorer-release-note.md
-        # nav.ent.end
       - 学习路径: 20.appendix/learning-path.md
       - 常见问题 FAQ: 20.appendix/0.FAQ.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
       - 导入工具选择: 20.appendix/write-tools.md
-      # nav.comm.begin
       - 社区参与: 15.contribution/how-to-contribute.md
-      # nav.comm.end
       - 年表: 20.appendix/history.md
       - 思维导图: 20.appendix/mind-map.md
       - 错误码: 20.appendix/error-code.md
+# nav.comm.end
+
 # nav.pdf.begin
   - PDF: ./pdf/NebulaGraph-CN.pdf
 # nav.pdf.end
