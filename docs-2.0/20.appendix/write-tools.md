@@ -30,6 +30,6 @@
 
 ## 导出工具
 
-目前支持使用[Exchange 导出](../nebula-exchange/use-exchange/ex-ug-export-from-nebula.md)功能将{{nebula.name}} {{ nebula.release }}数据导出至 CSV 文件或另一个图空间（支持不同悦数图数据库集群）中。
+目前支持使用[Exchange 导出](../nebula-exchange/use-exchange/ex-ug-export-from-nebula.md)功能将{{nebula.name}} {{ nebula.release }}数据导出至 CSV 文件或另一个图空间（支持不同{{nebula.name}}集群）中。
 
 {{ ent.ent_end }}
