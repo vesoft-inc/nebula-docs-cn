@@ -18,15 +18,15 @@ NebulaGraph Cloud 阿里云版支持免费试用和付费使用，二者的详�
 | 云资源归属 | 阿里云官方账号 | 用户账号 |
 | 云资源费用 | **阿里云承担** | 用户承担 |
 | 云资源使用时长 | 30 天（不可续期） | 用户创建实例时选择 |
-| NebulaGraph 许可证费用 | **试用期内免费** | 用户承担 |
-| NebulaGraph 服务许可证有效期 | 30 天 | 用户创建实例时选择 |
+|{{nebula.name}}许可证费用 | **试用期内免费** | 用户承担 |
+|{{nebula.name}}服务许可证有效期 | 30 天 | 用户创建实例时选择 |
 | 许可证过期后数据是否保留 | 否（因云资源会同时到期） | 是 |
 | 云资源到期后数据是否保留 | 否 | 否 |
 | 数据盘快照费用 | **阿里云承担** | 用户承担（可关闭功能） |
 
 ## 数据备份
 
-在创建服务实例时，系统会默认开启数据盘自动快照备份，用于周期性备份 NebulaGraph 数据。
+在创建服务实例时，系统会默认开启数据盘自动快照备份，用于周期性备份{{nebula.name}}数据。
 
 创建付费版服务实例前需[开通快照](https://help.aliyun.com/document_detail/108381.html)。免费试用实例使用的是阿里云官方账号下的资源，已开通快照，无需用户手动开通。
 
@@ -42,9 +42,9 @@ NebulaGraph Cloud 阿里云版支持如下套餐版本。
 
 | 套餐版本 | 说明 |
 | - | - |
-| 基础版 | 将所有 NebulaGraph 服务节点部署在 1 台 ECS 服务器上。 |
-| 标准版 | 将 Graph 服务和 Storage 服务分别部署在不同的 ECS 服务器上，每个服务都是单节点（1 台 ECS）。将 Explorer 等生态工具混合部署在 1 台 ECS 服务器上。 |
-| 高可用版 |  将 Graph 服务和 Storage 服务分别部署在不同的 ECS 服务器上，每个服务都包含 3 节点（3 台 ECS）。将 Explorer 等生态工具混合部署在 1 台 ECS 服务器上。 |
+| 基础版 | 将所有{{nebula.name}}服务节点部署在 1 台 ECS 服务器上。 |
+| 标准版 | 将 Graph 服务和 Storage 服务分别部署在不同的 ECS 服务器上，每个服务都是单节点（1 台 ECS）。将{{explorer.name}}等生态工具混合部署在 1 台 ECS 服务器上。 |
+| 高可用版 |  将 Graph 服务和 Storage 服务分别部署在不同的 ECS 服务器上，每个服务都包含 3 节点（3 台 ECS）。将{{explorer.name}}等生态工具混合部署在 1 台 ECS 服务器上。 |
 
 付费版和免费试用版服务实例支持的套餐版本有所不同，详情参见创建实例页面。
 
@@ -52,9 +52,9 @@ NebulaGraph Cloud 阿里云版支持如下套餐版本。
 
 1. 登录[阿里云控制台](https://home.console.aliyun.com/home/dashboard/ProductAndService)。
 
-2. 打开云市场的 [NebulaGraph 产品页](https://market.aliyun.com/products/56024006/cmgj00059955.html?#sku=yuncode5395500004)。
+2. 打开云市场的 [{{nebula.name}}产品页](https://market.aliyun.com/products/56024006/cmgj00059955.html?#sku=yuncode5395500004)。
 
-3. 选择**套餐版本**和**购买时长**（即 NebulaGraph 服务的许可证有效期），并单击**立即购买**。
+3. 选择**套餐版本**和**购买时长**（即{{nebula.name}}服务的许可证有效期），并单击**立即购买**。
 
   !!! caution
 
@@ -64,7 +64,7 @@ NebulaGraph Cloud 阿里云版支持如下套餐版本。
 
   !!! note
 
-        改变模板会改变之前选择的套餐版本，软件费用（NebulaGraph 许可证费用）和创建服务实例需要的资源也会改变。
+        改变模板会改变之前选择的套餐版本，软件费用（{{nebula.name}}许可证费用）和创建服务实例需要的资源也会改变。
 
 5. （可选）设置**服务实例名称**。默认值为服务实例 ID。
 
@@ -76,7 +76,7 @@ NebulaGraph Cloud 阿里云版支持如下套餐版本。
 
   - **包年包月**：先付费后使用。详情参见[包年包月](https://help.aliyun.com/document_detail/56220.html)。选择包年包月模式需要指定**购买时长周期**和**购买时长**。**购买时长周期**当前仅支持 **Month**，即按月购买。
 
-8. 在 **NebulaGraph 配置**区域，完成数据盘和 ECS 服务器密码设置。
+8. 在 **{{nebula.name}}配置**区域，完成数据盘和 ECS 服务器密码设置。
   
 9. 在**基础设施配置**区域，完成以下设置。
 
@@ -119,9 +119,9 @@ NebulaGraph Cloud 阿里云版支持如下套餐版本。
 
 1. 登录阿里云计算巢[推荐服务](http://c.nxw.so/bC0C0 "https://computenest.console.aliyun.com/user/cn-hangzhou/recommendService")页面，搜索 **NebulaGraph**。
 
-2. 在 **NebulaGraph 集群版**卡片上，单击**免费试用**。
+2. 在 **{{nebula.name}}集群版**卡片上，单击**免费试用**。
 
-3. 系统会为首次创建 NebulaGraph 服务实例的用户弹出申请对话框。在**申请权限**对话框中填写申请人信息。带有红色星号（*）的为必填项。
+3. 系统会为首次创建{{nebula.name}}服务实例的用户弹出申请对话框。在**申请权限**对话框中填写申请人信息。带有红色星号（*）的为必填项。
 
   !!! note
   
@@ -131,7 +131,7 @@ NebulaGraph Cloud 阿里云版支持如下套餐版本。
 
 5. 选择要创建实例的**地域**。
 
-6. 在 **NebulaGraph 配置**区域，完成数据盘和 ECS 服务器密码设置。
+6. 在 **{{nebula.name}}配置**区域，完成数据盘和 ECS 服务器密码设置。
   
 7. 在**基础设施配置**区域，选择**交换机可用区**。
 
@@ -155,4 +155,4 @@ Q：服务实例的状态显示为**部署失败**怎么处理？
 
 1. 如果使用 RAM 账号创建的实例，确认为该账号授予了本文前提条件中指定的权限。
 2. 如果权限符合要求，[删除](https://help.aliyun.com/document_detail/290837.html)创建失败的实例，尝试重新创建。
-3. 如果仍然创建失败，到 [NebulaGraph 论坛](https://discuss.nebula-graph.com.cn/)寻求帮助。
+3. 如果仍然创建失败，到 [{{nebula.name}}论坛](https://discuss.nebula-graph.com.cn/)寻求帮助。

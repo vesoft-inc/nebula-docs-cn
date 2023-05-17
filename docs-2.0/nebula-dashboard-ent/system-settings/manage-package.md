@@ -1,23 +1,21 @@
 # 安装包管理
 
-NebulaGraph Dashboard 企业版支持管理 NebulaGraph 安装包，可以下载社区版的各个版本，或者手动上传安装包。
+{{dashboard_ent.name}}支持管理{{nebula.name}}安装包，可以下载社区版的各个版本，或者手动上传安装包。
 
 ## 注意事项
 
 - 只有`admin`角色的用户可以管理安装包。
 
-- 不支持下载企业版安装包。请[联系我们](https://www.nebula-graph.com.cn/contact)申请企业版安装包，然后手动上传。
+- 不支持下载企业版安装包。请[联系我们](https://yueshu.com.cn/contact)申请企业版安装包，然后手动上传。
 
 ## 入口
 
-1. 在 Dashboard 企业版顶部导航栏，单击**平台设置**。
+1. 在{{dashboard_ent.name}}顶部导航栏，单击**平台设置**。
 2. 在左侧导航栏单击**安装包管理**。
 
 ## 操作说明
 
 ### 查看安装包
-
-![安装包管理页面](https://docs-cdn.nebula-graph.com.cn/figures/package-manage-22-6-7.png)
 
 界面右侧会显示已有安装包的列表，展示安装包名称、版本、大小和创建时间。
 

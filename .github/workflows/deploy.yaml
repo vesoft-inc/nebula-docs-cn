@@ -1,44 +1,133 @@
 name: Publish docs via GitHub Pages
+env:
+  ACTIONTEST: master
+# branch name, like master, 2.4
 on:
   push:
-    branches:
+    branches: # hard code branch name
       - master
 
 jobs:
-  deploy:
+  prepare:
     runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
-          fetch-depth: 0 # fetch all commits/branches
+          fetch-depth: 1 # Not fetch all commits/branches
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+      - name : prepare
+        run: pip install -r requirements.txt
+      - name: Set matrix
+        id: set-matrix
+        run: |
+          import yaml, os, json
+          with open('./database_edition.yml', 'r') as file:
+              mkdocs = yaml.safe_load(file)
+          database_edition = mkdocs.get('database_edition', '')
+          print(f"database_edition: {database_edition}")  # Print the variable for debugging
+          matrix = []
+          if database_edition == 'both':
+              matrix = ['enterprise', 'community']
+          elif database_edition in ['enterprise', 'community']:
+              matrix = [database_edition]
+          matrix_str = json.dumps(matrix)  # Convert the list to a JSON-formatted string
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as file:
+              file.write(f"matrix={matrix_str}\n")
+        shell: python
+
+  deploy:
+    needs: prepare
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 1  # in case push conflict
+      matrix:
+        database_edition: ${{fromJson(needs.prepare.outputs.matrix)}}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1 # fetch all commits/branches
 
       - name: Setup Python
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.8'
-          architecture: 'x64'
+          python-version: '3.10'
+          cache: 'pip'
 
       - name : prepare
         run: sh ./prepare.sh
- 
+      # if 'both', set each file 'community' and 'enterprise' seperately.
+      - name: Update database_edition.yml
+        run: |
+          import yaml 
+          with open('./database_edition.yml', 'r') as file:
+              content = yaml.safe_load(file)
+          content['database_edition'] = f"${{ matrix.database_edition }}"
+          with open('./database_edition.yml', 'w') as file:
+              yaml.dump(content, file) 
+        shell: python
+      
       - name: Git Config
         run: git config user.name whitewum && git config user.email min.wu@vesoft.com
 
+      - name: save tmp files
+        run: |
+          cp -f *versions.json /tmp/ # f"${{ matrix.database_edition }}"_versions.json
+          ls /tmp/ -ltr
       - name: mike 
         run: |
+          python ./scripts/conditional_render.py
+          python ./scripts/conditional_yml.py
+          python ./scripts/conditional_pdf.py
           git fetch origin gh-pages --depth=1 # fix mike's CI update
-          mike deploy master -p --rebase
+          mike deploy ${{ env.ACTIONTEST }}  -p --rebase
           mike list
-
       - name: show git branch
         run: | 
           git branch
           git checkout .
           git checkout gh-pages
+      - name: replace version.json
+        run: | 
+          import yaml, json
+          new_content = {"version": "${{ env.ACTIONTEST }}", "title": "${{ env.ACTIONTEST }}", "aliases": []}
+          # the only place read from /tmp/
+          filename = "/tmp/" + f"${{ matrix.database_edition }}" + "_versions.json"
+          with open(filename, 'r') as infile:
+              json_data = json.load(infile)
+          found = False
+          for item in json_data:
+            if item['version'] == new_content['version']: # in case duplicate master branch
+                found = True
+                break
+          if not found:
+              json_data.append(new_content)
+          with open('./versions.json', 'w') as outfile:
+              json.dump(json_data, outfile, indent=2)
+        shell: python        
       - name: Compress
         run: |
-          tar -vczf nebula-docs.tar.gz master versions.json *.html
+          if [ "${{ matrix.database_edition }}" = "enterprise" ]; then
+            tar -vczf ent-docs.tar.gz ${{ env.ACTIONTEST }} versions.json *.html
+          else
+            tar -vczf nebula-docs.tar.gz ${{ env.ACTIONTEST }} versions.json *.html
+          fi
           
+      - name: Set source file
+        id: set-source-file
+        run: |
+          if [ "${{ matrix.database_edition }}" = "enterprise" ]; then
+            echo "source_file=ent-docs.tar.gz" >> $GITHUB_OUTPUT
+          else
+            echo "source_file=nebula-docs.tar.gz" >> $GITHUB_OUTPUT
+          fi
+        shell: bash
+        
       - name: Transfer
         # uses: garygrossgarten/github-action-scp@release
         uses: appleboy/scp-action@master
@@ -47,8 +136,9 @@ jobs:
           username: ${{ secrets.USER_NAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          source: nebula-docs.tar.gz
+          source: ${{ steps.set-source-file.outputs.source_file }}
           target: /usr/web
+
       - name: UnCompress
         uses: appleboy/ssh-action@master
         with:
@@ -57,15 +147,15 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            mkdir -p /usr/web/nebula-docs/
-            tar -xzf /usr/web/nebula-docs.tar.gz -C /usr/web/nebula-docs/
-            mkdir -p /usr/web/nebula-docs/site/pdf/
-            cp -f /usr/web/nebula-docs/master/pdf/NebulaGraph-CN.pdf /usr/web/nebula-docs/site/pdf/NebulaGraph-book.pdf
+            if [ "${{ matrix.database_edition }}" = "enterprise" ]; then
+              mkdir -p /usr/web/ent-docs/
+              tar -xzf /usr/web/ent-docs.tar.gz -C /usr/web/ent-docs/
+              mkdir -p /usr/web/ent-docs/site/pdf/
+              #cp -f /usr/web/ent-docs/${{ env.ACTIONTEST }}/pdf/NebulaGraph-CN.pdf /usr/web/ent-docs/site/pdf/NebulaGraph-book.pdf
+            else
+              mkdir -p /usr/web/nebula-docs/
+              tar -xzf /usr/web/nebula-docs.tar.gz -C /usr/web/nebula-docs/
+              mkdir -p /usr/web/nebula-docs/site/pdf/
+              #cp -f /usr/web/nebula-docs/${{ env.ACTIONTEST }}/pdf/NebulaGraph-CN.pdf /usr/web/nebula-docs/site/pdf/NebulaGraph-book.pdf
+            fi
             
-#            pip3 install --upgrade pip
-#            pip3 install -r /usr/web/nebula-docs/requirement.txt
-      # - name: Deploy
-      #   uses: peaceiris/actions-gh-pages@v3
-      #   with:
-      #     github_token: ${{ secrets.DEPLOY_TOKEN }}
-      #     publish_dir: ./site

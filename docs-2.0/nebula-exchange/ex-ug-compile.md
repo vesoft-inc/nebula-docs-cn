@@ -6,7 +6,7 @@
 
 社区版 Exchange 的 JAR 文件可以直接[下载](https://github.com/vesoft-inc/nebula-exchange/releases)。
 
-要下载企业版 Exchange，需先[获取 NebulaGraph 企业版套餐](https://nebula-graph.com.cn/pricing/)。
+要下载企业版 Exchange，需先[获取{{nebula.name}}企业版套餐](https://nebula-graph.com.cn/pricing/)。
 
 ## 编译源代码获取 JAR 文件
 
@@ -14,7 +14,7 @@
 
 !!! enterpriseonly
 
-    企业版 Exchange 仅能在 NebulaGraph 企业版套餐中获取。
+    企业版 Exchange 仅能在{{nebula.name}}企业版套餐中获取。
 
 ### 前提条件
 

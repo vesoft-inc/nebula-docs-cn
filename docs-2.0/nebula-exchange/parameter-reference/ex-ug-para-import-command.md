@@ -1,6 +1,6 @@
 # 导入命令参数
 
-完成配置文件修改后，可以运行以下命令将指定来源的数据导入 NebulaGraph 数据库。
+完成配置文件修改后，可以运行以下命令将指定来源的数据导入{{nebula.name}}数据库。
 
 - 首次导入
 
@@ -21,7 +21,7 @@
 
 !!! faq
 
-    如果使用 [yarn-cluster 模式](https://spark-reference-doc-cn.readthedocs.io/zh_CN/latest/deploy-guide/running-on-yarn.html)提交任务，请参考如下示例，，**尤其是示例中的两个**`--conf`。
+    如果使用 [yarn-cluster 模式](https://spark-reference-doc-cn.readthedocs.io/zh_CN/latest/deploy-guide/running-on-yarn.html)提交任务，请参考如下示例，**尤其是示例中的两个**`--conf`。
 
     ```bash
     $SPARK_HOME/bin/spark-submit     --master yarn-cluster \

@@ -2,7 +2,7 @@
 
 本文以一个示例说明如何使用 Exchange 将存储在 HDFS 或本地的 ORC 文件数据导入 NebulaGraph。
 
-如果要向 NebulaGraph 导入本地 ORC 文件，请参见 [NebulaGraph Importer](https://github.com/vesoft-inc/nebula-importer "Click to go to GitHub")。
+如果要向{{nebula.name}}导入本地 ORC 文件，请参见 [NebulaGraph Importer](https://github.com/vesoft-inc/nebula-importer "Click to go to GitHub")。
 
 ## 数据集
 
@@ -20,35 +20,35 @@
 
 - Hadoop：2.9.2 伪分布式部署
 
-- NebulaGraph：{{nebula.release}}。使用 [Docker Compose 部署](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)。
+- {{nebula.name}}：{{nebula.release}}。使用 [Docker Compose 部署](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)。
 
 ## 前提条件
 
 开始导入数据之前，用户需要确认以下信息：
 
-- 已经[安装部署 NebulaGraph](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md) 并获取如下信息：
+- 已经[安装部署{{nebula.name}}](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md) 并获取如下信息：
 
   - Graph 服务和 Meta 服务的的 IP 地址和端口。
 
-  - 拥有 NebulaGraph 写权限的用户名和密码。
+  - 拥有{{nebula.name}}写权限的用户名和密码。
 
 - 已经编译 Exchange。详情请参见[编译 Exchange](../ex-ug-compile.md)。本示例中使用 Exchange {{exchange.release}}。
 
 - 已经安装 Spark。
 
-- 了解 NebulaGraph 中创建 Schema 的信息，包括 Tag 和 Edge type 的名称、属性等。
+- 了解{{nebula.name}}中创建 Schema 的信息，包括 Tag 和 Edge type 的名称、属性等。
 
 - 如果文件存储在 HDFS 上，需要确认 Hadoop 服务运行正常。
 
-- 如果文件存储在本地且 NebulaGraph 是集群架构，需要在集群每台机器本地相同目录下放置文件。
+- 如果文件存储在本地且{{nebula.name}}是集群架构，需要在集群每台机器本地相同目录下放置文件。
 
 ## 操作步骤
 
-### 步骤 1：在 NebulaGraph 中创建 Schema
+### 步骤 1：在{{nebula.name}}中创建 Schema
 
-分析 ORC 文件中的数据，按以下步骤在 NebulaGraph 中创建 Schema：
+分析 ORC 文件中的数据，按以下步骤在{{nebula.name}}中创建 Schema：
 
-1. 确认 Schema 要素。NebulaGraph 中的 Schema 要素如下表所示。
+1. 确认 Schema 要素。{{nebula.name}}中的 Schema 要素如下表所示。
 
     | 要素  | 名称 | 属性 |
     | :--- | :--- | :--- |
@@ -116,7 +116,7 @@
     }
   }
 
-  # NebulaGraph 相关配置
+  # {{nebula.name}}相关配置
   nebula: {
     address:{
       # 指定 Graph 服务和所有 Meta 服务的 IP 地址和端口。
@@ -124,11 +124,11 @@
       # 格式："ip1:port","ip2:port","ip3:port"
       graph:["127.0.0.1:9669"]
       #任意一个 Meta 服务的地址。
-      #如果您的 NebulaGraph 在虚拟网络中，如k8s，请配置 Leader Meta的地址。
+      #如果您的{{nebula.name}}在虚拟网络中，如k8s，请配置 Leader Meta的地址。
       meta:["127.0.0.1:9559"]
     }
 
-    # 指定拥有 NebulaGraph 写权限的用户名和密码。
+    # 指定拥有{{nebula.name}}写权限的用户名和密码。
     user: root
     pswd: nebula
 
@@ -155,13 +155,13 @@
   tags: [
     # 设置 Tag player 相关信息。
     {
-      # 指定 NebulaGraph 中定义的 Tag 名称。
+      # 指定{{nebula.name}}中定义的 Tag 名称。
       name: player
       type: {
         # 指定数据源，使用 ORC。
         source: orc
 
-        # 指定如何将点数据导入 NebulaGraph：Client 或 SST。
+        # 指定如何将点数据导入{{nebula.name}}：Client 或 SST。
         sink: client
       }
 
@@ -170,22 +170,22 @@
       # 如果文件存储在本地，用双引号括起路径，以 file://开头，例如"file:///tmp/xx.orc"。
       path: "hdfs://192.168.*.*:9000/data/vertex_player.orc"
 
-      # 在 fields 里指定 ORC 文件中 key 名称，其对应的 value 会作为 NebulaGraph 中指定属性的数据源。
+      # 在 fields 里指定 ORC 文件中 key 名称，其对应的 value 会作为{{nebula.name}}中指定属性的数据源。
       # 如果需要指定多个值，用英文逗号（,）隔开。
       fields: [age,name]
 
-      # 指定 NebulaGraph 中定义的属性名称。
+      # 指定{{nebula.name}}中定义的属性名称。
       # fields 与 nebula.fields 的顺序必须一一对应。
       nebula.fields: [age, name]
 
       # 指定一个列作为 VID 的源。
       # vertex 的值必须与 ORC 文件中的字段保持一致。
-      # 目前，NebulaGraph {{nebula.release}}仅支持字符串或整数类型的 VID。
+      # 目前，{{nebula.name}} {{nebula.release}}仅支持字符串或整数类型的 VID。
       vertex: {
         field:id
       }
 
-      # 指定单批次写入 NebulaGraph 的最大点数量。
+      # 指定单批次写入{{nebula.name}}的最大点数量。
       batch: 256
 
       # 指定 Spark 分片数量。
@@ -194,13 +194,13 @@
 
     # 设置 Tag team 相关信息。
     {
-      # 指定 NebulaGraph 中定义的 Tag 名称。
+      # 指定{{nebula.name}}中定义的 Tag 名称。
       name: team
       type: {
         # 指定数据源，使用 ORC。
         source: orc
 
-        # 指定如何将点数据导入 NebulaGraph：Client 或 SST。
+        # 指定如何将点数据导入{{nebula.name}}：Client 或 SST。
         sink: client
       }
 
@@ -209,22 +209,22 @@
       # 如果文件存储在本地，用双引号括起路径，以 file://开头，例如"file:///tmp/xx.orc"。
       path: "hdfs://192.168.*.*:9000/data/vertex_team.orc"
 
-      # 在 fields 里指定 ORC 文件中 key 名称，其对应的 value 会作为 NebulaGraph 中指定属性的数据源。
+      # 在 fields 里指定 ORC 文件中 key 名称，其对应的 value 会作为{{nebula.name}}中指定属性的数据源。
       # 如果需要指定多个值，用英文逗号（,）隔开。
       fields: [name]
 
-      # 指定 NebulaGraph 中定义的属性名称。
+      # 指定{{nebula.name}}中定义的属性名称。
       # fields 与 nebula.fields 的顺序必须一一对应。
       nebula.fields: [name]
 
       # 指定一个列作为 VID 的源。
       # vertex 的值必须与 ORC 文件中的字段保持一致。
-      # 目前，NebulaGraph {{nebula.release}}仅支持字符串或整数类型的 VID。
+      # 目前，{{nebula.name}} {{nebula.release}}仅支持字符串或整数类型的 VID。
       vertex: {
         field:id
       }
 
-      # 指定单批次写入 NebulaGraph 的最大点数量。
+      # 指定单批次写入{{nebula.name}}的最大点数量。
       batch: 256
 
       # 指定 Spark 分片数量。
@@ -237,13 +237,13 @@
   edges: [
     # 设置 Edge type follow 相关信息。
     {
-      # 指定 NebulaGraph 中定义的 Edge type 名称。
+      # 指定{{nebula.name}}中定义的 Edge type 名称。
       name: follow
       type: {
         # 指定数据源，使用 ORC。
         source: orc
 
-        # 指定如何将点数据导入 NebulaGraph：Client 或 SST。
+        # 指定如何将点数据导入{{nebula.name}}：Client 或 SST。
         sink: client
       }
 
@@ -252,17 +252,17 @@
       # 如果文件存储在本地，用双引号括起路径，以 file://开头，例如"file:///tmp/xx.orc"。
       path: "hdfs://192.168.*.*:9000/data/edge_follow.orc"
 
-      # 在 fields 里指定 ORC 文件中 key 名称，其对应的 value 会作为 NebulaGraph 中指定属性的数据源。
+      # 在 fields 里指定 ORC 文件中 key 名称，其对应的 value 会作为{{nebula.name}}中指定属性的数据源。
       # 如果需要指定多个值，用英文逗号（,）隔开。
       fields: [degree]
 
-      # 指定 NebulaGraph 中定义的属性名称。
+      # 指定{{nebula.name}}中定义的属性名称。
       # fields 与 nebula.fields 的顺序必须一一对应。
       nebula.fields: [degree]
 
       # 指定一个列作为起始点和目的点的源。
       # vertex 的值必须与 ORC 文件中的字段保持一致。
-      # 目前，NebulaGraph {{nebula.release}}仅支持字符串或整数类型的 VID。
+      # 目前，{{nebula.name}} {{nebula.release}}仅支持字符串或整数类型的 VID。
       source: {
         field: src
       }
@@ -273,7 +273,7 @@
       # 指定一个列作为 rank 的源（可选）。
       #ranking: rank
 
-      # 指定单批次写入 NebulaGraph 的最大边数量。
+      # 指定单批次写入{{nebula.name}}的最大边数量。
       batch: 256
 
       # 指定 Spark 分片数量。
@@ -282,13 +282,13 @@
 
     # 设置 Edge type serve 相关信息。
     {
-      # 指定 NebulaGraph 中定义的 Edge type 名称。
+      # 指定{{nebula.name}}中定义的 Edge type 名称。
       name: serve
       type: {
         # 指定数据源，使用 ORC。
         source: orc
 
-        # 指定如何将点数据导入 NebulaGraph：Client 或 SST。
+        # 指定如何将点数据导入{{nebula.name}}：Client 或 SST。
         sink: client
       }
 
@@ -297,17 +297,17 @@
       # 如果文件存储在本地，用双引号括起路径，以 file://开头，例如"file:///tmp/xx.orc"。
       path: "hdfs://192.168.*.*:9000/data/edge_serve.orc"
 
-      # 在 fields 里指定 ORC 文件中 key 名称，其对应的 value 会作为 NebulaGraph 中指定属性的数据源。
+      # 在 fields 里指定 ORC 文件中 key 名称，其对应的 value 会作为{{nebula.name}}中指定属性的数据源。
       # 如果需要指定多个值，用英文逗号（,）隔开。
       fields: [start_year,end_year]
 
-      # 指定 NebulaGraph 中定义的属性名称。
+      # 指定{{nebula.name}}中定义的属性名称。
       # fields 与 nebula.fields 的顺序必须一一对应。
       nebula.fields: [start_year, end_year]
 
       # 指定一个列作为起始点和目的点的源。
       # vertex 的值必须与 ORC 文件中的字段保持一致。
-      # 目前，NebulaGraph {{nebula.release}}仅支持字符串或整数类型的 VID。
+      # 目前，{{nebula.name}} {{nebula.release}}仅支持字符串或整数类型的 VID。
       source: {
         field: src
       }
@@ -318,7 +318,7 @@
       # 指定一个列作为 rank 的源（可选）。
       #ranking: _c5
 
-      # 指定单批次写入 NebulaGraph 的最大边数量。
+      # 指定单批次写入{{nebula.name}}的最大边数量。
       batch: 256
 
       # 指定 Spark 分片数量。
@@ -330,9 +330,9 @@
 }
 ```
 
-### 步骤 4：向 NebulaGraph 导入数据
+### 步骤 4：向{{nebula.name}}导入数据
 
-运行如下命令将 ORC 文件数据导入到 NebulaGraph 中。关于参数的说明，请参见[导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
+运行如下命令将 ORC 文件数据导入到{{nebula.name}}中。关于参数的说明，请参见[导入命令参数](../parameter-reference/ex-ug-para-import-command.md)。
 
 ```bash
 ${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange <nebula-exchange-{{exchange.release}}.jar_path> -c <orc_application.conf_path> 
@@ -352,7 +352,7 @@ ${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.excha
 
 ### 步骤 5：（可选）验证数据
 
-用户可以在 NebulaGraph 客户端（例如 NebulaGraph Studio）中执行查询语句，确认数据是否已导入。例如：
+用户可以在{{nebula.name}}客户端（例如 NebulaGraph Studio）中执行查询语句，确认数据是否已导入。例如：
 
 ```ngql
 LOOKUP ON player YIELD id(vertex);
@@ -360,6 +360,6 @@ LOOKUP ON player YIELD id(vertex);
 
 用户也可以使用命令 [`SHOW STATS`](../../3.ngql-guide/7.general-query-statements/6.show/14.show-stats.md) 查看统计数据。
 
-### 步骤 6：（如有）在 NebulaGraph 中重建索引
+### 步骤 6：（如有）在{{nebula.name}}中重建索引
 
-导入数据后，用户可以在 NebulaGraph 中重新创建并重建索引。详情请参见[索引介绍](../../3.ngql-guide/14.native-index-statements/README.md)。
+导入数据后，用户可以在{{nebula.name}}中重新创建并重建索引。详情请参见[索引介绍](../../3.ngql-guide/14.native-index-statements/README.md)。

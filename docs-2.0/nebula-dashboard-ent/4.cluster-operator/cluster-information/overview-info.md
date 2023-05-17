@@ -1,16 +1,16 @@
 # 信息总览
 
-用户可以在**信息总览**页面查看 NebulaGraph 内核相关信息，包括 Storage 服务信息、Storage Leader 分布、NebulaGraph 各个服务的版本信息及所在节点信息、分片的分布情况及详细信息。
+用户可以在**信息总览**页面查看{{nebula.name}}内核相关信息，包括 Storage 服务信息、Storage Leader 分布、{{nebula.name}}各个服务的版本信息及所在节点信息、分片的分布情况及详细信息。
 
 ## 入口
 
-1. 在 Dashboard 企业版顶部导航栏，单击**集群管理**。
+1. 在{{dashboard_ent.name}}顶部导航栏，单击**集群管理**。
 2. 单击目标集群右侧**详情**。
 3. 在左侧导航栏，单击**集群信息**->**信息总览**。
 
 !!! note
 
-    在查看集群信息之前，用户需要选择任意一个在线的 Graph 服务地址，输入登录 NebulaGraph 的账号（非 Dashboard 登录账号）和对应密码。
+    在查看集群信息之前，用户需要选择任意一个在线的 Graph 服务地址，输入登录{{nebula.name}}的账号（非{{dashboard_ent.name}}登录账号）和对应密码。
 
 ![coreinfo](https://docs-cdn.nebula-graph.com.cn/figures/clustercore-info_2022-04-11_cn.png)
 
@@ -18,13 +18,13 @@
 
 显示 Leader 数量及 Leader 的分布。
 
-- 单击右上角的 **Balance Leader** 按钮可以快速在 NebulaGraph 集群中均衡分布 Leader。关于 Leader 的详细信息，参见 [Storage 服务](../../../1.introduction/3.nebula-graph-architecture/4.storage-service.md)。
+- 单击右上角的 **Balance Leader** 按钮可以快速在{{nebula.name}}集群中均衡分布 Leader。关于 Leader 的详细信息，参见 [Storage 服务](../../../1.introduction/3.nebula-graph-architecture/4.storage-service.md)。
 
 - 单击右上角的**详情**，查看 Leader 分布的详细信息。
 
 ## 版本
 
-显示 NebulaGraph 所有服务版本及服务地址。单击右上角的**详情**，查看更多信息。
+显示{{nebula.name}}所有服务版本及服务地址。单击右上角的**详情**，查看更多信息。
 
 ## 服务信息
 

@@ -28,14 +28,16 @@ def process_files(file_path, database_edition):
                     content = re.sub(
                         r'{{\s*comm\.comm_begin\s*}}(.*?){{\s*comm\.comm_end\s*}}', 
                         '\\1', content, flags=re.DOTALL)
+                else:
+                    raise ValueError("Invalid value for database_edition: {}".format(database_edition))
                 with open(file_full_path, 'w', encoding='utf-8') as f:
                     f.write(content)
 
 if __name__ == '__main__':
-    mkdocs_yml_path = 'mkdocs.yml'
-    with open(mkdocs_yml_path, 'r', encoding='utf-8') as f:
+    yml_path = 'database_edition.yml'
+    with open(yml_path, 'r', encoding='utf-8') as f:
         config = yaml.safe_load(f)
-    database_edition = config.get("extra", {}).get("database_edition", "both")
+    database_edition = config.get("database_edition", "")
     if database_edition not in ['community', 'enterprise', 'both']:
         raise ValueError("Invalid value for database_edition: {}".format(database_edition))
     file_path = 'docs-2.0/'

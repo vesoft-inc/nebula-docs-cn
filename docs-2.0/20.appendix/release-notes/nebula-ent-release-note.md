@@ -1,4 +1,4 @@
-# NebulaGraph 企业版 {{ nebula.release }} release notes
+# {{nebula.name}} {{ nebula.release }} release notes
 
 ## 缺陷修复
 

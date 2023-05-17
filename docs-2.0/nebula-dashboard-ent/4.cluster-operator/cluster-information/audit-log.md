@@ -1,14 +1,14 @@
 # 审计日志
 
-NebulaGraph 的审计日志功能可以将 Graph 服务接受到的所有操作进行分类存储，Dashboard 可以快速查看审计日志。
+{{nebula.name}}的审计日志功能可以将 Graph 服务接受到的所有操作进行分类存储，{{dashboard_ent.name}}可以快速查看审计日志。
 
 !!! enterpriseonly
 
-    仅企业版 NebulaGraph 支持审计日志。
+    仅企业版{{nebula.name}}支持审计日志。
 
 ## 入口
 
-1. 在 Dashboard 企业版顶部导航栏，单击**集群管理**。
+1. 在{{dashboard_ent.name}}顶部导航栏，单击**集群管理**。
 2. 单击目标集群右侧**详情**。
 3. 在左侧导航栏，单击**集群信息**->**审计日志**。
 
