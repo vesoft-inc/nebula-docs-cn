@@ -359,8 +359,7 @@ nav:
     - License 管理服务 LM: 9.about-license/2.license-management-suite/3.license-manager.md
   #  - 管理 License: 9.about-license/5.manage-license.md
   - 快速入门:
-    - 入门概览: 2.quick-start/1.quick-start-overview.md
-    - 从云开始（免费试用）: 
+    - 从云开始: 
       - 步骤 1：创建云服务实例: 2.quick-start/2.quick-start-on-cloud/1.create-instance-on-cloud.md
       - 步骤 2：连接悦数图数据库: 2.quick-start/2.quick-start-on-cloud/2.connect-to-nebulagraph-on-cloud.md
       - 步骤 3：管理数据: 2.quick-start/2.quick-start-on-cloud/3.how-to-query-on-cloud.md
@@ -796,11 +795,8 @@ nav:
         - Graph 服务: 1.introduction/3.nebula-graph-architecture/3.graph-service.md
         - Storage 服务: 1.introduction/3.nebula-graph-architecture/4.storage-service.md
   - 快速入门:
-    - 入门概览: 2.quick-start/1.quick-start-overview.md
-    - 从云开始（免费试用）: 
-      - 步骤 1：创建云服务实例: 2.quick-start/2.quick-start-on-cloud/1.create-instance-on-cloud.md
-      - 步骤 2：连接 NebulaGraph: 2.quick-start/2.quick-start-on-cloud/2.connect-to-nebulagraph-on-cloud.md
-      - 步骤 3：管理数据: 2.quick-start/2.quick-start-on-cloud/3.how-to-query-on-cloud.md
+    - 使用 Docker Desktop: 2.quick-start/1.quick-start-overview.md
+    - 从云开始（免费试用）: 2.quick-start/2.start-free-trial-on-cloud.md
     - 本地部署: 
       - 步骤 1：安装 NebulaGraph: 2.quick-start/3.quick-start-on-premise/2.install-nebula-graph.md
       - 步骤 2：启动 NebulaGraph: 2.quick-start/3.quick-start-on-premise/5.start-stop-service.md
