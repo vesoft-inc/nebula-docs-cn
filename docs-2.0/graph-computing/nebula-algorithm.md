@@ -1,6 +1,6 @@
 # NebulaGraph Algorithm
 
-[NebulaGraph Algorithm](https://github.com/vesoft-inc/nebula-algorithm) （简称 Algorithm）是一款基于 [GraphX](https://spark.apache.org/graphx/) 的 Spark 应用程序，通过提交 Spark 任务的形式使用完整的算法工具对{{nebula.name}}数据库中的数据执行图计算，也可以通过编程形式调用 lib 库下的算法针对 DataFrame 执行图计算。
+[NebulaGraph Algorithm](https://github.com/vesoft-inc/nebula-algorithm) （简称 Algorithm）是{{ent.ent_begin}}{{nebula.name}}的图算法组件，{{ent.ent_end}}一款基于 [GraphX](https://spark.apache.org/graphx/) 的 Spark 应用程序，通过提交 Spark 任务的形式使用完整的算法工具对{{nebula.name}}数据库中的数据执行图计算，也可以通过编程形式调用 lib 库下的算法针对 DataFrame 执行图计算。
 
 ## 版本兼容性
 

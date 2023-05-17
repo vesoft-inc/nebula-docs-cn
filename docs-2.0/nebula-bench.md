@@ -1,6 +1,6 @@
 # NebulaGraph Bench
 
-NebulaGraph Bench 是一款利用 LDBC 数据集对{{nebula.name}}进行性能测试的工具。
+NebulaGraph Bench 是{{ent.ent_begin}}{{nebula.name}}的性能测试工具，{{ent.ent_end}}一款利用 LDBC 数据集对{{nebula.name}}进行性能测试的工具。
 
 ## 适用场景
 
