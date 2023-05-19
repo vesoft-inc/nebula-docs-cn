@@ -8,7 +8,7 @@ NebulaGraph Importer（简称 Importer）是一款{{nebula.name}}的 CSV 文件�
 - 支持导入 CSV 格式文件的数据。单个文件内可以包含多种 Tag、多种 Edge type 或者二者混合的数据。
 - 支持同时连接多个 Graph 服务进行导入并且动态负载均衡。
 - 支持失败后重连、重试。
-- 支持多维度显示统计信息，包括导入时间、导入百分比、导入文件数等。统计信息支持打印在 Console 或日志中。
+- 支持多维度显示统计信息，包括导入时间、导入百分比等。统计信息支持打印在 Console 或日志中。
 
 ## 优势
 
@@ -34,8 +34,6 @@ NebulaGraph Importer（简称 Importer）是一款{{nebula.name}}的 CSV 文件�
 
 - {{nebula.name}} 中已创建 Schema，包括图空间、Tag 和 Edge type，或者通过参数`manager.hooks.before.statements`设置。
 
-- 运行 Importer 的机器已部署 Golang 环境。详情请参见 [Golang 环境搭建](https://github.com/vesoft-inc/nebula-importer/blob/{{importer.branch}}/docs/golang-install.md)。
-
 ## 操作步骤
 
 准备好待导入的 CSV 文件并配置 yaml 文件，即可使用本工具向{{nebula.name}}批量导入数据。
@@ -55,6 +53,8 @@ NebulaGraph Importer（简称 Importer）是一款{{nebula.name}}的 CSV 文件�
   ```
 
 ### 源码编译运行
+
+编译源码需要部署 Golang 环境。详情请参见 [Golang 环境搭建](https://github.com/vesoft-inc/nebula-importer/blob/{{importer.branch}}/docs/golang-install.md)。
 
 1. 克隆仓库。
 
@@ -81,36 +81,8 @@ NebulaGraph Importer（简称 Importer）是一款{{nebula.name}}的 CSV 文件�
 4. 启动服务。
 
   ```bash
-  $ ./nebula-importer --config <yaml_config_file_path>
+  $ ./bin/nebula-importer --config <yaml_config_file_path>
   ```
-
-### 无网络编译方式
-
-如果服务器不能联网，建议在能联网的机器上将源码和各种依赖打包上传到对应的服务器上编译即可，操作步骤如下：
-
-1. 克隆仓库。
-
-   ```bash
-   $ git clone -b {{importer.branch}} https://github.com/vesoft-inc/nebula-importer.git
-   ```
-
-2. 使用如下的命令下载并打包依赖的源码。
-
-   ```bash
-   $ cd nebula-importer
-   $ go mod vendor
-   $ cd .. && tar -zcvf nebula-importer.tar.gz nebula-importer
-   ```
-
-3. 将压缩包上传到不能联网的服务器上。
-
-4. 解压并编译。
-
-   ```bash
-   $ tar -zxvf nebula-importer.tar.gz 
-   $ cd nebula-importer
-   $ go build -mod vendor cmd/importer.go
-   ```
 
 ### Docker 方式运行
 
@@ -118,11 +90,17 @@ NebulaGraph Importer（简称 Importer）是一款{{nebula.name}}的 CSV 文件�
 
 ```bash
 $ docker pull vesoft/nebula-importer
-$ docker run -it -v <path-to-config>:/config.yaml --rm vesoft/nebula-importer -c /config.yaml
-
+$ docker run --rm -ti \
+      --network=host \
+      -v <config_file>:<config_file> \
+      -v <data_dir>:<data_dir> \
+      vesoft/nebula-importer:<version>
+      --config <config_file>
 ```
 
-- `<config_file>`：本地 yaml 配置文件的绝对路径。
+- `<config_file>`：yaml 配置文件的绝对路径。
+- `<csv_data_dir>`：数据文件的绝对路径。如果文件不在本地，请忽略该参数。
+- `<version>`：Importer 的版本号，请填写`v3`。
 
 !!! note
     建议使用相对路径。如果使用本地绝对路径，请检查路径映射到 Docker 中的路径。
@@ -168,7 +146,7 @@ client:
 
 ### Manager 配置
 
-Manager 配置是连接数据库后的相关管理配置。
+Manager 配置是连接数据库后的人为控制配置。
 
 示例配置如下：
 
@@ -182,14 +160,19 @@ manager:
   hooks:
     before:
       - statements:
-        - statements1
-        - statements2
-        wait: 10s
+        - UPDATE CONFIGS storage:wal_ttl=3600;
+        - UPDATE CONFIGS storage:rocksdb_column_family_options = { disable_auto_compactions = true };
       - statements:
-          - statements3
+        - |
+            DROP SPACE IF EXISTS basic_int_examples;
+            CREATE SPACE IF NOT EXISTS basic_int_examples(partition_num=5, replica_factor=1, vid_type=int);
+            USE basic_int_examples;
+        wait: 10s
     after:
       - statements:
-          - statements4
+          - |
+            UPDATE CONFIGS storage:wal_ttl=86400;
+            UPDATE CONFIGS storage:rocksdb_column_family_options = { disable_auto_compactions = false };
 ```
 
 |参数|默认值|是否必须|说明|
@@ -200,9 +183,9 @@ manager:
 |`manager.importerConcurrency`|`512`|否|生成待执行的 nGQL 语句的并发数，然后会调用客户端执行这些语句。|
 |`manager.statsInterval`|`10s`|否|打印统计信息的时间间隔。|
 |`manager.hooks.before.[].statements`|-|否|导入前在图空间内执行的命令。|
-|`manager.hooks.before.[].wait`|-|否|执行上一条语句后的等待时间。|
+|`manager.hooks.before.[].wait`|-|否|执行`statements`语句后的等待时间。|
 |`manager.hooks.after.[].statements`|-|否|导入后在图空间内执行的命令。|
-|`manager.hooks.after.[].wait`|-|否|执行上一条语句后的等待时间。|
+|`manager.hooks.after.[].wait`|-|否|执行`statements`语句后的等待时间。|
 
 ### Log 配置
 
@@ -226,7 +209,7 @@ log:
 
 ### Source 配置
 
-Source 配置中需要配置数据源信息、数据处理方式和模式映射。
+Source 配置中需要配置数据源信息、数据处理方式和 Schema 映射。
 
 示例配置如下：
 
@@ -238,14 +221,14 @@ sources:
 #      region: us-east-1     # 必填。S3 服务的区域。
 #      bucket: gdelt-open-data    # 必填。S3 服务中的 bucket。
 #      key: events/20190918.export.csv     # 必填。S3 服务中文件的 key。
-#      accessKey: ""    # 可选。S3 服务的访问密钥。如果是公共数据，则无需配置。
-#      ecretKey: ""     # 可选。S3 服务的密钥。如果是公共数据，则无需配置。
+#      accessKeyID: ""    # 可选。S3 服务的访问密钥。如果是公共数据，则无需配置。
+#      accessKeySecret: ""     # 可选。S3 服务的密钥。如果是公共数据，则无需配置。
 #  - oss:
 #      endpoint: https://oss-cn-hangzhou.aliyuncs.com    # 必填。OSS 服务端点。
 #      bucket: bucketName    # 必填。OSS 服务中的 bucket。
 #      key: objectKey    # 必填。OSS 服务中文件的 object key。
-#      accessKey: accessKey    # 必填。OSS 服务的访问密钥。
-#      secretKey: secretKey    # 必填。OSS 服务的秘钥。
+#      accessKeyID: accessKey    # 必填。OSS 服务的访问密钥。
+#      accessKeySecret: secretKey    # 必填。OSS 服务的秘钥。
 #  - ftp:
 #      host: 192.168.0.10    # 必填。FTP 服务的主机。
 #      port: 21    # 必填。FTP 服务的端口。
