@@ -79,7 +79,7 @@ markdown_extensions:
 
 # Plugins
 plugins:
-  - search # 这个是原有的 mkdocs 搜索插件， 如果想使用algolia搜索，请注释掉这个插件
+#  - search # 这个是原有的 mkdocs 搜索插件， 如果想使用algolia搜索，请注释掉这个插件
   - macros:
       include_dir: docs-2.0/reuse/
   - git-revision-date-localized
@@ -181,13 +181,13 @@ extra:
       link: 'https://github.com/vesoft-inc/nebula-docs-cn'
 # nav.comm.end
   nebula:
-    release: 3.4.1
+    release: 3.5.0
     nightly: nightly
     master: master
     base20: 2.0
     base200: 2.0.0
-    branch: release-3.4
-    tag: v3.4.1
+    branch: release-3.5
+    tag: v3.5.0
     # nav.ent.begin
     name: 悦数图数据库
     # nav.ent.end
@@ -198,12 +198,12 @@ extra:
     base111b: 1.1.1-beta
     base220: 2.2.1
     base300: 3.0.0
-    release: 3.6.0
-    tag: v3.6.0
+    release: 3.7.0
+    tag: v3.7.0
   explorer:
-    release: 3.4.0
-    branch: release-3.4
-    tag: v3.4.0
+    release: 3.5.0
+    branch: release-3.5
+    tag: v3.5.0
     # nav.ent.begin
     name: 悦数图探索
     # nav.ent.end
@@ -211,25 +211,25 @@ extra:
     name: NebulaGraph Explorer
     # nav.comm.end
   exchange_ent:
-    release: 3.4.0
-    branch: release-3.4
-    tag: v3.4.0
+    release: 3.5.0
+    branch: release-3.5
+    tag: v3.5.0
   exchange:
-    release: 3.4.0
-    branch: release-3.4
-    tag: v3.4.0
+    release: 3.5.0
+    branch: release-3.5
+    tag: v3.5.0
   importer:
-    release: 3.4.0
-    branch: release-3.4
-    tag: v3.4.0
+    release: 4.0.0
+    branch: release-4.0
+    tag: v4.0.0
   algorithm:
     release: 3.0.0
     branch: v3.0.0
     tag: v3.0.0
   plato:
-    release: 3.4.0
-    branch: release-3.4
-    tag: v3.4.0
+    release: 3.5.0
+    branch: release-3.5
+    tag: v3.5.0
     # nav.ent.begin
     name: 悦数图计算
     # nav.ent.end
@@ -241,22 +241,22 @@ extra:
     branch: release-3.4
     tag: v3.4.0
   flinkconnector:
-    release: 3.3.0
-    branch: release-3.3
-    tag: v3.3.0
+    release: 3.5.0
+    branch: release-3.5
+    tag: v3.5.0
   dockercompose:
-    release: 3.4.0
-    branch: release-3.4
-    tag: v3.4.0
+    release: 3.5.0
+    branch: release-3.5
+    tag: v3.5.0
   dashboard:
-    release: 3.4.0
-    tag: v3.4.0
+    release: 3.5.0
+    tag: v3.5.0
     base100: 1.0.0
-    branch: release-3.4
+    branch: release-3.5
   dashboard_ent:
-    release: 3.4.2
-    tag: v3.4.2
-    branch: release-3.4
+    release: 3.5.0
+    tag: v3.5.0
+    branch: release-3.5
     # nav.ent.begin
     name: 悦数运维监控
     # nav.ent.end
@@ -264,16 +264,16 @@ extra:
     name: NebulaGraph Dashboard
     # nav.comm.end
   console:
-    release: 3.4.0
-    branch: release-3.4
-    tag: v3.4.0
+    release: 3.5.0
+    branch: release-3.5
+    tag: v3.5.0
   br:
     release: 3.3.0
     branch: release-3.3
     tag: v3.3.0
   br_ent:
-    release: 3.4.1
-    tag: v3.4.1
+    release: 3.5.0
+    tag: v3.5.0
     # nav.ent.begin
     name: Backup&Restore
     # nav.ent.end
@@ -284,31 +284,31 @@ extra:
     release: 3.4.0
     tag: v3.4.0
   cpp:
-    release: 3.4.0
-    branch: release-3.4
-    tag: v3.4.0
+    release: 3.5.0
+    branch: release-3.5
+    tag: v3.5.0
   java:
-    release: 3.4.0
-    branch: release-3.4
-    tag: v3.4.0
+    release: 3.5.0
+    branch: release-3.5
+    tag: v3.5.0
   python:
     release: 3.4.0
     branch: release-3.4
     tag: v3.4.0
   go:
-    release: 3.4.0
-    branch: release-3.4
-    tag: v3.4.0
+    release: 3.5.0
+    branch: release-3.5
+    tag: v3.5.0
   bench:
     release: 1.2.0
     branch: release-1.2
     tag: v1.2.0
   operator:
-    release: 1.4.2
-    tag: v1.4.2
-    branch: release-1.4
+    release: 1.5.0
+    tag: v1.5.0
+    branch: release-1.5
     upgrade_from: 3.0.0
-    upgrade_to: 3.4.0
+    upgrade_to: 3.5.0
   exporter:
     release: 3.3.0
     branch: release-3.3
@@ -318,9 +318,9 @@ extra:
     branch: release-3.4
     tag: v3.4.0
   bbox:
-    release: 3.4.0
-    branch: release-3.4
-    tag: v3.4.0
+    release: 3.5.0
+    branch: release-3.5
+    tag: v3.5.0
     # nav.ent.begin
     name: 悦数黑匣子
     # nav.ent.end
