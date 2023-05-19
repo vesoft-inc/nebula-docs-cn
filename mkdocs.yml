@@ -164,10 +164,10 @@ extra:
   # Modify doc_version to automatically update the parameters for releasing a new version
   doc_version: master
   # Language selector.
-  alternate:
-    - name: English
-      link: https://docs.nebula-graph.io/
-      lang: en
+  #alternate:
+  #  - name: English
+  #    link: https://docs.nebula-graph.io/
+  #    lang: en
   # Google Analytics.
   analytics:
     provider: google
