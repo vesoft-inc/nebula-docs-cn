@@ -581,10 +581,9 @@ nav:
 
   - 导入与导出:
       - 概述: 20.appendix/write-tools.md
-      - NebulaGraph Importer:
-        - 使用 NebulaGraph Importer: nebula-importer/use-importer.md
-        - 有表头配置说明: nebula-importer/config-with-header.md
-        - 无表头配置说明: nebula-importer/config-without-header.md
+      - 使用 NebulaGraph Importer: nebula-importer/use-importer.md
+#        - 有表头配置说明: nebula-importer/config-with-header.md
+#        - 无表头配置说明: nebula-importer/config-without-header.md
 
       - NebulaGraph Exchange:
         - 认识 NebulaGraph Exchange:
@@ -1057,10 +1056,9 @@ nav:
       - Dashboard 页面介绍: nebula-dashboard/4.use-dashboard.md
       - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
 
-  - NebulaGraph Importer:
-    - 使用 NebulaGraph Importer: nebula-importer/use-importer.md
-    - 有表头配置说明: nebula-importer/config-with-header.md
-    - 无表头配置说明: nebula-importer/config-without-header.md
+  - NebulaGraph Importer: nebula-importer/use-importer.md
+#    - 有表头配置说明: nebula-importer/config-with-header.md
+#    - 无表头配置说明: nebula-importer/config-without-header.md
 
   - NebulaGraph Exchange:
     - 认识 NebulaGraph Exchange:
