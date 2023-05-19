@@ -102,6 +102,9 @@
 |`tags.fields`|list\[string\]|-|是|属性对应的列的表头或列名。如果有表头或列名，请直接使用该名称。如果 CSV 文件没有表头，用`[_c0, _c1, _c2]`的形式表示第一列、第二列、第三列，以此类推。|
 |`tags.nebula.fields`|list\[string\]|-|是|{{nebula.name}}中定义的属性名称，顺序必须和`tags.fields`一一对应。例如`[_c1, _c2]`对应`[name, age]`，表示第二列为属性 name 的值，第三列为属性 age 的值。|
 |`tags.vertex.field`|string|-|是|点 ID 的列。例如 CSV 文件没有表头时，可以用`_c0`表示第一列的值作为点 ID。|
+|`tags.vertex.udf.separator`|string|-|否|通过自定义规则合并多列，该参数指定连接符。|
+|`tags.vertex.udf.oldColNames`|list|-|否|通过自定义规则合并多列，该参数指定待合并的列名。多个列用英文逗号（,）分隔。|
+|`tags.vertex.udf.newColName`|string|-|否|通过自定义规则合并多列，该参数指定新列的列名。|
 |`tags.batch`|int|`256`|是|单批次写入{{nebula.name}}的最大点数量。|
 |`tags.partition`|int|`32`|是|Spark 分片数量。|
 
