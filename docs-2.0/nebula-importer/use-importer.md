@@ -226,13 +226,7 @@ log:
 
 ### Source 配置
 
-Source 配置中需要配置数据源信息、数据处理方式和模式映射。主要包括以下几个部分：
-
-- 指定数据源信息，例如本地文件、HDFS、S3 等。只能配置一种数据源。
-- 指定执行语句的批处理量。
-- 指定 CSV 文件格式信息。
-- 指定 Tag 的模式映射。
-- 指定 Edge type 的模式映射。
+Source 配置中需要配置数据源信息、数据处理方式和模式映射。
 
 示例配置如下：
 
@@ -339,11 +333,19 @@ sources:
           defaultValue: 0000-00-00T00:00:00
 ```
 
+配置主要包括以下几个部分：
+
+- 指定数据源信息。
+- 指定执行语句的批处理量。
+- 指定 CSV 文件格式信息。
+- 指定 Tag 的模式映射。
+- 指定 Edge type 的模式映射。
+
 |参数|默认值|是否必须|说明|
 |:---|:---|:---|:---|
 |`sources.path`</br>`sources.s3`</br>`sources.oss`</br>`sources.ftp`</br>`sources.sftp`</br>`sources.hdfs`   |-| 否 | 指定数据源信息，例如本地文件、HDFS、S3 等。一个`source`只能配置一种数据源，配置多个数据源请在多个`source`内配置。</br>不同数据源的配置项说明请参见示例内的注释。         |  
 |`sources.batch`   |`256`| 否 | 导入该数据源时执行语句的批处理量。优先级高于`manager.batch`。          |  
-|`sources.csv.delimiter`   |`,`| 否 |  CSV 文件的分隔符。仅支持 1 个字符的字符串分隔符。使用特殊字符做分隔符时需要进行转义。例如当分隔符为十六进制`0x03`即`Ctrl+C`时，转义的写法为：`"\x03"`或`"\u0003"`。关于 yaml 格式特殊字符转义的细节请参见[更多](https://yaml.org/spec/1.2.2/#escaped-characters)。|         |  
+|`sources.csv.delimiter`   |`,`| 否 |  CSV 文件的分隔符。仅支持 1 个字符的字符串分隔符。使用特殊字符做分隔符时需要进行转义。例如当分隔符为十六进制`0x03`即`Ctrl+C`时，转义的写法为：`"\x03"`或`"\u0003"`。关于 yaml 格式特殊字符转义的细节请参见[Escaped Characters](https://yaml.org/spec/1.2.2/#escaped-characters)。|         |  
 |`sources.csv.withHeader`   |`false`| 否 | 是否忽略 CSV 文件中的第一条记录。         |  
 |`sources.csv.lazyQuotes`   |`false`| 否 | 是否允许惰性解析引号。如果值为`true`，引号可以出现在非引号字段中，非双引号可以出现在引号字段中，而不会引发解析错误。    |  
 |`sources.tags.name`   |-| 是 | Tag 名称。         |  
@@ -374,4 +376,5 @@ sources:
 |`sources.edges.props.defaultValue`   |-| 否 | 当`nullable`为`false`时忽略。根据`index`和`alternativeIndices`获取的所有值为`nullValue`时设置默认值。         |  
 
 !!! note
+
     CSV 文件中列的序号从 0 开始，即第一列的序号为 0，第二列的序号为 1。
