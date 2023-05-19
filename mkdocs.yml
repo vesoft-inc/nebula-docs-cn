@@ -91,6 +91,8 @@ plugins:
         - nebula-flink/*
         - CHANGELOG.md
         # - nebula-cloud/*
+        - nebula-importer/config-with-header.md
+        - nebula-importer/config-without-header.md
         - nebula-cloud.md
         - nebula-cloud/nebula-cloud-on-azure/*
         - spark-connector/*
