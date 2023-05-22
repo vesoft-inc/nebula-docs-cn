@@ -179,7 +179,7 @@ manager:
 
 |参数|默认值|是否必须|说明|
 |:---|:---|:---|:---|
-|`manager.spaceName`|-|是|指定数据要导入的图空间。|
+|`manager.spaceName`|-|是|指定数据要导入的图空间。不支持同时导入多个图空间。|
 |`manager.batch`|`128`|否|执行语句的批处理量（全局配置）。</br>对某个数据源单独设置批处理量可以使用下文的`sources.batch`。|
 |`manager.readerConcurrency`|`50`|否|读取器读取数据源的并发数。|
 |`manager.importerConcurrency`|`512`|否|生成待执行的 nGQL 语句的并发数，然后会调用客户端执行这些语句。|
