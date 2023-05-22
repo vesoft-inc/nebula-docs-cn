@@ -5,7 +5,7 @@
 !!! enterpriseonly
 
     - 如需购买{{explorer.name}}，请[联系我们](https://yueshu.com.cn/contact)。
-    - 新用户可以[申请 30 天试用](https://wj.qq.com/s2/10158890/69a8)。你也可以[在线体验{{explorer.name}}](https://explorer.nebula-graph.com.cn/) 部分功能。
+    - 新用户可以[申请 30 天试用](https://computenest.console.aliyun.com/user/cn-hangzhou/serviceInstanceCreate?spm=5176.product-detail.detail.2.7b69418emmnkV9&ServiceId=service-39f4f251e9484369a778&isTrial=true)。
 
 ## 适用场景
 

@@ -6,10 +6,6 @@
 
 已选择目标图空间。详情参见[选择图空间](13.choose-graphspace.md)。
 
-!!! compatibility "历史版本兼容性"
-
-    针对 3.0.0 以下版本的 NebulaGraph，需要创建索引后才可以使用查询功能。更多信息，参见[创建索引](../../3.ngql-guide/14.native-index-statements/1.create-native-index.md)。
-
 ## 操作步骤
 
 在{{explorer.name}}页面左侧单击**开始**图标![query](https://docs-cdn.nebula-graph.com.cn/figures/nav-query2_cn.png)然后查询数据。查询到的数据会显示在画布中。查询方式如下：
