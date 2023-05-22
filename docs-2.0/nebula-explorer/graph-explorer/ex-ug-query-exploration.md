@@ -29,10 +29,6 @@
 
     查询区域中每行仅支持填入一个 VID，用回车键分隔。
 
-下图以图空间`basketballplayer`及相关数据为例演示如何查询数据。
-
-![VID QUERY](https://docs-cdn.nebula-graph.com.cn/figures/vid-query-22-04-06_cn.gif)
-
 ### Tag 查询
 
 用户可以选择 Tag 和对应索引查询目标点，还可以设置结果数量限制和筛选条件。

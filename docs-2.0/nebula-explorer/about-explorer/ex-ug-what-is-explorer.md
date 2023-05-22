@@ -56,8 +56,10 @@
 | 2.6.x | 2.1.0 |
 | 2.5.x | 2.0.0 |
 
-
+<!--
 ## 视频
 
 * [NebulaGraph Explore Demo Show](https://www.bilibili.com/video/BV1VL4y1V7C2/)（2 分 54 秒）
 <iframe src="//player.bilibili.com/player.html?aid=853353222&bvid=BV1VL4y1V7C2&cid=581214591&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
+
+-->

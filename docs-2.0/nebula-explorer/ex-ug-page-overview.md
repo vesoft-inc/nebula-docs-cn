@@ -4,7 +4,7 @@
 
 {{explorer.name}}由顶部导航栏、左侧导航栏、和画布三大模块组成。
 
-![explorer-overview](https://docs-cdn.nebula-graph.com.cn/figures/ex-overview-230105-cn.png)
+![explorer-overview](https://docs-cdn.nebula-graph.com.cn/figures/ex-overview-230522-cn.png)
 
 ## 顶部导航栏
 
