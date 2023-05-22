@@ -16,7 +16,7 @@ Studio 支持界面化地将 CSV 格式数据导入至{{nebula.name}}中。
 
 在顶部导航栏里，单击 ![download](https://docs-cdn.nebula-graph.com.cn/figures/studio-btn-download.png) 图标。
 
-#导入数据主要分为 2 个部分，新建数据源和创建导入任务，接下来将详细介绍。
+导入数据主要分为 2 个部分，新建数据源和创建导入任务，接下来将详细介绍。
 
 ### 新建数据源
 
