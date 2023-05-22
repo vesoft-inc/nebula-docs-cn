@@ -111,9 +111,7 @@ $ docker run --rm -ti \
 
 ## 配置文件说明
 
-NebulaGraph Importer 通过`nebula-importer/examples/`内的示例配置文件来描述待导入文件信息、{{nebula.name}}服务器信息等。下文将分类介绍配置文件内的字段。
-
-用户可以参考更多[配置示例](https://github.com/vesoft-inc/nebula-ng-tools/tree/{{importer.branch}}/importer/examples/basic)。
+NebulaGraph Importer 的[Github](https://github.com/vesoft-inc/nebula-ng-tools/tree/{{importer.branch}}/importer/examples)内提供多种示例配置文件。配置文件用来描述待导入文件信息、{{nebula.name}}服务器信息等。下文将分类介绍配置文件内的字段。
 
 !!! note
 
