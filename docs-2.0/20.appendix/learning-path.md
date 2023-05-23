@@ -1,12 +1,15 @@
 # {{nebula.name}}学习路径
 
-本文介绍{{nebula.name}}学习路径，用户可以通过路径中的文档及视频由浅入深地学习 NebulaGraph。
+本文介绍{{nebula.name}}学习路径，用户可以通过路径中的文档及视频由浅入深地学习{{nebula.name}}。
 
+{{comm.comm_begin}}
  ![learning path](https://docs-cdn.nebula-graph.com.cn/figures/learning-path.png)
 
 完成{{nebula.name}}学习后，参加[技能认证](https://www.bilibili.com/video/BV1Ga411x7RE)考试还可以获取认证证书。详情参见下文**通过 CI/CP 考试**。
 
 <iframe src="//player.bilibili.com/player.html?aid=215181639&bvid=BV1Ga411x7RE&cid=752738115&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
+{{comm.comm_end}}
+
 
 ## 1. 关于{{nebula.name}}
 
@@ -263,6 +266,8 @@
   | 文档                                                         |
   | ------------------------------------------------------------ |
   | [常见问题 FAQ](https://docs.nebula-graph.com.cn/{{nebula.release}}/20.appendix/0.FAQ/#faq) |
+
+{{comm.comm_begin}}
 ## 7. 实操作业
 
  用户可以通过完成以下实操作业来检测是否玩转{{nebula.name}}。
@@ -296,3 +301,5 @@
 - 有关 [{{nebula.name}}索引](../3.ngql-guide/14.native-index-statements/README.md)原理的介绍，参见[开源分布式图数库论文](https://arxiv.org/pdf/2206.07278.pdf)中的 2.4 节。
 
 - 有关{{nebula.name}}语言的概述，参见[开源分布式图数库论文](https://arxiv.org/pdf/2206.07278.pdf)中的 2.8 节。
+
+{{comm.comm_end}}
