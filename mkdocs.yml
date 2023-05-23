@@ -125,9 +125,26 @@ plugins:
         - 20.appendix/release-notes/dashboard-ent-release-note.md
         - 20.appendix/release-notes/explorer-release-note.md
         - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent-from-3.x-3.4.md
+        - 2.quick-start/2.quick-start-on-cloud/1.create-instance-on-cloud.md
+        - 2.quick-start/2.quick-start-on-cloud/2.connect-to-nebulagraph-on-cloud.md
+        - 2.quick-start/2.quick-start-on-cloud/3.how-to-query-on-cloud.md
+        - 9.about-license/1.license-overview.md
+        - 9.about-license/2.license-management-suite/1.suite-overview.md
+        - nebula-cloud/1.what-is-cloud.md
+        - nebula-cloud/nebula-cloud-on-alibabacloud/1.create-service-instance.md
+        - nebula-cloud/nebula-cloud-on-alibabacloud/2.use-cloud-services.md
+        - nebula-cloud/nebula-cloud-on-alibabacloud/3.delete-service-instance.md
+        - nebula-cloud/nebula-cloud-on-alibabacloud/4.scaling-services.md
         # exclude.ent.end
         # exclude.comm.begin
+        - nebula-dashboard/1.what-is-dashboard.md
+        - nebula-dashboard/2.deploy-dashboard.md
+        - nebula-dashboard/3.connect-dashboard.md
+        - nebula-dashboard/4.use-dashboard.md
+        - nebula-dashboard/6.monitor-parameter.md
         - 15.contribution/how-to-contribute.md
+        - 2.quick-start/1.quick-start-overview.md
+        - 2.quick-start/2.start-free-trial-on-cloud.md
         - backup-and-restore/nebula-br/*
         - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
         - nebula-studio/*
@@ -868,7 +885,7 @@ nav:
           - 条件表达式函数: 3.ngql-guide/6.functions-and-expressions/5.conditional-expressions.md
           - 谓词函数: 3.ngql-guide/6.functions-and-expressions/8.predicate.md
           - geo 函数: 3.ngql-guide/6.functions-and-expressions/14.geo.md
-
+          - 自定义函数: 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
       - 通用查询语句:
           - MATCH: 3.ngql-guide/7.general-query-statements/2.match.md
           - OPTIONAL MATCH: 3.ngql-guide/7.general-query-statements/optional-match.md
