@@ -4,3 +4,4 @@ vim*
 app/node_modules
 app/dist/
 
+*.diff
