@@ -27,7 +27,7 @@ NebulaGraph Analytics 版本和 NebulaGraph 内核的版本对应关系如下。
 
 |NebulaGraph 版本|NebulaGraph Analytics 版本|
 |:---|:---|
-|3.4.0 ~ 3.4.1| 3.4.0 |
+|3.4.0 ~ 3.4.x| 3.4.0 |
 |3.3.0      | 3.3.0 |
 |3.1.0 ~ 3.2.x| 3.2.0 |
 |3.0.x      | 1.0.x |

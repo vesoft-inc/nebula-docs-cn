@@ -8,7 +8,7 @@ docs_dir: docs-2.0
 copyright: Copyright &copy; 2023 NebulaGraph - 浙ICP备20010487号
  
 # modify when release: 
-edit_uri: 'https://github.com/vesoft-inc/nebula-docs-cn/edit/v3.4.1/docs-2.0/'  
+edit_uri: 'https://github.com/vesoft-inc/nebula-docs-cn/edit/v3.4.2/docs-2.0/'  
 
 # Configuration
 theme:
@@ -110,7 +110,7 @@ plugins:
 # modify when release: 
   - with-pdf:
       copyright: 2023 vesoft Inc.
-      cover_subtitle: v3.4.1
+      cover_subtitle: v3.4.2
       author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
       cover: true
       back_cover: true
@@ -149,13 +149,13 @@ extra:
     - icon: 'fontawesome/brands/github'
       link: 'https://github.com/vesoft-inc/nebula-docs-cn'
   nebula:
-    release: 3.4.1
+    release: 3.4.2
     nightly: nightly
     master: master
     base20: 2.0
     base200: 2.0.0
     branch: release-3.4
-    tag: v3.4.1
+    tag: v3.4.2
   studio:
     base111b: 1.1.1-beta
     base220: 2.2.1
@@ -743,12 +743,12 @@ nav:
 
   - 附录:
       - Release Note:
-        - NebulaGraph 社区版: 20.appendix/release-notes/nebula-comm-release-note.md
+#        - NebulaGraph 社区版: 20.appendix/release-notes/nebula-comm-release-note.md
         - NebulaGraph 企业版: 20.appendix/release-notes/nebula-ent-release-note.md
-        - NebulaGraph Studio: 20.appendix/release-notes/studio-release-note.md
-        - NebulaGraph Dashboard 社区版: 20.appendix/release-notes/dashboard-comm-release-note.md
-        - NebulaGraph Dashboard 企业版: 20.appendix/release-notes/dashboard-ent-release-note.md
-        - NebulaGraph Explorer: 20.appendix/release-notes/explorer-release-note.md
+#        - NebulaGraph Studio: 20.appendix/release-notes/studio-release-note.md
+#        - NebulaGraph Dashboard 社区版: 20.appendix/release-notes/dashboard-comm-release-note.md
+#        - NebulaGraph Dashboard 企业版: 20.appendix/release-notes/dashboard-ent-release-note.md
+#        - NebulaGraph Explorer: 20.appendix/release-notes/explorer-release-note.md
       - 学习路径: 20.appendix/learning-path.md
 #ent
       - 关于 License: 20.appendix/8.about-license.md

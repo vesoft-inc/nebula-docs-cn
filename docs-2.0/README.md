@@ -2,7 +2,7 @@
 
 !!! Note
     
-    本文档更新时间{{ now().year }}-{{ now().month }}-{{ now().day }}，GitHub commit [{{ git.short_commit }}](https://github.com/vesoft-inc/nebula-docs/commits/v{{nebula.release}})。该版本主色系为"感性红"，色号为 #F3A68C。
+    本文档更新时间{{ now().year }}-{{ now().month }}-{{ now().day }}，GitHub commit [{{ git.short_commit }}](https://github.com/vesoft-inc/nebula-docs/commits/v{{nebula.release}})。该版本主色系为"深水绿"，色号为 #8CCAB0。
 
 <!--
 !!! caution
