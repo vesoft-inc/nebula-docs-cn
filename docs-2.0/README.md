@@ -1,5 +1,9 @@
 # 欢迎阅读 NebulaGraph {{ nebula.release }} 文档
 
+!!! caution
+
+    该版本文档包括 Nebula Graph {{ nebula.release }} 企业版内容和对应版本的周边工具内容，暂不提供社区版。详情查看[版本发布说明](20.appendix/release-notes/nebula-ent-release-note.md)。
+
 !!! Note
     
     本文档更新时间{{ now().year }}-{{ now().month }}-{{ now().day }}，GitHub commit [{{ git.short_commit }}](https://github.com/vesoft-inc/nebula-docs/commits/v{{nebula.release}})。该版本主色系为"深水绿"，色号为 #8CCAB0。
