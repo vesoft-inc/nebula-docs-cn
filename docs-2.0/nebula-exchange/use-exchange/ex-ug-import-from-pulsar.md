@@ -156,11 +156,14 @@
       # 指定表中某一列数据为{{nebula.name}}中点 VID 的来源。
       vertex:{
           field:playerid
+<<<<<<< HEAD
       # udf:{
       #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
       }
 
       # 单批次写入{{nebula.name}}的数据条数。
@@ -230,20 +233,26 @@
       # 在 target 里，将 follow 表中某一列作为边的目的点数据源。
       source:{
           field:src_player
+<<<<<<< HEAD
       # udf:{
       #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
       }
 
       target:{
           field:dst_player
+<<<<<<< HEAD
       # udf:{
       #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
       }
 
       # 指定一个列作为 rank 的源（可选）。

@@ -215,11 +215,14 @@
       # 目前，{{nebula.name}} {{nebula.release}}仅支持字符串或整数类型的 VID。
       vertex: {
         field:id
+<<<<<<< HEAD
       # udf:{
       #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
       }
 
       # 指定单批次写入 {{nebula.name}} 的最大点数量。
@@ -302,6 +305,7 @@
       # 目前，{{nebula.name}} {{nebula.release}}仅支持字符串或整数类型的 VID。
       source: {
         field: src
+<<<<<<< HEAD
       # udf:{
       #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
@@ -315,6 +319,11 @@
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+=======
+      }
+      target: {
+        field: dst
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
       }
 
       # 指定一个列作为 rank 的源（可选）。

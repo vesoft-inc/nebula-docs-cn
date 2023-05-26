@@ -182,11 +182,14 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
       nebula.fields: [age,name]
       vertex: {
         field:id
+<<<<<<< HEAD
       # udf:{
       #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
       }
       partition: 10
       batch: 1000
@@ -234,6 +237,7 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
       nebula.fields: [degree]
       source: {
         field: src
+<<<<<<< HEAD
       # udf:{
       #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
@@ -247,6 +251,11 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+=======
+      }
+      target: {
+        field: dst
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
       }
       #ranking: rank
       partition: 10

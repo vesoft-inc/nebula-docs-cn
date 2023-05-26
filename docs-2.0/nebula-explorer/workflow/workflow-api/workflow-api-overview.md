@@ -36,12 +36,21 @@ curl <options> http://<explorer_address>:<explorer_port>/<api_path>?{<body>}
 使用 API 时，需要做 Token 信息校验。请使用如下命令获取 Token 信息。
 
 ```bash
+<<<<<<< HEAD
 curl -i -X POST -H "Content-Type: application/json" -H "Authorization: Bearer <account_base64_encode>" -d '{"address":"<database_address>","port":<database_port>}' http://<explorer_address>:<explorer_port>/api-open/v1/connect
 ```
 
 - `<account_base64_encode>`：Base64 编码后的{{nebula.name}}账号和密码字符串。以用户名`root`、密码`123`为例，序列化后的字符串为`["root","123"]`，Base64 编码后为`WyJyb290IiwiMTIzIl0=`。
 - `<database_address>`：{{nebula.name}}访问地址。
 - `<database_port>`：{{nebula.name}}访问端口。
+=======
+curl -i -X POST -H "Content-Type: application/json" -H "Authorization: Bearer <account_base64_encode>" -d '{"address":"<nebula_address>","port":<nebula_port>}' http://<explorer_address>:<explorer_port>/api-open/v1/connect
+```
+
+- `<account_base64_encode>`：Base64 编码后的{{nebula.name}}账号和密码字符串。以用户名`root`、密码`123`为例，序列化后的字符串为`["root","123"]`，Base64 编码后为`WyJyb290IiwiMTIzIl0=`。
+- `<nebula_address>`：{{nebula.name}}访问地址。
+- `<nebula_port>`：{{nebula.name}}访问端口。
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 - `<explorer_address>`：{{explorer.name}}访问地址。
 - `<explorer_port>`：{{explorer.name}}访问端口。
 

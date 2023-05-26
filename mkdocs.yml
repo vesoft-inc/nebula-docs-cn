@@ -15,7 +15,11 @@ repo_name: 'vesoft-inc/nebula'
 repo_url: 'https://github.com/vesoft-inc/nebula' 
 docs_dir: docs-2.0 
 # modify when release: 
+<<<<<<< HEAD
 edit_uri: 'https://github.com/vesoft-inc/nebula-docs-cn/edit/v3.5.0/docs-2.0/'
+=======
+edit_uri: 'https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/'  
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 copyright: Copyright &copy; 2023 NebulaGraph - 浙ICP备20010487号
 # nav.comm.end
 
@@ -79,7 +83,11 @@ markdown_extensions:
 
 # Plugins
 plugins:
+<<<<<<< HEAD
 #  - search # 这个是原有的 mkdocs 搜索插件， 如果想使用algolia搜索，请注释掉这个插件
+=======
+  - search # 这个是原有的 mkdocs 搜索插件， 如果想使用algolia搜索，请注释掉这个插件
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
   - macros:
       include_dir: docs-2.0/reuse/
   - git-revision-date-localized
@@ -91,18 +99,24 @@ plugins:
         - nebula-flink/*
         - CHANGELOG.md
         # - nebula-cloud/*
+<<<<<<< HEAD
         - nebula-importer/config-with-header.md
         - nebula-importer/config-without-header.md
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
         - nebula-cloud.md
         - nebula-cloud/nebula-cloud-on-azure/*
         - spark-connector/*
         - 4.deployment-and-installation/5.zone.md
         - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-200-to-latest.md
+<<<<<<< HEAD
         - 9.about-license/3.purchase-license.md
         - 9.about-license/4.generate-and-load-license-key.md
         - 9.about-license/5.manage-license.md
         - 9.about-license/2.license-management-suite/1.suite-overview.md
         - 9.about-license/2.license-management-suite/2.license-center.md
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
         # exclude.ent.begin
         - 3.ngql-guide/6.functions-and-expressions/17.ES-function.md
         - 4.deployment-and-installation/deploy-license.md
@@ -125,6 +139,7 @@ plugins:
         - 20.appendix/release-notes/dashboard-ent-release-note.md
         - 20.appendix/release-notes/explorer-release-note.md
         - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent-from-3.x-3.4.md
+<<<<<<< HEAD
         - 2.quick-start/2.quick-start-on-cloud/1.create-instance-on-cloud.md
         - 2.quick-start/2.quick-start-on-cloud/2.connect-to-nebulagraph-on-cloud.md
         - 2.quick-start/2.quick-start-on-cloud/3.how-to-query-on-cloud.md
@@ -146,6 +161,11 @@ plugins:
         - 15.contribution/how-to-contribute.md
         - 2.quick-start/1.quick-start-overview.md
         - 2.quick-start/2.start-free-trial-on-cloud.md
+=======
+        - 4.deployment-and-installation/3.upgrade-nebula-graph/_upgrade-nebula-from-300-to-latest.md
+        # exclude.ent.end
+        # exclude.comm.begin
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
         - backup-and-restore/nebula-br/*
         - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
         - nebula-studio/*
@@ -197,12 +217,18 @@ extra:
   # Modify doc_version to automatically update the parameters for releasing a new version
   doc_version: master
   # Language selector.
+<<<<<<< HEAD
   # nav.comm.begin
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
   alternate:
     - name: English
       link: https://docs.nebula-graph.io/
       lang: en
+<<<<<<< HEAD
   # nav.comm.end
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
   # Google Analytics.
   analytics:
     provider: google
@@ -216,13 +242,22 @@ extra:
       link: 'https://github.com/vesoft-inc/nebula-docs-cn'
 # nav.comm.end
   nebula:
+<<<<<<< HEAD
     release: 3.5.0
+=======
+    release: 3.4.1
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
     nightly: nightly
     master: master
     base20: 2.0
     base200: 2.0.0
+<<<<<<< HEAD
     branch: release-3.5
     tag: v3.5.0
+=======
+    branch: release-3.4
+    tag: v3.4.1
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
     # nav.ent.begin
     name: 悦数图数据库
     # nav.ent.end
@@ -233,12 +268,21 @@ extra:
     base111b: 1.1.1-beta
     base220: 2.2.1
     base300: 3.0.0
+<<<<<<< HEAD
     release: 3.7.0
     tag: v3.7.0
   explorer:
     release: 3.5.0
     branch: release-3.5
     tag: v3.5.0
+=======
+    release: 3.6.0
+    tag: v3.6.0
+  explorer:
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
     # nav.ent.begin
     name: 悦数图探索
     # nav.ent.end
@@ -246,6 +290,7 @@ extra:
     name: NebulaGraph Explorer
     # nav.comm.end
   exchange_ent:
+<<<<<<< HEAD
     release: 3.5.0
     branch: release-3.5
     tag: v3.5.0
@@ -257,14 +302,33 @@ extra:
     release: 4.0.0
     branch: release-4.0
     tag: v4.0.0
+=======
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
+  exchange:
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
+  importer:
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
   algorithm:
     release: 3.0.0
     branch: v3.0.0
     tag: v3.0.0
   plato:
+<<<<<<< HEAD
     release: 3.5.0
     branch: release-3.5
     tag: v3.5.0
+=======
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
     # nav.ent.begin
     name: 悦数图计算
     # nav.ent.end
@@ -276,6 +340,7 @@ extra:
     branch: release-3.4
     tag: v3.4.0
   flinkconnector:
+<<<<<<< HEAD
     release: 3.5.0
     branch: release-3.5
     tag: v3.5.0
@@ -292,6 +357,24 @@ extra:
     release: 3.5.0
     tag: v3.5.0
     branch: release-3.5
+=======
+    release: 3.3.0
+    branch: release-3.3
+    tag: v3.3.0
+  dockercompose:
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
+  dashboard:
+    release: 3.4.0
+    tag: v3.4.0
+    base100: 1.0.0
+    branch: release-3.4
+  dashboard_ent:
+    release: 3.4.2
+    tag: v3.4.2
+    branch: release-3.4
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
     # nav.ent.begin
     name: 悦数运维监控
     # nav.ent.end
@@ -299,16 +382,27 @@ extra:
     name: NebulaGraph Dashboard
     # nav.comm.end
   console:
+<<<<<<< HEAD
     release: 3.5.0
     branch: release-3.5
     tag: v3.5.0
+=======
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
   br:
     release: 3.3.0
     branch: release-3.3
     tag: v3.3.0
   br_ent:
+<<<<<<< HEAD
     release: 3.5.0
     tag: v3.5.0
+=======
+    release: 3.4.1
+    tag: v3.4.1
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
     # nav.ent.begin
     name: Backup&Restore
     # nav.ent.end
@@ -323,27 +417,47 @@ extra:
     branch: release-3.4
     tag: v3.4.0
   java:
+<<<<<<< HEAD
     release: 3.5.0
     branch: release-3.5
     tag: v3.5.0
+=======
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
   python:
     release: 3.4.0
     branch: release-3.4
     tag: v3.4.0
   go:
+<<<<<<< HEAD
     release: 3.5.0
     branch: release-3.5
     tag: v3.5.0
+=======
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
   bench:
     release: 1.2.0
     branch: release-1.2
     tag: v1.2.0
   operator:
+<<<<<<< HEAD
     release: 1.5.0
     tag: v1.5.0
     branch: release-1.5
     upgrade_from: 3.0.0
     upgrade_to: 3.5.0
+=======
+    release: 1.4.2
+    tag: v1.4.2
+    branch: release-1.4
+    upgrade_from: 3.0.0
+    upgrade_to: 3.4.0
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
   exporter:
     release: 3.3.0
     branch: release-3.3
@@ -353,9 +467,15 @@ extra:
     branch: release-3.4
     tag: v3.4.0
   bbox:
+<<<<<<< HEAD
     release: 3.5.0
     branch: release-3.5
     tag: v3.5.0
+=======
+    release: 3.4.0
+    branch: release-3.4
+    tag: v3.4.0
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
     # nav.ent.begin
     name: 悦数黑匣子
     # nav.ent.end
@@ -370,9 +490,12 @@ extra:
     # nav.ent.begin
     name: 悦数图数据库
     # nav.ent.end
+<<<<<<< HEAD
     # nav.comm.begin
     name: 悦数图数据库
     # nav.comm.end
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 
 # nav.ent.begin
 nav:
@@ -617,9 +740,16 @@ nav:
 
   - 导入与导出:
       - 概述: 20.appendix/write-tools.md
+<<<<<<< HEAD
       - 使用 NebulaGraph Importer: nebula-importer/use-importer.md
 #        - 有表头配置说明: nebula-importer/config-with-header.md
 #        - 无表头配置说明: nebula-importer/config-without-header.md
+=======
+      - NebulaGraph Importer:
+        - 使用 NebulaGraph Importer: nebula-importer/use-importer.md
+        - 有表头配置说明: nebula-importer/config-with-header.md
+        - 无表头配置说明: nebula-importer/config-without-header.md
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 
       - NebulaGraph Exchange:
         - 认识 NebulaGraph Exchange:
@@ -888,7 +1018,11 @@ nav:
           - 条件表达式函数: 3.ngql-guide/6.functions-and-expressions/5.conditional-expressions.md
           - 谓词函数: 3.ngql-guide/6.functions-and-expressions/8.predicate.md
           - geo 函数: 3.ngql-guide/6.functions-and-expressions/14.geo.md
+<<<<<<< HEAD
           - 自定义函数: 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
+=======
+
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
       - 通用查询语句:
           - MATCH: 3.ngql-guide/7.general-query-statements/2.match.md
           - OPTIONAL MATCH: 3.ngql-guide/7.general-query-statements/optional-match.md
@@ -1004,7 +1138,11 @@ nav:
 #      - 管理逻辑机架（Zone）: 4.deployment-and-installation/5.zone.md
 
       - 升级版本:
+<<<<<<< HEAD
           - 升级 NebulaGraph 至 v3.5（社区版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
+=======
+          - 升级 NebulaGraph 至 v3.4（社区版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
         #  - 升级 v3.x 至 v3.4（社区版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-300-to-latest.md
       - 卸载 NebulaGraph: 4.deployment-and-installation/4.uninstall-nebula-graph.md
 
@@ -1090,9 +1228,16 @@ nav:
       - Dashboard 页面介绍: nebula-dashboard/4.use-dashboard.md
       - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
 
+<<<<<<< HEAD
   - NebulaGraph Importer: nebula-importer/use-importer.md
 #    - 有表头配置说明: nebula-importer/config-with-header.md
 #    - 无表头配置说明: nebula-importer/config-without-header.md
+=======
+  - NebulaGraph Importer:
+    - 使用 NebulaGraph Importer: nebula-importer/use-importer.md
+    - 有表头配置说明: nebula-importer/config-with-header.md
+    - 无表头配置说明: nebula-importer/config-without-header.md
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 
   - NebulaGraph Exchange:
     - 认识 NebulaGraph Exchange:

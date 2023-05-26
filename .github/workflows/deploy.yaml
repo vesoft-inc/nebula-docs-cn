@@ -1,11 +1,19 @@
 name: Publish docs via GitHub Pages
 env:
+<<<<<<< HEAD
   ACTIONTEST: 3.5.0
+=======
+  ACTIONTEST: master
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 # branch name, like master, 2.4
 on:
   push:
     branches: # hard code branch name
+<<<<<<< HEAD
       - v3.5.0
+=======
+      - master
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 
 jobs:
   prepare:
@@ -86,7 +94,10 @@ jobs:
           python ./scripts/conditional_pdf.py
           git fetch origin gh-pages --depth=1 # fix mike's CI update
           mike deploy ${{ env.ACTIONTEST }}  -p --rebase
+<<<<<<< HEAD
           mike set-default ${{ env.ACTIONTEST }} -p --rebase
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
           mike list
       - name: show git branch
         run: | 

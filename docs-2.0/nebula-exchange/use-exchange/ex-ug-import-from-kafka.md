@@ -152,11 +152,14 @@
       # 这里的值 key 和上面的 key 重复，表示 key 既作为 VID，也作为属性 name。
       vertex:{
           field:personId
+<<<<<<< HEAD
       # udf:{
       #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
       }
 
       # 单批次写入 {{nebula.name}} 的数据条数。
@@ -218,20 +221,26 @@
       # 在 target 里，将 topic 中某一列作为边的目的点数据源。
       source:{
           field:srcPersonId
+<<<<<<< HEAD
       # udf:{
       #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
       }
 
       target:{
           field:dstPersonId
+<<<<<<< HEAD
       # udf:{
       #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
       }
 
       # 指定一个列作为 rank 的源（可选）。

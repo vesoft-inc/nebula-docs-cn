@@ -3,9 +3,15 @@
 {{nebula.name}}运行出现问题时，会返回错误码。本文介绍错误码的详细信息。
 
 !!! note
+<<<<<<< HEAD
     {{comm.comm_begin}}
     - 如果出现错误但没有返回错误码，或错误码描述不清，请在[论坛](https://discuss.nebula-graph.com.cn/)或 [GitHub](https://github.com/vesoft-inc/nebula/issues) 反馈。
     {{comm.comm_end}}
+=======
+    {comm.comm_begin}
+    - 如果出现错误但没有返回错误码，或错误码描述不清，请在[论坛](https://discuss.nebula-graph.com.cn/)或 [GitHub](https://github.com/vesoft-inc/nebula/issues) 反馈。
+    {comm.comm_end}
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
     - 返回`0`表示执行成功。
 
 |错误名称|错误码|说明|

@@ -1,6 +1,10 @@
 # 系统设置
 
+<<<<<<< HEAD
 本文介绍{{explorer.name}}的系统设置，包括全局设置和自定义设置。
+=======
+本文介绍 NebulaGraph Explorer 的系统设置，包括全局设置和自定义设置。
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 
 ## 全局设置
 

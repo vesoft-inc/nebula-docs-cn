@@ -5,7 +5,11 @@
 !!! enterpriseonly
 
     - 如需购买{{explorer.name}}，请[联系我们](https://yueshu.com.cn/contact)。
+<<<<<<< HEAD
     - 新用户可以[申请 30 天试用](https://computenest.console.aliyun.com/user/cn-hangzhou/serviceInstanceCreate?spm=5176.product-detail.detail.2.7b69418emmnkV9&ServiceId=service-39f4f251e9484369a778&isTrial=true)。
+=======
+    - 新用户可以[申请 30 天试用](https://wj.qq.com/s2/10158890/69a8)。你也可以[在线体验{{explorer.name}}](https://explorer.nebula-graph.com.cn/) 部分功能。
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 
 ## 适用场景
 
@@ -47,8 +51,12 @@
 
 |{{nebula.name}}版本 | {{explorer.name}}版本 |
 | --- | --- |
+<<<<<<< HEAD
 | 3.5.0         | 3.5.0、3.4.0   |
 | 3.4.0 ~ 3.4.1 | 3.5.0、3.4.0、3.2.1、3.2.0   |
+=======
+| 3.4.0 ~ 3.4.1 | 3.4.0、3.2.1、3.2.0   |
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 | 3.3.0 | 3.2.1、3.2.0|
 | 3.1.0 ~ 3.2.x| 3.1.0|
 | 3.0.0 ~ 3.1.0 | 3.0.0  |
@@ -56,10 +64,17 @@
 | 2.6.x | 2.1.0 |
 | 2.5.x | 2.0.0 |
 
+<<<<<<< HEAD
 <!--
+=======
+
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 ## 视频
 
 * [NebulaGraph Explore Demo Show](https://www.bilibili.com/video/BV1VL4y1V7C2/)（2 分 54 秒）
 <iframe src="//player.bilibili.com/player.html?aid=853353222&bvid=BV1VL4y1V7C2&cid=581214591&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
+<<<<<<< HEAD
 
 -->
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))

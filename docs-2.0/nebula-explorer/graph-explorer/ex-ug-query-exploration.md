@@ -6,6 +6,13 @@
 
 已选择目标图空间。详情参见[选择图空间](13.choose-graphspace.md)。
 
+<<<<<<< HEAD
+=======
+!!! compatibility "历史版本兼容性"
+
+    针对 3.0.0 以下版本的 NebulaGraph，需要创建索引后才可以使用查询功能。更多信息，参见[创建索引](../../3.ngql-guide/14.native-index-statements/1.create-native-index.md)。
+
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 ## 操作步骤
 
 在{{explorer.name}}页面左侧单击**开始**图标![query](https://docs-cdn.nebula-graph.com.cn/figures/nav-query2_cn.png)然后查询数据。查询到的数据会显示在画布中。查询方式如下：
@@ -25,6 +32,13 @@
 
     查询区域中每行仅支持填入一个 VID，用回车键分隔。
 
+<<<<<<< HEAD
+=======
+下图以图空间`basketballplayer`及相关数据为例演示如何查询数据。
+
+![VID QUERY](https://docs-cdn.nebula-graph.com.cn/figures/vid-query-22-04-06_cn.gif)
+
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 ### Tag 查询
 
 用户可以选择 Tag 和对应索引查询目标点，还可以设置结果数量限制和筛选条件。
