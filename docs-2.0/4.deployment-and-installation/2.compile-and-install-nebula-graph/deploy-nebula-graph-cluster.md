@@ -32,7 +32,9 @@
 
 - [使用 RPM 或 DEB 包安装{{nebula.name}}](2.install-nebula-graph-by-rpm-or-deb.md)
 
+{{ comm.comm_begin }}
 - [使用源码安装{{nebula.name}}](1.install-nebula-graph-by-compiling-the-source-code.md)
+{{ comm.comm_end }}
 
 ### 修改配置文件
 

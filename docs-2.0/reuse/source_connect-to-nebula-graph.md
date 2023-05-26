@@ -1,4 +1,4 @@
-本文介绍如何使用原生命令行客户端 Nebula Console 连接 NebulaGraph。
+本文介绍如何使用原生命令行客户端 Nebula Console 连接{{nebula.name}}。
 
 <!--本文中的链接必须用外链，因为这篇文档是复用的，用内部链接会出错。-->
 
@@ -10,7 +10,7 @@
 
 ## 前提条件
 
--{{nebula.name}}服务已[启动](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/manage-service/)。
+- {{nebula.name}}服务已[启动](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/manage-service/)。
 
 - 运行 Nebula Console 的机器和运行{{nebula.name}}的服务器网络互通。
 
