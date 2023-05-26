@@ -20,7 +20,11 @@
 
 - Hadoop：2.9.2 伪分布式部署
 
+<<<<<<< HEAD
 - {{nebula.name}}：{{nebula.release}}。
+=======
+- {{nebula.name}}：{{nebula.release}}。使用 [Docker Compose 部署](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)。
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 
 ## 前提条件
 
@@ -187,11 +191,14 @@
       # 目前，{{nebula.name}} {{nebula.release}}仅支持字符串或整数类型的 VID。
       vertex: {
         field:_c0
+<<<<<<< HEAD
       # udf:{
       #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
         # policy:hash
       }
 
@@ -290,6 +297,7 @@
       # 目前，{{nebula.name}} {{nebula.release}}仅支持字符串或整数类型的 VID。
       source: {
         field: _c0
+<<<<<<< HEAD
       # udf:{
       #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
@@ -303,6 +311,11 @@
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+=======
+      }
+      target: {
+        field: _c1
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
       }
 
       # 指定的分隔符。默认值为英文逗号（,）。

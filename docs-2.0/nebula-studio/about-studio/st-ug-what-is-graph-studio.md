@@ -4,7 +4,11 @@ NebulaGraph Studio（简称 Studio）是一款可以通过 Web 访问的开源�
 
 !!! Note
 
+<<<<<<< HEAD
     用户可以[在线试用 Studio](https://playground.nebula-graph.com.cn/explore) 部分功能。企业版 NebulaGraph 提供功能更强大的可视化工具，点击[免费试用](https://computenest.console.aliyun.com/user/cn-hangzhou/serviceInstanceCreate?ServiceId=service-39f4f251e9484369a778&ServiceVersion=20&isTrial=true)即可在阿里云上体验。
+=======
+    用户也可以[在线试用 Studio](https://playground.nebula-graph.com.cn/explore) 部分功能。
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 
 ## 发行版本
 
@@ -44,8 +48,12 @@ Studio 可以方便管理{{nebula.name}}数据，具备以下功能：
 
 |{{nebula.name}}版本 | Studio 版本 |
 | --- | --- |
+<<<<<<< HEAD
 | 3.5.0  | 3.7.0 |
 | 3.4.0 ~ 3.4.1| 3.7.0、3.6.0、3.5.1、3.5.0 |
+=======
+| 3.4.0 ~ 3.4.1| 3.6.0、3.5.1、3.5.0 |
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 | 3.3.0 | 3.5.1、3.5.0 |
 | 3.0.0 ～ 3.2.x| 3.4.1、3.4.0|
 | 3.1.0 | 3.3.2 |

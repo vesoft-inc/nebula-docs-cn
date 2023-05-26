@@ -2,7 +2,11 @@
 
 !!! Note
     
+<<<<<<< HEAD
     本文档更新时间{{ now().year }}-{{ now().month }}-{{ now().day }}，GitHub commit [{{ git.short_commit }}](https://github.com/vesoft-inc/nebula-docs/commits/v{{nebula.release}})。该版本主色系为"胶蓝"，色号为 #66CCFF。
+=======
+    本文档更新时间{{ now().year }}-{{ now().month }}-{{ now().day }}，GitHub commit [{{ git.short_commit }}](https://github.com/vesoft-inc/nebula-docs/commits/v{{nebula.release}})。该版本主色系为"感性红"，色号为 #F3A68C。
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 
 <!--
 !!! caution
@@ -29,6 +33,7 @@ NebulaGraph 是一款开源的、分布式的、易扩展的原生图数据库�
 * [生态工具](20.appendix/6.eco-tool-version.md)
 * [Academy 课程](https://academic.nebula-graph.io/intro/)
 
+<<<<<<< HEAD
 ## 最新发布
 
 {{comm.comm_begin}}
@@ -49,15 +54,26 @@ NebulaGraph 是一款开源的、分布式的、易扩展的原生图数据库�
 - [学习路径](https://academic.nebula-graph.io/?lang=ZH_CN)
    {{ comm.comm_begin }}
 - [引用 NebulaGraph](https://arxiv.org/abs/2206.07278)
+=======
+## 其他资料
+
+- [学习路径](https://academic.nebula-graph.io/?lang=ZH_CN)
+{{ comm.comm_begin }}
+- [引用 NebulaGraph](https://arxiv.org/abs/2206.07278)
+{{ comm.comm_end }}
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 - [论坛](https://discuss.nebula-graph.com.cn/)
 - [主页](https://nebula-graph.com.cn/)
 - [系列视频](https://space.bilibili.com/472621355)
 - [英文文档](https://docs.nebula-graph.io/)
+<<<<<<< HEAD
    {{ comm.comm_end }}
    {{ ent.ent_begin }}
 -[主页](https://yueshu.com.cn/)
    {{ ent.ent_end }}
 
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 
 ## 图例说明
 

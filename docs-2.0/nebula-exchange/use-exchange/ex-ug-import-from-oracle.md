@@ -62,8 +62,13 @@ oracle> desc serve;
 - Oracle： 19c
 -->
 
+<<<<<<< HEAD
 - {{nebula.name}}：{{nebula.release}}。
   
+=======
+- {{nebula.name}}：{{nebula.release}}。使用 [Docker Compose 部署](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)。
+
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 ## 前提条件
 
 开始导入数据之前，用户需要确认以下信息：
@@ -205,11 +210,14 @@ oracle> desc serve;
       # 指定表中某一列数据为{{nebula.name}}中点 VID 的来源。
       vertex: {
         field:playerid
+<<<<<<< HEAD
       # udf:{
       #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
       }
 
       # 单批次写入{{nebula.name}}的数据条数。
@@ -277,20 +285,26 @@ oracle> desc serve;
       # 在 target 里，将 follow 表中某一列作为边的目的点数据源。
       source: {
         field: src_player
+<<<<<<< HEAD
       # udf:{
       #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
       }
 
       target: {
         field: dst_player
+<<<<<<< HEAD
       # udf:{
       #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
       }
 
       # 指定一个列作为 rank 的源（可选）。

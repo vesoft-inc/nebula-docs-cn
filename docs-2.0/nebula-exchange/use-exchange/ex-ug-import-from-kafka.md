@@ -12,7 +12,11 @@
 
 - Spark：2.4.7，单机版
 
+<<<<<<< HEAD
 - {{nebula.name}}：{{nebula.release}}。
+=======
+- {{nebula.name}}：{{nebula.release}}。使用 [Docker Compose 部署](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)。
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 
 ## 前提条件
 
@@ -152,11 +156,14 @@
       # 这里的值 key 和上面的 key 重复，表示 key 既作为 VID，也作为属性 name。
       vertex:{
           field:personId
+<<<<<<< HEAD
       # udf:{
       #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
       }
 
       # 单批次写入 {{nebula.name}} 的数据条数。
@@ -218,20 +225,26 @@
       # 在 target 里，将 topic 中某一列作为边的目的点数据源。
       source:{
           field:srcPersonId
+<<<<<<< HEAD
       # udf:{
       #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
       }
 
       target:{
           field:dstPersonId
+<<<<<<< HEAD
       # udf:{
       #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
       }
 
       # 指定一个列作为 rank 的源（可选）。

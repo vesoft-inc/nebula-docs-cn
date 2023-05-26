@@ -1,10 +1,18 @@
 # Storage 负载均衡
 
+<<<<<<< HEAD
 用户可以使用`SUBMIT JOB BALANCE`语句平衡分片和 Raft leader 的分布，或者清空某些 Storage 服务器方便进行维护。详情请参见 [SUBMIT JOB BALANCE](../synchronization-and-migration/2.balance-syntax.md)。
 
 !!! danger
 
     `SUBMIT JOB BALANCE`命令通过创建和执行一组子任务来迁移数据和均衡分片分布，**禁止**停止集群中的任何机器或改变机器的 IP 地址，直到所有子任务完成，否则后续子任务会失败。
+=======
+用户可以使用`BALANCE`语句平衡分片和 Raft leader 的分布，或者清空某些 Storage 服务器方便进行维护。详情请参见 [BALANCE](../synchronization-and-migration/2.balance-syntax.md)。
+
+!!! danger
+
+    `BALANCE`命令通过创建和执行一组子任务来迁移数据和均衡分片分布，**禁止**停止集群中的任何机器或改变机器的 IP 地址，直到所有子任务完成，否则后续子任务会失败。
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 
 {{ ent.ent_begin }}
 
@@ -18,7 +26,11 @@
 
     如果当前图空间已经有失败的均衡分片分布作业，无法开始新的均衡分片分布作业，只能恢复之前失败的作业。如果作业一直执行失败，可以先停止作业，再开始新的均衡分片分布作业。
 
+<<<<<<< HEAD
 `SUBMIT JOB BALANCE DATA`语句会开始一个作业，将当前图空间的分片平均分配到所有 Storage 服务器。通过创建和执行一组子任务来迁移数据和均衡分片分布。
+=======
+`BALANCE DATA`语句会开始一个作业，将当前图空间的分片平均分配到所有 Storage 服务器。通过创建和执行一组子任务来迁移数据和均衡分片分布。
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 
 ### 示例
 
@@ -36,11 +48,19 @@
     +-----------------+------+----------+--------------+-----------------------+------------------------+-------------+
     ```
 
+<<<<<<< HEAD
 2. 进入图空间`basketballplayer`，然后执行命令`SUBMIT JOB BALANCE DATA`将所有分片均衡分布。
 
     ```ngql
     nebula> USE basketballplayer;
     nebula> SUBMIT JOB BALANCE DATA;
+=======
+2. 进入图空间`basketballplayer`，然后执行命令`BALANCE DATA`将所有分片均衡分布。
+
+    ```ngql
+    nebula> USE basketballplayer;
+    nebula> BALANCE DATA;
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
     +------------+
     | New Job Id |
     +------------+
@@ -64,7 +84,11 @@
 
   !!! Note
 
+<<<<<<< HEAD
         `SUBMIT JOB BALANCE DATA`不会均衡 leader 的分布。均衡 leader 请参见[均衡 leader 分布](#leader)。
+=======
+        `BALANCE DATA`不会均衡 leader 的分布。均衡 leader 请参见[均衡 leader 分布](#leader)。
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 
   ```ngql
   nebula> SHOW HOSTS;
@@ -101,12 +125,20 @@
 
 ### 迁移分片
 
+<<<<<<< HEAD
 迁移指定的 Storage 主机中的分片来缩小集群规模，可以使用命令`SUBMIT JOB BALANCE DATA REMOVE <ip:port> [,<ip>:<port> ...]`。
+=======
+迁移指定的 Storage 主机中的分片来缩小集群规模，可以使用命令`BALANCE DATA REMOVE <ip:port> [,<ip>:<port> ...]`。
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 
 例如需要迁移`192.168.8.100:9779`中的分片，请执行如下命令：
 
 ```ngql
+<<<<<<< HEAD
 nebula> SUBMIT JOB BALANCE DATA REMOVE 192.168.8.100:9779;
+=======
+nebula> BALANCE DATA REMOVE 192.168.8.100:9779;
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 nebula> SHOW HOSTS;
 +-----------------+------+----------+--------------+-----------------------+------------------------+-------------+
 | Host            | Port | Status   | Leader count | Leader distribution   | Partition distribution | Version     |
@@ -125,7 +157,11 @@ nebula> SHOW HOSTS;
 <!-- 下面是注释内容
 !!! danger
 
+<<<<<<< HEAD
     `SUBMIT JOB BALANCE`命令通过创建和执行一组子任务来迁移数据和均衡分片分布，不要停止集群中的任何机器或改变机器的 IP 地址，直到所有子任务完成，否则后续子任务会失败。
+=======
+    `BALANCE`命令通过创建和执行一组子任务来迁移数据和均衡分片分布，不要停止集群中的任何机器或改变机器的 IP 地址，直到所有子任务完成，否则后续子任务会失败。
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 
 ## 均衡分片分布
 
@@ -248,12 +284,20 @@ nebula> SHOW HOSTS;
 -->
 ## 均衡 leader 分布
 
+<<<<<<< HEAD
 用户可以使用命令`SUBMIT JOB BALANCE LEADER`均衡 leader 分布。
+=======
+用户可以使用命令`BALANCE LEADER`均衡 leader 分布。
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 
 ### 示例
 
 ```ngql
+<<<<<<< HEAD
 nebula> SUBMIT JOB BALANCE LEADER;
+=======
+nebula> BALANCE LEADER;
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 ```
 
 用户可以执行`SHOW HOSTS`检查结果。

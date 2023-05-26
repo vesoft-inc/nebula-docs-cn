@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 withpdf: True
+=======
+withpdf: False
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 # True or False. case sensitive

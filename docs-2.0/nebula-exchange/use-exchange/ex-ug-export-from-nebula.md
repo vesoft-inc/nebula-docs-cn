@@ -229,11 +229,14 @@ CentOS 7.9.2009
         nebula.fields: [target_nebula-field-0, target_nebula-field-1, target_nebula-field-2]
         limit:10000
         vertex: _vertexId  # must be `_vertexId`
+<<<<<<< HEAD
       # udf:{
       #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
         batch: 2000
         partition: 60
       }
@@ -255,6 +258,7 @@ CentOS 7.9.2009
         nebula.fields: [target_nebula-field-0, target_nebula-field-1, target_nebula-field-2]
         limit:1000
         source: _srcId # must be `_srcId`
+<<<<<<< HEAD
       # udf:{
       #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
@@ -266,6 +270,9 @@ CentOS 7.9.2009
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+=======
+        target: _dstId # must be `_dstId`
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
         ranking: source_nebula-field-2
         batch: 2000
         partition: 60

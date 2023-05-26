@@ -3,4 +3,8 @@ site/
 vim*
 app/node_modules
 app/dist/
+<<<<<<< HEAD
 *.diff
+=======
+
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))

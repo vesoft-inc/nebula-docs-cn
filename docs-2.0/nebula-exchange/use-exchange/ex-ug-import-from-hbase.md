@@ -57,7 +57,11 @@ ROW                                COLUMN+CELL
 
 - HBase：2.2.7
 
+<<<<<<< HEAD
 - {{nebula.name}}：{{nebula.release}}。
+=======
+- {{nebula.name}}：{{nebula.release}}。使用 [Docker Compose 部署](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)。
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
 
 ## 前提条件
 
@@ -199,11 +203,14 @@ ROW                                COLUMN+CELL
       # 例如 rowkey 作为 VID 的来源，请填写“rowkey”。
       vertex:{
           field:rowkey
+<<<<<<< HEAD
       # udf:{
       #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
       }
 
       # 单批次写入 {{nebula.name}} 的数据条数。
@@ -265,20 +272,26 @@ ROW                                COLUMN+CELL
       # 在 target 里，将 follow 表中某一列作为边的目的点数据源。示例使用列 dst_player。
       source:{
           field:rowkey
+<<<<<<< HEAD
       # udf:{
       #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
       }
 
       target:{
           field:dst_player
+<<<<<<< HEAD
       # udf:{
       #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+=======
+>>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
       }
 
       # 指定一个列作为 rank 的源（可选）。
