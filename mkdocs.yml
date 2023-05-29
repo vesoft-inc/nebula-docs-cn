@@ -136,7 +136,6 @@ plugins:
         - nebula-cloud/nebula-cloud-on-alibabacloud/3.delete-service-instance.md
         - nebula-cloud/nebula-cloud-on-alibabacloud/4.scaling-services.md
         - 4.deployment-and-installation/3.upgrade-nebula-graph/_upgrade-nebula-from-300-to-latest.md
->>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
         # exclude.ent.end
         # exclude.comm.begin
         - nebula-dashboard/1.what-is-dashboard.md
