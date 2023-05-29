@@ -62,8 +62,8 @@ oracle> desc serve;
 - Oracle： 19c
 -->
 
-- {{nebula.name}}：{{nebula.release}}。使用 [Docker Compose 部署](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)。
-
+- {{nebula.name}}：{{nebula.release}}。
+  
 ## 前提条件
 
 开始导入数据之前，用户需要确认以下信息：

@@ -160,6 +160,7 @@ plugins:
         - 8.service-tuning/enable_autofdo_for_nebulagraph.md
         - 20.appendix/history.md
         - 20.appendix/mind-map.md
+        - 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
         # exclude.comm.end
 
 # Exclude the file with the following file name.
@@ -565,7 +566,6 @@ nav:
       - 安装软件包:
           - 使用 RPM/DEB 包安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md
           - 使用 TAR 包安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/4.install-nebula-graph-from-tar.md
-          - 使用 Docker Compose 部署: 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
           - 使用 RPM/DEB 包部署多机集群: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
           - 使用生态工具安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/6.deploy-nebula-graph-with-peripherals.md
       - 管理服务: 4.deployment-and-installation/manage-service.md
@@ -574,7 +574,7 @@ nav:
 #      - 管理逻辑机架（Zone）: 4.deployment-and-installation/5.zone.md
       - 升级版本:
         #  - 升级 v3.x 至 v3.4（社区版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-300-to-latest.md
-          - 升级悦数图数据库至 v3.4（企业版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent-from-3.x-3.4.md
+          - 升级悦数图数据库至 v3.5（企业版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent-from-3.x-3.4.md
       - 卸载悦数图数据库: 4.deployment-and-installation/4.uninstall-nebula-graph.md
 
   - 配置与日志:

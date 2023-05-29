@@ -20,7 +20,7 @@
 
 - ClickHouse：docker 部署 yandex/clickhouse-server tag: latest(2021.07.01)
 
-- {{nebula.name}}：{{nebula.release}}。使用 [Docker Compose 部署](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)。
+- {{nebula.name}}：{{nebula.release}}。
 
 ## 前提条件
 
