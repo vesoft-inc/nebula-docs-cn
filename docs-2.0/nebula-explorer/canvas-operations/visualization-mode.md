@@ -44,6 +44,3 @@
 | 画质     | 高：点以球的形式展示，光影效果更好。<br />低：点以圆的形式展示，可以支持更大数据量。 |
 | 重新受力 | 当不同的点重叠时，分散点与点之间的距离。 |
 
-!!! compatibility "历史版本兼容性"
-
-    针对 3.0.0 以下版本的 NebulaGraph，需要创建索引后才可以使用鸟瞰功能。更多信息，参见[创建索引](../../3.ngql-guide/14.native-index-statements/1.create-native-index.md)。

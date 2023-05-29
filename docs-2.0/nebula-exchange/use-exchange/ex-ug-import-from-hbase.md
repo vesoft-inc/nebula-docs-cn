@@ -199,6 +199,11 @@ ROW                                COLUMN+CELL
       # 例如 rowkey 作为 VID 的来源，请填写“rowkey”。
       vertex:{
           field:rowkey
+      # udf:{
+      #            separator:"_"
+      #            oldColNames:[field-0,field-1,field-2]
+      #            newColName:new-field
+      #        }
       }
 
       # 单批次写入 {{nebula.name}} 的数据条数。
@@ -260,10 +265,20 @@ ROW                                COLUMN+CELL
       # 在 target 里，将 follow 表中某一列作为边的目的点数据源。示例使用列 dst_player。
       source:{
           field:rowkey
+      # udf:{
+      #            separator:"_"
+      #            oldColNames:[field-0,field-1,field-2]
+      #            newColName:new-field
+      #        }
       }
 
       target:{
           field:dst_player
+      # udf:{
+      #            separator:"_"
+      #            oldColNames:[field-0,field-1,field-2]
+      #            newColName:new-field
+      #        }
       }
 
       # 指定一个列作为 rank 的源（可选）。

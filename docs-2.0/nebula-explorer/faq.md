@@ -36,19 +36,19 @@ Dag Controller 包含图查询组件和图计算组件。图查询是发送请�
 
 修改`dag-ctrl/etc/dag-ctrl-api.yaml`配置文件，配置 SSH 的`UserName`。
 
-## 任务运行失败，报错`bash: /home/xxx/nebula-analytics/scripts/run_algo.sh: No such file or directory`怎么办？
+## 任务运行失败，报错`bash: /home/xxx/yueshu-analytics/scripts/run_algo.sh: No such file or directory`怎么办？
 
 修改`dag-ctrl/etc/tasks.yaml`配置文件，配置算法执行路径`exec_file`。
 
 ## 任务运行失败，报错`/lib64/libm.so.6: version 'GLIBC_2.29' not found (required by /home/vesoft/jdk-18.0.1/jre/lib/amd64/server/libjvm.so)`怎么办？
 
-由于 JDK18 版本太新，而操作系统版本太旧，`YUM`无法下载`GLIBC_2.29`，可以安装 JDK1.8，请同步修改`nebula-analytics/scripts/set_env.sh`中的 JDK 地址。
+由于 JDK18 版本太新，而操作系统版本太旧，`YUM`无法下载`GLIBC_2.29`，可以安装 JDK1.8，请同步修改`yueshu-analytics/scripts/set_env.sh`中的 JDK 地址。
 
 ## 任务运行失败，报错`handshake failed: ssh: unable to authenticate, attempted methods [none publickey], no supported methods remain`怎么办？
 
 重新配置`.ssh`文件夹及`.ssh/authorized_keys`文件的权限，`.ssh`文件夹权限为`744`，`.ssh/authorized_keys`文件权限为`600`。
 
-## 任务运行失败，报错`There are 0 NebulaGraph Analytics available. clusterSize should be less than or equal to it`怎么办？
+## 任务运行失败，报错`There are 0 Yueshu Analytics available. clusterSize should be less than or equal to it`怎么办？
 
 按如下流程排查：
 
