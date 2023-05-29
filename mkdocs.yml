@@ -125,7 +125,6 @@ plugins:
         - 20.appendix/release-notes/dashboard-ent-release-note.md
         - 20.appendix/release-notes/explorer-release-note.md
         - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent-from-3.x-3.4.md
-<<<<<<< HEAD
         - 2.quick-start/2.quick-start-on-cloud/1.create-instance-on-cloud.md
         - 2.quick-start/2.quick-start-on-cloud/2.connect-to-nebulagraph-on-cloud.md
         - 2.quick-start/2.quick-start-on-cloud/3.how-to-query-on-cloud.md
@@ -136,7 +135,6 @@ plugins:
         - nebula-cloud/nebula-cloud-on-alibabacloud/2.use-cloud-services.md
         - nebula-cloud/nebula-cloud-on-alibabacloud/3.delete-service-instance.md
         - nebula-cloud/nebula-cloud-on-alibabacloud/4.scaling-services.md
-=======
         - 4.deployment-and-installation/3.upgrade-nebula-graph/_upgrade-nebula-from-300-to-latest.md
 >>>>>>> a7074d38d (increment-changes-on-ent-docs (#2789))
         # exclude.ent.end
