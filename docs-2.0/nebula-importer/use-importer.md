@@ -22,11 +22,10 @@ Importer 适用于将本地 CSV 文件的内容导入至{{nebula.name}}中。
 
 - 已部署{{nebula.name}}服务。目前有三种部署方式：
   
+  - [RPM/DEB 包安装](../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)
+  {{comm.comm_begin}}  
   - [Docker Compose 部署](../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)
   
-  - [RPM/DEB 包安装](../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)
-
-  {{comm.comm_begin}}  
   - [源码编译安装](../4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)
   {{comm.comm_end}}
   

@@ -62,7 +62,7 @@ scala> spark.sql("describe basketball.serve").show
 
 - Hive：2.3.7，Hive Metastore 数据库为 MySQL 8.0.22
 
-- {{nebula.name}}：{{nebula.release}}。使用 [Docker Compose 部署](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)。
+- {{nebula.name}}：{{nebula.release}}。
 
 ## 前提条件
 
