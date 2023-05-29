@@ -25,15 +25,9 @@ NebulaGraph Importer（简称 Importer）是一款{{nebula.name}}的 CSV 文件�
 在使用 NebulaGraph Importer 之前，请确保：
 
 - 已部署{{nebula.name}}服务。目前有三种部署方式：
-<<<<<<< HEAD
-
-  - [RPM/DEB 包安装](../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)
-    {{comm.comm_begin}}
-=======
   
   - [RPM/DEB 包安装](../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)
-  {{comm.comm_begin}}  
->>>>>>> a7a80028a (fixes and hide docker-compose deployment in ent-doc (#2797))
+    {{comm.comm_begin}}  
   - [Docker Compose 部署](../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)
   
   - [源码编译安装](../4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)
