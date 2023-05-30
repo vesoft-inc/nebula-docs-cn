@@ -1,11 +1,6 @@
 # 什么是{{explorer.name}}
 
-{{explorer.name}}是一款可以通过 Web 访问的可视化图探索工具，搭配{{nebula.name}}内核使用，用于与图数据进行可视化交互。即使没有图数据操作经验，用户也可以快速成为图专家。 
-
-!!! enterpriseonly
-
-    - 如需购买{{explorer.name}}，请[联系我们](https://yueshu.com.cn/contact)。
-    - 新用户可以[申请 30 天试用](https://computenest.console.aliyun.com/user/cn-hangzhou/serviceInstanceCreate?spm=5176.product-detail.detail.2.7b69418emmnkV9&ServiceId=service-39f4f251e9484369a778&isTrial=true)。
+{{explorer.name}}是一款可以通过 Web 访问的可视化图探索工具，搭配{{nebula.name}}内核使用，用于与图数据进行可视化交互。即使没有图数据操作经验，用户也可以快速成为图专家。
 
 ## 适用场景
 

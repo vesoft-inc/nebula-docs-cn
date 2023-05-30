@@ -38,10 +38,6 @@
 
 1. 根据需要下载 RPM 包，建议选择最新版本。
 
-  !!! enterpriseonly
-
-        用户可以[在线申请](https://wj.qq.com/s2/10158890/69a8)试用{{explorer.name}}；如需购买，请[联系我们](https://yueshu.com.cn/contact)。
-
 2. 使用`sudo rpm -i <rpm>`命令安装 RPM 包。
 
    例如，安装{{explorer.name}}需要运行以下命令，默认安装路径为`/usr/local/yueshu-explorer`：
@@ -55,11 +51,11 @@
    sudo rpm -i yueshu-explorer-<version>.x86_64.rpm --prefix=<path> 
    ```
 
-2. 进入解压后的文件夹，在`config`目录内修改`app-config.yaml`文件，设置`LicenseManagerURL`的值为 LM 所在的主机 IP 和端口号`9119`，例如`192.168.8.100:9119`。
+3. 进入解压后的文件夹，在`config`目录内修改`app-config.yaml`文件，设置`LicenseManagerURL`的值为 LM 所在的主机 IP 和端口号`9119`，例如`192.168.8.100:9119`。
 
-3. （可选）配置 Dag Controller。参见下文 **配置 Dag Controller** 部分。
+4. （可选）配置 Dag Controller。参见下文 **配置 Dag Controller** 部分。
 
-4. 进入`yueshu-explorer`文件夹，执行以下命令启动服务。
+5. 进入`yueshu-explorer`文件夹，执行以下命令启动服务。
 
    ```bash
    cd yueshu-explorer
@@ -103,11 +99,6 @@ sudo rpm -e yueshu-explorer-<version>.x86_64
 ### 安装
 
 1. 下载 DEB 包。
-
-  !!! enterpriseonly
-
-        用户可以[在线申请](https://wj.qq.com/s2/10158890/69a8)试用{{explorer.name}}；如需购买，请[联系我们](https://yueshu.com.cn/contact)。
-
 
 2. 使用`sudo dpkg -i <package_name>`命令安装 DEB 包。
 
