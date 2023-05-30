@@ -104,6 +104,7 @@ plugins:
         - 9.about-license/2.license-management-suite/1.suite-overview.md
         - 9.about-license/2.license-management-suite/2.license-center.md
         # exclude.ent.begin
+        - 9.about-license/*
         - 3.ngql-guide/6.functions-and-expressions/17.ES-function.md
         - 4.deployment-and-installation/deploy-license.md
         - 5.configurations-and-logs/2.log-management/audit-log.md
@@ -171,7 +172,7 @@ plugins:
 # nav.pdf.begin
   - with-pdf:
       copyright: 2023 vesoft Inc.
-      cover_subtitle: master
+      cover_subtitle: v3.5.0
       author: 吴敏，梁振亚，黄凤仙，李泓臻
       cover: true
       back_cover: true
@@ -195,8 +196,6 @@ extra_javascript:
 
 # modify when release: 
 extra:
-  # Modify doc_version to automatically update the parameters for releasing a new version
-  doc_version: master
   # Language selector.
   # nav.comm.begin
   alternate:
