@@ -28,6 +28,14 @@
 
 - 已经安装 Spark。
 
+- 以下 JAR 包已经下载并放置在 Spark 的`SPARK_HOME/jars`目录下：
+
+  - [spark-streaming-kafka_xxx.jar](https://mvnrepository.com/artifact/org.apache.spark/spark-streaming-kafka)
+
+  - [spark-sql-kafka-0-10_xxx.jar](https://mvnrepository.com/artifact/org.apache.spark/spark-sql-kafka-0-10)
+
+  - [kafka-clients-xxx.jar](https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients)
+
 - 了解{{nebula.name}}中创建 Schema 的信息，包括 Tag 和 Edge type 的名称、属性等。
 
 - 已经安装并开启 Kafka 服务。
