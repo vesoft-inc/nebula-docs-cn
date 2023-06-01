@@ -248,7 +248,7 @@ nebula> SHOW HOSTS;
 -->
 ## 均衡 leader 分布
 
-用户可以使用命令`SUBMIT JOB BALANCE LEADER`均衡 leader 分布。
+用户可以使用命令`SUBMIT JOB BALANCE LEADER`均衡分布所有图空间中的 leader。
 
 ### 示例
 
