@@ -1,6 +1,6 @@
 # 导入 Pulsar 数据
 
-本文简单说明如何使用 Exchange 将存储在 Pulsar 上的数据导入{{nebula.name}}。
+本文简单说明如何使用 Exchange 将存储在 Pulsar 上的数据导入{{nebula.name}}。注意：Pulsar只支持client模式，不支持SST模式。
 
 ## 环境配置
 
