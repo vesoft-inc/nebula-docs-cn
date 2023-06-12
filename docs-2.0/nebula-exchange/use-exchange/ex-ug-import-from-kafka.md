@@ -1,6 +1,6 @@
 # 导入 Kafka 数据
 
-本文简单说明如何使用 Exchange 将存储在 Kafka 上的数据导入{{nebula.name}}。
+本文简单说明如何使用 Exchange 将存储在 Kafka 上的数据导入{{nebula.name}}。注意：Kafka只支持client模式导入，不支持SST模式。
 
 ## 环境配置
 
