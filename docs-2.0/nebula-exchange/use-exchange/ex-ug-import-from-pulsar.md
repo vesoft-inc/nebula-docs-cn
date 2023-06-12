@@ -34,7 +34,7 @@
 
 ## 注意事项
 
-导入 Pulsar 数据时只支持 Client 模式，即参数`tags.type.sink`为`client`。
+导入 Pulsar 数据时只支持 Client 模式，即参数`tags.type.sink`和`edges.type.sink`为`client`。
 
 ## 操作步骤
 
