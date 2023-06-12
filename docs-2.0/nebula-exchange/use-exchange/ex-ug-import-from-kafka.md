@@ -147,7 +147,7 @@
       type: {
         # 指定数据源文件格式，设置为 Kafka。
         source: kafka
-        # 指定如何将点数据导入{{nebula.name}}。只支持 Client。
+        # 指定如何将数据导入{{nebula.name}}。只支持 Client。
         sink: client
       }
       # Kafka 服务器地址。
@@ -218,7 +218,7 @@
         source: kafka
 
         # 指定边数据导入 {{nebula.name}} 的方式，
-        # 指定如何将点数据导入{{nebula.name}}。只支持 Client。
+        # 指定如何将数据导入{{nebula.name}}。只支持 Client。
         sink: client
       }
 
