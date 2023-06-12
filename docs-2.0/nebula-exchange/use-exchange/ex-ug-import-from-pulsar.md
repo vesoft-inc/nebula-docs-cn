@@ -211,7 +211,7 @@
         source: pulsar
 
         # 指定边数据导入{{nebula.name}}的方式，
-        # 指定如何将点数据导入{{nebula.name}}：Client 或 SST。
+        # 指定如何将点数据导入{{nebula.name}}。只支持 Client。
         sink: client
       }
 
