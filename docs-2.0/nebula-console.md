@@ -2,6 +2,10 @@
 
 NebulaGraph Console 是{{nebula.name}}的原生命令行客户端，用于连接{{nebula.name}}集群并执行查询，同时支持管理参数、导出命令的执行结果、导入测试数据集等功能。
 
+## 版本对照表
+
+参见[Github](https://github.com/vesoft-inc/nebula-console/tree/{{console.branch}})。
+
 ## 获取 NebulaGraph Console
 
 NebulaGraph Console 的获取方式如下：
