@@ -107,7 +107,6 @@ jobs:
                 break
           if not found:
               json_data.append(new_content)
-          json_data = sorted(json_data, key=lambda x: x['version'], reverse=True)
           with open('./versions.json', 'w') as outfile:
               json.dump(json_data, outfile, indent=2)
         shell: python        
