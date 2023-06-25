@@ -55,7 +55,7 @@ NebulaGraph 是一款开源的、分布式的、易扩展的原生图数据库�
 - [英文文档](https://docs.nebula-graph.io/)
    {{ comm.comm_end }}
    {{ ent.ent_begin }}
--[主页](https://yueshu.com.cn/)
+- [主页](https://yueshu.com.cn/)
    {{ ent.ent_end }}
 
 
