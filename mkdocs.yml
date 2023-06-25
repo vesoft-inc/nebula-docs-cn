@@ -693,7 +693,6 @@ nav:
       - 什么是悦数运维监控: nebula-dashboard-ent/1.what-is-dashboard-ent.md
       - 部署悦数运维监控: nebula-dashboard-ent/2.deploy-connect-dashboard-ent.md
       - 连接悦数运维监控: nebula-dashboard-ent/3.connect-dashboard.md
-      - 部署 LM: nebula-dashboard-ent/12.deploy-license-manager
       - 创建及导入集群:
         - 创建集群: nebula-dashboard-ent/3.create-import-dashboard/1.create-cluster.md
         - 导入集群: nebula-dashboard-ent/3.create-import-dashboard/2.import-cluster.md
