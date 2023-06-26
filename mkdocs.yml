@@ -339,11 +339,11 @@ extra:
     branch: release-1.2
     tag: v1.2.0
   operator:
-    release: 1.5.0
-    tag: v1.5.0
-    branch: release-1.5
+    release: 1.4.2
+    tag: v1.4.2
+    branch: release-1.4
     upgrade_from: 3.0.0
-    upgrade_to: 3.5.0
+    upgrade_to: 3.4.1
   exporter:
     release: 3.3.0
     branch: release-3.3
