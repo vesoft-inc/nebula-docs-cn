@@ -137,6 +137,7 @@ plugins:
         - nebula-cloud/nebula-cloud-on-alibabacloud/3.delete-service-instance.md
         - nebula-cloud/nebula-cloud-on-alibabacloud/4.scaling-services.md
         - 4.deployment-and-installation/3.upgrade-nebula-graph/_upgrade-nebula-from-300-to-latest.md
+        - 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
         # exclude.ent.end
         # exclude.comm.begin
         - nebula-dashboard/1.what-is-dashboard.md
@@ -162,6 +163,7 @@ plugins:
         - 20.appendix/history.md
         - 20.appendix/mind-map.md
         - 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
+        - 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
         # exclude.comm.end
 
 # Exclude the file with the following file name.
@@ -459,7 +461,7 @@ nav:
           - 条件表达式函数: 3.ngql-guide/6.functions-and-expressions/5.conditional-expressions.md
           - 谓词函数: 3.ngql-guide/6.functions-and-expressions/8.predicate.md
           - geo 函数: 3.ngql-guide/6.functions-and-expressions/14.geo.md
-          - 自定义函数: 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
+#          - 自定义函数: 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
 
       - 通用查询语句:
           - MATCH: 3.ngql-guide/7.general-query-statements/2.match.md
