@@ -153,7 +153,7 @@ jobs:
               mkdir -p /usr/web/ent-docs/
               tar -xzf /usr/web/ent-docs.tar.gz -C /usr/web/ent-docs/
               mkdir -p /usr/web/ent-docs/site/pdf/
-              #cp -f /usr/web/ent-docs/${{ env.ACTIONTEST }}/pdf/Yueshu-CN.pdf /usr/web/ent-docs/site/pdf/NebulaGraph-book.pdf
+              #cp -f /usr/web/ent-docs/${{ env.ACTIONTEST }}/pdf/yueshu-cn.pdf /usr/web/ent-docs/site/pdf/NebulaGraph-book.pdf
             else
               mkdir -p /usr/web/nebula-docs/
               tar -xzf /usr/web/nebula-docs.tar.gz -C /usr/web/nebula-docs/

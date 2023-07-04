@@ -185,7 +185,7 @@ plugins:
 # nav.ent.end
 
   # nav.ent.begin
-      output_path: pdf/Yueshu-CN.pdf
+      output_path: pdf/yueshu-cn.pdf
   # nav.ent.end
   # nav.comm.begin
       output_path: pdf/NebulaGraph-CN.pdf
@@ -1169,7 +1169,7 @@ nav:
       - 错误码: 20.appendix/error-code.md
 # nav.comm.end
   # nav.ent.begin
-  - PDF: ./pdf/Yueshu-CN.pdf
+  - PDF: ./pdf/yueshu-cn.pdf
   # nav.ent.end
   # nav.comm.begin
   - PDF: ./pdf/NebulaGraph-CN.pdf
