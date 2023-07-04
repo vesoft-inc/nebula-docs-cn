@@ -171,7 +171,6 @@ plugins:
 # Exclude files with regular expressions (regexes)
 #    regex:
 #      - '.*\.(tmp|bin|tar)$'
-# nav.pdf.begin
   - with-pdf:
       copyright: 2023 vesoft Inc.
       cover_subtitle: v3.5.0
@@ -184,8 +183,14 @@ plugins:
 # nav.ent.begin
       cover_logo: 'https://docs-cdn.nebula-graph.com.cn/figures/yueshu_favicon_230515.png'
 # nav.ent.end
+
+  # nav.ent.begin
+      output_path: pdf/Yueshu-CN.pdf
+  # nav.ent.end
+  # nav.comm.begin
       output_path: pdf/NebulaGraph-CN.pdf
-# nav.pdf.end
+  # nav.comm.end
+
 extra_javascript:
   - js/version-select.js      
   - js/config.js
@@ -1163,7 +1168,9 @@ nav:
       - 思维导图: 20.appendix/mind-map.md
       - 错误码: 20.appendix/error-code.md
 # nav.comm.end
-
-# nav.pdf.begin
+  # nav.ent.begin
+  - PDF: ./pdf/Yueshu-CN.pdf
+  # nav.ent.end
+  # nav.comm.begin
   - PDF: ./pdf/NebulaGraph-CN.pdf
-# nav.pdf.end
+  # nav.comm.end
