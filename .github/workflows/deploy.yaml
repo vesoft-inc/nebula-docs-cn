@@ -161,3 +161,12 @@ jobs:
               #cp -f /usr/web/nebula-docs/${{ env.ACTIONTEST }}/pdf/NebulaGraph-CN.pdf /usr/web/nebula-docs/site/pdf/NebulaGraph-book.pdf
             fi
             
+      - name: UploadPDF
+        uses: ./.github/actions/upload-to-oss-action
+        with:
+          key-id: ${{ secrets.OSS_ID }}
+          key-secret: ${{ secrets.OSS_SECRET }}
+          endpoint: ${{ secrets.OSS_ENDPOINT }}
+          bucket: yueshu-docs
+          asset-path: /usr/web/ent-docs/${{ env.ACTIONTEST }}/pdf/yueshu-cn.pdf
+          target-path: pdf/${{ env.ACTIONTEST }}/yueshu-cn.pdf
