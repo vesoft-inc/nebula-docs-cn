@@ -5,11 +5,12 @@
 - 功能
 
   - 支持通过{{dashboard_ent.name}}[一键部署 License Manager (LM)](../../nebula-dashboard-ent/3.connect-dashboard.md)。  
-  - 全量备份支持[全量备份至本地](../../nebula-dashboard-ent/4.cluster-operator/operator/backup-and-restore.md)。
+  - 支持[全量备份至本地](../../nebula-dashboard-ent/4.cluster-operator/operator/backup-and-restore.md)。
   - 增加[慢查询分析](../../nebula-dashboard-ent/4.cluster-operator/analysis-diagnosis/slow-query-analyst.md)功能。
-  - [集群诊断](../../nebula-dashboard-ent/4.cluster-operator/analysis-diagnosis/cluster-diagnosis.md)打分公式支持配置。
+  - 支持配置[集群诊断](../../nebula-dashboard-ent/4.cluster-operator/analysis-diagnosis/cluster-diagnosis.md)的打分公式。
   - [更新配置](../../nebula-dashboard-ent/4.cluster-operator/operator/update-config.md)增加**新增配置**、查看当前配置的**生效值**以及**查看不一致配置**功能。
-  - [通知设置](../../nebula-dashboard-ent/system-settings/notification-endpoint.md)中 webhook 支持配置 body。
+  - 支持在[通知设置](../../nebula-dashboard-ent/system-settings/notification-endpoint.md)中为 webhook 配置 body。
+  - 支持[自定义监控面板](../../nebula-dashboard-ent/4.cluster-operator/2.monitor.md)。
 
 - 优化
   
@@ -17,6 +18,9 @@
   - [集群总览](../../nebula-dashboard-ent/4.cluster-operator/1.overview.md)页面优化。
   - 集群间[数据同步](../../nebula-dashboard-ent/4.cluster-operator/7.data-synchronization.md)优化。
   - 扩容新增节点配置默认与集群中第一个节点保持一致。
+  - 优化集群诊断报告内容。
+  - 支持在`config.yaml`文件中修改`Prometheus`服务的端口号。
+
 
 ## v3.4.2
 
