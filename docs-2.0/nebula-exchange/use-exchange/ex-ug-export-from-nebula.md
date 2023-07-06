@@ -117,7 +117,9 @@ CentOS 7.9.2009
           source: nebula
           sink: csv
         }
-  
+        metaAddress:"127.0.0.1:9559"
+        space:"test"
+        label:"person"
         # config the fields you want to export from nebula
         fields: [nebula-field-0, nebula-field-1, nebula-field-2]
         noFields:false  # default false, if true, just export id
@@ -138,6 +140,9 @@ CentOS 7.9.2009
           source: nebula
           sink: csv
         }
+        metaAddress:"127.0.0.1:9559"
+        space:"test"
+        label:"friend"
         # config the fields you want to export from nebula
         fields: [nebula-field-0, nebula-field-1, nebula-field-2]
         noFields:false  # default false, if true, just export id
