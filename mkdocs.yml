@@ -176,7 +176,7 @@ plugins:
   - with-pdf:
       copyright: 2023 vesoft Inc.
       cover_subtitle: v3.5.0
-      author: 吴敏，梁振亚，黄凤仙，李泓臻
+      author: 梁振亚，黄凤仙
       cover: true
       back_cover: true
 # nav.comm.begin
