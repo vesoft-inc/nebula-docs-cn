@@ -2,26 +2,11 @@
 
 ## 功能
 
-- 支持无索引的全表扫描。[#5416](https://github.com/vesoft-inc/nebula/pull/5416)
-- 支持 UDF。 [#4804](https://github.com/vesoft-inc/nebula/pull/4804) [#5391](https://github.com/vesoft-inc/nebula/pull/5391)
-- 支持在返回语句中使用像`v.tag`这样的表达式。[#5440](https://github.com/vesoft-inc/nebula/pull/5440)
-- 支持 UPDATE 语句中的`json_extract`函数。 [#5457](https://github.com/vesoft-inc/nebula/pull/5457)
-- 支持在 EXPLAIN 输出中使用 TCK 格式。 [#5414](https://github.com/vesoft-inc/nebula/pull/5414)
-- DML 支持参数。 [#5328](https://github.com/vesoft-inc/nebula/pull/5328)
+- 增强全文索引功能。 [#5567](https://github.com/vesoft-inc/nebula/pull/5567) [#5575](https://github.com/vesoft-inc/nebula/pull/5575) [#5577](https://github.com/vesoft-inc/nebula/pull/5577) [#5580](https://github.com/vesoft-inc/nebula/pull/5580) [#5584](https://github.com/vesoft-inc/nebula/pull/5584)
 
 ## 优化
 
-- 支持以毫秒为单位的 TTL。 [#5430](https://github.com/vesoft-inc/nebula/pull/5430)
-- 增强了聚合函数中的属性裁剪功能。 [#5301](https://github.com/vesoft-inc/nebula/pull/5301)
-- 提高了遍历执行器的性能。[#5308](https://github.com/vesoft-inc/nebula/pull/5308)
-- 优化了 FIND ALL PATH 性能。 [#5409](https://github.com/vesoft-inc/nebula/pull/5409)
-- 为了提高性能，移除了一些 Raft 锁。[#5451](https://github.com/vesoft-inc/nebula/pull/5451)
-- 优化了谓词函数过滤变长边。[#5464](https://github.com/vesoft-inc/nebula/pull/5464) [#5470](https://github.com/vesoft-inc/nebula/pull/5470) [#5481](https://github.com/vesoft-inc/nebula/pull/5481) [#5503](https://github.com/vesoft-inc/nebula/pull/5503)
-- 并行遍历执行器。 [#5314](https://github.com/vesoft-inc/nebula/pull/5314)
-- MATCH 支持 ID 集合。 [#5360](https://github.com/vesoft-inc/nebula/pull/5360)
-- 重构了 GO planner。 [#5369](https://github.com/vesoft-inc/nebula/pull/5369)
-- 在配置文件中添加了一些 Graph 性能选项。 [#5463](https://github.com/vesoft-inc/nebula/pull/5463)
-- 添加了最大连接数标志。 [#5309](https://github.com/vesoft-inc/nebula/pull/5309)    
+- 支持使用MATCH语句检索 VID 或属性索引时使用变量。 [#5486](https://github.com/vesoft-inc/nebula/pull/5486) [#5553](https://github.com/vesoft-inc/nebula/pull/5553)
 
 ## 缺陷修复
 

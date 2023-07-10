@@ -175,7 +175,7 @@ plugins:
 #      - '.*\.(tmp|bin|tar)$'
   - with-pdf:
       copyright: 2023 vesoft Inc.
-      cover_subtitle: v3.5.0
+      cover_subtitle: v3.6.0
       author: 梁振亚，黄凤仙
       cover: true
       back_cover: true
@@ -225,13 +225,13 @@ extra:
       link: 'https://github.com/vesoft-inc/nebula-docs-cn'
 # nav.comm.end
   nebula:
-    release: 3.5.0
+    release: 3.6.0
     nightly: nightly
     master: master
     base20: 2.0
     base200: 2.0.0
-    branch: release-3.5
-    tag: v3.5.0
+    branch: release-3.6
+    tag: v3.6.0
     # nav.ent.begin
     name: 悦数图数据库
     # nav.ent.end
