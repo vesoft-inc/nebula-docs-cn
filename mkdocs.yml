@@ -795,6 +795,7 @@ nav:
   #     - 使用流程: nebula-operator/6.get-started-with-operator.md
   #     - 部署 NebulaGraph Operator: nebula-operator/2.deploy-nebula-operator.md
   #     - 部署悦数图数据库: 
+  #       - 部署 LM: nebula-operator/3.deploy-nebula-graph-cluster/3.0.deploy-lm.md
   #       - 使用 Kubectl 部署: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
   #       - 使用 Helm 部署: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
   #     - 连接悦数图数据库: nebula-operator/4.connect-to-nebula-graph-service.md
