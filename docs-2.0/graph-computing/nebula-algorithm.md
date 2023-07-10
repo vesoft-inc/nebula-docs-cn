@@ -9,7 +9,7 @@ NebulaGraph Algorithm 版本和{{nebula.name}}内核的版本对应关系如下�
 |{{nebula.name}}版本|NebulaGraph Algorithm 版本|
 |:---|:---|
 |  nightly         |  3.0-SNAPSHOT |
-| 3.0.0 ~ 3.4.x      |  3.x.0        |
+| 3.0.0 ~ 3.6.x      |  3.x.0        |
 | 2.6.x            |  2.6.x        | 
 | 2.5.0、2.5.1      |  2.5.0        | 
 | 2.0.0、2.0.1      |  2.1.0        |
