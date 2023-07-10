@@ -312,9 +312,9 @@ extra:
     branch: release-3.5
     tag: v3.5.0
   br:
-    release: 3.3.0
-    branch: release-3.3
-    tag: v3.3.0
+    release: 3.5.0
+    branch: release-3.5
+    tag: v3.5.0
   br_ent:
     release: 3.5.0
     tag: v3.5.0
