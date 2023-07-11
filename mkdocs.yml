@@ -455,6 +455,7 @@ nav:
           - 集合运算符: 3.ngql-guide/5.operators/6.set.md
           - 字符串运算符: 3.ngql-guide/5.operators/7.string.md
           - 列表运算符: 3.ngql-guide/5.operators/8.list.md
+          - 算术运算符: 3.ngql-guide/5.operators/10.arithmetic.md
           - 运算符优先级: 3.ngql-guide/5.operators/9.precedence.md
 
       - 函数和表达式:
@@ -890,6 +891,7 @@ nav:
           - 集合运算符: 3.ngql-guide/5.operators/6.set.md
           - 字符串运算符: 3.ngql-guide/5.operators/7.string.md
           - 列表运算符: 3.ngql-guide/5.operators/8.list.md
+          - 算术运算符: 3.ngql-guide/5.operators/10.arithmetic.md
           - 运算符优先级: 3.ngql-guide/5.operators/9.precedence.md
 
       - 函数和表达式:
