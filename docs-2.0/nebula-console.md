@@ -26,7 +26,8 @@ NebulaGraph Console 的获取方式如下：
 <path_of_console> -addr <ip> -port <port> -u <username> -p <password>
 ```
 
-`path_of_console`是 NebulaGraph Console 二进制文件的存储路径。
+- `path_of_console`是 NebulaGraph Console 二进制文件的存储路径。
+- 开启 SSL 加密后，连接时需要指定 SSL 相关参数。
 
 常用参数的说明如下。
 
