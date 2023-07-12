@@ -811,7 +811,11 @@ nav:
       - 常见问题 FAQ: 20.appendix/0.FAQ.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
       - 错误码: 20.appendix/error-code.md
-# nav.ent.begin
+
+# nav.pdf.begin
+  - PDF: ./pdf/yueshu-cn.pdf
+# nav.pdf.end
+# nav.ent.end
 
 # nav.comm.begin
 nav:
@@ -1159,8 +1163,8 @@ nav:
       - 年表: 20.appendix/history.md
       - 思维导图: 20.appendix/mind-map.md
       - 错误码: 20.appendix/error-code.md
+# nav.pdf.begin
+  - PDF: https://docs-cdn.nebula-graph.com.cn/pdf/master/NebulaGraph-CN.pdf
+# nav.pdf.end
 # nav.comm.end
 
-# nav.pdf.begin
-  - PDF: ./pdf/NebulaGraph-CN.pdf
-# nav.pdf.end
