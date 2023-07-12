@@ -160,3 +160,26 @@ jobs:
               #cp -f /usr/web/nebula-docs/${{ env.ACTIONTEST }}/pdf/NebulaGraph-CN.pdf /usr/web/nebula-docs/site/pdf/NebulaGraph-book.pdf
             fi
             
+      - name: Set OSS parameters
+        id: set-oss-params
+        run: |
+          if [ "${{ matrix.database_edition }}" = "enterprise" ]; then
+            echo "bucket=yueshu-graph" >> $GITHUB_OUTPUT
+            echo "asset_path=${{ env.ACTIONTEST }}/pdf/yueshu-cn.pdf" >> $GITHUB_OUTPUT
+            echo "target_path=general/yueshu-doc/${{ env.ACTIONTEST }}/" >> $GITHUB_OUTPUT
+          else
+            echo "bucket=docs-cn" >> $GITHUB_OUTPUT
+            echo "asset_path=${{ env.ACTIONTEST }}/pdf/NebulaGraph-CN.pdf" >> $GITHUB_OUTPUT
+            echo "target_path=pdf/${{ env.ACTIONTEST }}/" >> $GITHUB_OUTPUT
+          fi
+        shell: bash
+
+      - name: Upload to OSS
+        uses: vesoft-inc/upload-oss@master
+        with:
+          key-id: ${{ secrets.OSS_ID }}
+          key-secret: ${{ secrets.OSS_SECRET }}
+          endpoint: ${{ secrets.OSS_ENDPOINT }}
+          bucket: ${{ steps.set-oss-params.outputs.bucket }}
+          asset-path: ${{ steps.set-oss-params.outputs.asset_path }}
+          target-path: ${{ steps.set-oss-params.outputs.target_path }}
