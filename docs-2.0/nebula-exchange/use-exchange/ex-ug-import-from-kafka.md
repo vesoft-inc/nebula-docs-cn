@@ -96,6 +96,10 @@
 
 编译 Exchange 后，复制`target/classes/application.conf`文件设置 Kafka 数据源相关的配置。在本示例中，复制的文件名为`kafka_application.conf`。各个配置项的详细说明请参见[配置说明](../parameter-reference/ex-ug-parameter.md)。
 
+!!! note
+
+    导入 Kafka 数据时，一个配置文件只能处理一个 Tag 或 Edge type。如果有多个 Tag 或 Edge type，需要创建多个配置文件。
+
 ```conf
 {
   # Spark 相关配置
@@ -189,122 +193,70 @@
       # 流控，对每个触发区间处理的最大偏移量的速率限制，可不配置。
       # maxOffsetsPerTrigger:10000
     }
-    # 设置 Tag team 相关信息。
-    {
-      name: team
-      type: {
-        source: kafka
-        sink: client
-      }
-      service: "127.0.0.1:9092"
-      topic: "topic_name2"
-      fields: [key]
-      nebula.fields: [name]
-      vertex:{
-          field:teamId
-      }
-      batch: 10
-      partition: 10
-      interval.seconds: 10
-      startingOffsets: latest
-      # maxOffsetsPerTrigger:10000
-    }
-
   ]
-
   # 处理边数据
-  edges: [
-    # 设置 Edge type follow 相关信息
-    {
-      # {{nebula.name}} 中对应的 Edge type 名称。
-      name: follow
+  #edges: [
+  #  # 设置 Edge type follow 相关信息
+  #  {
+  #    # {{nebula.name}} 中对应的 Edge type 名称。
+  #    name: follow
 
-      type: {
-        # 指定数据源文件格式，设置为 Kafka。
-        source: kafka
+  #    type: {
+  #      # 指定数据源文件格式，设置为 Kafka。
+  #      source: kafka
 
-        # 指定边数据导入 {{nebula.name}} 的方式，
-        # 指定如何将数据导入{{nebula.name}}。只支持 Client。
-        sink: client
-      }
+  #      # 指定边数据导入 {{nebula.name}} 的方式，
+  #      # 指定如何将数据导入{{nebula.name}}。只支持 Client。
+  #      sink: client
+  #    }
 
-      # Kafka 服务器地址。
-      service: "127.0.0.1:9092"
-      # 消息类别。
-      topic: "topic_name3"
+  #    # Kafka 服务器地址。
+  #    service: "127.0.0.1:9092"
+  #    # 消息类别。
+  #    topic: "topic_name3"
 
-      # 在 fields 里指定 Kafka value 中的字段名称，多个字段用英文逗号（,）隔开。Spark Structured Streaming 读取 Kafka 数据后会将其以 JSON 格式存储于 value 字段中，而这里的 fields 要配置 JSON 的 key 名。示例如下：
-      fields: [degree]
-      # 设置与 fields 中的 key 对应的 {{nebula.name}} 属性名，key 的 value 将保存为相应的属性值。下方设置会将 degree 的 value 保存到 {{nebula.name}} 中的 degree 属性。
-      nebula.fields: [degree]
+  #    # 在 fields 里指定 Kafka value 中的字段名称，多个字段用英文逗号（,）隔开。Spark Structured Streaming 读取 Kafka 数据后会将其以 JSON 格式存储于 value 字段中，而这里的 fields 要配置 JSON 的 key 名。示例如下：
+  #    fields: [degree]
+  #    # 设置与 fields 中的 key 对应的 {{nebula.name}} 属性名，key 的 value 将保存为相应的属性值。下方设置会将 degree 的 value 保存到 {{nebula.name}} 中的 degree 属性。
+  #    nebula.fields: [degree]
 
-      # 在 source 里，将 topic 中某一列作为边的起始点数据源。
-      # 在 target 里，将 topic 中某一列作为边的目的点数据源。
-      source:{
-          field:srcPersonId
-      # udf:{
-      #            separator:"_"
-      #            oldColNames:[field-0,field-1,field-2]
-      #            newColName:new-field
-      #        }
-      }
+  #    # 在 source 里，将 topic 中某一列作为边的起始点数据源。
+  #    # 在 target 里，将 topic 中某一列作为边的目的点数据源。
+  #    source:{
+  #        field:srcPersonId
+  #    # udf:{
+  #    #            separator:"_"
+  #    #            oldColNames:[field-0,field-1,field-2]
+  #    #            newColName:new-field
+  #    #        }
+  #    }
 
-      target:{
-          field:dstPersonId
-      # udf:{
-      #            separator:"_"
-      #            oldColNames:[field-0,field-1,field-2]
-      #            newColName:new-field
-      #        }
-      }
+  #    target:{
+  #        field:dstPersonId
+  #    # udf:{
+  #    #            separator:"_"
+  #    #            oldColNames:[field-0,field-1,field-2]
+  #    #            newColName:new-field
+  #    #        }
+  #    }
 
-      # 指定一个列作为 rank 的源（可选）。
-      #ranking: rank
+  #    # 指定一个列作为 rank 的源（可选）。
+  #    #ranking: rank
 
-      # 单批次写入 {{nebula.name}} 的数据条数。
-      batch: 10
+  #    # 单批次写入 {{nebula.name}} 的数据条数。
+  #    batch: 10
 
-      # Spark 分区数量
-      partition: 10
+  #    # Spark 分区数量
+  #    partition: 10
 
-      # 读取消息的间隔。单位：秒。
-      interval.seconds: 10
-      # 消费起点，默认值 latest。 可选 latest、earliest
-      startingOffsets: latest
-      # 流控，对每个触发区间处理的最大偏移量的速率限制，可不配置。
-      # maxOffsetsPerTrigger:10000
-    }
-
-    # 设置 Edge type serve 相关信息
-    {
-      name: serve
-      type: {
-        source: kafka
-        sink: client
-      }
-      service: "127.0.0.1:9092"
-      topic: "topic_name4"
-
-      fields: [startYear,endYear]
-      nebula.fields: [start_year,end_year]
-      source:{
-          field:personId
-      }
-
-      target:{
-          field:teamId
-      }
-
-      # 指定一个列作为 rank 的源（可选）。
-      #ranking: rank
-
-      batch: 10
-      partition: 10
-      interval.seconds: 10
-      startingOffsets: latest
-      # maxOffsetsPerTrigger:10000
-    }
-  ]
+  #    # 读取消息的间隔。单位：秒。
+  #    interval.seconds: 10
+  #    # 消费起点，默认值 latest。 可选 latest、earliest
+  #    startingOffsets: latest
+  #    # 流控，对每个触发区间处理的最大偏移量的速率限制，可不配置。
+  #    # maxOffsetsPerTrigger:10000
+  #  }
+  #]
 }
 ```
 
