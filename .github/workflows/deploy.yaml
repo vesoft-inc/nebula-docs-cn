@@ -166,7 +166,7 @@ jobs:
           if [ "${{ matrix.database_edition }}" = "enterprise" ]; then
             echo "bucket=yueshu-graph" >> $GITHUB_OUTPUT
             echo "asset_path=${{ env.ACTIONTEST }}/pdf/yueshu-cn.pdf" >> $GITHUB_OUTPUT
-            echo "target_path=general/yueshu-doc/" >> $GITHUB_OUTPUT
+            echo "target_path=general/yueshu-doc/${{ env.ACTIONTEST }}" >> $GITHUB_OUTPUT
           else
             echo "bucket=docs-cn" >> $GITHUB_OUTPUT
             echo "asset_path=${{ env.ACTIONTEST }}/pdf/NebulaGraph-CN.pdf" >> $GITHUB_OUTPUT
