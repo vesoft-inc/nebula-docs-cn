@@ -576,7 +576,8 @@ nav:
           - 使用 RPM/DEB 包安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md
           - 使用 TAR 包安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/4.install-nebula-graph-from-tar.md
           - 使用 RPM/DEB 包部署多机集群: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
-          - 使用生态工具安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/6.deploy-nebula-graph-with-peripherals.md
+#operator1.5.0发版后release
+#          - 使用生态工具安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/6.deploy-nebula-graph-with-peripherals.md
       - 管理服务: 4.deployment-and-installation/manage-service.md
       - 连接服务: 4.deployment-and-installation/connect-to-nebula-graph.md
       - 管理 Storage 主机: 4.deployment-and-installation/manage-storage-host.md
@@ -1013,7 +1014,8 @@ nav:
           - 使用 tar.gz 文件安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/4.install-nebula-graph-from-tar.md
           - 使用 Docker Compose 部署: 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
           - 使用 RPM/DEB 包部署多机集群: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
-          - 使用生态工具安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/6.deploy-nebula-graph-with-peripherals.md
+#operator1.5.0发版后release
+#          - 使用生态工具安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/6.deploy-nebula-graph-with-peripherals.md
       - 安装存算合并版 NebulaGraph: 4.deployment-and-installation/standalone-deployment.md
       - 管理服务: 4.deployment-and-installation/manage-service.md
       - 连接服务: 4.deployment-and-installation/connect-to-nebula-graph.md
