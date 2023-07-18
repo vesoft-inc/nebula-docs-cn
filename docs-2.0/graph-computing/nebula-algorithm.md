@@ -9,7 +9,7 @@ NebulaGraph Algorithm 版本和{{nebula.name}}内核的版本对应关系如下�
 |{{nebula.name}}版本|NebulaGraph Algorithm 版本|
 |:---|:---|
 |  nightly         |  3.0-SNAPSHOT |
-| 3.0.0 ~ 3.4.x      |  3.x.0        |
+| 3.0.0 ~ 3.6.x      |  3.x.0        |
 | 2.6.x            |  2.6.x        | 
 | 2.5.0、2.5.1      |  2.5.0        | 
 | 2.0.0、2.0.1      |  2.1.0        |
@@ -130,7 +130,7 @@ NebulaGraph Algorithm 实现图计算的流程如下：
 
   ```bash
   val prConfig = new PRConfig(5, 1.0)
-  val louvainResult = PageRankAlgo.apply(spark, data, prConfig, false)
+  val prResult = PageRankAlgo.apply(spark, data, prConfig, false)
   ```
 
   如果用户的节点 ID 是 String 类型，可以参考 PageRank 的[示例](https://github.com/vesoft-inc/nebula-algorithm/blob/master/example/src/main/scala/com/vesoft/nebula/algorithm/PageRankExample.scala)。示例中进行了 ID 转换，将 String 类型编码为 Long 类型， 并在算法结果中将 Long 类型 ID 解码为原始的 String 类型。

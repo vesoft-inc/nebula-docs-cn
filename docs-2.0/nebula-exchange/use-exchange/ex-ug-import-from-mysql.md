@@ -76,6 +76,8 @@ mysql> desc serve;
 
 - 已经安装 Spark。
 
+- [mysql-connector-java-xxx.jar](https://mvnrepository.com/artifact/mysql/mysql-connector-java) 已经下载并放置在 Spark 的`SPARK_HOME/jars`目录下。
+
 - 了解{{nebula.name}}中创建 Schema 的信息，包括 Tag 和 Edge type 的名称、属性等。
 
 - 已经安装并开启 Hadoop 服务。

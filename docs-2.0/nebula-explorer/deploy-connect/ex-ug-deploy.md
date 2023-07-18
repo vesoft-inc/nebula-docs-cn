@@ -8,7 +8,7 @@
 
 - 已[在 LM 中加载 License Key](../../9.about-license/2.license-management-suite/3.license-manager.md)。
 
-- {{nebula.name}} 服务已经部署并启动。详细信息参考 [{{nebula.name}}安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往{{nebula.name}}安装部署")。
+- {{nebula.name}}服务已经部署并启动。详细信息参考 [{{nebula.name}}安装部署](../../4.deployment-and-installation/1.resource-preparations.md "点击前往{{nebula.name}}安装部署")。
 
 - 以下端口未被使用。
 
@@ -22,15 +22,15 @@
 
 - 使用的 Linux 发行版为 CentOS。
 
-- 如果需要使用图计算，需要部署 HDFS。namenode 默认使用 8020 端口，datanode 默认使用 50010 端口。
-
-  !!! caution
-
-       如果 HDFS 端口不通，可能会提示连接超时。
-
 ## 注意事项
 
 {{explorer.name}}从 3.2.0 版本开始内置了 Dag Controller 安装包，用于提供图计算服务。用户可以自行决定是否启动 Dag Controller 服务。如果没有启动 Dag Controller 服务，{{explorer.name}}中的 **Workflow** 菜单将显示为灰色无法点击。
+
+此外，如果需要使用 **Workflow** 进行复杂图计算，还需在安装{{explorer.name}}后配置 NFS 或 HDFS，namenode 默认使用 8020 端口，datanode 默认使用 50010 端口。详情参见 **Workflow** 的[资源配置](../../nebula-explorer/workflow/1.prepare-resources.md)。
+
+<!--  !!! caution
+
+       如果 HDFS 端口不通，可能会提示连接超时。-->
 
 ## RPM 部署
 

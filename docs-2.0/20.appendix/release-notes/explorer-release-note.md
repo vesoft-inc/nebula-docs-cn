@@ -1,5 +1,14 @@
 # {{explorer.name}}版本更新说明
 
+## v3.5.0
+
+- 功能
+
+  - 支持通过[配置 NFS](../../nebula-explorer/workflow/1.prepare-resources.md) 使用工作流。
+  - 允许用户对产品进行个性化自定义，包括页面 Logo 和产品名称。
+  - [数据导入](../../nebula-explorer/db-management/11.import-data.md)支持历史任务重新导入，数据源类型新增支持云存储和 SFTP。
+  - 支持新版 [License](../../9.about-license/1.license-overview.md)。
+
 ## v3.4.0
 
 - 功能

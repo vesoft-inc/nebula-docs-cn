@@ -99,7 +99,9 @@
 |`E_LIST_CLUSTER_GET_ABS_PATH_FAILURE`|`-2071`| 获取集群信息时无法获取绝对路径|
 |`E_LIST_CLUSTER_NO_AGENT_FAILURE`|`-2072`| 获取集群信息时无法获得 agent|
 |`E_QUERY_NOT_FOUND`|`-2073`| query 未找到|
-|`E_AGENT_HB_FAILUE`|`-2074`| agent 没有汇报心跳|
+|`E_AGENT_HB_FAILURE`|`-2074`| agent 没有汇报心跳|
+|`E_HOST_CAN_NOT_BE_ADDED`|`-2082`| 该主机不能被添加，因为它不是一个 Storage 主机|
+|`E_ACCESS_ES_FAILURE`|`-2090`| 访问 Elasticsearch 失败|
 |`E_GRAPH_MEMORY_EXCEEDED`|`-2600`| Graph 内存超出|
 |`E_CONSENSUS_ERROR`|`-3001`| 选举时无法达成共识|
 |`E_KEY_HAS_EXISTS`|`-3002`| key 已经存在|

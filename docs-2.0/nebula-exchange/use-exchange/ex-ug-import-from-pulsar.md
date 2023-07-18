@@ -32,6 +32,10 @@
 
 - 已经安装并开启 Pulsar 服务。
 
+## 注意事项
+
+导入 Pulsar 数据时只支持 Client 模式，即参数`tags.type.sink`和`edges.type.sink`的值为`client`。
+
 ## 操作步骤
 
 ### 步骤 1：在{{nebula.name}}中创建 Schema
@@ -135,7 +139,7 @@
       type: {
         # 指定数据源文件格式，设置为 Pulsar。
         source: pulsar
-        # 指定如何将点数据导入{{nebula.name}}：Client 或 SST。
+        # 指定如何将数据导入{{nebula.name}}。只支持 Client。
         sink: client
       }
       # Pulsar 服务器地址。
@@ -207,7 +211,7 @@
         source: pulsar
 
         # 指定边数据导入{{nebula.name}}的方式，
-        # 指定如何将点数据导入{{nebula.name}}：Client 或 SST。
+        # 指定如何将数据导入{{nebula.name}}。只支持 Client。
         sink: client
       }
 

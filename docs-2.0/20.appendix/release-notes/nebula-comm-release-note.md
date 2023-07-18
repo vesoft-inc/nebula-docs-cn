@@ -3,7 +3,7 @@
 ## 功能
 
 - 支持无索引的全表扫描。[#5416](https://github.com/vesoft-inc/nebula/pull/5416)
-- 支持 UDF. [#4804](https://github.com/vesoft-inc/nebula/pull/4804) [#5391](https://github.com/vesoft-inc/nebula/pull/5391)
+- 支持 UDF。 [#4804](https://github.com/vesoft-inc/nebula/pull/4804) [#5391](https://github.com/vesoft-inc/nebula/pull/5391)
 - 支持在返回语句中使用像`v.tag`这样的表达式。[#5440](https://github.com/vesoft-inc/nebula/pull/5440)
 - 支持 UPDATE 语句中的`json_extract`函数。 [#5457](https://github.com/vesoft-inc/nebula/pull/5457)
 - 支持在 EXPLAIN 输出中使用 TCK 格式。 [#5414](https://github.com/vesoft-inc/nebula/pull/5414)
