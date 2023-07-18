@@ -24,7 +24,7 @@ NebulaGraph Importer（简称 Importer）是一款{{nebula.name}}的 CSV 文件�
 
 在使用 NebulaGraph Importer 之前，请确保：
 
-- 已部署{{nebula.name}}服务。目前有三种部署方式：
+- 已部署{{nebula.name}}服务。部署方式如下：
   
   - [RPM/DEB 包安装](../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)
     {{comm.comm_begin}}  
