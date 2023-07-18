@@ -26,7 +26,22 @@ NebulaGraph Console 的获取方式如下：
 <path_of_console> -addr <ip> -port <port> -u <username> -p <password>
 ```
 
-`path_of_console`是 NebulaGraph Console 二进制文件的存储路径。
+- `path_of_console`是 NebulaGraph Console 二进制文件的存储路径。
+- 开启 SSL 加密后，需要双向认证时，连接时需要指定 SSL 相关参数。
+
+示例如下：
+
+- 直接连接{{nebula.name}}
+
+  ```bash
+  ./nebula-console -addr 192.168.8.100 -port 9669 -u root -p nebula
+  ```
+
+- 开启 SSL 加密且需要双向认证
+
+  ```bash
+  ./nebula-console -addr 192.168.8.100 -port 9669 -u root  -p nebula -enable_ssl -ssl_root_ca_path /home/xxx/cert/root.crt -ssl_cert_path /home/xxx/cert/client.crt -ssl_private_key_path /home/xxx/cert/client.key
+  ```
 
 常用参数的说明如下。
 
@@ -40,18 +55,12 @@ NebulaGraph Console 的获取方式如下：
 | `-t/-timeout`  | 设置整数类型的连接超时时间。单位为毫秒，默认值为 120。 |
 | `-e/-eval` | 设置字符串类型的 nGQL 语句。连接成功后会执行一次该语句并返回结果，然后自动断开连接。 |
 | `-f/-file` | 设置存储 nGQL 语句的文件的路径。连接成功后会执行该文件内的 nGQL 语句并返回结果，执行完毕后自动断开连接。 |
-| `-enable_ssl` | 连接{{nebula.name}}时使用 SSL 加密。 |
-| `-ssl_root_ca_path` | 指定 CA 证书的存储路径。 |
-| `-ssl_cert_path` | 指定 CRT 证书的存储路径。 |
-| `-ssl_private_key_path` | 指定私钥文件的存储路径。 |
+| `-enable_ssl` | 连接{{nebula.name}}时使用 SSL 加密双向认证。 |
+| `-ssl_root_ca_path` | 指定 CA 根证书的存储路径。 |
+| `-ssl_cert_path` | 指定 SSL 公钥证书的存储路径。 |
+| `-ssl_private_key_path` | 指定 SSL 密钥的存储路径。 |
 
 更多参数参见[项目仓库](https://github.com/vesoft-inc/nebula-console/tree/{{console.branch}})。
-
-例如，要连接到部署在 192.168.10.8 上的 Graph 服务，运行以下命令。
-
-```bash
-./nebula-console -addr 192.168.10.8 -port 9669 -u Joe -p Joespassword
-```
 
 ### 管理参数
 
