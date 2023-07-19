@@ -44,7 +44,10 @@ NebulaGraph Importer（简称 Importer）是一款{{nebula.name}}的 CSV 文件�
 
 ### 下载二进制包运行
 
-1. 在[Release](https://github.com/vesoft-inc/nebula-importer/releases/tag/{{importer.tag}})页面下载可执行的二进制包。
+1. 在 [Release](https://github.com/vesoft-inc/nebula-importer/releases/tag/{{importer.tag}}) 页面下载和安装二进制包，并添加执行权限。
+
+  !!! note
+        使用 RPM/DEB 包安装的文件路径为`/usr/bin/nebula-importer`。
 
 2. 启动服务。
 
