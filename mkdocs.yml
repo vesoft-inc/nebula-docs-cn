@@ -803,7 +803,7 @@ nav:
         - 回收 PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
         - 均衡扩容后的 Storage 数据: nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
         - 管理集群日志: nebula-operator/8.custom-cluster-configurations/8.4.manage-running-logs.md 
-        - 启用 SSL 加密: nebula-operator/8.custom-cluster-configurations/8.5.enable-ssl.md
+        - 启用 TLS 加密: nebula-operator/8.custom-cluster-configurations/8.5.enable-ssl.md
       - 升级悦数图数据库: nebula-operator/9.upgrade-nebula-cluster.md
       - 配置滚动更新策略: nebula-operator/11.rolling-update-strategy.md
       - 备份与恢复: nebula-operator/10.backup-restore-using-operator.md 
@@ -1146,7 +1146,7 @@ nav:
         - 自定义 NebulaGraph 集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
         - 回收 PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
         - 管理集群日志: nebula-operator/8.custom-cluster-configurations/8.4.manage-running-logs.md 
-        - 启用 SSL 加密: nebula-operator/8.custom-cluster-configurations/8.5.enable-ssl.md
+        - 启用 TLS 加密: nebula-operator/8.custom-cluster-configurations/8.5.enable-ssl.md
       - 升级 NebulaGraph: nebula-operator/9.upgrade-nebula-cluster.md
       - 配置滚动更新策略: nebula-operator/11.rolling-update-strategy.md
       - 故障自愈: nebula-operator/5.operator-failover.md
