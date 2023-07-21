@@ -814,14 +814,14 @@ nav:
   #     - 常见问题: nebula-operator/7.operator-faq.md
 
   - 性能测试: nebula-bench.md
-
+  - 常见问题 FAQ: 20.appendix/0.FAQ.md
   - 附录:
       - Release Note:
         - 悦数图数据库: 20.appendix/release-notes/nebula-ent-release-note.md
         - 悦数运维监控: 20.appendix/release-notes/dashboard-ent-release-note.md
         - 悦数图探索: 20.appendix/release-notes/explorer-release-note.md
       - 学习路径: 20.appendix/learning-path.md
-      - 常见问题 FAQ: 20.appendix/0.FAQ.md
+      - 产品端口全集: 20.appendix/port-guide.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
       - 错误码: 20.appendix/error-code.md
 
@@ -1166,15 +1166,18 @@ nav:
   - NebulaGraph Flink Connector: nebula-flink-connector.md
 
   - NebulaGraph Bench: nebula-bench.md
+
+  - 常见问题 FAQ: 20.appendix/0.FAQ.md
+
   - 附录:
       - Release Note:
         - NebulaGraph 社区版: 20.appendix/release-notes/nebula-comm-release-note.md
         - NebulaGraph Studio: 20.appendix/release-notes/studio-release-note.md
         - NebulaGraph Dashboard 社区版: 20.appendix/release-notes/dashboard-comm-release-note.md
       - 学习路径: 20.appendix/learning-path.md
-      - 常见问题 FAQ: 20.appendix/0.FAQ.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
       - 导入工具选择: 20.appendix/write-tools.md
+      - 产品端口全集: 20.appendix/port-guide.md
       - 社区参与: 15.contribution/how-to-contribute.md
       - 年表: 20.appendix/history.md
       - 思维导图: 20.appendix/mind-map.md
