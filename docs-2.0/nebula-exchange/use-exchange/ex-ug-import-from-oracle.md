@@ -56,12 +56,6 @@ oracle> desc serve;
 
 - Spark：2.4.7，单机版
 
-- Hadoop：2.9.2，伪分布式部署
-
-<!--
-- Oracle： 19c
--->
-
 - {{nebula.name}}：{{nebula.release}}。
   
 ## 前提条件
@@ -79,8 +73,6 @@ oracle> desc serve;
 - 已经安装 Spark。
 
 - 了解{{nebula.name}}中创建的 Schema 信息，包括 Tag 和 Edge type 的名称、属性等。
-
-- 已经安装并开启 Hadoop 服务。
 
 ## 操作步骤
 

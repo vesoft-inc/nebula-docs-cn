@@ -27,7 +27,6 @@ CentOS 7.9.2009
 | 名称 | 版本 |
 | - | - |
 | JDK | 1.8.0 |
-| Hadoop | 2.10.1 |
 | Scala | 2.12.11 |
 | Spark | 2.4.7 |
 | {{nebula.name}} | {{nebula.release}} |
