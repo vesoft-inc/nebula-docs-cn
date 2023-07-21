@@ -56,8 +56,6 @@ mysql> desc serve;
 
 - Spark：2.3.0，单机版
 
-- Hadoop：2.9.2，伪分布式部署
-
 - {{nebula.name}}：{{nebula.release}}。
 
 ## 前提条件
@@ -75,8 +73,6 @@ mysql> desc serve;
 - 已经安装 Spark。
 
 - 了解{{nebula.name}}中创建 Schema 的信息，包括 Tag 和 Edge type 的名称、属性等。
-
-- 如果文件存储在 HDFS 上，需要确认 Hadoop 服务运行正常。
 
 - 如果文件存储在本地且{{nebula.name}}是集群架构，需要在集群每台机器本地相同目录下放置文件。
 
