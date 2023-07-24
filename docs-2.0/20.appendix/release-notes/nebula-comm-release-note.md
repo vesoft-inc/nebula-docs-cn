@@ -21,7 +21,7 @@
 - 修复列出会话时打印过多日志的问题。 [#5618](https://github.com/vesoft-inc/nebula/pull/5618)
 - 修复单个大查询导致 Graph 服务崩溃的问题。 [#5619](https://github.com/vesoft-inc/nebula/pull/5619)
 - 修复执行`Find All Path`语句导致 Graph 服务崩溃的问题。 [#5621](https://github.com/vesoft-inc/nebula/pull/5621) [#5640](https://github.com/vesoft-inc/nebula/pull/5640)
-- 修复部分过期数据在最底层不会被作为垃圾回收的问题。 [#5447](https://github.com/vesoft-inc/nebula/pull/5447) [#5622](https://github.com/vesoft-inc/nebula/pull/5622)
+- 修复部分过期数据在最底层不会被回收的问题。 [#5447](https://github.com/vesoft-inc/nebula/pull/5447) [#5622](https://github.com/vesoft-inc/nebula/pull/5622)
 - 修复在`MATCH`语句中添加路径变量会导致`all()`函数下推优化失效的问题。 [#5631](https://github.com/vesoft-inc/nebula/pull/5631)
 - 修复`MATCH`语句中通过最短路径查询自环时返回结果错误的问题。 [#5636](https://github.com/vesoft-inc/nebula/pull/5636)
 - 修复通过管道符删除边导致 Graph 服务崩溃的问题。 [#5645](https://github.com/vesoft-inc/nebula/pull/5645)
