@@ -6,7 +6,7 @@
 
 ## 优化
 
-- 支持使用`MATCH`语句检索 VID 或属性索引时使用变量。 [#5486](https://github.com/vesoft-inc/nebula/pull/5486) [#5553](https://github.com/vesoft-inc/nebula/pull/5553)
+- 支持使用`MATCH`子句检索 VID 或属性索引时使用变量。 [#5486](https://github.com/vesoft-inc/nebula/pull/5486) [#5553](https://github.com/vesoft-inc/nebula/pull/5553)
 - 支持并行启动 RocksDB 实例以加快 Storage 服务的启动速度。 [#5521](https://github.com/vesoft-inc/nebula/pull/5521)
 - 优化 RocksDB 迭代器执行`DeleteRange`操作后的前缀搜索性能。 [#5525](https://github.com/vesoft-inc/nebula/pull/5525)
 - 优化 appendLog 发送逻辑以避免 follower 宕机后影响写性能。 [#5571](https://github.com/vesoft-inc/nebula/pull/5571)
