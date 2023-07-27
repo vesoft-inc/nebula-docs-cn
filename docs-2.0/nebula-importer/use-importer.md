@@ -94,21 +94,33 @@ NebulaGraph Importer（简称 Importer）是一款{{nebula.name}}的 CSV 文件�
 使用 Docker 可以不必在本地安装 Go 语言环境，只需要拉取 NebulaGraph Importer 的[镜像](https://hub.docker.com/r/vesoft/nebula-importer)，并将本地配置文件和 CSV 数据文件挂载到容器中。命令如下：
 
 ```bash
-$ docker pull vesoft/nebula-importer
+$ docker pull vesoft/nebula-importer:<version>
 $ docker run --rm -ti \
       --network=host \
       -v <config_file>:<config_file> \
       -v <data_dir>:<data_dir> \
-      vesoft/nebula-importer:<version>
+      vesoft/nebula-importer:<version> \
       --config <config_file>
 ```
 
 - `<config_file>`：YAML 配置文件的绝对路径。
-- `<data_dir>`：数据文件的绝对路径。如果文件不在本地，请忽略该参数。
+- `<data_dir>`：CSV 数据文件的绝对路径。如果文件不在本地，请忽略该参数。
 - `<version>`：Importer 的版本号，请填写`v3`。
 
 !!! note
     建议使用相对路径。如果使用本地绝对路径，请检查路径映射到 Docker 中的路径。
+
+例如：
+
+```bash
+$ docker pull vesoft/nebula-importer:v3
+$ docker run --rm -ti \
+      --network=host \
+      -v /home/user/config.yaml:/home/user/config.yaml \
+      -v /home/user/data:/home/user/data \
+      vesoft/nebula-importer:v3 \
+      --config /home/user/config.yaml
+```
 
 ## 配置文件说明
 
