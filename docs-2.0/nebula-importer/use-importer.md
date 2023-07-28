@@ -103,9 +103,9 @@ $ docker run --rm -ti \
       --config <config_file>
 ```
 
-- `<config_file>`：YAML 配置文件的绝对路径。
-- `<data_dir>`：CSV 数据文件的绝对路径。如果文件不在本地，请忽略该参数。
-- `<version>`：Importer 的版本号，请填写`v3`。
+- `<config_file>`：填写 YAML 配置文件的绝对路径。
+- `<data_dir>`：填写 CSV 数据文件的绝对路径。如果文件不在本地，请忽略该参数。
+- `<version>`：填写 Importer 的版本号，请填写`v4`。
 
 !!! note
     建议使用相对路径。如果使用本地绝对路径，请检查路径映射到 Docker 中的路径。
@@ -113,12 +113,12 @@ $ docker run --rm -ti \
 例如：
 
 ```bash
-$ docker pull vesoft/nebula-importer:v3
+$ docker pull vesoft/nebula-importer:v4
 $ docker run --rm -ti \
       --network=host \
       -v /home/user/config.yaml:/home/user/config.yaml \
       -v /home/user/data:/home/user/data \
-      vesoft/nebula-importer:v3 \
+      vesoft/nebula-importer:v4 \
       --config /home/user/config.yaml
 ```
 
