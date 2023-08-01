@@ -41,6 +41,8 @@
 
 - [MATCH](../7.general-query-statements/2.match.md)
 
+- [地理空间索引](../3.data-types/10.geography.md)
+
 ## 全文索引
 
 全文索引是基于 Elasticsearch 来实现的，用于对字符串属性进行前缀搜索、通配符搜索、正则表达式搜索和模糊搜索，有如下特点：

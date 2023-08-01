@@ -38,7 +38,7 @@
 - 修复了 MATCH 中请求所有列时返回重复列的缺陷。[#5443](https://github.com/vesoft-inc/nebula/pull/5443)
 - 修复了在自反边涉及路径的比较错误的缺陷。 [#5444](https://github.com/vesoft-inc/nebula/pull/5444)
 - 修复了 MATCH 路径中重新定义别名的缺陷。[#5446](https://github.com/vesoft-inc/nebula/pull/5446)
-- 修复了插入地理位置值时的类型检查缺陷。 [#5460](https://github.com/vesoft-inc/nebula/pull/5460)
+- 修复了插入地理空间值时的类型检查缺陷。 [#5460](https://github.com/vesoft-inc/nebula/pull/5460)
 - 修复了最短路径崩溃的缺陷。 [#5472](https://github.com/vesoft-inc/nebula/pull/5472)
 - 修复了 GEO 崩溃的缺陷。 [#5475](https://github.com/vesoft-inc/nebula/pull/5475)
 - 修复了`MATCH...contains`报错的缺陷。 [#5485](https://github.com/vesoft-inc/nebula/pull/5485)
