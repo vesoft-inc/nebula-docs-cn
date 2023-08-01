@@ -126,15 +126,15 @@
 
 [^zhihu]: https://mp.weixin.qq.com/s/K2QinpR5Rplw1teHpHtf4w
 
-更进一步，除了时间这个维度外，我们通过添加一些地理位置信息，还能发现属性图更多的应用场景。
+更进一步，除了时间这个维度外，我们通过添加一些地理空间信息，还能发现属性图更多的应用场景。
 
-例如新冠病毒的流行病学溯源[^CoV02]，点是人物，边是人与人之间的接触；点属性为人物的身份证、发病时间等信息，边属性为人物之间发生密切接触的时间和地理位置等。为卫生防疫部门快速识别高风险人群和其行为轨迹提供帮助。
+例如新冠病毒的流行病学溯源[^CoV02]，点是人物，边是人与人之间的接触；点属性为人物的身份证、发病时间等信息，边属性为人物之间发生密切接触的时间和地理空间等。为卫生防疫部门快速识别高风险人群和其行为轨迹提供帮助。
 
 ![image](https://www-cdn.nebula-graph.com.cn/nebula-blog/nCoV02.png)
 
 [^CoV02]: https://nebula-graph.com.cn/posts/detect-corona-virus-spreading-with-graph-database/
 
-地理位置与图的结合也可以用于一些 O2O 的场景，例如基于 POI（Point-of-Interest）的实时美食推荐[^mt]，使得美团这类本地生活服务平台公司能在消费者在打开 APP 的时候，实时推荐出更为合适的商家。
+地理空间与图的结合也可以用于一些 O2O 的场景，例如基于 POI（Point-of-Interest）的实时美食推荐[^mt]，使得美团这类本地生活服务平台公司能在消费者在打开 APP 的时候，实时推荐出更为合适的商家。
 
 ![image](https://docs-cdn.nebula-graph.com.cn/books/images/meituan2.png)
 
