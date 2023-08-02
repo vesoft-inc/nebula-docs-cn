@@ -8,7 +8,7 @@ Exchange 由 Reader、Processor 和 Writer 三部分组成。Reader 读取不同
 
 ## 版本系列
 
-Exchange 有社区版和企业版两个系列，二者功能不同。社区版在 [GitHub](https://github.com/vesoft-inc/nebula-exchange) 开源开发，企业版属于{{nebula.name}}企业套餐，详情参见[版本对比](https://nebula-graph.com.cn/pricing/)。
+Exchange 有社区版和企业版两个系列，二者功能不同。社区版在 [GitHub](https://github.com/vesoft-inc/nebula-exchange) 开源开发，企业版属于{{nebula.name}}企业套餐。{{ent.ent_begin}}详情参见[版本对比](https://yueshu.com.cn/pricing/)。{{ent.ent_end}}
 
 ## 适用场景
 
