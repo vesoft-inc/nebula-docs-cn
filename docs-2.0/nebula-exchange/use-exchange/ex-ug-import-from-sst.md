@@ -79,7 +79,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
 
 开始导入数据之前，用户需要确认以下信息：
 
-- 已经[安装部署 {{nebula.name}} {{nebula.release}}](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md) 并获取如下信息：
+- 已经[安装部署{{nebula.name}} {{nebula.release}}](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md) 并获取如下信息：
 
   - Graph 服务和 Meta 服务的的 IP 地址和端口。
 
@@ -91,7 +91,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
 
   - Schema 的信息，包括 Tag 和 Edge type 的名称、属性等。
 
-- 已经[编译 Exchange](../ex-ug-compile.md)，或者直接[下载](https://repo1.maven.org/maven2/com/vesoft/nebula-exchange/)编译完成的。jar 文件。本示例中使用 Exchange {{exchange.release}}。
+- 已经[编译 Exchange](../ex-ug-compile.md)，或者直接[下载](https://repo1.maven.org/maven2/com/vesoft/nebula-exchange/)编译完成的 jar 文件。本示例中使用 Exchange {{exchange.release}}。
 
 - 已经安装 Spark。
 
