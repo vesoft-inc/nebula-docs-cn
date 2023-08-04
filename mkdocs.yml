@@ -75,7 +75,8 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.tilde
   - pymdownx.superfences
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
 
 # Plugins
 plugins:
@@ -103,7 +104,7 @@ plugins:
         - 9.about-license/5.manage-license.md
         - 9.about-license/2.license-management-suite/1.suite-overview.md
         - 9.about-license/2.license-management-suite/2.license-center.md
-        # exclude.ent.begin
+        # exclude.ent.begin （hide the ent-docs below when releasing comm)
         - 9.about-license/*
         - 3.ngql-guide/6.functions-and-expressions/17.ES-function.md
         - 4.deployment-and-installation/deploy-license.md
@@ -140,7 +141,7 @@ plugins:
         - 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
         - nebula-operator/*
         # exclude.ent.end
-        # exclude.comm.begin
+        # exclude.comm.begin  (hide the comm-doc when releasing ent)
         - nebula-dashboard/1.what-is-dashboard.md
         - nebula-dashboard/2.deploy-dashboard.md
         - nebula-dashboard/3.connect-dashboard.md
@@ -163,7 +164,6 @@ plugins:
         - 8.service-tuning/enable_autofdo_for_nebulagraph.md
         - 20.appendix/history.md
         - 20.appendix/mind-map.md
-        - 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
         - 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
         - nebula-operator/*
         # exclude.comm.end
@@ -847,7 +847,7 @@ nav:
         - Graph 服务: 1.introduction/3.nebula-graph-architecture/3.graph-service.md
         - Storage 服务: 1.introduction/3.nebula-graph-architecture/4.storage-service.md
   - 快速入门:
-    - 使用 Docker Desktop: 2.quick-start/1.quick-start-overview.md
+    - 基于 Docker: 2.quick-start/1.quick-start-overview.md
     - 从云开始（免费试用）: 2.quick-start/2.start-free-trial-on-cloud.md
     - 本地部署: 
       - 步骤 1：安装 NebulaGraph: 2.quick-start/3.quick-start-on-premise/2.install-nebula-graph.md
@@ -1011,7 +1011,6 @@ nav:
           - 使用源码安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md
           - 使用 RPM/DEB 包安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md
           - 使用 tar.gz 文件安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/4.install-nebula-graph-from-tar.md
-          - 使用 Docker Compose 部署: 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
           - 使用 RPM/DEB 包部署多机集群: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
 #operator1.5.0发版后release
 #          - 使用生态工具安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/6.deploy-nebula-graph-with-peripherals.md

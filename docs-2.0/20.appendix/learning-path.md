@@ -262,7 +262,7 @@
   |[图数据库在安全风控场景的应用 @BOSS 直聘](https://www.bilibili.com/video/BV1Rh41117G9)|
   |[更多文档](https://nebula-graph.com.cn/posts/)   、[视频](https://space.bilibili.com/472621355/channel/series)                |
 ## 6. 常见问题
-
+ 
   | 文档                                                         |
   | ------------------------------------------------------------ |
   | [常见问题 FAQ](https://docs.nebula-graph.com.cn/{{nebula.release}}/20.appendix/0.FAQ/#faq) |
@@ -303,3 +303,78 @@
 - 有关{{nebula.name}}语言的概述，参见[开源分布式图数库论文](https://arxiv.org/pdf/2206.07278.pdf)中的 2.8 节。
 
 {{comm.comm_end}}
+
+
+## 视频
+
+用户也可以观看视频快速了解{{nebula.name}}的相关概念和操作。
+
+### {{nebula.name}} Academy 系列课程
+
+ * [第一课：图的概念](https://www.bilibili.com/video/BV1CK411f7Fw)（03 分 45 秒）
+
+ <iframe src="//player.bilibili.com/player.html?aid=472862441&bvid=BV1CK411f7Fw&cid=825343516&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
+
+ * [第二课：图的结构](https://www.bilibili.com/video/BV1CK411f7Fw)（02 分 24 秒）
+
+ <iframe src="//player.bilibili.com/player.html?aid=815684900&bvid=BV1ZG4y1q7J7&cid=837334766&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
+
+ 请访问 [Bilibili 空间](https://space.bilibili.com/472621355)，查看更多视频。
+
+### 热点视频
+
+<!--
+* [听吴敏博士聊 NebulaGraph](https://www.bilibili.com/video/BV14U4y157zc)（37 分 40 秒）
+
+<iframe src="//player.bilibili.com/player.html?aid=673642782&bvid=BV14U4y157zc&cid=355543912&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
+-->
+
+
+* [Foesa 小学姐课堂——{{nebula.name}}那些磨人的概念](https://www.bilibili.com/video/BV1Q5411K7Gg)（04 分 20 秒）
+
+<iframe src="//player.bilibili.com/player.html?aid=461196353&bvid=BV1Q5411K7Gg&cid=355536579&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
+
+* [Foesa 小学姐课堂——`path`的三种类型](https://www.bilibili.com/video/BV1Uf4y1t72L)（03 分 09 秒）
+<iframe src="//player.bilibili.com/player.html?aid=291311326&bvid=BV1Uf4y1t72L&cid=361000311&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
+
+* [Foesa 小学姐课堂——悬挂边](https://www.bilibili.com/video/BV1GR4y1F7ko) （02 分 27 秒）
+
+ <iframe src="//player.bilibili.com/player.html?aid=339743290&bvid=BV1GR4y1F7ko&cid=545565805&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
+
+ * [Foesa 小学姐课堂——自环](https://www.bilibili.com/video/BV1E5411S7t2)（02 分 53 秒）
+
+ <iframe src="//player.bilibili.com/player.html?aid=467674856&bvid=BV1E5411S7t2&cid=563290238&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
+
+ * [Nebula Explore Demo Show](https://www.bilibili.com/video/BV1VL4y1V7C2)（02 分 53 秒）
+
+ <iframe src="//player.bilibili.com/player.html?aid=853353222&bvid=BV1VL4y1V7C2&cid=581214591&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
+
+<!--
+### 入门系列
+
+* [NebulaGraph Studio 图探索](https://www.bilibili.com/video/BV1QN411Z7Vh)（03 分 23 秒）
+
+<iframe src="//player.bilibili.com/player.html?aid=503286771&bvid=BV1QN411Z7Vh&cid=344349765&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
+
+
+* [NebulaGraph Exchange](https://www.bilibili.com/video/BV1Pq4y177D9)（03 分 08 秒）
+
+<iframe src="//player.bilibili.com/player.html?aid=546003709&bvid=BV1Pq4y177D9&cid=352387808&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
+
+
+* [NebulaGraph Algorithm](https://www.bilibili.com/video/BV1fB4y1T7XK)（02 分 36 秒）
+
+<iframe src="//player.bilibili.com/player.html?aid=588577467&bvid=BV1fB4y1T7XK&cid=351282857&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
+
+
+### NG 辅导班
+
+* [第一篇：图世界的那些概念、术语](https://www.bilibili.com/video/BV17X4y1A7p9)（08 分 12 秒）
+
+<iframe src="//player.bilibili.com/player.html?aid=716209223&bvid=BV17X4y1A7p9&cid=355893988&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
+
+* [第二篇：如何更好地学习 NebulaGraph](https://www.bilibili.com/video/BV1aX4y1A7xd)（07 分 44 秒）
+
+<iframe src="//player.bilibili.com/player.html?aid=716219807&bvid=BV1aX4y1A7xd&cid=355896587&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="720px" height="480px"> </iframe>
+
+-->
