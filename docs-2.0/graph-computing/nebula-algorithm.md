@@ -29,9 +29,7 @@ NebulaGraph Algorithm 版本和{{nebula.name}}内核的版本对应关系如下�
 
 ## 使用限制
 
-- 对于非整数的 String 类型数据，推荐使用调用算法接口的方式，可以使用 SparkSQL 的`dense_rank`函数进行编码，将 String 类型转换为 Long 类型。
-
-- 图计算会输出点的数据集，算法结果会以DataFrame形式作为点的属性存储。用户可以根据业务需求，自行对算法结果做进一步操作，例如统计、筛选。
+图计算会输出点的数据集，算法结果会以DataFrame形式作为点的属性存储。用户可以根据业务需求，自行对算法结果做进一步操作，例如统计、筛选。
   
 !!! compatibility
 
@@ -239,6 +237,7 @@ NebulaGraph Algorithm 实现图计算的流程如下：
       pagerank: {
           maxIter: 10
           resetProb: 0.15  
+          encodeId:false # 如果点 ID 是字符串类型，请配置为 true。
       }
  
       # Louvain 参数
@@ -246,6 +245,7 @@ NebulaGraph Algorithm 实现图计算的流程如下：
           maxIter: 20
           internalIter: 10
           tol: 0.5
+          encodeId:false # 如果点 ID 是字符串类型，请配置为 true。
       }
 
       # ...
