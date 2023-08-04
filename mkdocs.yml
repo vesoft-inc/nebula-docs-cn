@@ -126,7 +126,7 @@ plugins:
         - 20.appendix/release-notes/nebula-ent-release-note.md
         - 20.appendix/release-notes/dashboard-ent-release-note.md
         - 20.appendix/release-notes/explorer-release-note.md
-        - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent-from-3.x-3.4.md
+        - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent.md
         - 2.quick-start/2.quick-start-on-cloud/1.create-instance-on-cloud.md
         - 2.quick-start/2.quick-start-on-cloud/2.connect-to-nebulagraph-on-cloud.md
         - 2.quick-start/2.quick-start-on-cloud/3.how-to-query-on-cloud.md
@@ -137,7 +137,6 @@ plugins:
         - nebula-cloud/nebula-cloud-on-alibabacloud/2.use-cloud-services.md
         - nebula-cloud/nebula-cloud-on-alibabacloud/3.delete-service-instance.md
         - nebula-cloud/nebula-cloud-on-alibabacloud/4.scaling-services.md
-        - 4.deployment-and-installation/3.upgrade-nebula-graph/_upgrade-nebula-from-300-to-latest.md
         - 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
         - nebula-operator/*
         # exclude.ent.end
@@ -151,7 +150,7 @@ plugins:
         - 2.quick-start/1.quick-start-overview.md
         - 2.quick-start/2.start-free-trial-on-cloud.md
         - backup-and-restore/nebula-br/*
-        - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
+        - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-comm.md
         - nebula-studio/*
         - nebula-dashboard/
         - 20.appendix/release-notes/nebula-comm-release-note.md
@@ -160,7 +159,6 @@ plugins:
         - 4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md
         - 15.contribution/how-to-contribute.md
         - 4.deployment-and-installation/standalone-deployment.md
-        - 4.deployment-and-installation/3.upgrade-nebula-graph/_upgrade-nebula-from-300-to-latest.md
         - 8.service-tuning/enable_autofdo_for_nebulagraph.md
         - 20.appendix/history.md
         - 20.appendix/mind-map.md
@@ -582,9 +580,7 @@ nav:
       - 连接服务: 4.deployment-and-installation/connect-to-nebula-graph.md
       - 管理 Storage 主机: 4.deployment-and-installation/manage-storage-host.md
 #      - 管理逻辑机架（Zone）: 4.deployment-and-installation/5.zone.md
-      - 升级版本:
-        #  - 升级 v3.x 至 v3.4（社区版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-300-to-latest.md
-          - 升级悦数图数据库至 v3.5（企业版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent-from-3.x-3.4.md
+      - 升级版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent.md
       - 卸载悦数图数据库: 4.deployment-and-installation/4.uninstall-nebula-graph.md
 
   - 配置与日志:
@@ -1010,7 +1006,7 @@ nav:
       - 编译与安装:
           - 使用源码安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md
           - 使用 RPM/DEB 包安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md
-          - 使用 tar.gz 文件安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/4.install-nebula-graph-from-tar.md
+          - 使用 TAR 包安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/4.install-nebula-graph-from-tar.md
           - 使用 RPM/DEB 包部署多机集群: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
 #operator1.5.0发版后release
 #          - 使用生态工具安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/6.deploy-nebula-graph-with-peripherals.md
@@ -1019,10 +1015,7 @@ nav:
       - 连接服务: 4.deployment-and-installation/connect-to-nebula-graph.md
       - 管理 Storage 主机: 4.deployment-and-installation/manage-storage-host.md
 #      - 管理逻辑机架（Zone）: 4.deployment-and-installation/5.zone.md
-
-      - 升级版本:
-          - 升级 NebulaGraph 至 v3.5（社区版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
-        #  - 升级 v3.x 至 v3.4（社区版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-300-to-latest.md
+      - 升级版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-comm.md
       - 卸载 NebulaGraph: 4.deployment-and-installation/4.uninstall-nebula-graph.md
 
   - 配置与日志:

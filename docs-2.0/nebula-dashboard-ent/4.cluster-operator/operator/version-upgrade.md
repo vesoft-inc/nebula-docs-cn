@@ -11,10 +11,10 @@
 !!! note
 
     {{comm.comm_begin}}
-    - 仅支持升级版本不低于 **3.0.0** 的{{nebula.name}}集群，且最高升级至 **3.2.1** 版本。如需升级至 **3.3.0**，请参见[手动升级文档](../../..//4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md)。
+    - 仅支持升级版本不低于 **3.0.0** 的{{nebula.name}}集群，且最高升级至 **3.2.1** 版本。如需升级至 **3.3.0**，请参见[手动升级文档](../../..//4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-comm.md)。
     {{comm.comm_end}}
     {{ent.ent_begin}}
-    - 仅支持升级版本不低于 **3.0.0** 的{{nebula.name}}集群，且最高升级至 **3.2.1** 版本。如需升级至 **3.3.0**，请参见[手动升级文档](../../..//4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent-from-3.x-3.4.md)。
+    - 仅支持升级版本不低于 **3.0.0** 的{{nebula.name}}集群，且最高升级至 **3.2.1** 版本。如需升级至 **3.3.0**，请参见[手动升级文档](../../..//4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent.md)。
     {{ent.ent_end}}
     - 不支持跨大版本升级集群。
     - 支持社区版升级为企业版或企业版升级为社区版。

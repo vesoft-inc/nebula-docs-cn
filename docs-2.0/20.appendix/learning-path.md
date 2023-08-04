@@ -97,7 +97,7 @@
 
   | 文档                                                         |
   | ------------------------------------------------------------ |
-  | [升级{{nebula.name}}](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest/) |
+  | [升级{{nebula.name}}](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-comm/) |
 
 ### 3.3 配置Nebula
 

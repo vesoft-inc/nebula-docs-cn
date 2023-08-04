@@ -4,11 +4,11 @@
 
 ## 升级说明
 
-- 此升级操作仅适用于升级{{nebula.name}} 3.x（x < 4）至 {{nebula.release}}。对于升级 3.4.0 及以上版本至 {{nebula.release}}，可以直接替换二进制文件进行升级。具体操作请参见[升级{{nebula.name}} 至 {{nebula.release}}](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest/)。<!--因为企业版 {{nebula.name}} 3.4 中一个分片对应一个 RocksDB 实例不同于 3.4 之前的一个图空间对应一个 RocksDB 实例。因此企业版3.4.0和之前版本数据格式不兼容--> 
+- 此升级操作仅适用于升级{{nebula.name}} 3.x（x < 4）至 {{nebula.release}}。对于升级 3.4.0 及以上版本至 {{nebula.release}}，可以直接替换二进制文件进行升级。具体操作请参见[升级{{nebula.name}} 至 {{nebula.release}}](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-comm/)。<!--因为企业版 {{nebula.name}} 3.4 中一个分片对应一个 RocksDB 实例不同于 3.4 之前的一个图空间对应一个 RocksDB 实例。因此企业版3.4.0和之前版本数据格式不兼容--> 
   
   !!! note
 
-        如果您的{{nebula.name}}版本低于 3.0.0，请先升级到 3.1.0 再升级到 {{nebula.release}}。具体操作请参见[升级{{nebula.name}} 2.x 至 3.1.0](https://docs.nebula-graph.com.cn/3.1.0/4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest/)。
+        如果您的{{nebula.name}}版本低于 3.0.0，请先升级到 3.1.0 再升级到 {{nebula.release}}。具体操作请参见[升级{{nebula.name}} 2.x 至 3.1.0](https://docs.nebula-graph.com.cn/3.1.0/4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-comm/)。
 
 - 执行升级操作的集群 IP 地址必须与原集群相同。
   
