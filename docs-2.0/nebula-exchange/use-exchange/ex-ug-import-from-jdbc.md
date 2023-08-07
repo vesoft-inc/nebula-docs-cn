@@ -80,6 +80,10 @@ mysql> desc serve;
 
 - 如果文件存储在本地且{{nebula.name}}是集群架构，需要在集群每台机器本地相同目录下放置文件。
 
+## 注意事项
+
+Spark 2.2.x 版本仅支持单表查询，不支持多表查询。
+
 ## 操作步骤
 
 ### 步骤 1：在{{nebula.name}}中创建 Schema
@@ -205,8 +209,16 @@ mysql> desc serve;
       user:root
       password:"12345"
 
-      table:player
-      sentence:"select playerid, age, name from player order by playerid"
+      # Spark2.2.x支持单表查询，需要配置table。sentence为可选配置，且只需要写表名。
+      table:test.player
+      # sentence:"select playerid, age, name from player order by playerid"
+
+      # Spark2.4.x和3.x.x支持单表查询，只需要配置table，不能和sentence一起配置。
+      # table:test.player
+      
+      # Spark2.4.x和3.x.x支持多表查询，只需要配置sentence，不能和table一起配置。
+      # sentence: "select * from  people, player, team"
+
 
       # （可选）多连接读取参数 参见 https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html
       partitionColumn:playerid    # 可选。数值类型必须为数字、日期或时间戳。
