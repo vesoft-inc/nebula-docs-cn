@@ -206,15 +206,15 @@ Spark 2.2.x 版本仅支持单表查询，不支持多表查询。
       driver:"com.mysql.cj.jdbc.Driver"
 
       # 数据库用户名和密码。
-      user:root
+      user:"root"
       password:"12345"
 
       # Spark 2.2.x 支持单表查询，需要配置 table。sentence 为可选配置，且只需要写表名。
-      table:test.player
+      table:"test.player"
       # sentence:"select playerid, age, name from player order by playerid"
 
       # Spark 2.4.x 和 3.x.x 支持单表查询，只需要配置 table，不能和 sentence 一起配置。
-      # table:test.player
+      # table:"test.player"
 
       # Spark 2.4.x 和 3.x.x 支持多表查询，只需要配置 sentence，不能和 table 一起配置。
       # sentence: "select * from  people, player, team"
