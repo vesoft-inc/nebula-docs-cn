@@ -215,9 +215,8 @@ nebula-exchange_spark_2.2 仅支持单表查询，不支持多表查询。
       table:"basketball.player"
 
       # 通过查询语句读取数据。
-      # nebula-exchange_spark_2.2 可以配置该参数。不支持多表查询。
+      # nebula-exchange_spark_2.2 可以配置该参数。不支持多表查询。在 from 后只需要写表名，不支持`库名.表名`。
       # nebula-exchange_spark_2.4 和 nebula-exchange_spark_3.0 可以配置该参数，但是不能和 table 同时配置。支持多表查询。
-      # 在 from 后只需要写表名，不支持`库名.表名`。
       # sentence:"select playerid, age, name from player order by playerid"
 
       # （可选）多连接读取参数 参见 https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html
@@ -310,9 +309,8 @@ nebula-exchange_spark_2.2 仅支持单表查询，不支持多表查询。
       table:"basketball.follow"
 
       # 通过查询语句读取数据。
-      # nebula-exchange_spark_2.2 可以配置该参数。不支持多表查询。
+      # nebula-exchange_spark_2.2 可以配置该参数。不支持多表查询。在 from 后只需要写表名，不支持`库名.表名`。
       # nebula-exchange_spark_2.4 和 nebula-exchange_spark_3.0 可以配置该参数，但是不能和 table 同时配置。支持多表查询。
-      # 在 from 后只需要写表名，不支持`库名.表名`。
       # sentence:"select src_player,dst_player,degree from follow order by src_player"
 
       partitionColumn:src_player    

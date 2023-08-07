@@ -206,7 +206,6 @@ nebula-exchange_spark_2.2 仅支持单表查询，不支持多表查询。
       # 通过查询语句读取数据。
       # nebula-exchange_spark_2.2 不支持该参数。
       # nebula-exchange_spark_2.4 和 nebula-exchange_spark_3.0 可以配置该参数，但是不能和 table 同时配置。支持多表查询。
-      # 在 from 后只需要写表名，不支持`库名.表名`。
       # sentence: "select * from  people, player, team"
 
       # 在 fields 里指定 player 表中的列名称，其对应的 value 会作为{{nebula.name}}中指定属性。
@@ -286,7 +285,6 @@ nebula-exchange_spark_2.2 仅支持单表查询，不支持多表查询。
       # 通过查询语句读取数据。
       # nebula-exchange_spark_2.2 不支持该参数。
       # nebula-exchange_spark_2.4 和 nebula-exchange_spark_3.0 可以配置该参数，但是不能和 table 同时配置。支持多表查询。
-      # 在 from 后只需要写表名，不支持`库名.表名`。
       # sentence: "select * from  follow, serve"
 
       # 在 fields 里指定 follow 表中的列名称，其对应的 value 会作为{{nebula.name}}中指定属性。
