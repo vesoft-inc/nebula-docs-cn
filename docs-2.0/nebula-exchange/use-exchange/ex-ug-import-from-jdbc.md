@@ -209,16 +209,16 @@ nebula-exchange_spark_2.2 仅支持单表查询，不支持多表查询。
       user:"root"
       password:"12345"
 
-      # nebula-exchange_spark_2.2 支持单表查询，需要配置 table。sentence 为可选配置，在 from 后只需要写表名，不支持`库名.表名`。
+      # 扫描单个表读取数据。
+      # nebula-exchange_spark_2.2 必须配置该参数，还可以额外配置 sentence。
+      # nebula-exchange_spark_2.4 和 nebula-exchange_spark_3.0 可以配置该参数，但是不能和 sentence 同时配置。
       table:"basketball.player"
+
+      # 通过查询语句读取数据。
+      # nebula-exchange_spark_2.2 可以配置该参数。不支持多表查询。
+      # nebula-exchange_spark_2.4 和 nebula-exchange_spark_3.0 可以配置该参数，但是不能和 table 同时配置。支持多表查询。
+      # 在 from 后只需要写表名，不支持`库名.表名`。
       # sentence:"select playerid, age, name from player order by playerid"
-
-      # nebula-exchange_spark_2.4 和 nebula-exchange_spark_3.0 支持扫描单个表读取数据，只需要配置 table，不能和 sentence 一起配置。
-      # table:"basketball.player"
-
-      # nebula-exchange_spark_2.4 和 nebula-exchange_spark_3.0 支持通过查询语句读取数据，只需要配置 sentence，不能和 table 一起配置。该方式支持单表查询和多表查询。
-      # sentence: "select * from  people, player, team"
-
 
       # （可选）多连接读取参数 参见 https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html
       partitionColumn:playerid    # 可选。数值类型必须为数字、日期或时间戳。
@@ -304,15 +304,16 @@ nebula-exchange_spark_2.2 仅支持单表查询，不支持多表查询。
       user:root
       password:"12345"
 
-      # nebula-exchange_spark_2.2 支持单表查询，需要配置 table。sentence 为可选配置，在 from 后只需要写表名，不支持`库名.表名`。
+      # 扫描单个表读取数据。
+      # nebula-exchange_spark_2.2 必须配置该参数，还可以额外配置 sentence。
+      # nebula-exchange_spark_2.4 和 nebula-exchange_spark_3.0 可以配置该参数，但是不能和 sentence 同时配置。
       table:"basketball.follow"
+
+      # 通过查询语句读取数据。
+      # nebula-exchange_spark_2.2 可以配置该参数。不支持多表查询。
+      # nebula-exchange_spark_2.4 和 nebula-exchange_spark_3.0 可以配置该参数，但是不能和 table 同时配置。支持多表查询。
+      # 在 from 后只需要写表名，不支持`库名.表名`。
       # sentence:"select src_player,dst_player,degree from follow order by src_player"
-
-      # nebula-exchange_spark_2.4 和 nebula-exchange_spark_3.0 支持扫描单个表读取数据，只需要配置 table，不能和 sentence 一起配置。
-      # table:"basketball.follow"
-
-      # nebula-exchange_spark_2.4 和 nebula-exchange_spark_3.0 支持通过查询语句读取数据，只需要配置 sentence，不能和 table 一起配置。该方式支持单表查询和多表查询。
-      # sentence: "select * from  follow, serve"
 
       partitionColumn:src_player    
       lowerBound:1                
