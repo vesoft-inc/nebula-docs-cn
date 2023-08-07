@@ -209,14 +209,14 @@ Spark 2.2.x 版本仅支持单表查询，不支持多表查询。
       user:root
       password:"12345"
 
-      # Spark2.2.x支持单表查询，需要配置table。sentence为可选配置，且只需要写表名。
+      # Spark 2.2.x 支持单表查询，需要配置 table。sentence 为可选配置，且只需要写表名。
       table:test.player
       # sentence:"select playerid, age, name from player order by playerid"
 
-      # Spark2.4.x和3.x.x支持单表查询，只需要配置table，不能和sentence一起配置。
+      # Spark 2.4.x 和 3.x.x 支持单表查询，只需要配置 table，不能和 sentence 一起配置。
       # table:test.player
-      
-      # Spark2.4.x和3.x.x支持多表查询，只需要配置sentence，不能和table一起配置。
+
+      # Spark 2.4.x 和 3.x.x 支持多表查询，只需要配置 sentence，不能和 table 一起配置。
       # sentence: "select * from  people, player, team"
 
 
