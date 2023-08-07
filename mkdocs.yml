@@ -183,6 +183,8 @@ plugins:
 # nav.ent.begin
       cover_logo: 'https://docs-cdn.nebula-graph.com.cn/figures/yueshu_favicon_230515.png'
 # nav.ent.end
+      pdf_stylesheets:
+        - stylesheets/pdf.css
 
   # nav.ent.begin
       output_path: pdf/yueshu-cn.pdf
