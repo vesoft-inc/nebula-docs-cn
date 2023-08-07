@@ -34,7 +34,9 @@
 
 ## 注意事项
 
-导入 Pulsar 数据时只支持 Client 模式，即参数`tags.type.sink`和`edges.type.sink`的值为`client`。
+- 导入 Pulsar 数据时只支持 Client 模式，即参数`tags.type.sink`和`edges.type.sink`的值为`client`。
+
+- 导入 Pulsar 数据时请勿使用 Exchange 3.4.0 版本，该版本增加了对导入数据的缓存，不支持流式数据导入。请使用 Exchange 3.0.0、3.3.0、3.5.0 版本。
 
 ## 操作步骤
 

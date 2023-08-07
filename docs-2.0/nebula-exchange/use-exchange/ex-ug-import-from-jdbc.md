@@ -82,7 +82,7 @@ mysql> desc serve;
 
 ## 注意事项
 
-Spark 2.2.x 版本仅支持单表查询，不支持多表查询。
+nebula-exchange_spark_2.2 仅支持单表查询，不支持多表查询。
 
 ## 操作步骤
 
@@ -209,14 +209,14 @@ Spark 2.2.x 版本仅支持单表查询，不支持多表查询。
       user:"root"
       password:"12345"
 
-      # Spark 2.2.x 支持单表查询，需要配置 table。sentence 为可选配置，且只需要写表名。
-      table:"test.player"
+      # nebula-exchange_spark_2.2 支持单表查询，需要配置 table。sentence 为可选配置，在 from 后只需要写表名，不支持`库名.表名`。
+      table:"basketball.player"
       # sentence:"select playerid, age, name from player order by playerid"
 
-      # Spark 2.4.x 和 3.x.x 支持单表查询，只需要配置 table，不能和 sentence 一起配置。
-      # table:"test.player"
+      # nebula-exchange_spark_2.4 和 nebula-exchange_spark_3.0 支持扫描单个表读取数据，只需要配置 table，不能和 sentence 一起配置。
+      # table:"basketball.player"
 
-      # Spark 2.4.x 和 3.x.x 支持多表查询，只需要配置 sentence，不能和 table 一起配置。
+      # nebula-exchange_spark_2.4 和 nebula-exchange_spark_3.0 支持通过查询语句读取数据，只需要配置 sentence，不能和 table 一起配置。该方式支持单表查询和多表查询。
       # sentence: "select * from  people, player, team"
 
 
@@ -303,8 +303,17 @@ Spark 2.2.x 版本仅支持单表查询，不支持多表查询。
       driver:"com.mysql.cj.jdbc.Driver"
       user:root
       password:"12345"
-      table:follow
-      sentence:"select src_player,dst_player,degree from follow order by src_player"
+
+      # nebula-exchange_spark_2.2 支持单表查询，需要配置 table。sentence 为可选配置，在 from 后只需要写表名，不支持`库名.表名`。
+      table:"basketball.follow"
+      # sentence:"select src_player,dst_player,degree from follow order by src_player"
+
+      # nebula-exchange_spark_2.4 和 nebula-exchange_spark_3.0 支持扫描单个表读取数据，只需要配置 table，不能和 sentence 一起配置。
+      # table:"basketball.follow"
+
+      # nebula-exchange_spark_2.4 和 nebula-exchange_spark_3.0 支持通过查询语句读取数据，只需要配置 sentence，不能和 table 一起配置。该方式支持单表查询和多表查询。
+      # sentence: "select * from  follow, serve"
+
       partitionColumn:src_player    
       lowerBound:1                
       upperBound:5                

@@ -51,6 +51,8 @@ Exchange 具有以下优点：
 
 ## 版本兼容性
 
+Exchange 支持 Spark 版本 2.2.x、2.4.x 和 3.x.x，针对不同 Spark 版本命名为：`nebula-exchange_spark_2.2`、`nebula-exchange_spark_2.4`和`nebula-exchange_spark_3.0`。
+
 NebulaGraph Exchange 版本（即 JAR 包版本）、{{nebula.name}}内核版本和 Spark 版本对应关系如下。
 
 | Exchange 版本 | {{nebula.name}}版本 | Spark 版本 |
