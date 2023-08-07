@@ -193,7 +193,7 @@ nebula-exchange_spark_2.2 仅支持单表查询，不支持多表查询。
       }
 
 
-      url:"jdbc:oracle:thin:@host:1521:db"
+      url:"jdbc:oracle:thin:@host:1521:basketball"
       driver: "oracle.jdbc.driver.OracleDriver"
       user: "root"
       password: "123456"
