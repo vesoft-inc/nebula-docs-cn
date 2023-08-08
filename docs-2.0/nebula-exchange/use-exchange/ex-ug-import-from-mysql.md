@@ -78,6 +78,12 @@ mysql> desc serve;
 
 - 了解{{nebula.name}}中创建 Schema 的信息，包括 Tag 和 Edge type 的名称、属性等。
 
+- 已经安装并开启 Hadoop 服务。
+
+## 注意事项
+
+nebula-exchange_spark_2.2 仅支持单表查询，不支持多表查询。
+
 ## 操作步骤
 
 ### 步骤 1：在{{nebula.name}}中创建 Schema
@@ -187,11 +193,19 @@ mysql> desc serve;
 
       host:192.168.*.*
       port:3306
-      database:"basketball"
-      table:"player"
       user:"test"
       password:"123456"
-      sentence:"select playerid, age, name from player order by playerid"
+      database:"basketball"
+
+      # 扫描单个表读取数据。
+      # nebula-exchange_spark_2.2 必须配置该参数。不支持配置 sentence。
+      # nebula-exchange_spark_2.4 和 nebula-exchange_spark_3.0 可以配置该参数，但是不能和 sentence 同时配置。
+      table:"basketball.player"
+
+      # 通过查询语句读取数据。
+      # nebula-exchange_spark_2.2 不支持该参数。
+      # nebula-exchange_spark_2.4 和 nebula-exchange_spark_3.0 可以配置该参数，但是不能和 table 同时配置。支持多表查询。
+      # sentence: "select * from  people, player, team"
 
       # 在 fields 里指定 player 表中的列名称，其对应的 value 会作为 {{nebula.name}} 中指定属性。
       # fields 和 nebula.fields 里的配置必须一一对应。
@@ -260,11 +274,19 @@ mysql> desc serve;
 
       host:192.168.*.*
       port:3306
-      database:"basketball"
-      table:"follow"
       user:"test"
       password:"123456"
-      sentence:"select src_player,dst_player,degree from follow order by src_player"
+      database:"basketball"
+
+      # 扫描单个表读取数据。
+      # nebula-exchange_spark_2.2 必须配置该参数。不支持配置 sentence。
+      # nebula-exchange_spark_2.4 和 nebula-exchange_spark_3.0 可以配置该参数，但是不能和 sentence 同时配置。
+      table:"basketball.follow"
+
+      # 通过查询语句读取数据。
+      # nebula-exchange_spark_2.2 不支持该参数。
+      # nebula-exchange_spark_2.4 和 nebula-exchange_spark_3.0 可以配置该参数，但是不能和 table 同时配置。支持多表查询。
+      # sentence: "select * from  follow, serve"
 
       # 在 fields 里指定 follow 表中的列名称，其对应的 value 会作为 {{nebula.name}} 中指定属性。
       # fields 和 nebula.fields 里的配置必须一一对应。
