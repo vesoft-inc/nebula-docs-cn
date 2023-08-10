@@ -181,6 +181,9 @@
       #        }
       }
 
+      # 批量操作类型，包括 INSERT、UPDATE 和 DELETE。默认为 INSERT。
+      #writeMode: INSERT
+
       # 单批次写入 {{nebula.name}} 的数据条数。
       batch: 10
 
@@ -242,6 +245,9 @@
 
   #    # 指定一个列作为 rank 的源（可选）。
   #    #ranking: rank
+
+  #    # 批量操作类型，包括 INSERT、UPDATE 和 DELETE。默认为 INSERT。
+  #    #writeMode: INSERT
 
   #    # 单批次写入 {{nebula.name}} 的数据条数。
   #    batch: 10

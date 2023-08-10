@@ -241,6 +241,12 @@ scala> sql("select playerid, teamid, start_year, end_year from basketball.serve"
       #        }
       }
 
+      # 批量操作类型，包括 INSERT、UPDATE 和 DELETE。默认为 INSERT。
+      #writeMode: INSERT
+
+      # 批量删除时是否删除该点关联的出边和入边。`writeMode`为`DELETE`时该参数生效。
+      #deleteEdge: false
+
       # 单批次写入 {{nebula.name}} 的最大数据条数。
       batch: 256
 
@@ -313,6 +319,9 @@ scala> sql("select playerid, teamid, start_year, end_year from basketball.serve"
 
       # 指定一个列作为 rank 的源（可选）。
       #ranking: rank
+
+      # 批量操作类型，包括 INSERT、UPDATE 和 DELETE。默认为 INSERT。
+      #writeMode: INSERT
 
       # 单批次写入 {{nebula.name}} 的最大数据条数。
       batch: 256
