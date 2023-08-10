@@ -202,6 +202,12 @@
       # 如果 CSV 文件没有表头，请将 header 设置为 false。默认值为 false。
       header: false
 
+      # 批量操作类型，包括 INSERT、UPDATE 和 DELETE。默认为 INSERT。
+      #writeMode: INSERT
+
+      # 批量删除时是否删除该点关联的出边和入边。`writeMode`为`DELETE`时该参数生效。
+      #deleteEdge: false
+
       # 指定单批次写入 {{nebula.name}} 的最大点数量。
       batch: 256
 
@@ -315,6 +321,9 @@
       # 如果 CSV 文件有表头，请将 header 设置为 true。
       # 如果 CSV 文件没有表头，请将 header 设置为 false。默认值为 false。
       header: false
+
+      # 批量操作类型，包括 INSERT、UPDATE 和 DELETE。默认为 INSERT。
+      #writeMode: INSERT
 
       # 指定单批次写入 {{nebula.name}} 的最大边数量。
       batch: 256
