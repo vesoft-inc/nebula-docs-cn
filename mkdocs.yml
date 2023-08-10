@@ -138,7 +138,6 @@ plugins:
         - nebula-cloud/nebula-cloud-on-alibabacloud/3.delete-service-instance.md
         - nebula-cloud/nebula-cloud-on-alibabacloud/4.scaling-services.md
         - 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
-        - nebula-operator/*
         # exclude.ent.end
         # exclude.comm.begin  (hide the comm-doc when releasing ent)
         - nebula-dashboard/1.what-is-dashboard.md
@@ -163,7 +162,6 @@ plugins:
         - 20.appendix/history.md
         - 20.appendix/mind-map.md
         - 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
-        - nebula-operator/*
         # exclude.comm.end
 
 # Exclude the file with the following file name.
@@ -348,11 +346,11 @@ extra:
     branch: release-1.2
     tag: v1.2.0
   operator:
-    release: 1.4.2
-    tag: v1.4.2
-    branch: release-1.4
-    upgrade_from: 3.0.0
-    upgrade_to: 3.4.1
+    release: 1.5.0
+    tag: v1.5.0
+    branch: release-1.5
+    upgrade_from: 3.5.0
+    upgrade_to: 3.5.x
   exporter:
     release: 3.3.0
     branch: release-3.3
@@ -789,25 +787,25 @@ nav:
     - 悦数图计算: graph-computing/nebula-analytics.md
     - 悦数图探索工作流: graph-computing/use-explorer.md
 
-  # - 自动化部署运维:
-  #     - 什么是 NebulaGraph Operator: nebula-operator/1.introduction-to-nebula-operator.md
-  #     - 使用流程: nebula-operator/6.get-started-with-operator.md
-  #     - 部署 NebulaGraph Operator: nebula-operator/2.deploy-nebula-operator.md
-  #     - 部署悦数图数据库: 
-  #       - 部署 LM: nebula-operator/3.deploy-nebula-graph-cluster/3.0.deploy-lm.md
-  #       - 使用 Kubectl 部署: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
-  #       - 使用 Helm 部署: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
-  #     - 连接悦数图数据库: nebula-operator/4.connect-to-nebula-graph-service.md
-  #     - 配置悦数图数据库:
-  #       - 自定义集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
-  #       - 回收 PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
-  #       - 均衡扩容后的 Storage 数据: nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
-  #       - 管理集群日志: nebula-operator/8.custom-cluster-configurations/8.4.manage-running-logs.md 
-  #       - 配置滚动更新策略: nebula-operator/11.rolling-update-strategy.md
-  #     - 升级悦数图数据库: nebula-operator/9.upgrade-nebula-cluster.md
-  #     - 备份与恢复: nebula-operator/10.backup-restore-using-operator.md 
-  #     - 故障自愈: nebula-operator/5.operator-failover.md
-  #     - 常见问题: nebula-operator/7.operator-faq.md
+  - 自动化部署运维:
+      - 什么是 NebulaGraph Operator: nebula-operator/1.introduction-to-nebula-operator.md
+      - 使用流程: nebula-operator/6.get-started-with-operator.md
+      - 部署 NebulaGraph Operator: nebula-operator/2.deploy-nebula-operator.md
+      - 部署悦数图数据库: 
+        - 部署 LM: nebula-operator/3.deploy-nebula-graph-cluster/3.0.deploy-lm.md
+        - 使用 Kubectl 部署: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
+        - 使用 Helm 部署: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
+      - 连接悦数图数据库: nebula-operator/4.connect-to-nebula-graph-service.md
+      - 配置悦数图数据库:
+        - 自定义集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
+        - 回收 PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
+        - 均衡扩容后的 Storage 数据: nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
+        - 管理集群日志: nebula-operator/8.custom-cluster-configurations/8.4.manage-running-logs.md 
+        - 配置滚动更新策略: nebula-operator/11.rolling-update-strategy.md
+      - 升级悦数图数据库: nebula-operator/9.upgrade-nebula-cluster.md
+      - 备份与恢复: nebula-operator/10.backup-restore-using-operator.md 
+      - 故障自愈: nebula-operator/5.operator-failover.md
+      - 常见问题: nebula-operator/7.operator-faq.md
 
   - 性能测试: nebula-bench.md
   - 常见问题 FAQ: 20.appendix/0.FAQ.md
@@ -1133,22 +1131,22 @@ nav:
       - 导入 SST 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-sst.md
     - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
 
-  # - NebulaGraph Operator:
-  #     - 什么是 NebulaGraph Operator: nebula-operator/1.introduction-to-nebula-operator.md
-  #     - 使用流程: nebula-operator/6.get-started-with-operator.md
-  #     - 部署 NebulaGraph Operator: nebula-operator/2.deploy-nebula-operator.md
-  #     - 部署 NebulaGraph: 
-  #       - 使用 Kubectl 部署 NebulaGraph 集群: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
-  #       - 使用 Helm 部署 NebulaGraph 集群: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
-  #     - 连接 NebulaGraph: nebula-operator/4.connect-to-nebula-graph-service.md
-  #     - 配置 NebulaGraph:
-  #       - 自定义 NebulaGraph 集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
-  #       - 回收 PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
-  #       - 管理集群日志: nebula-operator/8.custom-cluster-configurations/8.4.manage-running-logs.md 
-  #       - 配置滚动更新策略: nebula-operator/11.rolling-update-strategy.md
-  #     - 升级 NebulaGraph: nebula-operator/9.upgrade-nebula-cluster.md
-  #     - 故障自愈: nebula-operator/5.operator-failover.md
-  #     - 常见问题: nebula-operator/7.operator-faq.md
+  - NebulaGraph Operator:
+      - 什么是 NebulaGraph Operator: nebula-operator/1.introduction-to-nebula-operator.md
+      - 使用流程: nebula-operator/6.get-started-with-operator.md
+      - 部署 NebulaGraph Operator: nebula-operator/2.deploy-nebula-operator.md
+      - 部署 NebulaGraph: 
+        - 使用 Kubectl 部署 NebulaGraph 集群: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
+        - 使用 Helm 部署 NebulaGraph 集群: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
+      - 连接 NebulaGraph: nebula-operator/4.connect-to-nebula-graph-service.md
+      - 配置 NebulaGraph:
+        - 自定义 NebulaGraph 集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
+        - 回收 PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
+        - 管理集群日志: nebula-operator/8.custom-cluster-configurations/8.4.manage-running-logs.md 
+        - 配置滚动更新策略: nebula-operator/11.rolling-update-strategy.md
+      - 升级 NebulaGraph: nebula-operator/9.upgrade-nebula-cluster.md
+      - 故障自愈: nebula-operator/5.operator-failover.md
+      - 常见问题: nebula-operator/7.operator-faq.md
 
   - 图计算:
 #    - 算法简介: graph-computing/algorithm-description.md
