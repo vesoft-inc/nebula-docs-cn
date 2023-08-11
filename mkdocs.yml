@@ -1002,8 +1002,8 @@ nav:
   - 安装部署:
       - 准备资源: 4.deployment-and-installation/1.resource-preparations.md
       - 编译安装:
-        - 编译源码: 4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md
-#        - 使用 Docker 编译: 
+        - 源码编译: 4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md
+        - 使用 Docker 编译: 4.deployment-and-installation/2.compile-and-install-nebula-graph/7.compile-using-docker.md
       - 本地单机安装:
           - 使用 RPM/DEB 包安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md
           - 使用 TAR 包安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/4.install-nebula-graph-from-tar.md
