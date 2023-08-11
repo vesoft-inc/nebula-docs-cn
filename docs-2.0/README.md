@@ -29,16 +29,35 @@ NebulaGraph 是一款开源的、分布式的、易扩展的原生图数据库�
 * [生态工具](20.appendix/6.eco-tool-version.md)
 * [Academy 课程](https://academic.nebula-graph.io/intro/)
 
+## 最新发布
+
+{{comm.comm_begin}}
+- [{{nebula.name}} {{nebula.release}}](20.appendix/release-notes/nebula-comm-release-note.md)
+- [Studio](20.appendix/release-notes/studio-release-note.md)
+- [Dashboard](20.appendix/release-notes/dashboard-comm-release-note.md)
+{{comm.comm_end}}
+
+{{ent.ent_begin}}
+- [{{nebula.name}} {{nebula.release}}](20.appendix/release-notes/nebula-ent-release-note.md)
+- [{{dashboard_ent.name}}](20.appendix/release-notes/dashboard-ent-release-note.md)
+- [{{explorer.name}}](20.appendix/release-notes/explorer-release-note.md)
+{{ent.ent_end}}
+
+
 ## 其他资料
 
 - [学习路径](https://academic.nebula-graph.io/?lang=ZH_CN)
-{{ comm.comm_begin }}
+   {{ comm.comm_begin }}
 - [引用 NebulaGraph](https://arxiv.org/abs/2206.07278)
-{{ comm.comm_end }}
 - [论坛](https://discuss.nebula-graph.com.cn/)
 - [主页](https://nebula-graph.com.cn/)
 - [系列视频](https://space.bilibili.com/472621355)
 - [英文文档](https://docs.nebula-graph.io/)
+   {{ comm.comm_end }}
+   {{ ent.ent_begin }}
+- [主页](https://yueshu.com.cn/)
+   {{ ent.ent_end }}
+
 
 ## 图例说明
 

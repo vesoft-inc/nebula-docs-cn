@@ -8,7 +8,7 @@ Exchange 由 Reader、Processor 和 Writer 三部分组成。Reader 读取不同
 
 ## 版本系列
 
-Exchange 有社区版和企业版两个系列，二者功能不同。社区版在 [GitHub](https://github.com/vesoft-inc/nebula-exchange) 开源开发，企业版属于{{nebula.name}}企业套餐，详情参见[版本对比](https://nebula-graph.com.cn/pricing/)。
+Exchange 有社区版和企业版两个系列，二者功能不同。社区版在 [GitHub](https://github.com/vesoft-inc/nebula-exchange) 开源开发，企业版属于{{nebula.name}}企业套餐。{{ent.ent_begin}}详情参见[版本对比](https://yueshu.com.cn/pricing/)。{{ent.ent_end}}
 
 ## 适用场景
 
@@ -50,6 +50,8 @@ Exchange 具有以下优点：
 - 易于使用：采用 HOCON（Human-Optimized Config Object Notation）配置文件格式，具有面向对象风格，便于理解和操作。
 
 ## 版本兼容性
+
+Exchange 支持 Spark 版本 2.2.x、2.4.x 和 3.x.x，针对不同 Spark 版本命名为：`nebula-exchange_spark_2.2`、`nebula-exchange_spark_2.4`和`nebula-exchange_spark_3.0`。
 
 NebulaGraph Exchange 版本（即 JAR 包版本）、{{nebula.name}}内核版本和 Spark 版本对应关系如下。
 

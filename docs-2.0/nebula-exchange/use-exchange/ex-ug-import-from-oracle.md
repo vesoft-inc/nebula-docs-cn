@@ -56,12 +56,6 @@ oracle> desc serve;
 
 - Spark：2.4.7，单机版
 
-- Hadoop：2.9.2，伪分布式部署
-
-<!--
-- Oracle： 19c
--->
-
 - {{nebula.name}}：{{nebula.release}}。
   
 ## 前提条件
@@ -81,6 +75,10 @@ oracle> desc serve;
 - 了解{{nebula.name}}中创建的 Schema 信息，包括 Tag 和 Edge type 的名称、属性等。
 
 - 已经安装并开启 Hadoop 服务。
+
+## 注意事项
+
+nebula-exchange_spark_2.2 仅支持单表查询，不支持多表查询。
 
 ## 操作步骤
 
@@ -189,12 +187,20 @@ oracle> desc serve;
       }
 
 
-      url:"jdbc:oracle:thin:@host:1521:db"
+      url:"jdbc:oracle:thin:@host:1521:basketball"
       driver: "oracle.jdbc.driver.OracleDriver"
       user: "root"
       password: "123456"
-      table: "basketball.player"
-      sentence: "select playerid, name, age from player"
+
+      # 扫描单个表读取数据。
+      # nebula-exchange_spark_2.2 必须配置该参数。不支持配置 sentence。
+      # nebula-exchange_spark_2.4 和 nebula-exchange_spark_3.0 可以配置该参数，但是不能和 sentence 同时配置。
+      table:"basketball.player"
+
+      # 通过查询语句读取数据。
+      # nebula-exchange_spark_2.2 不支持该参数。
+      # nebula-exchange_spark_2.4 和 nebula-exchange_spark_3.0 可以配置该参数，但是不能和 table 同时配置。支持多表查询。
+      # sentence: "select * from  people, player, team"
 
       # 在 fields 里指定 player 表中的列名称，其对应的 value 会作为{{nebula.name}}中指定属性。
       # fields 和 nebula.fields 里的配置必须一一对应。
@@ -211,6 +217,12 @@ oracle> desc serve;
       #            newColName:new-field
       #        }
       }
+
+      # 批量操作类型，包括 INSERT、UPDATE 和 DELETE。默认为 INSERT。
+      #writeMode: INSERT
+
+      # 批量删除时是否删除该点关联的出边和入边。`writeMode`为`DELETE`时该参数生效。
+      #deleteEdge: false
 
       # 单批次写入{{nebula.name}}的数据条数。
       batch: 256
@@ -264,8 +276,16 @@ oracle> desc serve;
       driver: "oracle.jdbc.driver.OracleDriver"
       user: "root"
       password: "123456"
-      table: "basketball.follow"
-      sentence: "select src_player, dst_player, degree from follow"
+
+      # 扫描单个表读取数据。
+      # nebula-exchange_spark_2.2 必须配置该参数。不支持配置 sentence。
+      # nebula-exchange_spark_2.4 和 nebula-exchange_spark_3.0 可以配置该参数，但是不能和 sentence 同时配置。
+      table:"basketball.follow"
+
+      # 通过查询语句读取数据。
+      # nebula-exchange_spark_2.2 不支持该参数。
+      # nebula-exchange_spark_2.4 和 nebula-exchange_spark_3.0 可以配置该参数，但是不能和 table 同时配置。支持多表查询。
+      # sentence: "select * from  follow, serve"
 
       # 在 fields 里指定 follow 表中的列名称，其对应的 value 会作为{{nebula.name}}中指定属性。
       # fields 和 nebula.fields 里的配置必须一一对应。
@@ -295,6 +315,9 @@ oracle> desc serve;
 
       # 指定一个列作为 rank 的源（可选）。
       #ranking: rank
+
+      # 批量操作类型，包括 INSERT、UPDATE 和 DELETE。默认为 INSERT。
+      #writeMode: INSERT
 
       # 单批次写入{{nebula.name}}的数据条数。
       batch: 256

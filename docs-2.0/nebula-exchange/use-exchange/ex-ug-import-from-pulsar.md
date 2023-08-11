@@ -34,7 +34,9 @@
 
 ## 注意事项
 
-导入 Pulsar 数据时只支持 Client 模式，即参数`tags.type.sink`和`edges.type.sink`的值为`client`。
+- 导入 Pulsar 数据时只支持 Client 模式，即参数`tags.type.sink`和`edges.type.sink`的值为`client`。
+
+- 导入 Pulsar 数据时请勿使用 Exchange 3.4.0 版本，该版本增加了对导入数据的缓存，不支持流式数据导入。请使用 Exchange 3.0.0、3.3.0、3.5.0 版本。
 
 ## 操作步骤
 
@@ -167,6 +169,12 @@
       #        }
       }
 
+      # 批量操作类型，包括 INSERT、UPDATE 和 DELETE。默认为 INSERT。
+      #writeMode: INSERT
+
+      # 批量删除时是否删除该点关联的出边和入边。`writeMode`为`DELETE`时该参数生效。
+      #deleteEdge: false
+
       # 单批次写入{{nebula.name}}的数据条数。
       batch: 10
 
@@ -252,6 +260,9 @@
 
       # 指定一个列作为 rank 的源（可选）。
       #ranking: rank
+
+      # 批量操作类型，包括 INSERT、UPDATE 和 DELETE。默认为 INSERT。
+      #writeMode: INSERT
 
       # 单批次写入{{nebula.name}}的数据条数。
       batch: 10

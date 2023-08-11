@@ -97,7 +97,7 @@
 
   | 文档                                                         |
   | ------------------------------------------------------------ |
-  | [升级{{nebula.name}}](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest/) |
+  | [升级{{nebula.name}}](https://docs.nebula-graph.com.cn/{{nebula.release}}/4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-comm/) |
 
 ### 3.3 配置Nebula
 
@@ -262,7 +262,7 @@
   |[图数据库在安全风控场景的应用 @BOSS 直聘](https://www.bilibili.com/video/BV1Rh41117G9)|
   |[更多文档](https://nebula-graph.com.cn/posts/)   、[视频](https://space.bilibili.com/472621355/channel/series)                |
 ## 6. 常见问题
-
+ 
   | 文档                                                         |
   | ------------------------------------------------------------ |
   | [常见问题 FAQ](https://docs.nebula-graph.com.cn/{{nebula.release}}/20.appendix/0.FAQ/#faq) |

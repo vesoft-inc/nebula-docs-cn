@@ -58,8 +58,6 @@ scala> spark.sql("describe basketball.serve").show
 
 - Spark：2.4.7，单机版
 
-- Hadoop：2.9.2，伪分布式部署
-
 - Hive：2.3.7，Hive Metastore 数据库为 MySQL 8.0.22
 
 - {{nebula.name}}：{{nebula.release}}。
@@ -80,7 +78,7 @@ scala> spark.sql("describe basketball.serve").show
 
 - 了解{{nebula.name}}中创建 Schema 的信息，包括 Tag 和 Edge type 的名称、属性等。
 
-- 已经安装并开启 Hadoop 服务，并已启动 Hive Metastore 数据库（本示例中为 MySQL）。
+- 已经启动 Hive Metastore 数据库（本示例中为 MySQL）。
 
 ## 操作步骤
 
@@ -243,6 +241,12 @@ scala> sql("select playerid, teamid, start_year, end_year from basketball.serve"
       #        }
       }
 
+      # 批量操作类型，包括 INSERT、UPDATE 和 DELETE。默认为 INSERT。
+      #writeMode: INSERT
+
+      # 批量删除时是否删除该点关联的出边和入边。`writeMode`为`DELETE`时该参数生效。
+      #deleteEdge: false
+
       # 单批次写入 {{nebula.name}} 的最大数据条数。
       batch: 256
 
@@ -315,6 +319,9 @@ scala> sql("select playerid, teamid, start_year, end_year from basketball.serve"
 
       # 指定一个列作为 rank 的源（可选）。
       #ranking: rank
+
+      # 批量操作类型，包括 INSERT、UPDATE 和 DELETE。默认为 INSERT。
+      #writeMode: INSERT
 
       # 单批次写入 {{nebula.name}} 的最大数据条数。
       batch: 256

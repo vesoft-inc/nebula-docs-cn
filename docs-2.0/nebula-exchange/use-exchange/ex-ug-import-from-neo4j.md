@@ -188,6 +188,13 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
       #            newColName:new-field
       #        }
       }
+
+      # 批量操作类型，包括 INSERT、UPDATE 和 DELETE。默认为 INSERT。
+      #writeMode: INSERT
+
+      # 批量删除时是否删除该点关联的出边和入边。`writeMode`为`DELETE`时该参数生效。
+      #deleteEdge: false
+
       partition: 10
       batch: 1000
       check_point_path: /tmp/test
@@ -275,6 +282,10 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
         field: dst
       }
       #ranking: rank
+
+      # 批量操作类型，包括 INSERT、UPDATE 和 DELETE。默认为 INSERT。
+      #writeMode: INSERT
+
       partition: 10
       batch: 1000
       check_point_path: /tmp/test

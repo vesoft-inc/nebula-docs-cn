@@ -53,8 +53,6 @@ ROW                                COLUMN+CELL
 
 - Spark：2.4.7，单机版
 
-- Hadoop：2.9.2，伪分布式部署
-
 - HBase：2.2.7
 
 - {{nebula.name}}：{{nebula.release}}。
@@ -74,8 +72,6 @@ ROW                                COLUMN+CELL
 - 已经安装 Spark。
 
 - 了解{{nebula.name}}中创建 Schema 的信息，包括 Tag 和 Edge type 的名称、属性等。
-
-- 已经安装并开启 Hadoop 服务。
 
 ## 操作步骤
 
@@ -206,6 +202,12 @@ ROW                                COLUMN+CELL
       #        }
       }
 
+      # 批量操作类型，包括 INSERT、UPDATE 和 DELETE。默认为 INSERT。
+      #writeMode: INSERT
+
+      # 批量删除时是否删除该点关联的出边和入边。`writeMode`为`DELETE`时该参数生效。
+      #deleteEdge: false
+
       # 单批次写入 {{nebula.name}} 的数据条数。
       batch: 256
 
@@ -283,6 +285,9 @@ ROW                                COLUMN+CELL
 
       # 指定一个列作为 rank 的源（可选）。
       #ranking: rank
+
+      # 批量操作类型，包括 INSERT、UPDATE 和 DELETE。默认为 INSERT。
+      #writeMode: INSERT
 
       # 单批次写入 {{nebula.name}} 的数据条数。
       batch: 256
