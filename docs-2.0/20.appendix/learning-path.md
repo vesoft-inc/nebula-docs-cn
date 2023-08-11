@@ -289,18 +289,18 @@
 
 - NebulaGraph Certified Professional (NGCP)：通过该考试证明用户对图数据库及{{nebula.name}}有深入的了解，是{{nebula.name}}专业人士。
 
-考试用书[《开源分布式图数据库{{nebula.name}}完全指南》](https://docs.nebula-graph.com.cn/site/pdf/NebulaGraph-book.pdf)
+考试用书[《分布式图数据库{{nebula.name}}完全指南》](https://docs.nebula-graph.com.cn/site/pdf/NebulaGraph-book.pdf)
 
 单击[{{nebula.name}}个人技能认证](https://discuss.nebula-graph.com.cn/t/topic/8728)查看考试说明及入口。
 
 
 ## 参考文档
 
-- 有关{{nebula.name}}的原理介绍，参见[开源分布式图数库论文](https://arxiv.org/pdf/2206.07278.pdf)。
+- 有关{{nebula.name}}的原理介绍，参见[分布式图数库论文](https://arxiv.org/pdf/2206.07278.pdf)。
 
-- 有关 [{{nebula.name}}索引](../3.ngql-guide/14.native-index-statements/README.md)原理的介绍，参见[开源分布式图数库论文](https://arxiv.org/pdf/2206.07278.pdf)中的 2.4 节。
+- 有关 [{{nebula.name}}索引](../3.ngql-guide/14.native-index-statements/README.md)原理的介绍，参见[分布式图数库论文](https://arxiv.org/pdf/2206.07278.pdf)中的 2.4 节。
 
-- 有关{{nebula.name}}语言的概述，参见[开源分布式图数库论文](https://arxiv.org/pdf/2206.07278.pdf)中的 2.8 节。
+- 有关{{nebula.name}}语言的概述，参见[分布式图数库论文](https://arxiv.org/pdf/2206.07278.pdf)中的 2.8 节。
 
 {{comm.comm_end}}
 
