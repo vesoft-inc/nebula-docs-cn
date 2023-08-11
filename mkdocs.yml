@@ -75,7 +75,8 @@ markdown_extensions:
   - pymdownx.caret
   - pymdownx.tilde
   - pymdownx.superfences
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
 
 # Plugins
 plugins:
@@ -103,7 +104,7 @@ plugins:
         - 9.about-license/5.manage-license.md
         - 9.about-license/2.license-management-suite/1.suite-overview.md
         - 9.about-license/2.license-management-suite/2.license-center.md
-        # exclude.ent.begin
+        # exclude.ent.begin （hide the ent-docs below when releasing comm)
         - 9.about-license/*
         - 3.ngql-guide/6.functions-and-expressions/17.ES-function.md
         - 4.deployment-and-installation/deploy-license.md
@@ -125,7 +126,7 @@ plugins:
         - 20.appendix/release-notes/nebula-ent-release-note.md
         - 20.appendix/release-notes/dashboard-ent-release-note.md
         - 20.appendix/release-notes/explorer-release-note.md
-        - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent-from-3.x-3.4.md
+        - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent.md
         - 2.quick-start/2.quick-start-on-cloud/1.create-instance-on-cloud.md
         - 2.quick-start/2.quick-start-on-cloud/2.connect-to-nebulagraph-on-cloud.md
         - 2.quick-start/2.quick-start-on-cloud/3.how-to-query-on-cloud.md
@@ -136,10 +137,9 @@ plugins:
         - nebula-cloud/nebula-cloud-on-alibabacloud/2.use-cloud-services.md
         - nebula-cloud/nebula-cloud-on-alibabacloud/3.delete-service-instance.md
         - nebula-cloud/nebula-cloud-on-alibabacloud/4.scaling-services.md
-        - 4.deployment-and-installation/3.upgrade-nebula-graph/_upgrade-nebula-from-300-to-latest.md
         - 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
         # exclude.ent.end
-        # exclude.comm.begin
+        # exclude.comm.begin  (hide the comm-doc when releasing ent)
         - nebula-dashboard/1.what-is-dashboard.md
         - nebula-dashboard/2.deploy-dashboard.md
         - nebula-dashboard/3.connect-dashboard.md
@@ -149,7 +149,7 @@ plugins:
         - 2.quick-start/1.quick-start-overview.md
         - 2.quick-start/2.start-free-trial-on-cloud.md
         - backup-and-restore/nebula-br/*
-        - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
+        - 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-comm.md
         - nebula-studio/*
         - nebula-dashboard/
         - 20.appendix/release-notes/nebula-comm-release-note.md
@@ -158,11 +158,9 @@ plugins:
         - 4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md
         - 15.contribution/how-to-contribute.md
         - 4.deployment-and-installation/standalone-deployment.md
-        - 4.deployment-and-installation/3.upgrade-nebula-graph/_upgrade-nebula-from-300-to-latest.md
         - 8.service-tuning/enable_autofdo_for_nebulagraph.md
         - 20.appendix/history.md
         - 20.appendix/mind-map.md
-        - 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
         - 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
         # exclude.comm.end
 
@@ -183,6 +181,8 @@ plugins:
 # nav.ent.begin
       cover_logo: 'https://docs-cdn.nebula-graph.com.cn/figures/yueshu_favicon_230515.png'
 # nav.ent.end
+      pdf_stylesheets:
+        - stylesheets/pdf.css
 
   # nav.ent.begin
       output_path: pdf/yueshu-cn.pdf
@@ -243,9 +243,9 @@ extra:
     release: 3.7.0
     tag: v3.7.0
   explorer:
-    release: 3.5.0
+    release: 3.5.1
     branch: release-3.5
-    tag: v3.5.0
+    tag: v3.5.1
     # nav.ent.begin
     name: 悦数图探索
     # nav.ent.end
@@ -314,8 +314,8 @@ extra:
     branch: release-3.5
     tag: v3.5.0
   br_ent:
-    release: 3.5.0
-    tag: v3.5.0
+    release: 3.5.1
+    tag: v3.5.1
     # nav.ent.begin
     name: Backup&Restore
     # nav.ent.end
@@ -349,8 +349,8 @@ extra:
     release: 1.5.0
     tag: v1.5.0
     branch: release-1.5
-    upgrade_from: 3.0.0
-    upgrade_to: 3.4.1
+    upgrade_from: 3.5.0
+    upgrade_to: 3.5.x
   exporter:
     release: 3.3.0
     branch: release-3.3
@@ -570,18 +570,16 @@ nav:
 
   - 安装部署:
       - 准备资源: 4.deployment-and-installation/1.resource-preparations.md
-      - 安装软件包:
+      - 单机安装:
           - 使用 RPM/DEB 包安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md
           - 使用 TAR 包安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/4.install-nebula-graph-from-tar.md
-          - 使用 RPM/DEB 包部署多机集群: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
-          - 使用生态工具安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/6.deploy-nebula-graph-with-peripherals.md
+      - 多机安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
+      - 使用生态工具安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/6.deploy-nebula-graph-with-peripherals.md
       - 管理服务: 4.deployment-and-installation/manage-service.md
       - 连接服务: 4.deployment-and-installation/connect-to-nebula-graph.md
       - 管理 Storage 主机: 4.deployment-and-installation/manage-storage-host.md
 #      - 管理逻辑机架（Zone）: 4.deployment-and-installation/5.zone.md
-      - 升级版本:
-        #  - 升级 v3.x 至 v3.4（社区版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-300-to-latest.md
-          - 升级悦数图数据库至 v3.5（企业版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent-from-3.x-3.4.md
+      - 升级版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-ent.md
       - 卸载悦数图数据库: 4.deployment-and-installation/4.uninstall-nebula-graph.md
 
   - 配置与日志:
@@ -803,22 +801,21 @@ nav:
         - 回收 PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
         - 均衡扩容后的 Storage 数据: nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
         - 管理集群日志: nebula-operator/8.custom-cluster-configurations/8.4.manage-running-logs.md 
-        - 启用 TLS 加密: nebula-operator/8.custom-cluster-configurations/8.5.enable-ssl.md
-      - 升级悦数图数据库: nebula-operator/9.upgrade-nebula-cluster.md
-      - 配置滚动更新策略: nebula-operator/11.rolling-update-strategy.md
+        - 配置滚动更新策略: nebula-operator/11.rolling-update-strategy.md
+#      - 升级悦数图数据库: nebula-operator/9.upgrade-nebula-cluster.md
       - 备份与恢复: nebula-operator/10.backup-restore-using-operator.md 
       - 故障自愈: nebula-operator/5.operator-failover.md
       - 常见问题: nebula-operator/7.operator-faq.md
 
   - 性能测试: nebula-bench.md
-
+  - 常见问题 FAQ: 20.appendix/0.FAQ.md
   - 附录:
       - Release Note:
         - 悦数图数据库: 20.appendix/release-notes/nebula-ent-release-note.md
         - 悦数运维监控: 20.appendix/release-notes/dashboard-ent-release-note.md
         - 悦数图探索: 20.appendix/release-notes/explorer-release-note.md
       - 学习路径: 20.appendix/learning-path.md
-      - 常见问题 FAQ: 20.appendix/0.FAQ.md
+      - 产品端口全集: 20.appendix/port-guide.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
       - 错误码: 20.appendix/error-code.md
 
@@ -844,7 +841,7 @@ nav:
         - Graph 服务: 1.introduction/3.nebula-graph-architecture/3.graph-service.md
         - Storage 服务: 1.introduction/3.nebula-graph-architecture/4.storage-service.md
   - 快速入门:
-    - 使用 Docker Desktop: 2.quick-start/1.quick-start-overview.md
+    - 基于 Docker: 2.quick-start/1.quick-start-overview.md
     - 从云开始（免费试用）: 2.quick-start/2.start-free-trial-on-cloud.md
     - 本地部署: 
       - 步骤 1：安装 NebulaGraph: 2.quick-start/3.quick-start-on-premise/2.install-nebula-graph.md
@@ -1004,23 +1001,22 @@ nav:
 
   - 安装部署:
       - 准备资源: 4.deployment-and-installation/1.resource-preparations.md
-      - 编译与安装:
-          - 使用源码安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md
+      - 编译安装:
+        - 编译源码: 4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md
+#        - 使用 Docker 编译: 
+      - 本地单机安装:
           - 使用 RPM/DEB 包安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md
-          - 使用 tar.gz 文件安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/4.install-nebula-graph-from-tar.md
-          - 使用 Docker Compose 部署: 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
-          - 使用 RPM/DEB 包部署多机集群: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
-          - 使用生态工具安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/6.deploy-nebula-graph-with-peripherals.md
-      - 安装存算合并版 NebulaGraph: 4.deployment-and-installation/standalone-deployment.md
+          - 使用 TAR 包安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/4.install-nebula-graph-from-tar.md
+          - 安装存算合并版服务: 4.deployment-and-installation/standalone-deployment.md
+      - 本地多机安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster.md
+      - 使用 Docker Compose 安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md
+      - 使用生态工具安装: 4.deployment-and-installation/2.compile-and-install-nebula-graph/6.deploy-nebula-graph-with-peripherals.md      
       - 管理服务: 4.deployment-and-installation/manage-service.md
       - 连接服务: 4.deployment-and-installation/connect-to-nebula-graph.md
       - 管理 Storage 主机: 4.deployment-and-installation/manage-storage-host.md
 #      - 管理逻辑机架（Zone）: 4.deployment-and-installation/5.zone.md
-
-      - 升级版本:
-          - 升级 NebulaGraph 至 v3.5（社区版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest.md
-        #  - 升级 v3.x 至 v3.4（社区版）: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-from-300-to-latest.md
-      - 卸载 NebulaGraph: 4.deployment-and-installation/4.uninstall-nebula-graph.md
+      - 升级版本: 4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-comm.md
+      - 卸载: 4.deployment-and-installation/4.uninstall-nebula-graph.md
 
   - 配置与日志:
       - 配置:
@@ -1146,14 +1142,13 @@ nav:
         - 自定义 NebulaGraph 集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
         - 回收 PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
         - 管理集群日志: nebula-operator/8.custom-cluster-configurations/8.4.manage-running-logs.md 
-        - 启用 TLS 加密: nebula-operator/8.custom-cluster-configurations/8.5.enable-ssl.md
-      - 升级 NebulaGraph: nebula-operator/9.upgrade-nebula-cluster.md
-      - 配置滚动更新策略: nebula-operator/11.rolling-update-strategy.md
+        - 配置滚动更新策略: nebula-operator/11.rolling-update-strategy.md
+#      - 升级 NebulaGraph: nebula-operator/9.upgrade-nebula-cluster.md
       - 故障自愈: nebula-operator/5.operator-failover.md
       - 常见问题: nebula-operator/7.operator-faq.md
 
   - 图计算:
-    - 算法简介: graph-computing/algorithm-description.md
+#    - 算法简介: graph-computing/algorithm-description.md
     - NebulaGraph Algorithm: graph-computing/nebula-algorithm.md
   
   - NebulaGraph Spark Connector: nebula-spark-connector.md
@@ -1161,21 +1156,23 @@ nav:
   - NebulaGraph Flink Connector: nebula-flink-connector.md
 
   - NebulaGraph Bench: nebula-bench.md
+
+  - 常见问题: 20.appendix/0.FAQ.md
+
   - 附录:
       - Release Note:
         - NebulaGraph 社区版: 20.appendix/release-notes/nebula-comm-release-note.md
         - NebulaGraph Studio: 20.appendix/release-notes/studio-release-note.md
         - NebulaGraph Dashboard 社区版: 20.appendix/release-notes/dashboard-comm-release-note.md
       - 学习路径: 20.appendix/learning-path.md
-      - 常见问题 FAQ: 20.appendix/0.FAQ.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
       - 导入工具选择: 20.appendix/write-tools.md
+      - 产品端口全集: 20.appendix/port-guide.md
       - 社区参与: 15.contribution/how-to-contribute.md
       - 年表: 20.appendix/history.md
       - 思维导图: 20.appendix/mind-map.md
       - 错误码: 20.appendix/error-code.md
 # nav.pdf.begin
-  - PDF: https://docs-cdn.nebula-graph.com.cn/pdf/master/NebulaGraph-CN.pdf
+  - PDF: ./pdf/NebulaGraph-CN.pdf
 # nav.pdf.end
 # nav.comm.end
-

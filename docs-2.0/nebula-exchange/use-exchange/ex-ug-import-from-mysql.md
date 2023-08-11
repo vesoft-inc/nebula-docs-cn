@@ -56,8 +56,6 @@ mysql> desc serve;
 
 - Spark：2.4.7，单机版
 
-- Hadoop：2.9.2，伪分布式部署
-
 - MySQL： 8.0.23
 
 - {{nebula.name}}：{{nebula.release}}。

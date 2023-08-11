@@ -28,19 +28,21 @@ NebulaGraph Importer（简称 Importer）是一款{{nebula.name}}的 CSV 文件�
   
   - [RPM/DEB 包安装](../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md)
     {{comm.comm_begin}}  
-  - [Docker Compose 部署](../4.deployment-and-installation/2.compile-and-install-nebula-graph/3.deploy-nebula-graph-with-docker-compose.md)
+  - [Docker Compose 部署](../2.quick-start/1.quick-start-overview.md)
   
   - [源码编译安装](../4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code.md)
     {{comm.comm_end}}
-- {{nebula.name}} 中已创建 Schema，包括图空间、Tag 和 Edge type，或者通过参数`manager.hooks.before.statements`设置。
+- {{nebula.name}}中已创建 Schema，包括图空间、Tag 和 Edge type，或者通过参数`manager.hooks.before.statements`设置。
 
 ## 操作步骤
 
-准备好待导入的 CSV 文件并配置 yaml 文件，即可使用本工具向{{nebula.name}}批量导入数据。
+### 创建 CSV 文件
+
+准备好待导入的 CSV 文件并配置 YAML 文件，即可使用本工具向{{nebula.name}}批量导入数据。
 
 !!! note
 
-    yaml 配置文件说明请参见下文的配置文件说明。
+    YAML 配置文件说明请参见下文的[配置文件说明](#_8)。
 
 ### 下载二进制包运行
 
@@ -49,10 +51,10 @@ NebulaGraph Importer（简称 Importer）是一款{{nebula.name}}的 CSV 文件�
   !!! note
         使用 RPM/DEB 包安装的文件路径为`/usr/bin/nebula-importer`。
 
-2. 启动服务。
+2. 在`nebula-importer`的安装目录下，执行以下命令导入数据。
 
   ```bash
-  $ ./<binary_package_name> --config <yaml_config_file_path>
+  $ ./<binary_file_name> --config <yaml_config_file_path>
   ```
 
 ### 源码编译运行
@@ -81,7 +83,7 @@ NebulaGraph Importer（简称 Importer）是一款{{nebula.name}}的 CSV 文件�
   $ make build
   ```
 
-4. 启动服务。
+4. 开始导入数据。
 
   ```bash
   $ ./bin/nebula-importer --config <yaml_config_file_path>
@@ -92,25 +94,37 @@ NebulaGraph Importer（简称 Importer）是一款{{nebula.name}}的 CSV 文件�
 使用 Docker 可以不必在本地安装 Go 语言环境，只需要拉取 NebulaGraph Importer 的[镜像](https://hub.docker.com/r/vesoft/nebula-importer)，并将本地配置文件和 CSV 数据文件挂载到容器中。命令如下：
 
 ```bash
-$ docker pull vesoft/nebula-importer
+$ docker pull vesoft/nebula-importer:<version>
 $ docker run --rm -ti \
       --network=host \
       -v <config_file>:<config_file> \
       -v <data_dir>:<data_dir> \
-      vesoft/nebula-importer:<version>
+      vesoft/nebula-importer:<version> \
       --config <config_file>
 ```
 
-- `<config_file>`：yaml 配置文件的绝对路径。
-- `<csv_data_dir>`：数据文件的绝对路径。如果文件不在本地，请忽略该参数。
-- `<version>`：Importer 的版本号，请填写`v3`。
+- `<config_file>`：填写 YAML 配置文件的绝对路径。
+- `<data_dir>`：填写 CSV 数据文件的绝对路径。如果文件不在本地，请忽略该参数。
+- `<version>`：填写 Importer 的版本号，请填写`v4`。
 
 !!! note
     建议使用相对路径。如果使用本地绝对路径，请检查路径映射到 Docker 中的路径。
 
+例如：
+
+```bash
+$ docker pull vesoft/nebula-importer:v4
+$ docker run --rm -ti \
+      --network=host \
+      -v /home/user/config.yaml:/home/user/config.yaml \
+      -v /home/user/data:/home/user/data \
+      vesoft/nebula-importer:v4 \
+      --config /home/user/config.yaml
+```
+
 ## 配置文件说明
 
-NebulaGraph Importer 的[Github](https://github.com/vesoft-inc/nebula-ng-tools/tree/{{importer.branch}}/importer/examples)内提供多种示例配置文件。配置文件用来描述待导入文件信息、{{nebula.name}}服务器信息等。下文将分类介绍配置文件内的字段。
+NebulaGraph Importer 的 [Github](https://github.com/vesoft-inc/nebula-importer/tree/{{importer.branch}}/examples) 内提供多种示例配置文件。配置文件用来描述待导入文件信息、{{nebula.name}}服务器信息等。下文将分类介绍配置文件内的字段。
 
 !!! note
 
@@ -161,19 +175,15 @@ manager:
   hooks:
     before:
       - statements:
-        - UPDATE CONFIGS storage:wal_ttl=3600;
-        - UPDATE CONFIGS storage:rocksdb_column_family_options = { disable_auto_compactions = true };
-      - statements:
         - |
-            DROP SPACE IF EXISTS basic_int_examples;
-            CREATE SPACE IF NOT EXISTS basic_int_examples(partition_num=5, replica_factor=1, vid_type=int);
-            USE basic_int_examples;
+            DROP SPACE IF EXISTS basic_string_examples;
+            CREATE SPACE IF NOT EXISTS basic_string_examples(partition_num=5, replica_factor=1, vid_type=int);
+            USE basic_string_examples;
         wait: 10s
     after:
       - statements:
           - |
-            UPDATE CONFIGS storage:wal_ttl=86400;
-            UPDATE CONFIGS storage:rocksdb_column_family_options = { disable_auto_compactions = false };
+            SHOW SPACES;
 ```
 
 |参数|默认值|是否必须|说明|
@@ -199,14 +209,14 @@ log:
   level: INFO
   console: true
   files:
-   - logs/nebula-importer.log
+   - logs/nebula-importer.log   
 ```
 
 |参数|默认值|是否必须|说明|
 |:---|:---|:---|:---|
 |`log.level`|`INFO`|否|日志级别。可选值为`DEBUG`、`INFO`、`WARN`、`ERROR`、`PANIC`、`FATAL`。|
 |`log.console`|`true`|否|存储日志时是否将日志同步打印到 Console。|
-|`log.files`|-|否|日志文件路径。|
+|`log.files`|-|否|日志文件路径。需手动创建日志文件目录。|
 
 ### Source 配置
 

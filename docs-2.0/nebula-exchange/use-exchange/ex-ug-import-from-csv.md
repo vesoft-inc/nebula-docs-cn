@@ -128,11 +128,11 @@
       # 格式："ip1:port","ip2:port","ip3:port"
       graph:["127.0.0.1:9669"]
       #任意一个 Meta 服务的地址。
-      #如果您的 {{nebula.name}} 在虚拟网络中，如k8s，请配置 Leader Meta的地址。
+      #如果您的{{nebula.name}}在虚拟网络中，如k8s，请配置 Leader Meta的地址。
       meta:["127.0.0.1:9559"]
     }
 
-    # 指定拥有 {{nebula.name}} 写权限的用户名和密码。
+    # 指定拥有{{nebula.name}}写权限的用户名和密码。
     user: root
     pswd: nebula
 
@@ -159,13 +159,13 @@
   tags: [
     # 设置 Tag player 相关信息。
     {
-      # 指定 {{nebula.name}} 中定义的 Tag 名称。
+      # 指定{{nebula.name}}中定义的 Tag 名称。
       name: player
       type: {
         # 指定数据源，使用 CSV。
         source: csv
 
-        # 指定如何将点数据导入 {{nebula.name}}：Client 或 SST。
+        # 指定如何将点数据导入{{nebula.name}}：Client 或 SST。
         sink: client
       }
 
@@ -178,7 +178,7 @@
       # 如果 CSV 文件有表头，则使用实际的列名。
       fields: [_c1, _c2]
 
-      # 指定 {{nebula.name}} 中定义的属性名称。
+      # 指定{{nebula.name}}中定义的属性名称。
       # fields 与 nebula.fields 的顺序必须一一对应。
       nebula.fields: [age, name]
 
@@ -217,7 +217,7 @@
 
     # 设置 Tag team 相关信息。
     {
-      # 指定 {{nebula.name}} 中定义的 Tag 名称。
+      # 指定{{nebula.name}}中定义的 Tag 名称。
       name: team
       type: {
         # 指定数据源，使用 CSV。
@@ -236,7 +236,7 @@
       # 如果 CSV 文件有表头，则使用实际的列名。
       fields: [_c1]
 
-      # 指定 {{nebula.name}} 中定义的属性名称。
+      # 指定{{nebula.name}}中定义的属性名称。
       # fields 与 nebula.fields 的顺序必须一一对应。
       nebula.fields: [name]
 
@@ -255,7 +255,7 @@
       # 如果 CSV 文件没有表头，请将 header 设置为 false。默认值为 false。
       header: false
 
-      # 指定单批次写入 {{nebula.name}} 的最大点数量。
+      # 指定单批次写入{{nebula.name}}的最大点数量。
       batch: 256
 
       # 指定 Spark 分片数量。
@@ -268,7 +268,7 @@
   edges: [
     # 设置 Edge type follow 相关信息。
     {
-      # 指定 {{nebula.name}} 中定义的 Edge type 名称。
+      # 指定{{nebula.name}}中定义的 Edge type 名称。
       name: follow
       type: {
         # 指定数据源，使用 CSV。
@@ -334,7 +334,7 @@
 
     # 设置 Edge type serve 相关信息。
     {
-      # 指定 {{nebula.name}} 中定义的 Edge type 名称。
+      # 指定{{nebula.name}}中定义的 Edge type 名称。
       name: serve
       type: {
         # 指定数据源，使用 CSV。
@@ -377,7 +377,7 @@
       # 如果 CSV 文件没有表头，请将 header 设置为 false。默认值为 false。
       header: false
 
-      # 指定单批次写入 {{nebula.name}} 的最大边数量。
+      # 指定单批次写入{{nebula.name}}的最大边数量。
       batch: 256
 
       # 指定 Spark 分片数量。

@@ -61,7 +61,7 @@ jobs:
 
       - name : prepare
         run: sh ./prepare.sh
-      # if 'both', set each file 'community' and 'enterprise' seperately.
+      # if 'both', set each file 'community' and 'enterprise' separately.
       - name: Update database_edition.yml
         run: |
           import yaml 

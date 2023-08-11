@@ -79,7 +79,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
 
 开始导入数据之前，用户需要确认以下信息：
 
-- 已经[安装部署 {{nebula.name}} {{nebula.release}}](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md) 并获取如下信息：
+- 已经[安装部署{{nebula.name}} {{nebula.release}}](../../4.deployment-and-installation/2.compile-and-install-nebula-graph/2.install-nebula-graph-by-rpm-or-deb.md) 并获取如下信息：
 
   - Graph 服务和 Meta 服务的的 IP 地址和端口。
 
@@ -91,7 +91,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
 
   - Schema 的信息，包括 Tag 和 Edge type 的名称、属性等。
 
-- 已经[编译 Exchange](../ex-ug-compile.md)，或者直接[下载](https://repo1.maven.org/maven2/com/vesoft/nebula-exchange/)编译完成的。jar 文件。本示例中使用 Exchange {{exchange.release}}。
+- 已经[编译 Exchange](../ex-ug-compile.md)，或者直接[下载](https://repo1.maven.org/maven2/com/vesoft/nebula-exchange/)编译完成的 jar 文件。本示例中使用 Exchange {{exchange.release}}。
 
 - 已经安装 Spark。
 
@@ -192,10 +192,10 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
   #{{nebula.name}}相关配置
   nebula: {
     address:{
-      graph:["127.0.0.1:9669"]
+      graph:["192.168.8.XXX:9669"]
       #任意一个 Meta 服务的地址。
       #如果您的{{nebula.name}}在虚拟网络中，如k8s，请配置 Leader Meta的地址。
-      meta:["127.0.0.1:9559"]
+      meta:["192.168.8.XXX:9559"]
     }
     user: root
     pswd: nebula
@@ -209,7 +209,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
         # SST 文件在 HDFS 的存储路径
         remote:"/sst"
         
-        # HDFS 的 NameNode 地址
+        # HDFS 的 NameNode 地址，例如 "hdfs://<ip/hostname>:<port>"。
         hdfs.namenode: "hdfs://*.*.*.*:9000"
     }
 
@@ -299,7 +299,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
       }
 
       # 指定 CSV 文件的路径。
-      # 文件存储在 HDFS 上，用双引号括起路径，以 hdfs://开头，例如"hdfs://ip:port/xx/xx.csv"。
+      # 文件存储在 HDFS 上，用双引号括起路径，以 hdfs://开头，例如"hdfs://<ip/hostname>:port/xx/xx.csv"。
       path: "hdfs://*.*.*.*:9000/dataset/vertex_team.csv"
 
       # 如果 CSV 文件没有表头，使用 [_c0, _c1, _c2, ..., _cn] 表示其表头，并将列指示为属性值的源。
@@ -351,7 +351,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
       }
 
       # 指定 CSV 文件的路径。
-      # 文件存储在 HDFS 上，用双引号括起路径，以 hdfs://开头，例如"hdfs://ip:port/xx/xx.csv"。
+      # 文件存储在 HDFS 上，用双引号括起路径，以 hdfs://开头，例如"hdfs://<ip/hostname>:port/xx/xx.csv"。
       path: "hdfs://*.*.*.*:9000/dataset/edge_follow.csv"
 
       # 如果 CSV 文件没有表头，使用 [_c0, _c1, _c2, ..., _cn] 表示其表头，并将列指示为属性值的源。
@@ -406,7 +406,7 @@ SST 文件是一个内部包含了任意长度的有序键值对集合的文件�
       }
 
       # 指定 CSV 文件的路径。
-      # 文件存储在 HDFS 上，用双引号括起路径，以 hdfs://开头，例如"hdfs://ip:port/xx/xx.csv"。
+      # 文件存储在 HDFS 上，用双引号括起路径，以 hdfs://开头，例如"hdfs://<ip/hostname>:port/xx/xx.csv"。
       path: "hdfs://*.*.*.*:9000/dataset/edge_serve.csv"
 
       # 如果 CSV 文件没有表头，使用 [_c0, _c1, _c2, ..., _cn] 表示其表头，并将列指示为属性值的源。
