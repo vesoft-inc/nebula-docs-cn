@@ -4,13 +4,13 @@
 
 /* 黑夜主题色 */
 :root{
-  --md-primary-fg-color: #FF0000; /* 导航栏页面颜色 */
+  --md-primary-fg-color: #A6A5C4; /* 导航栏页面颜色 */
   --md-accent-fg-color: #49BDF0; /* 选中/悬浮链接的颜色 */
 }
 
 /* 白天主题色 */
 [data-md-color-scheme="nebula"]{
-  --md-primary-fg-color: #F7A7A0; /* 导航栏页面颜色 */
+  --md-primary-fg-color: #55295B; /* 导航栏页面颜色 */
   --md-accent-fg-color: #7DBB7C; /* 选中/悬浮链接的颜色 */
   --md-typeset-a-color: #0FA37F!important; /* 白天的链接颜色 */
   --md-code-fg-color:  rgb(12, 21, 26); /* 代码段字体色 */

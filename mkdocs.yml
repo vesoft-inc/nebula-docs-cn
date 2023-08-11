@@ -15,7 +15,7 @@ repo_name: 'vesoft-inc/nebula'
 repo_url: 'https://github.com/vesoft-inc/nebula' 
 docs_dir: docs-2.0 
 # modify when release: 
-edit_uri: 'https://github.com/vesoft-inc/nebula-docs-cn/edit/master/docs-2.0/'
+edit_uri: 'https://github.com/vesoft-inc/nebula-docs-cn/edit/v3.6.0/docs-2.0/'
 copyright: Copyright &copy; 2023 NebulaGraph - 浙ICP备20010487号
 # nav.comm.end
 
@@ -171,7 +171,7 @@ plugins:
 #      - '.*\.(tmp|bin|tar)$'
   - with-pdf:
       copyright: 2023 vesoft Inc.
-      cover_subtitle: master
+      cover_subtitle: v3.6.0
       author: 梁振亚，黄凤仙
       cover: true
       back_cover: true
@@ -223,7 +223,7 @@ extra:
       link: 'https://github.com/vesoft-inc/nebula-docs-cn'
 # nav.comm.end
   nebula:
-    release: 3.5.0
+    release: 3.6.0
     nightly: nightly
     master: master
     base20: 2.0
@@ -253,13 +253,13 @@ extra:
     name: NebulaGraph Explorer
     # nav.comm.end
   exchange_ent:
-    release: 3.5.0
-    branch: release-3.5
-    tag: v3.5.0
+    release: 3.6.0
+    branch: release-3.6
+    tag: v3.6.0
   exchange:
-    release: 3.5.0
-    branch: release-3.5
-    tag: v3.5.0
+    release: 3.6.0
+    branch: release-3.6
+    tag: v3.6.0
   importer:
     release: 4.0.0
     branch: release-4.0
@@ -279,17 +279,17 @@ extra:
     name: NebulaGraph Analytics
     # nav.comm.end
   sparkconnector:
-    release: 3.4.0
-    branch: release-3.4
-    tag: v3.4.0
+    release: 3.6.0
+    branch: release-3.6
+    tag: v3.6.0
   flinkconnector:
     release: 3.5.0
     branch: release-3.5
     tag: v3.5.0
   dockercompose:
-    release: 3.5.0
-    branch: release-3.5
-    tag: v3.5.0
+    release: 3.6.0
+    branch: release-3.6
+    tag: v3.6.0
   dashboard:
     release: 3.4.0
     tag: v3.4.0

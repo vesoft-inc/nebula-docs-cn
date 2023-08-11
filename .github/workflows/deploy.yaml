@@ -1,11 +1,11 @@
 name: Publish docs via GitHub Pages
 env:
-  ACTIONTEST: master
+  ACTIONTEST: 3.6.0
 # branch name, like master, 2.4
 on:
   push:
     branches: # hard code branch name
-      - master
+      - 3.6.0
 
 jobs:
   prepare:
@@ -86,6 +86,7 @@ jobs:
           python ./scripts/conditional_pdf.py
           git fetch origin gh-pages --depth=1 # fix mike's CI update
           mike deploy ${{ env.ACTIONTEST }}  -p --rebase
+          mike set-default ${{ env.ACTIONTEST }} -p --rebase
           mike list
       - name: show git branch
         run: | 
