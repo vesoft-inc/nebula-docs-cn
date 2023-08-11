@@ -33,8 +33,6 @@ NebulaGraph 是一款开源的、分布式的、易扩展的原生图数据库�
 
 {{comm.comm_begin}}
 - [{{nebula.name}} {{nebula.release}}](20.appendix/release-notes/nebula-comm-release-note.md)
-- [Studio](20.appendix/release-notes/studio-release-note.md)
-- [Dashboard](20.appendix/release-notes/dashboard-comm-release-note.md)
 {{comm.comm_end}}
 
 {{ent.ent_begin}}
