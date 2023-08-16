@@ -16,6 +16,19 @@ NebulaGraph Importer（简称 Importer）是一款{{nebula.name}}的 CSV 文件�
 
 - 灵活筛选：通过配置文件可以实现对 CSV 文件数据的灵活筛选。
 
+## 版本兼容性
+
+NebulaGraph Importer 版本和{{nebula.name}}内核的版本对应关系如下。
+
+|{{nebula.name}}版本|NebulaGraph Importer 版本|
+|:---|:---|
+| 3.x.x      |  3.x.x、4.x.x        | 
+| 2.x.x      |  2.x.x、3.x.x        |
+
+!!! note
+
+    Importer 4.0.0 对 Importer 进行了重做，性能得到了提高，建议使用新版 Importer。
+
 ## 更新说明
 
 [Release notes](https://github.com/vesoft-inc/nebula-importer/releases/tag/{{importer.tag}})
