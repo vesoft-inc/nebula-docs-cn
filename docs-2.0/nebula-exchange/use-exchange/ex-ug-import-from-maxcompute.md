@@ -180,6 +180,10 @@
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+      # 为 VID 增加指定的前缀。例如 VID 为 12345，增加前缀 tag1 后为 tag1_12345。下划线无法修改。
+      # prefix:"tag1"
+      # 对 string 类型的 VID 进行哈希化操作。
+      # policy:hash
       }
 
       # 批量操作类型，包括 INSERT、UPDATE 和 DELETE。默认为 INSERT。
@@ -271,6 +275,10 @@
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+      # 为 VID 增加指定的前缀。例如 VID 为 12345，增加前缀 tag1 后为 tag1_12345。下划线无法修改。
+      # prefix:"tag1"
+      # 对 string 类型的 VID 进行哈希化操作。
+      # policy:hash
       }
 
       # 在 target 里，将 follow 表中某一列作为边的目的点数据源。
@@ -281,6 +289,10 @@
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+      # 为 VID 增加指定的前缀。例如 VID 为 12345，增加前缀 tag1 后为 tag1_12345。下划线无法修改。
+      # prefix:"tag1"
+      # 对 string 类型的 VID 进行哈希化操作。
+      # policy:hash
       }
 
       # 指定一个列作为 rank 的源（可选）。
