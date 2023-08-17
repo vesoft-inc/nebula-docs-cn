@@ -192,7 +192,10 @@
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
-        # policy:hash
+      # 为 VID 增加指定的前缀。例如 VID 为 12345，增加前缀 tag1 后为 tag1_12345。下划线无法修改。
+      # prefix:"tag1"
+      # 对 string 类型的 VID 进行哈希化操作。
+      # policy:hash
       }
 
       # 指定的分隔符。默认值为英文逗号（,）。
@@ -217,51 +220,22 @@
 
     # 设置 Tag team 相关信息。
     {
-      # 指定{{nebula.name}}中定义的 Tag 名称。
       name: team
       type: {
-        # 指定数据源，使用 CSV。
         source: csv
-
-        # 指定如何将点数据导入{{nebula.name}}：Client 或 SST。
         sink: client
       }
-
-      # 指定 CSV 文件的路径。
-      # 如果文件存储在 HDFS 上，用双引号括起路径，以 hdfs://开头，例如"hdfs://ip:port/xx/xx"。
-      # 如果文件存储在本地，用双引号括起路径，以 file://开头，例如"file:///tmp/xx.csv"。
       path: "hdfs://192.168.*.*:9000/data/vertex_team.csv"
-
-      # 如果 CSV 文件没有表头，使用 [_c0, _c1, _c2, ..., _cn] 表示其表头，并将列指示为属性值的源。
-      # 如果 CSV 文件有表头，则使用实际的列名。
       fields: [_c1]
-
-      # 指定{{nebula.name}}中定义的属性名称。
-      # fields 与 nebula.fields 的顺序必须一一对应。
       nebula.fields: [name]
-
-      # 指定一个列作为 VID 的源。
-      # vertex 的值必须与上述 fields 或者 csv.fields 中的列名保持一致。
-      # 目前，{{nebula.name}} {{nebula.release}}仅支持字符串或整数类型的 VID。
       vertex: {
         field:_c0
-        # policy:hash
       }
-
-      # 指定的分隔符。默认值为英文逗号（,）。
       separator: ","
-
-      # 如果 CSV 文件有表头，请将 header 设置为 true。
-      # 如果 CSV 文件没有表头，请将 header 设置为 false。默认值为 false。
       header: false
-
-      # 指定单批次写入{{nebula.name}}的最大点数量。
       batch: 256
-
-      # 指定 Spark 分片数量。
       partition: 32
     }
-
     # 如果需要添加更多点，请参考前面的配置进行添加。
   ]
   # 处理边
@@ -301,6 +275,10 @@
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+      # 为 VID 增加指定的前缀。例如 VID 为 12345，增加前缀 tag1 后为 tag1_12345。下划线无法修改。
+      # prefix:"tag1"
+      # 对 string 类型的 VID 进行哈希化操作。
+      # policy:hash
       }
       target: {
         field: _c1
@@ -309,6 +287,10 @@
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+      # 为 VID 增加指定的前缀。例如 VID 为 12345，增加前缀 tag1 后为 tag1_12345。下划线无法修改。
+      # prefix:"tag1"
+      # 对 string 类型的 VID 进行哈希化操作。
+      # policy:hash
       }
 
       # 指定的分隔符。默认值为英文逗号（,）。
@@ -334,53 +316,23 @@
 
     # 设置 Edge type serve 相关信息。
     {
-      # 指定{{nebula.name}}中定义的 Edge type 名称。
       name: serve
       type: {
-        # 指定数据源，使用 CSV。
         source: csv
-
-        # 指定如何将点数据导入{{nebula.name}}：Client 或 SST。
         sink: client
       }
-
-      # 指定 CSV 文件的路径。
-      # 如果文件存储在 HDFS 上，用双引号括起路径，以 hdfs://开头，例如"hdfs://ip:port/xx/xx"。
-      # 如果文件存储在本地，用双引号括起路径，以 file://开头，例如"file:///tmp/xx.csv"。
       path: "hdfs://192.168.*.*:9000/data/edge_serve.csv"
-
-      # 如果 CSV 文件没有表头，使用 [_c0, _c1, _c2, ..., _cn] 表示其表头，并将列指示为属性值的源。
-      # 如果 CSV 文件有表头，则使用实际的列名。
       fields: [_c2,_c3]
-
-      # 指定{{nebula.name}}中定义的属性名称。
-      # fields 与 nebula.fields 的顺序必须一一对应。
       nebula.fields: [start_year, end_year]
-
-      # 指定一个列作为起始点和目的点的源。
-      # vertex 的值必须与上述 fields 或者 csv.fields 中的列名保持一致。
-      # 目前，{{nebula.name}} {{nebula.release}}仅支持字符串或整数类型的 VID。
       source: {
         field: _c0
       }
       target: {
         field: _c1
       }
-
-      # 指定的分隔符。默认值为英文逗号（,）。
       separator: ","
-
-      # 指定一个列作为 rank 的源（可选）。
-      #ranking: _c5
-
-      # 如果 CSV 文件有表头，请将 header 设置为 true。
-      # 如果 CSV 文件没有表头，请将 header 设置为 false。默认值为 false。
       header: false
-
-      # 指定单批次写入{{nebula.name}}的最大边数量。
       batch: 256
-
-      # 指定 Spark 分片数量。
       partition: 32
     }
 

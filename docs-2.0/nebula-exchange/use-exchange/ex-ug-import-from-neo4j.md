@@ -187,6 +187,10 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+      # 为 VID 增加指定的前缀。例如 VID 为 12345，增加前缀 tag1 后为 tag1_12345。下划线无法修改。
+      # prefix:"tag1"
+      # 对 string 类型的 VID 进行哈希化操作。
+      # policy:hash
       }
 
       # 批量操作类型，包括 INSERT、UPDATE 和 DELETE。默认为 INSERT。
@@ -235,7 +239,8 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
       server: "bolt://192.168.*.*:7687"
       user: neo4j
       password:neo4j
-      database:neo4j
+      # bolt 3 不支持多数据库，请勿配置数据库名。4 及以上可以配置数据库名。
+      # database:neo4j
       exec: "match (a:player)-[r:follow]->(b:player) return a.id as src, b.id as dst, r.degree as degree  order by id(r)"
       fields: [degree]
       nebula.fields: [degree]
@@ -246,6 +251,10 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+      # 为 VID 增加指定的前缀。例如 VID 为 12345，增加前缀 tag1 后为 tag1_12345。下划线无法修改。
+      # prefix:"tag1"
+      # 对 string 类型的 VID 进行哈希化操作。
+      # policy:hash
       }
       target: {
         field: dst
@@ -254,8 +263,14 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
+      # 为 VID 增加指定的前缀。例如 VID 为 12345，增加前缀 tag1 后为 tag1_12345。下划线无法修改。
+      # prefix:"tag1"
+      # 对 string 类型的 VID 进行哈希化操作。
+      # policy:hash
       }
       #ranking: rank
+      # 批量操作类型，包括 INSERT、UPDATE 和 DELETE。默认为 INSERT。
+      #writeMode: INSERT
       partition: 10
       batch: 1000
       check_point_path: /tmp/test
@@ -270,8 +285,6 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
       server: "bolt://192.168.*.*:7687"
       user: neo4j
       password:neo4j
-      # bolt 3 does not support `select database`, please do not config database
-      #database:neo4j
       exec: "match (a:player)-[r:serve]->(b:team) return a.id as src, b.id as dst, r.start_year as start_year, r.end_year as end_year  order by id(r)"
       fields: [start_year,end_year]
       nebula.fields: [start_year,end_year]
@@ -281,11 +294,6 @@ Exchange 读取 Neo4j 数据时需要完成以下工作：
       target: {
         field: dst
       }
-      #ranking: rank
-
-      # 批量操作类型，包括 INSERT、UPDATE 和 DELETE。默认为 INSERT。
-      #writeMode: INSERT
-
       partition: 10
       batch: 1000
       check_point_path: /tmp/test
