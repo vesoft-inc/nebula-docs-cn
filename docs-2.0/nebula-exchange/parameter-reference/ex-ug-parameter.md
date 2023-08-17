@@ -107,6 +107,8 @@
 |`tags.vertex.udf.separator`|string|-|否|通过自定义规则合并多列，该参数指定连接符。|
 |`tags.vertex.udf.oldColNames`|list|-|否|通过自定义规则合并多列，该参数指定待合并的列名。多个列用英文逗号（,）分隔。|
 |`tags.vertex.udf.newColName`|string|-|否|通过自定义规则合并多列，该参数指定新列的列名。|
+|`tags.vertex.prefix`|string|-|否|为 VID 增加指定的前缀。例如 VID 为`12345`，增加前缀`tag1`后为`tag1_12345`。下划线无法修改。|
+|`tags.vertex.policy`|string|-|否|仅支持取值`hash`。对 string 类型的 VID 进行哈希化操作。|
 |`tags.batch`|int|`256`|是|单批次写入{{nebula.name}}的最大点数量。|
 |`tags.partition`|int|`32`|是|Spark 分片数量。|
 
@@ -253,7 +255,11 @@
 |`edges.fields`|list\[string\]|-|是|属性对应的列的表头或列名。如果有表头或列名，请直接使用该名称。如果 CSV 文件没有表头，用`[_c0, _c1, _c2]`的形式表示第一列、第二列、第三列，以此类推。|
 |`edges.nebula.fields`|list\[string\]|-|是|{{nebula.name}}中定义的属性名称，顺序必须和`edges.fields`一一对应。例如`[_c2, _c3]`对应`[start_year, end_year]`，表示第三列为开始年份的值，第四列为结束年份的值。|
 |`edges.source.field`|string|-|是|边的起始点的列。例如`_c0`表示第一列的值作为边的起始点。|
+|`edges.source.prefix`|string|-|否|为 VID 增加指定的前缀。例如 VID 为`12345`，增加前缀`tag1`后为`tag1_12345`。下划线无法修改。|
+|`edges.source.policy`|string|-|否|仅支持取值`hash`。对 string 类型的 VID 进行哈希化操作。|
 |`edges.target.field`|string|-|是|边的目的点的列。例如`_c1`表示第二列的值作为边的目的点。|
+|`edges.target.prefix`|string|-|否|为 VID 增加指定的前缀。例如 VID 为`12345`，增加前缀`tag1`后为`tag1_12345`。下划线无法修改。|
+|`edges.target.policy`|string|-|否|仅支持取值`hash`。对 string 类型的 VID 进行哈希化操作。|
 |`edges.ranking`|int|-|否|rank 值的列。没有指定时，默认所有 rank 值为`0`。|
 |`edges.batch`|int|`256`|是|单批次写入{{nebula.name}}的最大边数量。|
 |`edges.partition`|int|`32`|是|Spark 分片数量。|
