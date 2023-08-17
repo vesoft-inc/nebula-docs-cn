@@ -27,7 +27,7 @@ NebulaGraph Importer 版本和{{nebula.name}}内核的版本对应关系如下�
 
 !!! note
 
-    Importer 4.0.0 对 Importer 进行了重做，性能得到了提高，建议使用新版 Importer。
+    Importer 4.0.0 对 Importer 进行了重做，性能得到了提高，但配置文件不兼容旧版本。建议使用新版 Importer。
 
 ## 更新说明
 
