@@ -15,7 +15,7 @@ repo_name: 'vesoft-inc/nebula'
 repo_url: 'https://github.com/vesoft-inc/nebula' 
 docs_dir: docs-2.0 
 # modify when release: 
-edit_uri: 'https://github.com/vesoft-inc/nebula-docs-cn/edit/v3.5.0/docs-2.0/'
+edit_uri: 'https://github.com/vesoft-inc/nebula-docs-cn/edit/v3.5.1/docs-2.0/'
 copyright: Copyright &copy; 2023 NebulaGraph - 浙ICP备20010487号
 # nav.comm.end
 
@@ -171,7 +171,7 @@ plugins:
 #      - '.*\.(tmp|bin|tar)$'
   - with-pdf:
       copyright: 2023 vesoft Inc.
-      cover_subtitle: v3.5.0
+      cover_subtitle: v3.5.1
       author: 梁振亚，黄凤仙
       cover: true
       back_cover: true
@@ -223,13 +223,13 @@ extra:
       link: 'https://github.com/vesoft-inc/nebula-docs-cn'
 # nav.comm.end
   nebula:
-    release: 3.5.0
+    release: 3.5.1
     nightly: nightly
     master: master
     base20: 2.0
     base200: 2.0.0
     branch: release-3.5
-    tag: v3.5.0
+    tag: v3.5.1
     # nav.ent.begin
     name: 悦数图数据库
     # nav.ent.end

@@ -2,14 +2,21 @@
 
 !!! Note
     
-    本文档更新时间{{ now().year }}-{{ now().month }}-{{ now().day }}，GitHub commit [{{ git.short_commit }}](https://github.com/vesoft-inc/nebula-docs/commits/v{{nebula.release}})。该版本主色系为"胶蓝"，色号为 #66CCFF。
+    本文档更新时间{{ now().year }}-{{ now().month }}-{{ now().day }}，GitHub commit [{{ git.short_commit }}](https://github.com/vesoft-inc/nebula-docs/commits/v{{nebula.release}})。该版本主色系为"金盏花"，色号为 #FFCC83。
+
+
+!!! caution
+
+    该版本文档仅包括 {{nebula.name}} {{ nebula.release }} 企业版内容和对应版本的周边工具内容。详情查看[版本发布说明](20.appendix/release-notes/nebula-ent-release-note.md)。
+
 
 <!--
 !!! caution
 
     该版本文档仅包括 {{nebula.name}} {{ nebula.release }} 社区版内容和对应版本的周边工具内容。{{nebula.name}} {{ nebula.release }} 未发布企业版（[企业版发布周期通常为 6 个月](20.appendix/6.eco-tool-version.md)）。详情查看[版本发布说明](20.appendix/release-notes/nebula-comm-release-note.md)。
+-->
 
-
+<!--
 !!! Compatibility
 
     在 NebulaGraph 3.2 的版本中，允许存在无 Tag 的点，但从 NebulaGraph 3.3.0 开始默认不支持无 Tag 的点。

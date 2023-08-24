@@ -10,7 +10,7 @@
 
 /* 白天主题色 */
 [data-md-color-scheme="nebula"]{
-  --md-primary-fg-color: #66CCFF; /* 导航栏页面颜色 */
+  --md-primary-fg-color: #FFCC83; /* 导航栏页面颜色 */
   --md-accent-fg-color: #7DBB7C; /* 选中/悬浮链接的颜色 */
   --md-typeset-a-color: #0FA37F!important; /* 白天的链接颜色 */
   --md-code-fg-color:  rgb(12, 21, 26); /* 代码段字体色 */
