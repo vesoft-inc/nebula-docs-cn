@@ -7,7 +7,7 @@
 
 !!! caution
 
-    该版本文档仅包括 {{nebula.name}} {{ nebula.release }} 企业版内容和对应版本的周边工具内容。详情查看[版本发布说明](20.appendix/release-notes/nebula-ent-release-note.md)。
+    该版本文档仅包括{{nebula.name}} {{ nebula.release }} 企业版内容和对应版本的周边工具内容。详情查看[版本发布说明](20.appendix/release-notes/nebula-ent-release-note.md)。
 
 
 <!--
