@@ -8,7 +8,7 @@ docs_dir: docs-2.0
 copyright: Copyright &copy; 2023 NebulaGraph - 浙ICP备20010487号
  
 # modify when release: 
-edit_uri: 'https://github.com/vesoft-inc/nebula-docs-cn/edit/v3.4.2/docs-2.0/'  
+edit_uri: 'https://github.com/vesoft-inc/nebula-docs-cn/edit/v3.4.3/docs-2.0/'  
 
 # Configuration
 theme:
@@ -110,8 +110,8 @@ plugins:
 # modify when release: 
   - with-pdf:
       copyright: 2023 vesoft Inc.
-      cover_subtitle: v3.4.2
-      author: 吴敏，周瑶，梁振亚，杨怡璇，黄凤仙
+      cover_subtitle: v3.4.3
+      author: 陈梦阳，梁振亚，黄凤仙
       cover: true
       back_cover: true
       cover_logo: 'https://cloud-cdn.nebula-graph.com.cn/nebula-for-pdf.png'
@@ -149,13 +149,13 @@ extra:
     - icon: 'fontawesome/brands/github'
       link: 'https://github.com/vesoft-inc/nebula-docs-cn'
   nebula:
-    release: 3.4.2
+    release: 3.4.3
     nightly: nightly
     master: master
     base20: 2.0
     base200: 2.0.0
     branch: release-3.4
-    tag: v3.4.2
+    tag: v3.4.3
   studio:
     base111b: 1.1.1-beta
     base220: 2.2.1
