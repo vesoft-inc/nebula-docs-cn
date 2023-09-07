@@ -2,8 +2,6 @@
 
 本文以一个示例说明如何使用 Exchange 将存储在 HDFS 或本地的 Parquet 文件数据导入{{nebula.name}}。
 
-如果要向{{nebula.name}}导入本地 Parquet 文件，请参见 [NebulaGraph Importer](https://github.com/vesoft-inc/nebula-importer "Click to go to GitHub")。
-
 ## 数据集
 
 本文以 [basketballplayer 数据集](https://docs-cdn.nebula-graph.com.cn/dataset/dataset.zip)为例。
