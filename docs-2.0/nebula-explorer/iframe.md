@@ -66,7 +66,7 @@
 
   !!! note
 
-        如果是 RPM/DEB 安装的{{explorer.name}}，请执行命令`sudo ./nebula-explorer-server &`。
+        如果是 RPM/DEB 安装的{{explorer.name}}，请执行命令`sudo ./yueshu-explorer-server &`。
 
   ```bash
   ./scripts/start.sh
