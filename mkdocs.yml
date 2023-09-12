@@ -296,8 +296,8 @@ extra:
     base100: 1.0.0
     branch: release-3.4
   dashboard_ent:
-    release: 3.5.0
-    tag: v3.5.0
+    release: 3.5.1
+    tag: v3.5.1
     branch: release-3.5
     # nav.ent.begin
     name: 悦数运维监控
