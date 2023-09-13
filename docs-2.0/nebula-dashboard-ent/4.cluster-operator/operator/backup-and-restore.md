@@ -50,11 +50,11 @@
 
   - Amazon S3 的示例配置如下：
 
-    ![amazon_s3](https://docs-cdn.nebula-graph.com.cn/figures/amazon_s3_230516_cn.png)
+    <img src="https://docs-cdn.nebula-graph.com.cn/figures/amazon_s3_230516_cn.png" width="800" alt="Amazon S3 示例配置截屏">
 
   - 阿里云对象存储 OSS 的示例配置如下：
 
-    ![aliyun_oss](https://docs-cdn.nebula-graph.com.cn/figures/aliyun_oss_backup_230516_cn.png)
+    <img src="https://docs-cdn.nebula-graph.com.cn/figures/aliyun_oss_backup_230516_cn.png" width="800" alt="阿里云 OSS 示例配置截屏">
 
   !!! caution
       备份数据至阿里云 OSS 时，需将备份路径中的`oss`替换为`s3`，例如将`oss://br-test/`改成`s3://br-test/`。

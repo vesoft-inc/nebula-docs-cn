@@ -35,7 +35,7 @@
 
 3. 单击**开始诊断**。
 
-  ![diagnosepage](https://docs-cdn.nebula-graph.com.cn/figures/cluster_diagnose_230327_cn.png)
+  <img src="https://docs-cdn.nebula-graph.com.cn/figures/ec_dash_diagnosis_230912_cn.png" width="1000" alt="运维监控的集群诊断截屏">
 
 4. 当诊断状态变为**成功**时，表示诊断已经完成，可以查看诊断报告。
 

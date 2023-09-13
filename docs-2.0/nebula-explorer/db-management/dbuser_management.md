@@ -10,8 +10,6 @@
 
 在顶部导航栏里，点击 ![db_user_management](https://docs-cdn.nebula-graph.com.cn/figures/db_user_management_221024.png) 图标。
 
-![dbuser_management](https://docs-cdn.nebula-graph.com.cn/figures/explorer_dbuser_management_221024_cn.png)
-
 ## 创建用户
 
 !!! note

@@ -12,7 +12,7 @@
 
     在查看集群信息之前，用户需要选择任意一个在线的 Graph 服务地址，输入登录{{nebula.name}}的账号（非{{dashboard_ent.name}}登录账号）和对应密码。
 
-![coreinfo](https://docs-cdn.nebula-graph.com.cn/figures/clustercore-info_2022-04-11_cn.png)
+<img src="https://docs-cdn.nebula-graph.com.cn/figures/ec_dash_info_230912_cn.png" width="1200" alt="运维监控信息总览截屏">
 
 ## Storage Leader 分布
 

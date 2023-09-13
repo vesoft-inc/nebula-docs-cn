@@ -23,4 +23,4 @@
    - 单击**自动补齐一度路径关系**将画布中所有点之间的一度路径关系补齐。
    - 单击**导出CSV**下载 CSV 格式的图计算结果文件。
 
-![subgraph-algorithm](https://docs-cdn.nebula-graph.com.cn/figures/ex-subgraph-algorithm-220621-cn.png)
+<img src="https://docs-cdn.nebula-graph.com.cn/figures/ec_expl_algorithm_230913_cn.png" width="1200" alt="图探索子图计算截屏">

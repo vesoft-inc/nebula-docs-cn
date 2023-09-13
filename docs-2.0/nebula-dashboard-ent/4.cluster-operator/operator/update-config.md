@@ -18,7 +18,7 @@
 2. 查找需要修改的配置，在操作列单击**编辑**。
 3. 在弹出的会话框中，可以单个修改**配置值**，也可以在上方统一修改，修改后需要单击**应用到所有服务**。
 
-  ![config](https://docs-cdn.nebula-graph.com.cn/figures/ds_config_230327_cn.png)
+  <img src="https://docs-cdn.nebula-graph.com.cn/figures/ec_dash_config_230912_cn.png" width="1000" alt="运维监控更新配置截屏">
 
 4. 修改完成后单击**确认**。
 

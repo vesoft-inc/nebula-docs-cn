@@ -56,7 +56,7 @@ Studio 支持界面化地将 CSV 格式数据导入至{{nebula.name}}中。
   
   - **关联边**：与关联标签的操作相同。
 
-  ![导入任务](https://docs-cdn.nebula-graph.com.cn/figures/explorer_import_230522_cn.png)
+  <img src="https://docs-cdn.nebula-graph.com.cn/figures/std_import_230912_cn.png" width="1200" alt="Studio 导入数据截屏">
 
 2. 完成设置后，单击**导入**,输入{{nebula.name}}账号的密码并确认。
 

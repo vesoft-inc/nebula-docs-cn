@@ -53,7 +53,7 @@ OAuth 部分的配置说明如下。
 
   在浏览器窗口中看到以下登录界面表示已经成功部署并启动了{{explorer.name}}。
 
-  ![{{explorer.name}}登录页面](https://docs-cdn.nebula-graph.com.cn/figures/explorer_connect_230522_cn.png)
+  <img src="https://docs-cdn.nebula-graph.com.cn/figures/ec_expl_login_230912_cn.png" width="1200" alt="图探索登录界面截屏">
 
   !!! note
 

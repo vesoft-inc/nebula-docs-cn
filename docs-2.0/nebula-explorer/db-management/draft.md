@@ -24,7 +24,7 @@
 6. 从 Tag `player`上的锚点连接至自身另一个锚点，单击生成的边，在右侧填写边类型名称`follow`，并且添加属性`degree`。
 7. 设计完成后，在页面上方单击 ![setup](https://docs-cdn.nebula-graph.com.cn/figures/setup-220916.png) 修改草图名称，然后在右上角单击 ![save](https://docs-cdn.nebula-graph.com.cn/figures/workflow-saveAs-220623.png) 保存草图。
 
-![createSketch](https://docs-cdn.nebula-graph.com.cn/figures/createSketch_221018_cn.png)
+<img src="https://docs-cdn.nebula-graph.com.cn/figures/ec_expl_draft_230912_cn.png" width="1000" alt="图探索创建 Schema 草图截屏">
 
 ## 应用 Schema
 

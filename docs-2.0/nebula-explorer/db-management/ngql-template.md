@@ -14,8 +14,6 @@
 
 1. 单击 **+ 新模板**，设置如下参数。
 
-  ![new template](https://docs-cdn.nebula-graph.com.cn/figures/ex-template-220916-cn.png)
-
   |参数|示例|说明|
   |:---|:---|:---|
   |模板名称|`test`|模板的名称。|
@@ -24,9 +22,11 @@
   |查询模板|`MATCH (v:player{name:"${name}"})--(v2:player) RETURN v2.player.name AS Name;`|nGQL 语句模板。可以选中需要参数化的文本，在右侧单击 **+ 文本参数化**，设置参数名称和描述。示例中`${name}`为参数化的文本，实际使用时可以填写`Tim Duncan`等名称。<br>可以在单行使用`//`添加注释。|
   |输入|-|显示参数化的文本内容。可以编辑或删除参数化的文本。|
 
+  <img src="https://docs-cdn.nebula-graph.com.cn/figures/ec_expl_template_230913_cn.png" width="600" alt="图探索创建模板截屏">
+
   !!! note
 
-        控制台页面左上角单击 **+ 保存为模板**，会自动将已输入的查询语句作为模板语句。
+        控制台页面左上角单击 **保存为模板**，会自动将已输入的查询语句作为模板语句。
 
 2. 单击**保存为模板**。
 
