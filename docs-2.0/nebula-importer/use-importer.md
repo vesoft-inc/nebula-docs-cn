@@ -6,6 +6,7 @@ NebulaGraph Importer（简称 Importer）是一款{{nebula.name}}的 CSV 文件�
 
 - 支持多种数据源，包括本地、S3、OSS、HDFS、FTP、SFTP。
 - 支持导入 CSV 格式文件的数据。单个文件内可以包含多种 Tag、多种 Edge type 或者二者混合的数据。
+- 支持过滤数据源数据。
 - 支持同时连接多个 Graph 服务进行导入并且动态负载均衡。
 - 支持失败后重连、重试。
 - 支持多维度显示统计信息，包括导入时间、导入百分比等。统计信息支持打印在 Console 或日志中。
@@ -279,6 +280,8 @@ sources:
       lazyQuotes: false
     tags:
     - name: Person
+#      filter:  
+#        expr: Record[1] == "XXX"
       id:
         type: "STRING"
         function: "hash"
@@ -317,6 +320,8 @@ sources:
     batch: 256
     edges:
     - name: KNOWS # person_knows_person
+#      filter:  
+#        expr: Record[1] == "XXX"
       src:
         id:
           type: "STRING"
@@ -356,6 +361,7 @@ sources:
 |`sources.csv.withHeader`   |`false`| 否 | 是否忽略 CSV 文件中的第一条记录。         |  
 |`sources.csv.lazyQuotes`   |`false`| 否 | 是否允许惰性解析引号。如果值为`true`，引号可以出现在非引号字段中，非双引号可以出现在引号字段中，而不会引发解析错误。    |  
 |`sources.tags.name`   |-| 是 | Tag 名称。         |  
+|`sources.tags.filter.expr`   |-| 否 | 过滤数据，满足过滤条件的才会导入。支持的比较符为`==`、`!=`、`<`、`>`、`<=`和`>=`。支持的逻辑运算符为`not`（!）、`and`（&&）和`or`（\|\|）。例如`(Record[0] == "Mahinda" or Record[0] == "Michael") and Record[3] == "male"`。         |  
 |`sources.tags.id.type`   |`STRING`| 否 |  VID 的类型。        |  
 |`sources.tags.id.function`   |-| 否 | 生成 VID 的函数。目前仅支持`hash`。         |  
 |`sources.tags.id.index`   |-| 否 | VID 对应的数据文件中的列号。如果未配置`sources.tags.id.concatItems`，该参数必须配置。         |  
@@ -369,6 +375,7 @@ sources:
 |`sources.tags.props.alternativeIndices`   |-| 否 | 当`nullable`为`false`时忽略。该属性根据索引顺序从文件中获取，直到不等于`nullValue`。         |  
 |`sources.tags.props.defaultValue`   |-| 否 | 当`nullable`为`false`时忽略。根据`index`和`alternativeIndices`获取的所有值为`nullValue`时设置默认值。         |  
 |`sources.edges.name`   |-| 是 | Edge type 名称。          |  
+|`sources.edges.filter.expr`   |-| 否 | 过滤数据，满足过滤条件的才会导入。支持的比较符为`==`、`!=`、`<`、`>`、`<=`和`>=`。支持的逻辑运算符为`not`（!）、`and`（&&）和`or`（\|\|）。例如`(Record[0] == "Mahinda" or Record[0] == "Michael") and Record[3] == "male"`。         |  
 |`sources.edges.src.id.type`   |`STRING`| 否 |  边上起点 VID 的数据类型。        |  
 |`sources.edges.src.id.index`   |-| 是 | 边上起点 VID 对应的数据文件中的列号。         |  
 |`sources.edges.dst.id.type`   |`STRING`| 否 | 边上终点 VID 的数据类型。         |  
