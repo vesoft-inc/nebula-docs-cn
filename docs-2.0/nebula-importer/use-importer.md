@@ -4,7 +4,7 @@ NebulaGraph Importer（简称 Importer）是一款{{nebula.name}}的 CSV 文件�
 
 ## 功能
 
-- 支持多种数据源，包括本地、S3、OSS、HDFS、FTP、SFTP。
+- 支持多种数据源，包括本地、S3、OSS、HDFS、FTP、SFTP、GCS。
 - 支持导入 CSV 格式文件的数据。单个文件内可以包含多种 Tag、多种 Edge type 或者二者混合的数据。
 - 支持过滤数据源数据。
 - 支持批量操作，包括导入、更新、删除。
@@ -224,7 +224,7 @@ log:
   level: INFO
   console: true
   files:
-   - logs/nebula-importer.log   
+    - logs/nebula-importer.log   
 ```
 
 |参数|默认值|是否必须|说明|
@@ -274,6 +274,26 @@ sources:
 #      address: "127.0.0.1:8020"    # 必填。HDFS 服务的地址。
 #      user: "hdfs"    # 可选。HDFS 服务的用户名。
 #      path: "/events/20190918.export.csv"    # 必填。HDFS 服务中文件的路径。
+#  - gcs: # Google Cloud Storage
+#      bucket: chicago-crime-sample  # 必填。GCS 服务中的 bucket 名称。
+#      key: stats/000000000000.csv  # 必填。GCS 服务中文件的路径。
+#        withoutAuthentication: false  # 可选。是否匿名访问。默认为 false，即使用凭证访问。
+#        # 使用凭证访问时，credentialsFile 和 credentialsJSON 参数二选一即可。
+#        credentialsFile: "/path/to/your/credentials/file"  # 可选。GCS 服务的凭证文件路径。
+#        credentialsJSON: '{  # 可选。GCS 服务的凭证 JSON 内容。
+#          "type": "service_account",
+#          "project_id": "your-project-id",
+#          "private_key_id": "key-id",
+#          "private_key": "-----BEGIN PRIVATE KEY-----\nxxxxx\n-----END PRIVATE KEY-----\n",
+#          "client_email": "your-client@your-project-id.iam.gserviceaccount.com",
+#          "client_id": "client-id",
+#          "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+#          "token_uri": "https://oauth2.googleapis.com/token",
+#          "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+#          "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/your-client%40your-project-id.iam.gserviceaccount.com",
+#          "universe_domain": "googleapis.com"
+#        }'
+
     batch: 256
     csv:
       delimiter: "|"
