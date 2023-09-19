@@ -284,22 +284,22 @@ sources:
 #  - gcs: # Google Cloud Storage
 #      bucket: chicago-crime-sample  # 必填。GCS 服务中的 bucket 名称。
 #      key: stats/000000000000.csv  # 必填。GCS 服务中文件的路径。
-#        withoutAuthentication: false  # 可选。是否匿名访问。默认为 false，即使用凭证访问。
-#        # 使用凭证访问时，credentialsFile 和 credentialsJSON 参数二选一即可。
-#        credentialsFile: "/path/to/your/credentials/file"  # 可选。GCS 服务的凭证文件路径。
-#        credentialsJSON: '{  # 可选。GCS 服务的凭证 JSON 内容。
-#          "type": "service_account",
-#          "project_id": "your-project-id",
-#          "private_key_id": "key-id",
-#          "private_key": "-----BEGIN PRIVATE KEY-----\nxxxxx\n-----END PRIVATE KEY-----\n",
-#          "client_email": "your-client@your-project-id.iam.gserviceaccount.com",
-#          "client_id": "client-id",
-#          "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-#          "token_uri": "https://oauth2.googleapis.com/token",
-#          "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-#          "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/your-client%40your-project-id.iam.gserviceaccount.com",
-#          "universe_domain": "googleapis.com"
-#        }'
+#      withoutAuthentication: false  # 可选。是否匿名访问。默认为 false，即使用凭证访问。
+#      # 使用凭证访问时，credentialsFile 和 credentialsJSON 参数二选一即可。
+#      credentialsFile: "/path/to/your/credentials/file"  # 可选。GCS 服务的凭证文件路径。
+#      credentialsJSON: '{  # 可选。GCS 服务的凭证 JSON 内容。
+#        "type": "service_account",
+#        "project_id": "your-project-id",
+#        "private_key_id": "key-id",
+#        "private_key": "-----BEGIN PRIVATE KEY-----\nxxxxx\n-----END PRIVATE KEY-----\n",
+#        "client_email": "your-client@your-project-id.iam.gserviceaccount.com",
+#        "client_id": "client-id",
+#        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+#        "token_uri": "https://oauth2.googleapis.com/token",
+#        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+#        "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/your-client%40your-project-id.iam.gserviceaccount.com",
+#        "universe_domain": "googleapis.com"
+#      }'
 
     batch: 256
     csv:
