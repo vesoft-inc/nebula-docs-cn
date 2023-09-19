@@ -273,7 +273,14 @@ sources:
 #  - hdfs:
 #      address: "127.0.0.1:8020"    # 必填。HDFS 服务的地址。
 #      user: "hdfs"    # 可选。HDFS 服务的用户名。
-#      path: "/events/20190918.export.csv"    # 必填。HDFS 服务中文件的路径。
+#      servicePrincipalName: <Kerberos Service Principal Name>  # 可选。启用 Kerberos 认证时，HDFS 服务的 Kerberos 服务实例名称。
+#      krb5ConfigFile: <Kerberos config file>  # 可选。启用 Kerberos 认证时，HDFS 服务的 Kerberos 配置文件路径，默认为`/etc/krb5.conf`。
+#      ccacheFile: <Kerberos ccache file>  # 可选。启用 Kerberos 认证时，HDFS 服务的 Kerberos ccache 文件路径。
+#      keyTabFile: <Kerberos keytab file>  # 可选。启用 Kerberos 认证时，HDFS 服务的 Kerberos keytab 文件路径。
+#      password: <Kerberos password>  # 可选。启用 Kerberos 认证时，HDFS 服务的 Kerberos 密码。
+#      dataTransferProtection: <Kerberos Data Transfer Protection>  # 可选。启用 Kerberos 认证时的传输加密类型。可选值为`authentication`、`integrity`、`privacy`。
+#      disablePAFXFAST: false  # 可选。是否禁止客户端使用预身份验证（PA_FX_FAST）。
+#      path: "/events/20190918.export.csv"    # 必填。HDFS 服务中文件的路径。也支持通配符文件名，例如：/events/*.export.csv，请确保所有匹配的文件具有相同的架构。
 #  - gcs: # Google Cloud Storage
 #      bucket: chicago-crime-sample  # 必填。GCS 服务中的 bucket 名称。
 #      key: stats/000000000000.csv  # 必填。GCS 服务中文件的路径。
