@@ -33,7 +33,7 @@ nebula> ADD HOSTS "<hostname>":<port> [,"<hostname>":<port> ...];
 
 {{ent.ent_begin}}
 
-向开启了 Zone 功能的集群中增加 Storage 主机时，需要指定`INTO ZONE`选项，否则会导致添加 Storage 节点失败。详情参见[管理 Zone](5.zone.md)。
+向开启了 Zone 功能的集群中增加 Storage 主机时，需要指定`INTO ZONE <zone_name>`选项，否则会导致添加 Storage 节点失败。详情参见[管理 Zone](5.zone.md)。
 
 {{ent.ent_end}}
 
