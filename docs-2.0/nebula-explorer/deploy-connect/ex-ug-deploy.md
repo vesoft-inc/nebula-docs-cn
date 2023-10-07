@@ -346,7 +346,7 @@ IframeMode:
   # Origins:     # 内联框架来源白名单。默认允许任何来源。
   #   - "http://192.168.8.8"
 LicenseManagerURL: http://192.168.8.100:9119 # License Manager 所在的主机 IP，端口默认为9119。
-CorsOrigins: [] # 内核来源列表。
+CorsOrigins: [] # 允许发起跨域请求的域名列表。
 ```
 
 ## 后续操作
