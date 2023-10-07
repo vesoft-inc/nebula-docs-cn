@@ -1,6 +1,6 @@
 # 单点登录
 
-{{dashboard_ent.name}}支持普通账户、LDAP 账户和 OAuth2.0 账户。本文介绍如何在{{dashboard_ent.name}}上配置 LDAP 和 OAuth2.0 协议。
+{{dashboard_ent.name}}支持普通账户、LDAP 账户、OAuth2.0 账户和 CAS 账户。本文介绍如何在{{dashboard_ent.name}}上配置 LDAP、OAuth2.0、和 CAS 协议。
 
 !!! note
 
@@ -61,3 +61,24 @@
 ### 使用说明
 
 开启 OAuth2.0 后，在**权限管理**页面创建账号时可以通过邮箱[邀请](../5.account-management.md)别人进行注册。
+
+## CAS 设置
+
+### 入口
+
+1. 在{{dashboard_ent.name}}顶部导航栏，单击**平台设置**。
+2. 在左侧导航栏单击**单点登录**->**CAS**。
+
+### 设置说明
+
+|参数|示例|说明|
+|:--|:--|:--|
+|`CAS 服务器地址` | `https://192.168.8.100:8080/cas`| CAS 服务器地址。  |
+|`Organization` | `yueshu` | 展示在登录页面中的组织名称。 |
+
+### 使用说明
+
+开启 CAS 后，在登录页面选择 SSO 方式登录。
+
+- 如果浏览器缓存中已经保存登录票据，可以直接登录{{dashboard_ent.name}}。
+- 如果浏览器缓存中没有登录票据，会跳转到中心服务器进行登录验证。
