@@ -329,8 +329,8 @@ Analytics:
   # RPC_HDFS_PASSWORD: "passward" # HDFS RPC 服务的密码。
 OAuth:
   Enable: false 
-  ClientID: "10274459396-v2kn8oe6n2k34nfgguettd5oqimo09n6.apps.googleusercontent.com" # OAuth 服务的 客户端 ID。
-  ClientSecret: "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" # OAuth 服务的 客户端密钥。
+  ClientID: "10274xxxx-v2kn8oe6xxxxx.apps.googleusercontent.com" # OAuth 服务的 客户端 ID。
+  ClientSecret: "GOCSPX-8Enxxxxx" # OAuth 服务的 客户端密钥。
   AuthURL: "https://accounts.google.com/o/oauth2/v2/auth" # OAuth 服务的 URL。
   TokenURL: "https://oauth2.googleapis.com/token" # 获取访问 token 的 URL。
   Scopes: "https://www.googleapis.com/auth/userinfo.email" # OAuth 服务的 scope。
@@ -345,7 +345,7 @@ IframeMode:
   Enable: false  # 是否开启内联框架模式。
   # Origins:     # 内联框架来源白名单。默认允许任何来源。
   #   - "http://192.168.8.8"
-LicenseManagerURL: http://192.168.8.185:9119 # License Manager 所在的主机 IP，端口默认为9119。
+LicenseManagerURL: http://192.168.8.100:9119 # License Manager 所在的主机 IP，端口默认为9119。
 CorsOrigins: [] # 内核来源列表。
 ```
 
