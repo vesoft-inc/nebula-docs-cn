@@ -277,6 +277,44 @@ Dag Controller 可以结合{{plato.name}}进行复杂的图计算。例如 Dag C
   exec_file: /home/xxx/yueshu-analytics/scripts/run_algo.sh
   ```
 
+## 目录结构
+
+{{explorer.name}}的目录结构如下：
+
+```bash
+├── CMakeLists.txt # CMake 配置文件
+|
+├── config # 配置文件
+│   
+├── dag-ctrl # Dag Controller 安装目录
+│   
+├── scripts # 管理服务的脚本
+│   
+├── tmp # 临时文件
+|
+└── yueshu-explorer-server # {{explorer.name}}服务的应用程序
+```
+
+## 查看日志
+
+用户可以在`logs`目录内查看{{explorer.name}}的日志。
+
+例如：
+
+```
+cat logs/access.log
+```
+
+日志文件说明如下。
+
+|日志文件名|说明|
+|:--|:--|
+|`access.log`| 访问日志。通常记录所有访问服务的请求信息，包括请求时间、源地址、请求的 URL、HTTP 方法、返回的 HTTP 状态码等。</br>{{explorer.name}}的配置`Log.Mode`为`file`时生效。   |
+|`error.log`|  错误日志。记录服务运行过程中出现的错误信息。这可能包括运行时错误、系统错误、服务逻辑错误等。</br>{{explorer.name}}的配置`Log.Mode`为`file`时生效。  |
+|`severe.log`| 严重错误日志。记录那些可能导致系统崩溃，或者严重影响系统正常运行的错误。这可能包括运行时错误、系统错误、严重的服务逻辑错误等。</br>{{explorer.name}}的配置`Log.Mode`为`file`时生效。   |
+|`slow.log`|  慢日志。记录执行时间超过预设阈值的请求或操作，帮助开发者找出性能瓶颈。</br>{{explorer.name}}的配置`Log.Mode`为`file`时生效。  |
+|`stat.log`|  统计日志。记录服务的统计信息，具体的内容取决于应用的需求，可能包括各种性能指标、使用情况统计等。</br>{{explorer.name}}的配置`Log.Mode`为`file`时生效。  |
+
 ## 配置文件说明
 
 ```yaml
