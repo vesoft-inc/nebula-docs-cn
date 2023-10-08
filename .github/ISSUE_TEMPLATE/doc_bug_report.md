@@ -4,7 +4,7 @@ about: If something isn't working as expected.
 
 ---
 
-# Error Report
+# Doc Bug Report
 
 **This repository is ONLY used to solve issues related to DOCS.**
 
