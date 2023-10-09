@@ -88,7 +88,7 @@ Dag Controller 包含图查询组件和图计算组件。图查询是发送请�
 
 ## 如何实现高可用架构
 
-用户可以使用第三方高可用软件（例如HAProxy）实现{{explorer.name}}的高可用架构。
+用户可以使用第三方高可用软件（例如 [HAProxy](https://www.haproxy.org/)）实现{{explorer.name}}的高可用架构。
 
 例如，用户可以在多台机器上部署{{explorer.name}}服务、数据库服务，然后使用 HAProxy 实现各自的负载均衡。
 
