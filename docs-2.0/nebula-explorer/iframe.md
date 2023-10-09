@@ -45,22 +45,78 @@
 
 3. 用户自行开发，在第三方页面中通过 iframe 方式嵌入{{explorer.name}}。
 
-4. 在父页面通过 postMessage 方法传递登录消息，格式如下：
+4. 在父页面通过 postMessage 方法传递请求，示例如下：
 
   ```json
-  { type: 'NebulaGraphExploreLogin', 
-    data: { 
-      authorization: 'WyJyb290IiwibmVidWxhIl0=', 
-      host: '192.168.8.240:9669', 
-      space: 'basketballplayer' 
-      } }
-  ```
+  const links = [
+    {
+      source: 'player150',
+      target: 'player143',
+      id: 'follow player150->player143 @0',
+      rank: 0,
+      edgeType: 'follow',
+      properties: {
+        degree: 90,
+      },
+      color: '#d40e0e',
+    },
+    {
+      source: 'player143',
+      target: 'player150',
+      id: 'follow player143->player150 @0',
+      rank: 0,
+      edgeType: 'follow',
+      properties: {
+        degree: 90,
+      },
+    },
+  ];
 
-  - type：方法类型必须为`NebulaGraphExploreLogin`。
-  - data：
-    - `authorization`：{{nebula.name}}账号和密码组成数组并序列化，然后进行 Base64 编码。数组格式为`['账号', '密码']`，示例为`['root', 'nebula']`，编码后为`WyJyb290IiwibmVidWxhIl0=`。
-    - `host`：{{nebula.name}}的 Graph 服务地址。
-    - `space`：目标图空间名称。
+  const nodes = [
+    {
+      id: 'player150',
+      tags: ['player'],
+      properties: {
+        player: {
+          age: 20,
+          name: 'Luka Doncic',
+        },
+      },
+      color: '#20eb14',
+    },
+    {
+      id: 'player143',
+      tags: ['player'],
+      properties: {
+        player: {
+          age: 23,
+          name: 'Kristaps Porzingis',
+        },
+      },
+      color: '#3713ed',
+    },
+  ];
+
+  // 登录
+  iframeEle.contentWindow.postMessage(
+    {
+      // `NebulaGraphExploreLogin` type has been deprecated
+      type: 'ExplorerLogin',
+      data: {
+        authorization: 'WyJyb290IiwibmVidWxhIl0=',  //{{nebula.name}}账号和密码组成数组并序列化，然后进行 Base64 编码。数组格式为`['账号', '密码']`，示例为`['root', 'nebula']`，编码后为`WyJyb290IiwibmVidWxhIl0=`。
+        host: '192.168.8.240:9669',  //{{nebula.name}}的 Graph 服务地址。
+        space: 'demo_basketball',  //目标图空间名称。
+      },
+    },
+    '*'
+  );
+
+  // 画布添加点边
+  iframeEle.contentWindow.postMessage({ type: 'ExplorerAddCanvasElements', data: { nodes, links } }, '*')
+
+  // 清空画布
+  iframeEle.contentWindow.postMessage({ type: 'ExplorerClearCanvas' }, '*')
+  ```
 
 5. 启动{{explorer.name}}服务。
 
