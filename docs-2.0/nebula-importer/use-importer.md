@@ -155,6 +155,12 @@ client:
   address: "192.168.1.100:9669,192.168.1.101:9669"
   user: root
   password: nebula
+  ssl:
+    enable: true
+    certPath: "/home/xxx/cert/importer.crt"
+    keyPath: "/home/xxx/cert/importer.key"
+    caPath: "/home/xxx/cert/root.crt"
+    insecureSkipVerify: false
   concurrencyPerAddress: 10
   reconnectInitialInterval: 1s
   retry: 3
@@ -167,6 +173,11 @@ client:
 |`client.address`|`"127.0.0.1:9669"`|是|指定连接的{{nebula.name}}地址。多个地址用英文逗号（,）分隔。|
 |`client.user`|`root`|否|{{nebula.name}}的用户名。|
 |`client.password`|`nebula`|否|{{nebula.name}}用户名对应的密码。|
+|`client.ssl.enable`|`false`|否|指定是否开启 SSL 认证。|
+|`client.ssl.certPath`|-|否|指定 SSL 公钥证书的存储路径。</br>开启 SSL 认证后该参数必填。|
+|`client.ssl.keyPath`|-|否|指定 SSL 密钥的存储路径。</br>开启 SSL 认证后该参数必填。|
+|`client.ssl.caPath`|-|否|指定 CA 根证书的存储路径。</br>开启 SSL 认证后该参数必填。|
+|`client.ssl.insecureSkipVerify`|`false`|否|指定是否跳过验证服务端的证书链和主机名。如果设置为`true`，则接受服务端提供的任何证书链和主机名。|
 |`client.concurrencyPerAddress`|`10`|否|单个 Graph 服务的客户端并发连接数。|
 |`client.retryInitialInterval`|`1s`|否|重连间隔时间。|
 |`client.retry`|`3`|否|nGQL 语句执行失败的重试次数。|
