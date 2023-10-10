@@ -9,6 +9,7 @@ NebulaGraph Importer（简称 Importer）是一款{{nebula.name}}的 CSV 文件�
 - 支持同时连接多个 Graph 服务进行导入并且动态负载均衡。
 - 支持失败后重连、重试。
 - 支持多维度显示统计信息，包括导入时间、导入百分比等。统计信息支持打印在 Console 或日志中。
+- 支持 SSL 加密。
 
 ## 优势
 
