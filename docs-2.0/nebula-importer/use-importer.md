@@ -1,13 +1,11 @@
 # NebulaGraph Importer
 
-NebulaGraph Importer（简称 Importer）是一款{{nebula.name}}的 CSV 文件单机导入工具，可以读取并批量导入多种数据源的 CSV 文件数据，还支持批量更新和删除操作。
+NebulaGraph Importer（简称 Importer）是一款{{nebula.name}}的 CSV 文件单机导入工具，可以读取并导入多种数据源的 CSV 文件数据。
 
 ## 功能
 
-- 支持多种数据源，包括本地、S3、OSS、HDFS、FTP、SFTP、GCS。
+- 支持多种数据源，包括本地、S3、OSS、HDFS、FTP、SFTP。
 - 支持导入 CSV 格式文件的数据。单个文件内可以包含多种 Tag、多种 Edge type 或者二者混合的数据。
-- 支持过滤数据源数据。
-- 支持批量操作，包括导入、更新、删除。
 - 支持同时连接多个 Graph 服务进行导入并且动态负载均衡。
 - 支持失败后重连、重试。
 - 支持多维度显示统计信息，包括导入时间、导入百分比等。统计信息支持打印在 Console 或日志中。
@@ -224,7 +222,7 @@ log:
   level: INFO
   console: true
   files:
-    - logs/nebula-importer.log   
+   - logs/nebula-importer.log   
 ```
 
 |参数|默认值|是否必须|说明|
@@ -273,34 +271,7 @@ sources:
 #  - hdfs:
 #      address: "127.0.0.1:8020"    # 必填。HDFS 服务的地址。
 #      user: "hdfs"    # 可选。HDFS 服务的用户名。
-#      servicePrincipalName: <Kerberos Service Principal Name>  # 可选。启用 Kerberos 认证时，HDFS 服务的 Kerberos 服务实例名称。
-#      krb5ConfigFile: <Kerberos config file>  # 可选。启用 Kerberos 认证时，HDFS 服务的 Kerberos 配置文件路径，默认为`/etc/krb5.conf`。
-#      ccacheFile: <Kerberos ccache file>  # 可选。启用 Kerberos 认证时，HDFS 服务的 Kerberos ccache 文件路径。
-#      keyTabFile: <Kerberos keytab file>  # 可选。启用 Kerberos 认证时，HDFS 服务的 Kerberos keytab 文件路径。
-#      password: <Kerberos password>  # 可选。启用 Kerberos 认证时，HDFS 服务的 Kerberos 密码。
-#      dataTransferProtection: <Kerberos Data Transfer Protection>  # 可选。启用 Kerberos 认证时的传输加密类型。可选值为`authentication`、`integrity`、`privacy`。
-#      disablePAFXFAST: false  # 可选。是否禁止客户端使用预身份验证（PA_FX_FAST）。
-#      path: "/events/20190918.export.csv"    # 必填。HDFS 服务中文件的路径。也支持通配符文件名，例如：/events/*.export.csv，请确保所有匹配的文件具有相同的架构。
-#  - gcs: # Google Cloud Storage
-#      bucket: chicago-crime-sample  # 必填。GCS 服务中的 bucket 名称。
-#      key: stats/000000000000.csv  # 必填。GCS 服务中文件的路径。
-#      withoutAuthentication: false  # 可选。是否匿名访问。默认为 false，即使用凭证访问。
-#      # 使用凭证访问时，credentialsFile 和 credentialsJSON 参数二选一即可。
-#      credentialsFile: "/path/to/your/credentials/file"  # 可选。GCS 服务的凭证文件路径。
-#      credentialsJSON: '{  # 可选。GCS 服务的凭证 JSON 内容。
-#        "type": "service_account",
-#        "project_id": "your-project-id",
-#        "private_key_id": "key-id",
-#        "private_key": "-----BEGIN PRIVATE KEY-----\nxxxxx\n-----END PRIVATE KEY-----\n",
-#        "client_email": "your-client@your-project-id.iam.gserviceaccount.com",
-#        "client_id": "client-id",
-#        "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-#        "token_uri": "https://oauth2.googleapis.com/token",
-#        "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-#        "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/your-client%40your-project-id.iam.gserviceaccount.com",
-#        "universe_domain": "googleapis.com"
-#      }'
-
+#      path: "/events/20190918.export.csv"    # 必填。HDFS 服务中文件的路径。
     batch: 256
     csv:
       delimiter: "|"
@@ -308,9 +279,6 @@ sources:
       lazyQuotes: false
     tags:
     - name: Person
-#      mode: INSERT
-#      filter:  
-#        expr: Record[1] == "XXX"
       id:
         type: "STRING"
         function: "hash"
@@ -349,9 +317,6 @@ sources:
     batch: 256
     edges:
     - name: KNOWS # person_knows_person
-#      mode: INSERT
-#      filter:  
-#        expr: Record[1] == "XXX"
       src:
         id:
           type: "STRING"
@@ -391,8 +356,6 @@ sources:
 |`sources.csv.withHeader`   |`false`| 否 | 是否忽略 CSV 文件中的第一条记录。         |  
 |`sources.csv.lazyQuotes`   |`false`| 否 | 是否允许惰性解析引号。如果值为`true`，引号可以出现在非引号字段中，非双引号可以出现在引号字段中，而不会引发解析错误。    |  
 |`sources.tags.name`   |-| 是 | Tag 名称。         |  
-|`sources.tags.mode`   |`INSERT`| 否 | 批量操作类型，包括导入、更新和删除。可选值为`INSERT`、`UPDATE`和`DELETE`。         |  
-|`sources.tags.filter.expr`   |-| 否 | 过滤数据，满足过滤条件的才会导入。支持的比较符为`==`、`!=`、`<`、`>`、`<=`和`>=`。支持的逻辑运算符为`not`（!）、`and`（&&）和`or`（\|\|）。例如`(Record[0] == "Mahinda" or Record[0] == "Michael") and Record[3] == "male"`。         |  
 |`sources.tags.id.type`   |`STRING`| 否 |  VID 的类型。        |  
 |`sources.tags.id.function`   |-| 否 | 生成 VID 的函数。目前仅支持`hash`。         |  
 |`sources.tags.id.index`   |-| 否 | VID 对应的数据文件中的列号。如果未配置`sources.tags.id.concatItems`，该参数必须配置。         |  
@@ -406,8 +369,6 @@ sources:
 |`sources.tags.props.alternativeIndices`   |-| 否 | 当`nullable`为`false`时忽略。该属性根据索引顺序从文件中获取，直到不等于`nullValue`。         |  
 |`sources.tags.props.defaultValue`   |-| 否 | 当`nullable`为`false`时忽略。根据`index`和`alternativeIndices`获取的所有值为`nullValue`时设置默认值。         |  
 |`sources.edges.name`   |-| 是 | Edge type 名称。          |  
-|`sources.edges.mode`   |`INSERT`| 否 | 批量操作类型，包括导入、更新和删除。可选值为`INSERT`、`UPDATE`和`DELETE`。         |  
-|`sources.edges.filter.expr`   |-| 否 | 过滤数据，满足过滤条件的才会导入。支持的比较符为`==`、`!=`、`<`、`>`、`<=`和`>=`。支持的逻辑运算符为`not`（!）、`and`（&&）和`or`（\|\|）。例如`(Record[0] == "Mahinda" or Record[0] == "Michael") and Record[3] == "male"`。         |  
 |`sources.edges.src.id.type`   |`STRING`| 否 |  边上起点 VID 的数据类型。        |  
 |`sources.edges.src.id.index`   |-| 是 | 边上起点 VID 对应的数据文件中的列号。         |  
 |`sources.edges.dst.id.type`   |`STRING`| 否 | 边上终点 VID 的数据类型。         |  
