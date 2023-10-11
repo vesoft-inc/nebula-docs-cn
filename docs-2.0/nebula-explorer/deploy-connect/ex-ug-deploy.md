@@ -40,18 +40,20 @@
 
 2. 使用`sudo rpm -i <rpm>`命令安装 RPM 包。
 
-   例如，安装{{explorer.name}}需要运行以下命令，默认安装路径为`/usr/local/yueshu-explorer`：
+    例如，安装{{explorer.name}}需要运行以下命令，默认安装路径为`/usr/local/yueshu-explorer`：
 
-   ```bash
-   sudo rpm -i yueshu-explorer-<version>.x86_64.rpm
-   ```
+    ```bash
+    sudo rpm -i yueshu-explorer-<version>.x86_64.rpm
+    ```
 
-   也可以使用`--prefix`选项安装到指定路径：
-   ```bash
-   sudo rpm -i yueshu-explorer-<version>.x86_64.rpm --prefix=<path> 
-   ```
+    也可以使用`--prefix`选项安装到指定路径：
+    ```bash
+    sudo rpm -i yueshu-explorer-<version>.x86_64.rpm --prefix=<path> 
+    ```
 
-3. 进入解压后的文件夹，在`config`目录内修改`app-config.yaml`文件，设置`LicenseManagerURL`的值为 LM 所在的主机 IP 和端口号`9119`，例如`192.168.8.100:9119`。
+3. 进入解压后的文件夹，在`config`目录内修改`app-config.yaml`文件。设置`LicenseManagerURL`的值为 LM 所在的主机 IP 和端口号`9119`，例如`192.168.8.100:9119`。
+   
+    更多配置介绍参见文末**配置文件说明**部分。
 
 4. （可选）配置 Dag Controller。参见下文 **配置 Dag Controller** 部分。
 
@@ -113,6 +115,8 @@ sudo rpm -e yueshu-explorer-<version>.x86_64
         使用 DEB 包安装{{explorer.name}}时不支持自定义安装路径。
 
 3. 进入解压后的文件夹，在`config`目录内修改`app-config.yaml`文件，设置`LicenseManagerURL`的值为 LM 所在的主机 IP 和端口号`9119`，例如`192.168.8.100:9119`。
+   
+    更多配置介绍参见文末**配置文件说明**部分。
 
 4. （可选）配置 Dag Controller。参见下文 **配置 Dag Controller** 部分。
 
@@ -161,6 +165,8 @@ sudo dpkg -r yueshu-explorer
    ```
 
 3. 进入解压后的文件夹，在`config`目录内修改`app-config.yaml`文件，设置`LicenseManagerURL`的值为 LM 所在的主机 IP 和端口号`9119`，例如`192.168.8.100:9119`。
+   
+    更多配置介绍参见文末**配置文件说明**部分。
 
 4. （可选）配置 Dag Controller。参见下文 **配置 Dag Controller** 部分。
 
@@ -270,6 +276,116 @@ Dag Controller 可以结合{{plato.name}}进行复杂的图计算。例如 Dag C
   ```bash
   exec_file: /home/xxx/yueshu-analytics/scripts/run_algo.sh
   ```
+
+## 目录结构
+
+{{explorer.name}}的目录结构如下：
+
+```bash
+├── CMakeLists.txt # CMake 配置文件
+|
+├── config # 配置文件
+│   
+├── dag-ctrl # Dag Controller 安装目录
+│   
+├── scripts # 管理服务的脚本
+│   
+├── tmp # 临时文件
+|
+└── yueshu-explorer-server # {{explorer.name}}服务的应用程序
+```
+
+## 查看日志
+
+用户可以在`logs`目录内查看{{explorer.name}}的日志。
+
+例如：
+
+```
+cat logs/access.log
+```
+
+日志文件说明如下。
+
+|日志文件名|说明|
+|:--|:--|
+|`access.log`| 访问日志。通常记录所有访问服务的请求信息，包括请求时间、源地址、请求的 URL、HTTP 方法、返回的 HTTP 状态码等。</br>{{explorer.name}}的配置`Log.Mode`为`file`时生效。   |
+|`error.log`|  错误日志。记录服务运行过程中出现的错误信息。这可能包括运行时错误、系统错误、服务逻辑错误等。</br>{{explorer.name}}的配置`Log.Mode`为`file`时生效。  |
+|`severe.log`| 严重错误日志。记录那些可能导致系统崩溃，或者严重影响系统正常运行的错误。这可能包括运行时错误、系统错误、严重的服务逻辑错误等。</br>{{explorer.name}}的配置`Log.Mode`为`file`时生效。   |
+|`slow.log`|  慢日志。记录执行时间超过预设阈值的请求或操作，帮助开发者找出性能瓶颈。</br>{{explorer.name}}的配置`Log.Mode`为`file`时生效。  |
+|`stat.log`|  统计日志。记录服务的统计信息，具体的内容取决于应用的需求，可能包括各种性能指标、使用情况统计等。</br>{{explorer.name}}的配置`Log.Mode`为`file`时生效。  |
+
+## 配置文件说明
+
+```yaml
+Name: 图探索
+Version: {{explorer.release}}
+Database: 悦数
+Host: 0.0.0.0  # 指定能访问{{explorer.name}}的地址。
+Port: 7002  # 访问{{explorer.name}}的默认端口。
+
+# 使用 SSL 加密访问或内联框架时，需要配置以下参数。当前仅支持自签名证书，方法可参考内联框架章节。
+# CertFile: "./config/Explorer.crt"  # SSL 公钥证书的路径。
+# KeyFile: "./config/Explorer.key" # SSL 密钥的路径。
+
+MaxBytes: 1073741824 # Http 可接受请求的最大 ContentLength，默认为 1048576。取值范围：0 ~ 8388608。
+Timeout: 30000 # 访问超时时间。
+
+# {{explorer.name}}的部署模式，支持单实例和多实例。可选值为：single 和 multi。默认值为 single。
+# 多实例模式下，本地的存储服务(数据导入)将被禁止，以保证实例之间的数据一致性。
+# AppInstance: "multi" 
+Log:  # {{explorer.name}}运行日志设置。详细配置说明参见 https://go-zero.dev/en/docs/tutorials/go-zero/configuration/log/
+  Mode: file  # 日志保存方式。可选值为：console 和 file。console 表示服务日志会记录在 webserver.log里；file 表示服务日志会分别记录在 access.log、error.log、severe.log、slow.log 和 stat.log 里。
+  Level: error # 日志输出级别。可选值为：debug、info、error 和 severe。
+  KeepDays: 7  # 日志保留天数。
+Env: "local"
+Debug:  
+  Enable: false # 是否开启 Debug 模式。
+Auth:
+  TokenName: "explorer_token" # 登录后的 token 名称。
+  AccessSecret: "login_secret" # 登录后的 token 密钥。
+  AccessExpire: 259200 # 登录后的 token 有效期，单位为秒。
+File:
+  UploadDir: "./data/upload/"  # 导入数据时的上传文件存储路径。
+  TasksDir: "./data/tasks"  # 任务文件存储路径。包括导入任务、工作流任务等。
+  TaskIdPath: "./data/taskId.data" # 任务 ID 存储路径。
+DB:
+  Enable: true
+  LogLevel: 4  # 数据库运行日志级别。1、2、3、4 分别对应 Silent、ERROR、Warn、INFO。
+  IgnoreRecordNotFoundError: false  
+  AutoMigrate: true  # 是否自动创建数据库表。默认为 true。
+  Type: "sqlite3"  # 后端使用的数据库类型。支持 mysql 和 sqlite3。
+  Host: "127.0.0.1:3306"  # 数据库 IP 和端口。
+  Name: "nebula"  # 数据库名称。
+  User: "root"  # 数据库用户名。
+  Password: "123456"  # 数据库密码。
+  SqliteDbFilePath: "./data/tasks.db"   # 仅 sqlite3 需要填写该参数。数据库文件地址。
+  MaxOpenConns: 30  # 连接池最大活跃连接数。
+  MaxIdleConns: 10  # 连接池最大空闲连接数。
+Analytics:
+  Host: "http://127.0.0.1:9002"  # 工作流的 DAG 服务地址。
+  # RPC_HDFS_PASSWORD: "passward" # HDFS RPC 服务的密码。
+OAuth:
+  Enable: false 
+  ClientID: "10274xxxx-v2kn8oe6xxxxx.apps.googleusercontent.com" # OAuth 服务的 客户端 ID。
+  ClientSecret: "GOCSPX-8Enxxxxx" # OAuth 服务的 客户端密钥。
+  AuthURL: "https://accounts.google.com/o/oauth2/v2/auth" # OAuth 服务的 URL。
+  TokenURL: "https://oauth2.googleapis.com/token" # 获取访问 token 的 URL。
+  Scopes: "https://www.googleapis.com/auth/userinfo.email" # OAuth 服务的 scope。
+
+  UserInfoURL: "https://www.googleapis.com/oauth2/v1/userinfo" # 获取用户信息的 URL。
+  UsernameKey: "email" # 用户名字段。
+  Organization: "vesoft"  # OAuth 供应商名称。
+  TokenName: "oauth_token" # cookie 里的 token 名称。
+  RedirectURL: "http://127.0.0.1:7002/login" # OAuth 服务的重定向 URL。
+  AvatarKey: "picture" # 用户信息中头像的密钥。
+IframeMode:
+  Enable: false  # 是否开启内联框架模式。
+  # Origins:     # 内联框架来源白名单。默认允许任何来源。
+  #   - "http://192.168.8.8"
+LicenseManagerURL: http://192.168.8.100:9119 # License Manager 所在的主机 IP，端口默认为9119。
+CorsOrigins: [] # 允许发起跨域请求的域名列表。
+```
 
 ## 后续操作
 

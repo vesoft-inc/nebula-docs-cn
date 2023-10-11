@@ -59,6 +59,7 @@ NebulaGraph Console 的获取方式如下：
 | `-ssl_root_ca_path` | 指定 CA 根证书的存储路径。 |
 | `-ssl_cert_path` | 指定 SSL 公钥证书的存储路径。 |
 | `-ssl_private_key_path` | 指定 SSL 密钥的存储路径。 |
+|`-ssl_insecure_skip_verify`|指定客户端是否跳过验证服务端的证书链和主机名。默认为`false`。如果设置为`true`，则接受服务端提供的任何证书链和主机名。|
 
 更多参数参见[项目仓库](https://github.com/vesoft-inc/nebula-console/tree/{{console.branch}})。
 

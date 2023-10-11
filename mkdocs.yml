@@ -715,7 +715,6 @@ nav:
           - 扩缩容: nebula-dashboard-ent/4.cluster-operator/operator/scale.md
           - 服务管理: nebula-dashboard-ent/4.cluster-operator/operator/service.md
           - 更新配置: nebula-dashboard-ent/4.cluster-operator/operator/update-config.md
-          - 成员管理: nebula-dashboard-ent/4.cluster-operator/operator/member-management.md
           - 版本升级: nebula-dashboard-ent/4.cluster-operator/operator/version-upgrade.md
           - 备份恢复: nebula-dashboard-ent/4.cluster-operator/operator/backup-and-restore.md
         - 分析诊断:
@@ -727,10 +726,11 @@ nav:
           - 审计日志: nebula-dashboard-ent/4.cluster-operator/cluster-information/audit-log.md
           - 运行日志: nebula-dashboard-ent/4.cluster-operator/cluster-information/runtime-log.md
         - 通知: nebula-dashboard-ent/4.cluster-operator/9.notification.md
+        - 数据库成员: nebula-dashboard-ent/4.cluster-operator/10.database-user.md
         - 数据同步: nebula-dashboard-ent/4.cluster-operator/7.data-synchronization.md
         - 操作记录: nebula-dashboard-ent/4.cluster-operator/5.operation-record.md
         - 其他设置: nebula-dashboard-ent/4.cluster-operator/6.settings.md
-      - 权限管理: nebula-dashboard-ent/5.account-management.md
+      - 平台成员管理: nebula-dashboard-ent/5.account-management.md
       - 任务中心: nebula-dashboard-ent/10.tasks.md
       - License 管理: nebula-dashboard-ent/11.license-manager.md
       - 平台设置:

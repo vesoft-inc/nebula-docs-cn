@@ -85,3 +85,37 @@ Dag Controller 包含图查询组件和图计算组件。图查询是发送请�
 ## 任务运行失败，报错`broadcast.hpp:193] Check failed: (size_t)recv_bytes >= sizeof(chunk_tail_t) recv message too small: 0`怎么办？
 
 任务要处理的数据量过小，但是配置的计算节点数与进程数太多。需要在提交作业时设置较小的`clusterSize`和`processes`。
+
+## 如何实现高可用架构
+
+用户可以使用第三方高可用软件（例如 [HAProxy](https://www.haproxy.org/)）实现{{explorer.name}}的高可用架构。
+
+例如，用户可以在多台机器上部署{{explorer.name}}服务、数据库服务，然后使用 HAProxy 实现各自的负载均衡。
+
+然后将数据库服务的对外接口填写到{{explorer.name}}的配置中，示例如下：
+
+```yaml
+# {{explorer.name}}的部署模式，支持单实例和多实例。可选值为：single 和 multi。默认值为 single。
+# 多实例模式下，本地的存储服务(数据导入)将被禁止，以保证实例之间的数据一致性。
+AppInstance: "multi" 
+
+# 数据库配置
+DB:
+  Enable: true
+  LogLevel: 4  # 数据库运行日志级别。1、2、3、4 分别对应 Silent、ERROR、Warn、INFO。
+  IgnoreRecordNotFoundError: false  
+  AutoMigrate: true  # 是否自动创建数据库表。默认为 true。
+  Type: "mysql"  # 后端使用的数据库类型。可选值为 mysql 和 sqlite3。PolarDB 完全兼容 MySQL, 如果是 PolarDB，填写 mysql 即可。
+  Host: "192.168.8.200:3306"  # 数据库高可用服务的对外 IP 和端口。
+  Name: "nebula"  # 数据库名称。
+  User: "root"  # 数据库用户名。
+  Password: "123456"  # 数据库密码。
+  # SqliteDbFilePath: "./data/tasks.db"   # 仅 sqlite3 需要填写该参数。数据库文件地址。
+  MaxOpenConns: 30  # 连接池最大活跃连接数。
+  MaxIdleConns: 10  # 连接池最大空闲连接数。
+LicenseManagerURL: http://192.168.8.100:9119 # License Manager 所在的主机 IP，端口默认为9119。
+```
+
+最后访问 HAProxy 提供的{{explorer.name}}对外接口即可。
+
+关于详细的配置方案，可以联系售后工作人员咨询。
