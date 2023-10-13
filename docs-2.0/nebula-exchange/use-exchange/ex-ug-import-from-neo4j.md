@@ -6,6 +6,10 @@
 
 Exchange 使用** Neo4j Driver 4.0.1 **实现对 Neo4j 数据的读取。执行批量导出之前，用户需要在配置文件中写入针对标签（label）和关系类型（Relationship Type）自动执行的 Cypher 语句，以及 Spark 分区数，提高数据导出性能。
 
+!!! note
+
+    Neo4j Driver 4.0.1 兼容 Neo4j 3.5 与 4.x 5.x，因为 Neo4j Spark Connector 4.x 不支持 Spark 2，需要 Exchange 运行在 Spark 3 之上。
+
 Exchange 读取 Neo4j 数据时需要完成以下工作：
 
 1. Exchange 中的 Reader 会将配置文件中`exec`部分的 Cypher`RETURN`语句后面的语句替换为`COUNT(*)`，并执行这个语句，从而获取数据总量，再根据 Spark 分区数量计算每个分区的起始偏移量和大小。
