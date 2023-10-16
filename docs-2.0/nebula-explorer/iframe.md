@@ -100,7 +100,7 @@
   // 登录
   iframeEle.contentWindow.postMessage(
     {
-      // `NebulaGraphExploreLogin` type has been deprecated
+      // `NebulaGraphExploreLogin` 类型已经弃用，使用 `ExplorerLogin` 代替，但是在 3.x 版本中继续保持兼容。
       type: 'ExplorerLogin',
       data: {
         authorization: 'WyJyb290IiwibmVidWxhIl0=',  //{{nebula.name}}账号和密码组成数组并序列化，然后进行 Base64 编码。数组格式为`['账号', '密码']`，示例为`['root', 'nebula']`，编码后为`WyJyb290IiwibmVidWxhIl0=`。

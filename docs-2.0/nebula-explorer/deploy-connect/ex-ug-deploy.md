@@ -348,7 +348,8 @@ Auth:
 File:
   UploadDir: "./data/upload/"  # 导入数据时的上传文件存储路径。
   TasksDir: "./data/tasks"  # 任务文件存储路径。包括导入任务、工作流任务等。
-  TaskIdPath: "./data/taskId.data" # 任务 ID 存储路径。
+#  SqliteDbFilePath # 弃用配置。
+#  TaskIdPath: "./data/taskId.data" # 弃用配置。请使用 DB.SqliteDbFilePath。
 DB:
   Enable: true
   LogLevel: 4  # 数据库运行日志级别。1、2、3、4 分别对应 Silent、ERROR、Warn、INFO。
@@ -365,20 +366,39 @@ DB:
 Analytics:
   Host: "http://127.0.0.1:9002"  # 工作流的 DAG 服务地址。
   # RPC_HDFS_PASSWORD: "passward" # HDFS RPC 服务的密码。
-OAuth:
-  Enable: false 
-  ClientID: "10274xxxx-v2kn8oe6xxxxx.apps.googleusercontent.com" # OAuth 服务的 客户端 ID。
-  ClientSecret: "GOCSPX-8Enxxxxx" # OAuth 服务的 客户端密钥。
-  AuthURL: "https://accounts.google.com/o/oauth2/v2/auth" # OAuth 服务的 URL。
-  TokenURL: "https://oauth2.googleapis.com/token" # 获取访问 token 的 URL。
-  Scopes: "https://www.googleapis.com/auth/userinfo.email" # OAuth 服务的 scope。
-
-  UserInfoURL: "https://www.googleapis.com/oauth2/v1/userinfo" # 获取用户信息的 URL。
-  UsernameKey: "email" # 用户名字段。
-  Organization: "vesoft"  # OAuth 供应商名称。
-  TokenName: "oauth_token" # cookie 里的 token 名称。
-  RedirectURL: "http://127.0.0.1:7002/login" # OAuth 服务的重定向 URL。
-  AvatarKey: "picture" # 用户信息中头像的密钥。
+# OAuth:  # 弃用配置，但是在 3.x 版本中继续保持兼容。
+#  Enable: false 
+#  ClientID: "10274xxxx-v2kn8oe6xxxxx.apps.googleusercontent.com" # OAuth 服务的 客户端 ID。
+#  ClientSecret: "GOCSPX-8Enxxxxx" # OAuth 服务的 客户端密钥。
+#  AuthURL: "https://accounts.google.com/o/oauth2/v2/auth" # OAuth 服务的 URL。
+#  TokenURL: "https://oauth2.googleapis.com/token" # 获取访问 token 的 URL。
+#  Scopes: "https://www.googleapis.com/auth/userinfo.email" # OAuth 服务的 scope。
+#  UserInfoURL: "https://www.googleapis.com/oauth2/v1/userinfo" # 获取用户信息的 URL。
+#  UsernameKey: "email" # 用户名字段。
+#  Organization: "vesoft"  # OAuth 供应商名称。
+#  TokenName: "oauth_token" # cookie 里的 token 名称。
+#  RedirectURL: "http://127.0.0.1:7002/login" # OAuth 服务的重定向 URL。
+#  AvatarKey: "picture" # 用户信息中头像的密钥。
+SSO:
+  Enable: false # 是否开启单点登录。
+  Type: "CAS" # 单点登录服务类型。可选值为 OAuth2 和 CAS。
+  OAuthConfig:
+    ClientID: "1039194xxxxx-taufdxxxxx.apps.googleusercontent.com" # OAuth 服务的 客户端 ID。
+    ClientSecret: "GOCSPX-F_xBzfitifMU7acySxxxxx" # OAuth 服务的 客户端密钥。
+    AuthURL: "https://accounts.google.com/o/oauth2/v2/auth" # OAuth 服务的 URL。
+    TokenURL: "https://oauth2.googleapis.com/token" # 获取访问 token 的 URL。
+    Scopes: "https://www.googleapis.com/auth/userinfo.email" # OAuth 服务的 scope。
+    UserInfoURL: "https://www.googleapis.com/oauth2/v1/userinfo" # 获取用户信息的 URL。
+    UsernameKey: "email" # 用户名字段。
+    Organization: "vesoft"  # OAuth 供应商名称。会在登录页面展示。
+    TokenName: "oauth_token" # cookie 里的 token 名称。
+    RedirectURL: "http://127.0.0.1:7002/login" # OAuth 服务的重定向 URL。
+    AvatarKey: "picture" # 用户信息中头像的密钥。
+  CASConfig:
+    Address: "" # CAS 服务的地址。
+    Organization: "vesoft"  # CAS 供应商名称。会在登录页面展示。
+    AvatarKey: "avatar" # 用户信息中头像的密钥。
+    TokenName: "cas_token" # cookie 里的 token 名称。
 IframeMode:
   Enable: false  # 是否开启内联框架模式。
   # Origins:     # 内联框架来源白名单。默认允许任何来源。
