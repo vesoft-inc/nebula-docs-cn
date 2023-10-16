@@ -366,7 +366,7 @@ DB:
 Analytics:
   Host: "http://127.0.0.1:9002"  # 工作流的 DAG 服务地址。
   # RPC_HDFS_PASSWORD: "passward" # HDFS RPC 服务的密码。
-# OAuth:  # 弃用配置，但是在 3.x 版本中继续保持兼容。
+# OAuth:  # 弃用配置，但是在 3.x 版本中继续保持兼容。请改用 SSO。
 #  Enable: false 
 #  ClientID: "10274xxxx-v2kn8oe6xxxxx.apps.googleusercontent.com" # OAuth 服务的 客户端 ID。
 #  ClientSecret: "GOCSPX-8Enxxxxx" # OAuth 服务的 客户端密钥。
