@@ -381,7 +381,7 @@ Analytics:
 #  AvatarKey: "picture" # 用户信息中头像的密钥。
 SSO:
   Enable: false # 是否开启单点登录。
-  Type: "CAS" # 单点登录服务类型。可选值为 OAuth2 和 CAS。
+  Type: "CAS" # 单点登录服务类型。可选值为 OAuth2 和 CAS。配置该参数后再在下方配置对应的 OAuthConfig 或 CASConfig。
   OAuthConfig:
     ClientID: "1039194xxxxx-taufdxxxxx.apps.googleusercontent.com" # OAuth 服务的 客户端 ID。
     ClientSecret: "GOCSPX-F_xBzfitifMU7acySxxxxx" # OAuth 服务的 客户端密钥。
