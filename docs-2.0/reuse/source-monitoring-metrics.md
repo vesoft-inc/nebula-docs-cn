@@ -26,6 +26,7 @@
 | `query_latency_us`                               | 查询延迟时间。                            |
 | `slow_query_latency_us`                          | 慢查询延迟时间。                          |
 | `num_queries_hit_memory_watermark`               | 达到内存水位线的语句的数量。 |
+| `resp_part_completeness`                         | 部分成功的完整性。需要在 Graph 配置中设置`accept_partial_success`为`true`。|
 
 ### Meta
 
