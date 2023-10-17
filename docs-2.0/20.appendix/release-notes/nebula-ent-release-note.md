@@ -1,4 +1,4 @@
-# {{nebula.name}} {{ nebula.release }} release notes
+# {{nebula.name}} release notes
 
 ## v3.6.0
 
