@@ -16,7 +16,7 @@
     - 优化深度查询的性能。
     - 优化 Aggregate 算子的性能。
   - 高可用
-    - partial success 添加统计信息。
+    - 部分成功（partial success）增加监控指标`resp_part_completeness`。
     - 支持记录上次成功访问 LM 至今的时长，方便查看 LM 宕机的时间。
     - 当节点硬盘出现故障无法写入时触发重新选举，保证集群能够正常提供服务。
   - 易用性
