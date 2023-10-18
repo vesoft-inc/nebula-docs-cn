@@ -144,6 +144,9 @@ plugins:
         - nebula-cloud/nebula-cloud-on-alibabacloud/4.scaling-services.md
         - 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
         - 4.deployment-and-installation/5.zone.md
+        - 3.ngql-guide/8.clauses-and-options/joins.md
+        - graph-computing/algorithm-description.md
+        - nebula-operator/8.custom-cluster-configurations/8.5.enable-ssl.md
         # exclude.ent.end
         # exclude.comm.begin  (hide the comm-doc when releasing ent)
         - nebula-dashboard/1.what-is-dashboard.md
