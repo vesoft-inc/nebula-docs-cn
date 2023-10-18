@@ -120,6 +120,7 @@ plugins:
         - import-export/nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
         - nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
         - nebula-operator/10.backup-restore-using-operator.md
+        - nebula-operator/3.deploy-nebula-graph-cluster/3.0.deploy-lm.md
         - synchronization-and-migration/replication-between-clusters.md
         - 20.appendix/8.about-license/*
         - nebula-dashboard-ent/4.cluster-operator/operator/scale.md
@@ -1169,7 +1170,6 @@ nav:
         - NebulaGraph Dashboard 社区版: 20.appendix/release-notes/dashboard-comm-release-note.md
       - 学习路径: 20.appendix/learning-path.md
       - 生态工具概览: 20.appendix/6.eco-tool-version.md
-      - 导入工具选择: 20.appendix/write-tools.md
       - 产品端口全集: 20.appendix/port-guide.md
       - 社区参与: 15.contribution/how-to-contribute.md
       - 年表: 20.appendix/history.md

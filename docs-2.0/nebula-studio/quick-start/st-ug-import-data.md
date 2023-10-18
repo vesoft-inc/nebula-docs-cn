@@ -39,7 +39,7 @@ Studio 支持界面化地将 CSV 格式数据导入至{{nebula.name}}中。
   
   !!! caution
 
-        用户也可以单击**导入模版**，下载示例配置文件`example.yaml`，配置后再上传配置文件。配置方式与 [NebulaGraph Importer](../../nebula-importer/use-importer.md)大致相同。
+        用户也可以单击**导入模版**，下载示例配置文件`example.yaml`，配置后再上传配置文件。配置方式与 [NebulaGraph Importer](../../import-export/nebula-importer/use-importer.md)大致相同。
 
   - **图空间**：需要导入数据的图空间名称。
   - **任务名称**：默认自动生成，可以修改。
