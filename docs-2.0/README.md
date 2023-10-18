@@ -22,7 +22,12 @@ NebulaGraph 是一款开源的、分布式的、易扩展的原生图数据库�
 
 ## 快速开始
 
+{{comm.comm_begin}}
 * [快速开始](2.quick-start/1.quick-start-overview.md)
+{{comm.comm_end}}
+{{ent.ent_begin}}
+* [快速开始](2.quick-start/3.quick-start-on-premise/2.install-nebula-graph.md)
+{{ent.ent_end}}
 * [部署要求](4.deployment-and-installation/1.resource-preparations.md)
 * [nGQL 命令汇总](2.quick-start/6.cheatsheet-for-ngql-command.md)
 * [FAQ](20.appendix/0.FAQ.md)

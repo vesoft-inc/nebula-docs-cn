@@ -171,6 +171,8 @@ plugins:
         - 20.appendix/history.md
         - 20.appendix/mind-map.md
         - 3.ngql-guide/6.functions-and-expressions/9.user-defined-functions.md
+        - 4.deployment-and-installation/2.compile-and-install-nebula-graph/7.compile-using-docker.md
+        - 9.about-license/2.license-management-suite/2.license-center.md
         # exclude.comm.end
 
 # Exclude the file with the following file name.

@@ -120,7 +120,7 @@ scala> spark.sql("describe basketball.serve").show
     nebula> CREATE EDGE serve(start_year int, end_year int);
     ```
 
-更多信息，请参见[快速开始](../../../2.quick-start/1.quick-start-overview.md)。
+更多信息，请参见[快速开始](../../../2.quick-start/3.quick-start-on-premise/4.nebula-graph-crud.md)。
 
 ### 步骤 2：使用 Spark SQL 确认 Hive SQL 语句
 
