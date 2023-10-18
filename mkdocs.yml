@@ -117,7 +117,7 @@ plugins:
         - graph-computing/0.deploy-controller-analytics.md
         - graph-computing/nebula-analytics.md
         - graph-computing/use-explorer.md
-        - nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
+        - import-export/nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
         - nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
         - nebula-operator/10.backup-restore-using-operator.md
         - synchronization-and-migration/replication-between-clusters.md
@@ -627,41 +627,38 @@ nav:
       - 集群间数据同步: synchronization-and-migration/replication-between-clusters.md
 
   - 导入与导出:
-      - 概述: 20.appendix/write-tools.md
-      - 使用 NebulaGraph Importer: nebula-importer/use-importer.md
-#        - 有表头配置说明: nebula-importer/config-with-header.md
-#        - 无表头配置说明: nebula-importer/config-without-header.md
-
+      - 概述: import-export/write-tools.md
+      - 使用 NebulaGraph Importer: import-export/use-importer.md
       - NebulaGraph Exchange:
         - 认识 NebulaGraph Exchange:
-          - 什么是 NebulaGraph Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
-          - 使用限制: nebula-exchange/about-exchange/ex-ug-limitations.md
-        - 获取 NebulaGraph Exchange: nebula-exchange/ex-ug-compile.md
+          - 什么是 NebulaGraph Exchange: import-export/nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
+          - 使用限制: import-export/nebula-exchange/about-exchange/ex-ug-limitations.md
+        - 获取 NebulaGraph Exchange: import-export/nebula-exchange/ex-ug-compile.md
         - 参数说明:
-          - 导入命令参数: nebula-exchange/parameter-reference/ex-ug-para-import-command.md
-          - 配置参数: nebula-exchange/parameter-reference/ex-ug-parameter.md
+          - 导入命令参数: import-export/nebula-exchange/parameter-reference/ex-ug-para-import-command.md
+          - 配置参数: import-export/nebula-exchange/parameter-reference/ex-ug-parameter.md
         - 使用 NebulaGraph Exchange:
-          - 导入 CSV 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-csv.md
-          - 导入 JSON 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-json.md
-          - 导入 ORC 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-orc.md
-          - 导入 Parquet 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-parquet.md
-          - 导入 HBase 数据: nebula-exchange/use-exchange/ex-ug-import-from-hbase.md
-          - 导入 MySQL/PostgreSQL 数据: nebula-exchange/use-exchange/ex-ug-import-from-mysql.md
-          - 导入 Oracle 数据: nebula-exchange/use-exchange/ex-ug-import-from-oracle.md
-          - 导入 ClickHouse 数据: nebula-exchange/use-exchange/ex-ug-import-from-clickhouse.md
-          - 导入 Neo4j 数据: nebula-exchange/use-exchange/ex-ug-import-from-neo4j.md
-          - 导入 Hive 数据: nebula-exchange/use-exchange/ex-ug-import-from-hive.md
-          - 导入 MaxCompute 数据: nebula-exchange/use-exchange/ex-ug-import-from-maxcompute.md
-          - 导入 Pulsar 数据: nebula-exchange/use-exchange/ex-ug-import-from-pulsar.md
-          - 导入 Kafka 数据: nebula-exchange/use-exchange/ex-ug-import-from-kafka.md
-          - 导入通用 JDBC 数据: nebula-exchange/use-exchange/ex-ug-import-from-jdbc.md
-          - 导入 SST 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-sst.md
-          - 导出悦数图数据库数据: nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
-        - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
+          - 导入 CSV 文件数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-csv.md
+          - 导入 JSON 文件数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-json.md
+          - 导入 ORC 文件数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-orc.md
+          - 导入 Parquet 文件数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-parquet.md
+          - 导入 HBase 数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-hbase.md
+          - 导入 MySQL/PostgreSQL 数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-mysql.md
+          - 导入 Oracle 数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-oracle.md
+          - 导入 ClickHouse 数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-clickhouse.md
+          - 导入 Neo4j 数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-neo4j.md
+          - 导入 Hive 数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-hive.md
+          - 导入 MaxCompute 数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-maxcompute.md
+          - 导入 Pulsar 数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-pulsar.md
+          - 导入 Kafka 数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-kafka.md
+          - 导入通用 JDBC 数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-jdbc.md
+          - 导入 SST 文件数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-sst.md
+          - 导出悦数图数据库数据: import-export/nebula-exchange/use-exchange/ex-ug-export-from-nebula.md
+        - Exchange 常见问题: import-export/nebula-exchange/ex-ug-FAQ.md
 
-      - NebulaGraph Spark Connector: nebula-spark-connector.md
+      - NebulaGraph Spark Connector: import-export/nebula-spark-connector.md
           
-      - NebulaGraph Flink Connector: nebula-flink-connector.md
+      - NebulaGraph Flink Connector: import-export/nebula-flink-connector.md
 
   - 最佳实践:
       - Compaction: 8.service-tuning/compaction.md
@@ -1057,6 +1054,39 @@ nav:
   - 同步与迁移:
       - 负载均衡: synchronization-and-migration/2.balance-syntax.md
 
+  - 导入与导出:
+      - 概述: import-export/write-tools.md
+      - 使用 NebulaGraph Importer: import-export/use-importer.md
+      - NebulaGraph Exchange:
+        - 认识 NebulaGraph Exchange:
+          - 什么是 NebulaGraph Exchange: import-export/nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
+          - 使用限制: import-export/nebula-exchange/about-exchange/ex-ug-limitations.md
+        - 获取 NebulaGraph Exchange: import-export/nebula-exchange/ex-ug-compile.md
+        - 参数说明:
+          - 导入命令参数: import-export/nebula-exchange/parameter-reference/ex-ug-para-import-command.md
+          - 配置参数: import-export/nebula-exchange/parameter-reference/ex-ug-parameter.md
+        - 使用 NebulaGraph Exchange:
+          - 导入 CSV 文件数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-csv.md
+          - 导入 JSON 文件数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-json.md
+          - 导入 ORC 文件数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-orc.md
+          - 导入 Parquet 文件数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-parquet.md
+          - 导入 HBase 数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-hbase.md
+          - 导入 MySQL/PostgreSQL 数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-mysql.md
+          - 导入 Oracle 数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-oracle.md
+          - 导入 ClickHouse 数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-clickhouse.md
+          - 导入 Neo4j 数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-neo4j.md
+          - 导入 Hive 数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-hive.md
+          - 导入 MaxCompute 数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-maxcompute.md
+          - 导入 Pulsar 数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-pulsar.md
+          - 导入 Kafka 数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-kafka.md
+          - 导入通用 JDBC 数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-jdbc.md
+          - 导入 SST 文件数据: import-export/nebula-exchange/use-exchange/ex-ug-import-from-sst.md
+        - Exchange 常见问题: import-export/nebula-exchange/ex-ug-FAQ.md
+
+      - NebulaGraph Spark Connector: import-export/nebula-spark-connector.md
+          
+      - NebulaGraph Flink Connector: import-export/nebula-flink-connector.md
+
   - 最佳实践:
       - Compaction: 8.service-tuning/compaction.md
       - Storage 负载均衡: 8.service-tuning/load-balance.md
@@ -1107,36 +1137,6 @@ nav:
       - Dashboard 页面介绍: nebula-dashboard/4.use-dashboard.md
       - 监控指标说明: nebula-dashboard/6.monitor-parameter.md
 
-  - NebulaGraph Importer: nebula-importer/use-importer.md
-#    - 有表头配置说明: nebula-importer/config-with-header.md
-#    - 无表头配置说明: nebula-importer/config-without-header.md
-
-  - NebulaGraph Exchange:
-    - 认识 NebulaGraph Exchange:
-      - 什么是 NebulaGraph Exchange: nebula-exchange/about-exchange/ex-ug-what-is-exchange.md
-      - 使用限制: nebula-exchange/about-exchange/ex-ug-limitations.md
-    - 获取 NebulaGraph Exchange: nebula-exchange/ex-ug-compile.md
-    - 参数说明:
-      - 导入命令参数: nebula-exchange/parameter-reference/ex-ug-para-import-command.md
-      - 配置参数: nebula-exchange/parameter-reference/ex-ug-parameter.md
-    - 使用 NebulaGraph Exchange:
-      - 导入 CSV 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-csv.md
-      - 导入 JSON 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-json.md
-      - 导入 ORC 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-orc.md
-      - 导入 Parquet 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-parquet.md
-      - 导入 HBase 数据: nebula-exchange/use-exchange/ex-ug-import-from-hbase.md
-      - 导入 MySQL/PostgreSQL 数据: nebula-exchange/use-exchange/ex-ug-import-from-mysql.md
-      - 导入 Oracle 数据: nebula-exchange/use-exchange/ex-ug-import-from-oracle.md
-      - 导入 ClickHouse 数据: nebula-exchange/use-exchange/ex-ug-import-from-clickhouse.md
-      - 导入 Neo4j 数据: nebula-exchange/use-exchange/ex-ug-import-from-neo4j.md
-      - 导入 Hive 数据: nebula-exchange/use-exchange/ex-ug-import-from-hive.md
-      - 导入 MaxCompute 数据: nebula-exchange/use-exchange/ex-ug-import-from-maxcompute.md
-      - 导入 Pulsar 数据: nebula-exchange/use-exchange/ex-ug-import-from-pulsar.md
-      - 导入 Kafka 数据: nebula-exchange/use-exchange/ex-ug-import-from-kafka.md
-      - 导入通用 JDBC 数据: nebula-exchange/use-exchange/ex-ug-import-from-jdbc.md
-      - 导入 SST 文件数据: nebula-exchange/use-exchange/ex-ug-import-from-sst.md
-    - Exchange 常见问题: nebula-exchange/ex-ug-FAQ.md
-
   - NebulaGraph Operator:
       - 什么是 NebulaGraph Operator: nebula-operator/1.introduction-to-nebula-operator.md
       - 使用流程: nebula-operator/6.get-started-with-operator.md
@@ -1157,10 +1157,6 @@ nav:
   - 图计算:
 #    - 算法简介: graph-computing/algorithm-description.md
     - NebulaGraph Algorithm: graph-computing/nebula-algorithm.md
-  
-  - NebulaGraph Spark Connector: nebula-spark-connector.md
-      
-  - NebulaGraph Flink Connector: nebula-flink-connector.md
 
   - NebulaGraph Bench: nebula-bench.md
 

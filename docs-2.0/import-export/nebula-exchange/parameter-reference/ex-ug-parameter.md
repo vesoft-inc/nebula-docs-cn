@@ -71,7 +71,7 @@
 
 !!! note
 
-    {{nebula.name}}默认不支持无 Tag 的点。如果需要导入无 Tag 的点，需要先在集群内开启[支持无 Tag 点](../..//3.ngql-guide/12.vertex-statements/1.insert-vertex.md)，然后在 Exchange 的配置文件内新增`nebula.enableTagless`参数，值为`true`。示例如下：
+    {{nebula.name}}默认不支持无 Tag 的点。如果需要导入无 Tag 的点，需要先在集群内开启[支持无 Tag 点](../../3.ngql-guide/12.vertex-statements/1.insert-vertex.md)，然后在 Exchange 的配置文件内新增`nebula.enableTagless`参数，值为`true`。示例如下：
 
     ```bash
     nebula: {
