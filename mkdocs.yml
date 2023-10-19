@@ -254,9 +254,9 @@ extra:
     release: 3.7.0
     tag: v3.7.0
   explorer:
-    release: 3.5.1
-    branch: release-3.5
-    tag: v3.5.1
+    release: 3.6.0
+    branch: release-3.6
+    tag: v3.6.0
     # nav.ent.begin
     name: 悦数图探索
     # nav.ent.end
@@ -620,13 +620,13 @@ nav:
           - OpenLDAP 验证: 7.data-security/1.authentication/4.ldap.md
       - SSL 加密: 7.data-security/4.ssl.md
 
-  - 备份与恢复:
-      - 悦数备份&恢复:
-        - 悦数备份&恢复概述: backup-and-restore/nebula-br-ent/1.br-ent-overview.md
-        - 安装: backup-and-restore/nebula-br-ent/2.install-tools.md
-        - 备份数据: backup-and-restore/nebula-br-ent/3.backup-data.md
-        - 恢复数据: backup-and-restore/nebula-br-ent/4.restore-data.md
-      - 快照: backup-and-restore/3.manage-snapshot.md
+#  - 备份与恢复:
+#      - 悦数备份&恢复:
+#        - 悦数备份&恢复概述: backup-and-restore/nebula-br-ent/1.br-ent-overview.md
+#        - 安装: backup-and-restore/nebula-br-ent/2.install-tools.md
+#        - 备份数据: backup-and-restore/nebula-br-ent/3.backup-data.md
+#        - 恢复数据: backup-and-restore/nebula-br-ent/4.restore-data.md
+#      - 快照: backup-and-restore/3.manage-snapshot.md
 
   - 同步与迁移:
       - 负载均衡: synchronization-and-migration/2.balance-syntax.md
@@ -704,118 +704,118 @@ nav:
 #      - 用户服务条款: nebula-cloud/nebula-cloud-on-azure/7.terms-and-conditions.md
 #      - 隐私政策条款: nebula-cloud/nebula-cloud-on-azure/8.privacy-policy.md
 
-  - 运维监控:
-      - 什么是悦数运维监控: nebula-dashboard-ent/1.what-is-dashboard-ent.md
-      - 部署悦数运维监控: nebula-dashboard-ent/2.deploy-connect-dashboard-ent.md
-      - 连接悦数运维监控: nebula-dashboard-ent/3.connect-dashboard.md
-      - 创建及导入集群:
-        - 创建集群: nebula-dashboard-ent/3.create-import-dashboard/1.create-cluster.md
-        - 导入集群: nebula-dashboard-ent/3.create-import-dashboard/2.import-cluster.md
-      - 集群管理:
-        - 集群总览: nebula-dashboard-ent/4.cluster-operator/1.overview.md
-        - 集群监控: nebula-dashboard-ent/4.cluster-operator/2.monitor.md
-        - 集群操作: 
-          - 节点管理: nebula-dashboard-ent/4.cluster-operator/operator/node.md
-          - 扩缩容: nebula-dashboard-ent/4.cluster-operator/operator/scale.md
-          - 服务管理: nebula-dashboard-ent/4.cluster-operator/operator/service.md
-          - 更新配置: nebula-dashboard-ent/4.cluster-operator/operator/update-config.md
-          - 版本升级: nebula-dashboard-ent/4.cluster-operator/operator/version-upgrade.md
-          - 备份恢复: nebula-dashboard-ent/4.cluster-operator/operator/backup-and-restore.md
-        - 分析诊断:
-          - 慢查询分析: nebula-dashboard-ent/4.cluster-operator/analysis-diagnosis/slow-query-analyst.md
-          - 集群诊断: nebula-dashboard-ent/4.cluster-operator/analysis-diagnosis/cluster-diagnosis.md 
-        - 集群信息: 
-          - 信息总览: nebula-dashboard-ent/4.cluster-operator/cluster-information/overview-info.md
-          - 作业管理: nebula-dashboard-ent/4.cluster-operator/cluster-information/job-management.md
-          - 审计日志: nebula-dashboard-ent/4.cluster-operator/cluster-information/audit-log.md
-          - 运行日志: nebula-dashboard-ent/4.cluster-operator/cluster-information/runtime-log.md
-        - 通知: nebula-dashboard-ent/4.cluster-operator/9.notification.md
-        - 数据库成员: nebula-dashboard-ent/4.cluster-operator/10.database-user.md
-        - 数据同步: nebula-dashboard-ent/4.cluster-operator/7.data-synchronization.md
-        - 操作记录: nebula-dashboard-ent/4.cluster-operator/5.operation-record.md
-        - 其他设置: nebula-dashboard-ent/4.cluster-operator/6.settings.md
-      - 平台成员管理: nebula-dashboard-ent/5.account-management.md
-      - 任务中心: nebula-dashboard-ent/10.tasks.md
-      - License 管理: nebula-dashboard-ent/11.license-manager.md
-      - 平台设置:
-        - 系统设置: nebula-dashboard-ent/system-settings/system-settings.md
-        - 通知设置: nebula-dashboard-ent/system-settings/notification-endpoint.md
-        - 单点登录: nebula-dashboard-ent/system-settings/single-sign-on.md
-        - 安装包管理: nebula-dashboard-ent/system-settings/manage-package.md
-      - 监控指标说明: nebula-dashboard-ent/7.monitor-parameter.md
-      - 常见问题 FAQ: nebula-dashboard-ent/8.faq.md
+#  - 运维监控:
+#      - 什么是悦数运维监控: nebula-dashboard-ent/1.what-is-dashboard-ent.md
+#      - 部署悦数运维监控: nebula-dashboard-ent/2.deploy-connect-dashboard-ent.md
+#      - 连接悦数运维监控: nebula-dashboard-ent/3.connect-dashboard.md
+#      - 创建及导入集群:
+#        - 创建集群: nebula-dashboard-ent/3.create-import-dashboard/1.create-cluster.md
+#        - 导入集群: nebula-dashboard-ent/3.create-import-dashboard/2.import-cluster.md
+#      - 集群管理:
+#        - 集群总览: nebula-dashboard-ent/4.cluster-operator/1.overview.md
+#        - 集群监控: nebula-dashboard-ent/4.cluster-operator/2.monitor.md
+#        - 集群操作: 
+#          - 节点管理: nebula-dashboard-ent/4.cluster-operator/operator/node.md
+#          - 扩缩容: nebula-dashboard-ent/4.cluster-operator/operator/scale.md
+#          - 服务管理: nebula-dashboard-ent/4.cluster-operator/operator/service.md
+#          - 更新配置: nebula-dashboard-ent/4.cluster-operator/operator/update-config.md
+#          - 版本升级: nebula-dashboard-ent/4.cluster-operator/operator/version-upgrade.md
+#          - 备份恢复: nebula-dashboard-ent/4.cluster-operator/operator/backup-and-restore.md
+#        - 分析诊断:
+#          - 慢查询分析: nebula-dashboard-ent/4.cluster-operator/analysis-diagnosis/slow-query-analyst.md
+#          - 集群诊断: nebula-dashboard-ent/4.cluster-operator/analysis-diagnosis/cluster-diagnosis.md 
+#        - 集群信息: 
+#          - 信息总览: nebula-dashboard-ent/4.cluster-operator/cluster-information/overview-info.md
+#          - 作业管理: nebula-dashboard-ent/4.cluster-operator/cluster-information/job-management.md
+#          - 审计日志: nebula-dashboard-ent/4.cluster-operator/cluster-information/audit-log.md
+#          - 运行日志: nebula-dashboard-ent/4.cluster-operator/cluster-information/runtime-log.md
+#        - 通知: nebula-dashboard-ent/4.cluster-operator/9.notification.md
+#        - 数据库成员: nebula-dashboard-ent/4.cluster-operator/10.database-user.md
+#        - 数据同步: nebula-dashboard-ent/4.cluster-operator/7.data-synchronization.md
+#        - 操作记录: nebula-dashboard-ent/4.cluster-operator/5.operation-record.md
+#        - 其他设置: nebula-dashboard-ent/4.cluster-operator/6.settings.md
+#      - 平台成员管理: nebula-dashboard-ent/5.account-management.md
+#      - 任务中心: nebula-dashboard-ent/10.tasks.md
+#      - License 管理: nebula-dashboard-ent/11.license-manager.md
+#      - 平台设置:
+#        - 系统设置: nebula-dashboard-ent/system-settings/system-settings.md
+#        - 通知设置: nebula-dashboard-ent/system-settings/notification-endpoint.md
+#        - 单点登录: nebula-dashboard-ent/system-settings/single-sign-on.md
+#        - 安装包管理: nebula-dashboard-ent/system-settings/manage-package.md
+#      - 监控指标说明: nebula-dashboard-ent/7.monitor-parameter.md
+#      - 常见问题 FAQ: nebula-dashboard-ent/8.faq.md
 
-  - 图探索:
-    - 什么是悦数图探索: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
-    - 安装与登录:
-      - 部署悦数图探索: nebula-explorer/deploy-connect/ex-ug-deploy.md
-      - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
-    - 页面概览: nebula-explorer/ex-ug-page-overview.md
-    - 数据库管理:
-      - Schema 草图: nebula-explorer/db-management/draft.md
-      - Schema 管理: nebula-explorer/db-management/10.create-schema.md
-      - 数据导入: nebula-explorer/db-management/11.import-data.md
-      - 控制台: nebula-explorer/db-management/explorer-console.md
-      - 查询语句模板: nebula-explorer/db-management/ngql-template.md
-      - 数据库用户管理: nebula-explorer/db-management/dbuser_management.md
-    - 图探索:
-      - 选择图空间: nebula-explorer/graph-explorer/13.choose-graphspace.md
-      - 开始探索: nebula-explorer/graph-explorer/ex-ug-query-exploration.md
-      - 节点筛选: nebula-explorer/graph-explorer/node-filtering.md
-      - 探索拓展: nebula-explorer/graph-explorer/ex-ug-graph-exploration.md
-      - 图计算: nebula-explorer/graph-explorer/graph-algorithm.md
-      - 属性计算: nebula-explorer/graph-explorer/property-calculation.md
-    - 可视化查询: nebula-explorer/12.query-visually.md
-    - 画布功能: 
-      - 画布概览: nebula-explorer/canvas-operations/canvas-overview.md
-      - 可视化模式: nebula-explorer/canvas-operations/visualization-mode.md
-      - 画布快照: nebula-explorer/canvas-operations/canvas-snapshot.md
-    - 工作流:
-      - 工作流简介: nebula-explorer/workflow/workflows.md
-      - 资源配置: nebula-explorer/workflow/1.prepare-resources.md
-      - 工作流示例: nebula-explorer/workflow/2.create-workflow.md
-      - 工作流管理: nebula-explorer/workflow/3.workflow-management.md
-      - 作业管理: nebula-explorer/workflow/4.jobs-management.md
-      - 工作流 API:
-        - API 概览: nebula-explorer/workflow/workflow-api/workflow-api-overview.md
-        - 新增作业: nebula-explorer/workflow/workflow-api/api-post-jobs.md
-        - 获取所有作业列表: nebula-explorer/workflow/workflow-api/api-get-jobs.md
-        - 获取指定工作流的作业列表: nebula-explorer/workflow/workflow-api/api-get-workflow-jobs.md
-        - 查询指定作业详情: nebula-explorer/workflow/workflow-api/api-desc-job.md
-        - 取消作业运行: nebula-explorer/workflow/workflow-api/api-cancel-job.md
-        - 获取指定任务的运行结果数据: nebula-explorer/workflow/workflow-api/api-desc-task.md
-    - 内联框架: nebula-explorer/iframe.md
-    - 系统设置: nebula-explorer/system-settings.md
-    - 基本操作和快捷键: nebula-explorer/ex-ug-shortcuts.md
-    - 常见问题 FAQ: nebula-explorer/faq.md
+#  - 图探索:
+#    - 什么是悦数图探索: nebula-explorer/about-explorer/ex-ug-what-is-explorer.md
+#    - 安装与登录:
+#      - 部署悦数图探索: nebula-explorer/deploy-connect/ex-ug-deploy.md
+#      - 连接数据库: nebula-explorer/deploy-connect/ex-ug-connect.md
+#    - 页面概览: nebula-explorer/ex-ug-page-overview.md
+#    - 数据库管理:
+#      - Schema 草图: nebula-explorer/db-management/draft.md
+#      - Schema 管理: nebula-explorer/db-management/10.create-schema.md
+#      - 数据导入: nebula-explorer/db-management/11.import-data.md
+#      - 控制台: nebula-explorer/db-management/explorer-console.md
+#      - 查询语句模板: nebula-explorer/db-management/ngql-template.md
+#      - 数据库用户管理: nebula-explorer/db-management/dbuser_management.md
+#    - 图探索:
+#      - 选择图空间: nebula-explorer/graph-explorer/13.choose-graphspace.md
+#      - 开始探索: nebula-explorer/graph-explorer/ex-ug-query-exploration.md
+#      - 节点筛选: nebula-explorer/graph-explorer/node-filtering.md
+#      - 探索拓展: nebula-explorer/graph-explorer/ex-ug-graph-exploration.md
+#      - 图计算: nebula-explorer/graph-explorer/graph-algorithm.md
+#      - 属性计算: nebula-explorer/graph-explorer/property-calculation.md
+#    - 可视化查询: nebula-explorer/12.query-visually.md
+#    - 画布功能: 
+#      - 画布概览: nebula-explorer/canvas-operations/canvas-overview.md
+#      - 可视化模式: nebula-explorer/canvas-operations/visualization-mode.md
+#      - 画布快照: nebula-explorer/canvas-operations/canvas-snapshot.md
+#    - 工作流:
+#      - 工作流简介: nebula-explorer/workflow/workflows.md
+#      - 资源配置: nebula-explorer/workflow/1.prepare-resources.md
+#      - 工作流示例: nebula-explorer/workflow/2.create-workflow.md
+#      - 工作流管理: nebula-explorer/workflow/3.workflow-management.md
+#      - 作业管理: nebula-explorer/workflow/4.jobs-management.md
+#      - 工作流 API:
+#        - API 概览: nebula-explorer/workflow/workflow-api/workflow-api-overview.md
+#        - 新增作业: nebula-explorer/workflow/workflow-api/api-post-jobs.md
+#        - 获取所有作业列表: nebula-explorer/workflow/workflow-api/api-get-jobs.md
+#        - 获取指定工作流的作业列表: nebula-explorer/workflow/workflow-api/api-get-workflow-jobs.md
+#        - 查询指定作业详情: nebula-explorer/workflow/workflow-api/api-desc-job.md
+#        - 取消作业运行: nebula-explorer/workflow/workflow-api/api-cancel-job.md
+#        - 获取指定任务的运行结果数据: nebula-explorer/workflow/workflow-api/api-desc-task.md
+#    - 内联框架: nebula-explorer/iframe.md
+#    - 系统设置: nebula-explorer/system-settings.md
+#    - 基本操作和快捷键: nebula-explorer/ex-ug-shortcuts.md
+#    - 常见问题 FAQ: nebula-explorer/faq.md
 
   - 图计算:
 
-    - 算法简介: graph-computing/algorithm-description.md
+#    - 算法简介: graph-computing/algorithm-description.md
     - NebulaGraph Algorithm: graph-computing/nebula-algorithm.md
-    - 悦数图计算: graph-computing/nebula-analytics.md
-    - 悦数图探索工作流: graph-computing/use-explorer.md
+#    - 悦数图计算: graph-computing/nebula-analytics.md
+#    - 悦数图探索工作流: graph-computing/use-explorer.md
 
-  - 自动化部署运维:
-      - 什么是 NebulaGraph Operator: nebula-operator/1.introduction-to-nebula-operator.md
-      - 使用流程: nebula-operator/6.get-started-with-operator.md
-      - 部署 NebulaGraph Operator: nebula-operator/2.deploy-nebula-operator.md
-      - 部署悦数图数据库: 
-        - 部署 LM: nebula-operator/3.deploy-nebula-graph-cluster/3.0.deploy-lm.md
-        - 使用 Kubectl 部署: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
-        - 使用 Helm 部署: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
-      - 连接悦数图数据库: nebula-operator/4.connect-to-nebula-graph-service.md
-      - 配置悦数图数据库:
-        - 自定义集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
-        - 回收 PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
-        - 均衡扩容后的 Storage 数据: nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
-        - 管理集群日志: nebula-operator/8.custom-cluster-configurations/8.4.manage-running-logs.md 
-        - 启用 TLS 加密: nebula-operator/8.custom-cluster-configurations/8.5.enable-ssl.md
-        - 配置滚动更新策略: nebula-operator/11.rolling-update-strategy.md
-      - 升级悦数图数据库: nebula-operator/9.upgrade-nebula-cluster.md
-      - 备份与恢复: nebula-operator/10.backup-restore-using-operator.md 
-      - 故障自愈: nebula-operator/5.operator-failover.md
-      - 常见问题: nebula-operator/7.operator-faq.md
+#  - 自动化部署运维:
+#      - 什么是 NebulaGraph Operator: nebula-operator/1.introduction-to-nebula-operator.md
+#      - 使用流程: nebula-operator/6.get-started-with-operator.md
+#      - 部署 NebulaGraph Operator: nebula-operator/2.deploy-nebula-operator.md
+#      - 部署悦数图数据库: 
+#        - 部署 LM: nebula-operator/3.deploy-nebula-graph-cluster/3.0.deploy-lm.md
+#        - 使用 Kubectl 部署: nebula-operator/3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl.md
+#        - 使用 Helm 部署: nebula-operator/3.deploy-nebula-graph-cluster/3.2create-cluster-with-helm.md
+#      - 连接悦数图数据库: nebula-operator/4.connect-to-nebula-graph-service.md
+#      - 配置悦数图数据库:
+#        - 自定义集群的配置参数: nebula-operator/8.custom-cluster-configurations/8.1.custom-conf-parameter.md
+#        - 回收 PV: nebula-operator/8.custom-cluster-configurations/8.2.pv-reclaim.md 
+#        - 均衡扩容后的 Storage 数据: nebula-operator/8.custom-cluster-configurations/8.3.balance-data-when-scaling-storage.md
+#        - 管理集群日志: nebula-operator/8.custom-cluster-configurations/8.4.manage-running-logs.md 
+#        - 启用 TLS 加密: nebula-operator/8.custom-cluster-configurations/8.5.enable-ssl.md
+#        - 配置滚动更新策略: nebula-operator/11.rolling-update-strategy.md
+#      - 升级悦数图数据库: nebula-operator/9.upgrade-nebula-cluster.md
+#      - 备份与恢复: nebula-operator/10.backup-restore-using-operator.md 
+#      - 故障自愈: nebula-operator/5.operator-failover.md
+#      - 常见问题: nebula-operator/7.operator-faq.md
 
   - 性能测试: nebula-bench.md
   - 常见问题 FAQ: 20.appendix/0.FAQ.md

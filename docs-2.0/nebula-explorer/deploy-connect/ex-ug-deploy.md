@@ -348,8 +348,8 @@ Auth:
 File:
   UploadDir: "./data/upload/"  # 导入数据时的上传文件存储路径。
   TasksDir: "./data/tasks"  # 任务文件存储路径。包括导入任务、工作流任务等。
-#  SqliteDbFilePath # 弃用配置。
-#  TaskIdPath: "./data/taskId.data" # 弃用配置。请改用 DB.SqliteDbFilePath。
+#  SqliteDbFilePath: "./data/tasks.db" # 弃用配置。请改用 DB.SqliteDbFilePath。
+#  TaskIdPath: "./data/taskId.data" # 弃用配置。
 DB:
   Enable: true
   LogLevel: 4  # 数据库运行日志级别。1、2、3、4 分别对应 Silent、ERROR、Warn、INFO。
