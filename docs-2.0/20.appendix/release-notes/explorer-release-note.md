@@ -32,7 +32,7 @@
     - 支持[高可用架构](../../nebula-explorer/faq.md)。
 
 - 弃用
-  - 配置文件中弃用`OAuth.xxx`配置，但是在 3.x 版本中继续保持兼容。请改用`SSO.xxx`。
+  - 配置文件中弃用`OAuth.xxx`配置，请改用`SSO.xxx`。但是在 3.x 版本中继续保持兼容。
   - 配置文件中弃用`File.SqliteDbFilePath`配置，请改用`DB.SqliteDbFilePath`。
   - 配置文件中弃用`File.TaskIdPath`配置。
-  - 内联框架弃用`NebulaGraphExploreLogin`消息类型，但是在 3.x 版本中继续保持兼容。请改用`ExplorerLogin`。
+  - 内联框架弃用`NebulaGraphExploreLogin`消息类型，请改用`ExplorerLogin`。但是在 3.x 版本中继续保持兼容。
