@@ -97,8 +97,6 @@ plugins:
         - nebula-flink/*
         - CHANGELOG.md
         # - nebula-cloud/*
-        - nebula-importer/config-with-header.md
-        - nebula-importer/config-without-header.md
         - nebula-cloud.md
         - nebula-cloud/nebula-cloud-on-azure/*
         - spark-connector/*
@@ -272,9 +270,9 @@ extra:
     branch: release-3.6
     tag: v3.6.0
   importer:
-    release: 4.0.0
-    branch: release-4.0
-    tag: v4.0.0
+    release: 4.1.0
+    branch: release-4.1
+    tag: v4.1.0
   algorithm:
     release: 3.0.0
     branch: v3.0.0
