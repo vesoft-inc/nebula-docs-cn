@@ -339,17 +339,17 @@ extra:
     branch: release-3.4
     tag: v3.4.0
   java:
-    release: 3.5.0
-    branch: release-3.5
-    tag: v3.5.0
+    release: 3.6.1
+    branch: release-3.6
+    tag: v3.6.1
   python:
     release: 3.4.0
     branch: release-3.4
     tag: v3.4.0
   go:
-    release: 3.5.0
-    branch: release-3.5
-    tag: v3.5.0
+    release: 3.6.1
+    branch: release-3.6
+    tag: v3.6.1
   bench:
     release: 1.2.0
     branch: release-1.2
