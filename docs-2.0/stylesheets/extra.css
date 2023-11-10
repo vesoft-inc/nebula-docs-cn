@@ -2,6 +2,17 @@
     max-width: initial;
   }
 
+/*隐藏mike默认的version selector*/
+div.md-version {
+  display: none !important;
+}  
+
+/*自定义announce banner的字体和背景颜色*/
+aside.md-banner {
+  color: rgba(0, 0, 0, 0.714);
+  background-color: rgba(169, 241, 62, 0.541);
+  }
+
 /* 黑夜主题色 */
 :root{
   --md-primary-fg-color: #FF0000; /* 导航栏页面颜色 */
