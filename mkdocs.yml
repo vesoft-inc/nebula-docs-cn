@@ -50,6 +50,7 @@ theme:
     - content.tabs.link
     - content.action.edit
     - content.code.copy
+    - announce.dismiss
   language: 'zh'
 
 extra_css:
