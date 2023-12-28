@@ -10,7 +10,18 @@ div.md-version {
 /*自定义announce banner的字体和背景颜色*/
 aside.md-banner {
   color: rgba(0, 0, 0, 0.714);
-  background-color: rgba(169, 241, 62, 0.541);
+  background-color: rgba(146, 228, 24, 0.541);
+  }
+
+/* 自定义 annnoucement bar的height */    
+div.md-banner__inner {
+  margin: 0.2rem auto;
+}   
+
+/* 自定义 outdated bar 的颜色 */
+aside.md-banner--warning {
+  color: rgba(0, 0, 0, 0.714);
+  background-color: rgba(146, 228, 24, 0.541);
   }
 
 /* 黑夜主题色 */
