@@ -206,6 +206,10 @@ Dag Controller 可以结合{{plato.name}}进行复杂的图计算。例如 Dag C
 
   按同样方法设置 A 免密登录机器 B-2、B-3 等，以及集群 B 内所有机器的互相免密登录。
 
+  !!! note
+
+        如果{{plato.name}}为单节点且与 Dag Controller 在同一机器上，则无需配置免密登录，添加{{plato.name}}节点时 IP 地址设置为`127.0.0.1`。
+
 2. 在 Dag Controller 机器上执行`eval $(ssh-agent)`启动 ssh-agent，然后执行`ssh-add ~/.ssh/id_rsa`将私钥交给 ssh-agent 管理。
 
   !!! note
