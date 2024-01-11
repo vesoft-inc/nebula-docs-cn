@@ -2,6 +2,10 @@
 
 在更新配置页面，用户可以查看及更新服务的配置文件。
 
+!!! note
+
+    关于配置项的说明，可以在页面上直接查看，也可以参见{{nebula.name}}的配置说明：[Meta 服务配置](../../../5.configurations-and-logs/1.configurations/2.meta-config.md)、[Graph 服务配置](../../../5.configurations-and-logs/1.configurations/3.graph-config.md)、[Storage 服务配置](../../../5.configurations-and-logs/1.configurations/4.storage-config.md)。
+
 ## 注意事项
 
 配置更新后需要在**服务**页面重启对应服务。具体操作参见[服务管理](service.md)。
