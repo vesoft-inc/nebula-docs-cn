@@ -4832,6 +4832,26 @@
     激活悦数运维监控
   </a>
   
+    <nav class="md-nav" aria-label="激活悦数运维监控">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lm" class="md-nav__link">
+    通过悦数运维监控部署 LM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lm_1" class="md-nav__link">
+    通过配置文件配置 LM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -6858,6 +6878,26 @@
     激活悦数运维监控
   </a>
   
+    <nav class="md-nav" aria-label="激活悦数运维监控">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lm" class="md-nav__link">
+    通过悦数运维监控部署 LM
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lm_1" class="md-nav__link">
+    通过配置文件配置 LM
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -6907,37 +6947,43 @@
 </li>
 </ol>
 <h2 id="_4">激活悦数运维监控<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p>在使用悦数运维监控前，需配置 <a href="../../9.about-license/2.license-management-suite/3.license-manager/">LM</a> 以校验<a href="../../9.about-license/1.license-overview/">悦数 License</a> 的有效性从而激活悦数运维监控。</p>
-<p>用户可使用以下两种方式配置 LM 以正常使用悦数运维监控：</p>
-<ul>
+<p>在使用悦数运维监控前，需部署 <a href="../../9.about-license/2.license-management-suite/3.license-manager/">LM</a> 以校验<a href="../../9.about-license/1.license-overview/">悦数 License</a> 的有效性从而激活悦数运维监控。</p>
+<p>用户可使用以下两种方式部署 LM 以正常使用悦数运维监控。</p>
+<h3 id="lm">通过悦数运维监控部署 LM<a class="headerlink" href="#lm" title="Permanent link">&para;</a></h3>
+<p>悦数运维监控目前支持可视化一键部署 LM。用户登录悦数运维监控后，按照以下步骤部署 LM。</p>
+<ol>
 <li>
-<p>通过悦数运维监控配置 LM：</p>
-<p>悦数运维监控目前支持可视化一键部署 LM。用户登录悦数运维监控后，按照以下步骤完成 LM 的部署后开始使用悦数运维监控。</p>
-<p>1. 在 LM 介绍页面单击<strong>开始</strong>：页面介绍了 LM 的相关概念和整体流程，即安装 LM、生成 License Key 和运行 LM。单击<strong>开始</strong>继续。</p>
-<p>2. 填写配置信息及安装 LM：需要填写主机 IP、SSH 相关信息、安装位置和 LM 端口号等。填写完成后单击<strong>安装 LM</strong> 即可进行安装。</p>
-<p>3. 查看 LMID 和获取 License Key：成功安装 LM 后，会生成 LMID，用户可复制 LMID 并提供给悦数销售人员，悦数会为用户生成 License Key。用户需要在界面中填写 License Key，然后单击<strong>确认</strong>完成 License 的配置。</p>
+<p>在 LM 介绍页面单击<strong>开始</strong>。</p>
+</li>
+<li>
+<p>填写部署 LM 的机器信息，包括主机 IP、SSH 相关信息、安装位置和 LM 端口号等。填写完成后单击<strong>安装 LM</strong>。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>如果用户已经有 License Key，可点击右上角<strong>设置 LM URL</strong>直接填写 LM URL，然后单击<strong>确认</strong>完成 License 的配置。</p>
+<p>建议使用 Systemd 方式管理 LM 进程，安装目录、服务进程的用户及用户组都为<code>root</code>，服务会自动加入 Systemd 并配置为自动启动。  </p>
 </div>
+<p><img src="https://docs-cdn.nebula-graph.com.cn/figures/ec_dash_add_lm_240110_cn.png" width="500" alt="The screenshot of add LM"></p>
 </li>
-</ul>
-<ul>
 <li>
-<p>通过安装包配置 LM：</p>
+<p>填写 License Key，然后单击<strong>确认</strong>。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>成功安装 LM 后，会生成 LMID，用户需要复制 LMID 并提供给销售人员，销售人员会协助用户生成 License Key。</p>
+</div>
+<p><img src="https://docs-cdn.nebula-graph.com.cn/figures/ec_dash_add_lm2_240110_cn.png" width="500" alt="The screenshot of add LM"></p>
+</li>
+</ol>
+<h3 id="lm_1">通过配置文件配置 LM<a class="headerlink" href="#lm_1" title="Permanent link">&para;</a></h3>
 <ol>
 <li>安装、启动 LM 并在 LM 中加载 License Key。详情请参见<a href="../../9.about-license/2.license-management-suite/3.license-manager/">使用 License Manager</a>。</li>
-<li>在悦数运维监控的安装路径下，进入<code>etc</code>目录，修改<code>config.yaml</code>文件，设置<code>LicenseManagerURL</code>的值为 LM 所在的主机 IP 和端口号<code>9119</code>，例如<code>192.168.8.xxx:9119</code>。用户还可以登录悦数运维监控后，在 LM 服务管理页面的<strong>设置 LM URL</strong>中，设置<code>LicenseManagerURL</code>的值。</li>
+<li>登录悦数运维监控后，在 LM 介绍页面的右上角单击<strong>配置 LM URL</strong>，设置<code>License Manager URL</code>。</li>
 </ol>
-</li>
-</ul>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 11, 2024</span>
       
     
   </small>

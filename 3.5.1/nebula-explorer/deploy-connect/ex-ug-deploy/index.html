@@ -7305,6 +7305,10 @@ $ ssh-keygen -t rsa
 $ ssh-copy-id -i ~/.ssh/id_rsa.pub &lt;B_user&gt;@&lt;B_IP&gt;
 </code></pre></div>
 <p>按同样方法设置 A 免密登录机器 B-2、B-3 等，以及集群 B 内所有机器的互相免密登录。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>如果悦数图计算为单节点且与 Dag Controller 在同一机器上，则无需配置免密登录，添加悦数图计算节点时 IP 地址设置为<code>127.0.0.1</code>。</p>
+</div>
 </li>
 <li>
 <p>在 Dag Controller 机器上执行<code>eval $(ssh-agent)</code>启动 ssh-agent，然后执行<code>ssh-add ~/.ssh/id_rsa</code>将私钥交给 ssh-agent 管理。</p>
@@ -7381,7 +7385,7 @@ $ ssh-copy-id -i ~/.ssh/id_rsa.pub &lt;B_user&gt;@&lt;B_IP&gt;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">October 18, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 11, 2024</span>
       
     
   </small>
