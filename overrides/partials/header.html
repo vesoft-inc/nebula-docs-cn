@@ -60,8 +60,7 @@
     <label class="md-header__button md-icon" for="__search">
       {% include ".icons/material/magnify.svg" %}
     </label>
-    {% if "search" in config["plugins"] %}
-      {% include "partials/search.html" %}
+    {% include "partials/search.html" %}
     {% if config.repo_url %}
       <div class="md-header__source">
         {% include "partials/source.html" %}
