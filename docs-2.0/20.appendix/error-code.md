@@ -1,6 +1,6 @@
 # 错误码
 
-{{nebula.name}}运行出现问题时，会返回错误码。本文介绍错误码的详细信息。
+本文介绍使用客户端访问{{nebula.name}}时可能会返回的错误码信息。
 
 !!! note
     {{comm.comm_begin}}
@@ -23,15 +23,11 @@
 |`E_ROLE_NOT_FOUND`|`-11`| 当前角色不存在|
 |`E_CONFIG_NOT_FOUND`|`-12`| 当前配置不存在|
 |`E_MACHINE_NOT_FOUND`|`-13`| 当前主机不存在|
+|`E_ZONE_NOT_FOUND`|`-14`| 当前 Zone 不存在|
 |`E_LISTENER_NOT_FOUND`|`-15`| listener 不存在|
 |`E_PART_NOT_FOUND`|`-16`| 当前分区不存在|
 |`E_KEY_NOT_FOUND`|`-17`| key 不存在|
 |`E_USER_NOT_FOUND`|`-18`| 用户不存在|
-|`E_STATS_NOT_FOUND`|`-19`| 统计信息不存在|
-|`E_SERVICE_NOT_FOUND`|`-20`| 没有找到当前服务|
-|`E_DRAINER_NOT_FOUND`|`-21`| drainer 不存在|
-|`E_DRAINER_CLIENT_NOT_FOUND`|`-22`| drainer 客户端不存在|
-|`E_PART_STOPPED`|`-23`| 当前 partition 已经被停止|
 |`E_BACKUP_FAILED`|`-24`| 备份失败|
 |`E_BACKUP_EMPTY_TABLE`|`-25`| 备份的表为空|
 |`E_BACKUP_TABLE_FAILED`|`-26`| 备份表失败|
@@ -54,44 +50,51 @@
 |`E_INVALID_HOST`|`-2003`| 无效主机|
 |`E_UNSUPPORTED`|`-2004`| 当前命令、语句、功能不支持|
 |`E_NOT_DROP`|`-2005`|不允许删除|
+|`E_BALANCER_RUNNING`|`-2006`|正在执行负载均衡任务|
 |`E_CONFIG_IMMUTABLE`|`-2007`| 配置项不能改变|
 |`E_CONFLICT`|`-2008`| 参数与 meta 数据冲突|
 |`E_INVALID_PARM`|`-2009`| 无效的参数|
 |`E_WRONGCLUSTER`|`-2010`| 错误的集群|
-|`E_ZONE_NOT_ENOUGH`|`-2011`| listener 冲突|
-|`E_ZONE_IS_EMPTY`|`-2012`| 主机不存在|
-|`E_SCHEMA_NAME_EXISTS`|`-2013`| Schema 名字已存在|
-|`E_RELATED_INDEX_EXISTS`|`-2014`| 与 Tag 或 Edge Type 相关的索引存在，不能被删除 |
-|`E_RELATED_SPACE_EXISTS`|`-2015`| 仍有图空间在主机上，不能被删除|
+|`E_LISTENER_CONFLICT`|`-2011`| listener 冲突|
+|`E_ZONE_NOT_ENOUGH`|`-2012`| 主机数量不足|
+|`E_ZONE_IS_EMPTY`|`-2013`| Zone 中没有主机|
+|`E_HISTORY_CONFLICT`|`-2018`| 与历史命名冲突 |
 |`E_STORE_FAILURE`|`-2021`| 存储数据失败|
 |`E_STORE_SEGMENT_ILLEGAL`|`-2022`| 存储段非法|
-|`E_BAD_BALANCE_PLAN`|`-2023`| 无效的数据均衡计划|
-|`E_BALANCED`|`-2024`| 集群已经处于数据均衡状态|
-|`E_NO_RUNNING_BALANCE_PLAN`|`-2025`| 没有正在运行的数据均衡计划|
+|`E_BAD_BALANCE_PLAN`|`-2023`| 无效的负载均衡计划|
+|`E_BALANCED`|`-2024`| 集群已经处于负载均衡状态|
+|`E_NO_RUNNING_BALANCE_PLAN`|`-2025`| 没有正在运行的负载均衡计划|
 |`E_NO_VALID_HOST`|`-2026`| 缺少有效的主机|
-|`E_CORRUPTED_BALANCE_PLAN`|`-2027`| 已经损坏的数据均衡计划|
+|`E_CORRUPTED_BALANCE_PLAN`|`-2027`| 已经损坏的负载均衡计划|
+|`E_NO_INVALID_BALANCE_PLAN`|`-2028`| 没有无效的负载均衡计划 |
 |`E_IMPROPER_ROLE`|`-2030`| 回收用户角色失败|
 |`E_INVALID_PARTITION_NUM`|`-2031`| 无效的分区数量|
 |`E_INVALID_REPLICA_FACTOR`|`-2032`| 无效的副本因子|
 |`E_INVALID_CHARSET`|`-2033`| 无效的字符集|
 |`E_INVALID_COLLATE`|`-2034`| 无效的字符排序规则|
 |`E_CHARSET_COLLATE_NOT_MATCH`|`-2035`| 字符集和字符排序规则不匹配|
+|`E_PRIVILEGE_ALL_TAG_EDGE_SETTLED`|`-2036`| 授权或撤销权限前需要删除所有的 Tag 或 Edge type |
+|`E_PRIVILEGE_NOT_EXIST`|`-2037`| 权限不存在 |
+|`E_PRIVILEGE_NEED_BASIC_ROLE`|`-2038`| 需要 Basic 角色权限|
+|`E_PRIVILEGE_ACTION_INVALID`|`-2039`| 权限行为无效|
 |`E_SNAPSHOT_FAILURE`|`-2040`| 生成快照失败|
 |`E_BLOCK_WRITE_FAILURE`|`-2041`| 写入块数据失败|
+|`E_REBUILD_INDEX_FAILURE`|`-2042`| 重建索引失败|
+|`E_INDEX_WITH_TTL`|`-2043`| 已存在索引，无法设置 TTL|
 |`E_ADD_JOB_FAILURE`|`-2044`| 增加新的任务失败|
 |`E_STOP_JOB_FAILURE`|`-2045`| 停止任务失败|
 |`E_SAVE_JOB_FAILURE`|`-2046`| 保存任务信息失败|
-|`E_BALANCER_FAILURE`|`-2047`| 数据均衡失败|
+|`E_BALANCER_FAILURE`|`-2047`| 负载均衡失败|
 |`E_JOB_NOT_FINISHED`|`-2048`| 当前任务还没有完成|
 |`E_TASK_REPORT_OUT_DATE`|`-2049`| 任务报表失效|
 |`E_JOB_NOT_IN_SPACE`|`-2050`| 当前任务不在图空间内|
 |`E_JOB_NEED_RECOVER`|`-2051`| 当前任务需要恢复|
-|`E_JOB_ALREADY_FINISH`|`-2052`| 任务已经失败或完成 |
+|`E_JOB_NOT_STOPPABLE`|`-2052`| 任务已经失败或完成 |
 |`E_JOB_SUBMITTED`|`-2053`| 任务默认状态 |
-|`E_JOB_NOT_STOPPABLE`|`-2054`| 给定任务不支持停止 |
-|`E_JOB_HAS_NO_TARGET_STORAGE`|`-2055`| leader 分布未上报，因此无法将任务发送到存储 |
+|`E_SNAPSHOT_RUNNING_JOBS`|`-2056`| 快照任务正在执行 |
+|`E_SNAPSHOT_NOT_FOUND`|`-2057`| 未找到快照 |
 |`E_INVALID_JOB`|`-2065`| 无效的任务|
-|`E_BACKUP_BUILDING_INDEX`|`-2066`| 备份终止（正在创建索引）|
+|`E_BACKUP_RUNNING_JOBS`|`-2066`| 备份任务正在执行|
 |`E_BACKUP_SPACE_NOT_FOUND`|`-2067`| 备份时图空间不存在|
 |`E_RESTORE_FAILURE`|`-2068`| 备份恢复失败|
 |`E_SESSION_NOT_FOUND`|`-2069`| 会话不存在|
@@ -100,9 +103,6 @@
 |`E_LIST_CLUSTER_NO_AGENT_FAILURE`|`-2072`| 获取集群信息时无法获得 agent|
 |`E_QUERY_NOT_FOUND`|`-2073`| query 未找到|
 |`E_AGENT_HB_FAILURE`|`-2074`| agent 没有汇报心跳|
-|`E_HOST_CAN_NOT_BE_ADDED`|`-2082`| 该主机不能被添加，因为它不是一个 Storage 主机|
-|`E_ACCESS_ES_FAILURE`|`-2090`| 访问 Elasticsearch 失败|
-|`E_GRAPH_MEMORY_EXCEEDED`|`-2600`| Graph 内存超出|
 |`E_CONSENSUS_ERROR`|`-3001`| 选举时无法达成共识|
 |`E_KEY_HAS_EXISTS`|`-3002`| key 已经存在|
 |`E_DATA_TYPE_MISMATCH`|`-3003`| 数据类型不匹配|
@@ -111,6 +111,7 @@
 |`E_NOT_NULLABLE`|`-3006`| 当前值不允许为空|
 |`E_FIELD_UNSET`|`-3007`| 字段非空或者没有默认值时，字段值必须设置|
 |`E_OUT_OF_RANGE`|`-3008`| 取值超出了当前类型的范围|
+|`E_ATOMIC_OP_FAILED`|`-3009`| 原子操作失败|
 |`E_DATA_CONFLICT_ERROR`|`-3010`| 数据冲突|
 |`E_WRITE_STALLED`|`-3011`| 写入被延迟|
 |`E_IMPROPER_DATA_TYPE`|`-3021`| 不正确的数据类型|
@@ -135,6 +136,23 @@
 |`E_USER_CANCEL`|`-3052`| 用户取消了任务|
 |`E_TASK_EXECUTION_FAILED`|`-3053`| 任务执行失败|
 |`E_PLAN_IS_KILLED`|`-3060`| 执行计划被清除|
+|`E_CLIENT_SERVER_INCOMPATIBLE`|`-3061`| 客户端和服务端版本不兼容|
+|`E_UNKNOWN`|`-8000`| 未知错误|
+
+<!-- 隐藏非 Client SDK 错误码
+|`E_STATS_NOT_FOUND`|`-19`| 统计信息不存在|
+|`E_SERVICE_NOT_FOUND`|`-20`| 没有找到当前服务|
+|`E_DRAINER_NOT_FOUND`|`-21`| drainer 不存在|
+|`E_DRAINER_CLIENT_NOT_FOUND`|`-22`| drainer 客户端不存在|
+|`E_PART_STOPPED`|`-23`| 当前 partition 已经被停止|
+|`E_RELATED_INDEX_EXISTS`|`-2014`| 与 Tag 或 Edge Type 相关的索引存在，不能被删除 |
+|`E_RELATED_SPACE_EXISTS`|`-2015`| 仍有图空间在主机上，不能被删除|
+|`E_JOB_NOT_STOPPABLE`|`-2054`| 给定任务不支持停止 |
+|`E_JOB_HAS_NO_TARGET_STORAGE`|`-2055`| leader 分布未上报，因此无法将任务发送到存储 |
+|`E_HOST_CAN_NOT_BE_ADDED`|`-2082`| 该主机不能被添加，因为它不是一个 Storage 主机|
+|`E_ACCESS_ES_FAILURE`|`-2090`| 访问 Elasticsearch 失败|
+|`E_GRAPH_MEMORY_EXCEEDED`|`-2600`| Graph 内存超出|
+
 |`E_NO_TERM`|`-3070`| 收到请求时心跳流程未完成|
 |`E_OUTDATED_TERM`|`-3071`| 收到旧 leader 的过时心跳（已选举出新的 leader）|
 |`E_WRITE_WRITE_CONFLICT`|`-3073`| 并发写入时与后到的请求发生冲突|
@@ -176,12 +194,6 @@
 |`E_POOL_NOT_FOUND`|`-5005`| 写缓存失败|
 |`E_NODE_NUMBER_EXCEED_LIMIT`|`-7001`| 机器节点数超出限制|
 |`E_PARSING_LICENSE_FAILURE`|`-7002`| 解析证书失败|
-|`E_UNKNOWN`|`-8000`| 未知错误|
-
-<!--
-|``|`-14`| zone 不存在|
-|``|`-2012`| zone 数量不足|
-|``|`-2013`| Zone 为空|
 |``|`-5004`| |
 |``|`-2043`| |
 |``|`-2006`| |
@@ -189,3 +201,4 @@
 |``|`-3061`| 客户端和服务端版本不兼容|
 |``|`-3062`| 获取 ID 序号失败|
 -->
+
