@@ -58,7 +58,7 @@
 |`E_LISTENER_CONFLICT`|`-2011`| listener 冲突|
 |`E_ZONE_NOT_ENOUGH`|`-2012`| 主机数量不足|
 |`E_ZONE_IS_EMPTY`|`-2013`| Zone 中没有主机|
-|`E_HISTORY_CONFLICT`|`-2018`| 和已存在的对象冲突 |
+|`E_HISTORY_CONFLICT`|`-2018`| 与历史命名冲突 |
 |`E_STORE_FAILURE`|`-2021`| 存储数据失败|
 |`E_STORE_SEGMENT_ILLEGAL`|`-2022`| 存储段非法|
 |`E_BAD_BALANCE_PLAN`|`-2023`| 无效的负载均衡计划|
@@ -124,7 +124,6 @@
 |`E_TRANSFER_LEADER_FAILED`|`-3036`| leader 转换失败|
 |`E_INVALID_STAT_TYPE`|`-3037`| 无效的统计类型|
 |`E_INVALID_VID`|`-3038`| VID 无效|
-|`E_NO_TRANSFORMED`|`-3039`| 未转换的 |
 |`E_LOAD_META_FAILED`|`-3040`| 加载元信息失败|
 |`E_FAILED_TO_CHECKPOINT`|`-3041`| 生成 checkpoint 失败|
 |`E_CHECKPOINT_BLOCKED`|`-3042`| 生成 checkpoint 被阻塞|
