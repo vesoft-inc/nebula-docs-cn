@@ -6802,7 +6802,7 @@
 
 
 <h1 id="_1">错误码<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>悦数图数据库运行出现问题时，会返回错误码。本文介绍错误码的详细信息。</p>
+<p>本文介绍使用客户端访问悦数图数据库时可能会返回的错误码信息。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
@@ -6884,6 +6884,11 @@
 <td align="left">当前主机不存在</td>
 </tr>
 <tr>
+<td align="left"><code>E_ZONE_NOT_FOUND</code></td>
+<td align="left"><code>-14</code></td>
+<td align="left">当前 Zone 不存在</td>
+</tr>
+<tr>
 <td align="left"><code>E_LISTENER_NOT_FOUND</code></td>
 <td align="left"><code>-15</code></td>
 <td align="left">listener 不存在</td>
@@ -6902,31 +6907,6 @@
 <td align="left"><code>E_USER_NOT_FOUND</code></td>
 <td align="left"><code>-18</code></td>
 <td align="left">用户不存在</td>
-</tr>
-<tr>
-<td align="left"><code>E_STATS_NOT_FOUND</code></td>
-<td align="left"><code>-19</code></td>
-<td align="left">统计信息不存在</td>
-</tr>
-<tr>
-<td align="left"><code>E_SERVICE_NOT_FOUND</code></td>
-<td align="left"><code>-20</code></td>
-<td align="left">没有找到当前服务</td>
-</tr>
-<tr>
-<td align="left"><code>E_DRAINER_NOT_FOUND</code></td>
-<td align="left"><code>-21</code></td>
-<td align="left">drainer 不存在</td>
-</tr>
-<tr>
-<td align="left"><code>E_DRAINER_CLIENT_NOT_FOUND</code></td>
-<td align="left"><code>-22</code></td>
-<td align="left">drainer 客户端不存在</td>
-</tr>
-<tr>
-<td align="left"><code>E_PART_STOPPED</code></td>
-<td align="left"><code>-23</code></td>
-<td align="left">当前 partition 已经被停止</td>
 </tr>
 <tr>
 <td align="left"><code>E_BACKUP_FAILED</code></td>
@@ -7039,6 +7019,11 @@
 <td align="left">不允许删除</td>
 </tr>
 <tr>
+<td align="left"><code>E_BALANCER_RUNNING</code></td>
+<td align="left"><code>-2006</code></td>
+<td align="left">正在执行负载均衡任务</td>
+</tr>
+<tr>
 <td align="left"><code>E_CONFIG_IMMUTABLE</code></td>
 <td align="left"><code>-2007</code></td>
 <td align="left">配置项不能改变</td>
@@ -7059,29 +7044,24 @@
 <td align="left">错误的集群</td>
 </tr>
 <tr>
-<td align="left"><code>E_ZONE_NOT_ENOUGH</code></td>
+<td align="left"><code>E_LISTENER_CONFLICT</code></td>
 <td align="left"><code>-2011</code></td>
 <td align="left">listener 冲突</td>
 </tr>
 <tr>
-<td align="left"><code>E_ZONE_IS_EMPTY</code></td>
+<td align="left"><code>E_ZONE_NOT_ENOUGH</code></td>
 <td align="left"><code>-2012</code></td>
-<td align="left">主机不存在</td>
+<td align="left">主机数量不足</td>
 </tr>
 <tr>
-<td align="left"><code>E_SCHEMA_NAME_EXISTS</code></td>
+<td align="left"><code>E_ZONE_IS_EMPTY</code></td>
 <td align="left"><code>-2013</code></td>
-<td align="left">Schema 名字已存在</td>
+<td align="left">Zone 中没有主机</td>
 </tr>
 <tr>
-<td align="left"><code>E_RELATED_INDEX_EXISTS</code></td>
-<td align="left"><code>-2014</code></td>
-<td align="left">与 Tag 或 Edge Type 相关的索引存在，不能被删除</td>
-</tr>
-<tr>
-<td align="left"><code>E_RELATED_SPACE_EXISTS</code></td>
-<td align="left"><code>-2015</code></td>
-<td align="left">仍有图空间在主机上，不能被删除</td>
+<td align="left"><code>E_HISTORY_CONFLICT</code></td>
+<td align="left"><code>-2018</code></td>
+<td align="left">与历史命名冲突</td>
 </tr>
 <tr>
 <td align="left"><code>E_STORE_FAILURE</code></td>
@@ -7096,17 +7076,17 @@
 <tr>
 <td align="left"><code>E_BAD_BALANCE_PLAN</code></td>
 <td align="left"><code>-2023</code></td>
-<td align="left">无效的数据均衡计划</td>
+<td align="left">无效的负载均衡计划</td>
 </tr>
 <tr>
 <td align="left"><code>E_BALANCED</code></td>
 <td align="left"><code>-2024</code></td>
-<td align="left">集群已经处于数据均衡状态</td>
+<td align="left">集群已经处于负载均衡状态</td>
 </tr>
 <tr>
 <td align="left"><code>E_NO_RUNNING_BALANCE_PLAN</code></td>
 <td align="left"><code>-2025</code></td>
-<td align="left">没有正在运行的数据均衡计划</td>
+<td align="left">没有正在运行的负载均衡计划</td>
 </tr>
 <tr>
 <td align="left"><code>E_NO_VALID_HOST</code></td>
@@ -7116,7 +7096,12 @@
 <tr>
 <td align="left"><code>E_CORRUPTED_BALANCE_PLAN</code></td>
 <td align="left"><code>-2027</code></td>
-<td align="left">已经损坏的数据均衡计划</td>
+<td align="left">已经损坏的负载均衡计划</td>
+</tr>
+<tr>
+<td align="left"><code>E_NO_INVALID_BALANCE_PLAN</code></td>
+<td align="left"><code>-2028</code></td>
+<td align="left">没有无效的负载均衡计划</td>
 </tr>
 <tr>
 <td align="left"><code>E_IMPROPER_ROLE</code></td>
@@ -7149,6 +7134,26 @@
 <td align="left">字符集和字符排序规则不匹配</td>
 </tr>
 <tr>
+<td align="left"><code>E_PRIVILEGE_ALL_TAG_EDGE_SETTLED</code></td>
+<td align="left"><code>-2036</code></td>
+<td align="left">授权或撤销权限前需要删除所有的 Tag 或 Edge type</td>
+</tr>
+<tr>
+<td align="left"><code>E_PRIVILEGE_NOT_EXIST</code></td>
+<td align="left"><code>-2037</code></td>
+<td align="left">权限不存在</td>
+</tr>
+<tr>
+<td align="left"><code>E_PRIVILEGE_NEED_BASIC_ROLE</code></td>
+<td align="left"><code>-2038</code></td>
+<td align="left">需要 Basic 角色权限</td>
+</tr>
+<tr>
+<td align="left"><code>E_PRIVILEGE_ACTION_INVALID</code></td>
+<td align="left"><code>-2039</code></td>
+<td align="left">权限行为无效</td>
+</tr>
+<tr>
 <td align="left"><code>E_SNAPSHOT_FAILURE</code></td>
 <td align="left"><code>-2040</code></td>
 <td align="left">生成快照失败</td>
@@ -7157,6 +7162,16 @@
 <td align="left"><code>E_BLOCK_WRITE_FAILURE</code></td>
 <td align="left"><code>-2041</code></td>
 <td align="left">写入块数据失败</td>
+</tr>
+<tr>
+<td align="left"><code>E_REBUILD_INDEX_FAILURE</code></td>
+<td align="left"><code>-2042</code></td>
+<td align="left">重建索引失败</td>
+</tr>
+<tr>
+<td align="left"><code>E_INDEX_WITH_TTL</code></td>
+<td align="left"><code>-2043</code></td>
+<td align="left">已存在索引，无法设置 TTL</td>
 </tr>
 <tr>
 <td align="left"><code>E_ADD_JOB_FAILURE</code></td>
@@ -7176,7 +7191,7 @@
 <tr>
 <td align="left"><code>E_BALANCER_FAILURE</code></td>
 <td align="left"><code>-2047</code></td>
-<td align="left">数据均衡失败</td>
+<td align="left">负载均衡失败</td>
 </tr>
 <tr>
 <td align="left"><code>E_JOB_NOT_FINISHED</code></td>
@@ -7199,7 +7214,7 @@
 <td align="left">当前任务需要恢复</td>
 </tr>
 <tr>
-<td align="left"><code>E_JOB_ALREADY_FINISH</code></td>
+<td align="left"><code>E_JOB_NOT_STOPPABLE</code></td>
 <td align="left"><code>-2052</code></td>
 <td align="left">任务已经失败或完成</td>
 </tr>
@@ -7209,14 +7224,14 @@
 <td align="left">任务默认状态</td>
 </tr>
 <tr>
-<td align="left"><code>E_JOB_NOT_STOPPABLE</code></td>
-<td align="left"><code>-2054</code></td>
-<td align="left">给定任务不支持停止</td>
+<td align="left"><code>E_SNAPSHOT_RUNNING_JOBS</code></td>
+<td align="left"><code>-2056</code></td>
+<td align="left">快照任务正在执行</td>
 </tr>
 <tr>
-<td align="left"><code>E_JOB_HAS_NO_TARGET_STORAGE</code></td>
-<td align="left"><code>-2055</code></td>
-<td align="left">leader 分布未上报，因此无法将任务发送到存储</td>
+<td align="left"><code>E_SNAPSHOT_NOT_FOUND</code></td>
+<td align="left"><code>-2057</code></td>
+<td align="left">未找到快照</td>
 </tr>
 <tr>
 <td align="left"><code>E_INVALID_JOB</code></td>
@@ -7224,9 +7239,9 @@
 <td align="left">无效的任务</td>
 </tr>
 <tr>
-<td align="left"><code>E_BACKUP_BUILDING_INDEX</code></td>
+<td align="left"><code>E_BACKUP_RUNNING_JOBS</code></td>
 <td align="left"><code>-2066</code></td>
-<td align="left">备份终止（正在创建索引）</td>
+<td align="left">备份任务正在执行</td>
 </tr>
 <tr>
 <td align="left"><code>E_BACKUP_SPACE_NOT_FOUND</code></td>
@@ -7269,21 +7284,6 @@
 <td align="left">agent 没有汇报心跳</td>
 </tr>
 <tr>
-<td align="left"><code>E_HOST_CAN_NOT_BE_ADDED</code></td>
-<td align="left"><code>-2082</code></td>
-<td align="left">该主机不能被添加，因为它不是一个 Storage 主机</td>
-</tr>
-<tr>
-<td align="left"><code>E_ACCESS_ES_FAILURE</code></td>
-<td align="left"><code>-2090</code></td>
-<td align="left">访问 Elasticsearch 失败</td>
-</tr>
-<tr>
-<td align="left"><code>E_GRAPH_MEMORY_EXCEEDED</code></td>
-<td align="left"><code>-2600</code></td>
-<td align="left">Graph 内存超出</td>
-</tr>
-<tr>
 <td align="left"><code>E_CONSENSUS_ERROR</code></td>
 <td align="left"><code>-3001</code></td>
 <td align="left">选举时无法达成共识</td>
@@ -7322,6 +7322,11 @@
 <td align="left"><code>E_OUT_OF_RANGE</code></td>
 <td align="left"><code>-3008</code></td>
 <td align="left">取值超出了当前类型的范围</td>
+</tr>
+<tr>
+<td align="left"><code>E_ATOMIC_OP_FAILED</code></td>
+<td align="left"><code>-3009</code></td>
+<td align="left">原子操作失败</td>
 </tr>
 <tr>
 <td align="left"><code>E_DATA_CONFLICT_ERROR</code></td>
@@ -7444,209 +7449,9 @@
 <td align="left">执行计划被清除</td>
 </tr>
 <tr>
-<td align="left"><code>E_NO_TERM</code></td>
-<td align="left"><code>-3070</code></td>
-<td align="left">收到请求时心跳流程未完成</td>
-</tr>
-<tr>
-<td align="left"><code>E_OUTDATED_TERM</code></td>
-<td align="left"><code>-3071</code></td>
-<td align="left">收到旧 leader 的过时心跳（已选举出新的 leader）</td>
-</tr>
-<tr>
-<td align="left"><code>E_WRITE_WRITE_CONFLICT</code></td>
-<td align="left"><code>-3073</code></td>
-<td align="left">并发写入时与后到的请求发生冲突</td>
-</tr>
-<tr>
-<td align="left"><code>E_RAFT_UNKNOWN_PART</code></td>
-<td align="left"><code>-3500</code></td>
-<td align="left">未知的分区</td>
-</tr>
-<tr>
-<td align="left"><code>E_RAFT_LOG_GAP</code></td>
-<td align="left"><code>-3501</code></td>
-<td align="left">raft 日志落后</td>
-</tr>
-<tr>
-<td align="left"><code>E_RAFT_LOG_STALE</code></td>
-<td align="left"><code>-3502</code></td>
-<td align="left">raft 日志过期</td>
-</tr>
-<tr>
-<td align="left"><code>E_RAFT_TERM_OUT_OF_DATE</code></td>
-<td align="left"><code>-3503</code></td>
-<td align="left">心跳信息已经过期</td>
-</tr>
-<tr>
-<td align="left"><code>E_RAFT_UNKNOWN_APPEND_LOG</code></td>
-<td align="left"><code>-3504</code></td>
-<td align="left">未知的追加日志</td>
-</tr>
-<tr>
-<td align="left"><code>E_RAFT_WAITING_SNAPSHOT</code></td>
-<td align="left"><code>-3511</code></td>
-<td align="left">等待快照完成</td>
-</tr>
-<tr>
-<td align="left"><code>E_RAFT_SENDING_SNAPSHOT</code></td>
-<td align="left"><code>-3512</code></td>
-<td align="left">发送快照过程出错</td>
-</tr>
-<tr>
-<td align="left"><code>E_RAFT_INVALID_PEER</code></td>
-<td align="left"><code>-3513</code></td>
-<td align="left">无效的接收端</td>
-</tr>
-<tr>
-<td align="left"><code>E_RAFT_NOT_READY</code></td>
-<td align="left"><code>-3514</code></td>
-<td align="left">Raft 没有启动</td>
-</tr>
-<tr>
-<td align="left"><code>E_RAFT_STOPPED</code></td>
-<td align="left"><code>-3515</code></td>
-<td align="left">Raft 已经停止</td>
-</tr>
-<tr>
-<td align="left"><code>E_RAFT_BAD_ROLE</code></td>
-<td align="left"><code>-3516</code></td>
-<td align="left">错误的角色</td>
-</tr>
-<tr>
-<td align="left"><code>E_RAFT_WAL_FAIL</code></td>
-<td align="left"><code>-3521</code></td>
-<td align="left">写入 WAL 失败</td>
-</tr>
-<tr>
-<td align="left"><code>E_RAFT_HOST_STOPPED</code></td>
-<td align="left"><code>-3522</code></td>
-<td align="left">主机已经停止</td>
-</tr>
-<tr>
-<td align="left"><code>E_RAFT_TOO_MANY_REQUESTS</code></td>
-<td align="left"><code>-3523</code></td>
-<td align="left">请求数量过多</td>
-</tr>
-<tr>
-<td align="left"><code>E_RAFT_PERSIST_SNAPSHOT_FAILED</code></td>
-<td align="left"><code>-3524</code></td>
-<td align="left">持久化快照失败</td>
-</tr>
-<tr>
-<td align="left"><code>E_RAFT_RPC_EXCEPTION</code></td>
-<td align="left"><code>-3525</code></td>
-<td align="left">RPC 异常</td>
-</tr>
-<tr>
-<td align="left"><code>E_RAFT_NO_WAL_FOUND</code></td>
-<td align="left"><code>-3526</code></td>
-<td align="left">没有发现 WAL 日志</td>
-</tr>
-<tr>
-<td align="left"><code>E_RAFT_HOST_PAUSED</code></td>
-<td align="left"><code>-3527</code></td>
-<td align="left">主机暂停</td>
-</tr>
-<tr>
-<td align="left"><code>E_RAFT_WRITE_BLOCKED</code></td>
-<td align="left"><code>-3528</code></td>
-<td align="left">写入被堵塞</td>
-</tr>
-<tr>
-<td align="left"><code>E_RAFT_BUFFER_OVERFLOW</code></td>
-<td align="left"><code>-3529</code></td>
-<td align="left">缓存溢出</td>
-</tr>
-<tr>
-<td align="left"><code>E_RAFT_ATOMIC_OP_FAILED</code></td>
-<td align="left"><code>-3530</code></td>
-<td align="left">原子操作失败</td>
-</tr>
-<tr>
-<td align="left"><code>E_LEADER_LEASE_FAILED</code></td>
-<td align="left"><code>-3531</code></td>
-<td align="left">leader 租约过期</td>
-</tr>
-<tr>
-<td align="left"><code>E_RAFT_CAUGHT_UP</code></td>
-<td align="left"><code>-3532</code></td>
-<td align="left">Raft 已经同步数据</td>
-</tr>
-<tr>
-<td align="left"><code>E_STORAGE_MEMORY_EXCEEDED</code></td>
-<td align="left"><code>-3600</code></td>
-<td align="left">Storage 内存超出</td>
-</tr>
-<tr>
-<td align="left"><code>E_LOG_GAP</code></td>
-<td align="left"><code>-4001</code></td>
-<td align="left">drainer 日志落后</td>
-</tr>
-<tr>
-<td align="left"><code>E_LOG_STALE</code></td>
-<td align="left"><code>-4002</code></td>
-<td align="left">drainer 日志过期</td>
-</tr>
-<tr>
-<td align="left"><code>E_INVALID_DRAINER_STORE</code></td>
-<td align="left"><code>-4003</code></td>
-<td align="left">drainer 数据存储无效</td>
-</tr>
-<tr>
-<td align="left"><code>E_SPACE_MISMATCH</code></td>
-<td align="left"><code>-4004</code></td>
-<td align="left">图空间不匹配</td>
-</tr>
-<tr>
-<td align="left"><code>E_PART_MISMATCH</code></td>
-<td align="left"><code>-4005</code></td>
-<td align="left">分区不匹配</td>
-</tr>
-<tr>
-<td align="left"><code>E_DATA_CONFLICT</code></td>
-<td align="left"><code>-4006</code></td>
-<td align="left">数据冲突</td>
-</tr>
-<tr>
-<td align="left"><code>E_REQ_CONFLICT</code></td>
-<td align="left"><code>-4007</code></td>
-<td align="left">请求冲突</td>
-</tr>
-<tr>
-<td align="left"><code>E_DATA_ILLEGAL</code></td>
-<td align="left"><code>-4008</code></td>
-<td align="left">数据非法</td>
-</tr>
-<tr>
-<td align="left"><code>E_CACHE_CONFIG_ERROR</code></td>
-<td align="left"><code>-5001</code></td>
-<td align="left">缓存配置错误</td>
-</tr>
-<tr>
-<td align="left"><code>E_NOT_ENOUGH_SPACE</code></td>
-<td align="left"><code>-5002</code></td>
-<td align="left">空间不足</td>
-</tr>
-<tr>
-<td align="left"><code>E_CACHE_MISS</code></td>
-<td align="left"><code>-5003</code></td>
-<td align="left">没有命中缓存</td>
-</tr>
-<tr>
-<td align="left"><code>E_POOL_NOT_FOUND</code></td>
-<td align="left"><code>-5005</code></td>
-<td align="left">写缓存失败</td>
-</tr>
-<tr>
-<td align="left"><code>E_NODE_NUMBER_EXCEED_LIMIT</code></td>
-<td align="left"><code>-7001</code></td>
-<td align="left">机器节点数超出限制</td>
-</tr>
-<tr>
-<td align="left"><code>E_PARSING_LICENSE_FAILURE</code></td>
-<td align="left"><code>-7002</code></td>
-<td align="left">解析证书失败</td>
+<td align="left"><code>E_CLIENT_SERVER_INCOMPATIBLE</code></td>
+<td align="left"><code>-3061</code></td>
+<td align="left">客户端和服务端版本不兼容</td>
 </tr>
 <tr>
 <td align="left"><code>E_UNKNOWN</code></td>
@@ -7655,10 +7460,61 @@
 </tr>
 </tbody>
 </table>
-<!--
-|``|`-14`| zone 不存在|
-|``|`-2012`| zone 数量不足|
-|``|`-2013`| Zone 为空|
+<!-- 隐藏非 Client SDK 错误码
+|`E_STATS_NOT_FOUND`|`-19`| 统计信息不存在|
+|`E_SERVICE_NOT_FOUND`|`-20`| 没有找到当前服务|
+|`E_DRAINER_NOT_FOUND`|`-21`| drainer 不存在|
+|`E_DRAINER_CLIENT_NOT_FOUND`|`-22`| drainer 客户端不存在|
+|`E_PART_STOPPED`|`-23`| 当前 partition 已经被停止|
+|`E_RELATED_INDEX_EXISTS`|`-2014`| 与 Tag 或 Edge Type 相关的索引存在，不能被删除 |
+|`E_RELATED_SPACE_EXISTS`|`-2015`| 仍有图空间在主机上，不能被删除|
+|`E_JOB_NOT_STOPPABLE`|`-2054`| 给定任务不支持停止 |
+|`E_JOB_HAS_NO_TARGET_STORAGE`|`-2055`| leader 分布未上报，因此无法将任务发送到存储 |
+|`E_HOST_CAN_NOT_BE_ADDED`|`-2082`| 该主机不能被添加，因为它不是一个 Storage 主机|
+|`E_ACCESS_ES_FAILURE`|`-2090`| 访问 Elasticsearch 失败|
+|`E_GRAPH_MEMORY_EXCEEDED`|`-2600`| Graph 内存超出|
+
+|`E_NO_TERM`|`-3070`| 收到请求时心跳流程未完成|
+|`E_OUTDATED_TERM`|`-3071`| 收到旧 leader 的过时心跳（已选举出新的 leader）|
+|`E_WRITE_WRITE_CONFLICT`|`-3073`| 并发写入时与后到的请求发生冲突|
+|`E_RAFT_UNKNOWN_PART`|`-3500`| 未知的分区|
+|`E_RAFT_LOG_GAP`|`-3501`| raft 日志落后|
+|`E_RAFT_LOG_STALE`|`-3502`| raft 日志过期|
+|`E_RAFT_TERM_OUT_OF_DATE`|`-3503`| 心跳信息已经过期|
+|`E_RAFT_UNKNOWN_APPEND_LOG`|`-3504`| 未知的追加日志|
+|`E_RAFT_WAITING_SNAPSHOT`|`-3511`| 等待快照完成|
+|`E_RAFT_SENDING_SNAPSHOT`|`-3512`| 发送快照过程出错|
+|`E_RAFT_INVALID_PEER`|`-3513`| 无效的接收端|
+|`E_RAFT_NOT_READY`|`-3514`| Raft 没有启动|
+|`E_RAFT_STOPPED`|`-3515`| Raft 已经停止|
+|`E_RAFT_BAD_ROLE`|`-3516`| 错误的角色|
+|`E_RAFT_WAL_FAIL`|`-3521`| 写入 WAL 失败|
+|`E_RAFT_HOST_STOPPED`|`-3522`| 主机已经停止|
+|`E_RAFT_TOO_MANY_REQUESTS`|`-3523`| 请求数量过多|
+|`E_RAFT_PERSIST_SNAPSHOT_FAILED`|`-3524`| 持久化快照失败|
+|`E_RAFT_RPC_EXCEPTION`|`-3525`| RPC 异常|
+|`E_RAFT_NO_WAL_FOUND`|`-3526`| 没有发现 WAL 日志|
+|`E_RAFT_HOST_PAUSED`|`-3527`| 主机暂停|
+|`E_RAFT_WRITE_BLOCKED`|`-3528`| 写入被堵塞|
+|`E_RAFT_BUFFER_OVERFLOW`|`-3529`| 缓存溢出|
+|`E_RAFT_ATOMIC_OP_FAILED`|`-3530`| 原子操作失败|
+|`E_LEADER_LEASE_FAILED`|`-3531`| leader 租约过期|
+|`E_RAFT_CAUGHT_UP`|`-3532`| Raft 已经同步数据|
+|`E_STORAGE_MEMORY_EXCEEDED`|`-3600`|Storage 内存超出|
+|`E_LOG_GAP`|`-4001`| drainer 日志落后|
+|`E_LOG_STALE`|`-4002`| drainer 日志过期|
+|`E_INVALID_DRAINER_STORE`|`-4003`| drainer 数据存储无效|
+|`E_SPACE_MISMATCH`|`-4004`| 图空间不匹配|
+|`E_PART_MISMATCH`|`-4005`| 分区不匹配|
+|`E_DATA_CONFLICT`|`-4006`| 数据冲突|
+|`E_REQ_CONFLICT`|`-4007`| 请求冲突|
+|`E_DATA_ILLEGAL`|`-4008`| 数据非法|
+|`E_CACHE_CONFIG_ERROR`|`-5001`| 缓存配置错误|
+|`E_NOT_ENOUGH_SPACE`|`-5002`| 空间不足|
+|`E_CACHE_MISS`|`-5003`| 没有命中缓存|
+|`E_POOL_NOT_FOUND`|`-5005`| 写缓存失败|
+|`E_NODE_NUMBER_EXCEED_LIMIT`|`-7001`| 机器节点数超出限制|
+|`E_PARSING_LICENSE_FAILURE`|`-7002`| 解析证书失败|
 |``|`-5004`| |
 |``|`-2043`| |
 |``|`-2006`| |
@@ -7672,7 +7528,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">January 11, 2024</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 29, 2024</span>
       
     
   </small>
