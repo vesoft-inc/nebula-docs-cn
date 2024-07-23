@@ -224,13 +224,13 @@ extra:
       link: 'https://github.com/vesoft-inc/nebula-docs-cn'
 # nav.comm.end
   nebula:
-    release: 3.5.1
+    release: 3.5.3
     nightly: nightly
     master: master
     base20: 2.0
     base200: 2.0.0
     branch: release-3.5
-    tag: v3.5.1
+    tag: v3.5.3
     # nav.ent.begin
     name: 悦数图数据库
     # nav.ent.end
