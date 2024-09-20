@@ -2,8 +2,7 @@
 
 ## 缺陷修复
 
-- 禁用使用 curl 修改参数`enable_authorize`。
-- 增强`SUBMIT JOB DOWNLOAD`语句的参数合法性校验，提升安全性。
+- 修复在重启 graphd 进程时对 leader 异常处理的问题。
 
 ## 历史版本
 
