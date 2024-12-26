@@ -1,6 +1,6 @@
 ## 账号与权限
 
-- 准备[阿里云账号](http://c.nxw.so/bC0B2 "https://help.aliyun.com/document_detail/324606.html")。
+- 准备[阿里云账号](https://help.aliyun.com/document_detail/324606.html)。
 - 如果使用 RAM 用户创建实例，需为其添加以下权限：
 
   - AliyunECSFullAccess
