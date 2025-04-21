@@ -22,7 +22,7 @@ jobs:
         run: sh ./prepare.sh
  
       - name: Git Config
-        run: git config user.name whitewum && git config user.email min.wu@vesoft.com
+        run: git config user.name ChrisChen2023 && git config user.email chris.chen@vesoft.com
 
       - name: mike 
         run: |
