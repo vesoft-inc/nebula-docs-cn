@@ -261,9 +261,9 @@ extra:
     tag: v3.4.0
   cloud:
     azureRelease: 3.1.1 # Azure云兼容的最新内核版本
-    aliyunRelease: 3.4.0 # 阿里云兼容的最新内核版本
+    aliyunRelease: 3.4.3 # 阿里云兼容的最新内核版本
     azureLatestRelease: 3.1.0 # 支持Azure云的最新文档版本
-    aliyunLatestRelease: 3.4.0 # 支持阿里云的最新文档版本
+    aliyunLatestRelease: 3.4.3 # 支持阿里云的最新文档版本
   ent:
     ent_begin: <!-- -->       #文档包含企业版时需补全该注释（<!-- -->），只包含社区版时只保留注释头（<!--）
     ent_end: <!-- -->      #文档包含企业版时需补全该注释（<!-- -->），只包含社区版时只保留注释尾（-->）
