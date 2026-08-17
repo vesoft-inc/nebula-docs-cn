@@ -28,7 +28,7 @@ jobs:
       - name: mike 
         run: |
           git fetch origin gh-pages --depth=1 # fix mike's CI update
-          mike deploy 3.1.3 -p --rebase
+          mike deploy 3.1.3 -p
           mike list
 
       - name: show git branch
