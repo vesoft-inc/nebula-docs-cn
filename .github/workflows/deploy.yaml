@@ -6,17 +6,18 @@ on:
 
 jobs:
   deploy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 1 # fetch all commits/branches
 
       - name: Setup Python
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v6
         with:
-          python-version: '3.8'
+          python-version: '3.10'
           architecture: 'x64'
+          cache: 'pip'
 
       - name: apt install
         run: |
@@ -27,7 +28,7 @@ jobs:
           pip install --upgrade pip
           pip install -r ./requirements.txt
       - name: set LANG
-        run: sh lang-zh.sh	  
+        run: sh lang-zh.sh
 
       - name: Git Config
         run: git config user.name whitewum && git config user.email min.wu@vesoft.com
@@ -39,7 +40,7 @@ jobs:
         run: |
           git fetch origin gh-pages --depth=1 # fix mike's CI update     
           #mike delete v3.0.2 -p
-          mike deploy 3.0.2 -p --rebase
+          mike deploy 3.0.2 -p
           mike list
       - name: show git branch
         run: | 
