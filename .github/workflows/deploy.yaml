@@ -29,7 +29,7 @@ jobs:
         run: |
           mike list
           # mike delete v3.0.1 -p
-          mike deploy 3.0.1 -p --rebase
+          mike deploy 3.0.1 -p
           mike list
 
       - name: show git branch
