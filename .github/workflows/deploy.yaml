@@ -40,7 +40,7 @@ jobs:
         run: |
           git fetch origin gh-pages --depth=1 # fix mike's CI update     
           #mike delete v3.0.2 -p
-          mike deploy 3.0.2 -p --rebase
+          mike deploy 3.0.2 -p
           mike list
       - name: show git branch
         run: | 
