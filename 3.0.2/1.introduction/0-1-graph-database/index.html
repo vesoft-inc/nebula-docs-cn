@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/1.introduction/0-1-graph-database/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6352,14 +6352,14 @@
 </ul>
 <p><img alt="" src="https://dist.neo4j.com/wp-content/uploads/20200131191103/Neo4j-Fabric-LDBC-sharding-scheme.jpg" /></p>
 <p>其语法风格大体是
-<div class="highlight"><pre><span></span><code><span class="n">USE</span><span class="w"> </span><span class="n">graphA</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">S1</span><span class="p">.</span><span class="m">1</span><span class="w"> </span><span class="err">从</span><span class="w"> </span><span class="n">Shard</span><span class="w"> </span><span class="n">A</span><span class="w"> </span><span class="err">读</span>
-<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">movie</span><span class="p">:</span><span class="n">Movie</span><span class="p">)</span>
-<span class="k">Return</span><span class="w"> </span><span class="n">movie</span><span class="p">.</span><span class="n">title</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">title</span>
-<span class="w">    </span><span class="k">UNION</span><span class="w">   </span><span class="err">#</span><span class="w"> </span><span class="n">S2</span><span class="p">.</span><span class="w"> </span><span class="err">在代理服务器</span><span class="w"> </span><span class="n">Join</span><span class="w"> </span><span class="err">结果</span>
-<span class="n">USE</span><span class="w"> </span><span class="n">graphB</span><span class="w">  </span><span class="err">#</span><span class="w"> </span><span class="n">S1</span><span class="p">.</span><span class="m">2</span><span class="w"> </span><span class="err">从</span><span class="w"> </span><span class="n">Shard</span><span class="w"> </span><span class="n">B</span><span class="w"> </span><span class="err">读</span>
-<span class="k">MATCH</span><span class="w"> </span><span class="err">（</span><span class="n">move</span><span class="p">:</span><span class="n">Movie</span><span class="p">)</span>
-<span class="k">RETURN</span><span class="w"> </span><span class="n">movie</span><span class="p">.</span><span class="n">title</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">title</span>
-</code></pre></div></p>
+<code>Cypher 
+USE graphA  # S1.1 从 Shard A 读
+MATCH (movie:Movie)
+Return movie.title AS title
+    UNION   # S2. 在代理服务器 Join 结果
+USE graphB  # S1.2 从 Shard B 读
+MATCH （move:Movie)
+RETURN movie.title AS title</code></p>
 <p><img alt="" src="https://docs-cdn.nebula-graph.com.cn/books/images/fabric.png" /></p>
 <h4 id="titan_janusgraph">第二代（分布式）图数据库：Titan 和其后继者 JanusGraph<a class="headerlink" href="#titan_janusgraph" title="Permanent link">&para;</a></h4>
 <p>2011 年，Aurelius 公司成立，致力于开发一个开源的分布式图数据库 Titan<sup id="fnref:titan"><a class="footnote-ref" href="#fn:titan">14</a></sup>。到 2015 年 Titan 的第一个正式版发布，Titan 后端可以支持多种主流的分布式存储架构（例如 Cassandra, HBase, Elasticsearch, BerkeleyDB)，并可以复用 Hadoop 生态的诸多便利，前端以 Gremlin 为统一的查询语言。对于程序员使用、开发和社区参与都很方便。大规模的图，可以分片后存放在 HBase 或者 Cassarndar上(这些当时都已经是相对成熟的分布式存储方案)，Gremlin 语言虽然略微冗长但相对功能完备。整个方案在当时(2011-2015)体现了不错的竞争力。</p>
@@ -6498,7 +6498,7 @@ Oracle graph<sup id="fnref:Oracle"><a class="footnote-ref" href="#fn:Oracle">18<
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6612,8 +6612,6 @@ Oracle graph<sup id="fnref:Oracle"><a class="footnote-ref" href="#fn:Oracle">18<
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

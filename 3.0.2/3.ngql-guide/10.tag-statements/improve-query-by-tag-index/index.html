@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/10.tag-statements/improve-query-by-tag-index/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6001,39 +6001,37 @@
 <p>在 Nebula Graph 中，可以通过 Tag 变相实现相同操作，创建 Tag 并将 Tag 插入到已有的点上，就可以根据 Tag 名称快速查找点，也可以通过<code>DELETE TAG</code>删除某些点上不再需要的 Tag。</p>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>例如在 basketballplayer 数据集中，部分篮球运动员同时也是球队股东，可以为股东 Tag<code>shareholder</code>创建索引，方便快速查找。如果不再是股东，可以通过<code>DELETE TAG</code>语句删除相应运动员的股东 Tag。</p>
-<div class="highlight"><pre><span></span><code>//创建股东 Tag 和索引
+<p>```ngql
+//创建股东 Tag 和索引
 nebula&gt; CREATE TAG IF NOT EXISTS shareholder();
-nebula&gt; CREATE TAG INDEX IF NOT EXISTS shareholder_tag on shareholder();
-
-//为点添加 Tag
-nebula&gt; INSERT VERTEX shareholder() VALUES &quot;player100&quot;:();
-nebula&gt; INSERT VERTEX shareholder() VALUES &quot;player101&quot;:();
-
-//快速查询所有股东
+nebula&gt; CREATE TAG INDEX IF NOT EXISTS shareholder_tag on shareholder();</p>
+<p>//为点添加 Tag
+nebula&gt; INSERT VERTEX shareholder() VALUES "player100":();
+nebula&gt; INSERT VERTEX shareholder() VALUES "player101":();</p>
+<p>//快速查询所有股东
 nebula&gt; MATCH (v:shareholder) RETURN v;
 +---------------------------------------------------------------------+
 | v                                                                   |
 +---------------------------------------------------------------------+
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;} :shareholder{})  |
-| (&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;} :shareholder{}) |
+| ("player100" :player{age: 42, name: "Tim Duncan"} :shareholder{})  |
+| ("player101" :player{age: 36, name: "Tony Parker"} :shareholder{}) |
 +---------------------------------------------------------------------+
 nebula&gt; LOOKUP ON shareholder YIELD id(vertex);
 +-------------+
 | id(VERTEX)  |
 +-------------+
-| &quot;player100&quot; |
-| &quot;player101&quot; |
-+-------------+
-
-//如果 player100 不再是股东
-nebula&gt; DELETE TAG shareholder FROM &quot;player100&quot;;
+| "player100" |
+| "player101" |
++-------------+</p>
+<p>//如果 player100 不再是股东
+nebula&gt; DELETE TAG shareholder FROM "player100";
 nebula&gt; LOOKUP ON shareholder YIELD id(vertex);
 +-------------+
 | id(VERTEX)  |
 +-------------+
-| &quot;player101&quot; |
+| "player101" |
 +-------------+
-</code></pre></div>
+```</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>如果插入测试数据后才创建索引，请用<code>REBUILD TAG INDEX &lt;index_name_list&gt;;</code>语句重建索引。</p>
@@ -6044,7 +6042,7 @@ nebula&gt; LOOKUP ON shareholder YIELD id(vertex);
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6158,8 +6156,6 @@ nebula&gt; LOOKUP ON shareholder YIELD id(vertex);
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

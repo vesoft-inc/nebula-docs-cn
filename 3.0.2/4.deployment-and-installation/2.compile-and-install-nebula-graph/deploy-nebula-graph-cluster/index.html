@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/4.deployment-and-installation/2.compile-and-install-nebula-graph/deploy-nebula-graph-cluster/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -3058,19 +3058,18 @@
     2. 修改配置文件
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="2. 修改配置文件">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3. 启动集群
+  <a href="#networking" class="md-nav__link">
+    #### networking
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4. 检查集群
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
@@ -6051,19 +6050,18 @@
     2. 修改配置文件
   </a>
   
-</li>
+    <nav class="md-nav" aria-label="2. 修改配置文件">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#3" class="md-nav__link">
-    3. 启动集群
+  <a href="#networking" class="md-nav__link">
+    #### networking
   </a>
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
-    4. 检查集群
-  </a>
+      </ul>
+    </nav>
   
 </li>
         
@@ -6210,48 +6208,51 @@
 <ul>
 <li>
 <p><code>nebula-graphd.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
-<span class="c1"># Comma separated Meta Server Addresses</span>
---meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
-<span class="c1"># Local IP used to identify the nebula-graphd process.</span>
-<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
-<span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span><span class="m">192</span>.168.10.111
-<span class="c1"># Network device to listen on</span>
---listen_netdev<span class="o">=</span>any
-<span class="c1"># Port to listen on</span>
---port<span class="o">=</span><span class="m">9669</span>
-</code></pre></div>
+<p>```bash</p>
+<h6 id="networking">#### networking<a class="headerlink" href="#networking" title="Permanent link">&para;</a></h6>
+<h1 id="comma_separated_meta_server_addresses">Comma separated Meta Server Addresses<a class="headerlink" href="#comma_separated_meta_server_addresses" title="Permanent link">&para;</a></h1>
+<p>--meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559</p>
+<h1 id="local_ip_used_to_identify_the_nebula-graphd_process">Local IP used to identify the nebula-graphd process.<a class="headerlink" href="#local_ip_used_to_identify_the_nebula-graphd_process" title="Permanent link">&para;</a></h1>
+<h1 id="change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or">Change it to an address other than loopback if the service is distributed or<a class="headerlink" href="#change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or" title="Permanent link">&para;</a></h1>
+<h1 id="will_be_accessed_remotely">will be accessed remotely.<a class="headerlink" href="#will_be_accessed_remotely" title="Permanent link">&para;</a></h1>
+<p>--local_ip=192.168.10.111</p>
+<h1 id="network_device_to_listen_on">Network device to listen on<a class="headerlink" href="#network_device_to_listen_on" title="Permanent link">&para;</a></h1>
+<p>--listen_netdev=any</p>
+<h1 id="port_to_listen_on">Port to listen on<a class="headerlink" href="#port_to_listen_on" title="Permanent link">&para;</a></h1>
+<p>--port=9669
+```</p>
 </li>
 </ul>
 <ul>
 <li>
 <p><code>nebula-storaged.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
-<span class="c1"># Comma separated Meta server addresses</span>
---meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
-<span class="c1"># Local IP used to identify the nebula-storaged process.</span>
-<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
-<span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span><span class="m">192</span>.168.10.111
-<span class="c1"># Storage daemon listening port</span>
---port<span class="o">=</span><span class="m">9779</span>
-</code></pre></div>
+<p>```bash</p>
+<h6 id="networking_1">#### networking<a class="headerlink" href="#networking_1" title="Permanent link">&para;</a></h6>
+<h1 id="comma_separated_meta_server_addresses_1">Comma separated Meta server addresses<a class="headerlink" href="#comma_separated_meta_server_addresses_1" title="Permanent link">&para;</a></h1>
+<p>--meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559</p>
+<h1 id="local_ip_used_to_identify_the_nebula-storaged_process">Local IP used to identify the nebula-storaged process.<a class="headerlink" href="#local_ip_used_to_identify_the_nebula-storaged_process" title="Permanent link">&para;</a></h1>
+<h1 id="change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or_1">Change it to an address other than loopback if the service is distributed or<a class="headerlink" href="#change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or_1" title="Permanent link">&para;</a></h1>
+<h1 id="will_be_accessed_remotely_1">will be accessed remotely.<a class="headerlink" href="#will_be_accessed_remotely_1" title="Permanent link">&para;</a></h1>
+<p>--local_ip=192.168.10.111</p>
+<h1 id="storage_daemon_listening_port">Storage daemon listening port<a class="headerlink" href="#storage_daemon_listening_port" title="Permanent link">&para;</a></h1>
+<p>--port=9779
+```</p>
 </li>
 </ul>
 <ul>
 <li>
 <p><code>nebula-metad.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
-<span class="c1"># Comma separated Meta Server addresses</span>
---meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
-<span class="c1"># Local IP used to identify the nebula-metad process.</span>
-<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
-<span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span><span class="m">192</span>.168.10.111
-<span class="c1"># Meta daemon listening port</span>
---port<span class="o">=</span><span class="m">9559</span>
-</code></pre></div>
+<p>```bash</p>
+<h6 id="networking_2">#### networking<a class="headerlink" href="#networking_2" title="Permanent link">&para;</a></h6>
+<h1 id="comma_separated_meta_server_addresses_2">Comma separated Meta Server addresses<a class="headerlink" href="#comma_separated_meta_server_addresses_2" title="Permanent link">&para;</a></h1>
+<p>--meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559</p>
+<h1 id="local_ip_used_to_identify_the_nebula-metad_process">Local IP used to identify the nebula-metad process.<a class="headerlink" href="#local_ip_used_to_identify_the_nebula-metad_process" title="Permanent link">&para;</a></h1>
+<h1 id="change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or_2">Change it to an address other than loopback if the service is distributed or<a class="headerlink" href="#change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or_2" title="Permanent link">&para;</a></h1>
+<h1 id="will_be_accessed_remotely_2">will be accessed remotely.<a class="headerlink" href="#will_be_accessed_remotely_2" title="Permanent link">&para;</a></h1>
+<p>--local_ip=192.168.10.111</p>
+<h1 id="meta_daemon_listening_port">Meta daemon listening port<a class="headerlink" href="#meta_daemon_listening_port" title="Permanent link">&para;</a></h1>
+<p>--port=9559
+```</p>
 </li>
 </ul>
 </li>
@@ -6262,48 +6263,51 @@
 <ul>
 <li>
 <p><code>nebula-graphd.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
-<span class="c1"># Comma separated Meta Server Addresses</span>
---meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
-<span class="c1"># Local IP used to identify the nebula-graphd process.</span>
-<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
-<span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span><span class="m">192</span>.168.10.112
-<span class="c1"># Network device to listen on</span>
---listen_netdev<span class="o">=</span>any
-<span class="c1"># Port to listen on</span>
---port<span class="o">=</span><span class="m">9669</span>
-</code></pre></div>
+<p>```bash</p>
+<h6 id="networking_3">#### networking<a class="headerlink" href="#networking_3" title="Permanent link">&para;</a></h6>
+<h1 id="comma_separated_meta_server_addresses_3">Comma separated Meta Server Addresses<a class="headerlink" href="#comma_separated_meta_server_addresses_3" title="Permanent link">&para;</a></h1>
+<p>--meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559</p>
+<h1 id="local_ip_used_to_identify_the_nebula-graphd_process_1">Local IP used to identify the nebula-graphd process.<a class="headerlink" href="#local_ip_used_to_identify_the_nebula-graphd_process_1" title="Permanent link">&para;</a></h1>
+<h1 id="change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or_3">Change it to an address other than loopback if the service is distributed or<a class="headerlink" href="#change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or_3" title="Permanent link">&para;</a></h1>
+<h1 id="will_be_accessed_remotely_3">will be accessed remotely.<a class="headerlink" href="#will_be_accessed_remotely_3" title="Permanent link">&para;</a></h1>
+<p>--local_ip=192.168.10.112</p>
+<h1 id="network_device_to_listen_on_1">Network device to listen on<a class="headerlink" href="#network_device_to_listen_on_1" title="Permanent link">&para;</a></h1>
+<p>--listen_netdev=any</p>
+<h1 id="port_to_listen_on_1">Port to listen on<a class="headerlink" href="#port_to_listen_on_1" title="Permanent link">&para;</a></h1>
+<p>--port=9669
+```</p>
 </li>
 </ul>
 <ul>
 <li>
 <p><code>nebula-storaged.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
-<span class="c1"># Comma separated Meta server addresses</span>
---meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
-<span class="c1"># Local IP used to identify the nebula-storaged process.</span>
-<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
-<span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span><span class="m">192</span>.168.10.112
-<span class="c1"># Storage daemon listening port</span>
---port<span class="o">=</span><span class="m">9779</span>
-</code></pre></div>
+<p>```bash</p>
+<h6 id="networking_4">#### networking<a class="headerlink" href="#networking_4" title="Permanent link">&para;</a></h6>
+<h1 id="comma_separated_meta_server_addresses_4">Comma separated Meta server addresses<a class="headerlink" href="#comma_separated_meta_server_addresses_4" title="Permanent link">&para;</a></h1>
+<p>--meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559</p>
+<h1 id="local_ip_used_to_identify_the_nebula-storaged_process_1">Local IP used to identify the nebula-storaged process.<a class="headerlink" href="#local_ip_used_to_identify_the_nebula-storaged_process_1" title="Permanent link">&para;</a></h1>
+<h1 id="change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or_4">Change it to an address other than loopback if the service is distributed or<a class="headerlink" href="#change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or_4" title="Permanent link">&para;</a></h1>
+<h1 id="will_be_accessed_remotely_4">will be accessed remotely.<a class="headerlink" href="#will_be_accessed_remotely_4" title="Permanent link">&para;</a></h1>
+<p>--local_ip=192.168.10.112</p>
+<h1 id="storage_daemon_listening_port_1">Storage daemon listening port<a class="headerlink" href="#storage_daemon_listening_port_1" title="Permanent link">&para;</a></h1>
+<p>--port=9779
+```</p>
 </li>
 </ul>
 <ul>
 <li>
 <p><code>nebula-metad.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
-<span class="c1"># Comma separated Meta Server addresses</span>
---meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
-<span class="c1"># Local IP used to identify the nebula-metad process.</span>
-<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
-<span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span><span class="m">192</span>.168.10.112
-<span class="c1"># Meta daemon listening port</span>
---port<span class="o">=</span><span class="m">9559</span>
-</code></pre></div>
+<p>```bash</p>
+<h6 id="networking_5">#### networking<a class="headerlink" href="#networking_5" title="Permanent link">&para;</a></h6>
+<h1 id="comma_separated_meta_server_addresses_5">Comma separated Meta Server addresses<a class="headerlink" href="#comma_separated_meta_server_addresses_5" title="Permanent link">&para;</a></h1>
+<p>--meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559</p>
+<h1 id="local_ip_used_to_identify_the_nebula-metad_process_1">Local IP used to identify the nebula-metad process.<a class="headerlink" href="#local_ip_used_to_identify_the_nebula-metad_process_1" title="Permanent link">&para;</a></h1>
+<h1 id="change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or_5">Change it to an address other than loopback if the service is distributed or<a class="headerlink" href="#change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or_5" title="Permanent link">&para;</a></h1>
+<h1 id="will_be_accessed_remotely_5">will be accessed remotely.<a class="headerlink" href="#will_be_accessed_remotely_5" title="Permanent link">&para;</a></h1>
+<p>--local_ip=192.168.10.112</p>
+<h1 id="meta_daemon_listening_port_1">Meta daemon listening port<a class="headerlink" href="#meta_daemon_listening_port_1" title="Permanent link">&para;</a></h1>
+<p>--port=9559
+```</p>
 </li>
 </ul>
 </li>
@@ -6314,48 +6318,51 @@
 <ul>
 <li>
 <p><code>nebula-graphd.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
-<span class="c1"># Comma separated Meta Server Addresses</span>
---meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
-<span class="c1"># Local IP used to identify the nebula-graphd process.</span>
-<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
-<span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span><span class="m">192</span>.168.10.113
-<span class="c1"># Network device to listen on</span>
---listen_netdev<span class="o">=</span>any
-<span class="c1"># Port to listen on</span>
---port<span class="o">=</span><span class="m">9669</span>
-</code></pre></div>
+<p>```bash</p>
+<h6 id="networking_6">#### networking<a class="headerlink" href="#networking_6" title="Permanent link">&para;</a></h6>
+<h1 id="comma_separated_meta_server_addresses_6">Comma separated Meta Server Addresses<a class="headerlink" href="#comma_separated_meta_server_addresses_6" title="Permanent link">&para;</a></h1>
+<p>--meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559</p>
+<h1 id="local_ip_used_to_identify_the_nebula-graphd_process_2">Local IP used to identify the nebula-graphd process.<a class="headerlink" href="#local_ip_used_to_identify_the_nebula-graphd_process_2" title="Permanent link">&para;</a></h1>
+<h1 id="change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or_6">Change it to an address other than loopback if the service is distributed or<a class="headerlink" href="#change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or_6" title="Permanent link">&para;</a></h1>
+<h1 id="will_be_accessed_remotely_6">will be accessed remotely.<a class="headerlink" href="#will_be_accessed_remotely_6" title="Permanent link">&para;</a></h1>
+<p>--local_ip=192.168.10.113</p>
+<h1 id="network_device_to_listen_on_2">Network device to listen on<a class="headerlink" href="#network_device_to_listen_on_2" title="Permanent link">&para;</a></h1>
+<p>--listen_netdev=any</p>
+<h1 id="port_to_listen_on_2">Port to listen on<a class="headerlink" href="#port_to_listen_on_2" title="Permanent link">&para;</a></h1>
+<p>--port=9669
+```</p>
 </li>
 </ul>
 <ul>
 <li>
 <p><code>nebula-storaged.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
-<span class="c1"># Comma separated Meta server addresses</span>
---meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
-<span class="c1"># Local IP used to identify the nebula-storaged process.</span>
-<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
-<span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span><span class="m">192</span>.168.10.113
-<span class="c1"># Storage daemon listening port</span>
---port<span class="o">=</span><span class="m">9779</span>
-</code></pre></div>
+<p>```bash</p>
+<h6 id="networking_7">#### networking<a class="headerlink" href="#networking_7" title="Permanent link">&para;</a></h6>
+<h1 id="comma_separated_meta_server_addresses_7">Comma separated Meta server addresses<a class="headerlink" href="#comma_separated_meta_server_addresses_7" title="Permanent link">&para;</a></h1>
+<p>--meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559</p>
+<h1 id="local_ip_used_to_identify_the_nebula-storaged_process_2">Local IP used to identify the nebula-storaged process.<a class="headerlink" href="#local_ip_used_to_identify_the_nebula-storaged_process_2" title="Permanent link">&para;</a></h1>
+<h1 id="change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or_7">Change it to an address other than loopback if the service is distributed or<a class="headerlink" href="#change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or_7" title="Permanent link">&para;</a></h1>
+<h1 id="will_be_accessed_remotely_7">will be accessed remotely.<a class="headerlink" href="#will_be_accessed_remotely_7" title="Permanent link">&para;</a></h1>
+<p>--local_ip=192.168.10.113</p>
+<h1 id="storage_daemon_listening_port_2">Storage daemon listening port<a class="headerlink" href="#storage_daemon_listening_port_2" title="Permanent link">&para;</a></h1>
+<p>--port=9779
+```</p>
 </li>
 </ul>
 <ul>
 <li>
 <p><code>nebula-metad.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
-<span class="c1"># Comma separated Meta Server addresses</span>
---meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
-<span class="c1"># Local IP used to identify the nebula-metad process.</span>
-<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
-<span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span><span class="m">192</span>.168.10.113
-<span class="c1"># Meta daemon listening port</span>
---port<span class="o">=</span><span class="m">9559</span>
-</code></pre></div>
+<p>```bash</p>
+<h6 id="networking_8">#### networking<a class="headerlink" href="#networking_8" title="Permanent link">&para;</a></h6>
+<h1 id="comma_separated_meta_server_addresses_8">Comma separated Meta Server addresses<a class="headerlink" href="#comma_separated_meta_server_addresses_8" title="Permanent link">&para;</a></h1>
+<p>--meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559</p>
+<h1 id="local_ip_used_to_identify_the_nebula-metad_process_2">Local IP used to identify the nebula-metad process.<a class="headerlink" href="#local_ip_used_to_identify_the_nebula-metad_process_2" title="Permanent link">&para;</a></h1>
+<h1 id="change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or_8">Change it to an address other than loopback if the service is distributed or<a class="headerlink" href="#change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or_8" title="Permanent link">&para;</a></h1>
+<h1 id="will_be_accessed_remotely_8">will be accessed remotely.<a class="headerlink" href="#will_be_accessed_remotely_8" title="Permanent link">&para;</a></h1>
+<p>--local_ip=192.168.10.113</p>
+<h1 id="meta_daemon_listening_port_2">Meta daemon listening port<a class="headerlink" href="#meta_daemon_listening_port_2" title="Permanent link">&para;</a></h1>
+<p>--port=9559
+```</p>
 </li>
 </ul>
 </li>
@@ -6366,33 +6373,35 @@
 <ul>
 <li>
 <p><code>nebula-graphd.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
-<span class="c1"># Comma separated Meta Server Addresses</span>
---meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
-<span class="c1"># Local IP used to identify the nebula-graphd process.</span>
-<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
-<span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span><span class="m">192</span>.168.10.114
-<span class="c1"># Network device to listen on</span>
---listen_netdev<span class="o">=</span>any
-<span class="c1"># Port to listen on</span>
---port<span class="o">=</span><span class="m">9669</span>
-</code></pre></div>
+<p>```bash</p>
+<h6 id="networking_9">#### networking<a class="headerlink" href="#networking_9" title="Permanent link">&para;</a></h6>
+<h1 id="comma_separated_meta_server_addresses_9">Comma separated Meta Server Addresses<a class="headerlink" href="#comma_separated_meta_server_addresses_9" title="Permanent link">&para;</a></h1>
+<p>--meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559</p>
+<h1 id="local_ip_used_to_identify_the_nebula-graphd_process_3">Local IP used to identify the nebula-graphd process.<a class="headerlink" href="#local_ip_used_to_identify_the_nebula-graphd_process_3" title="Permanent link">&para;</a></h1>
+<h1 id="change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or_9">Change it to an address other than loopback if the service is distributed or<a class="headerlink" href="#change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or_9" title="Permanent link">&para;</a></h1>
+<h1 id="will_be_accessed_remotely_9">will be accessed remotely.<a class="headerlink" href="#will_be_accessed_remotely_9" title="Permanent link">&para;</a></h1>
+<p>--local_ip=192.168.10.114</p>
+<h1 id="network_device_to_listen_on_3">Network device to listen on<a class="headerlink" href="#network_device_to_listen_on_3" title="Permanent link">&para;</a></h1>
+<p>--listen_netdev=any</p>
+<h1 id="port_to_listen_on_3">Port to listen on<a class="headerlink" href="#port_to_listen_on_3" title="Permanent link">&para;</a></h1>
+<p>--port=9669
+```</p>
 </li>
 </ul>
 <ul>
 <li>
 <p><code>nebula-storaged.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
-<span class="c1"># Comma separated Meta server addresses</span>
---meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
-<span class="c1"># Local IP used to identify the nebula-storaged process.</span>
-<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
-<span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span><span class="m">192</span>.168.10.114
-<span class="c1"># Storage daemon listening port</span>
---port<span class="o">=</span><span class="m">9779</span>
-</code></pre></div>
+<p>```bash</p>
+<h6 id="networking_10">#### networking<a class="headerlink" href="#networking_10" title="Permanent link">&para;</a></h6>
+<h1 id="comma_separated_meta_server_addresses_10">Comma separated Meta server addresses<a class="headerlink" href="#comma_separated_meta_server_addresses_10" title="Permanent link">&para;</a></h1>
+<p>--meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559</p>
+<h1 id="local_ip_used_to_identify_the_nebula-storaged_process_3">Local IP used to identify the nebula-storaged process.<a class="headerlink" href="#local_ip_used_to_identify_the_nebula-storaged_process_3" title="Permanent link">&para;</a></h1>
+<h1 id="change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or_10">Change it to an address other than loopback if the service is distributed or<a class="headerlink" href="#change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or_10" title="Permanent link">&para;</a></h1>
+<h1 id="will_be_accessed_remotely_10">will be accessed remotely.<a class="headerlink" href="#will_be_accessed_remotely_10" title="Permanent link">&para;</a></h1>
+<p>--local_ip=192.168.10.114</p>
+<h1 id="storage_daemon_listening_port_3">Storage daemon listening port<a class="headerlink" href="#storage_daemon_listening_port_3" title="Permanent link">&para;</a></h1>
+<p>--port=9779
+```</p>
 </li>
 </ul>
 </li>
@@ -6403,33 +6412,35 @@
 <ul>
 <li>
 <p><code>nebula-graphd.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
-<span class="c1"># Comma separated Meta Server Addresses</span>
---meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
-<span class="c1"># Local IP used to identify the nebula-graphd process.</span>
-<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
-<span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span><span class="m">192</span>.168.10.115
-<span class="c1"># Network device to listen on</span>
---listen_netdev<span class="o">=</span>any
-<span class="c1"># Port to listen on</span>
---port<span class="o">=</span><span class="m">9669</span>
-</code></pre></div>
+<p>```bash</p>
+<h6 id="networking_11">#### networking<a class="headerlink" href="#networking_11" title="Permanent link">&para;</a></h6>
+<h1 id="comma_separated_meta_server_addresses_11">Comma separated Meta Server Addresses<a class="headerlink" href="#comma_separated_meta_server_addresses_11" title="Permanent link">&para;</a></h1>
+<p>--meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559</p>
+<h1 id="local_ip_used_to_identify_the_nebula-graphd_process_4">Local IP used to identify the nebula-graphd process.<a class="headerlink" href="#local_ip_used_to_identify_the_nebula-graphd_process_4" title="Permanent link">&para;</a></h1>
+<h1 id="change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or_11">Change it to an address other than loopback if the service is distributed or<a class="headerlink" href="#change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or_11" title="Permanent link">&para;</a></h1>
+<h1 id="will_be_accessed_remotely_11">will be accessed remotely.<a class="headerlink" href="#will_be_accessed_remotely_11" title="Permanent link">&para;</a></h1>
+<p>--local_ip=192.168.10.115</p>
+<h1 id="network_device_to_listen_on_4">Network device to listen on<a class="headerlink" href="#network_device_to_listen_on_4" title="Permanent link">&para;</a></h1>
+<p>--listen_netdev=any</p>
+<h1 id="port_to_listen_on_4">Port to listen on<a class="headerlink" href="#port_to_listen_on_4" title="Permanent link">&para;</a></h1>
+<p>--port=9669
+```</p>
 </li>
 </ul>
 <ul>
 <li>
 <p><code>nebula-storaged.conf</code></p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## networking ##########</span>
-<span class="c1"># Comma separated Meta server addresses</span>
---meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559
-<span class="c1"># Local IP used to identify the nebula-storaged process.</span>
-<span class="c1"># Change it to an address other than loopback if the service is distributed or</span>
-<span class="c1"># will be accessed remotely.</span>
---local_ip<span class="o">=</span><span class="m">192</span>.168.10.115
-<span class="c1"># Storage daemon listening port</span>
---port<span class="o">=</span><span class="m">9779</span>
-</code></pre></div>
+<p>```bash</p>
+<h6 id="networking_12">#### networking<a class="headerlink" href="#networking_12" title="Permanent link">&para;</a></h6>
+<h1 id="comma_separated_meta_server_addresses_12">Comma separated Meta server addresses<a class="headerlink" href="#comma_separated_meta_server_addresses_12" title="Permanent link">&para;</a></h1>
+<p>--meta_server_addrs=192.168.10.111:9559,192.168.10.112:9559,192.168.10.113:9559</p>
+<h1 id="local_ip_used_to_identify_the_nebula-storaged_process_4">Local IP used to identify the nebula-storaged process.<a class="headerlink" href="#local_ip_used_to_identify_the_nebula-storaged_process_4" title="Permanent link">&para;</a></h1>
+<h1 id="change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or_12">Change it to an address other than loopback if the service is distributed or<a class="headerlink" href="#change_it_to_an_address_other_than_loopback_if_the_service_is_distributed_or_12" title="Permanent link">&para;</a></h1>
+<h1 id="will_be_accessed_remotely_12">will be accessed remotely.<a class="headerlink" href="#will_be_accessed_remotely_12" title="Permanent link">&para;</a></h1>
+<p>--local_ip=192.168.10.115</p>
+<h1 id="storage_daemon_listening_port_4">Storage daemon listening port<a class="headerlink" href="#storage_daemon_listening_port_4" title="Permanent link">&para;</a></h1>
+<p>--port=9779
+```</p>
 </li>
 </ul>
 </li>
@@ -6467,8 +6478,8 @@
 </tbody>
 </table>
 <p>启动 Nebula Graph 进程的命令如下：</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>/usr/local/nebula/scripts/nebula.service<span class="w"> </span>start<span class="w"> </span>&lt;metad<span class="p">|</span>graphd<span class="p">|</span>storaged<span class="p">|</span>all&gt;
-</code></pre></div>
+<p><code>bash
+sudo /usr/local/nebula/scripts/nebula.service start &lt;metad|graphd|storaged|all&gt;</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
@@ -6483,30 +6494,31 @@
 </div>
 <h3 id="4">4. 检查集群<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p>安装原生 CLI 客户端 <a href="../../../2.quick-start/3.connect-to-nebula-graph/#_1">Nebula Console</a>，然后连接任何一个已启动 graphd 进程的机器，添加 Storage 主机，然后执行命令<code>SHOW HOSTS</code>检查集群状态。例如：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./nebula-console<span class="w"> </span>--addr<span class="w"> </span><span class="m">192</span>.168.10.111<span class="w"> </span>--port<span class="w"> </span><span class="m">9669</span><span class="w"> </span>-u<span class="w"> </span>root<span class="w"> </span>-p<span class="w"> </span>nebula
-
-<span class="m">2021</span>/05/25<span class="w"> </span><span class="m">01</span>:41:19<span class="w"> </span><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>connection<span class="w"> </span>pool<span class="w"> </span>is<span class="w"> </span>initialized<span class="w"> </span>successfully
-Welcome<span class="w"> </span>to<span class="w"> </span>Nebula<span class="w"> </span>Graph!
-
-&gt;<span class="w"> </span>ADD<span class="w"> </span>HOSTS<span class="w"> </span><span class="m">192</span>.168.10.111:9779,<span class="w"> </span><span class="m">192</span>.168.10.112:9779,<span class="w"> </span><span class="m">192</span>.168.10.113:9779,<span class="w"> </span><span class="m">192</span>.168.10.114:9779,<span class="w"> </span><span class="m">192</span>.168.10.115:9779<span class="p">;</span>
-&gt;<span class="w"> </span>SHOW<span class="w"> </span>HOSTS<span class="p">;</span>
+<p>```bash
+$ ./nebula-console --addr 192.168.10.111 --port 9669 -u root -p nebula</p>
+<p>2021/05/25 01:41:19 [INFO] connection pool is initialized successfully
+Welcome to Nebula Graph!</p>
+<blockquote>
+<p>ADD HOSTS 192.168.10.111:9779, 192.168.10.112:9779, 192.168.10.113:9779, 192.168.10.114:9779, 192.168.10.115:9779;
+SHOW HOSTS;
 +------------------+------+----------+--------------+----------------------+------------------------+---------+
-<span class="p">|</span><span class="w"> </span>Host<span class="w">             </span><span class="p">|</span><span class="w"> </span>Port<span class="w"> </span><span class="p">|</span><span class="w"> </span>Status<span class="w">   </span><span class="p">|</span><span class="w"> </span>Leader<span class="w"> </span>count<span class="w"> </span><span class="p">|</span><span class="w"> </span>Leader<span class="w"> </span>distribution<span class="w">  </span><span class="p">|</span><span class="w"> </span>Partition<span class="w"> </span>distribution<span class="w"> </span><span class="p">|</span><span class="w"> </span>Version<span class="w"> </span><span class="p">|</span>
+| Host             | Port | Status   | Leader count | Leader distribution  | Partition distribution | Version |
 +------------------+------+----------+--------------+----------------------+------------------------+---------+
-<span class="p">|</span><span class="w"> </span><span class="s2">&quot;192.168.10.111&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">9779</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="s2">&quot;ONLINE&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">0</span><span class="w">            </span><span class="p">|</span><span class="w"> </span><span class="s2">&quot;No valid partition&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="s2">&quot;No valid partition&quot;</span><span class="w">   </span><span class="p">|</span><span class="w"> </span><span class="s2">&quot;3.0.1&quot;</span><span class="w"> </span><span class="p">|</span>
-<span class="p">|</span><span class="w"> </span><span class="s2">&quot;192.168.10.112&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">9779</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="s2">&quot;ONLINE&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">0</span><span class="w">            </span><span class="p">|</span><span class="w"> </span><span class="s2">&quot;No valid partition&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="s2">&quot;No valid partition&quot;</span><span class="w">   </span><span class="p">|</span><span class="w"> </span><span class="s2">&quot;3.0.1&quot;</span><span class="w"> </span><span class="p">|</span>
-<span class="p">|</span><span class="w"> </span><span class="s2">&quot;192.168.10.113&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">9779</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="s2">&quot;ONLINE&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">0</span><span class="w">            </span><span class="p">|</span><span class="w"> </span><span class="s2">&quot;No valid partition&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="s2">&quot;No valid partition&quot;</span><span class="w">   </span><span class="p">|</span><span class="w"> </span><span class="s2">&quot;3.0.1&quot;</span><span class="w"> </span><span class="p">|</span>
-<span class="p">|</span><span class="w"> </span><span class="s2">&quot;192.168.10.114&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">9779</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="s2">&quot;ONLINE&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">0</span><span class="w">            </span><span class="p">|</span><span class="w"> </span><span class="s2">&quot;No valid partition&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="s2">&quot;No valid partition&quot;</span><span class="w">   </span><span class="p">|</span><span class="w"> </span><span class="s2">&quot;3.0.1&quot;</span><span class="w"> </span><span class="p">|</span>
-<span class="p">|</span><span class="w"> </span><span class="s2">&quot;192.168.10.115&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">9779</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="s2">&quot;ONLINE&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="m">0</span><span class="w">            </span><span class="p">|</span><span class="w"> </span><span class="s2">&quot;No valid partition&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="s2">&quot;No valid partition&quot;</span><span class="w">   </span><span class="p">|</span><span class="w"> </span><span class="s2">&quot;3.0.1&quot;</span><span class="w"> </span><span class="p">|</span>
+| "192.168.10.111" | 9779 | "ONLINE" | 0            | "No valid partition" | "No valid partition"   | "3.0.1" |
+| "192.168.10.112" | 9779 | "ONLINE" | 0            | "No valid partition" | "No valid partition"   | "3.0.1" |
+| "192.168.10.113" | 9779 | "ONLINE" | 0            | "No valid partition" | "No valid partition"   | "3.0.1" |
+| "192.168.10.114" | 9779 | "ONLINE" | 0            | "No valid partition" | "No valid partition"   | "3.0.1" |
+| "192.168.10.115" | 9779 | "ONLINE" | 0            | "No valid partition" | "No valid partition"   | "3.0.1" |
 +------------------+------+----------+--------------+----------------------+------------------------+---------+
-</code></pre></div>
+```</p>
+</blockquote>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6620,8 +6632,6 @@ Welcome<span class="w"> </span>to<span class="w"> </span>Nebula<span class="w"> 
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

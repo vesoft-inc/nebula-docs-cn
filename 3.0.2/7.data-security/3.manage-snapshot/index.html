@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/7.data-security/3.manage-snapshot/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6097,30 +6097,30 @@
 <p>Nebula Graph 创建的快照以目录的形式存储，例如<code>SNAPSHOT_2021_03_09_08_43_12</code>，后缀<code>2021_03_09_08_43_12</code>根据创建时间（UTC）自动生成。</p>
 <p>创建快照时，快照目录会自动在 leader Meta 服务器和所有 Storage 服务器的目录<code>checkpoints</code>内创建。</p>
 <p>为了快速定位快照所在路径，可以使用 Linux 命令<code>find</code>。例如：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>find<span class="w"> </span><span class="p">|</span>grep<span class="w"> </span><span class="s1">&#39;SNAPSHOT_2021_03_09_08_43_12&#39;</span>
+<p><code>bash
+$ find |grep 'SNAPSHOT_2021_03_09_08_43_12'
 ./data/meta2/nebula/0/checkpoints/SNAPSHOT_2021_03_09_08_43_12
 ./data/meta2/nebula/0/checkpoints/SNAPSHOT_2021_03_09_08_43_12/data
 ./data/meta2/nebula/0/checkpoints/SNAPSHOT_2021_03_09_08_43_12/data/000081.sst
-...
-</code></pre></div>
+...</code></p>
 <h2 id="_5">创建快照<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>命令<code>CREATE SNAPSHOT</code>可以创建集群当前时间点的快照。只支持创建所有图空间的快照，不支持创建指定图空间的快照。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>如果快照创建失败，请<a href="#_7">删除快照</a>重新创建。</p>
 </div>
-<div class="highlight"><pre><span></span><code>nebula&gt; CREATE SNAPSHOT;
-</code></pre></div>
+<p><code>ngql
+nebula&gt; CREATE SNAPSHOT;</code></p>
 <h2 id="_6">查看快照<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>命令<code>SHOW SNAPSHOTS</code>可以查看集群中的所有快照。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; SHOW SNAPSHOTS;
+<p><code>ngql
+nebula&gt; SHOW SNAPSHOTS;
 +--------------------------------+---------+------------------+
 | Name                           | Status  | Hosts            |
 +--------------------------------+---------+------------------+
-| &quot;SNAPSHOT_2021_03_09_08_43_12&quot; | &quot;VALID&quot; | &quot;127.0.0.1:9779&quot; |
-| &quot;SNAPSHOT_2021_03_09_09_10_52&quot; | &quot;VALID&quot; | &quot;127.0.0.1:9779&quot; |
-+--------------------------------+---------+------------------+
-</code></pre></div>
+| "SNAPSHOT_2021_03_09_08_43_12" | "VALID" | "127.0.0.1:9779" |
+| "SNAPSHOT_2021_03_09_09_10_52" | "VALID" | "127.0.0.1:9779" |
++--------------------------------+---------+------------------+</code></p>
 <p>参数说明如下：</p>
 <table>
 <thead>
@@ -6146,29 +6146,29 @@
 </table>
 <h2 id="_7">删除快照<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>命令<code>DROP SNAPSHOT</code>可以删除指定的快照，语法为：</p>
-<div class="highlight"><pre><span></span><code>DROP SNAPSHOT &lt;snapshot_name&gt;;
-</code></pre></div>
+<p><code>ngql
+DROP SNAPSHOT &lt;snapshot_name&gt;;</code></p>
 <p>示例如下：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; DROP SNAPSHOT SNAPSHOT_2021_03_09_08_43_12;
+<p><code>ngql
+nebula&gt; DROP SNAPSHOT SNAPSHOT_2021_03_09_08_43_12;
 nebula&gt; SHOW SNAPSHOTS;
 +--------------------------------+---------+------------------+
 | Name                           | Status  | Hosts            |
 +--------------------------------+---------+------------------+
-| &quot;SNAPSHOT_2021_03_09_09_10_52&quot; | &quot;VALID&quot; | &quot;127.0.0.1:9779&quot; |
-+--------------------------------+---------+------------------+
-</code></pre></div>
+| "SNAPSHOT_2021_03_09_09_10_52" | "VALID" | "127.0.0.1:9779" |
++--------------------------------+---------+------------------+</code></p>
 <h2 id="_8">恢复快照<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>当前未提供恢复快照命令，需要手动拷贝快照文件到对应的文件夹内，也可以通过 shell 脚本进行操作。实现逻辑如下：</p>
 <ol>
 <li>
 <p>创建快照后，会在 leader Meta 服务器和所有 Storage 服务器的安装目录内生成<code>checkpoints</code>目录，保存创建的快照。以本文为例，当存在 2 个图空间时，创建的快照分别保存在<code>/usr/local/nebula/data/meta/nebula/0/checkpoints</code>、<code>/usr/local/nebula/data/storage/nebula/3/checkpoints</code>和<code>/usr/local/nebula/data/storage/nebula/4/checkpoints</code>中。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>ls<span class="w"> </span>/usr/local/nebula/data/meta/nebula/0/checkpoints/
+<p><code>bash
+$ ls /usr/local/nebula/data/meta/nebula/0/checkpoints/
 SNAPSHOT_2021_03_09_09_10_52
-$<span class="w"> </span>ls<span class="w"> </span>/usr/local/nebula/data/storage/nebula/3/checkpoints/
+$ ls /usr/local/nebula/data/storage/nebula/3/checkpoints/
 SNAPSHOT_2021_03_09_09_10_52
-$<span class="w"> </span>ls<span class="w"> </span>/usr/local/nebula/data/storage/nebula/4/checkpoints/
-SNAPSHOT_2021_03_09_09_10_52
-</code></pre></div>
+$ ls /usr/local/nebula/data/storage/nebula/4/checkpoints/
+SNAPSHOT_2021_03_09_09_10_52</code></p>
 </li>
 <li>
 <p>当数据丢失需要通过快照恢复时，用户可以找到合适的时间点快照，将内部的文件夹<code>data</code>和<code>wal</code>分别拷贝到各自的上级目录（和<code>checkpoints</code>平级），覆盖之前的<code>data</code>和<code>wal</code>，然后重启集群即可。</p>
@@ -6190,7 +6190,7 @@ SNAPSHOT_2021_03_09_09_10_52
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6304,8 +6304,6 @@ SNAPSHOT_2021_03_09_09_10_52
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

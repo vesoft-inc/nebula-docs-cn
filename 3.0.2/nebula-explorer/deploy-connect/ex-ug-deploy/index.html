@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/nebula-explorer/deploy-connect/ex-ug-deploy/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6241,42 +6241,42 @@
 <li>
 <p>使用<code>sudo rpm -i &lt;rpm&gt;</code>命令安装 RPM 包。</p>
 <p>例如，安装 Explorer 需要运行以下命令，默认安装路径为<code>/usr/local/nebula-explorer</code>：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>rpm<span class="w"> </span>-i<span class="w"> </span>nebula-explorer-&lt;version&gt;.x86_64.rpm
-</code></pre></div>
+<p><code>bash
+ $ sudo rpm -i nebula-explorer-&lt;version&gt;.x86_64.rpm</code></p>
 <p>也可以使用以下命令安装到指定路径：
- <div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>rpm<span class="w"> </span>-i<span class="w"> </span>nebula-explorer-xxx.rpm<span class="w"> </span>--prefix<span class="o">=</span>&lt;path&gt;<span class="w"> </span>
-</code></pre></div></p>
+ <code>bash
+ $ sudo rpm -i nebula-explorer-xxx.rpm --prefix=&lt;path&gt;</code></p>
 </li>
 <li>
 <p>拷贝 License 至安装路径下。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>&lt;license&gt;<span class="w"> </span>&lt;explorer_path&gt;
-</code></pre></div>
+<p><code>bash
+ $ cp -r &lt;license&gt; &lt;explorer_path&gt;</code></p>
 <p>例如：
- <div class="highlight"><pre><span></span><code>$<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>nebula.license<span class="w"> </span>/usr/local/nebula-explorer
-</code></pre></div></p>
+ <code>bash
+ $ cp -r nebula.license /usr/local/nebula-explorer</code></p>
 </li>
 <li>
 <p>添加 License 后需要使用以下命令停止并重启服务。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>nebula-explorer<span class="w"> </span><span class="c1">#停止服务</span>
-$<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>nebula-explorer<span class="w"> </span><span class="c1">#启动服务</span>
-</code></pre></div>
+<p><code>bash
+ $ systemctl stop nebula-explorer #停止服务
+ $ systemctl start nebula-explorer #启动服务</code></p>
 </li>
 </ol>
 <h3 id="_3">启停服务<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>支持使用 systemctl 服务控制项目启停。</p>
-<p><div class="highlight"><pre><span></span><code>$<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>nebula-explorer<span class="w"> </span><span class="c1">#查看服务状态</span>
-$<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>nebula-explorer<span class="w"> </span><span class="c1">#停止服务</span>
-$<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>nebula-explorer<span class="w"> </span><span class="c1">#启动服务</span>
-</code></pre></div>
+<p><code>bash
+$ systemctl status nebula-explorer #查看服务状态
+$ systemctl stop nebula-explorer #停止服务
+$ systemctl start nebula-explorer #启动服务</code>
 也可以在安装目录下使用以下命令，手动启动或停止服务。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>./scripts/rpm
-$<span class="w"> </span>bash<span class="w"> </span>./start.sh<span class="w"> </span><span class="c1">#启动服务</span>
-$<span class="w"> </span>bash<span class="w"> </span>./stop.sh<span class="w"> </span><span class="c1">#停止服务</span>
-</code></pre></div>
+<p><code>bash
+$ cd ./scripts/rpm
+$ bash ./start.sh #启动服务
+$ bash ./stop.sh #停止服务</code></p>
 <h3 id="_4">卸载<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>使用以下的命令卸载 Explorer。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>rpm<span class="w"> </span>-e<span class="w"> </span>nebula-explorer-&lt;version&gt;.x86_64
-</code></pre></div>
+<p><code>bash
+$ sudo rpm -e nebula-explorer-&lt;version&gt;.x86_64</code></p>
 <h2 id="tar">TAR 包部署<a class="headerlink" href="#tar" title="Permanent link">&para;</a></h2>
 <h3 id="_5">前提条件<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>在部署 Explorer 之前，用户需要确认以下信息：</p>
@@ -6328,28 +6328,28 @@ $<span class="w"> </span>bash<span class="w"> </span>./stop.sh<span class="w"> <
 </li>
 <li>
 <p>使用 <code>tar -xvf</code> 解压 tar 包。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xvf<span class="w"> </span>nebula-graph-explorer-&lt;version&gt;.tar.gz
-</code></pre></div>
+<p><code>bash
+ $ tar -xvf nebula-graph-explorer-&lt;version&gt;.tar.gz</code></p>
 </li>
 <li>
 <p>拷贝 License 至<code>nebula-explorer</code>目录下。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>&lt;license&gt;<span class="w"> </span>&lt;explorer_path&gt;
-</code></pre></div>
+<p><code>bash
+ $ cp -r &lt;license&gt; &lt;explorer_path&gt;</code></p>
 <p>例如：
- <div class="highlight"><pre><span></span><code>$<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>nebula.license<span class="w"> </span>/usr/local/nebula-explorer
-</code></pre></div></p>
+ <code>bash
+ $ cp -r nebula.license /usr/local/nebula-explorer</code></p>
 </li>
 <li>
 <p>进入<code>nebula-explorer</code>文件夹，启动 Explorer。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>nebula-explorer
-$<span class="w"> </span>./nebula-httpd<span class="w"> </span><span class="p">&amp;</span>
-</code></pre></div>
+<p><code>bash
+$ cd nebula-explorer
+$ ./nebula-httpd &amp;</code></p>
 </li>
 </ol>
 <h3 id="_7">停止服务<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>用户可以采用<code>kill pid</code>的方式来关停服务：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">kill</span><span class="w"> </span><span class="k">$(</span>lsof<span class="w"> </span>-t<span class="w"> </span>-i<span class="w"> </span>:7002<span class="k">)</span>
-</code></pre></div>
+<p><code>bash
+$ kill $(lsof -t -i :7002)</code></p>
 <h2 id="_8">后续操作<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>启动成功后，在浏览器地址栏输入 <code>http://&lt;ip_address&gt;:7002</code>。</p>
 <p>在浏览器窗口中看到以下登录界面表示已经成功部署并启动了 Explorer。</p>
@@ -6365,7 +6365,7 @@ $<span class="w"> </span>./nebula-httpd<span class="w"> </span><span class="p">&
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6479,8 +6479,6 @@ $<span class="w"> </span>./nebula-httpd<span class="w"> </span><span class="p">&
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

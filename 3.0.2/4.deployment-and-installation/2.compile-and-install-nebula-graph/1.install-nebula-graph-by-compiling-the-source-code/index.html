@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/4.deployment-and-installation/2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6254,27 +6254,27 @@
 <ul>
 <li>
 <p>[推荐] 如果需要安装3.0.2版本的 Nebula Graph，执行如下命令：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>--branch<span class="w"> </span>v3.0.2<span class="w"> </span>https://github.com/vesoft-inc/nebula.git
-</code></pre></div>
+<p><code>bash
+$ git clone --branch v3.0.2 https://github.com/vesoft-inc/nebula.git</code></p>
 </li>
 </ul>
 <ul>
 <li>
 <p>如果需要安装最新的开发版本用于测试，执行如下命令克隆 master 分支的代码：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/vesoft-inc/nebula.git
-</code></pre></div>
+<p><code>bash
+$ git clone https://github.com/vesoft-inc/nebula.git</code></p>
 </li>
 </ul>
 </li>
 <li>
 <p>进入目录<code>nebula</code>。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>nebula
-</code></pre></div>
+<p><code>bash
+$ cd nebula</code></p>
 </li>
 <li>
 <p>创建目录<code>build</code>并进入该目录。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
-</code></pre></div>
+<p><code>bash
+$ mkdir build &amp;&amp; cd build</code></p>
 </li>
 <li>
 <p>使用 CMake 生成 makefile 文件。</p>
@@ -6283,8 +6283,8 @@
 <p>默认安装路径为<code>/usr/local/nebula</code>，如果需要修改路径，请在下方命令内增加参数 <code>-DCMAKE_INSTALL_PREFIX=&lt;installation_path&gt;</code>。</p>
 <p>更多 CMake 参数说明，请参见 <a href="#cmake">CMake 参数</a>。</p>
 </div>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cmake<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span>/usr/local/nebula<span class="w"> </span>-DENABLE_TESTING<span class="o">=</span>OFF<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>..
-</code></pre></div>
+<p><code>bash
+$ cmake -DCMAKE_INSTALL_PREFIX=/usr/local/nebula -DENABLE_TESTING=OFF -DCMAKE_BUILD_TYPE=Release ..</code></p>
 </li>
 <li>
 <p>编译 Nebula Graph。</p>
@@ -6293,13 +6293,13 @@
 <p>检查<a href="../../1.resource-preparations/">软硬件要求和安装三方库依赖包</a>。</p>
 </div>
 <p>为了适当地加快编译速度，可以使用选项<code>-j</code>并行编译。并行数量<code>N</code>建议为<span class="arithmatex">\(\min(\text{CPU}核数，\frac{内存 (GB)}{2})\)</span>。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>make<span class="w"> </span>-j<span class="o">{</span>N<span class="o">}</span><span class="w"> </span><span class="c1"># E.g., make -j2</span>
-</code></pre></div>
+<p><code>bash
+$ make -j{N} # E.g., make -j2</code></p>
 </li>
 <li>
 <p>安装 Nebula Graph。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>make<span class="w"> </span>install
-</code></pre></div>
+<p><code>bash
+$ sudo make install</code></p>
 </li>
 <li>
 <p>安装目录下<code>etc/</code>目录中（默认为<code>/usr/local/nebula/etc</code>）的配置文件为参考模版，用户可以根据需要创建自己的配置文件。如果要使用 <code>script</code> 目录下的脚本，启动、停止、重启、中止和查看服务，配置文件需要命名为 <code>nebula-graph.conf</code>，<code>nebula-metad.conf</code>和<code>nebula-storaged.conf</code>。</p>
@@ -6324,8 +6324,8 @@
 </ul>
 <h2 id="cmake">CMake 参数<a class="headerlink" href="#cmake" title="Permanent link">&para;</a></h2>
 <h3 id="_4">使用方法<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cmake<span class="w"> </span>-D&lt;variable&gt;<span class="o">=</span>&lt;value&gt;<span class="w"> </span>...
-</code></pre></div>
+<p><code>bash
+$ cmake -D&lt;variable&gt;=&lt;value&gt; ...</code></p>
 <p>下文的 CMake 参数可以在配置 (CMake) 阶段用来调整编译设置。</p>
 <h3 id="cmake_install_prefix">CMAKE_INSTALL_PREFIX<a class="headerlink" href="#cmake_install_prefix" title="Permanent link">&para;</a></h3>
 <p><code>CMAKE_INSTALL_PREFIX</code>指定 Nebula Graph 服务模块、脚本和配置文件的安装路径，默认路径为<code>/usr/local/nebula</code>。</p>
@@ -6372,9 +6372,9 @@
 </ul>
 <h3 id="cmake_c_compilercmake_cxx_compiler">CMAKE_C_COMPILER/CMAKE_CXX_COMPILER<a class="headerlink" href="#cmake_c_compilercmake_cxx_compiler" title="Permanent link">&para;</a></h3>
 <p>通常情况下，CMake 会自动查找并使用主机上的 C/C++编译器，但是如果编译器没有安装在标准路径，或者想使用其他编译器，请执行如下命令指定目标编译器的安装路径：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cmake<span class="w"> </span>-DCMAKE_C_COMPILER<span class="o">=</span>&lt;path_to_gcc/bin/gcc&gt;<span class="w"> </span>-DCMAKE_CXX_COMPILER<span class="o">=</span>&lt;path_to_gcc/bin/g++&gt;<span class="w"> </span>..
-$<span class="w"> </span>cmake<span class="w"> </span>-DCMAKE_C_COMPILER<span class="o">=</span>&lt;path_to_clang/bin/clang&gt;<span class="w"> </span>-DCMAKE_CXX_COMPILER<span class="o">=</span>&lt;path_to_clang/bin/clang++&gt;<span class="w"> </span>..
-</code></pre></div>
+<p><code>bash
+$ cmake -DCMAKE_C_COMPILER=&lt;path_to_gcc/bin/gcc&gt; -DCMAKE_CXX_COMPILER=&lt;path_to_gcc/bin/g++&gt; ..
+$ cmake -DCMAKE_C_COMPILER=&lt;path_to_clang/bin/clang&gt; -DCMAKE_CXX_COMPILER=&lt;path_to_clang/bin/clang++&gt; ..</code></p>
 <h3 id="enable_ccache">ENABLE_CCACHE<a class="headerlink" href="#enable_ccache" title="Permanent link">&para;</a></h3>
 <p><code>ENABLE_CCACHE</code>默认值为<code>ON</code>，表示使用 Ccache（compiler cache）工具加速编译。</p>
 <p>如果想要禁用 ccache，仅仅设置<code>ENABLE_CCACHE=OFF</code>是不行的，因为在某些平台上，ccache 会代理当前编译器，因此还需要设置环境变量<code>export CCACHE_DISABLE=true</code>，或者在文件<code>~/.ccache/ccache.conf</code>中添加<code>disable=true</code>。更多信息请参见 <a href="https://ccache.dev/manual/3.7.6.html">ccache official documentation</a>。</p>
@@ -6399,7 +6399,7 @@ $<span class="w"> </span>cmake<span class="w"> </span>-DCMAKE_C_COMPILER<span cl
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6513,8 +6513,6 @@ $<span class="w"> </span>cmake<span class="w"> </span>-DCMAKE_C_COMPILER<span cl
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

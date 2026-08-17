@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/7.general-query-statements/6.show/14.show-stats/">
       
       <link rel="icon" href="../../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6042,51 +6042,49 @@
 <p><code>SHOW STATS</code>的结果取决于最后一次执行的<code>SUBMIT JOB STATS</code>。如果发生过新的写入或者更改，必须再次执行<code>SUBMIT JOB STATS</code>，否则统计数据有错误。</p>
 </div>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>SHOW STATS;
-</code></pre></div>
+<p><code>ngql
+SHOW STATS;</code></p>
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code># 选择图空间。
-nebula&gt; USE basketballplayer;
-
-# 执行 SUBMIT JOB STATS。
-nebula&gt; SUBMIT JOB STATS;
+<p>```ngql</p>
+<h1 id="_4">选择图空间。<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; USE basketballplayer;</p>
+<h1 id="submit_job_stats">执行 SUBMIT JOB STATS。<a class="headerlink" href="#submit_job_stats" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; SUBMIT JOB STATS;
 +------------+
 | New Job Id |
 +------------+
 | 98         |
-+------------+
-
-# 确认作业执行成功。
-nebula&gt; SHOW JOB 98;
++------------+</p>
+<h1 id="_5">确认作业执行成功。<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; SHOW JOB 98;
 +----------------+---------------+------------+----------------------------+----------------------------+
 | Job Id(TaskId) | Command(Dest) | Status     | Start Time                 | Stop Time                  |
 +----------------+---------------+------------+----------------------------+----------------------------+
-| 98             | &quot;STATS&quot;       | &quot;FINISHED&quot; | 2021-11-01T09:33:21.000000 | 2021-11-01T09:33:21.000000 |
-| 0              | &quot;storaged2&quot;   | &quot;FINISHED&quot; | 2021-11-01T09:33:21.000000 | 2021-11-01T09:33:21.000000 |
-| 1              | &quot;storaged0&quot;   | &quot;FINISHED&quot; | 2021-11-01T09:33:21.000000 | 2021-11-01T09:33:21.000000 |
-| 2              | &quot;storaged1&quot;   | &quot;FINISHED&quot; | 2021-11-01T09:33:21.000000 | 2021-11-01T09:33:21.000000 |
-+----------------+---------------+------------+----------------------------+----------------------------+
-
-# 显示图空间统计信息。
-nebula&gt; SHOW STATS;
+| 98             | "STATS"       | "FINISHED" | 2021-11-01T09:33:21.000000 | 2021-11-01T09:33:21.000000 |
+| 0              | "storaged2"   | "FINISHED" | 2021-11-01T09:33:21.000000 | 2021-11-01T09:33:21.000000 |
+| 1              | "storaged0"   | "FINISHED" | 2021-11-01T09:33:21.000000 | 2021-11-01T09:33:21.000000 |
+| 2              | "storaged1"   | "FINISHED" | 2021-11-01T09:33:21.000000 | 2021-11-01T09:33:21.000000 |
++----------------+---------------+------------+----------------------------+----------------------------+</p>
+<h1 id="_6">显示图空间统计信息。<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; SHOW STATS;
 +---------+------------+-------+
 | Type    | Name       | Count |
 +---------+------------+-------+
-| &quot;Tag&quot;   | &quot;player&quot;   | 51    |
-| &quot;Tag&quot;   | &quot;team&quot;     | 30    |
-| &quot;Edge&quot;  | &quot;follow&quot;   | 81    |
-| &quot;Edge&quot;  | &quot;serve&quot;    | 152   |
-| &quot;Space&quot; | &quot;vertices&quot; | 81    |
-| &quot;Space&quot; | &quot;edges&quot;    | 233   |
+| "Tag"   | "player"   | 51    |
+| "Tag"   | "team"     | 30    |
+| "Edge"  | "follow"   | 81    |
+| "Edge"  | "serve"    | 152   |
+| "Space" | "vertices" | 81    |
+| "Space" | "edges"    | 233   |
 +---------+------------+-------+
-</code></pre></div>
+```</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6200,8 +6198,6 @@ nebula&gt; SHOW STATS;
         <script src="../../../../js/jquery.js"></script>
       
         <script src="../../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

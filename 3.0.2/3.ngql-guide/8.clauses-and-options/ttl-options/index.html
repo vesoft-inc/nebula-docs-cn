@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/8.clauses-and-options/ttl-options/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -1955,22 +1955,8 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#tag_edge_type_1" class="md-nav__link">
-    Tag 或 Edge type 不存在
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    删除存活时间
-  </a>
   
 </li>
       
@@ -6121,22 +6107,8 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#tag_edge_type_1" class="md-nav__link">
-    Tag 或 Edge type 不存在
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    删除存活时间
-  </a>
   
 </li>
       
@@ -6214,38 +6186,37 @@
 <h2 id="ttl_2">使用 TTL 选项<a class="headerlink" href="#ttl_2" title="Permanent link">&para;</a></h2>
 <h3 id="tag_edge_type">Tag 或 Edge type 已存在<a class="headerlink" href="#tag_edge_type" title="Permanent link">&para;</a></h3>
 <p>如果 Tag 和 Edge type 已经创建，请使用<code>ALTER</code>语句更新 Tag 或 Edge type。</p>
-<div class="highlight"><pre><span></span><code># 创建 Tag。
-nebula&gt; CREATE TAG IF NOT EXISTS t1 (a timestamp);
-
-# ALTER 修改 Tag，添加 TTL 选项。
-nebula&gt; ALTER TAG t1 ttl_col = &quot;a&quot;, ttl_duration = 5;
-
-# 插入点，插入后 5 秒过期。
-nebula&gt; INSERT VERTEX t1(a) values &quot;101&quot;:(now());
-</code></pre></div>
+<p>```ngql</p>
+<h1 id="tag">创建 Tag。<a class="headerlink" href="#tag" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; CREATE TAG IF NOT EXISTS t1 (a timestamp);</p>
+<h1 id="alter_tag_ttl">ALTER 修改 Tag，添加 TTL 选项。<a class="headerlink" href="#alter_tag_ttl" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; ALTER TAG t1 ttl_col = "a", ttl_duration = 5;</p>
+<h1 id="5">插入点，插入后 5 秒过期。<a class="headerlink" href="#5" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; INSERT VERTEX t1(a) values "101":(now());
+```</p>
 <h3 id="tag_edge_type_1">Tag 或 Edge type 不存在<a class="headerlink" href="#tag_edge_type_1" title="Permanent link">&para;</a></h3>
 <p>创建 Tag 或 Edge type 时可以同时设置 TTL 选项。详情请参见 <a href="../../10.tag-statements/1.create-tag/">CREATE TAG</a> 和 <a href="../../11.edge-type-statements/1.create-edge/">CREATE EDGE</a>。</p>
-<div class="highlight"><pre><span></span><code># 创建 Tag 并设置 TTL 选项。
-nebula&gt; CREATE TAG IF NOT EXISTS t2(a int, b int, c string) ttl_duration= 100, ttl_col = &quot;a&quot;;
-
-# 插入点。过期时间戳为 1648197238（1648197138 + 100）。
-nebula&gt; INSERT VERTEX t2(a, b, c) values &quot;102&quot;:(1648197138, 30, &quot;Hello&quot;);
-</code></pre></div>
+<p>```ngql</p>
+<h1 id="tag_ttl">创建 Tag 并设置 TTL 选项。<a class="headerlink" href="#tag_ttl" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; CREATE TAG IF NOT EXISTS t2(a int, b int, c string) ttl_duration= 100, ttl_col = "a";</p>
+<h1 id="16481972381648197138_100">插入点。过期时间戳为 1648197238（1648197138 + 100）。<a class="headerlink" href="#16481972381648197138_100" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; INSERT VERTEX t2(a, b, c) values "102":(1648197138, 30, "Hello");
+```</p>
 <h2 id="_6">删除存活时间<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>删除存活时间可以使用如下几种方法：</p>
 <ul>
-<li>删除设置存活时间的属性。<div class="highlight"><pre><span></span><code>nebula&gt; ALTER TAG t1 DROP (a);
-</code></pre></div>
+<li>删除设置存活时间的属性。<p><code>ngql
+  nebula&gt; ALTER TAG t1 DROP (a);</code></p>
 </li>
 </ul>
 <ul>
-<li>设置<code>ttl_col</code>为空字符串。<div class="highlight"><pre><span></span><code>nebula&gt; ALTER TAG t1 ttl_col = &quot;&quot;;
-</code></pre></div>
+<li>设置<code>ttl_col</code>为空字符串。<p><code>ngql
+  nebula&gt; ALTER TAG t1 ttl_col = "";</code></p>
 </li>
 </ul>
 <ul>
-<li>设置<code>ttl_duration</code>为<code>0</code>。本操作可以保留 TTL 选项，属性永不过期，且属性的 Schema 无法修改。<div class="highlight"><pre><span></span><code>nebula&gt; ALTER TAG t1 ttl_duration = 0;
-</code></pre></div>
+<li>设置<code>ttl_duration</code>为<code>0</code>。本操作可以保留 TTL 选项，属性永不过期，且属性的 Schema 无法修改。<p><code>ngql
+  nebula&gt; ALTER TAG t1 ttl_duration = 0;</code></p>
 </li>
 </ul>
 
@@ -6254,7 +6225,7 @@ nebula&gt; INSERT VERTEX t2(a, b, c) values &quot;102&quot;:(1648197138, 30, &qu
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6368,8 +6339,6 @@ nebula&gt; INSERT VERTEX t2(a, b, c) values &quot;102&quot;:(1648197138, 30, &qu
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

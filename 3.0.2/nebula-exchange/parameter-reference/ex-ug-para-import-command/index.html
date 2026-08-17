@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/nebula-exchange/parameter-reference/ex-ug-para-import-command/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -5955,16 +5955,16 @@
 <ul>
 <li>
 <p>首次导入</p>
-<div class="highlight"><pre><span></span><code>&lt;spark_install_path&gt;/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span>&lt;nebula-exchange-2.x.y.jar_path&gt;<span class="w"> </span>-c<span class="w"> </span>&lt;application.conf_path&gt;<span class="w"> </span>
-</code></pre></div>
+<p><code>bash
+&lt;spark_install_path&gt;/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange &lt;nebula-exchange-2.x.y.jar_path&gt; -c &lt;application.conf_path&gt;</code></p>
 </li>
 </ul>
 <ul>
 <li>
 <p>导入 reload 文件</p>
 <p>如果首次导入时有一些数据导入失败，会将导入失败的数据存入 reload 文件，可以用参数<code>-r</code>尝试导入 reload 文件。</p>
-<div class="highlight"><pre><span></span><code>&lt;spark_install_path&gt;/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span>&lt;nebula-exchange-2.x.y.jar_path&gt;<span class="w"> </span>-c<span class="w"> </span>&lt;application.conf_path&gt;<span class="w"> </span>-r<span class="w"> </span><span class="s2">&quot;&lt;reload_file_path&gt;&quot;</span><span class="w"> </span>
-</code></pre></div>
+<p><code>bash
+&lt;spark_install_path&gt;/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange &lt;nebula-exchange-2.x.y.jar_path&gt; -c &lt;application.conf_path&gt; -r "&lt;reload_file_path&gt;"</code></p>
 </li>
 </ul>
 <div class="admonition note">
@@ -5974,14 +5974,14 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>如果使用 <a href="https://spark-reference-doc-cn.readthedocs.io/zh_CN/latest/deploy-guide/running-on-yarn.html">yarn-cluster 模式</a>提交任务，请参考如下示例：</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$SPARK_HOME</span>/bin/spark-submit<span class="w">     </span>--master<span class="w"> </span>yarn-cluster<span class="w"> </span><span class="se">\</span>
---class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span><span class="se">\</span>
---files<span class="w"> </span>application.conf<span class="w"> </span><span class="se">\</span>
---conf<span class="w"> </span>spark.driver.extraClassPath<span class="o">=</span>./<span class="w"> </span><span class="se">\</span>
---conf<span class="w"> </span>spark.executor.extraClassPath<span class="o">=</span>./<span class="w"> </span><span class="se">\</span>
-nebula-exchange-3.0.0.jar<span class="w"> </span><span class="se">\</span>
--c<span class="w"> </span>application.conf
-</code></pre></div>
+<p><code>bash
+$SPARK_HOME/bin/spark-submit     --master yarn-cluster \
+--class com.vesoft.nebula.exchange.Exchange \
+--files application.conf \
+--conf spark.driver.extraClassPath=./ \
+--conf spark.executor.extraClassPath=./ \
+nebula-exchange-3.0.0.jar \
+-c application.conf</code></p>
 </div>
 <p>下表列出了命令的相关参数。</p>
 <table>
@@ -6039,7 +6039,7 @@ nebula-exchange-3.0.0.jar<span class="w"> </span><span class="se">\</span>
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6153,8 +6153,6 @@ nebula-exchange-3.0.0.jar<span class="w"> </span><span class="se">\</span>
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

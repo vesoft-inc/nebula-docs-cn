@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/2.quick-start/4.nebula-graph-crud/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6486,27 +6486,28 @@
 <p class="admonition-title">Compatibility</p>
 <p>从 3.0.0 版本开始，在配置文件中添加的 Storage 节点无法直接读写，配置文件的作用仅仅是将 Storage 节点注册至 Meta 服务中。必须使用<code>ADD HOSTS</code>命令后，才能正常读写 Storage 节点。</p>
 </div>
-<div class="highlight"><pre><span></span><code>ADD HOSTS &lt;ip&gt;:&lt;port&gt; [,&lt;ip&gt;:&lt;port&gt; ...];
-</code></pre></div>
+<p><code>ngql
+ADD HOSTS &lt;ip&gt;:&lt;port&gt; [,&lt;ip&gt;:&lt;port&gt; ...];</code></p>
 <!--
-<div class="highlight"><pre><span></span><code>ADD HOSTS &lt;ip&gt;:&lt;port&gt; [,&lt;ip&gt;:&lt;port&gt; ...] [INTO NEW ZONE &quot;&lt;new_zone_name&gt;&quot;];
-</code></pre></div>
+```ngql
+ADD HOSTS <ip>:<port> [,<ip>:<port> ...] [INTO NEW ZONE "<new_zone_name>"];
+```
 -->
 
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; ADD HOSTS 192.168.10.100:9779, 192.168.10.101:9779, 192.168.10.102:9779;
-</code></pre></div>
+<p><code>ngql
+nebula&gt; ADD HOSTS 192.168.10.100:9779, 192.168.10.101:9779, 192.168.10.102:9779;</code></p>
 <h2 id="nebula_graph">检查 Nebula Graph 集群的机器状态<a class="headerlink" href="#nebula_graph" title="Permanent link">&para;</a></h2>
 <p>Storage 服务加入集群后，可以执行命令<code>SHOW HOSTS</code>查看机器状态。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; SHOW HOSTS;
+<p><code>ngql
+nebula&gt; SHOW HOSTS;
 +------------------+------+----------+--------------+----------------------+------------------------+---------+
 | Host             | Port | Status   | Leader count | Leader distribution  | Partition distribution | Version |
 +------------------+------+----------+--------------+----------------------+------------------------+---------+
-| &quot;192.168.10.100&quot; | 9779 | &quot;ONLINE&quot; | 0            | &quot;No valid partition&quot; | &quot;No valid partition&quot;   | &quot;3.0.1&quot; |
-| &quot;192.168.10.101&quot; | 9779 | &quot;ONLINE&quot; | 0            | &quot;No valid partition&quot; | &quot;No valid partition&quot;   | &quot;3.0.1&quot; |
-| &quot;192.168.10.102&quot; | 9779 | &quot;ONLINE&quot; | 0            | &quot;No valid partition&quot; | &quot;No valid partition&quot;   | &quot;3.0.1&quot; |
-+------------------+------+----------+--------------+----------------------+------------------------+---------+
-</code></pre></div>
+| "192.168.10.100" | 9779 | "ONLINE" | 0            | "No valid partition" | "No valid partition"   | "3.0.1" |
+| "192.168.10.101" | 9779 | "ONLINE" | 0            | "No valid partition" | "No valid partition"   | "3.0.1" |
+| "192.168.10.102" | 9779 | "ONLINE" | 0            | "No valid partition" | "No valid partition"   | "3.0.1" |
++------------------+------+----------+--------------+----------------------+------------------------+---------+</code></p>
 <p>在返回结果中，查看 <strong>Status</strong> 列，可以看到所有 Storage 服务都在线。</p>
 <h3 id="_1">异步实现创建和修改<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <div class="admonition caution">
@@ -6529,14 +6530,14 @@
 <h2 id="_2">创建和选择图空间<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="ngql">nGQL 语法<a class="headerlink" href="#ngql" title="Permanent link">&para;</a></h3>
 <ul>
-<li>创建图空间<div class="highlight"><pre><span></span><code>CREATE SPACE [IF NOT EXISTS] &lt;graph_space_name&gt; (
-[partition_num = &lt;partition_number&gt;,]
-[replica_factor = &lt;replica_number&gt;,]
-vid_type = {FIXED_STRING(&lt;N&gt;) | INT64}
-)
-
-[COMMENT = &#39;&lt;comment&gt;&#39;];
-</code></pre></div>
+<li>创建图空间<p>```ngql
+  CREATE SPACE [IF NOT EXISTS] <graph_space_name> (
+  [partition_num = <partition_number>,]
+  [replica_factor = <replica_number>,]
+  vid_type = {FIXED_STRING(<N>) | INT64}
+  )</p>
+<p>[COMMENT = '<comment>'];
+  ```</p>
 <p>参数详情请参见 <a href="../../3.ngql-guide/9.space-statements/1.create-space/">CREATE SPACE</a>。</p>
 <!-- <code>charset</code>和<code>collate</code>当前只有一个可选值，忽略。
       charset = <charset>
@@ -6545,60 +6546,60 @@ vid_type = {FIXED_STRING(&lt;N&gt;) | INT64}
 </li>
 </ul>
 <ul>
-<li>列出创建成功的图空间<div class="highlight"><pre><span></span><code>nebula&gt; SHOW SPACES;
-</code></pre></div>
+<li>列出创建成功的图空间<p><code>ngql
+  nebula&gt; SHOW SPACES;</code></p>
 </li>
 </ul>
 <ul>
-<li>选择数据库<div class="highlight"><pre><span></span><code>USE &lt;graph_space_name&gt;;
-</code></pre></div>
+<li>选择数据库<p><code>ngql
+  USE &lt;graph_space_name&gt;;</code></p>
 </li>
 </ul>
 <h3 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>执行如下语句创建名为<code>basketballplayer</code>的图空间。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; CREATE SPACE basketballplayer(partition_num=15, replica_factor=1, vid_type=fixed_string(30));
-</code></pre></div>
+<p><code>ngql
+  nebula&gt; CREATE SPACE basketballplayer(partition_num=15, replica_factor=1, vid_type=fixed_string(30));</code></p>
 </li>
 <li>
 <p>执行命令<code>SHOW HOSTS</code>检查分片的分布情况，确保平衡分布。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; SHOW HOSTS;
-+-------------+-----------+-----------+--------------+----------------------------------+------------------------+---------+
-| Host        | Port      | Status    | Leader count | Leader distribution              | Partition distribution | Version |
-+-------------+-----------+-----------+--------------+----------------------------------+------------------------+---------+
-| &quot;storaged0&quot; | 9779      | &quot;ONLINE&quot;  | 5            | &quot;basketballplayer:5&quot;             | &quot;basketballplayer:5&quot;   | &quot;3.0.1&quot; |
-| &quot;storaged1&quot; | 9779      | &quot;ONLINE&quot;  | 5            | &quot;basketballplayer:5&quot;             | &quot;basketballplayer:5&quot;   | &quot;3.0.1&quot; |
-| &quot;storaged2&quot; | 9779      | &quot;ONLINE&quot;  | 5            | &quot;basketballplayer:5&quot;             | &quot;basketballplayer:5&quot;   | &quot;3.0.1&quot; |
-+-------------+-----------+-----------+--------------+----------------------------------+------------------------+---------+
-</code></pre></div>
+<p><code>ngql
+  nebula&gt; SHOW HOSTS;
+  +-------------+-----------+-----------+--------------+----------------------------------+------------------------+---------+
+  | Host        | Port      | Status    | Leader count | Leader distribution              | Partition distribution | Version |
+  +-------------+-----------+-----------+--------------+----------------------------------+------------------------+---------+
+  | "storaged0" | 9779      | "ONLINE"  | 5            | "basketballplayer:5"             | "basketballplayer:5"   | "3.0.1" |
+  | "storaged1" | 9779      | "ONLINE"  | 5            | "basketballplayer:5"             | "basketballplayer:5"   | "3.0.1" |
+  | "storaged2" | 9779      | "ONLINE"  | 5            | "basketballplayer:5"             | "basketballplayer:5"   | "3.0.1" |
+  +-------------+-----------+-----------+--------------+----------------------------------+------------------------+---------+</code></p>
 <p>如果<strong> Leader distribution </strong>分布不均匀，请执行命令<code>BALANCE LEADER</code>重新分配。更多信息，请参见 <a href="../../8.service-tuning/load-balance/">Storage 负载均衡</a>。</p>
 </li>
 <li>
 <p>选择图空间<code>basketballplayer</code>。</p>
-<div class="highlight"><pre><span></span><code>nebula[(none)]&gt; USE basketballplayer;
-</code></pre></div>
+<p><code>ngql
+  nebula[(none)]&gt; USE basketballplayer;</code></p>
 <p>用户可以执行命令<code>SHOW SPACES</code>查看创建的图空间。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; SHOW SPACES;
-+--------------------+
-| Name               |
-+--------------------+
-| &quot;basketballplayer&quot; |
-+--------------------+
-</code></pre></div>
+<p><code>ngql
+  nebula&gt; SHOW SPACES;
+  +--------------------+
+  | Name               |
+  +--------------------+
+  | "basketballplayer" |
+  +--------------------+</code></p>
 </li>
 </ol>
 <h2 id="tag_edge_type">创建 Tag 和 Edge type<a class="headerlink" href="#tag_edge_type" title="Permanent link">&para;</a></h2>
 <h3 id="ngql_1">nGQL 语法<a class="headerlink" href="#ngql_1" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>CREATE {TAG | EDGE} [IF NOT EXISTS] {&lt;tag_name&gt; | &lt;edge_type_name&gt;}
+<p><code>ngql
+CREATE {TAG | EDGE} [IF NOT EXISTS] {&lt;tag_name&gt; | &lt;edge_type_name&gt;}
     (
-      &lt;prop_name&gt; &lt;data_type&gt; [NULL | NOT NULL] [DEFAULT &lt;default_value&gt;] [COMMENT &#39;&lt;comment&gt;&#39;]
-      [{, &lt;prop_name&gt; &lt;data_type&gt; [NULL | NOT NULL] [DEFAULT &lt;default_value&gt;] [COMMENT &#39;&lt;comment&gt;&#39;]} ...] 
+      &lt;prop_name&gt; &lt;data_type&gt; [NULL | NOT NULL] [DEFAULT &lt;default_value&gt;] [COMMENT '&lt;comment&gt;']
+      [{, &lt;prop_name&gt; &lt;data_type&gt; [NULL | NOT NULL] [DEFAULT &lt;default_value&gt;] [COMMENT '&lt;comment&gt;']} ...] 
     )
     [TTL_DURATION = &lt;ttl_duration&gt;]
     [TTL_COL = &lt;prop_name&gt;]
-    [COMMENT = &#39;&lt;comment&gt;&#39;];
-</code></pre></div>
+    [COMMENT = '&lt;comment&gt;'];</code></p>
 <p>参数详情请参见 <a href="../../3.ngql-guide/10.tag-statements/1.create-tag/">CREATE TAG</a> 和 <a href="../../3.ngql-guide/11.edge-type-statements/1.create-edge/">CREATE EDGE</a>。</p>
 <h3 id="_4">示例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>创建 Tag:<code>player</code>和<code>team</code>，以及 Edge type:<code>follow</code>和<code>serve</code>。说明如下表。</p>
@@ -6633,68 +6634,59 @@ vid_type = {FIXED_STRING(&lt;N&gt;) | INT64}
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG player(name string, age int);
-
-nebula&gt; CREATE TAG team(name string);
-
-nebula&gt; CREATE EDGE follow(degree int);
-
-nebula&gt; CREATE EDGE serve(start_year int, end_year int);
-</code></pre></div>
+<p>```ngql
+nebula&gt; CREATE TAG player(name string, age int);</p>
+<p>nebula&gt; CREATE TAG team(name string);</p>
+<p>nebula&gt; CREATE EDGE follow(degree int);</p>
+<p>nebula&gt; CREATE EDGE serve(start_year int, end_year int);
+```</p>
 <h2 id="_5">插入点和边<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>用户可以使用<code>INSERT</code>语句，基于现有的 Tag 插入点，或者基于现有的 Edge type 插入边。</p>
 <h3 id="ngql_2">nGQL 语法<a class="headerlink" href="#ngql_2" title="Permanent link">&para;</a></h3>
 <ul>
-<li>插入点<div class="highlight"><pre><span></span><code>INSERT VERTEX [IF NOT EXISTS] [tag_props, [tag_props] ...]
-VALUES &lt;vid&gt;: ([prop_value_list])
-
-tag_props:
-  tag_name ([prop_name_list])
-
-prop_name_list:
-   [prop_name [, prop_name] ...]
-
-prop_value_list:
-   [prop_value [, prop_value] ...]  
-</code></pre></div>
+<li>插入点<p>```ngql
+  INSERT VERTEX [IF NOT EXISTS] [tag_props, [tag_props] ...]
+  VALUES <vid>: ([prop_value_list])</p>
+<p>tag_props:
+    tag_name ([prop_name_list])</p>
+<p>prop_name_list:
+     [prop_name [, prop_name] ...]</p>
+<p>prop_value_list:
+     [prop_value [, prop_value] ...]<br />
+  ```</p>
 <p><code>vid</code>是 Vertex ID 的缩写，<code>vid</code>在一个图空间中是唯一的。参数详情请参见 <a href="../../3.ngql-guide/12.vertex-statements/1.insert-vertex/">INSERT VERTEX</a>。</p>
 </li>
 </ul>
 <ul>
-<li>插入边<div class="highlight"><pre><span></span><code>INSERT EDGE [IF NOT EXISTS] &lt;edge_type&gt; ( &lt;prop_name_list&gt; ) VALUES 
-&lt;src_vid&gt; -&gt; &lt;dst_vid&gt;[@&lt;rank&gt;] : ( &lt;prop_value_list&gt; )
-[, &lt;src_vid&gt; -&gt; &lt;dst_vid&gt;[@&lt;rank&gt;] : ( &lt;prop_value_list&gt; ), ...];
-
-&lt;prop_name_list&gt; ::=
-[ &lt;prop_name&gt; [, &lt;prop_name&gt; ] ...]
-
-&lt;prop_value_list&gt; ::=
-[ &lt;prop_value&gt; [, &lt;prop_value&gt; ] ...]
-</code></pre></div>
+<li>插入边<p>```ngql
+  INSERT EDGE [IF NOT EXISTS] <edge_type> ( <prop_name_list> ) VALUES 
+  <src_vid> -&gt; <dst_vid>[@<rank>] : ( <prop_value_list> )
+  [, <src_vid> -&gt; <dst_vid>[@<rank>] : ( <prop_value_list> ), ...];</p>
+<p><prop_name_list> ::=
+  [ <prop_name> [, <prop_name> ] ...]</p>
+<p><prop_value_list> ::=
+  [ <prop_value> [, <prop_value> ] ...]
+  ```</p>
 <p>参数详情请参见 <a href="../../3.ngql-guide/13.edge-statements/1.insert-edge/">INSERT EDGE</a>。</p>
 </li>
 </ul>
 <h3 id="_6">示例<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <ul>
-<li>插入代表球员和球队的点。<div class="highlight"><pre><span></span><code>nebula&gt; INSERT VERTEX player(name, age) VALUES &quot;player100&quot;:(&quot;Tim Duncan&quot;, 42);
-
-nebula&gt; INSERT VERTEX player(name, age) VALUES &quot;player101&quot;:(&quot;Tony Parker&quot;, 36);
-
-nebula&gt; INSERT VERTEX player(name, age) VALUES &quot;player102&quot;:(&quot;LaMarcus Aldridge&quot;, 33);
-
-nebula&gt; INSERT VERTEX team(name) VALUES &quot;team203&quot;:(&quot;Trail Blazers&quot;), &quot;team204&quot;:(&quot;Spurs&quot;);
-</code></pre></div>
+<li>插入代表球员和球队的点。<p>```ngql
+  nebula&gt; INSERT VERTEX player(name, age) VALUES "player100":("Tim Duncan", 42);</p>
+<p>nebula&gt; INSERT VERTEX player(name, age) VALUES "player101":("Tony Parker", 36);</p>
+<p>nebula&gt; INSERT VERTEX player(name, age) VALUES "player102":("LaMarcus Aldridge", 33);</p>
+<p>nebula&gt; INSERT VERTEX team(name) VALUES "team203":("Trail Blazers"), "team204":("Spurs");
+  ```</p>
 </li>
 </ul>
 <ul>
-<li>插入代表球员和球队之间关系的边。<div class="highlight"><pre><span></span><code>nebula&gt; INSERT EDGE follow(degree) VALUES &quot;player101&quot; -&gt; &quot;player100&quot;:(95);
-
-nebula&gt; INSERT EDGE follow(degree) VALUES &quot;player101&quot; -&gt; &quot;player102&quot;:(90);
-
-nebula&gt; INSERT EDGE follow(degree) VALUES &quot;player102&quot; -&gt; &quot;player100&quot;:(75);
-
-nebula&gt; INSERT EDGE serve(start_year, end_year) VALUES &quot;player101&quot; -&gt; &quot;team204&quot;:(1999, 2018),&quot;player102&quot; -&gt; &quot;team203&quot;:(2006,  2015);
-</code></pre></div>
+<li>插入代表球员和球队之间关系的边。<p>```ngql
+  nebula&gt; INSERT EDGE follow(degree) VALUES "player101" -&gt; "player100":(95);</p>
+<p>nebula&gt; INSERT EDGE follow(degree) VALUES "player101" -&gt; "player102":(90);</p>
+<p>nebula&gt; INSERT EDGE follow(degree) VALUES "player102" -&gt; "player100":(75);</p>
+<p>nebula&gt; INSERT EDGE serve(start_year, end_year) VALUES "player101" -&gt; "team204":(1999, 2018),"player102" -&gt; "team203":(2006,  2015);
+  ```</p>
 </li>
 </ul>
 <h2 id="_7">查询数据<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
@@ -6712,15 +6704,15 @@ nebula&gt; INSERT EDGE serve(start_year, end_year) VALUES &quot;player101&quot; 
 </ul>
 <h3 id="ngql_3">nGQL 语法<a class="headerlink" href="#ngql_3" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>GO</code><div class="highlight"><pre><span></span><code>GO [[&lt;M&gt; TO] &lt;N&gt; STEPS ] FROM &lt;vertex_list&gt;
-OVER &lt;edge_type_list&gt; [{REVERSELY | BIDIRECT}]
-[ WHERE &lt;conditions&gt; ]
-YIELD [DISTINCT] &lt;return_list&gt;
-[{ SAMPLE &lt;sample_list&gt; | &lt;limit_by_list_clause&gt; }]
-[| GROUP BY {&lt;col_name&gt; | expression&gt; | &lt;position&gt;} YIELD &lt;col_name&gt;]
-[| ORDER BY &lt;expression&gt; [{ASC | DESC}]]
-[| LIMIT [&lt;offset&gt;,] &lt;number_rows&gt;];
-</code></pre></div>
+<li><code>GO</code><p><code>ngql
+  GO [[&lt;M&gt; TO] &lt;N&gt; STEPS ] FROM &lt;vertex_list&gt;
+  OVER &lt;edge_type_list&gt; [{REVERSELY | BIDIRECT}]
+  [ WHERE &lt;conditions&gt; ]
+  YIELD [DISTINCT] &lt;return_list&gt;
+  [{ SAMPLE &lt;sample_list&gt; | &lt;limit_by_list_clause&gt; }]
+  [| GROUP BY {&lt;col_name&gt; | expression&gt; | &lt;position&gt;} YIELD &lt;col_name&gt;]
+  [| ORDER BY &lt;expression&gt; [{ASC | DESC}]]
+  [| LIMIT [&lt;offset&gt;,] &lt;number_rows&gt;];</code></p>
 </li>
 </ul>
 <ul>
@@ -6729,60 +6721,60 @@ YIELD [DISTINCT] &lt;return_list&gt;
 <ul>
 <li>
 <p>查询 Tag 属性</p>
-<div class="highlight"><pre><span></span><code>FETCH PROP ON {&lt;tag_name&gt;[, tag_name ...] | *}
+<p><code>ngql
+FETCH PROP ON {&lt;tag_name&gt;[, tag_name ...] | *}
 &lt;vid&gt; [, vid ...]
-YIELD &lt;return_list&gt; [AS &lt;alias&gt;];
-</code></pre></div>
+YIELD &lt;return_list&gt; [AS &lt;alias&gt;];</code></p>
 </li>
 </ul>
 <ul>
 <li>
 <p>查询边属性</p>
-<div class="highlight"><pre><span></span><code>FETCH PROP ON &lt;edge_type&gt; &lt;src_vid&gt; -&gt; &lt;dst_vid&gt;[@&lt;rank&gt;] [, &lt;src_vid&gt; -&gt; &lt;dst_vid&gt; ...]
-YIELD &lt;output&gt;;
-</code></pre></div>
+<p><code>ngql
+FETCH PROP ON &lt;edge_type&gt; &lt;src_vid&gt; -&gt; &lt;dst_vid&gt;[@&lt;rank&gt;] [, &lt;src_vid&gt; -&gt; &lt;dst_vid&gt; ...]
+YIELD &lt;output&gt;;</code></p>
 </li>
 </ul>
 </li>
 </ul>
 <ul>
-<li><code>LOOKUP</code><div class="highlight"><pre><span></span><code>LOOKUP ON {&lt;vertex_tag&gt; | &lt;edge_type&gt;}
-[WHERE &lt;expression&gt; [AND &lt;expression&gt; ...]]
-YIELD &lt;return_list&gt; [AS &lt;alias&gt;];
-
-&lt;return_list&gt;
-    &lt;prop_name&gt; [AS &lt;col_alias&gt;] [, &lt;prop_name&gt; [AS &lt;prop_alias&gt;] ...];
-</code></pre></div>
+<li><code>LOOKUP</code><p>```ngql
+  LOOKUP ON {<vertex_tag> | <edge_type>}
+  [WHERE <expression> [AND <expression> ...]]
+  YIELD <return_list> [AS <alias>];</p>
+<p><return_list>
+      <prop_name> [AS <col_alias>] [, <prop_name> [AS <prop_alias>] ...];
+  ```</p>
 </li>
 </ul>
 <ul>
-<li><code>MATCH</code><div class="highlight"><pre><span></span><code>MATCH &lt;pattern&gt; [&lt;clause_1&gt;]  RETURN &lt;output&gt;  [&lt;clause_2&gt;];
-</code></pre></div>
+<li><code>MATCH</code><p><code>nGQL
+  MATCH &lt;pattern&gt; [&lt;clause_1&gt;]  RETURN &lt;output&gt;  [&lt;clause_2&gt;];</code></p>
 </li>
 </ul>
 <h3 id="go"><code>GO</code>语句示例<a class="headerlink" href="#go" title="Permanent link">&para;</a></h3>
 <ul>
-<li>从 VID 为<code>player101</code>的球员开始，沿着边<code>follow</code>找到连接的球员。<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM &quot;player101&quot; OVER follow YIELD id($$);
-+-------------+
-| id($$)      |
-+-------------+
-| &quot;player100&quot; |
-| &quot;player102&quot; |
-| &quot;player125&quot; |
-+-------------+
-</code></pre></div>
+<li>从 VID 为<code>player101</code>的球员开始，沿着边<code>follow</code>找到连接的球员。<p><code>ngql
+  nebula&gt; GO FROM "player101" OVER follow YIELD id($$);
+  +-------------+
+  | id($$)      |
+  +-------------+
+  | "player100" |
+  | "player102" |
+  | "player125" |
+  +-------------+</code></p>
 </li>
 </ul>
 <ul>
-<li>从 VID 为<code>player101</code>的球员开始，沿着边<code>follow</code>查找年龄大于或等于 35 岁的球员，并返回他们的姓名和年龄，同时重命名对应的列。<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM &quot;player101&quot; OVER follow WHERE properties($$).age &gt;= 35 \
-        YIELD properties($$).name AS Teammate, properties($$).age AS Age;
-+-----------------+-----+
-| Teammate        | Age |
-+-----------------+-----+
-| &quot;Tim Duncan&quot;    | 42  |
-| &quot;Manu Ginobili&quot; | 41  |
-+-----------------+-----+
-</code></pre></div>
+<li>从 VID 为<code>player101</code>的球员开始，沿着边<code>follow</code>查找年龄大于或等于 35 岁的球员，并返回他们的姓名和年龄，同时重命名对应的列。<p><code>ngql
+  nebula&gt; GO FROM "player101" OVER follow WHERE properties($$).age &gt;= 35 \
+          YIELD properties($$).name AS Teammate, properties($$).age AS Age;
+  +-----------------+-----+
+  | Teammate        | Age |
+  +-----------------+-----+
+  | "Tim Duncan"    | 42  |
+  | "Manu Ginobili" | 41  |
+  +-----------------+-----+</code></p>
 <table>
 <thead>
 <tr>
@@ -6813,18 +6805,18 @@ YIELD &lt;return_list&gt; [AS &lt;alias&gt;];
 <ul>
 <li>
 <p>使用管道符</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM &quot;player101&quot; OVER follow YIELD dst(edge) AS id | \
+<p><code>ngql
+nebula&gt; GO FROM "player101" OVER follow YIELD dst(edge) AS id | \
         GO FROM $-.id OVER serve YIELD properties($$).name AS Team, \
         properties($^).name AS Player;
 +-----------------+---------------------+
 | Team            | Player              |
 +-----------------+---------------------+
-| &quot;Spurs&quot;         | &quot;Tim Duncan&quot;        |
-| &quot;Trail Blazers&quot; | &quot;LaMarcus Aldridge&quot; |
-| &quot;Spurs&quot;         | &quot;LaMarcus Aldridge&quot; |
-| &quot;Spurs&quot;         | &quot;Manu Ginobili&quot;     |
-+-----------------+---------------------+
-</code></pre></div>
+| "Spurs"         | "Tim Duncan"        |
+| "Trail Blazers" | "LaMarcus Aldridge" |
+| "Spurs"         | "LaMarcus Aldridge" |
+| "Spurs"         | "Manu Ginobili"     |
++-----------------+---------------------+</code></p>
 <table>
 <thead>
 <tr>
@@ -6856,31 +6848,31 @@ YIELD &lt;return_list&gt; [AS &lt;alias&gt;];
 <p class="admonition-title">Note</p>
 <p>当复合语句作为一个整体提交给服务器时，其中的临时变量会在语句结束时被释放。</p>
 </div>
-<div class="highlight"><pre><span></span><code>nebula&gt; $var = GO FROM &quot;player101&quot; OVER follow YIELD dst(edge) AS id; \
+<p><code>ngql
+nebula&gt; $var = GO FROM "player101" OVER follow YIELD dst(edge) AS id; \
         GO FROM $var.id OVER serve YIELD properties($$).name AS Team, \
         properties($^).name AS Player;
 +-----------------+---------------------+
 | Team            | Player              |
 +-----------------+---------------------+
-| &quot;Spurs&quot;         | &quot;Tim Duncan&quot;        |
-| &quot;Trail Blazers&quot; | &quot;LaMarcus Aldridge&quot; |
-| &quot;Spurs&quot;         | &quot;LaMarcus Aldridge&quot; |
-| &quot;Spurs&quot;         | &quot;Manu Ginobili&quot;     |
-+-----------------+---------------------+
-</code></pre></div>
+| "Spurs"         | "Tim Duncan"        |
+| "Trail Blazers" | "LaMarcus Aldridge" |
+| "Spurs"         | "LaMarcus Aldridge" |
+| "Spurs"         | "Manu Ginobili"     |
++-----------------+---------------------+</code></p>
 </li>
 </ul>
 </li>
 </ul>
 <h3 id="fetch"><code>FETCH</code>语句示例<a class="headerlink" href="#fetch" title="Permanent link">&para;</a></h3>
 <p>查询 VID 为<code>player100</code>的球员的属性。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player &quot;player100&quot; YIELD properties(vertex);
+<p><code>ngql
+nebula&gt; FETCH PROP ON player "player100" YIELD properties(vertex);
 +-------------------------------+
 | properties(VERTEX)            |
 +-------------------------------+
-| {age: 42, name: &quot;Tim Duncan&quot;} |
-+-------------------------------+
-</code></pre></div>
+| {age: 42, name: "Tim Duncan"} |
++-------------------------------+</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><code>LOOKUP</code>和<code>MATCH</code>的示例在下文的<a href="#_12">索引</a> 部分查看。</p>
@@ -6894,84 +6886,84 @@ YIELD &lt;return_list&gt; [AS &lt;alias&gt;];
 </div>
 <h3 id="ngql_4">nGQL 语法<a class="headerlink" href="#ngql_4" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>UPDATE</code>点<div class="highlight"><pre><span></span><code>UPDATE VERTEX &lt;vid&gt; SET &lt;properties to be updated&gt;
-[WHEN &lt;condition&gt;] [YIELD &lt;columns&gt;];
-</code></pre></div>
+<li><code>UPDATE</code>点<p><code>ngql
+  UPDATE VERTEX &lt;vid&gt; SET &lt;properties to be updated&gt;
+  [WHEN &lt;condition&gt;] [YIELD &lt;columns&gt;];</code></p>
 </li>
 </ul>
 <ul>
-<li><code>UPDATE</code>边<div class="highlight"><pre><span></span><code>UPDATE EDGE &lt;source vid&gt; -&gt; &lt;destination vid&gt; [@rank] OF &lt;edge_type&gt;
-SET &lt;properties to be updated&gt; [WHEN &lt;condition&gt;] [YIELD &lt;columns to be output&gt;];
-</code></pre></div>
+<li><code>UPDATE</code>边<p><code>ngql
+  UPDATE EDGE &lt;source vid&gt; -&gt; &lt;destination vid&gt; [@rank] OF &lt;edge_type&gt;
+  SET &lt;properties to be updated&gt; [WHEN &lt;condition&gt;] [YIELD &lt;columns to be output&gt;];</code></p>
 </li>
 </ul>
 <ul>
-<li><code>UPSERT</code>点或边<div class="highlight"><pre><span></span><code>UPSERT {VERTEX &lt;vid&gt; | EDGE &lt;edge_type&gt;} SET &lt;update_columns&gt;
-[WHEN &lt;condition&gt;] [YIELD &lt;columns&gt;];
-</code></pre></div>
+<li><code>UPSERT</code>点或边<p><code>ngql
+  UPSERT {VERTEX &lt;vid&gt; | EDGE &lt;edge_type&gt;} SET &lt;update_columns&gt;
+  [WHEN &lt;condition&gt;] [YIELD &lt;columns&gt;];</code></p>
 </li>
 </ul>
 <h3 id="_9">示例<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <ul>
-<li>用<code>UPDATE</code>修改 VID 为<code>player100</code>的球员的<code>name</code>属性，然后用<code>FETCH</code>语句检查结果。<div class="highlight"><pre><span></span><code>nebula&gt; UPDATE VERTEX &quot;player100&quot; SET player.name = &quot;Tim&quot;;
-
-nebula&gt; FETCH PROP ON player &quot;player100&quot; YIELD properties(vertex);
-+------------------------+
-| properties(VERTEX)     |
-+------------------------+
-| {age: 42, name: &quot;Tim&quot;} |
-+------------------------+
-</code></pre></div>
+<li>用<code>UPDATE</code>修改 VID 为<code>player100</code>的球员的<code>name</code>属性，然后用<code>FETCH</code>语句检查结果。<p>```ngql
+  nebula&gt; UPDATE VERTEX "player100" SET player.name = "Tim";</p>
+<p>nebula&gt; FETCH PROP ON player "player100" YIELD properties(vertex);
+  +------------------------+
+  | properties(VERTEX)     |
+  +------------------------+
+  | {age: 42, name: "Tim"} |
+  +------------------------+
+  ```</p>
 </li>
 </ul>
 <ul>
-<li>用<code>UPDATE</code>修改某条边的<code>degree</code>属性，然后用<code>FETCH</code>检查结果。<div class="highlight"><pre><span></span><code>nebula&gt; UPDATE EDGE &quot;player101&quot; -&gt; &quot;player100&quot; OF follow SET degree = 96;
-
-nebula&gt; FETCH PROP ON follow &quot;player101&quot; -&gt; &quot;player100&quot; YIELD properties(edge);
-+------------------+
-| properties(EDGE) |
-+------------------+
-| {degree: 96}     |
-+------------------+
-</code></pre></div>
+<li>用<code>UPDATE</code>修改某条边的<code>degree</code>属性，然后用<code>FETCH</code>检查结果。<p>```ngql
+  nebula&gt; UPDATE EDGE "player101" -&gt; "player100" OF follow SET degree = 96;</p>
+<p>nebula&gt; FETCH PROP ON follow "player101" -&gt; "player100" YIELD properties(edge);
+  +------------------+
+  | properties(EDGE) |
+  +------------------+
+  | {degree: 96}     |
+  +------------------+
+  ```</p>
 </li>
 </ul>
 <ul>
-<li>用<code>INSERT</code>插入一个 VID 为<code>player111</code>的点，然后用<code>UPSERT</code>更新它。<div class="highlight"><pre><span></span><code>nebula&gt; INSERT VERTEX player(name,age) VALUES &quot;player111&quot;:(&quot;David West&quot;, 38);
-
-nebula&gt; UPSERT VERTEX &quot;player111&quot; SET player.name = &quot;David&quot;, player.age = $^.player.age + 11 \
-        WHEN $^.player.name == &quot;David West&quot; AND $^.player.age &gt; 20 \
-        YIELD $^.player.name AS Name, $^.player.age AS Age;
-+---------+-----+
-| Name    | Age |
-+---------+-----+
-| &quot;David&quot; | 49  |
-+---------+-----+
-</code></pre></div>
+<li>用<code>INSERT</code>插入一个 VID 为<code>player111</code>的点，然后用<code>UPSERT</code>更新它。<p>```ngql
+  nebula&gt; INSERT VERTEX player(name,age) VALUES "player111":("David West", 38);</p>
+<p>nebula&gt; UPSERT VERTEX "player111" SET player.name = "David", player.age = $^.player.age + 11 \
+          WHEN $^.player.name == "David West" AND $^.player.age &gt; 20 \
+          YIELD $^.player.name AS Name, $^.player.age AS Age;
+  +---------+-----+
+  | Name    | Age |
+  +---------+-----+
+  | "David" | 49  |
+  +---------+-----+
+  ```</p>
 </li>
 </ul>
 <h2 id="_10">删除点和边<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
 <h3 id="ngql_5">nGQL 语法<a class="headerlink" href="#ngql_5" title="Permanent link">&para;</a></h3>
 <ul>
-<li>删除点<div class="highlight"><pre><span></span><code>DELETE VERTEX &lt;vid1&gt;[, &lt;vid2&gt;...]
-</code></pre></div>
+<li>删除点<p><code>ngql
+  DELETE VERTEX &lt;vid1&gt;[, &lt;vid2&gt;...]</code></p>
 </li>
 </ul>
 <ul>
-<li>删除边<div class="highlight"><pre><span></span><code>DELETE EDGE &lt;edge_type&gt; &lt;src_vid&gt; -&gt; &lt;dst_vid&gt;[@&lt;rank&gt;]
-[, &lt;src_vid&gt; -&gt; &lt;dst_vid&gt;...]
-</code></pre></div>
+<li>删除边<p><code>ngql
+  DELETE EDGE &lt;edge_type&gt; &lt;src_vid&gt; -&gt; &lt;dst_vid&gt;[@&lt;rank&gt;]
+  [, &lt;src_vid&gt; -&gt; &lt;dst_vid&gt;...]</code></p>
 </li>
 </ul>
 <h3 id="_11">示例<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <ul>
-<li>删除点<div class="highlight"><pre><span></span><code>nebula&gt; DELETE VERTEX &quot;player111&quot;, &quot;team203&quot;;
-</code></pre></div>
+<li>删除点<p><code>ngql
+  nebula&gt; DELETE VERTEX "player111", "team203";</code></p>
 </li>
 </ul>
 <ul>
-<li>删除边<div class="highlight"><pre><span></span><code>nebula&gt; DELETE EDGE follow &quot;player101&quot; -&gt; &quot;team204&quot;;
-</code></pre></div>
+<li>删除边<p><code>ngql
+  nebula&gt; DELETE EDGE follow "player101" -&gt; "team204";</code></p>
 </li>
 </ul>
 <h2 id="_12">索引<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
@@ -6983,14 +6975,14 @@ nebula&gt; UPSERT VERTEX &quot;player111&quot; SET player.name = &quot;David&quo
 </div>
 <h3 id="ngql_6">nGQL 语法<a class="headerlink" href="#ngql_6" title="Permanent link">&para;</a></h3>
 <ul>
-<li>创建索引<div class="highlight"><pre><span></span><code>CREATE {TAG | EDGE} INDEX [IF NOT EXISTS] &lt;index_name&gt;
-ON {&lt;tag_name&gt; | &lt;edge_name&gt;} ([&lt;prop_name_list&gt;]) [COMMENT = &#39;&lt;comment&gt;&#39;];
-</code></pre></div>
+<li>创建索引<p><code>ngql
+  CREATE {TAG | EDGE} INDEX [IF NOT EXISTS] &lt;index_name&gt;
+  ON {&lt;tag_name&gt; | &lt;edge_name&gt;} ([&lt;prop_name_list&gt;]) [COMMENT = '&lt;comment&gt;'];</code></p>
 </li>
 </ul>
 <ul>
-<li>重建索引<div class="highlight"><pre><span></span><code>REBUILD {TAG | EDGE} INDEX &lt;index_name&gt;;
-</code></pre></div>
+<li>重建索引<p><code>ngql
+  REBUILD {TAG | EDGE} INDEX &lt;index_name&gt;;</code></p>
 </li>
 </ul>
 <div class="admonition note">
@@ -7000,41 +6992,39 @@ ON {&lt;tag_name&gt; | &lt;edge_name&gt;} ([&lt;prop_name_list&gt;]) [COMMENT = 
 <h3 id="lookupmatch">基于索引的<code>LOOKUP</code>和<code>MATCH</code>示例<a class="headerlink" href="#lookupmatch" title="Permanent link">&para;</a></h3>
 <p>确保<code>LOOKUP</code>或<code>MATCH</code>有一个索引可用。如果没有，请先创建索引。</p>
 <p>找到 Tag 为<code>player</code>的点的信息，它的<code>name</code>属性值为<code>Tony Parker</code>。</p>
-<div class="highlight"><pre><span></span><code>// 为 name 属性创建索引 player_index_1。
-nebula&gt; CREATE TAG INDEX IF NOT EXISTS player_index_1 ON player(name(20));
-
-// 重建索引确保能对已存在数据生效。
+<p>```nGQL
+// 为 name 属性创建索引 player_index_1。
+nebula&gt; CREATE TAG INDEX IF NOT EXISTS player_index_1 ON player(name(20));</p>
+<p>// 重建索引确保能对已存在数据生效。
 nebula&gt; REBUILD TAG INDEX player_index_1
 +------------+
 | New Job Id |
 +------------+
 | 31         |
-+------------+
-
-// 使用 LOOKUP 语句检索点的属性。
-nebula&gt; LOOKUP ON player WHERE player.name == &quot;Tony Parker&quot; \
++------------+</p>
+<p>// 使用 LOOKUP 语句检索点的属性。
+nebula&gt; LOOKUP ON player WHERE player.name == "Tony Parker" \
         YIELD properties(vertex).name AS name, properties(vertex).age AS age;
 +---------------+-----+
 | name          | age |
 +---------------+-----+
-| &quot;Tony Parker&quot; | 36  |
-+---------------+-----+
-
-// 使用 MATCH 语句检索点的属性。
-nebula&gt; MATCH (v:player{name:&quot;Tony Parker&quot;}) RETURN v;
+| "Tony Parker" | 36  |
++---------------+-----+</p>
+<p>// 使用 MATCH 语句检索点的属性。
+nebula&gt; MATCH (v:player{name:"Tony Parker"}) RETURN v;
 +-----------------------------------------------------+
 | v                                                   |
 +-----------------------------------------------------+
-| (&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;}) |
+| ("player101" :player{age: 36, name: "Tony Parker"}) |
 +-----------------------------------------------------+
-</code></pre></div>
+```</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -7148,8 +7138,6 @@ nebula&gt; MATCH (v:player{name:&quot;Tony Parker&quot;}) RETURN v;
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

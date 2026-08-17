@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/3.data-types/7.set/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6021,55 +6021,52 @@
 <li>在 OpenCypher 中，集合不是一个数据类型，而在 nGQL 中，用户可以使用集合。</li>
 </ul>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code># 返回集合 {1,2,3}。
-nebula&gt; RETURN set{1, 2, 3} AS a;
+<p>```ngql</p>
+<h1 id="123">返回集合 {1,2,3}。<a class="headerlink" href="#123" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; RETURN set{1, 2, 3} AS a;
 +-----------+
 | a         |
 +-----------+
 | {3, 2, 1} |
-+-----------+
-
-# 返回集合 {1,2,1}，因为集合不允许重复元素，会返回 {1,2}，且顺序是无序的。
-nebula&gt; RETURN set{1, 2, 1} AS a;
++-----------+</p>
+<h1 id="121_12">返回集合 {1,2,1}，因为集合不允许重复元素，会返回 {1,2}，且顺序是无序的。<a class="headerlink" href="#121_12" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; RETURN set{1, 2, 1} AS a;
 +--------+
 | a      |
 +--------+
 | {2, 1} |
-+--------+
-
-# 判断集合中是否有指定元素 1。
-nebula&gt; RETURN 1 IN set{1, 2} AS a;
++--------+</p>
+<h1 id="1">判断集合中是否有指定元素 1。<a class="headerlink" href="#1" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; RETURN 1 IN set{1, 2} AS a;
 +------+
 | a    |
 +------+
 | true |
-+------+
-
-# 计算集合中的元素数量。
-nebula&gt; YIELD size(set{1, 2, 1}) AS a;
++------+</p>
+<h1 id="_3">计算集合中的元素数量。<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; YIELD size(set{1, 2, 1}) AS a;
 +---+
 | a |
 +---+
 | 2 |
-+---+
-
-# 返回目标点属性值组成的集合。
-nebula&gt; GO FROM &quot;player100&quot; OVER follow \
-        YIELD set{properties($$).name,properties($$).age} as a;
++---+</p>
+<h1 id="_4">返回目标点属性值组成的集合。<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; GO FROM "player100" OVER follow \
+        YIELD set{properties(<span class="arithmatex">\(<span class="arithmatex">\().name,properties(\)</span>\)</span>).age} as a;
 +-----------------------+
 | a                     |
 +-----------------------+
-| {36, &quot;Tony Parker&quot;}   |
-| {41, &quot;Manu Ginobili&quot;} |
+| {36, "Tony Parker"}   |
+| {41, "Manu Ginobili"} |
 +-----------------------+
-</code></pre></div>
+```</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6183,8 +6180,6 @@ nebula&gt; GO FROM &quot;player100&quot; OVER follow \
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

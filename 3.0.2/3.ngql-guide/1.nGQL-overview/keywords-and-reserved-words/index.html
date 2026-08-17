@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/1.nGQL-overview/keywords-and-reserved-words/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6023,23 +6023,21 @@
 <p class="admonition-title">Note</p>
 <p>关键字不区分大小写。</p>
 </div>
-<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG TAG(name string);
-[ERROR (-7)]: SyntaxError: syntax error near `TAG&#39;
-
-nebula&gt; CREATE TAG `TAG` (name string);
+<p><code>``ngql
+nebula&gt; CREATE TAG TAG(name string);
+[ERROR (-7)]: SyntaxError: syntax error near</code>TAG'</p>
+<p>nebula&gt; CREATE TAG <code>TAG</code> (name string);
+Execution succeeded</p>
+<p>nebula&gt; CREATE TAG SPACE(name string);
+Execution succeeded</p>
+<p>nebula&gt; CREATE TAG 中文(简体 string);
+Execution succeeded</p>
+<p>nebula&gt; CREATE TAG <code>￥%特殊 字符&amp;*+-*/</code> (<code>q~！（）=  wer</code> string);
 Execution succeeded
-
-nebula&gt; CREATE TAG SPACE(name string);
-Execution succeeded
-
-nebula&gt; CREATE TAG 中文(简体 string);
-Execution succeeded
-
-nebula&gt; CREATE TAG `￥%特殊 字符&amp;*+-*/` (`q~！（）=  wer` string);
-Execution succeeded
-</code></pre></div>
+```</p>
 <h2 id="_2">保留关键字<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>ACROSS
+<p><code>ngql
+ACROSS
 ADD
 ALTER
 AND
@@ -6139,10 +6137,10 @@ WHEN
 WHERE
 WITH
 XOR
-YIELD
-</code></pre></div>
+YIELD</code></p>
 <h2 id="_3">非保留关键字<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>ACCOUNT
+<p><code>ngql
+ACCOUNT
 ADMIN
 ALL
 ANY
@@ -6245,15 +6243,14 @@ WILDCARD
 ZONE
 ZONES
 FALSE
-TRUE
-</code></pre></div>
+TRUE</code></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6367,8 +6364,6 @@ TRUE
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

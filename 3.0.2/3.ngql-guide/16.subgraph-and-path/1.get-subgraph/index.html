@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/16.subgraph-and-path/1.get-subgraph/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6067,10 +6067,10 @@
 <h1 id="get_subgraph">GET SUBGRAPH<a class="headerlink" href="#get_subgraph" title="Permanent link">&para;</a></h1>
 <p><code>GET SUBGRAPH</code>语句检索指定 Edge type 的起始点可以到达的点和边的信息，返回子图信息。</p>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>GET SUBGRAPH [WITH PROP] [&lt;step_count&gt; STEPS] FROM {&lt;vid&gt;, &lt;vid&gt;...}
+<p><code>ngql
+GET SUBGRAPH [WITH PROP] [&lt;step_count&gt; STEPS] FROM {&lt;vid&gt;, &lt;vid&gt;...}
 [{IN | OUT | BOTH} &lt;edge_type&gt;, &lt;edge_type&gt;...]
-YIELD [VERTICES AS &lt;vertex_alias&gt;] [, EDGES AS &lt;edge_alias&gt;];
-</code></pre></div>
+YIELD [VERTICES AS &lt;vertex_alias&gt;] [, EDGES AS &lt;edge_alias&gt;];</code></p>
 <ul>
 <li><code>WITH PROP</code>：展示属性。不添加本参数则隐藏属性。</li>
 </ul>
@@ -6094,55 +6094,55 @@ YIELD [VERTICES AS &lt;vertex_alias&gt;] [, EDGES AS &lt;edge_alias&gt;];
 <p>以下面的示例图进行演示。</p>
 <p><img alt="A sample graph for GET SUBGRAPH" src="../../../2.quick-start/dataset-for-crud.png" /></p>
 <p>插入测试数据：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; CREATE SPACE IF NOT EXISTS subgraph(partition_num=15, replica_factor=1, vid_type=fixed_string(30));
+<p><code>ngql
+nebula&gt; CREATE SPACE IF NOT EXISTS subgraph(partition_num=15, replica_factor=1, vid_type=fixed_string(30));
 nebula&gt; USE subgraph;
 nebula&gt; CREATE TAG IF NOT EXISTS player(name string, age int);
 nebula&gt; CREATE TAG IF NOT EXISTS team(name string);
 nebula&gt; CREATE EDGE IF NOT EXISTS follow(degree int);
 nebula&gt; CREATE EDGE IF NOT EXISTS serve(start_year int, end_year int);
-nebula&gt; INSERT VERTEX player(name, age) VALUES &quot;player100&quot;:(&quot;Tim Duncan&quot;, 42);
-nebula&gt; INSERT VERTEX player(name, age) VALUES &quot;player101&quot;:(&quot;Tony Parker&quot;, 36);
-nebula&gt; INSERT VERTEX player(name, age) VALUES &quot;player102&quot;:(&quot;LaMarcus Aldridge&quot;, 33);
-nebula&gt; INSERT VERTEX team(name) VALUES &quot;team203&quot;:(&quot;Trail Blazers&quot;), &quot;team204&quot;:(&quot;Spurs&quot;);
-nebula&gt; INSERT EDGE follow(degree) VALUES &quot;player101&quot; -&gt; &quot;player100&quot;:(95);
-nebula&gt; INSERT EDGE follow(degree) VALUES &quot;player101&quot; -&gt; &quot;player102&quot;:(90);
-nebula&gt; INSERT EDGE follow(degree) VALUES &quot;player102&quot; -&gt; &quot;player100&quot;:(75);
-nebula&gt; INSERT EDGE serve(start_year, end_year) VALUES &quot;player101&quot; -&gt; &quot;team204&quot;:(1999, 2018),&quot;player102&quot; -&gt; &quot;team203&quot;:(2006,  2015);
-</code></pre></div>
+nebula&gt; INSERT VERTEX player(name, age) VALUES "player100":("Tim Duncan", 42);
+nebula&gt; INSERT VERTEX player(name, age) VALUES "player101":("Tony Parker", 36);
+nebula&gt; INSERT VERTEX player(name, age) VALUES "player102":("LaMarcus Aldridge", 33);
+nebula&gt; INSERT VERTEX team(name) VALUES "team203":("Trail Blazers"), "team204":("Spurs");
+nebula&gt; INSERT EDGE follow(degree) VALUES "player101" -&gt; "player100":(95);
+nebula&gt; INSERT EDGE follow(degree) VALUES "player101" -&gt; "player102":(90);
+nebula&gt; INSERT EDGE follow(degree) VALUES "player102" -&gt; "player100":(75);
+nebula&gt; INSERT EDGE serve(start_year, end_year) VALUES "player101" -&gt; "team204":(1999, 2018),"player102" -&gt; "team203":(2006,  2015);</code></p>
 <ul>
-<li>查询从点<code>player101</code>开始、0~1 跳、所有 Edge type 的子图。<div class="highlight"><pre><span></span><code>nebula&gt; GET SUBGRAPH 1 STEPS FROM &quot;player101&quot; YIELD VERTICES AS nodes, EDGES AS relationships;
-+-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-| nodes                                                                   | relationships                                                                                                               |
-+-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-| [(&quot;player101&quot; :player{})]                                               | [[:serve &quot;player101&quot;-&gt;&quot;team204&quot; @0 {}], [:follow &quot;player101&quot;-&gt;&quot;player100&quot; @0 {}], [:follow &quot;player101&quot;-&gt;&quot;player102&quot; @0 {}]] |
-| [(&quot;team204&quot; :team{}), (&quot;player100&quot; :player{}), (&quot;player102&quot; :player{})] | [[:follow &quot;player102&quot;-&gt;&quot;player100&quot; @0 {}]]                                                                                  |
-+-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-</code></pre></div>
+<li>查询从点<code>player101</code>开始、0~1 跳、所有 Edge type 的子图。<p><code>ngql
+  nebula&gt; GET SUBGRAPH 1 STEPS FROM "player101" YIELD VERTICES AS nodes, EDGES AS relationships;
+  +-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+  | nodes                                                                   | relationships                                                                                                               |
+  +-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+  | [("player101" :player{})]                                               | [[:serve "player101"-&gt;"team204" @0 {}], [:follow "player101"-&gt;"player100" @0 {}], [:follow "player101"-&gt;"player102" @0 {}]] |
+  | [("team204" :team{}), ("player100" :player{}), ("player102" :player{})] | [[:follow "player102"-&gt;"player100" @0 {}]]                                                                                  |
+  +-------------------------------------------------------------------------+-----------------------------------------------------------------------------------------------------------------------------+</code></p>
 <p>返回的子图如下。</p>
 <p><img alt="GET SUBGRAPH FROM &quot;player101&quot;" src="../subgraph-1.png" /></p>
 </li>
 </ul>
 <ul>
-<li>查询从点<code>player101</code>开始、0~1 跳、<code>follow</code>类型的入边的子图。<div class="highlight"><pre><span></span><code>nebula&gt; GET SUBGRAPH 1 STEPS FROM &quot;player101&quot; IN follow YIELD VERTICES AS nodes, EDGES AS relationships;
-+---------------------------+---------------+
-| nodes                     | relationships |
-+---------------------------+---------------+
-| [(&quot;player101&quot; :player{})] | []            |
-| []                        | []            |
-+---------------------------+---------------+
-</code></pre></div>
+<li>查询从点<code>player101</code>开始、0~1 跳、<code>follow</code>类型的入边的子图。<p><code>ngql
+  nebula&gt; GET SUBGRAPH 1 STEPS FROM "player101" IN follow YIELD VERTICES AS nodes, EDGES AS relationships;
+  +---------------------------+---------------+
+  | nodes                     | relationships |
+  +---------------------------+---------------+
+  | [("player101" :player{})] | []            |
+  | []                        | []            |
+  +---------------------------+---------------+</code></p>
 <p>因为<code>player101</code>没有<code>follow</code>类型的入边。所以仅返回点<code>player101</code>。</p>
 </li>
 </ul>
 <ul>
-<li>查询从点<code>player101</code>开始、0~1 跳、<code>serve</code>类型的出边的子图，同时展示边的属性。<div class="highlight"><pre><span></span><code>nebula&gt; GET SUBGRAPH WITH PROP 1 STEPS FROM &quot;player101&quot; OUT serve YIELD VERTICES AS nodes, EDGES AS relationships;
-+-------------------------------------------------------+-------------------------------------------------------------------------+
-| nodes                                                 | relationships                                                           |
-+-------------------------------------------------------+-------------------------------------------------------------------------+
-| [(&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})] | [[:serve &quot;player101&quot;-&gt;&quot;team204&quot; @0 {end_year: 2018, start_year: 1999}]] |
-| [(&quot;team204&quot; :team{name: &quot;Spurs&quot;})]                    | []                                                                      |
-+-------------------------------------------------------+-------------------------------------------------------------------------+
-</code></pre></div>
+<li>查询从点<code>player101</code>开始、0~1 跳、<code>serve</code>类型的出边的子图，同时展示边的属性。<p><code>ngql
+  nebula&gt; GET SUBGRAPH WITH PROP 1 STEPS FROM "player101" OUT serve YIELD VERTICES AS nodes, EDGES AS relationships;
+  +-------------------------------------------------------+-------------------------------------------------------------------------+
+  | nodes                                                 | relationships                                                           |
+  +-------------------------------------------------------+-------------------------------------------------------------------------+
+  | [("player101" :player{age: 36, name: "Tony Parker"})] | [[:serve "player101"-&gt;"team204" @0 {end_year: 2018, start_year: 1999}]] |
+  | [("team204" :team{name: "Spurs"})]                    | []                                                                      |
+  +-------------------------------------------------------+-------------------------------------------------------------------------+</code></p>
 <p>返回的子图如下。</p>
 <p><img alt="GET SUBGRAPH FROM &quot;101&quot; OUT serve" src="../subgraph-2.png" /></p>
 </li>
@@ -6158,27 +6158,27 @@ nebula&gt; INSERT EDGE serve(start_year, end_year) VALUES &quot;player101&quot; 
 <li>用<code>GET SUBGRAPH 1 STEPS FROM "A" IN follow;</code>查询的满足结果的路径是<code>B-&gt;A</code>，在满足结果的点上额外查询一跳，即<code>A-&gt;B</code>。</li>
 </ul>
 <p>如果只是查询满足条件的路径或点，建议使用 <a href="../../7.general-query-statements/2.match/">MATCH</a> 或 <a href="../../7.general-query-statements/3.go/">GO</a> 语句。例如：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p= (v:player) -- (v2) WHERE id(v)==&quot;A&quot; RETURN p;
-
-nebula&gt; GO 1 STEPS FROM &quot;A&quot; OVER follow YIELD id(vertex);
-</code></pre></div>
+<p>```ngql
+nebula&gt; MATCH p= (v:player) -- (v2) WHERE id(v)=="A" RETURN p;</p>
+<p>nebula&gt; GO 1 STEPS FROM "A" OVER follow YIELD id(vertex);
+```</p>
 <h3 id="step_count_1">为什么返回结果中会出现低于<code>step_count</code>跳数的关系？<a class="headerlink" href="#step_count_1" title="Permanent link">&para;</a></h3>
 <p>查询到没有多余子图数据时会停止查询，且不会返回空值。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; GET SUBGRAPH 100 STEPS FROM &quot;player101&quot; OUT follow YIELD VERTICES AS nodes, EDGES AS relationships;
+<p><code>ngql
+nebula&gt; GET SUBGRAPH 100 STEPS FROM "player101" OUT follow YIELD VERTICES AS nodes, EDGES AS relationships;
 +----------------------------------------------------+--------------------------------------------------------------------------------------+
 | nodes                                              | relationships                                                                        |
 +----------------------------------------------------+--------------------------------------------------------------------------------------+
-| [(&quot;player101&quot; :player{})]                          | [[:follow &quot;player101&quot;-&gt;&quot;player100&quot; @0 {}], [:follow &quot;player101&quot;-&gt;&quot;player102&quot; @0 {}]] |
-| [(&quot;player100&quot; :player{}), (&quot;player102&quot; :player{})] | [[:follow &quot;player102&quot;-&gt;&quot;player100&quot; @0 {}]]                                           |
-+----------------------------------------------------+--------------------------------------------------------------------------------------+
-</code></pre></div>
+| [("player101" :player{})]                          | [[:follow "player101"-&gt;"player100" @0 {}], [:follow "player101"-&gt;"player102" @0 {}]] |
+| [("player100" :player{}), ("player102" :player{})] | [[:follow "player102"-&gt;"player100" @0 {}]]                                           |
++----------------------------------------------------+--------------------------------------------------------------------------------------+</code></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6292,8 +6292,6 @@ nebula&gt; GO 1 STEPS FROM &quot;A&quot; OVER follow YIELD id(vertex);
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

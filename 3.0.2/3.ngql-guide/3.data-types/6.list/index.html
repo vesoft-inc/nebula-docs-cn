@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/3.data-types/6.list/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -919,13 +919,6 @@
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     示例
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#opencypher_1" class="md-nav__link">
-    OpenCypher 兼容性
   </a>
   
 </li>
@@ -6037,13 +6030,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#opencypher_1" class="md-nav__link">
-    OpenCypher 兼容性
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -6072,11 +6058,11 @@
 <h2 id="_2">列表操作<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>对列表进行操作可以使用预设的<a href="../../6.functions-and-expressions/6.list/">列表函数</a>，也可以使用下标表达式过滤列表内的元素。</p>
 <h3 id="_3">下标表达式语法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>[M]
+<p><code>ngql
+[M]
 [M..N]
 [M..]
-[..N]
-</code></pre></div>
+[..N]</code></p>
 <p>nGQL 的下标支持从前往后查询，从 0 开始，0 表示第一个元素，1 表示第二个元素，以此类推；也支持从后往前查询，从-1 开始，-1 表示最后一个元素，-2 表示倒数第二个元素，以此类推。</p>
 <ul>
 <li>[M]：表示下标为 M 的元素。</li>
@@ -6093,164 +6079,146 @@
 </ul>
 </div>
 <h2 id="_4">示例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code># 返回列表 [1,2,3]
-nebula&gt; RETURN list[1, 2, 3] AS a;
+<p>```ngql</p>
+<h1 id="123">返回列表 [1,2,3]<a class="headerlink" href="#123" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; RETURN list[1, 2, 3] AS a;
 +-----------+
 | a         |
 +-----------+
 | [1, 2, 3] |
-+-----------+
-
-# 返回列表 [1,2,3,4,5] 中位置下标为 3 的元素。列表的位置下标是从 0 开始，因此返回的元素为 4。
-nebula&gt; RETURN range(1,5)[3];
++-----------+</p>
+<h1 id="12345_3_0_4">返回列表 [1,2,3,4,5] 中位置下标为 3 的元素。列表的位置下标是从 0 开始，因此返回的元素为 4。<a class="headerlink" href="#12345_3_0_4" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; RETURN range(1,5)[3];
 +---------------+
 | range(1,5)[3] |
 +---------------+
 | 4             |
-+---------------+
-
-# 返回列表 [1,2,3,4,5] 中位置下标为-2 的元素。列表的最后一个元素的位置下标是-1，因此-2 是指倒数第二个元素，即 4。
-nebula&gt; RETURN range(1,5)[-2];
++---------------+</p>
+<h1 id="12345_-2_-1-2_4">返回列表 [1,2,3,4,5] 中位置下标为-2 的元素。列表的最后一个元素的位置下标是-1，因此-2 是指倒数第二个元素，即 4。<a class="headerlink" href="#12345_-2_-1-2_4" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; RETURN range(1,5)[-2];
 +------------------+
 | range(1,5)[-(2)] |
 +------------------+
 | 4                |
-+------------------+
-
-# 返回列表 [1,2,3,4,5] 中下标位置从 0 到 3（不包括 3）的元素。
-nebula&gt; RETURN range(1,5)[0..3];
++------------------+</p>
+<h1 id="12345_0_3_3">返回列表 [1,2,3,4,5] 中下标位置从 0 到 3（不包括 3）的元素。<a class="headerlink" href="#12345_0_3_3" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; RETURN range(1,5)[0..3];
 +------------------+
 | range(1,5)[0..3] |
 +------------------+
 | [1, 2, 3]        |
-+------------------+
-
-# 返回列表 [1,2,3,4,5] 中位置下标大于 2 的元素。
-nebula&gt; RETURN range(1,5)[3..] AS a;
++------------------+</p>
+<h1 id="12345_2">返回列表 [1,2,3,4,5] 中位置下标大于 2 的元素。<a class="headerlink" href="#12345_2" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; RETURN range(1,5)[3..] AS a;
 +--------+
 | a      |
 +--------+
 | [4, 5] |
-+--------+
-
-# 返回列表内下标小于 3 的元素。
-nebula&gt; WITH list[1, 2, 3, 4, 5] AS a \
++--------+</p>
+<h1 id="3">返回列表内下标小于 3 的元素。<a class="headerlink" href="#3" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; WITH list[1, 2, 3, 4, 5] AS a \
         RETURN a[..3] AS r;
 +-----------+
 | r         |
 +-----------+
 | [1, 2, 3] |
-+-----------+
-
-# 筛选列表 [1,2,3,4,5] 中大于 2 的元素，将这些元素分别做运算并返回。
-nebula&gt; RETURN [n IN range(1,5) WHERE n &gt; 2 | n + 10] AS a;
++-----------+</p>
+<h1 id="12345_3">筛选列表 [1,2,3,4,5] 中大于 2 的元素，将这些元素分别做运算并返回。<a class="headerlink" href="#12345_3" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; RETURN [n IN range(1,5) WHERE n &gt; 2 | n + 10] AS a;
 +--------------+
 | a            |
 +--------------+
 | [13, 14, 15] |
-+--------------+
-
-# 返回列表内第一个至倒数第二个（包括）的元素。
-nebula&gt; YIELD list[1, 2, 3][0..-1] AS a;
++--------------+</p>
+<h1 id="_5">返回列表内第一个至倒数第二个（包括）的元素。<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; YIELD list[1, 2, 3][0..-1] AS a;
 +--------+
 | a      |
 +--------+
 | [1, 2] |
-+--------+
-
-# 返回列表内倒数第三个至倒数第一个（不包括）的元素。
-nebula&gt; YIELD list[1, 2, 3, 4, 5][-3..-1] AS a;
++--------+</p>
+<h1 id="_6">返回列表内倒数第三个至倒数第一个（不包括）的元素。<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; YIELD list[1, 2, 3, 4, 5][-3..-1] AS a;
 +--------+
 | a      |
 +--------+
 | [3, 4] |
-+--------+
-
-# 设置变量，返回列表内下标为 1、2 的元素。
-nebula&gt; $var = YIELD 1 AS f, 3 AS t; \
-        YIELD list[1, 2, 3][$var.f..$var.t] AS a;
++--------+</p>
+<h1 id="12">设置变量，返回列表内下标为 1、2 的元素。<a class="headerlink" href="#12" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; <span class="arithmatex">\(var = YIELD 1 AS f, 3 AS t; \
+        YIELD list[1, 2, 3][\)</span>var.f..$var.t] AS a;
 +--------+
 | a      |
 +--------+
 | [2, 3] |
-+--------+
-
-# 越界的下标返回为空，未越界的可以正常返回。
-nebula&gt; RETURN list[1, 2, 3, 4, 5] [0..10] AS a;
++--------+</p>
+<h1 id="_7">越界的下标返回为空，未越界的可以正常返回。<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; RETURN list[1, 2, 3, 4, 5] [0..10] AS a;
 +-----------------+
 | a               |
 +-----------------+
 | [1, 2, 3, 4, 5] |
-+-----------------+
-
-nebula&gt; RETURN list[1, 2, 3] [-5..5] AS a;
++-----------------+</p>
+<p>nebula&gt; RETURN list[1, 2, 3] [-5..5] AS a;
 +-----------+
 | a         |
 +-----------+
 | [1, 2, 3] |
-+-----------+
-
-# [0..0] 时返回为空。
-nebula&gt; RETURN list[1, 2, 3, 4, 5] [0..0] AS a;
++-----------+</p>
+<h1 id="00">[0..0] 时返回为空。<a class="headerlink" href="#00" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; RETURN list[1, 2, 3, 4, 5] [0..0] AS a;
 +----+
 | a  |
 +----+
 | [] |
-+----+
-
-# M ≥ N 时，返回为空。
-nebula&gt; RETURN list[1, 2, 3, 4, 5] [3..1] AS a;
++----+</p>
+<h1 id="m_n">M ≥ N 时，返回为空。<a class="headerlink" href="#m_n" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; RETURN list[1, 2, 3, 4, 5] [3..1] AS a;
 +----+
 | a  |
 +----+
 | [] |
-+----+
-
-# 范围查询时，下标有 null 时，返回为 null。
-nebula&gt; WITH list[1,2,3] AS a \
++----+</p>
+<h1 id="null_null">范围查询时，下标有 null 时，返回为 null。<a class="headerlink" href="#null_null" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; WITH list[1,2,3] AS a \
         RETURN a[0..null] as r;
 +----------+
 | r        |
 +----------+
-| __NULL__ |
-+----------+
-
-# 将列表 [1,2,3,4,5] 中的元素分别做运算，然后将列表去掉表头并返回。
-nebula&gt; RETURN tail([n IN range(1, 5) | 2 * n - 10]) AS a;
+| <strong>NULL</strong> |
++----------+</p>
+<h1 id="12345">将列表 [1,2,3,4,5] 中的元素分别做运算，然后将列表去掉表头并返回。<a class="headerlink" href="#12345" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; RETURN tail([n IN range(1, 5) | 2 * n - 10]) AS a;
 +-----------------+
 | a               |
 +-----------------+
 | [-6, -4, -2, 0] |
-+-----------------+
-
-# 将列表 [1,2,3] 中的元素判断为真，然后返回。
-nebula&gt; RETURN [n IN range(1, 3) WHERE true | n] AS r;
++-----------------+</p>
+<h1 id="123_1">将列表 [1,2,3] 中的元素判断为真，然后返回。<a class="headerlink" href="#123_1" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; RETURN [n IN range(1, 3) WHERE true | n] AS r;
 +-----------+
 | r         |
 +-----------+
 | [1, 2, 3] |
-+-----------+
-
-# 返回列表 [1,2,3] 的长度。
-nebula&gt; RETURN size(list[1,2,3]);
++-----------+</p>
+<h1 id="123_2">返回列表 [1,2,3] 的长度。<a class="headerlink" href="#123_2" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; RETURN size(list[1,2,3]);
 +---------------+
 | size([1,2,3]) |
 +---------------+
 | 3             |
-+---------------+
-
-# 将列表 [92,90] 中的元素做运算，然后在 where 子句中进行条件判断。
-nebula&gt; GO FROM &quot;player100&quot; OVER follow WHERE properties(edge).degree NOT IN [x IN [92, 90] | x + $$.player.age] \
++---------------+</p>
+<h1 id="9290_where">将列表 [92,90] 中的元素做运算，然后在 where 子句中进行条件判断。<a class="headerlink" href="#9290_where" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; GO FROM "player100" OVER follow WHERE properties(edge).degree NOT IN [x IN [92, 90] | x + $$.player.age] \
         YIELD dst(edge) AS id, properties(edge).degree AS degree;
 +-------------+--------+
 | id          | degree |
 +-------------+--------+
-| &quot;player101&quot; | 95     |
-| &quot;player102&quot; | 90     |
-+-------------+--------+
-
-# 将 MATCH 语句的查询结果作为列表中的元素进行运算并返回。
-nebula&gt; MATCH p = (n:player{name:&quot;Tim Duncan&quot;})-[:follow]-&gt;(m) \
+| "player101" | 95     |
+| "player102" | 90     |
++-------------+--------+</p>
+<h1 id="match">将 MATCH 语句的查询结果作为列表中的元素进行运算并返回。<a class="headerlink" href="#match" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; MATCH p = (n:player{name:"Tim Duncan"})-[:follow]-&gt;(m) \
         RETURN [n IN nodes(p) | n.age + 100] AS r;
 +------------+
 | r          |
@@ -6258,16 +6226,16 @@ nebula&gt; MATCH p = (n:player{name:&quot;Tim Duncan&quot;})-[:follow]-&gt;(m) \
 | [142, 136] |
 | [142, 133] |
 +------------+
-</code></pre></div>
+```</p>
 <h2 id="opencypher_1">OpenCypher 兼容性<a class="headerlink" href="#opencypher_1" title="Permanent link">&para;</a></h2>
 <ul>
-<li>在 openCypher 中，查询越界元素时返回<code>null</code>，而在 nGQL 中，查询单个越界元素时返回<code>OUT_OF_RANGE</code>。<div class="highlight"><pre><span></span><code>nebula&gt; RETURN range(0,5)[-12];
-+-------------------+
-| range(0,5)[-(12)] |
-+-------------------+
-| OUT_OF_RANGE      |
-+-------------------+
-</code></pre></div>
+<li>在 openCypher 中，查询越界元素时返回<code>null</code>，而在 nGQL 中，查询单个越界元素时返回<code>OUT_OF_RANGE</code>。<p><code>ngql
+  nebula&gt; RETURN range(0,5)[-12];
+  +-------------------+
+  | range(0,5)[-(12)] |
+  +-------------------+
+  | OUT_OF_RANGE      |
+  +-------------------+</code></p>
 </li>
 </ul>
 <ul>
@@ -6287,7 +6255,7 @@ nebula&gt; MATCH p = (n:player{name:&quot;Tim Duncan&quot;})-[:follow]-&gt;(m) \
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6401,8 +6369,6 @@ nebula&gt; MATCH p = (n:player{name:&quot;Tim Duncan&quot;})-[:follow]-&gt;(m) \
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

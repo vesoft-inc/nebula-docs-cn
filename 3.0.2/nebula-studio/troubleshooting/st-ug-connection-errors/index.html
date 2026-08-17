@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/nebula-studio/troubleshooting/st-ug-connection-errors/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6088,13 +6088,14 @@
 <h3 id="2_studio">第 2 步。检查 Studio 服务是否正常启动<a class="headerlink" href="#2_studio" title="Permanent link">&para;</a></h3>
 <p>运行 <code>docker-compose ps</code> 查看服务是否已经正常启动。  </p>
 <p>如果服务正常，返回结果如下。其中，<code>State</code> 列应全部显示为 <code>Up</code>。</p>
-<div class="highlight"><pre><span></span><code><span class="w">     </span>Name<span class="w">                          </span>Command<span class="w">               </span>State<span class="w">               </span>Ports
-------------------------------------------------------------------------------------------------------
-nebula-web-docker_client_1<span class="w">     </span>./nebula-go-api<span class="w">                  </span>Up<span class="w">      </span><span class="m">0</span>.0.0.0:32782-&gt;8080/tcp
-nebula-web-docker_importer_1<span class="w">   </span>nebula-importer<span class="w"> </span>--port<span class="o">=</span><span class="m">569</span><span class="w"> </span>...<span class="w">   </span>Up<span class="w">      </span><span class="m">0</span>.0.0.0:32783-&gt;5699/tcp
-nebula-web-docker_nginx_1<span class="w">      </span>/docker-entrypoint.sh<span class="w"> </span>ngin<span class="w"> </span>...<span class="w">   </span>Up<span class="w">      </span><span class="m">0</span>.0.0.0:7001-&gt;7001/tcp,<span class="w"> </span><span class="m">80</span>/tcp
-nebula-web-docker_web_1<span class="w">        </span>docker-entrypoint.sh<span class="w"> </span>npm<span class="w"> </span>r<span class="w"> </span>...<span class="w">   </span>Up<span class="w">      </span><span class="m">0</span>.0.0.0:32784-&gt;7001/tcp
-</code></pre></div>
+<p>```bash
+     Name                          Command               State               Ports</p>
+<hr />
+<p>nebula-web-docker_client_1     ./nebula-go-api                  Up      0.0.0.0:32782-&gt;8080/tcp
+nebula-web-docker_importer_1   nebula-importer --port=569 ...   Up      0.0.0.0:32783-&gt;5699/tcp
+nebula-web-docker_nginx_1      /docker-entrypoint.sh ngin ...   Up      0.0.0.0:7001-&gt;7001/tcp, 80/tcp
+nebula-web-docker_web_1        docker-entrypoint.sh npm r ...   Up      0.0.0.0:32784-&gt;7001/tcp
+```</p>
 <p>如果没有返回以上结果，则先停止 Studio 重新启动。详细信息，参考<a href="../../deploy-connect/st-ug-deploy/">部署 Studio</a>。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -6117,7 +6118,7 @@ nebula-web-docker_web_1<span class="w">        </span>docker-entrypoint.sh<span 
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6231,8 +6232,6 @@ nebula-web-docker_web_1<span class="w">        </span>docker-entrypoint.sh<span 
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/20.appendix/0.FAQ/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -5946,206 +5946,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#wrong_vertex_id_type_1001" class="md-nav__link">
-    如何处理错误信息Wrong vertex id type: 1001
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#the_vid_must_be_a_64-bit_integer_or_a_string_fitting_space_vertex_id_length_limit" class="md-nav__link">
-    如何处理错误信息The VID must be a 64-bit integer or a string fitting space vertex id length limit.
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#edge_conflict_vertex_conflict" class="md-nav__link">
-    如何处理错误信息 edge conflict 或 vertex conflict
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rpc_failure_in_metaclient_connection_refused" class="md-nav__link">
-    如何处理错误信息 RPC failure in MetaClient: Connection refused
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nebula-graphinfo_storageclientbaseinl214_request_to_xxxx9779_failed_n6apache6thrift9transport19ttransportexceptione_timed_out" class="md-nav__link">
-    如何处理 nebula-graph.INFO 中错误日志 StorageClientBase.inl:214] Request to "x.x.x.x":9779 failed: N6apache6thrift9transport19TTransportExceptionE: Timed Out
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nebula-storagedinfo_metaclientcpp65_heartbeat_failed_statuswrong_cluster_nebula-metadinfo_hbprocessorcpp54_reject_wrong_cluster_host_xxxx9771" class="md-nav__link">
-    如何处理 nebula-storaged.INFO 中错误日志 MetaClient.cpp:65] Heartbeat failed, status:Wrong cluster! 或者 nebula-metad.INFO 含有错误日志HBProcessor.cpp:54] Reject wrong cluster host "x.x.x.x":9771!
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    关于设计与功能
-  </a>
-  
-    <nav class="md-nav" aria-label="关于设计与功能">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#time_spent" class="md-nav__link">
-    返回消息中 time spent 的含义是什么？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nebula_graph" class="md-nav__link">
-    为什么 Nebula Graph 的返回结果每行之间没有横线分隔了？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    关于悬挂边
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#create_spacereplica_factor_2" class="md-nav__link">
-    可以在CREATE SPACE时设置replica_factor为偶数（例如设置为 2）吗？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    是否支持停止或者中断慢查询
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gomatch" class="md-nav__link">
-    使用GO和MATCH执行相同语义的查询，查询结果为什么不同？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tag_edge_type" class="md-nav__link">
-    如何统计每种 Tag 有多少个点，每个 Edge type 有多少条边？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tag_edge_type_1" class="md-nav__link">
-    如何获取每种 Tag 的所有点，或者每种 Edge type 的所有边？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tagedgetype" class="md-nav__link">
-    如何在不指定 Tag/EdgeType 的情况下，获取所有的点和边？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tagedge_type" class="md-nav__link">
-    能不能用中文字符做标识符，比如图空间、Tag、Edge type、属性、索引的名称？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    获取指定点的出度（或者入度）?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    是否有办法快速获取“所有”点的出度和入度？
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    关于运维
-  </a>
-  
-    <nav class="md-nav" aria-label="关于运维">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    日志文件过大时如何回收日志？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nebula_graph_1" class="md-nav__link">
-    如何查看 Nebula Graph 版本
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#host_host_offline" class="md-nav__link">
-    修改 Host 名称后，旧的 Host 一直显示 OFFLINE 怎么办？
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    关于连接
-  </a>
-  
-    <nav class="md-nav" aria-label="关于连接">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    防火墙中需要开放哪些端口？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    如何测试端口是否已开放？
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -6389,206 +6189,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#wrong_vertex_id_type_1001" class="md-nav__link">
-    如何处理错误信息Wrong vertex id type: 1001
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#the_vid_must_be_a_64-bit_integer_or_a_string_fitting_space_vertex_id_length_limit" class="md-nav__link">
-    如何处理错误信息The VID must be a 64-bit integer or a string fitting space vertex id length limit.
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#edge_conflict_vertex_conflict" class="md-nav__link">
-    如何处理错误信息 edge conflict 或 vertex conflict
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#rpc_failure_in_metaclient_connection_refused" class="md-nav__link">
-    如何处理错误信息 RPC failure in MetaClient: Connection refused
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nebula-graphinfo_storageclientbaseinl214_request_to_xxxx9779_failed_n6apache6thrift9transport19ttransportexceptione_timed_out" class="md-nav__link">
-    如何处理 nebula-graph.INFO 中错误日志 StorageClientBase.inl:214] Request to "x.x.x.x":9779 failed: N6apache6thrift9transport19TTransportExceptionE: Timed Out
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nebula-storagedinfo_metaclientcpp65_heartbeat_failed_statuswrong_cluster_nebula-metadinfo_hbprocessorcpp54_reject_wrong_cluster_host_xxxx9771" class="md-nav__link">
-    如何处理 nebula-storaged.INFO 中错误日志 MetaClient.cpp:65] Heartbeat failed, status:Wrong cluster! 或者 nebula-metad.INFO 含有错误日志HBProcessor.cpp:54] Reject wrong cluster host "x.x.x.x":9771!
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    关于设计与功能
-  </a>
-  
-    <nav class="md-nav" aria-label="关于设计与功能">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#time_spent" class="md-nav__link">
-    返回消息中 time spent 的含义是什么？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nebula_graph" class="md-nav__link">
-    为什么 Nebula Graph 的返回结果每行之间没有横线分隔了？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    关于悬挂边
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#create_spacereplica_factor_2" class="md-nav__link">
-    可以在CREATE SPACE时设置replica_factor为偶数（例如设置为 2）吗？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    是否支持停止或者中断慢查询
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#gomatch" class="md-nav__link">
-    使用GO和MATCH执行相同语义的查询，查询结果为什么不同？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tag_edge_type" class="md-nav__link">
-    如何统计每种 Tag 有多少个点，每个 Edge type 有多少条边？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tag_edge_type_1" class="md-nav__link">
-    如何获取每种 Tag 的所有点，或者每种 Edge type 的所有边？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tagedgetype" class="md-nav__link">
-    如何在不指定 Tag/EdgeType 的情况下，获取所有的点和边？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#tagedge_type" class="md-nav__link">
-    能不能用中文字符做标识符，比如图空间、Tag、Edge type、属性、索引的名称？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    获取指定点的出度（或者入度）?
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    是否有办法快速获取“所有”点的出度和入度？
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    关于运维
-  </a>
-  
-    <nav class="md-nav" aria-label="关于运维">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    日志文件过大时如何回收日志？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nebula_graph_1" class="md-nav__link">
-    如何查看 Nebula Graph 版本
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#host_host_offline" class="md-nav__link">
-    修改 Host 名称后，旧的 Host 一直显示 OFFLINE 怎么办？
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    关于连接
-  </a>
-  
-    <nav class="md-nav" aria-label="关于连接">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    防火墙中需要开放哪些端口？
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    如何测试端口是否已开放？
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -6682,7 +6282,7 @@
 <p>现象：编译时提示<code>Could not find artifact com.vesoft:client:jar:xxx-SNAPSHOT</code>。</p>
 <p>原因：本地 maven 没有配置用于下载 SNAPSHOT 的仓库。maven 中默认的 central 仓库用于存放正式发布版本，而不是开发版本（SNAPSHOT）。</p>
 <p>解决方案：在 maven 的 setting.xml文件的<code>profiles</code>作用域内中增加以下配置：</p>
-<div class="highlight"><pre><span></span><code>  &lt;profile&gt;
+<p><code>&lt;profile&gt;
      &lt;activation&gt;
         &lt;activeByDefault&gt;true&lt;/activeByDefault&gt;
      &lt;/activation&gt;
@@ -6695,24 +6295,28 @@
             &lt;/snapshots&gt;
       &lt;/repository&gt;
      &lt;/repositories&gt;
-  &lt;/profile&gt;
-</code></pre></div>
+  &lt;/profile&gt;</code></p>
 <h3 id="error_-7_syntaxerror_syntax_error_near">如何处理错误信息<code>[ERROR (-7)]: SyntaxError: syntax error near</code>？<a class="headerlink" href="#error_-7_syntaxerror_syntax_error_near" title="Permanent link">&para;</a></h3>
 <p>大部分情况下，查询语句需要有<code>YIELD</code>或<code>RETURN</code>，请检查查询语句是否包含。</p>
 <h3 id="cant_solve_the_start_vids_from_the_sentence">如何处理错误信息<code>can’t solve the start vids from the sentence</code><a class="headerlink" href="#cant_solve_the_start_vids_from_the_sentence" title="Permanent link">&para;</a></h3>
 <p>查询引擎需要知道从哪些 VID 开始图遍历。这些开始图遍历的 VID，或者通过用户指定，例如：</p>
-<div class="highlight"><pre><span></span><code>&gt; GO FROM ${vids} ...
-&gt; MATCH (src) WHERE id(src) == ${vids}
-# 开始图遍历的 VID 通过如上办法指定
-</code></pre></div>
+<p>```ngql</p>
+<blockquote>
+<p>GO FROM ${vids} ...
+MATCH (src) WHERE id(src) == ${vids}</p>
+</blockquote>
+<h1 id="vid">开始图遍历的 VID 通过如上办法指定<a class="headerlink" href="#vid" title="Permanent link">&para;</a></h1>
+<p>```</p>
 <p>或者通过一个属性索引来得到，例如：</p>
-<div class="highlight"><pre><span></span><code># CREATE TAG INDEX IF NOT EXISTS i_player ON player(name(20));
-# REBUILD TAG INDEX i_player;
-
-&gt; LOOKUP ON player WHERE player.name == &quot;abc&quot; | ... YIELD ...
-&gt; MATCH (src) WHERE src.name == &quot;abc&quot; ...
-# 通过点属性 name 的索引，来得到 VID
-</code></pre></div>
+<p>```ngql</p>
+<h1 id="create_tag_index_if_not_exists_i_player_on_playername20">CREATE TAG INDEX IF NOT EXISTS i_player ON player(name(20));<a class="headerlink" href="#create_tag_index_if_not_exists_i_player_on_playername20" title="Permanent link">&para;</a></h1>
+<h1 id="rebuild_tag_index_i_player">REBUILD TAG INDEX i_player;<a class="headerlink" href="#rebuild_tag_index_i_player" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>LOOKUP ON player WHERE player.name == "abc" | ... YIELD ...
+MATCH (src) WHERE src.name == "abc" ...</p>
+</blockquote>
+<h1 id="name_vid">通过点属性 name 的索引，来得到 VID<a class="headerlink" href="#name_vid" title="Permanent link">&para;</a></h1>
+<p>```</p>
 <p>否则，就会抛出这样一个异常 <code>can’t solve the start vids from the sentence</code>。</p>
 <h3 id="wrong_vertex_id_type_1001">如何处理错误信息<code>Wrong vertex id type: 1001</code><a class="headerlink" href="#wrong_vertex_id_type_1001" title="Permanent link">&para;</a></h3>
 <p>检查输入的 VID 类型是否是<code>create space</code>设置的<code>INT64</code>或<code>FIXED_STRING(N)</code>。详情请参见 <a href="../../3.ngql-guide/9.space-statements/1.create-space/">create space</a>。</p>
@@ -6747,14 +6351,14 @@
 <h2 id="_5">关于设计与功能<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <h3 id="time_spent">返回消息中 <code>time spent</code> 的含义是什么？<a class="headerlink" href="#time_spent" title="Permanent link">&para;</a></h3>
 <p>将命令<code>SHOW SPACES</code>返回的消息作为示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; SHOW SPACES;
+<p><code>nGQL
+nebula&gt; SHOW SPACES;
 +--------------------+
 | Name               |
 +--------------------+
-| &quot;basketballplayer&quot; |
+| "basketballplayer" |
 +--------------------+
-Got 1 rows (time spent 1235/1934 us)
-</code></pre></div>
+Got 1 rows (time spent 1235/1934 us)</code></p>
 <ul>
 <li>第一个数字<code>1235</code>表示数据库本身执行该命令花费的时间，即查询引擎从客户端接收到一个查询，然后从存储服务器获取数据并执行一系列计算所花费的时间。</li>
 </ul>
@@ -6811,15 +6415,21 @@ Got 1 rows (time spent 1235/1934 us)
 <ol>
 <li>
 <p>建立并重建索引。</p>
-<div class="highlight"><pre><span></span><code>&gt; CREATE TAG INDEX IF NOT EXISTS i_player ON player();
-&gt; REBUILD TAG INDEX i_player;
-</code></pre></div>
+<p>```ngql</p>
+<blockquote>
+<p>CREATE TAG INDEX IF NOT EXISTS i_player ON player();
+REBUILD TAG INDEX i_player;
+ ```</p>
+</blockquote>
 </li>
 <li>
 <p>使用<code>LOOKUP</code>或<code>MATCH</code>语句。例如：</p>
-<div class="highlight"><pre><span></span><code>&gt; LOOKUP ON player;
-&gt; MATCH (n:player) RETURN n;
-</code></pre></div>
+<p>```ngql</p>
+<blockquote>
+<p>LOOKUP ON player;
+MATCH (n:player) RETURN n;
+ ```</p>
+</blockquote>
 </li>
 </ol>
 <p>更多详情请参见 <a href="../../3.ngql-guide/14.native-index-statements/1.create-native-index/">INDEX</a>、<a href="../../3.ngql-guide/7.general-query-statements/5.lookup/">LOOKUP</a> 和 <a href="../../3.ngql-guide/7.general-query-statements/2.match/">MATCH</a>。</p>
@@ -6833,9 +6443,9 @@ Got 1 rows (time spent 1235/1934 us)
 <p>能，详情参见<a href="../../3.ngql-guide/1.nGQL-overview/keywords-and-reserved-words/">关键字和保留字</a>。</p>
 <h3 id="_8">获取指定点的出度（或者入度）?<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p>一个点的“出度”是指从该点出发的“边”的条数。入度，是指指向该点的边的条数。</p>
-<div class="highlight"><pre><span></span><code>nebula &gt; MATCH (s)-[e]-&gt;() WHERE id(s) == &quot;given&quot; RETURN count(e); #出度
-nebula &gt; MATCH (s)&lt;-[e]-() WHERE id(s) == &quot;given&quot; RETURN count(e); #入度
-</code></pre></div>
+<p><code>ngql
+nebula &gt; MATCH (s)-[e]-&gt;() WHERE id(s) == "given" RETURN count(e); #出度
+nebula &gt; MATCH (s)&lt;-[e]-() WHERE id(s) == "given" RETURN count(e); #入度</code></p>
 <h3 id="_9">是否有办法快速获取“所有”点的出度和入度？<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p>没有直接命令。</p>
 <p>可以使用 <a href="../../nebula-algorithm/">Nebula Algorithm</a>。</p>
@@ -6850,16 +6460,16 @@ nebula &gt; MATCH (s)&lt;-[e]-() WHERE id(s) == &quot;given&quot; RETURN count(e
 <h3 id="nebula_graph_1">如何查看 Nebula Graph 版本<a class="headerlink" href="#nebula_graph_1" title="Permanent link">&para;</a></h3>
 <p>服务运行时：<code>nebula-console</code> 中执行命令 <code>SHOW HOSTS META</code>，详见 <a href="../../3.ngql-guide/7.general-query-statements/6.show/6.show-hosts/">SHOW HOSTS</a></p>
 <p>服务未运行时：在安装路径的<code>bin</code>目录内，执行<code>./&lt;binary_name&gt; --version</code>命令，可以查看到 version 和 GitHub 上的 commit ID，例如：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./nebula-graphd<span class="w"> </span>--version
-</code></pre></div>
+<p><code>bash
+$ ./nebula-graphd --version</code></p>
 <ul>
 <li>
 <p>Docker Compose 部署</p>
 <p>查看 Docker Compose 部署的 Nebula Graph 版本，方式和编译安装类似，只是要先进入容器内部，示例命令如下：</p>
-<div class="highlight"><pre><span></span><code>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>nebula-docker-compose_graphd_1<span class="w"> </span>bash
-<span class="nb">cd</span><span class="w"> </span>bin/
-./nebula-graphd<span class="w"> </span>--version
-</code></pre></div>
+<p><code>bash
+docker exec -it nebula-docker-compose_graphd_1 bash
+cd bin/
+./nebula-graphd --version</code></p>
 </li>
 </ul>
 <ul>
@@ -6928,31 +6538,31 @@ Nebula Graph 3.0.2 未提供运维命令以实现自动扩缩容，参考以下�
 <p>周边工具各自使用不用的端口，请参考各工具文档。</p>
 <h3 id="_14">如何测试端口是否已开放？<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
 <p>用户可以使用如下 telnet 命令检查端口状态：</p>
-<div class="highlight"><pre><span></span><code>telnet<span class="w"> </span>&lt;ip&gt;<span class="w"> </span>&lt;port&gt;
-</code></pre></div>
+<p><code>bash
+telnet &lt;ip&gt; &lt;port&gt;</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>如果无法使用 telnet 命令，请先检查主机中是否安装并启动了 telnet。</p>
 </div>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>//<span class="w"> </span>如果端口已开放：
-$<span class="w"> </span>telnet<span class="w"> </span><span class="m">192</span>.168.1.10<span class="w"> </span><span class="m">9669</span>
-Trying<span class="w"> </span><span class="m">192</span>.168.1.10...
-Connected<span class="w"> </span>to<span class="w"> </span><span class="m">192</span>.168.1.10.
-Escape<span class="w"> </span>character<span class="w"> </span>is<span class="w"> </span><span class="s1">&#39;^]&#39;</span>.
-
-//<span class="w"> </span>如果端口未开放：
-$<span class="w"> </span>telnet<span class="w"> </span><span class="m">192</span>.168.1.10<span class="w"> </span><span class="m">9777</span>
-Trying<span class="w"> </span><span class="m">192</span>.168.1.10...
-telnet:<span class="w"> </span>connect<span class="w"> </span>to<span class="w"> </span>address<span class="w"> </span><span class="m">192</span>.168.1.10:<span class="w"> </span>Connection<span class="w"> </span>refused
-</code></pre></div>
+<p>```bash
+// 如果端口已开放：
+$ telnet 192.168.1.10 9669
+Trying 192.168.1.10...
+Connected to 192.168.1.10.
+Escape character is '^]'.</p>
+<p>// 如果端口未开放：
+$ telnet 192.168.1.10 9777
+Trying 192.168.1.10...
+telnet: connect to address 192.168.1.10: Connection refused
+```</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -7066,8 +6676,6 @@ telnet:<span class="w"> </span>connect<span class="w"> </span>to<span class="w">
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

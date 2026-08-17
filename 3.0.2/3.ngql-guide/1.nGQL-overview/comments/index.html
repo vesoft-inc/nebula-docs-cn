@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/1.nGQL-overview/comments/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6032,42 +6032,42 @@
 <li>Nebula Graph 2.x 中，<code>--</code>不再是注释符。</li>
 </ul>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>nebula&gt; # 这行什么都不做。
+<p><code>ngql
+nebula&gt; # 这行什么都不做。
 nebula&gt; RETURN 1+1;     # 这条注释延续到行尾。
 nebula&gt; RETURN 1+1;     // 这条注释延续到行尾。
 nebula&gt; RETURN 1 /* 这是一条行内注释 */ + 1 == 2;
 nebula&gt; RETURN 11 +            \
 /* 多行注释       \
 用反斜线来换行。   \
-*/ 12;
-</code></pre></div>
+*/ 12;</code></p>
 <p>nGQL 语句中的反斜线（\）代表换行。</p>
 <h2 id="opencypher">OpenCypher 兼容性<a class="headerlink" href="#opencypher" title="Permanent link">&para;</a></h2>
 <ul>
 <li>在 nGQL 中，用户必须在行末使用反斜线（\）来换行，即使是在使用<code>/* */</code>符号的多行注释内。</li>
 <li>在 openCypher 中不需要使用反斜线换行。</li>
 </ul>
-<div class="highlight"><pre><span></span><code>/* openCypher 风格：
+<p><code>openCypher
+/* openCypher 风格：
 这条注释
 延续了不止
 一行 */
 MATCH (n:label)
-RETURN n;
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>/* 原生 nGQL 风格：  \
+RETURN n;</code></p>
+<p><code>ngql
+/* 原生 nGQL 风格：  \
 这条注释       \
 延续了不止     \
 一行 */       \
 MATCH (n:tag) \
-RETURN n;
-</code></pre></div>
+RETURN n;</code></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6181,8 +6181,6 @@ RETURN n;
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

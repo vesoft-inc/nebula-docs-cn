@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/9.space-statements/2.use-space/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6029,19 +6029,18 @@
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>执行<code>USE</code>语句指定图空间时，需要当前登录的用户拥有指定图空间的<a href="../../../7.data-security/1.authentication/1.authentication/">权限</a>，否则会报错。</p>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>USE &lt;graph_space_name&gt;;
-</code></pre></div>
+<p><code>ngql
+USE &lt;graph_space_name&gt;;</code></p>
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code># 创建示例空间。
-nebula&gt; CREATE SPACE IF NOT EXISTS space1 (vid_type=FIXED_STRING(30));
-nebula&gt; CREATE SPACE IF NOT EXISTS space2 (vid_type=FIXED_STRING(30));
-
-# 指定图空间 space1 作为工作空间。
-nebula&gt; USE space1;
-
-# 切换到图空间 space2。检索 space2 时，无法从 space1 读取任何数据，检索的点和边与 space1 无关。
-nebula&gt; USE space2;
-</code></pre></div>
+<p>```ngql</p>
+<h1 id="_4">创建示例空间。<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; CREATE SPACE IF NOT EXISTS space1 (vid_type=FIXED_STRING(30));
+nebula&gt; CREATE SPACE IF NOT EXISTS space2 (vid_type=FIXED_STRING(30));</p>
+<h1 id="space1">指定图空间 space1 作为工作空间。<a class="headerlink" href="#space1" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; USE space1;</p>
+<h1 id="space2_space2_space1_space1">切换到图空间 space2。检索 space2 时，无法从 space1 读取任何数据，检索的点和边与 space1 无关。<a class="headerlink" href="#space2_space2_space1_space1" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; USE space2;
+```</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p>不能在一条语句中同时操作两个图空间。</p>
@@ -6053,7 +6052,7 @@ nebula&gt; USE space2;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6167,8 +6166,6 @@ nebula&gt; USE space2;
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/4.deployment-and-installation/3.upgrade-nebula-graph/upgrade-nebula-graph-to-latest/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6187,8 +6187,7 @@
 <ol>
 <li>
 <p>停止所有 Nebula Graph 服务。</p>
-<div class="highlight"><pre><span></span><code>&lt;nebula_install_path&gt;/scripts/nebula.service stop all
-</code></pre></div>
+<p><code>&lt;nebula_install_path&gt;/scripts/nebula.service stop all</code></p>
 <p><code>nebula_install_path</code>代表 Nebula Graph 的安装目录。</p>
 <p><code>storaged</code> 进程 flush 数据要等待约 1 分钟。运行命令后可继续运行<code>nebula.service status all</code>命令以确认所有服务都已停止。启动和停止服务的详细说明参见<a href="../../manage-service/">管理服务</a>。</p>
 <div class="admonition note">
@@ -6213,8 +6212,7 @@
 </li>
 <li>
 <p>启动所有 Meta 服务。</p>
-<div class="highlight"><pre><span></span><code>&lt;nebula_install_path&gt;/scripts/nebula-metad.service start
-</code></pre></div>
+<p><code>&lt;nebula_install_path&gt;/scripts/nebula-metad.service start</code></p>
 <p>启动后，Meta 服务选举 leader。该过程耗时数秒。</p>
 <p>启动后可以任意启动一个 Graph 服务节点，使用 Nebula Graph 连接该节点并运行<a href="../../../3.ngql-guide/7.general-query-statements/6.show/6.show-hosts/"><code>SHOW HOSTS meta</code></a>和<a href="../../../3.ngql-guide/7.general-query-statements/6.show/19.show-meta-leader/"><code>SHOW META LEADER</code></a>，如果能够正常返回 Meta 节点的状态，则 Meta 服务启动成功。</p>
 <div class="admonition note">
@@ -6229,12 +6227,11 @@
 <p>本步骤不会备份 Storage 服务中保存的数据。升级数据格式前，务必按照本文<strong>升级准备</strong>部分的说明备份数据。</p>
 </div>
 <p>命令语法：</p>
-<div class="highlight"><pre><span></span><code>&lt;nebula_install_path&gt;/bin/db_upgrader \
+<p><code>&lt;nebula_install_path&gt;/bin/db_upgrader \
 --src_db_path=&lt;old_storage_data_path&gt; \
 --dst_db_path=&lt;data_backup_path&gt; \
 --upgrade_meta_server=&lt;meta_server_ip&gt;:&lt;port&gt;[, &lt;meta_server_ip&gt;:&lt;port&gt; ...] \
---upgrade_version=2:3
-</code></pre></div>
+--upgrade_version=2:3</code></p>
 <ul>
 <li><code>old_storage_data_path</code>代表数据的存储路径，由 Storage 服务配置文件中的<code>data_path</code>参数定义。</li>
 <li><code>data_backup_path</code>代表自定义的数据备份路径。<strong>当前版本该设置不生效，升级数据格式时不会将原有数据备份到任何路径。</strong></li>
@@ -6242,12 +6239,11 @@
 <li><code>2:3</code>代表从 Nebula Graph 2.x 版本升级到 3.x 版本。</li>
 </ul>
 <p>本文示例：</p>
-<div class="highlight"><pre><span></span><code>&lt;nebula_install_path&gt;/bin/db_upgrader \
+<p><code>&lt;nebula_install_path&gt;/bin/db_upgrader \
 --src_db_path=/usr/local/nebula/data/storage \
 --dst_db_path=/home/vesoft/nebula/data-backup \
 --upgrade_meta_server=192.168.8.132:9559 \
---upgrade_version=2:3
-</code></pre></div>
+--upgrade_version=2:3</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>如果出现异常，放弃本次升级，并在<a href="https://discuss.nebula-graph.com.cn/">论坛</a>或 <a href="https://github.com/vesoft-inc/nebula/issues">GitHub</a> 提问。</p>
@@ -6263,15 +6259,15 @@
 <li>
 <p>连接新版 Nebula Graph，验证服务是否可用、数据是否正常。连接方法参见<a href="../../connect-to-nebula-graph/">连接服务</a>。</p>
 <p>目前尚无有效方式判断升级是否完全成功，可用于测试的参考命令如下：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; SHOW HOSTS;
+<p><code>ngql
+nebula&gt; SHOW HOSTS;
 nebula&gt; SHOW HOSTS storage;
 nebula&gt; SHOW SPACES;
 nebula&gt; USE &lt;space_name&gt;
 nebula&gt; SHOW PARTS;
 nebula&gt; SUBMIT JOB STATS;
 nebula&gt; SHOW STATS;
-nebula&gt; MATCH (v) RETURN v LIMIT 5;
-</code></pre></div>
+nebula&gt; MATCH (v) RETURN v LIMIT 5;</code></p>
 <p>也可根据 3.0.2 版本的新功能测试，新功能列表参见<a href="../../../20.appendix/releasenote/">发布说明</a>。</p>
 </li>
 </ol>
@@ -6295,11 +6291,10 @@ A: 有部分 glags 改变了，详情参见版本发布说明和配置说明文�
 <p>A：没有。如果只是检查数据量，可以在升级完成后再次运行<code>SUBMIT JOB STATS</code>和<code>SHOW STATS</code>统计数据量，并与升级之前做对比。</p>
 <p>Q: Storage <code>OFFLINE</code>并且<code>Leader count</code>是<code>0</code>怎么处理？</p>
 <p>A：运行以下命令手动添加 Storage 主机：</p>
-<div class="highlight"><pre><span></span><code>ADD HOSTS &lt;ip&gt;:&lt;port&gt;[, &lt;ip&gt;:&lt;port&gt; ...];
-</code></pre></div>
+<p><code>ngql
+ADD HOSTS &lt;ip&gt;:&lt;port&gt;[, &lt;ip&gt;:&lt;port&gt; ...];</code></p>
 <p>例如：</p>
-<div class="highlight"><pre><span></span><code>ADD HOSTS 192.168.10.100:9779, 192.168.10.101:9779, 192.168.10.102:9779;
-</code></pre></div>
+<p><code>ADD HOSTS 192.168.10.100:9779, 192.168.10.101:9779, 192.168.10.102:9779;</code></p>
 <p>如果有多个 Meta 服务节点，手动<code>ADD HOSTS</code>之后，部分 Storage 节点需等待数个心跳（<code>heartbeat_interval_secs</code>）的时间才能正常连接到集群。</p>
 <p>如果添加 Storage 主机后问题仍然存在，在<a href="https://discuss.nebula-graph.com.cn/">论坛</a>或 <a href="https://github.com/vesoft-inc/nebula/issues">GitHub</a> 提问。</p>
 <p>Q：为什么升级后用<code>SHOW JOBS</code>查询到的 Job 的 ID 与升级前一样，但 Job 名称等信息不同了？</p>
@@ -6312,7 +6307,7 @@ A: 有部分 glags 改变了，详情参见版本发布说明和配置说明文�
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6426,8 +6421,6 @@ A: 有部分 glags 改变了，详情参见版本发布说明和配置说明文�
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

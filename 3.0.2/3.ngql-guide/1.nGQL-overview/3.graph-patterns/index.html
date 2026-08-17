@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/1.nGQL-overview/3.graph-patterns/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6084,80 +6084,80 @@
 <p>模式（pattern）和图模式匹配，是图查询语言的核心功能，本文介绍 Nebula Graph 设计的各种模式，部分还未实现。</p>
 <h2 id="_2">单点模式<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>点用一对括号来描述，通常包含一个名称。例如：</p>
-<div class="highlight"><pre><span></span><code>(a)
-</code></pre></div>
+<p><code>ngql
+(a)</code></p>
 <p>示例为一个简单的模式，描述了单个点，并使用变量<code>a</code>命名该点。</p>
 <h2 id="_3">多点关联模式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>多个点通过边相连是常见的结构，模式用箭头来描述两个点之间的边。例如：</p>
-<div class="highlight"><pre><span></span><code>(a)-[]-&gt;(b)
-</code></pre></div>
+<p><code>ngql
+(a)-[]-&gt;(b)</code></p>
 <p>示例为一个简单的数据结构：两个点和一条连接两个点的边，两个点分别为<code>a</code>和<code>b</code>，边是有方向的，从<code>a</code>到<code>b</code>。</p>
 <p>这种描述点和边的方式可以扩展到任意数量的点和边，例如：</p>
-<div class="highlight"><pre><span></span><code>(a)-[]-&gt;(b)&lt;-[]-(c)
-</code></pre></div>
+<p><code>ngql
+(a)-[]-&gt;(b)&lt;-[]-(c)</code></p>
 <p>这样的一系列点和边称为<code>路径</code>（path）。</p>
 <p>只有在涉及某个点时，才需要命名这个点。如果不涉及这个点，则可以省略名称，例如：</p>
-<div class="highlight"><pre><span></span><code>(a)-[]-&gt;()&lt;-[]-(c)
-</code></pre></div>
+<p><code>ngql
+(a)-[]-&gt;()&lt;-[]-(c)</code></p>
 <h2 id="tag">Tag 模式<a class="headerlink" href="#tag" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>nGQL 中的<code>Tag</code>概念与 openCypher 中的<code>Label</code>有一些不同。例如，必须创建一个<code>Tag</code>之后才能使用它，而且<code>Tag</code>还定义了属性的类型。</p>
 </div>
 <p>模式除了简单地描述图中的点之外，还可以描述点的 Tag。例如：</p>
-<div class="highlight"><pre><span></span><code>(a:User)-[]-&gt;(b)
-</code></pre></div>
+<p><code>ngql
+(a:User)-[]-&gt;(b)</code></p>
 <p>模式也可以描述有多个 Tag 的点，例如：</p>
-<div class="highlight"><pre><span></span><code>(a:User:Admin)-[]-&gt;(b)
-</code></pre></div>
+<p><code>ngql
+(a:User:Admin)-[]-&gt;(b)</code></p>
 <h2 id="_4">属性模式<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>点和边是图的基本结构。nGQL 在这两种结构上都可以增加属性，方便实现更丰富的模型。</p>
 <p>在模式中，属性的表示方式为：用花括号括起一些键值对，用英文逗号分隔。例如一个点有两个属性：</p>
-<div class="highlight"><pre><span></span><code>(a {name: &#39;Andres&#39;, sport: &#39;Brazilian Ju-Jitsu&#39;})
-</code></pre></div>
+<p><code>ngql
+(a {name: 'Andres', sport: 'Brazilian Ju-Jitsu'})</code></p>
 <p>在这个点上可以有一条边是：</p>
-<div class="highlight"><pre><span></span><code>(a)-[{blocked: false}]-&gt;(b)
-</code></pre></div>
+<p><code>ngql
+(a)-[{blocked: false}]-&gt;(b)</code></p>
 <h2 id="_5">边模式<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>描述一条边最简单的方法是使用箭头连接两个点。</p>
 <p>可以用以下方式描述边以及它的方向性。如果不关心边的方向，可以省略箭头，例如：</p>
-<div class="highlight"><pre><span></span><code>(a)-[]-(b)
-</code></pre></div>
+<p><code>ngql
+(a)-[]-(b)</code></p>
 <p>和点一样，边也可以命名。一对方括号用于分隔箭头，变量放在两者之间。例如：</p>
-<div class="highlight"><pre><span></span><code>(a)-[r]-&gt;(b)
-</code></pre></div>
+<p><code>ngql
+(a)-[r]-&gt;(b)</code></p>
 <p>和点上的 Tag 一样，边也可以有类型。描述边的类型，例如：</p>
-<div class="highlight"><pre><span></span><code>(a)-[r:REL_TYPE]-&gt;(b)
-</code></pre></div>
+<p><code>ngql
+(a)-[r:REL_TYPE]-&gt;(b)</code></p>
 <p>和点上的 Tag 不同，一条边只能有一种 Edge type。但是如果我们想描述多个可选 Edge type，可以用管道符号（|）将可选值分开，例如：</p>
-<div class="highlight"><pre><span></span><code>(a)-[r:TYPE1|TYPE2]-&gt;(b)
-</code></pre></div>
+<p><code>ngql
+(a)-[r:TYPE1|TYPE2]-&gt;(b)</code></p>
 <p>和点一样，边的名称可以省略，例如：</p>
-<div class="highlight"><pre><span></span><code>(a)-[:REL_TYPE]-&gt;(b)
-</code></pre></div>
+<p><code>ngql
+(a)-[:REL_TYPE]-&gt;(b)</code></p>
 <h2 id="_6">变长模式<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>在图中指定边的长度来描述多条边（以及中间的点）组成的一条长路径，不需要使用多个点和边来描述。例如：</p>
-<div class="highlight"><pre><span></span><code>(a)-[*2]-&gt;(b)
-</code></pre></div>
+<p><code>ngql
+(a)-[*2]-&gt;(b)</code></p>
 <p>该模式描述了 3 点 2 边组成的图，它们都在一条路径上（长度为 2），等价于：</p>
-<div class="highlight"><pre><span></span><code>(a)-[]-&gt;()-[]-&gt;(b)
-</code></pre></div>
+<p><code>ngql
+(a)-[]-&gt;()-[]-&gt;(b)</code></p>
 <p>也可以指定长度范围，这样的边模式称为<code>variable-length edges</code>，例如：</p>
-<div class="highlight"><pre><span></span><code>(a)-[*3..5]-&gt;(b)
-</code></pre></div>
+<p><code>ngql
+(a)-[*3..5]-&gt;(b)</code></p>
 <p><code>*3..5</code>表示最小长度为 3，最大长度为 5。</p>
 <p>该模式描述了 4 点 3 边、5 点 4 边或 6 点 5 边组成的图。</p>
 <p>也可以忽略最小长度，只指定最大长度，例如：</p>
-<div class="highlight"><pre><span></span><code>(a)-[*..5]-&gt;(b)
-</code></pre></div>
+<p><code>ngql
+(a)-[*..5]-&gt;(b)</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>必须指定最大长度，<strong>不支持</strong>仅指定最小长度（<code>(a)-[*3..]-&gt;(b)</code>）或都不指定（<code>(a)-[*]-&gt;(b)</code>）。</p>
 </div>
 <h2 id="_7">路径变量<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>一系列连接的点和边称为<code>路径</code>。nGQL 允许使用变量来命名路径，例如：</p>
-<div class="highlight"><pre><span></span><code>p = (a)-[*3..5]-&gt;(b)
-</code></pre></div>
+<p><code>ngql
+p = (a)-[*3..5]-&gt;(b)</code></p>
 <p>可以在 MATCH 语句中使用路径变量。</p>
 
   <hr>
@@ -6165,7 +6165,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6279,8 +6279,6 @@
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

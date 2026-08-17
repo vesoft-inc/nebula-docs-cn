@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/12.vertex-statements/4.delete-vertex/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -2349,20 +2349,6 @@
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     示例
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    删除过程
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    悬挂边视频
   </a>
   
 </li>
@@ -6004,20 +5990,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    删除过程
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    悬挂边视频
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -6055,22 +6027,23 @@
 </ul>
 </div>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>DELETE VERTEX &lt;vid&gt; [ , &lt;vid&gt; ... ] [WITH EDGE];
-</code></pre></div>
+<p><code>ngql
+DELETE VERTEX &lt;vid&gt; [ , &lt;vid&gt; ... ] [WITH EDGE];</code></p>
 <ul>
 <li><code>WITH EDGE</code>: 删除该点关联的出边和入边。</li>
 </ul>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code># 删除 VID 为 `team1` 的点，不删除该点关联的出边和入边。
-nebula&gt; DELETE VERTEX &quot;team1&quot;;
-
-# 删除 VID 为 `team1` 的点，并删除该点关联的出边和入边。
-nebula&gt; DELETE VERTEX &quot;team1&quot; WITH EDGE;
-</code></pre></div>
-<div class="highlight"><pre><span></span><code># 结合管道符，删除符合条件的点。
-nebula&gt; GO FROM &quot;player100&quot; OVER serve WHERE properties(edge).start_year == &quot;2021&quot; YIELD dst(edge) AS id | DELETE VERTEX $-.id;
-</code></pre></div>
-<h2 id="_3">删除过程<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>```ngql</p>
+<h1 id="vid_team1">删除 VID 为 <code>team1</code> 的点，不删除该点关联的出边和入边。<a class="headerlink" href="#vid_team1" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; DELETE VERTEX "team1";</p>
+<h1 id="vid_team1_1">删除 VID 为 <code>team1</code> 的点，并删除该点关联的出边和入边。<a class="headerlink" href="#vid_team1_1" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; DELETE VERTEX "team1" WITH EDGE;</p>
+<p>```</p>
+<p>```ngql</p>
+<h1 id="_3">结合管道符，删除符合条件的点。<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; GO FROM "player100" OVER serve WHERE properties(edge).start_year == "2021" YIELD dst(edge) AS id | DELETE VERTEX $-.id;
+```</p>
+<h2 id="_4">删除过程<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>Nebula Graph 找到目标点并删除，该目标点的所有邻边（出边和入边）将成为悬挂边。</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
@@ -6079,7 +6052,7 @@ nebula&gt; GO FROM &quot;player100&quot; OVER serve WHERE properties(edge).start
 <li>删除超级节点耗时较多，为避免删除完成前连接超时，可以调整<code>nebula-graphd.conf</code>中的参数<code>--storage_client_timeout_ms</code>延长超时时间。</li>
 </ul>
 </div>
-<h2 id="_4">悬挂边视频<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_5">悬挂边视频<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://www.bilibili.com/video/BV1GR4y1F7ko">Nebula Graph 的悬挂边小科普</a>（2 分 28 秒）</li>
 </ul>
@@ -6090,7 +6063,7 @@ nebula&gt; GO FROM &quot;player100&quot; OVER serve WHERE properties(edge).start
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6204,8 +6177,6 @@ nebula&gt; GO FROM &quot;player100&quot; OVER serve WHERE properties(edge).start
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

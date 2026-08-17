@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/3.data-types/3.string/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6056,13 +6056,13 @@
 </ul>
 <p>例如：</p>
 <ul>
-<li>将属性值的类型定义为定长字符串<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG IF NOT EXISTS t1 (p1 FIXED_STRING(10)); 
-</code></pre></div>
+<li>将属性值的类型定义为定长字符串<p><code>ngql
+  nebula&gt; CREATE TAG IF NOT EXISTS t1 (p1 FIXED_STRING(10));</code></p>
 </li>
 </ul>
 <ul>
-<li>将属性值的类型定义为变长字符串<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG IF NOT EXISTS t2 (p2 STRING); 
-</code></pre></div>
+<li>将属性值的类型定义为变长字符串<p><code>ngql
+  nebula&gt; CREATE TAG IF NOT EXISTS t2 (p2 STRING);</code></p>
 </li>
 </ul>
 <p>如果尝试写入的定长字符串超出长度限制：</p>
@@ -6080,36 +6080,36 @@
 </ul>
 <h2 id="opencypher">OpenCypher 兼容性<a class="headerlink" href="#opencypher" title="Permanent link">&para;</a></h2>
 <p>openCypher、Cypher 和 nGQL 之间有一些细微区别，例如下面 openCypher 的示例，不能将单引号替换为双引号。</p>
-<div class="highlight"><pre><span></span><code># File: Literals.feature
-Feature: Literals
-
-Background:
+<p>```ngql</p>
+<h1 id="file_literalsfeature">File: Literals.feature<a class="headerlink" href="#file_literalsfeature" title="Permanent link">&para;</a></h1>
+<p>Feature: Literals</p>
+<p>Background:
     Given any graph
  Scenario: Return a single-quoted string
     When executing query:
-      &quot;&quot;&quot;
-      RETURN &#39;&#39; AS literal
-      &quot;&quot;&quot;
+      """
+      RETURN '' AS literal
+      """
     Then the result should be, in any order:
       | literal |
-      | &#39;&#39;      |    # Note: it should return single-quotes as openCypher required.
+      | ''      |    # Note: it should return single-quotes as openCypher required.
     And no side effects
-</code></pre></div>
+```</p>
 <p>Cypher 的返回结果同时支持单引号和双引号，nGQL 遵循 Cypher 的方式。</p>
-<div class="highlight"><pre><span></span><code>nebula &gt; YIELD &#39;&#39; AS quote1, &quot;&quot; AS quote2, &quot;&#39;&quot; AS quote3, &#39;&quot;&#39; AS quote4
+<p><code>ngql
+nebula &gt; YIELD '' AS quote1, "" AS quote2, "'" AS quote3, '"' AS quote4
 +--------+--------+--------+--------+
 | quote1 | quote2 | quote3 | quote4 |
 +--------+--------+--------+--------+
-| &quot;&quot;     | &quot;&quot;     | &quot;&#39;&quot;    | &quot;&quot;&quot;    |
-+--------+--------+--------+--------+
-</code></pre></div>
+| ""     | ""     | "'"    | """    |
++--------+--------+--------+--------+</code></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6223,8 +6223,6 @@ Background:
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

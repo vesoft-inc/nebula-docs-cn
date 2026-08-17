@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/10.tag-statements/2.drop-tag/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6042,8 +6042,8 @@
 <li>确保 Tag 不包含任何索引，否则<code>DROP TAG</code>时会报冲突错误<code>[ERROR (-8)]: Conflict!</code>。删除索引请参见 <a href="../../14.native-index-statements/6.drop-native-index/">drop index</a>。</li>
 </ul>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>DROP TAG [IF EXISTS] &lt;tag_name&gt;;
-</code></pre></div>
+<p><code>ngql
+DROP TAG [IF EXISTS] &lt;tag_name&gt;;</code></p>
 <ul>
 <li><code>IF EXISTS</code>：检测待删除的 Tag 是否存在，只有存在时，才会删除 Tag。</li>
 </ul>
@@ -6051,16 +6051,16 @@
 <li><code>tag_name</code>：指定要删除的 Tag 名称。一次只能删除一个 Tag。</li>
 </ul>
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG IF NOT EXISTS test(p1 string, p2 int);
-nebula&gt; DROP TAG test;
-</code></pre></div>
+<p><code>ngql
+nebula&gt; CREATE TAG IF NOT EXISTS test(p1 string, p2 int);
+nebula&gt; DROP TAG test;</code></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6174,8 +6174,6 @@ nebula&gt; DROP TAG test;
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

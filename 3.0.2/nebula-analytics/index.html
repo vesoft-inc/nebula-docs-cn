@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/nebula-analytics/">
       
       <link rel="icon" href="../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6167,8 +6167,8 @@
 </table>
 <h2 id="nebula_analytics_1">安装 Nebula Analytics<a class="headerlink" href="#nebula_analytics_1" title="Permanent link">&para;</a></h2>
 <p>在多个机器安装由多个 Nebula Analytics 服务构成的集群时，需要安装路径相同，并设置节点间 SSH 免密登录。</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>rpm<span class="w"> </span>-i<span class="w"> </span>nebula-analytics-1.0.0-centos.x86_64.rpm<span class="w">  </span>--prefix<span class="w"> </span>/home/xxx/nebula-analytics
-</code></pre></div>
+<p><code>bash
+sudo rpm -i nebula-analytics-1.0.0-centos.x86_64.rpm  --prefix /home/xxx/nebula-analytics</code></p>
 <!--
 ### 编译安装
 
@@ -6176,28 +6176,33 @@
 
 1. 克隆仓库`analytics`。
 
-  <div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>v1.0.0<span class="w"> </span>https://github.com/vesoft-inc/nebula-analytics.git
-</code></pre></div>
+  ```bash
+  $ git clone -b v1.0.0 https://github.com/vesoft-inc/nebula-analytics.git
+  ```
 
 2. 进入目录`nebula-analytics`。
 
-  <div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>nebula-analytics
-</code></pre></div>
+  ```bash
+  $ cd nebula-analytics
+  ```
 
 3. 执行脚本安装编译依赖。
 
-  <div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>./docker/install-dependencies.sh
-</code></pre></div>
+  ```bash
+  $ sudo ./docker/install-dependencies.sh
+  ```
 
 4. 下载并编译静态链接库。
 
-  <div class="highlight"><pre><span></span><code>$<span class="w"> </span>./3rdtools.sh<span class="w"> </span>distclean<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>./3rdtools.sh<span class="w"> </span>install
-</code></pre></div>
+  ```bash
+  $ ./3rdtools.sh distclean && ./3rdtools.sh install
+  ```
 
 5. 编译 Nebula Analytics
 
-  <div class="highlight"><pre><span></span><code>$<span class="w"> </span>./build.sh
-</code></pre></div>
+  ```bash
+  $ ./build.sh
+  ```
 -->
 
 <h2 id="_5">使用方法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
@@ -6205,8 +6210,8 @@
 <ol>
 <li>
 <p>选择 Nebula Analytics 集群的任一节点，进入目录<code>scripts</code>。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>scripts
-</code></pre></div>
+<p><code>bash
+$ cd scripts</code></p>
 </li>
 <li>
 <p>确认数据源和输出路径。配置方法如下：</p>
@@ -6216,74 +6221,72 @@
 <ol>
 <li>
 <p>修改配置文件<code>nebula.conf</code>，设置 Nebula Graph 集群相关信息。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 连接 Nebula Graph 时的重试次数。</span>
---retry<span class="o">=</span><span class="m">3</span><span class="w">  </span>
-<span class="c1"># 要读取或写入的图空间名称。</span>
---space<span class="o">=</span>baskeyballplayer<span class="w">  </span>
-
-<span class="c1"># 读取 Nebula Graph 设置</span>
-<span class="c1"># Nebula Graph 的 metad 服务地址。</span>
---meta_server_addrs<span class="o">=</span><span class="m">192</span>.168.8.100:9559,<span class="w"> </span><span class="m">192</span>.168.8.101:9559,<span class="w"> </span><span class="m">192</span>.168.8.102:9559
-<span class="c1"># 要读取的边的名称。</span>
---edges<span class="o">=</span>LIKES<span class="w">  </span>
-<span class="c1"># 要读取的作为边的权重属性的名称。可以是属性名，也可以是 _rank。</span>
-<span class="c1">#--edge_data_fields </span>
-<span class="c1"># 每次扫描读取的行数。</span>
---read_batch_size<span class="o">=</span><span class="m">10000</span><span class="w">  </span>
-
-<span class="c1"># 写回 Nebula Graph 设置</span>
-<span class="c1"># Nebula Graph 的 graphd 服务地址。</span>
---graph_server_addrs<span class="o">=</span><span class="m">192</span>.168.8.100:9669<span class="w">  </span>
-<span class="c1"># Nebula Graph 的登录用户名。</span>
---user<span class="o">=</span>root<span class="w">  </span>
-<span class="c1"># Nebula Graph 的登录密码。</span>
---password<span class="o">=</span>nebula<span class="w">  </span>
-<span class="c1"># 写回 Nebula Graph 时采用的模式: insert 和 update。</span>
---mode<span class="o">=</span>insert<span class="w">  </span>
-<span class="c1"># 写回到 Nebula Graph 的 Tag 名称。</span>
---tag<span class="o">=</span>pagerank<span class="w">  </span>
-<span class="c1"># 写回到 Nebula Graph 的 Tag 对应的属性名称。</span>
---prop<span class="o">=</span>pr<span class="w">  </span>
-<span class="c1"># 写回到 Nebula Graph 的 Tag 对应的属性的类型。</span>
---type<span class="o">=</span>double<span class="w"> </span>
-<span class="c1"># 写回时，每次写入的行数。</span>
---write_batch_size<span class="o">=</span><span class="m">1000</span><span class="w"> </span>
-<span class="c1"># 写回失败的数据所存储的文件。</span>
---err_file<span class="o">=</span>/home/xxx/analytics/err.txt<span class="w"> </span>
-</code></pre></div>
+<p>```bash</p>
+<h1 id="nebula_graph">连接 Nebula Graph 时的重试次数。<a class="headerlink" href="#nebula_graph" title="Permanent link">&para;</a></h1>
+<p>--retry=3  </p>
+<h1 id="_6">要读取或写入的图空间名称。<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h1>
+<p>--space=baskeyballplayer  </p>
+<h1 id="nebula_graph_1">读取 Nebula Graph 设置<a class="headerlink" href="#nebula_graph_1" title="Permanent link">&para;</a></h1>
+<h1 id="nebula_graph_metad">Nebula Graph 的 metad 服务地址。<a class="headerlink" href="#nebula_graph_metad" title="Permanent link">&para;</a></h1>
+<p>--meta_server_addrs=192.168.8.100:9559, 192.168.8.101:9559, 192.168.8.102:9559</p>
+<h1 id="_7">要读取的边的名称。<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h1>
+<p>--edges=LIKES  </p>
+<h1 id="_rank">要读取的作为边的权重属性的名称。可以是属性名，也可以是 _rank。<a class="headerlink" href="#_rank" title="Permanent link">&para;</a></h1>
+<h1 id="--edge_data_fields">--edge_data_fields<a class="headerlink" href="#--edge_data_fields" title="Permanent link">&para;</a></h1>
+<h1 id="_8">每次扫描读取的行数。<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h1>
+<p>--read_batch_size=10000  </p>
+<h1 id="nebula_graph_2">写回 Nebula Graph 设置<a class="headerlink" href="#nebula_graph_2" title="Permanent link">&para;</a></h1>
+<h1 id="nebula_graph_graphd">Nebula Graph 的 graphd 服务地址。<a class="headerlink" href="#nebula_graph_graphd" title="Permanent link">&para;</a></h1>
+<p>--graph_server_addrs=192.168.8.100:9669  </p>
+<h1 id="nebula_graph_3">Nebula Graph 的登录用户名。<a class="headerlink" href="#nebula_graph_3" title="Permanent link">&para;</a></h1>
+<p>--user=root  </p>
+<h1 id="nebula_graph_4">Nebula Graph 的登录密码。<a class="headerlink" href="#nebula_graph_4" title="Permanent link">&para;</a></h1>
+<p>--password=nebula  </p>
+<h1 id="nebula_graph_insert_update">写回 Nebula Graph 时采用的模式: insert 和 update。<a class="headerlink" href="#nebula_graph_insert_update" title="Permanent link">&para;</a></h1>
+<p>--mode=insert  </p>
+<h1 id="nebula_graph_tag">写回到 Nebula Graph 的 Tag 名称。<a class="headerlink" href="#nebula_graph_tag" title="Permanent link">&para;</a></h1>
+<p>--tag=pagerank  </p>
+<h1 id="nebula_graph_tag_1">写回到 Nebula Graph 的 Tag 对应的属性名称。<a class="headerlink" href="#nebula_graph_tag_1" title="Permanent link">&para;</a></h1>
+<p>--prop=pr  </p>
+<h1 id="nebula_graph_tag_2">写回到 Nebula Graph 的 Tag 对应的属性的类型。<a class="headerlink" href="#nebula_graph_tag_2" title="Permanent link">&para;</a></h1>
+<p>--type=double </p>
+<h1 id="_9">写回时，每次写入的行数。<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h1>
+<p>--write_batch_size=1000 </p>
+<h1 id="_10">写回失败的数据所存储的文件。<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h1>
+<p>--err_file=/home/xxx/analytics/err.txt 
+```</p>
 </li>
 <li>
 <p>修改需要使用的算法脚本，例如<code>run_pagerank.sh</code>，设置相关参数。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 集群所有机器所运行的进程数之和，推荐每台机器为 1 或者 NUMA 架构的 node 数。</span>
-<span class="nv">WNUM</span><span class="o">=</span><span class="m">3</span><span class="w"> </span>
-<span class="c1"># 每个进程的线程数，推荐最大设置为机器的硬件线程数。</span>
-<span class="nv">WCORES</span><span class="o">=</span><span class="m">4</span><span class="w">  </span>
-<span class="c1"># 数据源路径</span>
-<span class="c1"># 可以通过文件 nebula.conf 设置从 Nebula Graph 读取：</span>
-<span class="nv">INPUT</span><span class="o">=</span><span class="si">${</span><span class="nv">INPUT</span><span class="p">:=</span><span class="s2">&quot;nebula:</span><span class="nv">$PROJECT</span><span class="s2">/scripts/nebula.conf&quot;</span><span class="si">}</span><span class="w">  </span>
-<span class="c1"># 也可以通过本地或 HDFS 上的 CSV 文件读取：</span>
-<span class="c1"># #INPUT=${INPUT:=&quot;$PROJECT/data/graph/v100_e2150_ua_c3.csv&quot;}</span>
-
-<span class="c1"># 图计算结果输出路径</span>
-<span class="c1"># 可以输出至 Nebula Graph 集群，如果数据源也为 Nebula Graph，结果会输出至 nebula.conf 指定的图空间。</span>
-<span class="nv">OUTPUT</span><span class="o">=</span><span class="si">${</span><span class="nv">OUTPUT</span><span class="p">:=</span><span class="s2">&quot;nebula:</span><span class="nv">$PROJECT</span><span class="s2">/scripts/nebula.conf&quot;</span><span class="si">}</span>
-<span class="c1"># 也可以输出至本地或 HDFS 上的 CSV 文件：</span>
-<span class="c1"># OUTPUT=${OUTPUT:=&#39;hdfs://192.168.8.100:9000/_test/output&#39;}</span>
-
-<span class="c1"># true 为有向图，false 为无向图。</span>
-<span class="nv">IS_DIRECTED</span><span class="o">=</span><span class="si">${</span><span class="nv">IS_DIRECTED</span><span class="p">:=true</span><span class="si">}</span>
-<span class="c1"># 是否进行 ID 编码</span>
-<span class="nv">NEED_ENCODE</span><span class="o">=</span><span class="si">${</span><span class="nv">NEED_ENCODE</span><span class="p">:=true</span><span class="si">}</span>
-<span class="c1"># 数据源的点 ID 类型，例如：string、int32、int64。</span>
-<span class="nv">VTYPE</span><span class="o">=</span><span class="si">${</span><span class="nv">VTYPE</span><span class="p">:=int32</span><span class="si">}</span>
-<span class="c1"># 编码类型。distributed 为分布式点ID编码，single 为单机点 ID 编码。</span>
-<span class="nv">ENCODER</span><span class="o">=</span><span class="si">${</span><span class="nv">ENCODER</span><span class="p">:=</span><span class="s2">&quot;distributed&quot;</span><span class="si">}</span>
-<span class="c1"># PageRank 算法的参数。不同算法的参数不同。</span>
-<span class="nv">EPS</span><span class="o">=</span><span class="si">${</span><span class="nv">EPS</span><span class="p">:=0.0001</span><span class="si">}</span>
-<span class="nv">DAMPING</span><span class="o">=</span><span class="si">${</span><span class="nv">DAMPING</span><span class="p">:=0.85</span><span class="si">}</span>
-<span class="c1"># 迭代次数</span>
-<span class="nv">ITERATIONS</span><span class="o">=</span><span class="si">${</span><span class="nv">ITERATIONS</span><span class="p">:=100</span><span class="si">}</span>
-</code></pre></div>
+<p>```bash</p>
+<h1 id="1_numa_node">集群所有机器所运行的进程数之和，推荐每台机器为 1 或者 NUMA 架构的 node 数。<a class="headerlink" href="#1_numa_node" title="Permanent link">&para;</a></h1>
+<p>WNUM=3 </p>
+<h1 id="_11">每个进程的线程数，推荐最大设置为机器的硬件线程数。<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h1>
+<p>WCORES=4  </p>
+<h1 id="_12">数据源路径<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h1>
+<h1 id="nebulaconf_nebula_graph">可以通过文件 nebula.conf 设置从 Nebula Graph 读取：<a class="headerlink" href="#nebulaconf_nebula_graph" title="Permanent link">&para;</a></h1>
+<p>INPUT=<span class="arithmatex">\({INPUT:="nebula:\)</span>PROJECT/scripts/nebula.conf"}  </p>
+<h1 id="hdfs_csv">也可以通过本地或 HDFS 上的 CSV 文件读取：<a class="headerlink" href="#hdfs_csv" title="Permanent link">&para;</a></h1>
+<h1 id="inputinputprojectdatagraphv100_e2150_ua_c3csv">#INPUT=<span class="arithmatex">\({INPUT:="\)</span>PROJECT/data/graph/v100_e2150_ua_c3.csv"}<a class="headerlink" href="#inputinputprojectdatagraphv100_e2150_ua_c3csv" title="Permanent link">&para;</a></h1>
+<h1 id="_13">图计算结果输出路径<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h1>
+<h1 id="nebula_graph_nebula_graph_nebulaconf">可以输出至 Nebula Graph 集群，如果数据源也为 Nebula Graph，结果会输出至 nebula.conf 指定的图空间。<a class="headerlink" href="#nebula_graph_nebula_graph_nebulaconf" title="Permanent link">&para;</a></h1>
+<p>OUTPUT=<span class="arithmatex">\({OUTPUT:="nebula:\)</span>PROJECT/scripts/nebula.conf"}</p>
+<h1 id="hdfs_csv_1">也可以输出至本地或 HDFS 上的 CSV 文件：<a class="headerlink" href="#hdfs_csv_1" title="Permanent link">&para;</a></h1>
+<h1 id="outputoutputhdfs19216881009000_testoutput">OUTPUT=${OUTPUT:='hdfs://192.168.8.100:9000/_test/output'}<a class="headerlink" href="#outputoutputhdfs19216881009000_testoutput" title="Permanent link">&para;</a></h1>
+<h1 id="true_false">true 为有向图，false 为无向图。<a class="headerlink" href="#true_false" title="Permanent link">&para;</a></h1>
+<p>IS_DIRECTED=${IS_DIRECTED:=true}</p>
+<h1 id="id">是否进行 ID 编码<a class="headerlink" href="#id" title="Permanent link">&para;</a></h1>
+<p>NEED_ENCODE=${NEED_ENCODE:=true}</p>
+<h1 id="id_stringint32int64">数据源的点 ID 类型，例如：string、int32、int64。<a class="headerlink" href="#id_stringint32int64" title="Permanent link">&para;</a></h1>
+<p>VTYPE=${VTYPE:=int32}</p>
+<h1 id="distributed_idsingle_id">编码类型。distributed 为分布式点ID编码，single 为单机点 ID 编码。<a class="headerlink" href="#distributed_idsingle_id" title="Permanent link">&para;</a></h1>
+<p>ENCODER=${ENCODER:="distributed"}</p>
+<h1 id="pagerank">PageRank 算法的参数。不同算法的参数不同。<a class="headerlink" href="#pagerank" title="Permanent link">&para;</a></h1>
+<p>EPS=<span class="arithmatex">\({EPS:=0.0001}
+DAMPING=\)</span>{DAMPING:=0.85}</p>
+<h1 id="_14">迭代次数<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h1>
+<p>ITERATIONS=${ITERATIONS:=100}
+```</p>
 </li>
 </ol>
 </li>
@@ -6292,51 +6295,51 @@
 <li>
 <p>数据源为本地或 HDFS 上的 CSV 文件</p>
 <p>修改需要使用的算法脚本，例如<code>run_pagerank.sh</code>，设置相关参数。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 集群所有机器所运行的进程数之和，推荐每台机器为 1 或者 NUMA 架构的 node 数。</span>
-<span class="nv">WNUM</span><span class="o">=</span><span class="m">3</span><span class="w"> </span>
-<span class="c1"># 每个进程的线程数，推荐最大设置为机器的硬件线程数。</span>
-<span class="nv">WCORES</span><span class="o">=</span><span class="m">4</span><span class="w">  </span>
-<span class="c1"># 数据源路径</span>
-<span class="c1"># 可以通过文件 nebula.conf 设置从 Nebula Graph 读取：</span>
-<span class="c1"># INPUT=${INPUT:=&quot;nebula:$PROJECT/scripts/nebula.conf&quot;}  </span>
-<span class="c1"># 也可以通过本地或 HDFS 上的 CSV 文件读取：</span>
-<span class="nv">INPUT</span><span class="o">=</span><span class="si">${</span><span class="nv">INPUT</span><span class="p">:=</span><span class="s2">&quot;</span><span class="nv">$PROJECT</span><span class="s2">/data/graph/v100_e2150_ua_c3.csv&quot;</span><span class="si">}</span>
-
-<span class="c1"># 图计算结果输出路径</span>
-<span class="c1"># 可以输出至 Nebula Graph 集群，如果数据源也为 Nebula Graph，结果会输出至 nebula.conf 指定的图空间。</span>
-<span class="c1"># OUTPUT=${OUTPUT:=&quot;nebula:$PROJECT/scripts/nebula.conf&quot;}</span>
-<span class="c1"># 也可以输出至本地或 HDFS 上的 CSV 文件：</span>
-<span class="nv">OUTPUT</span><span class="o">=</span><span class="si">${</span><span class="nv">OUTPUT</span><span class="p">:=</span><span class="s1">&#39;hdfs://192.168.8.100:9000/_test/output&#39;</span><span class="si">}</span>
-
-<span class="c1"># true 为有向图，false 为无向图。</span>
-<span class="nv">IS_DIRECTED</span><span class="o">=</span><span class="si">${</span><span class="nv">IS_DIRECTED</span><span class="p">:=true</span><span class="si">}</span>
-<span class="c1"># 是否进行 ID 编码</span>
-<span class="nv">NEED_ENCODE</span><span class="o">=</span><span class="si">${</span><span class="nv">NEED_ENCODE</span><span class="p">:=true</span><span class="si">}</span>
-<span class="c1"># 数据源的点 ID 类型，例如：string、int32、int64。</span>
-<span class="nv">VTYPE</span><span class="o">=</span><span class="si">${</span><span class="nv">VTYPE</span><span class="p">:=int32</span><span class="si">}</span>
-<span class="c1"># 编码类型。distributed 为分布式点ID编码，single 为单机点 ID 编码。</span>
-<span class="nv">ENCODER</span><span class="o">=</span><span class="si">${</span><span class="nv">ENCODER</span><span class="p">:=</span><span class="s2">&quot;distributed&quot;</span><span class="si">}</span>
-<span class="c1"># PageRank 算法的参数。不同算法的参数不同。</span>
-<span class="nv">EPS</span><span class="o">=</span><span class="si">${</span><span class="nv">EPS</span><span class="p">:=0.0001</span><span class="si">}</span>
-<span class="nv">DAMPING</span><span class="o">=</span><span class="si">${</span><span class="nv">DAMPING</span><span class="p">:=0.85</span><span class="si">}</span>
-<span class="c1"># 迭代次数</span>
-<span class="nv">ITERATIONS</span><span class="o">=</span><span class="si">${</span><span class="nv">ITERATIONS</span><span class="p">:=100</span><span class="si">}</span>
-</code></pre></div>
+<p>```bash</p>
+<h1 id="1_numa_node_1">集群所有机器所运行的进程数之和，推荐每台机器为 1 或者 NUMA 架构的 node 数。<a class="headerlink" href="#1_numa_node_1" title="Permanent link">&para;</a></h1>
+<p>WNUM=3 </p>
+<h1 id="_15">每个进程的线程数，推荐最大设置为机器的硬件线程数。<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h1>
+<p>WCORES=4  </p>
+<h1 id="_16">数据源路径<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h1>
+<h1 id="nebulaconf_nebula_graph_1">可以通过文件 nebula.conf 设置从 Nebula Graph 读取：<a class="headerlink" href="#nebulaconf_nebula_graph_1" title="Permanent link">&para;</a></h1>
+<h1 id="inputinputnebulaprojectscriptsnebulaconf">INPUT=<span class="arithmatex">\({INPUT:="nebula:\)</span>PROJECT/scripts/nebula.conf"}<a class="headerlink" href="#inputinputnebulaprojectscriptsnebulaconf" title="Permanent link">&para;</a></h1>
+<h1 id="hdfs_csv_2">也可以通过本地或 HDFS 上的 CSV 文件读取：<a class="headerlink" href="#hdfs_csv_2" title="Permanent link">&para;</a></h1>
+<p>INPUT=<span class="arithmatex">\({INPUT:="\)</span>PROJECT/data/graph/v100_e2150_ua_c3.csv"}</p>
+<h1 id="_17">图计算结果输出路径<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h1>
+<h1 id="nebula_graph_nebula_graph_nebulaconf_1">可以输出至 Nebula Graph 集群，如果数据源也为 Nebula Graph，结果会输出至 nebula.conf 指定的图空间。<a class="headerlink" href="#nebula_graph_nebula_graph_nebulaconf_1" title="Permanent link">&para;</a></h1>
+<h1 id="outputoutputnebulaprojectscriptsnebulaconf">OUTPUT=<span class="arithmatex">\({OUTPUT:="nebula:\)</span>PROJECT/scripts/nebula.conf"}<a class="headerlink" href="#outputoutputnebulaprojectscriptsnebulaconf" title="Permanent link">&para;</a></h1>
+<h1 id="hdfs_csv_3">也可以输出至本地或 HDFS 上的 CSV 文件：<a class="headerlink" href="#hdfs_csv_3" title="Permanent link">&para;</a></h1>
+<p>OUTPUT=${OUTPUT:='hdfs://192.168.8.100:9000/_test/output'}</p>
+<h1 id="true_false_1">true 为有向图，false 为无向图。<a class="headerlink" href="#true_false_1" title="Permanent link">&para;</a></h1>
+<p>IS_DIRECTED=${IS_DIRECTED:=true}</p>
+<h1 id="id_1">是否进行 ID 编码<a class="headerlink" href="#id_1" title="Permanent link">&para;</a></h1>
+<p>NEED_ENCODE=${NEED_ENCODE:=true}</p>
+<h1 id="id_stringint32int64_1">数据源的点 ID 类型，例如：string、int32、int64。<a class="headerlink" href="#id_stringint32int64_1" title="Permanent link">&para;</a></h1>
+<p>VTYPE=${VTYPE:=int32}</p>
+<h1 id="distributed_idsingle_id_1">编码类型。distributed 为分布式点ID编码，single 为单机点 ID 编码。<a class="headerlink" href="#distributed_idsingle_id_1" title="Permanent link">&para;</a></h1>
+<p>ENCODER=${ENCODER:="distributed"}</p>
+<h1 id="pagerank_1">PageRank 算法的参数。不同算法的参数不同。<a class="headerlink" href="#pagerank_1" title="Permanent link">&para;</a></h1>
+<p>EPS=<span class="arithmatex">\({EPS:=0.0001}
+DAMPING=\)</span>{DAMPING:=0.85}</p>
+<h1 id="_18">迭代次数<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h1>
+<p>ITERATIONS=${ITERATIONS:=100}
+```</p>
 </li>
 </ul>
 </li>
 <li>
 <p>修改配置文件<code>cluster</code>，设置执行算法的 Nebula Analytics 集群节点和任务分配权重。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Nebula Analytics 集群节点 IP 地址:任务分配权重</span>
-<span class="m">192</span>.168.8.200:1
-<span class="m">192</span>.168.8.201:1
-<span class="m">192</span>.168.8.202:1
-</code></pre></div>
+<p>```bash</p>
+<h1 id="nebula_analytics_ip">Nebula Analytics 集群节点 IP 地址:任务分配权重<a class="headerlink" href="#nebula_analytics_ip" title="Permanent link">&para;</a></h1>
+<p>192.168.8.200:1
+192.168.8.201:1
+192.168.8.202:1
+```</p>
 </li>
 <li>
 <p>执行算法脚本。例如：</p>
-<div class="highlight"><pre><span></span><code>./run_pagerank.sh
-</code></pre></div>
+<p><code>bash
+./run_pagerank.sh</code></p>
 </li>
 <li>
 <p>在输出路径查看计算结果。</p>
@@ -6354,7 +6357,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6468,8 +6471,6 @@
         <script src="../js/jquery.js"></script>
       
         <script src="../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

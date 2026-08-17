@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/1.introduction/0-0-graph/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6118,52 +6118,52 @@
 <p>图查询语言是针对图结构访问设计的，可以更加直观。例如，下面是一个 LDBC 中的查询示例，要求：查找某人（Person）在社交网络上发布的帖子（Posts）；查找相应的回复（Message，回复本身还会被多次回复）;发帖时间、回帖时间都满足一定条件；根据回帖数量对结果排序。</p>
 <p><img alt="image" src="https://docs-cdn.nebula-graph.com.cn/books/images/efficientquery.png" /></p>
 <p>如果使用 PostgreSQL 编写查询语句：</p>
-<div class="highlight"><pre><span></span><code><span class="c1">--PostgreSQL</span>
-<span class="k">WITH</span><span class="w"> </span><span class="k">RECURSIVE</span><span class="w"> </span><span class="n">post_all</span><span class="p">(</span><span class="n">psa_threadid</span>
-<span class="w">                      </span><span class="p">,</span><span class="w"> </span><span class="n">psa_thread_creatorid</span><span class="p">,</span><span class="w"> </span><span class="n">psa_messageid</span>
-<span class="w">                      </span><span class="p">,</span><span class="w"> </span><span class="n">psa_creationdate</span><span class="p">,</span><span class="w"> </span><span class="n">psa_messagetype</span>
-<span class="w">                       </span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
-<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">m_messageid</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">psa_threadid</span>
-<span class="w">         </span><span class="p">,</span><span class="w"> </span><span class="n">m_creatorid</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">psa_thread_creatorid</span>
-<span class="w">         </span><span class="p">,</span><span class="w"> </span><span class="n">m_messageid</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">psa_messageid</span>
-<span class="w">         </span><span class="p">,</span><span class="w"> </span><span class="n">m_creationdate</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Post&#39;</span>
-<span class="w">      </span><span class="k">FROM</span><span class="w"> </span><span class="n">message</span>
-<span class="w">     </span><span class="k">WHERE</span><span class="w"> </span><span class="mi">1</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">m_c_replyof</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="c1">-- post, not comment</span>
-<span class="w">       </span><span class="k">AND</span><span class="w"> </span><span class="n">m_creationdate</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="p">:</span><span class="n">startDate</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="p">:</span><span class="n">endDate</span>
-<span class="w">  </span><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span>
-<span class="w">    </span><span class="k">SELECT</span><span class="w"> </span><span class="n">psa</span><span class="p">.</span><span class="n">psa_threadid</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">psa_threadid</span>
-<span class="w">         </span><span class="p">,</span><span class="w"> </span><span class="n">psa</span><span class="p">.</span><span class="n">psa_thread_creatorid</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">psa_thread_creatorid</span>
-<span class="w">         </span><span class="p">,</span><span class="w"> </span><span class="n">m_messageid</span><span class="p">,</span><span class="w"> </span><span class="n">m_creationdate</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Comment&#39;</span>
-<span class="w">      </span><span class="k">FROM</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">post_all</span><span class="w"> </span><span class="n">psa</span>
-<span class="w">     </span><span class="k">WHERE</span><span class="w"> </span><span class="mi">1</span><span class="o">=</span><span class="mi">1</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">m_c_replyof</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">psa</span><span class="p">.</span><span class="n">psa_messageid</span>
-<span class="w">     </span><span class="k">AND</span><span class="w"> </span><span class="n">m_creationdate</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="p">:</span><span class="n">startDate</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="p">:</span><span class="n">endDate</span>
-<span class="p">)</span>
-<span class="k">SELECT</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">p_personid</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;person.id&quot;</span>
-<span class="w">     </span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">p_firstname</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;person.firstName&quot;</span>
-<span class="w">     </span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">p_lastname</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="ss">&quot;person.lastName&quot;</span>
-<span class="w">     </span><span class="p">,</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">psa</span><span class="p">.</span><span class="n">psa_threadid</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">threadCount</span>
-<span class="k">END</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">messageCount</span>
-<span class="w">     </span><span class="p">,</span><span class="w"> </span><span class="k">count</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">psa</span><span class="p">.</span><span class="n">psa_messageid</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">messageCount</span>
-<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">person</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="k">left</span><span class="w"> </span><span class="k">join</span><span class="w"> </span><span class="n">post_all</span><span class="w"> </span><span class="n">psa</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="p">(</span>
-<span class="w">       </span><span class="mi">1</span><span class="o">=</span><span class="mi">1</span><span class="w">   </span><span class="k">AND</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">p_personid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">psa</span><span class="p">.</span><span class="n">psa_thread_creatorid</span>
-<span class="w">   </span><span class="k">AND</span><span class="w"> </span><span class="n">psa_creationdate</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="p">:</span><span class="n">startDate</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="p">:</span><span class="n">endDate</span>
-<span class="w">   </span><span class="p">)</span>
-<span class="w"> </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">p_personid</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">p_firstname</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">p_lastname</span>
-<span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">messageCount</span><span class="w"> </span><span class="k">DESC</span><span class="p">,</span><span class="w"> </span><span class="n">p</span><span class="p">.</span><span class="n">p_personid</span>
-<span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span>
-</code></pre></div>
+<p><code>SQL
+--PostgreSQL
+WITH RECURSIVE post_all(psa_threadid
+                      , psa_thread_creatorid, psa_messageid
+                      , psa_creationdate, psa_messagetype
+                       ) AS (
+    SELECT m_messageid AS psa_threadid
+         , m_creatorid AS psa_thread_creatorid
+         , m_messageid AS psa_messageid
+         , m_creationdate, 'Post'
+      FROM message
+     WHERE 1=1 AND m_c_replyof IS NULL -- post, not comment
+       AND m_creationdate BETWEEN :startDate AND :endDate
+  UNION ALL
+    SELECT psa.psa_threadid AS psa_threadid
+         , psa.psa_thread_creatorid AS psa_thread_creatorid
+         , m_messageid, m_creationdate, 'Comment'
+      FROM message p, post_all psa
+     WHERE 1=1 AND p.m_c_replyof = psa.psa_messageid
+     AND m_creationdate BETWEEN :startDate AND :endDate
+)
+SELECT p.p_personid AS "person.id"
+     , p.p_firstname AS "person.firstName"
+     , p.p_lastname AS "person.lastName"
+     , count(DISTINCT psa.psa_threadid) AS threadCount
+END) AS messageCount
+     , count(DISTINCT psa.psa_messageid) AS messageCount
+  FROM person p left join post_all psa on (
+       1=1   AND p.p_personid = psa.psa_thread_creatorid
+   AND psa_creationdate BETWEEN :startDate AND :endDate
+   )
+ GROUP BY p.p_personid, p.p_firstname, p.p_lastname
+ ORDER BY messageCount DESC, p.p_personid
+ LIMIT 100;</code></p>
 <p>如果使用为图专门设计的图语言 Cypher 编写查询语句：</p>
-<div class="highlight"><pre><span></span><code><span class="err">--</span><span class="n">Cypher</span>
-<span class="k">MATCH</span><span class="w"> </span><span class="p">(</span><span class="n">person</span><span class="p">:</span><span class="n">Person</span><span class="p">)</span><span class="o">&lt;-[</span><span class="p">:</span><span class="n">HAS_CREATOR</span><span class="o">]-</span><span class="p">(</span><span class="n">post</span><span class="p">:</span><span class="n">Post</span><span class="p">)</span><span class="o">&lt;-[</span><span class="p">:</span><span class="n">REPLY_OF</span><span class="p">*</span><span class="m">0</span><span class="p">..</span><span class="o">]-</span><span class="p">(</span><span class="n">reply</span><span class="p">:</span><span class="n">Message</span><span class="p">)</span>
-<span class="k">WHERE</span><span class="w"> </span><span class="n">post</span><span class="p">.</span><span class="n">creationDate</span><span class="w"> </span><span class="p">&gt;=</span><span class="w"> </span><span class="err">$</span><span class="n">startDate</span><span class="w"> </span><span class="n">AND</span><span class="w"> </span><span class="n">post</span><span class="p">.</span><span class="n">creationDate</span><span class="w"> </span><span class="p">&lt;=</span><span class="w"> </span><span class="err">$</span><span class="n">endDate</span>
-<span class="w">  </span><span class="n">AND</span><span class="w"> </span><span class="n">reply</span><span class="p">.</span><span class="n">creationDate</span><span class="w"> </span><span class="p">&gt;=</span><span class="w"> </span><span class="err">$</span><span class="n">startDate</span><span class="w"> </span><span class="n">AND</span><span class="w"> </span><span class="n">reply</span><span class="p">.</span><span class="n">creationDate</span><span class="w"> </span><span class="p">&lt;=</span><span class="w"> </span><span class="err">$</span><span class="n">endDate</span>
-<span class="k">RETURN</span>
-<span class="w">  </span><span class="n">person</span><span class="p">.</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">firstName</span><span class="p">,</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">lastName</span><span class="p">,</span><span class="w"> </span><span class="n">count</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">post</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">threadCount</span><span class="p">,</span>
-<span class="w">  </span><span class="n">count</span><span class="p">(</span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">reply</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">messageCount</span>
-<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span>
-<span class="w">  </span><span class="n">messageCount</span><span class="w"> </span><span class="k">DESC</span><span class="p">,</span><span class="w"> </span><span class="n">person</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="k">ASC</span>
-<span class="k">LIMIT</span><span class="w"> </span><span class="m">100</span>
-</code></pre></div>
+<p><code>Cypher
+--Cypher
+MATCH (person:Person)&lt;-[:HAS_CREATOR]-(post:Post)&lt;-[:REPLY_OF*0..]-(reply:Message)
+WHERE post.creationDate &gt;= $startDate AND post.creationDate &lt;= $endDate
+  AND reply.creationDate &gt;= $startDate AND reply.creationDate &lt;= $endDate
+RETURN
+  person.id, person.firstName, person.lastName, count(DISTINCT post) AS threadCount,
+  count(DISTINCT reply) AS messageCount
+ORDER BY
+  messageCount DESC, person.id ASC
+LIMIT 100</code></p>
 </li>
 </ul>
 <ul>
@@ -6236,7 +6236,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6350,8 +6350,6 @@
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

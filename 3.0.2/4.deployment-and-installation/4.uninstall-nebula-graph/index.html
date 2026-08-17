@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/4.deployment-and-installation/4.uninstall-nebula-graph/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6107,11 +6107,11 @@
 <ol>
 <li>
 <p>检查 Storage 服务的 <a href="../../5.configurations-and-logs/1.configurations/4.storage-config/#disk">disk 配置</a>。例如：</p>
-<div class="highlight"><pre><span></span><code><span class="c1">########## Disk ##########</span>
-<span class="c1"># Root data path. Split by comma. e.g. --data_path=/disk1/path1/,/disk2/path2/</span>
-<span class="c1"># One path per Rocksdb instance.</span>
---data_path<span class="o">=</span>/nebula/data/storage
-</code></pre></div>
+<p><code>bash
+  ########## Disk ##########
+  # Root data path. Split by comma. e.g. --data_path=/disk1/path1/,/disk2/path2/
+  # One path per Rocksdb instance.
+  --data_path=/nebula/data/storage</code></p>
 </li>
 <li>
 <p>检查 metad 服务的配置文件，找到对应元数据目录。</p>
@@ -6132,19 +6132,19 @@
 <ol>
 <li>
 <p>使用如下命令查看 Nebula Graph 版本。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>rpm<span class="w"> </span>-qa<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;nebula&quot;</span>
-</code></pre></div>
+<p><code>bash
+  $ rpm -qa | grep "nebula"</code></p>
 <p>返回类似如下结果。</p>
-<div class="highlight"><pre><span></span><code>nebula-graph-3.0.2-1.x86_64
-</code></pre></div>
+<p><code>bash
+  nebula-graph-3.0.2-1.x86_64</code></p>
 </li>
 <li>
 <p>使用如下命令卸载 Nebula Graph。</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>rpm<span class="w"> </span>-e<span class="w"> </span>&lt;nebula_version&gt;
-</code></pre></div>
+<p><code>bash
+  sudo rpm -e &lt;nebula_version&gt;</code></p>
 <p>例如：</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>rpm<span class="w"> </span>-e<span class="w"> </span>nebula-graph-3.0.2-1.x86_64
-</code></pre></div>
+<p><code>bash
+  sudo rpm -e nebula-graph-3.0.2-1.x86_64</code></p>
 </li>
 <li>
 <p>删除安装目录。</p>
@@ -6154,19 +6154,19 @@
 <ol>
 <li>
 <p>使用如下命令查看 Nebula Graph 版本。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>dpkg<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;nebula&quot;</span>
-</code></pre></div>
+<p><code>bash
+  $ dpkg -l | grep "nebula"</code></p>
 <p>返回类似如下结果。</p>
-<div class="highlight"><pre><span></span><code>ii<span class="w">  </span>nebula-graph<span class="w">  </span><span class="m">3</span>.0.2<span class="w">  </span>amd64<span class="w">     </span>Nebula<span class="w"> </span>Package<span class="w"> </span>built<span class="w"> </span>using<span class="w"> </span>CMake
-</code></pre></div>
+<p><code>bash
+  ii  nebula-graph  3.0.2  amd64     Nebula Package built using CMake</code></p>
 </li>
 <li>
 <p>使用如下命令卸载 Nebula Graph。</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>dpkg<span class="w"> </span>-r<span class="w"> </span>&lt;nebula_version&gt;
-</code></pre></div>
+<p><code>bash
+  sudo dpkg -r &lt;nebula_version&gt;</code></p>
 <p>例如：</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>dpkg<span class="w"> </span>-r<span class="w"> </span>nebula-graph
-</code></pre></div>
+<p><code>bash
+  sudo dpkg -r nebula-graph</code></p>
 </li>
 <li>
 <p>删除安装目录。</p>
@@ -6176,8 +6176,8 @@
 <ol>
 <li>
 <p>在目录<code>nebula-docker-compose</code>内执行如下命令停止 Nebula Graph 服务。</p>
-<div class="highlight"><pre><span></span><code>docker-compose<span class="w"> </span>down<span class="w"> </span>-v
-</code></pre></div>
+<p><code>bash
+  docker-compose down -v</code></p>
 </li>
 <li>
 <p>删除目录<code>nebula-docker-compose</code>。</p>
@@ -6189,7 +6189,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6303,8 +6303,6 @@
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

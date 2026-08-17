@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/15.full-text-index-statements/1.search-with-text-based-index/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6145,26 +6145,25 @@
 <p>自然语言搜索将搜索的字符串解释为自然人类语言中的短语。搜索不区分大小写，且默认是对字符串的每个子字符串（以空格分隔）单独判断搜索。例如，有三个点属于标签<code>player</code>，标签<code>player</code>含有属性<code>name</code>，这三个点的<code>name</code>分别为<code>Kevin Durant</code>、<code>Tim Duncan</code>和<code>David Beckham</code>。现在已经建立好有关<code>player.name</code>的全文索引，在用全文索引前缀搜索语句<code>LOOKUP ON player WHERE PREFIX(player.name,"d");</code>查询时，这三个点都会被查询到。</p>
 <h2 id="_5">语法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <h3 id="_6">创建全文索引<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>CREATE FULLTEXT {TAG | EDGE} INDEX &lt;index_name&gt; ON {&lt;tag_name&gt; | &lt;edge_name&gt;} ([&lt;prop_name_list&gt;]);
-</code></pre></div>
+<p><code>ngql
+CREATE FULLTEXT {TAG | EDGE} INDEX &lt;index_name&gt; ON {&lt;tag_name&gt; | &lt;edge_name&gt;} ([&lt;prop_name_list&gt;]);</code></p>
 <h3 id="_7">显示全文索引<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>SHOW FULLTEXT INDEXES;
-</code></pre></div>
+<p><code>ngql
+SHOW FULLTEXT INDEXES;</code></p>
 <h3 id="_8">重建全文索引<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>REBUILD FULLTEXT INDEX;
-</code></pre></div>
+<p><code>ngql
+REBUILD FULLTEXT INDEX;</code></p>
 <h3 id="_9">删除全文索引<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>DROP FULLTEXT INDEX &lt;index_name&gt;;
-</code></pre></div>
+<p><code>ngql
+DROP FULLTEXT INDEX &lt;index_name&gt;;</code></p>
 <h3 id="_10">使用查询选项<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>LOOKUP ON {&lt;tag&gt; | &lt;edge_type&gt;} WHERE &lt;expression&gt; [YIELD &lt;return_list&gt;];
-
-&lt;expression&gt; ::=
-    PREFIX | WILDCARD | REGEXP | FUZZY
-
-&lt;return_list&gt;
-    &lt;prop_name&gt; [AS &lt;prop_alias&gt;] [, &lt;prop_name&gt; [AS &lt;prop_alias&gt;] ...]
-</code></pre></div>
+<p>```ngql
+LOOKUP ON {<tag> | <edge_type>} WHERE <expression> [YIELD <return_list>];</p>
+<p><expression> ::=
+    PREFIX | WILDCARD | REGEXP | FUZZY</p>
+<p><return_list>
+    <prop_name> [AS <prop_alias>] [, <prop_name> [AS <prop_alias>] ...]
+```</p>
 <ul>
 <li>PREFIX(schema_name.prop_name, prefix_string, row_limit, timeout)</li>
 </ul>
@@ -6192,115 +6191,99 @@
 <li><code>timeout</code>：可选项。指定超时时间。单位：毫秒（ms）。默认值为<code>200</code>。</li>
 </ul>
 <h2 id="_11">示例<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>//创建图空间。
-nebula&gt; CREATE SPACE IF NOT EXISTS basketballplayer (partition_num=3,replica_factor=1, vid_type=fixed_string(30));
-
-//登录文本搜索客户端。
-nebula&gt; SIGN IN TEXT SERVICE (127.0.0.1:9200, HTTP);
-
-//切换图空间。
-nebula&gt; USE basketballplayer;
-
-//添加 listener 到 Nebula Graph 集群。
-nebula&gt; ADD LISTENER ELASTICSEARCH 192.168.8.5:9789;
-
-//创建 Tag。
-nebula&gt; CREATE TAG IF NOT EXISTS player(name string, age int);
-
-//创建原生索引。
-nebula&gt; CREATE TAG INDEX IF NOT EXISTS name ON player(name(20));
-
-//重建原生索引。
-nebula&gt; REBUILD TAG INDEX;
-
-//创建全文索引，索引名称需要以 nebula 开头。
-nebula&gt; CREATE FULLTEXT TAG INDEX nebula_index_1 ON player(name);
-
-//重建全文索引。
-nebula&gt; REBUILD FULLTEXT INDEX;
-
-//查看全文索引。
+<p>```ngql
+//创建图空间。
+nebula&gt; CREATE SPACE IF NOT EXISTS basketballplayer (partition_num=3,replica_factor=1, vid_type=fixed_string(30));</p>
+<p>//登录文本搜索客户端。
+nebula&gt; SIGN IN TEXT SERVICE (127.0.0.1:9200, HTTP);</p>
+<p>//切换图空间。
+nebula&gt; USE basketballplayer;</p>
+<p>//添加 listener 到 Nebula Graph 集群。
+nebula&gt; ADD LISTENER ELASTICSEARCH 192.168.8.5:9789;</p>
+<p>//创建 Tag。
+nebula&gt; CREATE TAG IF NOT EXISTS player(name string, age int);</p>
+<p>//创建原生索引。
+nebula&gt; CREATE TAG INDEX IF NOT EXISTS name ON player(name(20));</p>
+<p>//重建原生索引。
+nebula&gt; REBUILD TAG INDEX;</p>
+<p>//创建全文索引，索引名称需要以 nebula 开头。
+nebula&gt; CREATE FULLTEXT TAG INDEX nebula_index_1 ON player(name);</p>
+<p>//重建全文索引。
+nebula&gt; REBUILD FULLTEXT INDEX;</p>
+<p>//查看全文索引。
 nebula&gt; SHOW FULLTEXT INDEXES;
 +------------------+-------------+-------------+--------+
 | Name             | Schema Type | Schema Name | Fields |
 +------------------+-------------+-------------+--------+
-| &quot;nebula_index_1&quot; | &quot;Tag&quot;       | &quot;player&quot;    | &quot;name&quot; |
-+------------------+-------------+-------------+--------+
-
-//插入测试数据。
+| "nebula_index_1" | "Tag"       | "player"    | "name" |
++------------------+-------------+-------------+--------+</p>
+<p>//插入测试数据。
 nebula&gt; INSERT VERTEX player(name, age) VALUES \
-  &quot;Russell Westbrook&quot;: (&quot;Russell Westbrook&quot;, 30), \
-  &quot;Chris Paul&quot;: (&quot;Chris Paul&quot;, 33),\
-  &quot;Boris Diaw&quot;: (&quot;Boris Diaw&quot;, 36),\
-  &quot;David West&quot;: (&quot;David West&quot;, 38),\
-  &quot;Danny Green&quot;: (&quot;Danny Green&quot;, 31),\
-  &quot;Tim Duncan&quot;: (&quot;Tim Duncan&quot;, 42),\
-  &quot;James Harden&quot;: (&quot;James Harden&quot;, 29),\
-  &quot;Tony Parker&quot;: (&quot;Tony Parker&quot;, 36),\
-  &quot;Aron Baynes&quot;: (&quot;Aron Baynes&quot;, 32),\
-  &quot;Ben Simmons&quot;: (&quot;Ben Simmons&quot;, 22),\
-  &quot;Blake Griffin&quot;: (&quot;Blake Griffin&quot;, 30);
-
-//测试查询
-nebula&gt; LOOKUP ON player WHERE PREFIX(player.name, &quot;B&quot;) YIELD id(vertex);
+  "Russell Westbrook": ("Russell Westbrook", 30), \
+  "Chris Paul": ("Chris Paul", 33),\
+  "Boris Diaw": ("Boris Diaw", 36),\
+  "David West": ("David West", 38),\
+  "Danny Green": ("Danny Green", 31),\
+  "Tim Duncan": ("Tim Duncan", 42),\
+  "James Harden": ("James Harden", 29),\
+  "Tony Parker": ("Tony Parker", 36),\
+  "Aron Baynes": ("Aron Baynes", 32),\
+  "Ben Simmons": ("Ben Simmons", 22),\
+  "Blake Griffin": ("Blake Griffin", 30);</p>
+<p>//测试查询
+nebula&gt; LOOKUP ON player WHERE PREFIX(player.name, "B") YIELD id(vertex);
 +-----------------+
 | id(VERTEX)      |
 +-----------------+
-| &quot;Boris Diaw&quot;    |
-| &quot;Ben Simmons&quot;   |
-| &quot;Blake Griffin&quot; |
-+-----------------+
-
-nebula&gt; LOOKUP ON player WHERE WILDCARD(player.name, &quot;*ri*&quot;) YIELD player.name, player.age;
+| "Boris Diaw"    |
+| "Ben Simmons"   |
+| "Blake Griffin" |
++-----------------+</p>
+<p>nebula&gt; LOOKUP ON player WHERE WILDCARD(player.name, "<em>ri</em>") YIELD player.name, player.age;
 +-----------------+-----+
 | name            | age |
 +-----------------+-----+
-| &quot;Chris Paul&quot;    | 33  |
-| &quot;Boris Diaw&quot;    | 36  |
-| &quot;Blake Griffin&quot; | 30  |
-+-----------------+-----+
-
-nebula&gt; LOOKUP ON player WHERE WILDCARD(player.name, &quot;*ri*&quot;) | YIELD count(*);
+| "Chris Paul"    | 33  |
+| "Boris Diaw"    | 36  |
+| "Blake Griffin" | 30  |
++-----------------+-----+</p>
+<p>nebula&gt; LOOKUP ON player WHERE WILDCARD(player.name, "<em>ri</em>") | YIELD count(<em>);
 +----------+
-| count(*) |
+| count(</em>) |
 +----------+
 | 3        |
-+----------+
-
-nebula&gt; LOOKUP ON player WHERE REGEXP(player.name, &quot;R.*&quot;) YIELD player.name, player.age;
++----------+</p>
+<p>nebula&gt; LOOKUP ON player WHERE REGEXP(player.name, "R.*") YIELD player.name, player.age;
 +---------------------+-----+
 | name                | age |
 +---------------------+-----+
-| &quot;Russell Westbrook&quot; | 30  |
-+---------------------+-----+
-
-nebula&gt; LOOKUP ON player WHERE REGEXP(player.name, &quot;.*&quot;) YIELD id(vertex);
+| "Russell Westbrook" | 30  |
++---------------------+-----+</p>
+<p>nebula&gt; LOOKUP ON player WHERE REGEXP(player.name, ".*") YIELD id(vertex);
 +---------------------+
 | id(VERTEX)          |
 +---------------------+
-| &quot;Danny Green&quot;       |
-| &quot;David West&quot;        |
-| &quot;Russell Westbrook&quot; |
+| "Danny Green"       |
+| "David West"        |
+| "Russell Westbrook" |
 +---------------------+
-...
-
-nebula&gt; LOOKUP ON player WHERE FUZZY(player.name, &quot;Tim Dunncan&quot;, AUTO, OR) YIELD player.name;
+...</p>
+<p>nebula&gt; LOOKUP ON player WHERE FUZZY(player.name, "Tim Dunncan", AUTO, OR) YIELD player.name;
 +--------------+
 | name         |
 +--------------+
-| &quot;Tim Duncan&quot; |
-+--------------+
-
-//删除全文索引。
+| "Tim Duncan" |
++--------------+</p>
+<p>//删除全文索引。
 nebula&gt; DROP FULLTEXT INDEX nebula_index_1;
-</code></pre></div>
+```</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6414,8 +6397,6 @@ nebula&gt; DROP FULLTEXT INDEX nebula_index_1;
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

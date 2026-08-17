@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/11.edge-type-statements/3.alter-edge/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6048,19 +6048,18 @@
 <li>确保要修改的属性不包含索引，否则<code>ALTER EDGE</code>时会报冲突错误<code>[ERROR (-8)]: Conflict!</code>。删除索引请参见 <a href="../../14.native-index-statements/6.drop-native-index/">drop index</a>。</li>
 </ul>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>ALTER EDGE &lt;edge_type_name&gt;
-    &lt;alter_definition&gt; [, alter_definition] ...]
+<p>```ngql
+ALTER EDGE <edge_type_name>
+    <alter_definition> [, alter_definition] ...]
     [ttl_definition [, ttl_definition] ... ]
-    [COMMENT = &#39;&lt;comment&gt;&#39;];
-
-alter_definition:
+    [COMMENT = '<comment>'];</p>
+<p>alter_definition:
 | ADD    (prop_name data_type)
 | DROP   (prop_name)
-| CHANGE (prop_name data_type)
-
-ttl_definition:
+| CHANGE (prop_name data_type)</p>
+<p>ttl_definition:
     TTL_DURATION = ttl_duration, TTL_COL = prop_name
-</code></pre></div>
+```</p>
 <ul>
 <li><code>edge_type_name</code>：指定要修改的 Edge type 名称。一次只能修改一个 Edge type。请确保要修改的 Edge type 在当前工作空间中存在，否则会报错。</li>
 </ul>
@@ -6068,11 +6067,11 @@ ttl_definition:
 <li>可以在一个<code>ALTER EDGE</code>语句中使用多个<code>ADD</code>、<code>DROP</code>和<code>CHANGE</code>子句，子句之间用英文逗号（,）分隔。</li>
 </ul>
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>nebula&gt; CREATE EDGE IF NOT EXISTS e1(p1 string, p2 int);
+<p><code>ngql
+nebula&gt; CREATE EDGE IF NOT EXISTS e1(p1 string, p2 int);
 nebula&gt; ALTER EDGE e1 ADD (p3 int, p4 string);
-nebula&gt; ALTER EDGE e1 TTL_DURATION = 2, TTL_COL = &quot;p2&quot;;
-nebula&gt; ALTER EDGE e1 COMMENT = &#39;edge1&#39;;
-</code></pre></div>
+nebula&gt; ALTER EDGE e1 TTL_DURATION = 2, TTL_COL = "p2";
+nebula&gt; ALTER EDGE e1 COMMENT = 'edge1';</code></p>
 <h2 id="edge_type">修改 Edge type 说明<a class="headerlink" href="#edge_type" title="Permanent link">&para;</a></h2>
 <p>尝试使用刚修改的 Edge type 可能会失败，因为修改是异步实现的。为确保数据同步，后续操作能顺利进行，请等待 2 个心跳周期（20 秒）。</p>
 <p>如果需要修改心跳间隔，请为<a href="../../../5.configurations-and-logs/1.configurations/1.configurations/">所有配置文件</a>修改参数<code>heartbeat_interval_secs</code>。</p>
@@ -6082,7 +6081,7 @@ nebula&gt; ALTER EDGE e1 COMMENT = &#39;edge1&#39;;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6196,8 +6195,6 @@ nebula&gt; ALTER EDGE e1 COMMENT = &#39;edge1&#39;;
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

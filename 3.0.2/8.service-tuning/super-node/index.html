@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/8.service-tuning/super-node/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6118,9 +6118,9 @@
 <p>切分顶点本身</p>
 <p>例如，对于<code>（人）-[借款]-&gt;（银行）</code>的借款网络，某大型银行 A 的借款次数和借款人会非常的多。</p>
 <p>可以将该大行节点 A 拆分为多个相关联的子节点 A1、A2、A3,</p>
-<p><div class="highlight"><pre><span></span><code>（人 1)-[借款]-&gt;（银行 A1), （人 2)-[借款]-&gt;（银行 A2), （人 2)-[借款]-&gt;（银行 A3);
-（银行 A1)-[属于]-&gt;（银行 A), （银行 A2)-[属于]-&gt;（银行 A), （银行 A3)-[属于]-&gt;（银行 A).
-</code></pre></div>
+<p><code>text
+（人 1)-[借款]-&gt;（银行 A1), （人 2)-[借款]-&gt;（银行 A2), （人 2)-[借款]-&gt;（银行 A3);
+（银行 A1)-[属于]-&gt;（银行 A), （银行 A2)-[属于]-&gt;（银行 A), （银行 A3)-[属于]-&gt;（银行 A).</code>
 这里的 A1、A2、A3 既可以是 A 真实的三个分行（例如北京、上海、浙江），也可以是三个按某种规则设立的虚拟分行，例如按借款金额划分 <code>A1: 1-1000, A2: 1001-10000, A3: 10000+</code>。这样，查询时对于 A 的任何操作，都转变为为对于 A1、A2、A3 的三次单独操作。</p>
 </li>
 </ul>
@@ -6130,7 +6130,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6244,8 +6244,6 @@
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

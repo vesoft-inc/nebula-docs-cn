@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/5.operators/1.comparison/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6233,101 +6233,98 @@
 <p class="admonition-title">Note</p>
 <p>nGQL 中的相等符号是<code>==</code>，openCypher 中的相等符号是<code>=</code>。</p>
 </div>
-<div class="highlight"><pre><span></span><code>nebula&gt; RETURN &#39;A&#39; == &#39;a&#39;, toUpper(&#39;A&#39;) == toUpper(&#39;a&#39;), toLower(&#39;A&#39;) == toLower(&#39;a&#39;);
+<p>```ngql
+nebula&gt; RETURN 'A' == 'a', toUpper('A') == toUpper('a'), toLower('A') == toLower('a');
 +------------+------------------------------+------------------------------+
-| (&quot;A&quot;==&quot;a&quot;) | (toUpper(&quot;A&quot;)==toUpper(&quot;a&quot;)) | (toLower(&quot;A&quot;)==toLower(&quot;a&quot;)) |
+| ("A"=="a") | (toUpper("A")==toUpper("a")) | (toLower("A")==toLower("a")) |
 +------------+------------------------------+------------------------------+
 | false      | true                         | true                         |
-+------------+------------------------------+------------------------------+
-
-nebula&gt; RETURN &#39;2&#39; == 2, toInteger(&#39;2&#39;) == 2;
++------------+------------------------------+------------------------------+</p>
+<p>nebula&gt; RETURN '2' == 2, toInteger('2') == 2;
 +----------+---------------------+
-| (&quot;2&quot;==2) | (toInteger(&quot;2&quot;)==2) |
+| ("2"==2) | (toInteger("2")==2) |
 +----------+---------------------+
 | false    | true                |
 +----------+---------------------+
-</code></pre></div>
+```</p>
 <h3 id="_4"><code>&gt;</code><a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>nebula&gt; RETURN 3 &gt; 2;
+<p>```ngql
+nebula&gt; RETURN 3 &gt; 2;
 +-------+
 | (3&gt;2) |
 +-------+
 | true  |
-+-------+
-
-nebula&gt; WITH 4 AS one, 3 AS two \
++-------+</p>
+<p>nebula&gt; WITH 4 AS one, 3 AS two \
         RETURN one &gt; two AS result;
 +--------+
 | result |
 +--------+
 | true   |
 +--------+
-</code></pre></div>
+```</p>
 <h3 id="_5"><code>&gt;=</code><a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>nebula&gt; RETURN 2 &gt;= &quot;2&quot;, 2 &gt;= 2;
+<p><code>ngql
+nebula&gt; RETURN 2 &gt;= "2", 2 &gt;= 2;
 +----------+--------+
-| (2&gt;=&quot;2&quot;) | (2&gt;=2) |
+| (2&gt;="2") | (2&gt;=2) |
 +----------+--------+
 | __NULL__ | true   |
-+----------+--------+
-</code></pre></div>
++----------+--------+</code></p>
 <h3 id="_6"><code>&lt;</code><a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>nebula&gt; YIELD 2.0 &lt; 1.9;
+<p><code>ngql
+nebula&gt; YIELD 2.0 &lt; 1.9;
 +---------+
 | (2&lt;1.9) |
 +---------+
 | false   |
-+---------+
-</code></pre></div>
++---------+</code></p>
 <h3 id="_7"><code>&lt;=</code><a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>nebula&gt; YIELD 0.11 &lt;= 0.11;
+<p><code>ngql
+nebula&gt; YIELD 0.11 &lt;= 0.11;
 +--------------+
 | (0.11&lt;=0.11) |
 +--------------+
 | true         |
-+--------------+
-</code></pre></div>
++--------------+</code></p>
 <h3 id="_8"><code>!=</code><a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>nebula&gt; YIELD 1 != &#39;1&#39;;
+<p><code>ngql
+nebula&gt; YIELD 1 != '1';
 +----------+
-| (1!=&quot;1&quot;) |
+| (1!="1") |
 +----------+
 | true     |
-+----------+
-</code></pre></div>
++----------+</code></p>
 <h3 id="is_not_null"><code>IS [NOT] NULL</code><a class="headerlink" href="#is_not_null" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>nebula&gt; RETURN null IS NULL AS value1, null == null AS value2, null != null AS value3;
+<p>```ngql
+nebula&gt; RETURN null IS NULL AS value1, null == null AS value2, null != null AS value3;
 +--------+----------+----------+
 | value1 | value2   | value3   |
 +--------+----------+----------+
-| true   | __NULL__ | __NULL__ |
-+--------+----------+----------+
-
-nebula&gt; RETURN length(NULL), size(NULL), count(NULL), NULL IS NULL, NULL IS NOT NULL, sin(NULL), NULL + NULL, [1, NULL] IS NULL;
+| true   | <strong>NULL</strong> | <strong>NULL</strong> |
++--------+----------+----------+</p>
+<p>nebula&gt; RETURN length(NULL), size(NULL), count(NULL), NULL IS NULL, NULL IS NOT NULL, sin(NULL), NULL + NULL, [1, NULL] IS NULL;
 +--------------+------------+-------------+--------------+------------------+-----------+-------------+------------------+
 | length(NULL) | size(NULL) | count(NULL) | NULL IS NULL | NULL IS NOT NULL | sin(NULL) | (NULL+NULL) | [1,NULL] IS NULL |
 +--------------+------------+-------------+--------------+------------------+-----------+-------------+------------------+
-| __NULL__     | __NULL__   | 0           | true         | false            | __NULL__  | __NULL__    | false            |
-+--------------+------------+-------------+--------------+------------------+-----------+-------------+------------------+
-
-nebula&gt; WITH {name: null} AS map \
+| <strong>NULL</strong>     | <strong>NULL</strong>   | 0           | true         | false            | <strong>NULL</strong>  | <strong>NULL</strong>    | false            |
++--------------+------------+-------------+--------------+------------------+-----------+-------------+------------------+</p>
+<p>nebula&gt; WITH {name: null} AS map \
         RETURN map.name IS NOT NULL;
 +----------------------+
 | map.name IS NOT NULL |
 +----------------------+
 | false                |
-+----------------------+
-
-nebula&gt; WITH {name: &#39;Mats&#39;, name2: &#39;Pontus&#39;} AS map1, \
++----------------------+</p>
+<p>nebula&gt; WITH {name: 'Mats', name2: 'Pontus'} AS map1, \
         {name: null} AS map2, {notName: 0, notName2: null } AS map3 \
         RETURN map1.name IS NULL, map2.name IS NOT NULL, map3.name IS NULL;
 +-------------------+-----------------------+-------------------+
 | map1.name IS NULL | map2.name IS NOT NULL | map3.name IS NULL |
 +-------------------+-----------------------+-------------------+
 | false             | false                 | true              |
-+-------------------+-----------------------+-------------------+
-
-nebula&gt; MATCH (n:player) \
++-------------------+-----------------------+-------------------+</p>
+<p>nebula&gt; MATCH (n:player) \
         RETURN n.player.age IS NULL, n.player.name IS NOT NULL, n.player.empty IS NULL;
 +----------------------+---------------------------+------------------------+
 | n.player.age IS NULL | n.player.name IS NOT NULL | n.player.empty IS NULL |
@@ -6335,38 +6332,37 @@ nebula&gt; MATCH (n:player) \
 | false                | true                      | true                   |
 | false                | true                      | true                   |
 ...
-</code></pre></div>
+```</p>
 <h3 id="is_not_empty"><code>IS [NOT] EMPTY</code><a class="headerlink" href="#is_not_empty" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>nebula&gt; RETURN null IS EMPTY;
+<p>```ngql
+nebula&gt; RETURN null IS EMPTY;
 +---------------+
 | NULL IS EMPTY |
 +---------------+
 | false         |
-+---------------+
-
-nebula&gt; RETURN &quot;a&quot; IS NOT EMPTY;
++---------------+</p>
+<p>nebula&gt; RETURN "a" IS NOT EMPTY;
 +------------------+
-| &quot;a&quot; IS NOT EMPTY |
+| "a" IS NOT EMPTY |
 +------------------+
 | true             |
-+------------------+
-
-nebula&gt; GO FROM &quot;player100&quot; OVER * WHERE properties($$).name IS NOT EMPTY YIELD dst(edge);
++------------------+</p>
+<p>nebula&gt; GO FROM "player100" OVER * WHERE properties($$).name IS NOT EMPTY YIELD dst(edge);
 +-------------+
 | dst(EDGE)   |
 +-------------+
-| &quot;team204&quot;   |
-| &quot;player101&quot; |
-| &quot;player125&quot; |
+| "team204"   |
+| "player101" |
+| "player125" |
 +-------------+
-</code></pre></div>
+```</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6480,8 +6476,6 @@ nebula&gt; GO FROM &quot;player100&quot; OVER * WHERE properties($$).name IS NOT
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

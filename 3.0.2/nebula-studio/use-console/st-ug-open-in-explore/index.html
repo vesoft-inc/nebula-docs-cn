@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/nebula-studio/use-console/st-ug-open-in-explore/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6080,8 +6080,8 @@
 <p>查询结果中必须包括边起点和终点 VID 信息。</p>
 </div>
 <p>查询语句示例如下：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM &quot;player102&quot; OVER serve YIELD src(edge),dst(edge);
-</code></pre></div>
+<p><code>nGQL
+nebula&gt; GO FROM "player102" OVER serve YIELD src(edge),dst(edge);</code></p>
 <p>查询结果可以看到 <code>playerId</code> 为 <code>palyer102</code> 的球员服务球队的起始年份及终止年份。如下图所示。</p>
 <p><img alt="控制台里查询语句返回的边数据，包括边的起点 VID 和终点 VID" src="../../figs/st-ug-040-1.png" title="边数据" /></p>
 </li>
@@ -6138,8 +6138,8 @@
 <p>查询结果中必须包括点的 VID 信息。</p>
 </div>
 <p>查询语句示例如下：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player &quot;player100&quot; YIELD properties(vertex).name;
-</code></pre></div>
+<p><code>nGQL
+nebula&gt; FETCH PROP ON player "player100" YIELD properties(vertex).name;</code></p>
 <p>查询得到 <code>playerId</code> 为 <code>player100</code> 的球员信息。如下图所示。</p>
 <p><img alt="控制台里查询语句返回的点数据" src="../../figs/st-ug-043-1.png" title="点数据" /></p>
 </li>
@@ -6180,7 +6180,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6294,8 +6294,6 @@
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

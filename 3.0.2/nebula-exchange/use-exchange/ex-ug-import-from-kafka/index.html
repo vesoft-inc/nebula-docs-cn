@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/nebula-exchange/use-exchange/ex-ug-import-from-kafka/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6188,33 +6188,30 @@
 </li>
 <li>
 <p>在 Nebula Graph 中创建一个图空间<strong> basketballplayer</strong>，并创建一个 Schema，如下所示。</p>
-<div class="highlight"><pre><span></span><code>## 创建图空间
-nebula&gt; CREATE SPACE basketballplayer \
-        (partition_num = 10, \
-        replica_factor = 1, \
-        vid_type = FIXED_STRING(30));
-
-## 选择图空间 basketballplayer
-nebula&gt; USE basketballplayer;
-
-## 创建 Tag player
-nebula&gt; CREATE TAG player(name string, age int);
-
-## 创建 Tag team
-nebula&gt; CREATE TAG team(name string);
-
-## 创建 Edge type follow
-nebula&gt; CREATE EDGE follow(degree int);
-
-## 创建 Edge type serve
-nebula&gt; CREATE EDGE serve(start_year int, end_year int);
-</code></pre></div>
+<p>```ngql
+  ## 创建图空间
+  nebula&gt; CREATE SPACE basketballplayer \
+          (partition_num = 10, \
+          replica_factor = 1, \
+          vid_type = FIXED_STRING(30));</p>
+<p>## 选择图空间 basketballplayer
+  nebula&gt; USE basketballplayer;</p>
+<p>## 创建 Tag player
+  nebula&gt; CREATE TAG player(name string, age int);</p>
+<p>## 创建 Tag team
+  nebula&gt; CREATE TAG team(name string);</p>
+<p>## 创建 Edge type follow
+  nebula&gt; CREATE EDGE follow(degree int);</p>
+<p>## 创建 Edge type serve
+  nebula&gt; CREATE EDGE serve(start_year int, end_year int);
+  ```</p>
 </li>
 </ol>
 <p>更多信息，请参见<a href="../../../2.quick-start/1.quick-start-workflow/">快速开始</a>。</p>
 <h3 id="2">步骤 2：修改配置文件<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <p>编译 Exchange 后，复制<code>target/classes/application.conf</code>文件设置 Kafka 数据源相关的配置。在本示例中，复制的文件名为<code>kafka_application.conf</code>。各个配置项的详细说明请参见<a href="../../parameter-reference/ex-ug-parameter/">配置说明</a>。</p>
-<div class="highlight"><pre><span></span><code>{
+<p>```conf
+{
   # Spark 相关配置
   spark: {
     app: {
@@ -6227,16 +6224,15 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
     cores: {
       max: 16
     }
-  }
-
-  # Nebula Graph 相关配置
+  }</p>
+<p># Nebula Graph 相关配置
   nebula: {
     address:{
       # 以下为 Nebula Graph 的 Graph 服务和 Meta 服务所在机器的 IP 地址及端口。
-      # 如果有多个地址，格式为 &quot;ip1:port&quot;,&quot;ip2:port&quot;,&quot;ip3:port&quot;。
+      # 如果有多个地址，格式为 "ip1:port","ip2:port","ip3:port"。
       # 不同地址之间以英文逗号 (,) 隔开。
-      graph:[&quot;127.0.0.1:9669&quot;]
-      meta:[&quot;127.0.0.1:9559&quot;]
+      graph:["127.0.0.1:9669"]
+      meta:["127.0.0.1:9559"]
     }
     # 填写的账号必须拥有 Nebula Graph 相应图空间的写数据权限。
     user: root
@@ -6272,145 +6268,145 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         sink: client
       }
       # Kafka 服务器地址。
-      service: &quot;127.0.0.1:9092&quot;
+      service: "127.0.0.1:9092"
       # 消息类别。
-      topic: &quot;topic_name1&quot;
+      topic: "topic_name1"</p>
+<div class="codehilite"><pre><span></span><code>  # 在 fields 里指定 Kafka value 中的字段名称，多个字段用英文逗号（,）隔开。Spark Structured Streaming 读取 Kafka 数据后会将其以 JSON 格式存储于 value 字段中，而这里的 fields 要配置 JSON 的 key 名。示例如下：
+  fields: [personName, personAge]
+  # 设置与 fields 中的 key 对应的 Nebula Graph 属性名，key 的 value 将保存为相应的属性值。下方设置会将 personName 的 value 保存到 Nebula Graph 中的 name 属性，personAge 的 value 则保存到 age 属性。
+  nebula.fields: [name, age]
 
-      # 在 fields 里指定 Kafka value 中的字段名称，多个字段用英文逗号（,）隔开。Spark Structured Streaming 读取 Kafka 数据后会将其以 JSON 格式存储于 value 字段中，而这里的 fields 要配置 JSON 的 key 名。示例如下：
-      fields: [personName, personAge]
-      # 设置与 fields 中的 key 对应的 Nebula Graph 属性名，key 的 value 将保存为相应的属性值。下方设置会将 personName 的 value 保存到 Nebula Graph 中的 name 属性，personAge 的 value 则保存到 age 属性。
-      nebula.fields: [name, age]
+  # 指定表中某一列数据为 Nebula Graph 中点 VID 的来源。
+  # 这里的值 key 和上面的 key 重复，表示 key 既作为 VID，也作为属性 name。
+  vertex:{
+      field:personId
+  }
 
-      # 指定表中某一列数据为 Nebula Graph 中点 VID 的来源。
-      # 这里的值 key 和上面的 key 重复，表示 key 既作为 VID，也作为属性 name。
-      vertex:{
-          field:personId
-      }
+  # 单批次写入 Nebula Graph 的数据条数。
+  batch: 10
 
-      # 单批次写入 Nebula Graph 的数据条数。
-      batch: 10
+  # Spark 分区数量
+  partition: 10
+  # 读取消息的间隔。单位：秒。
+  interval.seconds: 10
+}
+# 设置 Tag team 相关信息。
+{
+  name: team
+  type: {
+    source: kafka
+    sink: client
+  }
+  service: &quot;127.0.0.1:9092&quot;
+  topic: &quot;topic_name2&quot;
+  fields: [key]
+  nebula.fields: [name]
+  vertex:{
+      field:teamId
+  }
+  batch: 10
+  partition: 10
+  interval.seconds: 10
+}
+</code></pre></div>
 
-      # Spark 分区数量
-      partition: 10
-      # 读取消息的间隔。单位：秒。
-      interval.seconds: 10
-    }
-    # 设置 Tag team 相关信息。
-    {
-      name: team
-      type: {
-        source: kafka
-        sink: client
-      }
-      service: &quot;127.0.0.1:9092&quot;
-      topic: &quot;topic_name2&quot;
-      fields: [key]
-      nebula.fields: [name]
-      vertex:{
-          field:teamId
-      }
-      batch: 10
-      partition: 10
-      interval.seconds: 10
-    }
-
-  ]
-
-  # 处理边数据
+<p>]</p>
+<p># 处理边数据
   edges: [
     # 设置 Edge type follow 相关信息
     {
       # Nebula Graph 中对应的 Edge type 名称。
-      name: follow
+      name: follow</p>
+<div class="codehilite"><pre><span></span><code>  type: {
+    # 指定数据源文件格式，设置为 Kafka。
+    source: kafka
 
-      type: {
-        # 指定数据源文件格式，设置为 Kafka。
-        source: kafka
+    # 指定边数据导入 Nebula Graph 的方式，
+    # 指定如何将点数据导入 Nebula Graph：Client 或 SST。
+    sink: client
+  }
 
-        # 指定边数据导入 Nebula Graph 的方式，
-        # 指定如何将点数据导入 Nebula Graph：Client 或 SST。
-        sink: client
-      }
+  # Kafka 服务器地址。
+  service: &quot;127.0.0.1:9092&quot;
+  # 消息类别。
+  topic: &quot;topic_name3&quot;
 
-      # Kafka 服务器地址。
-      service: &quot;127.0.0.1:9092&quot;
-      # 消息类别。
-      topic: &quot;topic_name3&quot;
+  # 在 fields 里指定 Kafka value 中的字段名称，多个字段用英文逗号（,）隔开。Spark Structured Streaming 读取 Kafka 数据后会将其以 JSON 格式存储于 value 字段中，而这里的 fields 要配置 JSON 的 key 名。示例如下：
+  fields: [degree]
+  # 设置与 fields 中的 key 对应的 Nebula Graph 属性名，key 的 value 将保存为相应的属性值。下方设置会将 degree 的 value 保存到 Nebula Graph 中的 degree 属性。
+  nebula.fields: [degree]
 
-      # 在 fields 里指定 Kafka value 中的字段名称，多个字段用英文逗号（,）隔开。Spark Structured Streaming 读取 Kafka 数据后会将其以 JSON 格式存储于 value 字段中，而这里的 fields 要配置 JSON 的 key 名。示例如下：
-      fields: [degree]
-      # 设置与 fields 中的 key 对应的 Nebula Graph 属性名，key 的 value 将保存为相应的属性值。下方设置会将 degree 的 value 保存到 Nebula Graph 中的 degree 属性。
-      nebula.fields: [degree]
+  # 在 source 里，将 topic 中某一列作为边的起始点数据源。
+  # 在 target 里，将 topic 中某一列作为边的目的点数据源。
+  source:{
+      field:srcPersonId
+  }
 
-      # 在 source 里，将 topic 中某一列作为边的起始点数据源。
-      # 在 target 里，将 topic 中某一列作为边的目的点数据源。
-      source:{
-          field:srcPersonId
-      }
+  target:{
+      field:dstPersonId
+  }
 
-      target:{
-          field:dstPersonId
-      }
+  # 指定一个列作为 rank 的源（可选）。
+  #ranking: rank
 
-      # 指定一个列作为 rank 的源（可选）。
-      #ranking: rank
+  # 单批次写入 Nebula Graph 的数据条数。
+  batch: 10
 
-      # 单批次写入 Nebula Graph 的数据条数。
-      batch: 10
+  # Spark 分区数量
+  partition: 10
 
-      # Spark 分区数量
-      partition: 10
+  # 读取消息的间隔。单位：秒。
+  interval.seconds: 10
+}
 
-      # 读取消息的间隔。单位：秒。
-      interval.seconds: 10
-    }
+# 设置 Edge type serve 相关信息
+{
+  name: serve
+  type: {
+    source: kafka
+    sink: client
+  }
+  service: &quot;127.0.0.1:9092&quot;
+  topic: &quot;topic_name4&quot;
 
-    # 设置 Edge type serve 相关信息
-    {
-      name: serve
-      type: {
-        source: kafka
-        sink: client
-      }
-      service: &quot;127.0.0.1:9092&quot;
-      topic: &quot;topic_name4&quot;
+  fields: [startYear,endYear]
+  nebula.fields: [start_year,end_year]
+  source:{
+      field:personId
+  }
 
-      fields: [startYear,endYear]
-      nebula.fields: [start_year,end_year]
-      source:{
-          field:personId
-      }
+  target:{
+      field:teamId
+  }
 
-      target:{
-          field:teamId
-      }
+  # 指定一个列作为 rank 的源（可选）。
+  #ranking: rank
 
-      # 指定一个列作为 rank 的源（可选）。
-      #ranking: rank
-
-      batch: 10
-      partition: 10
-      interval.seconds: 10
-    }
-  ]
+  batch: 10
+  partition: 10
+  interval.seconds: 10
 }
 </code></pre></div>
+
+<p>]
+}
+```</p>
 <h3 id="3_nebula_graph">步骤 3：向 Nebula Graph 导入数据<a class="headerlink" href="#3_nebula_graph" title="Permanent link">&para;</a></h3>
 <p>运行如下命令将 Kafka 数据导入到 Nebula Graph 中。关于参数的说明，请参见<a href="../../parameter-reference/ex-ug-para-import-command/">导入命令参数</a>。</p>
-<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span>&lt;nebula-exchange-3.0.0.jar_path&gt;<span class="w"> </span>-c<span class="w"> </span>&lt;kafka_application.conf_path&gt;
-</code></pre></div>
+<p><code>bash
+${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange &lt;nebula-exchange-3.0.0.jar_path&gt; -c &lt;kafka_application.conf_path&gt;</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>JAR 包有两种获取方式：<a href="../../ex-ug-compile/">自行编译</a>或者从 maven 仓库下载。</p>
 </div>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w">  </span>--master<span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w">  </span>/root/nebula-exchange/nebula-exchange/target/nebula-exchange-3.0.0.jar<span class="w">  </span>-c<span class="w"> </span>/root/nebula-exchange/nebula-exchange/target/classes/kafka_application.conf
-</code></pre></div>
+<p><code>bash
+${SPARK_HOME}/bin/spark-submit  --master "local" --class com.vesoft.nebula.exchange.Exchange  /root/nebula-exchange/nebula-exchange/target/nebula-exchange-3.0.0.jar  -c /root/nebula-exchange/nebula-exchange/target/classes/kafka_application.conf</code></p>
 <p>用户可以在返回信息中搜索<code>batchSuccess.&lt;tag_name/edge_name&gt;</code>，确认成功的数量。例如<code>batchSuccess.follow: 300</code>。</p>
 <h3 id="4">步骤 4：（可选）验证数据<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p>用户可以在 Nebula Graph 客户端（例如 Nebula Graph Studio）中执行查询语句，确认数据是否已导入。例如：</p>
-<div class="highlight"><pre><span></span><code>GO FROM &quot;player100&quot; OVER follow;
-</code></pre></div>
+<p><code>ngql
+GO FROM "player100" OVER follow;</code></p>
 <p>用户也可以使用命令 <a href="../../../3.ngql-guide/7.general-query-statements/6.show/14.show-stats/"><code>SHOW STATS</code></a> 查看统计数据。</p>
 <h3 id="5_nebula_graph">步骤 5：（如有）在 Nebula Graph 中重建索引<a class="headerlink" href="#5_nebula_graph" title="Permanent link">&para;</a></h3>
 <p>导入数据后，用户可以在 Nebula Graph 中重新创建并重建索引。详情请参见<a href="../../../3.ngql-guide/14.native-index-statements/">索引介绍</a>。</p>
@@ -6420,7 +6416,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6534,8 +6530,6 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

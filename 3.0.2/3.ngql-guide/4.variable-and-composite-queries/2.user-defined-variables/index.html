@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/4.variable-and-composite-queries/2.user-defined-variables/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6028,13 +6028,13 @@
 <p>Nebula Graph 允许将一条语句的结果作为自定义变量传递给另一条语句。</p>
 <h2 id="opencypher">OpenCypher 兼容性<a class="headerlink" href="#opencypher" title="Permanent link">&para;</a></h2>
 <p>当引用一个变量的点、边或路径，需要先给它命名。例如：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;}) RETURN v;
+<p><code>ngql
+nebula&gt; MATCH (v:player{name:"Tim Duncan"}) RETURN v;
 +----------------------------------------------------+
 | v                                                  |
 +----------------------------------------------------+
-| (&quot;player100&quot; :player{name: &quot;Tim Duncan&quot;, age: 42}) |
-+----------------------------------------------------+
-</code></pre></div>
+| ("player100" :player{name: "Tim Duncan", age: 42}) |
++----------------------------------------------------+</code></p>
 <p>示例中的<code>v</code>就是自定义变量。</p>
 <h2 id="ngql">原生 nGQL<a class="headerlink" href="#ngql" title="Permanent link">&para;</a></h2>
 <p>nGQL 扩展的自定义变量可以表示为<code>$var_name</code>，<code>var_name</code>由字母、数字或下划线（_）构成，不允许使用其他字符。</p>
@@ -6045,24 +6045,24 @@
 <p>自定义变量区分大小写。</p>
 </div>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>nebula&gt; $var = GO FROM &quot;player100&quot; OVER follow YIELD dst(edge) AS id; \
+<p><code>ngql
+nebula&gt; $var = GO FROM "player100" OVER follow YIELD dst(edge) AS id; \
         GO FROM $var.id OVER serve YIELD properties($$).name AS Team, \
         properties($^).name AS Player;
 +-----------+-----------------+
 | Team      | Player          |
 +-----------+-----------------+
-| &quot;Spurs&quot;   | &quot;Tony Parker&quot;   |
-| &quot;Hornets&quot; | &quot;Tony Parker&quot;   |
-| &quot;Spurs&quot;   | &quot;Manu Ginobili&quot; |
-+-----------+-----------------+
-</code></pre></div>
+| "Spurs"   | "Tony Parker"   |
+| "Hornets" | "Tony Parker"   |
+| "Spurs"   | "Manu Ginobili" |
++-----------+-----------------+</code></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6176,8 +6176,6 @@
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

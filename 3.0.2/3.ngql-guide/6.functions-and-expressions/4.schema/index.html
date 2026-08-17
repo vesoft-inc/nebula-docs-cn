@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/6.functions-and-expressions/4.schema/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6145,54 +6145,51 @@
 </tbody>
 </table>
 <h2 id="_1">示例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM &quot;player100&quot; OVER follow REVERSELY \
+<p>```ngql
+nebula&gt; GO FROM "player100" OVER follow REVERSELY \
         YIELD src(edge) AS destination;
 +-------------+
 | destination |
 +-------------+
-| &quot;player101&quot; |
-| &quot;player102&quot; |
-...
-
-nebula&gt; LOOKUP ON player WHERE player.age  &gt; 45 YIELD id(vertex);
+| "player101" |
+| "player102" |
+...</p>
+<p>nebula&gt; LOOKUP ON player WHERE player.age  &gt; 45 YIELD id(vertex);
 +-------------+
 | id(VERTEX)  |
 +-------------+
-| &quot;player144&quot; |
-| &quot;player140&quot; |
-+-------------+
-
-nebula&gt; MATCH (a:player) WHERE id(a) == &quot;player100&quot; \
+| "player144" |
+| "player140" |
++-------------+</p>
+<p>nebula&gt; MATCH (a:player) WHERE id(a) == "player100" \
         RETURN tags(a), labels(a), properties(a);
 +------------+------------+-------------------------------+
 | tags(a)    | labels(a)  | properties(a)                 |
 +------------+------------+-------------------------------+
-| [&quot;player&quot;] | [&quot;player&quot;] | {age: 42, name: &quot;Tim Duncan&quot;} |
-+------------+------------+-------------------------------+
-
-nebula&gt; MATCH p = (a :player {name : &quot;Tim Duncan&quot;})-[r:serve]-(t) \
+| ["player"] | ["player"] | {age: 42, name: "Tim Duncan"} |
++------------+------------+-------------------------------+</p>
+<p>nebula&gt; MATCH p = (a :player {name : "Tim Duncan"})-[r:serve]-(t) \
         RETURN type(r), rank(r);
 +---------+---------+
 | type(r) | rank(r) |
 +---------+---------+
-| &quot;serve&quot; | 0       |
-+---------+---------+
-
-nebula&gt; MATCH p = (a :player {name : &quot;Tim Duncan&quot;})-[r:serve]-(t) \
+| "serve" | 0       |
++---------+---------+</p>
+<p>nebula&gt; MATCH p = (a :player {name : "Tim Duncan"})-[r:serve]-(t) \
         RETURN startNode(p), endNode(p);
 +----------------------------------------------------+----------------------------------+
 | startNode(p)                                       | endNode(p)                       |
 +----------------------------------------------------+----------------------------------+
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;}) | (&quot;team204&quot; :team{name: &quot;Spurs&quot;}) |
+| ("player100" :player{age: 42, name: "Tim Duncan"}) | ("team204" :team{name: "Spurs"}) |
 +----------------------------------------------------+----------------------------------+
-</code></pre></div>
+```</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6306,8 +6303,6 @@ nebula&gt; MATCH p = (a :player {name : &quot;Tim Duncan&quot;})-[r:serve]-(t) \
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

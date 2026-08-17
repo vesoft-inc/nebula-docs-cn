@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/1.introduction/3.nebula-graph-architecture/3.graph-service/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6153,20 +6153,20 @@
 <p>每一个执行计划节点都一一对应一个执行算子，节点的输入输出在优化执行计划时已经确定，每个算子只需要拿到输入变量中的值进行计算，最后将计算结果放入对应的输出变量中即可，所以只需要从节点 <code>Start</code> 一步步执行，最后一个算子的输出变量会作为最终结果返回给客户端。</p>
 <h2 id="_1">代码结构<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Nebula Graph 的代码层次结构如下：</p>
-<div class="highlight"><pre><span></span><code><span class="p">|</span>--src
-<span class="w">   </span><span class="p">|</span>--context<span class="w">    </span>//校验期和执行期上下文
-<span class="w">   </span><span class="p">|</span>--daemons
-<span class="w">   </span><span class="p">|</span>--executor<span class="w">   </span>//执行算子
-<span class="w">   </span><span class="p">|</span>--mock
-<span class="w">   </span><span class="p">|</span>--optimizer<span class="w">  </span>//优化规则
-<span class="w">   </span><span class="p">|</span>--parser<span class="w">     </span>//词法语法分析
-<span class="w">   </span><span class="p">|</span>--planner<span class="w">    </span>//执行计划结构
-<span class="w">   </span><span class="p">|</span>--scheduler<span class="w">  </span>//调度器
-<span class="w">   </span><span class="p">|</span>--service
-<span class="w">   </span><span class="p">|</span>--util<span class="w">       </span>//基础组件
-<span class="w">   </span><span class="p">|</span>--validator<span class="w">  </span>//语句校验
-<span class="w">   </span><span class="p">|</span>--visitor
-</code></pre></div>
+<p><code>bash
+|--src
+   |--context    //校验期和执行期上下文
+   |--daemons
+   |--executor   //执行算子
+   |--mock
+   |--optimizer  //优化规则
+   |--parser     //词法语法分析
+   |--planner    //执行计划结构
+   |--scheduler  //调度器
+   |--service
+   |--util       //基础组件
+   |--validator  //语句校验
+   |--visitor</code></p>
 <h2 id="_2">视频<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>用户也可以通过视频全方位了解 Nebula Graph 的查询引擎。</p>
 <ul>
@@ -6179,7 +6179,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6293,8 +6293,6 @@
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

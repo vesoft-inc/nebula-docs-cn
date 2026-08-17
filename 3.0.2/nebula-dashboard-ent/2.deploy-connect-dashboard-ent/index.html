@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/nebula-dashboard-ent/2.deploy-connect-dashboard-ent/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -4678,40 +4678,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#dashboard_1" class="md-nav__link">
-    管理 Dashboard 服务
-  </a>
-  
-    <nav class="md-nav" aria-label="管理 Dashboard 服务">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    语法
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    示例
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dashboard_2" class="md-nav__link">
-    连接 Dashboard
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -6022,40 +5988,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#dashboard_1" class="md-nav__link">
-    管理 Dashboard 服务
-  </a>
-  
-    <nav class="md-nav" aria-label="管理 Dashboard 服务">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    语法
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    示例
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#dashboard_2" class="md-nav__link">
-    连接 Dashboard
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -6135,74 +6067,75 @@
 </li>
 <li>
 <p>使用<code>tar -xzvf</code>解压 tar 包。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xzvf<span class="w"> </span>nebula-dashboard-ent-&lt;version&gt;.linux-amd64.tar.gz<span class="w"> </span>
-</code></pre></div>
+<p><code>bash
+$ tar -xzvf nebula-dashboard-ent-&lt;version&gt;.linux-amd64.tar.gz</code></p>
 <p>例如：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-xzvf<span class="w"> </span>nebula-dashboard-ent-1.1.0.linux-amd64.tar.gz<span class="w"> </span>
-</code></pre></div>
+<p><code>bash
+$ tar -xzvf nebula-dashboard-ent-1.1.0.linux-amd64.tar.gz</code></p>
 </li>
 <li>
 <p>使用<code>vim config/config.yaml</code>命令设置配置文件。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 数据库信息</span>
-database:
-<span class="w">  </span>dialect:<span class="w"> </span>mysql<span class="w"> </span><span class="c1"># 使用的数据库类型，目前仅支持 MySQL。</span>
-<span class="w">  </span>host:<span class="w"> </span><span class="m">192</span>.168.8.157<span class="w"> </span><span class="c1"># 连接的 MySQL 数据库的 IP 地址。</span>
-<span class="w">  </span>port:<span class="w"> </span><span class="m">3306</span><span class="w"> </span><span class="c1"># 连接的 MySQL 数据库的端口号。</span>
-<span class="w">  </span>username:<span class="w"> </span>root<span class="w"> </span><span class="c1"># 登陆 MySQL 的账户。</span>
-<span class="w">  </span>password:<span class="w"> </span>nebula<span class="w"> </span><span class="c1"># 登陆 MySQL 的密码。</span>
-<span class="w">  </span>name:<span class="w"> </span>dashboard<span class="w"> </span><span class="c1"># 对应的数据库名称。</span>
-<span class="w">  </span>autoMigrate:<span class="w"> </span><span class="nb">true</span><span class="w"> </span><span class="c1"># 自动创建数据库表，默认为 true。</span>
-<span class="c1"># exporter 端口信息</span>
-exporter:
-<span class="w">  </span>nodePort:<span class="w"> </span><span class="m">9100</span><span class="w"> </span><span class="c1"># node-exporter 服务的端口。</span>
-<span class="w">  </span>nebulaPort:<span class="w"> </span><span class="m">9200</span><span class="w"> </span><span class="c1"># nebula-stats-exporter 服务的端口。</span>
-<span class="c1"># 服务信息</span>
-proxy:
-<span class="w">  </span>prometheus:
-<span class="w">    </span>target:<span class="w"> </span><span class="s2">&quot;127.0.0.1:9090&quot;</span><span class="w"> </span><span class="c1"># prometheus 服务的 IP 地址和端口。</span>
-<span class="w">  </span>alertmanager:
-<span class="w">    </span>target:<span class="w"> </span><span class="s2">&quot;127.0.0.1:9093&quot;</span><span class="w"> </span><span class="c1"># alertmanager 服务的 IP 地址和端口。</span>
-<span class="c1"># 邀请 LDAP 账号的发件人邮箱信息</span>
-mail:
-<span class="w">  </span>host:<span class="w"> </span>smtp.office365.com<span class="w"> </span><span class="c1">#  SMTP 服务器地址。</span>
-<span class="w">  </span>port:<span class="w"> </span><span class="m">587</span><span class="w"> </span><span class="c1"># SMTP 服务器的端口号。</span>
-<span class="w">  </span>username:<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="c1"># SMTP 服务器的用户名。</span>
-<span class="w">  </span>password:<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="c1"># SMTP 服务器的密码。</span>
-<span class="c1"># 系统信息</span>
-system:
-<span class="w">  </span>webAddress:<span class="w"> </span>http://127.0.0.1:7005<span class="w"> </span><span class="c1"># 邮件被邀请人连接 Dashboard 的访问地址。</span>
-<span class="w">  </span>messageStore:<span class="w"> </span><span class="m">90</span><span class="w"> </span><span class="c1"># 保存告警消息的天数，默认 90 天。</span>
-<span class="c1"># LDAP 信息</span>
-ldap:
-<span class="w">  </span>server:<span class="w"> </span>ldap://127.0.0.1<span class="w"> </span><span class="c1"># LDAP 服务器地址。</span>
-<span class="w">  </span>bindDN:<span class="w"> </span><span class="nv">cn</span><span class="o">=</span>admin,dc<span class="o">=</span>vesoft,dc<span class="o">=</span>com<span class="w"> </span><span class="c1"># LDAP 服务器登录用户名。</span>
-<span class="w">  </span>bindPassword:<span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"> </span><span class="c1"># LDAP 服务器登录密码。</span>
-<span class="w">  </span>baseDN:<span class="w"> </span><span class="nv">dc</span><span class="o">=</span>vesoft,dc<span class="o">=</span>com<span class="w"> </span><span class="c1"># 查询用户数据的路径。</span>
-<span class="w">  </span>userFilter:<span class="w"> </span><span class="s2">&quot;&amp;(objectClass=*)&quot;</span><span class="w"> </span><span class="c1"># 查询条件。</span>
-<span class="w">  </span>emailKey:<span class="w"> </span>mail<span class="w"> </span><span class="c1"># LDAP 数据库存放邮箱信息的字段名。</span>
-</code></pre></div>
+<p>```bash</p>
+<h1 id="_3">数据库信息<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<p>database:
+  dialect: mysql # 使用的数据库类型，目前仅支持 MySQL。
+  host: 192.168.8.157 # 连接的 MySQL 数据库的 IP 地址。
+  port: 3306 # 连接的 MySQL 数据库的端口号。
+  username: root # 登陆 MySQL 的账户。
+  password: nebula # 登陆 MySQL 的密码。
+  name: dashboard # 对应的数据库名称。
+  autoMigrate: true # 自动创建数据库表，默认为 true。</p>
+<h1 id="exporter">exporter 端口信息<a class="headerlink" href="#exporter" title="Permanent link">&para;</a></h1>
+<p>exporter:
+  nodePort: 9100 # node-exporter 服务的端口。
+  nebulaPort: 9200 # nebula-stats-exporter 服务的端口。</p>
+<h1 id="_4">服务信息<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<p>proxy:
+  prometheus:
+    target: "127.0.0.1:9090" # prometheus 服务的 IP 地址和端口。
+  alertmanager:
+    target: "127.0.0.1:9093" # alertmanager 服务的 IP 地址和端口。</p>
+<h1 id="ldap">邀请 LDAP 账号的发件人邮箱信息<a class="headerlink" href="#ldap" title="Permanent link">&para;</a></h1>
+<p>mail:
+  host: smtp.office365.com #  SMTP 服务器地址。
+  port: 587 # SMTP 服务器的端口号。
+  username: "" # SMTP 服务器的用户名。
+  password: "" # SMTP 服务器的密码。</p>
+<h1 id="_5">系统信息<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
+<p>system:
+  webAddress: http://127.0.0.1:7005 # 邮件被邀请人连接 Dashboard 的访问地址。
+  messageStore: 90 # 保存告警消息的天数，默认 90 天。</p>
+<h1 id="ldap_1">LDAP 信息<a class="headerlink" href="#ldap_1" title="Permanent link">&para;</a></h1>
+<p>ldap:
+  server: ldap://127.0.0.1 # LDAP 服务器地址。
+  bindDN: cn=admin,dc=vesoft,dc=com # LDAP 服务器登录用户名。
+  bindPassword: "" # LDAP 服务器登录密码。
+  baseDN: dc=vesoft,dc=com # 查询用户数据的路径。
+  userFilter: "&amp;(objectClass=*)" # 查询条件。
+  emailKey: mail # LDAP 数据库存放邮箱信息的字段名。
+```</p>
 </li>
 <li>
 <p>拷贝 License 至<code>nebula-dashboard-ent</code>目录下。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>&lt;license&gt;<span class="w"> </span>&lt;dashboard_path&gt;
-</code></pre></div>
+<p><code>bash
+$ cp -r &lt;license&gt; &lt;dashboard_path&gt;</code></p>
 <p>例如：
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>nebula.license<span class="w"> </span>/usr/local/nebula-dashboard-ent
-</code></pre></div></p>
+<code>bash
+$ cp -r nebula.license /usr/local/nebula-dashboard-ent</code></p>
 </li>
 <li>
 <p>启动 Dashboard。</p>
 <p>可以使用以下命令一键启动 Dashboard。
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>scripts
-$<span class="w"> </span>sudo<span class="w"> </span>./dashboard.service<span class="w"> </span>start<span class="w"> </span>all
-</code></pre></div>
+<code>bash
+$ cd scripts
+$ sudo ./dashboard.service start all</code>
 或是执行以下命令，分别启动 prometheus、webserver、exporter 和 gateway 服务以启动 Dashboard。
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>scripts
-$<span class="w"> </span>sudo<span class="w"> </span>./dashboard.service<span class="w"> </span>start<span class="w"> </span>prometheus<span class="w"> </span><span class="c1"># 启动 Prometheus 服务</span>
-$<span class="w"> </span>sudo<span class="w"> </span>./dashboard.service<span class="w"> </span>start<span class="w"> </span>webserver<span class="w"> </span><span class="c1">#启动 Webserver 服务</span>
-$<span class="w"> </span>sudo<span class="w"> </span>./dashboard.service<span class="w"> </span>start<span class="w"> </span>exporter<span class="w"> </span><span class="c1">#启动 Exporter 服务</span>
-$<span class="w"> </span>sudo<span class="w"> </span>./dashboard.service<span class="w"> </span>start<span class="w"> </span>gateway<span class="w"> </span><span class="c1">#启动 Gateway 服务</span>
-</code></pre></div></p>
+<code>bash
+$ cd scripts
+$ sudo ./dashboard.service start prometheus # 启动 Prometheus 服务
+$ sudo ./dashboard.service start webserver #启动 Webserver 服务
+$ sudo ./dashboard.service start exporter #启动 Exporter 服务
+$ sudo ./dashboard.service start gateway #启动 Gateway 服务</code></p>
 </li>
 </ol>
 <div class="admonition note">
@@ -6211,11 +6144,11 @@ $<span class="w"> </span>sudo<span class="w"> </span>./dashboard.service<span cl
 </div>
 <h2 id="dashboard_1">管理 Dashboard 服务<a class="headerlink" href="#dashboard_1" title="Permanent link">&para;</a></h2>
 <p>Dashboard 使用脚本<code>dashboard.service</code>管理服务，包括启动、停止和查看。</p>
-<h3 id="_3">语法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>&lt;dashboard_path&gt;/dashboard/scripts/dashboard.service
-<span class="o">[</span>-v<span class="o">]</span><span class="w"> </span><span class="o">[</span>-h<span class="o">]</span>
-&lt;start<span class="p">|</span>stop<span class="p">|</span>status&gt;<span class="w">  </span>&lt;prometheus<span class="p">|</span>webserver<span class="p">|</span>exporter<span class="p">|</span>gateway<span class="p">|</span>all&gt;
-</code></pre></div>
+<h3 id="_6">语法<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p><code>bash
+$ sudo &lt;dashboard_path&gt;/dashboard/scripts/dashboard.service
+[-v] [-h]
+&lt;start|stop|status&gt;  &lt;prometheus|webserver|exporter|gateway|all&gt;</code></p>
 <table>
 <thead>
 <tr>
@@ -6270,13 +6203,13 @@ $<span class="w"> </span>sudo<span class="w"> </span>./dashboard.service<span cl
 </tr>
 </tbody>
 </table>
-<h3 id="_4">示例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<h3 id="_7">示例<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>Dashboard 的安装在当前目录下，用户可以用以下命令管理服务。
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>/dashboard/scripts/dashboard.service<span class="w"> </span>start<span class="w"> </span>all<span class="w"> </span><span class="c1">#启动 Dashboard 所有服务</span>
-$<span class="w"> </span>sudo<span class="w"> </span>/dashboard/scripts/dashboard.service<span class="w"> </span>stop<span class="w"> </span>all<span class="w"> </span><span class="c1">#停止 Dashboard 所有服务</span>
-$<span class="w"> </span>sudo<span class="w"> </span>/dashboard/scripts/dashboard.service<span class="w"> </span>status<span class="w"> </span>all<span class="w"> </span><span class="c1">#查看 Dashboard 所有服务状态</span>
-$<span class="w"> </span>sudo<span class="w"> </span>/dashboard/scripts/dashboard.service<span class="w"> </span>restart<span class="w"> </span>all<span class="w"> </span><span class="c1">#重启 Dashboard 所有服务状态</span>
-</code></pre></div></p>
+<code>bash
+$ sudo /dashboard/scripts/dashboard.service start all #启动 Dashboard 所有服务
+$ sudo /dashboard/scripts/dashboard.service stop all #停止 Dashboard 所有服务
+$ sudo /dashboard/scripts/dashboard.service status all #查看 Dashboard 所有服务状态
+$ sudo /dashboard/scripts/dashboard.service restart all #重启 Dashboard 所有服务状态</code></p>
 <h2 id="dashboard_2">连接 Dashboard<a class="headerlink" href="#dashboard_2" title="Permanent link">&para;</a></h2>
 <p>成功启动 Dashboard 后，在浏览器地址栏输入<code>http://&lt;ip_address&gt;:7005</code>。</p>
 <p>如在浏览器窗口中看到以下登录界面，则表示已经成功部署并启动了 Dashboard。</p>
@@ -6292,7 +6225,7 @@ $<span class="w"> </span>sudo<span class="w"> </span>/dashboard/scripts/dashboar
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6406,8 +6339,6 @@ $<span class="w"> </span>sudo<span class="w"> </span>/dashboard/scripts/dashboar
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/14.native-index-statements/6.drop-native-index/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6029,19 +6029,19 @@
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>执行<code>DROP INDEX</code>语句需要当前登录的用户拥有指定图空间的<code>DROP TAG INDEX</code>和<code>DROP EDGE INDEX</code><a href="../../../7.data-security/1.authentication/3.role-list/">权限</a>，否则会报错。</p>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>DROP {TAG | EDGE} INDEX [IF EXISTS] &lt;index_name&gt;;
-</code></pre></div>
+<p><code>ngql
+DROP {TAG | EDGE} INDEX [IF EXISTS] &lt;index_name&gt;;</code></p>
 <p><code>IF NOT EXISTS</code>：检测待删除的索引是否存在，只有存在时，才会删除索引。</p>
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>nebula&gt; DROP TAG INDEX player_index_0;
-</code></pre></div>
+<p><code>ngql
+nebula&gt; DROP TAG INDEX player_index_0;</code></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6155,8 +6155,6 @@
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

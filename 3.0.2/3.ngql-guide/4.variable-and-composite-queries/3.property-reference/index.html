@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/4.variable-and-composite-queries/3.property-reference/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6112,8 +6112,8 @@
 </div>
 <h2 id="_2">引用点的属性<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="_3">起始点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>$^.&lt;tag_name&gt;.&lt;prop_name&gt;
-</code></pre></div>
+<p><code>ngql
+$^.&lt;tag_name&gt;.&lt;prop_name&gt;</code></p>
 <table>
 <thead>
 <tr>
@@ -6137,8 +6137,8 @@
 </tbody>
 </table>
 <h3 id="_4">目的点<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>$$.&lt;tag_name&gt;.&lt;prop_name&gt;
-</code></pre></div>
+<p><code>ngql
+$$.&lt;tag_name&gt;.&lt;prop_name&gt;</code></p>
 <table>
 <thead>
 <tr>
@@ -6163,8 +6163,8 @@
 </table>
 <h2 id="_5">引用边的属性<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <h3 id="_6">引用自定义的边属性<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>&lt;edge_type&gt;.&lt;prop_name&gt;
-</code></pre></div>
+<p><code>ngql
+&lt;edge_type&gt;.&lt;prop_name&gt;</code></p>
 <table>
 <thead>
 <tr>
@@ -6212,39 +6212,38 @@
 </tbody>
 </table>
 <h2 id="_8">示例<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code># 返回起始点的 Tag player 的 name 属性值和目的点的 Tag player 的 age 属性值。
-nebula&gt; GO FROM &quot;player100&quot; OVER follow YIELD $^.player.name AS startName, $$.player.age AS endAge;
+<p>```ngql</p>
+<h1 id="tag_player_name_tag_player_age">返回起始点的 Tag player 的 name 属性值和目的点的 Tag player 的 age 属性值。<a class="headerlink" href="#tag_player_name_tag_player_age" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; GO FROM "player100" OVER follow YIELD $^.player.name AS startName, $$.player.age AS endAge;
 +--------------+--------+
 | startName    | endAge |
 +--------------+--------+
-| &quot;Tim Duncan&quot; | 36     |
-| &quot;Tim Duncan&quot; | 41     |
-+--------------+--------+
-
-# 返回 Edge type follow 的 degree 属性值。
-nebula&gt; GO FROM &quot;player100&quot; OVER follow YIELD follow.degree;
+| "Tim Duncan" | 36     |
+| "Tim Duncan" | 41     |
++--------------+--------+</p>
+<h1 id="edge_type_follow_degree">返回 Edge type follow 的 degree 属性值。<a class="headerlink" href="#edge_type_follow_degree" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; GO FROM "player100" OVER follow YIELD follow.degree;
 +---------------+
 | follow.degree |
 +---------------+
 | 95            |
-+---------------+
-
-# 返回 EdgeType 是 follow 的起始点 VID、目的点 VID、EdgeType 编码（正数为正向边，负数为逆向边），和边的 rank 值。
-nebula&gt; GO FROM &quot;player100&quot; OVER follow YIELD follow._src, follow._dst, follow._type, follow._rank;
++---------------+</p>
+<h1 id="edgetype_follow_vid_videdgetype_rank">返回 EdgeType 是 follow 的起始点 VID、目的点 VID、EdgeType 编码（正数为正向边，负数为逆向边），和边的 rank 值。<a class="headerlink" href="#edgetype_follow_vid_videdgetype_rank" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; GO FROM "player100" OVER follow YIELD follow._src, follow._dst, follow._type, follow._rank;
 +-------------+-------------+--------------+--------------+
 | follow._src | follow._dst | follow._type | follow._rank |
 +-------------+-------------+--------------+--------------+
-| &quot;player100&quot; | &quot;player101&quot; | 17           | 0            |
-| &quot;player100&quot; | &quot;player125&quot; | 17           | 0            |
+| "player100" | "player101" | 17           | 0            |
+| "player100" | "player125" | 17           | 0            |
 +-------------+-------------+--------------+--------------+
-</code></pre></div>
+```</p>
 <div class="admonition compatibility">
 <p class="admonition-title">历史版本兼容性</p>
 <p>从 Nebula Graph 2.6.0 起支持了新的 <a href="../../6.functions-and-expressions/4.schema/">Schema 函数</a>。以上示例在 Nebula Graph 3.0.2 中的近似写法如下：</p>
-<div class="highlight"><pre><span></span><code>GO FROM &quot;player100&quot; OVER follow YIELD properties($^).name AS startName, properties($$).age AS endAge;
-GO FROM &quot;player100&quot; OVER follow YIELD properties(edge).degree;
-GO FROM &quot;player100&quot; OVER follow YIELD src(edge), dst(edge), type(edge), rank(edge);
-</code></pre></div>
+<p><code>ngql
+GO FROM "player100" OVER follow YIELD properties($^).name AS startName, properties($$).age AS endAge;
+GO FROM "player100" OVER follow YIELD properties(edge).degree;
+GO FROM "player100" OVER follow YIELD src(edge), dst(edge), type(edge), rank(edge);</code></p>
 <p>Nebula Graph 3.0.2 兼容新旧语法。</p>
 </div>
 
@@ -6253,7 +6252,7 @@ GO FROM &quot;player100&quot; OVER follow YIELD src(edge), dst(edge), type(edge)
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6367,8 +6366,6 @@ GO FROM &quot;player100&quot; OVER follow YIELD src(edge), dst(edge), type(edge)
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

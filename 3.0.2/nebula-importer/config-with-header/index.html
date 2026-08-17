@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/nebula-importer/config-with-header/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6034,11 +6034,11 @@
 <li>
 <p>点示例</p>
 <p><code>student_with_header.csv</code>的示例数据：</p>
-<div class="highlight"><pre><span></span><code>:VID(string),student.name:string,student.age:int,student.gender:string
+<p><code>csv
+:VID(string),student.name:string,student.age:int,student.gender:string
 student100,Monica,16,female
 student101,Mike,18,male
-student102,Jane,17,female
-</code></pre></div>
+student102,Jane,17,female</code></p>
 <p>第一列为点 ID，后面三列为属性<code>name</code>、<code>age</code>和<code>gender</code>。</p>
 </li>
 </ul>
@@ -6046,12 +6046,12 @@ student102,Jane,17,female
 <li>
 <p>边示例</p>
 <p><code>follow_with_header.csv</code>的示例数据：</p>
-<div class="highlight"><pre><span></span><code>:SRC_VID(string),:DST_VID(string),:RANK,follow.degree:double
+<p><code>csv
+:SRC_VID(string),:DST_VID(string),:RANK,follow.degree:double
 student100,student101,0,92.5
 student101,student100,1,85.6
 student101,student102,2,93.2
-student100,student102,1,96.2
-</code></pre></div>
+student100,student102,1,96.2</code></p>
 <p>前两列的数据分别为起始点 ID 和目的点 ID，第三列为 rank，第四列为属性<code>degree</code>。</p>
 </li>
 </ul>
@@ -6075,10 +6075,10 @@ student100,student102,1,96.2
 <ul>
 <li>
 <p><code>:LABEL</code>（可选）：表示对该行进行插入（+）或删除（-）操作。必须为第一列。例如：</p>
-<div class="highlight"><pre><span></span><code>:LABEL,
+<p><code>csv
+:LABEL,
 +,
--,
-</code></pre></div>
+-,</code></p>
 </li>
 </ul>
 <div class="admonition note">
@@ -6097,108 +6097,101 @@ student100,student102,1,96.2
 </ul>
 <p>例如<code>student.name:string</code>、<code>follow.degree:double</code>。</p>
 <h2 id="_4">配置示例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># 连接的 Nebula Graph 版本，连接 3.x 时设置为 v3。</span>
-<span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v3</span>
-
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example</span>
-
-<span class="c1"># 是否删除临时生成的日志和错误数据文件。</span>
-<span class="nt">removeTempFiles</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-
-<span class="nt">clientSettings</span><span class="p">:</span>
-
-<span class="w">  </span><span class="c1"># nGQL 语句执行失败的重试次数。</span>
-<span class="w">  </span><span class="nt">retry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
-
-<span class="w">  </span><span class="c1"># Nebula Graph 客户端并发数。</span>
-<span class="w">  </span><span class="nt">concurrency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"> </span>
-
-<span class="w">  </span><span class="c1"># 每个 Nebula Graph 客户端的缓存队列大小。</span>
-<span class="w">  </span><span class="nt">channelBufferSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">128</span>
-
-<span class="w">  </span><span class="c1"># 指定数据要导入的 Nebula Graph 图空间。</span>
-<span class="w">  </span><span class="nt">space</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">student</span>
-
-<span class="w">  </span><span class="c1"># 连接信息。</span>
-<span class="w">  </span><span class="nt">connection</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
-<span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nebula</span>
-<span class="w">    </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.11.13:9669</span>
-
-<span class="w">  </span><span class="nt">postStart</span><span class="p">:</span>
-<span class="w">    </span><span class="c1"># 配置连接 Nebula Graph 服务器之后，在插入数据之前执行的一些操作。</span>
-<span class="w">    </span><span class="nt">commands</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<span class="w">      </span><span class="no">DROP SPACE IF EXISTS student;</span>
-<span class="w">      </span><span class="no">CREATE SPACE IF NOT EXISTS student(partition_num=5, replica_factor=1, vid_type=FIXED_STRING(20));</span>
-<span class="w">      </span><span class="no">USE student;</span>
-<span class="w">      </span><span class="no">CREATE TAG student(name string, age int,gender string);</span>
-<span class="w">      </span><span class="no">CREATE EDGE follow(degree int);</span>
-
-<span class="w">    </span><span class="c1"># 执行上述命令后到执行插入数据命令之间的间隔。</span>
-<span class="w">    </span><span class="nt">afterPeriod</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">15s</span>
-
-<span class="w">  </span><span class="nt">preStop</span><span class="p">:</span>
-<span class="w">    </span><span class="c1"># 配置断开 Nebula Graph 服务器连接之前执行的一些操作。</span>
-<span class="w">    </span><span class="nt">commands</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-
-<span class="c1"># 错误等日志信息输出的文件路径。    </span>
-<span class="nt">logPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./err/test.log</span>
-
-<span class="c1"># CSV 文件相关设置。</span>
-<span class="nt">files</span><span class="p">:</span>
-
-<span class="w">    </span><span class="c1"># 数据文件的存放路径，如果使用相对路径，则会将路径和当前配置文件的目录拼接。本示例第一个数据文件为点的数据。</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./student_with_header.csv</span>
-
-<span class="w">    </span><span class="c1"># 插入失败的数据文件存放路径，以便后面补写数据。</span>
-<span class="w">    </span><span class="nt">failDataPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./err/studenterr.csv</span>
-
-<span class="w">    </span><span class="c1"># 单批次插入数据的语句数量。</span>
-<span class="w">    </span><span class="nt">batchSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
-
-<span class="w">    </span><span class="c1"># 读取数据的行数限制。</span>
-<span class="w">    </span><span class="nt">limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
-
-<span class="w">    </span><span class="c1"># 是否按顺序在文件中插入数据行。如果为 false，可以避免数据倾斜导致的导入速率降低。</span>
-<span class="w">    </span><span class="nt">inOrder</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-
-<span class="w">    </span><span class="c1"># 文件类型，当前仅支持 csv。</span>
-<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">csv</span>
-
-<span class="w">    </span><span class="nt">csv</span><span class="p">:</span>
-<span class="w">      </span><span class="c1"># 是否有表头。</span>
-<span class="w">      </span><span class="nt">withHeader</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-
-<span class="w">      </span><span class="c1"># 是否有 LABEL。</span>
-<span class="w">      </span><span class="nt">withLabel</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-
-<span class="w">      </span><span class="c1"># 指定 csv 文件的分隔符。只支持一个字符的字符串分隔符。</span>
-<span class="w">      </span><span class="nt">delimiter</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;,&quot;</span>
-
-<span class="w">    </span><span class="nt">schema</span><span class="p">:</span>
-<span class="w">      </span><span class="c1"># Schema 的类型，可选值为 vertex 和 edge。</span>
-<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vertex</span>
-
-<span class="w">    </span><span class="c1"># 本示例第二个数据文件为边的数据。</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./follow_with_header.csv</span>
-<span class="w">    </span><span class="nt">failDataPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./err/followerr.csv</span>
-<span class="w">    </span><span class="nt">batchSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
-<span class="w">    </span><span class="nt">limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
-<span class="w">    </span><span class="nt">inOrder</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">csv</span>
-<span class="w">    </span><span class="nt">csv</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">withHeader</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">      </span><span class="nt">withLabel</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">    </span><span class="nt">schema</span><span class="p">:</span>
-<span class="w">      </span><span class="c1"># Schema 的类型为 edge。</span>
-<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">edge</span>
-<span class="w">      </span><span class="nt">edge</span><span class="p">:</span>
-<span class="w">        </span><span class="c1"># Edge type 名称。</span>
-<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">follow</span>
-
-<span class="w">        </span><span class="c1"># 是否包含 rank。</span>
-<span class="w">        </span><span class="nt">withRanking</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<p>```yaml</p>
+<h1 id="nebula_graph_3x_v3">连接的 Nebula Graph 版本，连接 3.x 时设置为 v3。<a class="headerlink" href="#nebula_graph_3x_v3" title="Permanent link">&para;</a></h1>
+<p>version: v3</p>
+<p>description: example</p>
+<h1 id="_5">是否删除临时生成的日志和错误数据文件。<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
+<p>removeTempFiles: false</p>
+<p>clientSettings:</p>
+<p># nGQL 语句执行失败的重试次数。
+  retry: 3</p>
+<p># Nebula Graph 客户端并发数。
+  concurrency: 10 </p>
+<p># 每个 Nebula Graph 客户端的缓存队列大小。
+  channelBufferSize: 128</p>
+<p># 指定数据要导入的 Nebula Graph 图空间。
+  space: student</p>
+<p># 连接信息。
+  connection:
+    user: root
+    password: nebula
+    address: 192.168.11.13:9669</p>
+<p>postStart:
+    # 配置连接 Nebula Graph 服务器之后，在插入数据之前执行的一些操作。
+    commands: |
+      DROP SPACE IF EXISTS student;
+      CREATE SPACE IF NOT EXISTS student(partition_num=5, replica_factor=1, vid_type=FIXED_STRING(20));
+      USE student;
+      CREATE TAG student(name string, age int,gender string);
+      CREATE EDGE follow(degree int);</p>
+<div class="codehilite"><pre><span></span><code># 执行上述命令后到执行插入数据命令之间的间隔。
+afterPeriod: 15s
 </code></pre></div>
+
+<p>preStop:
+    # 配置断开 Nebula Graph 服务器连接之前执行的一些操作。
+    commands: |</p>
+<h1 id="_6">错误等日志信息输出的文件路径。<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h1>
+<p>logPath: ./err/test.log</p>
+<h1 id="csv">CSV 文件相关设置。<a class="headerlink" href="#csv" title="Permanent link">&para;</a></h1>
+<p>files:</p>
+<div class="codehilite"><pre><span></span><code># 数据文件的存放路径，如果使用相对路径，则会将路径和当前配置文件的目录拼接。本示例第一个数据文件为点的数据。
+</code></pre></div>
+
+<p>- path: ./student_with_header.csv</p>
+<div class="codehilite"><pre><span></span><code># 插入失败的数据文件存放路径，以便后面补写数据。
+failDataPath: ./err/studenterr.csv
+
+# 单批次插入数据的语句数量。
+batchSize: 10
+
+# 读取数据的行数限制。
+limit: 10
+
+# 是否按顺序在文件中插入数据行。如果为 false，可以避免数据倾斜导致的导入速率降低。
+inOrder: true
+
+# 文件类型，当前仅支持 csv。
+type: csv
+
+csv:
+  # 是否有表头。
+  withHeader: true
+
+  # 是否有 LABEL。
+  withLabel: false
+
+  # 指定 csv 文件的分隔符。只支持一个字符的字符串分隔符。
+  delimiter: &quot;,&quot;
+
+schema:
+  # Schema 的类型，可选值为 vertex 和 edge。
+  type: vertex
+
+# 本示例第二个数据文件为边的数据。
+</code></pre></div>
+
+<p>- path: ./follow_with_header.csv
+    failDataPath: ./err/followerr.csv
+    batchSize: 10
+    limit: 10
+    inOrder: true
+    type: csv
+    csv:
+      withHeader: true
+      withLabel: false
+    schema:
+      # Schema 的类型为 edge。
+      type: edge
+      edge:
+        # Edge type 名称。
+        name: follow</p>
+<div class="codehilite"><pre><span></span><code>    # 是否包含 rank。
+    withRanking: true
+</code></pre></div>
+
+<p>```</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>点 ID 的数据类型需要和<code>clientSettings.postStart.commands</code>中的创建图空间语句的数据类型一致。</p>
@@ -6209,7 +6202,7 @@ student100,student102,1,96.2
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6323,8 +6316,6 @@ student100,student102,1,96.2
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

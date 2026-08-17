@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/nebula-studio/deploy-connect/st-ug-deploy-by-helm/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6078,18 +6078,18 @@
 <ol>
 <li>
 <p>克隆 Studio 的源代码到主机。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/vesoft-inc/nebula-studio.git
-</code></pre></div>
+<p><code>bash
+$ git clone https://github.com/vesoft-inc/nebula-studio.git</code></p>
 </li>
 <li>
 <p>进入<code>nebula-studio</code>目录。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>nebula-studio
-</code></pre></div>
+<p><code>bash
+$ cd nebula-studio</code></p>
 </li>
 <li>
 <p>更新并安装 Nebula Graph Studio chart，命名为<code>my-studio</code>。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>helm<span class="w"> </span>upgrade<span class="w"> </span>--install<span class="w"> </span>my-studio<span class="w"> </span>--set<span class="w"> </span>service.type<span class="o">=</span>NodePort<span class="w"> </span>--set<span class="w"> </span>service.port<span class="o">={</span><span class="m">30070</span><span class="o">}</span><span class="w"> </span>deployment/helm
-</code></pre></div>
+<p><code>bash
+$ helm upgrade --install my-studio --set service.type=NodePort --set service.port={30070} deployment/helm</code></p>
 </li>
 <li>
 <p>启动成功后，在浏览器地址栏输入<code>http://{address-of-node}:{30070}/</code>。
@@ -6098,8 +6098,8 @@
 </li>
 </ol>
 <h2 id="_3">卸载<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>helm<span class="w"> </span>uninstall<span class="w"> </span>my-studio
-</code></pre></div>
+<p><code>bash
+$ helm uninstall my-studio</code></p>
 <h2 id="_4">后续操作<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>进入 Studio 登录界面后，用户需要连接 Nebula Graph。详细信息，参考<a href="../st-ug-connect/">连接数据库</a>。</p>
 <h2 id="nebula_graph_studio_chart">Nebula Graph Studio chart 配置参数说明<a class="headerlink" href="#nebula_graph_studio_chart" title="Permanent link">&para;</a></h2>
@@ -6165,7 +6165,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6279,8 +6279,6 @@
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

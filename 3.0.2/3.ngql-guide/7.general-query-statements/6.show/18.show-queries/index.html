@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/7.general-query-statements/6.show/18.show-queries/">
       
       <link rel="icon" href="../../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6040,32 +6040,31 @@
 <li><code>SHOW QUERIES</code>从 Meta 服务获取所有 Session 中的查询信息。这些信息会根据参数<code>session_reclaim_interval_secs</code>定义的周期同步到 Meta 服务，因此在客户端获取到的信息可能属于上个同步周期。</li>
 </ul>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>SHOW [LOCAL] QUERIES;
-</code></pre></div>
+<p><code>ngql
+SHOW [LOCAL] QUERIES;</code></p>
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>nebula&gt; SHOW LOCAL QUERIES;
+<p>```ngql
+nebula&gt; SHOW LOCAL QUERIES;
 +------------------+-----------------+--------+----------------------+----------------------------+----------------+-----------+-----------------+
 | SessionID        | ExecutionPlanID | User   | Host                 | StartTime                  | DurationInUSec | Status    | Query           |
 +------------------+-----------------+--------+----------------------+----------------------------+----------------+-----------+-----------------+
-| 1625463842921750 | 46              | &quot;root&quot; | &quot;&quot;192.168.x.x&quot;:9669&quot; | 2021-07-05T05:44:19.502903 | 0              | &quot;RUNNING&quot; | &quot;SHOW QUERIES;&quot; |
-+------------------+-----------------+--------+----------------------+----------------------------+----------------+-----------+-----------------+
-
-nebula&gt; SHOW QUERIES;
+| 1625463842921750 | 46              | "root" | ""192.168.x.x":9669" | 2021-07-05T05:44:19.502903 | 0              | "RUNNING" | "SHOW QUERIES;" |
++------------------+-----------------+--------+----------------------+----------------------------+----------------+-----------+-----------------+</p>
+<p>nebula&gt; SHOW QUERIES;
 +------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+---------------------------------------------------------+
 | SessionID        | ExecutionPlanID | User    | Host                 | StartTime                  | DurationInUSec | Status    | Query                                                   |
 +------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+---------------------------------------------------------+
-| 1625456037718757 | 54              | &quot;user1&quot; | &quot;&quot;192.168.x.x&quot;:9669&quot; | 2021-07-05T05:51:08.691318 | 1504502        | &quot;RUNNING&quot; | &quot;MATCH p=(v:player)-[*1..4]-(v2) RETURN v2 AS Friends;&quot; |
-+------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+---------------------------------------------------------+
-
-# 返回耗时 TOP 10 的查询。
-nebula&gt; SHOW QUERIES | ORDER BY $-.DurationInUSec DESC | LIMIT 10;
+| 1625456037718757 | 54              | "user1" | ""192.168.x.x":9669" | 2021-07-05T05:51:08.691318 | 1504502        | "RUNNING" | "MATCH p=(v:player)-[*1..4]-(v2) RETURN v2 AS Friends;" |
++------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+---------------------------------------------------------+</p>
+<h1 id="top_10">返回耗时 TOP 10 的查询。<a class="headerlink" href="#top_10" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; SHOW QUERIES | ORDER BY $-.DurationInUSec DESC | LIMIT 10;
 +------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+-------------------------------------------------------+
 | SessionID        | ExecutionPlanID | User    | Host                 | StartTime                  | DurationInUSec | Status    | Query                                                 |
 +------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+-------------------------------------------------------+
-| 1625471375320831 | 98              | &quot;user2&quot; | &quot;&quot;192.168.x.x&quot;:9669&quot; | 2021-07-05T07:50:24.461779 | 2608176        | &quot;RUNNING&quot; | &quot;MATCH (v:player)-[*1..4]-(v2) RETURN v2 AS Friends;&quot; |
-| 1625456037718757 | 99              | &quot;user1&quot; | &quot;&quot;192.168.x.x&quot;:9669&quot; | 2021-07-05T07:50:24.910616 | 2159333        | &quot;RUNNING&quot; | &quot;MATCH (v:player)-[*1..4]-(v2) RETURN v2 AS Friends;&quot; |
+| 1625471375320831 | 98              | "user2" | ""192.168.x.x":9669" | 2021-07-05T07:50:24.461779 | 2608176        | "RUNNING" | "MATCH (v:player)-[<em>1..4]-(v2) RETURN v2 AS Friends;" |
+| 1625456037718757 | 99              | "user1" | ""192.168.x.x":9669" | 2021-07-05T07:50:24.910616 | 2159333        | "RUNNING" | "MATCH (v:player)-[</em>1..4]-(v2) RETURN v2 AS Friends;" |
 +------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+-------------------------------------------------------+
-</code></pre></div>
+```</p>
 <p>参数说明如下。</p>
 <table>
 <thead>
@@ -6115,7 +6114,7 @@ nebula&gt; SHOW QUERIES | ORDER BY $-.DurationInUSec DESC | LIMIT 10;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6229,8 +6228,6 @@ nebula&gt; SHOW QUERIES | ORDER BY $-.DurationInUSec DESC | LIMIT 10;
         <script src="../../../../js/jquery.js"></script>
       
         <script src="../../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

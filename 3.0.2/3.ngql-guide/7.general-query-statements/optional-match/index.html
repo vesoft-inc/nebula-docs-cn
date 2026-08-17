@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/7.general-query-statements/optional-match/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6016,36 +6016,36 @@
 <p>本文操作仅适用于 nGQL 中的 openCypher 方式。</p>
 <h2 id="_1">示例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><code>MATCH</code>语句中使用<code>OPTIONAL MATCH</code>的示例如下：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (m)-[]-&gt;(n) WHERE id(m)==&quot;player100&quot; \
-        OPTIONAL MATCH (n)-[]-&gt;(l) WHERE id(n)==&quot;player125&quot; \
+<p><code>ngql
+nebula&gt; MATCH (m)-[]-&gt;(n) WHERE id(m)=="player100" \
+        OPTIONAL MATCH (n)-[]-&gt;(l) WHERE id(n)=="player125" \
         RETURN id(m),id(n),id(l);
 +-------------+-------------+-------------+
 | id(m)       | id(n)       | id(l)       |
 +-------------+-------------+-------------+
-| &quot;player100&quot; | &quot;team204&quot;   | __NULL__    |
-| &quot;player100&quot; | &quot;player101&quot; | __NULL__    |
-| &quot;player100&quot; | &quot;player125&quot; | &quot;team204&quot;   |
-| &quot;player100&quot; | &quot;player125&quot; | &quot;player100&quot; |
-+-------------+-------------+-------------+
-</code></pre></div>
+| "player100" | "team204"   | __NULL__    |
+| "player100" | "player101" | __NULL__    |
+| "player100" | "player125" | "team204"   |
+| "player100" | "player125" | "player100" |
++-------------+-------------+-------------+</code></p>
 <p>而使用多<code>MATCH</code>，不使用<code>OPTIONAL MATCH</code>时，会返回模式完全匹配的行。示例如下：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (m)-[]-&gt;(n) WHERE id(m)==&quot;player100&quot; \
-        MATCH (n)-[]-&gt;(l) WHERE id(n)==&quot;player125&quot; \
+<p><code>ngql
+nebula&gt; MATCH (m)-[]-&gt;(n) WHERE id(m)=="player100" \
+        MATCH (n)-[]-&gt;(l) WHERE id(n)=="player125" \
         RETURN id(m),id(n),id(l);
 +-------------+-------------+-------------+
 | id(m)       | id(n)       | id(l)       |
 +-------------+-------------+-------------+
-| &quot;player100&quot; | &quot;player125&quot; | &quot;team204&quot;   |
-| &quot;player100&quot; | &quot;player125&quot; | &quot;player100&quot; |
-+-------------+-------------+-------------+
-</code></pre></div>
+| "player100" | "player125" | "team204"   |
+| "player100" | "player125" | "player100" |
++-------------+-------------+-------------+</code></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6159,8 +6159,6 @@
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

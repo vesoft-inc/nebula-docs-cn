@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/nebula-studio/quick-start/st-ug-create-schema/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6042,7 +6042,7 @@
 <p>在 Nebula Graph 中，用户必须先有 Schema，再向其中写入点数据和边数据。本文描述如何使用 Nebula Graph 的 <strong>控制台</strong> 或 <strong>Schema</strong> 功能创建 Schema。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>用户也可以使用 nebula-console 创建 Schema。详细信息，参考 <a href="../../..">Nebula Graph 使用手册</a>和 <a href="../../../2.quick-start/1.quick-start-workflow/">Nebula Graph 快速开始</a>。</p>
+<p>用户也可以使用 nebula-console 创建 Schema。详细信息，参考 <a href="../../../">Nebula Graph 使用手册</a>和 <a href="../../../2.quick-start/1.quick-start-workflow/">Nebula Graph 快速开始</a>。</p>
 </div>
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>在 Studio 上创建 Schema 之前，用户需要确认以下信息：</p>
@@ -6084,33 +6084,30 @@
 </li>
 <li>
 <p>在命令行中，依次输入以下语句，并点击 <img alt="表示运行的图标" src="../../figs/st-ug-008.png" title="Run 图标" /> 图标。</p>
-<div class="highlight"><pre><span></span><code>// 创建 Tag player，带有 2 个属性
-CREATE TAG player(name string, age int);
-
-// 创建 Tag team，带有 1 个属性
-CREATE TAG team(name string);
-
-// 创建 Edge type follow，带有 1 个属性
-CREATE EDGE follow(degree int);
-
-// 创建 Edge type serve，带有 2 个属性
-CREATE EDGE serve(start_year int, end_year int);
-</code></pre></div>
+<p>```nGQL
+ // 创建 Tag player，带有 2 个属性
+ CREATE TAG player(name string, age int);</p>
+<p>// 创建 Tag team，带有 1 个属性
+ CREATE TAG team(name string);</p>
+<p>// 创建 Edge type follow，带有 1 个属性
+ CREATE EDGE follow(degree int);</p>
+<p>// 创建 Edge type serve，带有 2 个属性
+ CREATE EDGE serve(start_year int, end_year int);
+ ```</p>
 </li>
 </ol>
 <p>至此，用户已经完成了 Schema 创建。用户可以运行以下语句查看 Tag 与 Edge type 的定义是否正确、完整。</p>
-<div class="highlight"><pre><span></span><code>// 列出当前图空间中所有 Tag
-SHOW TAGS;
-
-// 列出当前图空间中所有 Edge type
-SHOW EDGES;
-
-// 查看每种 Tag 和 Edge type 的结构是否正确
+<p>```nGQL
+// 列出当前图空间中所有 Tag
+SHOW TAGS;</p>
+<p>// 列出当前图空间中所有 Edge type
+SHOW EDGES;</p>
+<p>// 查看每种 Tag 和 Edge type 的结构是否正确
 DESCRIBE TAG player;
 DESCRIBE TAG team;
 DESCRIBE EDGE follow;
 DESCRIBE EDGE serve;
-</code></pre></div>
+```</p>
 <h2 id="_2">后续操作<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>创建 Schema 后，用户可以开始<a href="../st-ug-import-data/">导入数据</a>。</p>
 
@@ -6119,7 +6116,7 @@ DESCRIBE EDGE serve;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6233,8 +6230,6 @@ DESCRIBE EDGE serve;
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

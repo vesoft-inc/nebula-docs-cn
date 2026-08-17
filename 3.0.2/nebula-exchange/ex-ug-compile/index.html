@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/nebula-exchange/ex-ug-compile/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6082,38 +6082,38 @@
 <ol>
 <li>
 <p>在根目录克隆仓库<code>nebula-exchange</code>。</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>v3.0.0<span class="w"> </span>https://github.com/vesoft-inc/nebula-exchange.git
-</code></pre></div>
+<p><code>bash
+git clone -b v3.0.0 https://github.com/vesoft-inc/nebula-exchange.git</code></p>
 </li>
 <li>
 <p>切换到目录<code>nebula-exchange</code>。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>nebula-exchange
-</code></pre></div>
+<p><code>bash
+cd nebula-exchange</code></p>
 </li>
 <li>
 <p>根据 Exchange 使用环境中的 Spark 版本打包 Exchange。</p>
 <ul>
 <li>
 <p>Spark 2.2：</p>
-<div class="highlight"><pre><span></span><code>mvn<span class="w"> </span>clean<span class="w"> </span>package<span class="w"> </span>-Dmaven.test.skip<span class="o">=</span><span class="nb">true</span><span class="w"> </span>-Dgpg.skip<span class="w"> </span>-Dmaven.javadoc.skip<span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
--pl<span class="w"> </span>nebula-exchange_spark_2.2<span class="w"> </span>-am<span class="w"> </span>-Pscala-2.11<span class="w"> </span>-Pspark-2.2
-</code></pre></div>
+<p><code>bash
+mvn clean package -Dmaven.test.skip=true -Dgpg.skip -Dmaven.javadoc.skip=true \
+-pl nebula-exchange_spark_2.2 -am -Pscala-2.11 -Pspark-2.2</code></p>
 </li>
 </ul>
 <ul>
 <li>
 <p>Spark 2.4：</p>
-<div class="highlight"><pre><span></span><code>mvn<span class="w"> </span>clean<span class="w"> </span>package<span class="w"> </span>-Dmaven.test.skip<span class="o">=</span><span class="nb">true</span><span class="w"> </span>-Dgpg.skip<span class="w"> </span>-Dmaven.javadoc.skip<span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
--pl<span class="w"> </span>nebula-exchange_spark_2.4<span class="w"> </span>-am<span class="w"> </span>-Pscala-2.11<span class="w"> </span>-Pspark-2.4
-</code></pre></div>
+<p><code>bash
+mvn clean package -Dmaven.test.skip=true -Dgpg.skip -Dmaven.javadoc.skip=true \
+-pl nebula-exchange_spark_2.4 -am -Pscala-2.11 -Pspark-2.4</code></p>
 </li>
 </ul>
 <ul>
 <li>
 <p>Spark 3.0：</p>
-<div class="highlight"><pre><span></span><code>mvn<span class="w"> </span>clean<span class="w"> </span>package<span class="w"> </span>-Dmaven.test.skip<span class="o">=</span><span class="nb">true</span><span class="w"> </span>-Dgpg.skip<span class="w"> </span>-Dmaven.javadoc.skip<span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
--pl<span class="w"> </span>nebula-exchange_spark_3.0<span class="w"> </span>-am<span class="w"> </span>-Pscala-2.12<span class="w"> </span>-Pspark-3.0
-</code></pre></div>
+<p><code>bash
+mvn clean package -Dmaven.test.skip=true -Dgpg.skip -Dmaven.javadoc.skip=true \
+-pl nebula-exchange_spark_3.0 -am -Pscala-2.12 -Pspark-3.0</code></p>
 </li>
 </ul>
 </li>
@@ -6132,13 +6132,13 @@
 <ul>
 <li>
 <p>修改 Maven 安装目录下<code>libexec/conf/settings.xml</code>文件的<code>mirror</code>部分：</p>
-<div class="highlight"><pre><span></span><code>&lt;mirror&gt;
+<p><code>text
+&lt;mirror&gt;
  &lt;id&gt;alimaven&lt;/id&gt;
  &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;
  &lt;name&gt;aliyun maven&lt;/name&gt;
  &lt;url&gt;http://maven.aliyun.com/nexus/content/repositories/central/&lt;/url&gt;
-&lt;/mirror&gt;
-</code></pre></div>
+&lt;/mirror&gt;</code></p>
 </li>
 </ul>
 
@@ -6147,7 +6147,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6261,8 +6261,6 @@
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

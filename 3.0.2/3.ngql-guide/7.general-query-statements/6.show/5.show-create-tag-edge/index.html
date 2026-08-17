@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/7.general-query-statements/6.show/5.show-create-tag-edge/">
       
       <link rel="icon" href="../../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6016,35 +6016,35 @@
 <p><code>SHOW CREATE TAG</code>语句显示指定 Tag 的基本信息。Tag 的更多详细信息，请参见 <a href="../../../10.tag-statements/1.create-tag/">CREATE TAG</a>。</p>
 <p><code>SHOW CREATE EDGE</code>语句显示指定 Edge type 的基本信息。Edge type 的更多详细信息，请参见 <a href="../../../11.edge-type-statements/1.create-edge/">CREATE EDGE</a>。</p>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>SHOW CREATE {TAG &lt;tag_name&gt; | EDGE &lt;edge_name&gt;};
-</code></pre></div>
+<p><code>ngql
+SHOW CREATE {TAG &lt;tag_name&gt; | EDGE &lt;edge_name&gt;};</code></p>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>nebula&gt; SHOW CREATE TAG player;
+<p><code>``ngql
+nebula&gt; SHOW CREATE TAG player;
 +----------+-----------------------------------+
 | Tag      | Create Tag                        |
 +----------+-----------------------------------+
-| &quot;player&quot; | &quot;CREATE TAG `player` (            |
-|          |  `name` string NULL,              |
-|          |  `age` int64 NULL                 |
-|          | ) ttl_duration = 0, ttl_col = &quot;&quot;&quot; |
-+----------+-----------------------------------+
-
-nebula&gt; SHOW CREATE EDGE follow;
+| "player" | "CREATE TAG</code>player<code>(            |
+|          |</code>name<code>string NULL,              |
+|          |</code>age` int64 NULL                 |
+|          | ) ttl_duration = 0, ttl_col = """ |
++----------+-----------------------------------+</p>
+<p>nebula&gt; SHOW CREATE EDGE follow;
 +----------+-----------------------------------+
 | Edge     | Create Edge                       |
 +----------+-----------------------------------+
-| &quot;follow&quot; | &quot;CREATE EDGE `follow` (           |
-|          |  `degree` int64 NULL              |
-|          | ) ttl_duration = 0, ttl_col = &quot;&quot;&quot; |
+| "follow" | "CREATE EDGE <code>follow</code> (           |
+|          |  <code>degree</code> int64 NULL              |
+|          | ) ttl_duration = 0, ttl_col = """ |
 +----------+-----------------------------------+
-</code></pre></div>
+```</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6158,8 +6158,6 @@ nebula&gt; SHOW CREATE EDGE follow;
         <script src="../../../../js/jquery.js"></script>
       
         <script src="../../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

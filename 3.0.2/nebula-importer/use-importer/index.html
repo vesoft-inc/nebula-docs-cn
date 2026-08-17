@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/nebula-importer/use-importer/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6298,16 +6298,16 @@
 </li>
 <li>
 <p>启动服务。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./&lt;binary_package_name&gt;<span class="w"> </span>--config<span class="w"> </span>&lt;yaml_config_file_path&gt;
-</code></pre></div>
+<p><code>bash
+$ ./&lt;binary_package_name&gt; --config &lt;yaml_config_file_path&gt;</code></p>
 </li>
 </ol>
 <h3 id="_7">源码编译运行<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>克隆仓库。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>v3.0.0<span class="w"> </span>https://github.com/vesoft-inc/nebula-importer.git
-</code></pre></div>
+<p><code>bash
+$ git clone -b v3.0.0 https://github.com/vesoft-inc/nebula-importer.git</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>请使用正确的分支。 
@@ -6316,18 +6316,18 @@
 </li>
 <li>
 <p>进入目录<code>nebula-importer</code>。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>nebula-importer
-</code></pre></div>
+<p><code>bash
+$ cd nebula-importer</code></p>
 </li>
 <li>
 <p>编译源码。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>make<span class="w"> </span>build
-</code></pre></div>
+<p><code>bash
+$ make build</code></p>
 </li>
 <li>
 <p>启动服务。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./nebula-importer<span class="w"> </span>--config<span class="w"> </span>&lt;yaml_config_file_path&gt;
-</code></pre></div>
+<p><code>bash
+$ ./nebula-importer --config &lt;yaml_config_file_path&gt;</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>yaml 配置文件说明请参见下文的配置文件说明。</p>
@@ -6339,36 +6339,36 @@
 <ol>
 <li>
 <p>克隆仓库。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span><span class="m">3</span>.0.0<span class="w"> </span>https://github.com/vesoft-inc/nebula-importer.git
-</code></pre></div>
+<p><code>bash
+ $ git clone -b 3.0.0 https://github.com/vesoft-inc/nebula-importer.git</code></p>
 </li>
 <li>
 <p>使用如下的命令下载并打包依赖的源码。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>nebula-importer
-$<span class="w"> </span>go<span class="w"> </span>mod<span class="w"> </span>vendor
-$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>..<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>tar<span class="w"> </span>-zcvf<span class="w"> </span>nebula-importer.tar.gz<span class="w"> </span>nebula-importer
-</code></pre></div>
+<p><code>bash
+ $ cd nebula-importer
+ $ go mod vendor
+ $ cd .. &amp;&amp; tar -zcvf nebula-importer.tar.gz nebula-importer</code></p>
 </li>
 <li>
 <p>将压缩包上传到不能联网的服务器上。</p>
 </li>
 <li>
 <p>解压并编译。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>tar<span class="w"> </span>-zxvf<span class="w"> </span>nebula-importer.tar.gz<span class="w"> </span>
-$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>nebula-importer
-$<span class="w"> </span>go<span class="w"> </span>build<span class="w"> </span>-mod<span class="w"> </span>vendor<span class="w"> </span>cmd/importer.go
-</code></pre></div>
+<p><code>bash
+ $ tar -zxvf nebula-importer.tar.gz 
+ $ cd nebula-importer
+ $ go build -mod vendor cmd/importer.go</code></p>
 </li>
 </ol>
 <h3 id="docker">Docker 方式运行<a class="headerlink" href="#docker" title="Permanent link">&para;</a></h3>
 <p>使用 Docker 可以不必在本地安装 Go 语言环境，只需要拉取 Nebula Importer 的<a href="https://hub.docker.com/r/vesoft/nebula-importer">镜像</a>，并将本地配置文件和 CSV 数据文件挂载到容器中。命令如下：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>-ti<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--network<span class="o">=</span>host<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-v<span class="w"> </span>&lt;config_file&gt;:&lt;config_file&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>-v<span class="w"> </span>&lt;csv_data_dir&gt;:&lt;csv_data_dir&gt;<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>vesoft/nebula-importer:&lt;version&gt;
-<span class="w">    </span>--config<span class="w"> </span>&lt;config_file&gt;
-</code></pre></div>
+<p><code>bash
+$ docker run --rm -ti \
+    --network=host \
+    -v &lt;config_file&gt;:&lt;config_file&gt; \
+    -v &lt;csv_data_dir&gt;:&lt;csv_data_dir&gt; \
+    vesoft/nebula-importer:&lt;version&gt;
+    --config &lt;config_file&gt;</code></p>
 <ul>
 <li><code>&lt;config_file&gt;</code>：本地 yaml 配置文件的绝对路径。</li>
 <li><code>&lt;csv_data_dir&gt;</code>：本地 CSV 数据文件的绝对路径。</li>
@@ -6386,10 +6386,10 @@ $<span class="w"> </span>go<span class="w"> </span>build<span class="w"> </span>
 </div>
 <h3 id="_10">基本配置<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p>示例配置如下：</p>
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v3</span>
-<span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example</span>
-<span class="nt">removeTempFiles</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-</code></pre></div>
+<p><code>yaml
+version: v3
+description: example
+removeTempFiles: false</code></p>
 <table>
 <thead>
 <tr>
@@ -6423,26 +6423,26 @@ $<span class="w"> </span>go<span class="w"> </span>build<span class="w"> </span>
 <h3 id="_11">客户端配置<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <p>客户端配置存储客户端连接 Nebula Graph 相关的配置。</p>
 <p>示例配置如下：</p>
-<div class="highlight"><pre><span></span><code><span class="nt">clientSettings</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">retry</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
-<span class="w">  </span><span class="nt">concurrency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
-<span class="w">  </span><span class="nt">channelBufferSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">128</span>
-<span class="w">  </span><span class="nt">space</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test</span>
-<span class="w">  </span><span class="nt">connection</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">user</span>
-<span class="w">    </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">password</span>
-<span class="w">    </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">192.168.11.13:9669,192.168.11.14:9669</span>
-<span class="w">  </span><span class="c1"># # 只有 local_config 是 false 的情况下，才可以通过 UPDATE CONFIGS 更新配置</span>
-<span class="w">  </span><span class="c1"># postStart:</span>
-<span class="w">  </span><span class="c1">#   commands: |</span>
-<span class="w">  </span><span class="c1">#     UPDATE CONFIGS storage:wal_ttl=3600;</span>
-<span class="w">  </span><span class="c1">#     UPDATE CONFIGS storage:rocksdb_column_family_options = { disable_auto_compactions = true };</span>
-<span class="w">  </span><span class="c1">#   afterPeriod: 8s</span>
-<span class="w">  </span><span class="c1"># preStop:</span>
-<span class="w">  </span><span class="c1">#   commands: |</span>
-<span class="w">  </span><span class="c1">#     UPDATE CONFIGS storage:wal_ttl=86400;</span>
-<span class="w">  </span><span class="c1">#     UPDATE CONFIGS storage:rocksdb_column_family_options = { disable_auto_compactions = false };</span>
-</code></pre></div>
+<p><code>yaml
+clientSettings:
+  retry: 3
+  concurrency: 10
+  channelBufferSize: 128
+  space: test
+  connection:
+    user: user
+    password: password
+    address: 192.168.11.13:9669,192.168.11.14:9669
+  # # 只有 local_config 是 false 的情况下，才可以通过 UPDATE CONFIGS 更新配置
+  # postStart:
+  #   commands: |
+  #     UPDATE CONFIGS storage:wal_ttl=3600;
+  #     UPDATE CONFIGS storage:rocksdb_column_family_options = { disable_auto_compactions = true };
+  #   afterPeriod: 8s
+  # preStop:
+  #   commands: |
+  #     UPDATE CONFIGS storage:wal_ttl=86400;
+  #     UPDATE CONFIGS storage:rocksdb_column_family_options = { disable_auto_compactions = false };</code></p>
 <table>
 <thead>
 <tr>
@@ -6519,19 +6519,19 @@ $<span class="w"> </span>go<span class="w"> </span>build<span class="w"> </span>
 <p>文件配置存储数据文件和日志的相关配置，以及 Schema 的具体信息。</p>
 <h4 id="_13">文件和日志配置<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
 <p>示例配置如下：</p>
-<div class="highlight"><pre><span></span><code><span class="nt">logPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./err/test.log</span>
-<span class="nt">files</span><span class="p">:</span>
-<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./student_without_header.csv</span>
-<span class="w">    </span><span class="nt">failDataPath</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./err/studenterr.csv</span>
-<span class="w">    </span><span class="nt">batchSize</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">128</span>
-<span class="w">    </span><span class="nt">limit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
-<span class="w">    </span><span class="nt">inOrder</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">    </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">csv</span>
-<span class="w">    </span><span class="nt">csv</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">withHeader</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">      </span><span class="nt">withLabel</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">      </span><span class="nt">delimiter</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;,&quot;</span>
-</code></pre></div>
+<p><code>yaml
+logPath: ./err/test.log
+files:
+  - path: ./student_without_header.csv
+    failDataPath: ./err/studenterr.csv
+    batchSize: 128
+    limit: 10
+    inOrder: false
+    type: csv
+    csv:
+      withHeader: false
+      withLabel: false
+      delimiter: ","</code></p>
 <table>
 <thead>
 <tr>
@@ -6610,25 +6610,25 @@ $<span class="w"> </span>go<span class="w"> </span>build<span class="w"> </span>
 <li>点配置</li>
 </ul>
 <p>示例配置如下：</p>
-<div class="highlight"><pre><span></span><code><span class="nt">schema</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vertex</span>
-<span class="w">  </span><span class="nt">vertex</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">vid</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">      </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
-<span class="w">    </span><span class="nt">tags</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">student</span>
-<span class="w">        </span><span class="nt">props</span><span class="p">:</span>
-<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">name</span>
-<span class="w">            </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">            </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">age</span>
-<span class="w">            </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">int</span>
-<span class="w">            </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
-<span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gender</span>
-<span class="w">            </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">            </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
-</code></pre></div>
+<p><code>yaml
+schema:
+  type: vertex
+  vertex:
+    vid:
+      type: string
+      index: 0
+    tags:
+      - name: student
+        props:
+          - name: name
+            type: string
+            index: 1
+          - name: age
+            type: int
+            index: 2
+          - name: gender
+            type: string
+            index: 3</code></p>
 <table>
 <thead>
 <tr>
@@ -6691,24 +6691,24 @@ $<span class="w"> </span>go<span class="w"> </span>build<span class="w"> </span>
 <li>边配置</li>
 </ul>
 <p>示例配置如下：</p>
-<div class="highlight"><pre><span></span><code><span class="nt">schema</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">edge</span>
-<span class="w">  </span><span class="nt">edge</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">follow</span>
-<span class="w">    </span><span class="nt">withRanking</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">    </span><span class="nt">srcVID</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">      </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
-<span class="w">    </span><span class="nt">dstVID</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">string</span>
-<span class="w">      </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="w">    </span><span class="nt">rank</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
-<span class="w">    </span><span class="nt">props</span><span class="p">:</span>
-<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">degree</span>
-<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">double</span>
-<span class="w">        </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
-</code></pre></div>
+<p><code>yaml
+schema:
+  type: edge
+  edge:
+    name: follow
+    withRanking: true
+    srcVID:
+      type: string
+      index: 0
+    dstVID:
+      type: string
+      index: 1
+    rank:
+      index: 2
+    props:
+      - name: degree
+        type: double
+        index: 3</code></p>
 <table>
 <thead>
 <tr>
@@ -6800,7 +6800,7 @@ $<span class="w"> </span>go<span class="w"> </span>build<span class="w"> </span>
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6914,8 +6914,6 @@ $<span class="w"> </span>go<span class="w"> </span>build<span class="w"> </span>
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

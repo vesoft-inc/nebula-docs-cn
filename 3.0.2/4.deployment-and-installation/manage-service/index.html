@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/4.deployment-and-installation/manage-service/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6174,11 +6174,11 @@
 <p>Nebula Graph 使用脚本<code>nebula.service</code>管理服务，包括启动、停止、重启、中止和查看。</p>
 <p><code>nebula.service</code>的默认路径是<code>/usr/local/nebula/scripts</code>，如果修改过安装路径，请使用实际路径。</p>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>/usr/local/nebula/scripts/nebula.service
-<span class="o">[</span>-v<span class="o">]</span><span class="w"> </span><span class="o">[</span>-c<span class="w"> </span>&lt;config_file_path&gt;<span class="o">]</span>
-&lt;start<span class="p">|</span>stop<span class="p">|</span>restart<span class="p">|</span>kill<span class="p">|</span>status&gt;
-&lt;metad<span class="p">|</span>graphd<span class="p">|</span>storaged<span class="p">|</span>all&gt;
-</code></pre></div>
+<p><code>bash
+$ sudo /usr/local/nebula/scripts/nebula.service
+[-v] [-c &lt;config_file_path&gt;]
+&lt;start|stop|restart|kill|status&gt;
+&lt;metad|graphd|storaged|all&gt;</code></p>
 <table>
 <thead>
 <tr>
@@ -6236,29 +6236,29 @@
 <h2 id="nebula_graph_1">启动 Nebula Graph 服务<a class="headerlink" href="#nebula_graph_1" title="Permanent link">&para;</a></h2>
 <h3 id="_2">非容器部署<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <p>对于使用 RPM 或 DEB 文件安装的 Nebula Graph，执行如下命令启动服务：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>/usr/local/nebula/scripts/nebula.service<span class="w"> </span>start<span class="w"> </span>all
-<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Starting<span class="w"> </span>nebula-metad...
-<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Done
-<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Starting<span class="w"> </span>nebula-graphd...
-<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Done
-<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Starting<span class="w"> </span>nebula-storaged...
-<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Done
-</code></pre></div>
+<p><code>bash
+$ sudo /usr/local/nebula/scripts/nebula.service start all
+[INFO] Starting nebula-metad...
+[INFO] Done
+[INFO] Starting nebula-graphd...
+[INFO] Done
+[INFO] Starting nebula-storaged...
+[INFO] Done</code></p>
 <h3 id="_3">容器部署<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>对于使用 Docker Compose 部署的 Nebula Graph，在<code>nebula-docker-compose/</code>目录内执行如下命令启动服务：</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>nebula-docker-compose<span class="o">]</span>$<span class="w"> </span>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
-Building<span class="w"> </span>with<span class="w"> </span>native<span class="w"> </span>build.<span class="w"> </span>Learn<span class="w"> </span>about<span class="w"> </span>native<span class="w"> </span>build<span class="w"> </span><span class="k">in</span><span class="w"> </span>Compose<span class="w"> </span>here:<span class="w"> </span>https://docs.docker.com/go/compose-native-build/
-Creating<span class="w"> </span>network<span class="w"> </span><span class="s2">&quot;nebula-docker-compose_nebula-net&quot;</span><span class="w"> </span>with<span class="w"> </span>the<span class="w"> </span>default<span class="w"> </span>driver
-Creating<span class="w"> </span>nebula-docker-compose_metad0_1<span class="w"> </span>...<span class="w"> </span><span class="k">done</span>
-Creating<span class="w"> </span>nebula-docker-compose_metad2_1<span class="w"> </span>...<span class="w"> </span><span class="k">done</span>
-Creating<span class="w"> </span>nebula-docker-compose_metad1_1<span class="w"> </span>...<span class="w"> </span><span class="k">done</span>
-Creating<span class="w"> </span>nebula-docker-compose_storaged2_1<span class="w"> </span>...<span class="w"> </span><span class="k">done</span>
-Creating<span class="w"> </span>nebula-docker-compose_graphd1_1<span class="w">   </span>...<span class="w"> </span><span class="k">done</span>
-Creating<span class="w"> </span>nebula-docker-compose_storaged1_1<span class="w"> </span>...<span class="w"> </span><span class="k">done</span>
-Creating<span class="w"> </span>nebula-docker-compose_storaged0_1<span class="w"> </span>...<span class="w"> </span><span class="k">done</span>
-Creating<span class="w"> </span>nebula-docker-compose_graphd2_1<span class="w">   </span>...<span class="w"> </span><span class="k">done</span>
-Creating<span class="w"> </span>nebula-docker-compose_graphd_1<span class="w">    </span>...<span class="w"> </span><span class="k">done</span>
-</code></pre></div>
+<p><code>bash
+[nebula-docker-compose]$ docker-compose up -d
+Building with native build. Learn about native build in Compose here: https://docs.docker.com/go/compose-native-build/
+Creating network "nebula-docker-compose_nebula-net" with the default driver
+Creating nebula-docker-compose_metad0_1 ... done
+Creating nebula-docker-compose_metad2_1 ... done
+Creating nebula-docker-compose_metad1_1 ... done
+Creating nebula-docker-compose_storaged2_1 ... done
+Creating nebula-docker-compose_graphd1_1   ... done
+Creating nebula-docker-compose_storaged1_1 ... done
+Creating nebula-docker-compose_storaged0_1 ... done
+Creating nebula-docker-compose_graphd2_1   ... done
+Creating nebula-docker-compose_graphd_1    ... done</code></p>
 <h2 id="nebula_graph_2">停止 Nebula Graph 服务<a class="headerlink" href="#nebula_graph_2" title="Permanent link">&para;</a></h2>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
@@ -6266,37 +6266,37 @@ Creating<span class="w"> </span>nebula-docker-compose_graphd_1<span class="w">  
 </div>
 <h3 id="_4">非容器部署<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>执行如下命令停止 Nebula Graph 服务：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>/usr/local/nebula/scripts/nebula.service<span class="w"> </span>stop<span class="w"> </span>all
-<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Stopping<span class="w"> </span>nebula-metad...
-<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Done
-<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Stopping<span class="w"> </span>nebula-graphd...
-<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Done
-<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Stopping<span class="w"> </span>nebula-storaged...
-<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>Done
-</code></pre></div>
+<p><code>bash
+$ sudo /usr/local/nebula/scripts/nebula.service stop all
+[INFO] Stopping nebula-metad...
+[INFO] Done
+[INFO] Stopping nebula-graphd...
+[INFO] Done
+[INFO] Stopping nebula-storaged...
+[INFO] Done</code></p>
 <h3 id="_5">容器部署<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>在<code>nebula-docker-compose/</code>目录内执行如下命令停止 Nebula Graph 服务：</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>nebula-docker-compose<span class="o">]</span>$<span class="w"> </span>docker-compose<span class="w"> </span>down
-Stopping<span class="w"> </span>nebula-docker-compose_graphd_1<span class="w">    </span>...<span class="w"> </span><span class="k">done</span>
-Stopping<span class="w"> </span>nebula-docker-compose_graphd2_1<span class="w">   </span>...<span class="w"> </span><span class="k">done</span>
-Stopping<span class="w"> </span>nebula-docker-compose_storaged0_1<span class="w"> </span>...<span class="w"> </span><span class="k">done</span>
-Stopping<span class="w"> </span>nebula-docker-compose_storaged1_1<span class="w"> </span>...<span class="w"> </span><span class="k">done</span>
-Stopping<span class="w"> </span>nebula-docker-compose_graphd1_1<span class="w">   </span>...<span class="w"> </span><span class="k">done</span>
-Stopping<span class="w"> </span>nebula-docker-compose_storaged2_1<span class="w"> </span>...<span class="w"> </span><span class="k">done</span>
-Stopping<span class="w"> </span>nebula-docker-compose_metad1_1<span class="w">    </span>...<span class="w"> </span><span class="k">done</span>
-Stopping<span class="w"> </span>nebula-docker-compose_metad2_1<span class="w">    </span>...<span class="w"> </span><span class="k">done</span>
-Stopping<span class="w"> </span>nebula-docker-compose_metad0_1<span class="w">    </span>...<span class="w"> </span><span class="k">done</span>
-Removing<span class="w"> </span>nebula-docker-compose_graphd_1<span class="w">    </span>...<span class="w"> </span><span class="k">done</span>
-Removing<span class="w"> </span>nebula-docker-compose_graphd2_1<span class="w">   </span>...<span class="w"> </span><span class="k">done</span>
-Removing<span class="w"> </span>nebula-docker-compose_storaged0_1<span class="w"> </span>...<span class="w"> </span><span class="k">done</span>
-Removing<span class="w"> </span>nebula-docker-compose_storaged1_1<span class="w"> </span>...<span class="w"> </span><span class="k">done</span>
-Removing<span class="w"> </span>nebula-docker-compose_graphd1_1<span class="w">   </span>...<span class="w"> </span><span class="k">done</span>
-Removing<span class="w"> </span>nebula-docker-compose_storaged2_1<span class="w"> </span>...<span class="w"> </span><span class="k">done</span>
-Removing<span class="w"> </span>nebula-docker-compose_metad1_1<span class="w">    </span>...<span class="w"> </span><span class="k">done</span>
-Removing<span class="w"> </span>nebula-docker-compose_metad2_1<span class="w">    </span>...<span class="w"> </span><span class="k">done</span>
-Removing<span class="w"> </span>nebula-docker-compose_metad0_1<span class="w">    </span>...<span class="w"> </span><span class="k">done</span>
-Removing<span class="w"> </span>network<span class="w"> </span>nebula-docker-compose_nebula-net
-</code></pre></div>
+<p><code>bash
+[nebula-docker-compose]$ docker-compose down
+Stopping nebula-docker-compose_graphd_1    ... done
+Stopping nebula-docker-compose_graphd2_1   ... done
+Stopping nebula-docker-compose_storaged0_1 ... done
+Stopping nebula-docker-compose_storaged1_1 ... done
+Stopping nebula-docker-compose_graphd1_1   ... done
+Stopping nebula-docker-compose_storaged2_1 ... done
+Stopping nebula-docker-compose_metad1_1    ... done
+Stopping nebula-docker-compose_metad2_1    ... done
+Stopping nebula-docker-compose_metad0_1    ... done
+Removing nebula-docker-compose_graphd_1    ... done
+Removing nebula-docker-compose_graphd2_1   ... done
+Removing nebula-docker-compose_storaged0_1 ... done
+Removing nebula-docker-compose_storaged1_1 ... done
+Removing nebula-docker-compose_graphd1_1   ... done
+Removing nebula-docker-compose_storaged2_1 ... done
+Removing nebula-docker-compose_metad1_1    ... done
+Removing nebula-docker-compose_metad2_1    ... done
+Removing nebula-docker-compose_metad0_1    ... done
+Removing network nebula-docker-compose_nebula-net</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>命令<code>docker-compose down -v</code>将会<strong>删除</strong>所有本地 Nebula Graph 的数据。如果使用的是 developing 或 nightly 版本，并且有一些兼容性问题，请尝试这个命令。</p>
@@ -6304,15 +6304,15 @@ Removing<span class="w"> </span>network<span class="w"> </span>nebula-docker-com
 <h2 id="nebula_graph_3">查看 Nebula Graph 服务<a class="headerlink" href="#nebula_graph_3" title="Permanent link">&para;</a></h2>
 <h3 id="_6">非容器部署<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>执行如下命令查看 Nebula Graph 服务状态：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>/usr/local/nebula/scripts/nebula.service<span class="w"> </span>status<span class="w"> </span>all
-</code></pre></div>
+<p><code>bash
+$ sudo /usr/local/nebula/scripts/nebula.service status all</code></p>
 <ul>
 <li>
 <p>如果返回如下结果，表示 Nebula Graph 服务正常运行。</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>nebula-metad<span class="o">(</span>02b2091<span class="o">)</span>:<span class="w"> </span>Running<span class="w"> </span>as<span class="w"> </span><span class="m">26601</span>,<span class="w"> </span>Listening<span class="w"> </span>on<span class="w"> </span><span class="m">9559</span>
-<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>nebula-graphd<span class="o">(</span>02b2091<span class="o">)</span>:<span class="w"> </span>Running<span class="w"> </span>as<span class="w"> </span><span class="m">26644</span>,<span class="w"> </span>Listening<span class="w"> </span>on<span class="w"> </span><span class="m">9669</span>
-<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>nebula-storaged<span class="o">(</span>02b2091<span class="o">)</span>:<span class="w"> </span>Running<span class="w"> </span>as<span class="w"> </span><span class="m">26709</span>,<span class="w"> </span>Listening<span class="w"> </span>on<span class="w"> </span><span class="m">9779</span>
-</code></pre></div>
+<p><code>bash
+  [INFO] nebula-metad(02b2091): Running as 26601, Listening on 9559
+  [INFO] nebula-graphd(02b2091): Running as 26644, Listening on 9669
+  [INFO] nebula-storaged(02b2091): Running as 26709, Listening on 9779</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>正常启动 Nebula Graph 后，<code>nebula-storaged</code>进程的端口显示红色。这是因为<code>nebula-storaged</code>在启动流程中会等待<code>nebula-metad</code>添加当前 Storage 服务，当前 Storage 服务收到 Ready 信号后才会正式启动服务。从 3.0.0 版本开始，在配置文件中添加的 Storage 节点无法直接读写，配置文件的作用仅仅是将 Storage 节点注册至 Meta 服务中。必须使用<code>ADD HOSTS</code>命令后，才能正常读写 Storage 节点。更多信息，参见<a href="../manage-storage-host/">管理 Storage 主机</a>。</p>
@@ -6320,52 +6320,53 @@ Removing<span class="w"> </span>network<span class="w"> </span>nebula-docker-com
 </li>
 </ul>
 <ul>
-<li>如果返回类似如下结果，表示 Nebula Graph 服务异常，可以根据异常服务信息进一步排查，或者在 <a href="https://discuss.nebula-graph.com.cn/">Nebula Graph 社区</a>寻求帮助。<div class="highlight"><pre><span></span><code><span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>nebula-metad:<span class="w"> </span>Running<span class="w"> </span>as<span class="w"> </span><span class="m">25600</span>,<span class="w"> </span>Listening<span class="w"> </span>on<span class="w"> </span><span class="m">9559</span>
-<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>nebula-graphd:<span class="w"> </span>Exited
-<span class="o">[</span>INFO<span class="o">]</span><span class="w"> </span>nebula-storaged:<span class="w"> </span>Running<span class="w"> </span>as<span class="w"> </span><span class="m">25646</span>,<span class="w"> </span>Listening<span class="w"> </span>on<span class="w"> </span><span class="m">9779</span>
-</code></pre></div>
+<li>如果返回类似如下结果，表示 Nebula Graph 服务异常，可以根据异常服务信息进一步排查，或者在 <a href="https://discuss.nebula-graph.com.cn/">Nebula Graph 社区</a>寻求帮助。<p><code>bash
+  [INFO] nebula-metad: Running as 25600, Listening on 9559
+  [INFO] nebula-graphd: Exited
+  [INFO] nebula-storaged: Running as 25646, Listening on 9779</code></p>
 </li>
 </ul>
 <p>Nebula Graph 服务由 Meta 服务、Graph 服务和 Storage 服务共同提供，这三种服务的配置文件都保存在安装目录的<code>etc</code>目录内，默认路径为<code>/usr/local/nebula/etc/</code>，用户可以检查相应的配置文件排查问题。</p>
 <h3 id="_7">容器部署<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>在<code>nebula-docker-compose</code>目录内执行如下命令查看 Nebula Graph 服务状态：</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>nebula-docker-compose<span class="o">]</span>$<span class="w"> </span>docker-compose<span class="w"> </span>ps
-<span class="w">            </span>Name<span class="w">                             </span>Command<span class="w">                  </span>State<span class="w">                                             </span>Ports
----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-nebula-docker-compose_graphd1_1<span class="w">     </span>/usr/local/nebula/bin/nebu<span class="w"> </span>...<span class="w">   </span>Up<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">0</span>.0.0.0:49223-&gt;19669/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49222-&gt;19670/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49224-&gt;9669/tcp
-nebula-docker-compose_graphd2_1<span class="w">     </span>/usr/local/nebula/bin/nebu<span class="w"> </span>...<span class="w">   </span>Up<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">0</span>.0.0.0:49229-&gt;19669/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49228-&gt;19670/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49230-&gt;9669/tcp
-nebula-docker-compose_graphd_1<span class="w">      </span>/usr/local/nebula/bin/nebu<span class="w"> </span>...<span class="w">   </span>Up<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">0</span>.0.0.0:49221-&gt;19669/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49220-&gt;19670/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:9669-&gt;9669/tcp
-nebula-docker-compose_metad0_1<span class="w">      </span>./bin/nebula-metad<span class="w"> </span>--flagf<span class="w"> </span>...<span class="w">   </span>Up<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">0</span>.0.0.0:49212-&gt;19559/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49211-&gt;19560/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49213-&gt;9559/tcp,
-<span class="w">                                                                                    </span><span class="m">9560</span>/tcp
-nebula-docker-compose_metad1_1<span class="w">      </span>./bin/nebula-metad<span class="w"> </span>--flagf<span class="w"> </span>...<span class="w">   </span>Up<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">0</span>.0.0.0:49209-&gt;19559/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49208-&gt;19560/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49210-&gt;9559/tcp,
-<span class="w">                                                                                    </span><span class="m">9560</span>/tcp
-nebula-docker-compose_metad2_1<span class="w">      </span>./bin/nebula-metad<span class="w"> </span>--flagf<span class="w"> </span>...<span class="w">   </span>Up<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">0</span>.0.0.0:49206-&gt;19559/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49205-&gt;19560/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49207-&gt;9559/tcp,
-<span class="w">                                                                                    </span><span class="m">9560</span>/tcp
-nebula-docker-compose_storaged0_1<span class="w">   </span>./bin/nebula-storaged<span class="w"> </span>--fl<span class="w"> </span>...<span class="w">   </span>Up<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">0</span>.0.0.0:49218-&gt;19779/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49217-&gt;19780/tcp,<span class="w"> </span><span class="m">9777</span>/tcp,<span class="w"> </span><span class="m">9778</span>/tcp,
-<span class="w">                                                                                    </span><span class="m">0</span>.0.0.0:49219-&gt;9779/tcp,<span class="w"> </span><span class="m">9780</span>/tcp
-nebula-docker-compose_storaged1_1<span class="w">   </span>./bin/nebula-storaged<span class="w"> </span>--fl<span class="w"> </span>...<span class="w">   </span>Up<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">0</span>.0.0.0:49215-&gt;19779/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49214-&gt;19780/tcp,<span class="w"> </span><span class="m">9777</span>/tcp,<span class="w"> </span><span class="m">9778</span>/tcp,
-<span class="w">                                                                                     </span><span class="m">0</span>.0.0.0:49216-&gt;9779/tcp,<span class="w"> </span><span class="m">9780</span>/tcp
-nebula-docker-compose_storaged2_1<span class="w">   </span>./bin/nebula-storaged<span class="w"> </span>--fl<span class="w"> </span>...<span class="w">   </span>Up<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">0</span>.0.0.0:49226-&gt;19779/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49225-&gt;19780/tcp,<span class="w"> </span><span class="m">9777</span>/tcp,<span class="w"> </span><span class="m">9778</span>/tcp,
-<span class="w">                                                                                    </span><span class="m">0</span>.0.0.0:49227-&gt;9779/tcp,<span class="w"> </span><span class="m">9780</span>/tcp
-</code></pre></div>
+<p>```bash
+[nebula-docker-compose]$ docker-compose ps
+            Name                             Command                  State                                             Ports</p>
+<hr />
+<p>nebula-docker-compose_graphd1_1     /usr/local/nebula/bin/nebu ...   Up (healthy)   0.0.0.0:49223-&gt;19669/tcp, 0.0.0.0:49222-&gt;19670/tcp, 0.0.0.0:49224-&gt;9669/tcp
+nebula-docker-compose_graphd2_1     /usr/local/nebula/bin/nebu ...   Up (healthy)   0.0.0.0:49229-&gt;19669/tcp, 0.0.0.0:49228-&gt;19670/tcp, 0.0.0.0:49230-&gt;9669/tcp
+nebula-docker-compose_graphd_1      /usr/local/nebula/bin/nebu ...   Up (healthy)   0.0.0.0:49221-&gt;19669/tcp, 0.0.0.0:49220-&gt;19670/tcp, 0.0.0.0:9669-&gt;9669/tcp
+nebula-docker-compose_metad0_1      ./bin/nebula-metad --flagf ...   Up (healthy)   0.0.0.0:49212-&gt;19559/tcp, 0.0.0.0:49211-&gt;19560/tcp, 0.0.0.0:49213-&gt;9559/tcp,
+                                                                                    9560/tcp
+nebula-docker-compose_metad1_1      ./bin/nebula-metad --flagf ...   Up (healthy)   0.0.0.0:49209-&gt;19559/tcp, 0.0.0.0:49208-&gt;19560/tcp, 0.0.0.0:49210-&gt;9559/tcp,
+                                                                                    9560/tcp
+nebula-docker-compose_metad2_1      ./bin/nebula-metad --flagf ...   Up (healthy)   0.0.0.0:49206-&gt;19559/tcp, 0.0.0.0:49205-&gt;19560/tcp, 0.0.0.0:49207-&gt;9559/tcp,
+                                                                                    9560/tcp
+nebula-docker-compose_storaged0_1   ./bin/nebula-storaged --fl ...   Up (healthy)   0.0.0.0:49218-&gt;19779/tcp, 0.0.0.0:49217-&gt;19780/tcp, 9777/tcp, 9778/tcp,
+                                                                                    0.0.0.0:49219-&gt;9779/tcp, 9780/tcp
+nebula-docker-compose_storaged1_1   ./bin/nebula-storaged --fl ...   Up (healthy)   0.0.0.0:49215-&gt;19779/tcp, 0.0.0.0:49214-&gt;19780/tcp, 9777/tcp, 9778/tcp,
+                                                                                     0.0.0.0:49216-&gt;9779/tcp, 9780/tcp
+nebula-docker-compose_storaged2_1   ./bin/nebula-storaged --fl ...   Up (healthy)   0.0.0.0:49226-&gt;19779/tcp, 0.0.0.0:49225-&gt;19780/tcp, 9777/tcp, 9778/tcp,
+                                                                                    0.0.0.0:49227-&gt;9779/tcp, 9780/tcp
+```</p>
 <p>如果服务有异常，用户可以先确认异常的容器名称（例如<code>nebula-docker-compose_graphd2_1</code>）,</p>
 <p>然后执行<code>docker ps</code>查看对应的<code>CONTAINER ID</code>（示例为<code>2a6c56c405f5</code>)。</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>nebula-docker-compose<span class="o">]</span>$<span class="w"> </span>docker<span class="w"> </span>ps
-CONTAINER<span class="w"> </span>ID<span class="w">   </span>IMAGE<span class="w">                               </span>COMMAND<span class="w">                  </span>CREATED<span class="w">          </span>STATUS<span class="w">                    </span>PORTS<span class="w">                                                                                                  </span>NAMES
-2a6c56c405f5<span class="w">   </span>vesoft/nebula-graphd:nightly<span class="w">     </span><span class="s2">&quot;/usr/local/nebula/b…&quot;</span><span class="w">   </span><span class="m">36</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">   </span>Up<span class="w"> </span><span class="m">36</span><span class="w"> </span>minutes<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">0</span>.0.0.0:49230-&gt;9669/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49229-&gt;19669/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49228-&gt;19670/tcp<span class="w">                            </span>nebula-docker-compose_graphd2_1
-7042e0a8e83d<span class="w">   </span>vesoft/nebula-storaged:nightly<span class="w">   </span><span class="s2">&quot;./bin/nebula-storag…&quot;</span><span class="w">   </span><span class="m">36</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">   </span>Up<span class="w"> </span><span class="m">36</span><span class="w"> </span>minutes<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">9777</span>-9778/tcp,<span class="w"> </span><span class="m">9780</span>/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49227-&gt;9779/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49226-&gt;19779/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49225-&gt;19780/tcp<span class="w">   </span>nebula-docker-compose_storaged2_1
-18e3ea63ad65<span class="w">   </span>vesoft/nebula-storaged:nightly<span class="w">   </span><span class="s2">&quot;./bin/nebula-storag…&quot;</span><span class="w">   </span><span class="m">36</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">   </span>Up<span class="w"> </span><span class="m">36</span><span class="w"> </span>minutes<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">9777</span>-9778/tcp,<span class="w"> </span><span class="m">9780</span>/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49219-&gt;9779/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49218-&gt;19779/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49217-&gt;19780/tcp<span class="w">   </span>nebula-docker-compose_storaged0_1
-4dcabfe8677a<span class="w">   </span>vesoft/nebula-graphd:nightly<span class="w">     </span><span class="s2">&quot;/usr/local/nebula/b…&quot;</span><span class="w">   </span><span class="m">36</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">   </span>Up<span class="w"> </span><span class="m">36</span><span class="w"> </span>minutes<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">0</span>.0.0.0:49224-&gt;9669/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49223-&gt;19669/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49222-&gt;19670/tcp<span class="w">                            </span>nebula-docker-compose_graphd1_1
-a74054c6ae25<span class="w">   </span>vesoft/nebula-graphd:nightly<span class="w">     </span><span class="s2">&quot;/usr/local/nebula/b…&quot;</span><span class="w">   </span><span class="m">36</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">   </span>Up<span class="w"> </span><span class="m">36</span><span class="w"> </span>minutes<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">0</span>.0.0.0:9669-&gt;9669/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49221-&gt;19669/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49220-&gt;19670/tcp<span class="w">                             </span>nebula-docker-compose_graphd_1
-880025a3858c<span class="w">   </span>vesoft/nebula-storaged:nightly<span class="w">   </span><span class="s2">&quot;./bin/nebula-storag…&quot;</span><span class="w">   </span><span class="m">36</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">   </span>Up<span class="w"> </span><span class="m">36</span><span class="w"> </span>minutes<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">9777</span>-9778/tcp,<span class="w"> </span><span class="m">9780</span>/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49216-&gt;9779/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49215-&gt;19779/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49214-&gt;19780/tcp<span class="w">   </span>nebula-docker-compose_storaged1_1
-45736a32a23a<span class="w">   </span>vesoft/nebula-metad:nightly<span class="w">      </span><span class="s2">&quot;./bin/nebula-metad …&quot;</span><span class="w">   </span><span class="m">36</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">   </span>Up<span class="w"> </span><span class="m">36</span><span class="w"> </span>minutes<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">9560</span>/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49213-&gt;9559/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49212-&gt;19559/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49211-&gt;19560/tcp<span class="w">                  </span>nebula-docker-compose_metad0_1
-3b2c90eb073e<span class="w">   </span>vesoft/nebula-metad:nightly<span class="w">      </span><span class="s2">&quot;./bin/nebula-metad …&quot;</span><span class="w">   </span><span class="m">36</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">   </span>Up<span class="w"> </span><span class="m">36</span><span class="w"> </span>minutes<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">9560</span>/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49207-&gt;9559/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49206-&gt;19559/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49205-&gt;19560/tcp<span class="w">                  </span>nebula-docker-compose_metad2_1
-7bb31b7a5b3f<span class="w">   </span>vesoft/nebula-metad:nightly<span class="w">      </span><span class="s2">&quot;./bin/nebula-metad …&quot;</span><span class="w">   </span><span class="m">36</span><span class="w"> </span>minutes<span class="w"> </span>ago<span class="w">   </span>Up<span class="w"> </span><span class="m">36</span><span class="w"> </span>minutes<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">9560</span>/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49210-&gt;9559/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49209-&gt;19559/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:49208-&gt;19560/tcp<span class="w">                  </span>nebula-docker-compose_metad1_1
-</code></pre></div>
+<p><code>bash
+[nebula-docker-compose]$ docker ps
+CONTAINER ID   IMAGE                               COMMAND                  CREATED          STATUS                    PORTS                                                                                                  NAMES
+2a6c56c405f5   vesoft/nebula-graphd:nightly     "/usr/local/nebula/b…"   36 minutes ago   Up 36 minutes (healthy)   0.0.0.0:49230-&gt;9669/tcp, 0.0.0.0:49229-&gt;19669/tcp, 0.0.0.0:49228-&gt;19670/tcp                            nebula-docker-compose_graphd2_1
+7042e0a8e83d   vesoft/nebula-storaged:nightly   "./bin/nebula-storag…"   36 minutes ago   Up 36 minutes (healthy)   9777-9778/tcp, 9780/tcp, 0.0.0.0:49227-&gt;9779/tcp, 0.0.0.0:49226-&gt;19779/tcp, 0.0.0.0:49225-&gt;19780/tcp   nebula-docker-compose_storaged2_1
+18e3ea63ad65   vesoft/nebula-storaged:nightly   "./bin/nebula-storag…"   36 minutes ago   Up 36 minutes (healthy)   9777-9778/tcp, 9780/tcp, 0.0.0.0:49219-&gt;9779/tcp, 0.0.0.0:49218-&gt;19779/tcp, 0.0.0.0:49217-&gt;19780/tcp   nebula-docker-compose_storaged0_1
+4dcabfe8677a   vesoft/nebula-graphd:nightly     "/usr/local/nebula/b…"   36 minutes ago   Up 36 minutes (healthy)   0.0.0.0:49224-&gt;9669/tcp, 0.0.0.0:49223-&gt;19669/tcp, 0.0.0.0:49222-&gt;19670/tcp                            nebula-docker-compose_graphd1_1
+a74054c6ae25   vesoft/nebula-graphd:nightly     "/usr/local/nebula/b…"   36 minutes ago   Up 36 minutes (healthy)   0.0.0.0:9669-&gt;9669/tcp, 0.0.0.0:49221-&gt;19669/tcp, 0.0.0.0:49220-&gt;19670/tcp                             nebula-docker-compose_graphd_1
+880025a3858c   vesoft/nebula-storaged:nightly   "./bin/nebula-storag…"   36 minutes ago   Up 36 minutes (healthy)   9777-9778/tcp, 9780/tcp, 0.0.0.0:49216-&gt;9779/tcp, 0.0.0.0:49215-&gt;19779/tcp, 0.0.0.0:49214-&gt;19780/tcp   nebula-docker-compose_storaged1_1
+45736a32a23a   vesoft/nebula-metad:nightly      "./bin/nebula-metad …"   36 minutes ago   Up 36 minutes (healthy)   9560/tcp, 0.0.0.0:49213-&gt;9559/tcp, 0.0.0.0:49212-&gt;19559/tcp, 0.0.0.0:49211-&gt;19560/tcp                  nebula-docker-compose_metad0_1
+3b2c90eb073e   vesoft/nebula-metad:nightly      "./bin/nebula-metad …"   36 minutes ago   Up 36 minutes (healthy)   9560/tcp, 0.0.0.0:49207-&gt;9559/tcp, 0.0.0.0:49206-&gt;19559/tcp, 0.0.0.0:49205-&gt;19560/tcp                  nebula-docker-compose_metad2_1
+7bb31b7a5b3f   vesoft/nebula-metad:nightly      "./bin/nebula-metad …"   36 minutes ago   Up 36 minutes (healthy)   9560/tcp, 0.0.0.0:49210-&gt;9559/tcp, 0.0.0.0:49209-&gt;19559/tcp, 0.0.0.0:49208-&gt;19560/tcp                  nebula-docker-compose_metad1_1</code></p>
 <p>最后登录容器排查问题</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span>nebula-docker-compose<span class="o">]</span>$<span class="w"> </span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>2a6c56c405f5<span class="w"> </span>bash
-<span class="o">[</span>root@2a6c56c405f5<span class="w"> </span>nebula<span class="o">]</span><span class="c1">#</span>
-</code></pre></div>
+<p><code>bash
+[nebula-docker-compose]$ docker exec -it 2a6c56c405f5 bash
+[root@2a6c56c405f5 nebula]#</code></p>
 <h2 id="_8">下一步<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p><a href="https://docs.nebula-graph.com.cn/3.0.2/2.quick-start/3.connect-to-nebula-graph/">连接 Nebula Graph</a><!--这里用外链。--></p>
 <!-- The line above is for content reusing. The source file is in the docs-2.0/reuse directory. -->
@@ -6375,7 +6376,7 @@ a74054c6ae25<span class="w">   </span>vesoft/nebula-graphd:nightly<span class="w
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6489,8 +6490,6 @@ a74054c6ae25<span class="w">   </span>vesoft/nebula-graphd:nightly<span class="w
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

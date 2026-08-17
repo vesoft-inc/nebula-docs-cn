@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/5.operators/6.set/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -1140,66 +1140,6 @@
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    示例
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#intersect" class="md-nav__link">
-    INTERSECT
-  </a>
-  
-    <nav class="md-nav" aria-label="INTERSECT">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    示例
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#minus" class="md-nav__link">
-    MINUS
-  </a>
-  
-    <nav class="md-nav" aria-label="MINUS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    示例
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    集合运算符和管道符的优先级
-  </a>
-  
-    <nav class="md-nav" aria-label="集合运算符和管道符的优先级">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
     示例
   </a>
   
@@ -6076,66 +6016,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#intersect" class="md-nav__link">
-    INTERSECT
-  </a>
-  
-    <nav class="md-nav" aria-label="INTERSECT">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    示例
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#minus" class="md-nav__link">
-    MINUS
-  </a>
-  
-    <nav class="md-nav" aria-label="MINUS">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    示例
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    集合运算符和管道符的优先级
-  </a>
-  
-    <nav class="md-nav" aria-label="集合运算符和管道符的优先级">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    示例
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -6162,8 +6042,8 @@
 <h2 id="opencypher">openCypher 兼容性<a class="headerlink" href="#opencypher" title="Permanent link">&para;</a></h2>
 <p>集合运算符仅适用于原生 nGQL。</p>
 <h2 id="unionunion_distinctunion_all">UNION、UNION DISTINCT、UNION ALL<a class="headerlink" href="#unionunion_distinctunion_all" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>&lt;left&gt; UNION [DISTINCT | ALL] &lt;right&gt; [ UNION [DISTINCT | ALL] &lt;right&gt; ...]
-</code></pre></div>
+<p><code>ngql
+&lt;left&gt; UNION [DISTINCT | ALL] &lt;right&gt; [ UNION [DISTINCT | ALL] &lt;right&gt; ...]</code></p>
 <ul>
 <li>运算符<code>UNION DISTINCT</code>（或使用缩写<code>UNION</code>）返回两个集合 A 和 B 的并集，不包含重复的元素。</li>
 </ul>
@@ -6174,118 +6054,117 @@
 <li><code>left</code>和<code>right</code>必须有相同数量的列和数据类型。如果需要转换数据类型，请参见<a href="../../3.data-types/9.type-conversion/">类型转换</a>。</li>
 </ul>
 <h3 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code># 返回两个查询结果的并集，不包含重复的元素。
-nebula&gt; GO FROM &quot;player102&quot; OVER follow YIELD dst(edge) \
+<p>```ngql</p>
+<h1 id="_3">返回两个查询结果的并集，不包含重复的元素。<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; GO FROM "player102" OVER follow YIELD dst(edge) \
         UNION \
-        GO FROM &quot;player100&quot; OVER follow YIELD dst(edge);
+        GO FROM "player100" OVER follow YIELD dst(edge);
 +-------------+
 | dst(EDGE)   |
 +-------------+
-| &quot;player100&quot; |
-| &quot;player101&quot; |
-| &quot;player125&quot; |
-+-------------+
-
-# 返回两个查询结果的并集，包含重复的元素。
-nebula&gt; GO FROM &quot;player102&quot; OVER follow YIELD dst(edge) \
+| "player100" |
+| "player101" |
+| "player125" |
++-------------+</p>
+<h1 id="_4">返回两个查询结果的并集，包含重复的元素。<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; GO FROM "player102" OVER follow YIELD dst(edge) \
         UNION ALL \
-        GO FROM &quot;player100&quot; OVER follow YIELD dst(edge);
+        GO FROM "player100" OVER follow YIELD dst(edge);
 +-------------+
 | dst(EDGE)   |
 +-------------+
-| &quot;player100&quot; |
-| &quot;player101&quot; |
-| &quot;player101&quot; |
-| &quot;player125&quot; |
-+-------------+
-
-# UNION 也可以和 YIELD 语句一起使用，去重时会检查每一行的所有列，每列都相同时才会去重。
-nebula&gt; GO FROM &quot;player102&quot; OVER follow \
-        YIELD dst(edge) AS id, properties(edge).degree AS Degree, properties($$).age AS Age \
+| "player100" |
+| "player101" |
+| "player101" |
+| "player125" |
++-------------+</p>
+<h1 id="union_yield">UNION 也可以和 YIELD 语句一起使用，去重时会检查每一行的所有列，每列都相同时才会去重。<a class="headerlink" href="#union_yield" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; GO FROM "player102" OVER follow \
+        YIELD dst(edge) AS id, properties(edge).degree AS Degree, properties(<span class="arithmatex">\(<span class="arithmatex">\().age AS Age \
         UNION /* DISTINCT */ \
-        GO FROM &quot;player100&quot; OVER follow \
-        YIELD dst(edge) AS id, properties(edge).degree AS Degree, properties($$).age AS Age;
+        GO FROM "player100" OVER follow \
+        YIELD dst(edge) AS id, properties(edge).degree AS Degree, properties(\)</span>\)</span>).age AS Age;
 +-------------+--------+-----+
 | id          | Degree | Age |
 +-------------+--------+-----+
-| &quot;player100&quot; | 75     | 42  |
-| &quot;player101&quot; | 75     | 36  |
-| &quot;player101&quot; | 95     | 36  |
-| &quot;player125&quot; | 95     | 41  |
+| "player100" | 75     | 42  |
+| "player101" | 75     | 36  |
+| "player101" | 95     | 36  |
+| "player125" | 95     | 41  |
 +-------------+--------+-----+
-</code></pre></div>
+```</p>
 <h2 id="intersect">INTERSECT<a class="headerlink" href="#intersect" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>&lt;left&gt; INTERSECT &lt;right&gt;
-</code></pre></div>
+<p><code>ngql
+&lt;left&gt; INTERSECT &lt;right&gt;</code></p>
 <ul>
 <li>运算符<code>INTERSECT</code>返回两个集合 A 和 B 的交集。</li>
 </ul>
 <ul>
 <li><code>left</code>和<code>right</code>必须有相同数量的列和数据类型。如果需要转换数据类型，请参见<a href="../../3.data-types/9.type-conversion/">类型转换</a>。</li>
 </ul>
-<h3 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM &quot;player102&quot; OVER follow \
+<h3 id="_5">示例<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p><code>ngql
+nebula&gt; GO FROM "player102" OVER follow \
         YIELD dst(edge) AS id, properties(edge).degree AS Degree, properties($$).age AS Age \
         INTERSECT \
-        GO FROM &quot;player100&quot; OVER follow \
+        GO FROM "player100" OVER follow \
         YIELD dst(edge) AS id, properties(edge).degree AS Degree, properties($$).age AS Age;
 +----+--------+-----+
 | id | Degree | Age |
 +----+--------+-----+
-+----+--------+-----+
-</code></pre></div>
++----+--------+-----+</code></p>
 <h2 id="minus">MINUS<a class="headerlink" href="#minus" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>&lt;left&gt; MINUS &lt;right&gt;
-</code></pre></div>
+<p><code>ngql
+&lt;left&gt; MINUS &lt;right&gt;</code></p>
 <p>运算符<code>MINUS</code>返回两个集合 A 和 B 的差异，即<code>A-B</code>。请注意<code>left</code>和<code>right</code>的顺序，<code>A-B</code>表示在集合 A 中，但是不在集合 B 中的元素。</p>
-<h3 id="_4">示例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM &quot;player100&quot; OVER follow YIELD dst(edge) \
-        MINUS \
-        GO FROM &quot;player102&quot; OVER follow YIELD dst(edge);
-+-------------+
-| dst(EDGE)   |
-+-------------+
-| &quot;player125&quot; |
-+-------------+
-
-nebula&gt; GO FROM &quot;player102&quot; OVER follow YIELD dst(edge) \
-        MINUS \
-        GO FROM &quot;player100&quot; OVER follow YIELD dst(edge);
-+-------------+
-| dst(EDGE)   |
-+-------------+
-| &quot;player100&quot; |
-+-------------+
-</code></pre></div>
-<h2 id="_5">集合运算符和管道符的优先级<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<p>当查询包含集合运算符和管道符（|）时，<a href="../4.pipe/">管道符</a>的优先级高。例如<code>GO FROM 1 UNION GO FROM 2 | GO FROM 3</code>相当于<code>GO FROM 1 UNION (GO FROM 2 | GO FROM 3)</code>。</p>
 <h3 id="_6">示例<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM &quot;player102&quot; OVER follow \
+<p>```ngql
+nebula&gt; GO FROM "player100" OVER follow YIELD dst(edge) \
+        MINUS \
+        GO FROM "player102" OVER follow YIELD dst(edge);
++-------------+
+| dst(EDGE)   |
++-------------+
+| "player125" |
++-------------+</p>
+<p>nebula&gt; GO FROM "player102" OVER follow YIELD dst(edge) \
+        MINUS \
+        GO FROM "player100" OVER follow YIELD dst(edge);
++-------------+
+| dst(EDGE)   |
++-------------+
+| "player100" |
++-------------+
+```</p>
+<h2 id="_7">集合运算符和管道符的优先级<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>当查询包含集合运算符和管道符（|）时，<a href="../4.pipe/">管道符</a>的优先级高。例如<code>GO FROM 1 UNION GO FROM 2 | GO FROM 3</code>相当于<code>GO FROM 1 UNION (GO FROM 2 | GO FROM 3)</code>。</p>
+<h3 id="_8">示例<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>```ngql
+nebula&gt; GO FROM "player102" OVER follow \
         YIELD dst(edge) AS play_dst  \
         UNION \
-        GO FROM &quot;team200&quot; OVER serve REVERSELY \
+        GO FROM "team200" OVER serve REVERSELY \
         YIELD src(edge) AS play_src \
-        | GO FROM $-.play_src OVER follow YIELD dst(edge) AS play_dst;
-
-+-------------+
+        | GO FROM $-.play_src OVER follow YIELD dst(edge) AS play_dst;</p>
+<p>+-------------+
 | play_dst    |
 +-------------+
-| &quot;player100&quot; |
-| &quot;player101&quot; |
-| &quot;player117&quot; |
-| &quot;player105&quot; |
+| "player100" |
+| "player101" |
+| "player117" |
+| "player105" |
 +-------------+
-</code></pre></div>
+```</p>
 <p><img alt="image" src="https://user-images.githubusercontent.com/42762957/97955863-3a213000-1de2-11eb-8de3-2c78da30747c.png" /></p>
 <p>该查询会先执行红框内的语句，然后执行绿框的<code>UNION</code>操作。</p>
 <p>圆括号可以修改执行的优先级，例如：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; (GO FROM &quot;player102&quot; OVER follow \
+<p><code>ngql
+nebula&gt; (GO FROM "player102" OVER follow \
         YIELD dst(edge) AS play_dst  \
         UNION \
-        GO FROM &quot;team200&quot; OVER serve REVERSELY \
+        GO FROM "team200" OVER serve REVERSELY \
         YIELD src(edge) AS play_dst) \
-        | GO FROM $-.play_dst OVER follow YIELD dst(edge) AS play_dst;
-</code></pre></div>
+        | GO FROM $-.play_dst OVER follow YIELD dst(edge) AS play_dst;</code></p>
 <p>该查询中，圆括号包裹的部分先执行，即先执行<code>UNION</code>操作，再将结果结合管道符进行下一步操作。</p>
 
   <hr>
@@ -6293,7 +6172,7 @@ nebula&gt; GO FROM &quot;player102&quot; OVER follow YIELD dst(edge) \
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6407,8 +6286,6 @@ nebula&gt; GO FROM &quot;player102&quot; OVER follow YIELD dst(edge) \
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

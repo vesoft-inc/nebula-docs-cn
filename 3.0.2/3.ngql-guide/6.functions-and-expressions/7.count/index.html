@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/6.functions-and-expressions/7.count/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6019,8 +6019,8 @@
 <li>（openCypher 方式）用户可以使用<code>count()</code>对指定的值进行计数，再使用<code>RETURN</code>返回结果。不需要使用<code>GROUP BY</code>。</li>
 </ul>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>count({expr | *})
-</code></pre></div>
+<p><code>ngql
+count({expr | *})</code></p>
 <ul>
 <li>count(*) 返回总行数（包括 NULL）。</li>
 </ul>
@@ -6031,29 +6031,30 @@
 <li><code>count()</code>和<code>size()</code>是不同的。</li>
 </ul>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>nebula&gt; WITH [NULL, 1, 1, 2, 2] As a UNWIND a AS b \
+<p><code>ngql
+nebula&gt; WITH [NULL, 1, 1, 2, 2] As a UNWIND a AS b \
         RETURN count(b), count(*), count(DISTINCT b);
 +----------+----------+-------------------+
 | count(b) | count(*) | count(distinct b) |
 +----------+----------+-------------------+
 | 4        | 5        | 2                 |
-+----------+----------+-------------------+
-</code></pre></div>
-<div class="highlight"><pre><span></span><code># 返回 player101 follow 的人，以及 follow player101 的人，即双向查询。
-nebula&gt; GO FROM &quot;player101&quot; OVER follow BIDIRECT \
++----------+----------+-------------------+</code></p>
+<p>```ngql</p>
+<h1 id="player101_follow_follow_player101">返回 player101 follow 的人，以及 follow player101 的人，即双向查询。<a class="headerlink" href="#player101_follow_follow_player101" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; GO FROM "player101" OVER follow BIDIRECT \
         YIELD properties($$).name AS Name \
-        | GROUP BY $-.Name YIELD $-.Name, count(*);
+        | GROUP BY $-.Name YIELD $-.Name, count(<em>);
 +---------------------+----------+
-| $-.Name             | count(*) |
+| $-.Name             | count(</em>) |
 +---------------------+----------+
-| &quot;LaMarcus Aldridge&quot; | 2        |
-| &quot;Tim Duncan&quot;        | 2        |
-| &quot;Marco Belinelli&quot;   | 1        |
-| &quot;Manu Ginobili&quot;     | 1        |
-| &quot;Boris Diaw&quot;        | 1        |
-| &quot;Dejounte Murray&quot;   | 1        |
+| "LaMarcus Aldridge" | 2        |
+| "Tim Duncan"        | 2        |
+| "Marco Belinelli"   | 1        |
+| "Manu Ginobili"     | 1        |
+| "Boris Diaw"        | 1        |
+| "Dejounte Murray"   | 1        |
 +---------------------+----------+
-</code></pre></div>
+```</p>
 <p>上述示例的返回结果有两列：</p>
 <ul>
 <li><code>$-.Name</code>：查询结果包含的姓名。</li>
@@ -6062,8 +6063,9 @@ nebula&gt; GO FROM &quot;player101&quot; OVER follow BIDIRECT \
 <li><code>count(*)</code>：姓名出现的次数。</li>
 </ul>
 <p>因为测试数据集<code>basketballplayer</code>中没有重复的姓名，<code>count(*)</code>列中数字<code>2</code>表示该行的人和<code>player101</code>是互相<code>follow</code>的关系。</p>
-<div class="highlight"><pre><span></span><code># 方法一：统计数据库中的年龄分布情况。
-nebula&gt; LOOKUP ON player \
+<p>```ngql</p>
+<h1 id="_3">方法一：统计数据库中的年龄分布情况。<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; LOOKUP ON player \
         YIELD player.age As playerage \
         | GROUP BY $-.playerage \
         YIELD $-.playerage as age, count(*) AS number \
@@ -6077,10 +6079,9 @@ nebula&gt; LOOKUP ON player \
 | 29  | 4      |
 | 38  | 3      |
 +-----+--------+
-...
-
-# 方法二：统计数据库中的年龄分布情况。
-nebula&gt; MATCH (n:player) \
+...</p>
+<h1 id="_4">方法二：统计数据库中的年龄分布情况。<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; MATCH (n:player) \
         RETURN n.player.age as age, count(*) as number \
         ORDER BY number DESC, age DESC;
 +-----+--------+
@@ -6093,32 +6094,32 @@ nebula&gt; MATCH (n:player) \
 | 38  | 3      |
 +-----+--------+
 ...
-</code></pre></div>
-<div class="highlight"><pre><span></span><code># 统计 Tim Duncan 关联的边数。
-nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;}) -- (v2) \
+```</p>
+<p>```ngql</p>
+<h1 id="tim_duncan">统计 Tim Duncan 关联的边数。<a class="headerlink" href="#tim_duncan" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; MATCH (v:player{name:"Tim Duncan"}) -- (v2) \
         RETURN count(DISTINCT v2);
 +--------------------+
 | count(distinct v2) |
 +--------------------+
 | 11                 |
-+--------------------+
-
-# 多跳查询，统计 Tim Duncan 关联的边数，返回两列（不去重和去重）。
-nebula&gt; MATCH (n:player {name : &quot;Tim Duncan&quot;})-[]-&gt;(friend:player)-[]-&gt;(fof:player) \
++--------------------+</p>
+<h1 id="tim_duncan_1">多跳查询，统计 Tim Duncan 关联的边数，返回两列（不去重和去重）。<a class="headerlink" href="#tim_duncan_1" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; MATCH (n:player {name : "Tim Duncan"})-[]-&gt;(friend:player)-[]-&gt;(fof:player) \
         RETURN count(fof), count(DISTINCT fof);
 +------------+---------------------+
 | count(fof) | count(distinct fof) |
 +------------+---------------------+
 | 4          | 3                   |
-+------------+---------------------+
-</code></pre></div>
++------------+---------------------+</p>
+<p>```</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6232,8 +6233,6 @@ nebula&gt; MATCH (n:player {name : &quot;Tim Duncan&quot;})-[]-&gt;(friend:playe
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

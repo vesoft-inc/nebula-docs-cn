@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/4.deployment-and-installation/6.deploy-text-based-index/3.deploy-listener/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6296,37 +6296,37 @@
 </div>
 <h3 id="listener_1">第三步：启动 listener<a class="headerlink" href="#listener_1" title="Permanent link">&para;</a></h3>
 <p>执行如下命令启动启动 listener：</p>
-<div class="highlight"><pre><span></span><code>./bin/nebula-storaged<span class="w"> </span>--flagfile<span class="w"> </span>&lt;listener_config_path&gt;/nebula-storaged-listener.conf
-</code></pre></div>
+<p><code>bash
+./bin/nebula-storaged --flagfile &lt;listener_config_path&gt;/nebula-storaged-listener.conf</code></p>
 <p><code>listener_config_path</code>是存放 listener 配置文件的路径。</p>
 <h3 id="listener_nebula_graph">第四步：添加 listener 到 Nebula Graph 集群<a class="headerlink" href="#listener_nebula_graph" title="Permanent link">&para;</a></h3>
 <p><a href="../../../2.quick-start/3.connect-to-nebula-graph/">用命令行连接到 Nebula Graph</a>，然后执行 <a href="../../../3.ngql-guide/9.space-statements/2.use-space/"><code>USE &lt;space&gt;</code></a> 进入需要创建全文索引的图空间。然后执行如下命令添加 listener：</p>
-<div class="highlight"><pre><span></span><code>ADD LISTENER ELASTICSEARCH &lt;listener_ip:port&gt; [,&lt;listener_ip:port&gt;, ...]
-</code></pre></div>
+<p><code>ngql
+ADD LISTENER ELASTICSEARCH &lt;listener_ip:port&gt; [,&lt;listener_ip:port&gt;, ...]</code></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>listener 必须使用真实的 IP 地址。</p>
 <p>请在一个语句里完整地添加所有 listener。例如：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; ADD LISTENER ELASTICSEARCH 192.168.8.5:9789,192.168.8.6:9789;
-</code></pre></div>
+<p><code>ngql
+nebula&gt; ADD LISTENER ELASTICSEARCH 192.168.8.5:9789,192.168.8.6:9789;</code></p>
 </div>
 <h2 id="listener_2">查看 listener<a class="headerlink" href="#listener_2" title="Permanent link">&para;</a></h2>
 <p>执行<code>SHOW LISTENER</code>语句可以列出所有的 listener。</p>
 <h3 id="_4">示例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>nebula&gt; SHOW LISTENER;
+<p><code>ngql
+nebula&gt; SHOW LISTENER;
 +--------+-----------------+-----------------------+----------+
 | PartId | Type            | Host                  | Status   |
 +--------+-----------------+-----------------------+----------+
-| 1      | &quot;ELASTICSEARCH&quot; | &quot;[192.168.8.5:46780]&quot; | &quot;ONLINE&quot; |
-| 2      | &quot;ELASTICSEARCH&quot; | &quot;[192.168.8.5:46780]&quot; | &quot;ONLINE&quot; |
-| 3      | &quot;ELASTICSEARCH&quot; | &quot;[192.168.8.5:46780]&quot; | &quot;ONLINE&quot; |
-+--------+-----------------+-----------------------+----------+
-</code></pre></div>
+| 1      | "ELASTICSEARCH" | "[192.168.8.5:46780]" | "ONLINE" |
+| 2      | "ELASTICSEARCH" | "[192.168.8.5:46780]" | "ONLINE" |
+| 3      | "ELASTICSEARCH" | "[192.168.8.5:46780]" | "ONLINE" |
++--------+-----------------+-----------------------+----------+</code></p>
 <h2 id="listener_3">删除 listener<a class="headerlink" href="#listener_3" title="Permanent link">&para;</a></h2>
 <p>执行<code>REMOVE LISTENER ELASTICSEARCH</code>语句可以删除图空间的所有 listener。</p>
 <h3 id="_5">示例<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>nebula&gt; REMOVE LISTENER ELASTICSEARCH;
-</code></pre></div>
+<p><code>ngql
+nebula&gt; REMOVE LISTENER ELASTICSEARCH;</code></p>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
 <p>删除 listener 后，将不能重新添加 listener，因此也无法继续向 ES 集群同步，文本索引数据将不完整。如果确实需要，只能重新创建图空间。</p>
@@ -6339,7 +6339,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6453,8 +6453,6 @@
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/1.nGQL-overview/identifier-case-sensitivity/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6027,35 +6027,35 @@
 <h1 id="_1">大小写区分<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <h2 id="_2">标识符区分大小写<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>以下语句会出现错误，因为<code>my_space</code>和<code>MY_SPACE</code>是两个不同的图空间。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; CREATE SPACE IF NOT EXISTS my_space (vid_type=FIXED_STRING(30));
-nebula&gt; use MY_SPACE;
-[ERROR (-8)]: SpaceNotFound:
-</code></pre></div>
+<p>```ngql
+nebula&gt; CREATE SPACE IF NOT EXISTS my_space (vid_type=FIXED_STRING(30));
+nebula&gt; use MY_SPACE;</p>
+<p>```</p>
 <h2 id="_3">关键字不区分大小写<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>以下语句是等价的，因为<code>show</code>和<code>spaces</code>是关键字。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; show spaces;  
+<p><code>ngql
+nebula&gt; show spaces;  
 nebula&gt; SHOW SPACES;
 nebula&gt; SHOW spaces;
-nebula&gt; show SPACES;
-</code></pre></div>
+nebula&gt; show SPACES;</code></p>
 <h2 id="_4">函数不区分大小写<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>函数名称不区分大小写，例如<code>count()</code>、<code>COUNT()</code>、<code>couNT()</code>是等价的。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; WITH [NULL, 1, 1, 2, 2] As a \
+<p><code>ngql
+nebula&gt; WITH [NULL, 1, 1, 2, 2] As a \
         UNWIND a AS b \
         RETURN count(b), COUNT(*), couNT(DISTINCT b);
 +----------+----------+-------------------+
 | count(b) | COUNT(*) | couNT(distinct b) |
 +----------+----------+-------------------+
 | 4        | 5        | 2                 |
-+----------+----------+-------------------+
-</code></pre></div>
++----------+----------+-------------------+</code></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6169,8 +6169,6 @@ nebula&gt; show SPACES;
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

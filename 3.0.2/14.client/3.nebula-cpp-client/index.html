@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/14.client/3.nebula-cpp-client/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6105,27 +6105,27 @@
 <ul>
 <li>
 <p>（推荐）如果需要安装指定版本的 Nebula CPP，请使用选项<code>--branch</code>指定分支。例如安装 v3.0.0发布版本，请执行如下命令：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>--branch<span class="w"> </span>v3.0.0<span class="w"> </span>https://github.com/vesoft-inc/nebula-cpp.git
-</code></pre></div>
+<p><code>bash
+$ git clone --branch v3.0.0 https://github.com/vesoft-inc/nebula-cpp.git</code></p>
 </li>
 </ul>
 <ul>
 <li>
 <p>如果需要安装日常开发版本，请执行如下命令下载<code>master</code>分支的源码：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/vesoft-inc/nebula-cpp.git
-</code></pre></div>
+<p><code>bash
+$ git clone https://github.com/vesoft-inc/nebula-cpp.git</code></p>
 </li>
 </ul>
 </li>
 <li>
 <p>进入目录 nebula-cpp。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>nebula-cpp
-</code></pre></div>
+<p><code>bash
+$ cd nebula-cpp</code></p>
 </li>
 <li>
 <p>创建目录 build 并进入该目录。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mkdir<span class="w"> </span>build<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>build
-</code></pre></div>
+<p><code>bash
+$ mkdir build &amp;&amp; cd build</code></p>
 </li>
 <li>
 <p>使用 CMake 生成 makefile 文件。</p>
@@ -6133,8 +6133,8 @@
 <p class="admonition-title">Note</p>
 <p>默认安装路径为<code>/usr/local/nebula</code>，如果需要修改路径，请在下方命令内增加参数 <code>-DCMAKE_INSTALL_PREFIX=&lt;installation_path&gt;</code>。</p>
 </div>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cmake<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>..
-</code></pre></div>
+<p><code>bash
+$ cmake -DCMAKE_BUILD_TYPE=Release ..</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>如果 g++ 不支持 C++11，请添加选项<code>-DDISABLE_CXX11_ABI=ON</code>。</p>
@@ -6143,18 +6143,18 @@
 <li>
 <p>编译 Nebula CPP。  </p>
 <p>为了适当地加快编译速度，可以使用选项<code>-j</code>并行编译。并行数量<code>N</code>建议为<span class="arithmatex">\(\min(\text{CPU}核数，\frac{内存 (GB)}{2})\)</span>。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>make<span class="w"> </span>-j<span class="o">{</span>N<span class="o">}</span>
-</code></pre></div>
+<p><code>bash
+$ make -j{N}</code></p>
 </li>
 <li>
 <p>安装 Nebula CPP。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>make<span class="w"> </span>install
-</code></pre></div>
+<p><code>bash
+$ sudo make install</code></p>
 </li>
 <li>
 <p>更新动态链接库。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>ldconfig
-</code></pre></div>
+<p><code>bash
+$ sudo ldconfig</code></p>
 </li>
 </ol>
 <h2 id="_3">使用方法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
@@ -6165,8 +6165,8 @@
 </li>
 <li>
 <p>编译文件，命令如下：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nv">LIBRARY_PATH</span><span class="o">=</span>&lt;library_folder_path&gt;:<span class="nv">$LIBRARY_PATH</span><span class="w"> </span>g++<span class="w"> </span>-std<span class="o">=</span>c++11<span class="w"> </span>SessionExample.cpp<span class="w"> </span>-I&lt;include_folder_path&gt;<span class="w"> </span>-lnebula_graph_client<span class="w"> </span>-o<span class="w"> </span>session_example
-</code></pre></div>
+<p><code>bash
+$ LIBRARY_PATH=&lt;library_folder_path&gt;:$LIBRARY_PATH g++ -std=c++11 SessionExample.cpp -I&lt;include_folder_path&gt; -lnebula_graph_client -o session_example</code></p>
 <ul>
 <li><code>library_folder_path</code>：Nebula Graph 动态库文件存储路径，默认为<code>/usr/local/nebula/lib64</code>。</li>
 </ul>
@@ -6174,8 +6174,8 @@
 <li><code>include_folder_path</code>：Nebula Graph 头文件存储路径，默认为<code>/usr/local/nebula/include</code>。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nv">LIBRARY_PATH</span><span class="o">=</span>/usr/local/nebula/lib64:<span class="nv">$LIBRARY_PATH</span><span class="w"> </span>g++<span class="w"> </span>-std<span class="o">=</span>c++11<span class="w"> </span>SessionExample.cpp<span class="w"> </span>-I/usr/local/nebula/include<span class="w"> </span>-lnebula_graph_client<span class="w"> </span>-o<span class="w"> </span>session_example
-</code></pre></div>
+<p><code>bash
+$ LIBRARY_PATH=/usr/local/nebula/lib64:$LIBRARY_PATH g++ -std=c++11 SessionExample.cpp -I/usr/local/nebula/include -lnebula_graph_client -o session_example</code></p>
 </li>
 </ol>
 <h3 id="_4">核心代码<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
@@ -6186,7 +6186,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6300,8 +6300,6 @@
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

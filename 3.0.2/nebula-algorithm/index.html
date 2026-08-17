@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/nebula-algorithm/">
       
       <link rel="icon" href="../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6441,18 +6441,18 @@
 <ol>
 <li>
 <p>克隆仓库<code>nebula-algorithm</code>。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>v3.0.0<span class="w"> </span>https://github.com/vesoft-inc/nebula-algorithm.git
-</code></pre></div>
+<p><code>bash
+$ git clone -b v3.0.0 https://github.com/vesoft-inc/nebula-algorithm.git</code></p>
 </li>
 <li>
 <p>进入目录<code>nebula-algorithm</code>。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>nebula-algorithm
-</code></pre></div>
+<p><code>bash
+$ cd nebula-algorithm</code></p>
 </li>
 <li>
 <p>编译打包。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>mvn<span class="w"> </span>clean<span class="w"> </span>package<span class="w"> </span>-Dgpg.skip<span class="w"> </span>-Dmaven.javadoc.skip<span class="o">=</span><span class="nb">true</span><span class="w"> </span>-Dmaven.test.skip<span class="o">=</span><span class="nb">true</span>
-</code></pre></div>
+<p><code>bash
+$ mvn clean package -Dgpg.skip -Dmaven.javadoc.skip=true -Dmaven.test.skip=true</code></p>
 </li>
 </ol>
 <p>编译完成后，在目录<code>nebula-algorithm/target</code>下生成类似文件<code>nebula-algorithm-3.x.x.jar</code>。</p>
@@ -6464,12 +6464,12 @@
 <ol>
 <li>
 <p>在文件<code>pom.xml</code>中添加依赖。</p>
-<div class="highlight"><pre><span></span><code>&lt;dependency&gt;
-<span class="w">     </span>&lt;groupId&gt;com.vesoft&lt;/groupId&gt;
-<span class="w">     </span>&lt;artifactId&gt;nebula-algorithm&lt;/artifactId&gt;
-<span class="w">     </span>&lt;version&gt;3.0.0&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre></div>
+<p><code>bash
+&lt;dependency&gt;
+     &lt;groupId&gt;com.vesoft&lt;/groupId&gt;
+     &lt;artifactId&gt;nebula-algorithm&lt;/artifactId&gt;
+     &lt;version&gt;3.0.0&lt;/version&gt;
+&lt;/dependency&gt;</code></p>
 </li>
 <li>
 <p>传入参数调用算法（以 PageRank 为例）。更多调用示例请参见<a href="https://github.com/vesoft-inc/nebula-algorithm/tree/master/example/src/main/scala/com/vesoft/nebula/algorithm">示例</a>。</p>
@@ -6477,9 +6477,9 @@
 <p class="admonition-title">Note</p>
 <p>执行算法的 DataFrame 默认第一列是起始点，第二列是目的点，第三列是边权重（非 Nebula Graph 中的 Rank）。</p>
 </div>
-<div class="highlight"><pre><span></span><code>val<span class="w"> </span><span class="nv">prConfig</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>new<span class="w"> </span>PRConfig<span class="o">(</span><span class="m">5</span>,<span class="w"> </span><span class="m">1</span>.0<span class="o">)</span>
-val<span class="w"> </span><span class="nv">louvainResult</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>PageRankAlgo.apply<span class="o">(</span>spark,<span class="w"> </span>data,<span class="w"> </span>prConfig,<span class="w"> </span><span class="nb">false</span><span class="o">)</span>
-</code></pre></div>
+<p><code>bash
+val prConfig = new PRConfig(5, 1.0)
+val louvainResult = PageRankAlgo.apply(spark, data, prConfig, false)</code></p>
 <p>如果用户的节点 ID 是 String 类型，可以参考 PageRank 的<a href="https://github.com/vesoft-inc/nebula-algorithm/blob/master/example/src/main/scala/com/vesoft/nebula/algorithm/PageRankExample.scala">示例</a>。示例中进行了 ID 转换，将 String 类型编码为 Long 类型， 并在算法结果中将 Long 类型 ID 解码为原始的 String 类型。</p>
 </li>
 </ol>
@@ -6491,128 +6491,130 @@ val<span class="w"> </span><span class="nv">louvainResult</span><span class="w">
 <ol>
 <li>
 <p>设置<a href="https://github.com/vesoft-inc/nebula-algorithm/blob/v3.0.0/nebula-algorithm/src/main/resources/application.conf">配置文件</a>。</p>
-<div class="highlight"><pre><span></span><code><span class="o">{</span>
-<span class="w">    </span><span class="c1"># Spark 相关配置</span>
-<span class="w">    </span>spark:<span class="w"> </span><span class="o">{</span>
-<span class="w">    </span>app:<span class="w"> </span><span class="o">{</span>
-<span class="w">        </span>name:<span class="w"> </span>LPA
-<span class="w">        </span><span class="c1"># Spark 分片数量</span>
-<span class="w">        </span>partitionNum:100
-<span class="w">    </span><span class="o">}</span>
-<span class="w">    </span>master:local
-<span class="w">    </span><span class="o">}</span>
+<p>```bash
+{
+    # Spark 相关配置
+    spark: {
+    app: {
+        name: LPA
+        # Spark 分片数量
+        partitionNum:100
+    }
+    master:local
+    }</p>
+<div class="codehilite"><pre><span></span><code>data: {
+# 数据源，可选值为 nebula、csv、json。
+source: nebula
+# 数据落库，即图计算的结果写入的目标，可选值为 nebula、csv、json。
+sink: nebula
+# 算法是否需要权重。
+hasWeight: false
+}
 
-<span class="w">    </span>data:<span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="c1"># 数据源，可选值为 nebula、csv、json。</span>
-<span class="w">    </span>source:<span class="w"> </span>nebula
-<span class="w">    </span><span class="c1"># 数据落库，即图计算的结果写入的目标，可选值为 nebula、csv、json。</span>
-<span class="w">    </span>sink:<span class="w"> </span>nebula
-<span class="w">    </span><span class="c1"># 算法是否需要权重。</span>
-<span class="w">    </span>hasWeight:<span class="w"> </span><span class="nb">false</span>
-<span class="w">    </span><span class="o">}</span>
+# Nebula Graph 相关配置
+nebula: {
+# 数据源。Nebula Graph 作为图计算的数据源时，nebula.read 的配置才生效。
+read: {
+    # 所有 Meta 服务的 IP 地址和端口，多个地址用英文逗号（,）分隔。格式：&quot;ip1:port1,ip2:port2&quot;。
+    # 使用 docker-compose 部署，端口需要填写 docker-compose 映射到外部的端口
+    # 可以用`docker-compose ps`查看
+    metaAddress: &quot;192.168.*.10:9559&quot;
+    # Nebula Graph 图空间名称
+    space: basketballplayer
+    # Nebula Graph Edge type, 多个 labels 时，多个边的数据将合并。
+    labels: [&quot;serve&quot;]
+    # Nebula Graph 每个 Edge type 的属性名称，此属性将作为算法的权重列，请确保和 Edge type 对应。
+    weightCols: [&quot;start_year&quot;]
+}
 
-<span class="w">    </span><span class="c1"># Nebula Graph 相关配置</span>
-<span class="w">    </span>nebula:<span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="c1"># 数据源。Nebula Graph 作为图计算的数据源时，nebula.read 的配置才生效。</span>
-<span class="w">    </span>read:<span class="w"> </span><span class="o">{</span>
-<span class="w">        </span><span class="c1"># 所有 Meta 服务的 IP 地址和端口，多个地址用英文逗号（,）分隔。格式：&quot;ip1:port1,ip2:port2&quot;。</span>
-<span class="w">        </span><span class="c1"># 使用 docker-compose 部署，端口需要填写 docker-compose 映射到外部的端口</span>
-<span class="w">        </span><span class="c1"># 可以用`docker-compose ps`查看</span>
-<span class="w">        </span>metaAddress:<span class="w"> </span><span class="s2">&quot;192.168.*.10:9559&quot;</span>
-<span class="w">        </span><span class="c1"># Nebula Graph 图空间名称</span>
-<span class="w">        </span>space:<span class="w"> </span>basketballplayer
-<span class="w">        </span><span class="c1"># Nebula Graph Edge type, 多个 labels 时，多个边的数据将合并。</span>
-<span class="w">        </span>labels:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;serve&quot;</span><span class="o">]</span>
-<span class="w">        </span><span class="c1"># Nebula Graph 每个 Edge type 的属性名称，此属性将作为算法的权重列，请确保和 Edge type 对应。</span>
-<span class="w">        </span>weightCols:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;start_year&quot;</span><span class="o">]</span>
-<span class="w">    </span><span class="o">}</span>
+# 数据落库。图计算结果落库到 Nebula Graph 时，nebula.write 的配置才生效。
+write:{
+    # Graph 服务的 IP 地址和端口，多个地址用英文逗号（,）分隔。格式：&quot;ip1:port1,ip2:port2&quot;。
+    # 使用 docker-compose 部署，端口需要填写 docker-compose 映射到外部的端口
+    # 可以用`docker-compose ps`查看
+    graphAddress: &quot;192.168.*.11:9669&quot;
+    # 所有 Meta 服务的 IP 地址和端口，多个地址用英文逗号（,）分隔。格式：&quot;ip1:port1,ip2:port2&quot;。
+    # 使用 docker-compose 部署，端口需要填写 docker-compose 映射到外部的端口
+    # 可以用`docker-compose ps`查看
+    metaAddress: &quot;192.168.*.12:9559&quot;
+    user:root
+    pswd:nebula
+    # 在提交图计算任务之前需要自行创建图空间及 Tag
+    # Nebula Graph 图空间名称
+    space:nb
+    # Nebula Graph Tag 名称，图计算结果会写入该 Tag。Tag 中的属性名称固定如下：
+    # PageRank：pagerank
+    # Louvain：louvain
+    # ConnectedComponent：cc
+    # StronglyConnectedComponent：scc
+    # LabelPropagation：lpa
+    # ShortestPath：shortestpath
+    # DegreeStatic：degree、inDegree、outDegree
+    # KCore：kcore
+    # TriangleCount：tranglecpunt
+    # BetweennessCentrality：betweennedss
+    tag:pagerank
+}
+}
 
-<span class="w">    </span><span class="c1"># 数据落库。图计算结果落库到 Nebula Graph 时，nebula.write 的配置才生效。</span>
-<span class="w">    </span>write:<span class="o">{</span>
-<span class="w">        </span><span class="c1"># Graph 服务的 IP 地址和端口，多个地址用英文逗号（,）分隔。格式：&quot;ip1:port1,ip2:port2&quot;。</span>
-<span class="w">        </span><span class="c1"># 使用 docker-compose 部署，端口需要填写 docker-compose 映射到外部的端口</span>
-<span class="w">        </span><span class="c1"># 可以用`docker-compose ps`查看</span>
-<span class="w">        </span>graphAddress:<span class="w"> </span><span class="s2">&quot;192.168.*.11:9669&quot;</span>
-<span class="w">        </span><span class="c1"># 所有 Meta 服务的 IP 地址和端口，多个地址用英文逗号（,）分隔。格式：&quot;ip1:port1,ip2:port2&quot;。</span>
-<span class="w">        </span><span class="c1"># 使用 docker-compose 部署，端口需要填写 docker-compose 映射到外部的端口</span>
-<span class="w">        </span><span class="c1"># 可以用`docker-compose ps`查看</span>
-<span class="w">        </span>metaAddress:<span class="w"> </span><span class="s2">&quot;192.168.*.12:9559&quot;</span>
-<span class="w">        </span>user:root
-<span class="w">        </span>pswd:nebula
-<span class="w">        </span><span class="c1"># 在提交图计算任务之前需要自行创建图空间及 Tag</span>
-<span class="w">        </span><span class="c1"># Nebula Graph 图空间名称</span>
-<span class="w">        </span>space:nb
-<span class="w">        </span><span class="c1"># Nebula Graph Tag 名称，图计算结果会写入该 Tag。Tag 中的属性名称固定如下：</span>
-<span class="w">        </span><span class="c1"># PageRank：pagerank</span>
-<span class="w">        </span><span class="c1"># Louvain：louvain</span>
-<span class="w">        </span><span class="c1"># ConnectedComponent：cc</span>
-<span class="w">        </span><span class="c1"># StronglyConnectedComponent：scc</span>
-<span class="w">        </span><span class="c1"># LabelPropagation：lpa</span>
-<span class="w">        </span><span class="c1"># ShortestPath：shortestpath</span>
-<span class="w">        </span><span class="c1"># DegreeStatic：degree、inDegree、outDegree</span>
-<span class="w">        </span><span class="c1"># KCore：kcore</span>
-<span class="w">        </span><span class="c1"># TriangleCount：tranglecpunt</span>
-<span class="w">        </span><span class="c1"># BetweennessCentrality：betweennedss</span>
-<span class="w">        </span>tag:pagerank
-<span class="w">    </span><span class="o">}</span>
-<span class="w">    </span><span class="o">}</span><span class="w">  </span>
+local: {
+# 数据源。图计算的数据源为 csv 文件或 json 文件时，local.read 的配置才生效。
+read:{
+    filePath: &quot;hdfs://127.0.0.1:9000/edge/work_for.csv&quot;
+    # 如果 CSV 文件没有表头，使用 [_c0, _c1, _c2, ..., _cn] 表示其表头，有表头或者是 json 文件时，直接使用表头名称即可。
+    # 起始点 ID 列的表头。
+    srcId:&quot;_c0&quot;
+    # 目的点 ID 列的表头。
+    dstId:&quot;_c1&quot;
+    # 权重列的表头
+    weight: &quot;_c2&quot;
+    # csv 文件是否有表头
+    header: false
+    # csv 文件的分隔符
+    delimiter:&quot;,&quot;
+}
 
-<span class="w">    </span>local:<span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="c1"># 数据源。图计算的数据源为 csv 文件或 json 文件时，local.read 的配置才生效。</span>
-<span class="w">    </span>read:<span class="o">{</span>
-<span class="w">        </span>filePath:<span class="w"> </span><span class="s2">&quot;hdfs://127.0.0.1:9000/edge/work_for.csv&quot;</span>
-<span class="w">        </span><span class="c1"># 如果 CSV 文件没有表头，使用 [_c0, _c1, _c2, ..., _cn] 表示其表头，有表头或者是 json 文件时，直接使用表头名称即可。</span>
-<span class="w">        </span><span class="c1"># 起始点 ID 列的表头。</span>
-<span class="w">        </span>srcId:<span class="s2">&quot;_c0&quot;</span>
-<span class="w">        </span><span class="c1"># 目的点 ID 列的表头。</span>
-<span class="w">        </span>dstId:<span class="s2">&quot;_c1&quot;</span>
-<span class="w">        </span><span class="c1"># 权重列的表头</span>
-<span class="w">        </span>weight:<span class="w"> </span><span class="s2">&quot;_c2&quot;</span>
-<span class="w">        </span><span class="c1"># csv 文件是否有表头</span>
-<span class="w">        </span>header:<span class="w"> </span><span class="nb">false</span>
-<span class="w">        </span><span class="c1"># csv 文件的分隔符</span>
-<span class="w">        </span>delimiter:<span class="s2">&quot;,&quot;</span>
-<span class="w">    </span><span class="o">}</span>
+# 数据落库。图计算结果落库到 csv 文件或 text 文件时，local.write 的配置才生效。
+write:{
+    resultPath:/tmp/
+}
 
-<span class="w">    </span><span class="c1"># 数据落库。图计算结果落库到 csv 文件或 text 文件时，local.write 的配置才生效。</span>
-<span class="w">    </span>write:<span class="o">{</span>
-<span class="w">        </span>resultPath:/tmp/
-<span class="w">    </span><span class="o">}</span>
+algorithm: {
+# 需要执行的算法，可选值为：
+# pagerank、louvain、connectedcomponent、labelpropagation、shortestpaths、
+# degreestatic、kcore、stronglyconnectedcomponent、trianglecount、
+# betweenness、graphtriangleCount。
+executeAlgo: pagerank
 
-<span class="w">    </span>algorithm:<span class="w"> </span><span class="o">{</span>
-<span class="w">    </span><span class="c1"># 需要执行的算法，可选值为：</span>
-<span class="w">    </span><span class="c1"># pagerank、louvain、connectedcomponent、labelpropagation、shortestpaths、</span>
-<span class="w">    </span><span class="c1"># degreestatic、kcore、stronglyconnectedcomponent、trianglecount、</span>
-<span class="w">    </span><span class="c1"># betweenness、graphtriangleCount。</span>
-<span class="w">    </span>executeAlgo:<span class="w"> </span>pagerank
+# PageRank 参数
+pagerank: {
+    maxIter: 10
+    resetProb: 0.15  
+}
 
-<span class="w">    </span><span class="c1"># PageRank 参数</span>
-<span class="w">    </span>pagerank:<span class="w"> </span><span class="o">{</span>
-<span class="w">        </span>maxIter:<span class="w"> </span><span class="m">10</span>
-<span class="w">        </span>resetProb:<span class="w"> </span><span class="m">0</span>.15<span class="w">  </span>
-<span class="w">    </span><span class="o">}</span>
+# Louvain 参数
+louvain: {
+    maxIter: 20
+    internalIter: 10
+    tol: 0.5
+}
 
-<span class="w">    </span><span class="c1"># Louvain 参数</span>
-<span class="w">    </span>louvain:<span class="w"> </span><span class="o">{</span>
-<span class="w">        </span>maxIter:<span class="w"> </span><span class="m">20</span>
-<span class="w">        </span>internalIter:<span class="w"> </span><span class="m">10</span>
-<span class="w">        </span>tol:<span class="w"> </span><span class="m">0</span>.5
-<span class="w">    </span><span class="o">}</span>
+# ...
 
-<span class="w">    </span><span class="c1"># ...</span>
-
-<span class="w">    </span><span class="o">}</span>
-<span class="w">    </span><span class="o">}</span>
-<span class="o">}</span>
+}
+}
 </code></pre></div>
+
+<p>}
+```</p>
 </li>
 <li>
 <p>提交图计算任务。</p>
-<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span>&lt;mode&gt;<span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.algorithm.Main<span class="w"> </span>&lt;nebula-algorithm-3.0.0.jar_path&gt;<span class="w"> </span>-p<span class="w"> </span>&lt;application.conf_path&gt;
-</code></pre></div>
+<p><code>bash
+${SPARK_HOME}/bin/spark-submit --master &lt;mode&gt; --class com.vesoft.nebula.algorithm.Main &lt;nebula-algorithm-3.0.0.jar_path&gt; -p &lt;application.conf_path&gt;</code></p>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.algorithm.Main<span class="w"> </span>/root/nebula-algorithm/target/nebula-algorithm-3.0-SNAPSHOT.jar<span class="w"> </span>-p<span class="w"> </span>/root/nebula-algorithm/src/main/resources/application.conf
-</code></pre></div>
+<p><code>bash
+${SPARK_HOME}/bin/spark-submit --master "local" --class com.vesoft.nebula.algorithm.Main /root/nebula-algorithm/target/nebula-algorithm-3.0-SNAPSHOT.jar -p /root/nebula-algorithm/src/main/resources/application.conf</code></p>
 </li>
 </ol>
 <h2 id="_10">视频<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
@@ -6626,7 +6628,7 @@ val<span class="w"> </span><span class="nv">louvainResult</span><span class="w">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6740,8 +6742,6 @@ val<span class="w"> </span><span class="nv">louvainResult</span><span class="w">
         <script src="../js/jquery.js"></script>
       
         <script src="../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

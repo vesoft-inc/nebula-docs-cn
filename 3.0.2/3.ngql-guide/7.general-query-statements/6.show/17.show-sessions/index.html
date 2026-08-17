@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/7.general-query-statements/6.show/17.show-sessions/">
       
       <link rel="icon" href="../../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6042,40 +6042,40 @@
 <li><code>SHOW SESSION &lt;Session_Id&gt;</code>查询指定 Session ID 的会话信息。</li>
 </ul>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>SHOW [LOCAL] SESSIONS;
-SHOW SESSION &lt;Session_Id&gt;;
-</code></pre></div>
+<p><code>ngql
+SHOW [LOCAL] SESSIONS;
+SHOW SESSION &lt;Session_Id&gt;;</code></p>
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>nebula&gt; SHOW SESSIONS;
+<p>```ngql
+nebula&gt; SHOW SESSIONS;
 +------------------+----------+--------------------+----------------------------+----------------------------+------------------+----------+--------------------+
 | SessionId        | UserName | SpaceName          | CreateTime                 | UpdateTime                 | GraphAddr        | Timezone | ClientIp           |
 +------------------+----------+--------------------+----------------------------+----------------------------+------------------+----------+--------------------+
-| 1635128818397714 | &quot;root&quot;   | &quot;test&quot;             | 2021-10-25T02:26:58.397714 | 2021-10-25T08:31:31.846846 | &quot;127.0.0.1:9669&quot; | 0        | &quot;::ffff:127.0.0.1&quot; |
-| 1635254859271703 | &quot;root&quot;   | &quot;basketballplayer&quot; | 2021-10-26T13:27:39.271703 | 2021-10-26T13:51:38.277704 | &quot;127.0.0.1:9669&quot; | 0        | &quot;::ffff:127.0.0.1&quot; |
-| 1634871229727322 | &quot;root&quot;   | &quot;basketballplayer&quot; | 2021-10-22T02:53:49.727322 | 2021-10-22T02:53:56.564001 | &quot;127.0.0.1:9669&quot; | 0        | &quot;::ffff:127.0.0.1&quot; |
-| 1635750725840229 | &quot;root&quot;   | &quot;basketballplayer&quot; | 2021-11-01T07:12:05.840229 | 2021-11-01T09:42:36.883617 | &quot;127.0.0.1:9669&quot; | 0        | &quot;::ffff:127.0.0.1&quot; |
-| 1635299224732060 | &quot;root&quot;   | &quot;basketballplayer&quot; | 2021-10-27T01:47:04.732060 | 2021-10-27T09:04:31.741126 | &quot;127.0.0.1:9669&quot; | 0        | &quot;::ffff:127.0.0.1&quot; |
-| 1634628999765689 | &quot;root&quot;   | &quot;&quot;                 | 2021-10-19T07:36:39.765689 | 2021-10-19T07:36:39.768064 | &quot;127.0.0.1:9669&quot; | 0        | &quot;::ffff:127.0.0.1&quot; |
-| 1634886296595136 | &quot;root&quot;   | &quot;basketballplayer&quot; | 2021-10-22T07:04:56.595136 | 2021-10-22T09:48:20.299364 | &quot;127.0.0.1:9669&quot; | 0        | &quot;::ffff:127.0.0.1&quot; |
-| 1634629179882439 | &quot;root&quot;   | &quot;basketballplayer&quot; | 2021-10-19T07:39:39.882439 | 2021-10-19T09:34:52.153145 | &quot;127.0.0.1:9669&quot; | 0        | &quot;::ffff:127.0.0.1&quot; |
-| 1635246158961634 | &quot;root&quot;   | &quot;basketballplayer&quot; | 2021-10-26T11:02:38.961634 | 2021-10-26T11:02:51.250897 | &quot;127.0.0.1:9669&quot; | 0        | &quot;::ffff:127.0.0.1&quot; |
-| 1634785346839017 | &quot;root&quot;   | &quot;basketballplayer&quot; | 2021-10-21T03:02:26.839017 | 2021-10-21T11:07:40.911329 | &quot;127.0.0.1:9669&quot; | 0        | &quot;::ffff:127.0.0.1&quot; |
-+------------------+----------+--------------------+----------------------------+----------------------------+------------------+----------+--------------------+
-
-nebula&gt; SHOW SESSION 1635254859271703;
+| 1635128818397714 | "root"   | "test"             | 2021-10-25T02:26:58.397714 | 2021-10-25T08:31:31.846846 | "127.0.0.1:9669" | 0        | "::ffff:127.0.0.1" |
+| 1635254859271703 | "root"   | "basketballplayer" | 2021-10-26T13:27:39.271703 | 2021-10-26T13:51:38.277704 | "127.0.0.1:9669" | 0        | "::ffff:127.0.0.1" |
+| 1634871229727322 | "root"   | "basketballplayer" | 2021-10-22T02:53:49.727322 | 2021-10-22T02:53:56.564001 | "127.0.0.1:9669" | 0        | "::ffff:127.0.0.1" |
+| 1635750725840229 | "root"   | "basketballplayer" | 2021-11-01T07:12:05.840229 | 2021-11-01T09:42:36.883617 | "127.0.0.1:9669" | 0        | "::ffff:127.0.0.1" |
+| 1635299224732060 | "root"   | "basketballplayer" | 2021-10-27T01:47:04.732060 | 2021-10-27T09:04:31.741126 | "127.0.0.1:9669" | 0        | "::ffff:127.0.0.1" |
+| 1634628999765689 | "root"   | ""                 | 2021-10-19T07:36:39.765689 | 2021-10-19T07:36:39.768064 | "127.0.0.1:9669" | 0        | "::ffff:127.0.0.1" |
+| 1634886296595136 | "root"   | "basketballplayer" | 2021-10-22T07:04:56.595136 | 2021-10-22T09:48:20.299364 | "127.0.0.1:9669" | 0        | "::ffff:127.0.0.1" |
+| 1634629179882439 | "root"   | "basketballplayer" | 2021-10-19T07:39:39.882439 | 2021-10-19T09:34:52.153145 | "127.0.0.1:9669" | 0        | "::ffff:127.0.0.1" |
+| 1635246158961634 | "root"   | "basketballplayer" | 2021-10-26T11:02:38.961634 | 2021-10-26T11:02:51.250897 | "127.0.0.1:9669" | 0        | "::ffff:127.0.0.1" |
+| 1634785346839017 | "root"   | "basketballplayer" | 2021-10-21T03:02:26.839017 | 2021-10-21T11:07:40.911329 | "127.0.0.1:9669" | 0        | "::ffff:127.0.0.1" |
++------------------+----------+--------------------+----------------------------+----------------------------+------------------+----------+--------------------+</p>
+<p>nebula&gt; SHOW SESSION 1635254859271703;
 +--------------+----------------------------+
 | VariableName | Value                      |
 +--------------+----------------------------+
-| &quot;SessionID&quot;  | 1635254859271703           |
-| &quot;UserName&quot;   | &quot;root&quot;                     |
-| &quot;SpaceName&quot;  | &quot;basketballplayer&quot;         |
-| &quot;CreateTime&quot; | 2021-10-26T13:27:39.271703 |
-| &quot;UpdateTime&quot; | 2021-10-26T13:51:38.277704 |
-| &quot;GraphAddr&quot;  | &quot;127.0.0.1:9669&quot;           |
-| &quot;Timezone&quot;   | 0                          |
-| &quot;ClientIp&quot;   | &quot;::ffff:127.0.0.1&quot;         |
+| "SessionID"  | 1635254859271703           |
+| "UserName"   | "root"                     |
+| "SpaceName"  | "basketballplayer"         |
+| "CreateTime" | 2021-10-26T13:27:39.271703 |
+| "UpdateTime" | 2021-10-26T13:51:38.277704 |
+| "GraphAddr"  | "127.0.0.1:9669"           |
+| "Timezone"   | 0                          |
+| "ClientIp"   | "::ffff:127.0.0.1"         |
 +--------------+----------------------------+
-</code></pre></div>
+```</p>
 <table>
 <thead>
 <tr>
@@ -6124,7 +6124,7 @@ nebula&gt; SHOW SESSION 1635254859271703;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6238,8 +6238,6 @@ nebula&gt; SHOW SESSION 1635254859271703;
         <script src="../../../../js/jquery.js"></script>
       
         <script src="../../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/15.contribution/how-to-contribute/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -5932,96 +5932,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#step_3" class="md-nav__link">
-    Step 3：分支
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step_4" class="md-nav__link">
-    Step 4：开发
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step_5" class="md-nav__link">
-    Step 5：保持分支同步
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step_6commit" class="md-nav__link">
-    Step 6：Commit
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step_7push" class="md-nav__link">
-    Step 7：Push
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step_8_pull_request" class="md-nav__link">
-    Step 8：创建 pull request
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step_9" class="md-nav__link">
-    Step 9：代码审查
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    添加测试用例
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    捐赠项目
-  </a>
-  
-    <nav class="md-nav" aria-label="捐赠项目">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step_1" class="md-nav__link">
-    Step 1：确认项目捐赠
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step_6" class="md-nav__link">
-    Step 2：获取项目接收人信息
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step_7" class="md-nav__link">
-    Step 3：捐赠项目
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -6167,96 +6077,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#step_3" class="md-nav__link">
-    Step 3：分支
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step_4" class="md-nav__link">
-    Step 4：开发
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step_5" class="md-nav__link">
-    Step 5：保持分支同步
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step_6commit" class="md-nav__link">
-    Step 6：Commit
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step_7push" class="md-nav__link">
-    Step 7：Push
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step_8_pull_request" class="md-nav__link">
-    Step 8：创建 pull request
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step_9" class="md-nav__link">
-    Step 9：代码审查
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    添加测试用例
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    捐赠项目
-  </a>
-  
-    <nav class="md-nav" aria-label="捐赠项目">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#step_1" class="md-nav__link">
-    Step 1：确认项目捐赠
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step_6" class="md-nav__link">
-    Step 2：获取项目接收人信息
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step_7" class="md-nav__link">
-    Step 3：捐赠项目
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -6310,74 +6130,73 @@
 <ol>
 <li>
 <p>定义本地工作目录。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 定义工作目录。</span>
-<span class="nv">working_dir</span><span class="o">=</span><span class="nv">$HOME</span>/Workspace
-</code></pre></div>
+<p>```bash</p>
+<h1 id="_5">定义工作目录。<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
+<p>working_dir=$HOME/Workspace
+```</p>
 </li>
 <li>
 <p>将<code>user</code>设置为 GitHub 的用户名。</p>
-<div class="highlight"><pre><span></span><code><span class="nv">user</span><span class="o">={</span>GitHub<span class="w"> </span>用户名<span class="o">}</span>
-</code></pre></div>
+<p><code>bash
+user={GitHub 用户名}</code></p>
 </li>
 <li>
 <p>克隆代码。</p>
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="nv">$working_dir</span>
-<span class="nb">cd</span><span class="w"> </span><span class="nv">$working_dir</span>
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/<span class="nv">$user</span>/nebula.git
-<span class="c1"># 或：git clone git@github.com:$user/nebula.git</span>
-
-<span class="nb">cd</span><span class="w"> </span><span class="nv">$working_dir</span>/nebula
-git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/vesoft-inc/nebula.git
-<span class="c1"># 或：git remote add upstream git@github.com:vesoft-inc/nebula.git</span>
-
-<span class="c1"># 由于没有写访问权限，请勿推送至上游主分支。</span>
-git<span class="w"> </span>remote<span class="w"> </span>set-url<span class="w"> </span>--push<span class="w"> </span>upstream<span class="w"> </span>no_push
-
-<span class="c1"># 确认远程分支有效。</span>
-<span class="c1"># 正确的格式为：</span>
-<span class="c1"># origin    git@github.com:$(user)/nebula.git (fetch)</span>
-<span class="c1"># origin    git@github.com:$(user)/nebula.git (push)</span>
-<span class="c1"># upstream  https://github.com/vesoft-inc/nebula (fetch)</span>
-<span class="c1"># upstream  no_push (push)</span>
-git<span class="w"> </span>remote<span class="w"> </span>-v
-</code></pre></div>
+<p>```bash
+mkdir -p $working_dir
+cd <span class="arithmatex">\(working_dir
+git clone https://github.com/\)</span>user/nebula.git</p>
+<h1 id="git_clone_gitgithubcomusernebulagit">或：git clone git@github.com:$user/nebula.git<a class="headerlink" href="#git_clone_gitgithubcomusernebulagit" title="Permanent link">&para;</a></h1>
+<p>cd $working_dir/nebula
+git remote add upstream https://github.com/vesoft-inc/nebula.git</p>
+<h1 id="git_remote_add_upstream_gitgithubcomvesoft-incnebulagit">或：git remote add upstream git@github.com:vesoft-inc/nebula.git<a class="headerlink" href="#git_remote_add_upstream_gitgithubcomvesoft-incnebulagit" title="Permanent link">&para;</a></h1>
+<h1 id="_6">由于没有写访问权限，请勿推送至上游主分支。<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h1>
+<p>git remote set-url --push upstream no_push</p>
+<h1 id="_7">确认远程分支有效。<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h1>
+<h1 id="_8">正确的格式为：<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h1>
+<h1 id="origin_gitgithubcomusernebulagit_fetch">origin    git@github.com:$(user)/nebula.git (fetch)<a class="headerlink" href="#origin_gitgithubcomusernebulagit_fetch" title="Permanent link">&para;</a></h1>
+<h1 id="origin_gitgithubcomusernebulagit_push">origin    git@github.com:$(user)/nebula.git (push)<a class="headerlink" href="#origin_gitgithubcomusernebulagit_push" title="Permanent link">&para;</a></h1>
+<h1 id="upstream_httpsgithubcomvesoft-incnebula_fetch">upstream  https://github.com/vesoft-inc/nebula (fetch)<a class="headerlink" href="#upstream_httpsgithubcomvesoft-incnebula_fetch" title="Permanent link">&para;</a></h1>
+<h1 id="upstream_no_push_push">upstream  no_push (push)<a class="headerlink" href="#upstream_no_push_push" title="Permanent link">&para;</a></h1>
+<p>git remote -v
+```</p>
 </li>
 <li>
 <p>（可选）定义 pre-commit hook。</p>
 <p>请将 Nebula Graph 的 pre-commit hook 连接到<code>.git</code>目录。</p>
 <p>hook 将检查 commit，包括格式、构建、文档生成等。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$working_dir</span>/nebula/.git/hooks
-ln<span class="w"> </span>-s<span class="w"> </span><span class="nv">$working_dir</span>/nebula/.linters/cpp/hooks/pre-commit.sh<span class="w"> </span>.
-</code></pre></div>
+<p><code>bash
+cd $working_dir/nebula/.git/hooks
+ln -s $working_dir/nebula/.linters/cpp/hooks/pre-commit.sh .</code></p>
 <p>pre-commit hook 有时候可能无法正常执行，用户必须手动执行。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$working_dir</span>/nebula/.git/hooks
-chmod<span class="w"> </span>+x<span class="w"> </span>pre-commit
-</code></pre></div>
+<p><code>bash
+cd $working_dir/nebula/.git/hooks
+chmod +x pre-commit</code></p>
 </li>
 </ol>
 <h3 id="step_3">Step 3：分支<a class="headerlink" href="#step_3" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
 <p>更新本地主分支。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span><span class="nv">$working_dir</span>/nebula
-git<span class="w"> </span>fetch<span class="w"> </span>upstream
-git<span class="w"> </span>checkout<span class="w"> </span>master
-git<span class="w"> </span>rebase<span class="w"> </span>upstream/master
-</code></pre></div>
+<p><code>bash
+cd $working_dir/nebula
+git fetch upstream
+git checkout master
+git rebase upstream/master</code></p>
 </li>
 <li>
 <p>从主分支创建并切换分支：</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>myfeature
-</code></pre></div>
+<p><code>bash
+git checkout -b myfeature</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>由于一个 PR 通常包含多个 commits，最终合入 upstream/master 分支时，我们会将这些 commits 挤压（squash）成一个 commit 进行合并。因此强烈建议创建一个独立的分支进行更改，这样在合入时才容易被挤压。合并后，这个分支可以被丢弃。如果未创建单独的分支，而是直接将 commits 提交至 origin/master，在合入时，可能会出现问题。
   若未创建单独的分支（或是 origin/master 合并了其他的分支等），导致 origin/master 和 upstream/master 不一致时，用户可以使用 hard reset 强制两者进行一致。例如：</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>fetch<span class="w"> </span>upstream
-git<span class="w"> </span>checkout<span class="w"> </span>master
-git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>upstream/master
-git<span class="w"> </span>push<span class="w"> </span>--force<span class="w"> </span>origin<span class="w"> </span>master
-</code></pre></div>
+<p><code>bash
+  git fetch upstream
+  git checkout master
+  git reset --hard upstream/master
+  git push --force origin master</code></p>
 </div>
 </li>
 </ol>
@@ -6408,26 +6227,27 @@ git<span class="w"> </span>push<span class="w"> </span>--force<span class="w"> <
 <li>
 <p>运行所有单元测试</p>
 <p>在<code>nebula</code>根目录执行如下命令：</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>nebula/build
-ctest<span class="w"> </span>-j<span class="k">$(</span>nproc<span class="k">)</span>
-</code></pre></div>
+<p><code>bash
+cd nebula/build
+ctest -j$(nproc)</code></p>
 </li>
 </ul>
 <h3 id="step_5">Step 5：保持分支同步<a class="headerlink" href="#step_5" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="c1"># 当处于 myfeature 分支时。</span>
-git<span class="w"> </span>fetch<span class="w"> </span>upstream
-git<span class="w"> </span>rebase<span class="w"> </span>upstream/master
-</code></pre></div>
+<p>```bash</p>
+<h1 id="myfeature">当处于 myfeature 分支时。<a class="headerlink" href="#myfeature" title="Permanent link">&para;</a></h1>
+<p>git fetch upstream
+git rebase upstream/master
+```</p>
 <p>在其他贡献者将 PR 合并到基础分支之后，用户需要更新 head 分支。</p>
 <h3 id="step_6commit">Step 6：Commit<a class="headerlink" href="#step_6commit" title="Permanent link">&para;</a></h3>
 <p>提交代码更改：</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>-a
-</code></pre></div>
+<p><code>bash
+git commit -a</code></p>
 <p>用户可以使用命令<code>--amend</code>重新编辑之前的代码。</p>
 <h3 id="step_7push">Step 7：Push<a class="headerlink" href="#step_7push" title="Permanent link">&para;</a></h3>
 <p>需要审核或离线备份代码时，可以将本地仓库创建的分支 push 到 GitHub 的远程仓库。</p>
-<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>myfeature
-</code></pre></div>
+<p><code>bash
+git push origin myfeature</code></p>
 <h3 id="step_8_pull_request">Step 8：创建 pull request<a class="headerlink" href="#step_8_pull_request" title="Permanent link">&para;</a></h3>
 <ol>
 <li>
@@ -6439,9 +6259,9 @@ git<span class="w"> </span>rebase<span class="w"> </span>upstream/master
 </ol>
 <h3 id="step_9">Step 9：代码审查<a class="headerlink" href="#step_9" title="Permanent link">&para;</a></h3>
 <p>pull request 创建后，至少需要两人审查。审查人员将进行彻底的代码审查，以确保变更满足存储库的贡献准则和其他质量标准。</p>
-<h2 id="_5">添加测试用例<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<h2 id="_9">添加测试用例<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <p>添加测试用例的方法参见 <a href="https://github.com/vesoft-inc/nebula/blob/master/tests/README.md#how-to-add-test-case">How to add test cases</a>。</p>
-<h2 id="_6">捐赠项目<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_10">捐赠项目<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
 <h3 id="step_1">Step 1：确认项目捐赠<a class="headerlink" href="#step_1" title="Permanent link">&para;</a></h3>
 <p>通过邮件、微信、Slack 等方式联络 Nebula Graph 官方人员，确认捐赠项目一事。项目将被捐赠至 <a href="https://github.com/nebula-contrib">Nebula Contrib</a> 组织下。</p>
 <ul>
@@ -6464,7 +6284,7 @@ git<span class="w"> </span>rebase<span class="w"> </span>upstream/master
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6578,8 +6398,6 @@ git<span class="w"> </span>rebase<span class="w"> </span>upstream/master
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

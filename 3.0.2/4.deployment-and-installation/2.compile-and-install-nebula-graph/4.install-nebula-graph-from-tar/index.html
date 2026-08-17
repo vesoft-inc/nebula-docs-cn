@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/4.deployment-and-installation/2.compile-and-install-nebula-graph/4.install-nebula-graph-from-tar/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6021,46 +6021,43 @@
 <li>
 <p>使用如下地址下载 Nebula Graph 的 tar.gz 文件。</p>
 <p>下载前需将<code>&lt;release_version&gt;</code>替换为需要下载的版本。</p>
-<div class="highlight"><pre><span></span><code>//Centos<span class="w"> </span><span class="m">7</span>
-https://oss-cdn.nebula-graph.com.cn/package/&lt;release_version&gt;/nebula-graph-&lt;release_version&gt;.el7.x86_64.tar.gz
+<p>```bash
+//Centos 7
+https://oss-cdn.nebula-graph.com.cn/package/<release_version>/nebula-graph-<release_version>.el7.x86_64.tar.gz
 //Checksum
-https://oss-cdn.nebula-graph.com.cn/package/&lt;release_version&gt;/nebula-graph-&lt;release_version&gt;.el7.x86_64.tar.gz.sha256sum.txt
-
-//Centos<span class="w"> </span><span class="m">8</span>
-https://oss-cdn.nebula-graph.com.cn/package/&lt;release_version&gt;/nebula-graph-&lt;release_version&gt;.el8.x86_64.tar.gz
+https://oss-cdn.nebula-graph.com.cn/package/<release_version>/nebula-graph-<release_version>.el7.x86_64.tar.gz.sha256sum.txt</p>
+<p>//Centos 8
+https://oss-cdn.nebula-graph.com.cn/package/<release_version>/nebula-graph-<release_version>.el8.x86_64.tar.gz
 //Checksum
-https://oss-cdn.nebula-graph.com.cn/package/&lt;release_version&gt;/nebula-graph-&lt;release_version&gt;.el8.x86_64.tar.gz.sha256sum.txt
-
-//Ubuntu<span class="w"> </span><span class="m">1604</span>
-https://oss-cdn.nebula-graph.com.cn/package/&lt;release_version&gt;/nebula-graph-&lt;release_version&gt;.ubuntu1604.amd64.tar.gz
+https://oss-cdn.nebula-graph.com.cn/package/<release_version>/nebula-graph-<release_version>.el8.x86_64.tar.gz.sha256sum.txt</p>
+<p>//Ubuntu 1604
+https://oss-cdn.nebula-graph.com.cn/package/<release_version>/nebula-graph-<release_version>.ubuntu1604.amd64.tar.gz
 //Checksum
-https://oss-cdn.nebula-graph.com.cn/package/&lt;release_version&gt;/nebula-graph-&lt;release_version&gt;.ubuntu1604.amd64.tar.gz.sha256sum.txt
-
-//Ubuntu<span class="w"> </span><span class="m">1804</span>
-https://oss-cdn.nebula-graph.com.cn/package/&lt;release_version&gt;/nebula-graph-&lt;release_version&gt;.ubuntu1804.amd64.tar.gz
+https://oss-cdn.nebula-graph.com.cn/package/<release_version>/nebula-graph-<release_version>.ubuntu1604.amd64.tar.gz.sha256sum.txt</p>
+<p>//Ubuntu 1804
+https://oss-cdn.nebula-graph.com.cn/package/<release_version>/nebula-graph-<release_version>.ubuntu1804.amd64.tar.gz
 //Checksum
-https://oss-cdn.nebula-graph.com.cn/package/&lt;release_version&gt;/nebula-graph-&lt;release_version&gt;.ubuntu1804.amd64.tar.gz.sha256sum.txt
-
-//Ubuntu<span class="w"> </span><span class="m">2004</span>
-https://oss-cdn.nebula-graph.com.cn/package/&lt;release_version&gt;/nebula-graph-&lt;release_version&gt;.ubuntu2004.amd64.tar.gz
+https://oss-cdn.nebula-graph.com.cn/package/<release_version>/nebula-graph-<release_version>.ubuntu1804.amd64.tar.gz.sha256sum.txt</p>
+<p>//Ubuntu 2004
+https://oss-cdn.nebula-graph.com.cn/package/<release_version>/nebula-graph-<release_version>.ubuntu2004.amd64.tar.gz
 //Checksum
-https://oss-cdn.nebula-graph.com.cn/package/&lt;release_version&gt;/nebula-graph-&lt;release_version&gt;.ubuntu2004.amd64.tar.gz.sha256sum.txt
-</code></pre></div>
+https://oss-cdn.nebula-graph.com.cn/package/<release_version>/nebula-graph-<release_version>.ubuntu2004.amd64.tar.gz.sha256sum.txt
+```</p>
 <p>例如，要下载适用于<code>CentOS 7.5</code>的 Nebula Graph v3.0.2 tar.gz 文件，运行以下命令：</p>
-<div class="highlight"><pre><span></span><code>wget<span class="w"> </span>https://oss-cdn.nebula-graph.com.cn/package/3.0.2/nebula-graph-3.0.2.el7.x86_64.tar.gz
-</code></pre></div>
+<p><code>bash
+wget https://oss-cdn.nebula-graph.com.cn/package/3.0.2/nebula-graph-3.0.2.el7.x86_64.tar.gz</code></p>
 </li>
 <li>
 <p>解压 tar.gz 文件到 Nebula Graph 安装目录。</p>
-<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xvzf<span class="w"> </span>&lt;tar.gz_file_name&gt;<span class="w"> </span>-C<span class="w"> </span>&lt;install_path&gt;
-</code></pre></div>
+<p><code>bash
+tar -xvzf &lt;tar.gz_file_name&gt; -C &lt;install_path&gt;</code></p>
 <ul>
 <li><code>tar.gz_file_name</code>表示 tar.gz 文件的名称。</li>
 <li><code>install_path</code>表示安装路径。</li>
 </ul>
 <p>例如：</p>
-<div class="highlight"><pre><span></span><code>tar<span class="w"> </span>-xvzf<span class="w"> </span>nebula-graph-2.6.0.el7.x86_64.tar.gz<span class="w"> </span>-C<span class="w"> </span>/home/joe/nebula/install
-</code></pre></div>
+<p><code>bash
+tar -xvzf nebula-graph-2.6.0.el7.x86_64.tar.gz -C /home/joe/nebula/install</code></p>
 </li>
 <li>
 <p>修改配置文件名以应用配置。</p>
@@ -6081,7 +6078,7 @@ https://oss-cdn.nebula-graph.com.cn/package/&lt;release_version&gt;/nebula-graph
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6195,8 +6192,6 @@ https://oss-cdn.nebula-graph.com.cn/package/&lt;release_version&gt;/nebula-graph
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

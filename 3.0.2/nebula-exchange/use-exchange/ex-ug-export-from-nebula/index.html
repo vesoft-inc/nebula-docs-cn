@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/nebula-exchange/use-exchange/ex-ug-export-from-nebula/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6183,9 +6183,9 @@
 <li>
 <p>修改配置文件。</p>
 <p>企业版 Exchange 提供了导出 Nebula Graph 数据专用的配置文件模板<code>export_application.conf</code>，其中各配置项的说明参见 <a href="../../parameter-reference/ex-ug-parameter/">Exchange 配置</a>。本示例使用的配置文件核心内容如下：</p>
-<div class="highlight"><pre><span></span><code>...
-
-  # Processing tags
+<p>```conf
+...</p>
+<p># Processing tags
   # There are tag config examples for different dataSources.
   tags: [
     # export NebulaGraph tag data to csv, only support export to CSV for now.
@@ -6195,8 +6195,8 @@
         source: Nebula
         sink: CSV
       }
-      # the path to save the NebulaGrpah data, make sure the path doesn&#39;t exist.
-      path:&quot;hdfs://192.168.8.177:9000/vertex/player&quot;
+      # the path to save the NebulaGrpah data, make sure the path doesn't exist.
+      path:"hdfs://192.168.8.177:9000/vertex/player"
       # if no need to export any properties when export NebulaGraph tag data
       # if noField is configured true, just export vertexId
       noField:false
@@ -6205,13 +6205,10 @@
       return.fields:[]
       # nebula space partition number
       partition:10
-    }
-
-...
-
-  ]
-
-  # Processing edges
+    }</p>
+<p>...</p>
+<p>]</p>
+<p># Processing edges
   # There are edge config examples for different dataSources.
   edges: [
     # export NebulaGraph tag data to csv, only support export to CSV for now.
@@ -6221,8 +6218,8 @@
         source: Nebula
         sink: CSV
       }
-      # the path to save the NebulaGrpah data, make sure the path doesn&#39;t exist.
-      path:&quot;hdfs://192.168.8.177:9000/edge/follow&quot;
+      # the path to save the NebulaGrpah data, make sure the path doesn't exist.
+      path:"hdfs://192.168.8.177:9000/edge/follow"
       # if no need to export any properties when export NebulaGraph edge data
       # if noField is configured true, just export src,dst,rank
       noField:false
@@ -6231,42 +6228,40 @@
       return.fields:[]
       # nebula space partition number
       partition:10
-    }
-
-...
-
-  ]
+    }</p>
+<p>...</p>
+<p>]
 }
-</code></pre></div>
+```</p>
 </li>
 <li>
 <p>使用如下命令导出 Nebula Graph 中的数据。</p>
-<div class="highlight"><pre><span></span><code>&lt;spark_install_path&gt;/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span>nebula-exchange-x.y.z.jar_path&gt;<span class="w"> </span>-c<span class="w"> </span>&lt;export_application.conf_path&gt;
-</code></pre></div>
+<p><code>bash
+&lt;spark_install_path&gt;/bin/spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange nebula-exchange-x.y.z.jar_path&gt; -c &lt;export_application.conf_path&gt;</code></p>
 <p>本示例使用的导出命令如下。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>~/exchange-ent/nebula-exchange-ent-3.0.0.jar<span class="w"> </span>-c<span class="w"> </span>~/exchange-ent/export_application.conf
-</code></pre></div>
+<p><code>bash
+$ ./spark-submit --master "local" --class com.vesoft.nebula.exchange.Exchange \
+  ~/exchange-ent/nebula-exchange-ent-3.0.0.jar -c ~/exchange-ent/export_application.conf</code></p>
 </li>
 <li>
 <p>检查导出的数据。</p>
 <ol>
 <li>
 <p>查看目标路径下是否成功生成了 CSV 文件。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>hadoop<span class="w"> </span>fs<span class="w"> </span>-ls<span class="w"> </span>/vertex/player
-Found<span class="w"> </span><span class="m">11</span><span class="w"> </span>items
--rw-r--r--<span class="w">   </span><span class="m">3</span><span class="w"> </span>nebula<span class="w"> </span>supergroup<span class="w">          </span><span class="m">0</span><span class="w"> </span><span class="m">2021</span>-11-05<span class="w"> </span><span class="m">07</span>:36<span class="w"> </span>/vertex/player/_SUCCESS
--rw-r--r--<span class="w">   </span><span class="m">3</span><span class="w"> </span>nebula<span class="w"> </span>supergroup<span class="w">        </span><span class="m">160</span><span class="w"> </span><span class="m">2021</span>-11-05<span class="w"> </span><span class="m">07</span>:36<span class="w"> </span>/vertex/player/<span class="w">    </span>part-00000-17293020-ba2e-4243-b834-34495c0536b3-c000.csv
--rw-r--r--<span class="w">   </span><span class="m">3</span><span class="w"> </span>nebula<span class="w"> </span>supergroup<span class="w">        </span><span class="m">163</span><span class="w"> </span><span class="m">2021</span>-11-05<span class="w"> </span><span class="m">07</span>:36<span class="w"> </span>/vertex/player/<span class="w">    </span>part-00001-17293020-ba2e-4243-b834-34495c0536b3-c000.csv
--rw-r--r--<span class="w">   </span><span class="m">3</span><span class="w"> </span>nebula<span class="w"> </span>supergroup<span class="w">        </span><span class="m">172</span><span class="w"> </span><span class="m">2021</span>-11-05<span class="w"> </span><span class="m">07</span>:36<span class="w"> </span>/vertex/player/<span class="w">    </span>part-00002-17293020-ba2e-4243-b834-34495c0536b3-c000.csv
--rw-r--r--<span class="w">   </span><span class="m">3</span><span class="w"> </span>nebula<span class="w"> </span>supergroup<span class="w">        </span><span class="m">172</span><span class="w"> </span><span class="m">2021</span>-11-05<span class="w"> </span><span class="m">07</span>:36<span class="w"> </span>/vertex/player/<span class="w">    </span>part-00003-17293020-ba2e-4243-b834-34495c0536b3-c000.csv
--rw-r--r--<span class="w">   </span><span class="m">3</span><span class="w"> </span>nebula<span class="w"> </span>supergroup<span class="w">        </span><span class="m">144</span><span class="w"> </span><span class="m">2021</span>-11-05<span class="w"> </span><span class="m">07</span>:36<span class="w"> </span>/vertex/player/<span class="w">    </span>part-00004-17293020-ba2e-4243-b834-34495c0536b3-c000.csv
--rw-r--r--<span class="w">   </span><span class="m">3</span><span class="w"> </span>nebula<span class="w"> </span>supergroup<span class="w">        </span><span class="m">173</span><span class="w"> </span><span class="m">2021</span>-11-05<span class="w"> </span><span class="m">07</span>:36<span class="w"> </span>/vertex/player/<span class="w">    </span>part-00005-17293020-ba2e-4243-b834-34495c0536b3-c000.csv
--rw-r--r--<span class="w">   </span><span class="m">3</span><span class="w"> </span>nebula<span class="w"> </span>supergroup<span class="w">        </span><span class="m">160</span><span class="w"> </span><span class="m">2021</span>-11-05<span class="w"> </span><span class="m">07</span>:36<span class="w"> </span>/vertex/player/<span class="w">    </span>part-00006-17293020-ba2e-4243-b834-34495c0536b3-c000.csv
--rw-r--r--<span class="w">   </span><span class="m">3</span><span class="w"> </span>nebula<span class="w"> </span>supergroup<span class="w">        </span><span class="m">148</span><span class="w"> </span><span class="m">2021</span>-11-05<span class="w"> </span><span class="m">07</span>:36<span class="w"> </span>/vertex/player/<span class="w">    </span>part-00007-17293020-ba2e-4243-b834-34495c0536b3-c000.csv
--rw-r--r--<span class="w">   </span><span class="m">3</span><span class="w"> </span>nebula<span class="w"> </span>supergroup<span class="w">        </span><span class="m">125</span><span class="w"> </span><span class="m">2021</span>-11-05<span class="w"> </span><span class="m">07</span>:36<span class="w"> </span>/vertex/player/<span class="w">    </span>part-00008-17293020-ba2e-4243-b834-34495c0536b3-c000.csv
--rw-r--r--<span class="w">   </span><span class="m">3</span><span class="w"> </span>nebula<span class="w"> </span>supergroup<span class="w">        </span><span class="m">119</span><span class="w"> </span><span class="m">2021</span>-11-05<span class="w"> </span><span class="m">07</span>:36<span class="w"> </span>/vertex/player/<span class="w">    </span>part-00009-17293020-ba2e-4243-b834-34495c0536b3-c000.csv
-</code></pre></div>
+<p><code>bash
+$ hadoop fs -ls /vertex/player
+Found 11 items
+-rw-r--r--   3 nebula supergroup          0 2021-11-05 07:36 /vertex/player/_SUCCESS
+-rw-r--r--   3 nebula supergroup        160 2021-11-05 07:36 /vertex/player/    part-00000-17293020-ba2e-4243-b834-34495c0536b3-c000.csv
+-rw-r--r--   3 nebula supergroup        163 2021-11-05 07:36 /vertex/player/    part-00001-17293020-ba2e-4243-b834-34495c0536b3-c000.csv
+-rw-r--r--   3 nebula supergroup        172 2021-11-05 07:36 /vertex/player/    part-00002-17293020-ba2e-4243-b834-34495c0536b3-c000.csv
+-rw-r--r--   3 nebula supergroup        172 2021-11-05 07:36 /vertex/player/    part-00003-17293020-ba2e-4243-b834-34495c0536b3-c000.csv
+-rw-r--r--   3 nebula supergroup        144 2021-11-05 07:36 /vertex/player/    part-00004-17293020-ba2e-4243-b834-34495c0536b3-c000.csv
+-rw-r--r--   3 nebula supergroup        173 2021-11-05 07:36 /vertex/player/    part-00005-17293020-ba2e-4243-b834-34495c0536b3-c000.csv
+-rw-r--r--   3 nebula supergroup        160 2021-11-05 07:36 /vertex/player/    part-00006-17293020-ba2e-4243-b834-34495c0536b3-c000.csv
+-rw-r--r--   3 nebula supergroup        148 2021-11-05 07:36 /vertex/player/    part-00007-17293020-ba2e-4243-b834-34495c0536b3-c000.csv
+-rw-r--r--   3 nebula supergroup        125 2021-11-05 07:36 /vertex/player/    part-00008-17293020-ba2e-4243-b834-34495c0536b3-c000.csv
+-rw-r--r--   3 nebula supergroup        119 2021-11-05 07:36 /vertex/player/    part-00009-17293020-ba2e-4243-b834-34495c0536b3-c000.csv</code></p>
 </li>
 <li>
 <p>检查 CSV 文件内容，确定数据导出成功。</p>
@@ -6280,7 +6275,7 @@ Found<span class="w"> </span><span class="m">11</span><span class="w"> </span>it
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6394,8 +6389,6 @@ Found<span class="w"> </span><span class="m">11</span><span class="w"> </span>it
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

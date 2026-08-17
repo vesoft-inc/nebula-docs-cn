@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/4.deployment-and-installation/1.resource-preparations/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6405,52 +6405,52 @@
 <ul>
 <li>
 <p>CentOS、RedHat、Fedora 用户请执行如下命令：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>yum<span class="w"> </span>update
-$<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>make<span class="w"> </span><span class="se">\</span>
-<span class="w">                 </span>m4<span class="w"> </span><span class="se">\</span>
-<span class="w">                 </span>git<span class="w"> </span><span class="se">\</span>
-<span class="w">                 </span>wget<span class="w"> </span><span class="se">\</span>
-<span class="w">                 </span>unzip<span class="w"> </span><span class="se">\</span>
-<span class="w">                 </span>xz<span class="w"> </span><span class="se">\</span>
-<span class="w">                 </span>readline-devel<span class="w"> </span><span class="se">\</span>
-<span class="w">                 </span>ncurses-devel<span class="w"> </span><span class="se">\</span>
-<span class="w">                 </span>zlib-devel<span class="w"> </span><span class="se">\</span>
-<span class="w">                 </span>gcc<span class="w"> </span><span class="se">\</span>
-<span class="w">                 </span>gcc-c++<span class="w"> </span><span class="se">\</span>
-<span class="w">                 </span>cmake<span class="w"> </span><span class="se">\</span>
-<span class="w">                 </span>curl<span class="w"> </span><span class="se">\</span>
-<span class="w">                 </span>redhat-lsb-core<span class="w"> </span><span class="se">\</span>
-<span class="w">                 </span>bzip2
-//<span class="w"> </span>仅<span class="w"> </span>CentOS<span class="w"> </span><span class="m">8</span>+、RedHat<span class="w"> </span><span class="m">8</span>+、Fedora<span class="w"> </span>需要安装<span class="w"> </span>libstdc++-static<span class="w"> </span>和<span class="w"> </span>libasan。
-$<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>libstdc++-static<span class="w"> </span>libasan
-</code></pre></div>
+<p><code>bash
+$ yum update
+$ yum install -y make \
+                 m4 \
+                 git \
+                 wget \
+                 unzip \
+                 xz \
+                 readline-devel \
+                 ncurses-devel \
+                 zlib-devel \
+                 gcc \
+                 gcc-c++ \
+                 cmake \
+                 curl \
+                 redhat-lsb-core \
+                 bzip2
+// 仅 CentOS 8+、RedHat 8+、Fedora 需要安装 libstdc++-static 和 libasan。
+$ yum install -y libstdc++-static libasan</code></p>
 </li>
 </ul>
 <ul>
 <li>
 <p>Debian 和 Ubuntu 用户请执行如下命令：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>apt-get<span class="w"> </span>update
-$<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>make<span class="w"> </span><span class="se">\</span>
-<span class="w">                     </span>m4<span class="w"> </span><span class="se">\</span>
-<span class="w">                     </span>git<span class="w"> </span><span class="se">\</span>
-<span class="w">                     </span>wget<span class="w"> </span><span class="se">\</span>
-<span class="w">                     </span>unzip<span class="w"> </span><span class="se">\</span>
-<span class="w">                     </span>xz-utils<span class="w"> </span><span class="se">\</span>
-<span class="w">                     </span>curl<span class="w"> </span><span class="se">\</span>
-<span class="w">                     </span>lsb-core<span class="w"> </span><span class="se">\</span>
-<span class="w">                     </span>build-essential<span class="w"> </span><span class="se">\</span>
-<span class="w">                     </span>libreadline-dev<span class="w"> </span><span class="se">\</span>
-<span class="w">                     </span>ncurses-dev<span class="w"> </span><span class="se">\</span>
-<span class="w">                     </span>cmake
-</code></pre></div>
+<p><code>bash
+$ apt-get update
+$ apt-get install -y make \
+                     m4 \
+                     git \
+                     wget \
+                     unzip \
+                     xz-utils \
+                     curl \
+                     lsb-core \
+                     build-essential \
+                     libreadline-dev \
+                     ncurses-dev \
+                     cmake</code></p>
 </li>
 </ul>
 </li>
 <li>
 <p>检查主机上的 G++ 和 CMake 版本是否正确。版本信息请参见<a href="#_4">软件要求</a>。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>g++<span class="w"> </span>--version
-$<span class="w"> </span>cmake<span class="w"> </span>--version
-</code></pre></div>
+<p><code>bash
+$ g++ --version
+$ cmake --version</code></p>
 <p>如果版本正确，则软件依赖已准备完毕，忽略后续步骤；如果不正确，根据不符合版本要求的软件执行后续步骤。</p>
 </li>
 <li>
@@ -6461,18 +6461,16 @@ $<span class="w"> </span>cmake<span class="w"> </span>--version
 <ul>
 <li>
 <p>CentOS 系统的用户依次执行以下命令：</p>
-<div class="highlight"><pre><span></span><code>yum install centos-release-scl
+<p><code>yum install centos-release-scl
 yum install devtoolset-11
-scl enable devtoolset-11 &#39;bash&#39;
-</code></pre></div>
+scl enable devtoolset-11 'bash'</code></p>
 </li>
 </ul>
 <ul>
 <li>
 <p>Ubuntu 系统的用户依次执行以下命令：</p>
-<div class="highlight"><pre><span></span><code>add-apt-repository ppa:ubuntu-toolchain-r/test
-apt install gcc-11 g++-11
-</code></pre></div>
+<p><code>add-apt-repository ppa:ubuntu-toolchain-r/test
+apt install gcc-11 g++-11</code></p>
 </li>
 </ul>
 </li>
@@ -6743,7 +6741,7 @@ apt install gcc-11 g++-11
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6857,8 +6855,6 @@ apt install gcc-11 g++-11
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.2/3.ngql-guide/9.space-statements/1.create-space/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -2025,13 +2025,6 @@
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     示例
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    检查分片分布情况
   </a>
   
 </li>
@@ -6051,13 +6044,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    检查分片分布情况
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -6084,13 +6070,13 @@
 <p>只有 God 角色的用户可以执行<code>CREATE SPACE</code>语句。详情请参见<a href="../../../7.data-security/1.authentication/1.authentication/">身份验证</a>。</p>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="_3">创建图空间<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>CREATE SPACE [IF NOT EXISTS] &lt;graph_space_name&gt; (
+<p><code>ngql
+CREATE SPACE [IF NOT EXISTS] &lt;graph_space_name&gt; (
     [partition_num = &lt;partition_number&gt;,]
     [replica_factor = &lt;replica_number&gt;,]
     vid_type = {FIXED_STRING(&lt;N&gt;) | INT[64]}
     )
-    [COMMENT = &#39;&lt;comment&gt;&#39;];
-</code></pre></div>
+    [COMMENT = '&lt;comment&gt;'];</code></p>
 <table>
 <thead>
 <tr>
@@ -6154,8 +6140,8 @@
 <p><code>graph_space_name</code>, <code>partition_num</code>, <code>replica_factor</code>, <code>vid_type</code>, <code>comment</code> 设置后就无法改变。除非 <a href="../5.drop-space/"><code>DROP SPACE</code></a>，并重新<code>CREATE SPACE</code>。</p>
 </div>
 <h3 id="_4">克隆图空间<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>CREATE SPACE &lt;new_graph_space_name&gt; AS &lt;old_graph_space_name&gt;;
-</code></pre></div>
+<p><code>ngql
+CREATE SPACE &lt;new_graph_space_name&gt; AS &lt;old_graph_space_name&gt;;</code></p>
 <table>
 <thead>
 <tr>
@@ -6175,57 +6161,55 @@
 </tbody>
 </table>
 <h2 id="_5">示例<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code># 仅指定 VID 类型，其他选项使用默认值。
-nebula&gt; CREATE SPACE IF NOT EXISTS my_space_1 (vid_type=FIXED_STRING(30));
-
-# 指定分片数量、副本数量和 VID 类型。
-nebula&gt; CREATE SPACE IF NOT EXISTS my_space_2 (partition_num=15, replica_factor=1, vid_type=FIXED_STRING(30));
-
-# 指定分片数量、副本数量和 VID 类型，并添加描述。
-nebula&gt; CREATE SPACE IF NOT EXISTS my_space_3 (partition_num=15, replica_factor=1, vid_type=FIXED_STRING(30)) comment=&quot;测试图空间&quot;;
-
-# 克隆图空间。
-nebula&gt; CREATE SPACE IF NOT EXISTS my_space_4 as my_space_3;
+<p>```ngql</p>
+<h1 id="vid">仅指定 VID 类型，其他选项使用默认值。<a class="headerlink" href="#vid" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; CREATE SPACE IF NOT EXISTS my_space_1 (vid_type=FIXED_STRING(30));</p>
+<h1 id="vid_1">指定分片数量、副本数量和 VID 类型。<a class="headerlink" href="#vid_1" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; CREATE SPACE IF NOT EXISTS my_space_2 (partition_num=15, replica_factor=1, vid_type=FIXED_STRING(30));</p>
+<h1 id="vid_2">指定分片数量、副本数量和 VID 类型，并添加描述。<a class="headerlink" href="#vid_2" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; CREATE SPACE IF NOT EXISTS my_space_3 (partition_num=15, replica_factor=1, vid_type=FIXED_STRING(30)) comment="测试图空间";</p>
+<h1 id="_6">克隆图空间。<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h1>
+<p>nebula&gt; CREATE SPACE IF NOT EXISTS my_space_4 as my_space_3;
 nebula&gt; SHOW CREATE SPACE my_space_4;
 +--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Space        | Create Space                                                                                                                                                            |
 +--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| &quot;my_space_4&quot; | &quot;CREATE SPACE `my_space_4` (partition_num = 15, replica_factor = 1, charset = utf8, collate = utf8_bin, vid_type = FIXED_STRING(30)) ON default comment = &#39;测试图空间&#39;&quot;  |
+| "my_space_4" | "CREATE SPACE <code>my_space_4</code> (partition_num = 15, replica_factor = 1, charset = utf8, collate = utf8_bin, vid_type = FIXED_STRING(30)) ON default comment = '测试图空间'"  |
 +--------------+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-</code></pre></div>
+```</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p>立刻尝试使用刚创建的图空间可能会失败。因为创建是异步实现的。为确保数据同步，后续操作能顺利进行，请等待 2 个心跳周期（20 秒）。如果需要修改心跳间隔，请为<a href="../../../5.configurations-and-logs/1.configurations/1.configurations/">所有配置文件</a>修改参数<code>heartbeat_interval_secs</code>。但过短的心跳周期（&lt;5 秒）可能会导致分布式系统中的机器误判对端失联。</p>
 </div>
-<h2 id="_6">检查分片分布情况<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h2 id="_7">检查分片分布情况<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>在大型集群中，由于启动时间不同，分片的分布可能不均衡。用户可以执行如下命令检查分片的分布情况：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; SHOW HOSTS;
-+-------------+------+----------+--------------+--------------------------------+--------------------------------+---------+
-| Host        | Port | Status   | Leader count | Leader distribution            | Partition distribution         | Version |
-+-------------+------+----------+--------------+--------------------------------+--------------------------------+---------+
-| &quot;storaged0&quot; | 9779 | &quot;ONLINE&quot; | 8            | &quot;basketballplayer:3, test:5&quot;   | &quot;basketballplayer:10, test:10&quot; | &quot;3.0.1&quot; |
-| &quot;storaged1&quot; | 9779 | &quot;ONLINE&quot; | 9            | &quot;basketballplayer:4, test:5&quot;   | &quot;basketballplayer:10, test:10&quot; | &quot;3.0.1&quot; |
-| &quot;storaged2&quot; | 9779 | &quot;ONLINE&quot; | 3            | &quot;basketballplayer:3&quot;           | &quot;basketballplayer:10, test:10&quot; | &quot;3.0.1&quot; |
-+-------------+------+----------+--------------+--------------------------------+--------------------------------+---------+
-</code></pre></div>
-<p>如果需要均衡负载，请执行如下命令：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; BALANCE LEADER;
+<p><code>ngql
 nebula&gt; SHOW HOSTS;
 +-------------+------+----------+--------------+--------------------------------+--------------------------------+---------+
 | Host        | Port | Status   | Leader count | Leader distribution            | Partition distribution         | Version |
 +-------------+------+----------+--------------+--------------------------------+--------------------------------+---------+
-| &quot;storaged0&quot; | 9779 | &quot;ONLINE&quot; | 7            | &quot;basketballplayer:3, test:4&quot;   | &quot;basketballplayer:10, test:10&quot; | &quot;3.0.1&quot; |
-| &quot;storaged1&quot; | 9779 | &quot;ONLINE&quot; | 7            | &quot;basketballplayer:4, test:3&quot;   | &quot;basketballplayer:10, test:10&quot; | &quot;3.0.1&quot; |
-| &quot;storaged2&quot; | 9779 | &quot;ONLINE&quot; | 6            | &quot;basketballplayer:3, test:3&quot;   | &quot;basketballplayer:10, test:10&quot; | &quot;3.0.1&quot; |
+| "storaged0" | 9779 | "ONLINE" | 8            | "basketballplayer:3, test:5"   | "basketballplayer:10, test:10" | "3.0.1" |
+| "storaged1" | 9779 | "ONLINE" | 9            | "basketballplayer:4, test:5"   | "basketballplayer:10, test:10" | "3.0.1" |
+| "storaged2" | 9779 | "ONLINE" | 3            | "basketballplayer:3"           | "basketballplayer:10, test:10" | "3.0.1" |
++-------------+------+----------+--------------+--------------------------------+--------------------------------+---------+</code></p>
+<p>如果需要均衡负载，请执行如下命令：</p>
+<p><code>ngql
+nebula&gt; BALANCE LEADER;
+nebula&gt; SHOW HOSTS;
 +-------------+------+----------+--------------+--------------------------------+--------------------------------+---------+
-</code></pre></div>
+| Host        | Port | Status   | Leader count | Leader distribution            | Partition distribution         | Version |
++-------------+------+----------+--------------+--------------------------------+--------------------------------+---------+
+| "storaged0" | 9779 | "ONLINE" | 7            | "basketballplayer:3, test:4"   | "basketballplayer:10, test:10" | "3.0.1" |
+| "storaged1" | 9779 | "ONLINE" | 7            | "basketballplayer:4, test:3"   | "basketballplayer:10, test:10" | "3.0.1" |
+| "storaged2" | 9779 | "ONLINE" | 6            | "basketballplayer:3, test:3"   | "basketballplayer:10, test:10" | "3.0.1" |
++-------------+------+----------+--------------+--------------------------------+--------------------------------+---------+</code></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -6339,8 +6323,6 @@ nebula&gt; SHOW HOSTS;
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
