@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.2.0/3.ngql-guide/3.data-types/10.geography/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6814,25 +6814,25 @@ nebula&gt; CREATE TAG IF NOT EXISTS only_polygon(geo geography(polygon));
 nebula&gt; CREATE EDGE IF NOT EXISTS any_shape_edge(geo geography);
 
 //创建存储多边形地理位置的点。
-nebula&gt; INSERT VERTEX any_shape(geo) VALUES &quot;103&quot;:(ST_GeogFromText(&quot;POLYGON((0 1, 1 2, 2 3, 0 1))&quot;));
+nebula&gt; INSERT VERTEX any_shape(geo) VALUES "103":(ST_GeogFromText("POLYGON((0 1, 1 2, 2 3, 0 1))"));
 
 //创建存储多边形地理位置的边。
-nebula&gt; INSERT EDGE any_shape_edge(geo) VALUES &quot;201&quot;-&gt;&quot;302&quot;:(ST_GeogFromText(&quot;POLYGON((0 1, 1 2, 2 3, 0 1))&quot;));
+nebula&gt; INSERT EDGE any_shape_edge(geo) VALUES "201"-&gt;"302":(ST_GeogFromText("POLYGON((0 1, 1 2, 2 3, 0 1))"));
 
 //查询点 103 的属性 geo。
-nebula&gt; FETCH PROP ON any_shape &quot;103&quot; YIELD ST_ASText(any_shape.geo);
+nebula&gt; FETCH PROP ON any_shape "103" YIELD ST_ASText(any_shape.geo);
 +---------------------------------+
 | ST_ASText(any_shape.geo)        |
 +---------------------------------+
-| &quot;POLYGON((0 1, 1 2, 2 3, 0 1))&quot; |
+| "POLYGON((0 1, 1 2, 2 3, 0 1))" |
 +---------------------------------+
 
 //查询边 201-&gt;302 的属性 geo。
-nebula&gt; FETCH PROP ON any_shape_edge &quot;201&quot;-&gt;&quot;302&quot; YIELD ST_ASText(any_shape_edge.geo);
+nebula&gt; FETCH PROP ON any_shape_edge "201"-&gt;"302" YIELD ST_ASText(any_shape_edge.geo);
 +---------------------------------+
 | ST_ASText(any_shape_edge.geo)   |
 +---------------------------------+
-| &quot;POLYGON((0 1, 1 2, 2 3, 0 1))&quot; |
+| "POLYGON((0 1, 1 2, 2 3, 0 1))" |
 +---------------------------------+
 
 //为 geo 属性创建索引并使用 LOOKUP 查询。
@@ -6842,7 +6842,7 @@ nebula&gt; LOOKUP ON any_shape YIELD ST_ASText(any_shape.geo);
 +---------------------------------+
 | ST_ASText(any_shape.geo)        |
 +---------------------------------+
-| &quot;POLYGON((0 1, 1 2, 2 3, 0 1))&quot; |
+| "POLYGON((0 1, 1 2, 2 3, 0 1))" |
 +---------------------------------+
 </code></pre></div>
 <p>为 geo 属性创建索引时，还可以指定 geo 索引的参数。说明如下。</p>
@@ -6881,7 +6881,7 @@ nebula&gt; LOOKUP ON any_shape YIELD ST_ASText(any_shape.geo);
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 3, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -6997,8 +6997,6 @@ nebula&gt; LOOKUP ON any_shape YIELD ST_ASText(any_shape.geo);
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

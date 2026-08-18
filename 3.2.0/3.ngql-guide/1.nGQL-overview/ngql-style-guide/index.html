@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.2.0/3.ngql-guide/1.nGQL-overview/ngql-style-guide/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6810,10 +6810,10 @@
 <li>
 <p>换行写子句。</p>
 <p>不推荐：</p>
-<div class="highlight"><pre><span></span><code>GO FROM &quot;player100&quot; OVER follow REVERSELY YIELD src(edge) AS id;
+<div class="highlight"><pre><span></span><code>GO FROM "player100" OVER follow REVERSELY YIELD src(edge) AS id;
 </code></pre></div>
 <p>推荐：</p>
-<div class="highlight"><pre><span></span><code>GO FROM &quot;player100&quot; \
+<div class="highlight"><pre><span></span><code>GO FROM "player100" \
 OVER follow REVERSELY \
 YIELD src(edge) AS id;
 </code></pre></div>
@@ -6821,11 +6821,11 @@ YIELD src(edge) AS id;
 <li>
 <p>换行写复合语句中的不同语句。</p>
 <p>不推荐：</p>
-<div class="highlight"><pre><span></span><code>GO FROM &quot;player100&quot; OVER follow REVERSELY YIELD src(edge) AS id | GO FROM $-.id \
+<div class="highlight"><pre><span></span><code>GO FROM "player100" OVER follow REVERSELY YIELD src(edge) AS id | GO FROM $-.id \
 OVER serve WHERE properties($^).age &gt; 20 YIELD properties($^).name AS FriendOf, properties($$).name AS Team;
 </code></pre></div>
 <p>推荐：</p>
-<div class="highlight"><pre><span></span><code>GO FROM &quot;player100&quot; \
+<div class="highlight"><pre><span></span><code>GO FROM "player100" \
 OVER follow REVERSELY \
 YIELD src(edge) AS id | \
 GO FROM $-.id OVER serve \
@@ -6836,14 +6836,14 @@ YIELD properties($^).name AS FriendOf, properties($$).name AS Team;
 <li>
 <p>子句长度超过 80 个字符时，在合适的位置换行。</p>
 <p>不推荐：</p>
-<div class="highlight"><pre><span></span><code>MATCH (v:player{name:&quot;Tim Duncan&quot;})-[e]-&gt;(v2) \
-WHERE (v2.player.name STARTS WITH &quot;Y&quot; AND v2.player.age &gt; 35 AND v2.player.age &lt; v.player.age) OR (v2.player.name STARTS WITH &quot;T&quot; AND v2.player.age &lt; 45 AND v2.player.age &gt; v.player.age) \
+<div class="highlight"><pre><span></span><code>MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;(v2) \
+WHERE (v2.player.name STARTS WITH "Y" AND v2.player.age &gt; 35 AND v2.player.age &lt; v.player.age) OR (v2.player.name STARTS WITH "T" AND v2.player.age &lt; 45 AND v2.player.age &gt; v.player.age) \
 RETURN v2;
 </code></pre></div>
 <p>推荐：</p>
-<div class="highlight"><pre><span></span><code>MATCH (v:player{name:&quot;Tim Duncan&quot;})-[e]-&gt;(v2) \
-WHERE (v2.player.name STARTS WITH &quot;Y&quot; AND v2.player.age &gt; 35 AND v2.player.age &lt; v.player.age) \
-OR (v2.player.name STARTS WITH &quot;T&quot; AND v2.player.age &lt; 45 AND v2.player.age &gt; v.player.age) \
+<div class="highlight"><pre><span></span><code>MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;(v2) \
+WHERE (v2.player.name STARTS WITH "Y" AND v2.player.age &gt; 35 AND v2.player.age &lt; v.player.age) \
+OR (v2.player.name STARTS WITH "T" AND v2.player.age &lt; 45 AND v2.player.age &gt; v.player.age) \
 RETURN v2;
 </code></pre></div>
 </li>
@@ -6892,12 +6892,12 @@ RETURN v;
 <li>
 <p>分行写 Pattern 时，在表示边的箭头右侧换行，而不是左侧。</p>
 <p>不推荐：</p>
-<div class="highlight"><pre><span></span><code>MATCH (v:player{name: &quot;Tim Duncan&quot;, age: 42}) \
+<div class="highlight"><pre><span></span><code>MATCH (v:player{name: "Tim Duncan", age: 42}) \
 -[e:follow]-&gt;()-[e2:serve]-&gt;()&lt;--(v2) \
 RETURN v, e, v2;
 </code></pre></div>
 <p>推荐：</p>
-<div class="highlight"><pre><span></span><code>MATCH (v:player{name: &quot;Tim Duncan&quot;, age: 42})-[e:follow]-&gt; \
+<div class="highlight"><pre><span></span><code>MATCH (v:player{name: "Tim Duncan", age: 42})-[e:follow]-&gt; \
 ()-[e2:serve]-&gt;()&lt;--(v2) \
 RETURN v, e, v2;
 </code></pre></div>
@@ -6928,15 +6928,15 @@ RETURN v;
 <h2 id="_3">字符串<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>字符串用双引号包围。</p>
 <p>不推荐：</p>
-<div class="highlight"><pre><span></span><code>RETURN &#39;Hello Nebula!&#39;;
+<div class="highlight"><pre><span></span><code>RETURN 'Hello Nebula!';
 </code></pre></div>
 <p>推荐：</p>
-<div class="highlight"><pre><span></span><code>RETURN &quot;Hello Nebula!\&quot;123\&quot;&quot;;
+<div class="highlight"><pre><span></span><code>RETURN "Hello Nebula!\"123\"";
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>字符串中需要嵌套单引号或双引号时，用反斜线（\）转义。例如：</p>
-<div class="highlight"><pre><span></span><code>RETURN &quot;\&quot;NebulaGraph is amazing,\&quot; the user says.&quot;;
+<div class="highlight"><pre><span></span><code>RETURN "\"NebulaGraph is amazing,\" the user says.";
 </code></pre></div>
 </div>
 <!--## 空格 TODO-->
@@ -6946,16 +6946,16 @@ RETURN v;
 <li>
 <p>用英文分号（;）结束 nGQL 语句。</p>
 <p>不推荐：</p>
-<div class="highlight"><pre><span></span><code>FETCH PROP ON player &quot;player100&quot; YIELD properties(vertex);
+<div class="highlight"><pre><span></span><code>FETCH PROP ON player "player100" YIELD properties(vertex);
 </code></pre></div>
 <p>推荐：</p>
-<div class="highlight"><pre><span></span><code>FETCH PROP ON player &quot;player100&quot; YIELD properties(vertex);
+<div class="highlight"><pre><span></span><code>FETCH PROP ON player "player100" YIELD properties(vertex);
 </code></pre></div>
 </li>
 <li>
 <p>使用管道符（|）分隔的复合语句，仅在最后一行末用英文分号结尾。在管道符前使用英文分号会导致语句执行失败。</p>
 <p>不支持：</p>
-<div class="highlight"><pre><span></span><code>GO FROM &quot;player100&quot; \
+<div class="highlight"><pre><span></span><code>GO FROM "player100" \
 OVER follow \
 YIELD dst(edge) AS id; | \
 GO FROM $-.id \
@@ -6963,7 +6963,7 @@ OVER serve \
 YIELD properties($$).name AS Team, properties($^).name AS Player;
 </code></pre></div>
 <p>支持：</p>
-<div class="highlight"><pre><span></span><code>GO FROM &quot;player100&quot; \
+<div class="highlight"><pre><span></span><code>GO FROM "player100" \
 OVER follow \
 YIELD dst(edge) AS id | \
 GO FROM $-.id \
@@ -6974,7 +6974,7 @@ YIELD properties($$).name AS Team, properties($^).name AS Player;
 <li>
 <p>在包含自定义变量的复合语句中，用英文分号结束定义变量的语句。不按规则加分号或使用管道符结束该语句会导致执行失败。</p>
 <p>不支持：</p>
-<div class="highlight"><pre><span></span><code>$var = GO FROM &quot;player100&quot; \
+<div class="highlight"><pre><span></span><code>$var = GO FROM "player100" \
 OVER follow \
 YIELD dst(edge) AS id \
 GO FROM $var.id \
@@ -6982,7 +6982,7 @@ OVER serve \
 YIELD properties($$).name AS Team, properties($^).name AS Player;
 </code></pre></div>
 <p>也不支持：</p>
-<div class="highlight"><pre><span></span><code>$var = GO FROM &quot;player100&quot; \
+<div class="highlight"><pre><span></span><code>$var = GO FROM "player100" \
 OVER follow \
 YIELD dst(edge) AS id | \
 GO FROM $var.id \
@@ -6990,7 +6990,7 @@ OVER serve \
 YIELD properties($$).name AS Team, properties($^).name AS Player;
 </code></pre></div>
 <p>支持：</p>
-<div class="highlight"><pre><span></span><code>$var = GO FROM &quot;player100&quot; \
+<div class="highlight"><pre><span></span><code>$var = GO FROM "player100" \
 OVER follow \
 YIELD dst(edge) AS id; \
 GO FROM $var.id \
@@ -7005,7 +7005,7 @@ YIELD properties($$).name AS Team, properties($^).name AS Player;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 3, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -7121,8 +7121,6 @@ YIELD properties($$).name AS Team, properties($^).name AS Player;
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

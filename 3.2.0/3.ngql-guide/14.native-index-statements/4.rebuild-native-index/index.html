@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.2.0/3.ngql-guide/14.native-index-statements/4.rebuild-native-index/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6799,7 +6799,7 @@ nebula&gt; SHOW TAG INDEX STATUS;
 +-----------------------+--------------+
 | Name                  | Index Status |
 +-----------------------+--------------+
-| &quot;single_person_index&quot; | &quot;FINISHED&quot;   |
+| "single_person_index" | "FINISHED"   |
 +-----------------------+--------------+
 
 # 也可以使用 SHOW JOB &lt;job_id&gt;查看重建索引的任务状态。
@@ -6807,10 +6807,10 @@ nebula&gt; SHOW JOB 31;
 +----------------+---------------------+------------+-------------------------+-------------------------+-------------+
 | Job Id(TaskId) | Command(Dest)       | Status     | Start Time              | Stop Time               | Error Code  |
 +----------------+---------------------+------------+-------------------------+-------------------------+-------------+
-| 31             | &quot;REBUILD_TAG_INDEX&quot; | &quot;FINISHED&quot; | 2021-07-07T09:04:24.000 | 2021-07-07T09:04:24.000 | &quot;SUCCEEDED&quot; |
-| 0              | &quot;storaged1&quot;         | &quot;FINISHED&quot; | 2021-07-07T09:04:24.000 | 2021-07-07T09:04:28.000 | &quot;SUCCEEDED&quot; |
-| 1              | &quot;storaged2&quot;         | &quot;FINISHED&quot; | 2021-07-07T09:04:24.000 | 2021-07-07T09:04:28.000 | &quot;SUCCEEDED&quot; |
-| 2              | &quot;storaged0&quot;         | &quot;FINISHED&quot; | 2021-07-07T09:04:24.000 | 2021-07-07T09:04:28.000 | &quot;SUCCEEDED&quot; |
+| 31             | "REBUILD_TAG_INDEX" | "FINISHED" | 2021-07-07T09:04:24.000 | 2021-07-07T09:04:24.000 | "SUCCEEDED" |
+| 0              | "storaged1"         | "FINISHED" | 2021-07-07T09:04:24.000 | 2021-07-07T09:04:28.000 | "SUCCEEDED" |
+| 1              | "storaged2"         | "FINISHED" | 2021-07-07T09:04:24.000 | 2021-07-07T09:04:28.000 | "SUCCEEDED" |
+| 2              | "storaged0"         | "FINISHED" | 2021-07-07T09:04:24.000 | 2021-07-07T09:04:28.000 | "SUCCEEDED" |
 +----------------+---------------------+------------+-------------------------+-------------------------+-------------+
 </code></pre></div>
 <p>NebulaGraph 创建一个任务去重建索引，因此可以根据返回的任务 ID，通过<code>SHOW JOB &lt;job_id&gt;</code>语句查看任务状态。详情请参见 <a href="../../4.job-statements/#show_job">SHOW JOB</a>。</p>
@@ -6820,7 +6820,7 @@ nebula&gt; SHOW JOB 31;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 3, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -6936,8 +6936,6 @@ nebula&gt; SHOW JOB 31;
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

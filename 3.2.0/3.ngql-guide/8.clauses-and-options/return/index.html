@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.2.0/3.ngql-guide/8.clauses-and-options/return/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -7016,18 +7016,18 @@ RETURN (v)-[e]-&gt;(v2);
 </ul>
 <h2 id="map">Map 顺序说明<a class="headerlink" href="#map" title="Permanent link">&para;</a></h2>
 <p><code>RETURN</code>返回 Map 时，Key 的顺序是未定义的。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; RETURN {age: 32, name: &quot;Marco Belinelli&quot;};
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN {age: 32, name: "Marco Belinelli"};
 +------------------------------------+
-| {age:32,name:&quot;Marco Belinelli&quot;}    |
+| {age:32,name:"Marco Belinelli"}    |
 +------------------------------------+
-| {age: 32, name: &quot;Marco Belinelli&quot;} |
+| {age: 32, name: "Marco Belinelli"} |
 +------------------------------------+
 
-nebula&gt; RETURN {zage: 32, name: &quot;Marco Belinelli&quot;};
+nebula&gt; RETURN {zage: 32, name: "Marco Belinelli"};
 +-------------------------------------+
-| {zage:32,name:&quot;Marco Belinelli&quot;}    |
+| {zage:32,name:"Marco Belinelli"}    |
 +-------------------------------------+
-| {name: &quot;Marco Belinelli&quot;, zage: 32} |
+| {name: "Marco Belinelli", zage: 32} |
 +-------------------------------------+
 </code></pre></div>
 <h2 id="_2">返回点或边<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
@@ -7038,11 +7038,11 @@ nebula&gt; MATCH (v:player) \
 +---------------------------------------------------------------+
 | v                                                             |
 +---------------------------------------------------------------+
-| (&quot;player104&quot; :player{age: 32, name: &quot;Marco Belinelli&quot;})       |
-| (&quot;player107&quot; :player{age: 32, name: &quot;Aron Baynes&quot;})           |
-| (&quot;player116&quot; :player{age: 34, name: &quot;LeBron James&quot;})          |
-| (&quot;player120&quot; :player{age: 29, name: &quot;James Harden&quot;})          |
-| (&quot;player125&quot; :player{age: 41, name: &quot;Manu Ginobili&quot;})         |
+| ("player104" :player{age: 32, name: "Marco Belinelli"})       |
+| ("player107" :player{age: 32, name: "Aron Baynes"})           |
+| ("player116" :player{age: 34, name: "LeBron James"})          |
+| ("player120" :player{age: 29, name: "James Harden"})          |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})         |
 +---------------------------------------------------------------+
 ...
 
@@ -7052,41 +7052,41 @@ nebula&gt; MATCH (v:player)-[e]-&gt;() \
 +------------------------------------------------------------------------------+
 | e                                                                            |
 +------------------------------------------------------------------------------+
-| [:follow &quot;player104&quot;-&gt;&quot;player100&quot; @0 {degree: 55}]                           |
-| [:follow &quot;player104&quot;-&gt;&quot;player101&quot; @0 {degree: 50}]                           |
-| [:follow &quot;player104&quot;-&gt;&quot;player105&quot; @0 {degree: 60}]                           |
-| [:serve &quot;player104&quot;-&gt;&quot;team200&quot; @0 {end_year: 2009, start_year: 2007}]        |
-| [:serve &quot;player104&quot;-&gt;&quot;team208&quot; @0 {end_year: 2016, start_year: 2015}]        |
+| [:follow "player104"-&gt;"player100" @0 {degree: 55}]                           |
+| [:follow "player104"-&gt;"player101" @0 {degree: 50}]                           |
+| [:follow "player104"-&gt;"player105" @0 {degree: 60}]                           |
+| [:serve "player104"-&gt;"team200" @0 {end_year: 2009, start_year: 2007}]        |
+| [:serve "player104"-&gt;"team208" @0 {end_year: 2016, start_year: 2015}]        |
 +------------------------------------------------------------------------------+
 ...
 </code></pre></div>
 <h2 id="id">返回点 ID<a class="headerlink" href="#id" title="Permanent link">&para;</a></h2>
 <p>使用<code>id()</code>函数返回点 ID。
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;}) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"}) \
         RETURN id(v);
 +-------------+
 | id(v)       |
 +-------------+
-| &quot;player100&quot; |
+| "player100" |
 +-------------+
 </code></pre></div></p>
 <h2 id="tag">返回 Tag<a class="headerlink" href="#tag" title="Permanent link">&para;</a></h2>
 <p>使用<code>labels()</code>函数返回点上的 Tag 列表。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;}) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"}) \
         RETURN labels(v);
 +------------+
 | labels(v)  |
 +------------+
-| [&quot;player&quot;] |
+| ["player"] |
 +------------+
 </code></pre></div>
 <p>返回列表<code>labels(v)</code>中的第 N 个元素，可以使用<code>labels(v)[n-1]</code>。例如下面示例使用<code>labels(v)[0]</code>检索第一个元素。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;}) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"}) \
         RETURN labels(v)[0];
 +--------------+
 | labels(v)[0] |
 +--------------+
-| &quot;player&quot;     |
+| "player"     |
 +--------------+
 </code></pre></div>
 <h2 id="_3">返回属性<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
@@ -7097,148 +7097,148 @@ nebula&gt; MATCH (v:player)-[e]-&gt;() \
 +------------------+--------------+
 | v.player.name    | v.player.age |
 +------------------+--------------+
-| &quot;Danny Green&quot;    | 31           |
-| &quot;Tiago Splitter&quot; | 34           |
-| &quot;David West&quot;     | 38           |
+| "Danny Green"    | 31           |
+| "Tiago Splitter" | 34           |
+| "David West"     | 38           |
 +------------------+--------------+
 </code></pre></div>
 <p>使用<code>properties()</code>函数返回点或边的所有属性。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})-[]-&gt;(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[]-&gt;(v2) \
         RETURN properties(v2);
 +----------------------------------+
 | properties(v2)                   |
 +----------------------------------+
-| {name: &quot;Spurs&quot;}                  |
-| {age: 36, name: &quot;Tony Parker&quot;}   |
-| {age: 41, name: &quot;Manu Ginobili&quot;} |
+| {name: "Spurs"}                  |
+| {age: 36, name: "Tony Parker"}   |
+| {age: 41, name: "Manu Ginobili"} |
 +----------------------------------+
 </code></pre></div>
 <h2 id="edge_type">返回 Edge type<a class="headerlink" href="#edge_type" title="Permanent link">&para;</a></h2>
 <p>使用<code>type()</code>函数返回匹配的 Edge type。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})-[e]-&gt;() \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[e]-&gt;() \
         RETURN DISTINCT type(e);
 +----------+
 | type(e)  |
 +----------+
-| &quot;serve&quot;  |
-| &quot;follow&quot; |
+| "serve"  |
+| "follow" |
 +----------+
 </code></pre></div>
 <h2 id="_4">返回路径<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>使用<code>RETURN &lt;path_name&gt;</code>返回匹配路径的所有信息。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})-[*3]-&gt;() \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[*3]-&gt;() \
         RETURN p;
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | p                                                                                                                                                                                                                                                                                                              |
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| &lt;(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})-[:follow@0 {degree: 95}]-&gt;(&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})-[:follow@0 {degree: 90}]-&gt;(&quot;player102&quot; :player{age: 33, name: &quot;LaMarcus Aldridge&quot;})-[:serve@0 {end_year: 2019, start_year: 2015}]-&gt;(&quot;team204&quot; :team{name: &quot;Spurs&quot;})&gt;         |
-| &lt;(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})-[:follow@0 {degree: 95}]-&gt;(&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})-[:follow@0 {degree: 90}]-&gt;(&quot;player102&quot; :player{age: 33, name: &quot;LaMarcus Aldridge&quot;})-[:serve@0 {end_year: 2015, start_year: 2006}]-&gt;(&quot;team203&quot; :team{name: &quot;Trail Blazers&quot;})&gt; |
-| &lt;(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})-[:follow@0 {degree: 95}]-&gt;(&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})-[:follow@0 {degree: 90}]-&gt;(&quot;player102&quot; :player{age: 33, name: &quot;LaMarcus Aldridge&quot;})-[:follow@0 {degree: 75}]-&gt;(&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})&gt;           |
+| &lt;("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]-&gt;("player101" :player{age: 36, name: "Tony Parker"})-[:follow@0 {degree: 90}]-&gt;("player102" :player{age: 33, name: "LaMarcus Aldridge"})-[:serve@0 {end_year: 2019, start_year: 2015}]-&gt;("team204" :team{name: "Spurs"})&gt;         |
+| &lt;("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]-&gt;("player101" :player{age: 36, name: "Tony Parker"})-[:follow@0 {degree: 90}]-&gt;("player102" :player{age: 33, name: "LaMarcus Aldridge"})-[:serve@0 {end_year: 2015, start_year: 2006}]-&gt;("team203" :team{name: "Trail Blazers"})&gt; |
+| &lt;("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]-&gt;("player101" :player{age: 36, name: "Tony Parker"})-[:follow@0 {degree: 90}]-&gt;("player102" :player{age: 33, name: "LaMarcus Aldridge"})-[:follow@0 {degree: 75}]-&gt;("player101" :player{age: 36, name: "Tony Parker"})&gt;           |
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ...
 </code></pre></div>
 <h3 id="_5">返回路径中的点<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>使用<code>nodes()</code>函数返回路径中的所有点。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})-[]-&gt;(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[]-&gt;(v2) \
         RETURN nodes(p);
 +---------------------------------------------------------------------------------------------------------------------+
 | nodes(p)                                                                                                            |
 +---------------------------------------------------------------------------------------------------------------------+
-| [(&quot;player100&quot; :star{} :player{age: 42, name: &quot;Tim Duncan&quot;}), (&quot;player204&quot; :team{name: &quot;Spurs&quot;})]                    |
-| [(&quot;player100&quot; :star{} :player{age: 42, name: &quot;Tim Duncan&quot;}), (&quot;player101&quot; :player{name: &quot;Tony Parker&quot;, age: 36})]   |
-| [(&quot;player100&quot; :star{} :player{age: 42, name: &quot;Tim Duncan&quot;}), (&quot;player125&quot; :player{name: &quot;Manu Ginobili&quot;, age: 41})] |
+| [("player100" :star{} :player{age: 42, name: "Tim Duncan"}), ("player204" :team{name: "Spurs"})]                    |
+| [("player100" :star{} :player{age: 42, name: "Tim Duncan"}), ("player101" :player{name: "Tony Parker", age: 36})]   |
+| [("player100" :star{} :player{age: 42, name: "Tim Duncan"}), ("player125" :player{name: "Manu Ginobili", age: 41})] |
 +---------------------------------------------------------------------------------------------------------------------+
 </code></pre></div>
 <h3 id="_6">返回路径中的边<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>使用<code>relationships()</code>函数返回路径中的所有边。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})-[]-&gt;(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[]-&gt;(v2) \
         RETURN relationships(p);
 +-------------------------------------------------------------------------+
 | relationships(p)                                                        |
 +-------------------------------------------------------------------------+
-| [[:serve &quot;player100&quot;-&gt;&quot;team204&quot; @0 {end_year: 2016, start_year: 1997}]] |
-| [[:follow &quot;player100&quot;-&gt;&quot;player101&quot; @0 {degree: 95}]]                    |
-| [[:follow &quot;player100&quot;-&gt;&quot;player125&quot; @0 {degree: 95}]]                    |
+| [[:serve "player100"-&gt;"team204" @0 {end_year: 2016, start_year: 1997}]] |
+| [[:follow "player100"-&gt;"player101" @0 {degree: 95}]]                    |
+| [[:follow "player100"-&gt;"player125" @0 {degree: 95}]]                    |
 +-------------------------------------------------------------------------+
 </code></pre></div>
 <h3 id="_7">返回路径长度<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>使用<code>length()</code>函数检索路径的长度。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})-[*..2]-&gt;(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[*..2]-&gt;(v2) \
         RETURN p AS Paths, length(p) AS Length;
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
 | Paths                                                                                                                                                                                                                  | Length |
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| &lt;(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})-[:serve@0 {end_year: 2016, start_year: 1997}]-&gt;(&quot;team204&quot; :team{name: &quot;Spurs&quot;})&gt;                                                                                   | 1      |
-| &lt;(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})-[:follow@0 {degree: 95}]-&gt;(&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})&gt;                                                                                     | 1      |
-| &lt;(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})-[:follow@0 {degree: 95}]-&gt;(&quot;player125&quot; :player{age: 41, name: &quot;Manu Ginobili&quot;})&gt;                                                                                   | 1      |
-| &lt;(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})-[:follow@0 {degree: 95}]-&gt;(&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})-[:serve@0 {end_year: 2018, start_year: 1999}]-&gt;(&quot;team204&quot; :team{name: &quot;Spurs&quot;})&gt;     | 2      |
-| &lt;(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})-[:follow@0 {degree: 95}]-&gt;(&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})-[:serve@0 {end_year: 2019, start_year: 2018}]-&gt;(&quot;team215&quot; :team{name: &quot;Hornets&quot;})&gt;   | 2      |
-| &lt;(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})-[:follow@0 {degree: 95}]-&gt;(&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})-[:follow@0 {degree: 95}]-&gt;(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})&gt;        | 2      |
-| &lt;(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})-[:follow@0 {degree: 95}]-&gt;(&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})-[:follow@0 {degree: 90}]-&gt;(&quot;player102&quot; :player{age: 33, name: &quot;LaMarcus Aldridge&quot;})&gt; | 2      |
-| &lt;(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})-[:follow@0 {degree: 95}]-&gt;(&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})-[:follow@0 {degree: 95}]-&gt;(&quot;player125&quot; :player{age: 41, name: &quot;Manu Ginobili&quot;})&gt;     | 2      |
-| &lt;(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})-[:follow@0 {degree: 95}]-&gt;(&quot;player125&quot; :player{age: 41, name: &quot;Manu Ginobili&quot;})-[:serve@0 {end_year: 2018, start_year: 2002}]-&gt;(&quot;team204&quot; :team{name: &quot;Spurs&quot;})&gt;   | 2      |
-| &lt;(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})-[:follow@0 {degree: 95}]-&gt;(&quot;player125&quot; :player{age: 41, name: &quot;Manu Ginobili&quot;})-[:follow@0 {degree: 90}]-&gt;(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})&gt;      | 2      |
+| &lt;("player100" :player{age: 42, name: "Tim Duncan"})-[:serve@0 {end_year: 2016, start_year: 1997}]-&gt;("team204" :team{name: "Spurs"})&gt;                                                                                   | 1      |
+| &lt;("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]-&gt;("player101" :player{age: 36, name: "Tony Parker"})&gt;                                                                                     | 1      |
+| &lt;("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]-&gt;("player125" :player{age: 41, name: "Manu Ginobili"})&gt;                                                                                   | 1      |
+| &lt;("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]-&gt;("player101" :player{age: 36, name: "Tony Parker"})-[:serve@0 {end_year: 2018, start_year: 1999}]-&gt;("team204" :team{name: "Spurs"})&gt;     | 2      |
+| &lt;("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]-&gt;("player101" :player{age: 36, name: "Tony Parker"})-[:serve@0 {end_year: 2019, start_year: 2018}]-&gt;("team215" :team{name: "Hornets"})&gt;   | 2      |
+| &lt;("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]-&gt;("player101" :player{age: 36, name: "Tony Parker"})-[:follow@0 {degree: 95}]-&gt;("player100" :player{age: 42, name: "Tim Duncan"})&gt;        | 2      |
+| &lt;("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]-&gt;("player101" :player{age: 36, name: "Tony Parker"})-[:follow@0 {degree: 90}]-&gt;("player102" :player{age: 33, name: "LaMarcus Aldridge"})&gt; | 2      |
+| &lt;("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]-&gt;("player101" :player{age: 36, name: "Tony Parker"})-[:follow@0 {degree: 95}]-&gt;("player125" :player{age: 41, name: "Manu Ginobili"})&gt;     | 2      |
+| &lt;("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]-&gt;("player125" :player{age: 41, name: "Manu Ginobili"})-[:serve@0 {end_year: 2018, start_year: 2002}]-&gt;("team204" :team{name: "Spurs"})&gt;   | 2      |
+| &lt;("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]-&gt;("player125" :player{age: 41, name: "Manu Ginobili"})-[:follow@0 {degree: 90}]-&gt;("player100" :player{age: 42, name: "Tim Duncan"})&gt;      | 2      |
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
 </code></pre></div>
 <h2 id="_8">返回所有元素<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>使用星号（*）返回匹配模式中的所有元素。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;}) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"}) \
         RETURN *;
 +----------------------------------------------------+
 | v                                                  |
 +----------------------------------------------------+
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;}) |
+| ("player100" :player{age: 42, name: "Tim Duncan"}) |
 +----------------------------------------------------+
 
-nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;})-[e]-&gt;(v2) \
+nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;(v2) \
         RETURN *;
 +----------------------------------------------------+-----------------------------------------------------------------------+-------------------------------------------------------+
 | v                                                  | e                                                                     | v2                                                    |
 +----------------------------------------------------+-----------------------------------------------------------------------+-------------------------------------------------------+
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;}) | [:follow &quot;player100&quot;-&gt;&quot;player101&quot; @0 {degree: 95}]                    | (&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})   |
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;}) | [:follow &quot;player100&quot;-&gt;&quot;player125&quot; @0 {degree: 95}]                    | (&quot;player125&quot; :player{age: 41, name: &quot;Manu Ginobili&quot;}) |
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;}) | [:serve &quot;player100&quot;-&gt;&quot;team204&quot; @0 {end_year: 2016, start_year: 1997}] | (&quot;team204&quot; :team{name: &quot;Spurs&quot;})                      |
+| ("player100" :player{age: 42, name: "Tim Duncan"}) | [:follow "player100"-&gt;"player101" @0 {degree: 95}]                    | ("player101" :player{age: 36, name: "Tony Parker"})   |
+| ("player100" :player{age: 42, name: "Tim Duncan"}) | [:follow "player100"-&gt;"player125" @0 {degree: 95}]                    | ("player125" :player{age: 41, name: "Manu Ginobili"}) |
+| ("player100" :player{age: 42, name: "Tim Duncan"}) | [:serve "player100"-&gt;"team204" @0 {end_year: 2016, start_year: 1997}] | ("team204" :team{name: "Spurs"})                      |
 +----------------------------------------------------+-----------------------------------------------------------------------+-------------------------------------------------------+
 </code></pre></div>
 <h2 id="_9">重命名字段<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <p>使用语法<code>AS &lt;alias&gt;</code>重命名输出结果中的字段。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;})-[:serve]-&gt;(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[:serve]-&gt;(v2) \
         RETURN v2.team.name AS Team;
 +---------+
 | Team    |
 +---------+
-| &quot;Spurs&quot; |
+| "Spurs" |
 +---------+
 
-nebula&gt; RETURN &quot;Amber&quot; AS Name;
+nebula&gt; RETURN "Amber" AS Name;
 +---------+
 | Name    |
 +---------+
-| &quot;Amber&quot; |
+| "Amber" |
 +---------+
 </code></pre></div>
 <h2 id="_10">返回不存在的属性<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
 <p>如果匹配的结果中，某个属性不存在，会返回<code>NULL</code>。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;})-[e]-&gt;(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;(v2) \
         RETURN v2.player.name, type(e), v2.player.age;
 +-----------------+----------+---------------+
 | v2.player.name  | type(e)  | v2.player.age |
 +-----------------+----------+---------------+
-| &quot;Manu Ginobili&quot; | &quot;follow&quot; | 41            |
-| __NULL__        | &quot;serve&quot;  | __NULL__      |
-| &quot;Tony Parker&quot;   | &quot;follow&quot; | 36            |
+| "Manu Ginobili" | "follow" | 41            |
+| __NULL__        | "serve"  | __NULL__      |
+| "Tony Parker"   | "follow" | 36            |
 +-----------------+----------+---------------+
 </code></pre></div>
 <h2 id="_11">返回表达式结果<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
 <p><code>RETURN</code>语句可以返回字面量、函数或谓词等表达式的结果。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:&quot;Tony Parker&quot;})--&gt;(v2:player) \
-        RETURN DISTINCT v2.player.name, &quot;Hello&quot;+&quot; graphs!&quot;, v2.player.age &gt; 35;
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tony Parker"})--&gt;(v2:player) \
+        RETURN DISTINCT v2.player.name, "Hello"+" graphs!", v2.player.age &gt; 35;
 +---------------------+----------------------+--------------------+
-| v2.player.name      | (&quot;Hello&quot;+&quot; graphs!&quot;) | (v2.player.age&gt;35) |
+| v2.player.name      | ("Hello"+" graphs!") | (v2.player.age&gt;35) |
 +---------------------+----------------------+--------------------+
-| &quot;LaMarcus Aldridge&quot; | &quot;Hello graphs!&quot;      | false              |
-| &quot;Tim Duncan&quot;        | &quot;Hello graphs!&quot;      | true               |
-| &quot;Manu Ginobili&quot;     | &quot;Hello graphs!&quot;      | true               |
+| "LaMarcus Aldridge" | "Hello graphs!"      | false              |
+| "Tim Duncan"        | "Hello graphs!"      | true               |
+| "Manu Ginobili"     | "Hello graphs!"      | true               |
 +---------------------+----------------------+--------------------+
 
 nebula&gt; RETURN 1+1;
@@ -7265,33 +7265,33 @@ nebula&gt; RETURN 1+1, rand32(1, 5);
 <h2 id="_12">返回唯一字段<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
 <p>使用<code>DISTINCT</code>可以删除结果集中的重复字段。</p>
 <div class="highlight"><pre><span></span><code># 未使用 DISTINCT。
-nebula&gt; MATCH (v:player{name:&quot;Tony Parker&quot;})--(v2:player) \
+nebula&gt; MATCH (v:player{name:"Tony Parker"})--(v2:player) \
         RETURN v2.player.name, v2.player.age;
 +---------------------+--------+
 | v2.name             | v2.age |
 +---------------------+--------+
-| &quot;Tim Duncan&quot;        | 42     |
-| &quot;LaMarcus Aldridge&quot; | 33     |
-| &quot;Marco Belinelli&quot;   | 32     |
-| &quot;Boris Diaw&quot;        | 36     |
-| &quot;Dejounte Murray&quot;   | 29     |
-| &quot;Tim Duncan&quot;        | 42     |
-| &quot;LaMarcus Aldridge&quot; | 33     |
-| &quot;Manu Ginobili&quot;     | 41     |
+| "Tim Duncan"        | 42     |
+| "LaMarcus Aldridge" | 33     |
+| "Marco Belinelli"   | 32     |
+| "Boris Diaw"        | 36     |
+| "Dejounte Murray"   | 29     |
+| "Tim Duncan"        | 42     |
+| "LaMarcus Aldridge" | 33     |
+| "Manu Ginobili"     | 41     |
 +---------------------+--------+
 
 # 使用 DISTINCT。
-nebula&gt; MATCH (v:player{name:&quot;Tony Parker&quot;})--(v2:player) \
+nebula&gt; MATCH (v:player{name:"Tony Parker"})--(v2:player) \
         RETURN DISTINCT v2.player.name, v2.player.age;
 +---------------------+--------+
 | v2.name             | v2.age |
 +---------------------+--------+
-| &quot;Tim Duncan&quot;        | 42     |
-| &quot;LaMarcus Aldridge&quot; | 33     |
-| &quot;Marco Belinelli&quot;   | 32     |
-| &quot;Boris Diaw&quot;        | 36     |
-| &quot;Dejounte Murray&quot;   | 29     |
-| &quot;Manu Ginobili&quot;     | 41     |
+| "Tim Duncan"        | 42     |
+| "LaMarcus Aldridge" | 33     |
+| "Marco Belinelli"   | 32     |
+| "Boris Diaw"        | 36     |
+| "Dejounte Murray"   | 29     |
+| "Manu Ginobili"     | 41     |
 +---------------------+--------+
 </code></pre></div>
 
@@ -7300,7 +7300,7 @@ nebula&gt; MATCH (v:player{name:&quot;Tony Parker&quot;})--(v2:player) \
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 3, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -7416,8 +7416,6 @@ nebula&gt; MATCH (v:player{name:&quot;Tony Parker&quot;})--(v2:player) \
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
