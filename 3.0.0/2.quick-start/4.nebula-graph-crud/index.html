@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.0/2.quick-start/4.nebula-graph-crud/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.9">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -23,13 +23,14 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.80dcb947.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
         
       
       
+
     
     
     
@@ -50,7 +51,7 @@
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -60,10 +61,13 @@
   
 
 
-  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-60523578-15","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
-  <script async src="https://www.google-analytics.com/analytics.js"></script>
+  <script id="__analytics">function __md_analytics(){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-60523578-15","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");ga("send","event","feedback","click",t,e),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){ga("send","pageview",e.pathname)})});var e=document.createElement("script");e.async=!0,e.src="https://www.google-analytics.com/analytics.js",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
+    
     
     
   </head>
@@ -98,9 +102,7 @@
     </div>
     
       <div data-md-component="outdated" hidden>
-        <aside class="md-banner md-banner--warning">
-          
-        </aside>
+        
       </div>
     
     
@@ -171,7 +173,7 @@
       </label>
       <nav class="md-search__options" aria-label="查找">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -195,7 +197,7 @@
         <a href="https://github.com/vesoft-inc/nebula-docs-cn" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     vesoft-inc/nebula-docs-cn
@@ -239,7 +241,7 @@
       <a href="https://github.com/vesoft-inc/nebula-docs-cn" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     vesoft-inc/nebula-docs-cn
@@ -6441,14 +6443,16 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
+
   <a href="https://github.com/vesoft-inc/nebula-docs-cn/edit/v3.0.0/docs-2.0/2.quick-start/4.nebula-graph-crud.md" title="编辑此页" class="md-content__button md-icon">
+    
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
-
 
 
 <h1 id="4_ngqlcrud">步骤 4：使用常用 nGQL（CRUD 命令）<a class="headerlink" href="#4_ngqlcrud" title="Permanent link">&para;</a></h1>
@@ -6500,7 +6504,7 @@
 <div class="highlight"><pre><span></span><code>ADD HOSTS &lt;ip&gt;:&lt;port&gt; [,&lt;ip&gt;:&lt;port&gt; ...];
 </code></pre></div>
 <!--
-<div class="highlight"><pre><span></span><code>ADD HOSTS &lt;ip&gt;:&lt;port&gt; [,&lt;ip&gt;:&lt;port&gt; ...] [INTO NEW ZONE &quot;&lt;new_zone_name&gt;&quot;];
+<div class="highlight"><pre><span></span><code>ADD HOSTS &lt;ip&gt;:&lt;port&gt; [,&lt;ip&gt;:&lt;port&gt; ...] [INTO NEW ZONE "&lt;new_zone_name&gt;"];
 </code></pre></div>
 -->
 
@@ -6513,9 +6517,9 @@
 +------------------+------+----------+--------------+----------------------+------------------------+---------+
 | Host             | Port | Status   | Leader count | Leader distribution  | Partition distribution | Version |
 +------------------+------+----------+--------------+----------------------+------------------------+---------+
-| &quot;192.168.10.100&quot; | 9779 | &quot;ONLINE&quot; | 0            | &quot;No valid partition&quot; | &quot;No valid partition&quot;   | &quot;3.0.0&quot; |
-| &quot;192.168.10.101&quot; | 9779 | &quot;ONLINE&quot; | 0            | &quot;No valid partition&quot; | &quot;No valid partition&quot;   | &quot;3.0.0&quot; |
-| &quot;192.168.10.102&quot; | 9779 | &quot;ONLINE&quot; | 0            | &quot;No valid partition&quot; | &quot;No valid partition&quot;   | &quot;3.0.0&quot; |
+| "192.168.10.100" | 9779 | "ONLINE" | 0            | "No valid partition" | "No valid partition"   | "3.0.0" |
+| "192.168.10.101" | 9779 | "ONLINE" | 0            | "No valid partition" | "No valid partition"   | "3.0.0" |
+| "192.168.10.102" | 9779 | "ONLINE" | 0            | "No valid partition" | "No valid partition"   | "3.0.0" |
 +------------------+------+----------+--------------+----------------------+------------------------+---------+
 </code></pre></div>
 <p>在返回结果中，查看 <strong>Status</strong> 列，可以看到所有 Storage 服务都在线。</p>
@@ -6546,7 +6550,7 @@
 vid_type = {FIXED_STRING(&lt;N&gt;) | INT64}
 )
 
-[COMMENT = &#39;&lt;comment&gt;&#39;];
+[COMMENT = '&lt;comment&gt;'];
 </code></pre></div>
 <p>参数详情请参见 <a href="../../3.ngql-guide/9.space-statements/1.create-space/">CREATE SPACE</a>。</p>
 <!-- <code>charset</code>和<code>collate</code>当前只有一个可选值，忽略。
@@ -6578,9 +6582,9 @@ vid_type = {FIXED_STRING(&lt;N&gt;) | INT64}
 +-------------+-----------+-----------+--------------+----------------------------------+------------------------+---------+
 | Host        | Port      | Status    | Leader count | Leader distribution              | Partition distribution | Version |
 +-------------+-----------+-----------+--------------+----------------------------------+------------------------+---------+
-| &quot;storaged0&quot; | 9779      | &quot;ONLINE&quot;  | 5            | &quot;basketballplayer:5&quot;             | &quot;basketballplayer:5&quot;   | &quot;3.0.0&quot; |
-| &quot;storaged1&quot; | 9779      | &quot;ONLINE&quot;  | 5            | &quot;basketballplayer:5&quot;             | &quot;basketballplayer:5&quot;   | &quot;3.0.0&quot; |
-| &quot;storaged2&quot; | 9779      | &quot;ONLINE&quot;  | 5            | &quot;basketballplayer:5&quot;             | &quot;basketballplayer:5&quot;   | &quot;3.0.0&quot; |
+| "storaged0" | 9779      | "ONLINE"  | 5            | "basketballplayer:5"             | "basketballplayer:5"   | "3.0.0" |
+| "storaged1" | 9779      | "ONLINE"  | 5            | "basketballplayer:5"             | "basketballplayer:5"   | "3.0.0" |
+| "storaged2" | 9779      | "ONLINE"  | 5            | "basketballplayer:5"             | "basketballplayer:5"   | "3.0.0" |
 +-------------+-----------+-----------+--------------+----------------------------------+------------------------+---------+
 </code></pre></div>
 <p>如果<strong> Leader distribution </strong>分布不均匀，请执行命令<code>BALANCE LEADER</code>重新分配。更多信息，请参见 <a href="../../8.service-tuning/load-balance/">Storage 负载均衡</a>。</p>
@@ -6594,7 +6598,7 @@ vid_type = {FIXED_STRING(&lt;N&gt;) | INT64}
 +--------------------+
 | Name               |
 +--------------------+
-| &quot;basketballplayer&quot; |
+| "basketballplayer" |
 +--------------------+
 </code></pre></div>
 </li>
@@ -6603,12 +6607,12 @@ vid_type = {FIXED_STRING(&lt;N&gt;) | INT64}
 <h3 id="ngql_1">nGQL 语法<a class="headerlink" href="#ngql_1" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>CREATE {TAG | EDGE} [IF NOT EXISTS] {&lt;tag_name&gt; | &lt;edge_type_name&gt;}
     (
-      &lt;prop_name&gt; &lt;data_type&gt; [NULL | NOT NULL] [DEFAULT &lt;default_value&gt;] [COMMENT &#39;&lt;comment&gt;&#39;]
-      [{, &lt;prop_name&gt; &lt;data_type&gt; [NULL | NOT NULL] [DEFAULT &lt;default_value&gt;] [COMMENT &#39;&lt;comment&gt;&#39;]} ...] 
+      &lt;prop_name&gt; &lt;data_type&gt; [NULL | NOT NULL] [DEFAULT &lt;default_value&gt;] [COMMENT '&lt;comment&gt;']
+      [{, &lt;prop_name&gt; &lt;data_type&gt; [NULL | NOT NULL] [DEFAULT &lt;default_value&gt;] [COMMENT '&lt;comment&gt;']} ...] 
     )
     [TTL_DURATION = &lt;ttl_duration&gt;]
     [TTL_COL = &lt;prop_name&gt;]
-    [COMMENT = &#39;&lt;comment&gt;&#39;];
+    [COMMENT = '&lt;comment&gt;'];
 </code></pre></div>
 <p>参数详情请参见 <a href="../../3.ngql-guide/10.tag-statements/1.create-tag/">CREATE TAG</a> 和 <a href="../../3.ngql-guide/11.edge-type-statements/1.create-edge/">CREATE EDGE</a>。</p>
 <h3 id="_4">示例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
@@ -6687,24 +6691,24 @@ prop_value_list:
 </ul>
 <h3 id="_6">示例<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <ul>
-<li>插入代表球员和球队的点。<div class="highlight"><pre><span></span><code>nebula&gt; INSERT VERTEX player(name, age) VALUES &quot;player100&quot;:(&quot;Tim Duncan&quot;, 42);
+<li>插入代表球员和球队的点。<div class="highlight"><pre><span></span><code>nebula&gt; INSERT VERTEX player(name, age) VALUES "player100":("Tim Duncan", 42);
 
-nebula&gt; INSERT VERTEX player(name, age) VALUES &quot;player101&quot;:(&quot;Tony Parker&quot;, 36);
+nebula&gt; INSERT VERTEX player(name, age) VALUES "player101":("Tony Parker", 36);
 
-nebula&gt; INSERT VERTEX player(name, age) VALUES &quot;player102&quot;:(&quot;LaMarcus Aldridge&quot;, 33);
+nebula&gt; INSERT VERTEX player(name, age) VALUES "player102":("LaMarcus Aldridge", 33);
 
-nebula&gt; INSERT VERTEX team(name) VALUES &quot;team203&quot;:(&quot;Trail Blazers&quot;), &quot;team204&quot;:(&quot;Spurs&quot;);
+nebula&gt; INSERT VERTEX team(name) VALUES "team203":("Trail Blazers"), "team204":("Spurs");
 </code></pre></div>
 </li>
 </ul>
 <ul>
-<li>插入代表球员和球队之间关系的边。<div class="highlight"><pre><span></span><code>nebula&gt; INSERT EDGE follow(degree) VALUES &quot;player101&quot; -&gt; &quot;player100&quot;:(95);
+<li>插入代表球员和球队之间关系的边。<div class="highlight"><pre><span></span><code>nebula&gt; INSERT EDGE follow(degree) VALUES "player101" -&gt; "player100":(95);
 
-nebula&gt; INSERT EDGE follow(degree) VALUES &quot;player101&quot; -&gt; &quot;player102&quot;:(90);
+nebula&gt; INSERT EDGE follow(degree) VALUES "player101" -&gt; "player102":(90);
 
-nebula&gt; INSERT EDGE follow(degree) VALUES &quot;player102&quot; -&gt; &quot;player100&quot;:(75);
+nebula&gt; INSERT EDGE follow(degree) VALUES "player102" -&gt; "player100":(75);
 
-nebula&gt; INSERT EDGE serve(start_year, end_year) VALUES &quot;player101&quot; -&gt; &quot;team204&quot;:(1999, 2018),&quot;player102&quot; -&gt; &quot;team203&quot;:(2006,  2015);
+nebula&gt; INSERT EDGE serve(start_year, end_year) VALUES "player101" -&gt; "team204":(1999, 2018),"player102" -&gt; "team203":(2006,  2015);
 </code></pre></div>
 </li>
 </ul>
@@ -6773,25 +6777,25 @@ YIELD &lt;return_list&gt; [AS &lt;alias&gt;];
 </ul>
 <h3 id="go"><code>GO</code>语句示例<a class="headerlink" href="#go" title="Permanent link">&para;</a></h3>
 <ul>
-<li>从 VID 为<code>player101</code>的球员开始，沿着边<code>follow</code>找到连接的球员。<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM &quot;player101&quot; OVER follow YIELD id($$);
+<li>从 VID 为<code>player101</code>的球员开始，沿着边<code>follow</code>找到连接的球员。<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM "player101" OVER follow YIELD id($$);
 +-------------+
 | id($$)      |
 +-------------+
-| &quot;player100&quot; |
-| &quot;player102&quot; |
-| &quot;player125&quot; |
+| "player100" |
+| "player102" |
+| "player125" |
 +-------------+
 </code></pre></div>
 </li>
 </ul>
 <ul>
-<li>从 VID 为<code>player101</code>的球员开始，沿着边<code>follow</code>查找年龄大于或等于 35 岁的球员，并返回他们的姓名和年龄，同时重命名对应的列。<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM &quot;player101&quot; OVER follow WHERE properties($$).age &gt;= 35 \
+<li>从 VID 为<code>player101</code>的球员开始，沿着边<code>follow</code>查找年龄大于或等于 35 岁的球员，并返回他们的姓名和年龄，同时重命名对应的列。<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM "player101" OVER follow WHERE properties($$).age &gt;= 35 \
         YIELD properties($$).name AS Teammate, properties($$).age AS Age;
 +-----------------+-----+
 | Teammate        | Age |
 +-----------------+-----+
-| &quot;Tim Duncan&quot;    | 42  |
-| &quot;Manu Ginobili&quot; | 41  |
+| "Tim Duncan"    | 42  |
+| "Manu Ginobili" | 41  |
 +-----------------+-----+
 </code></pre></div>
 <table>
@@ -6824,16 +6828,16 @@ YIELD &lt;return_list&gt; [AS &lt;alias&gt;];
 <ul>
 <li>
 <p>使用管道符</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM &quot;player101&quot; OVER follow YIELD dst(edge) AS id | \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM "player101" OVER follow YIELD dst(edge) AS id | \
         GO FROM $-.id OVER serve YIELD properties($$).name AS Team, \
         properties($^).name AS Player;
 +-----------------+---------------------+
 | Team            | Player              |
 +-----------------+---------------------+
-| &quot;Spurs&quot;         | &quot;Tim Duncan&quot;        |
-| &quot;Trail Blazers&quot; | &quot;LaMarcus Aldridge&quot; |
-| &quot;Spurs&quot;         | &quot;LaMarcus Aldridge&quot; |
-| &quot;Spurs&quot;         | &quot;Manu Ginobili&quot;     |
+| "Spurs"         | "Tim Duncan"        |
+| "Trail Blazers" | "LaMarcus Aldridge" |
+| "Spurs"         | "LaMarcus Aldridge" |
+| "Spurs"         | "Manu Ginobili"     |
 +-----------------+---------------------+
 </code></pre></div>
 <table>
@@ -6867,16 +6871,16 @@ YIELD &lt;return_list&gt; [AS &lt;alias&gt;];
 <p class="admonition-title">Note</p>
 <p>当复合语句作为一个整体提交给服务器时，其中的临时变量会在语句结束时被释放。</p>
 </div>
-<div class="highlight"><pre><span></span><code>nebula&gt; $var = GO FROM &quot;player101&quot; OVER follow YIELD dst(edge) AS id; \
+<div class="highlight"><pre><span></span><code>nebula&gt; $var = GO FROM "player101" OVER follow YIELD dst(edge) AS id; \
         GO FROM $var.id OVER serve YIELD properties($$).name AS Team, \
         properties($^).name AS Player;
 +-----------------+---------------------+
 | Team            | Player              |
 +-----------------+---------------------+
-| &quot;Spurs&quot;         | &quot;Tim Duncan&quot;        |
-| &quot;Trail Blazers&quot; | &quot;LaMarcus Aldridge&quot; |
-| &quot;Spurs&quot;         | &quot;LaMarcus Aldridge&quot; |
-| &quot;Spurs&quot;         | &quot;Manu Ginobili&quot;     |
+| "Spurs"         | "Tim Duncan"        |
+| "Trail Blazers" | "LaMarcus Aldridge" |
+| "Spurs"         | "LaMarcus Aldridge" |
+| "Spurs"         | "Manu Ginobili"     |
 +-----------------+---------------------+
 </code></pre></div>
 </li>
@@ -6885,11 +6889,11 @@ YIELD &lt;return_list&gt; [AS &lt;alias&gt;];
 </ul>
 <h3 id="fetch"><code>FETCH</code>语句示例<a class="headerlink" href="#fetch" title="Permanent link">&para;</a></h3>
 <p>查询 VID 为<code>player100</code>的球员的属性。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player &quot;player100&quot; YIELD properties(vertex);
+<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player "player100" YIELD properties(vertex);
 +-------------------------------+
 | properties(VERTEX)            |
 +-------------------------------+
-| {age: 42, name: &quot;Tim Duncan&quot;} |
+| {age: 42, name: "Tim Duncan"} |
 +-------------------------------+
 </code></pre></div>
 <div class="admonition note">
@@ -6924,21 +6928,21 @@ SET &lt;properties to be updated&gt; [WHEN &lt;condition&gt;] [YIELD &lt;columns
 </ul>
 <h3 id="_9">示例<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <ul>
-<li>用<code>UPDATE</code>修改 VID 为<code>player100</code>的球员的<code>name</code>属性，然后用<code>FETCH</code>语句检查结果。<div class="highlight"><pre><span></span><code>nebula&gt; UPDATE VERTEX &quot;player100&quot; SET player.name = &quot;Tim&quot;;
+<li>用<code>UPDATE</code>修改 VID 为<code>player100</code>的球员的<code>name</code>属性，然后用<code>FETCH</code>语句检查结果。<div class="highlight"><pre><span></span><code>nebula&gt; UPDATE VERTEX "player100" SET player.name = "Tim";
 
-nebula&gt; FETCH PROP ON player &quot;player100&quot; YIELD properties(vertex);
+nebula&gt; FETCH PROP ON player "player100" YIELD properties(vertex);
 +------------------------+
 | properties(VERTEX)     |
 +------------------------+
-| {age: 42, name: &quot;Tim&quot;} |
+| {age: 42, name: "Tim"} |
 +------------------------+
 </code></pre></div>
 </li>
 </ul>
 <ul>
-<li>用<code>UPDATE</code>修改某条边的<code>degree</code>属性，然后用<code>FETCH</code>检查结果。<div class="highlight"><pre><span></span><code>nebula&gt; UPDATE EDGE &quot;player101&quot; -&gt; &quot;player100&quot; OF follow SET degree = 96;
+<li>用<code>UPDATE</code>修改某条边的<code>degree</code>属性，然后用<code>FETCH</code>检查结果。<div class="highlight"><pre><span></span><code>nebula&gt; UPDATE EDGE "player101" -&gt; "player100" OF follow SET degree = 96;
 
-nebula&gt; FETCH PROP ON follow &quot;player101&quot; -&gt; &quot;player100&quot; YIELD properties(edge);
+nebula&gt; FETCH PROP ON follow "player101" -&gt; "player100" YIELD properties(edge);
 +------------------+
 | properties(EDGE) |
 +------------------+
@@ -6948,15 +6952,15 @@ nebula&gt; FETCH PROP ON follow &quot;player101&quot; -&gt; &quot;player100&quot
 </li>
 </ul>
 <ul>
-<li>用<code>INSERT</code>插入一个 VID 为<code>player111</code>的点，然后用<code>UPSERT</code>更新它。<div class="highlight"><pre><span></span><code>nebula&gt; INSERT VERTEX player(name,age) VALUES &quot;player111&quot;:(&quot;David West&quot;, 38);
+<li>用<code>INSERT</code>插入一个 VID 为<code>player111</code>的点，然后用<code>UPSERT</code>更新它。<div class="highlight"><pre><span></span><code>nebula&gt; INSERT VERTEX player(name,age) VALUES "player111":("David West", 38);
 
-nebula&gt; UPSERT VERTEX &quot;player111&quot; SET player.name = &quot;David&quot;, player.age = $^.player.age + 11 \
-        WHEN $^.player.name == &quot;David West&quot; AND $^.player.age &gt; 20 \
+nebula&gt; UPSERT VERTEX "player111" SET player.name = "David", player.age = $^.player.age + 11 \
+        WHEN $^.player.name == "David West" AND $^.player.age &gt; 20 \
         YIELD $^.player.name AS Name, $^.player.age AS Age;
 +---------+-----+
 | Name    | Age |
 +---------+-----+
-| &quot;David&quot; | 49  |
+| "David" | 49  |
 +---------+-----+
 </code></pre></div>
 </li>
@@ -6976,12 +6980,12 @@ nebula&gt; UPSERT VERTEX &quot;player111&quot; SET player.name = &quot;David&quo
 </ul>
 <h3 id="_11">示例<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <ul>
-<li>删除点<div class="highlight"><pre><span></span><code>nebula&gt; DELETE VERTEX &quot;player111&quot;, &quot;team203&quot;;
+<li>删除点<div class="highlight"><pre><span></span><code>nebula&gt; DELETE VERTEX "player111", "team203";
 </code></pre></div>
 </li>
 </ul>
 <ul>
-<li>删除边<div class="highlight"><pre><span></span><code>nebula&gt; DELETE EDGE follow &quot;player101&quot; -&gt; &quot;team204&quot;;
+<li>删除边<div class="highlight"><pre><span></span><code>nebula&gt; DELETE EDGE follow "player101" -&gt; "team204";
 </code></pre></div>
 </li>
 </ul>
@@ -6995,7 +6999,7 @@ nebula&gt; UPSERT VERTEX &quot;player111&quot; SET player.name = &quot;David&quo
 <h3 id="ngql_6">nGQL 语法<a class="headerlink" href="#ngql_6" title="Permanent link">&para;</a></h3>
 <ul>
 <li>创建索引<div class="highlight"><pre><span></span><code>CREATE {TAG | EDGE} INDEX [IF NOT EXISTS] &lt;index_name&gt;
-ON {&lt;tag_name&gt; | &lt;edge_name&gt;} ([&lt;prop_name_list&gt;]) [COMMENT = &#39;&lt;comment&gt;&#39;];
+ON {&lt;tag_name&gt; | &lt;edge_name&gt;} ([&lt;prop_name_list&gt;]) [COMMENT = '&lt;comment&gt;'];
 </code></pre></div>
 </li>
 </ul>
@@ -7023,20 +7027,20 @@ nebula&gt; REBUILD TAG INDEX player_index_1
 +------------+
 
 // 使用 LOOKUP 语句检索点的属性。
-nebula&gt; LOOKUP ON player WHERE player.name == &quot;Tony Parker&quot; \
+nebula&gt; LOOKUP ON player WHERE player.name == "Tony Parker" \
         YIELD properties(vertex).name AS name, properties(vertex).age AS age;
 +---------------+-----+
 | name          | age |
 +---------------+-----+
-| &quot;Tony Parker&quot; | 36  |
+| "Tony Parker" | 36  |
 +---------------+-----+
 
 // 使用 MATCH 语句检索点的属性。
-nebula&gt; MATCH (v:player{name:&quot;Tony Parker&quot;}) RETURN v;
+nebula&gt; MATCH (v:player{name:"Tony Parker"}) RETURN v;
 +-----------------------------------------------------+
 | v                                                   |
 +-----------------------------------------------------+
-| (&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;}) |
+| ("player101" :player{age: 36, name: "Tony Parker"}) |
 +-----------------------------------------------------+
 </code></pre></div>
 
@@ -7045,16 +7049,23 @@ nebula&gt; MATCH (v:player{name:&quot;Tony Parker&quot;}) RETURN v;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 8, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年2月8日</span>
       
     
   </small>
 </div>
 
-              
-            </article>
-            
-          </div>
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
           <a href="#" class="md-top md-icon" data-md-component="top" hidden>
@@ -7126,7 +7137,7 @@ nebula&gt; MATCH (v:player{name:&quot;Tony Parker&quot;}) RETURN v;
       
     
     <a href="https://github.com/vesoft-inc/nebula-docs-cn" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
     </a>
   
 </div>
@@ -7139,10 +7150,11 @@ nebula&gt; MATCH (v:player{name:&quot;Tony Parker&quot;}) RETURN v;
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "header.autohide"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"method": "mike"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "header.autohide"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"method": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
       
         <script src="../../js/version-select.js"></script>
       
@@ -7151,8 +7163,6 @@ nebula&gt; MATCH (v:player{name:&quot;Tony Parker&quot;}) RETURN v;
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

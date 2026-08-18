@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.0.0/nebula-exchange/ex-ug-FAQ/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.3.9">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -23,13 +23,14 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.1d29e8d0.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.80dcb947.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
         
       
       
+
     
     
     
@@ -50,7 +51,7 @@
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -60,10 +61,13 @@
   
 
 
-  <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-60523578-15","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),"undefined"!=typeof location$&&location$.subscribe(function(e){ga("send","pageview",e.pathname)})})</script>
-  <script async src="https://www.google-analytics.com/analytics.js"></script>
+  <script id="__analytics">function __md_analytics(){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-60523578-15","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){var e;this.value&&(e=document.location.pathname,ga("send","pageview",e+"?q="+this.value))}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");ga("send","event","feedback","click",t,e),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){ga("send","pageview",e.pathname)})});var e=document.createElement("script");e.async=!0,e.src="https://www.google-analytics.com/analytics.js",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
 
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
 
+    
     
     
   </head>
@@ -98,9 +102,7 @@
     </div>
     
       <div data-md-component="outdated" hidden>
-        <aside class="md-banner md-banner--warning">
-          
-        </aside>
+        
       </div>
     
     
@@ -171,7 +173,7 @@
       </label>
       <nav class="md-search__options" aria-label="查找">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -195,7 +197,7 @@
         <a href="https://github.com/vesoft-inc/nebula-docs-cn" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     vesoft-inc/nebula-docs-cn
@@ -239,7 +241,7 @@
       <a href="https://github.com/vesoft-inc/nebula-docs-cn" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     vesoft-inc/nebula-docs-cn
@@ -6295,14 +6297,16 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
+
   <a href="https://github.com/vesoft-inc/nebula-docs-cn/edit/v3.0.0/docs-2.0/nebula-exchange/ex-ug-FAQ.md" title="编辑此页" class="md-content__button md-icon">
+    
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
-
 
 
 <h1 id="exchange">Exchange 常见问题<a class="headerlink" href="#exchange" title="Permanent link">&para;</a></h1>
@@ -6340,13 +6344,13 @@
 <h2 id="_2">执行问题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="qyarn-cluster">Q：Yarn-Cluster 模式下如何提交？<a class="headerlink" href="#qyarn-cluster" title="Permanent link">&para;</a></h3>
 <p>在 Yarn-Cluster 模式下提交任务，请参考如下命令：</p>
-<div class="highlight"><pre><span></span><code><span class="nv">$SPARK_HOME</span>/bin/spark-submit --class com.vesoft.nebula.exchange.Exchange <span class="se">\</span>
---master yarn-cluster <span class="se">\</span>
---files application.conf <span class="se">\</span>
---conf spark.driver.extraClassPath<span class="o">=</span>./ <span class="se">\</span>
---conf spark.executor.extraClassPath<span class="o">=</span>./ <span class="se">\</span>
-nebula-exchange-3.0.0.jar <span class="se">\</span>
--c application.conf
+<div class="highlight"><pre><span></span><code><span class="nv">$SPARK_HOME</span>/bin/spark-submit<span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span><span class="se">\</span>
+--master<span class="w"> </span>yarn-cluster<span class="w"> </span><span class="se">\</span>
+--files<span class="w"> </span>application.conf<span class="w"> </span><span class="se">\</span>
+--conf<span class="w"> </span>spark.driver.extraClassPath<span class="o">=</span>./<span class="w"> </span><span class="se">\</span>
+--conf<span class="w"> </span>spark.executor.extraClassPath<span class="o">=</span>./<span class="w"> </span><span class="se">\</span>
+nebula-exchange-3.0.0.jar<span class="w"> </span><span class="se">\</span>
+-c<span class="w"> </span>application.conf
 </code></pre></div>
 <h3 id="qmethod_name_xxx_not_found">Q：报错<code>method name xxx not found</code><a class="headerlink" href="#qmethod_name_xxx_not_found" title="Permanent link">&para;</a></h3>
 <p>一般是端口配置错误，需检查 Meta 服务、Graph 服务、Storage 服务的端口配置。</p>
@@ -6361,16 +6365,16 @@ nebula-exchange-3.0.0.jar <span class="se">\</span>
 </ul>
 <ul>
 <li>如果是 docker 安装，请配置 docker 映射出来的端口号，查看方式如下：<p>在<code>nebula-docker-compose</code>目录下执行<code>docker-compose ps</code>，例如：</p>
-<div class="highlight"><pre><span></span><code>$ docker-compose ps
-              Name                             Command                  State                                                         Ports
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>docker-compose<span class="w"> </span>ps
+<span class="w">              </span>Name<span class="w">                             </span>Command<span class="w">                  </span>State<span class="w">                                                         </span>Ports
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-nebula-docker-compose_graphd_1      /usr/local/nebula/bin/nebu ...   Up <span class="o">(</span>healthy<span class="o">)</span>   <span class="m">0</span>.0.0.0:33205-&gt;19669/tcp, <span class="m">0</span>.0.0.0:33204-&gt;19670/tcp, <span class="m">0</span>.0.0.0:9669-&gt;9669/tcp
-nebula-docker-compose_metad0_1      ./bin/nebula-metad --flagf ...   Up <span class="o">(</span>healthy<span class="o">)</span>   <span class="m">0</span>.0.0.0:33165-&gt;19559/tcp, <span class="m">0</span>.0.0.0:33162-&gt;19560/tcp, <span class="m">0</span>.0.0.0:33167-&gt;9559/tcp, <span class="m">9560</span>/tcp
-nebula-docker-compose_metad1_1      ./bin/nebula-metad --flagf ...   Up <span class="o">(</span>healthy<span class="o">)</span>   <span class="m">0</span>.0.0.0:33166-&gt;19559/tcp, <span class="m">0</span>.0.0.0:33163-&gt;19560/tcp, <span class="m">0</span>.0.0.0:33168-&gt;9559/tcp, <span class="m">9560</span>/tcp
-nebula-docker-compose_metad2_1      ./bin/nebula-metad --flagf ...   Up <span class="o">(</span>healthy<span class="o">)</span>   <span class="m">0</span>.0.0.0:33161-&gt;19559/tcp, <span class="m">0</span>.0.0.0:33160-&gt;19560/tcp, <span class="m">0</span>.0.0.0:33164-&gt;9559/tcp, <span class="m">9560</span>/tcp
-nebula-docker-compose_storaged0_1   ./bin/nebula-storaged --fl ...   Up <span class="o">(</span>healthy<span class="o">)</span>   <span class="m">0</span>.0.0.0:33180-&gt;19779/tcp, <span class="m">0</span>.0.0.0:33178-&gt;19780/tcp, <span class="m">9777</span>/tcp, <span class="m">9778</span>/tcp, <span class="m">0</span>.0.0.0:33183-&gt;9779/tcp, <span class="m">9780</span>/tcp
-nebula-docker-compose_storaged1_1   ./bin/nebula-storaged --fl ...   Up <span class="o">(</span>healthy<span class="o">)</span>   <span class="m">0</span>.0.0.0:33175-&gt;19779/tcp, <span class="m">0</span>.0.0.0:33172-&gt;19780/tcp, <span class="m">9777</span>/tcp, <span class="m">9778</span>/tcp, <span class="m">0</span>.0.0.0:33177-&gt;9779/tcp, <span class="m">9780</span>/tcp
-nebula-docker-compose_storaged2_1   ./bin/nebula-storaged --fl ...   Up <span class="o">(</span>healthy<span class="o">)</span>   <span class="m">0</span>.0.0.0:33184-&gt;19779/tcp, <span class="m">0</span>.0.0.0:33181-&gt;19780/tcp, <span class="m">9777</span>/tcp, <span class="m">9778</span>/tcp, <span class="m">0</span>.0.0.0:33185-&gt;9779/tcp, <span class="m">9780</span>/tcp
+nebula-docker-compose_graphd_1<span class="w">      </span>/usr/local/nebula/bin/nebu<span class="w"> </span>...<span class="w">   </span>Up<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">0</span>.0.0.0:33205-&gt;19669/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:33204-&gt;19670/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:9669-&gt;9669/tcp
+nebula-docker-compose_metad0_1<span class="w">      </span>./bin/nebula-metad<span class="w"> </span>--flagf<span class="w"> </span>...<span class="w">   </span>Up<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">0</span>.0.0.0:33165-&gt;19559/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:33162-&gt;19560/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:33167-&gt;9559/tcp,<span class="w"> </span><span class="m">9560</span>/tcp
+nebula-docker-compose_metad1_1<span class="w">      </span>./bin/nebula-metad<span class="w"> </span>--flagf<span class="w"> </span>...<span class="w">   </span>Up<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">0</span>.0.0.0:33166-&gt;19559/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:33163-&gt;19560/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:33168-&gt;9559/tcp,<span class="w"> </span><span class="m">9560</span>/tcp
+nebula-docker-compose_metad2_1<span class="w">      </span>./bin/nebula-metad<span class="w"> </span>--flagf<span class="w"> </span>...<span class="w">   </span>Up<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">0</span>.0.0.0:33161-&gt;19559/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:33160-&gt;19560/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:33164-&gt;9559/tcp,<span class="w"> </span><span class="m">9560</span>/tcp
+nebula-docker-compose_storaged0_1<span class="w">   </span>./bin/nebula-storaged<span class="w"> </span>--fl<span class="w"> </span>...<span class="w">   </span>Up<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">0</span>.0.0.0:33180-&gt;19779/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:33178-&gt;19780/tcp,<span class="w"> </span><span class="m">9777</span>/tcp,<span class="w"> </span><span class="m">9778</span>/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:33183-&gt;9779/tcp,<span class="w"> </span><span class="m">9780</span>/tcp
+nebula-docker-compose_storaged1_1<span class="w">   </span>./bin/nebula-storaged<span class="w"> </span>--fl<span class="w"> </span>...<span class="w">   </span>Up<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">0</span>.0.0.0:33175-&gt;19779/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:33172-&gt;19780/tcp,<span class="w"> </span><span class="m">9777</span>/tcp,<span class="w"> </span><span class="m">9778</span>/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:33177-&gt;9779/tcp,<span class="w"> </span><span class="m">9780</span>/tcp
+nebula-docker-compose_storaged2_1<span class="w">   </span>./bin/nebula-storaged<span class="w"> </span>--fl<span class="w"> </span>...<span class="w">   </span>Up<span class="w"> </span><span class="o">(</span>healthy<span class="o">)</span><span class="w">   </span><span class="m">0</span>.0.0.0:33184-&gt;19779/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:33181-&gt;19780/tcp,<span class="w"> </span><span class="m">9777</span>/tcp,<span class="w"> </span><span class="m">9778</span>/tcp,<span class="w"> </span><span class="m">0</span>.0.0.0:33185-&gt;9779/tcp,<span class="w"> </span><span class="m">9780</span>/tcp
 </code></pre></div>
 <p>查看<code>Ports</code>列，查找 docker 映射的端口号，例如：</p>
 <p>- Graph 服务可用的端口号是 9669。</p>
@@ -6382,27 +6386,27 @@ nebula-docker-compose_storaged2_1   ./bin/nebula-storaged --fl ...   Up <span cl
 <p>检查 Exchange 版本与 Nebula Graph 版本是否匹配，详细信息可参考<a href="../about-exchange/ex-ug-limitations/">使用限制</a>。</p>
 <h3 id="q_hive_nebula_graph">Q：将 Hive 中的数据导入 Nebula Graph 时出现乱码如何解决？<a class="headerlink" href="#q_hive_nebula_graph" title="Permanent link">&para;</a></h3>
 <p>如果 Hive 中数据的属性值包含中文字符，可能出现该情况。解决方案是在导入命令中的 JAR 包路径前加上以下选项：</p>
-<div class="highlight"><pre><span></span><code>--conf spark.driver.extraJavaOptions<span class="o">=</span>-Dfile.encoding<span class="o">=</span>utf-8
---conf spark.executor.extraJavaOptions<span class="o">=</span>-Dfile.encoding<span class="o">=</span>utf-8
+<div class="highlight"><pre><span></span><code>--conf<span class="w"> </span>spark.driver.extraJavaOptions<span class="o">=</span>-Dfile.encoding<span class="o">=</span>utf-8
+--conf<span class="w"> </span>spark.executor.extraJavaOptions<span class="o">=</span>-Dfile.encoding<span class="o">=</span>utf-8
 </code></pre></div>
 <p>即：</p>
-<div class="highlight"><pre><span></span><code>&lt;spark_install_path&gt;/bin/spark-submit --master <span class="s2">&quot;local&quot;</span> <span class="se">\</span>
---conf spark.driver.extraJavaOptions<span class="o">=</span>-Dfile.encoding<span class="o">=</span>utf-8 <span class="se">\</span>
---conf spark.executor.extraJavaOptions<span class="o">=</span>-Dfile.encoding<span class="o">=</span>utf-8 <span class="se">\</span>
---class com.vesoft.nebula.exchange.Exchange <span class="se">\</span>
-&lt;nebula-exchange-3.x.y.jar_path&gt; -c &lt;application.conf_path&gt;
+<div class="highlight"><pre><span></span><code>&lt;spark_install_path&gt;/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">"local"</span><span class="w"> </span><span class="se">\</span>
+--conf<span class="w"> </span>spark.driver.extraJavaOptions<span class="o">=</span>-Dfile.encoding<span class="o">=</span>utf-8<span class="w"> </span><span class="se">\</span>
+--conf<span class="w"> </span>spark.executor.extraJavaOptions<span class="o">=</span>-Dfile.encoding<span class="o">=</span>utf-8<span class="w"> </span><span class="se">\</span>
+--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span><span class="se">\</span>
+&lt;nebula-exchange-3.x.y.jar_path&gt;<span class="w"> </span>-c<span class="w"> </span>&lt;application.conf_path&gt;
 </code></pre></div>
 <p>如果是在 YARN 中，则用以下命令：</p>
-<div class="highlight"><pre><span></span><code>&lt;spark_install_path&gt;/bin/spark-submit <span class="se">\</span>
---class com.vesoft.nebula.exchange.Exchange <span class="se">\</span>
---master yarn-cluster <span class="se">\</span>
---files &lt;application.conf_path&gt; <span class="se">\</span>
---conf spark.driver.extraClassPath<span class="o">=</span>./ <span class="se">\</span>
---conf spark.executor.extraClassPath<span class="o">=</span>./ <span class="se">\</span>
---conf spark.driver.extraJavaOptions<span class="o">=</span>-Dfile.encoding<span class="o">=</span>utf-8 <span class="se">\</span>
---conf spark.executor.extraJavaOptions<span class="o">=</span>-Dfile.encoding<span class="o">=</span>utf-8 <span class="se">\</span>
-&lt;nebula-exchange-3.x.y.jar_path&gt; <span class="se">\</span>
--c application.conf
+<div class="highlight"><pre><span></span><code>&lt;spark_install_path&gt;/bin/spark-submit<span class="w"> </span><span class="se">\</span>
+--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span><span class="se">\</span>
+--master<span class="w"> </span>yarn-cluster<span class="w"> </span><span class="se">\</span>
+--files<span class="w"> </span>&lt;application.conf_path&gt;<span class="w"> </span><span class="se">\</span>
+--conf<span class="w"> </span>spark.driver.extraClassPath<span class="o">=</span>./<span class="w"> </span><span class="se">\</span>
+--conf<span class="w"> </span>spark.executor.extraClassPath<span class="o">=</span>./<span class="w"> </span><span class="se">\</span>
+--conf<span class="w"> </span>spark.driver.extraJavaOptions<span class="o">=</span>-Dfile.encoding<span class="o">=</span>utf-8<span class="w"> </span><span class="se">\</span>
+--conf<span class="w"> </span>spark.executor.extraJavaOptions<span class="o">=</span>-Dfile.encoding<span class="o">=</span>utf-8<span class="w"> </span><span class="se">\</span>
+&lt;nebula-exchange-3.x.y.jar_path&gt;<span class="w"> </span><span class="se">\</span>
+-c<span class="w"> </span>application.conf
 </code></pre></div>
 <h3 id="qhive_schema">Q：Hive 数据导入时提示 schema 版本不一致<a class="headerlink" href="#qhive_schema" title="Permanent link">&para;</a></h3>
 <p>Spark 日志提示 <code>Hive Schema version 1.2.0 does not match metastore's schema version 2.1.0 Metastore is not upgraded or corrupt</code> 的原因是 Hive 环境中配置的 metastore schema 版本和 Spark 使用的 metastore 版本不一致。</p>
@@ -6411,7 +6415,7 @@ nebula-docker-compose_storaged2_1   ./bin/nebula-storaged --fl ...   Up <span cl
 <li>
 <p>将 Hive 环境中存储 Hive metastore 信息的 MySQL version 信息更新为 Spark 中使用的 metastore 版本。</p>
 <p>假设 Hive 在 MySQL 中存储 metastore 的数据库是<code>hive</code>，需要按如下方式修改 <code>hive.VERSION</code> 表中的 <code>version</code> 字段：</p>
-<div class="highlight"><pre><span></span><code>update hive.VERSION set SCHEMA_VERSION=&quot;2.1.0&quot; where VER_ID=1
+<div class="highlight"><pre><span></span><code>update hive.VERSION set SCHEMA_VERSION="2.1.0" where VER_ID=1
 </code></pre></div>
 </li>
 <li>
@@ -6465,16 +6469,23 @@ nebula-docker-compose_storaged2_1   ./bin/nebula-storaged --fl ...   Up <span cl
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 16, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年2月16日</span>
       
     
   </small>
 </div>
 
-              
-            </article>
-            
-          </div>
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
           <a href="#" class="md-top md-icon" data-md-component="top" hidden>
@@ -6546,7 +6557,7 @@ nebula-docker-compose_storaged2_1   ./bin/nebula-storaged --fl ...   Up <span cl
       
     
     <a href="https://github.com/vesoft-inc/nebula-docs-cn" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
     </a>
   
 </div>
@@ -6559,10 +6570,11 @@ nebula-docker-compose_storaged2_1   ./bin/nebula-storaged --fl ...   Up <span cl
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "header.autohide"], "search": "../../assets/javascripts/workers/search.b97dbffb.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"method": "mike"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.top", "header.autohide"], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"method": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.6c7ad80a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.078830c0.min.js"></script>
       
         <script src="../../js/version-select.js"></script>
       
@@ -6571,8 +6583,6 @@ nebula-docker-compose_storaged2_1   ./bin/nebula-storaged --fl ...   Up <span cl
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
