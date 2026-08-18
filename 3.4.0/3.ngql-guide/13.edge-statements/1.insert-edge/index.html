@@ -10558,43 +10558,43 @@
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code># 插入不包含属性的边。
 nebula&gt; CREATE EDGE IF NOT EXISTS e1();                 
-nebula&gt; INSERT EDGE e1 () VALUES &quot;10&quot;-&gt;&quot;11&quot;:();  
+nebula&gt; INSERT EDGE e1 () VALUES "10"-&gt;"11":();  
 
 # 插入 rank 为 1 的边。
-nebula&gt; INSERT EDGE e1 () VALUES &quot;10&quot;-&gt;&quot;11&quot;@1:(); 
+nebula&gt; INSERT EDGE e1 () VALUES "10"-&gt;"11"@1:(); 
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE EDGE IF NOT EXISTS e2 (name string, age int); 
-nebula&gt; INSERT EDGE e2 (name, age) VALUES &quot;11&quot;-&gt;&quot;13&quot;:(&quot;n1&quot;, 1);
+nebula&gt; INSERT EDGE e2 (name, age) VALUES "11"-&gt;"13":("n1", 1);
 
 # 一次插入 2 条边。
 nebula&gt; INSERT EDGE e2 (name, age) VALUES \
-        &quot;12&quot;-&gt;&quot;13&quot;:(&quot;n1&quot;, 1), &quot;13&quot;-&gt;&quot;14&quot;:(&quot;n2&quot;, 2); 
+        "12"-&gt;"13":("n1", 1), "13"-&gt;"14":("n2", 2); 
 
-# 创建失败，因为&quot;a13&quot;不是 int 类型。
-nebula&gt; INSERT EDGE e2 (name, age) VALUES &quot;11&quot;-&gt;&quot;13&quot;:(&quot;n1&quot;, &quot;a13&quot;);
+# 创建失败，因为"a13"不是 int 类型。
+nebula&gt; INSERT EDGE e2 (name, age) VALUES "11"-&gt;"13":("n1", "a13");
 </code></pre></div>
 <p>一条边可以多次插入属性值，以最后一次为准。</p>
 <div class="highlight"><pre><span></span><code># 多次插入属性值。
-nebula&gt; INSERT EDGE e2 (name, age) VALUES &quot;11&quot;-&gt;&quot;13&quot;:(&quot;n1&quot;, 12);
-nebula&gt; INSERT EDGE e2 (name, age) VALUES &quot;11&quot;-&gt;&quot;13&quot;:(&quot;n1&quot;, 13);
-nebula&gt; INSERT EDGE e2 (name, age) VALUES &quot;11&quot;-&gt;&quot;13&quot;:(&quot;n1&quot;, 14);
-nebula&gt; FETCH PROP ON e2 &quot;11&quot;-&gt;&quot;13&quot; YIELD edge AS e;
+nebula&gt; INSERT EDGE e2 (name, age) VALUES "11"-&gt;"13":("n1", 12);
+nebula&gt; INSERT EDGE e2 (name, age) VALUES "11"-&gt;"13":("n1", 13);
+nebula&gt; INSERT EDGE e2 (name, age) VALUES "11"-&gt;"13":("n1", 14);
+nebula&gt; FETCH PROP ON e2 "11"-&gt;"13" YIELD edge AS e;
 +-------------------------------------------+
 | e                                         |
 +-------------------------------------------+
-| [:e2 &quot;11&quot;-&gt;&quot;13&quot; @0 {age: 14, name: &quot;n1&quot;}] |
+| [:e2 "11"-&gt;"13" @0 {age: 14, name: "n1"}] |
 +-------------------------------------------+
 </code></pre></div>
 <p>使用<code>IF NOT EXISTS</code>插入已存在的边时，不会进行修改。</p>
 <div class="highlight"><pre><span></span><code># 插入边。
-nebula&gt; INSERT EDGE e2 (name, age) VALUES &quot;14&quot;-&gt;&quot;15&quot;@1:(&quot;n1&quot;, 12);
+nebula&gt; INSERT EDGE e2 (name, age) VALUES "14"-&gt;"15"@1:("n1", 12);
 # 使用 IF NOT EXISTS 修改边，因为边已存在，不会进行修改。
-nebula&gt; INSERT EDGE IF NOT EXISTS e2 (name, age) VALUES &quot;14&quot;-&gt;&quot;15&quot;@1:(&quot;n2&quot;, 13);
-nebula&gt; FETCH PROP ON e2 &quot;14&quot;-&gt;&quot;15&quot;@1 YIELD edge AS e;
+nebula&gt; INSERT EDGE IF NOT EXISTS e2 (name, age) VALUES "14"-&gt;"15"@1:("n2", 13);
+nebula&gt; FETCH PROP ON e2 "14"-&gt;"15"@1 YIELD edge AS e;
 +-------------------------------------------+
 | e                                         |
 +-------------------------------------------+
-| [:e2 &quot;14&quot;-&gt;&quot;15&quot; @1 {age: 12, name: &quot;n1&quot;}] |
+| [:e2 "14"-&gt;"15" @1 {age: 12, name: "n1"}] |
 +-------------------------------------------+
 </code></pre></div>
 <div class="admonition note">
@@ -10612,7 +10612,7 @@ nebula&gt; FETCH PROP ON e2 &quot;14&quot;-&gt;&quot;15&quot;@1 YIELD edge AS e;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月22日 01:35:41">2025年4月22日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:30:25 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10696,8 +10696,6 @@ nebula&gt; FETCH PROP ON e2 &quot;14&quot;-&gt;&quot;15&quot;@1 YIELD edge AS e;
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

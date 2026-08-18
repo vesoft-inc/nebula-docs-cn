@@ -10630,16 +10630,16 @@ SET &lt;update_prop&gt;
 </table>
 <p>示例如下：</p>
 <div class="highlight"><pre><span></span><code>// 查看三个点是否存在，结果 “Empty set” 表示顶点不存在。
-nebula&gt; FETCH PROP ON * &quot;player666&quot;, &quot;player667&quot;, &quot;player668&quot; YIELD properties(vertex);
+nebula&gt; FETCH PROP ON * "player666", "player667", "player668" YIELD properties(vertex);
 +--------------------+
 | properties(VERTEX) |
 +--------------------+
 +--------------------+
 Empty set
 
-nebula&gt; UPSERT VERTEX ON player &quot;player666&quot; \
+nebula&gt; UPSERT VERTEX ON player "player666" \
         SET age = 30 \
-        WHEN name == &quot;Joe&quot; \
+        WHEN name == "Joe" \
         YIELD name AS Name, age AS Age;
 +----------+----------+
 | Name     | Age      |
@@ -10647,9 +10647,9 @@ nebula&gt; UPSERT VERTEX ON player &quot;player666&quot; \
 | __NULL__ | 30       |
 +----------+----------+
 
-nebula&gt; UPSERT VERTEX ON player &quot;player666&quot; \
+nebula&gt; UPSERT VERTEX ON player "player666" \
         SET age = 31 \
-        WHEN name == &quot;Joe&quot; \
+        WHEN name == "Joe" \
         YIELD name AS Name, age AS Age;
 +----------+-----+
 | Name     | Age |
@@ -10657,7 +10657,7 @@ nebula&gt; UPSERT VERTEX ON player &quot;player666&quot; \
 | __NULL__ | 30  |
 +----------+-----+
 
-nebula&gt; UPSERT VERTEX ON player &quot;player667&quot; \
+nebula&gt; UPSERT VERTEX ON player "player667" \
         SET age = 31 \
         YIELD name AS Name, age AS Age;
 +----------+-----+
@@ -10666,20 +10666,20 @@ nebula&gt; UPSERT VERTEX ON player &quot;player667&quot; \
 | __NULL__ | 31  |
 +----------+-----+
 
-nebula&gt; UPSERT VERTEX ON player &quot;player668&quot; \
-        SET name = &quot;Amber&quot;, age = age + 1 \
+nebula&gt; UPSERT VERTEX ON player "player668" \
+        SET name = "Amber", age = age + 1 \
         YIELD name AS Name, age AS Age;
 +---------+----------+
 | Name    | Age      |
 +---------+----------+
-| &quot;Amber&quot; | __NULL__ |
+| "Amber" | __NULL__ |
 +---------+----------+
 </code></pre></div>
 <p>上面最后一个示例中，因为<code>age</code>没有默认值，插入点时，<code>age</code>默认值为<code>NULL</code>，执行<code>age = age + 1</code>后仍为<code>NULL</code>。如果<code>age</code>有默认值，则<code>age = age + 1</code>可以正常执行，例如：</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG IF NOT EXISTS player_with_default(name string, age int DEFAULT 20);
 Execution succeeded
 
-nebula&gt; UPSERT VERTEX ON player_with_default &quot;player101&quot; \
+nebula&gt; UPSERT VERTEX ON player_with_default "player101" \
         SET age = age + 1 \
         YIELD name AS Name, age AS Age;
 
@@ -10691,39 +10691,39 @@ nebula&gt; UPSERT VERTEX ON player_with_default &quot;player101&quot; \
 </code></pre></div>
 <h2 id="_3">修改存在的点<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>如果点存在，且满足<code>WHEN</code>子句的条件，就会修改点的属性值。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player &quot;player101&quot; YIELD properties(vertex);
+<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player "player101" YIELD properties(vertex);
 +--------------------------------+
 | properties(VERTEX)             |
 +--------------------------------+
-| {age: 36, name: &quot;Tony Parker&quot;} |
+| {age: 36, name: "Tony Parker"} |
 +--------------------------------+
 
-nebula&gt; UPSERT VERTEX ON player &quot;player101&quot; \
+nebula&gt; UPSERT VERTEX ON player "player101" \
         SET age = age + 2 \
-        WHEN name == &quot;Tony Parker&quot; \
+        WHEN name == "Tony Parker" \
         YIELD name AS Name, age AS Age;
 +---------------+-----+
 | Name          | Age |
 +---------------+-----+
-| &quot;Tony Parker&quot; | 38  |
+| "Tony Parker" | 38  |
 +---------------+-----+
 </code></pre></div>
 <p>如果点存在，但是不满足<code>WHEN</code>子句的条件，修改不会生效。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player &quot;player101&quot; YIELD properties(vertex);
+<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player "player101" YIELD properties(vertex);
 +--------------------------------+
 | properties(VERTEX)             |
 +--------------------------------+
-| {age: 38, name: &quot;Tony Parker&quot;} |
+| {age: 38, name: "Tony Parker"} |
 +--------------------------------+
 
-nebula&gt; UPSERT VERTEX ON player &quot;player101&quot; \
+nebula&gt; UPSERT VERTEX ON player "player101" \
         SET age = age + 2 \
-        WHEN name == &quot;Someone else&quot; \
+        WHEN name == "Someone else" \
         YIELD name AS Name, age AS Age;
 +---------------+-----+
 | Name          | Age |
 +---------------+-----+
-| &quot;Tony Parker&quot; | 38  |
+| "Tony Parker" | 38  |
 +---------------+-----+
 </code></pre></div>
 
@@ -10732,7 +10732,7 @@ nebula&gt; UPSERT VERTEX ON player &quot;player101&quot; \
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月22日 01:35:41">2025年4月22日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:30:25 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10816,8 +10816,6 @@ nebula&gt; UPSERT VERTEX ON player &quot;player101&quot; \
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

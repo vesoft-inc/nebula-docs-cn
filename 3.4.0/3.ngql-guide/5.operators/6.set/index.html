@@ -10656,74 +10656,74 @@
 </ul>
 <h3 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code># 返回两个查询结果的并集，不包含重复的元素。
-nebula&gt; GO FROM &quot;player102&quot; OVER follow YIELD dst(edge) \
+nebula&gt; GO FROM "player102" OVER follow YIELD dst(edge) \
         UNION \
-        GO FROM &quot;player100&quot; OVER follow YIELD dst(edge);
+        GO FROM "player100" OVER follow YIELD dst(edge);
 +-------------+
 | dst(EDGE)   |
 +-------------+
-| &quot;player100&quot; |
-| &quot;player101&quot; |
-| &quot;player125&quot; |
+| "player100" |
+| "player101" |
+| "player125" |
 +-------------+
 
 nebula&gt; MATCH (v:player) \
         WITH v.player.name AS n \
         RETURN n ORDER BY n LIMIT 3 \
         UNION \
-        UNWIND [&quot;Tony Parker&quot;, &quot;Ben Simmons&quot;] AS n \
+        UNWIND ["Tony Parker", "Ben Simmons"] AS n \
         RETURN n;
 +---------------------+
 | n                   |
 +---------------------+
-| &quot;Amar&#39;e Stoudemire&quot; |
-| &quot;Aron Baynes&quot;       |
-| &quot;Ben Simmons&quot;       |
-| &quot;Tony Parker&quot;       |
+| "Amar'e Stoudemire" |
+| "Aron Baynes"       |
+| "Ben Simmons"       |
+| "Tony Parker"       |
 +---------------------+
 
 # 返回两个查询结果的并集，包含重复的元素。
-nebula&gt; GO FROM &quot;player102&quot; OVER follow YIELD dst(edge) \
+nebula&gt; GO FROM "player102" OVER follow YIELD dst(edge) \
         UNION ALL \
-        GO FROM &quot;player100&quot; OVER follow YIELD dst(edge);
+        GO FROM "player100" OVER follow YIELD dst(edge);
 +-------------+
 | dst(EDGE)   |
 +-------------+
-| &quot;player100&quot; |
-| &quot;player101&quot; |
-| &quot;player101&quot; |
-| &quot;player125&quot; |
+| "player100" |
+| "player101" |
+| "player101" |
+| "player125" |
 +-------------+
 
 nebula&gt; MATCH (v:player) \
         WITH v.player.name AS n \
         RETURN n ORDER BY n LIMIT 3 \
         UNION ALL \
-        UNWIND [&quot;Tony Parker&quot;, &quot;Ben Simmons&quot;] AS n \
+        UNWIND ["Tony Parker", "Ben Simmons"] AS n \
         RETURN n;
 +---------------------+
 | n                   |
 +---------------------+
-| &quot;Amar&#39;e Stoudemire&quot; |
-| &quot;Aron Baynes&quot;       |
-| &quot;Ben Simmons&quot;       |
-| &quot;Tony Parker&quot;       |
-| &quot;Ben Simmons&quot;       |
+| "Amar'e Stoudemire" |
+| "Aron Baynes"       |
+| "Ben Simmons"       |
+| "Tony Parker"       |
+| "Ben Simmons"       |
 +---------------------+
 
 # UNION 也可以和 YIELD 语句一起使用，去重时会检查每一行的所有列，每列都相同时才会去重。
-nebula&gt; GO FROM &quot;player102&quot; OVER follow \
+nebula&gt; GO FROM "player102" OVER follow \
         YIELD dst(edge) AS id, properties(edge).degree AS Degree, properties($$).age AS Age \
         UNION /* DISTINCT */ \
-        GO FROM &quot;player100&quot; OVER follow \
+        GO FROM "player100" OVER follow \
         YIELD dst(edge) AS id, properties(edge).degree AS Degree, properties($$).age AS Age;
 +-------------+--------+-----+
 | id          | Degree | Age |
 +-------------+--------+-----+
-| &quot;player100&quot; | 75     | 42  |
-| &quot;player101&quot; | 75     | 36  |
-| &quot;player101&quot; | 95     | 36  |
-| &quot;player125&quot; | 95     | 41  |
+| "player100" | 75     | 42  |
+| "player101" | 75     | 36  |
+| "player101" | 95     | 36  |
+| "player125" | 95     | 41  |
 +-------------+--------+-----+
 </code></pre></div>
 <h2 id="intersect">INTERSECT<a class="headerlink" href="#intersect" title="Permanent link">&para;</a></h2>
@@ -10737,10 +10737,10 @@ nebula&gt; GO FROM &quot;player102&quot; OVER follow \
 </ul>
 <h3 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code># 返回两个查询结果的交集。
-nebula&gt; GO FROM &quot;player102&quot; OVER follow \
+nebula&gt; GO FROM "player102" OVER follow \
         YIELD dst(edge) AS id, properties(edge).degree AS Degree, properties($$).age AS Age \
         INTERSECT \
-        GO FROM &quot;player100&quot; OVER follow \
+        GO FROM "player100" OVER follow \
         YIELD dst(edge) AS id, properties(edge).degree AS Degree, properties($$).age AS Age;
 +----+--------+-----+
 | id | Degree | Age |
@@ -10748,11 +10748,11 @@ nebula&gt; GO FROM &quot;player102&quot; OVER follow \
 +----+--------+-----+
 
 nebula&gt; MATCH (v:player)-[e:follow]-&gt;(v2) \
-        WHERE id(v) == &quot;player102&quot; \
+        WHERE id(v) == "player102" \
         RETURN id(v2) As id, e.degree As Degree, v2.player.age AS Age \
         INTERSECT \
         MATCH (v:player)-[e:follow]-&gt;(v2) \
-        WHERE id(v) == &quot;player100&quot; \
+        WHERE id(v) == "player100" \
         RETURN id(v2) As id, e.degree As Degree, v2.player.age AS Age;
 +----+--------+-----+
 | id | Degree | Age |
@@ -10776,35 +10776,35 @@ nebula&gt; UNWIND [1,2] AS a RETURN a \
 <p>运算符<code>MINUS</code>返回两个集合 A 和 B 的差异，即<code>A-B</code>。请注意<code>left</code>和<code>right</code>的顺序，<code>A-B</code>表示在集合 A 中，但是不在集合 B 中的元素。</p>
 <h3 id="_4">示例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code># 返回在第一个查询结果中，但是不在第二个查询结果中的元素。
-nebula&gt; GO FROM &quot;player100&quot; OVER follow YIELD dst(edge) \
+nebula&gt; GO FROM "player100" OVER follow YIELD dst(edge) \
         MINUS \
-        GO FROM &quot;player102&quot; OVER follow YIELD dst(edge);
+        GO FROM "player102" OVER follow YIELD dst(edge);
 +-------------+
 | dst(EDGE)   |
 +-------------+
-| &quot;player125&quot; |
+| "player125" |
 +-------------+
 
-nebula&gt; GO FROM &quot;player102&quot; OVER follow YIELD dst(edge) AS id \
+nebula&gt; GO FROM "player102" OVER follow YIELD dst(edge) AS id \
         MINUS \
-        GO FROM &quot;player100&quot; OVER follow YIELD dst(edge) AS id;
+        GO FROM "player100" OVER follow YIELD dst(edge) AS id;
 +-------------+
 | id          |
 +-------------+
-| &quot;player100&quot; |
+| "player100" |
 +-------------+
 
 nebula&gt; MATCH (v:player)-[e:follow]-&gt;(v2) \
-        WHERE id(v) ==&quot;player102&quot; \
+        WHERE id(v) =="player102" \
         RETURN id(v2) AS id\
         MINUS \
         MATCH (v:player)-[e:follow]-&gt;(v2) \
-        WHERE id(v) ==&quot;player100&quot; \
+        WHERE id(v) =="player100" \
         RETURN id(v2) AS id;
 +-------------+
 | id          |
 +-------------+
-| &quot;player100&quot; |
+| "player100" |
 +-------------+
 
 nebula&gt; UNWIND [1,2,3] AS a RETURN a \
@@ -10822,29 +10822,29 @@ nebula&gt; UNWIND [1,2,3] AS a RETURN a \
 <h2 id="_5">集合运算符和管道符的优先级<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>当查询包含集合运算符和管道符（|）时，<a href="../4.pipe/">管道符</a>的优先级高。例如<code>GO FROM 1 UNION GO FROM 2 | GO FROM 3</code>相当于<code>GO FROM 1 UNION (GO FROM 2 | GO FROM 3)</code>。</p>
 <h3 id="_6">示例<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM &quot;player102&quot; OVER follow \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM "player102" OVER follow \
         YIELD dst(edge) AS play_dst  \
         UNION \
-        GO FROM &quot;team200&quot; OVER serve REVERSELY \
+        GO FROM "team200" OVER serve REVERSELY \
         YIELD src(edge) AS play_src \
         | GO FROM $-.play_src OVER follow YIELD dst(edge) AS play_dst;
 
 +-------------+
 | play_dst    |
 +-------------+
-| &quot;player100&quot; |
-| &quot;player101&quot; |
-| &quot;player117&quot; |
-| &quot;player105&quot; |
+| "player100" |
+| "player101" |
+| "player117" |
+| "player105" |
 +-------------+
 </code></pre></div>
 <p><img alt="image" src="https://user-images.githubusercontent.com/42762957/97955863-3a213000-1de2-11eb-8de3-2c78da30747c.png" /></p>
 <p>该查询会先执行红框内的语句，然后执行绿框的<code>UNION</code>操作。</p>
 <p>圆括号可以修改执行的优先级，例如：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; (GO FROM &quot;player102&quot; OVER follow \
+<div class="highlight"><pre><span></span><code>nebula&gt; (GO FROM "player102" OVER follow \
         YIELD dst(edge) AS play_dst  \
         UNION \
-        GO FROM &quot;team200&quot; OVER serve REVERSELY \
+        GO FROM "team200" OVER serve REVERSELY \
         YIELD src(edge) AS play_dst) \
         | GO FROM $-.play_dst OVER follow YIELD dst(edge) AS play_dst;
 </code></pre></div>
@@ -10855,7 +10855,7 @@ nebula&gt; UNWIND [1,2,3] AS a RETURN a \
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月22日 01:35:41">2025年4月22日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:30:25 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10939,8 +10939,6 @@ nebula&gt; UNWIND [1,2,3] AS a RETURN a \
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

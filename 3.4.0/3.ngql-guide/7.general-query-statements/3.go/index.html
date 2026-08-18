@@ -10594,41 +10594,41 @@ YIELD [DISTINCT] &lt;return_list&gt;
 </ul>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code># 返回 player102 所属队伍。
-nebula&gt; GO FROM &quot;player102&quot; OVER serve YIELD dst(edge);
+nebula&gt; GO FROM "player102" OVER serve YIELD dst(edge);
 +-----------+
 | dst(EDGE) |
 +-----------+
-| &quot;team203&quot; |
-| &quot;team204&quot; |
+| "team203" |
+| "team204" |
 +-----------+
 </code></pre></div>
 <div class="highlight"><pre><span></span><code># 返回距离 player102 两跳的朋友。
-nebula&gt; GO 2 STEPS FROM &quot;player102&quot; OVER follow YIELD dst(edge);
+nebula&gt; GO 2 STEPS FROM "player102" OVER follow YIELD dst(edge);
 +-------------+
 | dst(EDGE)   |
 +-------------+
-| &quot;player101&quot; |
-| &quot;player125&quot; |
-| &quot;player100&quot; |
-| &quot;player102&quot; |
-| &quot;player125&quot; |
+| "player101" |
+| "player125" |
+| "player100" |
+| "player102" |
+| "player125" |
 +-------------+
 </code></pre></div>
 <div class="highlight"><pre><span></span><code># 添加过滤条件。
-nebula&gt; GO FROM &quot;player100&quot;, &quot;player102&quot; OVER serve \
+nebula&gt; GO FROM "player100", "player102" OVER serve \
         WHERE properties(edge).start_year &gt; 1995 \
         YIELD DISTINCT properties($$).name AS team_name, properties(edge).start_year AS start_year, properties($^).name AS player_name;
 
 +-----------------+------------+---------------------+
 | team_name       | start_year | player_name         |
 +-----------------+------------+---------------------+
-| &quot;Spurs&quot;         | 1997       | &quot;Tim Duncan&quot;        |
-| &quot;Trail Blazers&quot; | 2006       | &quot;LaMarcus Aldridge&quot; |
-| &quot;Spurs&quot;         | 2015       | &quot;LaMarcus Aldridge&quot; |
+| "Spurs"         | 1997       | "Tim Duncan"        |
+| "Trail Blazers" | 2006       | "LaMarcus Aldridge" |
+| "Spurs"         | 2015       | "LaMarcus Aldridge" |
 +-----------------+------------+---------------------+
 </code></pre></div>
 <div class="highlight"><pre><span></span><code># 遍历多个 Edge type。属性没有值时，会显示`NULL`。
-nebula&gt; GO FROM &quot;player100&quot; OVER follow, serve \
+nebula&gt; GO FROM "player100" OVER follow, serve \
         YIELD properties(edge).degree, properties(edge).start_year;
 +-------------------------+-----------------------------+
 | properties(EDGE).degree | properties(EDGE).start_year |
@@ -10639,27 +10639,27 @@ nebula&gt; GO FROM &quot;player100&quot; OVER follow, serve \
 +-------------------------+-----------------------------+
 </code></pre></div>
 <div class="highlight"><pre><span></span><code># 返回 player100 入方向的邻居点。
-nebula&gt; GO FROM &quot;player100&quot; OVER follow REVERSELY \
+nebula&gt; GO FROM "player100" OVER follow REVERSELY \
         YIELD src(edge) AS destination;
 +-------------+
 | destination |
 +-------------+
-| &quot;player101&quot; |
-| &quot;player102&quot; |
+| "player101" |
+| "player102" |
 ...
 
 # 该 MATCH 查询与上一个 GO 查询具有相同的语义。
-nebula&gt; MATCH (v)&lt;-[e:follow]- (v2) WHERE id(v) == &#39;player100&#39; \
+nebula&gt; MATCH (v)&lt;-[e:follow]- (v2) WHERE id(v) == 'player100' \
         RETURN id(v2) AS destination;
 +-------------+
 | destination |
 +-------------+
-| &quot;player101&quot; |
-| &quot;player102&quot; |
+| "player101" |
+| "player102" |
 ...
 </code></pre></div>
 <div class="highlight"><pre><span></span><code># 查询 player100 的朋友和朋友所属队伍。
-nebula&gt; GO FROM &quot;player100&quot; OVER follow REVERSELY \
+nebula&gt; GO FROM "player100" OVER follow REVERSELY \
         YIELD src(edge) AS id | \
         GO FROM $-.id OVER serve \
         WHERE properties($^).age &gt; 20 \
@@ -10667,76 +10667,76 @@ nebula&gt; GO FROM &quot;player100&quot; OVER follow REVERSELY \
 +---------------------+-----------------+
 | FriendOf            | Team            |
 +---------------------+-----------------+
-| &quot;Boris Diaw&quot;        | &quot;Spurs&quot;         |
-| &quot;Boris Diaw&quot;        | &quot;Jazz&quot;          |
-| &quot;Boris Diaw&quot;        | &quot;Suns&quot;          |
+| "Boris Diaw"        | "Spurs"         |
+| "Boris Diaw"        | "Jazz"          |
+| "Boris Diaw"        | "Suns"          |
 ...
 
 # 该 MATCH 查询与上一个 GO 查询具有相同的语义。
 nebula&gt; MATCH (v)&lt;-[e:follow]- (v2)-[e2:serve]-&gt;(v3)  \
-        WHERE id(v) == &#39;player100&#39; \
+        WHERE id(v) == 'player100' \
         RETURN v2.player.name AS FriendOf, v3.team.name AS Team;
 +---------------------+-----------------+
 | FriendOf            | Team            |
 +---------------------+-----------------+
-| &quot;Boris Diaw&quot;        | &quot;Spurs&quot;         |
-| &quot;Boris Diaw&quot;        | &quot;Jazz&quot;          |
-| &quot;Boris Diaw&quot;        | &quot;Suns&quot;          |
+| "Boris Diaw"        | "Spurs"         |
+| "Boris Diaw"        | "Jazz"          |
+| "Boris Diaw"        | "Suns"          |
 ...
 </code></pre></div>
 <div class="highlight"><pre><span></span><code># 查询 player100 1~2 跳内的朋友。
-nebula&gt; GO 1 TO 2 STEPS FROM &quot;player100&quot; OVER follow \
+nebula&gt; GO 1 TO 2 STEPS FROM "player100" OVER follow \
         YIELD dst(edge) AS destination;
 +-------------+
 | destination |
 +-------------+
-| &quot;player101&quot; |
-| &quot;player125&quot; |
+| "player101" |
+| "player125" |
 ...
 
 # 该 MATCH 查询与上一个 GO 查询具有相同的语义。
 nebula&gt; MATCH (v) -[e:follow*1..2]-&gt;(v2) \
-        WHERE id(v) == &quot;player100&quot; \
+        WHERE id(v) == "player100" \
         RETURN id(v2) AS destination;
 +-------------+
 | destination |
 +-------------+
-| &quot;player100&quot; |
-| &quot;player102&quot; |
+| "player100" |
+| "player102" |
 ...
 </code></pre></div>
 <div class="highlight"><pre><span></span><code># 根据年龄分组。
-nebula&gt; GO 2 STEPS FROM &quot;player100&quot; OVER follow \
+nebula&gt; GO 2 STEPS FROM "player100" OVER follow \
         YIELD src(edge) AS src, dst(edge) AS dst, properties($$).age AS age \
         | GROUP BY $-.dst \
         YIELD $-.dst AS dst, collect_set($-.src) AS src, collect($-.age) AS age;
 +-------------+----------------------------+----------+
 | dst         | src                        | age      |
 +-------------+----------------------------+----------+
-| &quot;player125&quot; | [&quot;player101&quot;]              | [41]     |
-| &quot;player100&quot; | [&quot;player125&quot;, &quot;player101&quot;] | [42, 42] |
-| &quot;player102&quot; | [&quot;player101&quot;]              | [33]     |
+| "player125" | ["player101"]              | [41]     |
+| "player100" | ["player125", "player101"] | [42, 42] |
+| "player102" | ["player101"]              | [33]     |
 +-------------+----------------------------+----------+
 </code></pre></div>
 <div class="highlight"><pre><span></span><code># 分组并限制输出结果的行数。
-nebula&gt; $a = GO FROM &quot;player100&quot; OVER follow YIELD src(edge) AS src, dst(edge) AS dst; \
+nebula&gt; $a = GO FROM "player100" OVER follow YIELD src(edge) AS src, dst(edge) AS dst; \
         GO 2 STEPS FROM $a.dst OVER follow \
         YIELD $a.src AS src, $a.dst, src(edge), dst(edge) \
         | ORDER BY $-.src | OFFSET 1 LIMIT 2;
 +-------------+-------------+-------------+-------------+
 | src         | $a.dst      | src(EDGE)   | dst(EDGE)   |
 +-------------+-------------+-------------+-------------+
-| &quot;player100&quot; | &quot;player125&quot; | &quot;player100&quot; | &quot;player101&quot; |
-| &quot;player100&quot; | &quot;player101&quot; | &quot;player100&quot; | &quot;player125&quot; |
+| "player100" | "player125" | "player100" | "player101" |
+| "player100" | "player101" | "player100" | "player125" |
 +-------------+-------------+-------------+-------------+
 </code></pre></div>
 <div class="highlight"><pre><span></span><code># 在多个边上通过 IS NOT EMPTY 进行判断。
-nebula&gt; GO FROM &quot;player100&quot; OVER follow WHERE properties($$).name IS NOT EMPTY YIELD dst(edge);
+nebula&gt; GO FROM "player100" OVER follow WHERE properties($$).name IS NOT EMPTY YIELD dst(edge);
 +-------------+
 | dst(EDGE)   |
 +-------------+
-| &quot;player125&quot; |
-| &quot;player101&quot; |
+| "player125" |
+| "player101" |
 +-------------+
 </code></pre></div>
 
@@ -10745,7 +10745,7 @@ nebula&gt; GO FROM &quot;player100&quot; OVER follow WHERE properties($$).name I
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月22日 01:35:41">2025年4月22日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:30:25 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10829,8 +10829,6 @@ nebula&gt; GO FROM &quot;player100&quot; OVER follow WHERE properties($$).name I
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

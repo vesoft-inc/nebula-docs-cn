@@ -10533,24 +10533,24 @@
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG IF NOT EXISTS test1(p1 string, p2 int);
 nebula&gt; CREATE TAG IF NOT EXISTS test2(p3 string, p4 int);
-nebula&gt; INSERT VERTEX test1(p1, p2),test2(p3, p4) VALUES &quot;test&quot;:(&quot;123&quot;, 1, &quot;456&quot;, 2);
-nebula&gt; FETCH PROP ON * &quot;test&quot; YIELD vertex AS v;
+nebula&gt; INSERT VERTEX test1(p1, p2),test2(p3, p4) VALUES "test":("123", 1, "456", 2);
+nebula&gt; FETCH PROP ON * "test" YIELD vertex AS v;
 +------------------------------------------------------------+
 | v                                                          |
 +------------------------------------------------------------+
-| (&quot;test&quot; :test1{p1: &quot;123&quot;, p2: 1} :test2{p3: &quot;456&quot;, p4: 2}) |
+| ("test" :test1{p1: "123", p2: 1} :test2{p3: "456", p4: 2}) |
 +------------------------------------------------------------+
 
-nebula&gt; DELETE TAG test1 FROM &quot;test&quot;;
-nebula&gt; FETCH PROP ON * &quot;test&quot; YIELD vertex AS v;
+nebula&gt; DELETE TAG test1 FROM "test";
+nebula&gt; FETCH PROP ON * "test" YIELD vertex AS v;
 +-----------------------------------+
 | v                                 |
 +-----------------------------------+
-| (&quot;test&quot; :test2{p3: &quot;456&quot;, p4: 2}) |
+| ("test" :test2{p3: "456", p4: 2}) |
 +-----------------------------------+
 
-nebula&gt; DELETE TAG * FROM &quot;test&quot;;
-nebula&gt; FETCH PROP ON * &quot;test&quot; YIELD vertex AS v;
+nebula&gt; DELETE TAG * FROM "test";
+nebula&gt; FETCH PROP ON * "test" YIELD vertex AS v;
 +---+
 | v |
 +---+
@@ -10569,7 +10569,7 @@ nebula&gt; FETCH PROP ON * &quot;test&quot; YIELD vertex AS v;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月22日 01:35:41">2025年4月22日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:30:25 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10653,8 +10653,6 @@ nebula&gt; FETCH PROP ON * &quot;test&quot; YIELD vertex AS v;
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

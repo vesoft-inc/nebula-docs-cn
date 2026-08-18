@@ -10770,7 +10770,7 @@ curl<span class="w"> </span><span class="m">127</span>.0.0.1:19779/flags
 </ul>
 <h3 id="_7">使用命令动态修改配置<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>用户可以通过<code>curl</code>命令动态修改 NebulaGraph 服务的配置。例如，修改 Storage 服务的<code>wal_ttl</code>参数为<code>600</code>，命令如下：</p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>-d<span class="s1">&#39;{&quot;wal_ttl&quot;:&quot;600&quot;}&#39;</span><span class="w"> </span>-s<span class="w"> </span><span class="s2">&quot;http://192.168.15.6:19779/flags&quot;</span>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span>-d<span class="s1">'{"wal_ttl":"600"}'</span><span class="w"> </span>-s<span class="w"> </span><span class="s2">"http://192.168.15.6:19779/flags"</span>
 </code></pre></div>
 <p>其中，<code>{"wal_ttl":"600"}</code>为待修改的配置参数及其值；<code>192.168.15.6:19779</code>为 Storage 服务的 IP 地址和 HTTP 端口号。</p>
 <div class="admonition caution">
@@ -10786,7 +10786,7 @@ curl<span class="w"> </span><span class="m">127</span>.0.0.1:19779/flags
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月22日 01:35:41">2025年4月22日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:30:25 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10870,8 +10870,6 @@ curl<span class="w"> </span><span class="m">127</span>.0.0.1:19779/flags
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

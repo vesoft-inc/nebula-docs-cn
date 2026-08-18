@@ -10867,22 +10867,22 @@ nebula&gt; SHOW JOB 121;
 +----------------+---------------------+------------+----------------------------+----------------------------+-------------+
 | Job Id(TaskId) | Command(Dest)       | Status     | Start Time                 | Stop Time                  | Error Code  |
 +----------------+---------------------+------------+----------------------------+----------------------------+-------------+
-| 121            | &quot;REBUILD_TAG_INDEX&quot; | &quot;FINISHED&quot; | 2021-05-27T02:18:02.000000 | 2021-05-27T02:18:02.000000 | &quot;SUCCEEDED&quot; |
-| 0              | &quot;storaged1&quot;         | &quot;FINISHED&quot; | 2021-05-27T02:18:02.000000 | 2021-05-27T02:18:02.000000 | &quot;SUCCEEDED&quot; |
-| 1              | &quot;storaged0&quot;         | &quot;FINISHED&quot; | 2021-05-27T02:18:02.000000 | 2021-05-27T02:18:02.000000 | &quot;SUCCEEDED&quot; |
-| 2              | &quot;storaged2&quot;         | &quot;FINISHED&quot; | 2021-05-27T02:18:02.000000 | 2021-05-27T02:18:02.000000 | &quot;SUCCEEDED&quot; |
-| &quot;Total:3&quot;      | &quot;Succeeded:3&quot;       | &quot;Failed:0&quot; | &quot;In Progress:0&quot;            | &quot;&quot;                         | &quot;&quot;          |
+| 121            | "REBUILD_TAG_INDEX" | "FINISHED" | 2021-05-27T02:18:02.000000 | 2021-05-27T02:18:02.000000 | "SUCCEEDED" |
+| 0              | "storaged1"         | "FINISHED" | 2021-05-27T02:18:02.000000 | 2021-05-27T02:18:02.000000 | "SUCCEEDED" |
+| 1              | "storaged0"         | "FINISHED" | 2021-05-27T02:18:02.000000 | 2021-05-27T02:18:02.000000 | "SUCCEEDED" |
+| 2              | "storaged2"         | "FINISHED" | 2021-05-27T02:18:02.000000 | 2021-05-27T02:18:02.000000 | "SUCCEEDED" |
+| "Total:3"      | "Succeeded:3"       | "Failed:0" | "In Progress:0"            | ""                         | ""          |
 +----------------+---------------------+------------+----------------------------+----------------------------+-------------+
 
 nebula&gt; SHOW JOB 122;
 +----------------+----------------------+------------+----------------------------+----------------------------+-------------+
 | Job Id(TaskId) | Command(Dest)        | Status     | Start Time                 | Stop Time                  | Error Code  |
 +----------------+----------------------+------------+----------------------------+----------------------------+-------------+
-| 122            | &quot;REBUILD_EDGE_INDEX&quot; | &quot;FINISHED&quot; | 2021-05-27T02:18:11.000000 | 2021-05-27T02:18:11.000000 | &quot;SUCCEEDED&quot; |
-| 0              | &quot;storaged1&quot;          | &quot;FINISHED&quot; | 2021-05-27T02:18:11.000000 | 2021-05-27T02:18:21.000000 | &quot;SUCCEEDED&quot; |
-| 1              | &quot;storaged0&quot;          | &quot;FINISHED&quot; | 2021-05-27T02:18:11.000000 | 2021-05-27T02:18:21.000000 | &quot;SUCCEEDED&quot; |
-| 2              | &quot;storaged2&quot;          | &quot;FINISHED&quot; | 2021-05-27T02:18:11.000000 | 2021-05-27T02:18:21.000000 | &quot;SUCCEEDED&quot; |
-| &quot;Total:3&quot;      | &quot;Succeeded:3&quot;       | &quot;Failed:0&quot; | &quot;In Progress:0&quot;             | &quot;&quot;                         | &quot;&quot;          |
+| 122            | "REBUILD_EDGE_INDEX" | "FINISHED" | 2021-05-27T02:18:11.000000 | 2021-05-27T02:18:11.000000 | "SUCCEEDED" |
+| 0              | "storaged1"          | "FINISHED" | 2021-05-27T02:18:11.000000 | 2021-05-27T02:18:21.000000 | "SUCCEEDED" |
+| 1              | "storaged0"          | "FINISHED" | 2021-05-27T02:18:11.000000 | 2021-05-27T02:18:21.000000 | "SUCCEEDED" |
+| 2              | "storaged2"          | "FINISHED" | 2021-05-27T02:18:11.000000 | 2021-05-27T02:18:21.000000 | "SUCCEEDED" |
+| "Total:3"      | "Succeeded:3"       | "Failed:0" | "In Progress:0"             | ""                         | ""          |
 +----------------+----------------------+------------+----------------------------+----------------------------+-------------+
 </code></pre></div>
 <h3 id="_5">匹配点<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
@@ -10898,9 +10898,9 @@ nebula&gt; SHOW JOB 122;
 +-----------------------------------------------------------+
 | v                                                         |
 +-----------------------------------------------------------+
-| (&quot;player102&quot; :player{age: 33, name: &quot;LaMarcus Aldridge&quot;}) |
-| (&quot;player106&quot; :player{age: 25, name: &quot;Kyle Anderson&quot;})     |
-| (&quot;player115&quot; :player{age: 40, name: &quot;Kobe Bryant&quot;})       |
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
+| ("player106" :player{age: 25, name: "Kyle Anderson"})     |
+| ("player115" :player{age: 40, name: "Kobe Bryant"})       |
 +-----------------------------------------------------------+
 </code></pre></div>
 <h3 id="tag">匹配 Tag<a class="headerlink" href="#tag" title="Permanent link">&para;</a></h3>
@@ -10915,9 +10915,9 @@ nebula&gt; SHOW JOB 122;
 +-----------------------------------------------------------+
 | v                                                         |
 +-----------------------------------------------------------+
-| (&quot;player102&quot; :player{age: 33, name: &quot;LaMarcus Aldridge&quot;}) |
-| (&quot;player106&quot; :player{age: 25, name: &quot;Kyle Anderson&quot;})     |
-| (&quot;player115&quot; :player{age: 40, name: &quot;Kobe Bryant&quot;})       |
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
+| ("player106" :player{age: 25, name: "Kyle Anderson"})     |
+| ("player115" :player{age: 40, name: "Kobe Bryant"})       |
 +-----------------------------------------------------------+
 ...
 </code></pre></div>
@@ -10928,35 +10928,35 @@ nebula&gt; SHOW JOB 122;
 <p>例如，不支持<code>match (v1:player:team) where v1.player.name=="Tim Duncan" return v1 limit 10;</code>。</p>
 </div>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG actor (name string, age int);
-nebula&gt; INSERT VERTEX actor(name, age) VALUES &quot;player100&quot;:(&quot;Tim Duncan&quot;, 42);
+nebula&gt; INSERT VERTEX actor(name, age) VALUES "player100":("Tim Duncan", 42);
 nebula&gt; MATCH (v:player:actor) \
         RETURN v \
         LIMIT 10;
 +----------------------------------------------------------------------------------------+
 | v                                                                                      |
 +----------------------------------------------------------------------------------------+
-| (&quot;player100&quot; :actor{age: 42, name: &quot;Tim Duncan&quot;} :player{age: 42, name: &quot;Tim Duncan&quot;}) |
+| ("player100" :actor{age: 42, name: "Tim Duncan"} :player{age: 42, name: "Tim Duncan"}) |
 +----------------------------------------------------------------------------------------+
 </code></pre></div>
 <h3 id="_6">匹配点的属性<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>用户可以在 Tag 的右侧用<code>{&lt;prop_name&gt;: &lt;prop_value&gt;}</code>表示模式中点的属性。</p>
 <div class="highlight"><pre><span></span><code># 使用属性 name 搜索匹配的点。
-nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;}) \
+nebula&gt; MATCH (v:player{name:"Tim Duncan"}) \
         RETURN v;
 +----------------------------------------------------+
 | v                                                  |
 +----------------------------------------------------+
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;}) |
+| ("player100" :player{age: 42, name: "Tim Duncan"}) |
 +----------------------------------------------------+
 </code></pre></div>
 <p>使用<code>WHERE</code>子句也可以实现相同的操作：</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player) \
-        WHERE v.player.name == &quot;Tim Duncan&quot; \
+        WHERE v.player.name == "Tim Duncan" \
         RETURN v;
 +----------------------------------------------------+
 | v                                                  |
 +----------------------------------------------------+
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;}) |
+| ("player100" :player{age: 42, name: "Tim Duncan"}) |
 +----------------------------------------------------+
 </code></pre></div>
 <div class="admonition compatibility">
@@ -10966,35 +10966,35 @@ nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;}) \
 <p>使用<code>WHERE</code>子句直接匹配点的属性。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v) \
         WITH v, properties(v) as props, keys(properties(v)) as kk \
-        LIMIT 10000 WHERE [i in kk where props[i] == &quot;Tim Duncan&quot;] \
+        LIMIT 10000 WHERE [i in kk where props[i] == "Tim Duncan"] \
         RETURN v;
 +----------------------------------------------------+
 | v                                                  |
 +----------------------------------------------------+
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;}) |
+| ("player100" :player{age: 42, name: "Tim Duncan"}) |
 +----------------------------------------------------+
 </code></pre></div>
 <h3 id="id">匹配点 ID<a class="headerlink" href="#id" title="Permanent link">&para;</a></h3>
 <p>用户可以使用点 ID 去匹配点。<code>id()</code>函数可以检索点的 ID。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v) \
-        WHERE id(v) == &#39;player101&#39; \
+        WHERE id(v) == 'player101' \
         RETURN v;
 +-----------------------------------------------------+
 | v                                                   |
 +-----------------------------------------------------+
-| (&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;}) |
+| ("player101" :player{age: 36, name: "Tony Parker"}) |
 +-----------------------------------------------------+
 </code></pre></div>
 <p>要匹配多个点的 ID，可以用<code>WHERE id(v) IN [vid_list]</code>。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player { name: &#39;Tim Duncan&#39; })--(v2) \
-        WHERE id(v2) IN [&quot;player101&quot;, &quot;player102&quot;] \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player { name: 'Tim Duncan' })--(v2) \
+        WHERE id(v2) IN ["player101", "player102"] \
         RETURN v2;
 +-----------------------------------------------------------+
 | v2                                                        |
 +-----------------------------------------------------------+
-| (&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})       |
-| (&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})       |
-| (&quot;player102&quot; :player{age: 33, name: &quot;LaMarcus Aldridge&quot;}) |
+| ("player101" :player{age: 36, name: "Tony Parker"})       |
+| ("player101" :player{age: 36, name: "Tony Parker"})       |
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
 +-----------------------------------------------------------+
 </code></pre></div>
 <h3 id="_7">匹配连接的点<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
@@ -11003,29 +11003,29 @@ nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;}) \
 <p class="admonition-title">历史版本兼容性</p>
 <p>在 nGQL 1.x 中，<code>--</code>符号用于行内注释，从 nGQL 2.x 起，<code>--</code>符号表示出边或入边，不再用于注释。</p>
 </div>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;})--(v2:player) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"})--(v2:player) \
         RETURN v2.player.name AS Name;
 +---------------------+
 | Name                |
 +---------------------+
-| &quot;Manu Ginobili&quot;     |
-| &quot;Manu Ginobili&quot;     |
-| &quot;Dejounte Murray&quot;   |
+| "Manu Ginobili"     |
+| "Manu Ginobili"     |
+| "Dejounte Murray"   |
 ...
 </code></pre></div>
 <p>用户可以在<code>--</code>符号上增加<code>&lt;</code>或<code>&gt;</code>符号指定边的方向。</p>
 <div class="highlight"><pre><span></span><code># --&gt;表示边从 v 开始，指向 v2。对于点 v 来说是出边，对于点 v2 来说是入边。
-nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;})--&gt;(v2:player) \
+nebula&gt; MATCH (v:player{name:"Tim Duncan"})--&gt;(v2:player) \
         RETURN v2.player.name AS Name;
 +-----------------+
 | Name            |
 +-----------------+
-| &quot;Tony Parker&quot;   |
-| &quot;Manu Ginobili&quot; |
+| "Tony Parker"   |
+| "Manu Ginobili" |
 +-----------------+
 </code></pre></div>
 <p>如果需要判断目标点，可以使用<code>CASE</code>表达式。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;})--(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"})--(v2) \
         RETURN \
         CASE WHEN v2.team.name IS NOT NULL \
         THEN v2.team.name  \
@@ -11035,44 +11035,44 @@ nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;})--&gt;(v2:player) \
 +---------------------+
 | Name                |
 +---------------------+
-| &quot;Manu Ginobili&quot;     |
-| &quot;Manu Ginobili&quot;     |
-| &quot;Spurs&quot;             |
-| &quot;Dejounte Murray&quot;   |
+| "Manu Ginobili"     |
+| "Manu Ginobili"     |
+| "Spurs"             |
+| "Dejounte Murray"   |
 ...
 </code></pre></div>
 <p>如果需要扩展模式，可以增加更多点和边。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;})--&gt;(v2)&lt;--(v3) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"})--&gt;(v2)&lt;--(v3) \
         RETURN v3.player.name AS Name;
 +---------------------+
 | Name                |
 +---------------------+
-| &quot;Dejounte Murray&quot;   |
-| &quot;LaMarcus Aldridge&quot; |
-| &quot;Marco Belinelli&quot;   |
+| "Dejounte Murray"   |
+| "LaMarcus Aldridge" |
+| "Marco Belinelli"   |
 ...
 </code></pre></div>
 <p>如果不需要引用点，可以省略括号中表示点的变量。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;})--&gt;()&lt;--(v3) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"})--&gt;()&lt;--(v3) \
         RETURN v3.player.name AS Name;
 +---------------------+
 | Name                |
 +---------------------+
-| &quot;Dejounte Murray&quot;   |
-| &quot;LaMarcus Aldridge&quot; |
-| &quot;Marco Belinelli&quot;   |
+| "Dejounte Murray"   |
+| "LaMarcus Aldridge" |
+| "Marco Belinelli"   |
 ...
 </code></pre></div>
 <h3 id="_8">匹配路径<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p>连接起来的点和边构成了路径。用户可以使用自定义变量命名路径。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})--&gt;(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})--&gt;(v2) \
         RETURN p;
 +--------------------------------------------------------------------------------------------------------------------------------------+
 | p                                                                                                                                    |
 +--------------------------------------------------------------------------------------------------------------------------------------+
-| &lt;(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})-[:serve@0 {end_year: 2016, start_year: 1997}]-&gt;(&quot;team204&quot; :team{name: &quot;Spurs&quot;})&gt; |
-| &lt;(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})-[:follow@0 {degree: 95}]-&gt;(&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})&gt;   |
-| &lt;(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})-[:follow@0 {degree: 95}]-&gt;(&quot;player125&quot; :player{age: 41, name: &quot;Manu Ginobili&quot;})&gt; |
+| &lt;("player100" :player{age: 42, name: "Tim Duncan"})-[:serve@0 {end_year: 2016, start_year: 1997}]-&gt;("team204" :team{name: "Spurs"})&gt; |
+| &lt;("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]-&gt;("player101" :player{age: 36, name: "Tony Parker"})&gt;   |
+| &lt;("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]-&gt;("player125" :player{age: 41, name: "Manu Ginobili"})&gt; |
 +--------------------------------------------------------------------------------------------------------------------------------------+
 </code></pre></div>
 <div class="admonition compatibility">
@@ -11090,9 +11090,9 @@ nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;})--&gt;(v2:player) \
 +----------------------------------------------------+
 | e                                                  |
 +----------------------------------------------------+
-| [:follow &quot;player101&quot;-&gt;&quot;player102&quot; @0 {degree: 90}] |
-| [:follow &quot;player103&quot;-&gt;&quot;player102&quot; @0 {degree: 70}] |
-| [:follow &quot;player135&quot;-&gt;&quot;player102&quot; @0 {degree: 80}] |
+| [:follow "player101"-&gt;"player102" @0 {degree: 90}] |
+| [:follow "player103"-&gt;"player102" @0 {degree: 70}] |
+| [:follow "player135"-&gt;"player102" @0 {degree: 80}] |
 +----------------------------------------------------+
 </code></pre></div>
 <h3 id="edge_type">匹配 Edge type<a class="headerlink" href="#edge_type" title="Permanent link">&para;</a></h3>
@@ -11107,20 +11107,20 @@ nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;})--&gt;(v2:player) \
 +----------------------------------------------------+
 | e                                                  |
 +----------------------------------------------------+
-| [:follow &quot;player102&quot;-&gt;&quot;player100&quot; @0 {degree: 75}] |
-| [:follow &quot;player102&quot;-&gt;&quot;player101&quot; @0 {degree: 75}] |
-| [:follow &quot;player129&quot;-&gt;&quot;player116&quot; @0 {degree: 90}] |
+| [:follow "player102"-&gt;"player100" @0 {degree: 75}] |
+| [:follow "player102"-&gt;"player101" @0 {degree: 75}] |
+| [:follow "player129"-&gt;"player116" @0 {degree: 90}] |
 +----------------------------------------------------+
 </code></pre></div>
 <h3 id="_10">匹配边的属性<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p>用户可以用<code>{&lt;prop_name&gt;: &lt;prop_value&gt;}</code>表示模式中 Edge type 的属性，例如<code>[e:follow{likeness:95}]</code>。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;})-[e:follow{degree:95}]-&gt;(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[e:follow{degree:95}]-&gt;(v2) \
         RETURN e;
 +--------------------------------------------------------+
 | e                                                      |
 +--------------------------------------------------------+
-| [:follow &quot;player100&quot;-&gt;&quot;player101&quot; @0 {degree: 95}]     |
-| [:follow &quot;player100&quot;-&gt;&quot;player125&quot; @0 {degree: 95}]     |
+| [:follow "player100"-&gt;"player101" @0 {degree: 95}]     |
+| [:follow "player100"-&gt;"player125" @0 {degree: 95}]     |
 +--------------------------------------------------------+
 </code></pre></div>
 <p>使用<code>WHERE</code>子句直接匹配边的属性。</p>
@@ -11131,10 +11131,10 @@ nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;})--&gt;(v2:player) \
 +----------------------------------------------------+
 | e                                                  |
 +----------------------------------------------------+
-| [:follow &quot;player125&quot;-&gt;&quot;player100&quot; @0 {degree: 90}] |
-| [:follow &quot;player140&quot;-&gt;&quot;player114&quot; @0 {degree: 90}] |
-| [:follow &quot;player133&quot;-&gt;&quot;player144&quot; @0 {degree: 90}] |
-| [:follow &quot;player133&quot;-&gt;&quot;player114&quot; @0 {degree: 90}] |
+| [:follow "player125"-&gt;"player100" @0 {degree: 90}] |
+| [:follow "player140"-&gt;"player114" @0 {degree: 90}] |
+| [:follow "player133"-&gt;"player144" @0 {degree: 90}] |
+| [:follow "player133"-&gt;"player114" @0 {degree: 90}] |
 ...
 +----------------------------------------------------+
 </code></pre></div>
@@ -11145,64 +11145,64 @@ nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;})--&gt;(v2:player) \
 <p>同时匹配多个 Tag 和多个 Edge type 时，不支持进行属性过滤。</p>
 <p>例如，不支持<code>MATCH (v)-[e:follow|serve]-&gt;(v2) where v.player.name=="Tim Duncan" RETURN e limit 10;</code>，其中<code>(v)</code>代表匹配点的所有 Tag。</p>
 </div>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;})-[e:follow|:serve]-&gt;(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[e:follow|:serve]-&gt;(v2) \
         RETURN e;
 +---------------------------------------------------------------------------+
 | e                                                                         |
 +---------------------------------------------------------------------------+
-| [:follow &quot;player100&quot;-&gt;&quot;player101&quot; @0 {degree: 95}]                        |
-| [:follow &quot;player100&quot;-&gt;&quot;player125&quot; @0 {degree: 95}]                        |
-| [:serve &quot;player100&quot;-&gt;&quot;team204&quot; @0 {end_year: 2016, start_year: 1997}]     |
+| [:follow "player100"-&gt;"player101" @0 {degree: 95}]                        |
+| [:follow "player100"-&gt;"player125" @0 {degree: 95}]                        |
+| [:serve "player100"-&gt;"team204" @0 {end_year: 2016, start_year: 1997}]     |
 +---------------------------------------------------------------------------+
 </code></pre></div>
 <h3 id="_11">匹配多条边<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <p>用户可以扩展模式，匹配路径中的多条边。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;})-[]-&gt;(v2)&lt;-[e:serve]-(v3) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[]-&gt;(v2)&lt;-[e:serve]-(v3) \
         RETURN v2, v3;
 +----------------------------------+-----------------------------------------------------------+
 | v2                               | v3                                                        |
 +----------------------------------+-----------------------------------------------------------+
-| (&quot;team204&quot; :team{name: &quot;Spurs&quot;}) | (&quot;player104&quot; :player{age: 32, name: &quot;Marco Belinelli&quot;})   |
-| (&quot;team204&quot; :team{name: &quot;Spurs&quot;}) | (&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})       |
-| (&quot;team204&quot; :team{name: &quot;Spurs&quot;}) | (&quot;player102&quot; :player{age: 33, name: &quot;LaMarcus Aldridge&quot;}) |
+| ("team204" :team{name: "Spurs"}) | ("player104" :player{age: 32, name: "Marco Belinelli"})   |
+| ("team204" :team{name: "Spurs"}) | ("player101" :player{age: 36, name: "Tony Parker"})       |
+| ("team204" :team{name: "Spurs"}) | ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
 ...
 </code></pre></div>
 <h3 id="_12">匹配定长路径<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <p>用户可以在模式中使用<code>:&lt;edge_type&gt;*&lt;hop&gt;</code>匹配定长路径。<code>hop</code>必须是一个非负整数。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})-[e:follow*2]-&gt;(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*2]-&gt;(v2) \
         RETURN DISTINCT v2 AS Friends;
 +-----------------------------------------------------------+
 | Friends                                                   |
 +-----------------------------------------------------------+
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})        |
-| (&quot;player125&quot; :player{age: 41, name: &quot;Manu Ginobili&quot;})     |
-| (&quot;player102&quot; :player{age: 33, name: &quot;LaMarcus Aldridge&quot;}) |
+| ("player100" :player{age: 42, name: "Tim Duncan"})        |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     |
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
 +-----------------------------------------------------------+
 </code></pre></div>
 <p>如果<code>hop</code>为 0，模式会匹配路径上的起始点。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;}) -[*0]-&gt; (v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"}) -[*0]-&gt; (v2) \
         RETURN v2;
 +----------------------------------------------------+
 | v2                                                 |
 +----------------------------------------------------+
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;}) |
+| ("player100" :player{age: 42, name: "Tim Duncan"}) |
 +----------------------------------------------------+
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>如果想要通过描述多跳的边的过滤条件，比如<code>-[e:follow*2]-&gt;</code>，这时候 <code>e</code> 不再是单条边时候的数据类型了，而是一列边组成的列表，例如：
 以下语句可以运行但是没有返回数据，因为<code>e</code>是一个列表，没有<code>.degree</code>的属性。
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})-[e:follow*2]-&gt;(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*2]-&gt;(v2) \
         WHERE e.degree &gt; 1 \
         RETURN DISTINCT v2 AS Friends;
 </code></pre></div>
 这是正确的表达：
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})-[e:follow*2]-&gt;(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*2]-&gt;(v2) \
         WHERE ALL(e_ in e WHERE e_.degree &gt; 0) \
         RETURN DISTINCT v2 AS Friends;
 </code></pre></div>
 进一步，这是表达对多跳边的第一跳的边属性过滤的表达：
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})-[e:follow*2]-&gt;(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*2]-&gt;(v2) \
         WHERE e[0].degree &gt; 98 \
         RETURN DISTINCT v2 AS Friends;
 </code></pre></div></p>
@@ -11232,115 +11232,115 @@ nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;})--&gt;(v2:player) \
 </tbody>
 </table>
 <p>如果未指定<code>minHop</code>和<code>maxHop</code>，仅设置了<code>:&lt;edge_type&gt;*</code>，则二者都应用默认值，即<code>minHop</code>为 1，<code>maxHop</code>为无穷大。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})-[e:follow*]-&gt;(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*]-&gt;(v2) \
         RETURN v2 AS Friends;
 +-----------------------------------------------------------+
 | Friends                                                   |
 +-----------------------------------------------------------+
-| (&quot;player125&quot; :player{age: 41, name: &quot;Manu Ginobili&quot;})     |
-| (&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})       |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     |
+| ("player101" :player{age: 36, name: "Tony Parker"})       |
 ...
 
-nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})-[e:follow*1..3]-&gt;(v2) \
+nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*1..3]-&gt;(v2) \
         RETURN v2 AS Friends;
 +-----------------------------------------------------------+
 | Friends                                                   |
 +-----------------------------------------------------------+
-| (&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})       |
-| (&quot;player125&quot; :player{age: 41, name: &quot;Manu Ginobili&quot;})     |
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})        |
+| ("player101" :player{age: 36, name: "Tony Parker"})       |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     |
+| ("player100" :player{age: 42, name: "Tim Duncan"})        |
 ...
 
-nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})-[e:follow*1..]-&gt;(v2) \
+nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*1..]-&gt;(v2) \
         RETURN v2 AS Friends;
 +-----------------------------------------------------------+
 | Friends                                                   |
 +-----------------------------------------------------------+
-| (&quot;player125&quot; :player{age: 41, name: &quot;Manu Ginobili&quot;})     |
-| (&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})       |
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})        |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     |
+| ("player101" :player{age: 36, name: "Tony Parker"})       |
+| ("player100" :player{age: 42, name: "Tim Duncan"})        |
 ...
 </code></pre></div>
 <p>用户可以使用<code>DISTINCT</code>关键字聚合重复结果。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})-[e:follow*1..3]-&gt;(v2:player) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*1..3]-&gt;(v2:player) \
         RETURN DISTINCT v2 AS Friends, count(v2);
 +-----------------------------------------------------------+-----------+
 | Friends                                                   | count(v2) |
 +-----------------------------------------------------------+-----------+
-| (&quot;player102&quot; :player{age: 33, name: &quot;LaMarcus Aldridge&quot;}) | 1         |
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})        | 4         |
-| (&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})       | 3         |
-| (&quot;player125&quot; :player{age: 41, name: &quot;Manu Ginobili&quot;})     | 3         |
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) | 1         |
+| ("player100" :player{age: 42, name: "Tim Duncan"})        | 4         |
+| ("player101" :player{age: 36, name: "Tony Parker"})       | 3         |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     | 3         |
 +-----------------------------------------------------------+-----------+
 </code></pre></div>
 <p>如果<code>minHop</code>为<code>0</code>，模式会匹配路径上的起始点。例如，与上个示例相比，下面的示例设置<code>minHop</code>为<code>0</code>。此时，因为表示<code>"Tim Duncan"</code>的点是路径的起始点，所以它在结果集中的计数为 5，比在上个示例的结果中多计一次。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})-[e:follow*0..3]-&gt;(v2:player) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[e:follow*0..3]-&gt;(v2:player) \
         RETURN DISTINCT v2 AS Friends, count(v2);
 +-----------------------------------------------------------+-----------+
 | Friends                                                   | count(v2) |
 +-----------------------------------------------------------+-----------+
-| (&quot;player102&quot; :player{age: 33, name: &quot;LaMarcus Aldridge&quot;}) | 1         |
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})        | 5         |
-| (&quot;player125&quot; :player{age: 41, name: &quot;Manu Ginobili&quot;})     | 3         |
-| (&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})       | 3         |
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) | 1         |
+| ("player100" :player{age: 42, name: "Tim Duncan"})        | 5         |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     | 3         |
+| ("player101" :player{age: 36, name: "Tony Parker"})       | 3         |
 +-----------------------------------------------------------+-----------+
 </code></pre></div>
 <h3 id="edge_type_2">匹配多个 Edge type 的变长路径<a class="headerlink" href="#edge_type_2" title="Permanent link">&para;</a></h3>
 <p>用户可以在变长或定长模式中指定多个 Edge type。<code>hop</code>、<code>minHop</code>和<code>maxHop</code>对所有 Edge type 都生效。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})-[e:follow|serve*2]-&gt;(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[e:follow|serve*2]-&gt;(v2) \
         RETURN DISTINCT v2;
 +-----------------------------------------------------------+
 | v2                                                        |
 +-----------------------------------------------------------+
-| (&quot;team204&quot; :team{name: &quot;Spurs&quot;})                          |
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})        |
-| (&quot;team215&quot; :team{name: &quot;Hornets&quot;})                        |
-| (&quot;player125&quot; :player{age: 41, name: &quot;Manu Ginobili&quot;})     |
-| (&quot;player102&quot; :player{age: 33, name: &quot;LaMarcus Aldridge&quot;}) |
+| ("team204" :team{name: "Spurs"})                          |
+| ("player100" :player{age: 42, name: "Tim Duncan"})        |
+| ("team215" :team{name: "Hornets"})                        |
+| ("player125" :player{age: 41, name: "Manu Ginobili"})     |
+| ("player102" :player{age: 33, name: "LaMarcus Aldridge"}) |
 +-----------------------------------------------------------+
 </code></pre></div>
 <h3 id="_14">匹配多个模式<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
 <p>用户可以用英文逗号（,）分隔多个模式。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG INDEX IF NOT EXISTS team_index ON team(name(20));
 nebula&gt; REBUILD TAG INDEX team_index;
-nebula&gt; MATCH (v1:player{name:&quot;Tim Duncan&quot;}), (v2:team{name:&quot;Spurs&quot;}) \
+nebula&gt; MATCH (v1:player{name:"Tim Duncan"}), (v2:team{name:"Spurs"}) \
         RETURN v1,v2;
 +----------------------------------------------------+----------------------------------+
 | v1                                                 | v2                               |
 +----------------------------------------------------+----------------------------------+
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;}) | (&quot;team204&quot; :team{name: &quot;Spurs&quot;}) |
+| ("player100" :player{age: 42, name: "Tim Duncan"}) | ("team204" :team{name: "Spurs"}) |
 +----------------------------------------------------+----------------------------------+
 </code></pre></div>
 <h3 id="_15">匹配最短路径<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
 <p>用户可以使用<code>allShortestPaths</code>返回起始点到目标点的所有最短路径。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p = allShortestPaths((a:player{name:&quot;Tim Duncan&quot;})-[e*..5]-(b:player{name:&quot;Tony Parker&quot;})) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p = allShortestPaths((a:player{name:"Tim Duncan"})-[e*..5]-(b:player{name:"Tony Parker"})) \
         RETURN p;
 +------------------------------------------------------------------------------------------------------------------------------------+
 | p                                                                                                                                  |
 +------------------------------------------------------------------------------------------------------------------------------------+
-| &lt;(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})&lt;-[:follow@0 {degree: 95}]-(&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})&gt; |
-| &lt;(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})-[:follow@0 {degree: 95}]-&gt;(&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})&gt; |
+| &lt;("player100" :player{age: 42, name: "Tim Duncan"})&lt;-[:follow@0 {degree: 95}]-("player101" :player{age: 36, name: "Tony Parker"})&gt; |
+| &lt;("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]-&gt;("player101" :player{age: 36, name: "Tony Parker"})&gt; |
 +------------------------------------------------------------------------------------------------------------------------------------+
 </code></pre></div>
 <p>用户可以使用<code>shortestPath</code>返回起始点到目标点的任意一条最短路径。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p = shortestPath((a:player{name:&quot;Tim Duncan&quot;})-[e*..5]-(b:player{name:&quot;Tony Parker&quot;})) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p = shortestPath((a:player{name:"Tim Duncan"})-[e*..5]-(b:player{name:"Tony Parker"})) \
         RETURN p;
 +------------------------------------------------------------------------------------------------------------------------------------+
 | p                                                                                                                                  |
 +------------------------------------------------------------------------------------------------------------------------------------+
-| &lt;(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;})&lt;-[:follow@0 {degree: 95}]-(&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})&gt; |
+| &lt;("player100" :player{age: 42, name: "Tim Duncan"})&lt;-[:follow@0 {degree: 95}]-("player101" :player{age: 36, name: "Tony Parker"})&gt; |
 +------------------------------------------------------------------------------------------------------------------------------------+
 </code></pre></div>
 <h2 id="match_1">多MATCH检索<a class="headerlink" href="#match_1" title="Permanent link">&para;</a></h2>
 <p>不同的模式有不同的筛选条件时，可以使用多<code>MATCH</code>，会返回模式完全匹配的行。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (m)-[]-&gt;(n) WHERE id(m)==&quot;player100&quot; \
-        MATCH (n)-[]-&gt;(l) WHERE id(n)==&quot;player125&quot; \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (m)-[]-&gt;(n) WHERE id(m)=="player100" \
+        MATCH (n)-[]-&gt;(l) WHERE id(n)=="player125" \
         RETURN id(m),id(n),id(l);
 +-------------+-------------+-------------+
 | id(m)       | id(n)       | id(l)       |
 +-------------+-------------+-------------+
-| &quot;player100&quot; | &quot;player125&quot; | &quot;team204&quot;   |
-| &quot;player100&quot; | &quot;player125&quot; | &quot;player100&quot; |
+| "player100" | "player125" | "team204"   |
+| "player100" | "player125" | "player100" |
 +-------------+-------------+-------------+
 </code></pre></div>
 <h2 id="optional_match">OPTIONAL MATCH检索<a class="headerlink" href="#optional_match" title="Permanent link">&para;</a></h2>
@@ -11355,7 +11355,7 @@ nebula&gt; MATCH (v1:player{name:&quot;Tim Duncan&quot;}), (v2:team{name:&quot;S
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月22日 01:35:41">2025年4月22日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:30:25 UTC">2026年8月18日</span>
       
     
   </small>
@@ -11439,8 +11439,6 @@ nebula&gt; MATCH (v1:player{name:&quot;Tim Duncan&quot;}), (v2:team{name:&quot;S
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

@@ -10685,7 +10685,7 @@
 <h2 id="_3">登录文本搜索客户端<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>部署 Elasticsearch 集群之后，可以使用<code>SIGN IN</code>语句登录 Elasticsearch 客户端。必须使用 Elasticsearch 配置文件中的 IP 地址和端口才能正常连接，同时登录多个客户端，请在多个<code>elastic_ip:port</code>之间用英文逗号（,）分隔。</p>
 <h3 id="_4">语法<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>SIGN IN TEXT SERVICE (&lt;elastic_ip:port&gt;, {HTTP | HTTPS} [,&quot;&lt;username&gt;&quot;, &quot;&lt;password&gt;&quot;]) [, (&lt;elastic_ip:port&gt;, ...)];
+<div class="highlight"><pre><span></span><code>SIGN IN TEXT SERVICE (&lt;elastic_ip:port&gt;, {HTTP | HTTPS} [,"&lt;username&gt;", "&lt;password&gt;"]) [, (&lt;elastic_ip:port&gt;, ...)];
 </code></pre></div>
 <h3 id="_5">示例<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>nebula&gt; SIGN IN TEXT SERVICE (127.0.0.1:9200, HTTP);
@@ -10708,7 +10708,7 @@
 +-------------+------+
 | Host        | Port |
 +-------------+------+
-| &quot;127.0.0.1&quot; | 9200 |
+| "127.0.0.1" | 9200 |
 +-------------+------+
 </code></pre></div>
 <h2 id="_9">退出文本搜索客户端<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
@@ -10725,7 +10725,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月22日 01:35:41">2025年4月22日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:30:25 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10809,8 +10809,6 @@
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
