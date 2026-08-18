@@ -204,7 +204,6 @@ extra_javascript:
   - js/config.js
   - js/jquery.js
   - js/init.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
   # js about docs search logic
   - https://www-cdn.nebula-graph.com.cn/nebula-docs/nebula-docs.7e772ed81c779cacbefc.js
