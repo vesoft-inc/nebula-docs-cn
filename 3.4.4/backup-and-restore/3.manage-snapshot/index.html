@@ -10490,7 +10490,7 @@
 <p>NebulaGraph 创建的快照以目录的形式存储，例如<code>SNAPSHOT_2021_03_09_08_43_12</code>，后缀<code>2021_03_09_08_43_12</code>根据创建时间（UTC）自动生成。</p>
 <p>创建快照时，快照目录会自动在 leader Meta 服务器和所有 Storage 服务器的目录<code>checkpoints</code>内创建。</p>
 <p>为了快速定位快照所在路径，可以使用 Linux 命令<code>find</code>。例如：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>find<span class="w"> </span><span class="p">|</span>grep<span class="w"> </span><span class="s1">&#39;SNAPSHOT_2021_03_09_08_43_12&#39;</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>find<span class="w"> </span><span class="p">|</span>grep<span class="w"> </span><span class="s1">'SNAPSHOT_2021_03_09_08_43_12'</span>
 ./data/meta2/nebula/0/checkpoints/SNAPSHOT_2021_03_09_08_43_12
 ./data/meta2/nebula/0/checkpoints/SNAPSHOT_2021_03_09_08_43_12/data
 ./data/meta2/nebula/0/checkpoints/SNAPSHOT_2021_03_09_08_43_12/data/000081.sst
@@ -10510,8 +10510,8 @@
 +--------------------------------+---------+------------------+
 | Name                           | Status  | Hosts            |
 +--------------------------------+---------+------------------+
-| &quot;SNAPSHOT_2021_03_09_08_43_12&quot; | &quot;VALID&quot; | &quot;127.0.0.1:9779&quot; |
-| &quot;SNAPSHOT_2021_03_09_09_10_52&quot; | &quot;VALID&quot; | &quot;127.0.0.1:9779&quot; |
+| "SNAPSHOT_2021_03_09_08_43_12" | "VALID" | "127.0.0.1:9779" |
+| "SNAPSHOT_2021_03_09_09_10_52" | "VALID" | "127.0.0.1:9779" |
 +--------------------------------+---------+------------------+
 </code></pre></div>
 <p>参数说明如下：</p>
@@ -10547,7 +10547,7 @@ nebula&gt; SHOW SNAPSHOTS;
 +--------------------------------+---------+------------------+
 | Name                           | Status  | Hosts            |
 +--------------------------------+---------+------------------+
-| &quot;SNAPSHOT_2021_03_09_09_10_52&quot; | &quot;VALID&quot; | &quot;127.0.0.1:9779&quot; |
+| "SNAPSHOT_2021_03_09_09_10_52" | "VALID" | "127.0.0.1:9779" |
 +--------------------------------+---------+------------------+
 </code></pre></div>
 <h2 id="_8">恢复快照<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
@@ -10587,7 +10587,7 @@ SNAPSHOT_2021_03_09_09_10_52
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月22日 02:43:44">2025年4月22日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:30:49 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10671,8 +10671,6 @@ SNAPSHOT_2021_03_09_09_10_52
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

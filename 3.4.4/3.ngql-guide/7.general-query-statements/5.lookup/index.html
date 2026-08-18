@@ -10580,21 +10580,21 @@ nebula&gt; REBUILD TAG INDEX index_player;
 +------------+
 
 nebula&gt; LOOKUP ON player \
-        WHERE player.name == &quot;Tony Parker&quot; \
+        WHERE player.name == "Tony Parker" \
         YIELD id(vertex);
 +---------------+
 | id(VERTEX)    |
 +---------------+
-| &quot;player101&quot;   |
+| "player101"   |
 +---------------+
 
 nebula&gt; LOOKUP ON player \
-        WHERE player.name == &quot;Tony Parker&quot; \
+        WHERE player.name == "Tony Parker" \
         YIELD properties(vertex).name AS name, properties(vertex).age AS age;
 +---------------+-----+
 | name          | age |
 +---------------+-----+
-| &quot;Tony Parker&quot; | 36  |
+| "Tony Parker" | 36  |
 +---------------+-----+
 
 nebula&gt; LOOKUP ON player \
@@ -10603,30 +10603,30 @@ nebula&gt; LOOKUP ON player \
 +-------------+
 | id(VERTEX)  |
 +-------------+
-| &quot;player144&quot; |
-| &quot;player140&quot; |
+| "player144" |
+| "player140" |
 +-------------+
 
 nebula&gt; LOOKUP ON player \
-        WHERE player.name STARTS WITH &quot;B&quot; \
+        WHERE player.name STARTS WITH "B" \
         AND player.age IN [22,30] \
         YIELD properties(vertex).name, properties(vertex).age;
 +-------------------------+------------------------+
 | properties(VERTEX).name | properties(VERTEX).age |
 +-------------------------+------------------------+
-| &quot;Ben Simmons&quot;           | 22                     |
-| &quot;Blake Griffin&quot;         | 30                     |
+| "Ben Simmons"           | 22                     |
+| "Blake Griffin"         | 30                     |
 +-------------------------+------------------------+
 
 nebula&gt; LOOKUP ON player \
-        WHERE player.name == &quot;Kobe Bryant&quot;\
+        WHERE player.name == "Kobe Bryant"\
         YIELD id(vertex) AS VertexID, properties(vertex).name AS name |\
         GO FROM $-.VertexID OVER serve \
         YIELD $-.name, properties(edge).start_year, properties(edge).end_year, properties($$).name;
 +---------------+-----------------------------+---------------------------+---------------------+
 | $-.name       | properties(EDGE).start_year | properties(EDGE).end_year | properties($$).name |
 +---------------+-----------------------------+---------------------------+---------------------+
-| &quot;Kobe Bryant&quot; | 1996                        | 2016                      | &quot;Lakers&quot;            |
+| "Kobe Bryant" | 1996                        | 2016                      | "Lakers"            |
 +---------------+-----------------------------+---------------------------+---------------------+
 </code></pre></div>
 <h2 id="_5">检索边<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
@@ -10645,9 +10645,9 @@ nebula&gt; LOOKUP ON follow \
 +----------------------------------------------------+
 | e                                                  |
 +----------------------------------------------------+
-| [:follow &quot;player109&quot;-&gt;&quot;player125&quot; @0 {degree: 90}] |
-| [:follow &quot;player118&quot;-&gt;&quot;player120&quot; @0 {degree: 90}] |
-| [:follow &quot;player118&quot;-&gt;&quot;player131&quot; @0 {degree: 90}] |
+| [:follow "player109"-&gt;"player125" @0 {degree: 90}] |
+| [:follow "player118"-&gt;"player120" @0 {degree: 90}] |
+| [:follow "player118"-&gt;"player131" @0 {degree: 90}] |
 ...
 
 nebula&gt; LOOKUP ON follow \
@@ -10687,9 +10687,9 @@ nebula&gt; LOOKUP ON follow \
 +-------------+-----------------------------+---------------------------+---------------------+
 | $-.DstVID   | properties(EDGE).start_year | properties(EDGE).end_year | properties($$).name |
 +-------------+-----------------------------+---------------------------+---------------------+
-| &quot;player105&quot; | 2010                        | 2018                      | &quot;Spurs&quot;             |
-| &quot;player105&quot; | 2009                        | 2010                      | &quot;Cavaliers&quot;         |
-| &quot;player105&quot; | 2018                        | 2019                      | &quot;Raptors&quot;           |
+| "player105" | 2010                        | 2018                      | "Spurs"             |
+| "player105" | 2009                        | 2010                      | "Cavaliers"         |
+| "player105" | 2018                        | 2019                      | "Raptors"           |
 +-------------+-----------------------------+---------------------------+---------------------+
 </code></pre></div>
 <h2 id="tag_edge_type">通过 Tag 列出所有的对应的点/通过 Edge type 列出边<a class="headerlink" href="#tag_edge_type" title="Permanent link">&para;</a></h2>
@@ -10708,7 +10708,7 @@ nebula&gt; REBUILD TAG INDEX player_index;
 +------------+
 
 nebula&gt; INSERT VERTEX player(name,age) \
-        VALUES &quot;player100&quot;:(&quot;Tim Duncan&quot;, 42), &quot;player101&quot;:(&quot;Tony Parker&quot;, 36);
+        VALUES "player100":("Tim Duncan", 42), "player101":("Tony Parker", 36);
 
 # 列出所有的 player。类似于 MATCH (n:player) RETURN id(n) /*, n */。
 
@@ -10716,8 +10716,8 @@ nebula&gt; LOOKUP ON player YIELD id(vertex);
 +-------------+
 | id(VERTEX)  |
 +-------------+
-| &quot;player100&quot; |
-| &quot;player101&quot; |
+| "player100" |
+| "player101" |
 ...
 
 # 从结果中返回最前面的 4 行数据。
@@ -10725,10 +10725,10 @@ nebula&gt; LOOKUP ON player YIELD id(vertex) | LIMIT 4;
 +-------------+
 | id(VERTEX)  |
 +-------------+
-| &quot;player105&quot; |
-| &quot;player109&quot; |
-| &quot;player111&quot; |
-| &quot;player118&quot; |
+| "player105" |
+| "player109" |
+| "player111" |
+| "player118" |
 +-------------+
 </code></pre></div>
 </li>
@@ -10746,7 +10746,7 @@ nebula&gt; REBUILD EDGE INDEX follow_index;
 +------------+
 
 nebula&gt; INSERT EDGE follow(degree) \
-        VALUES &quot;player100&quot;-&gt;&quot;player101&quot;:(95);
+        VALUES "player100"-&gt;"player101":(95);
 
 # 列出所有的 follow 边。类似于 MATCH (s)-[e:follow]-&gt;(d) RETURN id(s), rank(e), id(d) /*, type(e) */。
 
@@ -10754,9 +10754,9 @@ nebula)&gt; LOOKUP ON follow YIELD edge AS e;
 +-----------------------------------------------------+
 | e                                                   |
 +-----------------------------------------------------+
-| [:follow &quot;player105&quot;-&gt;&quot;player100&quot; @0 {degree: 70}]  |
-| [:follow &quot;player105&quot;-&gt;&quot;player116&quot; @0 {degree: 80}]  |
-| [:follow &quot;player109&quot;-&gt;&quot;player100&quot; @0 {degree: 80}]  |
+| [:follow "player105"-&gt;"player100" @0 {degree: 70}]  |
+| [:follow "player105"-&gt;"player116" @0 {degree: 80}]  |
+| [:follow "player109"-&gt;"player100" @0 {degree: 80}]  |
 ...
 </code></pre></div>
 </li>
@@ -10789,7 +10789,7 @@ nebula&gt; LOOKUP ON follow YIELD edge AS e| \
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月22日 02:43:44">2025年4月22日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:30:49 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10873,8 +10873,6 @@ nebula&gt; LOOKUP ON follow YIELD edge AS e| \
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

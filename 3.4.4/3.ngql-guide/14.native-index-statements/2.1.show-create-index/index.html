@@ -10414,17 +10414,17 @@
 +------------------+----------+----------+
 | Index Name       | By Tag   | Columns  |
 +------------------+----------+----------+
-| &quot;player_index_0&quot; | &quot;player&quot; | []       |
-| &quot;player_index_1&quot; | &quot;player&quot; | [&quot;name&quot;] |
+| "player_index_0" | "player" | []       |
+| "player_index_1" | "player" | ["name"] |
 +------------------+----------+----------+
 
 nebula&gt; SHOW CREATE TAG INDEX player_index_1;
 +------------------+--------------------------------------------------+
 | Tag Index Name   | Create Tag Index                                 |
 +------------------+--------------------------------------------------+
-| &quot;player_index_1&quot; | &quot;CREATE TAG INDEX `player_index_1` ON `player` ( |
+| "player_index_1" | "CREATE TAG INDEX `player_index_1` ON `player` ( |
 |                  |  `name`(20)                                      |
-|                  | )&quot;                                               |
+|                  | )"                                               |
 +------------------+--------------------------------------------------+
 </code></pre></div>
 <p>Edge type 索引可以用类似的方法查询：</p>
@@ -10432,15 +10432,15 @@ nebula&gt; SHOW CREATE TAG INDEX player_index_1;
 +----------------+----------+---------+
 | Index Name     | By Edge  | Columns |
 +----------------+----------+---------+
-| &quot;follow_index&quot; | &quot;follow&quot; | []      |
+| "follow_index" | "follow" | []      |
 +----------------+----------+---------+
 
 nebula&gt; SHOW CREATE EDGE INDEX follow_index;
 +-----------------+-------------------------------------------------+
 | Edge Index Name | Create Edge Index                               |
 +-----------------+-------------------------------------------------+
-| &quot;follow_index&quot;  | &quot;CREATE EDGE INDEX `follow_index` ON `follow` ( |
-|                 | )&quot;                                              |
+| "follow_index"  | "CREATE EDGE INDEX `follow_index` ON `follow` ( |
+|                 | )"                                              |
 +-----------------+-------------------------------------------------+
 </code></pre></div>
 
@@ -10449,7 +10449,7 @@ nebula&gt; SHOW CREATE EDGE INDEX follow_index;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月22日 02:43:44">2025年4月22日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:30:49 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10533,8 +10533,6 @@ nebula&gt; SHOW CREATE EDGE INDEX follow_index;
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

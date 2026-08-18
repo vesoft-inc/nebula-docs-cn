@@ -10529,33 +10529,33 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code># 返回 player101 follow 的人，以及 follow player101 的人，即双向查询。
 # 使用`count()`和`GROUP BY`进行分组和计数。
-nebula&gt; GO FROM &quot;player101&quot; OVER follow BIDIRECT \
+nebula&gt; GO FROM "player101" OVER follow BIDIRECT \
         YIELD properties($$).name AS Name \
         | GROUP BY $-.Name YIELD $-.Name, count(*);
 +---------------------+----------+
 | $-.Name             | count(*) |
 +---------------------+----------+
-| &quot;LaMarcus Aldridge&quot; | 2        |
-| &quot;Tim Duncan&quot;        | 2        |
-| &quot;Marco Belinelli&quot;   | 1        |
-| &quot;Manu Ginobili&quot;     | 1        |
-| &quot;Boris Diaw&quot;        | 1        |
-| &quot;Dejounte Murray&quot;   | 1        |
+| "LaMarcus Aldridge" | 2        |
+| "Tim Duncan"        | 2        |
+| "Marco Belinelli"   | 1        |
+| "Manu Ginobili"     | 1        |
+| "Boris Diaw"        | 1        |
+| "Dejounte Murray"   | 1        |
 +---------------------+----------+
 
 # 使用`count()`进行计数。
 nebula&gt; MATCH (v1:player)-[:follow]-(v2:player) \
-        WHERE id(v1)== &quot;player101&quot; \
+        WHERE id(v1)== "player101" \
         RETURN v2.player.name AS Name, count(*) as cnt ORDER BY cnt DESC;
 +---------------------+-----+
 | Name                | cnt |
 +---------------------+-----+
-| &quot;LaMarcus Aldridge&quot; | 2   |
-| &quot;Tim Duncan&quot;        | 2   |
-| &quot;Boris Diaw&quot;        | 1   |
-| &quot;Manu Ginobili&quot;     | 1   |
-| &quot;Dejounte Murray&quot;   | 1   |
-| &quot;Marco Belinelli&quot;   | 1   |
+| "LaMarcus Aldridge" | 2   |
+| "Tim Duncan"        | 2   |
+| "Boris Diaw"        | 1   |
+| "Manu Ginobili"     | 1   |
+| "Dejounte Murray"   | 1   |
+| "Marco Belinelli"   | 1   |
 +---------------------+-----+
 </code></pre></div>
 <p>上述示例的返回结果有两列：</p>
@@ -10599,7 +10599,7 @@ nebula&gt; MATCH (n:player) \
 ...
 </code></pre></div>
 <div class="highlight"><pre><span></span><code># 统计 Tim Duncan 关联的边数。
-nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;}) -[e]- (v2) \
+nebula&gt; MATCH (v:player{name:"Tim Duncan"}) -[e]- (v2) \
         RETURN count(e);
 +----------+
 | count(e) |
@@ -10609,7 +10609,7 @@ nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;}) -[e]- (v2) \
 
 
 # 多跳查询，统计 Tim Duncan 关联的边数，返回两列（不去重和去重）。
-nebula&gt; MATCH (n:player {name : &quot;Tim Duncan&quot;})-[]-&gt;(friend:player)-[]-&gt;(fof:player) \
+nebula&gt; MATCH (n:player {name : "Tim Duncan"})-[]-&gt;(friend:player)-[]-&gt;(fof:player) \
         RETURN count(fof), count(DISTINCT fof);
 +------------+---------------------+
 | count(fof) | count(distinct fof) |
@@ -10680,14 +10680,14 @@ nebula&gt; UNWIND [1, 2, 1] AS a \
 +---+------------+------------------+
 
 # 降序排列，限制输出行数为 3，然后将结果输出到列表中。
-nebula&gt; UNWIND [&quot;c&quot;, &quot;b&quot;, &quot;a&quot;, &quot;d&quot; ] AS p \
+nebula&gt; UNWIND ["c", "b", "a", "d" ] AS p \
         WITH p AS q \
         ORDER BY q DESC LIMIT 3 \
         RETURN collect(q);
 +-----------------+
 | collect(q)      |
 +-----------------+
-| [&quot;d&quot;, &quot;c&quot;, &quot;b&quot;] |
+| ["d", "c", "b"] |
 +-----------------+
 
 nebula&gt; WITH [1, 1, 2, 2] AS coll \
@@ -10714,20 +10714,20 @@ nebula&gt; MATCH (n:player) \
 +-----+--------------------------------------------------------------------------+
 | age | collect(n.player.name)                                                   |
 +-----+--------------------------------------------------------------------------+
-| 24  | [&quot;Giannis Antetokounmpo&quot;]                                                |
-| 20  | [&quot;Luka Doncic&quot;]                                                          |
-| 25  | [&quot;Joel Embiid&quot;, &quot;Kyle Anderson&quot;]                                         |
+| 24  | ["Giannis Antetokounmpo"]                                                |
+| 20  | ["Luka Doncic"]                                                          |
+| 25  | ["Joel Embiid", "Kyle Anderson"]                                         |
 +-----+--------------------------------------------------------------------------+
 ...
 
-nebula&gt; GO FROM &quot;player100&quot; OVER serve \
+nebula&gt; GO FROM "player100" OVER serve \
         YIELD properties($$).name AS name \
         | GROUP BY $-.name \
         YIELD collect($-.name) AS name;
 +-----------+
 | name      |
 +-----------+
-| [&quot;Spurs&quot;] |
+| ["Spurs"] |
 +-----------+
 
 nebula&gt; LOOKUP ON player \
@@ -10773,7 +10773,7 @@ nebula&gt; LOOKUP ON player \
 +-------------------+
 </code></pre></div>
 <h2 id="_2">聚合示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>nebula&gt;  GO FROM &quot;player100&quot; OVER follow YIELD dst(edge) AS dst, properties($$).age AS age \
+<div class="highlight"><pre><span></span><code>nebula&gt;  GO FROM "player100" OVER follow YIELD dst(edge) AS dst, properties($$).age AS age \
          | GROUP BY $-.dst \
          YIELD \
          $-.dst AS dst, \
@@ -10781,8 +10781,8 @@ nebula&gt; LOOKUP ON player \
 +-------------+------------+
 | dst         | statistics |
 +-------------+------------+
-| &quot;player125&quot; | 84.0       |
-| &quot;player101&quot; | 74.0       |
+| "player125" | 84.0       |
+| "player101" | 74.0       |
 +-------------+------------+
 </code></pre></div>
 
@@ -10791,7 +10791,7 @@ nebula&gt; LOOKUP ON player \
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月22日 02:43:44">2025年4月22日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:30:49 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10875,8 +10875,6 @@ nebula&gt; LOOKUP ON player \
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

@@ -10421,11 +10421,11 @@
 <p>NebulaGraph 允许将一条语句的结果作为自定义变量传递给另一条语句。</p>
 <h2 id="opencypher">OpenCypher 兼容性<a class="headerlink" href="#opencypher" title="Permanent link">&para;</a></h2>
 <p>当引用一个变量的点、边或路径，需要先给它命名。例如：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;}) RETURN v;
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"}) RETURN v;
 +----------------------------------------------------+
 | v                                                  |
 +----------------------------------------------------+
-| (&quot;player100&quot; :player{name: &quot;Tim Duncan&quot;, age: 42}) |
+| ("player100" :player{name: "Tim Duncan", age: 42}) |
 +----------------------------------------------------+
 </code></pre></div>
 <p>示例中的<code>v</code>就是自定义变量。</p>
@@ -10445,15 +10445,15 @@
 </ul>
 </div>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>nebula&gt; $var = GO FROM &quot;player100&quot; OVER follow YIELD dst(edge) AS id; \
+<div class="highlight"><pre><span></span><code>nebula&gt; $var = GO FROM "player100" OVER follow YIELD dst(edge) AS id; \
         GO FROM $var.id OVER serve YIELD properties($$).name AS Team, \
         properties($^).name AS Player;
 +-----------+-----------------+
 | Team      | Player          |
 +-----------+-----------------+
-| &quot;Spurs&quot;   | &quot;Tony Parker&quot;   |
-| &quot;Hornets&quot; | &quot;Tony Parker&quot;   |
-| &quot;Spurs&quot;   | &quot;Manu Ginobili&quot; |
+| "Spurs"   | "Tony Parker"   |
+| "Hornets" | "Tony Parker"   |
+| "Spurs"   | "Manu Ginobili" |
 +-----------+-----------------+
 </code></pre></div>
 
@@ -10462,7 +10462,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月22日 02:43:44">2025年4月22日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:30:49 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10546,8 +10546,6 @@
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
