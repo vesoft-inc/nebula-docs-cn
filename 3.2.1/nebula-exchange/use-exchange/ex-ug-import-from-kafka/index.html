@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.2.1/nebula-exchange/use-exchange/ex-ug-import-from-kafka/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6973,10 +6973,10 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
   nebula: {
     address:{
       # 以下为 NebulaGraph 的 Graph 服务和 Meta 服务所在机器的 IP 地址及端口。
-      # 如果有多个地址，格式为 &quot;ip1:port&quot;,&quot;ip2:port&quot;,&quot;ip3:port&quot;。
+      # 如果有多个地址，格式为 "ip1:port","ip2:port","ip3:port"。
       # 不同地址之间以英文逗号 (,) 隔开。
-      graph:[&quot;127.0.0.1:9669&quot;]
-      meta:[&quot;127.0.0.1:9559&quot;]
+      graph:["127.0.0.1:9669"]
+      meta:["127.0.0.1:9559"]
     }
     # 填写的账号必须拥有 NebulaGraph 相应图空间的写数据权限。
     user: root
@@ -7012,9 +7012,9 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         sink: client
       }
       # Kafka 服务器地址。
-      service: &quot;127.0.0.1:9092&quot;
+      service: "127.0.0.1:9092"
       # 消息类别。
-      topic: &quot;topic_name1&quot;
+      topic: "topic_name1"
 
       # 在 fields 里指定 Kafka value 中的字段名称，多个字段用英文逗号（,）隔开。Spark Structured Streaming 读取 Kafka 数据后会将其以 JSON 格式存储于 value 字段中，而这里的 fields 要配置 JSON 的 key 名。示例如下：
       fields: [personName, personAge]
@@ -7042,8 +7042,8 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         source: kafka
         sink: client
       }
-      service: &quot;127.0.0.1:9092&quot;
-      topic: &quot;topic_name2&quot;
+      service: "127.0.0.1:9092"
+      topic: "topic_name2"
       fields: [key]
       nebula.fields: [name]
       vertex:{
@@ -7073,9 +7073,9 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
       }
 
       # Kafka 服务器地址。
-      service: &quot;127.0.0.1:9092&quot;
+      service: "127.0.0.1:9092"
       # 消息类别。
-      topic: &quot;topic_name3&quot;
+      topic: "topic_name3"
 
       # 在 fields 里指定 Kafka value 中的字段名称，多个字段用英文逗号（,）隔开。Spark Structured Streaming 读取 Kafka 数据后会将其以 JSON 格式存储于 value 字段中，而这里的 fields 要配置 JSON 的 key 名。示例如下：
       fields: [degree]
@@ -7112,8 +7112,8 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         source: kafka
         sink: client
       }
-      service: &quot;127.0.0.1:9092&quot;
-      topic: &quot;topic_name4&quot;
+      service: "127.0.0.1:9092"
+      topic: "topic_name4"
 
       fields: [startYear,endYear]
       nebula.fields: [start_year,end_year]
@@ -7137,19 +7137,19 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
 </code></pre></div>
 <h3 id="3_nebulagraph">步骤 3：向 NebulaGraph 导入数据<a class="headerlink" href="#3_nebulagraph" title="Permanent link">&para;</a></h3>
 <p>运行如下命令将 Kafka 数据导入到 NebulaGraph 中。关于参数的说明，请参见<a href="../../parameter-reference/ex-ug-para-import-command/">导入命令参数</a>。</p>
-<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span>&lt;nebula-exchange-3.0.0.jar_path&gt;<span class="w"> </span>-c<span class="w"> </span>&lt;kafka_application.conf_path&gt;
+<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">"local"</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span>&lt;nebula-exchange-3.0.0.jar_path&gt;<span class="w"> </span>-c<span class="w"> </span>&lt;kafka_application.conf_path&gt;
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>JAR 包有两种获取方式：<a href="../../ex-ug-compile/">自行编译</a>或者从 maven 仓库下载。</p>
 </div>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w">  </span>--master<span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w">  </span>/root/nebula-exchange/nebula-exchange/target/nebula-exchange-3.0.0.jar<span class="w">  </span>-c<span class="w"> </span>/root/nebula-exchange/nebula-exchange/target/classes/kafka_application.conf
+<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w">  </span>--master<span class="w"> </span><span class="s2">"local"</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w">  </span>/root/nebula-exchange/nebula-exchange/target/nebula-exchange-3.0.0.jar<span class="w">  </span>-c<span class="w"> </span>/root/nebula-exchange/nebula-exchange/target/classes/kafka_application.conf
 </code></pre></div>
 <p>用户可以在返回信息中搜索<code>batchSuccess.&lt;tag_name/edge_name&gt;</code>，确认成功的数量。例如<code>batchSuccess.follow: 300</code>。</p>
 <h3 id="4">步骤 4：（可选）验证数据<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p>用户可以在 NebulaGraph 客户端（例如 NebulaGraph Studio）中执行查询语句，确认数据是否已导入。例如：</p>
-<div class="highlight"><pre><span></span><code>GO FROM &quot;player100&quot; OVER follow;
+<div class="highlight"><pre><span></span><code>GO FROM "player100" OVER follow;
 </code></pre></div>
 <p>用户也可以使用命令 <a href="../../../3.ngql-guide/7.general-query-statements/6.show/14.show-stats/"><code>SHOW STATS</code></a> 查看统计数据。</p>
 <h3 id="5_nebulagraph">步骤 5：（如有）在 NebulaGraph 中重建索引<a class="headerlink" href="#5_nebulagraph" title="Permanent link">&para;</a></h3>
@@ -7160,7 +7160,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 23, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -7276,8 +7276,6 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

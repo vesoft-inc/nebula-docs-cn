@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.2.1/3.ngql-guide/6.functions-and-expressions/16.type-conversion/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6815,7 +6815,7 @@
 <li>返回类型：bool。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; UNWIND [true, false, &#39;true&#39;, &#39;false&#39;, NULL] AS b \
+<div class="highlight"><pre><span></span><code>nebula&gt; UNWIND [true, false, 'true', 'false', NULL] AS b \
         RETURN toBoolean(b) AS b;
 +----------+
 | b        |
@@ -6834,9 +6834,9 @@
 <li>返回类型：float。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; RETURN toFloat(1), toFloat(&#39;1.3&#39;), toFloat(&#39;1e3&#39;), toFloat(&#39;not a number&#39;);
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN toFloat(1), toFloat('1.3'), toFloat('1e3'), toFloat('not a number');
 +------------+----------------+----------------+-------------------------+
-| toFloat(1) | toFloat(&quot;1.3&quot;) | toFloat(&quot;1e3&quot;) | toFloat(&quot;not a number&quot;) |
+| toFloat(1) | toFloat("1.3") | toFloat("1e3") | toFloat("not a number") |
 +------------+----------------+----------------+-------------------------+
 | 1.0        | 1.3            | 1000.0         | __NULL__                |
 +------------+----------------+----------------+-------------------------+
@@ -6852,7 +6852,7 @@
 +---------+----------+
 | int2str | null2str |
 +---------+----------+
-| &quot;9669&quot;  | __NULL__ |
+| "9669"  | __NULL__ |
 +---------+----------+
 </code></pre></div>
 <h2 id="tointeger">toInteger()<a class="headerlink" href="#tointeger" title="Permanent link">&para;</a></h2>
@@ -6862,9 +6862,9 @@
 <li>返回类型：int。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; RETURN toInteger(1), toInteger(&#39;1&#39;), toInteger(&#39;1e3&#39;), toInteger(&#39;not a number&#39;);
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN toInteger(1), toInteger('1'), toInteger('1e3'), toInteger('not a number');
 +--------------+----------------+------------------+---------------------------+
-| toInteger(1) | toInteger(&quot;1&quot;) | toInteger(&quot;1e3&quot;) | toInteger(&quot;not a number&quot;) |
+| toInteger(1) | toInteger("1") | toInteger("1e3") | toInteger("not a number") |
 +--------------+----------------+------------------+---------------------------+
 | 1            | 1              | 1000             | __NULL__                  |
 +--------------+----------------+------------------+---------------------------+
@@ -6887,16 +6887,16 @@
 <p>hash() 返回参数的哈希值。其参数可以是数字、字符串、列表、布尔值、NULL 等类型的值，或者计算结果为这些类型的表达式。</p>
 <p><code>hash()</code>函数采用 MurmurHash2 算法，种子（seed）为<code>0xc70f6907UL</code>。用户可以在 <a href="https://github.com/vesoft-inc/nebula/blob/master/src/common/base/MurmurHash2.h"><code>MurmurHash2.h</code></a> 中查看其源代码。</p>
 <p>在 Java 中的调用方式如下：</p>
-<div class="highlight"><pre><span></span><code><span class="n">MurmurHash2</span><span class="p">.</span><span class="na">hash64</span><span class="p">(</span><span class="s">&quot;to_be_hashed&quot;</span><span class="p">.</span><span class="na">getBytes</span><span class="p">(),</span><span class="s">&quot;to_be_hashed&quot;</span><span class="p">.</span><span class="na">getBytes</span><span class="p">().</span><span class="na">length</span><span class="p">,</span><span class="w"> </span><span class="mh">0xc70f6907</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">MurmurHash2</span><span class="p">.</span><span class="na">hash64</span><span class="p">(</span><span class="s">"to_be_hashed"</span><span class="p">.</span><span class="na">getBytes</span><span class="p">(),</span><span class="s">"to_be_hashed"</span><span class="p">.</span><span class="na">getBytes</span><span class="p">().</span><span class="na">length</span><span class="p">,</span><span class="w"> </span><span class="mh">0xc70f6907</span><span class="p">)</span>
 </code></pre></div>
 <p>语法：<code>hash(&lt;string&gt;)</code></p>
 <ul>
 <li>返回类型：int。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; RETURN hash(&quot;abcde&quot;);
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN hash("abcde");
 +--------------------+
-| hash(&quot;abcde&quot;)      |
+| hash("abcde")      |
 +--------------------+
 | 811036730794841393 |
 +--------------------+
@@ -6915,9 +6915,9 @@ nebula&gt; YIELD hash(NULL);
 | -1         |
 +------------+
 
-nebula&gt; YIELD hash(toLower(&quot;HELLO NEBULA&quot;));
+nebula&gt; YIELD hash(toLower("HELLO NEBULA"));
 +-------------------------------+
-| hash(toLower(&quot;HELLO NEBULA&quot;)) |
+| hash(toLower("HELLO NEBULA")) |
 +-------------------------------+
 | -8481157362655072082          |
 +-------------------------------+
@@ -6928,7 +6928,7 @@ nebula&gt; YIELD hash(toLower(&quot;HELLO NEBULA&quot;));
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 23, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -7044,8 +7044,6 @@ nebula&gt; YIELD hash(toLower(&quot;HELLO NEBULA&quot;));
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

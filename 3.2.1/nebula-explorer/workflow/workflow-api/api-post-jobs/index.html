@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.2.1/nebula-explorer/workflow/workflow-api/api-post-jobs/">
       
       <link rel="icon" href="../../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6966,7 +6966,7 @@
 <h3 id="_4">请求示例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>以下图为例，在 nGQL 语句使用自定义参数<code>name</code>。在创建作业时传入参数值<code>Tim Duncan</code>。</p>
 <p><img alt="api-postjob" src="https://docs-cdn.nebula-graph.com.cn/figures/api-postjob-220715-cn.png" /></p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Cookie: &quot;</span><span class="nv">explorer_token</span><span class="o">=</span>eyJhbxxx<span class="s2">&quot;&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;input&quot;:{&quot;query_1&quot;:{&quot;name&quot;:&quot;Tim Duncan&quot;}}}&#39;</span><span class="w"> </span>http://192.168.8.145:7002/api-open/v1/workflows/4216617528/jobs
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">"Cookie: "</span><span class="nv">explorer_token</span><span class="o">=</span>eyJhbxxx<span class="s2">""</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">'{"input":{"query_1":{"name":"Tim Duncan"}}}'</span><span class="w"> </span>http://192.168.8.145:7002/api-open/v1/workflows/4216617528/jobs
 </code></pre></div>
 <h2 id="_5">返回参数<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <table>
@@ -7007,19 +7007,19 @@
 </table>
 <h3 id="_6">返回示例<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="err">{</span>
-<span class="err">  &quot;cookie&quot;: [],</span>
-<span class="err">  &quot;Content-Type&quot;: &quot;application/json&quot;,</span>
-<span class="err">  &quot;Traceparent&quot;: &quot;00-1ba128615cdc2226c921973a689e9f1b-7630b12963494672-00&quot;,</span>
-<span class="err">  &quot;Date&quot;: &quot;Fri, 15 Jul 2022 07:19:25 GMT&quot;,</span>
-<span class="err">  &quot;Content-Length&quot;: &quot;48&quot;</span>
+<span class="err">  "cookie": [],</span>
+<span class="err">  "Content-Type": "application/json",</span>
+<span class="err">  "Traceparent": "00-1ba128615cdc2226c921973a689e9f1b-7630b12963494672-00",</span>
+<span class="err">  "Date": "Fri, 15 Jul 2022 07:19:25 GMT",</span>
+<span class="err">  "Content-Length": "48"</span>
 <span class="err">}</span>
 
 <span class="err">{</span>
-<span class="err">  &quot;code&quot;: 0,</span>
-<span class="err">  &quot;data&quot;: {</span>
-<span class="err">    &quot;id&quot;: 107</span>
+<span class="err">  "code": 0,</span>
+<span class="err">  "data": {</span>
+<span class="err">    "id": 107</span>
 <span class="err">  },</span>
-<span class="err">  &quot;message&quot;: &quot;Success&quot;</span>
+<span class="err">  "message": "Success"</span>
 <span class="err">}</span>
 </code></pre></div>
 
@@ -7028,7 +7028,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 23, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -7144,8 +7144,6 @@
         <script src="../../../../js/jquery.js"></script>
       
         <script src="../../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

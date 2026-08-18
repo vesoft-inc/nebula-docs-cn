@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.2.1/nebula-exchange/use-exchange/ex-ug-import-from-hive/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6879,7 +6879,7 @@
 <h2 id="_1">数据集<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>本文以 <a href="https://docs-cdn.nebula-graph.com.cn/dataset/dataset.zip">basketballplayer 数据集</a>为例。</p>
 <p>在本示例中，该数据集已经存入 Hive 中名为<code>basketball</code>的数据库中，以<code>player</code>、<code>team</code>、<code>follow</code>和<code>serve</code>四个表存储了所有点和边的信息。以下为各个表的结构。</p>
-<div class="highlight"><pre><span></span><code><span class="n">scala</span><span class="o">&gt;</span><span class="w"> </span><span class="n">spark</span><span class="p">.</span><span class="k">sql</span><span class="p">(</span><span class="ss">&quot;describe basketball.player&quot;</span><span class="p">).</span><span class="k">show</span>
+<div class="highlight"><pre><span></span><code><span class="n">scala</span><span class="o">&gt;</span><span class="w"> </span><span class="n">spark</span><span class="p">.</span><span class="k">sql</span><span class="p">(</span><span class="ss">"describe basketball.player"</span><span class="p">).</span><span class="k">show</span>
 <span class="o">+</span><span class="c1">--------+---------+-------+</span>
 <span class="o">|</span><span class="n">col_name</span><span class="o">|</span><span class="n">data_type</span><span class="o">|</span><span class="k">comment</span><span class="o">|</span>
 <span class="o">+</span><span class="c1">--------+---------+-------+</span>
@@ -6888,7 +6888,7 @@
 <span class="o">|</span><span class="w">    </span><span class="n">name</span><span class="o">|</span><span class="w">   </span><span class="n">string</span><span class="o">|</span><span class="w">   </span><span class="k">null</span><span class="o">|</span>
 <span class="o">+</span><span class="c1">--------+---------+-------+</span>
 
-<span class="n">scala</span><span class="o">&gt;</span><span class="w"> </span><span class="n">spark</span><span class="p">.</span><span class="k">sql</span><span class="p">(</span><span class="ss">&quot;describe basketball.team&quot;</span><span class="p">).</span><span class="k">show</span>
+<span class="n">scala</span><span class="o">&gt;</span><span class="w"> </span><span class="n">spark</span><span class="p">.</span><span class="k">sql</span><span class="p">(</span><span class="ss">"describe basketball.team"</span><span class="p">).</span><span class="k">show</span>
 <span class="o">+</span><span class="c1">----------+---------+-------+</span>
 <span class="o">|</span><span class="w">  </span><span class="n">col_name</span><span class="o">|</span><span class="n">data_type</span><span class="o">|</span><span class="k">comment</span><span class="o">|</span>
 <span class="o">+</span><span class="c1">----------+---------+-------+</span>
@@ -6896,7 +6896,7 @@
 <span class="o">|</span><span class="w">      </span><span class="n">name</span><span class="o">|</span><span class="w">   </span><span class="n">string</span><span class="o">|</span><span class="w">   </span><span class="k">null</span><span class="o">|</span>
 <span class="o">+</span><span class="c1">----------+---------+-------+</span>
 
-<span class="n">scala</span><span class="o">&gt;</span><span class="w"> </span><span class="n">spark</span><span class="p">.</span><span class="k">sql</span><span class="p">(</span><span class="ss">&quot;describe basketball.follow&quot;</span><span class="p">).</span><span class="k">show</span>
+<span class="n">scala</span><span class="o">&gt;</span><span class="w"> </span><span class="n">spark</span><span class="p">.</span><span class="k">sql</span><span class="p">(</span><span class="ss">"describe basketball.follow"</span><span class="p">).</span><span class="k">show</span>
 <span class="o">+</span><span class="c1">----------+---------+-------+</span>
 <span class="o">|</span><span class="w">  </span><span class="n">col_name</span><span class="o">|</span><span class="n">data_type</span><span class="o">|</span><span class="k">comment</span><span class="o">|</span>
 <span class="o">+</span><span class="c1">----------+---------+-------+</span>
@@ -6905,7 +6905,7 @@
 <span class="o">|</span><span class="w">    </span><span class="n">degree</span><span class="o">|</span><span class="w">   </span><span class="nb">bigint</span><span class="o">|</span><span class="w">   </span><span class="k">null</span><span class="o">|</span>
 <span class="o">+</span><span class="c1">----------+---------+-------+</span>
 
-<span class="n">scala</span><span class="o">&gt;</span><span class="w"> </span><span class="n">spark</span><span class="p">.</span><span class="k">sql</span><span class="p">(</span><span class="ss">&quot;describe basketball.serve&quot;</span><span class="p">).</span><span class="k">show</span>
+<span class="n">scala</span><span class="o">&gt;</span><span class="w"> </span><span class="n">spark</span><span class="p">.</span><span class="k">sql</span><span class="p">(</span><span class="ss">"describe basketball.serve"</span><span class="p">).</span><span class="k">show</span>
 <span class="o">+</span><span class="c1">----------+---------+-------+</span>
 <span class="o">|</span><span class="w">  </span><span class="n">col_name</span><span class="o">|</span><span class="n">data_type</span><span class="o">|</span><span class="k">comment</span><span class="o">|</span>
 <span class="o">+</span><span class="c1">----------+---------+-------+</span>
@@ -7030,10 +7030,10 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
 <p>更多信息，请参见<a href="../../../2.quick-start/1.quick-start-workflow/">快速开始</a>。</p>
 <h3 id="2_spark_sql_hive_sql">步骤 2：使用 Spark SQL 确认 Hive SQL 语句<a class="headerlink" href="#2_spark_sql_hive_sql" title="Permanent link">&para;</a></h3>
 <p>启动 spark-shell 环境后，依次运行以下语句，确认 Spark 能读取 Hive 中的数据。</p>
-<div class="highlight"><pre><span></span><code><span class="n">scala</span><span class="o">&gt;</span><span class="w"> </span><span class="k">sql</span><span class="p">(</span><span class="ss">&quot;select playerid, age, name from basketball.player&quot;</span><span class="p">).</span><span class="k">show</span>
-<span class="n">scala</span><span class="o">&gt;</span><span class="w"> </span><span class="k">sql</span><span class="p">(</span><span class="ss">&quot;select teamid, name from basketball.team&quot;</span><span class="p">).</span><span class="k">show</span>
-<span class="n">scala</span><span class="o">&gt;</span><span class="w"> </span><span class="k">sql</span><span class="p">(</span><span class="ss">&quot;select src_player, dst_player, degree from basketball.follow&quot;</span><span class="p">).</span><span class="k">show</span>
-<span class="n">scala</span><span class="o">&gt;</span><span class="w"> </span><span class="k">sql</span><span class="p">(</span><span class="ss">&quot;select playerid, teamid, start_year, end_year from basketball.serve&quot;</span><span class="p">).</span><span class="k">show</span>
+<div class="highlight"><pre><span></span><code><span class="n">scala</span><span class="o">&gt;</span><span class="w"> </span><span class="k">sql</span><span class="p">(</span><span class="ss">"select playerid, age, name from basketball.player"</span><span class="p">).</span><span class="k">show</span>
+<span class="n">scala</span><span class="o">&gt;</span><span class="w"> </span><span class="k">sql</span><span class="p">(</span><span class="ss">"select teamid, name from basketball.team"</span><span class="p">).</span><span class="k">show</span>
+<span class="n">scala</span><span class="o">&gt;</span><span class="w"> </span><span class="k">sql</span><span class="p">(</span><span class="ss">"select src_player, dst_player, degree from basketball.follow"</span><span class="p">).</span><span class="k">show</span>
+<span class="n">scala</span><span class="o">&gt;</span><span class="w"> </span><span class="k">sql</span><span class="p">(</span><span class="ss">"select playerid, teamid, start_year, end_year from basketball.serve"</span><span class="p">).</span><span class="k">show</span>
 </code></pre></div>
 <p>以下为表<code>basketball.player</code>中读出的结果。</p>
 <div class="highlight"><pre><span></span><code><span class="o">+---------+----+-----------------+</span>
@@ -7066,21 +7066,21 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
 
   # 如果 Spark 和 Hive 部署在不同集群，才需要配置连接 Hive 的参数，否则请忽略这些配置。
   #hive: {
-  #  waredir: &quot;hdfs://NAMENODE_IP:9000/apps/svr/hive-xxx/warehouse/&quot;
-  #  connectionURL: &quot;jdbc:mysql://your_ip:3306/hive_spark?characterEncoding=UTF-8&quot;
-  #  connectionDriverName: &quot;com.mysql.jdbc.Driver&quot;
-  #  connectionUserName: &quot;user&quot;
-  #  connectionPassword: &quot;password&quot;
+  #  waredir: "hdfs://NAMENODE_IP:9000/apps/svr/hive-xxx/warehouse/"
+  #  connectionURL: "jdbc:mysql://your_ip:3306/hive_spark?characterEncoding=UTF-8"
+  #  connectionDriverName: "com.mysql.jdbc.Driver"
+  #  connectionUserName: "user"
+  #  connectionPassword: "password"
   #}
 
   # NebulaGraph 相关配置
   nebula: {
     address:{
       # 以下为 NebulaGraph 的 Graph 服务和所有 Meta 服务所在机器的 IP 地址及端口。
-      # 如果有多个地址，格式为 &quot;ip1:port&quot;,&quot;ip2:port&quot;,&quot;ip3:port&quot;。
+      # 如果有多个地址，格式为 "ip1:port","ip2:port","ip3:port"。
       # 不同地址之间以英文逗号 (,) 隔开。
-      graph:[&quot;127.0.0.1:9669&quot;]
-      meta:[&quot;127.0.0.1:9559&quot;]
+      graph:["127.0.0.1:9669"]
+      meta:["127.0.0.1:9559"]
     }
     # 填写的账号必须拥有 NebulaGraph 相应图空间的写数据权限。
     user: root
@@ -7117,7 +7117,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
       }
 
       # 设置读取数据库 basketball 中 player 表数据的 SQL 语句
-      exec: &quot;select playerid, age, name from basketball.player&quot;
+      exec: "select playerid, age, name from basketball.player"
 
       # 在 fields 里指定 player 表中的列名称，其对应的 value 会作为 NebulaGraph 中指定属性。
       # fields 和 nebula.fields 里的配置必须一一对应。
@@ -7143,7 +7143,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         source: hive
         sink: client
       }
-      exec: &quot;select teamid, name from basketball.team&quot;
+      exec: "select teamid, name from basketball.team"
       fields: [name]
       nebula.fields: [name]
       vertex: {
@@ -7172,7 +7172,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
       }
 
       # 设置读取数据库 basketball 中 follow 表数据的 SQL 语句。
-      exec: &quot;select src_player, dst_player, degree from basketball.follow&quot;
+      exec: "select src_player, dst_player, degree from basketball.follow"
 
       # 在 fields 里指定 follow 表中的列名称，其对应的 value 会作为 NebulaGraph 中指定属性。
       # fields 和 nebula.fields 里的配置必须一一对应。
@@ -7207,7 +7207,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         source: hive
         sink: client
       }
-      exec: &quot;select playerid, teamid, start_year, end_year from basketball.serve&quot;
+      exec: "select playerid, teamid, start_year, end_year from basketball.serve"
       fields: [start_year,end_year]
       nebula.fields: [start_year,end_year]
       source: {
@@ -7228,19 +7228,19 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
 </code></pre></div>
 <h3 id="4_nebulagraph">步骤 4：向 NebulaGraph 导入数据<a class="headerlink" href="#4_nebulagraph" title="Permanent link">&para;</a></h3>
 <p>运行如下命令将 Hive 数据导入到 NebulaGraph 中。关于参数的说明，请参见<a href="../../parameter-reference/ex-ug-para-import-command/">导入命令参数</a>。</p>
-<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span>&lt;nebula-exchange-3.0.0.jar_path&gt;<span class="w"> </span>-c<span class="w"> </span>&lt;hive_application.conf_path&gt;<span class="w"> </span>-h
+<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">"local"</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span>&lt;nebula-exchange-3.0.0.jar_path&gt;<span class="w"> </span>-c<span class="w"> </span>&lt;hive_application.conf_path&gt;<span class="w"> </span>-h
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>JAR 包有两种获取方式：<a href="../../ex-ug-compile/">自行编译</a>或者从 maven 仓库下载。</p>
 </div>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w">  </span>--master<span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w">  </span>/root/nebula-exchange/nebula-exchange/target/nebula-exchange-3.0.0.jar<span class="w">  </span>-c<span class="w"> </span>/root/nebula-exchange/nebula-exchange/target/classes/hive_application.conf<span class="w"> </span>-h
+<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w">  </span>--master<span class="w"> </span><span class="s2">"local"</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w">  </span>/root/nebula-exchange/nebula-exchange/target/nebula-exchange-3.0.0.jar<span class="w">  </span>-c<span class="w"> </span>/root/nebula-exchange/nebula-exchange/target/classes/hive_application.conf<span class="w"> </span>-h
 </code></pre></div>
 <p>用户可以在返回信息中搜索<code>batchSuccess.&lt;tag_name/edge_name&gt;</code>，确认成功的数量。例如<code>batchSuccess.follow: 300</code>。</p>
 <h3 id="5">步骤 5：（可选）验证数据<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
 <p>用户可以在 NebulaGraph 客户端（例如 NebulaGraph Studio）中执行查询语句，确认数据是否已导入。例如：</p>
-<div class="highlight"><pre><span></span><code>GO FROM &quot;player100&quot; OVER follow;
+<div class="highlight"><pre><span></span><code>GO FROM "player100" OVER follow;
 </code></pre></div>
 <p>用户也可以使用命令 <a href="../../../3.ngql-guide/7.general-query-statements/6.show/14.show-stats/"><code>SHOW STATS</code></a> 查看统计数据。</p>
 <h3 id="6_nebulagraph">步骤 6：（如有）在 NebulaGraph 中重建索引<a class="headerlink" href="#6_nebulagraph" title="Permanent link">&para;</a></h3>
@@ -7251,7 +7251,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 23, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -7367,8 +7367,6 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

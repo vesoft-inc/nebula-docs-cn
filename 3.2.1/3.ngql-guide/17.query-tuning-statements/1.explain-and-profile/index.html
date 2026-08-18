@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.2.1/3.ngql-guide/17.query-tuning-statements/1.explain-and-profile/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6801,12 +6801,12 @@
 <p>例如<code>SHOW TAGS</code>语句分为两个<code>action</code>，<code>operator</code>为<code>Start</code>和<code>ShowTags</code>。更复杂的<code>GO</code>语句可能会被处理成 10 个以上的<code>action</code>。</p>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>EXPLAIN</code><div class="highlight"><pre><span></span><code>EXPLAIN [format= {&quot;row&quot; | &quot;dot&quot;}] &lt;your_nGQL_statement&gt;;
+<li><code>EXPLAIN</code><div class="highlight"><pre><span></span><code>EXPLAIN [format= {"row" | "dot"}] &lt;your_nGQL_statement&gt;;
 </code></pre></div>
 </li>
 </ul>
 <ul>
-<li><code>PROFILE</code><div class="highlight"><pre><span></span><code>PROFILE [format= {&quot;row&quot; | &quot;dot&quot;}] &lt;your_nGQL_statement&gt;;
+<li><code>PROFILE</code><div class="highlight"><pre><span></span><code>PROFILE [format= {"row" | "dot"}] &lt;your_nGQL_statement&gt;;
 </code></pre></div>
 </li>
 </ul>
@@ -6815,7 +6815,7 @@
 <h2 id="row"><code>row</code>格式<a class="headerlink" href="#row" title="Permanent link">&para;</a></h2>
 <p><code>row</code>格式将返回信息输出到一个表格中。</p>
 <ul>
-<li><code>EXPLAIN</code><div class="highlight"><pre><span></span><code>nebula&gt; EXPLAIN format=&quot;row&quot; SHOW TAGS;
+<li><code>EXPLAIN</code><div class="highlight"><pre><span></span><code>nebula&gt; EXPLAIN format="row" SHOW TAGS;
 Execution succeeded (time spent 327/892 us)
 
 Execution Plan
@@ -6823,16 +6823,16 @@ Execution Plan
 -----+----------+--------------+----------------+----------------------------------------------------------------------
 | id | name     | dependencies | profiling data | operator info                                                       |
 -----+----------+--------------+----------------+----------------------------------------------------------------------
-|  1 | ShowTags | 0            |                | outputVar: [{&quot;colNames&quot;:[],&quot;name&quot;:&quot;__ShowTags_1&quot;,&quot;type&quot;:&quot;DATASET&quot;}] |
+|  1 | ShowTags | 0            |                | outputVar: [{"colNames":[],"name":"__ShowTags_1","type":"DATASET"}] |
 |    |          |              |                | inputVar:                                                           |
 -----+----------+--------------+----------------+----------------------------------------------------------------------
-|  0 | Start    |              |                | outputVar: [{&quot;colNames&quot;:[],&quot;name&quot;:&quot;__Start_0&quot;,&quot;type&quot;:&quot;DATASET&quot;}]    |
+|  0 | Start    |              |                | outputVar: [{"colNames":[],"name":"__Start_0","type":"DATASET"}]    |
 -----+----------+--------------+----------------+----------------------------------------------------------------------
 </code></pre></div>
 </li>
 </ul>
 <ul>
-<li><code>PROFILE</code><div class="highlight"><pre><span></span><code>nebula&gt; PROFILE format=&quot;row&quot; SHOW TAGS;
+<li><code>PROFILE</code><div class="highlight"><pre><span></span><code>nebula&gt; PROFILE format="row" SHOW TAGS;
 +--------+
 | Name   |
 +--------+
@@ -6846,10 +6846,10 @@ Execution Plan
 -----+----------+--------------+----------------------------------------------------+----------------------------------------------------------------------
 | id | name     | dependencies | profiling data                                     | operator info                                                       |
 -----+----------+--------------+----------------------------------------------------+----------------------------------------------------------------------
-|  1 | ShowTags | 0            | ver: 0, rows: 1, execTime: 42us, totalTime: 1177us | outputVar: [{&quot;colNames&quot;:[],&quot;name&quot;:&quot;__ShowTags_1&quot;,&quot;type&quot;:&quot;DATASET&quot;}] |
+|  1 | ShowTags | 0            | ver: 0, rows: 1, execTime: 42us, totalTime: 1177us | outputVar: [{"colNames":[],"name":"__ShowTags_1","type":"DATASET"}] |
 |    |          |              |                                                    | inputVar:                                                           |
 -----+----------+--------------+----------------------------------------------------+----------------------------------------------------------------------
-|  0 | Start    |              | ver: 0, rows: 0, execTime: 1us, totalTime: 57us    | outputVar: [{&quot;colNames&quot;:[],&quot;name&quot;:&quot;__Start_0&quot;,&quot;type&quot;:&quot;DATASET&quot;}]    |
+|  0 | Start    |              | ver: 0, rows: 0, execTime: 1us, totalTime: 57us    | outputVar: [{"colNames":[],"name":"__Start_0","type":"DATASET"}]    |
 -----+----------+--------------+----------------------------------------------------+----------------------------------------------------------------------
 </code></pre></div>
 </li>
@@ -6890,7 +6890,7 @@ Execution Plan
 <p class="admonition-title">Note</p>
 <p>Graphviz 是一款开源可视化图工具，可以绘制 DOT 语言脚本描述的图。Graphviz 提供一个在线工具，可以预览 DOT 语言文件，并将它们导出为 SVG 或 JSON 等其他格式。详情请参见 <a href="https://dreampuf.github.io/GraphvizOnline/">Graphviz Online</a>。</p>
 </div>
-<div class="highlight"><pre><span></span><code>nebula&gt; EXPLAIN format=&quot;dot&quot; SHOW TAGS;
+<div class="highlight"><pre><span></span><code>nebula&gt; EXPLAIN format="dot" SHOW TAGS;
 Execution succeeded (time spent 161/665 us)
 Execution Plan
 ---------------------------------------------------------------------------------------------------------------------------------------------  -------------
@@ -6898,9 +6898,9 @@ Execution Plan
 ---------------------------------------------------------------------------------------------------------------------------------------------  -------------
   digraph exec_plan {
       rankdir=LR;
-      &quot;ShowTags_0&quot;[label=&quot;ShowTags_0|outputVar: \[\{\&quot;colNames\&quot;:\[\],\&quot;name\&quot;:\&quot;__ShowTags_0\&quot;,\&quot;type\&quot;:\&quot;DATASET\&quot;\}\]\l|inputVar:\l&quot;,   shape=Mrecord];
-      &quot;Start_2&quot;-&gt;&quot;ShowTags_0&quot;;
-      &quot;Start_2&quot;[label=&quot;Start_2|outputVar: \[\{\&quot;colNames\&quot;:\[\],\&quot;name\&quot;:\&quot;__Start_2\&quot;,\&quot;type\&quot;:\&quot;DATASET\&quot;\}\]\l|inputVar: \l&quot;,   shape=Mrecord];
+      "ShowTags_0"[label="ShowTags_0|outputVar: \[\{\"colNames\":\[\],\"name\":\"__ShowTags_0\",\"type\":\"DATASET\"\}\]\l|inputVar:\l",   shape=Mrecord];
+      "Start_2"-&gt;"ShowTags_0";
+      "Start_2"[label="Start_2|outputVar: \[\{\"colNames\":\[\],\"name\":\"__Start_2\",\"type\":\"DATASET\"\}\]\l|inputVar: \l",   shape=Mrecord];
   }
 ---------------------------------------------------------------------------------------------------------------------------------------------  -------------
 </code></pre></div>
@@ -6912,7 +6912,7 @@ Execution Plan
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 23, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -7028,8 +7028,6 @@ Execution Plan
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

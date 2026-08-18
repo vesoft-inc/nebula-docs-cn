@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.2.1/3.ngql-guide/6.functions-and-expressions/14.geo/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6830,75 +6830,75 @@
 +--------------------------+
 | ST_ASText(ST_Point(1,1)) |
 +--------------------------+
-| &quot;POINT(1 1)&quot;             |
+| "POINT(1 1)"             |
 +--------------------------+
 
-nebula&gt; RETURN ST_ASText(ST_GeogFromText(&quot;POINT(3 8)&quot;));
+nebula&gt; RETURN ST_ASText(ST_GeogFromText("POINT(3 8)"));
 +------------------------------------------+
-| ST_ASText(ST_GeogFromText(&quot;POINT(3 8)&quot;)) |
+| ST_ASText(ST_GeogFromText("POINT(3 8)")) |
 +------------------------------------------+
-| &quot;POINT(3 8)&quot;                             |
+| "POINT(3 8)"                             |
 +------------------------------------------+
 
-nebula&gt; RETURN ST_ASTEXT(ST_Centroid(ST_GeogFromText(&quot;LineString(0 1,1 0)&quot;)));
+nebula&gt; RETURN ST_ASTEXT(ST_Centroid(ST_GeogFromText("LineString(0 1,1 0)")));
 +----------------------------------------------------------------+
-| ST_ASTEXT(ST_Centroid(ST_GeogFromText(&quot;LineString(0 1,1 0)&quot;))) |
+| ST_ASTEXT(ST_Centroid(ST_GeogFromText("LineString(0 1,1 0)"))) |
 +----------------------------------------------------------------+
-| &quot;POINT(0.5000380800773782 0.5000190382261059)&quot;                 |
+| "POINT(0.5000380800773782 0.5000190382261059)"                 |
 +----------------------------------------------------------------+
 
-nebula&gt; RETURN ST_ISValid(ST_GeogFromText(&quot;POINT(3 8)&quot;));
+nebula&gt; RETURN ST_ISValid(ST_GeogFromText("POINT(3 8)"));
 +-------------------------------------------+
-| ST_ISValid(ST_GeogFromText(&quot;POINT(3 8)&quot;)) |
+| ST_ISValid(ST_GeogFromText("POINT(3 8)")) |
 +-------------------------------------------+
 | true                                      |
 +-------------------------------------------+
 
-nebula&gt; RETURN ST_Intersects(ST_GeogFromText(&quot;LineString(0 1,1 0)&quot;),ST_GeogFromText(&quot;LineString(0 0,1 1)&quot;));
+nebula&gt; RETURN ST_Intersects(ST_GeogFromText("LineString(0 1,1 0)"),ST_GeogFromText("LineString(0 0,1 1)"));
 +----------------------------------------------------------------------------------------------+
-| ST_Intersects(ST_GeogFromText(&quot;LineString(0 1,1 0)&quot;),ST_GeogFromText(&quot;LineString(0 0,1 1)&quot;)) |
+| ST_Intersects(ST_GeogFromText("LineString(0 1,1 0)"),ST_GeogFromText("LineString(0 0,1 1)")) |
 +----------------------------------------------------------------------------------------------+
 | true                                                                                         |
 +----------------------------------------------------------------------------------------------+
 
-nebula&gt; RETURN ST_Covers(ST_GeogFromText(&quot;POLYGON((0 0,10 0,10 10,0 10,0 0))&quot;),ST_Point(1,2));
+nebula&gt; RETURN ST_Covers(ST_GeogFromText("POLYGON((0 0,10 0,10 10,0 10,0 0))"),ST_Point(1,2));
 +--------------------------------------------------------------------------------+
-| ST_Covers(ST_GeogFromText(&quot;POLYGON((0 0,10 0,10 10,0 10,0 0))&quot;),ST_Point(1,2)) |
+| ST_Covers(ST_GeogFromText("POLYGON((0 0,10 0,10 10,0 10,0 0))"),ST_Point(1,2)) |
 +--------------------------------------------------------------------------------+
 | true                                                                           |
 +--------------------------------------------------------------------------------+
 
-nebula&gt; RETURN ST_CoveredBy(ST_Point(1,2),ST_GeogFromText(&quot;POLYGON((0 0,10 0,10 10,0 10,0 0))&quot;));
+nebula&gt; RETURN ST_CoveredBy(ST_Point(1,2),ST_GeogFromText("POLYGON((0 0,10 0,10 10,0 10,0 0))"));
 +-----------------------------------------------------------------------------------+
-| ST_CoveredBy(ST_Point(1,2),ST_GeogFromText(&quot;POLYGON((0 0,10 0,10 10,0 10,0 0))&quot;)) |
+| ST_CoveredBy(ST_Point(1,2),ST_GeogFromText("POLYGON((0 0,10 0,10 10,0 10,0 0))")) |
 +-----------------------------------------------------------------------------------+
 | true                                                                              |
 +-----------------------------------------------------------------------------------+
 
-nebula&gt; RETURN ST_dwithin(ST_GeogFromText(&quot;Point(0 0)&quot;),ST_GeogFromText(&quot;Point(10 10)&quot;),20000000000.0);
+nebula&gt; RETURN ST_dwithin(ST_GeogFromText("Point(0 0)"),ST_GeogFromText("Point(10 10)"),20000000000.0);
 +---------------------------------------------------------------------------------------+
-| ST_dwithin(ST_GeogFromText(&quot;Point(0 0)&quot;),ST_GeogFromText(&quot;Point(10 10)&quot;),20000000000) |
+| ST_dwithin(ST_GeogFromText("Point(0 0)"),ST_GeogFromText("Point(10 10)"),20000000000) |
 +---------------------------------------------------------------------------------------+
 | true                                                                                  |
 +---------------------------------------------------------------------------------------+
 
-nebula&gt; RETURN ST_Distance(ST_GeogFromText(&quot;Point(0 0)&quot;),ST_GeogFromText(&quot;Point(10 10)&quot;));
+nebula&gt; RETURN ST_Distance(ST_GeogFromText("Point(0 0)"),ST_GeogFromText("Point(10 10)"));
 +----------------------------------------------------------------------------+
-| ST_Distance(ST_GeogFromText(&quot;Point(0 0)&quot;),ST_GeogFromText(&quot;Point(10 10)&quot;)) |
+| ST_Distance(ST_GeogFromText("Point(0 0)"),ST_GeogFromText("Point(10 10)")) |
 +----------------------------------------------------------------------------+
 | 1.5685230187677438e+06                                                     |
 +----------------------------------------------------------------------------+
 
-nebula&gt; RETURN S2_CellIdFromPoint(ST_GeogFromText(&quot;Point(1 1)&quot;));
+nebula&gt; RETURN S2_CellIdFromPoint(ST_GeogFromText("Point(1 1)"));
 +---------------------------------------------------+
-| S2_CellIdFromPoint(ST_GeogFromText(&quot;Point(1 1)&quot;)) |
+| S2_CellIdFromPoint(ST_GeogFromText("Point(1 1)")) |
 +---------------------------------------------------+
 | 1153277837650709461                               |
 +---------------------------------------------------+
 
-nebula&gt; RETURN S2_CoveringCellIds(ST_GeogFromText(&quot;POLYGON((0 1, 1 2, 2 3, 0 1))&quot;));
+nebula&gt; RETURN S2_CoveringCellIds(ST_GeogFromText("POLYGON((0 1, 1 2, 2 3, 0 1))"));
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| S2_CoveringCellIds(ST_GeogFromText(&quot;POLYGON((0 1, 1 2, 2 3, 0 1))&quot;))                                                                                                     |
+| S2_CoveringCellIds(ST_GeogFromText("POLYGON((0 1, 1 2, 2 3, 0 1))"))                                                                                                     |
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | [1152391494368201343, 1153466862374223872, 1153554823304445952, 1153836298281156608, 1153959443583467520, 1154240918560178176, 1160503736791990272, 1160591697722212352] |
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -6909,7 +6909,7 @@ nebula&gt; RETURN S2_CoveringCellIds(ST_GeogFromText(&quot;POLYGON((0 1, 1 2, 2 
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 23, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -7025,8 +7025,6 @@ nebula&gt; RETURN S2_CoveringCellIds(ST_GeogFromText(&quot;POLYGON((0 1, 1 2, 2 
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

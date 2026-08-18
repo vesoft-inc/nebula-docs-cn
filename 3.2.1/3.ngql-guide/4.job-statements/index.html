@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.2.1/3.ngql-guide/4.job-statements/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6952,7 +6952,7 @@
 
 示例：
 
-<div class="highlight"><pre><span></span><code>nebula&gt; SUBMIT JOB BALANCE ACROSS ZONE REMOVE &quot;zone1&quot;;
+<div class="highlight"><pre><span></span><code>nebula&gt; SUBMIT JOB BALANCE ACROSS ZONE REMOVE "zone1";
 +------------+
 | New Job Id |
 +------------+
@@ -7001,7 +7001,7 @@
 <p><code>SUBMIT JOB DOWNLOAD HDFS</code>语句会下载指定的 HDFS 上的 SST 文件。</p>
 <p><code>SUBMIT JOB INGEST</code>语句会将下载的 SST 文件导入图空间。</p>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; SUBMIT JOB DOWNLOAD HDFS &quot;hdfs://192.168.10.100:9000/sst&quot;;
+<div class="highlight"><pre><span></span><code>nebula&gt; SUBMIT JOB DOWNLOAD HDFS "hdfs://192.168.10.100:9000/sst";
 +------------+
 | New Job Id |
 +------------+
@@ -7023,9 +7023,9 @@ nebula&gt; SUBMIT JOB INGEST;
 +----------------+-----------------+------------+----------------------------+----------------------------+-------------+
 | Job Id(TaskId) | Command(Dest)   | Status     | Start Time                 | Stop Time                  | Error Code  |
 +----------------+-----------------+------------+----------------------------+----------------------------+-------------+
-| 9              | &quot;STATS&quot;         | &quot;FINISHED&quot; | 2022-04-12T08:47:33.000000 | 2022-04-12T08:47:33.000000 | &quot;SUCCEEDED&quot; |
-| 0              | &quot;192.168.8.100&quot; | &quot;FINISHED&quot; | 2022-04-12T08:47:33.000000 | 2022-04-12T08:47:34.000000 | &quot;SUCCEEDED&quot; |
-| 1              | &quot;192.168.8.101&quot; | &quot;FINISHED&quot; | 2022-04-12T08:47:33.000000 | 2022-04-12T08:47:34.000000 | &quot;SUCCEEDED&quot; |
+| 9              | "STATS"         | "FINISHED" | 2022-04-12T08:47:33.000000 | 2022-04-12T08:47:33.000000 | "SUCCEEDED" |
+| 0              | "192.168.8.100" | "FINISHED" | 2022-04-12T08:47:33.000000 | 2022-04-12T08:47:34.000000 | "SUCCEEDED" |
+| 1              | "192.168.8.101" | "FINISHED" | 2022-04-12T08:47:33.000000 | 2022-04-12T08:47:34.000000 | "SUCCEEDED" |
 +----------------+-----------------+------------+----------------------------+----------------------------+-------------+
 </code></pre></div>
 <table>
@@ -7113,11 +7113,11 @@ nebula&gt; SUBMIT JOB INGEST;
 +--------+---------------------+------------+----------------------------+----------------------------+
 | Job Id | Command             | Status     | Start Time                 | Stop Time                  |
 +--------+---------------------+------------+----------------------------+----------------------------+
-| 34     | &quot;STATS&quot;             | &quot;FINISHED&quot; | 2021-11-01T03:32:27.000000 | 2021-11-01T03:32:27.000000 |
-| 33     | &quot;FLUSH&quot;             | &quot;FINISHED&quot; | 2021-11-01T03:32:15.000000 | 2021-11-01T03:32:15.000000 |
-| 32     | &quot;COMPACT&quot;           | &quot;FINISHED&quot; | 2021-11-01T03:32:06.000000 | 2021-11-01T03:32:06.000000 |
-| 31     | &quot;REBUILD_TAG_INDEX&quot; | &quot;FINISHED&quot; | 2021-10-29T05:39:16.000000 | 2021-10-29T05:39:17.000000 |
-| 10     | &quot;COMPACT&quot;           | &quot;FINISHED&quot; | 2021-10-26T02:27:05.000000 | 2021-10-26T02:27:05.000000 |
+| 34     | "STATS"             | "FINISHED" | 2021-11-01T03:32:27.000000 | 2021-11-01T03:32:27.000000 |
+| 33     | "FLUSH"             | "FINISHED" | 2021-11-01T03:32:15.000000 | 2021-11-01T03:32:15.000000 |
+| 32     | "COMPACT"           | "FINISHED" | 2021-11-01T03:32:06.000000 | 2021-11-01T03:32:06.000000 |
+| 31     | "REBUILD_TAG_INDEX" | "FINISHED" | 2021-10-29T05:39:16.000000 | 2021-10-29T05:39:17.000000 |
+| 10     | "COMPACT"           | "FINISHED" | 2021-10-26T02:27:05.000000 | 2021-10-26T02:27:05.000000 |
 +--------+---------------------+------------+----------------------------+----------------------------+
 </code></pre></div>
 <h2 id="stop_job">STOP JOB<a class="headerlink" href="#stop_job" title="Permanent link">&para;</a></h2>
@@ -7127,7 +7127,7 @@ nebula&gt; SUBMIT JOB INGEST;
 +---------------+
 | Result        |
 +---------------+
-| &quot;Job stopped&quot; |
+| "Job stopped" |
 +---------------+
 </code></pre></div>
 <h2 id="recover_job">RECOVER JOB<a class="headerlink" href="#recover_job" title="Permanent link">&para;</a></h2>
@@ -7143,7 +7143,7 @@ nebula&gt; SUBMIT JOB INGEST;
 <h2 id="faq">FAQ<a class="headerlink" href="#faq" title="Permanent link">&para;</a></h2>
 <h3 id="_3">如何排查作业问题？<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p><code>SUBMIT JOB</code>操作使用的是 HTTP 端口，请检查 Storage 服务机器上的 HTTP 端口是否正常工作。用户可以执行如下命令调试：</p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span><span class="s2">&quot;http://{storaged-ip}:19779/admin?space={space_name}&amp;op=compact&quot;</span>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span><span class="s2">"http://{storaged-ip}:19779/admin?space={space_name}&amp;op=compact"</span>
 </code></pre></div>
 
   <hr>
@@ -7151,7 +7151,7 @@ nebula&gt; SUBMIT JOB INGEST;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 23, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -7267,8 +7267,6 @@ nebula&gt; SUBMIT JOB INGEST;
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.2.1/3.ngql-guide/8.clauses-and-options/unwind/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6847,7 +6847,7 @@
 <li>删除重复行。</li>
 <li>将行转换为列表。</li>
 </ol>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})--(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})--(v2) \
         WITH nodes(p) AS n \
         UNWIND n AS r \
         WITH DISTINCT r AS r \
@@ -6855,12 +6855,12 @@
 +----------------------------------------------------------------------------------------------------------------------+
 | collect(r)                                                                                                           |
 +----------------------------------------------------------------------------------------------------------------------+
-| [(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;}), (&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;}),            |
-|(&quot;team204&quot; :team{name: &quot;Spurs&quot;}), (&quot;player102&quot; :player{age: 33, name: &quot;LaMarcus Aldridge&quot;}),                          |
-|(&quot;player125&quot; :player{age: 41, name: &quot;Manu Ginobili&quot;}), (&quot;player104&quot; :player{age: 32, name: &quot;Marco Belinelli&quot;}),       |
-|(&quot;player144&quot; :player{age: 47, name: &quot;Shaquile O&#39;Neal&quot;}), (&quot;player105&quot; :player{age: 31, name: &quot;Danny Green&quot;}),         |
-|(&quot;player113&quot; :player{age: 29, name: &quot;Dejounte Murray&quot;}), (&quot;player107&quot; :player{age: 32, name: &quot;Aron Baynes&quot;}),         |
-|(&quot;player109&quot; :player{age: 34, name: &quot;Tiago Splitter&quot;}), (&quot;player108&quot; :player{age: 36, name: &quot;Boris Diaw&quot;})]           |  
+| [("player100" :player{age: 42, name: "Tim Duncan"}), ("player101" :player{age: 36, name: "Tony Parker"}),            |
+|("team204" :team{name: "Spurs"}), ("player102" :player{age: 33, name: "LaMarcus Aldridge"}),                          |
+|("player125" :player{age: 41, name: "Manu Ginobili"}), ("player104" :player{age: 32, name: "Marco Belinelli"}),       |
+|("player144" :player{age: 47, name: "Shaquile O'Neal"}), ("player105" :player{age: 31, name: "Danny Green"}),         |
+|("player113" :player{age: 29, name: "Dejounte Murray"}), ("player107" :player{age: 32, name: "Aron Baynes"}),         |
+|("player109" :player{age: 34, name: "Tiago Splitter"}), ("player108" :player{age: 36, name: "Boris Diaw"})]           |  
 +----------------------------------------------------------------------------------------------------------------------+
 </code></pre></div>
 
@@ -6869,7 +6869,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 23, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -6985,8 +6985,6 @@
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

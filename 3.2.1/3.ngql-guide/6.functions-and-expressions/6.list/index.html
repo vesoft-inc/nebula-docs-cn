@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.2.1/3.ngql-guide/6.functions-and-expressions/6.list/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -7013,12 +7013,12 @@
 <li>返回类型：list。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; WITH [NULL, 4923, &#39;abc&#39;, 521, 487] AS ids \
+<div class="highlight"><pre><span></span><code>nebula&gt; WITH [NULL, 4923, 'abc', 521, 487] AS ids \
         RETURN reverse(ids);
 +-----------------------------------+
 | reverse(ids)                      |
 +-----------------------------------+
-| [487, 521, &quot;abc&quot;, 4923, __NULL__] |
+| [487, 521, "abc", 4923, __NULL__] |
 +-----------------------------------+
 </code></pre></div>
 <h3 id="tail">tail()<a class="headerlink" href="#tail" title="Permanent link">&para;</a></h3>
@@ -7028,12 +7028,12 @@
 <li>返回类型：list。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; WITH [NULL, 4923, &#39;abc&#39;, 521, 487] AS ids \
+<div class="highlight"><pre><span></span><code>nebula&gt; WITH [NULL, 4923, 'abc', 521, 487] AS ids \
         RETURN tail(ids);
 +-------------------------+
 | tail(ids)               |
 +-------------------------+
-| [4923, &quot;abc&quot;, 521, 487] |
+| [4923, "abc", 521, 487] |
 +-------------------------+
 </code></pre></div>
 <h3 id="head">head()<a class="headerlink" href="#head" title="Permanent link">&para;</a></h3>
@@ -7043,7 +7043,7 @@
 <li>返回类型：与原列表内的元素类型相同。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; WITH [NULL, 4923, &#39;abc&#39;, 521, 487] AS ids \
+<div class="highlight"><pre><span></span><code>nebula&gt; WITH [NULL, 4923, 'abc', 521, 487] AS ids \
         RETURN head(ids);
 +-----------+
 | head(ids) |
@@ -7058,7 +7058,7 @@
 <li>返回类型：与原列表内的元素类型相同。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; WITH [NULL, 4923, &#39;abc&#39;, 521, 487] AS ids \
+<div class="highlight"><pre><span></span><code>nebula&gt; WITH [NULL, 4923, 'abc', 521, 487] AS ids \
         RETURN last(ids);
 +-----------+
 | last(ids) |
@@ -7099,7 +7099,7 @@
 | -14 |
 +-----+
 
-nebula&gt; MATCH p = (n:player{name:&quot;LeBron James&quot;})&lt;-[:follow]-(m) \
+nebula&gt; MATCH p = (n:player{name:"LeBron James"})&lt;-[:follow]-(m) \
         RETURN  nodes(p)[0].age AS src1,  nodes(p)[1].age AS dst2,  \
         reduce(totalAge = 100, n IN nodes(p) | totalAge + n.age) AS sum;
 +------+------+-----+
@@ -7113,16 +7113,16 @@ nebula&gt; MATCH p = (n:player{name:&quot;LeBron James&quot;})&lt;-[:follow]-(m)
 | 34   | 37   | 171 |
 +------+------+-----+
 
-nebula&gt; LOOKUP ON player WHERE player.name == &quot;Tony Parker&quot; YIELD id(vertex) AS VertexID \
+nebula&gt; LOOKUP ON player WHERE player.name == "Tony Parker" YIELD id(vertex) AS VertexID \
         |  GO FROM $-.VertexID over follow \
         WHERE properties(edge).degree != reduce(totalNum = 5, n IN range(1, 3) | properties($$).age + totalNum + n) \
         YIELD properties($$).name AS id, properties($$).age AS age, properties(edge).degree AS degree;
 +---------------------+-----+--------+
 | id                  | age | degree |
 +---------------------+-----+--------+
-| &quot;Tim Duncan&quot;        | 42  | 95     |
-| &quot;LaMarcus Aldridge&quot; | 33  | 90     |
-| &quot;Manu Ginobili&quot;     | 41  | 95     |
+| "Tim Duncan"        | 42  | 95     |
+| "LaMarcus Aldridge" | 33  | 90     |
+| "Manu Ginobili"     | 41  | 95     |
 +---------------------+-----+--------+
 </code></pre></div>
 <h2 id="ngql">原生 nGQL 语句适用<a class="headerlink" href="#ngql" title="Permanent link">&para;</a></h2>
@@ -7139,8 +7139,8 @@ nebula&gt; LOOKUP ON player WHERE player.name == &quot;Tony Parker&quot; YIELD i
 +-----------------+
 | keys(VERTEX)    |
 +-----------------+
-| [&quot;age&quot;, &quot;name&quot;] |
-| [&quot;age&quot;, &quot;name&quot;] |
+| ["age", "name"] |
+| ["age", "name"] |
 +-----------------+
 </code></pre></div>
 <h3 id="labels">labels()<a class="headerlink" href="#labels" title="Permanent link">&para;</a></h3>
@@ -7150,14 +7150,14 @@ nebula&gt; LOOKUP ON player WHERE player.name == &quot;Tony Parker&quot; YIELD i
 <li>返回类型：list。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON * &quot;player101&quot;, &quot;player102&quot;, &quot;team204&quot; \
+<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON * "player101", "player102", "team204" \
         YIELD labels(vertex);
 +----------------+
 | labels(VERTEX) |
 +----------------+
-| [&quot;player&quot;]     |
-| [&quot;player&quot;]     |
-| [&quot;team&quot;]       |
+| ["player"]     |
+| ["player"]     |
+| ["team"]       |
 +----------------+
 </code></pre></div>
 <h2 id="opencypher">openCypher 兼容语句适用<a class="headerlink" href="#opencypher" title="Permanent link">&para;</a></h2>
@@ -7168,14 +7168,14 @@ nebula&gt; LOOKUP ON player WHERE player.name == &quot;Tony Parker&quot; YIELD i
 <li>返回类型：list。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;})-[e]-&gt;() \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;() \
         RETURN keys(e);
 +----------------------------+
 | keys(e)                    |
 +----------------------------+
-| [&quot;end_year&quot;, &quot;start_year&quot;] |
-| [&quot;degree&quot;]                 |
-| [&quot;degree&quot;]                 |
+| ["end_year", "start_year"] |
+| ["degree"]                 |
+| ["degree"]                 |
 +----------------------------+
 </code></pre></div>
 <h3 id="labels_1">labels()<a class="headerlink" href="#labels_1" title="Permanent link">&para;</a></h3>
@@ -7186,12 +7186,12 @@ nebula&gt; LOOKUP ON player WHERE player.name == &quot;Tony Parker&quot; YIELD i
 </ul>
 <p>示例：</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v)-[e:serve]-&gt;() \
-        WHERE id(v)==&quot;player100&quot; \
+        WHERE id(v)=="player100" \
         RETURN labels(v);
 +------------+
 | labels(v)  |
 +------------+
-| [&quot;player&quot;] |
+| ["player"] |
 +------------+
 </code></pre></div>
 <h3 id="nodes">nodes()<a class="headerlink" href="#nodes" title="Permanent link">&para;</a></h3>
@@ -7201,14 +7201,14 @@ nebula&gt; LOOKUP ON player WHERE player.name == &quot;Tony Parker&quot; YIELD i
 <li>返回类型：list。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})--&gt;(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})--&gt;(v2) \
         RETURN nodes(p);
 +-------------------------------------------------------------------------------------------------------------+
 | nodes(p)                                                                                                    |
 +-------------------------------------------------------------------------------------------------------------+
-| [(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;}), (&quot;team204&quot; :team{name: &quot;Spurs&quot;})]                      |
-| [(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;}), (&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})]   |
-| [(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;}), (&quot;player125&quot; :player{age: 41, name: &quot;Manu Ginobili&quot;})] |
+| [("player100" :player{age: 42, name: "Tim Duncan"}), ("team204" :team{name: "Spurs"})]                      |
+| [("player100" :player{age: 42, name: "Tim Duncan"}), ("player101" :player{age: 36, name: "Tony Parker"})]   |
+| [("player100" :player{age: 42, name: "Tim Duncan"}), ("player125" :player{age: 41, name: "Manu Ginobili"})] |
 +-------------------------------------------------------------------------------------------------------------+
 </code></pre></div>
 <h3 id="relationships">relationships()<a class="headerlink" href="#relationships" title="Permanent link">&para;</a></h3>
@@ -7218,14 +7218,14 @@ nebula&gt; LOOKUP ON player WHERE player.name == &quot;Tony Parker&quot; YIELD i
 <li>返回类型：list。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})--&gt;(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})--&gt;(v2) \
         RETURN relationships(p);
 +-------------------------------------------------------------------------+
 | relationships(p)                                                        |
 +-------------------------------------------------------------------------+
-| [[:serve &quot;player100&quot;-&gt;&quot;team204&quot; @0 {end_year: 2016, start_year: 1997}]] |
-| [[:follow &quot;player100&quot;-&gt;&quot;player101&quot; @0 {degree: 95}]]                    |
-| [[:follow &quot;player100&quot;-&gt;&quot;player125&quot; @0 {degree: 95}]]                    |
+| [[:serve "player100"-&gt;"team204" @0 {end_year: 2016, start_year: 1997}]] |
+| [[:follow "player100"-&gt;"player101" @0 {degree: 95}]]                    |
+| [[:follow "player100"-&gt;"player125" @0 {degree: 95}]]                    |
 +-------------------------------------------------------------------------+
 </code></pre></div>
 
@@ -7234,7 +7234,7 @@ nebula&gt; LOOKUP ON player WHERE player.name == &quot;Tony Parker&quot; YIELD i
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 23, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -7350,8 +7350,6 @@ nebula&gt; LOOKUP ON player WHERE player.name == &quot;Tony Parker&quot; YIELD i
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

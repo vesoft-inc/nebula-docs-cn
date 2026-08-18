@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.2.1/5.configurations-and-logs/2.log-management/logs/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6830,18 +6830,18 @@
 </table>
 <p>示例如下：</p>
 <ul>
-<li>查看 Meta 服务当前的最小日志级别：<div class="highlight"><pre><span></span><code>$<span class="w"> </span>curl<span class="w"> </span><span class="m">127</span>.0.0.1:19559/flags<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;minloglevel&#39;</span>
+<li>查看 Meta 服务当前的最小日志级别：<div class="highlight"><pre><span></span><code>$<span class="w"> </span>curl<span class="w"> </span><span class="m">127</span>.0.0.1:19559/flags<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">'minloglevel'</span>
 </code></pre></div>
 </li>
 </ul>
 <ul>
-<li>查看 Storage 服务当前的日志详细级别：<div class="highlight"><pre><span></span><code>$<span class="w"> </span>curl<span class="w"> </span><span class="m">127</span>.0.0.1:19779/flags<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-w<span class="w"> </span><span class="s1">&#39;v&#39;</span>
+<li>查看 Storage 服务当前的日志详细级别：<div class="highlight"><pre><span></span><code>$<span class="w"> </span>curl<span class="w"> </span><span class="m">127</span>.0.0.1:19779/flags<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-w<span class="w"> </span><span class="s1">'v'</span>
 </code></pre></div>
 </li>
 </ul>
 <h2 id="_5">修改运行日志级别<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>使用如下命令修改运行日志级别：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;&lt;key&gt;&quot;:&lt;value&gt;[,&quot;&lt;key&gt;&quot;:&lt;value&gt;]}&#39;</span><span class="w"> </span><span class="s2">&quot;&lt;ws_ip&gt;:&lt;ws_port&gt;/flags&quot;</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">'{"&lt;key&gt;":&lt;value&gt;[,"&lt;key&gt;":&lt;value&gt;]}'</span><span class="w"> </span><span class="s2">"&lt;ws_ip&gt;:&lt;ws_port&gt;/flags"</span>
 </code></pre></div>
 <table>
 <thead>
@@ -6870,9 +6870,9 @@
 </tbody>
 </table>
 <p>示例如下：</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;minloglevel&quot;:0,&quot;v&quot;:3}&#39;</span><span class="w"> </span><span class="s2">&quot;127.0.0.1:19779/flags&quot;</span><span class="w"> </span><span class="c1"># storaged</span>
-$<span class="w"> </span>curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;minloglevel&quot;:0,&quot;v&quot;:3}&#39;</span><span class="w"> </span><span class="s2">&quot;127.0.0.1:19669/flags&quot;</span><span class="w"> </span><span class="c1"># graphd</span>
-$<span class="w"> </span>curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;minloglevel&quot;:0,&quot;v&quot;:3}&#39;</span><span class="w"> </span><span class="s2">&quot;127.0.0.1:19559/flags&quot;</span><span class="w"> </span><span class="c1"># metad</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">'{"minloglevel":0,"v":3}'</span><span class="w"> </span><span class="s2">"127.0.0.1:19779/flags"</span><span class="w"> </span><span class="c1"># storaged</span>
+$<span class="w"> </span>curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">'{"minloglevel":0,"v":3}'</span><span class="w"> </span><span class="s2">"127.0.0.1:19669/flags"</span><span class="w"> </span><span class="c1"># graphd</span>
+$<span class="w"> </span>curl<span class="w"> </span>-X<span class="w"> </span>PUT<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">'{"minloglevel":0,"v":3}'</span><span class="w"> </span><span class="s2">"127.0.0.1:19559/flags"</span><span class="w"> </span><span class="c1"># metad</span>
 </code></pre></div>
 <p>如果在 NebulaGraph 运行时修改了运行日志级别，重启服务后会恢复为配置文件中设置的级别，如果需要永久修改，请修改<a href="../../1.configurations/1.configurations/">配置文件</a>。</p>
 <h2 id="rocksdb">RocksDB 运行日志<a class="headerlink" href="#rocksdb" title="Permanent link">&para;</a></h2>
@@ -6883,7 +6883,7 @@ $<span class="w"> </span>curl<span class="w"> </span>-X<span class="w"> </span>P
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 23, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -6999,8 +6999,6 @@ $<span class="w"> </span>curl<span class="w"> </span>-X<span class="w"> </span>P
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.2.1/backup-and-restore/nebula-br/3.br-backup-data/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6802,14 +6802,14 @@
 <p class="admonition-title">Caution</p>
 <p>备份至本地时，默认只备份 leader metad 的数据，因此当有多个 metad 节点时，需要手动将备份后的 leader metad 的目录（路径为<code>&lt;storage_path&gt;/meta</code>）拷贝并覆盖其他 follower meatd 节点的对应目录。</p>
 </div>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./br<span class="w"> </span>backup<span class="w"> </span>full<span class="w"> </span>--meta<span class="w"> </span><span class="s2">&quot;192.168.8.129:9559&quot;</span><span class="w"> </span>--storage<span class="w"> </span><span class="s2">&quot;local:///home/nebula/backup/&quot;</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./br<span class="w"> </span>backup<span class="w"> </span>full<span class="w"> </span>--meta<span class="w"> </span><span class="s2">"192.168.8.129:9559"</span><span class="w"> </span>--storage<span class="w"> </span><span class="s2">"local:///home/nebula/backup/"</span>
 </code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p>运行以下命令对 meta 服务的地址为<code>192.168.8.129:9559</code>的整个集群进行全量备份操作，并将备份文件保存到兼容 s3 协议的对象存储服务 <code>br-test</code> 桶下的<code>backup</code>中。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./br<span class="w"> </span>backup<span class="w"> </span>full<span class="w"> </span>--meta<span class="w"> </span><span class="s2">&quot;192.168.8.129:9559&quot;</span><span class="w"> </span>--s3.endpoint<span class="w"> </span><span class="s2">&quot;http://192.168.8.129:9000&quot;</span><span class="w"> </span>--storage<span class="o">=</span><span class="s2">&quot;s3://br-test/backup/&quot;</span><span class="w"> </span>--s3.access_key<span class="o">=</span>minioadmin<span class="w"> </span>--s3.secret_key<span class="o">=</span>minioadmin<span class="w"> </span>--s3.region<span class="o">=</span>default
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./br<span class="w"> </span>backup<span class="w"> </span>full<span class="w"> </span>--meta<span class="w"> </span><span class="s2">"192.168.8.129:9559"</span><span class="w"> </span>--s3.endpoint<span class="w"> </span><span class="s2">"http://192.168.8.129:9000"</span><span class="w"> </span>--storage<span class="o">=</span><span class="s2">"s3://br-test/backup/"</span><span class="w"> </span>--s3.access_key<span class="o">=</span>minioadmin<span class="w"> </span>--s3.secret_key<span class="o">=</span>minioadmin<span class="w"> </span>--s3.region<span class="o">=</span>default
 </code></pre></div>
 </li>
 </ul>
@@ -6905,7 +6905,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 23, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -7021,8 +7021,6 @@
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.2.1/3.ngql-guide/8.clauses-and-options/limit/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6889,22 +6889,22 @@ nebula&gt; LOOKUP ON player YIELD id(vertex)|\
 +-------------+
 | id(VERTEX)  |
 +-------------+
-| &quot;player100&quot; |
-| &quot;player101&quot; |
-| &quot;player102&quot; |
+| "player100" |
+| "player101" |
+| "player102" |
 +-------------+
 
 # 从排序后结果中返回第 2 行开始的 3 行数据。
-nebula&gt; GO FROM &quot;player100&quot; OVER follow REVERSELY \
+nebula&gt; GO FROM "player100" OVER follow REVERSELY \
         YIELD properties($$).name AS Friend, properties($$).age AS Age \
         | ORDER BY $-.Age, $-.Friend \
         | LIMIT 1, 3;
 +-------------------+-----+
 | Friend            | Age |
 +-------------------+-----+
-| &quot;Danny Green&quot;     | 31  |
-| &quot;Aron Baynes&quot;     | 32  |
-| &quot;Marco Belinelli&quot; | 32  |
+| "Danny Green"     | 31  |
+| "Aron Baynes"     | 32  |
+| "Marco Belinelli" | 32  |
 +-------------------+-----+
 </code></pre></div>
 <h3 id="go_limit">GO 语句中的 LIMIT<a class="headerlink" href="#go_limit" title="Permanent link">&para;</a></h3>
@@ -6920,26 +6920,26 @@ nebula&gt; GO FROM &quot;player100&quot; OVER follow REVERSELY \
 </ul>
 <p><img alt="LIMIT in GO" src="https://docs-cdn.nebula-graph.com.cn/figures/limit_in_go_1.png" /></p>
 <p>在 basketballplayer 数据集中的执行示例如下：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; GO 3 STEPS FROM &quot;player100&quot; \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO 3 STEPS FROM "player100" \
         OVER * \
         YIELD properties($$).name AS NAME, properties($$).age AS Age \
         LIMIT [3,3,3];
 +-----------------+--------------+
 | NAME            | Age          |
 +-----------------+--------------+
-| &quot;Spurs&quot;         | UNKNOWN_PROP |
-| &quot;Tony Parker&quot;   | 36           |
-| &quot;Manu Ginobili&quot; | 41           |
+| "Spurs"         | UNKNOWN_PROP |
+| "Tony Parker"   | 36           |
+| "Manu Ginobili" | 41           |
 +-----------------+--------------+
 
-nebula&gt; GO 3 STEPS FROM &quot;player102&quot; OVER * BIDIRECT\
+nebula&gt; GO 3 STEPS FROM "player102" OVER * BIDIRECT\
         YIELD dst(edge) \
         LIMIT [rand32(5),rand32(5),rand32(5)];
 +-------------+
 | dst(EDGE)   |
 +-------------+
-| &quot;player100&quot; |
-| &quot;player100&quot; |
+| "player100" |
+| "player100" |
 +-------------+
 </code></pre></div>
 <h2 id="opencypher_limit">openCypher 兼容语句中的 LIMIT<a class="headerlink" href="#opencypher_limit" title="Permanent link">&para;</a></h2>
@@ -6976,11 +6976,11 @@ nebula&gt; GO 3 STEPS FROM &quot;player102&quot; OVER * BIDIRECT\
 +-------------------------+-----+
 | Name                    | Age |
 +-------------------------+-----+
-| &quot;Luka Doncic&quot;           | 20  |
-| &quot;Ben Simmons&quot;           | 22  |
-| &quot;Kristaps Porzingis&quot;    | 23  |
-| &quot;Giannis Antetokounmpo&quot; | 24  |
-| &quot;Kyle Anderson&quot;         | 25  |
+| "Luka Doncic"           | 20  |
+| "Ben Simmons"           | 22  |
+| "Kristaps Porzingis"    | 23  |
+| "Giannis Antetokounmpo" | 24  |
+| "Kyle Anderson"         | 25  |
 +-------------------------+-----+
 
 nebula&gt; MATCH (v:player) RETURN v.player.name AS Name, v.player.age AS Age \
@@ -6988,42 +6988,42 @@ nebula&gt; MATCH (v:player) RETURN v.player.name AS Name, v.player.age AS Age \
 +-------------------------+-----+
 | Name                    | Age |
 +-------------------------+-----+
-| &quot;Luka Doncic&quot;           | 20  |
-| &quot;Ben Simmons&quot;           | 22  |
-| &quot;Kristaps Porzingis&quot;    | 23  |
-| &quot;Giannis Antetokounmpo&quot; | 24  |
+| "Luka Doncic"           | 20  |
+| "Ben Simmons"           | 22  |
+| "Kristaps Porzingis"    | 23  |
+| "Giannis Antetokounmpo" | 24  |
 +-------------------------+-----+
 </code></pre></div>
 <h3 id="skip">单独使用 SKIP<a class="headerlink" href="#skip" title="Permanent link">&para;</a></h3>
 <p><code>SKIP</code>可以单独使用，用于设置偏移量，返回指定位置之后的数据。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;}) --&gt; (v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"}) --&gt; (v2) \
         RETURN v2.player.name AS Name, v2.player.age AS Age \
         ORDER BY Age DESC SKIP 1;
 +-----------------+-----+
 | Name            | Age |
 +-----------------+-----+
-| &quot;Manu Ginobili&quot; | 41  |
-| &quot;Tony Parker&quot;   | 36  |
+| "Manu Ginobili" | 41  |
+| "Tony Parker"   | 36  |
 +-----------------+-----+
 
-nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;}) --&gt; (v2) \
+nebula&gt; MATCH (v:player{name:"Tim Duncan"}) --&gt; (v2) \
         RETURN v2.player.name AS Name, v2.player.age AS Age \
         ORDER BY Age DESC SKIP 1+1;
 +---------------+-----+
 | Name          | Age |
 +---------------+-----+
-| &quot;Tony Parker&quot; | 36  |
+| "Tony Parker" | 36  |
 +---------------+-----+
 </code></pre></div>
 <h3 id="skip_limit">同时使用 SKIP 与 LIMIT<a class="headerlink" href="#skip_limit" title="Permanent link">&para;</a></h3>
 <p>同时使用<code>SKIP</code>与<code>LIMIT</code>可以返回从指定位置开始的指定数量的数据。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;}) --&gt; (v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"}) --&gt; (v2) \
         RETURN v2.player.name AS Name, v2.player.age AS Age \
         ORDER BY Age DESC SKIP 1 LIMIT 1;
 +-----------------+-----+
 | Name            | Age |
 +-----------------+-----+
-| &quot;Manu Ginobili&quot; | 41  |
+| "Manu Ginobili" | 41  |
 +-----------------+-----+
 </code></pre></div>
 <!--
@@ -7037,7 +7037,7 @@ NebulaGraph 3.2.1 未实现 `LIMIT` 语句的存储层下推优化，类似 `MAT
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 23, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -7153,8 +7153,6 @@ NebulaGraph 3.2.1 未实现 `LIMIT` 语句的存储层下推优化，类似 `MAT
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

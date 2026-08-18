@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.2.1/3.ngql-guide/3.data-types/8.map/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -6762,31 +6762,31 @@
 </ul>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code># 返回简单的映射。
-nebula&gt; YIELD map{key1: &#39;Value1&#39;, Key2: &#39;Value2&#39;} as a;
+nebula&gt; YIELD map{key1: 'Value1', Key2: 'Value2'} as a;
 +----------------------------------+
 | a                                |
 +----------------------------------+
-| {Key2: &quot;Value2&quot;, key1: &quot;Value1&quot;} |
+| {Key2: "Value2", key1: "Value1"} |
 +----------------------------------+
 
 # 返回列表类型的映射。
-nebula&gt; YIELD map{listKey: [{inner: &#39;Map1&#39;}, {inner: &#39;Map2&#39;}]} as a;
+nebula&gt; YIELD map{listKey: [{inner: 'Map1'}, {inner: 'Map2'}]} as a;
 +-----------------------------------------------+
 | a                                             |
 +-----------------------------------------------+
-| {listKey: [{inner: &quot;Map1&quot;}, {inner: &quot;Map2&quot;}]} |
+| {listKey: [{inner: "Map1"}, {inner: "Map2"}]} |
 +-----------------------------------------------+
 
 # 返回混合类型的映射。
-nebula&gt; RETURN map{a: LIST[1,2], b: SET{1,2,1}, c: &quot;hee&quot;} as a;
+nebula&gt; RETURN map{a: LIST[1,2], b: SET{1,2,1}, c: "hee"} as a;
 +----------------------------------+
 | a                                |
 +----------------------------------+
-| {a: [1, 2], b: {2, 1}, c: &quot;hee&quot;} |
+| {a: [1, 2], b: {2, 1}, c: "hee"} |
 +----------------------------------+
 
 # 返回映射中的指定元素。
-nebula&gt; RETURN map{a: LIST[1,2], b: SET{1,2,1}, c: &quot;hee&quot;}[&quot;b&quot;] AS b;
+nebula&gt; RETURN map{a: LIST[1,2], b: SET{1,2,1}, c: "hee"}["b"] AS b;
 +--------+
 | b      |
 +--------+
@@ -6794,7 +6794,7 @@ nebula&gt; RETURN map{a: LIST[1,2], b: SET{1,2,1}, c: &quot;hee&quot;}[&quot;b&q
 +--------+
 
 # 判断映射中是否有指定key，暂不支持判断value。
-nebula&gt; RETURN &quot;a&quot; IN MAP{a:1, b:2} AS a;
+nebula&gt; RETURN "a" IN MAP{a:1, b:2} AS a;
 +------+
 | a    |
 +------+
@@ -6807,7 +6807,7 @@ nebula&gt; RETURN &quot;a&quot; IN MAP{a:1, b:2} AS a;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 23, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -6923,8 +6923,6 @@ nebula&gt; RETURN &quot;a&quot; IN MAP{a:1, b:2} AS a;
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
