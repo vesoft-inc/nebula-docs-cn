@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.1.0/3.ngql-guide/6.functions-and-expressions/6.list/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -7165,40 +7165,40 @@
 <p>如果参数为<code>NULL</code>，则输出结果是未定义的。</p>
 </div>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>nebula&gt; WITH [NULL, 4923, &#39;abc&#39;, 521, 487] AS ids \
+<div class="highlight"><pre><span></span><code>nebula&gt; WITH [NULL, 4923, 'abc', 521, 487] AS ids \
         RETURN reverse(ids), tail(ids), head(ids), last(ids), coalesce(ids[0], ids[1], ids[2]), head([x IN ids WHERE x IS NOT NULL | x]);
 +-----------------------------------+-------------------------+-----------+-----------+--------------------------------+--------------------------------------------------------------+
 | reverse(ids)                      | tail(ids)               | head(ids) | last(ids) | coalesce(ids[0],ids[1],ids[2]) | head([__VAR_0 IN ids WHERE $__VAR_0 IS NOT NULL | $__VAR_0]) |
 +-----------------------------------+-------------------------+-----------+-----------+--------------------------------+--------------------------------------------------------------+
-| [487, 521, &quot;abc&quot;, 4923, __NULL__] | [4923, &quot;abc&quot;, 521, 487] | __NULL__  | 487       | 4923                           | 4923                                                         |
+| [487, 521, "abc", 4923, __NULL__] | [4923, "abc", 521, 487] | __NULL__  | 487       | 4923                           | 4923                                                         |
 +-----------------------------------+-------------------------+-----------+-----------+--------------------------------+--------------------------------------------------------------+
 
 nebula&gt; MATCH (a:player)-[r]-&gt;() \
-        WHERE id(a) == &quot;player100&quot; \
+        WHERE id(a) == "player100" \
         RETURN labels(a),  keys(r);
 +------------+----------------------------+
 | labels(a)  | keys(r)                    |
 +------------+----------------------------+
-| [&quot;player&quot;] | [&quot;end_year&quot;, &quot;start_year&quot;] |
-| [&quot;player&quot;] | [&quot;degree&quot;]                 |
-| [&quot;player&quot;] | [&quot;degree&quot;]                 |
+| ["player"] | ["end_year", "start_year"] |
+| ["player"] | ["degree"]                 |
+| ["player"] | ["degree"]                 |
 +------------+----------------------------+
 nebula&gt; MATCH p = (a:player)-[]-&gt;(b)-[]-&gt;(c:team) \
-        WHERE a.player.name == &quot;Tim Duncan&quot; AND c.team.name == &quot;Spurs&quot; \
+        WHERE a.player.name == "Tim Duncan" AND c.team.name == "Spurs" \
         RETURN nodes(p);
 +-----------------------------------------------------------------------------------------------------------------------------------------------+
 | nodes(p)                                                                                                                                      |
 +-----------------------------------------------------------------------------------------------------------------------------------------------+
-| [(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;}), (&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;}), (&quot;team204&quot; :team{name: &quot;Spurs&quot;})]   |
-| [(&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;}), (&quot;player125&quot; :player{age: 41, name: &quot;Manu Ginobili&quot;}), (&quot;team204&quot; :team{name: &quot;Spurs&quot;})] |
+| [("player100" :player{age: 42, name: "Tim Duncan"}), ("player101" :player{age: 36, name: "Tony Parker"}), ("team204" :team{name: "Spurs"})]   |
+| [("player100" :player{age: 42, name: "Tim Duncan"}), ("player125" :player{age: 41, name: "Manu Ginobili"}), ("team204" :team{name: "Spurs"})] |
 +-----------------------------------------------------------------------------------------------------------------------------------------------+
 
-nebula&gt; MATCH p = (a:player)-[]-&gt;(b)-[]-&gt;(c:team) WHERE a.player.name == &quot;Tim Duncan&quot; AND c.team.name == &quot;Spurs&quot; RETURN relationships(p);
+nebula&gt; MATCH p = (a:player)-[]-&gt;(b)-[]-&gt;(c:team) WHERE a.player.name == "Tim Duncan" AND c.team.name == "Spurs" RETURN relationships(p);
 +-----------------------------------------------------------------------------------------------------------------------------+
 | relationships(p)                                                                                                            |
 +-----------------------------------------------------------------------------------------------------------------------------+
-| [[:follow &quot;player100&quot;-&gt;&quot;player101&quot; @0 {degree: 95}], [:serve &quot;player101&quot;-&gt;&quot;team204&quot; @0 {end_year: 2018, start_year: 1999}]] |
-| [[:follow &quot;player100&quot;-&gt;&quot;player125&quot; @0 {degree: 95}], [:serve &quot;player125&quot;-&gt;&quot;team204&quot; @0 {end_year: 2018, start_year: 2002}]] |
+| [[:follow "player100"-&gt;"player101" @0 {degree: 95}], [:serve "player101"-&gt;"team204" @0 {end_year: 2018, start_year: 1999}]] |
+| [[:follow "player100"-&gt;"player125" @0 {degree: 95}], [:serve "player125"-&gt;"team204" @0 {end_year: 2018, start_year: 2002}]] |
 +-----------------------------------------------------------------------------------------------------------------------------+
 </code></pre></div>
 
@@ -7207,7 +7207,7 @@ nebula&gt; MATCH p = (a:player)-[]-&gt;(b)-[]-&gt;(c:team) WHERE a.player.name =
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 20, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -7323,8 +7323,6 @@ nebula&gt; MATCH p = (a:player)-[]-&gt;(b)-[]-&gt;(c:team) WHERE a.player.name =
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

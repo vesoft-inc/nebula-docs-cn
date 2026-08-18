@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.1.0/synchronization-and-migration/replication-between-clusters/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -7500,21 +7500,21 @@ nebula&gt; SHOW HOSTS STORAGE;
 +------------------+------+----------+-----------+--------------+----------------------+
 | Host             | Port | Status   | Role      | Git Info Sha | Version              |
 +------------------+------+----------+-----------+--------------+----------------------+
-| &quot;192.168.10.101&quot; | 9779 | &quot;ONLINE&quot; | &quot;STORAGE&quot; | &quot;xxxxxxx&quot;    | &quot;ent-3.1.0&quot;          |
+| "192.168.10.101" | 9779 | "ONLINE" | "STORAGE" | "xxxxxxx"    | "ent-3.1.0"          |
 +------------------+------+----------+-----------+--------------+----------------------+
 
 nebula&gt; SHOW HOSTS STORAGE LISTENER;
 +------------------+------+----------+--------------------+--------------+----------------------+
 | Host             | Port | Status   | Role               | Git Info Sha | Version              |
 +------------------+------+----------+--------------------+--------------+----------------------+
-| &quot;192.168.10.103&quot; | 9789 | &quot;ONLINE&quot; | &quot;STORAGE_LISTENER&quot; | &quot;xxxxxxx&quot;    | &quot;ent-3.1.0&quot;          |
+| "192.168.10.103" | 9789 | "ONLINE" | "STORAGE_LISTENER" | "xxxxxxx"    | "ent-3.1.0"          |
 +------------------+------+----------+--------------------+--------------+----------------------+
 
 nebula&gt; SHOW HOSTS META LISTENER;
 +------------------+------+----------+-----------------+--------------+----------------------+
 | Host             | Port | Status   | Role            | Git Info Sha | Version              |
 +------------------+------+----------+-----------------+--------------+----------------------+
-| &quot;192.168.10.103&quot; | 9569 | &quot;ONLINE&quot; | &quot;META_LISTENER&quot; | &quot;xxxxxxx&quot;    |  &quot;ent-3.1.0&quot;         |
+| "192.168.10.103" | 9569 | "ONLINE" | "META_LISTENER" | "xxxxxxx"    |  "ent-3.1.0"         |
 +------------------+------+----------+-----------------+--------------+----------------------+
 </code></pre></div>
 </li>
@@ -7525,14 +7525,14 @@ nebula&gt; SHOW HOSTS STORAGE;
 +------------------+------+----------+-----------+--------------+----------------------+
 | Host             | Port | Status   | Role      | Git Info Sha | Version              |
 +------------------+------+----------+-----------+--------------+----------------------+
-| &quot;192.168.10.102&quot; | 9779 | &quot;ONLINE&quot; | &quot;STORAGE&quot; | &quot;xxxxxxx&quot;    | &quot;ent-3.1.0&quot;          |
+| "192.168.10.102" | 9779 | "ONLINE" | "STORAGE" | "xxxxxxx"    | "ent-3.1.0"          |
 +------------------+------+----------+-----------+--------------+----------------------+
 
 nebula&gt; SHOW HOSTS DRAINER;
 +------------------+------+----------+-----------+--------------+----------------------+
 | Host             | Port | Status   | Role      | Git Info Sha | Version              |
 +------------------+------+----------+-----------+--------------+----------------------+
-| &quot;192.168.10.104&quot; | 9889 | &quot;ONLINE&quot; | &quot;DRAINER&quot; | &quot;xxxxxxx&quot;    | &quot;ent-3.1.0&quot;          |
+| "192.168.10.104" | 9889 | "ONLINE" | "DRAINER" | "xxxxxxx"    | "ent-3.1.0"          |
 +------------------+------+----------+-----------+--------------+----------------------+
 </code></pre></div>
 </li>
@@ -7554,7 +7554,7 @@ nebula&gt; SHOW DRAINER CLIENTS;
 +-----------+------------------+------+
 | Type      | Host             | Port |
 +-----------+------------------+------+
-| &quot;DRAINER&quot; | &quot;192.168.10.104&quot; | 9889 |
+| "DRAINER" | "192.168.10.104" | 9889 |
 +-----------+------------------+------+
 </code></pre></div>
 </li>
@@ -7567,22 +7567,22 @@ nebula&gt; SHOW LISTENER SYNC;
 +--------+--------+------------------------+--------------------------------+----------+
 | PartId | Type   | Host                   | SpaceName                      | Status   |
 +--------+--------+------------------------+--------------------------------+----------+
-| 0      | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9569&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 1      | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 2      | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 3      | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 4      | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 5      | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 6      | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 7      | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 8      | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 9      | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 10     | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 11     | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 12     | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 13     | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 14     | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 15     | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
+| 0      | "SYNC" | ""192.168.10.103":9569" | "replication_basketballplayer" | "ONLINE" |
+| 1      | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 2      | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 3      | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 4      | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 5      | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 6      | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 7      | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 8      | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 9      | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 10     | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 11     | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 12     | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 13     | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 14     | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 15     | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
 +--------+--------+------------------------+--------------------------------+----------+
 </code></pre></div>
 </li>
@@ -7601,7 +7601,7 @@ nebula&gt; SHOW DRAINERS;
 +-------------------------+----------+
 | Host                    | Status   |
 +-------------------------+----------+
-| &quot;&quot;192.168.10.104&quot;:9889&quot; | &quot;ONLINE&quot; |
+| ""192.168.10.104":9889" | "ONLINE" |
 +-------------------------+----------+
 </code></pre></div>
 </li>
@@ -7618,7 +7618,7 @@ nebula&gt; GET VARIABLES read_only;
 +-------------+--------+-------+
 | name        | type   | value |
 +-------------+--------+-------+
-| &quot;read_only&quot; | &quot;bool&quot; | true  |
+| "read_only" | "bool" | true  |
 +-------------+--------+-------+
 </code></pre></div>
 </li>
@@ -7630,9 +7630,9 @@ nebula&gt; GET VARIABLES read_only;
 <div class="highlight"><pre><span></span><code>nebula&gt; USE basketballplayer;
 nebula&gt; CREATE TAG player(name string, age int);
 nebula&gt; CREATE EDGE follow(degree int);
-nebula&gt; INSERT VERTEX player(name, age) VALUES &quot;player100&quot;:(&quot;Tim Duncan&quot;, 42);
-nebula&gt; INSERT VERTEX player(name, age) VALUES &quot;player101&quot;:(&quot;Tony Parker&quot;, 36);
-nebula&gt; INSERT EDGE follow(degree) VALUES &quot;player101&quot; -&gt; &quot;player100&quot;:(95);
+nebula&gt; INSERT VERTEX player(name, age) VALUES "player100":("Tim Duncan", 42);
+nebula&gt; INSERT VERTEX player(name, age) VALUES "player101":("Tony Parker", 36);
+nebula&gt; INSERT EDGE follow(degree) VALUES "player101" -&gt; "player100":(95);
 </code></pre></div>
 </li>
 <li>
@@ -7643,24 +7643,24 @@ nebula&gt; SHOW STATS;
 +---------+------------+-------+
 | Type    | Name       | Count |
 +---------+------------+-------+
-| &quot;Tag&quot;   | &quot;player&quot;   | 2     |
-| &quot;Edge&quot;  | &quot;follow&quot;   | 1     |
-| &quot;Space&quot; | &quot;vertices&quot; | 2     |
-| &quot;Space&quot; | &quot;edges&quot;    | 1     |
+| "Tag"   | "player"   | 2     |
+| "Edge"  | "follow"   | 1     |
+| "Space" | "vertices" | 2     |
+| "Space" | "edges"    | 1     |
 +---------+------------+-------+
 
-nebula&gt; FETCH PROP ON player &quot;player100&quot; YIELD properties(vertex);
+nebula&gt; FETCH PROP ON player "player100" YIELD properties(vertex);
 +-------------------------------+
 | properties(VERTEX)            |
 +-------------------------------+
-| {age: 42, name: &quot;Tim Duncan&quot;} |
+| {age: 42, name: "Tim Duncan"} |
 +-------------------------------+
 
-nebula&gt; GO FROM &quot;player101&quot; OVER follow YIELD dst(edge);
+nebula&gt; GO FROM "player101" OVER follow YIELD dst(edge);
 +-------------+
 | dst(EDGE)   |
 +-------------+
-| &quot;player100&quot; |
+| "player100" |
 +-------------+
 </code></pre></div>
 </li>
@@ -7739,7 +7739,7 @@ nebula&gt; SET VARIABLES read_only=true;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 20, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -7855,8 +7855,6 @@ nebula&gt; SET VARIABLES read_only=true;
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

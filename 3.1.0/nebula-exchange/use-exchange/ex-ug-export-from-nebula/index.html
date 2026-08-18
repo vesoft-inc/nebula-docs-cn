@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.1.0/nebula-exchange/use-exchange/ex-ug-export-from-nebula/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -7303,8 +7303,8 @@
         source: Nebula
         sink: CSV
       }
-      # the path to save the NebulaGrpah data, make sure the path doesn&#39;t exist.
-      path:&quot;hdfs://192.168.8.177:9000/vertex/player&quot;
+      # the path to save the NebulaGrpah data, make sure the path doesn't exist.
+      path:"hdfs://192.168.8.177:9000/vertex/player"
       # if no need to export any properties when export NebulaGraph tag data
       # if noField is configured true, just export vertexId
       noField:false
@@ -7329,8 +7329,8 @@
         source: Nebula
         sink: CSV
       }
-      # the path to save the NebulaGrpah data, make sure the path doesn&#39;t exist.
-      path:&quot;hdfs://192.168.8.177:9000/edge/follow&quot;
+      # the path to save the NebulaGrpah data, make sure the path doesn't exist.
+      path:"hdfs://192.168.8.177:9000/edge/follow"
       # if no need to export any properties when export NebulaGraph edge data
       # if noField is configured true, just export src,dst,rank
       noField:false
@@ -7349,10 +7349,10 @@
 </li>
 <li>
 <p>使用如下命令导出 Nebula Graph 中的数据。</p>
-<div class="highlight"><pre><span></span><code>&lt;spark_install_path&gt;/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span>nebula-exchange-x.y.z.jar_path&gt;<span class="w"> </span>-c<span class="w"> </span>&lt;export_application.conf_path&gt;
+<div class="highlight"><pre><span></span><code>&lt;spark_install_path&gt;/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">"local"</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span>nebula-exchange-x.y.z.jar_path&gt;<span class="w"> </span>-c<span class="w"> </span>&lt;export_application.conf_path&gt;
 </code></pre></div>
 <p>本示例使用的导出命令如下。</p>
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">"local"</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>~/exchange-ent/nebula-exchange-ent-3.0.0.jar<span class="w"> </span>-c<span class="w"> </span>~/exchange-ent/export_application.conf
 </code></pre></div>
 </li>
@@ -7388,7 +7388,7 @@ Found<span class="w"> </span><span class="m">11</span><span class="w"> </span>it
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 20, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -7504,8 +7504,6 @@ Found<span class="w"> </span><span class="m">11</span><span class="w"> </span>it
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

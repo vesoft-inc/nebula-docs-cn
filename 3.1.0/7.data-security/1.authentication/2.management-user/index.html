@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.1.0/7.data-security/1.authentication/2.management-user/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -7231,7 +7231,7 @@
 <ul>
 <li>
 <p>语法</p>
-<div class="highlight"><pre><span></span><code>CREATE USER [IF NOT EXISTS] &lt;user_name&gt; [WITH PASSWORD &#39;&lt;password&gt;&#39;] [WITH IP WHITELIST &lt;ip_list&gt;];
+<div class="highlight"><pre><span></span><code>CREATE USER [IF NOT EXISTS] &lt;user_name&gt; [WITH PASSWORD '&lt;password&gt;'] [WITH IP WHITELIST &lt;ip_list&gt;];
 </code></pre></div>
 <ul>
 <li><code>IF NOT EXISTS</code>：检测待创建的用户名是否存在，只有不存在时，才会创建新用户。</li>
@@ -7244,15 +7244,15 @@
 <ul>
 <li>
 <p>示例</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; CREATE USER user1 WITH PASSWORD &#39;nebula&#39;;
-nebula&gt; CREATE USER user2 WITH PASSWORD &#39;nebula&#39; WITH IP WHITELIST 192.168.10.10,192.168.10.12;
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE USER user1 WITH PASSWORD 'nebula';
+nebula&gt; CREATE USER user2 WITH PASSWORD 'nebula' WITH IP WHITELIST 192.168.10.10,192.168.10.12;
 nebula&gt; SHOW USERS;
 +---------+-------------------------------+
 | Account | IP Whitelist                  |
 +---------+-------------------------------+
-| &quot;root&quot;  | &quot;&quot;                            |
-| &quot;user1&quot; | &quot;&quot;                            |
-| &quot;user2&quot; | &quot;192.168.10.10,192.168.10.12&quot; |
+| "root"  | ""                            |
+| "user1" | ""                            |
+| "user2" | "192.168.10.10,192.168.10.12" |
 +---------+-------------------------------+
 </code></pre></div>
 </li>
@@ -7306,7 +7306,7 @@ DESC USER &lt;user_name&gt;;
 +---------+--------------------+
 | role    | space              |
 +---------+--------------------+
-| &quot;ADMIN&quot; | &quot;basketballplayer&quot; |
+| "ADMIN" | "basketballplayer" |
 +---------+--------------------+
 </code></pre></div>
 </li>
@@ -7327,7 +7327,7 @@ DESC USER &lt;user_name&gt;;
 +---------+-----------+
 | Account | Role Type |
 +---------+-----------+
-| &quot;user1&quot; | &quot;ADMIN&quot;   |
+| "user1" | "ADMIN"   |
 +---------+-----------+
 </code></pre></div>
 </li>
@@ -7337,14 +7337,14 @@ DESC USER &lt;user_name&gt;;
 <ul>
 <li>
 <p>语法</p>
-<div class="highlight"><pre><span></span><code>CHANGE PASSWORD &lt;user_name&gt; FROM &#39;&lt;old_password&gt;&#39; TO &#39;&lt;new_password&gt;&#39;;
+<div class="highlight"><pre><span></span><code>CHANGE PASSWORD &lt;user_name&gt; FROM '&lt;old_password&gt;' TO '&lt;new_password&gt;';
 </code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p>示例</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; CHANGE PASSWORD user1 FROM &#39;nebula&#39; TO &#39;nebula123&#39;;
+<div class="highlight"><pre><span></span><code>nebula&gt; CHANGE PASSWORD user1 FROM 'nebula' TO 'nebula123';
 </code></pre></div>
 </li>
 </ul>
@@ -7353,7 +7353,7 @@ DESC USER &lt;user_name&gt;;
 <ul>
 <li>
 <p>语法</p>
-<div class="highlight"><pre><span></span><code>ALTER USER &lt;user_name&gt; WITH PASSWORD &#39;&lt;password&gt;&#39; [WITH IP WHITELIST &lt;ip_list&gt;];
+<div class="highlight"><pre><span></span><code>ALTER USER &lt;user_name&gt; WITH PASSWORD '&lt;password&gt;' [WITH IP WHITELIST &lt;ip_list&gt;];
 </code></pre></div>
 </li>
 </ul>
@@ -7364,17 +7364,17 @@ DESC USER &lt;user_name&gt;;
 <p class="admonition-title">Enterpriseonly</p>
 <p>没有使用<code>WITH IP WHITELIST</code>时，表示取消 IP 白名单，用户使用任何 IP 都可以连接 Nebula Graph。  </p>
 </div>
-<div class="highlight"><pre><span></span><code>nebula&gt; ALTER USER user2 WITH PASSWORD &#39;nebula&#39;;
+<div class="highlight"><pre><span></span><code>nebula&gt; ALTER USER user2 WITH PASSWORD 'nebula';
 nebula&gt; SHOW USERS;
 +---------+--------------+
 | Account | IP Whitelist |
 +---------+--------------+
-| &quot;root&quot;  | &quot;&quot;           |
-| &quot;user1&quot; | &quot;&quot;           |
-| &quot;user2&quot; | &quot;&quot;           |
+| "root"  | ""           |
+| "user1" | ""           |
+| "user2" | ""           |
 +---------+--------------+
 
-nebula&gt; ALTER USER user2 WITH PASSWORD &#39;nebula&#39; WITH IP WHITELIST 192.168.10.10;
+nebula&gt; ALTER USER user2 WITH PASSWORD 'nebula' WITH IP WHITELIST 192.168.10.10;
 </code></pre></div>
 </li>
 </ul>
@@ -7414,9 +7414,9 @@ nebula&gt; ALTER USER user2 WITH PASSWORD &#39;nebula&#39; WITH IP WHITELIST 192
 +---------+-----------------+
 | Account | IP Whitelist    |
 +---------+-----------------+
-| &quot;root&quot;  | &quot;&quot;              |
-| &quot;user1&quot; | &quot;&quot;              |
-| &quot;user2&quot; | &quot;192.168.10.10&quot; |
+| "root"  | ""              |
+| "user1" | ""              |
+| "user2" | "192.168.10.10" |
 +---------+-----------------+
 </code></pre></div>
 </li>
@@ -7427,7 +7427,7 @@ nebula&gt; ALTER USER user2 WITH PASSWORD &#39;nebula&#39; WITH IP WHITELIST 192
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 20, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -7543,8 +7543,6 @@ nebula&gt; ALTER USER user2 WITH PASSWORD &#39;nebula&#39; WITH IP WHITELIST 192
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

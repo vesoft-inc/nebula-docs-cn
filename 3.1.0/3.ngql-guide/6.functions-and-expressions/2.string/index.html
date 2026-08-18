@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.1.0/3.ngql-guide/6.functions-and-expressions/2.string/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -1216,40 +1216,9 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          字符串函数
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         字符串函数
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#substrsubstring" class="md-nav__link">
-    substr()和substring()的返回说明
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -7071,21 +7040,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#substrsubstring" class="md-nav__link">
-    substr()和substring()的返回说明
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -7120,127 +7074,17 @@
 <tbody>
 <tr>
 <td align="left">int strcasecmp(string a, string b)</td>
-<td align="left">比较两个字符串（不区分大小写）。当 a=b 时，返回 0，当 a&gt;b 是，返回大于 0 的数，当 a&lt;b 时，返回小于 0 的数。</td>
-</tr>
-<tr>
-<td align="left">string lower(string a)</td>
-<td align="left">返回小写形式的字符串。</td>
-</tr>
-<tr>
-<td align="left">string toLower(string a)</td>
-<td align="left">和<code>lower()</code>相同。</td>
-</tr>
-<tr>
-<td align="left">string upper(string a)</td>
-<td align="left">返回大写形式的字符串。</td>
-</tr>
-<tr>
-<td align="left">string toUpper(string a)</td>
-<td align="left">和<code>upper()</code>相同。</td>
-</tr>
-<tr>
-<td align="left">int length(string a)</td>
-<td align="left">以字节为单位，返回给定字符串的长度。</td>
-</tr>
-<tr>
-<td align="left">string trim(string a)</td>
-<td align="left">删除字符串头部和尾部的空格。</td>
-</tr>
-<tr>
-<td align="left">string ltrim(string a)</td>
-<td align="left">删除字符串头部的空格。</td>
-</tr>
-<tr>
-<td align="left">string rtrim(string a)</td>
-<td align="left">删除字符串尾部的空格。</td>
-</tr>
-<tr>
-<td align="left">string left(string a, int count)</td>
-<td align="left">返回字符串左侧<code>count</code>个字符组成的子字符串。如果<code>count</code>超过字符串 a 的长度，则返回字符串 a。</td>
-</tr>
-<tr>
-<td align="left">string right(string a, int count)</td>
-<td align="left">返回字符串右侧<code>count</code>个字符组成的子字符串。如果<code>count</code>超过字符串 a 的长度，则返回字符串 a。</td>
-</tr>
-<tr>
-<td align="left">string lpad(string a, int size, string letters)</td>
-<td align="left">在字符串 a 的左侧填充<code>letters</code>字符串，并返回<code>size</code>长度的字符串。</td>
-</tr>
-<tr>
-<td align="left">string rpad(string a, int size, string letters)</td>
-<td align="left">在字符串 a 的右侧填充<code>letters</code>字符串，并返回<code>size</code>长度的字符串。</td>
-</tr>
-<tr>
-<td align="left">string substr(string a, int pos, int count)</td>
-<td align="left">从字符串 a 的指定位置<code>pos</code>开始（不包括<code>pos</code>位置的字符），提取右侧的<code>count</code>个字符，组成新的字符串并返回。</td>
-</tr>
-<tr>
-<td align="left">string substring(string a, int pos, int count)</td>
-<td align="left">和<code>substr()</code>相同。</td>
-</tr>
-<tr>
-<td align="left">string reverse(string)</td>
-<td align="left">逆序返回字符串。</td>
-</tr>
-<tr>
-<td align="left">string replace(string a, string b, string c)</td>
-<td align="left">将字符串 a 中的子字符串 b 替换为字符串 c。</td>
-</tr>
-<tr>
-<td align="left">list split(string a, string b)</td>
-<td align="left">在子字符串 b 处拆分字符串 a，返回一个字符串列表。</td>
-</tr>
-<tr>
-<td align="left">string toString()</td>
-<td align="left">将任意数据类型转换为字符串类型。</td>
-</tr>
-<tr>
-<td align="left">int hash()</td>
-<td align="left">获取任意对象的哈希值。</td>
+<td align="left">比较两个字符串（不区分大小写）。当 a=b 时，返回 0，当 a&gt;b 是，返回大于 0 的数，当 a</td>
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>如果参数为<code>NULL</code>，则输出结果是未定义的。</p>
-</div>
-<h2 id="substrsubstring"><code>substr()</code>和<code>substring()</code>的返回说明<a class="headerlink" href="#substrsubstring" title="Permanent link">&para;</a></h2>
-<ul>
-<li>字符索引（位置）从<code>0</code>开始。</li>
-</ul>
-<ul>
-<li>如果<code>pos</code>为 0，则返回整个字符串。</li>
-</ul>
-<ul>
-<li>如果<code>pos</code>大于最大字符索引，则返回空字符串。</li>
-</ul>
-<ul>
-<li>如果<code>pos</code>是负数，则返回<code>BAD_DATA</code>。</li>
-</ul>
-<ul>
-<li>如果省略<code>count</code>，则返回从<code>pos</code>位置开始到字符串末尾的子字符串。</li>
-</ul>
-<ul>
-<li>如果<code>count</code>为 0，则返回空字符串。</li>
-</ul>
-<ul>
-<li>使用<code>NULL</code>作为任何参数会出现<a href="https://github.com/vesoft-inc/nebula-graph/issues/878">错误</a>。</li>
-</ul>
-<div class="admonition compatibility">
-<p class="admonition-title">openCypher 兼容性</p>
-<ul>
-<li>在 openCypher 中，如果字符串<code>a</code>为<code>null</code>，会返回<code>null</code>。</li>
-<li>在 openCypher 中，如果<code>pos</code>为 0，会返回从第一个字符开始 <code>count</code>个字符的子字符串。</li>
-<li>在 openCypher 中，如果<code>pos</code>或<code>count</code>为<code>null</code>或负整数，会出现错误。</li>
-</ul>
-</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 20, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -7356,8 +7200,6 @@
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

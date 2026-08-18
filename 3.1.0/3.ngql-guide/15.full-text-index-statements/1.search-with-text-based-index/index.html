@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.1.0/3.ngql-guide/15.full-text-index-statements/1.search-with-text-based-index/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -7332,71 +7332,71 @@ nebula&gt; SHOW FULLTEXT INDEXES;
 +------------------+-------------+-------------+--------+
 | Name             | Schema Type | Schema Name | Fields |
 +------------------+-------------+-------------+--------+
-| &quot;nebula_index_1&quot; | &quot;Tag&quot;       | &quot;player&quot;    | &quot;name&quot; |
+| "nebula_index_1" | "Tag"       | "player"    | "name" |
 +------------------+-------------+-------------+--------+
 
 //插入测试数据。
 nebula&gt; INSERT VERTEX player(name, age) VALUES \
-  &quot;Russell Westbrook&quot;: (&quot;Russell Westbrook&quot;, 30), \
-  &quot;Chris Paul&quot;: (&quot;Chris Paul&quot;, 33),\
-  &quot;Boris Diaw&quot;: (&quot;Boris Diaw&quot;, 36),\
-  &quot;David West&quot;: (&quot;David West&quot;, 38),\
-  &quot;Danny Green&quot;: (&quot;Danny Green&quot;, 31),\
-  &quot;Tim Duncan&quot;: (&quot;Tim Duncan&quot;, 42),\
-  &quot;James Harden&quot;: (&quot;James Harden&quot;, 29),\
-  &quot;Tony Parker&quot;: (&quot;Tony Parker&quot;, 36),\
-  &quot;Aron Baynes&quot;: (&quot;Aron Baynes&quot;, 32),\
-  &quot;Ben Simmons&quot;: (&quot;Ben Simmons&quot;, 22),\
-  &quot;Blake Griffin&quot;: (&quot;Blake Griffin&quot;, 30);
+  "Russell Westbrook": ("Russell Westbrook", 30), \
+  "Chris Paul": ("Chris Paul", 33),\
+  "Boris Diaw": ("Boris Diaw", 36),\
+  "David West": ("David West", 38),\
+  "Danny Green": ("Danny Green", 31),\
+  "Tim Duncan": ("Tim Duncan", 42),\
+  "James Harden": ("James Harden", 29),\
+  "Tony Parker": ("Tony Parker", 36),\
+  "Aron Baynes": ("Aron Baynes", 32),\
+  "Ben Simmons": ("Ben Simmons", 22),\
+  "Blake Griffin": ("Blake Griffin", 30);
 
 //测试查询
-nebula&gt; LOOKUP ON player WHERE PREFIX(player.name, &quot;B&quot;) YIELD id(vertex);
+nebula&gt; LOOKUP ON player WHERE PREFIX(player.name, "B") YIELD id(vertex);
 +-----------------+
 | id(VERTEX)      |
 +-----------------+
-| &quot;Boris Diaw&quot;    |
-| &quot;Ben Simmons&quot;   |
-| &quot;Blake Griffin&quot; |
+| "Boris Diaw"    |
+| "Ben Simmons"   |
+| "Blake Griffin" |
 +-----------------+
 
-nebula&gt; LOOKUP ON player WHERE WILDCARD(player.name, &quot;*ri*&quot;) YIELD player.name, player.age;
+nebula&gt; LOOKUP ON player WHERE WILDCARD(player.name, "*ri*") YIELD player.name, player.age;
 +-----------------+-----+
 | name            | age |
 +-----------------+-----+
-| &quot;Chris Paul&quot;    | 33  |
-| &quot;Boris Diaw&quot;    | 36  |
-| &quot;Blake Griffin&quot; | 30  |
+| "Chris Paul"    | 33  |
+| "Boris Diaw"    | 36  |
+| "Blake Griffin" | 30  |
 +-----------------+-----+
 
-nebula&gt; LOOKUP ON player WHERE WILDCARD(player.name, &quot;*ri*&quot;) | YIELD count(*);
+nebula&gt; LOOKUP ON player WHERE WILDCARD(player.name, "*ri*") | YIELD count(*);
 +----------+
 | count(*) |
 +----------+
 | 3        |
 +----------+
 
-nebula&gt; LOOKUP ON player WHERE REGEXP(player.name, &quot;R.*&quot;) YIELD player.name, player.age;
+nebula&gt; LOOKUP ON player WHERE REGEXP(player.name, "R.*") YIELD player.name, player.age;
 +---------------------+-----+
 | name                | age |
 +---------------------+-----+
-| &quot;Russell Westbrook&quot; | 30  |
+| "Russell Westbrook" | 30  |
 +---------------------+-----+
 
-nebula&gt; LOOKUP ON player WHERE REGEXP(player.name, &quot;.*&quot;) YIELD id(vertex);
+nebula&gt; LOOKUP ON player WHERE REGEXP(player.name, ".*") YIELD id(vertex);
 +---------------------+
 | id(VERTEX)          |
 +---------------------+
-| &quot;Danny Green&quot;       |
-| &quot;David West&quot;        |
-| &quot;Russell Westbrook&quot; |
+| "Danny Green"       |
+| "David West"        |
+| "Russell Westbrook" |
 +---------------------+
 ...
 
-nebula&gt; LOOKUP ON player WHERE FUZZY(player.name, &quot;Tim Dunncan&quot;, AUTO, OR) YIELD player.name;
+nebula&gt; LOOKUP ON player WHERE FUZZY(player.name, "Tim Dunncan", AUTO, OR) YIELD player.name;
 +--------------+
 | name         |
 +--------------+
-| &quot;Tim Duncan&quot; |
+| "Tim Duncan" |
 +--------------+
 
 //删除全文索引。
@@ -7408,7 +7408,7 @@ nebula&gt; DROP FULLTEXT INDEX nebula_index_1;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 20, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -7524,8 +7524,6 @@ nebula&gt; DROP FULLTEXT INDEX nebula_index_1;
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

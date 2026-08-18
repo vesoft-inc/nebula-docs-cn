@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.1.0/8.service-tuning/load-balance/">
       
       <link rel="icon" href="../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -7235,8 +7235,8 @@
 +-----------------+------+-----------+----------+--------------+-----------------------+------------------------+-------------+
 | Host            | Port | HTTP port | Status   | Leader count | Leader distribution   | Partition distribution | Version     |
 +-----------------+------+-----------+----------+--------------+-----------------------+------------------------+-------------+
-| &quot;192.168.8.101&quot; | 9779 | 19669     | &quot;ONLINE&quot; | 0            | &quot;No valid partition&quot;  | &quot;No valid partition&quot;   | &quot;3.1.0-ent&quot; |
-| &quot;192.168.8.100&quot; | 9779 | 19669     | &quot;ONLINE&quot; | 15           | &quot;basketballplayer:15&quot; | &quot;basketballplayer:15&quot;  | &quot;3.1.0-ent&quot; |
+| "192.168.8.101" | 9779 | 19669     | "ONLINE" | 0            | "No valid partition"  | "No valid partition"   | "3.1.0-ent" |
+| "192.168.8.100" | 9779 | 19669     | "ONLINE" | 15           | "basketballplayer:15" | "basketballplayer:15"  | "3.1.0-ent" |
 +-----------------+------+-----------+----------+--------------+-----------------------+------------------------+-------------+
 </code></pre></div>
 </li>
@@ -7257,15 +7257,15 @@ nebula&gt; BALANCE DATA;
 +------------------------+------------------------------------------+-------------+---------------------------------+---------------------------------+-------------+
 | Job Id(spaceId:partId) | Command(src-&gt;dst)                        | Status      | Start Time                      | Stop Time                       | Error Code  |
 +------------------------+------------------------------------------+-------------+---------------------------------+---------------------------------+-------------+
-| 2                      | &quot;DATA_BALANCE&quot;                           | &quot;FINISHED&quot;  | &quot;2022-04-12T03:41:43.000000000&quot; | &quot;2022-04-12T03:41:53.000000000&quot; | &quot;SUCCEEDED&quot; |
-| &quot;2, 1:1&quot;               | &quot;192.168.8.100:9779-&gt;192.168.8.101:9779&quot; | &quot;SUCCEEDED&quot; | 2022-04-12T03:41:43.000000      | 2022-04-12T03:41:53.000000      | &quot;SUCCEEDED&quot; |
-| &quot;2, 1:2&quot;               | &quot;192.168.8.100:9779-&gt;192.168.8.101:9779&quot; | &quot;SUCCEEDED&quot; | 2022-04-12T03:41:43.000000      | 2022-04-12T03:41:53.000000      | &quot;SUCCEEDED&quot; |
-| &quot;2, 1:3&quot;               | &quot;192.168.8.100:9779-&gt;192.168.8.101:9779&quot; | &quot;SUCCEEDED&quot; | 2022-04-12T03:41:43.000000      | 2022-04-12T03:41:53.000000      | &quot;SUCCEEDED&quot; |
-| &quot;2, 1:4&quot;               | &quot;192.168.8.100:9779-&gt;192.168.8.101:9779&quot; | &quot;SUCCEEDED&quot; | 2022-04-12T03:41:43.000000      | 2022-04-12T03:41:53.000000      | &quot;SUCCEEDED&quot; |
-| &quot;2, 1:5&quot;               | &quot;192.168.8.100:9779-&gt;192.168.8.101:9779&quot; | &quot;SUCCEEDED&quot; | 2022-04-12T03:41:43.000000      | 2022-04-12T03:41:53.000000      | &quot;SUCCEEDED&quot; |
-| &quot;2, 1:6&quot;               | &quot;192.168.8.100:9779-&gt;192.168.8.101:9779&quot; | &quot;SUCCEEDED&quot; | 2022-04-12T03:41:43.000000      | 2022-04-12T03:41:43.000000      | &quot;SUCCEEDED&quot; |
-| &quot;2, 1:7&quot;               | &quot;192.168.8.100:9779-&gt;192.168.8.101:9779&quot; | &quot;SUCCEEDED&quot; | 2022-04-12T03:41:43.000000      | 2022-04-12T03:41:53.000000      | &quot;SUCCEEDED&quot; |
-| &quot;Total:7&quot;              | &quot;Succeeded:7&quot;                            | &quot;Failed:0&quot;  | &quot;In Progress:0&quot;                 | &quot;Invalid:0&quot;                     | &quot;&quot;          |
+| 2                      | "DATA_BALANCE"                           | "FINISHED"  | "2022-04-12T03:41:43.000000000" | "2022-04-12T03:41:53.000000000" | "SUCCEEDED" |
+| "2, 1:1"               | "192.168.8.100:9779-&gt;192.168.8.101:9779" | "SUCCEEDED" | 2022-04-12T03:41:43.000000      | 2022-04-12T03:41:53.000000      | "SUCCEEDED" |
+| "2, 1:2"               | "192.168.8.100:9779-&gt;192.168.8.101:9779" | "SUCCEEDED" | 2022-04-12T03:41:43.000000      | 2022-04-12T03:41:53.000000      | "SUCCEEDED" |
+| "2, 1:3"               | "192.168.8.100:9779-&gt;192.168.8.101:9779" | "SUCCEEDED" | 2022-04-12T03:41:43.000000      | 2022-04-12T03:41:53.000000      | "SUCCEEDED" |
+| "2, 1:4"               | "192.168.8.100:9779-&gt;192.168.8.101:9779" | "SUCCEEDED" | 2022-04-12T03:41:43.000000      | 2022-04-12T03:41:53.000000      | "SUCCEEDED" |
+| "2, 1:5"               | "192.168.8.100:9779-&gt;192.168.8.101:9779" | "SUCCEEDED" | 2022-04-12T03:41:43.000000      | 2022-04-12T03:41:53.000000      | "SUCCEEDED" |
+| "2, 1:6"               | "192.168.8.100:9779-&gt;192.168.8.101:9779" | "SUCCEEDED" | 2022-04-12T03:41:43.000000      | 2022-04-12T03:41:43.000000      | "SUCCEEDED" |
+| "2, 1:7"               | "192.168.8.100:9779-&gt;192.168.8.101:9779" | "SUCCEEDED" | 2022-04-12T03:41:43.000000      | 2022-04-12T03:41:53.000000      | "SUCCEEDED" |
+| "Total:7"              | "Succeeded:7"                            | "Failed:0"  | "In Progress:0"                 | "Invalid:0"                     | ""          |
 +------------------------+------------------------------------------+-------------+---------------------------------+---------------------------------+-------------+
 </code></pre></div>
 </li>
@@ -7279,8 +7279,8 @@ nebula&gt; BALANCE DATA;
 +-----------------+------+-----------+----------+--------------+----------------------+------------------------+-------------+
 | Host            | Port | HTTP port | Status   | Leader count | Leader distribution  | Partition distribution | Version     |
 +-----------------+------+-----------+----------+--------------+----------------------+------------------------+-------------+
-| &quot;192.168.8.101&quot; | 9779 | 19669     | &quot;ONLINE&quot; | 7            | &quot;basketballplayer:7&quot; | &quot;basketballplayer:7&quot;   | &quot;3.1.0-ent&quot; |
-| &quot;192.168.8.100&quot; | 9779 | 19669     | &quot;ONLINE&quot; | 8            | &quot;basketballplayer:8&quot; | &quot;basketballplayer:8&quot;   | &quot;3.1.0-ent&quot; |
+| "192.168.8.101" | 9779 | 19669     | "ONLINE" | 7            | "basketballplayer:7" | "basketballplayer:7"   | "3.1.0-ent" |
+| "192.168.8.100" | 9779 | 19669     | "ONLINE" | 8            | "basketballplayer:8" | "basketballplayer:8"   | "3.1.0-ent" |
 +-----------------+------+-----------+----------+--------------+----------------------+------------------------+-------------+
 </code></pre></div>
 </li>
@@ -7315,8 +7315,8 @@ nebula&gt; SHOW HOSTS;
 +-----------------+------+-----------+----------+--------------+-----------------------+------------------------+-------------+
 | Host            | Port | HTTP port | Status   | Leader count | Leader distribution   | Partition distribution | Version     |
 +-----------------+------+-----------+----------+--------------+-----------------------+------------------------+-------------+
-| &quot;192.168.8.101&quot; | 9779 | 19669     | &quot;ONLINE&quot; | 15           | &quot;basketballplayer:15&quot; | &quot;basketballplayer:15&quot;  | &quot;3.1.0-ent&quot; |
-| &quot;192.168.8.100&quot; | 9779 | 19669     | &quot;ONLINE&quot; | 0            | &quot;No valid partition&quot;  | &quot;No valid partition&quot;   | &quot;3.1.0-ent&quot; |
+| "192.168.8.101" | 9779 | 19669     | "ONLINE" | 15           | "basketballplayer:15" | "basketballplayer:15"  | "3.1.0-ent" |
+| "192.168.8.100" | 9779 | 19669     | "ONLINE" | 0            | "No valid partition"  | "No valid partition"   | "3.1.0-ent" |
 +-----------------+------+-----------+----------+--------------+-----------------------+------------------------+-------------+
 </code></pre></div>
 <div class="admonition note">
@@ -7336,9 +7336,9 @@ nebula&gt; SHOW HOSTS;
 
 1. 将新增的 3 台 Storage 服务器加入集群，分别加入图空间`basketballplayer`所属的 Zone。关于 Zone 的介绍请参见[管理逻辑机架（Zone）](../4.deployment-and-installation/5.zone.md)。
 
-  <div class="highlight"><pre><span></span><code>nebual&gt; ADD HOSTS 192.168.10.103:9779 INTO ZONE &quot;zone1&quot;;
-nebual&gt; ADD HOSTS 192.168.10.104:9779 INTO ZONE &quot;zone2&quot;;
-nebual&gt; ADD HOSTS 192.168.10.105:9779 INTO ZONE &quot;zone3&quot;;
+  <div class="highlight"><pre><span></span><code>nebual&gt; ADD HOSTS 192.168.10.103:9779 INTO ZONE "zone1";
+nebual&gt; ADD HOSTS 192.168.10.104:9779 INTO ZONE "zone2";
+nebual&gt; ADD HOSTS 192.168.10.105:9779 INTO ZONE "zone3";
 </code></pre></div>
 
 2. 执行命令 [`SHOW HOSTS`](../3.ngql-guide/7.general-query-statements/6.show/6.show-hosts.md) 检查分片的分布。
@@ -7347,12 +7347,12 @@ nebual&gt; ADD HOSTS 192.168.10.105:9779 INTO ZONE &quot;zone3&quot;;
 +------------------+------+-----------+----------+--------------+-----------------------------------+------------------------+---------+
 | Host             | Port | HTTP port | Status   | Leader count | Leader distribution               | Partition distribution | Version |
 +------------------+------+-----------+----------+--------------+-----------------------------------+------------------------+---------+
-| &quot;192.168.10.100&quot; | 9779 | 19669     | &quot;ONLINE&quot; | 4            | &quot;basketballplayer:4&quot;              | &quot;basketballplayer:15&quot;  | &quot;3.1.0&quot; |
-| &quot;192.168.10.101&quot; | 9779 | 19669     | &quot;ONLINE&quot; | 8            | &quot;basketballplayer:8&quot;              | &quot;basketballplayer:15&quot;  | &quot;3.1.0&quot; |
-| &quot;192.168.10.102&quot; | 9779 | 19669     | &quot;ONLINE&quot; | 3            | &quot;basketballplayer:3&quot;              | &quot;basketballplayer:15&quot;  | &quot;3.1.0&quot; |
-| &quot;192.168.10.103&quot; | 9779 | 19669     | &quot;ONLINE&quot; | 0            | &quot;No valid partition&quot;              | &quot;No valid partition&quot;   | &quot;3.1.0&quot; |
-| &quot;192.168.10.104&quot; | 9779 | 19669     | &quot;ONLINE&quot; | 0            | &quot;No valid partition&quot;              | &quot;No valid partition&quot;   | &quot;3.1.0&quot; |
-| &quot;192.168.10.105&quot; | 9779 | 19669     | &quot;ONLINE&quot; | 0            | &quot;No valid partition&quot;              | &quot;No valid partition&quot;   | &quot;3.1.0&quot; |
+| "192.168.10.100" | 9779 | 19669     | "ONLINE" | 4            | "basketballplayer:4"              | "basketballplayer:15"  | "3.1.0" |
+| "192.168.10.101" | 9779 | 19669     | "ONLINE" | 8            | "basketballplayer:8"              | "basketballplayer:15"  | "3.1.0" |
+| "192.168.10.102" | 9779 | 19669     | "ONLINE" | 3            | "basketballplayer:3"              | "basketballplayer:15"  | "3.1.0" |
+| "192.168.10.103" | 9779 | 19669     | "ONLINE" | 0            | "No valid partition"              | "No valid partition"   | "3.1.0" |
+| "192.168.10.104" | 9779 | 19669     | "ONLINE" | 0            | "No valid partition"              | "No valid partition"   | "3.1.0" |
+| "192.168.10.105" | 9779 | 19669     | "ONLINE" | 0            | "No valid partition"              | "No valid partition"   | "3.1.0" |
 +------------------+------+-----------+----------+--------------+-----------------------------------+------------------------+---------+
 </code></pre></div>
 
@@ -7373,11 +7373,11 @@ nebula&gt; BALANCE IN ZONE;
 +-------------------------+--------------------------------------------+-------------+---------------------------------+---------------------------------+-------------+
 | Job Id(spaceId:partId)  | Command(src-&gt;dst)                          | Status      | Start Time                      | Stop Time                       | Error Code  |
 +-------------------------+--------------------------------------------+-------------+---------------------------------+---------------------------------+-------------+
-| 30                      | &quot;DATA_BALANCE&quot;                             | &quot;FINISHED&quot;  | &quot;2022-01-12T02:27:00.000000000&quot; | &quot;2022-01-12T02:30:31.000000000&quot; | &quot;SUCCEEDED&quot; |
-| &quot;30, 23:1&quot;              | &quot;192.168.10.100:9779-&gt;192.168.10.103:9779&quot; | &quot;SUCCEEDED&quot; | 2022-01-12T02:27:00.000000      | 2022-01-12T02:27:30.000000      | &quot;SUCCEEDED&quot; |
-| &quot;30, 23:2&quot;              | &quot;192.168.10.100:9779-&gt;192.168.10.103:9779&quot; | &quot;SUCCEEDED&quot; | 2022-01-12T02:27:00.000000      | 2022-01-12T02:27:01.000000      | &quot;SUCCEEDED&quot; |
+| 30                      | "DATA_BALANCE"                             | "FINISHED"  | "2022-01-12T02:27:00.000000000" | "2022-01-12T02:30:31.000000000" | "SUCCEEDED" |
+| "30, 23:1"              | "192.168.10.100:9779-&gt;192.168.10.103:9779" | "SUCCEEDED" | 2022-01-12T02:27:00.000000      | 2022-01-12T02:27:30.000000      | "SUCCEEDED" |
+| "30, 23:2"              | "192.168.10.100:9779-&gt;192.168.10.103:9779" | "SUCCEEDED" | 2022-01-12T02:27:00.000000      | 2022-01-12T02:27:01.000000      | "SUCCEEDED" |
 ......
-| &quot;Total:21&quot;              | &quot;Succeeded:21&quot;                             | &quot;Failed:0&quot;  | &quot;In Progress:0&quot;                 | &quot;Invalid:0&quot;                     | &quot;&quot;          |
+| "Total:21"              | "Succeeded:21"                             | "Failed:0"  | "In Progress:0"                 | "Invalid:0"                     | ""          |
 +-------------------------+--------------------------------------------+-------------+---------------------------------+---------------------------------+-------------+
 </code></pre></div>
 
@@ -7391,12 +7391,12 @@ nebula&gt; BALANCE IN ZONE;
 +------------------+------+-----------+----------+--------------+-----------------------------------+------------------------+---------+
 | Host             | Port | HTTP port | Status   | Leader count | Leader distribution               | Partition distribution | Version |
 +------------------+------+-----------+----------+--------------+-----------------------------------+------------------------+---------+
-| &quot;192.168.10.100&quot; | 9779 | 19669     | &quot;ONLINE&quot; | 4            | &quot;basketballplayer:4&quot;              | &quot;basketballplayer:8&quot;   | &quot;3.1.0&quot; |
-| &quot;192.168.10.101&quot; | 9779 | 19669     | &quot;ONLINE&quot; | 8            | &quot;basketballplayer:8&quot;              | &quot;basketballplayer:8&quot;   | &quot;3.1.0&quot; |
-| &quot;192.168.10.102&quot; | 9779 | 19669     | &quot;ONLINE&quot; | 3            | &quot;basketballplayer:3&quot;              | &quot;basketballplayer:8&quot;   | &quot;3.1.0&quot; |
-| &quot;192.168.10.103&quot; | 9779 | 19669     | &quot;ONLINE&quot; | 0            | &quot;No valid partition&quot;              | &quot;basketballplayer:7&quot;   | &quot;3.1.0&quot; |
-| &quot;192.168.10.104&quot; | 9779 | 19669     | &quot;ONLINE&quot; | 0            | &quot;No valid partition&quot;              | &quot;basketballplayer:7&quot;   | &quot;3.1.0&quot; |
-| &quot;192.168.10.105&quot; | 9779 | 19669     | &quot;ONLINE&quot; | 0            | &quot;No valid partition&quot;              | &quot;basketballplayer:7&quot;   | &quot;3.1.0&quot; |
+| "192.168.10.100" | 9779 | 19669     | "ONLINE" | 4            | "basketballplayer:4"              | "basketballplayer:8"   | "3.1.0" |
+| "192.168.10.101" | 9779 | 19669     | "ONLINE" | 8            | "basketballplayer:8"              | "basketballplayer:8"   | "3.1.0" |
+| "192.168.10.102" | 9779 | 19669     | "ONLINE" | 3            | "basketballplayer:3"              | "basketballplayer:8"   | "3.1.0" |
+| "192.168.10.103" | 9779 | 19669     | "ONLINE" | 0            | "No valid partition"              | "basketballplayer:7"   | "3.1.0" |
+| "192.168.10.104" | 9779 | 19669     | "ONLINE" | 0            | "No valid partition"              | "basketballplayer:7"   | "3.1.0" |
+| "192.168.10.105" | 9779 | 19669     | "ONLINE" | 0            | "No valid partition"              | "basketballplayer:7"   | "3.1.0" |
 +------------------+------+-----------+----------+--------------+-----------------------------------+------------------------+---------+
 </code></pre></div>
 
@@ -7451,12 +7451,12 @@ nebula&gt; BALANCE IN ZONE;
 +------------------+------+-----------+----------+--------------+-----------------------------------+------------------------+---------+
 | Host             | Port | HTTP port | Status   | Leader count | Leader distribution               | Partition distribution | Version |
 +------------------+------+-----------+----------+--------------+-----------------------------------+------------------------+---------+
-| &quot;192.168.10.100&quot; | 9779 | 19669     | &quot;ONLINE&quot; | 4            | &quot;basketballplayer:3&quot;              | &quot;basketballplayer:8&quot;   | &quot;3.1.0&quot; |
-| &quot;192.168.10.101&quot; | 9779 | 19669     | &quot;ONLINE&quot; | 8            | &quot;basketballplayer:3&quot;              | &quot;basketballplayer:8&quot;   | &quot;3.1.0&quot; |
-| &quot;192.168.10.102&quot; | 9779 | 19669     | &quot;ONLINE&quot; | 3            | &quot;basketballplayer:3&quot;              | &quot;basketballplayer:8&quot;   | &quot;3.1.0&quot; |
-| &quot;192.168.10.103&quot; | 9779 | 19669     | &quot;ONLINE&quot; | 0            | &quot;basketballplayer:2&quot;              | &quot;basketballplayer:7&quot;   | &quot;3.1.0&quot; |
-| &quot;192.168.10.104&quot; | 9779 | 19669     | &quot;ONLINE&quot; | 0            | &quot;basketballplayer:2&quot;              | &quot;basketballplayer:7&quot;   | &quot;3.1.0&quot; |
-| &quot;192.168.10.105&quot; | 9779 | 19669     | &quot;ONLINE&quot; | 0            | &quot;basketballplayer:2&quot;              | &quot;basketballplayer:7&quot;   | &quot;3.1.0&quot; |
+| "192.168.10.100" | 9779 | 19669     | "ONLINE" | 4            | "basketballplayer:3"              | "basketballplayer:8"   | "3.1.0" |
+| "192.168.10.101" | 9779 | 19669     | "ONLINE" | 8            | "basketballplayer:3"              | "basketballplayer:8"   | "3.1.0" |
+| "192.168.10.102" | 9779 | 19669     | "ONLINE" | 3            | "basketballplayer:3"              | "basketballplayer:8"   | "3.1.0" |
+| "192.168.10.103" | 9779 | 19669     | "ONLINE" | 0            | "basketballplayer:2"              | "basketballplayer:7"   | "3.1.0" |
+| "192.168.10.104" | 9779 | 19669     | "ONLINE" | 0            | "basketballplayer:2"              | "basketballplayer:7"   | "3.1.0" |
+| "192.168.10.105" | 9779 | 19669     | "ONLINE" | 0            | "basketballplayer:2"              | "basketballplayer:7"   | "3.1.0" |
 +------------------+------+-----------+----------+--------------+-----------------------------------+------------------------+---------+
 </code></pre></div>
 <div class="admonition caution">
@@ -7469,7 +7469,7 @@ nebula&gt; BALANCE IN ZONE;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">June 20, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
       
     
   </small>
@@ -7585,8 +7585,6 @@ nebula&gt; BALANCE IN ZONE;
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
