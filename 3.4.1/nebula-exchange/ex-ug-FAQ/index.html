@@ -10868,7 +10868,7 @@ nebula-docker-compose_storaged2_1<span class="w">   </span>./bin/nebula-storaged
 --conf<span class="w"> </span>spark.executor.extraJavaOptions<span class="o">=</span>-Dfile.encoding<span class="o">=</span>utf-8
 </code></pre></div>
 <p>即：</p>
-<div class="highlight"><pre><span></span><code>&lt;spark_install_path&gt;/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>&lt;spark_install_path&gt;/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">"local"</span><span class="w"> </span><span class="se">\</span>
 --conf<span class="w"> </span>spark.driver.extraJavaOptions<span class="o">=</span>-Dfile.encoding<span class="o">=</span>utf-8<span class="w"> </span><span class="se">\</span>
 --conf<span class="w"> </span>spark.executor.extraJavaOptions<span class="o">=</span>-Dfile.encoding<span class="o">=</span>utf-8<span class="w"> </span><span class="se">\</span>
 --class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span><span class="se">\</span>
@@ -10893,7 +10893,7 @@ nebula-docker-compose_storaged2_1<span class="w">   </span>./bin/nebula-storaged
 <li>
 <p>将 Hive 环境中存储 Hive metastore 信息的 MySQL version 信息更新为 Spark 中使用的 metastore 版本。</p>
 <p>假设 Hive 在 MySQL 中存储 metastore 的数据库是<code>hive</code>，需要按如下方式修改 <code>hive.VERSION</code> 表中的 <code>version</code> 字段：</p>
-<div class="highlight"><pre><span></span><code>update hive.VERSION set SCHEMA_VERSION=&quot;2.1.0&quot; where VER_ID=1
+<div class="highlight"><pre><span></span><code>update hive.VERSION set SCHEMA_VERSION="2.1.0" where VER_ID=1
 </code></pre></div>
 </li>
 <li>
@@ -10947,7 +10947,7 @@ nebula-docker-compose_storaged2_1<span class="w">   </span>./bin/nebula-storaged
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 10:01:29">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:16 UTC">2026年8月18日</span>
       
     
   </small>
@@ -11031,8 +11031,6 @@ nebula-docker-compose_storaged2_1<span class="w">   </span>./bin/nebula-storaged
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

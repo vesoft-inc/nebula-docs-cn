@@ -10514,11 +10514,11 @@
 <p>如果不指定 rank，则仅仅删除 rank 为 0 的边。需要删除所有的 rank，见如下示例。</p>
 </div>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>nebula&gt; DELETE EDGE serve &quot;player100&quot; -&gt; &quot;team204&quot;@0;
+<div class="highlight"><pre><span></span><code>nebula&gt; DELETE EDGE serve "player100" -&gt; "team204"@0;
 </code></pre></div>
 <div class="highlight"><pre><span></span><code># 结合管道符，删除两点之间同类型的所有rank的边。
-nebula&gt; GO FROM &quot;player100&quot; OVER follow \
-        WHERE dst(edge) == &quot;player101&quot; \
+nebula&gt; GO FROM "player100" OVER follow \
+        WHERE dst(edge) == "player101" \
         YIELD src(edge) AS src, dst(edge) AS dst, rank(edge) AS rank \
         | DELETE EDGE follow $-.src -&gt; $-.dst @ $-.rank;
 </code></pre></div>
@@ -10528,7 +10528,7 @@ nebula&gt; GO FROM &quot;player100&quot; OVER follow \
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 10:01:29">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:16 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10612,8 +10612,6 @@ nebula&gt; GO FROM &quot;player100&quot; OVER follow \
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

@@ -10712,16 +10712,16 @@
 <div class="highlight"><pre><span></span><code>nebula&gt; :param &lt;param_name&gt; =&gt; &lt;param_value&gt;;
 </code></pre></div>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; :param p1 =&gt; &quot;Tim Duncan&quot;;
+<div class="highlight"><pre><span></span><code>nebula&gt; :param p1 =&gt; "Tim Duncan";
 nebula&gt; MATCH (v:player{name:$p1})-[:follow]-&gt;(n)  RETURN v,n;
 +----------------------------------------------------+-------------------------------------------------------+
 | v                                                  | n                                                     |
 +----------------------------------------------------+-------------------------------------------------------+
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;}) | (&quot;player125&quot; :player{age: 41, name: &quot;Manu Ginobili&quot;}) |
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;}) | (&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;})   |
+| ("player100" :player{age: 42, name: "Tim Duncan"}) | ("player125" :player{age: 41, name: "Manu Ginobili"}) |
+| ("player100" :player{age: 42, name: "Tim Duncan"}) | ("player101" :player{age: 36, name: "Tony Parker"})   |
 +----------------------------------------------------+-------------------------------------------------------+
 
-nebula&gt; :param p2 =&gt; {&quot;a&quot;:3,&quot;b&quot;:false,&quot;c&quot;:&quot;Tim Duncan&quot;};
+nebula&gt; :param p2 =&gt; {"a":3,"b":false,"c":"Tim Duncan"};
 nebula&gt; RETURN $p2.b AS b;
 +-------+
 | b     |
@@ -10780,7 +10780,7 @@ nebula&gt; RETURN $p2.b AS b;
 </code></pre></div>
 <p>示例：</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; :dot a.dot;
-nebula&gt; PROFILE FORMAT=&quot;dot&quot; GO FROM &quot;player100&quot; OVER follow;
+nebula&gt; PROFILE FORMAT="dot" GO FROM "player100" OVER follow;
 </code></pre></div>
 </li>
 </ul>
@@ -10800,11 +10800,11 @@ nebula&gt; PROFILE FORMAT=&quot;dot&quot; GO FROM &quot;player100&quot; OVER fol
 </div>
 <p>示例：</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; :profile profile.log
-nebula&gt; PROFILE GO FROM &quot;player102&quot; OVER serve YIELD dst(edge);
+nebula&gt; PROFILE GO FROM "player102" OVER serve YIELD dst(edge);
 nebula&gt; :profile profile.dot
-nebula&gt; PROFILE FORMAT=&quot;dot&quot; GO FROM &quot;player102&quot; OVER serve YIELD dst(edge);
+nebula&gt; PROFILE FORMAT="dot" GO FROM "player102" OVER serve YIELD dst(edge);
 nebula&gt; :explain explain.log
-nebula&gt; EXPLAIN GO FROM &quot;player102&quot; OVER serve YIELD dst(edge);
+nebula&gt; EXPLAIN GO FROM "player102" OVER serve YIELD dst(edge);
 </code></pre></div>
 <h3 id="_4">加载测试数据集<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>测试数据集名称为 basketballplayer，详细 Schema 信息和数据信息请使用相关<code>SHOW</code>命令查看。</p>
@@ -10817,12 +10817,12 @@ nebula&gt; EXPLAIN GO FROM &quot;player102&quot; OVER serve YIELD dst(edge);
 </code></pre></div>
 <p>示例：</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; :repeat 3;
-nebula&gt; GO FROM &quot;player100&quot; OVER follow YIELD dst(edge);
+nebula&gt; GO FROM "player100" OVER follow YIELD dst(edge);
 +-------------+
 | dst(EDGE)   |
 +-------------+
-| &quot;player101&quot; |
-| &quot;player125&quot; |
+| "player101" |
+| "player125" |
 +-------------+
 Got 2 rows (time spent 2602/3214 us)
 
@@ -10831,8 +10831,8 @@ Fri, 20 Aug 2021 06:36:05 UTC
 +-------------+
 | dst(EDGE)   |
 +-------------+
-| &quot;player101&quot; |
-| &quot;player125&quot; |
+| "player101" |
+| "player125" |
 +-------------+
 Got 2 rows (time spent 583/849 us)
 
@@ -10841,8 +10841,8 @@ Fri, 20 Aug 2021 06:36:05 UTC
 +-------------+
 | dst(EDGE)   |
 +-------------+
-| &quot;player101&quot; |
-| &quot;player125&quot; |
+| "player101" |
+| "player125" |
 +-------------+
 Got 2 rows (time spent 496/671 us)
 
@@ -10867,7 +10867,7 @@ Bye root!
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 10:01:29">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:16 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10951,8 +10951,6 @@ Bye root!
         <script src="../js/jquery.js"></script>
       
         <script src="../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

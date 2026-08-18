@@ -10551,7 +10551,7 @@
 <div class="highlight"><pre><span></span><code>ALTER EDGE &lt;edge_type_name&gt;
     &lt;alter_definition&gt; [, alter_definition] ...]
     [ttl_definition [, ttl_definition] ... ]
-    [COMMENT = &#39;&lt;comment&gt;&#39;];
+    [COMMENT = '&lt;comment&gt;'];
 
 alter_definition:
 | ADD    (prop_name data_type)
@@ -10573,8 +10573,8 @@ ttl_definition:
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE EDGE IF NOT EXISTS e1(p1 string, p2 int);
 nebula&gt; ALTER EDGE e1 ADD (p3 int, p4 string);
-nebula&gt; ALTER EDGE e1 TTL_DURATION = 2, TTL_COL = &quot;p2&quot;;
-nebula&gt; ALTER EDGE e1 COMMENT = &#39;edge1&#39;;
+nebula&gt; ALTER EDGE e1 TTL_DURATION = 2, TTL_COL = "p2";
+nebula&gt; ALTER EDGE e1 COMMENT = 'edge1';
 </code></pre></div>
 <h2 id="edge_type">修改 Edge type 说明<a class="headerlink" href="#edge_type" title="Permanent link">&para;</a></h2>
 <p>尝试使用刚修改的 Edge type 可能会失败，因为修改是异步实现的。为确保数据同步，后续操作能顺利进行，请等待 2 个心跳周期（20 秒）。</p>
@@ -10585,7 +10585,7 @@ nebula&gt; ALTER EDGE e1 COMMENT = &#39;edge1&#39;;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 10:01:29">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:16 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10669,8 +10669,6 @@ nebula&gt; ALTER EDGE e1 COMMENT = &#39;edge1&#39;;
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

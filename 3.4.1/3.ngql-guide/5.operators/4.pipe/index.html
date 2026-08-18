@@ -10544,17 +10544,17 @@
 <li>在 nGQL 中，子查询是通过类似 shell 中的管道符（<code>|</code>）实现的。</li>
 </ul>
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM &quot;player100&quot; OVER follow \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM "player100" OVER follow \
         YIELD dst(edge) AS dstid, properties($$).name AS Name | \
         GO FROM $-.dstid OVER follow YIELD dst(edge);
 
 +-------------+
 | dst(EDGE)   |
 +-------------+
-| &quot;player100&quot; |
-| &quot;player102&quot; |
-| &quot;player125&quot; |
-| &quot;player100&quot; |
+| "player100" |
+| "player102" |
+| "player125" |
+| "player100" |
 +-------------+
 </code></pre></div>
 <p>必须在<code>YIELD</code>子句中为需要的返回结果设置别名，才能在管道符右侧使用引用符<code>$-</code>，例如示例中的<code>$-.dstid</code>。</p>
@@ -10592,7 +10592,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 10:01:29">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:16 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10676,8 +10676,6 @@
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

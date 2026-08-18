@@ -10565,7 +10565,7 @@
 <p>终止多个会话。</p>
 <ul>
 <li>终止创建时间小于<code>2023-01-05T18:00:00</code>的所有会话。
-  <div class="highlight"><pre><span></span><code>nebula&gt; SHOW SESSIONS | YIELD $-.SessionId AS sid WHERE $-.CreateTime &lt; datetime(&quot;2023-01-05T18:00:00&quot;) | KILL SESSIONS $-.sid
+  <div class="highlight"><pre><span></span><code>nebula&gt; SHOW SESSIONS | YIELD $-.SessionId AS sid WHERE $-.CreateTime &lt; datetime("2023-01-05T18:00:00") | KILL SESSIONS $-.sid
 </code></pre></div></li>
 </ul>
 <ul>
@@ -10575,7 +10575,7 @@
 </ul>
 <ul>
 <li>终止用户名为<code>session_user1</code>创建的所有会话。
-  <div class="highlight"><pre><span></span><code>nebula&gt; SHOW SESSIONS | YIELD $-.SessionId as sid WHERE $-.UserName == &quot;session_user1&quot; | KILL SESSIONS $-.sid
+  <div class="highlight"><pre><span></span><code>nebula&gt; SHOW SESSIONS | YIELD $-.SessionId as sid WHERE $-.UserName == "session_user1" | KILL SESSIONS $-.sid
 </code></pre></div></li>
 </ul>
 <ul>
@@ -10600,7 +10600,7 @@ nebula&gt; SHOW SESSIONS | KILL SESSIONS $-.SessionId
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 10:01:29">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:16 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10684,8 +10684,6 @@ nebula&gt; SHOW SESSIONS | KILL SESSIONS $-.SessionId
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

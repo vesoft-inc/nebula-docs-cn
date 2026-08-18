@@ -10580,21 +10580,21 @@ nebula&gt; WITH [1, 2, 3, 4, 5, NULL] AS a \
 | true                    |
 +-------------------------+
 
-nebula&gt; MATCH p = (n:player{name:&quot;LeBron James&quot;})&lt;-[:follow]-(m) \
+nebula&gt; MATCH p = (n:player{name:"LeBron James"})&lt;-[:follow]-(m) \
         RETURN nodes(p)[0].player.name AS n1, nodes(p)[1].player.name AS n2, \
-        all(n IN nodes(p) WHERE n.player.name NOT STARTS WITH &quot;D&quot;) AS b;
+        all(n IN nodes(p) WHERE n.player.name NOT STARTS WITH "D") AS b;
 +----------------+-------------------+-------+
 | n1             | n2                | b     |
 +----------------+-------------------+-------+
-| &quot;LeBron James&quot; | &quot;Danny Green&quot;     | false |
-| &quot;LeBron James&quot; | &quot;Dejounte Murray&quot; | false |
-| &quot;LeBron James&quot; | &quot;Chris Paul&quot;      | true  |
-| &quot;LeBron James&quot; | &quot;Kyrie Irving&quot;    | true  |
-| &quot;LeBron James&quot; | &quot;Carmelo Anthony&quot; | true  |
-| &quot;LeBron James&quot; | &quot;Dwyane Wade&quot;     | false |
+| "LeBron James" | "Danny Green"     | false |
+| "LeBron James" | "Dejounte Murray" | false |
+| "LeBron James" | "Chris Paul"      | true  |
+| "LeBron James" | "Kyrie Irving"    | true  |
+| "LeBron James" | "Carmelo Anthony" | true  |
+| "LeBron James" | "Dwyane Wade"     | false |
 +----------------+-------------------+-------+
 
-nebula&gt; MATCH p = (n:player{name:&quot;LeBron James&quot;})-[:follow]-&gt;(m) \
+nebula&gt; MATCH p = (n:player{name:"LeBron James"})-[:follow]-&gt;(m) \
         RETURN single(n IN nodes(p) WHERE n.player.age &gt; 40) AS b;
 +------+
 | b    |
@@ -10611,14 +10611,14 @@ nebula&gt; MATCH (n:player) \
 ...
 
 nebula&gt; MATCH (n:player) \
-        WHERE exists(n[&#39;name&#39;]) \
+        WHERE exists(n['name']) \
         RETURN n;
 +---------------------------------------------------------------+
 | n                                                             |
 +---------------------------------------------------------------+
-| (&quot;player105&quot; :player{age: 31, name: &quot;Danny Green&quot;})           |
-| (&quot;player109&quot; :player{age: 34, name: &quot;Tiago Splitter&quot;})        |
-| (&quot;player111&quot; :player{age: 38, name: &quot;David West&quot;})            |
+| ("player105" :player{age: 31, name: "Danny Green"})           |
+| ("player109" :player{age: 34, name: "Tiago Splitter"})        |
+| ("player111" :player{age: 38, name: "David West"})            |
 ...
 </code></pre></div>
 
@@ -10627,7 +10627,7 @@ nebula&gt; MATCH (n:player) \
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 10:01:29">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:16 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10711,8 +10711,6 @@ nebula&gt; MATCH (n:player) \
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

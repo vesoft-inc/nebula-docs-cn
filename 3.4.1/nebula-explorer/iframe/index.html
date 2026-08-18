@@ -10529,20 +10529,20 @@
 <li>
 <p>在 Explorer 安装目录内修改配置文件<code>config/app-config.yaml</code>。需要修改的内容如下。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 取消 CertFile 和 KeyFile 参数的注释。</span>
-CertFile:<span class="w"> </span><span class="s2">&quot;./config/NebulaGraphExplorer.crt&quot;</span>
-KeyFile:<span class="w"> </span><span class="s2">&quot;./config/NebulaGraphExplorer.key&quot;</span>
+CertFile:<span class="w"> </span><span class="s2">"./config/NebulaGraphExplorer.crt"</span>
+KeyFile:<span class="w"> </span><span class="s2">"./config/NebulaGraphExplorer.key"</span>
 
 <span class="c1"># 修改 IframeMode.Enable为 true。</span>
 IframeMode:
 <span class="w">  </span>Enable:<span class="w"> </span><span class="nb">true</span>
 <span class="c1"># 可以设置窗口的 URI 白名单，默认无限制。</span>
 <span class="w">  </span><span class="c1"># Origins:</span>
-<span class="w">  </span><span class="c1">#  - &quot;http://192.168.8.8&quot;</span>
+<span class="w">  </span><span class="c1">#  - "http://192.168.8.8"</span>
 </code></pre></div>
 </li>
 <li>
 <p>在<code>config</code>文件夹内使用<code>openssl</code>命令生成自签名证书。示例如下。</p>
-<div class="highlight"><pre><span></span><code>openssl<span class="w"> </span>req<span class="w"> </span>-newkey<span class="w"> </span>rsa:4096<span class="w"> </span>-x509<span class="w"> </span>-sha512<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-nodes<span class="w"> </span>-subj<span class="w"> </span><span class="s2">&quot;/CN=NebulaGraphExplorer.com&quot;</span><span class="w"> </span>-out<span class="w"> </span>NebulaGraphExplorer.crt<span class="w"> </span>-keyout<span class="w"> </span>NebulaGraphExplorer.key
+<div class="highlight"><pre><span></span><code>openssl<span class="w"> </span>req<span class="w"> </span>-newkey<span class="w"> </span>rsa:4096<span class="w"> </span>-x509<span class="w"> </span>-sha512<span class="w"> </span>-days<span class="w"> </span><span class="m">365</span><span class="w"> </span>-nodes<span class="w"> </span>-subj<span class="w"> </span><span class="s2">"/CN=NebulaGraphExplorer.com"</span><span class="w"> </span>-out<span class="w"> </span>NebulaGraphExplorer.crt<span class="w"> </span>-keyout<span class="w"> </span>NebulaGraphExplorer.key
 </code></pre></div>
 <ul>
 <li><code>-newkey</code>：生成证书请求或者自签名证书的时候自动生成密钥。</li>
@@ -10560,11 +10560,11 @@ IframeMode:
 </li>
 <li>
 <p>在父页面通过 postMessage 方法传递登录消息，格式如下：</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="kc">t</span><span class="err">ype</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;NebulaGraphExploreLogi</span><span class="kc">n</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="kc">t</span><span class="err">ype</span><span class="p">:</span><span class="w"> </span><span class="err">'NebulaGraphExploreLogi</span><span class="kc">n</span><span class="err">'</span><span class="p">,</span><span class="w"> </span>
 <span class="w">  </span><span class="err">da</span><span class="kc">ta</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
-<span class="w">    </span><span class="err">au</span><span class="kc">t</span><span class="err">horiza</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;WyJyb</span><span class="mi">290</span><span class="err">IiwibmVidWxhIl</span><span class="mi">0</span><span class="err">=&#39;</span><span class="p">,</span><span class="w"> </span>
-<span class="w">    </span><span class="err">hos</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;</span><span class="mf">192.168.8.240</span><span class="p">:</span><span class="mi">9669</span><span class="err">&#39;</span><span class="p">,</span><span class="w"> </span>
-<span class="w">    </span><span class="err">space</span><span class="p">:</span><span class="w"> </span><span class="err">&#39;baske</span><span class="kc">t</span><span class="err">ballplayer&#39;</span><span class="w"> </span>
+<span class="w">    </span><span class="err">au</span><span class="kc">t</span><span class="err">horiza</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="p">:</span><span class="w"> </span><span class="err">'WyJyb</span><span class="mi">290</span><span class="err">IiwibmVidWxhIl</span><span class="mi">0</span><span class="err">='</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="err">hos</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">'</span><span class="mf">192.168.8.240</span><span class="p">:</span><span class="mi">9669</span><span class="err">'</span><span class="p">,</span><span class="w"> </span>
+<span class="w">    </span><span class="err">space</span><span class="p">:</span><span class="w"> </span><span class="err">'baske</span><span class="kc">t</span><span class="err">ballplayer'</span><span class="w"> </span>
 <span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
 </code></pre></div>
 <ul>
@@ -10597,7 +10597,7 @@ IframeMode:
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 10:01:29">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:16 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10681,8 +10681,6 @@ IframeMode:
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
