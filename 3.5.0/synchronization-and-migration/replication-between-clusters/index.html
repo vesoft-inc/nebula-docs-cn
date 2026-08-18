@@ -9920,21 +9920,21 @@ nebula&gt; SHOW HOSTS STORAGE;
 +------------------+------+----------+-----------+--------------+----------------------+
 | Host             | Port | Status   | Role      | Git Info Sha | Version              |
 +------------------+------+----------+-----------+--------------+----------------------+
-| &quot;192.168.10.101&quot; | 9779 | &quot;ONLINE&quot; | &quot;STORAGE&quot; | &quot;xxxxxxx&quot;    | &quot;3.5.0&quot;          |
+| "192.168.10.101" | 9779 | "ONLINE" | "STORAGE" | "xxxxxxx"    | "3.5.0"          |
 +------------------+------+----------+-----------+--------------+----------------------+
 
 nebula&gt; SHOW HOSTS STORAGE LISTENER;
 +------------------+------+----------+--------------------+--------------+----------------------+
 | Host             | Port | Status   | Role               | Git Info Sha | Version              |
 +------------------+------+----------+--------------------+--------------+----------------------+
-| &quot;192.168.10.103&quot; | 9789 | &quot;ONLINE&quot; | &quot;STORAGE_LISTENER&quot; | &quot;xxxxxxx&quot;    | &quot;3.5.0&quot;          |
+| "192.168.10.103" | 9789 | "ONLINE" | "STORAGE_LISTENER" | "xxxxxxx"    | "3.5.0"          |
 +------------------+------+----------+--------------------+--------------+----------------------+
 
 nebula&gt; SHOW HOSTS META LISTENER;
 +------------------+------+----------+-----------------+--------------+----------------------+
 | Host             | Port | Status   | Role            | Git Info Sha | Version              |
 +------------------+------+----------+-----------------+--------------+----------------------+
-| &quot;192.168.10.103&quot; | 9569 | &quot;ONLINE&quot; | &quot;META_LISTENER&quot; | &quot;xxxxxxx&quot;    |  &quot;3.5.0&quot;         |
+| "192.168.10.103" | 9569 | "ONLINE" | "META_LISTENER" | "xxxxxxx"    |  "3.5.0"         |
 +------------------+------+----------+-----------------+--------------+----------------------+
 </code></pre></div>
 </li>
@@ -9945,14 +9945,14 @@ nebula&gt; SHOW HOSTS STORAGE;
 +------------------+------+----------+-----------+--------------+----------------------+
 | Host             | Port | Status   | Role      | Git Info Sha | Version              |
 +------------------+------+----------+-----------+--------------+----------------------+
-| &quot;192.168.10.102&quot; | 9779 | &quot;ONLINE&quot; | &quot;STORAGE&quot; | &quot;xxxxxxx&quot;    | &quot;3.5.0&quot;          |
+| "192.168.10.102" | 9779 | "ONLINE" | "STORAGE" | "xxxxxxx"    | "3.5.0"          |
 +------------------+------+----------+-----------+--------------+----------------------+
 
 nebula&gt; SHOW HOSTS DRAINER;
 +------------------+------+----------+-----------+--------------+----------------------+
 | Host             | Port | Status   | Role      | Git Info Sha | Version              |
 +------------------+------+----------+-----------+--------------+----------------------+
-| &quot;192.168.10.104&quot; | 9889 | &quot;ONLINE&quot; | &quot;DRAINER&quot; | &quot;xxxxxxx&quot;    | &quot;3.5.0&quot;          |
+| "192.168.10.104" | 9889 | "ONLINE" | "DRAINER" | "xxxxxxx"    | "3.5.0"          |
 +------------------+------+----------+-----------+--------------+----------------------+
 </code></pre></div>
 </li>
@@ -9974,7 +9974,7 @@ nebula&gt; SHOW DRAINER CLIENTS;
 +-----------+------------------+------+
 | Type      | Host             | Port |
 +-----------+------------------+------+
-| &quot;DRAINER&quot; | &quot;192.168.10.104&quot; | 9889 |
+| "DRAINER" | "192.168.10.104" | 9889 |
 +-----------+------------------+------+
 </code></pre></div>
 <div class="admonition note">
@@ -9991,22 +9991,22 @@ nebula&gt; SHOW LISTENER SYNC;
 +--------+--------+------------------------+--------------------------------+----------+
 | PartId | Type   | Host                   | SpaceName                      | Status   |
 +--------+--------+------------------------+--------------------------------+----------+
-| 0      | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9569&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 1      | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 2      | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 3      | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 4      | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 5      | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 6      | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 7      | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 8      | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 9      | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 10     | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 11     | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 12     | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 13     | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 14     | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
-| 15     | &quot;SYNC&quot; | &quot;&quot;192.168.10.103&quot;:9789&quot; | &quot;replication_basketballplayer&quot; | &quot;ONLINE&quot; |
+| 0      | "SYNC" | ""192.168.10.103":9569" | "replication_basketballplayer" | "ONLINE" |
+| 1      | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 2      | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 3      | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 4      | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 5      | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 6      | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 7      | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 8      | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 9      | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 10     | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 11     | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 12     | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 13     | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 14     | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
+| 15     | "SYNC" | ""192.168.10.103":9789" | "replication_basketballplayer" | "ONLINE" |
 +--------+--------+------------------------+--------------------------------+----------+
 </code></pre></div>
 <div class="admonition note">
@@ -10029,7 +10029,7 @@ nebula&gt; SHOW DRAINERS;
 +-------------------------+----------+
 | Host                    | Status   |
 +-------------------------+----------+
-| &quot;&quot;192.168.10.104&quot;:9889&quot; | &quot;ONLINE&quot; |
+| ""192.168.10.104":9889" | "ONLINE" |
 +-------------------------+----------+
 </code></pre></div>
 <div class="admonition note">
@@ -10050,7 +10050,7 @@ nebula&gt; GET VARIABLES read_only;
 +-------------+--------+-------+
 | name        | type   | value |
 +-------------+--------+-------+
-| &quot;read_only&quot; | &quot;bool&quot; | true  |
+| "read_only" | "bool" | true  |
 +-------------+--------+-------+
 </code></pre></div>
 <h3 id="3">3.验证数据<a class="headerlink" href="#3" title="Permanent link">&para;</a></h3>
@@ -10060,9 +10060,9 @@ nebula&gt; GET VARIABLES read_only;
 <div class="highlight"><pre><span></span><code>nebula&gt; USE basketballplayer;
 nebula&gt; CREATE TAG player(name string, age int);
 nebula&gt; CREATE EDGE follow(degree int);
-nebula&gt; INSERT VERTEX player(name, age) VALUES &quot;player100&quot;:(&quot;Tim Duncan&quot;, 42);
-nebula&gt; INSERT VERTEX player(name, age) VALUES &quot;player101&quot;:(&quot;Tony Parker&quot;, 36);
-nebula&gt; INSERT EDGE follow(degree) VALUES &quot;player101&quot; -&gt; &quot;player100&quot;:(95);
+nebula&gt; INSERT VERTEX player(name, age) VALUES "player100":("Tim Duncan", 42);
+nebula&gt; INSERT VERTEX player(name, age) VALUES "player101":("Tony Parker", 36);
+nebula&gt; INSERT EDGE follow(degree) VALUES "player101" -&gt; "player100":(95);
 </code></pre></div>
 </li>
 <li>
@@ -10073,24 +10073,24 @@ nebula&gt; SHOW STATS;
 +---------+------------+-------+
 | Type    | Name       | Count |
 +---------+------------+-------+
-| &quot;Tag&quot;   | &quot;player&quot;   | 2     |
-| &quot;Edge&quot;  | &quot;follow&quot;   | 1     |
-| &quot;Space&quot; | &quot;vertices&quot; | 2     |
-| &quot;Space&quot; | &quot;edges&quot;    | 1     |
+| "Tag"   | "player"   | 2     |
+| "Edge"  | "follow"   | 1     |
+| "Space" | "vertices" | 2     |
+| "Space" | "edges"    | 1     |
 +---------+------------+-------+
 
-nebula&gt; FETCH PROP ON player &quot;player100&quot; YIELD properties(vertex);
+nebula&gt; FETCH PROP ON player "player100" YIELD properties(vertex);
 +-------------------------------+
 | properties(VERTEX)            |
 +-------------------------------+
-| {age: 42, name: &quot;Tim Duncan&quot;} |
+| {age: 42, name: "Tim Duncan"} |
 +-------------------------------+
 
-nebula&gt; GO FROM &quot;player101&quot; OVER follow YIELD dst(edge);
+nebula&gt; GO FROM "player101" OVER follow YIELD dst(edge);
 +-------------+
 | dst(EDGE)   |
 +-------------+
-| &quot;player100&quot; |
+| "player100" |
 +-------------+
 </code></pre></div>
 </li>
@@ -10105,54 +10105,54 @@ nebula&gt; GO FROM &quot;player101&quot; OVER follow YIELD dst(edge);
 <p>在主集群中执行<code>SHOW SYNC STATUS</code>命令可查看主集群给从集群发送数据的状态。<code>SHOW SYNC STATUS</code>实时获取集群间数据同步状态的信息，只有当主集群写入成功了，才往从集群发送同步数据。</p>
 <p>示例如下：</p>
 <div class="highlight"><pre><span></span><code>// 在主集群中写入数据。
-nebula&gt; INSERT VERTEX player(name,age) VALUES &quot;player102&quot;:(&quot;LaMarcus Aldridge&quot;, 33);
-nebula&gt; INSERT VERTEX player(name,age) VALUES &quot;player102&quot;:(&quot;LaMarcus Aldridge&quot;, 33);
-nebula&gt; INSERT VERTEX player(name,age) VALUES &quot;player103&quot;:(&quot;Rudy Gay&quot;, 32);
-nebula&gt; INSERT VERTEX player(name,age) VALUES &quot;player104&quot;:(&quot;Marco Belinelli&quot;, 32);
+nebula&gt; INSERT VERTEX player(name,age) VALUES "player102":("LaMarcus Aldridge", 33);
+nebula&gt; INSERT VERTEX player(name,age) VALUES "player102":("LaMarcus Aldridge", 33);
+nebula&gt; INSERT VERTEX player(name,age) VALUES "player103":("Rudy Gay", 32);
+nebula&gt; INSERT VERTEX player(name,age) VALUES "player104":("Marco Belinelli", 32);
 
 // 查看当前集群数据同步的状态（返回结果表示正在发送数据给从集群中）。
 nebula&gt; SHOW SYNC STATUS;
 +--------+-------------+-----------+--------------+
 | PartId | Sync Status | LogId Lag | Time Latency |
 +--------+-------------+-----------+--------------+
-| 0      | &quot;ONLINE&quot;    | 0         | 0            |
-| 1      | &quot;ONLINE&quot;    | 0         | 0            |
-| 2      | &quot;ONLINE&quot;    | 0         | 0            |
-| 3      | &quot;ONLINE&quot;    | 0         | 0            |
-| 4      | &quot;ONLINE&quot;    | 0         | 0            |
-| 5      | &quot;ONLINE&quot;    | 1         | 46242122     |
-| 6      | &quot;ONLINE&quot;    | 0         | 0            |
-| 7      | &quot;ONLINE&quot;    | 0         | 0            |
-| 8      | &quot;ONLINE&quot;    | 0         | 0            |
-| 9      | &quot;ONLINE&quot;    | 0         | 0            |
-| 10     | &quot;ONLINE&quot;    | 0         | 0            |
-| 11     | &quot;ONLINE&quot;    | 0         | 0            |
-| 12     | &quot;ONLINE&quot;    | 0         | 0            |
-| 13     | &quot;ONLINE&quot;    | 0         | 0            |
-| 14     | &quot;ONLINE&quot;    | 0         | 0            |
-| 15     | &quot;ONLINE&quot;    | 0         | 0            |
+| 0      | "ONLINE"    | 0         | 0            |
+| 1      | "ONLINE"    | 0         | 0            |
+| 2      | "ONLINE"    | 0         | 0            |
+| 3      | "ONLINE"    | 0         | 0            |
+| 4      | "ONLINE"    | 0         | 0            |
+| 5      | "ONLINE"    | 1         | 46242122     |
+| 6      | "ONLINE"    | 0         | 0            |
+| 7      | "ONLINE"    | 0         | 0            |
+| 8      | "ONLINE"    | 0         | 0            |
+| 9      | "ONLINE"    | 0         | 0            |
+| 10     | "ONLINE"    | 0         | 0            |
+| 11     | "ONLINE"    | 0         | 0            |
+| 12     | "ONLINE"    | 0         | 0            |
+| 13     | "ONLINE"    | 0         | 0            |
+| 14     | "ONLINE"    | 0         | 0            |
+| 15     | "ONLINE"    | 0         | 0            |
 +--------+-------------+-----------+--------------+
 // 再次查看当前集群数据同步的状态（返回结果表示数据已完全同步至从集群，没有需要待同步的数据）。
 nebula&gt; SHOW SYNC STATUS;
 +--------+-------------+-----------+--------------+
 | PartId | Sync Status | LogId Lag | Time Latency |
 +--------+-------------+-----------+--------------+
-| 0      | &quot;ONLINE&quot;    | 0         | 0            |
-| 1      | &quot;ONLINE&quot;    | 0         | 0            |
-| 2      | &quot;ONLINE&quot;    | 0         | 0            |
-| 3      | &quot;ONLINE&quot;    | 0         | 0            |
-| 4      | &quot;ONLINE&quot;    | 0         | 0            |
-| 5      | &quot;ONLINE&quot;    | 0         | 0            |
-| 6      | &quot;ONLINE&quot;    | 0         | 0            |
-| 7      | &quot;ONLINE&quot;    | 0         | 0            |
-| 8      | &quot;ONLINE&quot;    | 0         | 0            |
-| 9      | &quot;ONLINE&quot;    | 0         | 0            |
-| 10     | &quot;ONLINE&quot;    | 0         | 0            |
-| 11     | &quot;ONLINE&quot;    | 0         | 0            |
-| 12     | &quot;ONLINE&quot;    | 0         | 0            |
-| 13     | &quot;ONLINE&quot;    | 0         | 0            |
-| 14     | &quot;ONLINE&quot;    | 0         | 0            |
-| 15     | &quot;ONLINE&quot;    | 0         | 0            |
+| 0      | "ONLINE"    | 0         | 0            |
+| 1      | "ONLINE"    | 0         | 0            |
+| 2      | "ONLINE"    | 0         | 0            |
+| 3      | "ONLINE"    | 0         | 0            |
+| 4      | "ONLINE"    | 0         | 0            |
+| 5      | "ONLINE"    | 0         | 0            |
+| 6      | "ONLINE"    | 0         | 0            |
+| 7      | "ONLINE"    | 0         | 0            |
+| 8      | "ONLINE"    | 0         | 0            |
+| 9      | "ONLINE"    | 0         | 0            |
+| 10     | "ONLINE"    | 0         | 0            |
+| 11     | "ONLINE"    | 0         | 0            |
+| 12     | "ONLINE"    | 0         | 0            |
+| 13     | "ONLINE"    | 0         | 0            |
+| 14     | "ONLINE"    | 0         | 0            |
+| 15     | "ONLINE"    | 0         | 0            |
 +--------+-------------+-----------+--------------+
 </code></pre></div>
 <p>执行<code>SHOW SYNC STATUS</code>命令，返回结果中的参数说明如下：</p>
@@ -10188,22 +10188,22 @@ nebula&gt; SHOW SYNC STATUS;
 +--------+-------------+-----------+--------------+
 | PartId | Sync Status | LogId Lag | Time Latency |
 +--------+-------------+-----------+--------------+
-| 0      | &quot;ONLINE&quot;    | 0         | 0            |
-| 1      | &quot;ONLINE&quot;    | 0         | 0            |
-| 2      | &quot;ONLINE&quot;    | 0         | 0            |
-| 3      | &quot;ONLINE&quot;    | 0         | 0            |
-| 4      | &quot;ONLINE&quot;    | 0         | 0            |
-| 5      | &quot;ONLINE&quot;    | 0         | 0            |
-| 6      | &quot;ONLINE&quot;    | 0         | 0            |
-| 7      | &quot;ONLINE&quot;    | 0         | 0            |
-| 8      | &quot;ONLINE&quot;    | 0         | 0            |
-| 9      | &quot;ONLINE&quot;    | 0         | 0            |
-| 10     | &quot;ONLINE&quot;    | 0         | 0            |
-| 11     | &quot;ONLINE&quot;    | 0         | 0            |
-| 12     | &quot;ONLINE&quot;    | 0         | 0            |
-| 13     | &quot;ONLINE&quot;    | 0         | 0            |
-| 14     | &quot;ONLINE&quot;    | 0         | 0            |
-| 15     | &quot;ONLINE&quot;    | 0         | 0            |
+| 0      | "ONLINE"    | 0         | 0            |
+| 1      | "ONLINE"    | 0         | 0            |
+| 2      | "ONLINE"    | 0         | 0            |
+| 3      | "ONLINE"    | 0         | 0            |
+| 4      | "ONLINE"    | 0         | 0            |
+| 5      | "ONLINE"    | 0         | 0            |
+| 6      | "ONLINE"    | 0         | 0            |
+| 7      | "ONLINE"    | 0         | 0            |
+| 8      | "ONLINE"    | 0         | 0            |
+| 9      | "ONLINE"    | 0         | 0            |
+| 10     | "ONLINE"    | 0         | 0            |
+| 11     | "ONLINE"    | 0         | 0            |
+| 12     | "ONLINE"    | 0         | 0            |
+| 13     | "ONLINE"    | 0         | 0            |
+| 14     | "ONLINE"    | 0         | 0            |
+| 15     | "ONLINE"    | 0         | 0            |
 +--------+-------------+-----------+--------------+
 </code></pre></div>
 执行<code>SHOW DRAINER SYNC STATUS</code>命令，返回结果中的参数说明如下：</p>
@@ -10408,7 +10408,7 @@ nebula&gt; ADD LISTENER SYNC META 192.168.10.105:9569 STORAGE 192.168.10.105:978
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年12月30日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:02 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10477,8 +10477,6 @@ nebula&gt; ADD LISTENER SYNC META 192.168.10.105:9569 STORAGE 192.168.10.105:978
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

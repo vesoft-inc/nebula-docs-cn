@@ -9820,10 +9820,10 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
   # 悦数图数据库 相关配置
   nebula: {
     address:{
-      graph:[&quot;127.0.0.1:9669&quot;]
+      graph:["127.0.0.1:9669"]
       #任意一个 Meta 服务的地址。
       #如果您的 悦数图数据库 在虚拟网络中，如k8s，请配置 Leader Meta的地址。
-      meta:[&quot;127.0.0.1:9559&quot;]
+      meta:["127.0.0.1:9559"]
     }
     user: root
     pswd: nebula
@@ -9859,22 +9859,22 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         source: neo4j
         sink: client
       }
-      server: &quot;bolt://192.168.*.*:7687&quot;
+      server: "bolt://192.168.*.*:7687"
       user: neo4j
       password:neo4j
       database:neo4j
-      exec: &quot;match (n:player) return n.id as id, n.age as age, n.name as name&quot;
+      exec: "match (n:player) return n.id as id, n.age as age, n.name as name"
       fields: [age,name]
       nebula.fields: [age,name]
       vertex: {
         field:id
       # udf:{
-      #            separator:&quot;_&quot;
+      #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
       # 为 VID 增加指定的前缀。例如 VID 为 12345，增加前缀 tag1 后为 tag1_12345。下划线无法修改。
-      # prefix:&quot;tag1&quot;
+      # prefix:"tag1"
       # 对 string 类型的 VID 进行哈希化操作。
       # policy:hash
       }
@@ -9896,12 +9896,12 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         source: neo4j
         sink: client
       }
-      server: &quot;bolt://192.168.*.*:7687&quot;
+      server: "bolt://192.168.*.*:7687"
       user: neo4j
       password:neo4j
       # bolt 3 does not support `select database`, please do not config database
       # database:neo4j
-      exec: &quot;match (n:team) return n.id as id,n.name as name order by id(n)&quot;
+      exec: "match (n:team) return n.id as id,n.name as name order by id(n)"
       fields: [name]
       nebula.fields: [name]
       vertex: {
@@ -9922,35 +9922,35 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         source: neo4j
         sink: client
       }
-      server: &quot;bolt://192.168.*.*:7687&quot;
+      server: "bolt://192.168.*.*:7687"
       user: neo4j
       password:neo4j
       # bolt 3 不支持多数据库，请勿配置数据库名。4 及以上可以配置数据库名。
       # database:neo4j
-      exec: &quot;match (a:player)-[r:follow]-&gt;(b:player) return a.id as src, b.id as dst, r.degree as degree  order by id(r)&quot;
+      exec: "match (a:player)-[r:follow]-&gt;(b:player) return a.id as src, b.id as dst, r.degree as degree  order by id(r)"
       fields: [degree]
       nebula.fields: [degree]
       source: {
         field: src
       # udf:{
-      #            separator:&quot;_&quot;
+      #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
       # 为 VID 增加指定的前缀。例如 VID 为 12345，增加前缀 tag1 后为 tag1_12345。下划线无法修改。
-      # prefix:&quot;tag1&quot;
+      # prefix:"tag1"
       # 对 string 类型的 VID 进行哈希化操作。
       # policy:hash
       }
       target: {
         field: dst
       # udf:{
-      #            separator:&quot;_&quot;
+      #            separator:"_"
       #            oldColNames:[field-0,field-1,field-2]
       #            newColName:new-field
       #        }
       # 为 VID 增加指定的前缀。例如 VID 为 12345，增加前缀 tag1 后为 tag1_12345。下划线无法修改。
-      # prefix:&quot;tag1&quot;
+      # prefix:"tag1"
       # 对 string 类型的 VID 进行哈希化操作。
       # policy:hash
       }
@@ -9968,10 +9968,10 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         source: neo4j
         sink: client
       }
-      server: &quot;bolt://192.168.*.*:7687&quot;
+      server: "bolt://192.168.*.*:7687"
       user: neo4j
       password:neo4j
-      exec: &quot;match (a:player)-[r:serve]-&gt;(b:team) return a.id as src, b.id as dst, r.start_year as start_year, r.end_year as end_year  order by id(r)&quot;
+      exec: "match (a:player)-[r:serve]-&gt;(b:team) return a.id as src, b.id as dst, r.start_year as start_year, r.end_year as end_year  order by id(r)"
       fields: [start_year,end_year]
       nebula.fields: [start_year,end_year]
       source: {
@@ -9999,14 +9999,14 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
 <p>如果启用了断点续传功能，为避免数据丢失，在断点和续传之间，数据库不应该改变状态，例如不能添加数据或删除数据，同时，不能更改<code>partition</code>数量配置。</p>
 <h3 id="4">步骤 4：向悦数图数据库导入数据<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
 <p>运行如下命令将文件数据导入到悦数图数据库中。关于参数的说明，请参见<a href="../../parameter-reference/ex-ug-para-import-command/">导入命令参数</a>。</p>
-<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span>&lt;nebula-exchange-3.5.0.jar_path&gt;<span class="w"> </span>-c<span class="w"> </span>&lt;neo4j_application.conf_path&gt;<span class="w"> </span>
+<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">"local"</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span>&lt;nebula-exchange-3.5.0.jar_path&gt;<span class="w"> </span>-c<span class="w"> </span>&lt;neo4j_application.conf_path&gt;<span class="w"> </span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>JAR 包有两种获取方式：<a href="../../ex-ug-compile/">自行编译</a>或者从 maven 仓库下载。</p>
 </div>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w">  </span>--master<span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w">  </span>/root/nebula-exchange/nebula-exchange/target/nebula-exchange-3.5.0.jar<span class="w">  </span>-c<span class="w"> </span>/root/nebula-exchange/nebula-exchange/target/classes/neo4j_application.conf
+<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w">  </span>--master<span class="w"> </span><span class="s2">"local"</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w">  </span>/root/nebula-exchange/nebula-exchange/target/nebula-exchange-3.5.0.jar<span class="w">  </span>-c<span class="w"> </span>/root/nebula-exchange/nebula-exchange/target/classes/neo4j_application.conf
 </code></pre></div>
 <p>用户可以在返回信息中搜索<code>batchSuccess.&lt;tag_name/edge_name&gt;</code>，确认成功的数量。例如<code>batchSuccess.follow: 300</code>。</p>
 <h3 id="5">步骤 5：（可选）验证数据<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
@@ -10022,7 +10022,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年12月30日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:02 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10091,8 +10091,6 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

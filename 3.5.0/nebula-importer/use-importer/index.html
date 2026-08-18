@@ -9800,7 +9800,7 @@ $<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </spa
 <p>示例配置如下：</p>
 <div class="highlight"><pre><span></span><code><span class="nt">client</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v3</span>
-<span class="w">  </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;192.168.1.100:9669,192.168.1.101:9669&quot;</span>
+<span class="w">  </span><span class="nt">address</span><span class="p">:</span><span class="w"> </span><span class="s">"192.168.1.100:9669,192.168.1.101:9669"</span>
 <span class="w">  </span><span class="nt">user</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">root</span>
 <span class="w">  </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nebula</span>
 <span class="w">  </span><span class="nt">concurrencyPerAddress</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span>
@@ -10005,8 +10005,8 @@ $<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </spa
 <span class="c1">#      region: us-east-1     # 必填。S3 服务的区域。</span>
 <span class="c1">#      bucket: gdelt-open-data    # 必填。S3 服务中的 bucket。</span>
 <span class="c1">#      key: events/20190918.export.csv     # 必填。S3 服务中文件的 key。</span>
-<span class="c1">#      accessKeyID: &quot;&quot;    # 可选。S3 服务的访问密钥。如果是公共数据，则无需配置。</span>
-<span class="c1">#      accessKeySecret: &quot;&quot;     # 可选。S3 服务的密钥。如果是公共数据，则无需配置。</span>
+<span class="c1">#      accessKeyID: ""    # 可选。S3 服务的访问密钥。如果是公共数据，则无需配置。</span>
+<span class="c1">#      accessKeySecret: ""     # 可选。S3 服务的密钥。如果是公共数据，则无需配置。</span>
 <span class="c1">#  - oss:</span>
 <span class="c1">#      endpoint: https://oss-cn-hangzhou.aliyuncs.com    # 必填。OSS 服务端点。</span>
 <span class="c1">#      bucket: bucketName    # 必填。OSS 服务中的 bucket。</span>
@@ -10018,7 +10018,7 @@ $<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </spa
 <span class="c1">#      port: 21    # 必填。FTP 服务的端口。</span>
 <span class="c1">#      user: user    # 必填。FTP 服务的用户名。</span>
 <span class="c1">#      password: password    # 必填。FTP 服务的密码。</span>
-<span class="c1">#      path: &quot;/events/20190918.export.csv&quot;    # FTP 服务中文件的路径。</span>
+<span class="c1">#      path: "/events/20190918.export.csv"    # FTP 服务中文件的路径。</span>
 <span class="c1">#  - sftp:</span>
 <span class="c1">#      host: 192.168.0.10    # 必填。SFTP 服务的主机。</span>
 <span class="c1">#      port: 22    # 必填。SFTP 服务的端口。</span>
@@ -10027,51 +10027,51 @@ $<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </spa
 <span class="c1">#      keyFile: keyFile    # 可选。SFTP 服务的 SSH 密钥文件路径。</span>
 <span class="c1">#      keyData: keyData    $ 可选。SFTP 服务的 SSH 密钥文件内容。</span>
 <span class="c1">#      passphrase: passphrase    # 可选。SFTP 服务的 SSH 密钥密码。</span>
-<span class="c1">#      path: &quot;/events/20190918.export.csv&quot;    # 必填。SFTP 服务中文件的路径。</span>
+<span class="c1">#      path: "/events/20190918.export.csv"    # 必填。SFTP 服务中文件的路径。</span>
 <span class="c1">#  - hdfs:</span>
-<span class="c1">#      address: &quot;127.0.0.1:8020&quot;    # 必填。HDFS 服务的地址。</span>
-<span class="c1">#      user: &quot;hdfs&quot;    # 可选。HDFS 服务的用户名。</span>
-<span class="c1">#      path: &quot;/events/20190918.export.csv&quot;    # 必填。HDFS 服务中文件的路径。</span>
+<span class="c1">#      address: "127.0.0.1:8020"    # 必填。HDFS 服务的地址。</span>
+<span class="c1">#      user: "hdfs"    # 可选。HDFS 服务的用户名。</span>
+<span class="c1">#      path: "/events/20190918.export.csv"    # 必填。HDFS 服务中文件的路径。</span>
 <span class="w">    </span><span class="nt">batch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">256</span>
 <span class="w">    </span><span class="nt">csv</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">delimiter</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;|&quot;</span>
+<span class="w">      </span><span class="nt">delimiter</span><span class="p">:</span><span class="w"> </span><span class="s">"|"</span>
 <span class="w">      </span><span class="nt">withHeader</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">      </span><span class="nt">lazyQuotes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">    </span><span class="nt">tags</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Person</span>
 <span class="w">      </span><span class="nt">id</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;STRING&quot;</span>
-<span class="w">        </span><span class="nt">function</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;hash&quot;</span>
+<span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">"STRING"</span>
+<span class="w">        </span><span class="nt">function</span><span class="p">:</span><span class="w"> </span><span class="s">"hash"</span>
 <span class="c1">#       index: 0        </span>
 <span class="w">        </span><span class="nt">concatItems</span><span class="p">:</span>
 <span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person_</span>
 <span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
 <span class="w">          </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_id</span>
 <span class="w">      </span><span class="nt">props</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;firstName&quot;</span>
-<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;STRING&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">"firstName"</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">"STRING"</span>
 <span class="w">          </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;lastName&quot;</span>
-<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;STRING&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">"lastName"</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">"STRING"</span>
 <span class="w">          </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gender&quot;</span>
-<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;STRING&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">"gender"</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">"STRING"</span>
 <span class="w">          </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3</span>
 <span class="w">          </span><span class="nt">nullable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">          </span><span class="nt">defaultValue</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">female</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;birthday&quot;</span>
-<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DATE&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">"birthday"</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">"DATE"</span>
 <span class="w">          </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">4</span>
 <span class="w">          </span><span class="nt">nullable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">          </span><span class="nt">nullValue</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_NULL_</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;creationDate&quot;</span>
-<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DATETIME&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">"creationDate"</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">"DATETIME"</span>
 <span class="w">          </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;locationIP&quot;</span>
-<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;STRING&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">"locationIP"</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">"STRING"</span>
 <span class="w">          </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">6</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;browserUsed&quot;</span>
-<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;STRING&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">"browserUsed"</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">"STRING"</span>
 <span class="w">          </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">7</span>
 <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./knows.csv</span>
 <span class="w">    </span><span class="nt">batch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">256</span>
@@ -10079,21 +10079,21 @@ $<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </spa
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">KNOWS</span><span class="w"> </span><span class="c1"># person_knows_person</span>
 <span class="w">      </span><span class="nt">src</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">id</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;STRING&quot;</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">"STRING"</span>
 <span class="w">          </span><span class="nt">concatItems</span><span class="p">:</span>
 <span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person_</span>
 <span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
 <span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_id</span>
 <span class="w">      </span><span class="nt">dst</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">id</span><span class="p">:</span>
-<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;STRING&quot;</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">"STRING"</span>
 <span class="w">          </span><span class="nt">concatItems</span><span class="p">:</span>
 <span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person_</span>
 <span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 <span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_id</span>
 <span class="w">      </span><span class="nt">props</span><span class="p">:</span>
-<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;creationDate&quot;</span>
-<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;DATETIME&quot;</span>
+<span class="w">        </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">"creationDate"</span>
+<span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">"DATETIME"</span>
 <span class="w">          </span><span class="nt">index</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span>
 <span class="w">          </span><span class="nt">nullable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
 <span class="w">          </span><span class="nt">nullValue</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">_NULL_</span>
@@ -10315,7 +10315,7 @@ $<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </spa
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年12月30日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:02 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10384,8 +10384,6 @@ $<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </spa
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

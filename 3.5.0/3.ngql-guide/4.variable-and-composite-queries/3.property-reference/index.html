@@ -9654,16 +9654,16 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 </table>
 <h2 id="_8">示例<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code># 返回起始点的 Tag player 的 name 属性值和目的点的 Tag player 的 age 属性值。
-nebula&gt; GO FROM &quot;player100&quot; OVER follow YIELD $^.player.name AS startName, $$.player.age AS endAge;
+nebula&gt; GO FROM "player100" OVER follow YIELD $^.player.name AS startName, $$.player.age AS endAge;
 +--------------+--------+
 | startName    | endAge |
 +--------------+--------+
-| &quot;Tim Duncan&quot; | 36     |
-| &quot;Tim Duncan&quot; | 41     |
+| "Tim Duncan" | 36     |
+| "Tim Duncan" | 41     |
 +--------------+--------+
 
 # 返回 Edge type follow 的 degree 属性值。
-nebula&gt; GO FROM &quot;player100&quot; OVER follow YIELD follow.degree;
+nebula&gt; GO FROM "player100" OVER follow YIELD follow.degree;
 +---------------+
 | follow.degree |
 +---------------+
@@ -9671,20 +9671,20 @@ nebula&gt; GO FROM &quot;player100&quot; OVER follow YIELD follow.degree;
 +---------------+
 
 # 返回 EdgeType 是 follow 的起始点 VID、目的点 VID、EdgeType 编码（正数为正向边，负数为逆向边），和边的 rank 值。
-nebula&gt; GO FROM &quot;player100&quot; OVER follow YIELD follow._src, follow._dst, follow._type, follow._rank;
+nebula&gt; GO FROM "player100" OVER follow YIELD follow._src, follow._dst, follow._type, follow._rank;
 +-------------+-------------+--------------+--------------+
 | follow._src | follow._dst | follow._type | follow._rank |
 +-------------+-------------+--------------+--------------+
-| &quot;player100&quot; | &quot;player101&quot; | 17           | 0            |
-| &quot;player100&quot; | &quot;player125&quot; | 17           | 0            |
+| "player100" | "player101" | 17           | 0            |
+| "player100" | "player125" | 17           | 0            |
 +-------------+-------------+--------------+--------------+
 </code></pre></div>
 <div class="admonition compatibility">
 <p class="admonition-title">历史版本兼容性</p>
 <p>从悦数图数据库 2.6.0 起支持了新的 <a href="../../6.functions-and-expressions/4.schema/">Schema 相关函数</a>。以上示例在悦数图数据库 3.5.0 中的近似写法如下：</p>
-<div class="highlight"><pre><span></span><code>GO FROM &quot;player100&quot; OVER follow YIELD properties($^).name AS startName, properties($$).age AS endAge;
-GO FROM &quot;player100&quot; OVER follow YIELD properties(edge).degree;
-GO FROM &quot;player100&quot; OVER follow YIELD src(edge), dst(edge), type(edge), rank(edge);
+<div class="highlight"><pre><span></span><code>GO FROM "player100" OVER follow YIELD properties($^).name AS startName, properties($$).age AS endAge;
+GO FROM "player100" OVER follow YIELD properties(edge).degree;
+GO FROM "player100" OVER follow YIELD src(edge), dst(edge), type(edge), rank(edge);
 </code></pre></div>
 <p>悦数图数据库 3.5.0 兼容新旧语法。</p>
 </div>
@@ -9694,7 +9694,7 @@ GO FROM &quot;player100&quot; OVER follow YIELD src(edge), dst(edge), type(edge)
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年12月30日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:02 UTC">2026年8月18日</span>
       
     
   </small>
@@ -9763,8 +9763,6 @@ GO FROM &quot;player100&quot; OVER follow YIELD src(edge), dst(edge), type(edge)
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

@@ -9491,18 +9491,18 @@ $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/usr/
 <span class="w">  </span><span class="nt">graphd</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">config</span><span class="p">:</span>
 <span class="w">      </span><span class="c1"># 是否在日志文件名中包含时间戳，需设置为 false 以实现日志轮转。默认值为 true。</span>
-<span class="w">      </span><span class="s">&quot;timestamp_in_logfile_name&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;false&quot;</span>
+<span class="w">      </span><span class="s">"timestamp_in_logfile_name"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"false"</span>
 <span class="w">  </span><span class="nt">metad</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">config</span><span class="p">:</span>
-<span class="w">      </span><span class="s">&quot;timestamp_in_logfile_name&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;false&quot;</span>
+<span class="w">      </span><span class="s">"timestamp_in_logfile_name"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"false"</span>
 <span class="w">  </span><span class="nt">storaged</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">config</span><span class="p">:</span>
-<span class="w">      </span><span class="s">&quot;timestamp_in_logfile_name&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;false&quot;</span>
+<span class="w">      </span><span class="s">"timestamp_in_logfile_name"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"false"</span>
 <span class="w">  </span><span class="nt">logRotate</span><span class="p">:</span><span class="w"> </span><span class="c1"># 日志轮转配置</span>
 <span class="w">    </span><span class="c1"># 日志文件在被删除前会被轮转的次数。默认值为 5，0 表示删除前不会被轮转。</span>
 <span class="w">    </span><span class="nt">rotate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
 <span class="w">    </span><span class="c1"># 仅当日志文件增长超过定义的字节大小时才会轮转日志文件。默认值为 200M。</span>
-<span class="w">    </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;200M&quot;</span>
+<span class="w">    </span><span class="nt">size</span><span class="p">:</span><span class="w"> </span><span class="s">"200M"</span>
 </code></pre></div>
 <h2 id="_4">收集日志<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>如果不想挂载额外的日志磁盘备份日志文件，或者想通过诸如 <a href="https://fluentbit.io/">fluent-bit</a> 之类的服务收集日志并将其发送到日志中心，可以配置日志至标准错误输出。Operator 使用 <a href="https://github.com/google/glog">glog</a> 工具将日志记录到标准错误输出。</p>
@@ -9516,12 +9516,12 @@ $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/usr/
 <span class="w">  </span><span class="nt">graphd</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">config</span><span class="p">:</span>
 <span class="w">      </span><span class="c1"># 是否将标准错误重定向到单独的输出文件。默认值为 false，表示不重定向。</span>
-<span class="w">      </span><span class="nt">redirect_stdout</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;false&quot;</span>
+<span class="w">      </span><span class="nt">redirect_stdout</span><span class="p">:</span><span class="w"> </span><span class="s">"false"</span>
 <span class="w">      </span><span class="c1"># 日志内容的严重程度级别：INFO、WARNING、ERROR 和 FATAL。取值分别为 0、1、2 和 3。</span>
-<span class="w">      </span><span class="nt">stderrthreshold</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0&quot;</span>
+<span class="w">      </span><span class="nt">stderrthreshold</span><span class="p">:</span><span class="w"> </span><span class="s">"0"</span>
 <span class="w">    </span><span class="nt">env</span><span class="p">:</span><span class="w"> </span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GLOG_logtostderr</span><span class="w"> </span><span class="c1"># 日志写入标准错误而不是文件。</span>
-<span class="w">      </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="c1"># 1 表示写入标准错误，0 表示写入文件中。</span>
+<span class="w">      </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">"1"</span><span class="w"> </span><span class="c1"># 1 表示写入标准错误，0 表示写入文件中。</span>
 <span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vesoft/nebula-graphd</span>
 <span class="w">    </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 <span class="w">    </span><span class="nt">resources</span><span class="p">:</span>
@@ -9534,8 +9534,8 @@ $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/usr/
 <span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v3.5.0</span>
 <span class="w">  </span><span class="nt">metad</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">config</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">redirect_stdout</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;false&quot;</span>
-<span class="w">      </span><span class="nt">stderrthreshold</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0&quot;</span>
+<span class="w">      </span><span class="nt">redirect_stdout</span><span class="p">:</span><span class="w"> </span><span class="s">"false"</span>
+<span class="w">      </span><span class="nt">stderrthreshold</span><span class="p">:</span><span class="w"> </span><span class="s">"0"</span>
 <span class="w">    </span><span class="nt">dataVolumeClaim</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">resources</span><span class="p">:</span>
 <span class="w">        </span><span class="nt">requests</span><span class="p">:</span>
@@ -9543,7 +9543,7 @@ $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/usr/
 <span class="w">      </span><span class="nt">storageClassName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ebs-sc</span>
 <span class="w">    </span><span class="nt">env</span><span class="p">:</span>
 <span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GLOG_logtostderr</span>
-<span class="w">      </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1&quot;</span>
+<span class="w">      </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="s">"1"</span>
 <span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vesoft/nebula-metad</span>
 <span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">...</span>
 </code></pre></div>
@@ -9553,7 +9553,7 @@ $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/usr/
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年12月30日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:02 UTC">2026年8月18日</span>
       
     
   </small>
@@ -9622,8 +9622,6 @@ $<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/usr/
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

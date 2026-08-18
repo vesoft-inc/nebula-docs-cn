@@ -9566,19 +9566,19 @@ END
 | 1      |
 +--------+
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM &quot;player100&quot; OVER follow \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM "player100" OVER follow \
         YIELD properties($$).name AS Name, \
         CASE properties($$).age &gt; 35 \
-        WHEN true THEN &quot;Yes&quot; \
-        WHEN false THEN &quot;No&quot; \
-        ELSE &quot;Nah&quot; \
+        WHEN true THEN "Yes" \
+        WHEN false THEN "No" \
+        ELSE "Nah" \
         END \
         AS Age_above_35;
 +-----------------+--------------+
 | Name            | Age_above_35 |
 +-----------------+--------------+
-| &quot;Tony Parker&quot;   | &quot;Yes&quot;        |
-| &quot;Manu Ginobili&quot; | &quot;Yes&quot;        |
+| "Tony Parker"   | "Yes"        |
+| "Manu Ginobili" | "Yes"        |
 +-----------------+--------------+
 </code></pre></div>
 <h3 id="_3">通用形式<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
@@ -9631,32 +9631,32 @@ END
 <div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player) WHERE v.player.age &gt; 30 \
         RETURN v.player.name AS Name,  \
         CASE \
-        WHEN v.player.name STARTS WITH &quot;T&quot; THEN &quot;Yes&quot; \
-        ELSE &quot;No&quot; \
+        WHEN v.player.name STARTS WITH "T" THEN "Yes" \
+        ELSE "No" \
         END \
         AS Starts_with_T;
 +---------------------+---------------+
 | Name                | Starts_with_T |
 +---------------------+---------------+
-| &quot;Tim Duncan&quot;        | &quot;Yes&quot;         |
-| &quot;LaMarcus Aldridge&quot; | &quot;No&quot;          |
-| &quot;Tony Parker&quot;       | &quot;Yes&quot;         |
+| "Tim Duncan"        | "Yes"         |
+| "LaMarcus Aldridge" | "No"          |
+| "Tony Parker"       | "Yes"         |
 +---------------------+---------------+
 </code></pre></div>
 <h3 id="_4">简单形式和通用形式的区别<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>为了避免误用简单形式和通用形式，用户需要了解它们的差异。请参见如下示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM &quot;player100&quot; OVER follow \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM "player100" OVER follow \
         YIELD properties($$).name AS Name, properties($$).age AS Age, \
         CASE properties($$).age \
-        WHEN properties($$).age &gt; 35 THEN &quot;Yes&quot; \
-        ELSE &quot;No&quot; \
+        WHEN properties($$).age &gt; 35 THEN "Yes" \
+        ELSE "No" \
         END \
         AS Age_above_35;
 +-----------------+-----+--------------+
 | Name            | Age | Age_above_35 |
 +-----------------+-----+--------------+
-| &quot;Tony Parker&quot;   | 36  | &quot;No&quot;         |
-| &quot;Manu Ginobili&quot; | 41  | &quot;No&quot;         |
+| "Tony Parker"   | 36  | "No"         |
+| "Manu Ginobili" | 41  | "No"         |
 +-----------------+-----+--------------+
 </code></pre></div>
 <p>示例本意为当玩家年龄大于 35 时输出<code>Yes</code>。但是查看输出结果，年龄为 36 时输出的却是<code>No</code>。</p>
@@ -9695,7 +9695,7 @@ nebula&gt; RETURN coalesce(null) as result;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年12月30日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:02 UTC">2026年8月18日</span>
       
     
   </small>
@@ -9764,8 +9764,6 @@ nebula&gt; RETURN coalesce(null) as result;
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

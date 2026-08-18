@@ -9442,14 +9442,14 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <h2 id="_2">证书配置说明<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>Operator 提供<code>sslCerts</code>字段指定加密的证书。<code>sslCerts</code>字段包含三个子字段：<code>serverSecret</code>、<code>clientSecret</code>、<code>caSecret</code>。这三个字段分别用于指定悦数图数据库服务端证书、客户端证书和 CA 证书的 Secret 名称。当用户指定这三个字段时，Operator 会从对应的 Secret 中读取证书内容并挂载到集群的 Pod 中。</p>
 <div class="highlight"><pre><span></span><code><span class="nt">sslCerts</span><span class="p">:</span>
-<span class="w">  </span><span class="nt">serverSecret</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;server-cert&quot;</span><span class="w">     </span><span class="c1"># 服务端证书 Secret 的名称。</span>
-<span class="w">  </span><span class="nt">serverCert</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w">                  </span><span class="c1"># 服务端证书 Secret 中证书的键名称，默认为 tls.crt。</span>
-<span class="w">  </span><span class="nt">serverKey</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w">                   </span><span class="c1"># 服务端证书 Secret 中私钥的键名称，默认为 tls.key。</span>
-<span class="w">  </span><span class="nt">clientSecret</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;client-cert&quot;</span><span class="w">     </span><span class="c1"># 客户端证书 Secret 的名称。</span>
-<span class="w">  </span><span class="nt">clientCert</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w">                  </span><span class="c1"># 客户端证书 Secret 中证书的键名称，默认为 tls.crt。</span>
-<span class="w">  </span><span class="nt">clientKey</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w">                   </span><span class="c1"># 客户端证书 Secret 中私钥的键名称，默认为 tls.key。</span>
-<span class="w">  </span><span class="nt">caSecret</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ca-cert&quot;</span><span class="w">             </span><span class="c1"># CA 证书 Secret 的名称。</span>
-<span class="w">  </span><span class="nt">caCert</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w">                      </span><span class="c1"># CA 证书 Secret 中证书的键名称，默认为 ca.crt。</span>
+<span class="w">  </span><span class="nt">serverSecret</span><span class="p">:</span><span class="w"> </span><span class="s">"server-cert"</span><span class="w">     </span><span class="c1"># 服务端证书 Secret 的名称。</span>
+<span class="w">  </span><span class="nt">serverCert</span><span class="p">:</span><span class="w"> </span><span class="s">""</span><span class="w">                  </span><span class="c1"># 服务端证书 Secret 中证书的键名称，默认为 tls.crt。</span>
+<span class="w">  </span><span class="nt">serverKey</span><span class="p">:</span><span class="w"> </span><span class="s">""</span><span class="w">                   </span><span class="c1"># 服务端证书 Secret 中私钥的键名称，默认为 tls.key。</span>
+<span class="w">  </span><span class="nt">clientSecret</span><span class="p">:</span><span class="w"> </span><span class="s">"client-cert"</span><span class="w">     </span><span class="c1"># 客户端证书 Secret 的名称。</span>
+<span class="w">  </span><span class="nt">clientCert</span><span class="p">:</span><span class="w"> </span><span class="s">""</span><span class="w">                  </span><span class="c1"># 客户端证书 Secret 中证书的键名称，默认为 tls.crt。</span>
+<span class="w">  </span><span class="nt">clientKey</span><span class="p">:</span><span class="w"> </span><span class="s">""</span><span class="w">                   </span><span class="c1"># 客户端证书 Secret 中私钥的键名称，默认为 tls.key。</span>
+<span class="w">  </span><span class="nt">caSecret</span><span class="p">:</span><span class="w"> </span><span class="s">"ca-cert"</span><span class="w">             </span><span class="c1"># CA 证书 Secret 的名称。</span>
+<span class="w">  </span><span class="nt">caCert</span><span class="p">:</span><span class="w"> </span><span class="s">""</span><span class="w">                      </span><span class="c1"># CA 证书 Secret 中证书的键名称，默认为 ca.crt。</span>
 </code></pre></div>
 <p><code>serverCert</code>和<code>serverKey</code>、<code>clientCert</code>和<code>clientKey</code>、<code>caCert</code>分别用于指定服务端 Secret 的证书和私钥的键名称，客户端 Secret 的证书和私钥的键名称，和 CA Secret 的证书键名称。如果没有自定义这些字段值，则 Operator 默认<code>serverCert</code>和<code>clientCert</code>的值为<code>tls.crt</code>，<code>serverKey</code>和<code>clientKey</code>的值为<code>tls.key</code>，<code>caCert</code>值为<code>ca.crt</code>。但在 K8s 集群中，TLS 类型的 Secret 默认使用<code>tls.crt</code>和<code>tls.key</code>作证书和私钥的键名称。因此，在创建悦数图数据库集群后，需要在集群配置中手动将<code>caCert</code>字段的<code>ca.crt</code>更改为<code>tls.crt</code>，这样 Operator 才能正确地读取 CA 证书的内容。如果用户自定义这些字段值，同时也需要在创建 Secret 的时候指定 Secret 的证书和私钥的键名称。可通过<code>kubectl create secret generic -h</code>查看创建指定键名的 Secret 的命令。</p>
 <p>用户可通过<code>insecureSkipVerify</code>字段决定客户端是否会验证服务端的证书链和主机名。在生产环境中，建议将其设置为<code>false</code>以确保通信的安全性。如果设置为<code>true</code>，客户端将不会验证服务端的证书链和主机名。</p>
@@ -9472,18 +9472,18 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
 <span class="nt">spec</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">sslCerts</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">serverSecret</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;server-cert&quot;</span><span class="w">  </span><span class="c1"># 服务端证书和私钥的 Secret 名称。</span>
-<span class="w">    </span><span class="nt">clientSecret</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;client-cert&quot;</span><span class="w">  </span><span class="c1"># 客户端证书和私钥的 Secret 名称。</span>
-<span class="w">    </span><span class="nt">caSecret</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ca-cert&quot;</span><span class="w">          </span><span class="c1"># CA 证书 Secret 名称。</span>
+<span class="w">    </span><span class="nt">serverSecret</span><span class="p">:</span><span class="w"> </span><span class="s">"server-cert"</span><span class="w">  </span><span class="c1"># 服务端证书和私钥的 Secret 名称。</span>
+<span class="w">    </span><span class="nt">clientSecret</span><span class="p">:</span><span class="w"> </span><span class="s">"client-cert"</span><span class="w">  </span><span class="c1"># 客户端证书和私钥的 Secret 名称。</span>
+<span class="w">    </span><span class="nt">caSecret</span><span class="p">:</span><span class="w"> </span><span class="s">"ca-cert"</span><span class="w">          </span><span class="c1"># CA 证书 Secret 名称。</span>
 <span class="w">  </span><span class="nt">graphd</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">config</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">enable_ssl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
+<span class="w">      </span><span class="nt">enable_ssl</span><span class="p">:</span><span class="w"> </span><span class="s">"true"</span>
 <span class="w">  </span><span class="nt">metad</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">config</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">enable_ssl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
+<span class="w">      </span><span class="nt">enable_ssl</span><span class="p">:</span><span class="w"> </span><span class="s">"true"</span>
 <span class="w">  </span><span class="nt">storaged</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">config</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">enable_ssl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
+<span class="w">      </span><span class="nt">enable_ssl</span><span class="p">:</span><span class="w"> </span><span class="s">"true"</span>
 </code></pre></div>
 </li>
 </ul>
@@ -9499,11 +9499,11 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
 <span class="nt">spec</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">sslCerts</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">serverSecret</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;server-cert&quot;</span>
-<span class="w">    </span><span class="nt">caSecret</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ca-cert&quot;</span>
+<span class="w">    </span><span class="nt">serverSecret</span><span class="p">:</span><span class="w"> </span><span class="s">"server-cert"</span>
+<span class="w">    </span><span class="nt">caSecret</span><span class="p">:</span><span class="w"> </span><span class="s">"ca-cert"</span>
 <span class="w">  </span><span class="nt">graphd</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">config</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">enable_graph_ssl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
+<span class="w">      </span><span class="nt">enable_graph_ssl</span><span class="p">:</span><span class="w"> </span><span class="s">"true"</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -9523,18 +9523,18 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
 <span class="nt">spec</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">sslCerts</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">serverSecret</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;server-cert&quot;</span>
-<span class="w">    </span><span class="nt">clientSecret</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;client-cert&quot;</span>
-<span class="w">    </span><span class="nt">caSecret</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ca-cert&quot;</span>
+<span class="w">    </span><span class="nt">serverSecret</span><span class="p">:</span><span class="w"> </span><span class="s">"server-cert"</span>
+<span class="w">    </span><span class="nt">clientSecret</span><span class="p">:</span><span class="w"> </span><span class="s">"client-cert"</span>
+<span class="w">    </span><span class="nt">caSecret</span><span class="p">:</span><span class="w"> </span><span class="s">"ca-cert"</span>
 <span class="w">  </span><span class="nt">graphd</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">config</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">enable_meta_ssl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
+<span class="w">      </span><span class="nt">enable_meta_ssl</span><span class="p">:</span><span class="w"> </span><span class="s">"true"</span>
 <span class="w">  </span><span class="nt">metad</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">config</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">enable_meta_ssl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
+<span class="w">      </span><span class="nt">enable_meta_ssl</span><span class="p">:</span><span class="w"> </span><span class="s">"true"</span>
 <span class="w">  </span><span class="nt">storaged</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">config</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">enable_meta_ssl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
+<span class="w">      </span><span class="nt">enable_meta_ssl</span><span class="p">:</span><span class="w"> </span><span class="s">"true"</span>
 </code></pre></div>
 </li>
 </ul>
@@ -9562,18 +9562,18 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
 <span class="nt">spec</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">sslCerts</span><span class="p">:</span>
-<span class="w">    </span><span class="nt">serverSecret</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;server-cert&quot;</span><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">// 服务端证书 Secret 名称。</span>
-<span class="w">    </span><span class="nt">clientSecret</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;client-cert&quot;</span><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">// 客户端证书 Secret 名称。</span>
-<span class="w">    </span><span class="nt">caSecret</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;ca-cert&quot;</span><span class="w">          </span><span class="l l-Scalar l-Scalar-Plain">// CA 证书 Secret 名称。</span>
+<span class="w">    </span><span class="nt">serverSecret</span><span class="p">:</span><span class="w"> </span><span class="s">"server-cert"</span><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">// 服务端证书 Secret 名称。</span>
+<span class="w">    </span><span class="nt">clientSecret</span><span class="p">:</span><span class="w"> </span><span class="s">"client-cert"</span><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">// 客户端证书 Secret 名称。</span>
+<span class="w">    </span><span class="nt">caSecret</span><span class="p">:</span><span class="w"> </span><span class="s">"ca-cert"</span><span class="w">          </span><span class="l l-Scalar l-Scalar-Plain">// CA 证书 Secret 名称。</span>
 <span class="w">  </span><span class="nt">graphd</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">config</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">enable_ssl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
+<span class="w">      </span><span class="nt">enable_ssl</span><span class="p">:</span><span class="w"> </span><span class="s">"true"</span>
 <span class="w">  </span><span class="nt">metad</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">config</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">enable_ssl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
+<span class="w">      </span><span class="nt">enable_ssl</span><span class="p">:</span><span class="w"> </span><span class="s">"true"</span>
 <span class="w">  </span><span class="nt">storaged</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">config</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">enable_ssl</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
+<span class="w">      </span><span class="nt">enable_ssl</span><span class="p">:</span><span class="w"> </span><span class="s">"true"</span>
 </code></pre></div>
 </li>
 <li>
@@ -9624,7 +9624,7 @@ kubectl<span class="w"> </span>get<span class="w"> </span>nebulacluster<span cla
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年12月30日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:02 UTC">2026年8月18日</span>
       
     
   </small>
@@ -9693,8 +9693,6 @@ kubectl<span class="w"> </span>get<span class="w"> </span>nebulacluster<span cla
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

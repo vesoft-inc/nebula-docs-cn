@@ -9516,12 +9516,12 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <p>例如<code>SHOW TAGS</code>语句分为两个<code>action</code>，<code>operator</code>为<code>Start</code>和<code>ShowTags</code>。更复杂的<code>GO</code>语句可能会被处理成 10 个以上的<code>action</code>。</p>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>EXPLAIN</code><div class="highlight"><pre><span></span><code>EXPLAIN [format= {&quot;row&quot; | &quot;dot&quot; | &quot;tck&quot;}] &lt;your_nGQL_statement&gt;;
+<li><code>EXPLAIN</code><div class="highlight"><pre><span></span><code>EXPLAIN [format= {"row" | "dot" | "tck"}] &lt;your_nGQL_statement&gt;;
 </code></pre></div>
 </li>
 </ul>
 <ul>
-<li><code>PROFILE</code><div class="highlight"><pre><span></span><code>PROFILE [format= {&quot;row&quot; | &quot;dot&quot; | &quot;tck&quot;}] &lt;your_nGQL_statement&gt;;
+<li><code>PROFILE</code><div class="highlight"><pre><span></span><code>PROFILE [format= {"row" | "dot" | "tck"}] &lt;your_nGQL_statement&gt;;
 </code></pre></div>
 </li>
 </ul>
@@ -9530,7 +9530,7 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <h2 id="row"><code>row</code>格式<a class="headerlink" href="#row" title="Permanent link">&para;</a></h2>
 <p><code>row</code>格式将返回信息输出到一个表格中。</p>
 <ul>
-<li><code>EXPLAIN</code><div class="highlight"><pre><span></span><code>nebula&gt; EXPLAIN format=&quot;row&quot; SHOW TAGS;
+<li><code>EXPLAIN</code><div class="highlight"><pre><span></span><code>nebula&gt; EXPLAIN format="row" SHOW TAGS;
 Execution succeeded (time spent 327/892 us)
 
 Execution Plan
@@ -9538,16 +9538,16 @@ Execution Plan
 -----+----------+--------------+----------------+----------------------------------------------------------------------
 | id | name     | dependencies | profiling data | operator info                                                       |
 -----+----------+--------------+----------------+----------------------------------------------------------------------
-|  1 | ShowTags | 0            |                | outputVar: [{&quot;colNames&quot;:[],&quot;name&quot;:&quot;__ShowTags_1&quot;,&quot;type&quot;:&quot;DATASET&quot;}] |
+|  1 | ShowTags | 0            |                | outputVar: [{"colNames":[],"name":"__ShowTags_1","type":"DATASET"}] |
 |    |          |              |                | inputVar:                                                           |
 -----+----------+--------------+----------------+----------------------------------------------------------------------
-|  0 | Start    |              |                | outputVar: [{&quot;colNames&quot;:[],&quot;name&quot;:&quot;__Start_0&quot;,&quot;type&quot;:&quot;DATASET&quot;}]    |
+|  0 | Start    |              |                | outputVar: [{"colNames":[],"name":"__Start_0","type":"DATASET"}]    |
 -----+----------+--------------+----------------+----------------------------------------------------------------------
 </code></pre></div>
 </li>
 </ul>
 <ul>
-<li><code>PROFILE</code><div class="highlight"><pre><span></span><code>nebula&gt; PROFILE format=&quot;row&quot; SHOW TAGS;
+<li><code>PROFILE</code><div class="highlight"><pre><span></span><code>nebula&gt; PROFILE format="row" SHOW TAGS;
 +--------+
 | Name   |
 +--------+
@@ -9561,10 +9561,10 @@ Execution Plan
 -----+----------+--------------+----------------------------------------------------+----------------------------------------------------------------------
 | id | name     | dependencies | profiling data                                     | operator info                                                       |
 -----+----------+--------------+----------------------------------------------------+----------------------------------------------------------------------
-|  1 | ShowTags | 0            | ver: 0, rows: 1, execTime: 42us, totalTime: 1177us | outputVar: [{&quot;colNames&quot;:[],&quot;name&quot;:&quot;__ShowTags_1&quot;,&quot;type&quot;:&quot;DATASET&quot;}] |
+|  1 | ShowTags | 0            | ver: 0, rows: 1, execTime: 42us, totalTime: 1177us | outputVar: [{"colNames":[],"name":"__ShowTags_1","type":"DATASET"}] |
 |    |          |              |                                                    | inputVar:                                                           |
 -----+----------+--------------+----------------------------------------------------+----------------------------------------------------------------------
-|  0 | Start    |              | ver: 0, rows: 0, execTime: 1us, totalTime: 57us    | outputVar: [{&quot;colNames&quot;:[],&quot;name&quot;:&quot;__Start_0&quot;,&quot;type&quot;:&quot;DATASET&quot;}]    |
+|  0 | Start    |              | ver: 0, rows: 0, execTime: 1us, totalTime: 57us    | outputVar: [{"colNames":[],"name":"__Start_0","type":"DATASET"}]    |
 -----+----------+--------------+----------------------------------------------------+----------------------------------------------------------------------
 </code></pre></div>
 </li>
@@ -9605,7 +9605,7 @@ Execution Plan
 <p class="admonition-title">Note</p>
 <p>Graphviz 是一款开源可视化图工具，可以绘制 DOT 语言脚本描述的图。Graphviz 提供一个在线工具，可以预览 DOT 语言文件，并将它们导出为 SVG 或 JSON 等其他格式。详情请参见 <a href="https://dreampuf.github.io/GraphvizOnline/">Graphviz Online</a>。</p>
 </div>
-<div class="highlight"><pre><span></span><code>nebula&gt; EXPLAIN format=&quot;dot&quot; SHOW TAGS;
+<div class="highlight"><pre><span></span><code>nebula&gt; EXPLAIN format="dot" SHOW TAGS;
 Execution succeeded (time spent 161/665 us)
 Execution Plan
 ---------------------------------------------------------------------------------------------------------------------------------------------  -------------
@@ -9613,9 +9613,9 @@ Execution Plan
 ---------------------------------------------------------------------------------------------------------------------------------------------  -------------
   digraph exec_plan {
       rankdir=LR;
-      &quot;ShowTags_0&quot;[label=&quot;ShowTags_0|outputVar: \[\{\&quot;colNames\&quot;:\[\],\&quot;name\&quot;:\&quot;__ShowTags_0\&quot;,\&quot;type\&quot;:\&quot;DATASET\&quot;\}\]\l|inputVar:\l&quot;,   shape=Mrecord];
-      &quot;Start_2&quot;-&gt;&quot;ShowTags_0&quot;;
-      &quot;Start_2&quot;[label=&quot;Start_2|outputVar: \[\{\&quot;colNames\&quot;:\[\],\&quot;name\&quot;:\&quot;__Start_2\&quot;,\&quot;type\&quot;:\&quot;DATASET\&quot;\}\]\l|inputVar: \l&quot;,   shape=Mrecord];
+      "ShowTags_0"[label="ShowTags_0|outputVar: \[\{\"colNames\":\[\],\"name\":\"__ShowTags_0\",\"type\":\"DATASET\"\}\]\l|inputVar:\l",   shape=Mrecord];
+      "Start_2"-&gt;"ShowTags_0";
+      "Start_2"[label="Start_2|outputVar: \[\{\"colNames\":\[\],\"name\":\"__Start_2\",\"type\":\"DATASET\"\}\]\l|inputVar: \l",   shape=Mrecord];
   }
 ---------------------------------------------------------------------------------------------------------------------------------------------  -------------
 </code></pre></div>
@@ -9625,7 +9625,7 @@ Execution Plan
 <p><code>tck</code>格式类似于表格，但是没有边框和行之间的间的分割线。用户可以将结果用在单元测试的测试用例中。
 关于<code>tck</code>格式的测试用例，参见 <a href="https://github.com/vesoft-inc/nebula/tree/master/tests/tck/features">TCK case</a>。</p>
 <ul>
-<li><code>EXPLAIN</code><div class="highlight"><pre><span></span><code>nebula&gt; EXPLAIN format=&quot;tck&quot; FETCH PROP ON player &quot;player_1&quot;,&quot;player_2&quot;,&quot;player_3&quot; YIELD properties(vertex).name as name, properties(vertex).age as age;
+<li><code>EXPLAIN</code><div class="highlight"><pre><span></span><code>nebula&gt; EXPLAIN format="tck" FETCH PROP ON player "player_1","player_2","player_3" YIELD properties(vertex).name as name, properties(vertex).age as age;
 Execution succeeded (time spent 261µs/613.718µs)
 
 Execution Plan (optimize time 28 us)
@@ -9642,12 +9642,12 @@ Wed, 22 Mar 2023 23:15:52 CST
 </li>
 </ul>
 <ul>
-<li><code>PROFILE</code><div class="highlight"><pre><span></span><code>nebula&gt; PROFILE format=&quot;tck&quot; FETCH PROP ON player &quot;player_1&quot;,&quot;player_2&quot;,&quot;player_3&quot; YIELD properties(vertex).name as name, properties(vertex).age as age;
+<li><code>PROFILE</code><div class="highlight"><pre><span></span><code>nebula&gt; PROFILE format="tck" FETCH PROP ON player "player_1","player_2","player_3" YIELD properties(vertex).name as name, properties(vertex).age as age;
 
 | name         | age |
-| &quot;Piter Park&quot; | 24  |
-| &quot;aaa&quot;        | 24  |
-| &quot;ccc&quot;        | 24  |
+| "Piter Park" | 24  |
+| "aaa"        | 24  |
+| "ccc"        | 24  |
 
 Got 3 rows (time spent 1.474ms/2.19677ms)
 
@@ -9655,9 +9655,9 @@ Execution Plan (optimize time 41 us)
 
 
 | id | name        | dependencies | profiling data                                                                                                      | operator info |
-|  2 | Project     | 1            | {&quot;rows&quot;:3,&quot;version&quot;:0}                                                                                              |               |
-|  1 | GetVertices | 0            | {&quot;resp[0]&quot;:{&quot;exec&quot;:&quot;232(us)&quot;,&quot;host&quot;:&quot;127.0.0.1:9779&quot;,&quot;total&quot;:&quot;758(us)&quot;},&quot;rows&quot;:3,&quot;total_rpc&quot;:&quot;875(us)&quot;,&quot;version&quot;:0} |               |
-|  0 | Start       |              | {&quot;rows&quot;:0,&quot;version&quot;:0}                                                                                              |               |
+|  2 | Project     | 1            | {"rows":3,"version":0}                                                                                              |               |
+|  1 | GetVertices | 0            | {"resp[0]":{"exec":"232(us)","host":"127.0.0.1:9779","total":"758(us)"},"rows":3,"total_rpc":"875(us)","version":0} |               |
+|  0 | Start       |              | {"rows":0,"version":0}                                                                                              |               |
 
 
 Wed, 22 Mar 2023 23:16:13 CST
@@ -9670,7 +9670,7 @@ Wed, 22 Mar 2023 23:16:13 CST
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年12月30日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:02 UTC">2026年8月18日</span>
       
     
   </small>
@@ -9739,8 +9739,6 @@ Wed, 22 Mar 2023 23:16:13 CST
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

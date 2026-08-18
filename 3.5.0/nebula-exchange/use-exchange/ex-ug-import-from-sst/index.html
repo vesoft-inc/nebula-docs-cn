@@ -9698,9 +9698,9 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <p>生成 SST 文件之后，RocksDB 通过<code>IngestExternalFile()</code>方法将 SST 文件导入到悦数图数据库中。例如：</p>
 <div class="highlight"><pre><span></span><code>IngestExternalFileOptions ifo;
 # 导入两个 SST 文件
-Status s = db_-&gt;IngestExternalFile({&quot;/home/usr/file1.sst&quot;, &quot;/home/usr/file2.sst&quot;}, ifo);
+Status s = db_-&gt;IngestExternalFile({"/home/usr/file1.sst", "/home/usr/file2.sst"}, ifo);
 if (!s.ok()) {
-  printf(&quot;Error while adding file %s and %s, Error %s\n&quot;,
+  printf("Error while adding file %s and %s, Error %s\n",
          file_path1.c_str(), file_path2.c_str(), s.ToString().c_str());
   return 1;
 }
@@ -9882,10 +9882,10 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
   #悦数图数据库相关配置
   nebula: {
     address:{
-      graph:[&quot;192.168.8.XXX:9669&quot;]
+      graph:["192.168.8.XXX:9669"]
       #任意一个 Meta 服务的地址。
       #如果您的悦数图数据库在虚拟网络中，如k8s，请配置 Leader Meta的地址。
-      meta:[&quot;192.168.8.XXX:9559&quot;]
+      meta:["192.168.8.XXX:9559"]
     }
     user: root
     pswd: nebula
@@ -9894,13 +9894,13 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
     # SST 文件相关配置
     path:{
         # 本地临时存放生成的 SST 文件的目录
-        local:&quot;/tmp&quot;
+        local:"/tmp"
 
         # SST 文件在 HDFS 的存储路径
-        remote:&quot;/sst&quot;
+        remote:"/sst"
 
-        # HDFS 的 NameNode 地址，例如 &quot;hdfs://&lt;ip/hostname&gt;:&lt;port&gt;&quot;。
-        hdfs.namenode: &quot;hdfs://*.*.*.*:9000&quot;
+        # HDFS 的 NameNode 地址，例如 "hdfs://&lt;ip/hostname&gt;:&lt;port&gt;"。
+        hdfs.namenode: "hdfs://*.*.*.*:9000"
     }
 
     # 客户端连接参数
@@ -9941,8 +9941,8 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
       }
 
       # 指定 CSV 文件的路径。
-      # 文件存储在 HDFS 上，用双引号括起路径，以 hdfs://开头，例如&quot;hdfs://ip:port/xx/xx.csv&quot;。
-      path: &quot;hdfs://*.*.*.*:9000/dataset/vertex_player.csv&quot;
+      # 文件存储在 HDFS 上，用双引号括起路径，以 hdfs://开头，例如"hdfs://ip:port/xx/xx.csv"。
+      path: "hdfs://*.*.*.*:9000/dataset/vertex_player.csv"
 
       # 如果 CSV 文件没有表头，使用 [_c0, _c1, _c2, ..., _cn] 表示其表头，并将列指示为属性值的源。
       # 如果 CSV 文件有表头，则使用实际的列名。
@@ -9958,13 +9958,13 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
       vertex: {
         field:_c0
       # 为 VID 增加指定的前缀。例如 VID 为 12345，增加前缀 tag1 后为 tag1_12345。下划线无法修改。
-      # prefix:&quot;tag1&quot;
+      # prefix:"tag1"
       # 对 string 类型的 VID 进行哈希化操作。
       # policy:hash
       }
 
       # 指定的分隔符。默认值为英文逗号（,）。
-      separator: &quot;,&quot;
+      separator: ","
 
       # 如果 CSV 文件有表头，请将 header 设置为 true。
       # 如果 CSV 文件没有表头，请将 header 设置为 false。默认值为 false。
@@ -9990,13 +9990,13 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         source: csv
         sink: sst
       }
-      path: &quot;hdfs://*.*.*.*:9000/dataset/vertex_team.csv&quot;
+      path: "hdfs://*.*.*.*:9000/dataset/vertex_team.csv"
       fields: [_c1]
       nebula.fields: [name]
       vertex: {
         field:_c0
       }
-      separator: &quot;,&quot;
+      separator: ","
       header: false
       batch: 256
       partition: 32
@@ -10020,8 +10020,8 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
       }
 
       # 指定 CSV 文件的路径。
-      # 文件存储在 HDFS 上，用双引号括起路径，以 hdfs://开头，例如&quot;hdfs://&lt;ip/hostname&gt;:port/xx/xx.csv&quot;。
-      path: &quot;hdfs://*.*.*.*:9000/dataset/edge_follow.csv&quot;
+      # 文件存储在 HDFS 上，用双引号括起路径，以 hdfs://开头，例如"hdfs://&lt;ip/hostname&gt;:port/xx/xx.csv"。
+      path: "hdfs://*.*.*.*:9000/dataset/edge_follow.csv"
 
       # 如果 CSV 文件没有表头，使用 [_c0, _c1, _c2, ..., _cn] 表示其表头，并将列指示为属性值的源。
       # 如果 CSV 文件有表头，则使用实际的列名。
@@ -10037,20 +10037,20 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
       source: {
         field: _c0
       # 为 VID 增加指定的前缀。例如 VID 为 12345，增加前缀 tag1 后为 tag1_12345。下划线无法修改。
-      # prefix:&quot;tag1&quot;
+      # prefix:"tag1"
       # 对 string 类型的 VID 进行哈希化操作。
       # policy:hash
       }
       target: {
         field: _c1
       # 为 VID 增加指定的前缀。例如 VID 为 12345，增加前缀 tag1 后为 tag1_12345。下划线无法修改。
-      # prefix:&quot;tag1&quot;
+      # prefix:"tag1"
       # 对 string 类型的 VID 进行哈希化操作。
       # policy:hash
       }
 
       # 指定的分隔符。默认值为英文逗号（,）。
-      separator: &quot;,&quot;
+      separator: ","
 
       # 指定一个列作为 rank 的源（可选）。
 
@@ -10080,7 +10080,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         source: csv
         sink: sst
       }
-      path: &quot;hdfs://*.*.*.*:9000/dataset/edge_serve.csv&quot;
+      path: "hdfs://*.*.*.*:9000/dataset/edge_serve.csv"
       fields: [_c2,_c3]
       nebula.fields: [start_year, end_year]
       source: {
@@ -10089,7 +10089,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
       target: {
         field: _c1
       }
-      separator: &quot;,&quot;
+      separator: ","
       header: false
       batch: 256
       partition: 32
@@ -10102,7 +10102,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
 </code></pre></div>
 <h3 id="4_sst">步骤 4：生成 SST 文件<a class="headerlink" href="#4_sst" title="Permanent link">&para;</a></h3>
 <p>运行如下命令将 CSV 源文件生成为 SST 文件。关于参数的说明，请参见<a href="../../parameter-reference/ex-ug-para-import-command/">命令参数</a>。</p>
-<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="w"> </span>--conf<span class="w"> </span>spark.sql.shuffle.partitions<span class="o">=</span>&lt;shuffle_concurrency&gt;<span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span>&lt;nebula-exchange-3.5.0.jar_path&gt;<span class="w"> </span>-c<span class="w"> </span>&lt;sst_application.conf_path&gt;<span class="w"> </span>
+<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">"local"</span><span class="w"> </span>--conf<span class="w"> </span>spark.sql.shuffle.partitions<span class="o">=</span>&lt;shuffle_concurrency&gt;<span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span>&lt;nebula-exchange-3.5.0.jar_path&gt;<span class="w"> </span>-c<span class="w"> </span>&lt;sst_application.conf_path&gt;<span class="w"> </span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -10113,7 +10113,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
 <p>JAR 包有两种获取方式：<a href="../../ex-ug-compile/">自行编译</a>或者从 maven 仓库下载。</p>
 </div>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w">  </span>--master<span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="w"> </span>--conf<span class="w"> </span>spark.sql.shuffle.partitions<span class="o">=</span><span class="m">200</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w">  </span>/root/nebula-exchange/nebula-exchange/target/nebula-exchange-3.5.0.jar<span class="w">  </span>-c<span class="w"> </span>/root/nebula-exchange/nebula-exchange/target/classes/sst_application.conf
+<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w">  </span>--master<span class="w"> </span><span class="s2">"local"</span><span class="w"> </span>--conf<span class="w"> </span>spark.sql.shuffle.partitions<span class="o">=</span><span class="m">200</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w">  </span>/root/nebula-exchange/nebula-exchange/target/nebula-exchange-3.5.0.jar<span class="w">  </span>-c<span class="w"> </span>/root/nebula-exchange/nebula-exchange/target/classes/sst_application.conf
 </code></pre></div>
 <p>任务执行完成后，可以在 HDFS 上的<code>/sst</code>目录（<code>nebula.path.remote</code>参数指定）内查看到生成的 SST 文件。</p>
 <div class="admonition note">
@@ -10143,10 +10143,10 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
 </li>
 <li>
 <p>执行命令下载 SST 文件：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; SUBMIT JOB DOWNLOAD HDFS &quot;hdfs://&lt;hadoop_address&gt;:&lt;hadoop_port&gt;/&lt;sst_file_path&gt;&quot;;
+<div class="highlight"><pre><span></span><code>nebula&gt; SUBMIT JOB DOWNLOAD HDFS "hdfs://&lt;hadoop_address&gt;:&lt;hadoop_port&gt;/&lt;sst_file_path&gt;";
 </code></pre></div>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; SUBMIT JOB DOWNLOAD HDFS &quot;hdfs://*.*.*.*:9000/sst&quot;;
+<div class="highlight"><pre><span></span><code>nebula&gt; SUBMIT JOB DOWNLOAD HDFS "hdfs://*.*.*.*:9000/sst";
 </code></pre></div>
 </li>
 <li>
@@ -10177,7 +10177,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年12月30日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:02 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10246,8 +10246,6 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

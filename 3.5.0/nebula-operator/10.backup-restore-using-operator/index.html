@@ -9677,13 +9677,13 @@ enableBR: true // 设置为 true 时，启用备份和恢复功能。
 <span class="w">          </span><span class="nt">command</span><span class="p">:</span>
 <span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/bin/sh</span>
 <span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-ecx</span>
-<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;exec</span><span class="nv"> </span><span class="s">/usr/local/bin/br-ent</span><span class="nv"> </span><span class="s">backup</span><span class="nv"> </span><span class="s">full</span><span class="w"> </span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'exec</span><span class="nv"> </span><span class="s">/usr/local/bin/br-ent</span><span class="nv"> </span><span class="s">backup</span><span class="nv"> </span><span class="s">full</span><span class="w"> </span>
 <span class="w">            </span><span class="s">--meta</span><span class="nv"> </span><span class="s">nebula-metad-0.nebula-metad-headless.&lt;namespace&gt;.svc.cluster.local:9559</span><span class="nv">  </span><span class="s">#</span><span class="nv"> </span><span class="s">指定</span><span class="nv"> </span><span class="s">Meta</span><span class="nv"> </span><span class="s">服务的地址，将</span><span class="nv"> </span><span class="s">&lt;namespace&gt;</span><span class="nv"> </span><span class="s">替换为集群所在的命名空间。</span>
 <span class="w">            </span><span class="s">--storage</span><span class="nv"> </span><span class="s">s3://BUCKET</span><span class="nv">                            </span><span class="s">#</span><span class="nv"> </span><span class="s">指定备份数据的存储位置。</span>
 <span class="w">            </span><span class="s">--s3.access_key</span><span class="nv"> </span><span class="s">ACCESS_KEY</span><span class="nv">                       </span><span class="s">#</span><span class="nv"> </span><span class="s">指定访问存储服务的</span><span class="nv"> </span><span class="s">AccessKey。</span>
 <span class="w">            </span><span class="s">--s3.secret_key</span><span class="nv"> </span><span class="s">SECRET_KEY</span><span class="nv">                       </span><span class="s">#</span><span class="nv"> </span><span class="s">指定访问存储服务的</span><span class="nv"> </span><span class="s">SecretKey。</span>
 <span class="w">            </span><span class="s">--s3.region</span><span class="nv"> </span><span class="s">REGION</span><span class="nv">                               </span><span class="s">#</span><span class="nv"> </span><span class="s">指定存储服务所在的地理区域。</span>
-<span class="w">            </span><span class="s">--s3.endpoint</span><span class="nv"> </span><span class="s">https://s3.REGION.amazonaws.com&#39;</span><span class="w">   </span><span class="c1"># 指定存储服务的访问地址。</span>
+<span class="w">            </span><span class="s">--s3.endpoint</span><span class="nv"> </span><span class="s">https://s3.REGION.amazonaws.com'</span><span class="w">   </span><span class="c1"># 指定存储服务的访问地址。</span>
 </code></pre></div>
 <h3 id="_6">增量备份<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>除了<code>spec.template.spec.containers[0].command</code>指定的执行命令和 Job 名称不同外，增量备份的 YAML 文件与全量备份的 YAML 文件相同。增量备份的 YAML 示例：</p>
@@ -9706,13 +9706,13 @@ enableBR: true // 设置为 true 时，启用备份和恢复功能。
 <span class="w">          </span><span class="nt">command</span><span class="p">:</span>
 <span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/bin/sh</span>
 <span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-ecx</span>
-<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&#39;exec</span><span class="nv"> </span><span class="s">/usr/local/bin/br-ent</span><span class="nv"> </span><span class="s">backup</span><span class="nv"> </span><span class="s">incr</span><span class="w"> </span>
+<span class="w">            </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">'exec</span><span class="nv"> </span><span class="s">/usr/local/bin/br-ent</span><span class="nv"> </span><span class="s">backup</span><span class="nv"> </span><span class="s">incr</span><span class="w"> </span>
 <span class="w">            </span><span class="s">--meta</span><span class="nv"> </span><span class="s">nebula-metad-0.nebula-metad-headless.&lt;namespace&gt;.svc.cluster.local:9559</span><span class="nv"> </span><span class="s">#</span><span class="nv"> </span><span class="s">指定</span><span class="nv"> </span><span class="s">Meta</span><span class="nv"> </span><span class="s">服务的地址，将</span><span class="nv"> </span><span class="s">&lt;namespace&gt;</span><span class="nv"> </span><span class="s">替换为集群所在的命名空间。</span>
 <span class="w">            </span><span class="s">--storage</span><span class="nv"> </span><span class="s">s3://BUCKET</span><span class="nv">                            </span><span class="s">#</span><span class="nv"> </span><span class="s">指定备份数据的存储位置。</span>
 <span class="w">            </span><span class="s">--s3.access_key</span><span class="nv"> </span><span class="s">ACCESS_KEY</span><span class="nv">                       </span><span class="s">#</span><span class="nv"> </span><span class="s">指定访问存储服务的</span><span class="nv"> </span><span class="s">AccessKey。</span>
 <span class="w">            </span><span class="s">--s3.secret_key</span><span class="nv"> </span><span class="s">SECRET_KEY</span><span class="nv">                       </span><span class="s">#</span><span class="nv"> </span><span class="s">指定访问存储服务的</span><span class="nv"> </span><span class="s">SecretKey。</span>
 <span class="w">            </span><span class="s">--s3.region</span><span class="nv"> </span><span class="s">REGION</span><span class="nv">                               </span><span class="s">#</span><span class="nv"> </span><span class="s">指定存储服务所在的地理区域。</span>
-<span class="w">            </span><span class="s">--s3.endpoint</span><span class="nv"> </span><span class="s">https://s3.REGION.amazonaws.com&#39;</span><span class="w">   </span><span class="c1"># 指定存储服务的访问地址。</span>
+<span class="w">            </span><span class="s">--s3.endpoint</span><span class="nv"> </span><span class="s">https://s3.REGION.amazonaws.com'</span><span class="w">   </span><span class="c1"># 指定存储服务的访问地址。</span>
 </code></pre></div>
 <h3 id="_7">参数说明<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>主要参数说明如下：</p>
@@ -9792,13 +9792,13 @@ Storaged Pod的init容器下载备份数据，下载成功由agent容器进行�
 <span class="nt">spec</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">br</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">clusterName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nebula</span>
-<span class="w">    </span><span class="nt">backupName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;BACKUP_2023_02_12_10_04_16&quot;</span>
+<span class="w">    </span><span class="nt">backupName</span><span class="p">:</span><span class="w"> </span><span class="s">"BACKUP_2023_02_12_10_04_16"</span>
 <span class="w">    </span><span class="nt">concurrency</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
 <span class="w">    </span><span class="nt">s3</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;us-west-2&quot;</span>
-<span class="w">      </span><span class="nt">bucket</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;nebula-br-test&quot;</span>
-<span class="w">      </span><span class="nt">endpoint</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;https://s3.us-west-2.amazonaws.com&quot;</span>
-<span class="w">      </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;aws-s3-secret&quot;</span>
+<span class="w">      </span><span class="nt">region</span><span class="p">:</span><span class="w"> </span><span class="s">"us-west-2"</span>
+<span class="w">      </span><span class="nt">bucket</span><span class="p">:</span><span class="w"> </span><span class="s">"nebula-br-test"</span>
+<span class="w">      </span><span class="nt">endpoint</span><span class="p">:</span><span class="w"> </span><span class="s">"https://s3.us-west-2.amazonaws.com"</span>
+<span class="w">      </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="s">"aws-s3-secret"</span>
 </code></pre></div>
 <h3 id="_11">参数说明<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <ul>
@@ -9917,7 +9917,7 @@ ngxvsm<span class="w">   </span><span class="m">1</span><span class="w">        
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年12月30日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:02 UTC">2026年8月18日</span>
       
     
   </small>
@@ -9986,8 +9986,6 @@ ngxvsm<span class="w">   </span><span class="m">1</span><span class="w">        
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

@@ -9508,22 +9508,22 @@ SET &lt;update_prop&gt;
 </table>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>// 查看点”player101“的属性。
-nebula&gt; FETCH PROP ON player &quot;player101&quot; YIELD properties(vertex);
+nebula&gt; FETCH PROP ON player "player101" YIELD properties(vertex);
 +--------------------------------+
 | properties(VERTEX)             |
 +--------------------------------+
-| {age: 36, name: &quot;Tony Parker&quot;} |
+| {age: 36, name: "Tony Parker"} |
 +--------------------------------+
 
 // 修改属性 age 的值，并返回 name 和新的 age。
-nebula&gt; UPDATE VERTEX ON player &quot;player101&quot; \
+nebula&gt; UPDATE VERTEX ON player "player101" \
         SET age = age + 2 \
-        WHEN name == &quot;Tony Parker&quot; \
+        WHEN name == "Tony Parker" \
         YIELD name AS Name, age AS Age;
 +---------------+-----+
 | Name          | Age |
 +---------------+-----+
-| &quot;Tony Parker&quot; | 38  |
+| "Tony Parker" | 38  |
 +---------------+-----+
 </code></pre></div>
 
@@ -9532,7 +9532,7 @@ nebula&gt; UPDATE VERTEX ON player &quot;player101&quot; \
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年12月30日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:02 UTC">2026年8月18日</span>
       
     
   </small>
@@ -9601,8 +9601,6 @@ nebula&gt; UPDATE VERTEX ON player &quot;player101&quot; \
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

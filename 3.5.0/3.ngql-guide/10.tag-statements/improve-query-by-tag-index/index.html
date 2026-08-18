@@ -9447,32 +9447,32 @@ nebula&gt; CREATE TAG IF NOT EXISTS shareholder();
 nebula&gt; CREATE TAG INDEX IF NOT EXISTS shareholder_tag on shareholder();
 
 //为点添加 Tag
-nebula&gt; INSERT VERTEX shareholder() VALUES &quot;player100&quot;:();
-nebula&gt; INSERT VERTEX shareholder() VALUES &quot;player101&quot;:();
+nebula&gt; INSERT VERTEX shareholder() VALUES "player100":();
+nebula&gt; INSERT VERTEX shareholder() VALUES "player101":();
 
 //快速查询所有股东
 nebula&gt; MATCH (v:shareholder) RETURN v;
 +---------------------------------------------------------------------+
 | v                                                                   |
 +---------------------------------------------------------------------+
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;} :shareholder{})  |
-| (&quot;player101&quot; :player{age: 36, name: &quot;Tony Parker&quot;} :shareholder{}) |
+| ("player100" :player{age: 42, name: "Tim Duncan"} :shareholder{})  |
+| ("player101" :player{age: 36, name: "Tony Parker"} :shareholder{}) |
 +---------------------------------------------------------------------+
 nebula&gt; LOOKUP ON shareholder YIELD id(vertex);
 +-------------+
 | id(VERTEX)  |
 +-------------+
-| &quot;player100&quot; |
-| &quot;player101&quot; |
+| "player100" |
+| "player101" |
 +-------------+
 
 //如果 player100 不再是股东
-nebula&gt; DELETE TAG shareholder FROM &quot;player100&quot;;
+nebula&gt; DELETE TAG shareholder FROM "player100";
 nebula&gt; LOOKUP ON shareholder YIELD id(vertex);
 +-------------+
 | id(VERTEX)  |
 +-------------+
-| &quot;player101&quot; |
+| "player101" |
 +-------------+
 </code></pre></div>
 <div class="admonition note">
@@ -9485,7 +9485,7 @@ nebula&gt; LOOKUP ON shareholder YIELD id(vertex);
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年12月30日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:02 UTC">2026年8月18日</span>
       
     
   </small>
@@ -9554,8 +9554,6 @@ nebula&gt; LOOKUP ON shareholder YIELD id(vertex);
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

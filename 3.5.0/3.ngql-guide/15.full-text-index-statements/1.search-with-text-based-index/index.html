@@ -9586,7 +9586,7 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <p>全文本查询使您能够搜索经过分析的文本字段，使用具有严格语法的解析器，根据提供的查询字符串返回内容。详情参见<a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-dsl-query-string-query">Query string query</a>。</p>
 <h2 id="_5">语法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <h3 id="_6">创建全文索引<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>CREATE FULLTEXT {TAG | EDGE} INDEX &lt;index_name&gt; ON {&lt;tag_name&gt; | &lt;edge_name&gt;} (&lt;prop_name&gt; [,&lt;prop_name&gt;]...) [ANALYZER=&quot;&lt;analyzer_name&gt;&quot;];
+<div class="highlight"><pre><span></span><code>CREATE FULLTEXT {TAG | EDGE} INDEX &lt;index_name&gt; ON {&lt;tag_name&gt; | &lt;edge_name&gt;} (&lt;prop_name&gt; [,&lt;prop_name&gt;]...) [ANALYZER="&lt;analyzer_name&gt;"];
 </code></pre></div>
 <ul>
 <li>创建全文索引时支持多属性的复合索引。</li>
@@ -9606,7 +9606,7 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <div class="highlight"><pre><span></span><code>DROP FULLTEXT INDEX &lt;index_name&gt;;
 </code></pre></div>
 <h3 id="_10">使用查询选项<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>LOOKUP ON {&lt;tag&gt; | &lt;edge_type&gt;} WHERE ES_QUERY(&lt;index_name&gt;, &quot;&lt;text&gt;&quot;) YIELD &lt;return_list&gt; [| LIMIT [&lt;offset&gt;,] &lt;number_rows&gt;];
+<div class="highlight"><pre><span></span><code>LOOKUP ON {&lt;tag&gt; | &lt;edge_type&gt;} WHERE ES_QUERY(&lt;index_name&gt;, "&lt;text&gt;") YIELD &lt;return_list&gt; [| LIMIT [&lt;offset&gt;,] &lt;number_rows&gt;];
 
 &lt;return_list&gt;
     &lt;prop_name&gt; [AS &lt;prop_alias&gt;] [, &lt;prop_name&gt; [AS &lt;prop_alias&gt;] ...] [, id(vertex)  [AS &lt;prop_alias&gt;]] [, score() AS &lt;score_alias&gt;]
@@ -9632,7 +9632,7 @@ nebula&gt; SHOW TEXT SEARCH CLIENTS;
 +-----------------+-----------------+------+
 | Type            | Host            | Port |
 +-----------------+-----------------+------+
-| &quot;ELASTICSEARCH&quot; | &quot;192.168.8.100&quot; | 9200 |
+| "ELASTICSEARCH" | "192.168.8.100" | 9200 |
 +-----------------+-----------------+------+
 
 //切换图空间。
@@ -9646,19 +9646,19 @@ nebula&gt; SHOW LISTENER;
 +--------+-----------------+------------------------+-------------+
 | PartId | Type            | Host                   | Host Status |
 +--------+-----------------+------------------------+-------------+
-| 1      | &quot;ELASTICSEARCH&quot; | &quot;&quot;192.168.8.100&quot;:9789&quot; | &quot;ONLINE&quot;    |
-| 2      | &quot;ELASTICSEARCH&quot; | &quot;&quot;192.168.8.100&quot;:9789&quot; | &quot;ONLINE&quot;    |
-| 3      | &quot;ELASTICSEARCH&quot; | &quot;&quot;192.168.8.100&quot;:9789&quot; | &quot;ONLINE&quot;    |
+| 1      | "ELASTICSEARCH" | ""192.168.8.100":9789" | "ONLINE"    |
+| 2      | "ELASTICSEARCH" | ""192.168.8.100":9789" | "ONLINE"    |
+| 3      | "ELASTICSEARCH" | ""192.168.8.100":9789" | "ONLINE"    |
 +--------+-----------------+------------------------+-------------+
 
 //创建 Tag。
 nebula&gt; CREATE TAG IF NOT EXISTS player(name string, city string);
 
 //创建单属性全文索引。
-nebula&gt; CREATE FULLTEXT TAG INDEX fulltext_index_1 ON player(name) ANALYZER=&quot;standard&quot;;
+nebula&gt; CREATE FULLTEXT TAG INDEX fulltext_index_1 ON player(name) ANALYZER="standard";
 
 //创建多属性全文索引。
-nebula&gt; CREATE FULLTEXT TAG INDEX fulltext_index_2 ON player(name,city) ANALYZER=&quot;standard&quot;;
+nebula&gt; CREATE FULLTEXT TAG INDEX fulltext_index_2 ON player(name,city) ANALYZER="standard";
 
 //重建全文索引。
 nebula&gt; REBUILD FULLTEXT INDEX;
@@ -9668,121 +9668,121 @@ nebula&gt; SHOW FULLTEXT INDEXES;
 +--------------------+-------------+-------------+--------------+------------+
 | Name               | Schema Type | Schema Name | Fields       | Analyzer   |
 +--------------------+-------------+-------------+--------------+------------+
-| &quot;fulltext_index_1&quot; | &quot;Tag&quot;       | &quot;player&quot;    | &quot;name&quot;       | &quot;standard&quot; |
-| &quot;fulltext_index_2&quot; | &quot;Tag&quot;       | &quot;player&quot;    | &quot;name, city&quot; | &quot;standard&quot; |
+| "fulltext_index_1" | "Tag"       | "player"    | "name"       | "standard" |
+| "fulltext_index_2" | "Tag"       | "player"    | "name, city" | "standard" |
 +--------------------+-------------+-------------+--------------+------------+
 
 //插入测试数据。
 nebula&gt; INSERT VERTEX player(name, city) VALUES \
-  &quot;Russell Westbrook&quot;: (&quot;Russell Westbrook&quot;, &quot;Los Angeles&quot;), \
-  &quot;Chris Paul&quot;: (&quot;Chris Paul&quot;, &quot;Houston&quot;),\
-  &quot;Boris Diaw&quot;: (&quot;Boris Diaw&quot;, &quot;Houston&quot;),\
-  &quot;David West&quot;: (&quot;David West&quot;, &quot;Philadelphia&quot;),\
-  &quot;Danny Green&quot;: (&quot;Danny Green&quot;, &quot;Philadelphia&quot;),\
-  &quot;Tim Duncan&quot;: (&quot;Tim Duncan&quot;, &quot;New York&quot;),\
-  &quot;James Harden&quot;: (&quot;James Harden&quot;, &quot;New York&quot;),\
-  &quot;Tony Parker&quot;: (&quot;Tony Parker&quot;, &quot;Chicago&quot;),\
-  &quot;Aron Baynes&quot;: (&quot;Aron Baynes&quot;, &quot;Chicago&quot;),\
-  &quot;Ben Simmons&quot;: (&quot;Ben Simmons&quot;, &quot;Phoenix&quot;),\
-  &quot;Blake Griffin&quot;: (&quot;Blake Griffin&quot;, &quot;Phoenix&quot;);
+  "Russell Westbrook": ("Russell Westbrook", "Los Angeles"), \
+  "Chris Paul": ("Chris Paul", "Houston"),\
+  "Boris Diaw": ("Boris Diaw", "Houston"),\
+  "David West": ("David West", "Philadelphia"),\
+  "Danny Green": ("Danny Green", "Philadelphia"),\
+  "Tim Duncan": ("Tim Duncan", "New York"),\
+  "James Harden": ("James Harden", "New York"),\
+  "Tony Parker": ("Tony Parker", "Chicago"),\
+  "Aron Baynes": ("Aron Baynes", "Chicago"),\
+  "Ben Simmons": ("Ben Simmons", "Phoenix"),\
+  "Blake Griffin": ("Blake Griffin", "Phoenix");
 
 //测试查询
-nebula&gt; LOOKUP ON player WHERE ES_QUERY(fulltext_index_1,&quot;Chris&quot;) YIELD id(vertex);
+nebula&gt; LOOKUP ON player WHERE ES_QUERY(fulltext_index_1,"Chris") YIELD id(vertex);
 +--------------+
 | id(VERTEX)   |
 +--------------+
-| &quot;Chris Paul&quot; |
+| "Chris Paul" |
 +--------------+
 
-nebula&gt; LOOKUP ON player WHERE ES_QUERY(fulltext_index_1,&quot;Harden&quot;) YIELD properties(vertex);
+nebula&gt; LOOKUP ON player WHERE ES_QUERY(fulltext_index_1,"Harden") YIELD properties(vertex);
 +----------------------------------------------------------------+
 | properties(VERTEX)                                             |
 +----------------------------------------------------------------+
-| {_vid: &quot;James Harden&quot;, city: &quot;New York&quot;, name: &quot;James Harden&quot;} |
+| {_vid: "James Harden", city: "New York", name: "James Harden"} |
 +----------------------------------------------------------------+
 
-nebula&gt; LOOKUP ON player WHERE ES_QUERY(fulltext_index_1,&quot;Da*&quot;) YIELD properties(vertex);
+nebula&gt; LOOKUP ON player WHERE ES_QUERY(fulltext_index_1,"Da*") YIELD properties(vertex);
 +------------------------------------------------------------------+
 | properties(VERTEX)                                               |
 +------------------------------------------------------------------+
-| {_vid: &quot;David West&quot;, city: &quot;Philadelphia&quot;, name: &quot;David West&quot;}   |
-| {_vid: &quot;Danny Green&quot;, city: &quot;Philadelphia&quot;, name: &quot;Danny Green&quot;} |
+| {_vid: "David West", city: "Philadelphia", name: "David West"}   |
+| {_vid: "Danny Green", city: "Philadelphia", name: "Danny Green"} |
 +------------------------------------------------------------------+
 
-nebula&gt; LOOKUP ON player WHERE ES_QUERY(fulltext_index_1,&quot;*b*&quot;) YIELD id(vertex);
+nebula&gt; LOOKUP ON player WHERE ES_QUERY(fulltext_index_1,"*b*") YIELD id(vertex);
 +---------------------+
 | id(VERTEX)          |
 +---------------------+
-| &quot;Russell Westbrook&quot; |
-| &quot;Boris Diaw&quot;        |
-| &quot;Aron Baynes&quot;       |
-| &quot;Ben Simmons&quot;       |
-| &quot;Blake Griffin&quot;     |
+| "Russell Westbrook" |
+| "Boris Diaw"        |
+| "Aron Baynes"       |
+| "Ben Simmons"       |
+| "Blake Griffin"     |
 +---------------------+
 
-nebula&gt; LOOKUP ON player WHERE ES_QUERY(fulltext_index_1,&quot;*b*&quot;) YIELD id(vertex) | LIMIT 2,3;
+nebula&gt; LOOKUP ON player WHERE ES_QUERY(fulltext_index_1,"*b*") YIELD id(vertex) | LIMIT 2,3;
 +-----------------+
 | id(VERTEX)      |
 +-----------------+
-| &quot;Aron Baynes&quot;   |
-| &quot;Ben Simmons&quot;   |
-| &quot;Blake Griffin&quot; |
+| "Aron Baynes"   |
+| "Ben Simmons"   |
+| "Blake Griffin" |
 +-----------------+
 
-nebula&gt; LOOKUP ON player WHERE ES_QUERY(fulltext_index_1,&quot;*b*&quot;) YIELD id(vertex) | YIELD count(*);
+nebula&gt; LOOKUP ON player WHERE ES_QUERY(fulltext_index_1,"*b*") YIELD id(vertex) | YIELD count(*);
 +----------+
 | count(*) |
 +----------+
 | 5        |
 +----------+
 
-nebula&gt; LOOKUP ON player WHERE ES_QUERY(fulltext_index_1,&quot;*b*&quot;) YIELD id(vertex), score() AS score;
+nebula&gt; LOOKUP ON player WHERE ES_QUERY(fulltext_index_1,"*b*") YIELD id(vertex), score() AS score;
 +---------------------+-------+
 | id(VERTEX)          | score |
 +---------------------+-------+
-| &quot;Russell Westbrook&quot; | 1.0   |
-| &quot;Boris Diaw&quot;        | 1.0   |
-| &quot;Aron Baynes&quot;       | 1.0   |
-| &quot;Ben Simmons&quot;       | 1.0   |
-| &quot;Blake Griffin&quot;     | 1.0   |
+| "Russell Westbrook" | 1.0   |
+| "Boris Diaw"        | 1.0   |
+| "Aron Baynes"       | 1.0   |
+| "Ben Simmons"       | 1.0   |
+| "Blake Griffin"     | 1.0   |
 +---------------------+-------+
 
 //对于包含 b 的词的文档，它的得分将乘以加权因子 4，而对于包含 c 的词的文档，使用默认加权因子 1。
-nebula&gt; LOOKUP ON player WHERE ES_QUERY(fulltext_index_1,&quot;*b*^4 OR *c*&quot;) YIELD id(vertex), score() AS score;
+nebula&gt; LOOKUP ON player WHERE ES_QUERY(fulltext_index_1,"*b*^4 OR *c*") YIELD id(vertex), score() AS score;
 +---------------------+-------+
 | id(VERTEX)          | score |
 +---------------------+-------+
-| &quot;Russell Westbrook&quot; | 4.0   |
-| &quot;Boris Diaw&quot;        | 4.0   |
-| &quot;Aron Baynes&quot;       | 4.0   |
-| &quot;Ben Simmons&quot;       | 4.0   |
-| &quot;Blake Griffin&quot;     | 4.0   |
-| &quot;Chris Paul&quot;        | 1.0   |
-| &quot;Tim Duncan&quot;        | 1.0   |
+| "Russell Westbrook" | 4.0   |
+| "Boris Diaw"        | 4.0   |
+| "Aron Baynes"       | 4.0   |
+| "Ben Simmons"       | 4.0   |
+| "Blake Griffin"     | 4.0   |
+| "Chris Paul"        | 1.0   |
+| "Tim Duncan"        | 1.0   |
 +---------------------+-------+
 
 //使用多属性全文索引查询，此时条件会在索引的所有属性内进行匹配。
-nebula&gt; LOOKUP ON player WHERE ES_QUERY(fulltext_index_2,&quot;*h*&quot;) YIELD properties(vertex);
+nebula&gt; LOOKUP ON player WHERE ES_QUERY(fulltext_index_2,"*h*") YIELD properties(vertex);
 +------------------------------------------------------------------+
 | properties(VERTEX)                                               |
 +------------------------------------------------------------------+
-| {_vid: &quot;Chris Paul&quot;, city: &quot;Houston&quot;, name: &quot;Chris Paul&quot;}        |
-| {_vid: &quot;Boris Diaw&quot;, city: &quot;Houston&quot;, name: &quot;Boris Diaw&quot;}        |
-| {_vid: &quot;David West&quot;, city: &quot;Philadelphia&quot;, name: &quot;David West&quot;}   |
-| {_vid: &quot;James Harden&quot;, city: &quot;New York&quot;, name: &quot;James Harden&quot;}   |
-| {_vid: &quot;Tony Parker&quot;, city: &quot;Chicago&quot;, name: &quot;Tony Parker&quot;}      |
-| {_vid: &quot;Aron Baynes&quot;, city: &quot;Chicago&quot;, name: &quot;Aron Baynes&quot;}      |
-| {_vid: &quot;Ben Simmons&quot;, city: &quot;Phoenix&quot;, name: &quot;Ben Simmons&quot;}      |
-| {_vid: &quot;Blake Griffin&quot;, city: &quot;Phoenix&quot;, name: &quot;Blake Griffin&quot;}  |
-| {_vid: &quot;Danny Green&quot;, city: &quot;Philadelphia&quot;, name: &quot;Danny Green&quot;} |
+| {_vid: "Chris Paul", city: "Houston", name: "Chris Paul"}        |
+| {_vid: "Boris Diaw", city: "Houston", name: "Boris Diaw"}        |
+| {_vid: "David West", city: "Philadelphia", name: "David West"}   |
+| {_vid: "James Harden", city: "New York", name: "James Harden"}   |
+| {_vid: "Tony Parker", city: "Chicago", name: "Tony Parker"}      |
+| {_vid: "Aron Baynes", city: "Chicago", name: "Aron Baynes"}      |
+| {_vid: "Ben Simmons", city: "Phoenix", name: "Ben Simmons"}      |
+| {_vid: "Blake Griffin", city: "Phoenix", name: "Blake Griffin"}  |
+| {_vid: "Danny Green", city: "Philadelphia", name: "Danny Green"} |
 +------------------------------------------------------------------+
 
 //使用多属性全文索引查询时，可以对不同的属性指定不同的文本进行查询。
-nebula&gt; LOOKUP ON player WHERE ES_QUERY(fulltext_index_2,&quot;name:*b* AND city:Houston&quot;) YIELD properties(vertex);
+nebula&gt; LOOKUP ON player WHERE ES_QUERY(fulltext_index_2,"name:*b* AND city:Houston") YIELD properties(vertex);
 +-----------------------------------------------------------+
 | properties(VERTEX)                                        |
 +-----------------------------------------------------------+
-| {_vid: &quot;Boris Diaw&quot;, city: &quot;Houston&quot;, name: &quot;Boris Diaw&quot;} |
+| {_vid: "Boris Diaw", city: "Houston", name: "Boris Diaw"} |
 +-----------------------------------------------------------+
 
 //删除单属性全文索引。
@@ -9794,7 +9794,7 @@ nebula&gt; DROP FULLTEXT INDEX fulltext_index_1;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年12月30日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:02 UTC">2026年8月18日</span>
       
     
   </small>
@@ -9863,8 +9863,6 @@ nebula&gt; DROP FULLTEXT INDEX fulltext_index_1;
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

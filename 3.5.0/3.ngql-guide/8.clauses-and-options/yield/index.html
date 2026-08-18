@@ -9615,35 +9615,35 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 </table>
 <h3 id="yield_2">使用 YIELD 子句<a class="headerlink" href="#yield_2" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>GO</code>语句中使用<code>YIELD</code>：<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM &quot;player100&quot; OVER follow \
+<li><code>GO</code>语句中使用<code>YIELD</code>：<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM "player100" OVER follow \
         YIELD properties($$).name AS Friend, properties($$).age AS Age;
 +-----------------+-----+
 | Friend          | Age |
 +-----------------+-----+
-| &quot;Tony Parker&quot;   | 36  |
-| &quot;Manu Ginobili&quot; | 41  |
+| "Tony Parker"   | 36  |
+| "Manu Ginobili" | 41  |
 +-----------------+-----+
 </code></pre></div>
 </li>
 </ul>
 <ul>
-<li><code>FETCH</code>语句中使用<code>YIELD</code>：<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player &quot;player100&quot; \
+<li><code>FETCH</code>语句中使用<code>YIELD</code>：<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player "player100" \
         YIELD properties(vertex).name;
 +-------------------------+
 | properties(VERTEX).name |
 +-------------------------+
-| &quot;Tim Duncan&quot;            |
+| "Tim Duncan"            |
 +-------------------------+
 </code></pre></div>
 </li>
 </ul>
 <ul>
-<li><code>LOOKUP</code>语句中使用<code>YIELD</code>：<div class="highlight"><pre><span></span><code>nebula&gt; LOOKUP ON player WHERE player.name == &quot;Tony Parker&quot; \
+<li><code>LOOKUP</code>语句中使用<code>YIELD</code>：<div class="highlight"><pre><span></span><code>nebula&gt; LOOKUP ON player WHERE player.name == "Tony Parker" \
         YIELD properties(vertex).name, properties(vertex).age;
 +-------------------------+------------------------+
 | properties(VERTEX).name | properties(VERTEX).age |
 +-------------------------+------------------------+
-| &quot;Tony Parker&quot;           | 36                     |
+| "Tony Parker"           | 36                     |
 +-------------------------+------------------------+
 </code></pre></div>
 </li>
@@ -9682,7 +9682,7 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <h3 id="yield_4">复合查询中使用 YIELD 语句<a class="headerlink" href="#yield_4" title="Permanent link">&para;</a></h3>
 <p>在<a href="../../4.variable-and-composite-queries/1.composite-queries/">复合查询</a>中，<code>YIELD</code>语句可以接收、过滤、修改之前语句的结果集，然后输出。</p>
 <div class="highlight"><pre><span></span><code># 查找 player100 关注的 player，并计算他们的平均年龄。
-nebula&gt; GO FROM &quot;player100&quot; OVER follow \
+nebula&gt; GO FROM "player100" OVER follow \
         YIELD dst(edge) AS ID \
         | FETCH PROP ON player $-.ID \
         YIELD properties(vertex).age AS Age \
@@ -9694,14 +9694,14 @@ nebula&gt; GO FROM &quot;player100&quot; OVER follow \
 +---------+-------------+
 </code></pre></div>
 <div class="highlight"><pre><span></span><code># 查找 player101 关注的 player，返回 degree 大于 90 的 player。
-nebula&gt; $var1 = GO FROM &quot;player101&quot; OVER follow \
+nebula&gt; $var1 = GO FROM "player101" OVER follow \
         YIELD properties(edge).degree AS Degree, dst(edge) as ID; \
         YIELD $var1.ID AS ID WHERE $var1.Degree &gt; 90;
 +-------------+
 | ID          |
 +-------------+
-| &quot;player100&quot; |
-| &quot;player125&quot; |
+| "player100" |
+| "player125" |
 +-------------+
 
 # 查找 player 中年龄大于 30 且小于 32 的点，返回去掉重复属性的值。
@@ -9723,16 +9723,16 @@ nebula&gt; LOOKUP ON player  \
 | 3           |
 +-------------+
 
-nebula&gt; YIELD &quot;Hel&quot; + &quot;\tlo&quot; AS string1, &quot;, World!&quot; AS string2;
+nebula&gt; YIELD "Hel" + "\tlo" AS string1, ", World!" AS string2;
 +-------------+------------+
 | string1     | string2    |
 +-------------+------------+
-| &quot;Hel    lo&quot; | &quot;, World!&quot; |
+| "Hel    lo" | ", World!" |
 +-------------+------------+
 
-nebula&gt; YIELD hash(&quot;Tim&quot;) % 100;
+nebula&gt; YIELD hash("Tim") % 100;
 +-------------------+
-| (hash(&quot;Tim&quot;)%100) |
+| (hash("Tim")%100) |
 +-------------------+
 | 42                |
 +-------------------+
@@ -9763,7 +9763,7 @@ nebula&gt; YIELD 1- -1;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年12月30日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:02 UTC">2026年8月18日</span>
       
     
   </small>
@@ -9832,8 +9832,6 @@ nebula&gt; YIELD 1- -1;
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

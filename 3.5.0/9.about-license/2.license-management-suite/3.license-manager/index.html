@@ -9926,10 +9926,10 @@ Timeout: 3000                        # LM 等待客户端请求时的超时时�
 DataPath: data                       # 存储 LM 状态数据的路径。
 Notify:                              # LM 通知相关配置。
   Mail:                              # 邮件通知相关配置。
-    Host: &quot;&quot;                         # SMTP 服务器地址。
+    Host: ""                         # SMTP 服务器地址。
     Port: 465                        # SMTP 服务器端口号。
-    User: &quot;&quot;                         # SMTP 邮箱。
-    Password: &quot;&quot;                     # SMTP 邮箱密码。
+    User: ""                         # SMTP 邮箱。
+    Password: ""                     # SMTP 邮箱密码。
     To: []                           # 接收通知的邮箱列表。
 Log:                                 # 日志相关配置。
   Mode: file                         # 日志模式。可选值为 file（输出到文件）和 console（输出到控制台）。默认为 file。
@@ -10068,7 +10068,7 @@ Log:                                 # 日志相关配置。
 ...
 </code></pre></div>
 <p>然后，在 Prometheus 中，可通过其内置指标<code>up</code>监控 LM 的状态。如果 LM 正常运行，<code>up</code>的值为<code>1</code>，否则为<code>0</code>。查看<code>up</code>指标的状态，命令如下：</p>
-<div class="highlight"><pre><span></span><code>up{instance=&quot;&lt;ip:lm_port&gt;&quot;, job=&quot;&lt;job_name&gt;&quot;}
+<div class="highlight"><pre><span></span><code>up{instance="&lt;ip:lm_port&gt;", job="&lt;job_name&gt;"}
 </code></pre></div>
 <ul>
 <li><code>&lt;ip:lm_port&gt;</code>：LM 所在的主机 IP 和端口号。</li>
@@ -10111,7 +10111,7 @@ Log:                                 # 日志相关配置。
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年12月30日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:02 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10180,8 +10180,6 @@ Log:                                 # 日志相关配置。
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

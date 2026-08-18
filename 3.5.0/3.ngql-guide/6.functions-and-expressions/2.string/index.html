@@ -9751,9 +9751,9 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <li>当 <code>string_a = string_b</code> 时，返回 <code>0</code>，当 <code>string_a &gt; string_b</code> 是，返回大于 <code>0</code> 的数，当 <code>string_a &lt; string_b</code> 时，返回小于 <code>0</code> 的数。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; RETURN strcasecmp(&quot;a&quot;,&quot;aa&quot;);
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN strcasecmp("a","aa");
 +----------------------+
-| strcasecmp(&quot;a&quot;,&quot;aa&quot;) |
+| strcasecmp("a","aa") |
 +----------------------+
 | -97                  |
 +----------------------+
@@ -9768,11 +9768,11 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <li>返回类型：string。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; RETURN lower(&quot;Basketball_Player&quot;);
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN lower("Basketball_Player");
 +----------------------------+
-| lower(&quot;Basketball_Player&quot;) |
+| lower("Basketball_Player") |
 +----------------------------+
-| &quot;basketball_player&quot;        |
+| "basketball_player"        |
 +----------------------------+
 </code></pre></div>
 <h2 id="upper_toupper">upper() 和 toUpper()<a class="headerlink" href="#upper_toupper" title="Permanent link">&para;</a></h2>
@@ -9785,11 +9785,11 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <li>返回类型：string。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; RETURN upper(&quot;Basketball_Player&quot;);
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN upper("Basketball_Player");
 +----------------------------+
-| upper(&quot;Basketball_Player&quot;) |
+| upper("Basketball_Player") |
 +----------------------------+
-| &quot;BASKETBALL_PLAYER&quot;        |
+| "BASKETBALL_PLAYER"        |
 +----------------------------+
 </code></pre></div>
 <h2 id="length">length()<a class="headerlink" href="#length" title="Permanent link">&para;</a></h2>
@@ -9805,14 +9805,14 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <li>返回类型：int。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; RETURN length(&quot;basketball&quot;);
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN length("basketball");
 +----------------------+
-| length(&quot;basketball&quot;) |
+| length("basketball") |
 +----------------------+
 | 10                   |
 +----------------------+
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})--&gt;(v2) return length(p);
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})--&gt;(v2) return length(p);
 +-----------+
 | length(p) |
 +-----------+
@@ -9831,11 +9831,11 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <li>返回类型：string。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; RETURN trim(&quot; basketball player &quot;);
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN trim(" basketball player ");
 +-----------------------------+
-| trim(&quot; basketball player &quot;) |
+| trim(" basketball player ") |
 +-----------------------------+
-| &quot;basketball player&quot;         |
+| "basketball player"         |
 +-----------------------------+
 </code></pre></div>
 <h2 id="ltrim">ltrim()<a class="headerlink" href="#ltrim" title="Permanent link">&para;</a></h2>
@@ -9848,11 +9848,11 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <li>返回类型：string。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; RETURN ltrim(&quot; basketball player &quot;);
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN ltrim(" basketball player ");
 +------------------------------+
-| ltrim(&quot; basketball player &quot;) |
+| ltrim(" basketball player ") |
 +------------------------------+
-| &quot;basketball player &quot;         |
+| "basketball player "         |
 +------------------------------+
 </code></pre></div>
 <h2 id="rtrim">rtrim()<a class="headerlink" href="#rtrim" title="Permanent link">&para;</a></h2>
@@ -9865,11 +9865,11 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <li>返回类型：string。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; RETURN rtrim(&quot; basketball player &quot;);
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN rtrim(" basketball player ");
 +------------------------------+
-| rtrim(&quot; basketball player &quot;) |
+| rtrim(" basketball player ") |
 +------------------------------+
-| &quot; basketball player&quot;         |
+| " basketball player"         |
 +------------------------------+
 </code></pre></div>
 <h2 id="left">left()<a class="headerlink" href="#left" title="Permanent link">&para;</a></h2>
@@ -9885,11 +9885,11 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <li>返回类型：string。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; RETURN left(&quot;basketball_player&quot;,6);
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN left("basketball_player",6);
 +-----------------------------+
-| left(&quot;basketball_player&quot;,6) |
+| left("basketball_player",6) |
 +-----------------------------+
-| &quot;basket&quot;                    |
+| "basket"                    |
 +-----------------------------+
 </code></pre></div>
 <h2 id="right">right()<a class="headerlink" href="#right" title="Permanent link">&para;</a></h2>
@@ -9905,11 +9905,11 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <li>返回类型：string。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; RETURN right(&quot;basketball_player&quot;,6);
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN right("basketball_player",6);
 +------------------------------+
-| right(&quot;basketball_player&quot;,6) |
+| right("basketball_player",6) |
 +------------------------------+
-| &quot;player&quot;                     |
+| "player"                     |
 +------------------------------+
 </code></pre></div>
 <h2 id="lpad">lpad()<a class="headerlink" href="#lpad" title="Permanent link">&para;</a></h2>
@@ -9928,18 +9928,18 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <li>返回类型：string。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; RETURN lpad(&quot;abcd&quot;,10,&quot;b&quot;);
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN lpad("abcd",10,"b");
 +---------------------+
-| lpad(&quot;abcd&quot;,10,&quot;b&quot;) |
+| lpad("abcd",10,"b") |
 +---------------------+
-| &quot;bbbbbbabcd&quot;        |
+| "bbbbbbabcd"        |
 +---------------------+
 
-nebula&gt; RETURN lpad(&quot;abcd&quot;,3,&quot;b&quot;);
+nebula&gt; RETURN lpad("abcd",3,"b");
 +--------------------+
-| lpad(&quot;abcd&quot;,3,&quot;b&quot;) |
+| lpad("abcd",3,"b") |
 +--------------------+
-| &quot;abc&quot;              |
+| "abc"              |
 +--------------------+
 </code></pre></div>
 <h2 id="rpad">rpad()<a class="headerlink" href="#rpad" title="Permanent link">&para;</a></h2>
@@ -9958,18 +9958,18 @@ nebula&gt; RETURN lpad(&quot;abcd&quot;,3,&quot;b&quot;);
 <li>返回类型：string。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; RETURN rpad(&quot;abcd&quot;,10,&quot;b&quot;);
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN rpad("abcd",10,"b");
 +---------------------+
-| rpad(&quot;abcd&quot;,10,&quot;b&quot;) |
+| rpad("abcd",10,"b") |
 +---------------------+
-| &quot;abcdbbbbbb&quot;        |
+| "abcdbbbbbb"        |
 +---------------------+
 
-nebula&gt; RETURN rpad(&quot;abcd&quot;,3,&quot;b&quot;);
+nebula&gt; RETURN rpad("abcd",3,"b");
 +--------------------+
-| rpad(&quot;abcd&quot;,3,&quot;b&quot;) |
+| rpad("abcd",3,"b") |
 +--------------------+
-| &quot;abc&quot;              |
+| "abc"              |
 +--------------------+
 </code></pre></div>
 <h2 id="substr_substring">substr() 和 substring()<a class="headerlink" href="#substr_substring" title="Permanent link">&para;</a></h2>
@@ -10011,25 +10011,25 @@ nebula&gt; RETURN rpad(&quot;abcd&quot;,3,&quot;b&quot;);
 <p>在 openCypher 中，如果字符串<code>a</code>为<code>null</code>，会返回<code>null</code>。</p>
 </div>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; RETURN substr(&quot;abcdefg&quot;,2,4);
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN substr("abcdefg",2,4);
 +-----------------------+
-| substr(&quot;abcdefg&quot;,2,4) |
+| substr("abcdefg",2,4) |
 +-----------------------+
-| &quot;cdef&quot;                |
-+-----------------------+
-
-nebula&gt; RETURN substr(&quot;abcdefg&quot;,0,4);
-+-----------------------+
-| substr(&quot;abcdefg&quot;,0,4) |
-+-----------------------+
-| &quot;abcd&quot;                |
+| "cdef"                |
 +-----------------------+
 
-nebula&gt; RETURN substr(&quot;abcdefg&quot;,2);
+nebula&gt; RETURN substr("abcdefg",0,4);
++-----------------------+
+| substr("abcdefg",0,4) |
++-----------------------+
+| "abcd"                |
++-----------------------+
+
+nebula&gt; RETURN substr("abcdefg",2);
 +---------------------+
-| substr(&quot;abcdefg&quot;,2) |
+| substr("abcdefg",2) |
 +---------------------+
-| &quot;cdefg&quot;             |
+| "cdefg"             |
 +---------------------+
 </code></pre></div>
 <h2 id="reverse">reverse()<a class="headerlink" href="#reverse" title="Permanent link">&para;</a></h2>
@@ -10042,11 +10042,11 @@ nebula&gt; RETURN substr(&quot;abcdefg&quot;,2);
 <li>返回类型：string。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; RETURN reverse(&quot;abcdefg&quot;);
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN reverse("abcdefg");
 +--------------------+
-| reverse(&quot;abcdefg&quot;) |
+| reverse("abcdefg") |
 +--------------------+
-| &quot;gfedcba&quot;          |
+| "gfedcba"          |
 +--------------------+
 </code></pre></div>
 <h2 id="replace">replace()<a class="headerlink" href="#replace" title="Permanent link">&para;</a></h2>
@@ -10065,11 +10065,11 @@ nebula&gt; RETURN substr(&quot;abcdefg&quot;,2);
 <li>返回类型：string。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; RETURN replace(&quot;abcdefg&quot;,&quot;cd&quot;,&quot;AAAAA&quot;);
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN replace("abcdefg","cd","AAAAA");
 +---------------------------------+
-| replace(&quot;abcdefg&quot;,&quot;cd&quot;,&quot;AAAAA&quot;) |
+| replace("abcdefg","cd","AAAAA") |
 +---------------------------------+
-| &quot;abAAAAAefg&quot;                    |
+| "abAAAAAefg"                    |
 +---------------------------------+
 </code></pre></div>
 <h2 id="split">split()<a class="headerlink" href="#split" title="Permanent link">&para;</a></h2>
@@ -10085,11 +10085,11 @@ nebula&gt; RETURN substr(&quot;abcdefg&quot;,2);
 <li>返回类型：list。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; RETURN split(&quot;basketballplayer&quot;,&quot;a&quot;);
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN split("basketballplayer","a");
 +-------------------------------+
-| split(&quot;basketballplayer&quot;,&quot;a&quot;) |
+| split("basketballplayer","a") |
 +-------------------------------+
-| [&quot;b&quot;, &quot;sketb&quot;, &quot;llpl&quot;, &quot;yer&quot;] |
+| ["b", "sketb", "llpl", "yer"] |
 +-------------------------------+
 </code></pre></div>
 <h2 id="concat">concat()<a class="headerlink" href="#concat" title="Permanent link">&para;</a></h2>
@@ -10106,28 +10106,28 @@ nebula&gt; RETURN substr(&quot;abcdefg&quot;,2);
 </ul>
 <p>示例：</p>
 <div class="highlight"><pre><span></span><code>//连接 1，2，3
-nebula&gt; RETURN concat(&quot;1&quot;,&quot;2&quot;,&quot;3&quot;) AS r;
+nebula&gt; RETURN concat("1","2","3") AS r;
 +-------+
 | r     |
 +-------+
-| &quot;123&quot; |
+| "123" |
 +-------+
 
 //字符串参数有 NULL
-nebula&gt; RETURN concat(&quot;1&quot;,&quot;2&quot;,NULL) AS r;
+nebula&gt; RETURN concat("1","2",NULL) AS r;
 +----------+
 | r        |
 +----------+
 | __NULL__ |
 +----------+
 
-nebula&gt; GO FROM &quot;player100&quot; over follow \
+nebula&gt; GO FROM "player100" over follow \
         YIELD concat(src(edge), properties($^).age, properties($$).name, properties(edge).degree) AS A;
 +------------------------------+
 | A                            |
 +------------------------------+
-| &quot;player10042Tony Parker95&quot;   |
-| &quot;player10042Manu Ginobili95&quot; |
+| "player10042Tony Parker95"   |
+| "player10042Manu Ginobili95" |
 +------------------------------+
 </code></pre></div>
 <h2 id="concat_ws">concat_ws()<a class="headerlink" href="#concat_ws" title="Permanent link">&para;</a></h2>
@@ -10147,15 +10147,15 @@ nebula&gt; GO FROM &quot;player100&quot; over follow \
 </ul>
 <p>示例：</p>
 <div class="highlight"><pre><span></span><code>//分隔符为 +，连接 a，b，c。
-nebula&gt; RETURN concat_ws(&quot;+&quot;,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;) AS r;
+nebula&gt; RETURN concat_ws("+","a","b","c") AS r;
 +---------+
 | r       |
 +---------+
-| &quot;a+b+c&quot; |
+| "a+b+c" |
 +---------+
 
 //分隔符为 NULL。
-neubla&gt; RETURN concat_ws(NULL,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;) AS r;
+neubla&gt; RETURN concat_ws(NULL,"a","b","c") AS r;
 +----------+
 | r        |
 +----------+
@@ -10163,28 +10163,28 @@ neubla&gt; RETURN concat_ws(NULL,&quot;a&quot;,&quot;b&quot;,&quot;c&quot;) AS r
 +----------+
 
 //分隔符为 +，字符串参数有 NULL。
-nebula&gt; RETURN concat_ws(&quot;+&quot;,&quot;a&quot;,NULL,&quot;b&quot;,&quot;c&quot;) AS r;
+nebula&gt; RETURN concat_ws("+","a",NULL,"b","c") AS r;
 +---------+
 | r       |
 +---------+
-| &quot;a+b+c&quot; |
+| "a+b+c" |
 +---------+
 
 //分隔符为+。字符串参数只有一个
-nebula&gt; RETURN concat_ws(&quot;+&quot;,&quot;a&quot;) AS r;
+nebula&gt; RETURN concat_ws("+","a") AS r;
 +-----+
 | r   |
 +-----+
-| &quot;a&quot; |
+| "a" |
 +-----+
 
-nebula&gt; GO FROM &quot;player100&quot; over follow \
-        YIELD concat_ws(&quot; &quot;,src(edge), properties($^).age, properties($$).name, properties(edge).degree) AS A;
+nebula&gt; GO FROM "player100" over follow \
+        YIELD concat_ws(" ",src(edge), properties($^).age, properties($$).name, properties(edge).degree) AS A;
 +---------------------------------+
 | A                               |
 +---------------------------------+
-| &quot;player100 42 Tony Parker 95&quot;   |
-| &quot;player100 42 Manu Ginobili 95&quot; |
+| "player100 42 Tony Parker 95"   |
+| "player100 42 Manu Ginobili 95" |
 +---------------------------------+
 </code></pre></div>
 <h2 id="extract">extract()<a class="headerlink" href="#extract" title="Permanent link">&para;</a></h2>
@@ -10196,18 +10196,18 @@ nebula&gt; GO FROM &quot;player100&quot; over follow \
 <li>返回类型：list。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (a:player)-[b:serve]-(c:team{name: &quot;Lakers&quot;}) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (a:player)-[b:serve]-(c:team{name: "Lakers"}) \
         WHERE a.player.age &gt; 45 \
-        RETURN extract(a.player.name, &quot;\\w+&quot;) AS result;
+        RETURN extract(a.player.name, "\\w+") AS result;
 +----------------------------+
 | result                     |
 +----------------------------+
-| [&quot;Shaquille&quot;, &quot;O&quot;, &quot;Neal&quot;] |
+| ["Shaquille", "O", "Neal"] |
 +----------------------------+
 
-nebula&gt; MATCH (a:player)-[b:serve]-(c:team{name: &quot;Lakers&quot;}) \
+nebula&gt; MATCH (a:player)-[b:serve]-(c:team{name: "Lakers"}) \
         WHERE a.player.age &gt; 45 \
-        RETURN extract(a.player.name, &quot;hello&quot;) AS result;
+        RETURN extract(a.player.name, "hello") AS result;
 +--------+
 | result |
 +--------+
@@ -10229,7 +10229,7 @@ nebula&gt; MATCH (a:player)-[b:serve]-(c:team{name: &quot;Lakers&quot;}) \
 </ul>
 </div>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; YIELD json_extract(&#39;{&quot;a&quot;: 1, &quot;b&quot;: {}, &quot;c&quot;: {&quot;d&quot;: true}}&#39;) AS result;
+<div class="highlight"><pre><span></span><code>nebula&gt; YIELD json_extract('{"a": 1, "b": {}, "c": {"d": true}}') AS result;
 +-----------------------------+
 | result                      |
 +-----------------------------+
@@ -10242,7 +10242,7 @@ nebula&gt; MATCH (a:player)-[b:serve]-(c:team{name: &quot;Lakers&quot;}) \
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年12月30日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:02 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10311,8 +10311,6 @@ nebula&gt; MATCH (a:player)-[b:serve]-(c:team{name: &quot;Lakers&quot;}) \
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

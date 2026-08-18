@@ -9686,12 +9686,12 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <p>如果要检索点的临时属性，请从自环边中获取。例如：</p>
 <div class="highlight"><pre><span></span><code>//创建边类型并插入自环属性。
 nebula&gt; CREATE EDGE IF NOT EXISTS temp(tmp int);
-nebula&gt; INSERT EDGE temp(tmp) VALUES &quot;player100&quot;-&gt;&quot;player100&quot;@1:(1);
-nebula&gt; INSERT EDGE temp(tmp) VALUES &quot;player100&quot;-&gt;&quot;player100&quot;@2:(2);
-nebula&gt; INSERT EDGE temp(tmp) VALUES &quot;player100&quot;-&gt;&quot;player100&quot;@3:(3);
+nebula&gt; INSERT EDGE temp(tmp) VALUES "player100"-&gt;"player100"@1:(1);
+nebula&gt; INSERT EDGE temp(tmp) VALUES "player100"-&gt;"player100"@2:(2);
+nebula&gt; INSERT EDGE temp(tmp) VALUES "player100"-&gt;"player100"@3:(3);
 
 //插入数据后，可以通过查询语句查询，例如：
-nebula&gt; GO FROM &quot;player100&quot; OVER temp YIELD properties(edge).tmp;
+nebula&gt; GO FROM "player100" OVER temp YIELD properties(edge).tmp;
 +----------------------+
 | properties(EDGE).tmp |
 +----------------------+
@@ -9723,14 +9723,14 @@ nebula&gt; MATCH (v1:player)-[e:temp]-&gt;() return collect(e.tmp);
 <p>示例：
 <div class="highlight"><pre><span></span><code>//<span class="w"> </span>插入起点为“11”，终点为“13”并且都不存在于数据库中的悬挂边
 nebula&gt;<span class="w"> </span>CREATE<span class="w"> </span>EDGE<span class="w"> </span>IF<span class="w"> </span>NOT<span class="w"> </span>EXISTS<span class="w"> </span>e1<span class="w"> </span><span class="o">(</span>name<span class="w"> </span>string,<span class="w"> </span>age<span class="w"> </span>int<span class="o">)</span><span class="p">;</span>
-nebula&gt;<span class="w"> </span>INSERT<span class="w"> </span>EDGE<span class="w"> </span>e1<span class="w"> </span><span class="o">(</span>name,<span class="w"> </span>age<span class="o">)</span><span class="w"> </span>VALUES<span class="w"> </span><span class="s2">&quot;11&quot;</span>-&gt;<span class="s2">&quot;13&quot;</span>:<span class="o">(</span><span class="s2">&quot;n1&quot;</span>,<span class="w"> </span><span class="m">1</span><span class="o">)</span><span class="p">;</span>
+nebula&gt;<span class="w"> </span>INSERT<span class="w"> </span>EDGE<span class="w"> </span>e1<span class="w"> </span><span class="o">(</span>name,<span class="w"> </span>age<span class="o">)</span><span class="w"> </span>VALUES<span class="w"> </span><span class="s2">"11"</span>-&gt;<span class="s2">"13"</span>:<span class="o">(</span><span class="s2">"n1"</span>,<span class="w"> </span><span class="m">1</span><span class="o">)</span><span class="p">;</span>
 
 //<span class="w"> </span>使用<span class="w"> </span>GO<span class="w"> </span>语句查询
-nebula&gt;<span class="w"> </span>GO<span class="w"> </span>FROM<span class="w"> </span><span class="s2">&quot;11&quot;</span><span class="w"> </span>over<span class="w"> </span>e1<span class="w"> </span>YIELD<span class="w"> </span>properties<span class="o">(</span>edge<span class="o">)</span><span class="p">;</span>
+nebula&gt;<span class="w"> </span>GO<span class="w"> </span>FROM<span class="w"> </span><span class="s2">"11"</span><span class="w"> </span>over<span class="w"> </span>e1<span class="w"> </span>YIELD<span class="w"> </span>properties<span class="o">(</span>edge<span class="o">)</span><span class="p">;</span>
 +----------------------+
 <span class="p">|</span><span class="w"> </span>properties<span class="o">(</span>EDGE<span class="o">)</span><span class="w">     </span><span class="p">|</span>
 +----------------------+
-<span class="p">|</span><span class="w"> </span><span class="o">{</span>age:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>name:<span class="w"> </span><span class="s2">&quot;n1&quot;</span><span class="o">}</span><span class="w"> </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span><span class="o">{</span>age:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>name:<span class="w"> </span><span class="s2">"n1"</span><span class="o">}</span><span class="w"> </span><span class="p">|</span>
 +----------------------+
 
 //<span class="w"> </span>使用<span class="w"> </span>LOOKUP<span class="w"> </span>语句查询
@@ -9738,7 +9738,7 @@ nebula&gt;<span class="w"> </span>LOOKUP<span class="w"> </span>ON<span class="w
 +-------------------------------------------------------+
 <span class="p">|</span><span class="w"> </span>r<span class="w">                                                     </span><span class="p">|</span>
 +-------------------------------------------------------+
-<span class="p">|</span><span class="w"> </span><span class="o">[</span>:e2<span class="w"> </span><span class="s2">&quot;11&quot;</span>-&gt;<span class="s2">&quot;13&quot;</span><span class="w"> </span>@0<span class="w"> </span><span class="o">{</span>age:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>name:<span class="w"> </span><span class="s2">&quot;n1&quot;</span><span class="o">}]</span><span class="w">              </span><span class="p">|</span>
+<span class="p">|</span><span class="w"> </span><span class="o">[</span>:e2<span class="w"> </span><span class="s2">"11"</span>-&gt;<span class="s2">"13"</span><span class="w"> </span>@0<span class="w"> </span><span class="o">{</span>age:<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>name:<span class="w"> </span><span class="s2">"n1"</span><span class="o">}]</span><span class="w">              </span><span class="p">|</span>
 +-------------------------------------------------------+
 
 //<span class="w"> </span>使用<span class="w"> </span>MATCH<span class="w"> </span>查询，不能查询到悬挂边
@@ -9795,7 +9795,7 @@ Empty<span class="w"> </span><span class="nb">set</span><span class="w"> </span>
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年12月30日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:02 UTC">2026年8月18日</span>
       
     
   </small>
@@ -9864,8 +9864,6 @@ Empty<span class="w"> </span><span class="nb">set</span><span class="w"> </span>
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

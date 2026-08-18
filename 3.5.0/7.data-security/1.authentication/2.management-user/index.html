@@ -9564,7 +9564,7 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <ul>
 <li>
 <p>语法</p>
-<div class="highlight"><pre><span></span><code>CREATE USER [IF NOT EXISTS] &lt;user_name&gt; [WITH PASSWORD &#39;&lt;password&gt;&#39;];
+<div class="highlight"><pre><span></span><code>CREATE USER [IF NOT EXISTS] &lt;user_name&gt; [WITH PASSWORD '&lt;password&gt;'];
 </code></pre></div>
 <ul>
 <li><code>IF NOT EXISTS</code>：检测待创建的用户名是否存在，只有不存在时，才会创建新用户。</li>
@@ -9576,7 +9576,7 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <ul>
 <li>
 <p>企业版语法</p>
-<div class="highlight"><pre><span></span><code>CREATE USER [IF NOT EXISTS] &lt;user_name&gt; [WITH PASSWORD &#39;&lt;password&gt;&#39;][WITH IP WHITELIST &lt;ip_list&gt;];
+<div class="highlight"><pre><span></span><code>CREATE USER [IF NOT EXISTS] &lt;user_name&gt; [WITH PASSWORD '&lt;password&gt;'][WITH IP WHITELIST &lt;ip_list&gt;];
 </code></pre></div>
 <ul>
 <li><code>ip_list</code>（企业版）：IP 白名单列表。该用户只有通过列表内的 IP 才能连接悦数图数据库。多个 IP 之间用英文逗号（,）分隔。</li>
@@ -9586,13 +9586,13 @@ https://github.com/mkdocs/mkdocs/blob/master/mkdocs/themes/mkdocs/main.html -->
 <ul>
 <li>
 <p>示例</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; CREATE USER user1 WITH PASSWORD &#39;nebula&#39;;
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE USER user1 WITH PASSWORD 'nebula';
 nebula&gt; SHOW USERS;
 +---------+-------------------------------+
 | Account | IP Whitelist                  |
 +---------+-------------------------------+
-| &quot;root&quot;  | &quot;&quot;                            |
-| &quot;user1&quot; | &quot;&quot;                            |
+| "root"  | ""                            |
+| "user1" | ""                            |
 +---------+-------------------------------+
 </code></pre></div>
 </li>
@@ -9600,12 +9600,12 @@ nebula&gt; SHOW USERS;
 <ul>
 <li>
 <p>企业版示例</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; CREATE USER user2 WITH PASSWORD &#39;nebula&#39; WITH IP WHITELIST 192.168.10.10,192.168.10.12;
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE USER user2 WITH PASSWORD 'nebula' WITH IP WHITELIST 192.168.10.10,192.168.10.12;
 nebula&gt; SHOW USERS;
 +---------+-------------------------------+
 | Account | IP Whitelist                  |
 +---------+-------------------------------+
-| &quot;user2&quot; | &quot;192.168.10.10,192.168.10.12&quot; |
+| "user2" | "192.168.10.10,192.168.10.12" |
 +---------+-------------------------------+
 </code></pre></div>
 </li>
@@ -9659,7 +9659,7 @@ DESC USER &lt;user_name&gt;;
 +---------+--------------------+
 | role    | space              |
 +---------+--------------------+
-| &quot;ADMIN&quot; | &quot;basketballplayer&quot; |
+| "ADMIN" | "basketballplayer" |
 +---------+--------------------+
 </code></pre></div>
 </li>
@@ -9680,7 +9680,7 @@ DESC USER &lt;user_name&gt;;
 +---------+-----------+
 | Account | Role Type |
 +---------+-----------+
-| &quot;user1&quot; | &quot;ADMIN&quot;   |
+| "user1" | "ADMIN"   |
 +---------+-----------+
 </code></pre></div>
 </li>
@@ -9690,14 +9690,14 @@ DESC USER &lt;user_name&gt;;
 <ul>
 <li>
 <p>语法</p>
-<div class="highlight"><pre><span></span><code>CHANGE PASSWORD &lt;user_name&gt; FROM &#39;&lt;old_password&gt;&#39; TO &#39;&lt;new_password&gt;&#39;;
+<div class="highlight"><pre><span></span><code>CHANGE PASSWORD &lt;user_name&gt; FROM '&lt;old_password&gt;' TO '&lt;new_password&gt;';
 </code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p>示例</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; CHANGE PASSWORD user1 FROM &#39;nebula&#39; TO &#39;nebula123&#39;;
+<div class="highlight"><pre><span></span><code>nebula&gt; CHANGE PASSWORD user1 FROM 'nebula' TO 'nebula123';
 </code></pre></div>
 </li>
 </ul>
@@ -9706,28 +9706,28 @@ DESC USER &lt;user_name&gt;;
 <ul>
 <li>
 <p>语法</p>
-<div class="highlight"><pre><span></span><code>ALTER USER &lt;user_name&gt; WITH PASSWORD &#39;&lt;password&gt;&#39;;
+<div class="highlight"><pre><span></span><code>ALTER USER &lt;user_name&gt; WITH PASSWORD '&lt;password&gt;';
 </code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p>企业版语法</p>
-<div class="highlight"><pre><span></span><code>ALTER USER &lt;user_name&gt; WITH PASSWORD &#39;&lt;password&gt;&#39; [WITH IP WHITELIST &lt;ip_list&gt;];
+<div class="highlight"><pre><span></span><code>ALTER USER &lt;user_name&gt; WITH PASSWORD '&lt;password&gt;' [WITH IP WHITELIST &lt;ip_list&gt;];
 </code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p>示例</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; ALTER USER user2 WITH PASSWORD &#39;nebula&#39;;
+<div class="highlight"><pre><span></span><code>nebula&gt; ALTER USER user2 WITH PASSWORD 'nebula';
 nebula&gt; SHOW USERS;
 +---------+--------------+
 | Account | IP Whitelist |
 +---------+--------------+
-| &quot;root&quot;  | &quot;&quot;           |
-| &quot;user1&quot; | &quot;&quot;           |
-| &quot;user2&quot; | &quot;&quot;           |
+| "root"  | ""           |
+| "user1" | ""           |
+| "user2" | ""           |
 +---------+--------------+
 </code></pre></div>
 </li>
@@ -9739,7 +9739,7 @@ nebula&gt; SHOW USERS;
 <p class="admonition-title">Enterpriseonly</p>
 <p>没有使用<code>WITH IP WHITELIST</code>时，表示取消 IP 白名单，用户使用任何 IP 都可以连接悦数图数据库。  </p>
 </div>
-<div class="highlight"><pre><span></span><code>nebula&gt; ALTER USER user2 WITH PASSWORD &#39;nebula&#39; WITH IP WHITELIST 192.168.10.10;
+<div class="highlight"><pre><span></span><code>nebula&gt; ALTER USER user2 WITH PASSWORD 'nebula' WITH IP WHITELIST 192.168.10.10;
 </code></pre></div>
 </li>
 </ul>
@@ -9779,9 +9779,9 @@ nebula&gt; SHOW USERS;
 +---------+-----------------+
 | Account | IP Whitelist    |
 +---------+-----------------+
-| &quot;root&quot;  | &quot;&quot;              |
-| &quot;user1&quot; | &quot;&quot;              |
-| &quot;user2&quot; | &quot;192.168.10.10&quot; |
+| "root"  | ""              |
+| "user1" | ""              |
+| "user2" | "192.168.10.10" |
 +---------+-----------------+
 </code></pre></div>
 </li>
@@ -9792,7 +9792,7 @@ nebula&gt; SHOW USERS;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年12月30日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:02 UTC">2026年8月18日</span>
       
     
   </small>
@@ -9861,8 +9861,6 @@ nebula&gt; SHOW USERS;
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

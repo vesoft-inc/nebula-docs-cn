@@ -9681,17 +9681,17 @@ nebula&gt; RETURN size(list[1,2,3]);
 +---------------+
 
 # 将列表 [92,90] 中的元素做运算，然后在 where 子句中进行条件判断。
-nebula&gt; GO FROM &quot;player100&quot; OVER follow WHERE properties(edge).degree NOT IN [x IN [92, 90] | x + $$.player.age] \
+nebula&gt; GO FROM "player100" OVER follow WHERE properties(edge).degree NOT IN [x IN [92, 90] | x + $$.player.age] \
         YIELD dst(edge) AS id, properties(edge).degree AS degree;
 +-------------+--------+
 | id          | degree |
 +-------------+--------+
-| &quot;player101&quot; | 95     |
-| &quot;player102&quot; | 90     |
+| "player101" | 95     |
+| "player102" | 90     |
 +-------------+--------+
 
 # 将 MATCH 语句的查询结果作为列表中的元素进行运算并返回。
-nebula&gt; MATCH p = (n:player{name:&quot;Tim Duncan&quot;})-[:follow]-&gt;(m) \
+nebula&gt; MATCH p = (n:player{name:"Tim Duncan"})-[:follow]-&gt;(m) \
         RETURN [n IN nodes(p) | n.player.age + 100] AS r;
 +------------+
 | r          |
@@ -9728,7 +9728,7 @@ nebula&gt; MATCH p = (n:player{name:&quot;Tim Duncan&quot;})-[:follow]-&gt;(m) \
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2024年12月30日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:02 UTC">2026年8月18日</span>
       
     
   </small>
@@ -9797,8 +9797,6 @@ nebula&gt; MATCH p = (n:player{name:&quot;Tim Duncan&quot;})-[:follow]-&gt;(m) \
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
