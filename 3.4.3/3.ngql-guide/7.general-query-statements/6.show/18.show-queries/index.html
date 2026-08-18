@@ -10440,14 +10440,14 @@
 +------------------+-----------------+--------+----------------------+----------------------------+----------------+-----------+-----------------------+
 | SessionID        | ExecutionPlanID | User   | Host                 | StartTime                  | DurationInUSec | Status    | Query                 |
 +------------------+-----------------+--------+----------------------+----------------------------+----------------+-----------+-----------------------+
-| 1625463842921750 | 46              | &quot;root&quot; | &quot;&quot;192.168.x.x&quot;:9669&quot; | 2021-07-05T05:44:19.502903 | 0              | &quot;RUNNING&quot; | &quot;SHOW LOCAL QUERIES;&quot; |
+| 1625463842921750 | 46              | "root" | ""192.168.x.x":9669" | 2021-07-05T05:44:19.502903 | 0              | "RUNNING" | "SHOW LOCAL QUERIES;" |
 +------------------+-----------------+--------+----------------------+----------------------------+----------------+-----------+-----------------------+
 
 nebula&gt; SHOW QUERIES;
 +------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+---------------------------------------------------------+
 | SessionID        | ExecutionPlanID | User    | Host                 | StartTime                  | DurationInUSec | Status    | Query                                                   |
 +------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+---------------------------------------------------------+
-| 1625456037718757 | 54              | &quot;user1&quot; | &quot;&quot;192.168.x.x&quot;:9669&quot; | 2021-07-05T05:51:08.691318 | 1504502        | &quot;RUNNING&quot; | &quot;MATCH p=(v:player)-[*1..4]-(v2) RETURN v2 AS Friends;&quot; |
+| 1625456037718757 | 54              | "user1" | ""192.168.x.x":9669" | 2021-07-05T05:51:08.691318 | 1504502        | "RUNNING" | "MATCH p=(v:player)-[*1..4]-(v2) RETURN v2 AS Friends;" |
 +------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+---------------------------------------------------------+
 
 # 返回耗时 TOP 10 的查询。
@@ -10455,8 +10455,8 @@ nebula&gt; SHOW QUERIES | ORDER BY $-.DurationInUSec DESC | LIMIT 10;
 +------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+-------------------------------------------------------+
 | SessionID        | ExecutionPlanID | User    | Host                 | StartTime                  | DurationInUSec | Status    | Query                                                 |
 +------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+-------------------------------------------------------+
-| 1625471375320831 | 98              | &quot;user2&quot; | &quot;&quot;192.168.x.x&quot;:9669&quot; | 2021-07-05T07:50:24.461779 | 2608176        | &quot;RUNNING&quot; | &quot;MATCH (v:player)-[*1..4]-(v2) RETURN v2 AS Friends;&quot; |
-| 1625456037718757 | 99              | &quot;user1&quot; | &quot;&quot;192.168.x.x&quot;:9669&quot; | 2021-07-05T07:50:24.910616 | 2159333        | &quot;RUNNING&quot; | &quot;MATCH (v:player)-[*1..4]-(v2) RETURN v2 AS Friends;&quot; |
+| 1625471375320831 | 98              | "user2" | ""192.168.x.x":9669" | 2021-07-05T07:50:24.461779 | 2608176        | "RUNNING" | "MATCH (v:player)-[*1..4]-(v2) RETURN v2 AS Friends;" |
+| 1625456037718757 | 99              | "user1" | ""192.168.x.x":9669" | 2021-07-05T07:50:24.910616 | 2159333        | "RUNNING" | "MATCH (v:player)-[*1..4]-(v2) RETURN v2 AS Friends;" |
 +------------------+-----------------+---------+----------------------+----------------------------+----------------+-----------+-------------------------------------------------------+
 </code></pre></div>
 <p>参数说明如下。</p>
@@ -10508,7 +10508,7 @@ nebula&gt; SHOW QUERIES | ORDER BY $-.DurationInUSec DESC | LIMIT 10;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 08:08:24">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:30:37 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10592,8 +10592,6 @@ nebula&gt; SHOW QUERIES | ORDER BY $-.DurationInUSec DESC | LIMIT 10;
         <script src="../../../../js/jquery.js"></script>
       
         <script src="../../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

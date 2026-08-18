@@ -11151,8 +11151,8 @@
 <div class="highlight"><pre><span></span><code># CREATE TAG INDEX IF NOT EXISTS i_player ON player(name(20));
 # REBUILD TAG INDEX i_player;
 
-&gt; LOOKUP ON player WHERE player.name == &quot;abc&quot; | ... YIELD ...
-&gt; MATCH (src) WHERE src.name == &quot;abc&quot; ...
+&gt; LOOKUP ON player WHERE player.name == "abc" | ... YIELD ...
+&gt; MATCH (src) WHERE src.name == "abc" ...
 # 通过点属性 name 的索引，来得到 VID
 </code></pre></div>
 <p>否则，就会抛出这样一个异常 <code>can’t solve the start vids from the sentence</code>。</p>
@@ -11195,7 +11195,7 @@
 +--------------------+
 | Name               |
 +--------------------+
-| &quot;basketballplayer&quot; |
+| "basketballplayer" |
 +--------------------+
 Got 1 rows (time spent 1235/1934 us)
 </code></pre></div>
@@ -11279,8 +11279,8 @@ Got 1 rows (time spent 1235/1934 us)
 <p>能，详情参见<a href="../../3.ngql-guide/1.nGQL-overview/keywords-and-reserved-words/">关键字和保留字</a>。</p>
 <h3 id="_8">获取指定点的出度（或者入度）?<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p>一个点的“出度”是指从该点出发的“边”的条数。入度，是指指向该点的边的条数。</p>
-<div class="highlight"><pre><span></span><code>nebula &gt; MATCH (s)-[e]-&gt;() WHERE id(s) == &quot;given&quot; RETURN count(e); #出度
-nebula &gt; MATCH (s)&lt;-[e]-() WHERE id(s) == &quot;given&quot; RETURN count(e); #入度
+<div class="highlight"><pre><span></span><code>nebula &gt; MATCH (s)-[e]-&gt;() WHERE id(s) == "given" RETURN count(e); #出度
+nebula &gt; MATCH (s)&lt;-[e]-() WHERE id(s) == "given" RETURN count(e); #入度
 </code></pre></div>
 <p>因为没有对出度和入度的进行特殊处理（例如索引或者缓存），这是一个较慢的操作。特别当遇到<a href="../../8.service-tuning/super-node/">超级节点</a>时，可能会发生OOM。</p>
 <h3 id="_9">是否有办法快速获取“所有”点的出度和入度？<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
@@ -11365,7 +11365,7 @@ nebula &gt; MATCH (s)&lt;-[e]-() WHERE id(s) == &quot;given&quot; RETURN count(e
 例如：</li>
 </ol>
 <div class="highlight"><pre><span></span><code><span class="w"> </span>$<span class="w"> </span>file<span class="w"> </span>core.1316027
-<span class="w"> </span>core.1316027:<span class="w"> </span>ELF<span class="w"> </span><span class="m">64</span>-bit<span class="w"> </span>LSB<span class="w"> </span>core<span class="w"> </span>file,<span class="w"> </span>x86-64,<span class="w"> </span>version<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>SYSV<span class="o">)</span>,<span class="w"> </span>SVR4-style,<span class="w"> </span>from<span class="w"> </span><span class="s1">&#39;/home/workspace/fork/nebula-debug/bin/nebula-metad --flagfile /home/k&#39;</span>,<span class="w"> </span>real<span class="w"> </span>uid:<span class="w"> </span><span class="m">1008</span>,<span class="w"> </span>effective<span class="w"> </span>uid:<span class="w"> </span><span class="m">1008</span>,<span class="w"> </span>real<span class="w"> </span>gid:<span class="w"> </span><span class="m">1008</span>,<span class="w"> </span>effective<span class="w"> </span>gid:<span class="w"> </span><span class="m">1008</span>,<span class="w"> </span>execfn:<span class="w"> </span><span class="s1">&#39;/home/workspace/fork/nebula-debug/bin/nebula-metad&#39;</span>,<span class="w"> </span>platform:<span class="w"> </span><span class="s1">&#39;x86_64&#39;</span>
+<span class="w"> </span>core.1316027:<span class="w"> </span>ELF<span class="w"> </span><span class="m">64</span>-bit<span class="w"> </span>LSB<span class="w"> </span>core<span class="w"> </span>file,<span class="w"> </span>x86-64,<span class="w"> </span>version<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">(</span>SYSV<span class="o">)</span>,<span class="w"> </span>SVR4-style,<span class="w"> </span>from<span class="w"> </span><span class="s1">'/home/workspace/fork/nebula-debug/bin/nebula-metad --flagfile /home/k'</span>,<span class="w"> </span>real<span class="w"> </span>uid:<span class="w"> </span><span class="m">1008</span>,<span class="w"> </span>effective<span class="w"> </span>uid:<span class="w"> </span><span class="m">1008</span>,<span class="w"> </span>real<span class="w"> </span>gid:<span class="w"> </span><span class="m">1008</span>,<span class="w"> </span>effective<span class="w"> </span>gid:<span class="w"> </span><span class="m">1008</span>,<span class="w"> </span>execfn:<span class="w"> </span><span class="s1">'/home/workspace/fork/nebula-debug/bin/nebula-metad'</span>,<span class="w"> </span>platform:<span class="w"> </span><span class="s1">'x86_64'</span>
 
 <span class="w"> </span>$<span class="w"> </span>gdb<span class="w"> </span>/home/workspace/fork/nebula-debug/bin/nebula-metad<span class="w"> </span>core.1316027
 
@@ -11718,7 +11718,7 @@ $ systemctl restart nebula-storaged.service
 $<span class="w"> </span>telnet<span class="w"> </span><span class="m">192</span>.168.1.10<span class="w"> </span><span class="m">9669</span>
 Trying<span class="w"> </span><span class="m">192</span>.168.1.10...
 Connected<span class="w"> </span>to<span class="w"> </span><span class="m">192</span>.168.1.10.
-Escape<span class="w"> </span>character<span class="w"> </span>is<span class="w"> </span><span class="s1">&#39;^]&#39;</span>.
+Escape<span class="w"> </span>character<span class="w"> </span>is<span class="w"> </span><span class="s1">'^]'</span>.
 
 //<span class="w"> </span>如果端口未开放：
 $<span class="w"> </span>telnet<span class="w"> </span><span class="m">192</span>.168.1.10<span class="w"> </span><span class="m">9777</span>
@@ -11727,7 +11727,7 @@ telnet:<span class="w"> </span>connect<span class="w"> </span>to<span class="w">
 </code></pre></div>
 <h3 id="max_sessions_per_ip_per_user">会话数量达到<code>max_sessions_per_ip_per_user</code>所设值上限时怎么办？<a class="headerlink" href="#max_sessions_per_ip_per_user" title="Permanent link">&para;</a></h3>
 <p>当会话数量达到上限时，即超过<code>max_sessions_per_ip_per_user</code>所设值，在连接 NebulaGraph 的时候，会出现以下报错：</p>
-<div class="highlight"><pre><span></span><code>Fail to create a new session from connection pool, fail to authenticate, error: Create Session failed: Too many sessions created from 127.0.0.1 by user root. the threshold is 2. You can change it by modifying &#39;max_sessions_per_ip_per_user&#39; in nebula-graphd.conf
+<div class="highlight"><pre><span></span><code>Fail to create a new session from connection pool, fail to authenticate, error: Create Session failed: Too many sessions created from 127.0.0.1 by user root. the threshold is 2. You can change it by modifying 'max_sessions_per_ip_per_user' in nebula-graphd.conf
 </code></pre></div>
 <p>用户可以通过以下三种方式解决问题：</p>
 <ol>
@@ -11741,7 +11741,7 @@ telnet:<span class="w"> </span>connect<span class="w"> </span>to<span class="w">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 08:08:24">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:30:37 UTC">2026年8月18日</span>
       
     
   </small>
@@ -11825,8 +11825,6 @@ telnet:<span class="w"> </span>connect<span class="w"> </span>to<span class="w">
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

@@ -10350,31 +10350,31 @@
 </ul>
 <p><img alt="SAMPLE in GO" src="https://docs-cdn.nebula-graph.com.cn/figures/sample_in_go.png" /></p>
 <p>在 basketballplayer 数据集中的执行示例如下：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; GO 3 STEPS FROM &quot;player100&quot; \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO 3 STEPS FROM "player100" \
         OVER * \
         YIELD properties($$).name AS NAME, properties($$).age AS Age \
         SAMPLE [1,2,3];
 +-----------------+----------+
 | NAME            | Age      |
 +-----------------+----------+
-| &quot;Tony Parker&quot;   | 36       |
-| &quot;Manu Ginobili&quot; | 41       |
-| &quot;Spurs&quot;         | __NULL__ |
+| "Tony Parker"   | 36       |
+| "Manu Ginobili" | 41       |
+| "Spurs"         | __NULL__ |
 +-----------------+----------+
 
-nebula&gt; GO 1 TO 3 STEPS FROM &quot;player100&quot; \
+nebula&gt; GO 1 TO 3 STEPS FROM "player100" \
         OVER * \
         YIELD properties($$).name AS NAME, properties($$).age AS Age \
         SAMPLE [2,2,2];
 +-----------------+----------+
 | NAME            | Age      |
 +-----------------+----------+
-| &quot;Manu Ginobili&quot; | 41       |
-| &quot;Spurs&quot;         | __NULL__ |
-| &quot;Tim Duncan&quot;    | 42       |
-| &quot;Spurs&quot;         | __NULL__ |
-| &quot;Manu Ginobili&quot; | 41       |
-| &quot;Spurs&quot;         | __NULL__ |
+| "Manu Ginobili" | 41       |
+| "Spurs"         | __NULL__ |
+| "Tim Duncan"    | 42       |
+| "Spurs"         | __NULL__ |
+| "Manu Ginobili" | 41       |
+| "Spurs"         | __NULL__ |
 +-----------------+----------+
 </code></pre></div>
 
@@ -10383,7 +10383,7 @@ nebula&gt; GO 1 TO 3 STEPS FROM &quot;player100&quot; \
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 08:08:24">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:30:37 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10467,8 +10467,6 @@ nebula&gt; GO 1 TO 3 STEPS FROM &quot;player100&quot; \
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

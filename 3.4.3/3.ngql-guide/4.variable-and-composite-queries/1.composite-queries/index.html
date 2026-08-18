@@ -10446,7 +10446,7 @@
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li>opencypher 兼容语句<div class="highlight"><pre><span></span><code># 子句连接多个查询。
-nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})--() \
+nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})--() \
         WITH nodes(p) AS n \
         UNWIND n AS n1 \
         RETURN DISTINCT n1;
@@ -10458,23 +10458,23 @@ nebula&gt; MATCH p=(v:player{name:&quot;Tim Duncan&quot;})--() \
 nebula&gt; SHOW TAGS; SHOW EDGES;
 
 # 插入多个点。
-nebula&gt; INSERT VERTEX player(name, age) VALUES &quot;player100&quot;:(&quot;Tim Duncan&quot;, 42); \
-        INSERT VERTEX player(name, age) VALUES &quot;player101&quot;:(&quot;Tony Parker&quot;, 36); \
-        INSERT VERTEX player(name, age) VALUES &quot;player102&quot;:(&quot;LaMarcus Aldridge&quot;, 33);
+nebula&gt; INSERT VERTEX player(name, age) VALUES "player100":("Tim Duncan", 42); \
+        INSERT VERTEX player(name, age) VALUES "player101":("Tony Parker", 36); \
+        INSERT VERTEX player(name, age) VALUES "player102":("LaMarcus Aldridge", 33);
 </code></pre></div>
 </li>
 </ul>
 <ul>
 <li>原生 nGQL（管道符）<div class="highlight"><pre><span></span><code># 管道符连接多个查询。
-nebula&gt; GO FROM &quot;player100&quot; OVER follow YIELD dst(edge) AS id | \
+nebula&gt; GO FROM "player100" OVER follow YIELD dst(edge) AS id | \
         GO FROM $-.id OVER serve YIELD properties($$).name AS Team, \
         properties($^).name AS Player;
 +-----------+-----------------+
 | Team      | Player          |
 +-----------+-----------------+
-| &quot;Spurs&quot;   | &quot;Tony Parker&quot;   |
-| &quot;Hornets&quot; | &quot;Tony Parker&quot;   |
-| &quot;Spurs&quot;   | &quot;Manu Ginobili&quot; |
+| "Spurs"   | "Tony Parker"   |
+| "Hornets" | "Tony Parker"   |
+| "Spurs"   | "Manu Ginobili" |
 +-----------+-----------------+
 </code></pre></div>
 </li>
@@ -10485,7 +10485,7 @@ nebula&gt; GO FROM &quot;player100&quot; OVER follow YIELD dst(edge) AS id | \
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 08:08:24">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:30:37 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10569,8 +10569,6 @@ nebula&gt; GO FROM &quot;player100&quot; OVER follow YIELD dst(edge) AS id | \
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

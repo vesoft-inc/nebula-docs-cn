@@ -10429,36 +10429,36 @@
 <p><code>OPTIONAL MATCH</code>子句中暂不支持使用<code>WHERE</code>子句。</p>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><code>MATCH</code>语句中使用<code>OPTIONAL MATCH</code>的示例如下：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (m)-[]-&gt;(n) WHERE id(m)==&quot;player100&quot; \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (m)-[]-&gt;(n) WHERE id(m)=="player100" \
         OPTIONAL MATCH (n)-[]-&gt;(l) \
         RETURN id(m),id(n),id(l);
 +-------------+-------------+-------------+
 | id(m)       | id(n)       | id(l)       |
 +-------------+-------------+-------------+
-| &quot;player100&quot; | &quot;team204&quot;   | __NULL__    |
-| &quot;player100&quot; | &quot;player101&quot; | &quot;team204&quot;   |
-| &quot;player100&quot; | &quot;player101&quot; | &quot;team215&quot;   |
-| &quot;player100&quot; | &quot;player101&quot; | &quot;player100&quot; |
-| &quot;player100&quot; | &quot;player101&quot; | &quot;player102&quot; |
-| &quot;player100&quot; | &quot;player101&quot; | &quot;player125&quot; |
-| &quot;player100&quot; | &quot;player125&quot; | &quot;team204&quot;   |
-| &quot;player100&quot; | &quot;player125&quot; | &quot;player100&quot; |
+| "player100" | "team204"   | __NULL__    |
+| "player100" | "player101" | "team204"   |
+| "player100" | "player101" | "team215"   |
+| "player100" | "player101" | "player100" |
+| "player100" | "player101" | "player102" |
+| "player100" | "player101" | "player125" |
+| "player100" | "player125" | "team204"   |
+| "player100" | "player125" | "player100" |
 +-------------+-------------+-------------+
 </code></pre></div>
 <p>而使用多<code>MATCH</code>，不使用<code>OPTIONAL MATCH</code>时，会返回模式完全匹配的行。示例如下：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (m)-[]-&gt;(n) WHERE id(m)==&quot;player100&quot; \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (m)-[]-&gt;(n) WHERE id(m)=="player100" \
         MATCH (n)-[]-&gt;(l) \
         RETURN id(m),id(n),id(l);
 +-------------+-------------+-------------+
 | id(m)       | id(n)       | id(l)       |
 +-------------+-------------+-------------+
-| &quot;player100&quot; | &quot;player101&quot; | &quot;team204&quot;   |
-| &quot;player100&quot; | &quot;player101&quot; | &quot;team215&quot;   |
-| &quot;player100&quot; | &quot;player101&quot; | &quot;player100&quot; |
-| &quot;player100&quot; | &quot;player101&quot; | &quot;player102&quot; |
-| &quot;player100&quot; | &quot;player101&quot; | &quot;player125&quot; |
-| &quot;player100&quot; | &quot;player125&quot; | &quot;team204&quot;   |
-| &quot;player100&quot; | &quot;player125&quot; | &quot;player100&quot; |
+| "player100" | "player101" | "team204"   |
+| "player100" | "player101" | "team215"   |
+| "player100" | "player101" | "player100" |
+| "player100" | "player101" | "player102" |
+| "player100" | "player101" | "player125" |
+| "player100" | "player125" | "team204"   |
+| "player100" | "player125" | "player100" |
 +-------------+-------------+-------------+
 </code></pre></div>
 
@@ -10467,7 +10467,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 08:08:24">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:30:37 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10551,8 +10551,6 @@
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

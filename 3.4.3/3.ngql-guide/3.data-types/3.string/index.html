@@ -10480,20 +10480,20 @@ Background:
     Given any graph
  Scenario: Return a single-quoted string
     When executing query:
-      &quot;&quot;&quot;
-      RETURN &#39;&#39; AS literal
-      &quot;&quot;&quot;
+      """
+      RETURN '' AS literal
+      """
     Then the result should be, in any order:
       | literal |
-      | &#39;&#39;      |    # Note: it should return single-quotes as openCypher required.
+      | ''      |    # Note: it should return single-quotes as openCypher required.
     And no side effects
 </code></pre></div>
 <p>Cypher 的返回结果同时支持单引号和双引号，nGQL 遵循 Cypher 的方式。</p>
-<div class="highlight"><pre><span></span><code>nebula &gt; YIELD &#39;&#39; AS quote1, &quot;&quot; AS quote2, &quot;&#39;&quot; AS quote3, &#39;&quot;&#39; AS quote4
+<div class="highlight"><pre><span></span><code>nebula &gt; YIELD '' AS quote1, "" AS quote2, "'" AS quote3, '"' AS quote4
 +--------+--------+--------+--------+
 | quote1 | quote2 | quote3 | quote4 |
 +--------+--------+--------+--------+
-| &quot;&quot;     | &quot;&quot;     | &quot;&#39;&quot;    | &quot;&quot;&quot;    |
+| ""     | ""     | "'"    | """    |
 +--------+--------+--------+--------+
 </code></pre></div>
 
@@ -10502,7 +10502,7 @@ Background:
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 08:08:24">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:30:37 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10586,8 +10586,6 @@ Background:
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

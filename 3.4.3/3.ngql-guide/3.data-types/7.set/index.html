@@ -10447,13 +10447,13 @@ nebula&gt; YIELD size(set{1, 2, 1}) AS a;
 +---+
 
 # 返回目标点属性值组成的集合。
-nebula&gt; GO FROM &quot;player100&quot; OVER follow \
+nebula&gt; GO FROM "player100" OVER follow \
         YIELD set{properties($$).name,properties($$).age} as a;
 +-----------------------+
 | a                     |
 +-----------------------+
-| {36, &quot;Tony Parker&quot;}   |
-| {41, &quot;Manu Ginobili&quot;} |
+| {36, "Tony Parker"}   |
+| {41, "Manu Ginobili"} |
 +-----------------------+
 </code></pre></div>
 
@@ -10462,7 +10462,7 @@ nebula&gt; GO FROM &quot;player100&quot; OVER follow \
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 08:08:24">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:30:37 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10546,8 +10546,6 @@ nebula&gt; GO FROM &quot;player100&quot; OVER follow \
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
