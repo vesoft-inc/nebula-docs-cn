@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.3.0/3.ngql-guide/13.edge-statements/2.update-edge/">
       
       <link rel="icon" href="https://docs-cdn.nebula-graph.com.cn/figures/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -7269,7 +7269,7 @@ SET &lt;update_prop&gt;
 </table>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>// 用 GO 语句查看边的属性值。
-nebula&gt; GO FROM &quot;player100&quot; \
+nebula&gt; GO FROM "player100" \
         OVER serve \
         YIELD properties(edge).start_year, properties(edge).end_year;
 +-----------------------------+---------------------------+
@@ -7280,7 +7280,7 @@ nebula&gt; GO FROM &quot;player100&quot; \
 
 // 修改属性 start_year 的值，并返回 end_year 和新的 start_year。
 
-nebula&gt; UPDATE EDGE ON serve &quot;player100&quot; -&gt; &quot;team204&quot;@0 \
+nebula&gt; UPDATE EDGE ON serve "player100" -&gt; "team204"@0 \
         SET start_year = start_year + 1 \
         WHEN end_year &gt; 2010 \
         YIELD start_year, end_year;
@@ -7296,7 +7296,7 @@ nebula&gt; UPDATE EDGE ON serve &quot;player100&quot; -&gt; &quot;team204&quot;@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 28, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -7412,8 +7412,6 @@ nebula&gt; UPDATE EDGE ON serve &quot;player100&quot; -&gt; &quot;team204&quot;@
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

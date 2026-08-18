@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.3.0/3.ngql-guide/1.nGQL-overview/1.overview/">
       
       <link rel="icon" href="https://docs-cdn.nebula-graph.com.cn/figures/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -7516,51 +7516,51 @@ prop_value_list:
 <div class="highlight"><pre><span></span><code>Feature: Basic match
 
   Background:
-    Given a graph with space named &quot;basketballplayer&quot;
+    Given a graph with space named "basketballplayer"
 
   Scenario: Single node
     When executing query:
-      &quot;&quot;&quot;
-      MATCH (v:player {name: &quot;Yao Ming&quot;}) RETURN v;
-      &quot;&quot;&quot;
+      """
+      MATCH (v:player {name: "Yao Ming"}) RETURN v;
+      """
     Then the result should be, in any order, with relax comparison:
       | v                                                |
-      | (&quot;player133&quot; :player{age: 38, name: &quot;Yao Ming&quot;}) |
+      | ("player133" :player{age: 38, name: "Yao Ming"}) |
 
   Scenario: One step
     When executing query:
-      &quot;&quot;&quot;
-      MATCH (v1:player{name: &quot;LeBron James&quot;}) -[r]-&gt; (v2)
+      """
+      MATCH (v1:player{name: "LeBron James"}) -[r]-&gt; (v2)
       RETURN type(r) AS Type, v2.player.name AS Name
-      &quot;&quot;&quot;
+      """
     Then the result should be, in any order:
 
       | Type     | Name        |
-      | &quot;follow&quot; | &quot;Ray Allen&quot; |
-      | &quot;serve&quot;  | &quot;Lakers&quot;    |
-      | &quot;serve&quot;  | &quot;Heat&quot;      |
-      | &quot;serve&quot;  | &quot;Cavaliers&quot; |
+      | "follow" | "Ray Allen" |
+      | "serve"  | "Lakers"    |
+      | "serve"  | "Heat"      |
+      | "serve"  | "Cavaliers" |
 
 Feature:  Comparison of where clause
 
   Background:
-    Given a graph with space named &quot;basketballplayer&quot;
+    Given a graph with space named "basketballplayer"
 
     Scenario: push edge props filter down
       When profiling query:
-        &quot;&quot;&quot;
-        GO FROM &quot;player100&quot; OVER follow 
+        """
+        GO FROM "player100" OVER follow 
         WHERE properties(edge).degree IN [v IN [95,99] WHERE v &gt; 0] 
         YIELD dst(edge), properties(edge).degree
-        &quot;&quot;&quot;
+        """
       Then the result should be, in any order:
         | follow._dst | follow.degree |
-        | &quot;player101&quot; | 95            |
-        | &quot;player125&quot; | 95            |
+        | "player101" | 95            |
+        | "player125" | 95            |
       And the execution plan should be:
         | id | name         | dependencies | operator info                                                         |
         | 0  | Project      | 1            |                                                                       |
-        | 1  | GetNeighbors | 2            | {&quot;filter&quot;: &quot;(properties(edge).degree IN [v IN [95,99] WHERE (v&gt;0)])&quot;} |
+        | 1  | GetNeighbors | 2            | {"filter": "(properties(edge).degree IN [v IN [95,99] WHERE (v&gt;0)])"} |
         | 2  | Start        |              |                                                                       |
 </code></pre></div>
 <p>示例中的关键字说明如下。</p>
@@ -7619,7 +7619,7 @@ Feature:  Comparison of where clause
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 28, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -7735,8 +7735,6 @@ Feature:  Comparison of where clause
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

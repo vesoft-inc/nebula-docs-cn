@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.3.0/7.data-security/1.authentication/3.role-list/">
       
       <link rel="icon" href="https://docs-cdn.nebula-graph.com.cn/figures/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -7465,7 +7465,7 @@ OPTION = { READ | WRITE }
 
 ### 示例
 <div class="highlight"><pre><span></span><code># 创建 test 用户
-nebula&gt; CREATE USER test WITH PASSWORD &#39;nebula&#39;;
+nebula&gt; CREATE USER test WITH PASSWORD 'nebula';
 
 # 为 test 用户创建 Basic 角色权限
 nebula&gt; GRANT ROLE BASIC ON basketballplayer TO test;
@@ -7482,7 +7482,7 @@ nebula&gt; &gt; SHOW GRANTS test;
 +--------+------------+---------------------+------------+---------------------+
 | user   | READ(TAG)  | READ(EDGE)          | WRITE(TAG) | WRITE(EDGE)         |
 +--------+------------+---------------------+------------+---------------------+
-| &quot;test&quot; | [&quot;player&quot;] | [&quot;follow&quot;, &quot;serve&quot;] | [&quot;player&quot;] | [&quot;follow&quot;, &quot;serve&quot;] |
+| "test" | ["player"] | ["follow", "serve"] | ["player"] | ["follow", "serve"] |
 +--------+------------+---------------------+------------+---------------------+
 
 # 取消 test 用户 所有 Edge Type 的读、写权限
@@ -7493,7 +7493,7 @@ nebula&gt; SHOW GRANTS test
 +--------+------------+------------+------------+-------------+
 | user   | READ(TAG)  | READ(EDGE) | WRITE(TAG) | WRITE(EDGE) |
 +--------+------------+------------+------------+-------------+
-| &quot;test&quot; | [&quot;player&quot;] | []         | [&quot;player&quot;] | []          |
+| "test" | ["player"] | []         | ["player"] | []          |
 +--------+------------+------------+------------+-------------+
 </code></pre></div>
 
@@ -7508,7 +7508,7 @@ nebula&gt; SHOW GRANTS test
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 28, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -7624,8 +7624,6 @@ nebula&gt; SHOW GRANTS test
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

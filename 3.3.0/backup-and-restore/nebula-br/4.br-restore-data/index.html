@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.3.0/backup-and-restore/nebula-br/4.br-restore-data/">
       
       <link rel="icon" href="https://docs-cdn.nebula-graph.com.cn/figures/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -7231,7 +7231,7 @@
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span>./br<span class="w"> </span>show<span class="w"> </span>--storage<span class="w"> </span>&lt;storage_path&gt;
 </code></pre></div>
 <p>例如，可以使用以下命令列出在本地 <code>/home/nebula/backup</code> 路径中的备份的信息。
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./br<span class="w"> </span>show<span class="w"> </span>--storage<span class="w"> </span><span class="s2">&quot;local:///home/nebula/backup&quot;</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./br<span class="w"> </span>show<span class="w"> </span>--storage<span class="w"> </span><span class="s2">"local:///home/nebula/backup"</span>
 +----------------------------+---------------------+------------------------+-------------+------------+
 <span class="p">|</span><span class="w">            </span>NAME<span class="w">            </span><span class="p">|</span><span class="w">     </span>CREATE<span class="w"> </span>TIME<span class="w">     </span><span class="p">|</span><span class="w">         </span>SPACES<span class="w">         </span><span class="p">|</span><span class="w"> </span>FULL<span class="w"> </span>BACKUP<span class="w"> </span><span class="p">|</span><span class="w"> </span>ALL<span class="w"> </span>SPACES<span class="w"> </span><span class="p">|</span>
 +----------------------------+---------------------+------------------------+-------------+------------+
@@ -7240,7 +7240,7 @@
 +----------------------------+---------------------+------------------------+-------------+------------+
 </code></pre></div></p>
 <p>或使用以下命令列出在兼容 s3 协议的对象存储服务 <code>br-test</code> 桶下的<code>backup</code>中的备份的信息。
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./br<span class="w"> </span>show<span class="w"> </span>--s3.endpoint<span class="w"> </span><span class="s2">&quot;http://192.168.8.129:9000&quot;</span><span class="w"> </span>--storage<span class="o">=</span><span class="s2">&quot;s3://br-test/backup/&quot;</span><span class="w"> </span>--s3.access_key<span class="o">=</span>minioadmin<span class="w"> </span>--s3.secret_key<span class="o">=</span>minioadmin<span class="w"> </span>--s3.region<span class="o">=</span>default
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./br<span class="w"> </span>show<span class="w"> </span>--s3.endpoint<span class="w"> </span><span class="s2">"http://192.168.8.129:9000"</span><span class="w"> </span>--storage<span class="o">=</span><span class="s2">"s3://br-test/backup/"</span><span class="w"> </span>--s3.access_key<span class="o">=</span>minioadmin<span class="w"> </span>--s3.secret_key<span class="o">=</span>minioadmin<span class="w"> </span>--s3.region<span class="o">=</span>default
 </code></pre></div></p>
 <p>以下列出命令的相关参数。</p>
 <table>
@@ -7318,10 +7318,10 @@
   <div class="highlight"><pre><span></span><code>$ ./br restore full --meta &lt;ip_address&gt; --storage &lt;storage_path&gt; --name &lt;backup_name&gt;
 </code></pre></div></p>
 <p>例如，可以使用以下命令，将本地 <code>/home/nebula/backup/</code> 路径中的数据恢复到为 meta 地址为<code>192.168.8.129:9559</code>集群中：</p>
-<div class="highlight"><pre><span></span><code>$ ./br restore full --meta &quot;192.168.8.129:9559&quot; --storage &quot;local:///home/nebula/backup/&quot; --name BACKUP_2021_12_08_18_38_08
+<div class="highlight"><pre><span></span><code>$ ./br restore full --meta "192.168.8.129:9559" --storage "local:///home/nebula/backup/" --name BACKUP_2021_12_08_18_38_08
 </code></pre></div>
 <p>或者使用以下命令，将兼容 s3 协议的对象存储服务 <code>br-test</code> 桶下的<code>backup</code>的备份，恢复到 meta 服务的地址为<code>192.168.8.129:9559</code>的集群中。
-<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./br<span class="w"> </span>restore<span class="w"> </span>full<span class="w"> </span>--meta<span class="w"> </span><span class="s2">&quot;192.168.8.129:9559&quot;</span><span class="w"> </span>--s3.endpoint<span class="w"> </span><span class="s2">&quot;http://192.168.8.129:9000&quot;</span><span class="w"> </span>--storage<span class="o">=</span><span class="s2">&quot;s3://br-test/backup/&quot;</span><span class="w"> </span>--s3.access_key<span class="o">=</span>minioadmin<span class="w"> </span>--s3.secret_key<span class="o">=</span>minioadmin<span class="w"> </span>--s3.region<span class="o">=</span><span class="s2">&quot;default&quot;</span><span class="w"> </span>--name<span class="w"> </span>BACKUP_2021_12_08_18_38_08
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./br<span class="w"> </span>restore<span class="w"> </span>full<span class="w"> </span>--meta<span class="w"> </span><span class="s2">"192.168.8.129:9559"</span><span class="w"> </span>--s3.endpoint<span class="w"> </span><span class="s2">"http://192.168.8.129:9000"</span><span class="w"> </span>--storage<span class="o">=</span><span class="s2">"s3://br-test/backup/"</span><span class="w"> </span>--s3.access_key<span class="o">=</span>minioadmin<span class="w"> </span>--s3.secret_key<span class="o">=</span>minioadmin<span class="w"> </span>--s3.region<span class="o">=</span><span class="s2">"default"</span><span class="w"> </span>--name<span class="w"> </span>BACKUP_2021_12_08_18_38_08
 </code></pre></div></p>
 <p>如果返回如下信息，表示数据已经恢复成功。
 <div class="highlight"><pre><span></span><code>Restore<span class="w"> </span>succeed.
@@ -7511,7 +7511,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 28, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -7627,8 +7627,6 @@
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

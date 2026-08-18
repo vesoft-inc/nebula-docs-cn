@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.3.0/graph-computing/nebula-algorithm/">
       
       <link rel="icon" href="https://docs-cdn.nebula-graph.com.cn/figures/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -7650,28 +7650,28 @@ val<span class="w"> </span><span class="nv">louvainResult</span><span class="w">
 <span class="w">    </span>nebula:<span class="w"> </span><span class="o">{</span>
 <span class="w">    </span><span class="c1"># 数据源。NebulaGraph 作为图计算的数据源时，nebula.read 的配置才生效。</span>
 <span class="w">    </span>read:<span class="w"> </span><span class="o">{</span>
-<span class="w">        </span><span class="c1"># 所有 Meta 服务的 IP 地址和端口，多个地址用英文逗号（,）分隔。格式：&quot;ip1:port1,ip2:port2&quot;。</span>
+<span class="w">        </span><span class="c1"># 所有 Meta 服务的 IP 地址和端口，多个地址用英文逗号（,）分隔。格式："ip1:port1,ip2:port2"。</span>
 <span class="w">        </span><span class="c1"># 使用 docker-compose 部署，端口需要填写 docker-compose 映射到外部的端口</span>
 <span class="w">        </span><span class="c1"># 可以用`docker-compose ps`查看</span>
-<span class="w">        </span>metaAddress:<span class="w"> </span><span class="s2">&quot;192.168.*.10:9559&quot;</span>
+<span class="w">        </span>metaAddress:<span class="w"> </span><span class="s2">"192.168.*.10:9559"</span>
 <span class="w">        </span><span class="c1"># NebulaGraph 图空间名称</span>
 <span class="w">        </span>space:<span class="w"> </span>basketballplayer
 <span class="w">        </span><span class="c1"># NebulaGraph Edge type, 多个 labels 时，多个边的数据将合并。</span>
-<span class="w">        </span>labels:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;serve&quot;</span><span class="o">]</span>
+<span class="w">        </span>labels:<span class="w"> </span><span class="o">[</span><span class="s2">"serve"</span><span class="o">]</span>
 <span class="w">        </span><span class="c1"># NebulaGraph 每个 Edge type 的属性名称，此属性将作为算法的权重列，请确保和 Edge type 对应。</span>
-<span class="w">        </span>weightCols:<span class="w"> </span><span class="o">[</span><span class="s2">&quot;start_year&quot;</span><span class="o">]</span>
+<span class="w">        </span>weightCols:<span class="w"> </span><span class="o">[</span><span class="s2">"start_year"</span><span class="o">]</span>
 <span class="w">    </span><span class="o">}</span>
 
 <span class="w">    </span><span class="c1"># 数据落库。图计算结果落库到 NebulaGraph 时，nebula.write 的配置才生效。</span>
 <span class="w">    </span>write:<span class="o">{</span>
-<span class="w">        </span><span class="c1"># Graph 服务的 IP 地址和端口，多个地址用英文逗号（,）分隔。格式：&quot;ip1:port1,ip2:port2&quot;。</span>
+<span class="w">        </span><span class="c1"># Graph 服务的 IP 地址和端口，多个地址用英文逗号（,）分隔。格式："ip1:port1,ip2:port2"。</span>
 <span class="w">        </span><span class="c1"># 使用 docker-compose 部署，端口需要填写 docker-compose 映射到外部的端口</span>
 <span class="w">        </span><span class="c1"># 可以用`docker-compose ps`查看</span>
-<span class="w">        </span>graphAddress:<span class="w"> </span><span class="s2">&quot;192.168.*.11:9669&quot;</span>
-<span class="w">        </span><span class="c1"># 所有 Meta 服务的 IP 地址和端口，多个地址用英文逗号（,）分隔。格式：&quot;ip1:port1,ip2:port2&quot;。</span>
+<span class="w">        </span>graphAddress:<span class="w"> </span><span class="s2">"192.168.*.11:9669"</span>
+<span class="w">        </span><span class="c1"># 所有 Meta 服务的 IP 地址和端口，多个地址用英文逗号（,）分隔。格式："ip1:port1,ip2:port2"。</span>
 <span class="w">        </span><span class="c1"># 使用 docker-compose 部署，端口需要填写 docker-compose 映射到外部的端口</span>
 <span class="w">        </span><span class="c1"># 可以用`docker-compose ps`查看</span>
-<span class="w">        </span>metaAddress:<span class="w"> </span><span class="s2">&quot;192.168.*.12:9559&quot;</span>
+<span class="w">        </span>metaAddress:<span class="w"> </span><span class="s2">"192.168.*.12:9559"</span>
 <span class="w">        </span>user:root
 <span class="w">        </span>pswd:nebula
 <span class="w">        </span><span class="c1"># 在提交图计算任务之前需要自行创建图空间及 Tag</span>
@@ -7695,18 +7695,18 @@ val<span class="w"> </span><span class="nv">louvainResult</span><span class="w">
 <span class="w">    </span>local:<span class="w"> </span><span class="o">{</span>
 <span class="w">    </span><span class="c1"># 数据源。图计算的数据源为 csv 文件或 json 文件时，local.read 的配置才生效。</span>
 <span class="w">    </span>read:<span class="o">{</span>
-<span class="w">        </span>filePath:<span class="w"> </span><span class="s2">&quot;hdfs://127.0.0.1:9000/edge/work_for.csv&quot;</span>
+<span class="w">        </span>filePath:<span class="w"> </span><span class="s2">"hdfs://127.0.0.1:9000/edge/work_for.csv"</span>
 <span class="w">        </span><span class="c1"># 如果 CSV 文件没有表头，使用 [_c0, _c1, _c2, ..., _cn] 表示其表头，有表头或者是 json 文件时，直接使用表头名称即可。</span>
 <span class="w">        </span><span class="c1"># 起始点 ID 列的表头。</span>
-<span class="w">        </span>srcId:<span class="s2">&quot;_c0&quot;</span>
+<span class="w">        </span>srcId:<span class="s2">"_c0"</span>
 <span class="w">        </span><span class="c1"># 目的点 ID 列的表头。</span>
-<span class="w">        </span>dstId:<span class="s2">&quot;_c1&quot;</span>
+<span class="w">        </span>dstId:<span class="s2">"_c1"</span>
 <span class="w">        </span><span class="c1"># 权重列的表头</span>
-<span class="w">        </span>weight:<span class="w"> </span><span class="s2">&quot;_c2&quot;</span>
+<span class="w">        </span>weight:<span class="w"> </span><span class="s2">"_c2"</span>
 <span class="w">        </span><span class="c1"># csv 文件是否有表头</span>
 <span class="w">        </span>header:<span class="w"> </span><span class="nb">false</span>
 <span class="w">        </span><span class="c1"># csv 文件的分隔符</span>
-<span class="w">        </span>delimiter:<span class="s2">&quot;,&quot;</span>
+<span class="w">        </span>delimiter:<span class="s2">","</span>
 <span class="w">    </span><span class="o">}</span>
 
 <span class="w">    </span><span class="c1"># 数据落库。图计算结果落库到 csv 文件或 text 文件时，local.write 的配置才生效。</span>
@@ -7749,7 +7749,7 @@ val<span class="w"> </span><span class="nv">louvainResult</span><span class="w">
 <div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span>&lt;mode&gt;<span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.algorithm.Main<span class="w"> </span>&lt;nebula-algorithm-3.0.0.jar_path&gt;<span class="w"> </span>-p<span class="w"> </span>&lt;application.conf_path&gt;
 </code></pre></div>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.algorithm.Main<span class="w"> </span>/root/nebula-algorithm/target/nebula-algorithm-3.0-SNAPSHOT.jar<span class="w"> </span>-p<span class="w"> </span>/root/nebula-algorithm/src/main/resources/application.conf
+<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">"local"</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.algorithm.Main<span class="w"> </span>/root/nebula-algorithm/target/nebula-algorithm-3.0-SNAPSHOT.jar<span class="w"> </span>-p<span class="w"> </span>/root/nebula-algorithm/src/main/resources/application.conf
 </code></pre></div>
 </li>
 </ol>
@@ -7764,7 +7764,7 @@ val<span class="w"> </span><span class="nv">louvainResult</span><span class="w">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 28, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -7880,8 +7880,6 @@ val<span class="w"> </span><span class="nv">louvainResult</span><span class="w">
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

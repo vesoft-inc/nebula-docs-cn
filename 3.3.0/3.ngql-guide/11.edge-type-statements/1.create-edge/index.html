@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.3.0/3.ngql-guide/11.edge-type-statements/1.create-edge/">
       
       <link rel="icon" href="https://docs-cdn.nebula-graph.com.cn/figures/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -7257,12 +7257,12 @@
 <p>创建 Edge type 前，需要先用<code>USE</code>语句指定工作空间。</p>
 <div class="highlight"><pre><span></span><code>CREATE EDGE [IF NOT EXISTS] &lt;edge_type_name&gt;
     (
-      &lt;prop_name&gt; &lt;data_type&gt; [NULL | NOT NULL] [DEFAULT &lt;default_value&gt;] [COMMENT &#39;&lt;comment&gt;&#39;]
-      [{, &lt;prop_name&gt; &lt;data_type&gt; [NULL | NOT NULL] [DEFAULT &lt;default_value&gt;] [COMMENT &#39;&lt;comment&gt;&#39;]} ...] 
+      &lt;prop_name&gt; &lt;data_type&gt; [NULL | NOT NULL] [DEFAULT &lt;default_value&gt;] [COMMENT '&lt;comment&gt;']
+      [{, &lt;prop_name&gt; &lt;data_type&gt; [NULL | NOT NULL] [DEFAULT &lt;default_value&gt;] [COMMENT '&lt;comment&gt;']} ...] 
     )
     [TTL_DURATION = &lt;ttl_duration&gt;]
     [TTL_COL = &lt;prop_name&gt;]
-    [COMMENT = &#39;&lt;comment&gt;&#39;];
+    [COMMENT = '&lt;comment&gt;'];
 </code></pre></div>
 <table>
 <thead>
@@ -7321,7 +7321,7 @@ nebula&gt; CREATE EDGE IF NOT EXISTS follow_with_default(degree int DEFAULT 20);
 
 # 对字段 p2 设置 TTL 为 100 秒。
 nebula&gt; CREATE EDGE IF NOT EXISTS e1(p1 string, p2 int, p3 timestamp) \
-        TTL_DURATION = 100, TTL_COL = &quot;p2&quot;;
+        TTL_DURATION = 100, TTL_COL = "p2";
 </code></pre></div>
 
   <hr>
@@ -7329,7 +7329,7 @@ nebula&gt; CREATE EDGE IF NOT EXISTS e1(p1 string, p2 int, p3 timestamp) \
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 28, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -7445,8 +7445,6 @@ nebula&gt; CREATE EDGE IF NOT EXISTS e1(p1 string, p2 int, p3 timestamp) \
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
