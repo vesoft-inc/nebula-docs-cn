@@ -1,5 +1,6 @@
 mkdocs
 weasyprint==54.3
+pydyf==0.1.2
 mkdocs-material-extensions
 mike==1.1.2
 mkdocs-material==9.4.6
