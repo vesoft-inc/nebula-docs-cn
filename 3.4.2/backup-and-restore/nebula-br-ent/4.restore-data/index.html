@@ -10473,7 +10473,7 @@
 <div class="highlight"><pre><span></span><code>./br<span class="w"> </span>show<span class="w"> </span>--storage<span class="w"> </span>local://&lt;storage_path&gt;
 </code></pre></div>
 <p>例如，可以使用以下命令列出在本地<code>/backup/</code>路径中的备份目录的信息。</p>
-<div class="highlight"><pre><span></span><code>./br<span class="w"> </span>show<span class="w"> </span>--storage<span class="w"> </span><span class="s2">&quot;local:///backup/&quot;</span>
+<div class="highlight"><pre><span></span><code>./br<span class="w"> </span>show<span class="w"> </span>--storage<span class="w"> </span><span class="s2">"local:///backup/"</span>
 +----------------------------+---------------------+------------------------+-------------+------------+----------------------------+
 <span class="p">|</span><span class="w">            </span>NAME<span class="w">            </span><span class="p">|</span><span class="w">     </span>CREATE<span class="w"> </span>TIME<span class="w">     </span><span class="p">|</span><span class="w">         </span>SPACES<span class="w">         </span><span class="p">|</span><span class="w"> </span>FULL<span class="w"> </span>BACKUP<span class="w"> </span><span class="p">|</span><span class="w"> </span>ALL<span class="w"> </span>SPACES<span class="w"> </span><span class="p">|</span><span class="w">      </span>BASE<span class="w"> </span>BACKUP<span class="w"> </span>NAME<span class="w">      </span><span class="p">|</span>
 +----------------------------+---------------------+------------------------+-------------+------------+----------------------------+
@@ -10498,7 +10498,7 @@
 <div class="highlight"><pre><span></span><code>./br restore full --meta &lt;ip_address&gt; --storage &lt;storage_path&gt; --name &lt;backup_name&gt;
 </code></pre></div>
 <p>例如，可以使用以下命令，将本地<code>/backup/</code>路径中的<code>BACKUP_2022_08_11_09_11_07</code>文件数据恢复到为 Meta 地址为<code>192.168.8.129:9559</code>集群中：</p>
-<div class="highlight"><pre><span></span><code>./br restore full --meta &quot;192.168.8.129:9559&quot; --storage &quot;local:///backup/&quot; --name BACKUP_2022_08_11_09_11_07
+<div class="highlight"><pre><span></span><code>./br restore full --meta "192.168.8.129:9559" --storage "local:///backup/" --name BACKUP_2022_08_11_09_11_07
 </code></pre></div>
 </li>
 </ul>
@@ -10506,7 +10506,7 @@
 <li>
 <p>基于云存储备份恢复数据。</p>
 <p>将兼容 S3 协议的对象存储服务<code>nebula-br-test</code>桶下的<code>/</code>路径中的<code>BACKUP_2022_08_12_07_37_02</code>备份数据，恢复到 Meta 服务的地址为<code>192.168.8.129:9559</code>的集群中。</p>
-<div class="highlight"><pre><span></span><code>./br<span class="w"> </span>restore<span class="w"> </span>full<span class="w"> </span>--meta<span class="w"> </span><span class="m">192</span>.168.8.129:9559<span class="w"> </span>--s3.accesskey<span class="w"> </span>QImbbGDjfQEYxxxx<span class="w"> </span>--s3.secretkey<span class="w"> </span>dVSJZfl7tnoFq7Z5zt6sfYnvi63bxxxx<span class="w">  </span>--s3.region<span class="w"> </span>us-east-1<span class="w"> </span>--storage<span class="w"> </span>s3://nebula-br-test/<span class="w"> </span>--s3.endpoint<span class="w"> </span>http://192.168.8.xxx:9000/<span class="w"> </span>--log<span class="w"> </span><span class="s2">&quot;3.log&quot;</span><span class="w"> </span>--name<span class="w"> </span>BACKUP_2022_08_12_07_37_02
+<div class="highlight"><pre><span></span><code>./br<span class="w"> </span>restore<span class="w"> </span>full<span class="w"> </span>--meta<span class="w"> </span><span class="m">192</span>.168.8.129:9559<span class="w"> </span>--s3.accesskey<span class="w"> </span>QImbbGDjfQEYxxxx<span class="w"> </span>--s3.secretkey<span class="w"> </span>dVSJZfl7tnoFq7Z5zt6sfYnvi63bxxxx<span class="w">  </span>--s3.region<span class="w"> </span>us-east-1<span class="w"> </span>--storage<span class="w"> </span>s3://nebula-br-test/<span class="w"> </span>--s3.endpoint<span class="w"> </span>http://192.168.8.xxx:9000/<span class="w"> </span>--log<span class="w"> </span><span class="s2">"3.log"</span><span class="w"> </span>--name<span class="w"> </span>BACKUP_2022_08_12_07_37_02
 </code></pre></div>
 </li>
 </ul>
@@ -10527,7 +10527,7 @@
 <ul>
 <li>
 <p>清除本地的备份目录。</p>
-<div class="highlight"><pre><span></span><code>./br cleanup --meta 192.168.8.129:9559 --storage &quot;local:///backup/&quot; --name BACKUP_2022_08_11_09_11_07
+<div class="highlight"><pre><span></span><code>./br cleanup --meta 192.168.8.129:9559 --storage "local:///backup/" --name BACKUP_2022_08_11_09_11_07
 </code></pre></div>
 </li>
 </ul>
@@ -10634,9 +10634,9 @@
 </table>
 <h2 id="_5">查看恢复进度<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>在安装目录内可以查看 BR 的日志文件<code>br.log</code>。日志文件会记录恢复进度，内容类似：</p>
-<div class="highlight"><pre><span></span><code>{&quot;level&quot;:&quot;info&quot;,&quot;msg&quot;:&quot;download storaged partition finished, progress: 1/20&quot;,&quot;time&quot;:&quot;2023-03-15T02:16:43.430Z&quot;}
-{&quot;level&quot;:&quot;info&quot;,&quot;msg&quot;:&quot;download storaged partition finished, progress: 2/20&quot;,&quot;time&quot;:&quot;2023-03-15T02:16:43.431Z&quot;}
-{&quot;level&quot;:&quot;info&quot;,&quot;msg&quot;:&quot;download storaged partition finished, progress: 3/20&quot;,&quot;time&quot;:&quot;2023-03-15T02:16:43.763Z&quot;}
+<div class="highlight"><pre><span></span><code>{"level":"info","msg":"download storaged partition finished, progress: 1/20","time":"2023-03-15T02:16:43.430Z"}
+{"level":"info","msg":"download storaged partition finished, progress: 2/20","time":"2023-03-15T02:16:43.431Z"}
+{"level":"info","msg":"download storaged partition finished, progress: 3/20","time":"2023-03-15T02:16:43.763Z"}
 </code></pre></div>
 
   <hr>
@@ -10644,7 +10644,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 09:25:31">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:24 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10728,8 +10728,6 @@
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

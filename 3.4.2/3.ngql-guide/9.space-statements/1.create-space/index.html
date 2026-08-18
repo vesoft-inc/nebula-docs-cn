@@ -10482,7 +10482,7 @@
     [replica_factor = &lt;replica_number&gt;,]
     vid_type = {FIXED_STRING(&lt;N&gt;) | INT[64]}
     )
-    [COMMENT = &#39;&lt;comment&gt;&#39;];
+    [COMMENT = '&lt;comment&gt;'];
 </code></pre></div>
 <table>
 <thead>
@@ -10594,7 +10594,7 @@ nebula&gt; CREATE SPACE IF NOT EXISTS my_space_1 (vid_type=FIXED_STRING(30));
 nebula&gt; CREATE SPACE IF NOT EXISTS my_space_2 (partition_num=15, replica_factor=1, vid_type=FIXED_STRING(30));
 
 # 指定分片数量、副本数量和 VID 类型，并添加描述。
-nebula&gt; CREATE SPACE IF NOT EXISTS my_space_3 (partition_num=15, replica_factor=1, vid_type=FIXED_STRING(30)) comment=&quot;测试图空间&quot;;
+nebula&gt; CREATE SPACE IF NOT EXISTS my_space_3 (partition_num=15, replica_factor=1, vid_type=FIXED_STRING(30)) comment="测试图空间";
 
 # 克隆图空间。
 nebula&gt; CREATE SPACE IF NOT EXISTS my_space_4 as my_space_3;
@@ -10602,7 +10602,7 @@ nebula&gt; SHOW CREATE SPACE my_space_4;
 +--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Space        | Create Space                                                                                                                                                 |
 +--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| &quot;my_space_4&quot; | &quot;CREATE SPACE `my_space_4` (partition_num = 15, replica_factor = 1, charset = utf8, collate = utf8_bin, vid_type = FIXED_STRING(30)) comment = &#39;测试图空间&#39;&quot; |
+| "my_space_4" | "CREATE SPACE `my_space_4` (partition_num = 15, replica_factor = 1, charset = utf8, collate = utf8_bin, vid_type = FIXED_STRING(30)) comment = '测试图空间'" |
 +--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 </code></pre></div>
 <div class="admonition caution">
@@ -10615,9 +10615,9 @@ nebula&gt; SHOW CREATE SPACE my_space_4;
 +-------------+------+----------+--------------+--------------------------------+--------------------------------+---------+
 | Host        | Port | Status   | Leader count | Leader distribution            | Partition distribution         | Version |
 +-------------+------+----------+--------------+--------------------------------+--------------------------------+---------+
-| &quot;storaged0&quot; | 9779 | &quot;ONLINE&quot; | 8            | &quot;basketballplayer:3, test:5&quot;   | &quot;basketballplayer:10, test:10&quot; | &quot;3.1.0&quot; |
-| &quot;storaged1&quot; | 9779  | &quot;ONLINE&quot; | 9            | &quot;basketballplayer:4, test:5&quot;   | &quot;basketballplayer:10, test:10&quot; | &quot;3.1.0&quot; |
-| &quot;storaged2&quot; | 9779 | &quot;ONLINE&quot; | 3            | &quot;basketballplayer:3&quot;           | &quot;basketballplayer:10, test:10&quot; | &quot;3.1.0&quot; |
+| "storaged0" | 9779 | "ONLINE" | 8            | "basketballplayer:3, test:5"   | "basketballplayer:10, test:10" | "3.1.0" |
+| "storaged1" | 9779  | "ONLINE" | 9            | "basketballplayer:4, test:5"   | "basketballplayer:10, test:10" | "3.1.0" |
+| "storaged2" | 9779 | "ONLINE" | 3            | "basketballplayer:3"           | "basketballplayer:10, test:10" | "3.1.0" |
 +-------------+------+----------+--------------+--------------------------------+--------------------------------+---------+
 </code></pre></div>
 <p>如果需要均衡负载，请执行如下命令：</p>
@@ -10626,9 +10626,9 @@ nebula&gt; SHOW HOSTS;
 +-------------+------+----------+--------------+--------------------------------+--------------------------------+---------+
 | Host        | Port | Status   | Leader count | Leader distribution            | Partition distribution         | Version |
 +-------------+------+----------+--------------+--------------------------------+--------------------------------+---------+
-| &quot;storaged0&quot; | 9779 | &quot;ONLINE&quot; | 7            | &quot;basketballplayer:3, test:4&quot;   | &quot;basketballplayer:10, test:10&quot; | &quot;3.4.2&quot; |
-| &quot;storaged1&quot; | 9779 | &quot;ONLINE&quot; | 7            | &quot;basketballplayer:4, test:3&quot;   | &quot;basketballplayer:10, test:10&quot; | &quot;3.4.2&quot; |
-| &quot;storaged2&quot; | 9779 | &quot;ONLINE&quot; | 6            | &quot;basketballplayer:3, test:3&quot;   | &quot;basketballplayer:10, test:10&quot; | &quot;3.4.2&quot; |
+| "storaged0" | 9779 | "ONLINE" | 7            | "basketballplayer:3, test:4"   | "basketballplayer:10, test:10" | "3.4.2" |
+| "storaged1" | 9779 | "ONLINE" | 7            | "basketballplayer:4, test:3"   | "basketballplayer:10, test:10" | "3.4.2" |
+| "storaged2" | 9779 | "ONLINE" | 6            | "basketballplayer:3, test:3"   | "basketballplayer:10, test:10" | "3.4.2" |
 +-------------+------+----------+--------------+--------------------------------+--------------------------------+---------+
 </code></pre></div>
 
@@ -10637,7 +10637,7 @@ nebula&gt; SHOW HOSTS;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 09:25:31">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:24 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10721,8 +10721,6 @@ nebula&gt; SHOW HOSTS;
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

@@ -10761,15 +10761,15 @@ export JAVA_HOME=&lt;java_path&gt;
 <span class="nv">WCORES</span><span class="o">=</span><span class="m">4</span><span class="w">  </span>
 <span class="c1"># 数据源路径</span>
 <span class="c1"># 可以通过文件 nebula.conf 设置从 NebulaGraph 读取：</span>
-<span class="nv">INPUT</span><span class="o">=</span><span class="si">${</span><span class="nv">INPUT</span><span class="p">:=</span><span class="s2">&quot;nebula:</span><span class="nv">$PROJECT</span><span class="s2">/scripts/nebula.conf&quot;</span><span class="si">}</span><span class="w">  </span>
+<span class="nv">INPUT</span><span class="o">=</span><span class="si">${</span><span class="nv">INPUT</span><span class="p">:=</span><span class="s2">"nebula:</span><span class="nv">$PROJECT</span><span class="s2">/scripts/nebula.conf"</span><span class="si">}</span><span class="w">  </span>
 <span class="c1"># 也可以通过本地或 HDFS 上的 CSV 文件读取：</span>
-<span class="c1"># #INPUT=${INPUT:=&quot;$PROJECT/data/graph/v100_e2150_ua_c3.csv&quot;}</span>
+<span class="c1"># #INPUT=${INPUT:="$PROJECT/data/graph/v100_e2150_ua_c3.csv"}</span>
 
 <span class="c1"># 图计算结果输出路径</span>
 <span class="c1"># 可以输出至 NebulaGraph 集群，如果数据源也为 NebulaGraph，结果会输出至 nebula.conf 指定的图空间。</span>
-<span class="nv">OUTPUT</span><span class="o">=</span><span class="si">${</span><span class="nv">OUTPUT</span><span class="p">:=</span><span class="s2">&quot;nebula:</span><span class="nv">$PROJECT</span><span class="s2">/scripts/nebula.conf&quot;</span><span class="si">}</span>
+<span class="nv">OUTPUT</span><span class="o">=</span><span class="si">${</span><span class="nv">OUTPUT</span><span class="p">:=</span><span class="s2">"nebula:</span><span class="nv">$PROJECT</span><span class="s2">/scripts/nebula.conf"</span><span class="si">}</span>
 <span class="c1"># 也可以输出至本地或 HDFS 上的 CSV 文件：</span>
-<span class="c1"># OUTPUT=${OUTPUT:=&#39;hdfs://192.168.8.100:9000/_test/output&#39;}</span>
+<span class="c1"># OUTPUT=${OUTPUT:='hdfs://192.168.8.100:9000/_test/output'}</span>
 
 <span class="c1"># true 为有向图，false 为无向图。</span>
 <span class="nv">IS_DIRECTED</span><span class="o">=</span><span class="si">${</span><span class="nv">IS_DIRECTED</span><span class="p">:=true</span><span class="si">}</span>
@@ -10778,7 +10778,7 @@ export JAVA_HOME=&lt;java_path&gt;
 <span class="c1"># 数据源的点 ID 类型，例如：string、int32、int64。</span>
 <span class="nv">VTYPE</span><span class="o">=</span><span class="si">${</span><span class="nv">VTYPE</span><span class="p">:=int32</span><span class="si">}</span>
 <span class="c1"># 编码类型。distributed 为分布式点ID编码，single 为单机点 ID 编码。</span>
-<span class="nv">ENCODER</span><span class="o">=</span><span class="si">${</span><span class="nv">ENCODER</span><span class="p">:=</span><span class="s2">&quot;distributed&quot;</span><span class="si">}</span>
+<span class="nv">ENCODER</span><span class="o">=</span><span class="si">${</span><span class="nv">ENCODER</span><span class="p">:=</span><span class="s2">"distributed"</span><span class="si">}</span>
 <span class="c1"># PageRank 算法的参数。不同算法的参数不同。</span>
 <span class="nv">EPS</span><span class="o">=</span><span class="si">${</span><span class="nv">EPS</span><span class="p">:=0.0001</span><span class="si">}</span>
 <span class="nv">DAMPING</span><span class="o">=</span><span class="si">${</span><span class="nv">DAMPING</span><span class="p">:=0.85</span><span class="si">}</span>
@@ -10799,15 +10799,15 @@ export JAVA_HOME=&lt;java_path&gt;
 <span class="nv">WCORES</span><span class="o">=</span><span class="m">4</span><span class="w">  </span>
 <span class="c1"># 数据源路径</span>
 <span class="c1"># 可以通过文件 nebula.conf 设置从 NebulaGraph 读取：</span>
-<span class="c1"># INPUT=${INPUT:=&quot;nebula:$PROJECT/scripts/nebula.conf&quot;}  </span>
+<span class="c1"># INPUT=${INPUT:="nebula:$PROJECT/scripts/nebula.conf"}  </span>
 <span class="c1"># 也可以通过本地或 HDFS 上的 CSV 文件读取：</span>
-<span class="nv">INPUT</span><span class="o">=</span><span class="si">${</span><span class="nv">INPUT</span><span class="p">:=</span><span class="s2">&quot;</span><span class="nv">$PROJECT</span><span class="s2">/data/graph/v100_e2150_ua_c3.csv&quot;</span><span class="si">}</span>
+<span class="nv">INPUT</span><span class="o">=</span><span class="si">${</span><span class="nv">INPUT</span><span class="p">:=</span><span class="s2">"</span><span class="nv">$PROJECT</span><span class="s2">/data/graph/v100_e2150_ua_c3.csv"</span><span class="si">}</span>
 
 <span class="c1"># 图计算结果输出路径</span>
 <span class="c1"># 可以输出至 NebulaGraph 集群，如果数据源也为 NebulaGraph，结果会输出至 nebula.conf 指定的图空间。</span>
-<span class="c1"># OUTPUT=${OUTPUT:=&quot;nebula:$PROJECT/scripts/nebula.conf&quot;}</span>
+<span class="c1"># OUTPUT=${OUTPUT:="nebula:$PROJECT/scripts/nebula.conf"}</span>
 <span class="c1"># 也可以输出至本地或 HDFS 上的 CSV 文件：</span>
-<span class="nv">OUTPUT</span><span class="o">=</span><span class="si">${</span><span class="nv">OUTPUT</span><span class="p">:=</span><span class="s1">&#39;hdfs://192.168.8.100:9000/_test/output&#39;</span><span class="si">}</span>
+<span class="nv">OUTPUT</span><span class="o">=</span><span class="si">${</span><span class="nv">OUTPUT</span><span class="p">:=</span><span class="s1">'hdfs://192.168.8.100:9000/_test/output'</span><span class="si">}</span>
 
 <span class="c1"># true 为有向图，false 为无向图。</span>
 <span class="nv">IS_DIRECTED</span><span class="o">=</span><span class="si">${</span><span class="nv">IS_DIRECTED</span><span class="p">:=true</span><span class="si">}</span>
@@ -10816,7 +10816,7 @@ export JAVA_HOME=&lt;java_path&gt;
 <span class="c1"># 数据源的点 ID 类型，例如：string、int32、int64。</span>
 <span class="nv">VTYPE</span><span class="o">=</span><span class="si">${</span><span class="nv">VTYPE</span><span class="p">:=int32</span><span class="si">}</span>
 <span class="c1"># 编码类型。distributed 为分布式点ID编码，single 为单机点 ID 编码。</span>
-<span class="nv">ENCODER</span><span class="o">=</span><span class="si">${</span><span class="nv">ENCODER</span><span class="p">:=</span><span class="s2">&quot;distributed&quot;</span><span class="si">}</span>
+<span class="nv">ENCODER</span><span class="o">=</span><span class="si">${</span><span class="nv">ENCODER</span><span class="p">:=</span><span class="s2">"distributed"</span><span class="si">}</span>
 <span class="c1"># PageRank 算法的参数。不同算法的参数不同。</span>
 <span class="nv">EPS</span><span class="o">=</span><span class="si">${</span><span class="nv">EPS</span><span class="p">:=0.0001</span><span class="si">}</span>
 <span class="nv">DAMPING</span><span class="o">=</span><span class="si">${</span><span class="nv">DAMPING</span><span class="p">:=0.85</span><span class="si">}</span>
@@ -10855,7 +10855,7 @@ export JAVA_HOME=&lt;java_path&gt;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 09:25:31">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:24 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10939,8 +10939,6 @@ export JAVA_HOME=&lt;java_path&gt;
         <script src="../../js/jquery.js"></script>
       
         <script src="../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

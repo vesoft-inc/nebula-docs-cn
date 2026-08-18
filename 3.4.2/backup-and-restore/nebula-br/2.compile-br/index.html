@@ -10614,7 +10614,7 @@ NebulaGraph<span class="w"> </span>Backup<span class="w"> </span>And<span class=
 <p class="admonition-title">Note</p>
 <p>启动 Agent 前，确保已经启动集群中的 Meta 服务，并且 Agent 有对应 NebulaGraph 服务目录和备份目录的读写权限。</p>
 </div>
-<div class="highlight"><pre><span></span><code>sudo nohup ./agent --agent=&quot;&lt;agent_node_ip&gt;:8888&quot; --meta=&quot;&lt;metad_node_ip&gt;:9559&quot; &gt; nebula_agent.log 2&gt;&amp;1 &amp;
+<div class="highlight"><pre><span></span><code>sudo nohup ./agent --agent="&lt;agent_node_ip&gt;:8888" --meta="&lt;metad_node_ip&gt;:9559" &gt; nebula_agent.log 2&gt;&amp;1 &amp;
 </code></pre></div>
 <ul>
 <li><code>--agent</code>：Agent 所在机器的 IP 地址和访问端口。</li>
@@ -10622,7 +10622,7 @@ NebulaGraph<span class="w"> </span>Backup<span class="w"> </span>And<span class=
 <li><code>--ratelimit</code>：可选项，限制文件上传和下载的速度，防止带宽被占满导致其他服务不可用。单位：Bytes。</li>
 </ul>
 <p>例如：</p>
-<div class="highlight"><pre><span></span><code>sudo nohup ./agent --agent=&quot;192.168.8.129:8888&quot; --meta=&quot;192.168.8.129:9559&quot; --ratelimit=1048576 &gt; nebula_agent.log 2&gt;&amp;1 &amp;
+<div class="highlight"><pre><span></span><code>sudo nohup ./agent --agent="192.168.8.129:8888" --meta="192.168.8.129:9559" --ratelimit=1048576 &gt; nebula_agent.log 2&gt;&amp;1 &amp;
 </code></pre></div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
@@ -10635,7 +10635,7 @@ NebulaGraph<span class="w"> </span>Backup<span class="w"> </span>And<span class=
 +-----------------+------+----------+---------+--------------+---------+
 | Host            | Port | Status   | Role    | Git Info Sha | Version |
 +-----------------+------+----------+---------+--------------+---------+
-| &quot;192.168.8.129&quot; | 8888 | &quot;ONLINE&quot; | &quot;AGENT&quot; | &quot;96646b8&quot;    |         |
+| "192.168.8.129" | 8888 | "ONLINE" | "AGENT" | "96646b8"    |         |
 +-----------------+------+----------+---------+--------------+---------+  
 </code></pre></div>
 </li>
@@ -10649,7 +10649,7 @@ NebulaGraph<span class="w"> </span>Backup<span class="w"> </span>And<span class=
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 09:25:31">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:24 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10733,8 +10733,6 @@ NebulaGraph<span class="w"> </span>Backup<span class="w"> </span>And<span class=
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

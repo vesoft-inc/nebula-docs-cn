@@ -10438,7 +10438,7 @@
 <p>暂不支持通过 Helm 自定义 NebulaGraph 集群的配置参数。</p>
 </div>
 <p><code>config</code>结构如下：</p>
-<div class="highlight"><pre><span></span><code><span class="nx">Config</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="w"> </span><span class="s">`json:&quot;config,omitempty&quot;`</span>
+<div class="highlight"><pre><span></span><code><span class="nx">Config</span><span class="w"> </span><span class="kt">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="w"> </span><span class="s">`json:"config,omitempty"`</span>
 </code></pre></div>
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>已使用 K8s 创建一个集群。具体步骤，参见<a href="../../3.deploy-nebula-graph-cluster/3.1create-cluster-with-kubectl/">使用 Kubectl 创建 NebulaGraph 集群</a>。</p>
@@ -10461,11 +10461,11 @@
 <span class="w">  </span><span class="nt">graphd</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">resources</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">requests</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;500m&quot;</span>
-<span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;500Mi&quot;</span>
+<span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">"500m"</span>
+<span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">"500Mi"</span>
 <span class="w">      </span><span class="nt">limits</span><span class="p">:</span>
-<span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1&quot;</span>
-<span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1Gi&quot;</span>
+<span class="w">        </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s">"1"</span>
+<span class="w">        </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s">"1Gi"</span>
 <span class="w">    </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
 <span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vesoft/nebula-graphd</span>
 <span class="w">    </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">v3.4.2</span>
@@ -10475,8 +10475,8 @@
 <span class="w">          </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2Gi</span>
 <span class="w">      </span><span class="nt">storageClassName</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fast-disks</span>
 <span class="w">    </span><span class="nt">config</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">//为 Graph 服务自定义参数。</span>
-<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">&quot;enable_authorize&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;true&quot;</span>
-<span class="w">      </span><span class="s">&quot;auth_type&quot;</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">&quot;password&quot;</span>
+<span class="w">      </span><span class="l l-Scalar l-Scalar-Plain">"enable_authorize"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"true"</span>
+<span class="w">      </span><span class="s">"auth_type"</span><span class="p p-Indicator">:</span><span class="w"> </span><span class="s">"password"</span>
 <span class="nn">...</span>
 </code></pre></div>
 <p>如果需要为 Meta 服务和 Storage 服务配置<code>config</code>，则在<code>spec.metad.config</code>和<code>spec.storaged.config</code>中添加对应的配置项。</p>
@@ -10498,7 +10498,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 09:25:31">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:24 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10582,8 +10582,6 @@
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

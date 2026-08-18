@@ -10492,7 +10492,7 @@
 </ul>
 <h2 id="token">获取授权 Token<a class="headerlink" href="#token" title="Permanent link">&para;</a></h2>
 <p>使用 API 时，需要做 Token 信息校验。请使用如下命令获取 Token 信息。</p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer &lt;account_base64_encode&gt;&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;address&quot;:&quot;&lt;nebula_address&gt;&quot;,&quot;port&quot;:&lt;nebula_port&gt;}&#39;</span><span class="w"> </span>http://&lt;explorer_address&gt;:&lt;explorer_port&gt;/api-open/v1/connect
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer &lt;account_base64_encode&gt;"</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">'{"address":"&lt;nebula_address&gt;","port":&lt;nebula_port&gt;}'</span><span class="w"> </span>http://&lt;explorer_address&gt;:&lt;explorer_port&gt;/api-open/v1/connect
 </code></pre></div>
 <ul>
 <li><code>&lt;account_base64_encode&gt;</code>：Base64 编码后的 NebulaGraph 账号和密码字符串。以用户名<code>root</code>、密码<code>123</code>为例，序列化后的字符串为<code>["root","123"]</code>，Base64 编码后为<code>WyJyb290IiwiMTIzIl0=</code>。</li>
@@ -10502,7 +10502,7 @@
 <li><code>&lt;explorer_port&gt;</code>：NebulaGraph Explorer 访问端口。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Content-Type: application/json&quot;</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: Bearer WyJyb290IiwiMTIzIl0=&quot;</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;address&quot;:&quot;192.168.8.111&quot;,&quot;port&quot;:9669}&#39;</span><span class="w"> </span>http://192.168.8.145:7002/api-open/v1/connect
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-i<span class="w"> </span>-X<span class="w"> </span>POST<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Content-Type: application/json"</span><span class="w"> </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer WyJyb290IiwiMTIzIl0="</span><span class="w"> </span>-d<span class="w"> </span><span class="s1">'{"address":"192.168.8.111","port":9669}'</span><span class="w"> </span>http://192.168.8.145:7002/api-open/v1/connect
 </code></pre></div>
 <p>返回结果：</p>
 <div class="highlight"><pre><span></span><code><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
@@ -10513,11 +10513,11 @@
 <span class="na">Content-Length</span><span class="o">:</span> <span class="l">54</span>
 
 <span class="p">{</span>
-<span class="w">  </span><span class="nt">&quot;code&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nt">&quot;success&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">  </span><span class="nt">"code"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
 <span class="w">  </span><span class="p">},</span>
-<span class="w">  </span><span class="nt">&quot;message&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Success&quot;</span>
+<span class="w">  </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Success"</span>
 <span class="p">}</span>
 </code></pre></div>
 <p>需要关注的参数如下：</p>
@@ -10533,7 +10533,7 @@
 <p>API 如果调用成功，会返回如下信息：</p>
 <div class="highlight"><pre><span></span><code><span class="err">{</span>
 <span class="err">  code: 0,</span>
-<span class="err">  message: &#39;Success&#39;,</span>
+<span class="err">  message: 'Success',</span>
 <span class="err">  data: &lt;ResponseData&gt; //根据接口返回相应结果。</span>
 <span class="err">}</span>
 </code></pre></div>
@@ -10544,7 +10544,7 @@
 <p>API如果调用失败，会返回对应的通用错误码，例如：</p>
 <div class="highlight"><pre><span></span><code><span class="err">{</span>
 <span class="err">  code: 40004000,</span>
-<span class="err">  message: &#39;&lt;ErrBadRequest&gt;&#39;,  //返回具体报错信息。</span>
+<span class="err">  message: '&lt;ErrBadRequest&gt;',  //返回具体报错信息。</span>
 <span class="err">}</span>
 </code></pre></div>
 <p>通用错误码的说明参见下文。</p>
@@ -10658,7 +10658,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 09:25:31">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:24 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10742,8 +10742,6 @@
         <script src="../../../../js/jquery.js"></script>
       
         <script src="../../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

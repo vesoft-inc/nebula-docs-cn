@@ -10647,7 +10647,7 @@
 <div class="highlight"><pre><span></span><code>./br backup full --meta &lt;ip_address:port&gt; --storage local://&lt;storage_path&gt;
 </code></pre></div>
 <p>例如：对 Meta 服务的地址为<code>192.168.8.129:9559</code>的整个集群进行全量备份操作，并将备份目录保存到本地的<code>/backup/</code>路径下。</p>
-<div class="highlight"><pre><span></span><code>./br backup full --meta &quot;192.168.8.129:9559&quot; --storage &quot;local:///backup/&quot;
+<div class="highlight"><pre><span></span><code>./br backup full --meta "192.168.8.129:9559" --storage "local:///backup/"
 </code></pre></div>
 <h3 id="_7">目录结构<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>全量备份会备份全量的 leader metad 和 leader partition 的数据。备份目录中，结构如下：</p>
@@ -10698,7 +10698,7 @@
 <div class="highlight"><pre><span></span><code>./br backup incr --meta &lt;ip_address:port&gt; --storage local://&lt;storage_path&gt; --base &lt;backup_file_name&gt;
 </code></pre></div>
 <p>例如：对 Meta 服务的地址为<code>192.168.8.129:9559</code>的整个集群基于备份目录<code>BACKUP_2022_08_11_09_11_07</code>进行增量备份操作，并将备份目录保存到本地的<code>/backup/</code>路径下。</p>
-<div class="highlight"><pre><span></span><code>./br backup incr --meta &quot;192.168.8.129:9559&quot; --storage &quot;local:///backup/&quot; --base BACKUP_2022_08_11_09_11_07
+<div class="highlight"><pre><span></span><code>./br backup incr --meta "192.168.8.129:9559" --storage "local:///backup/" --base BACKUP_2022_08_11_09_11_07
 </code></pre></div>
 <h3 id="_11">目录结构<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <p>增量备份除了备份 leader meta 外，对于已有的图空间（以下代码中的图空间 ID <code>1</code>）的 leader partition 数据，只备份<code>wal</code>目录；而对新增加的图空间（以下代码中的图空间 ID <code>4</code>）中 leader partition 数据, 备份其全量的<code>data</code>和<code>wal</code>目录数据。因此相较全量备份的数据结构，增量备份目录结构可能会有所不同。</p>
@@ -10818,9 +10818,9 @@
 </table>
 <h2 id="_13">查看备份进度<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
 <p>在安装目录内可以查看 BR 的日志文件<code>br.log</code>。日志文件会记录备份进度，内容类似：</p>
-<div class="highlight"><pre><span></span><code>{&quot;level&quot;:&quot;info&quot;,&quot;msg&quot;:&quot;full upload storaged partition finished, progress: 1/20&quot;,&quot;time&quot;:&quot;2023-03-15T02:13:20.946Z&quot;}
-{&quot;level&quot;:&quot;info&quot;,&quot;msg&quot;:&quot;full upload storaged partition finished, progress: 2/20&quot;,&quot;time&quot;:&quot;2023-03-15T02:13:21.154Z&quot;}
-{&quot;level&quot;:&quot;info&quot;,&quot;msg&quot;:&quot;full upload storaged partition finished, progress: 3/20&quot;,&quot;time&quot;:&quot;2023-03-15T02:13:21.537Z&quot;}
+<div class="highlight"><pre><span></span><code>{"level":"info","msg":"full upload storaged partition finished, progress: 1/20","time":"2023-03-15T02:13:20.946Z"}
+{"level":"info","msg":"full upload storaged partition finished, progress: 2/20","time":"2023-03-15T02:13:21.154Z"}
+{"level":"info","msg":"full upload storaged partition finished, progress: 3/20","time":"2023-03-15T02:13:21.537Z"}
 </code></pre></div>
 <h2 id="_14">下一步<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
 <p>备份目录生成后，可以将备份目录的数据恢复到 NebulaGraph 中。具体操作，参见<a href="../4.restore-data/">恢复数据</a>。</p>
@@ -10834,7 +10834,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 09:25:31">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:24 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10918,8 +10918,6 @@
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

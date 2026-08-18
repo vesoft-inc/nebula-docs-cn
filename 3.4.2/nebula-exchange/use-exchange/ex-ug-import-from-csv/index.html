@@ -10682,11 +10682,11 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
     address:{
       # 指定 Graph 服务和所有 Meta 服务的 IP 地址和端口。
       # 如果有多台服务器，地址之间用英文逗号（,）分隔。
-      # 格式：&quot;ip1:port&quot;,&quot;ip2:port&quot;,&quot;ip3:port&quot;
-      graph:[&quot;127.0.0.1:9669&quot;]
+      # 格式："ip1:port","ip2:port","ip3:port"
+      graph:["127.0.0.1:9669"]
       #任意一个 Meta 服务的地址。
       #如果您的 NebulaGraph 在虚拟网络中，如k8s，请配置 Leader Meta的地址。
-      meta:[&quot;127.0.0.1:9559&quot;]
+      meta:["127.0.0.1:9559"]
     }
 
     # 指定拥有 NebulaGraph 写权限的用户名和密码。
@@ -10727,9 +10727,9 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
       }
 
       # 指定 CSV 文件的路径。
-      # 如果文件存储在 HDFS 上，用双引号括起路径，以 hdfs://开头，例如&quot;hdfs://ip:port/xx/xx&quot;。
-      # 如果文件存储在本地，用双引号括起路径，以 file://开头，例如&quot;file:///tmp/xx.csv&quot;。
-      path: &quot;hdfs://192.168.*.*:9000/data/vertex_player.csv&quot;
+      # 如果文件存储在 HDFS 上，用双引号括起路径，以 hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 如果文件存储在本地，用双引号括起路径，以 file://开头，例如"file:///tmp/xx.csv"。
+      path: "hdfs://192.168.*.*:9000/data/vertex_player.csv"
 
       # 如果 CSV 文件没有表头，使用 [_c0, _c1, _c2, ..., _cn] 表示其表头，并将列指示为属性值的源。
       # 如果 CSV 文件有表头，则使用实际的列名。
@@ -10748,7 +10748,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
       }
 
       # 指定的分隔符。默认值为英文逗号（,）。
-      separator: &quot;,&quot;
+      separator: ","
 
       # 如果 CSV 文件有表头，请将 header 设置为 true。
       # 如果 CSV 文件没有表头，请将 header 设置为 false。默认值为 false。
@@ -10774,9 +10774,9 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
       }
 
       # 指定 CSV 文件的路径。
-      # 如果文件存储在 HDFS 上，用双引号括起路径，以 hdfs://开头，例如&quot;hdfs://ip:port/xx/xx&quot;。
-      # 如果文件存储在本地，用双引号括起路径，以 file://开头，例如&quot;file:///tmp/xx.csv&quot;。
-      path: &quot;hdfs://192.168.*.*:9000/data/vertex_team.csv&quot;
+      # 如果文件存储在 HDFS 上，用双引号括起路径，以 hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 如果文件存储在本地，用双引号括起路径，以 file://开头，例如"file:///tmp/xx.csv"。
+      path: "hdfs://192.168.*.*:9000/data/vertex_team.csv"
 
       # 如果 CSV 文件没有表头，使用 [_c0, _c1, _c2, ..., _cn] 表示其表头，并将列指示为属性值的源。
       # 如果 CSV 文件有表头，则使用实际的列名。
@@ -10795,7 +10795,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
       }
 
       # 指定的分隔符。默认值为英文逗号（,）。
-      separator: &quot;,&quot;
+      separator: ","
 
       # 如果 CSV 文件有表头，请将 header 设置为 true。
       # 如果 CSV 文件没有表头，请将 header 设置为 false。默认值为 false。
@@ -10825,9 +10825,9 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
       }
 
       # 指定 CSV 文件的路径。
-      # 如果文件存储在 HDFS 上，用双引号括起路径，以 hdfs://开头，例如&quot;hdfs://ip:port/xx/xx&quot;。
-      # 如果文件存储在本地，用双引号括起路径，以 file://开头，例如&quot;file:///tmp/xx.csv&quot;。
-      path: &quot;hdfs://192.168.*.*:9000/data/edge_follow.csv&quot;
+      # 如果文件存储在 HDFS 上，用双引号括起路径，以 hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 如果文件存储在本地，用双引号括起路径，以 file://开头，例如"file:///tmp/xx.csv"。
+      path: "hdfs://192.168.*.*:9000/data/edge_follow.csv"
 
       # 如果 CSV 文件没有表头，使用 [_c0, _c1, _c2, ..., _cn] 表示其表头，并将列指示为属性值的源。
       # 如果 CSV 文件有表头，则使用实际的列名。
@@ -10848,7 +10848,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
       }
 
       # 指定的分隔符。默认值为英文逗号（,）。
-      separator: &quot;,&quot;
+      separator: ","
 
       # 指定一个列作为 rank 的源（可选）。
 
@@ -10878,9 +10878,9 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
       }
 
       # 指定 CSV 文件的路径。
-      # 如果文件存储在 HDFS 上，用双引号括起路径，以 hdfs://开头，例如&quot;hdfs://ip:port/xx/xx&quot;。
-      # 如果文件存储在本地，用双引号括起路径，以 file://开头，例如&quot;file:///tmp/xx.csv&quot;。
-      path: &quot;hdfs://192.168.*.*:9000/data/edge_serve.csv&quot;
+      # 如果文件存储在 HDFS 上，用双引号括起路径，以 hdfs://开头，例如"hdfs://ip:port/xx/xx"。
+      # 如果文件存储在本地，用双引号括起路径，以 file://开头，例如"file:///tmp/xx.csv"。
+      path: "hdfs://192.168.*.*:9000/data/edge_serve.csv"
 
       # 如果 CSV 文件没有表头，使用 [_c0, _c1, _c2, ..., _cn] 表示其表头，并将列指示为属性值的源。
       # 如果 CSV 文件有表头，则使用实际的列名。
@@ -10901,7 +10901,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
       }
 
       # 指定的分隔符。默认值为英文逗号（,）。
-      separator: &quot;,&quot;
+      separator: ","
 
       # 指定一个列作为 rank 的源（可选）。
       #ranking: _c5
@@ -10923,14 +10923,14 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
 </code></pre></div>
 <h3 id="4_nebulagraph">步骤 4：向 NebulaGraph 导入数据<a class="headerlink" href="#4_nebulagraph" title="Permanent link">&para;</a></h3>
 <p>运行如下命令将 CSV 文件数据导入到 NebulaGraph 中。关于参数的说明，请参见<a href="../../parameter-reference/ex-ug-para-import-command/">导入命令参数</a>。</p>
-<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span>&lt;nebula-exchange-3.4.0.jar_path&gt;<span class="w"> </span>-c<span class="w"> </span>&lt;csv_application.conf_path&gt;<span class="w"> </span>
+<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">"local"</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span>&lt;nebula-exchange-3.4.0.jar_path&gt;<span class="w"> </span>-c<span class="w"> </span>&lt;csv_application.conf_path&gt;<span class="w"> </span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>JAR 包有两种获取方式：<a href="../../ex-ug-compile/">自行编译</a>或者从 maven 仓库下载。</p>
 </div>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w">  </span>--master<span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w">  </span>/root/nebula-exchange/nebula-exchange/target/nebula-exchange-3.4.0.jar<span class="w">  </span>-c<span class="w"> </span>/root/nebula-exchange/nebula-exchange/target/classes/csv_application.conf
+<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w">  </span>--master<span class="w"> </span><span class="s2">"local"</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w">  </span>/root/nebula-exchange/nebula-exchange/target/nebula-exchange-3.4.0.jar<span class="w">  </span>-c<span class="w"> </span>/root/nebula-exchange/nebula-exchange/target/classes/csv_application.conf
 </code></pre></div>
 <p>用户可以在返回信息中搜索<code>batchSuccess.&lt;tag_name/edge_name&gt;</code>，确认成功的数量。例如<code>batchSuccess.follow: 300</code>。</p>
 <h3 id="5">步骤 5：（可选）验证数据<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
@@ -10946,7 +10946,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 09:25:31">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:24 UTC">2026年8月18日</span>
       
     
   </small>
@@ -11030,8 +11030,6 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

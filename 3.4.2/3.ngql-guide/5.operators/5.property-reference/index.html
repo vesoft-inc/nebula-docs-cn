@@ -10446,7 +10446,7 @@
 </table>
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code># 返回起始点和目的点的年龄。
-nebula&gt; GO FROM &quot;player100&quot; OVER follow YIELD properties($^).age AS SrcAge, properties($$).age AS DestAge;
+nebula&gt; GO FROM "player100" OVER follow YIELD properties($^).age AS SrcAge, properties($$).age AS DestAge;
 +--------+---------+
 | SrcAge | DestAge |
 +--------+---------+
@@ -10455,16 +10455,16 @@ nebula&gt; GO FROM &quot;player100&quot; OVER follow YIELD properties($^).age AS
 +--------+---------+
 
 # 返回 player100 追随的 player 的名称和团队。
-nebula&gt; GO FROM &quot;player100&quot; OVER follow \
+nebula&gt; GO FROM "player100" OVER follow \
         YIELD dst(edge) AS id | \
         GO FROM $-.id OVER serve \
         YIELD properties($^).name AS Player, properties($$).name AS Team;
 +-----------------+-----------+
 | Player          | Team      |
 +-----------------+-----------+
-| &quot;Tony Parker&quot;   | &quot;Spurs&quot;   |
-| &quot;Tony Parker&quot;   | &quot;Hornets&quot; |
-| &quot;Manu Ginobili&quot; | &quot;Spurs&quot;   |
+| "Tony Parker"   | "Spurs"   |
+| "Tony Parker"   | "Hornets" |
+| "Manu Ginobili" | "Spurs"   |
 +-----------------+-----------+
 </code></pre></div>
 
@@ -10473,7 +10473,7 @@ nebula&gt; GO FROM &quot;player100&quot; OVER follow \
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 09:25:31">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:24 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10557,8 +10557,6 @@ nebula&gt; GO FROM &quot;player100&quot; OVER follow \
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

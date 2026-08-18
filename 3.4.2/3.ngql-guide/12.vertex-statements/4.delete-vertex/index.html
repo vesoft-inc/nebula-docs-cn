@@ -10455,13 +10455,13 @@
 </ul>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code># 删除 VID 为 `team1` 的点，不删除该点关联的出边和入边。
-nebula&gt; DELETE VERTEX &quot;team1&quot;;
+nebula&gt; DELETE VERTEX "team1";
 
 # 删除 VID 为 `team1` 的点，并删除该点关联的出边和入边。
-nebula&gt; DELETE VERTEX &quot;team1&quot; WITH EDGE;
+nebula&gt; DELETE VERTEX "team1" WITH EDGE;
 </code></pre></div>
 <div class="highlight"><pre><span></span><code># 结合管道符，删除符合条件的点。
-nebula&gt; GO FROM &quot;player100&quot; OVER serve WHERE properties(edge).start_year == &quot;2021&quot; YIELD dst(edge) AS id | DELETE VERTEX $-.id;
+nebula&gt; GO FROM "player100" OVER serve WHERE properties(edge).start_year == "2021" YIELD dst(edge) AS id | DELETE VERTEX $-.id;
 </code></pre></div>
 <h2 id="_3">删除过程<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>NebulaGraph 找到目标点并删除，该目标点的所有邻边（出边和入边）将成为悬挂边。</p>
@@ -10483,7 +10483,7 @@ nebula&gt; GO FROM &quot;player100&quot; OVER serve WHERE properties(edge).start
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 09:25:31">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:24 UTC">2026年8月18日</span>
       
     
   </small>
@@ -10567,8 +10567,6 @@ nebula&gt; GO FROM &quot;player100&quot; OVER serve WHERE properties(edge).start
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

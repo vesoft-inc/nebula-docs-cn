@@ -10745,8 +10745,8 @@
 +-------------+
 | id(VERTEX)  |
 +-------------+
-| &quot;player144&quot; |
-| &quot;player140&quot; |
+| "player144" |
+| "player140" |
 +-------------+
 </code></pre></div>
 <h3 id="propertiesvertex">properties(vertex)<a class="headerlink" href="#propertiesvertex" title="Permanent link">&para;</a></h3>
@@ -10761,8 +10761,8 @@
 +-------------------------------------+
 | properties(VERTEX)                  |
 +-------------------------------------+
-| {age: 47, name: &quot;Shaquille O&#39;Neal&quot;} |
-| {age: 46, name: &quot;Grant Hill&quot;}       |
+| {age: 47, name: "Shaquille O'Neal"} |
+| {age: 46, name: "Grant Hill"}       |
 +-------------------------------------+
 </code></pre></div>
 <p>用户也可以使用属性引用符（<code>$^</code>和<code>$$</code>）替代函数<code>properties()</code>中的<code>vertex</code>参数来获取点的所有属性。</p>
@@ -10784,7 +10784,7 @@
 <li>返回类型：map。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM &quot;player100&quot; OVER follow \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM "player100" OVER follow \
         YIELD properties(edge);
 +------------------+
 | properties(EDGE) |
@@ -10804,13 +10804,13 @@
 <li>返回类型：string。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM &quot;player100&quot; OVER follow \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM "player100" OVER follow \
         YIELD src(edge), dst(edge), type(edge), rank(edge);
 +-------------+-------------+------------+------------+
 | src(EDGE)   | dst(EDGE)   | type(EDGE) | rank(EDGE) |
 +-------------+-------------+------------+------------+
-| &quot;player100&quot; | &quot;player101&quot; | &quot;follow&quot;   | 0          |
-| &quot;player100&quot; | &quot;player125&quot; | &quot;follow&quot;   | 0          |
+| "player100" | "player101" | "follow"   | 0          |
+| "player100" | "player125" | "follow"   | 0          |
 +-------------+-------------+------------+------------+
 </code></pre></div>
 <h3 id="srcedge">src(edge)<a class="headerlink" href="#srcedge" title="Permanent link">&para;</a></h3>
@@ -10820,13 +10820,13 @@
 <li>返回类型：和点 ID 的类型保持一致。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM &quot;player100&quot; OVER follow \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM "player100" OVER follow \
         YIELD src(edge), dst(edge);
 +-------------+-------------+
 | src(EDGE)   | dst(EDGE)   |
 +-------------+-------------+
-| &quot;player100&quot; | &quot;player101&quot; |
-| &quot;player100&quot; | &quot;player125&quot; |
+| "player100" | "player101" |
+| "player100" | "player125" |
 +-------------+-------------+
 </code></pre></div>
 <div class="admonition note">
@@ -10840,13 +10840,13 @@
 <li>返回类型：和点 ID 的类型保持一致。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM &quot;player100&quot; OVER follow \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM "player100" OVER follow \
         YIELD src(edge), dst(edge);
 +-------------+-------------+
 | src(EDGE)   | dst(EDGE)   |
 +-------------+-------------+
-| &quot;player100&quot; | &quot;player101&quot; |
-| &quot;player100&quot; | &quot;player125&quot; |
+| "player100" | "player101" |
+| "player100" | "player125" |
 +-------------+-------------+
 </code></pre></div>
 <div class="admonition note">
@@ -10860,13 +10860,13 @@
 <li>返回类型：int。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM &quot;player100&quot; OVER follow \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM "player100" OVER follow \
         YIELD src(edge), dst(edge), rank(edge);
 +-------------+-------------+------------+
 | src(EDGE)   | dst(EDGE)   | rank(EDGE) |
 +-------------+-------------+------------+
-| &quot;player100&quot; | &quot;player101&quot; | 0          |
-| &quot;player100&quot; | &quot;player125&quot; | 0          |
+| "player100" | "player101" | 0          |
+| "player100" | "player125" | 0          |
 +-------------+-------------+------------+
 </code></pre></div>
 <h3 id="vertex">vertex<a class="headerlink" href="#vertex" title="Permanent link">&para;</a></h3>
@@ -10877,20 +10877,20 @@
 +----------------------------------------------------------+
 | v                                                        |
 +----------------------------------------------------------+
-| (&quot;player144&quot; :player{age: 47, name: &quot;Shaquille O&#39;Neal&quot;}) |
-| (&quot;player140&quot; :player{age: 46, name: &quot;Grant Hill&quot;})       |
+| ("player144" :player{age: 47, name: "Shaquille O'Neal"}) |
+| ("player140" :player{age: 46, name: "Grant Hill"})       |
 +----------------------------------------------------------+
 </code></pre></div>
 <h3 id="edge">edge<a class="headerlink" href="#edge" title="Permanent link">&para;</a></h3>
 <p>edge 返回边的信息。包括 Edge type、起始点 ID、目的点 ID、rank、属性和值。需要用<code>AS &lt;alias&gt;</code>设置别名。</p>
 <p>语法：<code>edge</code></p>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM &quot;player100&quot; OVER follow YIELD edge AS e;
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM "player100" OVER follow YIELD edge AS e;
 +----------------------------------------------------+
 | e                                                  |
 +----------------------------------------------------+
-| [:follow &quot;player100&quot;-&gt;&quot;player101&quot; @0 {degree: 95}] |
-| [:follow &quot;player100&quot;-&gt;&quot;player125&quot; @0 {degree: 95}] |
+| [:follow "player100"-&gt;"player101" @0 {degree: 95}] |
+| [:follow "player100"-&gt;"player125" @0 {degree: 95}] |
 +----------------------------------------------------+
 </code></pre></div>
 <h3 id="vertices">vertices<a class="headerlink" href="#vertices" title="Permanent link">&para;</a></h3>
@@ -10912,10 +10912,10 @@
 +-------------+
 | id(v)       |
 +-------------+
-| &quot;player129&quot; |
-| &quot;player115&quot; |
-| &quot;player106&quot; |
-| &quot;player102&quot; |
+| "player129" |
+| "player115" |
+| "player106" |
+| "player102" |
 ...
 </code></pre></div>
 <h3 id="tags_labels">tags() 和labels()<a class="headerlink" href="#tags_labels" title="Permanent link">&para;</a></h3>
@@ -10925,12 +10925,12 @@
 <li>返回类型：list。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v) WHERE id(v) == &quot;player100&quot; \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v) WHERE id(v) == "player100" \
         RETURN tags(v);
 +------------+
 | tags(v)    |
 +------------+
-| [&quot;player&quot;] |
+| ["player"] |
 +------------+
 </code></pre></div>
 <h3 id="properties">properties()<a class="headerlink" href="#properties" title="Permanent link">&para;</a></h3>
@@ -10944,9 +10944,9 @@
 +---------------------------------------+---------------+
 | properties(v)                         | properties(e) |
 +---------------------------------------+---------------+
-| {age: 31, name: &quot;Stephen Curry&quot;}      | {degree: 90}  |
-| {age: 47, name: &quot;Shaquille O&#39;Neal&quot;}   | {degree: 100} |
-| {age: 34, name: &quot;LeBron James&quot;}       | {degree: 13}  |
+| {age: 31, name: "Stephen Curry"}      | {degree: 90}  |
+| {age: 47, name: "Shaquille O'Neal"}   | {degree: 100} |
+| {age: 34, name: "LeBron James"}       | {degree: 13}  |
 ...
 </code></pre></div>
 <h3 id="type">type()<a class="headerlink" href="#type" title="Permanent link">&para;</a></h3>
@@ -10956,14 +10956,14 @@
 <li>返回类型：string。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;})-[e]-&gt;() \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;() \
         RETURN type(e);
 +----------+
 | type(e)  |
 +----------+
-| &quot;serve&quot;  |
-| &quot;follow&quot; |
-| &quot;follow&quot; |
+| "serve"  |
+| "follow" |
+| "follow" |
 +----------+
 </code></pre></div>
 <h3 id="src">src()<a class="headerlink" href="#src" title="Permanent link">&para;</a></h3>
@@ -10973,14 +10973,14 @@
 <li>返回类型：和点 ID 的类型保持一致。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH ()-[e]-&gt;(v:player{name:&quot;Tim Duncan&quot;}) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH ()-[e]-&gt;(v:player{name:"Tim Duncan"}) \
         RETURN src(e);
 +-------------+
 | src(e)      |
 +-------------+
-| &quot;player125&quot; |
-| &quot;player113&quot; |
-| &quot;player102&quot; |
+| "player125" |
+| "player113" |
+| "player102" |
 ...
 </code></pre></div>
 <h3 id="dst">dst()<a class="headerlink" href="#dst" title="Permanent link">&para;</a></h3>
@@ -10990,38 +10990,38 @@
 <li>返回类型：和点 ID 的类型保持一致。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;})-[e]-&gt;() \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;() \
         RETURN dst(e);
 +-------------+
 | dst(e)      |
 +-------------+
-| &quot;team204&quot;   |
-| &quot;player101&quot; |
-| &quot;player125&quot; |
+| "team204"   |
+| "player101" |
+| "player125" |
 +-------------+
 </code></pre></div>
 <h3 id="startnode">startNode()<a class="headerlink" href="#startnode" title="Permanent link">&para;</a></h3>
 <p>startNode() 获取一条路径并返回它的起始点信息，包括点 ID、Tag、属性和值。</p>
 <p>语法：<code>startNode(&lt;path&gt;)</code></p>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p = (a :player {name : &quot;Tim Duncan&quot;})-[r:serve]-(t) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p = (a :player {name : "Tim Duncan"})-[r:serve]-(t) \
         RETURN startNode(p);
 +----------------------------------------------------+
 | startNode(p)                                       |
 +----------------------------------------------------+
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;}) |
+| ("player100" :player{age: 42, name: "Tim Duncan"}) |
 +----------------------------------------------------+
 </code></pre></div>
 <h3 id="endnode">endNode()<a class="headerlink" href="#endnode" title="Permanent link">&para;</a></h3>
 <p>endNode() 获取一条路径并返回它的目的点信息，包括点 ID、Tag、属性和值。</p>
 <p>语法：<code>endNode(&lt;path&gt;)</code></p>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p = (a :player {name : &quot;Tim Duncan&quot;})-[r:serve]-(t) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p = (a :player {name : "Tim Duncan"})-[r:serve]-(t) \
         RETURN endNode(p);
 +----------------------------------+
 | endNode(p)                       |
 +----------------------------------+
-| (&quot;team204&quot; :team{name: &quot;Spurs&quot;}) |
+| ("team204" :team{name: "Spurs"}) |
 +----------------------------------+
 </code></pre></div>
 <h3 id="rank">rank()<a class="headerlink" href="#rank" title="Permanent link">&para;</a></h3>
@@ -11031,7 +11031,7 @@
 <li>返回类型：int。</li>
 </ul>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:&quot;Tim Duncan&quot;})-[e]-&gt;() \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;() \
         RETURN rank(e);
 +---------+
 | rank(e) |
@@ -11047,7 +11047,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2025年4月21日 09:25:31">2025年4月21日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="2026年8月18日 07:31:24 UTC">2026年8月18日</span>
       
     
   </small>
@@ -11131,8 +11131,6 @@
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
