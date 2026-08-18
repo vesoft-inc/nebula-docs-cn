@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.1.3/3.ngql-guide/3.data-types/5.null/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -7332,28 +7332,28 @@
 +-----------+-----------------------------------+
 | Tag       | Create Tag                        |
 +-----------+-----------------------------------+
-| &quot;student&quot; | &quot;CREATE TAG `player` (           |
+| "student" | "CREATE TAG `player` (           |
 |           |  `name` string NOT NULL,          |
 |           |  `age` int64 NULL                 |
-|           | ) ttl_duration = 0, ttl_col = &quot;&quot;&quot; |
+|           | ) ttl_duration = 0, ttl_col = """ |
 +-----------+-----------------------------------+
 </code></pre></div>
 <p>插入点<code>Kobe</code>，属性<code>age</code>可以为<code>NULL</code>。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; INSERT VERTEX player(name, age) VALUES &quot;Kobe&quot;:(&quot;Kobe&quot;,null);
+<div class="highlight"><pre><span></span><code>nebula&gt; INSERT VERTEX player(name, age) VALUES "Kobe":("Kobe",null);
 </code></pre></div>
 <h3 id="not_null_1">使用 NOT NULL 并设置默认值<a class="headerlink" href="#not_null_1" title="Permanent link">&para;</a></h3>
 <p>创建 Tag，名称为<code>player</code>，指定属性<code>age</code>为<code>NOT NULL</code>，并设置默认值<code>18</code>。</p>
 <div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG IF NOT EXISTS player(name string, age int NOT NULL DEFAULT 18);
 </code></pre></div>
 <p>插入点<code>Kobe</code>，只设置属性<code>name</code>。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; INSERT VERTEX player(name) VALUES &quot;Kobe&quot;:(&quot;Kobe&quot;);
+<div class="highlight"><pre><span></span><code>nebula&gt; INSERT VERTEX player(name) VALUES "Kobe":("Kobe");
 </code></pre></div>
 <p>查询点<code>Kobe</code>，属性<code>age</code>为默认值<code>18</code>。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player &quot;Kobe&quot; YIELD properties(vertex);
+<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player "Kobe" YIELD properties(vertex);
 +--------------------------+
 | properties(VERTEX)       |
 +--------------------------+
-| {age: 18, name: &quot;Kobe&quot;}  |
+| {age: 18, name: "Kobe"}  |
 +--------------------------+
 </code></pre></div>
 
@@ -7362,7 +7362,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -7478,8 +7478,6 @@
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.1.3/nebula-exchange/use-exchange/ex-ug-import-from-neo4j/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -7499,8 +7499,8 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
   # Nebula Graph 相关配置
   nebula: {
     address:{
-      graph:[&quot;127.0.0.1:9669&quot;]
-      meta:[&quot;127.0.0.1:9559&quot;]
+      graph:["127.0.0.1:9669"]
+      meta:["127.0.0.1:9559"]
     }
     user: root
     pswd: nebula
@@ -7536,11 +7536,11 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         source: neo4j
         sink: client
       }
-      server: &quot;bolt://192.168.*.*:7687&quot;
+      server: "bolt://192.168.*.*:7687"
       user: neo4j
       password:neo4j
       database:neo4j
-      exec: &quot;match (n:player) return n.id as id, n.age as age, n.name as name&quot;
+      exec: "match (n:player) return n.id as id, n.age as age, n.name as name"
       fields: [age,name]
       nebula.fields: [age,name]
       vertex: {
@@ -7557,11 +7557,11 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         source: neo4j
         sink: client
       }
-      server: &quot;bolt://192.168.*.*:7687&quot;
+      server: "bolt://192.168.*.*:7687"
       user: neo4j
       password:neo4j
       database:neo4j
-      exec: &quot;match (n:team) return n.id as id,n.name as name&quot;
+      exec: "match (n:team) return n.id as id,n.name as name"
       fields: [name]
       nebula.fields: [name]
       vertex: {
@@ -7582,11 +7582,11 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         source: neo4j
         sink: client
       }
-      server: &quot;bolt://192.168.*.*:7687&quot;
+      server: "bolt://192.168.*.*:7687"
       user: neo4j
       password:neo4j
       database:neo4j
-      exec: &quot;match (a:player)-[r:follow]-&gt;(b:player) return a.id as src, b.id as dst, r.degree as degree  order by id(r)&quot;
+      exec: "match (a:player)-[r:follow]-&gt;(b:player) return a.id as src, b.id as dst, r.degree as degree  order by id(r)"
       fields: [degree]
       nebula.fields: [degree]
       source: {
@@ -7607,11 +7607,11 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         source: neo4j
         sink: client
       }
-      server: &quot;bolt://192.168.*.*:7687&quot;
+      server: "bolt://192.168.*.*:7687"
       user: neo4j
       password:neo4j
       database:neo4j
-      exec: &quot;match (a:player)-[r:serve]-&gt;(b:team) return a.id as src, b.id as dst, r.start_year as start_year, r.end_year as end_year  order by id(r)&quot;
+      exec: "match (a:player)-[r:serve]-&gt;(b:team) return a.id as src, b.id as dst, r.start_year as start_year, r.end_year as end_year  order by id(r)"
       fields: [start_year,end_year]
       nebula.fields: [start_year,end_year]
       source: {
@@ -7640,19 +7640,19 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
 <p>如果启用了断点续传功能，为避免数据丢失，在断点和续传之间，数据库不应该改变状态，例如不能添加数据或删除数据，同时，不能更改<code>partition</code>数量配置。</p>
 <h3 id="4_nebula_graph">步骤 4：向 Nebula Graph 导入数据<a class="headerlink" href="#4_nebula_graph" title="Permanent link">&para;</a></h3>
 <p>运行如下命令将文件数据导入到 Nebula Graph 中。关于参数的说明，请参见<a href="../../parameter-reference/ex-ug-para-import-command/">导入命令参数</a>。</p>
-<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span>&lt;nebula-exchange-3.0.0.jar_path&gt;<span class="w"> </span>-c<span class="w"> </span>&lt;neo4j_application.conf_path&gt;<span class="w"> </span>
+<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w"> </span>--master<span class="w"> </span><span class="s2">"local"</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w"> </span>&lt;nebula-exchange-3.0.0.jar_path&gt;<span class="w"> </span>-c<span class="w"> </span>&lt;neo4j_application.conf_path&gt;<span class="w"> </span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>JAR 包有两种获取方式：<a href="../../ex-ug-compile/">自行编译</a>或者从 maven 仓库下载。</p>
 </div>
 <p>示例：</p>
-<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w">  </span>--master<span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w">  </span>/root/nebula-exchange/nebula-exchange/target/nebula-exchange-3.0.0.jar<span class="w">  </span>-c<span class="w"> </span>/root/nebula-exchange/nebula-exchange/target/classes/neo4j_application.conf
+<div class="highlight"><pre><span></span><code><span class="si">${</span><span class="nv">SPARK_HOME</span><span class="si">}</span>/bin/spark-submit<span class="w">  </span>--master<span class="w"> </span><span class="s2">"local"</span><span class="w"> </span>--class<span class="w"> </span>com.vesoft.nebula.exchange.Exchange<span class="w">  </span>/root/nebula-exchange/nebula-exchange/target/nebula-exchange-3.0.0.jar<span class="w">  </span>-c<span class="w"> </span>/root/nebula-exchange/nebula-exchange/target/classes/neo4j_application.conf
 </code></pre></div>
 <p>用户可以在返回信息中搜索<code>batchSuccess.&lt;tag_name/edge_name&gt;</code>，确认成功的数量。例如<code>batchSuccess.follow: 300</code>。</p>
 <h3 id="5">步骤 5：（可选）验证数据<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
 <p>用户可以在 Nebula Graph 客户端（例如 Nebula Studio）中执行查询语句，确认数据是否已导入。例如：</p>
-<div class="highlight"><pre><span></span><code>GO FROM &quot;player100&quot; OVER follow;
+<div class="highlight"><pre><span></span><code>GO FROM "player100" OVER follow;
 </code></pre></div>
 <p>用户也可以使用命令 <a href="../../../3.ngql-guide/7.general-query-statements/6.show/14.show-stats/"><code>SHOW STATS</code></a> 查看统计数据。</p>
 <h3 id="6_nebula_graph">步骤 6：（如有）在 Nebula Graph 中重建索引<a class="headerlink" href="#6_nebula_graph" title="Permanent link">&para;</a></h3>
@@ -7663,7 +7663,7 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -7779,8 +7779,6 @@ nebula&gt; CREATE EDGE serve(start_year int, end_year int);
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

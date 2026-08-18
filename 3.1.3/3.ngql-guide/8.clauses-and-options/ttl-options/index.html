@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.1.3/3.ngql-guide/8.clauses-and-options/ttl-options/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -7346,18 +7346,18 @@
 nebula&gt; CREATE TAG IF NOT EXISTS t1 (a timestamp);
 
 # ALTER 修改 Tag，添加 TTL 选项。
-nebula&gt; ALTER TAG t1 TTL_COL = &quot;a&quot;, TTL_DURATION = 5;
+nebula&gt; ALTER TAG t1 TTL_COL = "a", TTL_DURATION = 5;
 
 # 插入点，插入后 5 秒过期。
-nebula&gt; INSERT VERTEX t1(a) VALUES &quot;101&quot;:(now());
+nebula&gt; INSERT VERTEX t1(a) VALUES "101":(now());
 </code></pre></div>
 <h3 id="tag_edge_type_1">Tag 或 Edge type 不存在<a class="headerlink" href="#tag_edge_type_1" title="Permanent link">&para;</a></h3>
 <p>创建 Tag 或 Edge type 时可以同时设置 TTL 选项。详情请参见 <a href="../../10.tag-statements/1.create-tag/">CREATE TAG</a> 和 <a href="../../11.edge-type-statements/1.create-edge/">CREATE EDGE</a>。</p>
 <div class="highlight"><pre><span></span><code># 创建 Tag 并设置 TTL 选项。
-nebula&gt; CREATE TAG IF NOT EXISTS t2(a int, b int, c string) TTL_DURATION= 100, TTL_COL = &quot;a&quot;;
+nebula&gt; CREATE TAG IF NOT EXISTS t2(a int, b int, c string) TTL_DURATION= 100, TTL_COL = "a";
 
 # 插入点。过期时间戳为 1648197238（1648197138 + 100）。
-nebula&gt; INSERT VERTEX t2(a, b, c) VALUES &quot;102&quot;:(1648197138, 30, &quot;Hello&quot;);
+nebula&gt; INSERT VERTEX t2(a, b, c) VALUES "102":(1648197138, 30, "Hello");
 </code></pre></div>
 <h2 id="_6">删除存活时间<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>删除存活时间可以使用如下几种方法：</p>
@@ -7367,7 +7367,7 @@ nebula&gt; INSERT VERTEX t2(a, b, c) VALUES &quot;102&quot;:(1648197138, 30, &qu
 </li>
 </ul>
 <ul>
-<li>设置<code>ttl_col</code>为空字符串。<div class="highlight"><pre><span></span><code>nebula&gt; ALTER TAG t1 TTL_COL = &quot;&quot;;
+<li>设置<code>ttl_col</code>为空字符串。<div class="highlight"><pre><span></span><code>nebula&gt; ALTER TAG t1 TTL_COL = "";
 </code></pre></div>
 </li>
 </ul>
@@ -7382,7 +7382,7 @@ nebula&gt; INSERT VERTEX t2(a, b, c) VALUES &quot;102&quot;:(1648197138, 30, &qu
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -7498,8 +7498,6 @@ nebula&gt; INSERT VERTEX t2(a, b, c) VALUES &quot;102&quot;:(1648197138, 30, &qu
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

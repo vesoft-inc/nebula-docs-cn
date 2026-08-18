@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.1.3/3.ngql-guide/7.general-query-statements/4.fetch/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -7380,32 +7380,32 @@ YIELD &lt;return_list&gt; [AS &lt;alias&gt;];
 </table>
 <h3 id="tag">基于 Tag 获取点的属性值<a class="headerlink" href="#tag" title="Permanent link">&para;</a></h3>
 <p>在<code>FETCH</code>语句中指定 Tag 获取对应点的属性值。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player &quot;player100&quot; YIELD properties(vertex);
+<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player "player100" YIELD properties(vertex);
 +-------------------------------+
 | properties(VERTEX)            |
 +-------------------------------+
-| {age: 42, name: &quot;Tim Duncan&quot;} |
+| {age: 42, name: "Tim Duncan"} |
 +-------------------------------+
 </code></pre></div>
 <h3 id="_3">获取点的指定属性值<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
 <p>使用<code>YIELD</code>子句指定返回的属性。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player &quot;player100&quot; \
+<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player "player100" \
         YIELD properties(vertex).name AS name;
 +--------------+
 | name         |
 +--------------+
-| &quot;Tim Duncan&quot; |
+| "Tim Duncan" |
 +--------------+
 </code></pre></div>
 <h3 id="_4">获取多个点的属性值<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>指定多个点 ID 获取多个点的属性值，点之间用英文逗号（,）分隔。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player &quot;player101&quot;, &quot;player102&quot;, &quot;player103&quot; YIELD properties(vertex);
+<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player "player101", "player102", "player103" YIELD properties(vertex);
 +--------------------------------------+
 | properties(VERTEX)                   |
 +--------------------------------------+
-| {age: 33, name: &quot;LaMarcus Aldridge&quot;} |
-| {age: 40, name: &quot;Tony Parker&quot;}       |
-| {age: 32, name: &quot;Rudy Gay&quot;}          |
+| {age: 33, name: "LaMarcus Aldridge"} |
+| {age: 40, name: "Tony Parker"}       |
+| {age: 32, name: "Rudy Gay"}          |
 +--------------------------------------+
 </code></pre></div>
 <h3 id="tag_1">基于多个 Tag 获取点的属性值<a class="headerlink" href="#tag_1" title="Permanent link">&para;</a></h3>
@@ -7414,34 +7414,34 @@ YIELD &lt;return_list&gt; [AS &lt;alias&gt;];
 nebula&gt; CREATE TAG IF NOT EXISTS t1(a string, b int);
 
 # 为点 player100 添加 Tag t1。
-nebula&gt; INSERT VERTEX t1(a, b) VALUES &quot;player100&quot;:(&quot;Hello&quot;, 100);
+nebula&gt; INSERT VERTEX t1(a, b) VALUES "player100":("Hello", 100);
 
 # 基于 Tag player 和 t1 获取点 player100 上的属性值。
-nebula&gt; FETCH PROP ON player, t1 &quot;player100&quot; YIELD vertex AS v;
+nebula&gt; FETCH PROP ON player, t1 "player100" YIELD vertex AS v;
 +----------------------------------------------------------------------------+
 | v                                                                          |
 +----------------------------------------------------------------------------+
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;} :t1{a: &quot;Hello&quot;, b: 100}) |
+| ("player100" :player{age: 42, name: "Tim Duncan"} :t1{a: "Hello", b: 100}) |
 +----------------------------------------------------------------------------+
 </code></pre></div>
 <p>用户可以在<code>FETCH</code>语句中组合多个 Tag 和多个点。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player, t1 &quot;player100&quot;, &quot;player103&quot; YIELD vertex AS v;
+<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player, t1 "player100", "player103" YIELD vertex AS v;
 +----------------------------------------------------------------------------+
 | v                                                                          |
 +----------------------------------------------------------------------------+
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;} :t1{a: &quot;Hello&quot;, b: 100}) |
-| (&quot;player103&quot; :player{age: 32, name: &quot;Rudy Gay&quot;})                           |
+| ("player100" :player{age: 42, name: "Tim Duncan"} :t1{a: "Hello", b: 100}) |
+| ("player103" :player{age: 32, name: "Rudy Gay"})                           |
 +----------------------------------------------------------------------------+
 </code></pre></div>
 <h3 id="_5">在所有标签中获取点的属性值<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
 <p>在<code>FETCH</code>语句中使用<code>*</code>获取当前图空间所有标签里，点的属性值。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON * &quot;player100&quot;, &quot;player106&quot;, &quot;team200&quot; YIELD vertex AS v;
+<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON * "player100", "player106", "team200" YIELD vertex AS v;
 +----------------------------------------------------------------------------+
 | v                                                                          |
 +----------------------------------------------------------------------------+
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;} :t1{a: &quot;Hello&quot;, b: 100}) |
-| (&quot;player106&quot; :player{age: 25, name: &quot;Kyle Anderson&quot;})                      |
-| (&quot;team200&quot; :team{name: &quot;Warriors&quot;})                                        |
+| ("player100" :player{age: 42, name: "Tim Duncan"} :t1{a: "Hello", b: 100}) |
+| ("player106" :player{age: 25, name: "Kyle Anderson"})                      |
+| ("team200" :team{name: "Warriors"})                                        |
 +----------------------------------------------------------------------------+
 </code></pre></div>
 <h2 id="_6">获取边的属性值<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
@@ -7481,7 +7481,7 @@ YIELD &lt;output&gt;;
 </table>
 <h3 id="_8">获取边的所有属性值<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code># 获取连接 player100 和 team204 的边 serve 的所有属性值。
-nebula&gt; FETCH PROP ON serve &quot;player100&quot; -&gt; &quot;team204&quot; YIELD properties(edge);
+nebula&gt; FETCH PROP ON serve "player100" -&gt; "team204" YIELD properties(edge);
 +------------------------------------+
 | properties(EDGE)                   |
 +------------------------------------+
@@ -7490,7 +7490,7 @@ nebula&gt; FETCH PROP ON serve &quot;player100&quot; -&gt; &quot;team204&quot; Y
 </code></pre></div>
 <h3 id="_9">获取边的指定属性值<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p>使用<code>YIELD</code>子句指定返回的属性。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON serve &quot;player100&quot; -&gt; &quot;team204&quot;    \
+<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON serve "player100" -&gt; "team204"    \
         YIELD properties(edge).start_year;
 +-----------------------------+
 | properties(EDGE).start_year |
@@ -7500,43 +7500,43 @@ nebula&gt; FETCH PROP ON serve &quot;player100&quot; -&gt; &quot;team204&quot; Y
 </code></pre></div>
 <h3 id="_10">获取多条边的属性值<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p>指定多个边模式 (<code>&lt;src_vid&gt; -&gt; &lt;dst_vid&gt;[@&lt;rank&gt;]</code>) 获取多个边的属性值。模式之间用英文逗号（,）分隔。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON serve &quot;player100&quot; -&gt; &quot;team204&quot;, &quot;player133&quot; -&gt; &quot;team202&quot; YIELD edge AS e;
+<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON serve "player100" -&gt; "team204", "player133" -&gt; "team202" YIELD edge AS e;
 +-----------------------------------------------------------------------+
 | e                                                                     |
 +-----------------------------------------------------------------------+
-| [:serve &quot;player100&quot;-&gt;&quot;team204&quot; @0 {end_year: 2016, start_year: 1997}] |
-| [:serve &quot;player133&quot;-&gt;&quot;team202&quot; @0 {end_year: 2011, start_year: 2002}] |
+| [:serve "player100"-&gt;"team204" @0 {end_year: 2016, start_year: 1997}] |
+| [:serve "player133"-&gt;"team202" @0 {end_year: 2011, start_year: 2002}] |
 +-----------------------------------------------------------------------+
 </code></pre></div>
 <h3 id="rank">基于 rank 获取属性值<a class="headerlink" href="#rank" title="Permanent link">&para;</a></h3>
 <p>如果有多条边，起始点、目的点和 Edge type 都相同，可以通过指定 rank 获取正确的边属性值。</p>
 <div class="highlight"><pre><span></span><code># 插入不同属性值、不同 rank 的边。
 nebula&gt; insert edge serve(start_year,end_year) \
-        values &quot;player100&quot;-&gt;&quot;team204&quot;@1:(1998, 2017);
+        values "player100"-&gt;"team204"@1:(1998, 2017);
 
 nebula&gt; insert edge serve(start_year,end_year) \
-        values &quot;player100&quot;-&gt;&quot;team204&quot;@2:(1990, 2018);
+        values "player100"-&gt;"team204"@2:(1990, 2018);
 
 # 默认返回 rank 为 0 的边。
-nebula&gt; FETCH PROP ON serve &quot;player100&quot; -&gt; &quot;team204&quot; YIELD edge AS e;
+nebula&gt; FETCH PROP ON serve "player100" -&gt; "team204" YIELD edge AS e;
 +-----------------------------------------------------------------------+
 | e                                                                     |
 +-----------------------------------------------------------------------+
-| [:serve &quot;player100&quot;-&gt;&quot;team204&quot; @0 {end_year: 2016, start_year: 1997}] |
+| [:serve "player100"-&gt;"team204" @0 {end_year: 2016, start_year: 1997}] |
 +-----------------------------------------------------------------------+
 
 # 要获取 rank 不为 0 的边，请在 FETCH 语句中设置 rank。
-nebula&gt; FETCH PROP ON serve &quot;player100&quot; -&gt; &quot;team204&quot;@1 YIELD edge AS e;
+nebula&gt; FETCH PROP ON serve "player100" -&gt; "team204"@1 YIELD edge AS e;
 +-----------------------------------------------------------------------+
 | e                                                                     |
 +-----------------------------------------------------------------------+
-| [:serve &quot;player100&quot;-&gt;&quot;team204&quot; @1 {end_year: 2017, start_year: 1998}] |
+| [:serve "player100"-&gt;"team204" @1 {end_year: 2017, start_year: 1998}] |
 +-----------------------------------------------------------------------+
 </code></pre></div>
 <h2 id="fetch_1">复合语句中使用 FETCH<a class="headerlink" href="#fetch_1" title="Permanent link">&para;</a></h2>
 <p>将<code>FETCH</code>与原生 nGQL 结合使用是一种常见的方式，例如和<code>GO</code>一起。</p>
 <div class="highlight"><pre><span></span><code># 返回从点 player101 开始的 follow 边的 degree 值。
-nebula&gt; GO FROM &quot;player101&quot; OVER follow \
+nebula&gt; GO FROM "player101" OVER follow \
         YIELD src(edge) AS s, dst(edge) AS d \
         | FETCH PROP ON follow $-.s -&gt; $-.d \
         YIELD properties(edge).degree;
@@ -7549,7 +7549,7 @@ nebula&gt; GO FROM &quot;player101&quot; OVER follow \
 +-------------------------+
 </code></pre></div>
 <p>用户也可以通过自定义变量构建类似的查询。</p>
-<div class="highlight"><pre><span></span><code>nebula&gt; $var = GO FROM &quot;player101&quot; OVER follow \
+<div class="highlight"><pre><span></span><code>nebula&gt; $var = GO FROM "player101" OVER follow \
         YIELD src(edge) AS s, dst(edge) AS d; \
         FETCH PROP ON follow $var.s -&gt; $var.d \
         YIELD properties(edge).degree;
@@ -7568,7 +7568,7 @@ nebula&gt; GO FROM &quot;player101&quot; OVER follow \
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -7684,8 +7684,6 @@ nebula&gt; GO FROM &quot;player101&quot; OVER follow \
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

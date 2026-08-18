@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.1.3/3.ngql-guide/3.data-types/9.type-conversion/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -7170,7 +7170,7 @@
 </tbody>
 </table>
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>nebula&gt; UNWIND [true, false, &#39;true&#39;, &#39;false&#39;, NULL] AS b \
+<div class="highlight"><pre><span></span><code>nebula&gt; UNWIND [true, false, 'true', 'false', NULL] AS b \
         RETURN toBoolean(b) AS b;
 +----------+
 | b        |
@@ -7186,16 +7186,16 @@
 | __NULL__ |
 +----------+
 
-nebula&gt; RETURN toFloat(1), toFloat(&#39;1.3&#39;), toFloat(&#39;1e3&#39;), toFloat(&#39;not a number&#39;);
+nebula&gt; RETURN toFloat(1), toFloat('1.3'), toFloat('1e3'), toFloat('not a number');
 +------------+----------------+----------------+-------------------------+
-| toFloat(1) | toFloat(&quot;1.3&quot;) | toFloat(&quot;1e3&quot;) | toFloat(&quot;not a number&quot;) |
+| toFloat(1) | toFloat("1.3") | toFloat("1e3") | toFloat("not a number") |
 +------------+----------------+----------------+-------------------------+
 | 1.0        | 1.3            | 1000.0         | __NULL__                |
 +------------+----------------+----------------+-------------------------+
 
-nebula&gt; RETURN toInteger(1), toInteger(&#39;1&#39;), toInteger(&#39;1e3&#39;), toInteger(&#39;not a number&#39;);
+nebula&gt; RETURN toInteger(1), toInteger('1'), toInteger('1e3'), toInteger('not a number');
 +--------------+----------------+------------------+---------------------------+
-| toInteger(1) | toInteger(&quot;1&quot;) | toInteger(&quot;1e3&quot;) | toInteger(&quot;not a number&quot;) |
+| toInteger(1) | toInteger("1") | toInteger("1e3") | toInteger("not a number") |
 +--------------+----------------+------------------+---------------------------+
 | 1            | 1              | 1000             | __NULL__                  |
 +--------------+----------------+------------------+---------------------------+
@@ -7205,17 +7205,17 @@ nebula&gt; MATCH (a:player)-[e]-() \
 +----------+
 | type(e)  |
 +----------+
-| &quot;follow&quot; |
+| "follow" |
 +----------+
-| &quot;follow&quot; |
+| "follow" |
 
-nebula&gt; MATCH (a:player {name: &quot;Tim Duncan&quot;}) \
+nebula&gt; MATCH (a:player {name: "Tim Duncan"}) \
         WHERE toInteger(right(id(a),3)) == 100 \
         RETURN a;
 +----------------------------------------------------+
 | a                                                  |
 +----------------------------------------------------+
-| (&quot;player100&quot; :player{age: 42, name: &quot;Tim Duncan&quot;}) |
+| ("player100" :player{age: 42, name: "Tim Duncan"}) |
 +----------------------------------------------------+
 
 nebula&gt; MATCH (n:player) \
@@ -7231,7 +7231,7 @@ nebula&gt; RETURN toString(9669) AS int2str, toString(null) AS null2str;
 +---------+----------+
 | int2str | null2str |
 +---------+----------+
-| &quot;9669&quot;  | __NULL__ |
+| "9669"  | __NULL__ |
 +---------+----------+
 
 nebula&gt; RETURN toSet(list[1,2,3,1,2]) AS list2set;
@@ -7254,7 +7254,7 @@ nebula&gt; RETURN toSet(set{1,2,3,1,2}) AS set2set;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -7370,8 +7370,6 @@ nebula&gt; RETURN toSet(set{1,2,3,1,2}) AS set2set;
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

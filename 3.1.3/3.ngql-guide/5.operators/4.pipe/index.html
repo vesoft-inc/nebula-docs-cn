@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://docs.nebula-graph.com.cn/3.1.3/3.ngql-guide/5.operators/4.pipe/">
       
       <link rel="icon" href="../../../assets/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.5.4">
+      <meta name="generator" content="mkdocs-ProperDocs 1.6.7, mkdocs-material-8.5.4">
     
     
       
@@ -7173,17 +7173,17 @@
 <li>在 nGQL 中，子查询是通过类似 shell 中的管道符（<code>|</code>）实现的。</li>
 </ul>
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM &quot;player100&quot; OVER follow \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM "player100" OVER follow \
         YIELD dst(edge) AS dstid, properties($$).name AS Name | \
         GO FROM $-.dstid OVER follow YIELD dst(edge);
 
 +-------------+
 | dst(EDGE)   |
 +-------------+
-| &quot;player100&quot; |
-| &quot;player102&quot; |
-| &quot;player125&quot; |
-| &quot;player100&quot; |
+| "player100" |
+| "player102" |
+| "player125" |
+| "player100" |
 +-------------+
 </code></pre></div>
 <p>用户可以使用<code>YIELD</code>显式声明需要返回的结果，如果不使用<code>YIELD</code>，默认返回目标点 ID。</p>
@@ -7222,7 +7222,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">March 7, 2023</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月18日</span>
       
     
   </small>
@@ -7338,8 +7338,6 @@
         <script src="../../../js/jquery.js"></script>
       
         <script src="../../../js/init.js"></script>
-      
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
