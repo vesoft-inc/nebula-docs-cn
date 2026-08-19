@@ -84,10 +84,21 @@ jobs:
           python ./scripts/conditional_render.py
           python ./scripts/conditional_yml.py
           python ./scripts/conditional_pdf.py
-          git fetch origin gh-pages
-          mike --rebase deploy ${{ env.ACTIONTEST }} -p
-          mike --rebase set-default ${{ env.ACTIONTEST }} -p
-          mike list
+          for attempt in 1 2 3; do
+            git fetch origin gh-pages
+            git branch -f gh-pages origin/gh-pages
+
+            if mike deploy ${{ env.ACTIONTEST }} -p && mike set-default ${{ env.ACTIONTEST }} -p; then
+              mike list
+              exit 0
+            fi
+
+            if [ "$attempt" -eq 3 ]; then
+              exit 1
+            fi
+
+            sleep $((attempt * 30))
+          done
       - name: show git branch
         run: | 
           git branch
