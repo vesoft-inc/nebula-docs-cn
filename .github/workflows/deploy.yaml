@@ -84,9 +84,9 @@ jobs:
           python ./scripts/conditional_render.py
           python ./scripts/conditional_yml.py
           python ./scripts/conditional_pdf.py
-          git fetch origin gh-pages --depth=1 # fix mike's CI update
-          mike deploy ${{ env.ACTIONTEST }}  -p --rebase
-          mike set-default ${{ env.ACTIONTEST }} -p --rebase
+          git fetch origin gh-pages
+          mike --rebase deploy ${{ env.ACTIONTEST }} -p
+          mike --rebase set-default ${{ env.ACTIONTEST }} -p
           mike list
       - name: show git branch
         run: | 
