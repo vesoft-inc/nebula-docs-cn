@@ -84,9 +84,21 @@ jobs:
           python ./scripts/conditional_render.py
           python ./scripts/conditional_yml.py
           python ./scripts/conditional_pdf.py
-          git fetch origin gh-pages --depth=1 # fix mike's CI update
-          mike deploy ${{ env.ACTIONTEST }}  -p --rebase
-          mike list
+          for attempt in 1 2 3; do
+            git fetch origin gh-pages
+            git branch -f gh-pages origin/gh-pages
+
+            if mike deploy ${{ env.ACTIONTEST }} -p; then
+              mike list
+              exit 0
+            fi
+
+            if [ "$attempt" -eq 3 ]; then
+              exit 1
+            fi
+
+            sleep $((attempt * 30))
+          done
       - name: show git branch
         run: | 
           git branch
