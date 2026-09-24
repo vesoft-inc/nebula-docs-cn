@@ -6029,25 +6029,25 @@
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>登录的用户必须拥有对应权限才能执行<code>DESCRIBE TAG</code>语句。详情请参见<a href="../../../7.data-security/1.authentication/3.role-list/">内置角色权限</a>。</p>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p><code>ngql
-DESC[RIBE] TAG &lt;tag_name&gt;;</code></p>
+<div class="highlight"><pre><span></span><code>DESC[RIBE] TAG &lt;tag_name&gt;;
+</code></pre></div>
 <p><code>DESCRIBE</code>可以缩写为<code>DESC</code>。</p>
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p><code>ngql
-nebula&gt; DESCRIBE TAG player;
+<div class="highlight"><pre><span></span><code>nebula&gt; DESCRIBE TAG player;
 +--------+----------+-------+---------+---------+
 | Field  | Type     | Null  | Default | Comment |
 +--------+----------+-------+---------+---------+
 | "name" | "string" | "YES" |         |         |
 | "age"  | "int64"  | "YES" |         |         |
-+--------+----------+-------+---------+---------+</code></p>
++--------+----------+-------+---------+---------+
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

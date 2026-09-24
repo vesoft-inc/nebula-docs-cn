@@ -6025,20 +6025,20 @@
 <p>如果表达式中有相同优先级的运算符，运算是从左到右进行，只有赋值操作是例外（从右到左运算）。</p>
 <p>运算符的优先级决定运算的顺序，要显式修改运算顺序，可以使用圆括号。</p>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>```ngql
-nebula&gt; RETURN 2+3<em>5;
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN 2+3*5;
 +-----------+
-| (2+(3</em>5)) |
+| (2+(3*5)) |
 +-----------+
 | 17        |
-+-----------+</p>
-<p>nebula&gt; RETURN (2+3)<em>5;
 +-----------+
-| ((2+3)</em>5) |
+
+nebula&gt; RETURN (2+3)*5;
++-----------+
+| ((2+3)*5) |
 +-----------+
 | 25        |
 +-----------+
-```</p>
+</code></pre></div>
 <h2 id="opencypher">openCypher 兼容性<a class="headerlink" href="#opencypher" title="Permanent link">&para;</a></h2>
 <p>在 openCypher 中，比较操作可以任意连接，例如<code>x &lt; y &lt;= z</code>等价于<code>x &lt; y AND y &lt;= z</code>。</p>
 <p>在 nGQL 中，<code>x &lt; y &lt;= z</code>等价于<code>(x &lt; y) &lt;= z</code>，<code>(x &lt; y)</code>的结果是一个布尔值，再将布尔值和<code>z</code>比较，最终结果是<code>NULL</code>。</p>
@@ -6048,7 +6048,7 @@ nebula&gt; RETURN 2+3<em>5;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

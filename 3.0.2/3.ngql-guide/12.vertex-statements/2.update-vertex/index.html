@@ -6018,11 +6018,11 @@
 <p>一次只能修改一个 Tag。</p>
 </div>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><code>ngql
-UPDATE VERTEX ON &lt;tag_name&gt; &lt;vid&gt;
+<div class="highlight"><pre><span></span><code>UPDATE VERTEX ON &lt;tag_name&gt; &lt;vid&gt;
 SET &lt;update_prop&gt;
 [WHEN &lt;condition&gt;]
-[YIELD &lt;output&gt;]</code></p>
+[YIELD &lt;output&gt;]
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -6066,15 +6066,15 @@ SET &lt;update_prop&gt;
 </tbody>
 </table>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>```ngql
-// 查看点”player101“的属性。
+<div class="highlight"><pre><span></span><code>// 查看点”player101“的属性。
 nebula&gt; FETCH PROP ON player "player101" YIELD properties(vertex);
 +--------------------------------+
 | properties(VERTEX)             |
 +--------------------------------+
 | {age: 36, name: "Tony Parker"} |
-+--------------------------------+</p>
-<p>// 修改属性 age 的值，并返回 name 和新的 age。
++--------------------------------+
+
+// 修改属性 age 的值，并返回 name 和新的 age。
 nebula&gt; UPDATE VERTEX ON player "player101" \
         SET age = age + 2 \
         WHEN name == "Tony Parker" \
@@ -6084,14 +6084,14 @@ nebula&gt; UPDATE VERTEX ON player "player101" \
 +---------------+-----+
 | "Tony Parker" | 38  |
 +---------------+-----+
-```</p>
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

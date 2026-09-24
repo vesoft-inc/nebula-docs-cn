@@ -6057,15 +6057,15 @@
 <p>如果参数为<code>NULL</code>，则输出结果是未定义的。</p>
 </div>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>```ngql
-nebula&gt; WITH [NULL, 4923, 'abc', 521, 487] AS ids \
+<div class="highlight"><pre><span></span><code>nebula&gt; WITH [NULL, 4923, 'abc', 521, 487] AS ids \
         RETURN reverse(ids), tail(ids), head(ids), last(ids), coalesce(ids);
 +-----------------------------------+-------------------------+-----------+-----------+---------------+
 | reverse(ids)                      | tail(ids)               | head(ids) | last(ids) | coalesce(ids) |
 +-----------------------------------+-------------------------+-----------+-----------+---------------+
-| [487, 521, "abc", 4923, <strong>NULL</strong>] | [4923, "abc", 521, 487] | <strong>NULL</strong>  | 487       | 4923          |
-+-----------------------------------+-------------------------+-----------+-----------+---------------+</p>
-<p>nebula&gt; MATCH (a:player)-[r]-&gt;() \
+| [487, 521, "abc", 4923, __NULL__] | [4923, "abc", 521, 487] | __NULL__  | 487       | 4923          |
++-----------------------------------+-------------------------+-----------+-----------+---------------+
+
+nebula&gt; MATCH (a:player)-[r]-&gt;() \
         WHERE id(a) == "player100" \
         RETURN labels(a),  keys(r);
 +------------+----------------------------+
@@ -6073,8 +6073,9 @@ nebula&gt; WITH [NULL, 4923, 'abc', 521, 487] AS ids \
 +------------+----------------------------+
 | ["player"] | ["degree"]                 |
 | ["player"] | ["end_year", "start_year"] |
-+------------+----------------------------+</p>
-<p>nebula&gt; MATCH p = (a:player)-[]-&gt;(b)-[]-&gt;(c:team) \
++------------+----------------------------+
+
+nebula&gt; MATCH p = (a:player)-[]-&gt;(b)-[]-&gt;(c:team) \
         WHERE a.player.name == "Tim Duncan" AND c.team.name == "Spurs" \
         RETURN nodes(p);
 +-----------------------------------------------------------------------------------------------------------------------------------------------+
@@ -6082,22 +6083,23 @@ nebula&gt; WITH [NULL, 4923, 'abc', 521, 487] AS ids \
 +-----------------------------------------------------------------------------------------------------------------------------------------------+
 | [("player100" :player{age: 42, name: "Tim Duncan"}), ("player101" :player{age: 36, name: "Tony Parker"}), ("team204" :team{name: "Spurs"})]   |
 | [("player100" :player{age: 42, name: "Tim Duncan"}), ("player125" :player{age: 41, name: "Manu Ginobili"}), ("team204" :team{name: "Spurs"})] |
-+-----------------------------------------------------------------------------------------------------------------------------------------------+</p>
-<p>nebula&gt; MATCH p = (a:player)-[]-&gt;(b)-[]-&gt;(c:team) WHERE a.player.name == "Tim Duncan" AND c.team.name == "Spurs" RETURN relationships(p);
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+
+nebula&gt; MATCH p = (a:player)-[]-&gt;(b)-[]-&gt;(c:team) WHERE a.player.name == "Tim Duncan" AND c.team.name == "Spurs" RETURN relationships(p);
 +-----------------------------------------------------------------------------------------------------------------------------+
 | relationships(p)                                                                                                            |
 +-----------------------------------------------------------------------------------------------------------------------------+
 | [[:follow "player100"-&gt;"player101" @0 {degree: 95}], [:serve "player101"-&gt;"team204" @0 {end_year: 2018, start_year: 1999}]] |
 | [[:follow "player100"-&gt;"player125" @0 {degree: 95}], [:serve "player125"-&gt;"team204" @0 {end_year: 2018, start_year: 2002}]] |
 +-----------------------------------------------------------------------------------------------------------------------------+
-```</p>
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

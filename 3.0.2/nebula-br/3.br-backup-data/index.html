@@ -6049,8 +6049,8 @@
 <p class="admonition-title">Note</p>
 <p>确保备份文件的路径存在。</p>
 </div>
-<p><code>bash
-$ ./bin/br backup full --meta &lt;ip_address&gt; --storage &lt;storage_path&gt;</code></p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./bin/br<span class="w"> </span>backup<span class="w"> </span>full<span class="w"> </span>--meta<span class="w"> </span>&lt;ip_address&gt;<span class="w"> </span>--storage<span class="w"> </span>&lt;storage_path&gt;
+</code></pre></div>
 <p>例如：</p>
 <ul>
 <li>
@@ -6059,15 +6059,15 @@ $ ./bin/br backup full --meta &lt;ip_address&gt; --storage &lt;storage_path&gt;<
 <p class="admonition-title">Caution</p>
 <p>如果有多个 metad 地址，可以使用其中任意一个。</p>
 </div>
-<p><code>bash
-$ ./bin/br backup full --meta "127.0.0.1:9559" --storage "local:///home/nebula/backup/"</code></p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./bin/br<span class="w"> </span>backup<span class="w"> </span>full<span class="w"> </span>--meta<span class="w"> </span><span class="s2">"127.0.0.1:9559"</span><span class="w"> </span>--storage<span class="w"> </span><span class="s2">"local:///home/nebula/backup/"</span>
+</code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p>运行以下命令对 meta 服务的地址为<code>127.0.0.1:9559</code>的整个集群进行全量备份操作，并将备份文件保存到兼容 s3 协议的对象存储服务 <code>br-test</code> 桶下的<code>backup</code>中。</p>
-<p><code>bash
-$ ./bin/br backup full --meta "127.0.0.1:9559" --s3.endpoint "http://127.0.0.1:9000" --storage="s3://br-test/backup/" --s3.access_key=minioadmin --s3.secret_key=minioadmin --s3.region=default</code></p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./bin/br<span class="w"> </span>backup<span class="w"> </span>full<span class="w"> </span>--meta<span class="w"> </span><span class="s2">"127.0.0.1:9559"</span><span class="w"> </span>--s3.endpoint<span class="w"> </span><span class="s2">"http://127.0.0.1:9000"</span><span class="w"> </span>--storage<span class="o">=</span><span class="s2">"s3://br-test/backup/"</span><span class="w"> </span>--s3.access_key<span class="o">=</span>minioadmin<span class="w"> </span>--s3.secret_key<span class="o">=</span>minioadmin<span class="w"> </span>--s3.region<span class="o">=</span>default
+</code></pre></div>
 </li>
 </ul>
 <p>以下列出命令的相关参数。</p>
@@ -6162,7 +6162,7 @@ $ ./bin/br backup full --meta "127.0.0.1:9559" --s3.endpoint "http://127.0.0.1:9
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

@@ -6296,37 +6296,37 @@
 </div>
 <h3 id="listener_1">第三步：启动 listener<a class="headerlink" href="#listener_1" title="Permanent link">&para;</a></h3>
 <p>执行如下命令启动启动 listener：</p>
-<p><code>bash
-./bin/nebula-storaged --flagfile &lt;listener_config_path&gt;/nebula-storaged-listener.conf</code></p>
+<div class="highlight"><pre><span></span><code>./bin/nebula-storaged<span class="w"> </span>--flagfile<span class="w"> </span>&lt;listener_config_path&gt;/nebula-storaged-listener.conf
+</code></pre></div>
 <p><code>listener_config_path</code>是存放 listener 配置文件的路径。</p>
 <h3 id="listener_nebula_graph">第四步：添加 listener 到 Nebula Graph 集群<a class="headerlink" href="#listener_nebula_graph" title="Permanent link">&para;</a></h3>
 <p><a href="../../../2.quick-start/3.connect-to-nebula-graph/">用命令行连接到 Nebula Graph</a>，然后执行 <a href="../../../3.ngql-guide/9.space-statements/2.use-space/"><code>USE &lt;space&gt;</code></a> 进入需要创建全文索引的图空间。然后执行如下命令添加 listener：</p>
-<p><code>ngql
-ADD LISTENER ELASTICSEARCH &lt;listener_ip:port&gt; [,&lt;listener_ip:port&gt;, ...]</code></p>
+<div class="highlight"><pre><span></span><code>ADD LISTENER ELASTICSEARCH &lt;listener_ip:port&gt; [,&lt;listener_ip:port&gt;, ...]
+</code></pre></div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>listener 必须使用真实的 IP 地址。</p>
 <p>请在一个语句里完整地添加所有 listener。例如：</p>
-<p><code>ngql
-nebula&gt; ADD LISTENER ELASTICSEARCH 192.168.8.5:9789,192.168.8.6:9789;</code></p>
+<div class="highlight"><pre><span></span><code>nebula&gt; ADD LISTENER ELASTICSEARCH 192.168.8.5:9789,192.168.8.6:9789;
+</code></pre></div>
 </div>
 <h2 id="listener_2">查看 listener<a class="headerlink" href="#listener_2" title="Permanent link">&para;</a></h2>
 <p>执行<code>SHOW LISTENER</code>语句可以列出所有的 listener。</p>
 <h3 id="_4">示例<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p><code>ngql
-nebula&gt; SHOW LISTENER;
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW LISTENER;
 +--------+-----------------+-----------------------+----------+
 | PartId | Type            | Host                  | Status   |
 +--------+-----------------+-----------------------+----------+
 | 1      | "ELASTICSEARCH" | "[192.168.8.5:46780]" | "ONLINE" |
 | 2      | "ELASTICSEARCH" | "[192.168.8.5:46780]" | "ONLINE" |
 | 3      | "ELASTICSEARCH" | "[192.168.8.5:46780]" | "ONLINE" |
-+--------+-----------------+-----------------------+----------+</code></p>
++--------+-----------------+-----------------------+----------+
+</code></pre></div>
 <h2 id="listener_3">删除 listener<a class="headerlink" href="#listener_3" title="Permanent link">&para;</a></h2>
 <p>执行<code>REMOVE LISTENER ELASTICSEARCH</code>语句可以删除图空间的所有 listener。</p>
 <h3 id="_5">示例<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p><code>ngql
-nebula&gt; REMOVE LISTENER ELASTICSEARCH;</code></p>
+<div class="highlight"><pre><span></span><code>nebula&gt; REMOVE LISTENER ELASTICSEARCH;
+</code></pre></div>
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
 <p>删除 listener 后，将不能重新添加 listener，因此也无法继续向 ES 集群同步，文本索引数据将不完整。如果确实需要，只能重新创建图空间。</p>
@@ -6339,7 +6339,7 @@ nebula&gt; REMOVE LISTENER ELASTICSEARCH;</code></p>
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

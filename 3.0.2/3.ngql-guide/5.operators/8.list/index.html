@@ -6021,26 +6021,28 @@
 </tbody>
 </table>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>```ngql
-nebula&gt; YIELD [1,2,3,4,5]+[6,7] AS myList;
+<div class="highlight"><pre><span></span><code>nebula&gt; YIELD [1,2,3,4,5]+[6,7] AS myList;
 +-----------------------+
 | myList                |
 +-----------------------+
 | [1, 2, 3, 4, 5, 6, 7] |
-+-----------------------+</p>
-<p>nebula&gt; RETURN size([NULL, 1, 2]);
++-----------------------+
+
+nebula&gt; RETURN size([NULL, 1, 2]);
 +------------------+
 | size([NULL,1,2]) |
 +------------------+
 | 3                |
-+------------------+</p>
-<p>nebula&gt; RETURN NULL IN [NULL, 1];
++------------------+
+
+nebula&gt; RETURN NULL IN [NULL, 1];
 +--------------------+
 | (NULL IN [NULL,1]) |
 +--------------------+
-| <strong>NULL</strong>           |
-+--------------------+</p>
-<p>nebula&gt; WITH [2, 3, 4, 5] AS numberlist \
+| __NULL__           |
++--------------------+
+
+nebula&gt; WITH [2, 3, 4, 5] AS numberlist \
     UNWIND numberlist AS number \
     WITH number \
     WHERE number IN [2, 3, 8] \
@@ -6050,21 +6052,22 @@ nebula&gt; YIELD [1,2,3,4,5]+[6,7] AS myList;
 +--------+
 | 2      |
 | 3      |
-+--------+</p>
-<p>nebula&gt; WITH ['Anne', 'John', 'Bill', 'Diane', 'Eve'] AS names RETURN names[1] AS result;
++--------+
+
+nebula&gt; WITH ['Anne', 'John', 'Bill', 'Diane', 'Eve'] AS names RETURN names[1] AS result;
 +--------+
 | result |
 +--------+
 | "John" |
 +--------+
-```</p>
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

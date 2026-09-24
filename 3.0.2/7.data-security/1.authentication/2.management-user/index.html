@@ -6123,15 +6123,15 @@
 <ul>
 <li>
 <p>语法</p>
-<p><code>ngql
-CREATE USER [IF NOT EXISTS] &lt;user_name&gt; [WITH PASSWORD '&lt;password&gt;'];</code></p>
+<div class="highlight"><pre><span></span><code>CREATE USER [IF NOT EXISTS] &lt;user_name&gt; [WITH PASSWORD '&lt;password&gt;'];
+</code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p>示例</p>
-<p><code>ngql
-nebula&gt; CREATE USER user1 WITH PASSWORD 'nebula';</code></p>
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE USER user1 WITH PASSWORD 'nebula';
+</code></pre></div>
 </li>
 </ul>
 <h2 id="grant_role">授权用户（<code>GRANT ROLE</code>）<a class="headerlink" href="#grant_role" title="Permanent link">&para;</a></h2>
@@ -6139,15 +6139,15 @@ nebula&gt; CREATE USER user1 WITH PASSWORD 'nebula';</code></p>
 <ul>
 <li>
 <p>语法</p>
-<p><code>ngql
-GRANT ROLE &lt;role_type&gt; ON &lt;space_name&gt; TO &lt;user_name&gt;;</code></p>
+<div class="highlight"><pre><span></span><code>GRANT ROLE &lt;role_type&gt; ON &lt;space_name&gt; TO &lt;user_name&gt;;
+</code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p>示例</p>
-<p><code>ngql
-nebula&gt; GRANT ROLE USER ON basketballplayer TO user1;</code></p>
+<div class="highlight"><pre><span></span><code>nebula&gt; GRANT ROLE USER ON basketballplayer TO user1;
+</code></pre></div>
 </li>
 </ul>
 <h2 id="revoke_role">撤销用户权限（<code>REVOKE ROLE</code>）<a class="headerlink" href="#revoke_role" title="Permanent link">&para;</a></h2>
@@ -6155,15 +6155,15 @@ nebula&gt; GRANT ROLE USER ON basketballplayer TO user1;</code></p>
 <ul>
 <li>
 <p>语法</p>
-<p><code>ngql
-REVOKE ROLE &lt;role_type&gt; ON &lt;space_name&gt; FROM &lt;user_name&gt;;</code></p>
+<div class="highlight"><pre><span></span><code>REVOKE ROLE &lt;role_type&gt; ON &lt;space_name&gt; FROM &lt;user_name&gt;;
+</code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p>示例</p>
-<p><code>ngql
-nebula&gt; REVOKE ROLE USER ON basketballplayer FROM user1;</code></p>
+<div class="highlight"><pre><span></span><code>nebula&gt; REVOKE ROLE USER ON basketballplayer FROM user1;
+</code></pre></div>
 </li>
 </ul>
 <h2 id="describe_user">查看指定用户权限（<code>DESCRIBE USER</code>）<a class="headerlink" href="#describe_user" title="Permanent link">&para;</a></h2>
@@ -6171,21 +6171,21 @@ nebula&gt; REVOKE ROLE USER ON basketballplayer FROM user1;</code></p>
 <ul>
 <li>
 <p>语法</p>
-<p><code>ngql
-DESCRIBE USER &lt;user_name&gt;;
-DESC USER &lt;user_name&gt;;</code></p>
+<div class="highlight"><pre><span></span><code>DESCRIBE USER &lt;user_name&gt;;
+DESC USER &lt;user_name&gt;;
+</code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p>示例</p>
-<p><code>ngql
-nebula&gt; DESCRIBE USER user1;
+<div class="highlight"><pre><span></span><code>nebula&gt; DESCRIBE USER user1;
 +---------+--------------------+
 | role    | space              |
 +---------+--------------------+
 | "ADMIN" | "basketballplayer" |
-+---------+--------------------+</code></p>
++---------+--------------------+
+</code></pre></div>
 </li>
 </ul>
 <h2 id="show_roles">查看指定空间内用户权限（<code>SHOW ROLES</code>）<a class="headerlink" href="#show_roles" title="Permanent link">&para;</a></h2>
@@ -6193,20 +6193,20 @@ nebula&gt; DESCRIBE USER user1;
 <ul>
 <li>
 <p>语法</p>
-<p><code>ngql
-SHOW ROLES IN &lt;space_name&gt;;</code></p>
+<div class="highlight"><pre><span></span><code>SHOW ROLES IN &lt;space_name&gt;;
+</code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p>示例</p>
-<p><code>ngql
-nebula&gt; SHOW ROLES IN basketballplayer;
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW ROLES IN basketballplayer;
 +---------+-----------+
 | Account | Role Type |
 +---------+-----------+
 | "user1" | "ADMIN"   |
-+---------+-----------+</code></p>
++---------+-----------+
+</code></pre></div>
 </li>
 </ul>
 <h2 id="change_password">修改用户密码（<code>CHANGE PASSWORD</code>）<a class="headerlink" href="#change_password" title="Permanent link">&para;</a></h2>
@@ -6214,15 +6214,15 @@ nebula&gt; SHOW ROLES IN basketballplayer;
 <ul>
 <li>
 <p>语法</p>
-<p><code>ngql
-CHANGE PASSWORD &lt;user_name&gt; FROM '&lt;old_password&gt;' TO '&lt;new_password&gt;';</code></p>
+<div class="highlight"><pre><span></span><code>CHANGE PASSWORD &lt;user_name&gt; FROM '&lt;old_password&gt;' TO '&lt;new_password&gt;';
+</code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p>示例</p>
-<p><code>ngql
-nebula&gt; CHANGE PASSWORD user1 FROM 'nebula' TO 'nebula123';</code></p>
+<div class="highlight"><pre><span></span><code>nebula&gt; CHANGE PASSWORD user1 FROM 'nebula' TO 'nebula123';
+</code></pre></div>
 </li>
 </ul>
 <h2 id="alter_user">修改用户密码（<code>ALTER USER</code>）<a class="headerlink" href="#alter_user" title="Permanent link">&para;</a></h2>
@@ -6230,15 +6230,15 @@ nebula&gt; CHANGE PASSWORD user1 FROM 'nebula' TO 'nebula123';</code></p>
 <ul>
 <li>
 <p>语法</p>
-<p><code>ngql
-ALTER USER &lt;user_name&gt; WITH PASSWORD '&lt;password&gt;';</code></p>
+<div class="highlight"><pre><span></span><code>ALTER USER &lt;user_name&gt; WITH PASSWORD '&lt;password&gt;';
+</code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p>示例</p>
-<p><code>ngql
-nebula&gt; ALTER USER user1 WITH PASSWORD 'nebula';</code></p>
+<div class="highlight"><pre><span></span><code>nebula&gt; ALTER USER user1 WITH PASSWORD 'nebula';
+</code></pre></div>
 </li>
 </ul>
 <h2 id="drop_user">删除用户（<code>DROP USER</code>）<a class="headerlink" href="#drop_user" title="Permanent link">&para;</a></h2>
@@ -6250,15 +6250,15 @@ nebula&gt; ALTER USER user1 WITH PASSWORD 'nebula';</code></p>
 <ul>
 <li>
 <p>语法</p>
-<p><code>ngql
-DROP USER [IF EXISTS] &lt;user_name&gt;;</code></p>
+<div class="highlight"><pre><span></span><code>DROP USER [IF EXISTS] &lt;user_name&gt;;
+</code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p>示例</p>
-<p><code>ngql
-nebula&gt; DROP USER user1;</code></p>
+<div class="highlight"><pre><span></span><code>nebula&gt; DROP USER user1;
+</code></pre></div>
 </li>
 </ul>
 <h2 id="show_users">查看用户列表（<code>SHOW USERS</code>）<a class="headerlink" href="#show_users" title="Permanent link">&para;</a></h2>
@@ -6266,22 +6266,22 @@ nebula&gt; DROP USER user1;</code></p>
 <ul>
 <li>
 <p>语法</p>
-<p><code>ngql
-SHOW USERS;</code></p>
+<div class="highlight"><pre><span></span><code>SHOW USERS;
+</code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p>示例</p>
-<p><code>ngql
-nebula&gt; SHOW USERS;
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW USERS;
 +-----------+
 | Account   |
 +-----------+
 | "test1"   |
 | "test2"   |
 | "test3"   |
-+-----------+</code></p>
++-----------+
+</code></pre></div>
 </li>
 </ul>
 
@@ -6290,7 +6290,7 @@ nebula&gt; SHOW USERS;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

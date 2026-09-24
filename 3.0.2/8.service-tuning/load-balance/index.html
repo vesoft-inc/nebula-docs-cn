@@ -6039,54 +6039,50 @@
 
 1. 将新增的 3 台 Storage 服务器加入集群，分别加入图空间`basketballplayer`所属的 Zone。关于 Zone 的介绍请参见[管理逻辑机架（Zone）](../4.deployment-and-installation/5.zone.md)。
 
-  ```ngql
-  nebual> ADD HOSTS 192.168.10.103:9779 INTO ZONE "zone1";
-  nebual> ADD HOSTS 192.168.10.104:9779 INTO ZONE "zone2";
-  nebual> ADD HOSTS 192.168.10.105:9779 INTO ZONE "zone3";
-  ```
+  <div class="highlight"><pre><span></span><code>nebual&gt; ADD HOSTS 192.168.10.103:9779 INTO ZONE "zone1";
+nebual&gt; ADD HOSTS 192.168.10.104:9779 INTO ZONE "zone2";
+nebual&gt; ADD HOSTS 192.168.10.105:9779 INTO ZONE "zone3";
+</code></pre></div>
 
 2. 执行命令 [`SHOW HOSTS`](../3.ngql-guide/7.general-query-statements/6.show/6.show-hosts.md) 检查分片的分布。
 
-  ```ngql
-  nebual> SHOW HOSTS;
-  +------------------+------+----------+--------------+-----------------------------------+------------------------+---------+
-  | Host             | Port | Status   | Leader count | Leader distribution               | Partition distribution | Version |
-  +------------------+------+----------+--------------+-----------------------------------+------------------------+---------+
-  | "192.168.10.100" | 9779 | "ONLINE" | 4            | "basketballplayer:4"              | "basketballplayer:15"  | "3.1.0" |
-  | "192.168.10.101" | 9779 | "ONLINE" | 8            | "basketballplayer:8"              | "basketballplayer:15"  | "3.1.0" |
-  | "192.168.10.102" | 9779 | "ONLINE" | 3            | "basketballplayer:3"              | "basketballplayer:15"  | "3.1.0" |
-  | "192.168.10.103" | 9779 | "ONLINE" | 0            | "No valid partition"              | "No valid partition"   | "3.1.0" |
-  | "192.168.10.104" | 9779 | "ONLINE" | 0            | "No valid partition"              | "No valid partition"   | "3.1.0" |
-  | "192.168.10.105" | 9779 | "ONLINE" | 0            | "No valid partition"              | "No valid partition"   | "3.1.0" |
-  +------------------+------+----------+--------------+-----------------------------------+------------------------+---------+
-  ```
+  <div class="highlight"><pre><span></span><code>nebual&gt; SHOW HOSTS;
++------------------+------+----------+--------------+-----------------------------------+------------------------+---------+
+| Host             | Port | Status   | Leader count | Leader distribution               | Partition distribution | Version |
++------------------+------+----------+--------------+-----------------------------------+------------------------+---------+
+| "192.168.10.100" | 9779 | "ONLINE" | 4            | "basketballplayer:4"              | "basketballplayer:15"  | "3.1.0" |
+| "192.168.10.101" | 9779 | "ONLINE" | 8            | "basketballplayer:8"              | "basketballplayer:15"  | "3.1.0" |
+| "192.168.10.102" | 9779 | "ONLINE" | 3            | "basketballplayer:3"              | "basketballplayer:15"  | "3.1.0" |
+| "192.168.10.103" | 9779 | "ONLINE" | 0            | "No valid partition"              | "No valid partition"   | "3.1.0" |
+| "192.168.10.104" | 9779 | "ONLINE" | 0            | "No valid partition"              | "No valid partition"   | "3.1.0" |
+| "192.168.10.105" | 9779 | "ONLINE" | 0            | "No valid partition"              | "No valid partition"   | "3.1.0" |
++------------------+------+----------+--------------+-----------------------------------+------------------------+---------+
+</code></pre></div>
 
 3. 执行命令`BALANCE IN ZONE`将当前图空间内每个 Zone 内部的分片均衡分布。
 
-  ```ngql
-  nebula> USE basketballplayer;
-  nebula> BALANCE IN ZONE;
-  +------------+
-  | New Job Id |
-  +------------+
-  | 30         |
-  +------------+
-  ```
+  <div class="highlight"><pre><span></span><code>nebula&gt; USE basketballplayer;
+nebula&gt; BALANCE IN ZONE;
++------------+
+| New Job Id |
++------------+
+| 30         |
++------------+
+</code></pre></div>
 
 4. 根据返回的作业 ID，执行命令`SHOW JOB <job_id>`检查作业状态。
 
-  ```ngql
-  nebula> SHOW JOB 30;
-  +-------------------------+--------------------------------------------+-------------+---------------------------------+---------------------------------+
-  | Job Id(spaceId:partId)  | Command(src->dst)                          | Status      | Start Time                      | Stop Time                       |
-  +-------------------------+--------------------------------------------+-------------+---------------------------------+---------------------------------+
-  | 30                      | "DATA_BALANCE"                             | "FINISHED"  | "2022-01-12T02:27:00.000000000" | "2022-01-12T02:30:31.000000000" |
-  | "30, 23:1"              | "192.168.10.100:9779->192.168.10.103:9779" | "SUCCEEDED" | 2022-01-12T02:27:00.000000      | 2022-01-12T02:27:30.000000      |
-  | "30, 23:2"              | "192.168.10.100:9779->192.168.10.103:9779" | "SUCCEEDED" | 2022-01-12T02:27:00.000000      | 2022-01-12T02:27:01.000000      |
-  ......
-  | "Total:21"              | "Succeeded:21"                             | "Failed:0"  | "In Progress:0"                 | "Invalid:0"                     |
-  +-------------------------+--------------------------------------------+-------------+---------------------------------+---------------------------------+
-  ```
+  <div class="highlight"><pre><span></span><code>nebula&gt; SHOW JOB 30;
++-------------------------+--------------------------------------------+-------------+---------------------------------+---------------------------------+
+| Job Id(spaceId:partId)  | Command(src-&gt;dst)                          | Status      | Start Time                      | Stop Time                       |
++-------------------------+--------------------------------------------+-------------+---------------------------------+---------------------------------+
+| 30                      | "DATA_BALANCE"                             | "FINISHED"  | "2022-01-12T02:27:00.000000000" | "2022-01-12T02:30:31.000000000" |
+| "30, 23:1"              | "192.168.10.100:9779-&gt;192.168.10.103:9779" | "SUCCEEDED" | 2022-01-12T02:27:00.000000      | 2022-01-12T02:27:30.000000      |
+| "30, 23:2"              | "192.168.10.100:9779-&gt;192.168.10.103:9779" | "SUCCEEDED" | 2022-01-12T02:27:00.000000      | 2022-01-12T02:27:01.000000      |
+......
+| "Total:21"              | "Succeeded:21"                             | "Failed:0"  | "In Progress:0"                 | "Invalid:0"                     |
++-------------------------+--------------------------------------------+-------------+---------------------------------+---------------------------------+
+</code></pre></div>
 
 5. 等待所有子任务完成，负载均衡进程结束，执行命令`SHOW HOSTS`确认分片已经均衡分布。
 
@@ -6094,19 +6090,18 @@
 
         `BALANCE IN ZONE`不会均衡 leader 的分布。均衡 leader 请参见[均衡 leader 分布](#leader)。
 
-  ```ngql
-  nebula> SHOW HOSTS;
-  +------------------+------+----------+--------------+-----------------------------------+------------------------+---------+
-  | Host             | Port | Status   | Leader count | Leader distribution               | Partition distribution | Version |
-  +------------------+------+----------+--------------+-----------------------------------+------------------------+---------+
-  | "192.168.10.100" | 9779 | "ONLINE" | 4            | "basketballplayer:4"              | "basketballplayer:8"   | "3.1.0" |
-  | "192.168.10.101" | 9779 | "ONLINE" | 8            | "basketballplayer:8"              | "basketballplayer:8"   | "3.1.0" |
-  | "192.168.10.102" | 9779 | "ONLINE" | 3            | "basketballplayer:3"              | "basketballplayer:8"   | "3.1.0" |
-  | "192.168.10.103" | 9779 | "ONLINE" | 0            | "No valid partition"              | "basketballplayer:7"   | "3.1.0" |
-  | "192.168.10.104" | 9779 | "ONLINE" | 0            | "No valid partition"              | "basketballplayer:7"   | "3.1.0" |
-  | "192.168.10.105" | 9779 | "ONLINE" | 0            | "No valid partition"              | "basketballplayer:7"   | "3.1.0" |
-  +------------------+------+----------+--------------+-----------------------------------+------------------------+---------+
-  ```
+  <div class="highlight"><pre><span></span><code>nebula&gt; SHOW HOSTS;
++------------------+------+----------+--------------+-----------------------------------+------------------------+---------+
+| Host             | Port | Status   | Leader count | Leader distribution               | Partition distribution | Version |
++------------------+------+----------+--------------+-----------------------------------+------------------------+---------+
+| "192.168.10.100" | 9779 | "ONLINE" | 4            | "basketballplayer:4"              | "basketballplayer:8"   | "3.1.0" |
+| "192.168.10.101" | 9779 | "ONLINE" | 8            | "basketballplayer:8"              | "basketballplayer:8"   | "3.1.0" |
+| "192.168.10.102" | 9779 | "ONLINE" | 3            | "basketballplayer:3"              | "basketballplayer:8"   | "3.1.0" |
+| "192.168.10.103" | 9779 | "ONLINE" | 0            | "No valid partition"              | "basketballplayer:7"   | "3.1.0" |
+| "192.168.10.104" | 9779 | "ONLINE" | 0            | "No valid partition"              | "basketballplayer:7"   | "3.1.0" |
+| "192.168.10.105" | 9779 | "ONLINE" | 0            | "No valid partition"              | "basketballplayer:7"   | "3.1.0" |
++------------------+------+----------+--------------+-----------------------------------+------------------------+---------+
+</code></pre></div>
 
 如果有子任务失败，请重启作业，详情参见[作业管理](../3.ngql-guide/18.operation-and-maintenance-statements/4.job-statements.md)。如果重做负载均衡仍然不能解决问题，请到 [Nebula Graph 社区](https://discuss.nebula-graph.com.cn/)寻求帮助。
 
@@ -6140,25 +6135,22 @@
 
 1. 执行如下命令清空指定 Storage 服务器：
 
-  ```ngql
-  nebula> BALANCE IN ZONE REMOVE 192.168.10.104:9779,192.168.10.105:9779;
-  ```
+  <div class="highlight"><pre><span></span><code>nebula&gt; BALANCE IN ZONE REMOVE 192.168.10.104:9779,192.168.10.105:9779;
+</code></pre></div>
 
 2. 等待作业完成后，执行如下命令移除指定 Storage 服务：
 
-  ```ngql
-  nebula> DROP HOSTS 192.168.10.104:9779,192.168.10.105:9779;
-  ```
+  <div class="highlight"><pre><span></span><code>nebula&gt; DROP HOSTS 192.168.10.104:9779,192.168.10.105:9779;
+</code></pre></div>
 -->
 
 <h2 id="leader">均衡 leader 分布<a class="headerlink" href="#leader" title="Permanent link">&para;</a></h2>
 <p>用户可以使用命令<code>BALANCE LEADER</code>均衡 leader 分布。</p>
 <h3 id="_1">示例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p><code>ngql
-nebula&gt; BALANCE LEADER;</code></p>
+<div class="highlight"><pre><span></span><code>nebula&gt; BALANCE LEADER;
+</code></pre></div>
 <p>用户可以执行<code>SHOW HOSTS</code>检查结果。</p>
-<p><code>ngql
-nebula&gt; SHOW HOSTS;
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW HOSTS;
 +------------------+------+----------+--------------+-----------------------------------+------------------------+---------+
 | Host             | Port | Status   | Leader count | Leader distribution               | Partition distribution | Version |
 +------------------+------+----------+--------------+-----------------------------------+------------------------+---------+
@@ -6168,7 +6160,8 @@ nebula&gt; SHOW HOSTS;
 | "192.168.10.103" | 9779 | "ONLINE" | 0            | "basketballplayer:2"              | "basketballplayer:7"   | "3.0.1" |
 | "192.168.10.104" | 9779 | "ONLINE" | 0            | "basketballplayer:2"              | "basketballplayer:7"   | "3.0.1" |
 | "192.168.10.105" | 9779 | "ONLINE" | 0            | "basketballplayer:2"              | "basketballplayer:7"   | "3.0.1" |
-+------------------+------+----------+--------------+-----------------------------------+------------------------+---------+</code></p>
++------------------+------+----------+--------------+-----------------------------------+------------------------+---------+
+</code></pre></div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p>在 Nebula Graph 3.0.2 中，Leader 切换会导致短时的大量请求错误（Storage Error <code>E_RPC_FAILURE</code>），处理方法见 <a href="../../20.appendix/0.FAQ/">FAQ</a>。</p>
@@ -6179,7 +6172,7 @@ nebula&gt; SHOW HOSTS;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

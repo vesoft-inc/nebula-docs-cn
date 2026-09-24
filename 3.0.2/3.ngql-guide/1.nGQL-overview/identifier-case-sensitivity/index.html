@@ -6027,35 +6027,35 @@
 <h1 id="_1">大小写区分<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <h2 id="_2">标识符区分大小写<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>以下语句会出现错误，因为<code>my_space</code>和<code>MY_SPACE</code>是两个不同的图空间。</p>
-<p>```ngql
-nebula&gt; CREATE SPACE IF NOT EXISTS my_space (vid_type=FIXED_STRING(30));
-nebula&gt; use MY_SPACE;</p>
-<p>```</p>
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE SPACE IF NOT EXISTS my_space (vid_type=FIXED_STRING(30));
+nebula&gt; use MY_SPACE;
+[ERROR (-8)]: SpaceNotFound:
+</code></pre></div>
 <h2 id="_3">关键字不区分大小写<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>以下语句是等价的，因为<code>show</code>和<code>spaces</code>是关键字。</p>
-<p><code>ngql
-nebula&gt; show spaces;  
+<div class="highlight"><pre><span></span><code>nebula&gt; show spaces;  
 nebula&gt; SHOW SPACES;
 nebula&gt; SHOW spaces;
-nebula&gt; show SPACES;</code></p>
+nebula&gt; show SPACES;
+</code></pre></div>
 <h2 id="_4">函数不区分大小写<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>函数名称不区分大小写，例如<code>count()</code>、<code>COUNT()</code>、<code>couNT()</code>是等价的。</p>
-<p><code>ngql
-nebula&gt; WITH [NULL, 1, 1, 2, 2] As a \
+<div class="highlight"><pre><span></span><code>nebula&gt; WITH [NULL, 1, 1, 2, 2] As a \
         UNWIND a AS b \
         RETURN count(b), COUNT(*), couNT(DISTINCT b);
 +----------+----------+-------------------+
 | count(b) | COUNT(*) | couNT(distinct b) |
 +----------+----------+-------------------+
 | 4        | 5        | 2                 |
-+----------+----------+-------------------+</code></p>
++----------+----------+-------------------+
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

@@ -6109,8 +6109,7 @@
 <li>将列表拆分为行。</li>
 <li>去重后返回点的信息。</li>
 </ol>
-<p><code>ngql
-nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})--() \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})--() \
         WITH nodes(p) AS n \
         UNWIND n AS n1 \
         RETURN DISTINCT n1;
@@ -6129,7 +6128,8 @@ nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})--() \
 | ("player107" :player{age: 32, name: "Aron Baynes"})       |
 | ("player109" :player{age: 34, name: "Tiago Splitter"})    |
 | ("player108" :player{age: 36, name: "Boris Diaw"})        |
-+-----------------------------------------------------------+</code></p>
++-----------------------------------------------------------+
+</code></pre></div>
 <h3 id="2">示例 2<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <ol>
 <li>匹配点 ID 为<code>player100</code>的点。</li>
@@ -6137,8 +6137,7 @@ nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})--() \
 <li>将列表拆分为行。</li>
 <li>返回结果。</li>
 </ol>
-<p><code>ngql
-nebula&gt; MATCH (v) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v) \
         WHERE id(v)=="player100" \
         WITH labels(v) AS tags_unf \
         UNWIND tags_unf AS tags_f \
@@ -6147,11 +6146,11 @@ nebula&gt; MATCH (v) \
 | tags_f   |
 +----------+
 | "player" |
-+----------+</code></p>
++----------+
+</code></pre></div>
 <h2 id="_2">过滤聚合查询<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p><code>WITH</code>可以在聚合查询中作为过滤器使用。</p>
-<p><code>ngql
-nebula&gt; MATCH (v:player)--&gt;(v2:player) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player)--&gt;(v2:player) \
         WITH DISTINCT v2 AS v2, v2.player.age AS Age \
         ORDER BY Age \
         WHERE Age&lt;25 \
@@ -6162,11 +6161,11 @@ nebula&gt; MATCH (v:player)--&gt;(v2:player) \
 | "Luka Doncic"        | 20  |
 | "Ben Simmons"        | 22  |
 | "Kristaps Porzingis" | 23  |
-+----------------------+-----+</code></p>
++----------------------+-----+
+</code></pre></div>
 <h2 id="collect">collect() 之前处理输出<a class="headerlink" href="#collect" title="Permanent link">&para;</a></h2>
 <p>在<code>collect()</code>函数将输出结果转换为列表之前，可以使用<code>WITH</code>子句排序和限制输出结果。</p>
-<p><code>ngql
-nebula&gt; MATCH (v:player) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player) \
         WITH v.player.name AS Name \
         ORDER BY Name DESC \
         LIMIT 3 \
@@ -6175,30 +6174,31 @@ nebula&gt; MATCH (v:player) \
 | collect(Name)                                 |
 +-----------------------------------------------+
 | ["Yao Ming", "Vince Carter", "Tracy McGrady"] |
-+-----------------------------------------------+</code></p>
++-----------------------------------------------+
+</code></pre></div>
 <h2 id="return">结合 RETURN 语句使用<a class="headerlink" href="#return" title="Permanent link">&para;</a></h2>
 <p>在<code>WITH</code>子句中设置别名，并通过<code>RETURN</code>子句输出结果。</p>
-<p>```ngql
-nebula&gt; WITH [1, 2, 3] AS list  RETURN 3 IN list AS r;
+<div class="highlight"><pre><span></span><code>nebula&gt; WITH [1, 2, 3] AS list  RETURN 3 IN list AS r;
 +------+
 | r    |
 +------+
 | true |
-+------+</p>
-<p>nebula&gt; WITH 4 AS one, 3 AS two RETURN one &gt; two AS result;
++------+
+
+nebula&gt; WITH 4 AS one, 3 AS two RETURN one &gt; two AS result;
 +--------+
 | result |
 +--------+
 | true   |
 +--------+
-```</p>
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

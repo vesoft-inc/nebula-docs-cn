@@ -2552,6 +2552,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    创建复合属性索引
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6032,6 +6039,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    创建复合属性索引
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6114,8 +6128,8 @@
 <p>创建索引，或者删除并再次创建同名索引后，必须<code>REBUILD INDEX</code>。否则无法在<code>MATCH</code>和<code>LOOKUP</code>语句中返回这些数据。</p>
 </div>
 <h2 id="_3">语法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p><code>ngql
-CREATE {TAG | EDGE} INDEX [IF NOT EXISTS] &lt;index_name&gt; ON {&lt;tag_name&gt; | &lt;edge_name&gt;} ([&lt;prop_name_list&gt;]) [COMMENT '&lt;comment&gt;'];</code></p>
+<div class="highlight"><pre><span></span><code>CREATE {TAG | EDGE} INDEX [IF NOT EXISTS] &lt;index_name&gt; ON {&lt;tag_name&gt; | &lt;edge_name&gt;} ([&lt;prop_name_list&gt;]) [COMMENT '&lt;comment&gt;'];
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -6151,29 +6165,29 @@ CREATE {TAG | EDGE} INDEX [IF NOT EXISTS] &lt;index_name&gt; ON {&lt;tag_name&gt
 </tbody>
 </table>
 <h2 id="tagedge_type">创建 Tag/Edge type 索引<a class="headerlink" href="#tagedge_type" title="Permanent link">&para;</a></h2>
-<p><code>ngql
-nebula&gt; CREATE TAG INDEX player_index on player();</code></p>
-<p><code>ngql
-nebula&gt; CREATE EDGE INDEX follow_index on follow();</code></p>
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG INDEX player_index on player();
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE EDGE INDEX follow_index on follow();
+</code></pre></div>
 <p>为 Tag 或 Edge type 创建索引后，用户可以使用 <code>LOOKUP</code> 语句查找<code>带有该 Tag 的</code>所有点的 VID，或者<code>所有该类型的边</code>的<code>对应起始点 VID、目的点 VID、以及 rank</code>。详情请参见 <a href="../../7.general-query-statements/5.lookup/">LOOKUP</a>。</p>
 <h2 id="_4">创建单属性索引<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
-<p><code>ngql
-nebula&gt; CREATE TAG INDEX IF NOT EXISTS player_index_0 on player(name(10));</code></p>
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG INDEX IF NOT EXISTS player_index_0 on player(name(10));
+</code></pre></div>
 <p>上述示例是为所有包含 Tag<code>player</code>的点创建属性<code>name</code>的索引，索引长度为 10。即只使用属性<code>name</code>的前 10 个字符来创建索引。</p>
-<p>```ngql</p>
-<h1 id="_5">变长字符串需要指定索引长度。<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; CREATE TAG IF NOT EXISTS var_string(p1 string);
-nebula&gt; CREATE TAG INDEX IF NOT EXISTS var ON var_string(p1(10));</p>
-<h1 id="_6">定长字符串不需要指定索引长度。<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; CREATE TAG IF NOT EXISTS fix_string(p1 FIXED_STRING(10));
+<div class="highlight"><pre><span></span><code># 变长字符串需要指定索引长度。
+nebula&gt; CREATE TAG IF NOT EXISTS var_string(p1 string);
+nebula&gt; CREATE TAG INDEX IF NOT EXISTS var ON var_string(p1(10));
+
+# 定长字符串不需要指定索引长度。
+nebula&gt; CREATE TAG IF NOT EXISTS fix_string(p1 FIXED_STRING(10));
 nebula&gt; CREATE TAG INDEX IF NOT EXISTS fix ON fix_string(p1);
-```</p>
-<p><code>ngql
-nebula&gt; CREATE EDGE INDEX IF NOT EXISTS follow_index_0 on follow(degree);</code></p>
-<h2 id="_7">创建复合属性索引<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE EDGE INDEX IF NOT EXISTS follow_index_0 on follow(degree);
+</code></pre></div>
+<h2 id="_5">创建复合属性索引<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p><code>复合属性索引</code>用于查找一个 Tag（或者 Edge type) 中的多个属性（的组合）。</p>
-<p><code>ngql
-nebula&gt; CREATE TAG INDEX IF NOT EXISTS player_index_1 on player(name(10), age);</code></p>
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG INDEX IF NOT EXISTS player_index_1 on player(name(10), age);
+</code></pre></div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p>不支持跨 Tag 或 Edge type 创建复合索引。</p>
@@ -6191,23 +6205,22 @@ nebula&gt; CREATE TAG INDEX IF NOT EXISTS player_index_1 on player(name(10), age
 
     请参见下方示例。
 
-    ```ngql
-    # 为标签 t 的前三个属性创建复合属性索引。
-    nebula> CREATE TAG INDEX example_index ON TAG t(p1, p2, p3);
+    <div class="highlight"><pre><span></span><code># 为标签 t 的前三个属性创建复合属性索引。
+nebula&gt; CREATE TAG INDEX example_index ON TAG t(p1, p2, p3);
 
-    # 注意：无法匹配到索引，因为不是从 p1 开始，会返回找不到有效索引的报错。
-    nebula> MATCH (v:t) WHERE t.p2 == 2 and t.p3 == 3; 
+# 注意：无法匹配到索引，因为不是从 p1 开始，会返回找不到有效索引的报错。
+nebula&gt; MATCH (v:t) WHERE t.p2 == 2 and t.p3 == 3; 
 
-    # 注意：无法匹配到索引，但是退化为全表扫描进行查询。
-    nebula> LOOKUP ON t2 where t.p2 == 2;
+# 注意：无法匹配到索引，但是退化为全表扫描进行查询。
+nebula&gt; LOOKUP ON t2 where t.p2 == 2;
 
-    # 可以匹配到索引。
-    nebula> MATCH (v:t) WHERE t.p1 == 1;  
-    # 可以匹配到索引，因为 p1 和 p2 是连续的。
-    nebula> MATCH (v:t) WHERE t.p1 == 1 and t.p2 == 2;  
-    # 可以匹配到索引，因为 p1、p2、p3 是连续的。
-    nebula> MATCH (v:t) WHERE t.p1 == 1 and t.p2 == 2 and t.p3 == 3; 
-    ```
+# 可以匹配到索引。
+nebula&gt; MATCH (v:t) WHERE t.p1 == 1;  
+# 可以匹配到索引，因为 p1 和 p2 是连续的。
+nebula&gt; MATCH (v:t) WHERE t.p1 == 1 and t.p2 == 2;  
+# 可以匹配到索引，因为 p1、p2、p3 是连续的。
+nebula&gt; MATCH (v:t) WHERE t.p1 == 1 and t.p2 == 2 and t.p3 == 3; 
+</code></pre></div>
 -->
 
   <hr>
@@ -6215,7 +6228,7 @@ nebula&gt; CREATE TAG INDEX IF NOT EXISTS player_index_1 on player(name(10), age
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

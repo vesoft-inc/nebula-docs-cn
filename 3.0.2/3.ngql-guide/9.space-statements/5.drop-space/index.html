@@ -6015,8 +6015,8 @@
 <h2 id="_1">前提条件<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>只有 God 角色的用户可以执行<code>DROP SPACE</code>语句。详情请参见<a href="../../../7.data-security/1.authentication/1.authentication/">身份验证</a>。</p>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p><code>ngql
-DROP SPACE [IF EXISTS] &lt;graph_space_name&gt;;</code></p>
+<div class="highlight"><pre><span></span><code>DROP SPACE [IF EXISTS] &lt;graph_space_name&gt;;
+</code></pre></div>
 <p><code>IF EXISTS</code>关键字可以检测待删除的图空间是否存在，只有存在时，才会删除图空间。</p>
 <p><code>DROP SPACE</code>语句不会删除硬盘上对应图空间的目录和文件。如需删除无效空间的目录和文件，在 Storage 服务的配置文件中设置<code>auto_remove_invalid_space=true</code>。关于 Storage 服务的配置文件的路径，参见 <a href="../../../5.configurations-and-logs/1.configurations/4.storage-config/">Storage 服务配置</a>。</p>
 <div class="admonition caution">
@@ -6029,7 +6029,7 @@ DROP SPACE [IF EXISTS] &lt;graph_space_name&gt;;</code></p>
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

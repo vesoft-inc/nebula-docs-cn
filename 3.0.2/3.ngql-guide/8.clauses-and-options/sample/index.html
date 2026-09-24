@@ -5953,8 +5953,8 @@
 <h1 id="sample">SAMPLE<a class="headerlink" href="#sample" title="Permanent link">&para;</a></h1>
 <p><code>SAMPLE</code>子句用于在结果集中均匀取样并返回指定数量的数据。</p>
 <p><code>SAMPLE</code>仅能在<code>GO</code>语句中使用，语法如下：</p>
-<p><code>ngql
-&lt;go_statement&gt; SAMPLE &lt;sample_list&gt;;</code></p>
+<div class="highlight"><pre><span></span><code>&lt;go_statement&gt; SAMPLE &lt;sample_list&gt;;
+</code></pre></div>
 <p><code>sample_list</code>是一个列表，列表中的元素必须为自然数，且元素数量必须与<code>GO</code>语句中的<code>STEPS</code>的最大数相同。下文以<code>GO 1 TO 3 STEPS FROM "A" OVER * SAMPLE &lt;sample_list&gt;</code>为例详细介绍<code>SAMPLE</code>的用法。</p>
 <ul>
 <li>列表<code>sample_list</code>必须包含 3 个自然数元素，例如<code>GO 1 TO 3 STEPS FROM "A" OVER * SAMPLE [1,2,4]</code>。</li>
@@ -5963,10 +5963,9 @@
 </ul>
 <p><img alt="SAMPLE in GO" src="../sample_in_go.png" /></p>
 <p>在 basketballplayer 数据集中的执行示例如下：</p>
-<p>```ngql
-nebula&gt; GO 3 STEPS FROM "player100" \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO 3 STEPS FROM "player100" \
         OVER * \
-        YIELD properties(<span class="arithmatex">\(<span class="arithmatex">\().name AS NAME, properties(\)</span>\)</span>).age AS Age \
+        YIELD properties($$).name AS NAME, properties($$).age AS Age \
         SAMPLE [1,2,3];
 +-----------------+--------------+
 | NAME            | Age          |
@@ -5974,10 +5973,11 @@ nebula&gt; GO 3 STEPS FROM "player100" \
 | "Spurs"         | UNKNOWN_PROP |
 | "Tony Parker"   | 36           |
 | "Manu Ginobili" | 41           |
-+-----------------+--------------+</p>
-<p>nebula&gt; GO 1 TO 3 STEPS FROM "player100" \
++-----------------+--------------+
+
+nebula&gt; GO 1 TO 3 STEPS FROM "player100" \
         OVER * \
-        YIELD properties(<span class="arithmatex">\(<span class="arithmatex">\().name AS NAME, properties(\)</span>\)</span>).age AS Age \
+        YIELD properties($$).name AS NAME, properties($$).age AS Age \
         SAMPLE [2,2,2];
 +---------------------+-----+
 | NAME                | Age |
@@ -5989,14 +5989,14 @@ nebula&gt; GO 3 STEPS FROM "player100" \
 | "Tony Parker"       | 36  |
 | "Tim Duncan"        | 42  |
 +---------------------+-----+
-```</p>
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

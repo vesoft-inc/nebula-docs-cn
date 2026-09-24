@@ -6749,7 +6749,8 @@
 <li>
 <p><a href="../../3.ngql-guide/6.functions-and-expressions/8.predicate/">谓词函数</a></p>
 <p>谓词函数只返回<code>true</code>或<code>false</code>，通常用于<code>WHERE</code>子句中。</p>
-<p><code>&lt;predicate&gt;(&lt;variable&gt; IN &lt;list&gt; WHERE &lt;condition&gt;)</code></p>
+<div class="highlight"><pre><span></span><code>&lt;predicate&gt;(&lt;variable&gt; IN &lt;list&gt; WHERE &lt;condition&gt;)
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -6787,11 +6788,12 @@
 <p><a href="../../3.ngql-guide/6.functions-and-expressions/5.case-expressions/">CASE 表达式</a></p>
 <p><code>CASE</code>表达式使用条件来过滤 nGQL 查询语句的结果，常用于<code>YIELD</code>和<code>RETURN</code>子句中。<code>CASE</code>表达式会遍历所有条件，并在满足第一个条件时停止读取后续条件，然后返回结果。如果不满足任何条件，将通过<code>ELSE</code>子句返回结果。如果没有<code>ELSE</code>子句且不满足任何条件，则返回<code>NULL</code>。</p>
 <p>语法：</p>
-<p><code>CASE &lt;comparer&gt;
+<div class="highlight"><pre><span></span><code>CASE &lt;comparer&gt;
 WHEN &lt;value&gt; THEN &lt;result&gt;
 [WHEN ...]
 [ELSE &lt;default&gt;]
-END</code></p>
+END
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -6824,7 +6826,8 @@ END</code></p>
 <ul>
 <li>
 <p><a href="../../3.ngql-guide/7.general-query-statements/2.match/">MATCH</a></p>
-<p><code>MATCH &lt;pattern&gt; [&lt;clause_1&gt;]  RETURN &lt;output&gt;  [&lt;clause_2&gt;];</code></p>
+<div class="highlight"><pre><span></span><code>MATCH &lt;pattern&gt; [&lt;clause_1&gt;]  RETURN &lt;output&gt;  [&lt;clause_2&gt;];
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -6990,9 +6993,10 @@ END</code></p>
 <ul>
 <li>
 <p><a href="../../3.ngql-guide/7.general-query-statements/5.lookup/">LOOKUP</a></p>
-<p><code>LOOKUP ON {&lt;vertex_tag&gt; | &lt;edge_type&gt;} 
+<div class="highlight"><pre><span></span><code>LOOKUP ON {&lt;vertex_tag&gt; | &lt;edge_type&gt;} 
 [WHERE &lt;expression&gt; [AND &lt;expression&gt; ...]] 
-YIELD &lt;return_list&gt; [AS &lt;alias&gt;]</code></p>
+YIELD &lt;return_list&gt; [AS &lt;alias&gt;]
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -7039,14 +7043,15 @@ YIELD &lt;return_list&gt; [AS &lt;alias&gt;]</code></p>
 <ul>
 <li>
 <p><a href="../../3.ngql-guide/7.general-query-statements/3.go/">GO</a></p>
-<p><code>GO [[&lt;M&gt; TO] &lt;N&gt; STEPS ] FROM &lt;vertex_list&gt;
+<div class="highlight"><pre><span></span><code>GO [[&lt;M&gt; TO] &lt;N&gt; STEPS ] FROM &lt;vertex_list&gt;
 OVER &lt;edge_type_list&gt; [{REVERSELY | BIDIRECT}]
 [ WHERE &lt;conditions&gt; ]
 YIELD [DISTINCT] &lt;return_list&gt;
 [{SAMPLE &lt;sample_list&gt; | LIMIT &lt;limit_list&gt;}]
 [| GROUP BY {col_name | expr | position} YIELD &lt;col_name&gt;]
 [| ORDER BY &lt;expression&gt; [{ASC | DESC}]]
-[| LIMIT [&lt;offset_value&gt;,] &lt;number_rows&gt;]</code></p>
+[| LIMIT [&lt;offset_value&gt;,] &lt;number_rows&gt;]
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -7097,9 +7102,10 @@ YIELD [DISTINCT] &lt;return_list&gt;
 <ul>
 <li>
 <p>获取点的属性值</p>
-<p><code>FETCH PROP ON {&lt;tag_name&gt;[, tag_name ...] | *} 
+<div class="highlight"><pre><span></span><code>FETCH PROP ON {&lt;tag_name&gt;[, tag_name ...] | *} 
 &lt;vid&gt; [, vid ...] 
-YIELD &lt;return_list&gt; [AS &lt;alias&gt;]</code></p>
+YIELD &lt;return_list&gt; [AS &lt;alias&gt;]
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -7135,8 +7141,9 @@ YIELD &lt;return_list&gt; [AS &lt;alias&gt;]</code></p>
 <ul>
 <li>
 <p>获取边的属性值</p>
-<p><code>FETCH PROP ON &lt;edge_type&gt; &lt;src_vid&gt; -&gt; &lt;dst_vid&gt;[@&lt;rank&gt;] [, &lt;src_vid&gt; -&gt; &lt;dst_vid&gt; ...]
-YIELD &lt;output&gt;;</code></p>
+<div class="highlight"><pre><span></span><code>FETCH PROP ON &lt;edge_type&gt; &lt;src_vid&gt; -&gt; &lt;dst_vid&gt;[@&lt;rank&gt;] [, &lt;src_vid&gt; -&gt; &lt;dst_vid&gt; ...]
+YIELD &lt;output&gt;;
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -7863,7 +7870,7 @@ YIELD &lt;output&gt;;</code></p>
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

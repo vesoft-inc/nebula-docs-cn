@@ -6216,19 +6216,21 @@
 </tbody>
 </table>
 <p>例如创建点的 nGQL 语法：</p>
-<p>```ngql
-INSERT VERTEX [IF NOT EXISTS] [tag_props, [tag_props] ...]
-VALUES <vid>: ([prop_value_list])</p>
-<p>tag_props:
-  tag_name ([prop_name_list])</p>
-<p>prop_name_list:
-   [prop_name [, prop_name] ...]</p>
-<p>prop_value_list:
-   [prop_value [, prop_value] ...]<br />
-```</p>
+<div class="highlight"><pre><span></span><code>INSERT VERTEX [IF NOT EXISTS] [tag_props, [tag_props] ...]
+VALUES &lt;vid&gt;: ([prop_value_list])
+
+tag_props:
+  tag_name ([prop_name_list])
+
+prop_name_list:
+   [prop_name [, prop_name] ...]
+
+prop_value_list:
+   [prop_value [, prop_value] ...]  
+</code></pre></div>
 <p>示例语句：</p>
-<p><code>ngql
-nebula&gt; CREATE TAG IF NOT EXISTS player(name string, age int);</code></p>
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG IF NOT EXISTS player(name string, age int);
+</code></pre></div>
 <h2 id="opencypher">关于 openCypher 兼容性<a class="headerlink" href="#opencypher" title="Permanent link">&para;</a></h2>
 <h3 id="ngql_opencypher">原生 nGQL 和 openCypher 的关系<a class="headerlink" href="#ngql_opencypher" title="Permanent link">&para;</a></h3>
 <p>原生 nGQL 是由 Nebula Graph 自行创造和实现的图查询语言。OpenCypher 是由 openCypher Implementers Group 组织所开源和维护的图查询语言，</p>
@@ -6318,54 +6320,56 @@ nebula&gt; CREATE TAG IF NOT EXISTS player(name string, age int);</code></p>
 <h3 id="ngql_2">哪里可以找到更多 nGQL 的示例？<a class="headerlink" href="#ngql_2" title="Permanent link">&para;</a></h3>
 <p>用户可以在 Nebula Graph GitHub 的 <a href="https://github.com/vesoft-inc/nebula/tree/master/tests/tck/features">features</a> 目录内查看超过 2500 条 nGQL 示例。</p>
 <p>features 目录内包含很多。features 格式的文件，每个文件都记录了使用 nGQL 的场景和示例。例如：</p>
-<p>```text
-Feature: Basic match</p>
-<p>Background:
-    Given a graph with space named "basketballplayer"</p>
-<p>Scenario: Single node
+<div class="highlight"><pre><span></span><code>Feature: Basic match
+
+  Background:
+    Given a graph with space named "basketballplayer"
+
+  Scenario: Single node
     When executing query:
       """
       MATCH (v:player {name: "Yao Ming"}) RETURN v;
       """
     Then the result should be, in any order, with relax comparison:
       | v                                                |
-      | ("player133" :player{age: 38, name: "Yao Ming"}) |</p>
-<p>Scenario: One step
+      | ("player133" :player{age: 38, name: "Yao Ming"}) |
+
+  Scenario: One step
     When executing query:
       """
       MATCH (v1:player{name: "LeBron James"}) -[r]-&gt; (v2)
       RETURN type(r) AS Type, v2.player.name AS Name
       """
-    Then the result should be, in any order:</p>
-<div class="codehilite"><pre><span></span><code>  | Type     | Name        |
-  | &quot;follow&quot; | &quot;Ray Allen&quot; |
-  | &quot;serve&quot;  | &quot;Lakers&quot;    |
-  | &quot;serve&quot;  | &quot;Heat&quot;      |
-  | &quot;serve&quot;  | &quot;Cavaliers&quot; |
-</code></pre></div>
+    Then the result should be, in any order:
 
-<p>Feature:  Comparison of where clause</p>
-<p>Background:
-    Given a graph with space named "basketballplayer"</p>
-<div class="codehilite"><pre><span></span><code>Scenario: push edge props filter down
-  When profiling query:
-    &quot;&quot;&quot;
-    GO FROM &quot;player100&quot; OVER follow 
-    WHERE properties(edge).degree IN [v IN [95,99] WHERE v &gt; 0] 
-    YIELD dst(edge), properties(edge).degree
-    &quot;&quot;&quot;
-  Then the result should be, in any order:
-    | follow._dst | follow.degree |
-    | &quot;player101&quot; | 95            |
-    | &quot;player125&quot; | 95            |
-  And the execution plan should be:
-    | id | name         | dependencies | operator info                                                         |
-    | 0  | Project      | 1            |                                                                       |
-    | 1  | GetNeighbors | 2            | {&quot;filter&quot;: &quot;(properties(edge).degree IN [v IN [95,99] WHERE (v&gt;0)])&quot;} |
-    | 2  | Start        |              |                                                                       |
-</code></pre></div>
+      | Type     | Name        |
+      | "follow" | "Ray Allen" |
+      | "serve"  | "Lakers"    |
+      | "serve"  | "Heat"      |
+      | "serve"  | "Cavaliers" |
 
-<p>```</p>
+Feature:  Comparison of where clause
+
+  Background:
+    Given a graph with space named "basketballplayer"
+
+    Scenario: push edge props filter down
+      When profiling query:
+        """
+        GO FROM "player100" OVER follow 
+        WHERE properties(edge).degree IN [v IN [95,99] WHERE v &gt; 0] 
+        YIELD dst(edge), properties(edge).degree
+        """
+      Then the result should be, in any order:
+        | follow._dst | follow.degree |
+        | "player101" | 95            |
+        | "player125" | 95            |
+      And the execution plan should be:
+        | id | name         | dependencies | operator info                                                         |
+        | 0  | Project      | 1            |                                                                       |
+        | 1  | GetNeighbors | 2            | {"filter": "(properties(edge).degree IN [v IN [95,99] WHERE (v&gt;0)])"} |
+        | 2  | Start        |              |                                                                       |
+</code></pre></div>
 <p>示例中的关键字说明如下。</p>
 <table>
 <thead>
@@ -6422,7 +6426,7 @@ Feature: Basic match</p>
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

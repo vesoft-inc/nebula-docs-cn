@@ -6141,13 +6141,13 @@
 <p>请确保<code>LOOKUP</code>语句有至少一个索引可用。</p>
 <p>如果已经存在相关的点、边或属性，必须在新创建索引后<a href="../../14.native-index-statements/4.rebuild-native-index/">重建索引</a>，才能使其生效。</p>
 <h2 id="_3">语法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>```ngql
-LOOKUP ON {<vertex_tag> | <edge_type>}
-[WHERE <expression> [AND <expression> ...]]
-YIELD <return_list> [AS <alias>];</p>
-<p><return_list>
-    <prop_name> [AS <col_alias>] [, <prop_name> [AS <prop_alias>] ...];
-```</p>
+<div class="highlight"><pre><span></span><code>LOOKUP ON {&lt;vertex_tag&gt; | &lt;edge_type&gt;}
+[WHERE &lt;expression&gt; [AND &lt;expression&gt; ...]]
+YIELD &lt;return_list&gt; [AS &lt;alias&gt;];
+
+&lt;return_list&gt;
+    &lt;prop_name&gt; [AS &lt;col_alias&gt;] [, &lt;prop_name&gt; [AS &lt;prop_alias&gt;] ...];
+</code></pre></div>
 <ul>
 <li><code>WHERE &lt;expression&gt;</code>：指定遍历的过滤条件，还可以结合布尔运算符 AND 和 OR 一起使用。详情请参见 <a href="../../8.clauses-and-options/where/">WHERE</a>。</li>
 </ul>
@@ -6169,31 +6169,34 @@ YIELD <return_list> [AS <alias>];</p>
 </ul>
 <h2 id="_4">检索点<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>返回 Tag 为<code>player</code>且<code>name</code>为<code>Tony Parker</code>的点。</p>
-<p>```ngql
-nebula&gt; CREATE TAG INDEX IF NOT EXISTS index_player ON player(name(30), age);</p>
-<p>nebula&gt; REBUILD TAG INDEX index_player;
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG INDEX IF NOT EXISTS index_player ON player(name(30), age);
+
+nebula&gt; REBUILD TAG INDEX index_player;
 +------------+
 | New Job Id |
 +------------+
 | 15         |
-+------------+</p>
-<p>nebula&gt; LOOKUP ON player \
++------------+
+
+nebula&gt; LOOKUP ON player \
         WHERE player.name == "Tony Parker" \
         YIELD id(vertex);
 +---------------+
 | id(VERTEX)    |
 +---------------+
 | "player101"   |
-+---------------+</p>
-<p>nebula&gt; LOOKUP ON player \
++---------------+
+
+nebula&gt; LOOKUP ON player \
         WHERE player.name == "Tony Parker" \
         YIELD properties(vertex).name AS name, properties(vertex).age AS age;
 +---------------+-----+
 | name          | age |
 +---------------+-----+
 | "Tony Parker" | 36  |
-+---------------+-----+</p>
-<p>nebula&gt; LOOKUP ON player \
++---------------+-----+
+
+nebula&gt; LOOKUP ON player \
         WHERE player.age  &gt; 45 \
         YIELD id(vertex);
 +-------------+
@@ -6201,8 +6204,9 @@ nebula&gt; CREATE TAG INDEX IF NOT EXISTS index_player ON player(name(30), age);
 +-------------+
 | "player144" |
 | "player140" |
-+-------------+</p>
-<p>nebula&gt; LOOKUP ON player \
++-------------+
+
+nebula&gt; LOOKUP ON player \
         WHERE player.name STARTS WITH "B" \
         AND player.age IN [22,30] \
         YIELD properties(vertex).name, properties(vertex).age;
@@ -6211,29 +6215,31 @@ nebula&gt; CREATE TAG INDEX IF NOT EXISTS index_player ON player(name(30), age);
 +-------------------------+------------------------+
 | "Ben Simmons"           | 22                     |
 | "Blake Griffin"         | 30                     |
-+-------------------------+------------------------+</p>
-<p>nebula&gt; LOOKUP ON player \
++-------------------------+------------------------+
+
+nebula&gt; LOOKUP ON player \
         WHERE player.name == "Kobe Bryant"\
         YIELD id(vertex) AS VertexID, properties(vertex).name AS name |\
-        GO FROM <span class="arithmatex">\(-.VertexID OVER serve \
-        YIELD <span class="arithmatex">\(-.name, properties(edge).start_year, properties(edge).end_year, properties(\)</span>\)</span>).name;
+        GO FROM $-.VertexID OVER serve \
+        YIELD $-.name, properties(edge).start_year, properties(edge).end_year, properties($$).name;
 +---------------+-----------------------------+---------------------------+---------------------+
-| <span class="arithmatex">\(-.name       | properties(EDGE).start_year | properties(EDGE).end_year | properties(\)</span>$).name |
+| $-.name       | properties(EDGE).start_year | properties(EDGE).end_year | properties($$).name |
 +---------------+-----------------------------+---------------------------+---------------------+
 | "Kobe Bryant" | 1996                        | 2016                      | "Lakers"            |
 +---------------+-----------------------------+---------------------------+---------------------+
-```</p>
+</code></pre></div>
 <h2 id="_5">检索边<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>返回 Edge type 为<code>follow</code>且<code>degree</code>为<code>90</code>的边。</p>
-<p>```ngql
-nebula&gt; CREATE EDGE INDEX IF NOT EXISTS index_follow ON follow(degree);</p>
-<p>nebula&gt; REBUILD EDGE INDEX index_follow;
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE EDGE INDEX IF NOT EXISTS index_follow ON follow(degree);
+
+nebula&gt; REBUILD EDGE INDEX index_follow;
 +------------+
 | New Job Id |
 +------------+
 | 62         |
-+------------+</p>
-<p>nebula&gt; LOOKUP ON follow \
++------------+
+
+nebula&gt; LOOKUP ON follow \
         WHERE follow.degree == 90 YIELD edge AS e;
 +----------------------------------------------------+
 | e                                                  |
@@ -6241,8 +6247,9 @@ nebula&gt; CREATE EDGE INDEX IF NOT EXISTS index_follow ON follow(degree);</p>
 | [:follow "player109"-&gt;"player125" @0 {degree: 90}] |
 | [:follow "player118"-&gt;"player120" @0 {degree: 90}] |
 | [:follow "player118"-&gt;"player131" @0 {degree: 90}] |
-...</p>
-<p>nebula&gt; LOOKUP ON follow \
+...
+
+nebula&gt; LOOKUP ON follow \
         WHERE follow.degree == 90 \
         YIELD properties(edge).degree;
 +-------------------------+
@@ -6251,88 +6258,97 @@ nebula&gt; CREATE EDGE INDEX IF NOT EXISTS index_follow ON follow(degree);</p>
 | 90                      |
 | 90                      |
 | 90                      |
-...</p>
-<p>nebula&gt; LOOKUP ON follow \
+...
+
+nebula&gt; LOOKUP ON follow \
         WHERE follow.degree == 60 \
         YIELD dst(edge) AS DstVID, properties(edge).degree AS Degree |\
-        GO FROM <span class="arithmatex">\(-.DstVID OVER serve \
-        YIELD <span class="arithmatex">\(-.DstVID, properties(edge).start_year, properties(edge).end_year, properties(\)</span>\)</span>).name;
+        GO FROM $-.DstVID OVER serve \
+        YIELD $-.DstVID, properties(edge).start_year, properties(edge).end_year, properties($$).name;
 +-------------+-----------------------------+---------------------------+---------------------+
-| <span class="arithmatex">\(-.DstVID   | properties(EDGE).start_year | properties(EDGE).end_year | properties(\)</span>$).name |
+| $-.DstVID   | properties(EDGE).start_year | properties(EDGE).end_year | properties($$).name |
 +-------------+-----------------------------+---------------------------+---------------------+
 | "player105" | 2010                        | 2018                      | "Spurs"             |
 | "player105" | 2009                        | 2010                      | "Cavaliers"         |
 | "player105" | 2018                        | 2019                      | "Raptors"           |
 +-------------+-----------------------------+---------------------------+---------------------+
-```</p>
+</code></pre></div>
 <h2 id="tag_edge_type">通过 Tag 列出所有的对应的点/通过 Edge type 列出边<a class="headerlink" href="#tag_edge_type" title="Permanent link">&para;</a></h2>
 <p>如果需要通过 Tag 列出所有的点，或通过 Edge type 列出边，则 Tag、Edge type 或属性上必须有至少一个索引。</p>
 <p>例如一个 Tag <code>player</code>有属性<code>name</code>和<code>age</code>，为了遍历所有包含 Tag <code>player</code>的点 ID，Tag <code>player</code>、属性<code>name</code>或属性<code>age</code>中必须有一个已经创建索引。</p>
 <ul>
-<li>查找所有 Tag 为<code>player</code>的点 VID。<p>```ngql
-  nebula&gt; CREATE TAG IF NOT EXISTS player(name string,age int);</p>
-<p>nebula&gt; CREATE TAG INDEX IF NOT EXISTS player_index on player();</p>
-<p>nebula&gt; REBUILD TAG INDEX player_index;
-  +------------+
-  | New Job Id |
-  +------------+
-  | 66         |
-  +------------+</p>
-<p>nebula&gt; INSERT VERTEX player(name,age) \
-          VALUES "player100":("Tim Duncan", 42), "player101":("Tony Parker", 36);</p>
-<p># 列出所有的 player。类似于 MATCH (n:player) RETURN id(n) /<em>, n </em>/。</p>
-<p>nebula&gt; LOOKUP ON player YIELD id(vertex);
-  +-------------+
-  | id(VERTEX)  |
-  +-------------+
-  | "player100" |
-  | "player101" |
-  ...
-  ```</p>
+<li>查找所有 Tag 为<code>player</code>的点 VID。<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG IF NOT EXISTS player(name string,age int);
+
+nebula&gt; CREATE TAG INDEX IF NOT EXISTS player_index on player();
+
+nebula&gt; REBUILD TAG INDEX player_index;
++------------+
+| New Job Id |
++------------+
+| 66         |
++------------+
+
+nebula&gt; INSERT VERTEX player(name,age) \
+        VALUES "player100":("Tim Duncan", 42), "player101":("Tony Parker", 36);
+
+# 列出所有的 player。类似于 MATCH (n:player) RETURN id(n) /*, n */。
+
+nebula&gt; LOOKUP ON player YIELD id(vertex);
++-------------+
+| id(VERTEX)  |
++-------------+
+| "player100" |
+| "player101" |
+...
+</code></pre></div>
 </li>
 </ul>
 <ul>
-<li>查找 Edge type 为<code>follow</code>的所有边的信息。<p>```ngql
-  nebula&gt; CREATE EDGE IF NOT EXISTS follow(degree int);</p>
-<p>nebula&gt; CREATE EDGE INDEX IF NOT EXISTS follow_index on follow();</p>
-<p>nebula&gt; REBUILD EDGE INDEX follow_index;
-  +------------+
-  | New Job Id |
-  +------------+
-  | 88         |
-  +------------+</p>
-<p>nebula&gt; INSERT EDGE follow(degree) \
-          VALUES "player100"-&gt;"player101":(95);</p>
-<p># 列出所有的 follow 边。类似于 MATCH (s)-[e:follow]-&gt;(d) RETURN id(s), rank(e), id(d) /<em>, type(e) </em>/。</p>
-<p>nebula)&gt; LOOKUP ON follow YIELD edge AS e;
-  +-----------------------------------------------------+
-  | e                                                   |
-  +-----------------------------------------------------+
-  | [:follow "player105"-&gt;"player100" @0 {degree: 70}]  |
-  | [:follow "player105"-&gt;"player116" @0 {degree: 80}]  |
-  | [:follow "player109"-&gt;"player100" @0 {degree: 80}]  |
-  ...
-  ```</p>
+<li>查找 Edge type 为<code>follow</code>的所有边的信息。<div class="highlight"><pre><span></span><code>nebula&gt; CREATE EDGE IF NOT EXISTS follow(degree int);
+
+nebula&gt; CREATE EDGE INDEX IF NOT EXISTS follow_index on follow();
+
+nebula&gt; REBUILD EDGE INDEX follow_index;
++------------+
+| New Job Id |
++------------+
+| 88         |
++------------+
+
+nebula&gt; INSERT EDGE follow(degree) \
+        VALUES "player100"-&gt;"player101":(95);
+
+# 列出所有的 follow 边。类似于 MATCH (s)-[e:follow]-&gt;(d) RETURN id(s), rank(e), id(d) /*, type(e) */。
+
+nebula)&gt; LOOKUP ON follow YIELD edge AS e;
++-----------------------------------------------------+
+| e                                                   |
++-----------------------------------------------------+
+| [:follow "player105"-&gt;"player100" @0 {degree: 70}]  |
+| [:follow "player105"-&gt;"player116" @0 {degree: 80}]  |
+| [:follow "player109"-&gt;"player100" @0 {degree: 80}]  |
+...
+</code></pre></div>
 </li>
 </ul>
 <h2 id="_6">统计点或边<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>统计 Tag 为<code>player</code>的点和 Edge type 为<code>follow</code>的边。</p>
-<p>```ngql
-nebula&gt; LOOKUP ON player YIELD id(vertex)|\
+<div class="highlight"><pre><span></span><code>nebula&gt; LOOKUP ON player YIELD id(vertex)|\
         YIELD COUNT(*) AS Player_Number;
 +---------------+
 | Player_Number |
 +---------------+
 | 51            |
-+---------------+</p>
-<p>nebula&gt; LOOKUP ON follow YIELD edge AS e| \
++---------------+
+
+nebula&gt; LOOKUP ON follow YIELD edge AS e| \
         YIELD COUNT(*) AS Follow_Number;
 +---------------+
 | Follow_Number |
 +---------------+
 | 81            |
 +---------------+
-```</p>
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>使用 <a href="../6.show/14.show-stats/"><code>SHOW STATS</code>命令</a>也可以统计点和边。</p>
@@ -6343,7 +6359,7 @@ nebula&gt; LOOKUP ON player YIELD id(vertex)|\
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

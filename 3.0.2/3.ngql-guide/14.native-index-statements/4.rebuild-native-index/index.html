@@ -6018,11 +6018,11 @@
 </div>
 <p>请在创建索引后，选择合适的时间为存量数据重建索引。使用索引的详情请参见 <a href="../1.create-native-index/">CREATE INDEX</a>。</p>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>```ngql
-REBUILD {TAG | EDGE} INDEX [<index_name_list>];</p>
-<p><index_name_list>::=
+<div class="highlight"><pre><span></span><code>REBUILD {TAG | EDGE} INDEX [&lt;index_name_list&gt;];
+
+&lt;index_name_list&gt;::=
     [index_name [, index_name] ...]
-```</p>
+</code></pre></div>
 <ul>
 <li>可以一次重建多个索引，索引名称之间用英文逗号（,）分隔。如果没有指定索引名称，将会重建所有索引。</li>
 </ul>
@@ -6030,25 +6030,27 @@ REBUILD {TAG | EDGE} INDEX [<index_name_list>];</p>
 <li>重建完成后，用户可以使用命令<code>SHOW {TAG | EDGE} INDEX STATUS</code>检查索引是否重建完成。详情请参见 <a href="../5.show-native-index-status/">SHOW INDEX STATUS</a>。</li>
 </ul>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>```ngql
-nebula&gt; CREATE TAG IF NOT EXISTS person(name string, age int, gender string, email string);
-nebula&gt; CREATE TAG INDEX IF NOT EXISTS single_person_index ON person(name(10));</p>
-<h1 id="id">重建索引，返回任务 ID。<a class="headerlink" href="#id" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; REBUILD TAG INDEX single_person_index;
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG IF NOT EXISTS person(name string, age int, gender string, email string);
+nebula&gt; CREATE TAG INDEX IF NOT EXISTS single_person_index ON person(name(10));
+
+# 重建索引，返回任务 ID。
+nebula&gt; REBUILD TAG INDEX single_person_index;
 +------------+
 | New Job Id |
 +------------+
 | 31         |
-+------------+</p>
-<h1 id="_3">查看索引状态。<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; SHOW TAG INDEX STATUS;
++------------+
+
+# 查看索引状态。
+nebula&gt; SHOW TAG INDEX STATUS;
 +-----------------------+--------------+
 | Name                  | Index Status |
 +-----------------------+--------------+
 | "single_person_index" | "FINISHED"   |
-+-----------------------+--------------+</p>
-<h1 id="show_job">也可以使用 SHOW JOB <job_id>查看重建索引的任务状态。<a class="headerlink" href="#show_job" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; SHOW JOB 31;
++-----------------------+--------------+
+
+# 也可以使用 SHOW JOB &lt;job_id&gt;查看重建索引的任务状态。
+nebula&gt; SHOW JOB 31;
 +----------------+---------------------+------------+-------------------------+-------------------------+
 | Job Id(TaskId) | Command(Dest)       | Status     | Start Time              | Stop Time               |
 +----------------+---------------------+------------+-------------------------+-------------------------+
@@ -6057,7 +6059,7 @@ nebula&gt; CREATE TAG INDEX IF NOT EXISTS single_person_index ON person(name(10)
 | 1              | "storaged2"         | "FINISHED" | 2021-07-07T09:04:24.000 | 2021-07-07T09:04:28.000 |
 | 2              | "storaged0"         | "FINISHED" | 2021-07-07T09:04:24.000 | 2021-07-07T09:04:28.000 |
 +----------------+---------------------+------------+-------------------------+-------------------------+
-```</p>
+</code></pre></div>
 <p>Nebula Graph 创建一个任务去重建索引，因此可以根据返回的任务 ID，通过<code>SHOW JOB &lt;job_id&gt;</code>语句查看任务状态。详情请参见 <a href="../../18.operation-and-maintenance-statements/4.job-statements/#show_job">SHOW JOB</a>。</p>
 
   <hr>
@@ -6065,7 +6067,7 @@ nebula&gt; CREATE TAG INDEX IF NOT EXISTS single_person_index ON person(name(10)
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

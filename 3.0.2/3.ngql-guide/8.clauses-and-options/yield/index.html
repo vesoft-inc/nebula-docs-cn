@@ -1969,6 +1969,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#yield_5" class="md-nav__link">
+    独立使用 YIELD 语句
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6079,6 +6086,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#yield_5" class="md-nav__link">
+    独立使用 YIELD 语句
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -6134,8 +6148,8 @@
 </div>
 <h2 id="yield_1">YIELD 子句<a class="headerlink" href="#yield_1" title="Permanent link">&para;</a></h2>
 <h3 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
-<p><code>ngql
-YIELD [DISTINCT] &lt;col&gt; [AS &lt;alias&gt;] [, &lt;col&gt; [AS &lt;alias&gt;] ...];</code></p>
+<div class="highlight"><pre><span></span><code>YIELD [DISTINCT] &lt;col&gt; [AS &lt;alias&gt;] [, &lt;col&gt; [AS &lt;alias&gt;] ...];
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -6160,44 +6174,44 @@ YIELD [DISTINCT] &lt;col&gt; [AS &lt;alias&gt;] [, &lt;col&gt; [AS &lt;alias&gt;
 </table>
 <h3 id="yield_2">使用 YIELD 子句<a class="headerlink" href="#yield_2" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>GO</code>语句中使用<code>YIELD</code>：<p><code>ngql
-  nebula&gt; GO FROM "player100" OVER follow \
-          YIELD properties($$).name AS Friend, properties($$).age AS Age;
-  +-----------------+-----+
-  | Friend          | Age |
-  +-----------------+-----+
-  | "Tony Parker"   | 36  |
-  | "Manu Ginobili" | 41  |
-  +-----------------+-----+</code></p>
+<li><code>GO</code>语句中使用<code>YIELD</code>：<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM "player100" OVER follow \
+        YIELD properties($$).name AS Friend, properties($$).age AS Age;
++-----------------+-----+
+| Friend          | Age |
++-----------------+-----+
+| "Tony Parker"   | 36  |
+| "Manu Ginobili" | 41  |
++-----------------+-----+
+</code></pre></div>
 </li>
 </ul>
 <ul>
-<li><code>FETCH</code>语句中使用<code>YIELD</code>：<p><code>ngql
-  nebula&gt; FETCH PROP ON player "player100" \
-          YIELD properties(vertex).name;
-  +-------------------------+
-  | properties(VERTEX).name |
-  +-------------------------+
-  | "Tim Duncan"            |
-  +-------------------------+</code></p>
+<li><code>FETCH</code>语句中使用<code>YIELD</code>：<div class="highlight"><pre><span></span><code>nebula&gt; FETCH PROP ON player "player100" \
+        YIELD properties(vertex).name;
++-------------------------+
+| properties(VERTEX).name |
++-------------------------+
+| "Tim Duncan"            |
++-------------------------+
+</code></pre></div>
 </li>
 </ul>
 <ul>
-<li><code>LOOKUP</code>语句中使用<code>YIELD</code>：<p><code>ngql
-  nebula&gt; LOOKUP ON player WHERE player.name == "Tony Parker" \
-          YIELD properties(vertex).name, properties(vertex).age;
-  +-------------------------+------------------------+
-  | properties(VERTEX).name | properties(VERTEX).age |
-  +-------------------------+------------------------+
-  | "Tony Parker"           | 36                     |
-  +-------------------------+------------------------+</code></p>
+<li><code>LOOKUP</code>语句中使用<code>YIELD</code>：<div class="highlight"><pre><span></span><code>nebula&gt; LOOKUP ON player WHERE player.name == "Tony Parker" \
+        YIELD properties(vertex).name, properties(vertex).age;
++-------------------------+------------------------+
+| properties(VERTEX).name | properties(VERTEX).age |
++-------------------------+------------------------+
+| "Tony Parker"           | 36                     |
++-------------------------+------------------------+
+</code></pre></div>
 </li>
 </ul>
 <h2 id="yield_3">YIELD 语句<a class="headerlink" href="#yield_3" title="Permanent link">&para;</a></h2>
 <h3 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p><code>ngql
-YIELD [DISTINCT] &lt;col&gt; [AS &lt;alias&gt;] [, &lt;col&gt; [AS &lt;alias&gt;] ...]
-[WHERE &lt;conditions&gt;];</code></p>
+<div class="highlight"><pre><span></span><code>YIELD [DISTINCT] &lt;col&gt; [AS &lt;alias&gt;] [, &lt;col&gt; [AS &lt;alias&gt;] ...]
+[WHERE &lt;conditions&gt;];
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -6226,22 +6240,20 @@ YIELD [DISTINCT] &lt;col&gt; [AS &lt;alias&gt;] [, &lt;col&gt; [AS &lt;alias&gt;
 </table>
 <h3 id="yield_4">复合查询中使用 YIELD 语句<a class="headerlink" href="#yield_4" title="Permanent link">&para;</a></h3>
 <p>在<a href="../../4.variable-and-composite-queries/1.composite-queries/">复合查询</a>中，<code>YIELD</code>语句可以接收、过滤、修改之前语句的结果集，然后输出。</p>
-<p>```ngql</p>
-<h1 id="player100_player">查找 player100 关注的 player，并计算他们的平均年龄。<a class="headerlink" href="#player100_player" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; GO FROM "player100" OVER follow \
+<div class="highlight"><pre><span></span><code># 查找 player100 关注的 player，并计算他们的平均年龄。
+nebula&gt; GO FROM "player100" OVER follow \
         YIELD dst(edge) AS ID \
-        | FETCH PROP ON player <span class="arithmatex">\(-.ID \
+        | FETCH PROP ON player $-.ID \
         YIELD properties(vertex).age AS Age \
-        | YIELD AVG(\)</span>-.Age) as Avg_age, count(*)as Num_friends;
+        | YIELD AVG($-.Age) as Avg_age, count(*)as Num_friends;
 +---------+-------------+
 | Avg_age | Num_friends |
 +---------+-------------+
 | 38.5    | 2           |
 +---------+-------------+
-```</p>
-<p>```ngql</p>
-<h1 id="player101_player_degree_90_player">查找 player101 关注的 player，返回 degree 大于 90 的 player。<a class="headerlink" href="#player101_player_degree_90_player" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; $var1 = GO FROM "player101" OVER follow \
+</code></pre></div>
+<div class="highlight"><pre><span></span><code># 查找 player101 关注的 player，返回 degree 大于 90 的 player。
+nebula&gt; $var1 = GO FROM "player101" OVER follow \
         YIELD properties(edge).degree AS Degree, dst(edge) as ID; \
         YIELD $var1.ID AS ID WHERE $var1.Degree &gt; 90;
 +-------------+
@@ -6250,29 +6262,31 @@ YIELD [DISTINCT] &lt;col&gt; [AS &lt;alias&gt;] [, &lt;col&gt; [AS &lt;alias&gt;
 | "player100" |
 | "player125" |
 +-------------+
-```</p>
+</code></pre></div>
 <h3 id="yield_5">独立使用 YIELD 语句<a class="headerlink" href="#yield_5" title="Permanent link">&para;</a></h3>
 <p><code>YIELD</code>可以计算表达式并返回结果。</p>
-<p>```ngql
-nebula&gt; YIELD rand32(1, 6);
+<div class="highlight"><pre><span></span><code>nebula&gt; YIELD rand32(1, 6);
 +-------------+
 | rand32(1,6) |
 +-------------+
 | 3           |
-+-------------+</p>
-<p>nebula&gt; YIELD "Hel" + "\tlo" AS string1, ", World!" AS string2;
++-------------+
+
+nebula&gt; YIELD "Hel" + "\tlo" AS string1, ", World!" AS string2;
 +-------------+------------+
 | string1     | string2    |
 +-------------+------------+
 | "Hel    lo" | ", World!" |
-+-------------+------------+</p>
-<p>nebula&gt; YIELD hash("Tim") % 100;
++-------------+------------+
+
+nebula&gt; YIELD hash("Tim") % 100;
 +-------------------+
 | (hash("Tim")%100) |
 +-------------------+
 | 42                |
-+-------------------+</p>
-<p>nebula&gt; YIELD \
++-------------------+
+
+nebula&gt; YIELD \
       CASE 2+3 \
       WHEN 4 THEN 0 \
       WHEN 5 THEN 1 \
@@ -6284,14 +6298,14 @@ nebula&gt; YIELD rand32(1, 6);
 +--------+
 | 1      |
 +--------+
-```</p>
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

@@ -6016,35 +6016,35 @@
 <p><code>SHOW CREATE TAG</code>语句显示指定 Tag 的基本信息。Tag 的更多详细信息，请参见 <a href="../../../10.tag-statements/1.create-tag/">CREATE TAG</a>。</p>
 <p><code>SHOW CREATE EDGE</code>语句显示指定 Edge type 的基本信息。Edge type 的更多详细信息，请参见 <a href="../../../11.edge-type-statements/1.create-edge/">CREATE EDGE</a>。</p>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><code>ngql
-SHOW CREATE {TAG &lt;tag_name&gt; | EDGE &lt;edge_name&gt;};</code></p>
+<div class="highlight"><pre><span></span><code>SHOW CREATE {TAG &lt;tag_name&gt; | EDGE &lt;edge_name&gt;};
+</code></pre></div>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p><code>``ngql
-nebula&gt; SHOW CREATE TAG player;
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW CREATE TAG player;
 +----------+-----------------------------------+
 | Tag      | Create Tag                        |
 +----------+-----------------------------------+
-| "player" | "CREATE TAG</code>player<code>(            |
-|          |</code>name<code>string NULL,              |
-|          |</code>age` int64 NULL                 |
+| "player" | "CREATE TAG `player` (            |
+|          |  `name` string NULL,              |
+|          |  `age` int64 NULL                 |
 |          | ) ttl_duration = 0, ttl_col = """ |
-+----------+-----------------------------------+</p>
-<p>nebula&gt; SHOW CREATE EDGE follow;
++----------+-----------------------------------+
+
+nebula&gt; SHOW CREATE EDGE follow;
 +----------+-----------------------------------+
 | Edge     | Create Edge                       |
 +----------+-----------------------------------+
-| "follow" | "CREATE EDGE <code>follow</code> (           |
-|          |  <code>degree</code> int64 NULL              |
+| "follow" | "CREATE EDGE `follow` (           |
+|          |  `degree` int64 NULL              |
 |          | ) ttl_duration = 0, ttl_col = """ |
 +----------+-----------------------------------+
-```</p>
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

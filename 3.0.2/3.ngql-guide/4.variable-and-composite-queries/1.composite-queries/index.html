@@ -6056,38 +6056,38 @@
 </div>
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
-<li>opencypher 兼容语句<p><code>ngql
-  # 子句连接多个查询。
-  nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})--() \
-          WITH nodes(p) AS n \
-          UNWIND n AS n1 \
-          RETURN DISTINCT n1;</code></p>
+<li>opencypher 兼容语句<div class="highlight"><pre><span></span><code># 子句连接多个查询。
+nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})--() \
+        WITH nodes(p) AS n \
+        UNWIND n AS n1 \
+        RETURN DISTINCT n1;
+</code></pre></div>
 </li>
 </ul>
 <ul>
-<li>原生 nGQL（分号）<p>```ngql
-  # 只返回边。
-  nebula&gt; SHOW TAGS; SHOW EDGES;</p>
-<p># 插入多个点。
-  nebula&gt; INSERT VERTEX player(name, age) VALUES "player100":("Tim Duncan", 42); \
-          INSERT VERTEX player(name, age) VALUES "player101":("Tony Parker", 36); \
-          INSERT VERTEX player(name, age) VALUES "player102":("LaMarcus Aldridge", 33);
-  ```</p>
+<li>原生 nGQL（分号）<div class="highlight"><pre><span></span><code># 只返回边。
+nebula&gt; SHOW TAGS; SHOW EDGES;
+
+# 插入多个点。
+nebula&gt; INSERT VERTEX player(name, age) VALUES "player100":("Tim Duncan", 42); \
+        INSERT VERTEX player(name, age) VALUES "player101":("Tony Parker", 36); \
+        INSERT VERTEX player(name, age) VALUES "player102":("LaMarcus Aldridge", 33);
+</code></pre></div>
 </li>
 </ul>
 <ul>
-<li>原生 nGQL（管道符）<p><code>ngql
-  # 管道符连接多个查询。
-  nebula&gt; GO FROM "player100" OVER follow YIELD dst(edge) AS id | \
-          GO FROM $-.id OVER serve YIELD properties($$).name AS Team, \
-          properties($^).name AS Player;
-  +-----------+-----------------+
-  | Team      | Player          |
-  +-----------+-----------------+
-  | "Spurs"   | "Tony Parker"   |
-  | "Hornets" | "Tony Parker"   |
-  | "Spurs"   | "Manu Ginobili" |
-  +-----------+-----------------+</code></p>
+<li>原生 nGQL（管道符）<div class="highlight"><pre><span></span><code># 管道符连接多个查询。
+nebula&gt; GO FROM "player100" OVER follow YIELD dst(edge) AS id | \
+        GO FROM $-.id OVER serve YIELD properties($$).name AS Team, \
+        properties($^).name AS Player;
++-----------+-----------------+
+| Team      | Player          |
++-----------+-----------------+
+| "Spurs"   | "Tony Parker"   |
+| "Hornets" | "Tony Parker"   |
+| "Spurs"   | "Manu Ginobili" |
++-----------+-----------------+
+</code></pre></div>
 </li>
 </ul>
 
@@ -6096,7 +6096,7 @@
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

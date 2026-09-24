@@ -6015,11 +6015,10 @@
 <h1 id="show_parts">SHOW PARTS<a class="headerlink" href="#show_parts" title="Permanent link">&para;</a></h1>
 <p><code>SHOW PARTS</code>语句显示图空间中指定分片或所有分片的信息。</p>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><code>ngql
-SHOW PARTS [&lt;part_id&gt;];</code></p>
+<div class="highlight"><pre><span></span><code>SHOW PARTS [&lt;part_id&gt;];
+</code></pre></div>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>```ngql
-nebula&gt; SHOW PARTS;
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW PARTS;
 +--------------+--------------------+--------------------+-------+
 | Partition ID | Leader             | Peers              | Losts |
 +--------------+--------------------+--------------------+-------+
@@ -6033,14 +6032,15 @@ nebula&gt; SHOW PARTS;
 | 8            | "192.168.2.2:9779" | "192.168.2.2:9779" | ""    |
 | 9            | "192.168.2.3:9779" | "192.168.2.3:9779" | ""    |
 | 10           | "192.168.2.1:9779" | "192.168.2.1:9779" | ""    |
-+--------------+--------------------+--------------------+-------+</p>
-<p>nebula&gt; SHOW PARTS 1;
++--------------+--------------------+--------------------+-------+
+
+nebula&gt; SHOW PARTS 1;
 +--------------+--------------------+--------------------+-------+
 | Partition ID | Leader             | Peers              | Losts |
 +--------------+--------------------+--------------------+-------+
 | 1            | "192.168.2.1:9779" | "192.168.2.1:9779" | ""    |
 +--------------+--------------------+--------------------+-------+
-```</p>
+</code></pre></div>
 <p>返回结果的说明如下：</p>
 <table>
 <thead>
@@ -6074,7 +6074,7 @@ nebula&gt; SHOW PARTS;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

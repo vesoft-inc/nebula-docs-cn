@@ -6017,8 +6017,8 @@
 <p>当前任意角色权限账号都可以执行<code>KILL QUERY</code>命令。</p>
 </div>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p><code>ngql
-KILL QUERY (session=&lt;session_id&gt;, plan=&lt;plan_id&gt;);</code></p>
+<div class="highlight"><pre><span></span><code>KILL QUERY (session=&lt;session_id&gt;, plan=&lt;plan_id&gt;);
+</code></pre></div>
 <ul>
 <li><code>session_id</code>：会话 ID。</li>
 <li><code>plan_id</code>：执行计划 ID。</li>
@@ -6026,18 +6026,18 @@ KILL QUERY (session=&lt;session_id&gt;, plan=&lt;plan_id&gt;);</code></p>
 <p>会话 ID 和执行计划 ID 可以唯一确定一个查询。二者可以通过 <a href="../../7.general-query-statements/6.show/18.show-queries/">SHOW QUERIES</a> 语句获取。</p>
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>在一个会话中执行命令终止另一个会话中的查询：</p>
-<p><code>ngql
-nebula&gt; KILL QUERY(SESSION=1625553545984255,PLAN=163);</code></p>
+<div class="highlight"><pre><span></span><code>nebula&gt; KILL QUERY(SESSION=1625553545984255,PLAN=163);
+</code></pre></div>
 <p>另一个会话中的查询会终止，并返回如下信息：</p>
-<p><code>ngql
-[ERROR (-1005)]: Execution had been killed</code></p>
+<div class="highlight"><pre><span></span><code>[ERROR (-1005)]: Execution had been killed
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

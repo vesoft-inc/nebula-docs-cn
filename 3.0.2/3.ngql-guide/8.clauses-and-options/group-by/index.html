@@ -1836,6 +1836,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    用函数进行分组和计算
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6004,6 +6011,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    用函数进行分组和计算
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6029,8 +6043,7 @@
 <h2 id="opencypher">openCypher 兼容性<a class="headerlink" href="#opencypher" title="Permanent link">&para;</a></h2>
 <p>本文操作仅适用于原生 nGQL。</p>
 <p>用户也可以使用 openCypher 方式的 <a href="../../6.functions-and-expressions/7.count/">count()</a> 函数聚合数据。</p>
-<p><code>ngql
-nebula&gt;  MATCH (v:player)&lt;-[:follow]-(:player) RETURN v.player.name AS Name, count(*) as cnt ORDER BY cnt DESC;
+<div class="highlight"><pre><span></span><code>nebula&gt;  MATCH (v:player)&lt;-[:follow]-(:player) RETURN v.player.name AS Name, count(*) as cnt ORDER BY cnt DESC;
 +----------------------+-----+
 | Name                 | cnt |
 +----------------------+-----+
@@ -6040,17 +6053,17 @@ nebula&gt;  MATCH (v:player)&lt;-[:follow]-(:player) RETURN v.player.name AS Nam
 | "Chris Paul"         | 4   |
 | "Manu Ginobili"      | 4   |
 +----------------------+-----+
-...</code></p>
+...
+</code></pre></div>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><code>GROUP BY</code>子句可以聚合相同值的行，然后进行计数、排序和计算等操作。</p>
 <p><code>GROUP BY</code>子句可以在管道符（|）之后和<code>YIELD</code>子句之前使用。</p>
-<p><code>ngql
-| GROUP BY &lt;var&gt; YIELD &lt;var&gt;, &lt;aggregation_function(var)&gt;</code>
+<p><div class="highlight"><pre><span></span><code>| GROUP BY &lt;var&gt; YIELD &lt;var&gt;, &lt;aggregation_function(var)&gt;
+</code></pre></div>
 <code>aggregation_function()</code>函数支持<code>avg()</code>、<code>sum()</code>、<code>max()</code>、<code>min()</code>、<code>count()</code>、<code>collect()</code>、<code>std()</code>。</p>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>```ngql</p>
-<h1 id="player100">查找所有连接到 player100 的点，并根据他们的姓名进行分组，返回姓名的出现次数。<a class="headerlink" href="#player100" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; GO FROM "player100" OVER follow BIDIRECT \
+<div class="highlight"><pre><span></span><code># 查找所有连接到 player100 的点，并根据他们的姓名进行分组，返回姓名的出现次数。
+nebula&gt; GO FROM "player100" OVER follow BIDIRECT \
         YIELD properties($$).name as Name \
         | GROUP BY $-.Name \
         YIELD $-.Name as Player, count(*) AS Name_Count;
@@ -6068,20 +6081,19 @@ nebula&gt;  MATCH (v:player)&lt;-[:follow]-(:player) RETURN v.player.name AS Nam
 | "Danny Green"       | 1          |
 | "Aron Baynes"       | 1          |
 +---------------------+------------+
-```</p>
+</code></pre></div>
 <h2 id="_3">用函数进行分组和计算<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>```ngql</p>
-<h1 id="player100_degree">查找所有连接到 player100 的点，并根据起始点进行分组，返回 degree 的总和。<a class="headerlink" href="#player100_degree" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; GO FROM "player100" OVER follow \
+<div class="highlight"><pre><span></span><code># 查找所有连接到 player100 的点，并根据起始点进行分组，返回 degree 的总和。
+nebula&gt; GO FROM "player100" OVER follow \
         YIELD src(edge) AS player, properties(edge).degree AS degree \
-        | GROUP BY <span class="arithmatex">\(-.player \
-        YIELD sum(\)</span>-.degree);
+        | GROUP BY $-.player \
+        YIELD sum($-.degree);
 +----------------+
 | sum($-.degree) |
 +----------------+
 | 190            |
 +----------------+
-```</p>
+</code></pre></div>
 <p><code>sum()</code>函数详情请参见<a href="../../6.functions-and-expressions/1.math/">内置数学函数</a>。</p>
 
   <hr>
@@ -6089,7 +6101,7 @@ nebula&gt;  MATCH (v:player)&lt;-[:follow]-(:player) RETURN v.player.name AS Nam
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

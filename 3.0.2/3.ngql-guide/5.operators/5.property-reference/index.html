@@ -6052,20 +6052,20 @@
 </tbody>
 </table>
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>```ngql</p>
-<h1 id="_4">返回起始点和目的点的年龄。<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; GO FROM "player100" OVER follow YIELD properties(<span class="arithmatex">\(^).age AS SrcAge, properties(\)</span>$).age AS DestAge;
+<div class="highlight"><pre><span></span><code># 返回起始点和目的点的年龄。
+nebula&gt; GO FROM "player100" OVER follow YIELD properties($^).age AS SrcAge, properties($$).age AS DestAge;
 +--------+---------+
 | SrcAge | DestAge |
 +--------+---------+
 | 42     | 36      |
 | 42     | 41      |
-+--------+---------+</p>
-<h1 id="player100_player">返回 player100 追随的 player 的名称和团队。<a class="headerlink" href="#player100_player" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; GO FROM "player100" OVER follow \
++--------+---------+
+
+# 返回 player100 追随的 player 的名称和团队。
+nebula&gt; GO FROM "player100" OVER follow \
         YIELD dst(edge) AS id | \
-        GO FROM <span class="arithmatex">\(-.id OVER serve \
-        YIELD properties(\)</span>^).name AS Player, properties($$).name AS Team;
+        GO FROM $-.id OVER serve \
+        YIELD properties($^).name AS Player, properties($$).name AS Team;
 +-----------------+-----------+
 | Player          | Team      |
 +-----------------+-----------+
@@ -6073,14 +6073,14 @@
 | "Tony Parker"   | "Hornets" |
 | "Manu Ginobili" | "Spurs"   |
 +-----------------+-----------+
-```</p>
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

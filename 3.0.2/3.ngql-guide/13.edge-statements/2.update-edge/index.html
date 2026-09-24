@@ -6014,12 +6014,12 @@
 <p><code>UPDATE EDGE</code>语句可以修改边上 Edge type 的属性。</p>
 <p>Nebula Graph 支持 CAS（compare and swap）操作。</p>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><code>ngql
-UPDATE EDGE ON &lt;edge_type&gt;
+<div class="highlight"><pre><span></span><code>UPDATE EDGE ON &lt;edge_type&gt;
 &lt;src_vid&gt; -&gt; &lt;dst_vid&gt; [@&lt;rank&gt;]
 SET &lt;update_prop&gt;
 [WHEN &lt;condition&gt;]
-[YIELD &lt;output&gt;]</code></p>
+[YIELD &lt;output&gt;]
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -6075,8 +6075,7 @@ SET &lt;update_prop&gt;
 </tbody>
 </table>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>```ngql
-// 用 GO 语句查看边的属性值。
+<div class="highlight"><pre><span></span><code>// 用 GO 语句查看边的属性值。
 nebula&gt; GO FROM "player100" \
         OVER serve \
         YIELD properties(edge).start_year, properties(edge).end_year;
@@ -6084,9 +6083,11 @@ nebula&gt; GO FROM "player100" \
 | serve.start_year | serve.end_year |
 +------------------+----------------+
 | 1997             | 2016           |
-+------------------+----------------+</p>
-<p>// 修改属性 start_year 的值，并返回 end_year 和新的 start_year。</p>
-<p>nebula&gt; UPDATE EDGE ON serve "player100" -&gt; "team204"@0 \
++------------------+----------------+
+
+// 修改属性 start_year 的值，并返回 end_year 和新的 start_year。
+
+nebula&gt; UPDATE EDGE ON serve "player100" -&gt; "team204"@0 \
         SET start_year = start_year + 1 \
         WHEN end_year &gt; 2010 \
         YIELD start_year, end_year;
@@ -6095,14 +6096,14 @@ nebula&gt; GO FROM "player100" \
 +------------+----------+
 | 1998       | 2016     |
 +------------+----------+
-```</p>
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

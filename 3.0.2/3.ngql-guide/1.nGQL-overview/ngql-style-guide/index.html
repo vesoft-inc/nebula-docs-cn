@@ -6063,42 +6063,42 @@
 <li>
 <p>换行写子句。</p>
 <p>不推荐：</p>
-<p><code>ngql
-GO FROM "player100" OVER follow REVERSELY YIELD src(edge) AS id;</code></p>
+<div class="highlight"><pre><span></span><code>GO FROM "player100" OVER follow REVERSELY YIELD src(edge) AS id;
+</code></pre></div>
 <p>推荐：</p>
-<p><code>ngql
-GO FROM "player100" \
+<div class="highlight"><pre><span></span><code>GO FROM "player100" \
 OVER follow REVERSELY \
-YIELD src(edge) AS id;</code></p>
+YIELD src(edge) AS id;
+</code></pre></div>
 </li>
 <li>
 <p>换行写复合语句中的不同语句。</p>
 <p>不推荐：</p>
-<p><code>ngql
-GO FROM "player100" OVER follow REVERSELY YIELD src(edge) AS id | GO FROM $-.id \
-OVER serve WHERE properties($^).age &gt; 20 YIELD properties($^).name AS FriendOf, properties($$).name AS Team;</code></p>
+<div class="highlight"><pre><span></span><code>GO FROM "player100" OVER follow REVERSELY YIELD src(edge) AS id | GO FROM $-.id \
+OVER serve WHERE properties($^).age &gt; 20 YIELD properties($^).name AS FriendOf, properties($$).name AS Team;
+</code></pre></div>
 <p>推荐：</p>
-<p><code>ngql
-GO FROM "player100" \
+<div class="highlight"><pre><span></span><code>GO FROM "player100" \
 OVER follow REVERSELY \
 YIELD src(edge) AS id | \
 GO FROM $-.id OVER serve \
 WHERE properties($^).age &gt; 20 \
-YIELD properties($^).name AS FriendOf, properties($$).name AS Team;</code></p>
+YIELD properties($^).name AS FriendOf, properties($$).name AS Team;
+</code></pre></div>
 </li>
 <li>
 <p>子句长度超过 80 个字符时，在合适的位置换行。</p>
 <p>不推荐：</p>
-<p><code>ngql
-MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;(v2) \
+<div class="highlight"><pre><span></span><code>MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;(v2) \
 WHERE (v2.player.name STARTS WITH "Y" AND v2.player.age &gt; 35 AND v2.player.age &lt; v.player.age) OR (v2.player.name STARTS WITH "T" AND v2.player.age &lt; 45 AND v2.player.age &gt; v.player.age) \
-RETURN v2;</code></p>
+RETURN v2;
+</code></pre></div>
 <p>推荐：</p>
-<p><code>ngql
-MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;(v2) \
+<div class="highlight"><pre><span></span><code>MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;(v2) \
 WHERE (v2.player.name STARTS WITH "Y" AND v2.player.age &gt; 35 AND v2.player.age &lt; v.player.age) \
 OR (v2.player.name STARTS WITH "T" AND v2.player.age &lt; 45 AND v2.player.age &gt; v.player.age) \
-RETURN v2;</code></p>
+RETURN v2;
+</code></pre></div>
 </li>
 </ol>
 <div class="admonition note">
@@ -6111,33 +6111,33 @@ RETURN v2;</code></p>
 <li>
 <p>使用单数名词命名 Tag，用原型动词或动词短语构成 Edge type。</p>
 <p>不推荐：</p>
-<p><code>ngql
-MATCH p=(v:players)-[e:are_following]-(v2) \
-RETURN nodes(p);</code></p>
+<div class="highlight"><pre><span></span><code>MATCH p=(v:players)-[e:are_following]-(v2) \
+RETURN nodes(p);
+</code></pre></div>
 <p>推荐：</p>
-<p><code>ngql
-MATCH p=(v:player)-[e:follow]-(v2) \
-RETURN nodes(p);</code></p>
+<div class="highlight"><pre><span></span><code>MATCH p=(v:player)-[e:follow]-(v2) \
+RETURN nodes(p);
+</code></pre></div>
 </li>
 <li>
 <p>标识符用蛇形命名法，以下划线（_）连接单词，且所有字母小写。</p>
 <p>不推荐：</p>
-<p><code>ngql
-MATCH (v:basketballTeam) \
-RETURN v;</code></p>
+<div class="highlight"><pre><span></span><code>MATCH (v:basketballTeam) \
+RETURN v;
+</code></pre></div>
 <p>推荐：</p>
-<p><code>ngql
-MATCH (v:basketball_team) \
-RETURN v;</code></p>
+<div class="highlight"><pre><span></span><code>MATCH (v:basketball_team) \
+RETURN v;
+</code></pre></div>
 </li>
 <li>
 <p>语法关键词大写，变量小写。</p>
 <p>不推荐：</p>
-<p><code>ngql
-go from "player100" over Follow</code></p>
+<div class="highlight"><pre><span></span><code>go from "player100" over Follow
+</code></pre></div>
 <p>推荐：</p>
-<p><code>ngql
-GO FROM "player100" OVER follow</code></p>
+<div class="highlight"><pre><span></span><code>GO FROM "player100" OVER follow
+</code></pre></div>
 </li>
 </ol>
 <h2 id="pattern">Pattern<a class="headerlink" href="#pattern" title="Permanent link">&para;</a></h2>
@@ -6145,52 +6145,52 @@ GO FROM "player100" OVER follow</code></p>
 <li>
 <p>分行写 Pattern 时，在表示边的箭头右侧换行，而不是左侧。</p>
 <p>不推荐：</p>
-<p><code>ngql
-MATCH (v:player{name: "Tim Duncan", age: 42}) \
+<div class="highlight"><pre><span></span><code>MATCH (v:player{name: "Tim Duncan", age: 42}) \
 -[e:follow]-&gt;()-[e2:serve]-&gt;()&lt;--(v2) \
-RETURN v, e, v2;</code></p>
+RETURN v, e, v2;
+</code></pre></div>
 <p>推荐：</p>
-<p><code>ngql
-MATCH (v:player{name: "Tim Duncan", age: 42})-[e:follow]-&gt; \
+<div class="highlight"><pre><span></span><code>MATCH (v:player{name: "Tim Duncan", age: 42})-[e:follow]-&gt; \
 ()-[e2:serve]-&gt;()&lt;--(v2) \
-RETURN v, e, v2;</code></p>
+RETURN v, e, v2;
+</code></pre></div>
 </li>
 <li>
 <p>将无需查询的点和边匿名化。</p>
 <p>不推荐：</p>
-<p><code>ngql
-MATCH (v:player)-[e:follow]-&gt;(v2) \
-RETURN v;</code></p>
+<div class="highlight"><pre><span></span><code>MATCH (v:player)-[e:follow]-&gt;(v2) \
+RETURN v;
+</code></pre></div>
 <p>推荐：</p>
-<p><code>ngql
-MATCH (v:player)-[:follow]-&gt;() \
-RETURN v;</code></p>
+<div class="highlight"><pre><span></span><code>MATCH (v:player)-[:follow]-&gt;() \
+RETURN v;
+</code></pre></div>
 </li>
 <li>
 <p>将非匿名点放在匿名点的前面。</p>
 <p>不推荐：</p>
-<p><code>ngql
-MATCH ()-[:follow]-&gt;(v) \
-RETURN v;</code></p>
+<div class="highlight"><pre><span></span><code>MATCH ()-[:follow]-&gt;(v) \
+RETURN v;
+</code></pre></div>
 <p>推荐：</p>
-<p><code>ngql
-MATCH (v)&lt;-[:follow]-() \
-RETURN v;</code></p>
+<div class="highlight"><pre><span></span><code>MATCH (v)&lt;-[:follow]-() \
+RETURN v;
+</code></pre></div>
 </li>
 </ol>
 <h2 id="_3">字符串<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>字符串用双引号包围。</p>
 <p>不推荐：</p>
-<p><code>ngql
-  RETURN 'Hello Nebula!';</code></p>
+<div class="highlight"><pre><span></span><code>RETURN 'Hello Nebula!';
+</code></pre></div>
 <p>推荐：</p>
-<p><code>ngql
-  RETURN "Hello Nebula!\"123\"";</code></p>
+<div class="highlight"><pre><span></span><code>RETURN "Hello Nebula!\"123\"";
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>字符串中需要嵌套单引号或双引号时，用反斜线（\）转义。例如：</p>
-<p><code>ngql
-RETURN "\"Nebula Graph is amazing,\" the user says.";</code></p>
+<div class="highlight"><pre><span></span><code>RETURN "\"Nebula Graph is amazing,\" the user says.";
+</code></pre></div>
 </div>
 <!--## 空格 TODO-->
 
@@ -6199,57 +6199,57 @@ RETURN "\"Nebula Graph is amazing,\" the user says.";</code></p>
 <li>
 <p>用英文分号（;）结束 nGQL 语句。</p>
 <p>不推荐：</p>
-<p><code>ngql
-FETCH PROP ON player "player100"</code></p>
+<div class="highlight"><pre><span></span><code>FETCH PROP ON player "player100"
+</code></pre></div>
 <p>推荐：</p>
-<p><code>ngql
-FETCH PROP ON player "player100";</code></p>
+<div class="highlight"><pre><span></span><code>FETCH PROP ON player "player100";
+</code></pre></div>
 </li>
 <li>
 <p>使用管道符（|）分隔的复合语句，仅在最后一行末用英文分号结尾。在管道符前使用英文分号会导致语句执行失败。</p>
 <p>不支持：</p>
-<p><code>ngql
-GO FROM "player100" \
+<div class="highlight"><pre><span></span><code>GO FROM "player100" \
 OVER follow \
 YIELD dst(edge) AS id; | \
 GO FROM $-.id \
 OVER serve \
-YIELD properties($$).name AS Team, properties($^).name AS Player;</code></p>
+YIELD properties($$).name AS Team, properties($^).name AS Player;
+</code></pre></div>
 <p>支持：</p>
-<p><code>ngql
-GO FROM "player100" \
+<div class="highlight"><pre><span></span><code>GO FROM "player100" \
 OVER follow \
 YIELD dst(edge) AS id | \
 GO FROM $-.id \
 OVER serve \
-YIELD properties($$).name AS Team, properties($^).name AS Player;</code></p>
+YIELD properties($$).name AS Team, properties($^).name AS Player;
+</code></pre></div>
 </li>
 <li>
 <p>在包含自定义变量的复合语句中，用英文分号结束定义变量的语句。不按规则加分号或使用管道符结束该语句会导致执行失败。</p>
 <p>不支持：</p>
-<p><code>ngql
-$var = GO FROM "player100" \
+<div class="highlight"><pre><span></span><code>$var = GO FROM "player100" \
 OVER follow \
 YIELD dst(edge) AS id \
 GO FROM $var.id \
 OVER serve \
-YIELD properties($$).name AS Team, properties($^).name AS Player;</code></p>
+YIELD properties($$).name AS Team, properties($^).name AS Player;
+</code></pre></div>
 <p>也不支持：</p>
-<p><code>ngql
-$var = GO FROM "player100" \
+<div class="highlight"><pre><span></span><code>$var = GO FROM "player100" \
 OVER follow \
 YIELD dst(edge) AS id | \
 GO FROM $var.id \
 OVER serve \
-YIELD properties($$).name AS Team, properties($^).name AS Player;</code></p>
+YIELD properties($$).name AS Team, properties($^).name AS Player;
+</code></pre></div>
 <p>支持：</p>
-<p><code>ngql
-$var = GO FROM "player100" \
+<div class="highlight"><pre><span></span><code>$var = GO FROM "player100" \
 OVER follow \
 YIELD dst(edge) AS id; \
 GO FROM $var.id \
 OVER serve \
-YIELD properties($$).name AS Team, properties($^).name AS Player;</code></p>
+YIELD properties($$).name AS Team, properties($^).name AS Player;
+</code></pre></div>
 </li>
 </ol>
 
@@ -6258,7 +6258,7 @@ YIELD properties($$).name AS Team, properties($^).name AS Player;</code></p>
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

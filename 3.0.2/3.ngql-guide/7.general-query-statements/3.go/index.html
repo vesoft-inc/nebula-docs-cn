@@ -6029,23 +6029,25 @@
 <h2 id="opencypher">openCypher 兼容性<a class="headerlink" href="#opencypher" title="Permanent link">&para;</a></h2>
 <p>本文操作仅适用于原生 nGQL。</p>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>```ngql
-GO [[<M> TO] <N> STEPS ] FROM <vertex_list>
-OVER <edge_type_list> [{REVERSELY | BIDIRECT}]
-[ WHERE <conditions> ]
-YIELD [DISTINCT] <return_list>
-[{ SAMPLE <sample_list> | <limit_by_list_clause> }]
-[| GROUP BY {<col_name> | expression&gt; | <position>} YIELD <col_name>]
-[| ORDER BY <expression> [{ASC | DESC}]]
-[| LIMIT [<offset>,] <number_rows>];</p>
-<p><vertex_list> ::=
-    <vid> [, <vid> ...]</p>
-<p><edge_type_list> ::=
-   <edge_type> [, <edge_type> ...]
-   | *</p>
-<p><return_list> ::=
-    <col_name> [AS <col_alias>] [, <col_name> [AS <col_alias>] ...]
-```</p>
+<div class="highlight"><pre><span></span><code>GO [[&lt;M&gt; TO] &lt;N&gt; STEPS ] FROM &lt;vertex_list&gt;
+OVER &lt;edge_type_list&gt; [{REVERSELY | BIDIRECT}]
+[ WHERE &lt;conditions&gt; ]
+YIELD [DISTINCT] &lt;return_list&gt;
+[{ SAMPLE &lt;sample_list&gt; | &lt;limit_by_list_clause&gt; }]
+[| GROUP BY {&lt;col_name&gt; | expression&gt; | &lt;position&gt;} YIELD &lt;col_name&gt;]
+[| ORDER BY &lt;expression&gt; [{ASC | DESC}]]
+[| LIMIT [&lt;offset&gt;,] &lt;number_rows&gt;];
+
+&lt;vertex_list&gt; ::=
+    &lt;vid&gt; [, &lt;vid&gt; ...]
+
+&lt;edge_type_list&gt; ::=
+   &lt;edge_type&gt; [, &lt;edge_type&gt; ...]
+   | *
+
+&lt;return_list&gt; ::=
+    &lt;col_name&gt; [AS &lt;col_alias&gt;] [, &lt;col_name&gt; [AS &lt;col_alias&gt;] ...]
+</code></pre></div>
 <ul>
 <li><code>&lt;N&gt; STEPS</code>：指定跳数。如果没有指定跳数，默认值<code>N</code>为<code>1</code>。如果<code>N</code>为<code>0</code>，Nebula Graph 不会检索任何边。</li>
 </ul>
@@ -6095,19 +6097,17 @@ YIELD [DISTINCT] <return_list>
 <li><code>LIMIT  [&lt;offset&gt;,] &lt;number_rows&gt;]</code>：限制输出结果的行数。详情参见 <a href="../../8.clauses-and-options/limit/">LIMIT</a>。</li>
 </ul>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>```ngql</p>
-<h1 id="player102">返回 player102 所属队伍。<a class="headerlink" href="#player102" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; GO FROM "player102" OVER serve YIELD dst(edge);
+<div class="highlight"><pre><span></span><code># 返回 player102 所属队伍。
+nebula&gt; GO FROM "player102" OVER serve YIELD dst(edge);
 +-----------+
 | dst(EDGE) |
 +-----------+
 | "team203" |
 | "team204" |
 +-----------+
-```</p>
-<p>```ngql</p>
-<h1 id="player102_1">返回距离 player102 两跳的朋友。<a class="headerlink" href="#player102_1" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; GO 2 STEPS FROM "player102" OVER follow YIELD dst(edge);
+</code></pre></div>
+<div class="highlight"><pre><span></span><code># 返回距离 player102 两跳的朋友。
+nebula&gt; GO 2 STEPS FROM "player102" OVER follow YIELD dst(edge);
 +-------------+
 | dst(EDGE)   |
 +-------------+
@@ -6117,23 +6117,22 @@ YIELD [DISTINCT] <return_list>
 | "player102" |
 | "player125" |
 +-------------+
-```</p>
-<p>```ngql</p>
-<h1 id="_3">添加过滤条件。<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; GO FROM "player100", "player102" OVER serve \
+</code></pre></div>
+<div class="highlight"><pre><span></span><code># 添加过滤条件。
+nebula&gt; GO FROM "player100", "player102" OVER serve \
         WHERE properties(edge).start_year &gt; 1995 \
-        YIELD DISTINCT properties($<span class="arithmatex">\().name AS team_name, properties(edge).start_year AS start_year, properties(\)</span>^).name AS player_name;</p>
-<p>+-----------------+------------+---------------------+
+        YIELD DISTINCT properties($$).name AS team_name, properties(edge).start_year AS start_year, properties($^).name AS player_name;
+
++-----------------+------------+---------------------+
 | team_name       | start_year | player_name         |
 +-----------------+------------+---------------------+
 | "Spurs"         | 1997       | "Tim Duncan"        |
 | "Trail Blazers" | 2006       | "LaMarcus Aldridge" |
 | "Spurs"         | 2015       | "LaMarcus Aldridge" |
 +-----------------+------------+---------------------+
-```</p>
-<p>```ngql</p>
-<h1 id="edge_type_unknown_prop">遍历多个 Edge type。属性没有值时，会显示 UNKNOWN_PROP。<a class="headerlink" href="#edge_type_unknown_prop" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; GO FROM "player100" OVER follow, serve \
+</code></pre></div>
+<div class="highlight"><pre><span></span><code># 遍历多个 Edge type。属性没有值时，会显示 UNKNOWN_PROP。
+nebula&gt; GO FROM "player100" OVER follow, serve \
         YIELD properties(edge).degree, properties(edge).start_year;
 +-------------------------+-----------------------------+
 | properties(EDGE).degree | properties(EDGE).start_year |
@@ -6142,19 +6141,19 @@ YIELD [DISTINCT] <return_list>
 | 95                      | UNKNOWN_PROP                |
 | UNKNOWN_PROP            | 1997                        |
 +-------------------------+-----------------------------+
-```</p>
-<p>```ngql</p>
-<h1 id="player100">返回 player100 入方向的邻居点。<a class="headerlink" href="#player100" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; GO FROM "player100" OVER follow REVERSELY \
+</code></pre></div>
+<div class="highlight"><pre><span></span><code># 返回 player100 入方向的邻居点。
+nebula&gt; GO FROM "player100" OVER follow REVERSELY \
         YIELD src(edge) AS destination;
 +-------------+
 | destination |
 +-------------+
 | "player101" |
 | "player102" |
-...</p>
-<h1 id="match_go">该 MATCH 查询与上一个 GO 查询具有相同的语义。<a class="headerlink" href="#match_go" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; MATCH (v)&lt;-[e:follow]- (v2) WHERE id(v) == 'player100' \
+...
+
+# 该 MATCH 查询与上一个 GO 查询具有相同的语义。
+nebula&gt; MATCH (v)&lt;-[e:follow]- (v2) WHERE id(v) == 'player100' \
         RETURN id(v2) AS destination;
 +-------------+
 | destination |
@@ -6162,23 +6161,23 @@ YIELD [DISTINCT] <return_list>
 | "player101" |
 | "player102" |
 ...
-```</p>
-<p>```ngql</p>
-<h1 id="player100_1">查询 player100 的朋友和朋友所属队伍。<a class="headerlink" href="#player100_1" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; GO FROM "player100" OVER follow REVERSELY \
+</code></pre></div>
+<div class="highlight"><pre><span></span><code># 查询 player100 的朋友和朋友所属队伍。
+nebula&gt; GO FROM "player100" OVER follow REVERSELY \
         YIELD src(edge) AS id | \
-        GO FROM <span class="arithmatex">\(-.id OVER serve \
-        WHERE properties(\)</span>^).age &gt; 20 \
-        YIELD properties(<span class="arithmatex">\(^).name AS FriendOf, properties(\)</span>$).name AS Team;
+        GO FROM $-.id OVER serve \
+        WHERE properties($^).age &gt; 20 \
+        YIELD properties($^).name AS FriendOf, properties($$).name AS Team;
 +---------------------+-----------------+
 | FriendOf            | Team            |
 +---------------------+-----------------+
 | "Boris Diaw"        | "Spurs"         |
 | "Boris Diaw"        | "Jazz"          |
 | "Boris Diaw"        | "Suns"          |
-...</p>
-<h1 id="match_go_1">该 MATCH 查询与上一个 GO 查询具有相同的语义。<a class="headerlink" href="#match_go_1" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; MATCH (v)&lt;-[e:follow]- (v2)-[e2:serve]-&gt;(v3)  \
+...
+
+# 该 MATCH 查询与上一个 GO 查询具有相同的语义。
+nebula&gt; MATCH (v)&lt;-[e:follow]- (v2)-[e2:serve]-&gt;(v3)  \
         WHERE id(v) == 'player100' \
         RETURN v2.player.name AS FriendOf, v3.team.name AS Team;
 +---------------------+-----------------+
@@ -6188,19 +6187,19 @@ YIELD [DISTINCT] <return_list>
 | "Boris Diaw"        | "Jazz"          |
 | "Boris Diaw"        | "Suns"          |
 ...
-```</p>
-<p>```ngql</p>
-<h1 id="player100_12">查询 player100 1~2 跳内的朋友。<a class="headerlink" href="#player100_12" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; GO 1 TO 2 STEPS FROM "player100" OVER follow \
+</code></pre></div>
+<div class="highlight"><pre><span></span><code># 查询 player100 1~2 跳内的朋友。
+nebula&gt; GO 1 TO 2 STEPS FROM "player100" OVER follow \
         YIELD dst(edge) AS destination;
 +-------------+
 | destination |
 +-------------+
 | "player101" |
 | "player125" |
-...</p>
-<h1 id="match_go_2">该 MATCH 查询与上一个 GO 查询具有相同的语义。<a class="headerlink" href="#match_go_2" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; MATCH (v) -[e:follow*1..2]-&gt;(v2) \
+...
+
+# 该 MATCH 查询与上一个 GO 查询具有相同的语义。
+nebula&gt; MATCH (v) -[e:follow*1..2]-&gt;(v2) \
         WHERE id(v) == "player100" \
         RETURN id(v2) AS destination;
 +-------------+
@@ -6209,13 +6208,12 @@ YIELD [DISTINCT] <return_list>
 | "player100" |
 | "player102" |
 ...
-```</p>
-<p>```ngql</p>
-<h1 id="_4">根据年龄分组。<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; GO 2 STEPS FROM "player100" OVER follow \
+</code></pre></div>
+<div class="highlight"><pre><span></span><code># 根据年龄分组。
+nebula&gt; GO 2 STEPS FROM "player100" OVER follow \
         YIELD src(edge) AS src, dst(edge) AS dst, properties($$).age AS age \
-        | GROUP BY <span class="arithmatex">\(-.dst \
-        YIELD <span class="arithmatex">\(-.dst AS dst, collect_set(\)</span>-.src) AS src, collect(\)</span>-.age) AS age;
+        | GROUP BY $-.dst \
+        YIELD $-.dst AS dst, collect_set($-.src) AS src, collect($-.age) AS age;
 +-------------+----------------------------+----------+
 | dst         | src                        | age      |
 +-------------+----------------------------+----------+
@@ -6223,10 +6221,9 @@ YIELD [DISTINCT] <return_list>
 | "player100" | ["player125", "player101"] | [42, 42] |
 | "player102" | ["player101"]              | [33]     |
 +-------------+----------------------------+----------+
-```</p>
-<p>```ngql</p>
-<h1 id="_5">分组并限制输出结果的行数。<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; $a = GO FROM "player100" OVER follow YIELD src(edge) AS src, dst(edge) AS dst; \
+</code></pre></div>
+<div class="highlight"><pre><span></span><code># 分组并限制输出结果的行数。
+nebula&gt; $a = GO FROM "player100" OVER follow YIELD src(edge) AS src, dst(edge) AS dst; \
         GO 2 STEPS FROM $a.dst OVER follow \
         YIELD $a.src AS src, $a.dst, src(edge), dst(edge) \
         | ORDER BY $-.src | OFFSET 1 LIMIT 2;
@@ -6236,24 +6233,23 @@ YIELD [DISTINCT] <return_list>
 | "player100" | "player125" | "player100" | "player101" |
 | "player100" | "player101" | "player100" | "player125" |
 +-------------+-------------+-------------+-------------+
-```</p>
-<p>```ngql</p>
-<h1 id="is_not_empty">在多个边上通过 IS NOT EMPTY 进行判断。<a class="headerlink" href="#is_not_empty" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; GO FROM "player100" OVER follow WHERE properties($$).name IS NOT EMPTY YIELD dst(edge);
+</code></pre></div>
+<div class="highlight"><pre><span></span><code># 在多个边上通过 IS NOT EMPTY 进行判断。
+nebula&gt; GO FROM "player100" OVER follow WHERE properties($$).name IS NOT EMPTY YIELD dst(edge);
 +-------------+
 | dst(EDGE)   |
 +-------------+
 | "player125" |
 | "player101" |
 +-------------+
-```</p>
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

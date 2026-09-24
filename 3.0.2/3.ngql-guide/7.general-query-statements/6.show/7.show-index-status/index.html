@@ -6029,25 +6029,25 @@
 <h1 id="show_index_status">SHOW INDEX STATUS<a class="headerlink" href="#show_index_status" title="Permanent link">&para;</a></h1>
 <p><code>SHOW INDEX STATUS</code>语句显示重建原生索引的作业状态，以便确定重建索引是否成功。</p>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><code>ngql
-SHOW {TAG | EDGE} INDEX STATUS;</code></p>
+<div class="highlight"><pre><span></span><code>SHOW {TAG | EDGE} INDEX STATUS;
+</code></pre></div>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>```ngql
-nebula&gt; SHOW TAG INDEX STATUS;
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW TAG INDEX STATUS;
 +------------------------------------+--------------+
 | Name                               | Index Status |
 +------------------------------------+--------------+
 | "date1_index"                      | "FINISHED"   |
 | "basketballplayer_all_tag_indexes" | "FINISHED"   |
 | "any_shape_geo_index"              | "FINISHED"   |
-+------------------------------------+--------------+</p>
-<p>nebula&gt; SHOW EDGE INDEX STATUS;
++------------------------------------+--------------+
+
+nebula&gt; SHOW EDGE INDEX STATUS;
 +----------------+--------------+
 | Name           | Index Status |
 +----------------+--------------+
 | "follow_index" | "FINISHED"   |
 +----------------+--------------+
-```</p>
+</code></pre></div>
 <h2 id="_3">相关文档<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../../../18.operation-and-maintenance-statements/4.job-statements/">管理作业</a></li>
@@ -6061,7 +6061,7 @@ nebula&gt; SHOW TAG INDEX STATUS;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

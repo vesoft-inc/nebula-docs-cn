@@ -6383,12 +6383,12 @@
 </ul>
 <h3 id="ulimit_-c">ulimit -c<a class="headerlink" href="#ulimit_-c" title="Permanent link">&para;</a></h3>
 <p><code>ulimit -c</code>用于限制 core 文件的大小，建议设置为<code>unlimited</code>，命令如下：</p>
-<p><code>bash
-ulimit -c unlimited</code></p>
+<div class="highlight"><pre><span></span><code><span class="nb">ulimit</span><span class="w"> </span>-c<span class="w"> </span>unlimited
+</code></pre></div>
 <h3 id="ulimit_-n">ulimit -n<a class="headerlink" href="#ulimit_-n" title="Permanent link">&para;</a></h3>
 <p><code>ulimit -n</code>用于限制打开文件的数量，建议设置为超过 10 万，例如：</p>
-<p><code>bash
-ulimit -n 130000</code></p>
+<div class="highlight"><pre><span></span><code><span class="nb">ulimit</span><span class="w"> </span>-n<span class="w"> </span><span class="m">130000</span>
+</code></pre></div>
 <h2 id="_2">内存<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="vmswappiness">vm.swappiness<a class="headerlink" href="#vmswappiness" title="Permanent link">&para;</a></h3>
 <p><code>vm.swappiness</code>是触发虚拟内存（swap）的空闲内存百分比。值越大，使用 swap 的可能性就越大，建议设置为 0，表示首先删除页缓存。需要注意的是，0 表示<strong>尽量</strong>不使用 swap。</p>
@@ -6400,10 +6400,10 @@ ulimit -n 130000</code></p>
 <p><code>vm.dirty_*</code>是一系列控制系统脏数据缓存的参数。对于写密集型场景，用户可以根据需要进行调整（吞吐量优先或延迟优先），建议使用系统默认值。</p>
 <h3 id="transparent_huge_page">Transparent huge page<a class="headerlink" href="#transparent_huge_page" title="Permanent link">&para;</a></h3>
 <p>为了降低延迟，用户必须关闭 THP（transparent huge page）。命令如下：</p>
-<p><code>bash
-root# echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled
-root# echo never &gt; /sys/kernel/mm/transparent_hugepage/defrag
-root# swapoff -a &amp;&amp; swapon -a</code></p>
+<div class="highlight"><pre><span></span><code>root#<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>never<span class="w"> </span>&gt;<span class="w"> </span>/sys/kernel/mm/transparent_hugepage/enabled
+root#<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>never<span class="w"> </span>&gt;<span class="w"> </span>/sys/kernel/mm/transparent_hugepage/defrag
+root#<span class="w"> </span>swapoff<span class="w"> </span>-a<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>swapon<span class="w"> </span>-a
+</code></pre></div>
 <h2 id="_3">网络<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <h3 id="netipv4tcp_slow_start_after_idle">net.ipv4.tcp_slow_start_after_idle<a class="headerlink" href="#netipv4tcp_slow_start_after_idle" title="Permanent link">&para;</a></h3>
 <p><code>net.ipv4.tcp_slow_start_after_idle</code>默认值为 1，会导致闲置一段时间后拥塞窗口超时，建议设置为<code>0</code>，尤其适合大带宽高延迟场景。</p>
@@ -6450,7 +6450,7 @@ root# swapoff -a &amp;&amp; swapon -a</code></p>
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

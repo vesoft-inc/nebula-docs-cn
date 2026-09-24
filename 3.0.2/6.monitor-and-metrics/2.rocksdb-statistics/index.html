@@ -6042,47 +6042,47 @@
 </ul>
 <h2 id="_1">示例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>使用以下命令获取所有 RocksDB 统计信息：
-<code>bash
-curl -L "http://${storage_ip}:${port}/rocksdb_stats"</code></p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-L<span class="w"> </span><span class="s2">"http://</span><span class="si">${</span><span class="nv">storage_ip</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">port</span><span class="si">}</span><span class="s2">/rocksdb_stats"</span>
+</code></pre></div></p>
 <p>例如：
-```
-curl -L "http://172.28.2.1:19779/rocksdb_stats"</p>
-<p>rocksdb.blobdb.blob.file.bytes.read=0
+<div class="highlight"><pre><span></span><code>curl -L "http://172.28.2.1:19779/rocksdb_stats"
+
+rocksdb.blobdb.blob.file.bytes.read=0
 rocksdb.blobdb.blob.file.bytes.written=0
 rocksdb.blobdb.blob.file.bytes.synced=0
 ...
-```</p>
+</code></pre></div></p>
 <p>使用以下命令获取部分 RocksDB 统计信息：
-<code>bash
-curl -L "http://${storage_ip}:${port}/rocksdb_stats?stats=${stats_name}"</code></p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-L<span class="w"> </span><span class="s2">"http://</span><span class="si">${</span><span class="nv">storage_ip</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">port</span><span class="si">}</span><span class="s2">/rocksdb_stats?stats=</span><span class="si">${</span><span class="nv">stats_name</span><span class="si">}</span><span class="s2">"</span>
+</code></pre></div></p>
 <p>例如使用以下语句获取 <code>rocksdb.bytes.read</code> 和 <code>rocksdb.block.cache.add</code>的信息。
-```bash
-curl -L "http://172.28.2.1:19779/rocksdb_stats?stats=rocksdb.bytes.read,rocksdb.block.cache.add"</p>
-<p>rocksdb.block.cache.add=14
-rocksdb.bytes.read=1632
-```</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-L<span class="w"> </span><span class="s2">"http://172.28.2.1:19779/rocksdb_stats?stats=rocksdb.bytes.read,rocksdb.block.cache.add"</span>
+
+rocksdb.block.cache.add<span class="o">=</span><span class="m">14</span>
+rocksdb.bytes.read<span class="o">=</span><span class="m">1632</span>
+</code></pre></div></p>
 <p>使用以下命令获取部分 JSON 格式的 RocksDB 统计信息：
-<code>bash
-curl -L "http://${storage_ip}:${port}/rocksdb_stats?stats=${stats_name}&amp;format=json"</code></p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-L<span class="w"> </span><span class="s2">"http://</span><span class="si">${</span><span class="nv">storage_ip</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">port</span><span class="si">}</span><span class="s2">/rocksdb_stats?stats=</span><span class="si">${</span><span class="nv">stats_name</span><span class="si">}</span><span class="s2">&amp;format=json"</span>
+</code></pre></div></p>
 <p>例如使用以下语句获取 <code>rocksdb.bytes.read</code> 和 <code>rocksdb.block.cache.add</code>的统计信息并返回 JSON 的格式数据。
-```bash
-curl -L "http://172.28.2.1:19779/rocksdb_stats?stats=rocksdb.bytes.read,rocksdb.block.cache.add&amp;format=json"</p>
-<p>[
-  {
-    "rocksdb.block.cache.add": 1
-  },
-  {
-    "rocksdb.bytes.read": 160
-  }
-]
-```</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-L<span class="w"> </span><span class="s2">"http://172.28.2.1:19779/rocksdb_stats?stats=rocksdb.bytes.read,rocksdb.block.cache.add&amp;format=json"</span>
+
+<span class="o">[</span>
+<span class="w">  </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">"rocksdb.block.cache.add"</span>:<span class="w"> </span><span class="m">1</span>
+<span class="w">  </span><span class="o">}</span>,
+<span class="w">  </span><span class="o">{</span>
+<span class="w">    </span><span class="s2">"rocksdb.bytes.read"</span>:<span class="w"> </span><span class="m">160</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">]</span>
+</code></pre></div></p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

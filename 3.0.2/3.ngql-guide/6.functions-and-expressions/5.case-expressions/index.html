@@ -6109,12 +6109,12 @@
 <p><code>CASE</code>表达式会遍历所有条件，并在满足第一个条件时停止读取后续条件，然后返回结果。如果不满足任何条件，将通过<code>ELSE</code>子句返回结果。如果没有<code>ELSE</code>子句且不满足任何条件，则返回<code>NULL</code>。</p>
 <h2 id="_1">简单形式<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <h3 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p><code>ngql
-CASE &lt;comparer&gt;
+<div class="highlight"><pre><span></span><code>CASE &lt;comparer&gt;
 WHEN &lt;value&gt; THEN &lt;result&gt;
 [WHEN ...]
 [ELSE &lt;default&gt;]
-END</code></p>
+END
+</code></pre></div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p><code>CASE</code>表达式一定要用<code>END</code>结尾。</p>
@@ -6146,8 +6146,7 @@ END</code></p>
 </tbody>
 </table>
 <h3 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p><code>ngql
-nebula&gt; RETURN \
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN \
         CASE 2+3 \
         WHEN 4 THEN 0 \
         WHEN 5 THEN 1 \
@@ -6158,9 +6157,9 @@ nebula&gt; RETURN \
 | result |
 +--------+
 | 1      |
-+--------+</code></p>
-<p><code>ngql
-nebula&gt; GO FROM "player100" OVER follow \
++--------+
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM "player100" OVER follow \
         YIELD properties($$).name AS Name, \
         CASE properties($$).age &gt; 35 \
         WHEN true THEN "Yes" \
@@ -6173,15 +6172,16 @@ nebula&gt; GO FROM "player100" OVER follow \
 +-----------------+--------------+
 | "Tony Parker"   | "Yes"        |
 | "Manu Ginobili" | "Yes"        |
-+-----------------+--------------+</code></p>
++-----------------+--------------+
+</code></pre></div>
 <h2 id="_4">通用形式<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <h3 id="_5">语法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
-<p><code>ngql
-CASE
+<div class="highlight"><pre><span></span><code>CASE
 WHEN &lt;condition&gt; THEN &lt;result&gt;
 [WHEN ...]
 [ELSE &lt;default&gt;]
-END</code></p>
+END
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -6205,8 +6205,7 @@ END</code></p>
 </tbody>
 </table>
 <h3 id="_6">示例<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<p><code>ngql
-nebula&gt; YIELD \
+<div class="highlight"><pre><span></span><code>nebula&gt; YIELD \
         CASE WHEN 4 &gt; 5 THEN 0 \
         WHEN 3+4==7 THEN 1 \
         ELSE 2 \
@@ -6216,9 +6215,9 @@ nebula&gt; YIELD \
 | result |
 +--------+
 | 1      |
-+--------+</code></p>
-<p><code>ngql
-nebula&gt; MATCH (v:player) WHERE v.player.age &gt; 30 \
++--------+
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player) WHERE v.player.age &gt; 30 \
         RETURN v.player.name AS Name,  \
         CASE \
         WHEN v.player.name STARTS WITH "T" THEN "Yes" \
@@ -6231,11 +6230,11 @@ nebula&gt; MATCH (v:player) WHERE v.player.age &gt; 30 \
 | "Tim"               | "Yes"         |
 | "LaMarcus Aldridge" | "No"          |
 | "Tony Parker"       | "Yes"         |
-+---------------------+---------------+</code></p>
++---------------------+---------------+
+</code></pre></div>
 <h2 id="_7">简单形式和通用形式的区别<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>为了避免误用简单形式和通用形式，用户需要了解它们的差异。请参见如下示例：</p>
-<p><code>ngql
-nebula&gt; GO FROM "player100" OVER follow \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM "player100" OVER follow \
         YIELD properties($$).name AS Name, properties($$).age AS Age, \
         CASE properties($$).age \
         WHEN properties($$).age &gt; 35 THEN "Yes" \
@@ -6247,7 +6246,8 @@ nebula&gt; GO FROM "player100" OVER follow \
 +-----------------+-----+--------------+
 | "Tony Parker"   | 36  | "No"         |
 | "Manu Ginobili" | 41  | "No"         |
-+-----------------+-----+--------------+</code></p>
++-----------------+-----+--------------+
+</code></pre></div>
 <p>示例本意为当玩家年龄大于 35 时输出<code>Yes</code>。但是查看输出结果，年龄为 36 时输出的却是<code>No</code>。</p>
 <p>这是因为查询使用了简单形式的<code>CASE</code>表达式，比较对象是<code>$$.player.age</code>和<code>$$.player.age &gt; 35</code>。当年龄为 36 时：</p>
 <ul>
@@ -6263,7 +6263,7 @@ nebula&gt; GO FROM "player100" OVER follow \
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

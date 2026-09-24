@@ -6016,8 +6016,7 @@
 <p>本文操作仅适用于 nGQL 中的 openCypher 方式。</p>
 <h2 id="_1">示例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p><code>MATCH</code>语句中使用<code>OPTIONAL MATCH</code>的示例如下：</p>
-<p><code>ngql
-nebula&gt; MATCH (m)-[]-&gt;(n) WHERE id(m)=="player100" \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (m)-[]-&gt;(n) WHERE id(m)=="player100" \
         OPTIONAL MATCH (n)-[]-&gt;(l) WHERE id(n)=="player125" \
         RETURN id(m),id(n),id(l);
 +-------------+-------------+-------------+
@@ -6027,10 +6026,10 @@ nebula&gt; MATCH (m)-[]-&gt;(n) WHERE id(m)=="player100" \
 | "player100" | "player101" | __NULL__    |
 | "player100" | "player125" | "team204"   |
 | "player100" | "player125" | "player100" |
-+-------------+-------------+-------------+</code></p>
++-------------+-------------+-------------+
+</code></pre></div>
 <p>而使用多<code>MATCH</code>，不使用<code>OPTIONAL MATCH</code>时，会返回模式完全匹配的行。示例如下：</p>
-<p><code>ngql
-nebula&gt; MATCH (m)-[]-&gt;(n) WHERE id(m)=="player100" \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (m)-[]-&gt;(n) WHERE id(m)=="player100" \
         MATCH (n)-[]-&gt;(l) WHERE id(n)=="player125" \
         RETURN id(m),id(n),id(l);
 +-------------+-------------+-------------+
@@ -6038,14 +6037,15 @@ nebula&gt; MATCH (m)-[]-&gt;(n) WHERE id(m)=="player100" \
 +-------------+-------------+-------------+
 | "player100" | "player125" | "team204"   |
 | "player100" | "player125" | "player100" |
-+-------------+-------------+-------------+</code></p>
++-------------+-------------+-------------+
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

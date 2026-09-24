@@ -2119,6 +2119,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#tag" class="md-nav__link">
+    创建 Tag 说明
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6018,6 +6025,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#tag" class="md-nav__link">
+    创建 Tag 说明
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -6050,15 +6064,15 @@
 <p>执行<code>CREATE TAG</code>语句需要当前登录的用户拥有指定图空间的<a href="../../../7.data-security/1.authentication/3.role-list/">创建 Tag 权限</a>，否则会报错。</p>
 <h2 id="_2">语法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>创建 Tag 前，需要先用<code>USE</code>语句指定工作空间。</p>
-<p><code>ngql
-CREATE TAG [IF NOT EXISTS] &lt;tag_name&gt;
+<div class="highlight"><pre><span></span><code>CREATE TAG [IF NOT EXISTS] &lt;tag_name&gt;
     (
       &lt;prop_name&gt; &lt;data_type&gt; [NULL | NOT NULL] [DEFAULT &lt;default_value&gt;] [COMMENT '&lt;comment&gt;']
       [{, &lt;prop_name&gt; &lt;data_type&gt; [NULL | NOT NULL] [DEFAULT &lt;default_value&gt;] [COMMENT '&lt;comment&gt;']} ...] 
     )
     [TTL_DURATION = &lt;ttl_duration&gt;]
     [TTL_COL = &lt;prop_name&gt;]
-    [COMMENT = '&lt;comment&gt;'];</code></p>
+    [COMMENT = '&lt;comment&gt;'];
+</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -6106,18 +6120,20 @@ CREATE TAG [IF NOT EXISTS] &lt;tag_name&gt;
 </tbody>
 </table>
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>```ngql
-nebula&gt; CREATE TAG IF NOT EXISTS player(name string, age int);</p>
-<h1 id="tag">创建没有属性的 Tag。<a class="headerlink" href="#tag" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; CREATE TAG IF NOT EXISTS no_property(); </p>
-<h1 id="tag_1">创建包含默认值的 Tag。<a class="headerlink" href="#tag_1" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; CREATE TAG IF NOT EXISTS player_with_default(name string, age int DEFAULT 20);</p>
-<h1 id="create_time_ttl_100">对字段 create_time 设置 TTL 为 100 秒。<a class="headerlink" href="#create_time_ttl_100" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; CREATE TAG IF NOT EXISTS woman(name string, age int, \
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG IF NOT EXISTS player(name string, age int);
+
+# 创建没有属性的 Tag。
+nebula&gt; CREATE TAG IF NOT EXISTS no_property(); 
+
+# 创建包含默认值的 Tag。
+nebula&gt; CREATE TAG IF NOT EXISTS player_with_default(name string, age int DEFAULT 20);
+
+# 对字段 create_time 设置 TTL 为 100 秒。
+nebula&gt; CREATE TAG IF NOT EXISTS woman(name string, age int, \
         married bool, salary double, create_time timestamp) \
         TTL_DURATION = 100, TTL_COL = "create_time";
-```</p>
-<h2 id="tag_2">创建 Tag 说明<a class="headerlink" href="#tag_2" title="Permanent link">&para;</a></h2>
+</code></pre></div>
+<h2 id="tag">创建 Tag 说明<a class="headerlink" href="#tag" title="Permanent link">&para;</a></h2>
 <p>尝试使用新创建的 Tag 可能会失败，因为创建是异步实现的。为确保数据同步，后续操作能顺利进行，请等待 2 个心跳周期（20 秒）。</p>
 <p>如果需要修改心跳间隔，请为<a href="../../../5.configurations-and-logs/1.configurations/1.configurations/">所有配置文件</a>修改参数<code>heartbeat_interval_secs</code>。</p>
 
@@ -6126,7 +6142,7 @@ nebula&gt; CREATE TAG IF NOT EXISTS player(name string, age int);</p>
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

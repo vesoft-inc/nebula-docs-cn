@@ -6013,50 +6013,50 @@
 <h1 id="show_create_index">SHOW CREATE INDEX<a class="headerlink" href="#show_create_index" title="Permanent link">&para;</a></h1>
 <p><code>SHOW CREATE INDEX</code>展示创建 Tag 或者 Edge type 时使用的 nGQL 语句，其中包含索引的详细信息，例如其关联的属性。</p>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><code>ngql
-SHOW CREATE {TAG | EDGE} INDEX &lt;index_name&gt;;</code></p>
+<div class="highlight"><pre><span></span><code>SHOW CREATE {TAG | EDGE} INDEX &lt;index_name&gt;;
+</code></pre></div>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>用户可以先运行<code>SHOW TAG INDEXES</code>查看有哪些 Tag 索引，然后用<code>SHOW CREATE TAG INDEX</code>查看指定索引的创建信息。</p>
-<p>```ngql
-nebula&gt; SHOW TAG INDEXES;
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW TAG INDEXES;
 +------------------+----------+----------+
 | Index Name       | By Tag   | Columns  |
 +------------------+----------+----------+
 | "player_index_0" | "player" | []       |
 | "player_index_1" | "player" | ["name"] |
-+------------------+----------+----------+</p>
-<p>nebula&gt; SHOW CREATE TAG INDEX player_index_1;
++------------------+----------+----------+
+
+nebula&gt; SHOW CREATE TAG INDEX player_index_1;
 +------------------+--------------------------------------------------+
 | Tag Index Name   | Create Tag Index                                 |
 +------------------+--------------------------------------------------+
-| "player_index_1" | "CREATE TAG INDEX <code>player_index_1</code> ON <code>player</code> ( |
-|                  |  <code>name</code>(20)                                      |
+| "player_index_1" | "CREATE TAG INDEX `player_index_1` ON `player` ( |
+|                  |  `name`(20)                                      |
 |                  | )"                                               |
 +------------------+--------------------------------------------------+
-```</p>
+</code></pre></div>
 <p>Edge type 索引可以用类似的方法查询：</p>
-<p>```ngql
-nebula&gt; SHOW EDGE INDEXES;
+<div class="highlight"><pre><span></span><code>nebula&gt; SHOW EDGE INDEXES;
 +----------------+----------+---------+
 | Index Name     | By Edge  | Columns |
 +----------------+----------+---------+
 | "follow_index" | "follow" | []      |
-+----------------+----------+---------+</p>
-<p>nebula&gt; SHOW CREATE EDGE INDEX follow_index;
++----------------+----------+---------+
+
+nebula&gt; SHOW CREATE EDGE INDEX follow_index;
 +-----------------+-------------------------------------------------+
 | Edge Index Name | Create Edge Index                               |
 +-----------------+-------------------------------------------------+
-| "follow_index"  | "CREATE EDGE INDEX <code>follow_index</code> ON <code>follow</code> ( |
+| "follow_index"  | "CREATE EDGE INDEX `follow_index` ON `follow` ( |
 |                 | )"                                              |
 +-----------------+-------------------------------------------------+
-```</p>
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

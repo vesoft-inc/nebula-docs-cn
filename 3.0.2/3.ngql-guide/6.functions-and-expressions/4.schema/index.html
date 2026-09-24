@@ -6145,51 +6145,54 @@
 </tbody>
 </table>
 <h2 id="_1">示例<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>```ngql
-nebula&gt; GO FROM "player100" OVER follow REVERSELY \
+<div class="highlight"><pre><span></span><code>nebula&gt; GO FROM "player100" OVER follow REVERSELY \
         YIELD src(edge) AS destination;
 +-------------+
 | destination |
 +-------------+
 | "player101" |
 | "player102" |
-...</p>
-<p>nebula&gt; LOOKUP ON player WHERE player.age  &gt; 45 YIELD id(vertex);
+...
+
+nebula&gt; LOOKUP ON player WHERE player.age  &gt; 45 YIELD id(vertex);
 +-------------+
 | id(VERTEX)  |
 +-------------+
 | "player144" |
 | "player140" |
-+-------------+</p>
-<p>nebula&gt; MATCH (a:player) WHERE id(a) == "player100" \
++-------------+
+
+nebula&gt; MATCH (a:player) WHERE id(a) == "player100" \
         RETURN tags(a), labels(a), properties(a);
 +------------+------------+-------------------------------+
 | tags(a)    | labels(a)  | properties(a)                 |
 +------------+------------+-------------------------------+
 | ["player"] | ["player"] | {age: 42, name: "Tim Duncan"} |
-+------------+------------+-------------------------------+</p>
-<p>nebula&gt; MATCH p = (a :player {name : "Tim Duncan"})-[r:serve]-(t) \
++------------+------------+-------------------------------+
+
+nebula&gt; MATCH p = (a :player {name : "Tim Duncan"})-[r:serve]-(t) \
         RETURN type(r), rank(r);
 +---------+---------+
 | type(r) | rank(r) |
 +---------+---------+
 | "serve" | 0       |
-+---------+---------+</p>
-<p>nebula&gt; MATCH p = (a :player {name : "Tim Duncan"})-[r:serve]-(t) \
++---------+---------+
+
+nebula&gt; MATCH p = (a :player {name : "Tim Duncan"})-[r:serve]-(t) \
         RETURN startNode(p), endNode(p);
 +----------------------------------------------------+----------------------------------+
 | startNode(p)                                       | endNode(p)                       |
 +----------------------------------------------------+----------------------------------+
 | ("player100" :player{age: 42, name: "Tim Duncan"}) | ("team204" :team{name: "Spurs"}) |
 +----------------------------------------------------+----------------------------------+
-```</p>
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

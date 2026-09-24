@@ -6014,15 +6014,16 @@
 <p><code>INSERT EDGE</code>语句可以在 Nebula Graph 实例的指定图空间中插入一条或多条边。边是有方向的，从起始点（src_vid）到目的点（dst_vid）。</p>
 <p><code>INSERT EDGE</code>的执行方式为覆盖式插入。如果已有 Edge type、起点、终点、rank 都相同的边，则<strong>覆盖</strong>原边。</p>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>```ngql
-INSERT EDGE [IF NOT EXISTS] <edge_type> ( <prop_name_list> ) VALUES 
-<src_vid> -&gt; <dst_vid>[@<rank>] : ( <prop_value_list> )
-[, <src_vid> -&gt; <dst_vid>[@<rank>] : ( <prop_value_list> ), ...];</p>
-<p><prop_name_list> ::=
-  [ <prop_name> [, <prop_name> ] ...]</p>
-<p><prop_value_list> ::=
-  [ <prop_value> [, <prop_value> ] ...]
-```</p>
+<div class="highlight"><pre><span></span><code>INSERT EDGE [IF NOT EXISTS] &lt;edge_type&gt; ( &lt;prop_name_list&gt; ) VALUES 
+&lt;src_vid&gt; -&gt; &lt;dst_vid&gt;[@&lt;rank&gt;] : ( &lt;prop_value_list&gt; )
+[, &lt;src_vid&gt; -&gt; &lt;dst_vid&gt;[@&lt;rank&gt;] : ( &lt;prop_value_list&gt; ), ...];
+
+&lt;prop_name_list&gt; ::=
+  [ &lt;prop_name&gt; [, &lt;prop_name&gt; ] ...]
+
+&lt;prop_value_list&gt; ::=
+  [ &lt;prop_value&gt; [, &lt;prop_value&gt; ] ...]
+</code></pre></div>
 <ul>
 <li>
 <p><code>IF NOT EXISTS</code>：用户可以使用<code>IF NOT EXISTS</code>关键字检测待插入的边是否存在，只有不存在时，才会插入。</p>
@@ -6058,26 +6059,26 @@ INSERT EDGE [IF NOT EXISTS] <edge_type> ( <prop_name_list> ) VALUES
 <li><code>&lt;prop_value_list&gt;</code>：根据<code>prop_name_list</code>填写属性值。如果属性值和 Edge type 中的数据类型不匹配，会返回错误。如果没有填写属性值，而 Edge type 中对应的属性设置为<code>NOT NULL</code>，也会返回错误。详情请参见 <a href="../../11.edge-type-statements/1.create-edge/">CREATE EDGE</a>。</li>
 </ul>
 <h2 id="_2">示例<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>```ngql</p>
-<h1 id="_3">插入不包含属性的边。<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; CREATE EDGE IF NOT EXISTS e1();               <br />
-nebula&gt; INSERT EDGE e1 () VALUES "10"-&gt;"11":();  </p>
-<h1 id="rank_1">插入 rank 为 1 的边。<a class="headerlink" href="#rank_1" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; INSERT EDGE e1 () VALUES "10"-&gt;"11"@1:(); 
-```</p>
-<p>```ngql
-nebula&gt; CREATE EDGE IF NOT EXISTS e2 (name string, age int); 
-nebula&gt; INSERT EDGE e2 (name, age) VALUES "11"-&gt;"13":("n1", 1);</p>
-<h1 id="2">一次插入 2 条边。<a class="headerlink" href="#2" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; INSERT EDGE e2 (name, age) VALUES \
-        "12"-&gt;"13":("n1", 1), "13"-&gt;"14":("n2", 2); </p>
-<h1 id="a13_int">创建失败，因为"a13"不是 int 类型。<a class="headerlink" href="#a13_int" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; INSERT EDGE e2 (name, age) VALUES "11"-&gt;"13":("n1", "a13");
-```</p>
+<div class="highlight"><pre><span></span><code># 插入不包含属性的边。
+nebula&gt; CREATE EDGE IF NOT EXISTS e1();                 
+nebula&gt; INSERT EDGE e1 () VALUES "10"-&gt;"11":();  
+
+# 插入 rank 为 1 的边。
+nebula&gt; INSERT EDGE e1 () VALUES "10"-&gt;"11"@1:(); 
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE EDGE IF NOT EXISTS e2 (name string, age int); 
+nebula&gt; INSERT EDGE e2 (name, age) VALUES "11"-&gt;"13":("n1", 1);
+
+# 一次插入 2 条边。
+nebula&gt; INSERT EDGE e2 (name, age) VALUES \
+        "12"-&gt;"13":("n1", 1), "13"-&gt;"14":("n2", 2); 
+
+# 创建失败，因为"a13"不是 int 类型。
+nebula&gt; INSERT EDGE e2 (name, age) VALUES "11"-&gt;"13":("n1", "a13");
+</code></pre></div>
 <p>一条边可以多次插入属性值，以最后一次为准。</p>
-<p>```ngql</p>
-<h1 id="_4">多次插入属性值。<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; INSERT EDGE e2 (name, age) VALUES "11"-&gt;"13":("n1", 12);
+<div class="highlight"><pre><span></span><code># 多次插入属性值。
+nebula&gt; INSERT EDGE e2 (name, age) VALUES "11"-&gt;"13":("n1", 12);
 nebula&gt; INSERT EDGE e2 (name, age) VALUES "11"-&gt;"13":("n1", 13);
 nebula&gt; INSERT EDGE e2 (name, age) VALUES "11"-&gt;"13":("n1", 14);
 nebula&gt; FETCH PROP ON e2 "11"-&gt;"13" YIELD edge AS e;
@@ -6086,20 +6087,19 @@ nebula&gt; FETCH PROP ON e2 "11"-&gt;"13" YIELD edge AS e;
 +-------------------------------------------+
 | [:e2 "11"-&gt;"13" @0 {age: 14, name: "n1"}] |
 +-------------------------------------------+
-```</p>
+</code></pre></div>
 <p>使用<code>IF NOT EXISTS</code>插入已存在的边时，不会进行修改。</p>
-<p>```ngql</p>
-<h1 id="_5">插入边。<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; INSERT EDGE e2 (name, age) VALUES "14"-&gt;"15"@1:("n1", 12);</p>
-<h1 id="if_not_exists">使用 IF NOT EXISTS 修改边，因为边已存在，不会进行修改。<a class="headerlink" href="#if_not_exists" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; INSERT EDGE IF NOT EXISTS e2 (name, age) VALUES "14"-&gt;"15"@1:("n2", 13);
+<div class="highlight"><pre><span></span><code># 插入边。
+nebula&gt; INSERT EDGE e2 (name, age) VALUES "14"-&gt;"15"@1:("n1", 12);
+# 使用 IF NOT EXISTS 修改边，因为边已存在，不会进行修改。
+nebula&gt; INSERT EDGE IF NOT EXISTS e2 (name, age) VALUES "14"-&gt;"15"@1:("n2", 13);
 nebula&gt; FETCH PROP ON e2 "14"-&gt;"15"@1 YIELD edge AS e;
 +-------------------------------------------+
 | e                                         |
 +-------------------------------------------+
 | [:e2 "14"-&gt;"15" @1 {age: 12, name: "n1"}] |
 +-------------------------------------------+
-```</p>
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <ul>
@@ -6115,7 +6115,7 @@ nebula&gt; FETCH PROP ON e2 "14"-&gt;"15"@1 YIELD edge AS e;
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

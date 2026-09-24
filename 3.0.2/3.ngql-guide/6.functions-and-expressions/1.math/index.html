@@ -6180,28 +6180,27 @@
 <p>如果参数为<code>NULL</code>，则输出结果是未定义的。</p>
 </div>
 <h2 id="_3">示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p>```ngql</p>
-<h1 id="_4">支持聚合函数<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h1>
-<p>nebula&gt;  GO FROM "player100" OVER follow YIELD dst(edge) AS dst, properties($$).age AS age \
-         | GROUP BY <span class="arithmatex">\(-.dst \
+<div class="highlight"><pre><span></span><code># 支持聚合函数
+nebula&gt;  GO FROM "player100" OVER follow YIELD dst(edge) AS dst, properties($$).age AS age \
+         | GROUP BY $-.dst \
          YIELD \
-         <span class="arithmatex">\(-.dst AS dst, \
-         toInteger((sum(\)</span>-.age)/count(\)</span>-.age)))+avg(distinct $-.age+1)+1 AS statistics;
+         $-.dst AS dst, \
+         toInteger((sum($-.age)/count($-.age)))+avg(distinct $-.age+1)+1 AS statistics;
 +-------------+------------+
 | dst         | statistics |
 +-------------+------------+
 | "player125" | 84.0       |
 | "player101" | 74.0       |
 +-------------+------------+
-Got 2 rows (time spent 4739/5064 us)</p>
-<p>```</p>
+Got 2 rows (time spent 4739/5064 us)
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

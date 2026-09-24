@@ -6023,21 +6023,23 @@
 <p class="admonition-title">Note</p>
 <p>关键字不区分大小写。</p>
 </div>
-<p><code>``ngql
-nebula&gt; CREATE TAG TAG(name string);
-[ERROR (-7)]: SyntaxError: syntax error near</code>TAG'</p>
-<p>nebula&gt; CREATE TAG <code>TAG</code> (name string);
-Execution succeeded</p>
-<p>nebula&gt; CREATE TAG SPACE(name string);
-Execution succeeded</p>
-<p>nebula&gt; CREATE TAG 中文(简体 string);
-Execution succeeded</p>
-<p>nebula&gt; CREATE TAG <code>￥%特殊 字符&amp;*+-*/</code> (<code>q~！（）=  wer</code> string);
+<div class="highlight"><pre><span></span><code>nebula&gt; CREATE TAG TAG(name string);
+[ERROR (-7)]: SyntaxError: syntax error near `TAG'
+
+nebula&gt; CREATE TAG `TAG` (name string);
 Execution succeeded
-```</p>
+
+nebula&gt; CREATE TAG SPACE(name string);
+Execution succeeded
+
+nebula&gt; CREATE TAG 中文(简体 string);
+Execution succeeded
+
+nebula&gt; CREATE TAG `￥%特殊 字符&amp;*+-*/` (`q~！（）=  wer` string);
+Execution succeeded
+</code></pre></div>
 <h2 id="_2">保留关键字<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p><code>ngql
-ACROSS
+<div class="highlight"><pre><span></span><code>ACROSS
 ADD
 ALTER
 AND
@@ -6137,10 +6139,10 @@ WHEN
 WHERE
 WITH
 XOR
-YIELD</code></p>
+YIELD
+</code></pre></div>
 <h2 id="_3">非保留关键字<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p><code>ngql
-ACCOUNT
+<div class="highlight"><pre><span></span><code>ACCOUNT
 ADMIN
 ALL
 ANY
@@ -6243,14 +6245,15 @@ WILDCARD
 ZONE
 ZONES
 FALSE
-TRUE</code></p>
+TRUE
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

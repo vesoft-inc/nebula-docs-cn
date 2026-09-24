@@ -6084,8 +6084,8 @@
 <p>关于安装存算合并版 Nebula Graph 所需的环境，参见<a href="../1.resource-preparations/">编译 Nebula Graph 源码要求</a>。</p>
 <h2 id="_5">安装步骤<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>目前仅支持使用源码安装存算合并版 Nebula Graph。其安装步骤与多进程的 Nebula Graph 步骤类似，用户只需在<strong>使用 CMake 生成 makefile 文件</strong>步骤的命令中添加<code>-DENABLE_STANDALONE_VERSION=on</code>。示例如下：</p>
-<p><code>bash
-cmake -DCMAKE_INSTALL_PREFIX=/usr/local/nebula -DENABLE_TESTING=OFF -DENABLE_STANDALONE_VERSION=on -DCMAKE_BUILD_TYPE=Release ..</code> </p>
+<div class="highlight"><pre><span></span><code>cmake<span class="w"> </span>-DCMAKE_INSTALL_PREFIX<span class="o">=</span>/usr/local/nebula<span class="w"> </span>-DENABLE_TESTING<span class="o">=</span>OFF<span class="w"> </span>-DENABLE_STANDALONE_VERSION<span class="o">=</span>on<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span>..
+</code></pre></div>
 <p>有关具体的安装步骤，参见<a href="../2.compile-and-install-nebula-graph/1.install-nebula-graph-by-compiling-the-source-code/">使用源码安装</a>。</p>
 <p>用户完成存算合并版 Nebula Graph 后，可以参见<a href="../connect-to-nebula-graph/">连接服务</a>连接 Nebula Graph。</p>
 <h2 id="_6">配置文件<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
@@ -6124,7 +6124,7 @@ cmake -DCMAKE_INSTALL_PREFIX=/usr/local/nebula -DENABLE_TESTING=OFF -DENABLE_STA
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

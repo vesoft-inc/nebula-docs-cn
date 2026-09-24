@@ -6068,18 +6068,18 @@
 <p><code>UNWIND</code>语句可以将列表拆分为单独的行，列表中的每个元素为一行。</p>
 <p><code>UNWIND</code>可以作为单独语句或语句中的子句使用。</p>
 <h2 id="_1">语法<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p><code>ngql
-UNWIND &lt;list&gt; AS &lt;alias&gt; &lt;RETURN clause&gt;;</code></p>
+<div class="highlight"><pre><span></span><code>UNWIND &lt;list&gt; AS &lt;alias&gt; &lt;RETURN clause&gt;;
+</code></pre></div>
 <h2 id="_2">拆分列表<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p><code>ngql
-nebula&gt; UNWIND [1,2,3] AS n RETURN n;
+<div class="highlight"><pre><span></span><code>nebula&gt; UNWIND [1,2,3] AS n RETURN n;
 +---+
 | n |
 +---+
 | 1 |
 | 2 |
 | 3 |
-+---+</code></p>
++---+
+</code></pre></div>
 <h2 id="_3">返回去重列表<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>在<code>UNWIND</code>语句中使用<code>WITH DISTINCT</code>可以将列表中的重复项忽略，返回去重后的结果。</p>
 <h3 id="1">示例 1<a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
@@ -6089,8 +6089,7 @@ nebula&gt; UNWIND [1,2,3] AS n RETURN n;
 <li>排序行。</li>
 <li>将行转换为列表。</li>
 </ol>
-<p><code>ngql
-nebula&gt; WITH [1,1,2,2,3,3] AS n \
+<div class="highlight"><pre><span></span><code>nebula&gt; WITH [1,1,2,2,3,3] AS n \
         UNWIND n AS r \
         WITH DISTINCT r AS r \
         ORDER BY r \
@@ -6099,7 +6098,8 @@ nebula&gt; WITH [1,1,2,2,3,3] AS n \
 | collect(r) |
 +------------+
 | [1, 2, 3]  |
-+------------+</code></p>
++------------+
+</code></pre></div>
 <h3 id="2">示例 2<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
 <ol>
 <li>将匹配路径上的顶点输出到列表中。</li>
@@ -6107,8 +6107,7 @@ nebula&gt; WITH [1,1,2,2,3,3] AS n \
 <li>删除重复行。</li>
 <li>将行转换为列表。</li>
 </ol>
-<p><code>ngql
-nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})--(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})--(v2) \
         WITH nodes(p) AS n \
         UNWIND n AS r \
         WITH DISTINCT r AS r \
@@ -6122,14 +6121,15 @@ nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})--(v2) \
 |("player144" :player{age: 47, name: "Shaquile O'Neal"}), ("player105" :player{age: 31, name: "Danny Green"}),         |
 |("player113" :player{age: 29, name: "Dejounte Murray"}), ("player107" :player{age: 32, name: "Aron Baynes"}),         |
 |("player109" :player{age: 34, name: "Tiago Splitter"}), ("player108" :player{age: 36, name: "Boris Diaw"})]           |  
-+----------------------------------------------------------------------------------------------------------------------+</code></p>
++----------------------------------------------------------------------------------------------------------------------+
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>

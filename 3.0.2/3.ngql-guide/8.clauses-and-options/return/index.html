@@ -6235,17 +6235,17 @@
 <ul>
 <li>
 <p>使用不在英文字母表中的字符作为变量名。例如：</p>
-<p><code>ngql
-MATCH (`点 1`:player) \
-RETURN `点 1`;</code></p>
+<div class="highlight"><pre><span></span><code>MATCH (`点 1`:player) \
+RETURN `点 1`;
+</code></pre></div>
 </li>
 </ul>
 <ul>
 <li>
 <p>设置一个模式，并返回该模式匹配的所有元素。例如：</p>
-<p><code>ngql
-MATCH (v:player) \
-RETURN (v)-[e]-&gt;(v2);</code></p>
+<div class="highlight"><pre><span></span><code>MATCH (v:player) \
+RETURN (v)-[e]-&gt;(v2);
+</code></pre></div>
 </li>
 </ul>
 <h2 id="_1">历史版本兼容性<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
@@ -6257,24 +6257,23 @@ RETURN (v)-[e]-&gt;(v2);</code></p>
 </ul>
 <h2 id="map">Map 顺序说明<a class="headerlink" href="#map" title="Permanent link">&para;</a></h2>
 <p><code>RETURN</code>返回 Map 时，Key 的顺序是未定义的。</p>
-<p>```ngql
-nebula&gt; RETURN {age: 32, name: "Marco Belinelli"};
+<div class="highlight"><pre><span></span><code>nebula&gt; RETURN {age: 32, name: "Marco Belinelli"};
 +------------------------------------+
 | {age:32,name:"Marco Belinelli"}    |
 +------------------------------------+
 | {age: 32, name: "Marco Belinelli"} |
-+------------------------------------+</p>
-<p>nebula&gt; RETURN {zage: 32, name: "Marco Belinelli"};
++------------------------------------+
+
+nebula&gt; RETURN {zage: 32, name: "Marco Belinelli"};
 +-------------------------------------+
 | {zage:32,name:"Marco Belinelli"}    |
 +-------------------------------------+
 | {name: "Marco Belinelli", zage: 32} |
 +-------------------------------------+
-```</p>
+</code></pre></div>
 <h2 id="_2">返回点或边<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>使用<code>RETURN {&lt;vertex_name&gt; | &lt;edge_name&gt;}</code>返回点或边的所有信息。</p>
-<p>```ngql
-// 返回点
+<div class="highlight"><pre><span></span><code>// 返回点
 nebula&gt; MATCH (v:player) \
         RETURN v;
 +---------------------------------------------------------------+
@@ -6286,8 +6285,9 @@ nebula&gt; MATCH (v:player) \
 | ("player120" :player{age: 29, name: "James Harden"})          |
 | ("player125" :player{age: 41, name: "Manu Ginobili"})         |
 +---------------------------------------------------------------+
-...</p>
-<p>// 返回边
+...
+
+// 返回边
 nebula&gt; MATCH (v:player)-[e]-&gt;() \
         RETURN e;
 +------------------------------------------------------------------------------+
@@ -6300,40 +6300,39 @@ nebula&gt; MATCH (v:player)-[e]-&gt;() \
 | [:serve "player104"-&gt;"team208" @0 {end_year: 2016, start_year: 2015}]        |
 +------------------------------------------------------------------------------+
 ...
-```</p>
+</code></pre></div>
 <h2 id="id">返回点 ID<a class="headerlink" href="#id" title="Permanent link">&para;</a></h2>
 <p>使用<code>id()</code>函数返回点 ID。
-<code>ngql
-nebula&gt; MATCH (v:player{name:"Tim Duncan"}) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"}) \
         RETURN id(v);
 +-------------+
 | id(v)       |
 +-------------+
 | "player100" |
-+-------------+</code></p>
++-------------+
+</code></pre></div></p>
 <h2 id="tag">返回 Tag<a class="headerlink" href="#tag" title="Permanent link">&para;</a></h2>
 <p>使用<code>labels()</code>函数返回点上的 Tag 列表。</p>
-<p><code>ngql
-nebula&gt; MATCH (v:player{name:"Tim Duncan"}) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"}) \
         RETURN labels(v);
 +------------+
 | labels(v)  |
 +------------+
 | ["player"] |
-+------------+</code></p>
++------------+
+</code></pre></div>
 <p>返回列表<code>labels(v)</code>中的第 N 个元素，可以使用<code>labels(v)[n-1]</code>。例如下面示例使用<code>labels(v)[0]</code>检索第一个元素。</p>
-<p><code>ngql
-nebula&gt; MATCH (v:player{name:"Tim Duncan"}) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"}) \
         RETURN labels(v)[0];
 +--------------+
 | labels(v)[0] |
 +--------------+
 | "player"     |
-+--------------+</code></p>
++--------------+
+</code></pre></div>
 <h2 id="_3">返回属性<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>使用语法<code>{&lt;vertex_name&gt;|&lt;edge_name&gt;}.&lt;property&gt;</code>返回点或边的属性。</p>
-<p><code>ngql
-nebula&gt; MATCH (v:player) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player) \
         RETURN v.player.name, v.player.age \
         LIMIT 3;
 +------------------+--------------+
@@ -6342,10 +6341,10 @@ nebula&gt; MATCH (v:player) \
 | "Danny Green"    | 31           |
 | "Tiago Splitter" | 34           |
 | "David West"     | 38           |
-+------------------+--------------+</code></p>
++------------------+--------------+
+</code></pre></div>
 <p>使用<code>properties()</code>函数返回点或边的所有属性。</p>
-<p><code>ngql
-nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[]-&gt;(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[]-&gt;(v2) \
         RETURN properties(v2);
 +----------------------------------+
 | properties(v2)                   |
@@ -6353,22 +6352,22 @@ nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[]-&gt;(v2) \
 | {name: "Spurs"}                  |
 | {age: 36, name: "Tony Parker"}   |
 | {age: 41, name: "Manu Ginobili"} |
-+----------------------------------+</code></p>
++----------------------------------+
+</code></pre></div>
 <h2 id="edge_type">返回 Edge type<a class="headerlink" href="#edge_type" title="Permanent link">&para;</a></h2>
 <p>使用<code>type()</code>函数返回匹配的 Edge type。</p>
-<p><code>ngql
-nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[e]-&gt;() \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[e]-&gt;() \
         RETURN DISTINCT type(e);
 +----------+
 | type(e)  |
 +----------+
 | "serve"  |
 | "follow" |
-+----------+</code></p>
++----------+
+</code></pre></div>
 <h2 id="_4">返回路径<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>使用<code>RETURN &lt;path_name&gt;</code>返回匹配路径的所有信息。</p>
-<p><code>ngql
-nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[*3]-&gt;() \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[*3]-&gt;() \
         RETURN p;
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | p                                                                                                                                                                                                                                                                                                              |
@@ -6377,11 +6376,11 @@ nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[*3]-&gt;() \
 | &lt;("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]-&gt;("player101" :player{age: 36, name: "Tony Parker"})-[:follow@0 {degree: 90}]-&gt;("player102" :player{age: 33, name: "LaMarcus Aldridge"})-[:serve@0 {end_year: 2015, start_year: 2006}]-&gt;("team203" :team{name: "Trail Blazers"})&gt; |
 | &lt;("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]-&gt;("player101" :player{age: 36, name: "Tony Parker"})-[:follow@0 {degree: 90}]-&gt;("player102" :player{age: 33, name: "LaMarcus Aldridge"})-[:follow@0 {degree: 75}]-&gt;("player101" :player{age: 36, name: "Tony Parker"})&gt;           |
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-...</code></p>
+...
+</code></pre></div>
 <h2 id="_5">返回路径中的点<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>使用<code>nodes()</code>函数返回路径中的所有点。</p>
-<p><code>ngql
-nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[]-&gt;(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[]-&gt;(v2) \
         RETURN nodes(p);
 +---------------------------------------------------------------------------------------------------------------------+
 | nodes(p)                                                                                                            |
@@ -6389,11 +6388,11 @@ nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[]-&gt;(v2) \
 | [("player100" :star{} :player{age: 42, name: "Tim Duncan"}), ("player204" :team{name: "Spurs"})]                    |
 | [("player100" :star{} :player{age: 42, name: "Tim Duncan"}), ("player101" :player{name: "Tony Parker", age: 36})]   |
 | [("player100" :star{} :player{age: 42, name: "Tim Duncan"}), ("player125" :player{name: "Manu Ginobili", age: 41})] |
-+---------------------------------------------------------------------------------------------------------------------+</code></p>
++---------------------------------------------------------------------------------------------------------------------+
+</code></pre></div>
 <h2 id="_6">返回路径中的边<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
 <p>使用<code>relationships()</code>函数返回路径中的所有边。</p>
-<p><code>ngql
-nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[]-&gt;(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[]-&gt;(v2) \
         RETURN relationships(p);
 +-------------------------------------------------------------------------+
 | relationships(p)                                                        |
@@ -6401,11 +6400,11 @@ nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[]-&gt;(v2) \
 | [[:serve "player100"-&gt;"team204" @0 {end_year: 2016, start_year: 1997}]] |
 | [[:follow "player100"-&gt;"player101" @0 {degree: 95}]]                    |
 | [[:follow "player100"-&gt;"player125" @0 {degree: 95}]]                    |
-+-------------------------------------------------------------------------+</code></p>
++-------------------------------------------------------------------------+
+</code></pre></div>
 <h2 id="_7">返回路径长度<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <p>使用<code>length()</code>函数检索路径的长度。</p>
-<p><code>ngql
-nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[*..2]-&gt;(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[*..2]-&gt;(v2) \
         RETURN p AS Paths, length(p) AS Length;
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
 | Paths                                                                                                                                                                                                                  | Length |
@@ -6420,18 +6419,19 @@ nebula&gt; MATCH p=(v:player{name:"Tim Duncan"})-[*..2]-&gt;(v2) \
 | &lt;("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]-&gt;("player101" :player{age: 36, name: "Tony Parker"})-[:follow@0 {degree: 95}]-&gt;("player125" :player{age: 41, name: "Manu Ginobili"})&gt;     | 2      |
 | &lt;("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]-&gt;("player125" :player{age: 41, name: "Manu Ginobili"})-[:serve@0 {end_year: 2018, start_year: 2002}]-&gt;("team204" :team{name: "Spurs"})&gt;   | 2      |
 | &lt;("player100" :player{age: 42, name: "Tim Duncan"})-[:follow@0 {degree: 95}]-&gt;("player125" :player{age: 41, name: "Manu Ginobili"})-[:follow@0 {degree: 90}]-&gt;("player100" :player{age: 42, name: "Tim Duncan"})&gt;      | 2      |
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+</code></p>
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+</code></pre></div>
 <h2 id="_8">返回所有元素<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <p>使用星号（*）返回匹配模式中的所有元素。</p>
-<p>```ngql
-nebula&gt; MATCH (v:player{name:"Tim Duncan"}) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"}) \
         RETURN *;
 +----------------------------------------------------+
 | v                                                  |
 +----------------------------------------------------+
 | ("player100" :player{age: 42, name: "Tim Duncan"}) |
-+----------------------------------------------------+</p>
-<p>nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;(v2) \
++----------------------------------------------------+
+
+nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;(v2) \
         RETURN *;
 +----------------------------------------------------+-----------------------------------------------------------------------+-------------------------------------------------------+
 | v                                                  | e                                                                     | v2                                                    |
@@ -6440,28 +6440,27 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"}) \
 | ("player100" :player{age: 42, name: "Tim Duncan"}) | [:follow "player100"-&gt;"player125" @0 {degree: 95}]                    | ("player125" :player{age: 41, name: "Manu Ginobili"}) |
 | ("player100" :player{age: 42, name: "Tim Duncan"}) | [:serve "player100"-&gt;"team204" @0 {end_year: 2016, start_year: 1997}] | ("team204" :team{name: "Spurs"})                      |
 +----------------------------------------------------+-----------------------------------------------------------------------+-------------------------------------------------------+
-```</p>
+</code></pre></div>
 <h2 id="_9">重命名字段<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <p>使用语法<code>AS &lt;alias&gt;</code>重命名输出结果中的字段。</p>
-<p>```ngql
-nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[:serve]-&gt;(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[:serve]-&gt;(v2) \
         RETURN v2.team.name AS Team;
 +---------+
 | Team    |
 +---------+
 | "Spurs" |
-+---------+</p>
-<p>nebula&gt; RETURN "Amber" AS Name;
++---------+
+
+nebula&gt; RETURN "Amber" AS Name;
 +---------+
 | Name    |
 +---------+
 | "Amber" |
 +---------+
-```</p>
+</code></pre></div>
 <h2 id="_10">返回不存在的属性<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
 <p>如果匹配的结果中，某个属性不存在，会返回<code>NULL</code>。</p>
-<p><code>ngql
-nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;(v2) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;(v2) \
         RETURN v2.player.name, type(e), v2.player.age;
 +-----------------+----------+---------------+
 | v2.player.name  | type(e)  | v2.player.age |
@@ -6469,11 +6468,11 @@ nebula&gt; MATCH (v:player{name:"Tim Duncan"})-[e]-&gt;(v2) \
 | "Manu Ginobili" | "follow" | 41            |
 | __NULL__        | "serve"  | __NULL__      |
 | "Tony Parker"   | "follow" | 36            |
-+-----------------+----------+---------------+</code></p>
++-----------------+----------+---------------+
+</code></pre></div>
 <h2 id="_11">返回表达式结果<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
 <p><code>RETURN</code>语句可以返回字面量、函数或谓词等表达式的结果。</p>
-<p>```ngql
-nebula&gt; MATCH (v:player{name:"Tony Parker"})--&gt;(v2:player) \
+<div class="highlight"><pre><span></span><code>nebula&gt; MATCH (v:player{name:"Tony Parker"})--&gt;(v2:player) \
         RETURN DISTINCT v2.player.name, "Hello"+" graphs!", v2.player.age &gt; 35;
 +---------------------+----------------------+--------------------+
 | v2.player.name      | ("Hello"+" graphs!") | (v2.player.age&gt;35) |
@@ -6481,31 +6480,33 @@ nebula&gt; MATCH (v:player{name:"Tony Parker"})--&gt;(v2:player) \
 | "LaMarcus Aldridge" | "Hello graphs!"      | false              |
 | "Tim Duncan"        | "Hello graphs!"      | true               |
 | "Manu Ginobili"     | "Hello graphs!"      | true               |
-+---------------------+----------------------+--------------------+</p>
-<p>nebula&gt; RETURN 1+1;
++---------------------+----------------------+--------------------+
+
+nebula&gt; RETURN 1+1;
 +-------+
 | (1+1) |
 +-------+
 | 2     |
-+-------+</p>
-<p>nebula&gt; RETURN 3 &gt; 1;
++-------+
+
+nebula&gt; RETURN 3 &gt; 1;
 +-------+
 | (3&gt;1) |
 +-------+
 | true  |
-+-------+</p>
-<p>nebula&gt; RETURN 1+1, rand32(1, 5);
++-------+
+
+nebula&gt; RETURN 1+1, rand32(1, 5);
 +-------+-------------+
 | (1+1) | rand32(1,5) |
 +-------+-------------+
 | 2     | 1           |
 +-------+-------------+
-```</p>
+</code></pre></div>
 <h2 id="_12">返回唯一字段<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
 <p>使用<code>DISTINCT</code>可以删除结果集中的重复字段。</p>
-<p>```ngql</p>
-<h1 id="distinct">未使用 DISTINCT。<a class="headerlink" href="#distinct" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; MATCH (v:player{name:"Tony Parker"})--(v2:player) \
+<div class="highlight"><pre><span></span><code># 未使用 DISTINCT。
+nebula&gt; MATCH (v:player{name:"Tony Parker"})--(v2:player) \
         RETURN v2.player.name, v2.player.age;
 +---------------------+--------+
 | v2.name             | v2.age |
@@ -6518,9 +6519,10 @@ nebula&gt; MATCH (v:player{name:"Tony Parker"})--&gt;(v2:player) \
 | "Tim Duncan"        | 42     |
 | "LaMarcus Aldridge" | 33     |
 | "Manu Ginobili"     | 41     |
-+---------------------+--------+</p>
-<h1 id="distinct_1">使用 DISTINCT。<a class="headerlink" href="#distinct_1" title="Permanent link">&para;</a></h1>
-<p>nebula&gt; MATCH (v:player{name:"Tony Parker"})--(v2:player) \
++---------------------+--------+
+
+# 使用 DISTINCT。
+nebula&gt; MATCH (v:player{name:"Tony Parker"})--(v2:player) \
         RETURN DISTINCT v2.player.name, v2.player.age;
 +---------------------+--------+
 | v2.name             | v2.age |
@@ -6532,14 +6534,14 @@ nebula&gt; MATCH (v:player{name:"Tony Parker"})--&gt;(v2:player) \
 | "Dejounte Murray"   | 29     |
 | "Manu Ginobili"     | 41     |
 +---------------------+--------+
-```</p>
+</code></pre></div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       最后更新:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年8月17日</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2026年9月24日</span>
       
     
   </small>
