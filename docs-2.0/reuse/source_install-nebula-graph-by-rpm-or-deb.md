@@ -14,40 +14,40 @@ RPM 和 DEB 是 Linux 系统下常见的两种安装包格式，本文介绍如�
 
 ## 下载安装包
 
-### 阿里云 OSS 下载
+### 下载安装包
 
 - 下载 release 版本
 
-    URL 格式如下：
+    下载地址如下：
 
     ```bash
     //Centos 7
-    https://oss-cdn.nebula-graph.com.cn/package/<release_version>/nebula-graph-<release_version>.el7.x86_64.rpm
+    https://github.com/vesoft-inc/nebula/releases/download/v3.0.2/nebula-graph-3.0.2.el7.x86_64.rpm
 
     //Centos 8
-    https://oss-cdn.nebula-graph.com.cn/package/<release_version>/nebula-graph-<release_version>.el8.x86_64.rpm
+    https://github.com/vesoft-inc/nebula/releases/download/v3.0.2/nebula-graph-3.0.2.el8.x86_64.rpm
 
     //Ubuntu 1604
-    https://oss-cdn.nebula-graph.com.cn/package/<release_version>/nebula-graph-<release_version>.ubuntu1604.amd64.deb
+    https://github.com/vesoft-inc/nebula/releases/download/v3.0.2/nebula-graph-3.0.2.ubuntu1604.amd64.deb
 
     //Ubuntu 1804
-    https://oss-cdn.nebula-graph.com.cn/package/<release_version>/nebula-graph-<release_version>.ubuntu1804.amd64.deb
+    https://github.com/vesoft-inc/nebula/releases/download/v3.0.2/nebula-graph-3.0.2.ubuntu1804.amd64.deb
 
     //Ubuntu 2004
-    https://oss-cdn.nebula-graph.com.cn/package/<release_version>/nebula-graph-<release_version>.ubuntu2004.amd64.deb
+    https://github.com/vesoft-inc/nebula/releases/download/v3.0.2/nebula-graph-3.0.2.ubuntu2004.amd64.deb
     ```
 
     例如要下载适用于`Centos 7.5`的`{{ nebula.release }}`安装包：
 
     ```bash
-    wget https://oss-cdn.nebula-graph.com.cn/package/{{ nebula.release }}/nebula-graph-{{ nebula.release }}.el7.x86_64.rpm
-    wget https://oss-cdn.nebula-graph.com.cn/package/{{ nebula.release }}/nebula-graph-{{ nebula.release }}.el7.x86_64.rpm.sha256sum.txt
+    wget https://github.com/vesoft-inc/nebula/releases/download/v3.0.2/nebula-graph-3.0.2.el7.x86_64.rpm
+    wget https://github.com/vesoft-inc/nebula/releases/download/v3.0.2/nebula-graph-3.0.2.el7.x86_64.rpm.sha256sum.txt
     ```
 
     下载适用于`ubuntu 1804`的`{{ nebula.release }}`安装包：
     ```bash
-    wget https://oss-cdn.nebula-graph.com.cn/package/{{ nebula.release }}/nebula-graph-{{ nebula.release }}.ubuntu1804.amd64.deb
-    wget https://oss-cdn.nebula-graph.com.cn/package/{{ nebula.release }}/nebula-graph-{{ nebula.release }}.ubuntu1804.amd64.deb.sha256sum.txt
+    wget https://github.com/vesoft-inc/nebula/releases/download/v3.0.2/nebula-graph-3.0.2.ubuntu1804.amd64.deb
+    wget https://github.com/vesoft-inc/nebula/releases/download/v3.0.2/nebula-graph-3.0.2.ubuntu1804.amd64.deb.sha256sum.txt
     ```
 
 - 下载日常开发版本 (nightly)
